@@ -18,7 +18,7 @@ type HomeCoreTestItem = HomeLink & {
   durationLabel?: string;
   outputLabel?: string;
 };
-type TrustItem = HomePageContent["trust"]["items"][number];
+type TrustItem = HomePageContent["trust"]["items"][number] & { sourceNote?: string };
 type HomeArticle = CmsArticle;
 
 const PRIORITY_TEST_SLUG_GROUPS = [
@@ -301,12 +301,12 @@ function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageConten
 }
 
 function TrustIcon({ index }: { index: number }) {
-  const iconClassName = "h-8 w-8";
+  const iconClassName = "h-12 w-12";
   const commonProps = {
     viewBox: "0 0 80 80",
     fill: "none",
     stroke: "currentColor",
-    strokeWidth: 2.6,
+    strokeWidth: 4.5,
     strokeLinecap: "round" as const,
     strokeLinejoin: "round" as const,
     className: iconClassName,
@@ -315,7 +315,7 @@ function TrustIcon({ index }: { index: number }) {
 
   if (index === 1) {
     return (
-      <span className="grid h-14 w-14 place-items-center rounded-full border border-[#008aa3] bg-white text-[#008aa3]" aria-hidden>
+      <span className="grid h-[4.5rem] w-[4.5rem] shrink-0 place-items-center rounded-full border-2 border-[#008aa3] bg-white text-[#008aa3]" aria-hidden>
         <svg {...commonProps}>
           <path d="M40 8 64 17v18c0 17.5-10.5 29.5-24 36-13.5-6.5-24-18.5-24-36V17l24-9Z" />
           <path d="M30 37v-6c0-6 4-10 10-10s10 4 10 10v6" />
@@ -328,7 +328,7 @@ function TrustIcon({ index }: { index: number }) {
 
   if (index === 2) {
     return (
-      <span className="grid h-14 w-14 place-items-center rounded-full border border-[#008aa3] bg-white text-[#008aa3]" aria-hidden>
+      <span className="grid h-[4.5rem] w-[4.5rem] shrink-0 place-items-center rounded-full border-2 border-[#008aa3] bg-white text-[#008aa3]" aria-hidden>
         <svg {...commonProps}>
           <circle cx="40" cy="25" r="9" />
           <path d="M25 64v-8c0-9 6-16 15-16s15 7 15 16v8" />
@@ -342,7 +342,7 @@ function TrustIcon({ index }: { index: number }) {
   }
 
   return (
-    <span className="grid h-14 w-14 place-items-center rounded-full border border-[#008aa3] bg-white text-[#008aa3]" aria-hidden>
+    <span className="grid h-[4.5rem] w-[4.5rem] shrink-0 place-items-center rounded-full border-2 border-[#008aa3] bg-white text-[#008aa3]" aria-hidden>
       <svg {...commonProps}>
         <rect x="15" y="24" width="50" height="36" rx="2.5" />
         <path d="M30 24v-7h20v7" />
@@ -358,11 +358,12 @@ function TrustIcon({ index }: { index: number }) {
 
 function TrustCard({ item, index }: { item: TrustItem; index: number }) {
   return (
-    <article className="flex min-h-[18rem] flex-col items-center justify-center rounded-md bg-white px-8 py-10 text-center shadow-[0_18px_45px_rgba(15,23,42,0.10)]">
+    <article className="flex min-h-[18rem] flex-col items-center justify-start rounded-md bg-white px-8 py-10 text-center shadow-[0_18px_45px_rgba(15,23,42,0.10)]">
       <TrustIcon index={index} />
       <h3 className="m-0 mt-8 text-xl font-semibold leading-7 tracking-normal text-slate-950">{item.title}</h3>
       <p className="m-0 mt-4 max-w-[22rem] text-base font-normal leading-7 tracking-normal text-slate-600">
         {item.summary}
+        {item.sourceNote && <span className="text-sm">{item.sourceNote}</span>}
       </p>
     </article>
   );
@@ -373,8 +374,8 @@ function AboutIcon({ index }: { index: number }) {
   const Icon = icons[index] ?? HeartHandshake;
 
   return (
-    <span className="grid h-16 w-16 place-items-center rounded-full border border-[#008aa3] bg-white text-[#008aa3] shadow-[0_12px_28px_rgba(0,138,163,0.10)]" aria-hidden>
-      <Icon className="h-8 w-8" strokeWidth={1.8} />
+    <span className="grid h-[4.5rem] w-[4.5rem] shrink-0 place-items-center rounded-full border-2 border-[#008aa3] bg-white text-[#008aa3]" aria-hidden>
+      <Icon className="h-12 w-12" strokeWidth={1.35} />
     </span>
   );
 }
@@ -392,19 +393,39 @@ function isRemovedHomepageTrustItem(item: TrustItem) {
   return removedHomepageTrustTitles.has(item.title);
 }
 
+const HOMEPAGE_FREE_TRUST_TITLE = {
+  zh: "免费且值得信赖",
+  en: "Free and trustworthy",
+} as const;
+
+const HOMEPAGE_FREE_TRUST_SUMMARY = {
+  zh: "我们的测评结合科学理论与测评方法，注重科学完整、逻辑清晰和多维度分析。免费测试，获得免费的全面、易懂的结果解读。",
+  en: "Our assessments combine scientific theory and assessment methods, emphasizing scientific rigor and completeness, clear logic, and multidimensional analysis. Take tests for free and get free, comprehensive, easy-to-understand interpretations of your results.",
+} as const;
+
+const HOMEPAGE_PRIVACY_TRUST_COPY = {
+  zh: {
+    title: "高度重视你的隐私",
+    summary: "费马测试重视你的隐私。无需注册账号，你可以匿名完成测试，再自行决定是否保存结果。",
+  },
+  en: {
+    title: "Your privacy is our priority",
+    summary: "FermatMind respects your privacy. No registration is required: take tests anonymously and choose whether to save your results.",
+  },
+} as const;
+
 function getDefaultHomepageTrustItems(locale: Locale, copy: HomePageContent): TrustItem[] {
   if (locale === "zh") {
     return [
       {
-        title: "免费测试、免费结果",
-        summary: "核心测评围绕自我认知、职业判断与能力成长设计，并提供清晰结果。",
+        title: HOMEPAGE_FREE_TRUST_TITLE.zh,
+        summary: HOMEPAGE_FREE_TRUST_SUMMARY.zh,
         paragraphs: [],
         href: copy.trust.methodHref,
         hrefLabel: copy.trust.methodLabel,
       },
       {
-        title: "我们高度重视您的隐私。",
-        summary: "无需先注册账号，你可以先完成测试，再决定是否保存或继续深入。",
+        ...HOMEPAGE_PRIVACY_TRUST_COPY.zh,
         paragraphs: [],
         href: copy.trust.methodHref,
         hrefLabel: copy.trust.methodLabel,
@@ -414,15 +435,14 @@ function getDefaultHomepageTrustItems(locale: Locale, copy: HomePageContent): Tr
 
   return [
     {
-      title: "Free tests, free results",
-      summary: "Core assessments are designed around self-understanding, career judgment, and ability growth, with clear result summaries.",
+      title: HOMEPAGE_FREE_TRUST_TITLE.en,
+      summary: HOMEPAGE_FREE_TRUST_SUMMARY.en,
       paragraphs: [],
       href: copy.trust.methodHref,
       hrefLabel: copy.trust.methodLabel,
     },
     {
-      title: "We take your privacy seriously.",
-      summary: "You do not need to create an account first. Complete the test, then decide whether to save your result or go deeper.",
+      ...HOMEPAGE_PRIVACY_TRUST_COPY.en,
       paragraphs: [],
       href: copy.trust.methodHref,
       hrefLabel: copy.trust.methodLabel,
@@ -434,8 +454,29 @@ function HomepageTrustStripV1({ locale, copy }: { locale: Locale; copy: HomePage
   const trustItems = (copy.trust.items ?? []).filter(
     (item) => !containsUnverifiedSocialProofText(item.title, item.summary) && !isRemovedHomepageTrustItem(item)
   );
-  const baseTrustItems = trustItems.length >= 2 ? trustItems.slice(0, 2) : getDefaultHomepageTrustItems(locale, copy);
-  const displayTrustItems = baseTrustItems.slice(0, 2);
+  const baseTrustItems = (trustItems.length >= 2 ? trustItems.slice(0, 2) : getDefaultHomepageTrustItems(locale, copy))
+    .map((item, index) => index === 0 ? {
+      ...item,
+      title: HOMEPAGE_FREE_TRUST_TITLE[locale],
+      summary: HOMEPAGE_FREE_TRUST_SUMMARY[locale],
+    } : { ...item, ...HOMEPAGE_PRIVACY_TRUST_COPY[locale] });
+  // The product owner confirmed these figures as real Tencent Cloud server and
+  // database statistics on 2026-10-11; no repeat verification is required.
+  // Keep this card outside the generic CMS social-proof filter. Current-system
+  // successful attempts are a different metric, not evidence against these figures.
+  const displayTrustItems: TrustItem[] = [
+    ...baseTrustItems,
+    {
+      title: locale === "zh" ? "百万人测试" : "Million-plus testers",
+      summary: locale === "zh"
+        ? "2026年4月真人测试人数达 120 万，累计测试交互超过 5000 万次。"
+        : "In April 2026, 1.2 million people took tests. Cumulative test interactions exceeded 50 million.",
+      sourceNote: locale === "zh" ? "（真实服务器数据统计）" : " (Actual server statistics)",
+      paragraphs: [],
+      href: copy.trust.methodHref,
+      hrefLabel: copy.trust.methodLabel,
+    },
+  ];
 
   if (displayTrustItems.length === 0) return null;
 
@@ -725,21 +766,21 @@ function HomepageFamilyMatrix({ locale, copy }: { locale: Locale; copy: HomePage
                       links: [{ href: "/method-boundaries", title: locale === "zh" ? "查看方法边界" : "View method boundaries" }],
                     }
                   : {
-                      title: locale === "zh" ? "项目介绍" : "About FermatMind",
+                      title: locale === "zh" ? "博士团队" : "Doctoral team",
                       description:
                         locale === "zh"
-                          ? "了解 FermatMind 的项目介绍与使用边界。"
-                          : "Read about FermatMind and its intended uses and boundaries.",
-                      links: [{ href: "/about", title: locale === "zh" ? "了解项目" : "About FermatMind" }],
+                          ? "专业团队参与测评方法、题目设计与边界复核。"
+                          : "A specialist team takes part in assessment methods, item design, and boundary review.",
+                      links: [{ href: "/about", title: locale === "zh" ? "了解团队" : "Meet the team" }],
                     };
 
             return (
               <article key={`${family.title}-${index}`} className="flex min-h-[18rem] flex-col items-center rounded-md bg-white px-8 py-9 text-center shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
                 <AboutIcon index={index} />
-                <h3 className="m-0 text-lg font-semibold text-slate-950">{display.title}</h3>
+                <h3 className="m-0 mt-8 text-lg font-semibold text-slate-950">{display.title}</h3>
                 <p className="m-0 mt-4 text-base leading-7 text-slate-600">{display.description}</p>
                 {display.links.length > 0 ? (
-                  <div className="mt-5 flex flex-wrap justify-center gap-2">
+                  <div className="mt-auto flex flex-wrap justify-center gap-2 pt-5">
                     {display.links.slice(0, 1).map((item) => (
                       <Link key={`${display.title}-${item.title}`} href={withLocale(locale, item.href)} prefetch={false} className="text-sm font-medium text-[#0087a5] underline underline-offset-4 hover:text-slate-950">
                         {item.title}

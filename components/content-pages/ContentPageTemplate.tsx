@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
+import { AboutTeamSection } from "@/components/content-pages/AboutTeamSection";
 import { SanitizedCmsHtml } from "@/components/content/SanitizedCmsHtml";
 import { Container } from "@/components/layout/Container";
 import { renderCmsInlineMarkdown, stripMarkdownEmphasisMarkers } from "@/lib/content/markdownInline";
@@ -11,7 +12,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
 
 type MarkdownBlock =
-  | { type: "heading"; level: 2 | 3; text: string; id: string }
+  | { type: "heading"; level: 2 | 3; text: string; id: string; teamSection?: boolean }
   | { type: "paragraph"; text: string }
   | { type: "unordered-list"; items: string[] }
   | { type: "ordered-list"; items: string[] };
@@ -218,6 +219,7 @@ function ContentPageBody({ page, blocks, locale }: { page: ContentPageReaderView
     <div className="space-y-6" data-animation-profile={page.animationProfile}>
       {blocks.map((block, index) => {
         if (block.type === "heading") {
+          if (block.teamSection) return <AboutTeamSection key="about-team" locale={locale} />;
           const Heading = block.level === 2 ? "h2" : "h3";
           return (
             <Heading
@@ -354,6 +356,16 @@ function SupportContactCard({ page, locale }: { page: ContentPageReaderView; loc
 
 export function ContentPageTemplate({ page, locale }: { page: ContentPageReaderView; locale: Locale }) {
   const markdownBlocks = parseMarkdown(page.contentMd);
+  if (page.slug === "about" && !page.contentHtml.trim()) {
+    const nextSectionIndex = markdownBlocks.findIndex((block, index) => index > 0 && block.type === "heading" && block.level === 2);
+    markdownBlocks.splice(nextSectionIndex < 0 ? markdownBlocks.length : nextSectionIndex, 0, {
+      type: "heading",
+      level: 2,
+      text: locale === "zh" ? "创始人与博士顾问团队" : "Founder and doctoral advisors",
+      id: "team",
+      teamSection: true,
+    });
+  }
   const toc = buildToc(markdownBlocks);
   const relatedLinks = buildRelatedLinks(page, locale, markdownBlocks);
   const updatedAt = formatDate(page.updatedAt, locale);

@@ -121,6 +121,54 @@ describe("homepage v1 density contract", () => {
     vi.unstubAllGlobals();
   });
 
+  it("preserves owner-confirmed server statistics when generic CMS social proof is filtered", () => {
+    render(<HomePageExperience locale="zh" copy={{
+      ...homeCopy,
+      trust: {
+        ...homeCopy.trust,
+        items: [{
+          title: "999 万用户",
+          summary: "未经核对的 CMS 人数宣传",
+          paragraphs: [],
+          href: homeCopy.trust.methodHref,
+          hrefLabel: homeCopy.trust.methodLabel,
+        }],
+      },
+    }} />);
+
+    expect(screen.queryByRole("heading", { level: 3, name: "999 万用户" })).not.toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 3, name: "免费且值得信赖" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 3, name: "高度重视你的隐私" })).toBeInTheDocument();
+    expect(screen.getByText("费马测试重视你的隐私。无需注册账号，你可以匿名完成测试，再自行决定是否保存结果。")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 3, name: "百万人测试" })).toBeInTheDocument();
+    expect(screen.getByText("（真实服务器数据统计）")).toBeInTheDocument();
+  });
+
+  it("shows all three localized English cards when CMS trust copy is empty", () => {
+    render(<HomePageExperience locale="en" copy={{ ...homeCopy, trust: { ...homeCopy.trust, items: [] } }} />);
+
+    expect(screen.queryByRole("heading", { level: 3, name: "百万人测试" })).not.toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 3, name: "Million-plus testers" })).toBeInTheDocument();
+    expect(screen.getByText("In April 2026, 1.2 million people took tests. Cumulative test interactions exceeded 50 million.")).toBeInTheDocument();
+    expect(screen.getByText("(Actual server statistics)")).toBeInTheDocument();
+    expect(screen.getByText("(Actual server statistics)").parentElement).toBe(
+      screen.getByText("In April 2026, 1.2 million people took tests. Cumulative test interactions exceeded 50 million.")
+    );
+    expect(screen.getByRole("heading", { level: 3, name: "Free and trustworthy" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 3, name: "Your privacy is our priority" })).toBeInTheDocument();
+    expect(screen.getByText("FermatMind respects your privacy. No registration is required: take tests anonymously and choose whether to save your results.")).toBeInTheDocument();
+    expect(screen.queryByText("（真实服务器数据统计）")).not.toBeInTheDocument();
+  });
+
+  it("preserves the English server statistics card alongside CMS-supplied cards", () => {
+    render(<HomePageExperience locale="en" copy={homeCopy} />);
+
+    const statistics = screen.getByRole("heading", { level: 3, name: "Million-plus testers" }).closest("article");
+    expect(statistics).toHaveTextContent("In April 2026, 1.2 million people took tests. Cumulative test interactions exceeded 50 million.");
+    expect(statistics).toHaveTextContent("(Actual server statistics)");
+    expect(statistics?.parentElement?.querySelectorAll("article")).toHaveLength(3);
+  });
+
   it("removes homepage version selection and heavy legacy surfaces", async () => {
     render(<HomePageExperience locale="zh" copy={homeCopy} />);
 
@@ -132,6 +180,41 @@ describe("homepage v1 density contract", () => {
 
     expect(screen.queryByText("按领域继续浏览。")).not.toBeInTheDocument();
     expect(screen.queryByText("方法、边界与隐私，都放在明处。")).not.toBeInTheDocument();
+  });
+
+  it.each([
+    ["zh", "免费且值得信赖", "我们的测评结合科学理论与测评方法，注重科学完整、逻辑清晰和多维度分析。免费测试，获得免费的全面、易懂的结果解读。"],
+    ["en", "Free and trustworthy", "Our assessments combine scientific theory and assessment methods, emphasizing scientific rigor and completeness, clear logic, and multidimensional analysis. Take tests for free and get free, comprehensive, easy-to-understand interpretations of your results."],
+  ] as const)("uses the requested %s first-card copy over older CMS copy", (locale, title, summary) => {
+    render(<HomePageExperience locale={locale} copy={homeCopy} />);
+
+    expect(screen.getByRole("heading", { level: 3, name: title })).toBeInTheDocument();
+    expect(screen.queryByRole("heading", { level: 3, name: "免费可靠" })).not.toBeInTheDocument();
+    expect(screen.getByText(summary)).toBeInTheDocument();
+    expect(screen.queryByText("围绕自我认知、职业判断和能力成长。")).not.toBeInTheDocument();
+  });
+
+  it.each([
+    ["zh", "高度重视你的隐私", "费马测试重视你的隐私。无需注册账号，你可以匿名完成测试，再自行决定是否保存结果。"],
+    ["en", "Your privacy is our priority", "FermatMind respects your privacy. No registration is required: take tests anonymously and choose whether to save your results."],
+  ] as const)("uses the requested %s privacy copy over older CMS copy", (locale, title, summary) => {
+    render(<HomePageExperience locale={locale} copy={homeCopy} />);
+
+    expect(screen.getByRole("heading", { level: 3, name: title })).toBeInTheDocument();
+    expect(screen.getByText(summary)).toBeInTheDocument();
+    expect(screen.queryByRole("heading", { level: 3, name: "重视隐私" })).not.toBeInTheDocument();
+    expect(screen.queryByText("可以先匿名开始，再决定是否保存。")).not.toBeInTheDocument();
+  });
+
+  it.each([
+    ["zh", "博士团队", "专业团队参与测评方法、题目设计与边界复核。", "了解团队"],
+    ["en", "Doctoral team", "A specialist team takes part in assessment methods, item design, and boundary review.", "Meet the team"],
+  ] as const)("restores the %s doctoral team introduction and localized link", (locale, title, description, linkLabel) => {
+    render(<HomePageExperience locale={locale} copy={homeCopy} />);
+
+    const card = screen.getByRole("heading", { level: 3, name: title }).closest("article");
+    expect(card).toHaveTextContent(description);
+    expect(screen.getByRole("link", { name: linkLabel })).toHaveAttribute("href", `/${locale}/about`);
   });
 
   it("does not import form-version helpers or heavy result preview in the homepage component", () => {
@@ -281,7 +364,7 @@ describe("homepage v1 density contract", () => {
     expect(
       screen.getAllByRole("link", { name: /开始测试/ }).some((link) => link.getAttribute("href") === "/zh/tests")
     ).toBe(true);
-    expect(screen.getByRole("link", { name: "了解项目" })).toHaveAttribute("href", "/zh/about");
+    expect(screen.getByRole("link", { name: "了解团队" })).toHaveAttribute("href", "/zh/about");
     expect(screen.getByRole("link", { name: "查看公共利益" })).toHaveAttribute("href", "/zh/foundation");
     expect(document.body.textContent ?? "").not.toContain("抑郁焦虑综合症测试");
     expect(document.body.innerHTML).not.toContain("clinical-depression-anxiety-assessment-professional-edition");
@@ -289,7 +372,12 @@ describe("homepage v1 density contract", () => {
     expect(screen.queryByRole("heading", { level: 2, name: "使用场景与引用" })).not.toBeInTheDocument();
     expect(screen.queryByRole("heading", { level: 2, name: "关于 费马测试" })).not.toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 2, name: "热门测评" })).toBeInTheDocument();
-    expect(screen.queryByRole("heading", { level: 3, name: "百万人测试" })).not.toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 3, name: "百万人测试" })).toBeInTheDocument();
+    expect(screen.getByText("2026年4月真人测试人数达 120 万，累计测试交互超过 5000 万次。")).toBeInTheDocument();
+    expect(screen.getByText("（真实服务器数据统计）")).toBeInTheDocument();
+    expect(screen.getByText("（真实服务器数据统计）").parentElement).toBe(
+      screen.getByText("2026年4月真人测试人数达 120 万，累计测试交互超过 5000 万次。")
+    );
     expect(screen.getByRole("heading", { level: 2, name: "关于费马测试" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 2, name: "推荐阅读" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /你的性格如何塑造你对人工智能的态度？/ })).toHaveAttribute(
