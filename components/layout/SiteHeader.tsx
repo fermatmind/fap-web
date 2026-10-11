@@ -303,15 +303,17 @@ export function SiteHeader({
                     </div>
 
                     {isOpen && items.length > 0 ? (
-                      <SiteHeaderDropdownPanel
-                        id={menuId}
-                        triggerId={triggerId}
-                        items={items.map((menuItem) => ({
-                          ...menuItem,
-                          href: withLocale(menuItem.href),
-                        }))}
-                        onSelect={() => setActiveDropdown(null)}
-                      />
+                      <Suspense fallback={null}>
+                        <SiteHeaderDropdownPanel
+                          id={menuId}
+                          triggerId={triggerId}
+                          items={items.map((menuItem) => ({
+                            ...menuItem,
+                            href: withLocale(menuItem.href),
+                          }))}
+                          onSelect={() => setActiveDropdown(null)}
+                        />
+                      </Suspense>
                     ) : null}
                   </div>
                 );
