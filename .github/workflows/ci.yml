@@ -110,10 +110,10 @@ jobs:
           fetch-depth: 0
       - run: git diff --check ${{ needs.classify.outputs.base_sha }} ${{ github.sha }}
       - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
-        if: needs.classify.outputs.deploy == 'true' || contains(needs.classify.outputs.classification, 'tests/e2e/')
+        if: needs.classify.outputs.deploy == 'true'
         with:
           node-version: 24
-      - if: needs.classify.outputs.deploy == 'true' || contains(needs.classify.outputs.classification, 'tests/e2e/')
+      - if: needs.classify.outputs.deploy == 'true'
         run: .github/trunk/install-dependencies.sh
       - name: Audit locked runtime dependencies
         if: needs.classify.outputs.deploy == 'true' && (contains(needs.classify.outputs.classification, 'package.json') || contains(needs.classify.outputs.classification, 'pnpm-lock.yaml') || needs.classify.outputs.infrastructure == 'true')
@@ -124,15 +124,6 @@ jobs:
       - name: Typecheck changed application boundary
         if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true'
         run: pnpm typecheck
-      - name: Execute changed browser tests and their helper consumers
-        if: contains(needs.classify.outputs.classification, 'tests/e2e/')
-        env:
-          NEXT_PUBLIC_API_URL: http://127.0.0.1:8000
-        run: |
-          set -euo pipefail
-          pnpm exec playwright install --with-deps chromium
-          node .github/trunk/run-changed-tests.mjs '${{ needs.classify.outputs.base_sha }}' '${{ github.sha }}' e2e
-          PLAYWRIGHT_SERVER_MODE=production node .github/trunk/run-changed-tests.mjs '${{ needs.classify.outputs.base_sha }}' '${{ github.sha }}' e2e-release
       - name: Build staging standalone application
         if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
         env:
@@ -272,6 +263,35 @@ jobs:
       - if: needs.classify.outputs.deploy != 'true'
         run: echo "Docs/rules/tests-only scope; build and deployment artifact intentionally skipped."
 
+  # Fixture browsers run in separate workspaces after fast contract/package checks.
+  # Their local API does not hold the serialized production API build lane.
+  browser-tests:
+    name: browser-${{ matrix.server_mode }}
+    needs: [classify, build, contracts]
+    if: contains(needs.classify.outputs.classification, 'tests/e2e/')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: true
+      matrix:
+        server_mode: [default, production]
+    env:
+      NEXT_PUBLIC_API_URL: http://127.0.0.1:8000
+      PLAYWRIGHT_SERVER_MODE: ${{ matrix.server_mode }}
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+        with:
+          node-version: 24
+      - run: .github/trunk/install-dependencies.sh
+      - name: Execute all selected browser scenarios in this server mode
+        run: |
+          set -euo pipefail
+          pnpm exec playwright install --with-deps chromium
+          node .github/trunk/run-changed-tests.mjs '${{ needs.classify.outputs.base_sha }}' '${{ github.sha }}' e2e
+
   contract-shards:
     name: contract-shard-${{ matrix.shard }}
     needs: classify
@@ -315,16 +335,17 @@ jobs:
 
   validation-receipt:
     name: exact-SHA validation receipt
-    needs: [classify, build, contracts]
+    needs: [classify, build, contracts, browser-tests]
     if: always()
     runs-on: ubuntu-latest
     steps:
       - env:
           RESULTS: ${{ toJSON(needs) }}
           CLASSIFICATION: ${{ needs.classify.outputs.classification }}
+          BROWSER_TESTS_REQUIRED: ${{ contains(needs.classify.outputs.classification, 'tests/e2e/') }}
         run: |
           set -euo pipefail
-          jq -e 'to_entries | all(.value.result == "success")' <<< "$RESULTS" >/dev/null
+          jq -e --argjson browsers "$BROWSER_TESTS_REQUIRED" '. as $jobs | ($jobs["browser-tests"].result == (if $browsers then "success" else "skipped" end)) and (del(.["browser-tests"]) | to_entries | all(.value.result == "success"))' <<< "$RESULTS" >/dev/null
           jq -n --arg sha "$GITHUB_SHA" --arg run "$GITHUB_RUN_ID" --argjson classification "$CLASSIFICATION" \
             '{schema_version:"fermatmind.trunk-validation.v1",sha:$sha,ci_run_id:$run,result:"success",classification:$classification}' \
             > trunk-validation.json
