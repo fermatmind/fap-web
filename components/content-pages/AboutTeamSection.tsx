@@ -16,10 +16,12 @@ export function AboutTeamSection({ locale }: { locale: Locale }) {
             key={`${role}-${index}`}
             className={`flex flex-col gap-3 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 ${index === 0 ? "md:col-span-2" : ""}`}
           >
-            <p className="m-0 text-sm font-medium text-[#008aa3]">{role}</p>
-            <h3 className="m-0 text-xl font-semibold text-[var(--fm-text)]">
-              {names[index]}
-            </h3>
+            <div className="flex flex-col gap-2">
+              <h3 className="m-0 text-xl font-semibold text-[var(--fm-text)]">
+                {names[index]}
+              </h3>
+              <p className="m-0 text-sm font-medium text-[#008aa3]">{role}</p>
+            </div>
             <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">
               {isZh ? "个人背景与参与工作介绍待补充。" : "Background and contributions to follow."}
             </p>
