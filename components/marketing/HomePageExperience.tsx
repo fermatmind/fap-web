@@ -18,7 +18,7 @@ type HomeCoreTestItem = HomeLink & {
   durationLabel?: string;
   outputLabel?: string;
 };
-type TrustItem = HomePageContent["trust"]["items"][number];
+type TrustItem = HomePageContent["trust"]["items"][number] & { sourceNote?: string };
 type HomeArticle = CmsArticle;
 
 const PRIORITY_TEST_SLUG_GROUPS = [
@@ -364,6 +364,9 @@ function TrustCard({ item, index }: { item: TrustItem; index: number }) {
       <p className="m-0 mt-4 max-w-[22rem] text-base font-normal leading-7 tracking-normal text-slate-600">
         {item.summary}
       </p>
+      {item.sourceNote && (
+        <p className="m-0 mt-3 text-sm leading-6 text-slate-600">{item.sourceNote}</p>
+      )}
     </article>
   );
 }
@@ -435,7 +438,16 @@ function HomepageTrustStripV1({ locale, copy }: { locale: Locale; copy: HomePage
     (item) => !containsUnverifiedSocialProofText(item.title, item.summary) && !isRemovedHomepageTrustItem(item)
   );
   const baseTrustItems = trustItems.length >= 2 ? trustItems.slice(0, 2) : getDefaultHomepageTrustItems(locale, copy);
-  const displayTrustItems = baseTrustItems.slice(0, 2);
+  const displayTrustItems: TrustItem[] = locale === "zh"
+    ? [...baseTrustItems, {
+        title: "百万人测试",
+        summary: "单月真人测试人数达 120 万，累计测试交互超过 5000 万次。",
+        sourceNote: "备注：真实服务器数据统计",
+        paragraphs: [],
+        href: copy.trust.methodHref,
+        hrefLabel: copy.trust.methodLabel,
+      }]
+    : baseTrustItems;
 
   if (displayTrustItems.length === 0) return null;
 

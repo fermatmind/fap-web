@@ -289,7 +289,9 @@ describe("homepage v1 density contract", () => {
     expect(screen.queryByRole("heading", { level: 2, name: "使用场景与引用" })).not.toBeInTheDocument();
     expect(screen.queryByRole("heading", { level: 2, name: "关于 费马测试" })).not.toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 2, name: "热门测评" })).toBeInTheDocument();
-    expect(screen.queryByRole("heading", { level: 3, name: "百万人测试" })).not.toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 3, name: "百万人测试" })).toBeInTheDocument();
+    expect(screen.getByText("单月真人测试人数达 120 万，累计测试交互超过 5000 万次。")).toBeInTheDocument();
+    expect(screen.getByText("备注：真实服务器数据统计")).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 2, name: "关于费马测试" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 2, name: "推荐阅读" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /你的性格如何塑造你对人工智能的态度？/ })).toHaveAttribute(
