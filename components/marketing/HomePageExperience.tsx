@@ -777,10 +777,10 @@ function HomepageFamilyMatrix({ locale, copy }: { locale: Locale; copy: HomePage
             return (
               <article key={`${family.title}-${index}`} className="flex min-h-[18rem] flex-col items-center rounded-md bg-white px-8 py-9 text-center shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
                 <AboutIcon index={index} />
-                <h3 className="m-0 text-lg font-semibold text-slate-950">{display.title}</h3>
+                <h3 className="m-0 mt-8 text-lg font-semibold text-slate-950">{display.title}</h3>
                 <p className="m-0 mt-4 text-base leading-7 text-slate-600">{display.description}</p>
                 {display.links.length > 0 ? (
-                  <div className="mt-5 flex flex-wrap justify-center gap-2">
+                  <div className="mt-auto flex flex-wrap justify-center gap-2 pt-5">
                     {display.links.slice(0, 1).map((item) => (
                       <Link key={`${display.title}-${item.title}`} href={withLocale(locale, item.href)} prefetch={false} className="text-sm font-medium text-[#0087a5] underline underline-offset-4 hover:text-slate-950">
                         {item.title}
