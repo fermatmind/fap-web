@@ -395,11 +395,16 @@ function isRemovedHomepageTrustItem(item: TrustItem) {
   return removedHomepageTrustTitles.has(item.title);
 }
 
+const HOMEPAGE_FREE_TRUST_TITLE = {
+  zh: "免费且值得信赖",
+  en: "Free and trustworthy",
+} as const;
+
 function getDefaultHomepageTrustItems(locale: Locale, copy: HomePageContent): TrustItem[] {
   if (locale === "zh") {
     return [
       {
-        title: "免费测试、免费结果",
+        title: HOMEPAGE_FREE_TRUST_TITLE.zh,
         summary: "核心测评围绕自我认知、职业判断与能力成长设计，并提供清晰结果。",
         paragraphs: [],
         href: copy.trust.methodHref,
@@ -417,7 +422,7 @@ function getDefaultHomepageTrustItems(locale: Locale, copy: HomePageContent): Tr
 
   return [
     {
-      title: "Free tests, free results",
+      title: HOMEPAGE_FREE_TRUST_TITLE.en,
       summary: "Core assessments are designed around self-understanding, career judgment, and ability growth, with clear result summaries.",
       paragraphs: [],
       href: copy.trust.methodHref,
@@ -437,7 +442,8 @@ function HomepageTrustStripV1({ locale, copy }: { locale: Locale; copy: HomePage
   const trustItems = (copy.trust.items ?? []).filter(
     (item) => !containsUnverifiedSocialProofText(item.title, item.summary) && !isRemovedHomepageTrustItem(item)
   );
-  const baseTrustItems = trustItems.length >= 2 ? trustItems.slice(0, 2) : getDefaultHomepageTrustItems(locale, copy);
+  const baseTrustItems = (trustItems.length >= 2 ? trustItems.slice(0, 2) : getDefaultHomepageTrustItems(locale, copy))
+    .map((item, index) => index === 0 ? { ...item, title: HOMEPAGE_FREE_TRUST_TITLE[locale] } : item);
   // The product owner confirmed these figures as real Tencent Cloud server and
   // database statistics on 2026-10-11; no repeat verification is required.
   // Keep this card outside the generic CMS social-proof filter. Current-system

@@ -137,7 +137,7 @@ describe("homepage v1 density contract", () => {
     }} />);
 
     expect(screen.queryByRole("heading", { level: 3, name: "999 万用户" })).not.toBeInTheDocument();
-    expect(screen.getByRole("heading", { level: 3, name: "免费测试、免费结果" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 3, name: "免费且值得信赖" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 3, name: "我们高度重视您的隐私。" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 3, name: "百万人测试" })).toBeInTheDocument();
     expect(screen.getByText("备注：真实服务器数据统计")).toBeInTheDocument();
@@ -147,7 +147,7 @@ describe("homepage v1 density contract", () => {
     render(<HomePageExperience locale="en" copy={{ ...homeCopy, trust: { ...homeCopy.trust, items: [] } }} />);
 
     expect(screen.queryByRole("heading", { level: 3, name: "百万人测试" })).not.toBeInTheDocument();
-    expect(screen.getByRole("heading", { level: 3, name: "Free tests, free results" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 3, name: "Free and trustworthy" })).toBeInTheDocument();
     expect(screen.queryByText("备注：真实服务器数据统计")).not.toBeInTheDocument();
   });
 
@@ -162,6 +162,17 @@ describe("homepage v1 density contract", () => {
 
     expect(screen.queryByText("按领域继续浏览。")).not.toBeInTheDocument();
     expect(screen.queryByText("方法、边界与隐私，都放在明处。")).not.toBeInTheDocument();
+  });
+
+  it.each([
+    ["zh", "免费且值得信赖"],
+    ["en", "Free and trustworthy"],
+  ] as const)("uses the requested %s first-card title over older CMS copy", (locale, title) => {
+    render(<HomePageExperience locale={locale} copy={homeCopy} />);
+
+    expect(screen.getByRole("heading", { level: 3, name: title })).toBeInTheDocument();
+    expect(screen.queryByRole("heading", { level: 3, name: "免费可靠" })).not.toBeInTheDocument();
+    expect(screen.getByText("围绕自我认知、职业判断和能力成长。")).toBeInTheDocument();
   });
 
   it("does not import form-version helpers or heavy result preview in the homepage component", () => {
