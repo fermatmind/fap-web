@@ -315,7 +315,7 @@ function TrustIcon({ index }: { index: number }) {
 
   if (index === 1) {
     return (
-      <span className="grid h-14 w-14 place-items-center rounded-full border border-[#008aa3] bg-white text-[#008aa3]" aria-hidden>
+      <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full border border-[#008aa3] bg-white text-[#008aa3]" aria-hidden>
         <svg {...commonProps}>
           <path d="M40 8 64 17v18c0 17.5-10.5 29.5-24 36-13.5-6.5-24-18.5-24-36V17l24-9Z" />
           <path d="M30 37v-6c0-6 4-10 10-10s10 4 10 10v6" />
@@ -328,7 +328,7 @@ function TrustIcon({ index }: { index: number }) {
 
   if (index === 2) {
     return (
-      <span className="grid h-14 w-14 place-items-center rounded-full border border-[#008aa3] bg-white text-[#008aa3]" aria-hidden>
+      <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full border border-[#008aa3] bg-white text-[#008aa3]" aria-hidden>
         <svg {...commonProps}>
           <circle cx="40" cy="25" r="9" />
           <path d="M25 64v-8c0-9 6-16 15-16s15 7 15 16v8" />
@@ -342,7 +342,7 @@ function TrustIcon({ index }: { index: number }) {
   }
 
   return (
-    <span className="grid h-14 w-14 place-items-center rounded-full border border-[#008aa3] bg-white text-[#008aa3]" aria-hidden>
+    <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full border border-[#008aa3] bg-white text-[#008aa3]" aria-hidden>
       <svg {...commonProps}>
         <rect x="15" y="24" width="50" height="36" rx="2.5" />
         <path d="M30 24v-7h20v7" />
@@ -358,7 +358,7 @@ function TrustIcon({ index }: { index: number }) {
 
 function TrustCard({ item, index }: { item: TrustItem; index: number }) {
   return (
-    <article className="flex min-h-[18rem] flex-col items-center justify-center rounded-md bg-white px-8 py-10 text-center shadow-[0_18px_45px_rgba(15,23,42,0.10)]">
+    <article className="flex min-h-[18rem] flex-col items-center justify-start rounded-md bg-white px-8 py-10 text-center shadow-[0_18px_45px_rgba(15,23,42,0.10)]">
       <TrustIcon index={index} />
       <h3 className="m-0 mt-8 text-xl font-semibold leading-7 tracking-normal text-slate-950">{item.title}</h3>
       <p className="m-0 mt-4 max-w-[22rem] text-base font-normal leading-7 tracking-normal text-slate-600">
@@ -469,7 +469,7 @@ function HomepageTrustStripV1({ locale, copy }: { locale: Locale; copy: HomePage
   const displayTrustItems: TrustItem[] = locale === "zh"
     ? [...baseTrustItems, {
         title: "百万人测试",
-        summary: "单月真人测试人数达 120 万，累计测试交互超过 5000 万次。",
+        summary: "2026年4月真人测试人数达 120 万，累计测试交互超过 5000 万次。",
         sourceNote: "备注：真实服务器数据统计",
         paragraphs: [],
         href: copy.trust.methodHref,
