@@ -19,7 +19,7 @@ export function AboutTeamSection({ locale }: { locale: Locale }) {
 
   return (
     <section aria-labelledby="team" className="pt-7" data-testid="about-team-section">
-      <h2 id="team" className="m-0 scroll-mt-28 font-serif text-2xl font-semibold text-[var(--fm-text)] md:text-3xl">
+      <h2 id="team" className="m-0 scroll-mt-24 font-serif text-2xl font-semibold text-[var(--fm-text)] md:text-3xl">
         {isZh ? "创始人与博士顾问团队" : "Founder and doctoral advisors"}
       </h2>
       <div className="mt-6 grid gap-5 md:grid-cols-2">
