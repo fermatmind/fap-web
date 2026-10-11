@@ -175,6 +175,7 @@ const nextConfig = {
       "./postcss.config.mjs",
       "./proxy.ts",
       "./scripts/**/*",
+      "./test-results/**/*",
       "./tests/**/*",
       "./tsconfig.json",
       "./tsconfig.tsbuildinfo",

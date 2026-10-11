@@ -217,7 +217,7 @@ describe("immutable standalone release artifact", () => {
   });
 
   it("rejects repository-only skills, docs, and tests from the runtime artifact", () => {
-    for (const forbiddenPath of [".agents/SKILL.md", "docs/runbook.md", "tests/fixture.ts"]) {
+    for (const forbiddenPath of [".agents/SKILL.md", "docs/runbook.md", "tests/fixture.ts", "test-results/default/results.json", "test-results/release/results.json"]) {
       const root = tempDirectory();
       const source = createStandalone(root);
       const target = path.join(source, forbiddenPath);
