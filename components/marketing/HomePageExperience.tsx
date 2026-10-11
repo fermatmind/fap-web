@@ -405,6 +405,17 @@ const HOMEPAGE_FREE_TRUST_SUMMARY = {
   en: "Our assessments combine scientific theory and assessment methods, emphasizing scientific rigor and completeness, clear logic, and multidimensional analysis. Take tests for free and get free, comprehensive, easy-to-understand interpretations of your results.",
 } as const;
 
+const HOMEPAGE_PRIVACY_TRUST_COPY = {
+  zh: {
+    title: "高度重视你的隐私",
+    summary: "费马测试重视你的隐私。无需注册账号，你可以匿名完成测试，再自行决定是否保存结果。",
+  },
+  en: {
+    title: "Your privacy is our priority",
+    summary: "FermatMind respects your privacy. No registration is required: take tests anonymously and choose whether to save your results.",
+  },
+} as const;
+
 function getDefaultHomepageTrustItems(locale: Locale, copy: HomePageContent): TrustItem[] {
   if (locale === "zh") {
     return [
@@ -416,8 +427,7 @@ function getDefaultHomepageTrustItems(locale: Locale, copy: HomePageContent): Tr
         hrefLabel: copy.trust.methodLabel,
       },
       {
-        title: "我们高度重视您的隐私。",
-        summary: "无需先注册账号，你可以先完成测试，再决定是否保存或继续深入。",
+        ...HOMEPAGE_PRIVACY_TRUST_COPY.zh,
         paragraphs: [],
         href: copy.trust.methodHref,
         hrefLabel: copy.trust.methodLabel,
@@ -434,8 +444,7 @@ function getDefaultHomepageTrustItems(locale: Locale, copy: HomePageContent): Tr
       hrefLabel: copy.trust.methodLabel,
     },
     {
-      title: "We take your privacy seriously.",
-      summary: "You do not need to create an account first. Complete the test, then decide whether to save your result or go deeper.",
+      ...HOMEPAGE_PRIVACY_TRUST_COPY.en,
       paragraphs: [],
       href: copy.trust.methodHref,
       hrefLabel: copy.trust.methodLabel,
@@ -452,7 +461,7 @@ function HomepageTrustStripV1({ locale, copy }: { locale: Locale; copy: HomePage
       ...item,
       title: HOMEPAGE_FREE_TRUST_TITLE[locale],
       summary: HOMEPAGE_FREE_TRUST_SUMMARY[locale],
-    } : item);
+    } : { ...item, ...HOMEPAGE_PRIVACY_TRUST_COPY[locale] });
   // The product owner confirmed these figures as real Tencent Cloud server and
   // database statistics on 2026-10-11; no repeat verification is required.
   // Keep this card outside the generic CMS social-proof filter. Current-system

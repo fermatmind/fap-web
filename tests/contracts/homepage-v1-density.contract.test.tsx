@@ -138,7 +138,8 @@ describe("homepage v1 density contract", () => {
 
     expect(screen.queryByRole("heading", { level: 3, name: "999 万用户" })).not.toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 3, name: "免费且值得信赖" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { level: 3, name: "我们高度重视您的隐私。" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 3, name: "高度重视你的隐私" })).toBeInTheDocument();
+    expect(screen.getByText("费马测试重视你的隐私。无需注册账号，你可以匿名完成测试，再自行决定是否保存结果。")).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 3, name: "百万人测试" })).toBeInTheDocument();
     expect(screen.getByText("备注：真实服务器数据统计")).toBeInTheDocument();
   });
@@ -148,6 +149,8 @@ describe("homepage v1 density contract", () => {
 
     expect(screen.queryByRole("heading", { level: 3, name: "百万人测试" })).not.toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 3, name: "Free and trustworthy" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 3, name: "Your privacy is our priority" })).toBeInTheDocument();
+    expect(screen.getByText("FermatMind respects your privacy. No registration is required: take tests anonymously and choose whether to save your results.")).toBeInTheDocument();
     expect(screen.queryByText("备注：真实服务器数据统计")).not.toBeInTheDocument();
   });
 
@@ -174,6 +177,18 @@ describe("homepage v1 density contract", () => {
     expect(screen.queryByRole("heading", { level: 3, name: "免费可靠" })).not.toBeInTheDocument();
     expect(screen.getByText(summary)).toBeInTheDocument();
     expect(screen.queryByText("围绕自我认知、职业判断和能力成长。")).not.toBeInTheDocument();
+  });
+
+  it.each([
+    ["zh", "高度重视你的隐私", "费马测试重视你的隐私。无需注册账号，你可以匿名完成测试，再自行决定是否保存结果。"],
+    ["en", "Your privacy is our priority", "FermatMind respects your privacy. No registration is required: take tests anonymously and choose whether to save your results."],
+  ] as const)("uses the requested %s privacy copy over older CMS copy", (locale, title, summary) => {
+    render(<HomePageExperience locale={locale} copy={homeCopy} />);
+
+    expect(screen.getByRole("heading", { level: 3, name: title })).toBeInTheDocument();
+    expect(screen.getByText(summary)).toBeInTheDocument();
+    expect(screen.queryByRole("heading", { level: 3, name: "重视隐私" })).not.toBeInTheDocument();
+    expect(screen.queryByText("可以先匿名开始，再决定是否保存。")).not.toBeInTheDocument();
   });
 
   it("does not import form-version helpers or heavy result preview in the homepage component", () => {
