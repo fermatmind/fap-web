@@ -121,6 +121,36 @@ describe("homepage v1 density contract", () => {
     vi.unstubAllGlobals();
   });
 
+  it("preserves owner-confirmed server statistics when generic CMS social proof is filtered", () => {
+    render(<HomePageExperience locale="zh" copy={{
+      ...homeCopy,
+      trust: {
+        ...homeCopy.trust,
+        items: [{
+          title: "999 万用户",
+          summary: "未经核对的 CMS 人数宣传",
+          paragraphs: [],
+          href: homeCopy.trust.methodHref,
+          hrefLabel: homeCopy.trust.methodLabel,
+        }],
+      },
+    }} />);
+
+    expect(screen.queryByRole("heading", { level: 3, name: "999 万用户" })).not.toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 3, name: "免费测试、免费结果" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 3, name: "我们高度重视您的隐私。" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 3, name: "百万人测试" })).toBeInTheDocument();
+    expect(screen.getByText("备注：真实服务器数据统计")).toBeInTheDocument();
+  });
+
+  it("keeps the restored historical statistics limited to the Chinese homepage", () => {
+    render(<HomePageExperience locale="en" copy={{ ...homeCopy, trust: { ...homeCopy.trust, items: [] } }} />);
+
+    expect(screen.queryByRole("heading", { level: 3, name: "百万人测试" })).not.toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 3, name: "Free tests, free results" })).toBeInTheDocument();
+    expect(screen.queryByText("备注：真实服务器数据统计")).not.toBeInTheDocument();
+  });
+
   it("removes homepage version selection and heavy legacy surfaces", async () => {
     render(<HomePageExperience locale="zh" copy={homeCopy} />);
 

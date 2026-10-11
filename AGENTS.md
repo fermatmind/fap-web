@@ -124,6 +124,8 @@
 
 ### Product-model surfaces
 
+- The Chinese homepage's “百万人测试” card contains historical server statistics confirmed by the product owner on 2026-10-11: 1.2 million people in one month and over 50 million cumulative test interactions. Preserve its server-statistics source note and rendering coverage. Numeric/social-proof keywords or the absence of a frontend query do not establish that these figures are unsupported; before changing them, reconcile the historical source, period, and counting definitions. The current `test-metrics-summary` API's successful-attempt count measures a different population and metric; it cannot alone disprove these historical figures.
+
 - The six MBTI, Big Five, Enneagram, RIASEC, IQ, and EQ test landing heroes are frontend-owned product UI: maintain bilingual H1/metadata titles in `lib/tests/assessmentLandingUi.ts` and version-button labels in that module or existing frontend form helpers. CMS/registry copy must not override these fields. Question packs, form availability, scoring, reports, and other CMS content keep their existing backend authority.
 
 - MBTI, Big Five, Enneagram, RIASEC, V4, Career, and related result/report surfaces must preserve their documented scale identity, scoring topology, route behavior, locale support, and analytics contracts.
