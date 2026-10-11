@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Locale } from "@/lib/i18n/locales";
 
 export function AboutTeamSection({ locale }: { locale: Locale }) {
@@ -14,17 +15,29 @@ export function AboutTeamSection({ locale }: { locale: Locale }) {
         {roles.map((role, index) => (
           <article
             key={`${role}-${index}`}
-            className={`flex flex-col gap-3 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 ${index === 0 ? "md:col-span-2" : ""}`}
+            className={`flex flex-col gap-6 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 ${index === 0 ? "sm:flex-row sm:items-center md:col-span-2" : ""}`}
           >
-            <div className="flex flex-col gap-2">
-              <h3 className="m-0 text-xl font-semibold text-[var(--fm-text)]">
-                {names[index]}
-              </h3>
-              <p className="m-0 text-sm font-medium text-[#008aa3]">{role}</p>
+            {index === 0 && (
+              <Image
+                src="/images/team/liu-fuwei.jpg"
+                alt={isZh ? "刘福威，费马测试创始人" : "Liu Fuwei, founder of FermatMind"}
+                width={689}
+                height={886}
+                sizes="112px"
+                className="h-36 w-28 shrink-0 rounded-xl object-cover"
+              />
+            )}
+            <div className="flex min-w-0 flex-col gap-3">
+              <div className="flex flex-col gap-2">
+                <h3 className="m-0 text-xl font-semibold text-[var(--fm-text)]">
+                  {names[index]}
+                </h3>
+                <p className="m-0 text-sm font-medium text-[#008aa3]">{role}</p>
+              </div>
+              <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">
+                {isZh ? "个人背景与参与工作介绍待补充。" : "Background and contributions to follow."}
+              </p>
             </div>
-            <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">
-              {isZh ? "个人背景与参与工作介绍待补充。" : "Background and contributions to follow."}
-            </p>
           </article>
         ))}
       </div>
