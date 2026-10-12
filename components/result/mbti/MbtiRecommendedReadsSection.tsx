@@ -381,7 +381,7 @@ export function MbtiRecommendedReadsSection({
           <p className="m-0 text-sm leading-7 text-slate-600">
             {locale === "zh"
               ? "这一区域放在主解锁区之后，只负责补充延伸阅读和继续探索，不打断当前结果页的主解锁路径。"
-              : "This section stays after the primary unlock area so it can extend the reading without interrupting the main upgrade path."}
+              : "This section comes after the main unlock area and provides further reading and continued exploration without interrupting the result page’s primary unlock path."}
           </p>
         </div>
 

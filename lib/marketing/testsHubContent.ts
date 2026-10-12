@@ -240,10 +240,16 @@ export function getFreeTestPrimaryLabel(
   item: Pick<HubTestCardItem, "key" | "title" | "href" | "detailsHref" | "primaryLabel">,
   locale: Locale,
 ): string {
-  if (locale !== "zh") return item.primaryLabel;
-
   const name = getFreeTestName(item);
   if (!name) return item.primaryLabel;
+
+  if (locale === "en") {
+    const englishNames: Record<string, string> = {
+      MBTI: "MBTI", 大五人格: "Big Five", 霍兰德职业兴趣: "Holland career interest",
+      九型人格: "Enneagram", 智商: "IQ", 情商: "EQ",
+    };
+    return `Start a free ${englishNames[name]} test`;
+  }
 
   return name === "MBTI" ? "开始 MBTI 免费测试" : `开始${name}免费测试`;
 }

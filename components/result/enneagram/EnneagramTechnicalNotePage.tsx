@@ -308,7 +308,7 @@ function ScaleTechnicalNotePage({ locale, testSlug, testTitle, fetchTechnicalNot
           <section className="space-y-5" data-testid={`${testIdPrefix}-sections`}>
             <div className="space-y-2">
               <h2 className="m-0 text-2xl font-semibold text-slate-950">{locale === "en" ? "Methods and boundaries" : "方法与边界"}</h2>
-              <p className="m-0 text-sm text-slate-600">{locale === "en" ? "The available sections describe what the assessment can and cannot explain." : "只显示 backend 已提供的 public-safe 章节。缺失章节不会渲染占位噪音。"}</p>
+              <p className="m-0 text-sm text-slate-600">{locale === "en" ? "Only public-safe sections provided by the backend are shown. Missing sections do not produce placeholder clutter." : "只显示 backend 已提供的 public-safe 章节。缺失章节不会渲染占位噪音。"}</p>
             </div>
             <div className="space-y-4">
               {orderedSections.map((section: ScaleTechnicalNoteSection) => (
@@ -334,7 +334,7 @@ function ScaleTechnicalNotePage({ locale, testSlug, testTitle, fetchTechnicalNot
             <section className="space-y-5" data-testid={`${testIdPrefix}-method-boundaries`}>
               <div className="space-y-2">
                 <h2 className="m-0 text-2xl font-semibold text-slate-950">{locale === "en" ? "Method boundaries" : "方法边界"}</h2>
-                <p className="m-0 text-sm text-slate-600">{locale === "en" ? "These limits distinguish comparisons within a form from theoretical interpretation." : "这些条目来自 backend 的 method boundaries，不把跨题型比较或理论层提示写成硬判定。"}</p>
+                <p className="m-0 text-sm text-slate-600">{locale === "en" ? "These entries come from the backend’s method boundaries. Cross-form comparisons and theoretical hints are not presented as firm conclusions." : "这些条目来自 backend 的 method boundaries，不把跨题型比较或理论层提示写成硬判定。"}</p>
               </div>
               <div className="grid gap-4 md:grid-cols-2">
                 {methodBoundaries.map((boundary) => (

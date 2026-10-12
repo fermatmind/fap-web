@@ -875,7 +875,7 @@ export default function ShareClient({
               <p className="m-0 text-sm leading-7 text-slate-600">
                 {locale === "zh"
                   ? "这张公开卡片只保留安全摘要。继续测试后可以进入完整结果与后续阅读主线。"
-                  : "This public card keeps only the safe summary. Continue into the test flow to unlock the full result path and deeper reading."}
+                  : "This public card keeps only a safe summary. After continuing with the test, you can access the full result and the main path for further reading."}
               </p>
             </div>
             <div className="mt-4">

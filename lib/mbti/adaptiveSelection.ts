@@ -156,7 +156,7 @@ export function resolveMbtiAdaptiveRewriteReasonLabel(reason: string, locale: Lo
     case "feedback_redirect_to_action":
       return locale === "zh"
         ? "这次结果页已经根据你之前给出的负反馈，把重点从无效解释转向更可执行的动作。"
-        : "This result shifts away from low-value explanation and toward more usable actions based on your feedback.";
+        : "Based on your earlier negative feedback, this result page shifts its focus from unhelpful explanations toward more actionable steps.";
     case "career_followthrough_loop":
       return locale === "zh"
         ? "这次结果页优先续接你最近更愿意推进的职业动作。"

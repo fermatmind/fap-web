@@ -474,7 +474,7 @@ function getDetailPageLensCopy(scaleCode: string | undefined, locale: "en" | "zh
         whenToUseBody:
           locale === "zh"
             ? "适用于希望了解推理、抽象识别与能力线索，并把它们放回学习和职业判断中的场景。"
-            : "Use this when you want clearer reasoning and ability signals to support learning and career decisions.",
+            : "Use this when you want to understand reasoning, abstract pattern recognition, and ability clues, then apply them to learning and career judgments.",
       };
     default:
       return {

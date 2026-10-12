@@ -10,8 +10,9 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { CategoryContent } from "@/lib/marketing/testsHubContent";
 
 function getCategoryDisplayTitle(locale: Locale, content: CategoryContent): string {
-  if (locale !== "zh") return content.hero.title;
-  return content.slug === "career" ? "免费职业测试" : "免费人格测试";
+  return content.slug === "career"
+    ? (locale === "zh" ? "免费职业测试" : "Free career tests")
+    : (locale === "zh" ? "免费人格测试" : "Free personality tests");
 }
 
 export function TestCategoryExperience({

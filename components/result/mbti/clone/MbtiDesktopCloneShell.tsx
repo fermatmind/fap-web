@@ -241,7 +241,7 @@ function resolvePremiumTeaserItems(
     title: locale === "zh" ? "解锁后可查看什么" : "What the full report adds",
     body: locale === "zh"
       ? "完整报告会补充本章的具体场景、触发信号和可执行建议；此处只说明解锁价值，不模拟内容条数。"
-      : "The full report adds concrete situations, signals and actions without simulating hidden item counts.",
+      : "The full report adds specific situations, trigger signals, and actionable suggestions for this chapter. This preview explains the value of unlocking without simulating item counts.",
     tone: "neutral",
     isPlaceholder: true,
   }];
