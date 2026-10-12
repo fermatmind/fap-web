@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import type { ReactElement } from "react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
-import TechnicalNoteRoute from "@/app/(localized)/[locale]/tests/[slug]/technical-note/page";
+import TechnicalNoteRoute, { generateMetadata } from "@/app/(localized)/[locale]/tests/[slug]/technical-note/page";
 
 const hoisted = vi.hoisted(() => ({
   getTestBySlug: vi.fn(),
@@ -90,5 +90,26 @@ describe("RIASEC technical note route contract", () => {
       })
     ).rejects.toThrow("NEXT_NOT_FOUND");
     expect(hoisted.notFound).toHaveBeenCalledTimes(1);
+  });
+
+  it.each(["RIASEC", "ENNEAGRAM"] as const)("pairs both published locales for %s metadata", async (scaleCode) => {
+    const slug = SCALE_CANONICAL_SLUG_MAP[scaleCode];
+    for (const locale of ["zh", "en"] as const) {
+      hoisted.getTestBySlug.mockResolvedValueOnce({ scale_code: scaleCode, title: "Assessment" });
+      const metadata = await generateMetadata({ params: Promise.resolve({ locale, slug }) });
+      expect(metadata.alternates).toEqual({
+        canonical: `/${locale}/tests/${slug}/technical-note`,
+        languages: {
+          "zh-CN": `/zh/tests/${slug}/technical-note`,
+          en: `/en/tests/${slug}/technical-note`,
+        },
+      });
+    }
+  });
+
+  it.each([null, { scale_code: "BIG5_OCEAN" }])("does not emit language alternatives without the matching note authority", async (test) => {
+    hoisted.getTestBySlug.mockResolvedValueOnce(test);
+    const metadata = await generateMetadata({ params: Promise.resolve({ locale: "en", slug: SCALE_CANONICAL_SLUG_MAP.RIASEC }) });
+    expect(metadata.alternates?.languages).toBeUndefined();
   });
 });

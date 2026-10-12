@@ -27,12 +27,20 @@ export async function generateMetadata({
   const slug = resolveCanonicalSlug(requestedSlug);
   const test = await getTestBySlug(slug, locale);
   const title = test ? resolveTestTitleByLocale(test, locale) : "Technical Note";
+  const routeConfig = TECHNICAL_NOTE_ROUTE_CONFIG[slug as keyof typeof TECHNICAL_NOTE_ROUTE_CONFIG];
+  const routePath = `/tests/${slug}/technical-note`;
 
   return {
     title: `${title} - ${locale === "en" ? "Technical Note" : "技术说明"}`,
     description: locale === "en" ? `Methods, score interpretation, evidence status, and use boundaries for ${title}.` : `${title}的方法、分数解释、证据状态与使用边界。`,
     alternates: {
-      canonical: localizedPath(`/tests/${slug}/technical-note`, locale),
+      canonical: localizedPath(routePath, locale),
+      ...(test && routeConfig && test.scale_code === routeConfig.scaleCode ? {
+        languages: {
+          "zh-CN": localizedPath(routePath, "zh"),
+          en: localizedPath(routePath, "en"),
+        },
+      } : {}),
     },
   };
 }
