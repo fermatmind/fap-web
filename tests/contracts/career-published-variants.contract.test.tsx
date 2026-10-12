@@ -60,12 +60,12 @@ it('renders nullable AI links as text and rejects unsafe or unapproved external 
   const value = components().ai_impact_table;
   value.questions[0]['链接'] = null;
   value.questions[1]['链接'] = '编辑建议，无外部链接或采用效果证据';
-  value.authority_links[0]['链接'] = 'https://www.stats.gov.cn/sj/zxfb/';
+  value.authority_links[0]['链接'] = 'https://www.stats.gov.cn/sj/zxfb/202605/t20260515_1963707.html';
   const html = renderToStaticMarkup(<CareerDossierAiImpact value={value} locale="zh" />);
   expect(html).toContain('career-dossier-ai-impact');
   expect(html).toContain('编辑建议，无外部链接或采用效果证据');
-  expect(html).toContain('https://www.stats.gov.cn/sj/zxfb/');
-  for (const href of ['javascript:alert(1)', 'https://evil.example/', 'https://user:password@www.stats.gov.cn/']) {
+  expect(html).toContain('https://www.stats.gov.cn/sj/zxfb/202605/t20260515_1963707.html');
+  for (const href of ['javascript:alert(1)', 'https://evil.example/', 'https://www.stats.gov.cn/unreviewed.html', 'https://user:password@www.stats.gov.cn/']) {
     value.authority_links[0]['链接'] = href;
     expect(renderToStaticMarkup(<CareerDossierAiImpact value={value} locale="zh" />)).toBe('');
   }
