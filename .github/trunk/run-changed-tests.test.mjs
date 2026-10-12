@@ -15,9 +15,9 @@ test('localized assessment modules are product routes while named and nested tes
  assert.deepEqual(changedTestPlan([{status:'D',path:native}],{vitest:true}).removed,[native]);
 });
 test('assessment component and helper directories distinguish product sources from actual tests',()=>{
- const sources=['components/tests/AssessmentLandingIntro.tsx','components/tests/MbtiEditorialSections.tsx','lib/tests/assessmentLandingUi.ts'];
+ const sources=['components/tests/AssessmentLandingIntro.tsx','components/tests/MbtiEditorialSections.tsx','components/marketing/tests/TestsHubExperience.tsx','lib/tests/assessmentLandingUi.ts'];
  assert.deepEqual(changedTestPlan(sources.map(path=>({status:'M',path})),{vitest:true}).unsupported,[]);
- for(const root of ['components/tests/','lib/tests/']){
+ for(const root of ['components/tests/','components/marketing/tests/','lib/tests/']){
   const native=root+'reader.test.mjs';
   assert.deepEqual(changedTestPlan([{status:'A',path:native}],{vitest:true}).node,[native]);
   assert.deepEqual(changedTestPlan([{status:'D',path:native}],{vitest:true}).removed,[native]);
