@@ -415,7 +415,7 @@ test("claim flow shows blind success copy", async ({ page }) => {
   await expect(page.getByTestId("order-lookup-capture-marketing-consent")).toHaveText("Enabled");
   await expect(page.getByTestId("order-lookup-capture-report-recovery")).toHaveText("Disabled");
   await expect(page.getByTestId("order-lookup-feedback")).toHaveText(
-    "We’ve received the request. When the order matches, the report link will be sent to the purchase email."
+    "We’ve received the request. When the order and email match, the report link will be sent to your purchase email."
   );
   await expect(page.getByText("Email mismatch for that order.")).toHaveCount(0);
 });
@@ -433,38 +433,93 @@ test("mode=claim makes the claim CTA primary and focused", async ({ page }) => {
   await expect(page.getByTestId("order-claim-submit")).toBeFocused();
 });
 
-test("order detail recovery entry routes back to lookup claim mode", async ({ page }) => {
-  const orderNo = "ord_claim_back_001";
+for (const locale of ["en", "zh"] as const) {
+  for (const allowed of [true, false]) {
+    test(`${locale === "en" && allowed ? "" : `${locale} ${allowed ? "" : "denied "}`}order detail recovery entry routes back to lookup claim mode`, async ({ page }) => {
+      const orderNo = "ord_claim_back_001";
 
-  await mockCommonApis(page);
-  await page.route(`**/api/v0.3/orders/${orderNo}*`, async (route) => {
-    await route.fulfill({
-      status: 200,
-      contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        order_no: orderNo,
-        status: "paid",
-        attempt_id: "attempt-claim-back-001",
-        message: "Your full report is ready.",
-        delivery: {
-          contact_email_present: false,
-          last_delivery_email_sent_at: "2026-03-11T10:30:00Z",
-          can_request_claim_email: true,
-          can_view_report: true,
-          report_url: "/result/attempt-claim-back-001",
-          can_download_pdf: false,
-          can_resend: true,
-        },
-      }),
+      await mockCommonApis(page);
+      // Recovery remains on the paid order while its report is pending. A ready
+      // report intentionally auto-opens and races the recovery link in this case.
+      await page.route("**/api/v0.3/attempts/attempt-claim-back-001/report-access**", async (route) => {
+        await route.fulfill({
+          status: 200,
+          contentType: "application/json",
+          body: JSON.stringify({
+            ok: true,
+            attempt_id: "attempt-claim-back-001",
+            access_state: "locked",
+            report_state: "pending",
+            pdf_state: "pending",
+            actions: { page_href: null, pdf_href: null, history_href: "/history/mbti" },
+          }),
+        });
+      });
+      await page.route(`**/api/v0.3/orders/${orderNo}*`, async (route) => {
+        await route.fulfill({
+          status: 200,
+          contentType: "application/json",
+          body: JSON.stringify({
+            ok: true,
+            order_no: orderNo,
+            status: "paid",
+            attempt_id: "attempt-claim-back-001",
+            message: "Your full report is being prepared.",
+            delivery: {
+              contact_email_present: false,
+              last_delivery_email_sent_at: "2026-03-11T10:30:00Z",
+              can_request_claim_email: allowed,
+              can_view_report: false,
+              report_url: null,
+              can_download_pdf: false,
+              can_resend: true,
+            },
+          }),
+        });
+      });
+
+      await page.goto(`/${locale}/orders/${orderNo}`);
+      await expect(page.getByTestId("order-wait-actions-paid-processing")).toBeVisible();
+      await expect(page.getByTestId("order-workspace-lite-entry")).toHaveCount(0);
+      await expect(page.getByTestId("order-download-pdf")).toHaveCount(0);
+      await expect(page).toHaveURL(`/${locale}/orders/${orderNo}`);
+      if (!allowed) {
+        await expect(page.getByTestId("order-recover-with-email-link")).toHaveCount(0);
+        return;
+      }
+      await page.getByTestId("order-recover-with-email-link").click();
+
+      await expect(page).toHaveURL(`/${locale}/orders/lookup?orderNo=${orderNo}&mode=claim`);
+      await expect(page.getByTestId("order-lookup-order-no")).toHaveValue(orderNo);
+      await expect(page.getByTestId("order-claim-submit")).toHaveAttribute("data-priority", "primary");
     });
+
+  }
+}
+
+for (const locale of ["en", "zh"] as const) {
+  test(`${locale} paid order automatically opens its ready report`, async ({ page }) => {
+    const orderNo = `ord_ready_report_${locale}`;
+    const attemptId = `attempt-ready-report-${locale}`;
+    await mockCommonApis(page);
+    await page.route(`**/api/v0.3/orders/${orderNo}*`, async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          ok: true,
+          order_no: orderNo,
+          status: "paid",
+          attempt_id: attemptId,
+          delivery: {
+            can_request_claim_email: true,
+            can_view_report: true,
+            report_url: `/result/${attemptId}`,
+          },
+        }),
+      });
+    });
+    await page.goto(`/${locale}/orders/${orderNo}`);
+    await expect(page).toHaveURL(`/${locale}/result/${attemptId}`);
   });
-
-  await page.goto(`/en/orders/${orderNo}`);
-  await expect(page.getByTestId("order-delivery-actions")).toBeVisible();
-  await page.getByTestId("order-recover-with-email-link").click();
-
-  await expect(page).toHaveURL(`/en/orders/lookup?orderNo=${orderNo}&mode=claim`);
-  await expect(page.getByTestId("order-lookup-order-no")).toHaveValue(orderNo);
-  await expect(page.getByTestId("order-claim-submit")).toHaveAttribute("data-priority", "primary");
-});
+}

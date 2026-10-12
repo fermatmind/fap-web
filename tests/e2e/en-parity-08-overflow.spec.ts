@@ -1,4 +1,9 @@
 import { expect, test, type Locator, type Page } from "@playwright/test";
+import { startPublicContentApiFixture } from "./helpers/public-content-api-fixture";
+
+let stopPublicApiFixture: (() => Promise<void>) | undefined;
+test.beforeAll(async () => { stopPublicApiFixture = await startPublicContentApiFixture(); });
+test.afterAll(async () => { await stopPublicApiFixture?.(); });
 
 const VIEWPORTS = [
   { name: "desktop", width: 1440, height: 900 },
@@ -60,7 +65,18 @@ test.describe("EN-PARITY-08 H1 overflow guard", () => {
       await page.setViewportSize({ width: viewport.width, height: viewport.height });
       await page.goto("/zh/tests/mbti-personality-test-16-personality-types");
 
-      const heading = page.getByRole("heading", { level: 1, name: "MBTI 16 型人格免费测试" });
+      const heading = page.getByRole("heading", { level: 1, name: "MBTI 16 型人格免费测试", exact: true });
+      await expect(heading).toBeVisible();
+      await expectNoTextOverflow(heading);
+      await expectLocatorInsideViewport(heading);
+      await expectNoHorizontalScroll(page);
+    });
+
+    test(`EN MBTI test detail H1 fits the ${viewport.name} viewport`, async ({ page }) => {
+      await page.setViewportSize({ width: viewport.width, height: viewport.height });
+      await page.goto("/en/tests/mbti-personality-test-16-personality-types");
+
+      const heading = page.getByRole("heading", { level: 1, name: "Free 16-Type MBTI-Style Personality Test", exact: true });
       await expect(heading).toBeVisible();
       await expectNoTextOverflow(heading);
       await expectLocatorInsideViewport(heading);

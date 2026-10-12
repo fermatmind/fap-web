@@ -1064,6 +1064,13 @@ export default function OrdersClient({
                 <>
                   <Alert data-testid="order-paid-processing-state">{dict.orders.reportPendingAfterPayment}</Alert>
                   <div className="flex flex-wrap gap-2" data-testid="order-wait-actions-paid-processing">
+                    {canRequestClaimEmail && claimRecoveryHref ? (
+                      <Link href={claimRecoveryHref} className="inline-flex" data-testid="order-recover-with-email-link">
+                        <Button type="button" variant="outline">
+                          {locale === "zh" ? "用购买邮箱恢复报告" : "Recover with purchase email"}
+                        </Button>
+                      </Link>
+                    ) : null}
                     {backToResultHref ? (
                       <Link href={backToResultHref} data-testid="order-back-to-result-link" className="inline-flex">
                         <Button type="button" variant="outline">
