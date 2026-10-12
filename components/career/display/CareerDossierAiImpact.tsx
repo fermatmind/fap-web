@@ -66,7 +66,7 @@ function rows(value: unknown, keys: string[], minimum: number, optionalKeys: str
 function safeSourceUrl(value: string): string | null {
   try {
     const url = new URL(value);
-    return url.protocol === "https:" && AI_SOURCE_HOSTS.has(url.hostname) ? url.toString() : null;
+    return url.protocol === "https:" && (AI_SOURCE_HOSTS.has(url.hostname) || url.href === "https://gdkfq.ezhou.gov.cn/gk/xxgkml/zcfg_1828/gjzcfg/202011/t20201113_368318.html") ? url.toString() : null;
   } catch {
     return null;
   }
