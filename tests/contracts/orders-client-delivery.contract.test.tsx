@@ -720,56 +720,66 @@ describe("OrdersClient delivery contract", () => {
     expect(window.localStorage.getItem("fm_pending_order_v1")).toBeNull();
   });
 
-  it("keeps paid-but-not-ready orders on the wait flow and removes the history primary CTA", async () => {
-    hoisted.getOrderStatus.mockResolvedValue({
-      ok: true,
-      order_no: "ord_paid_processing_1",
-      status: "paid",
-      attempt_id: "attempt-paid-processing-1",
-      exact_result_entry: createAccessProjection({
+  for (const allowed of [true, false]) {
+    it(allowed ? "keeps paid-but-not-ready orders on the wait flow and removes the history primary CTA" : "honors denied access-hub recovery while pending even when legacy delivery allows recovery", async () => {
+      hoisted.getOrderStatus.mockResolvedValue({
+        ok: true,
+        order_no: "ord_paid_processing_1",
+        status: "paid",
         attempt_id: "attempt-paid-processing-1",
-        access_state: "locked",
-        report_state: "pending",
-        pdf_state: "unavailable",
-        actions: {
-          page_href: "/result/attempt-paid-processing-1",
-          wait_href: "/result/attempt-paid-processing-1",
-          history_href: "/history/mbti",
-          lookup_href: "/orders/lookup",
+        exact_result_entry: createAccessProjection({
+          attempt_id: "attempt-paid-processing-1",
+          access_state: "locked",
+          report_state: "pending",
+          pdf_state: "unavailable",
+          actions: {
+            page_href: "/result/attempt-paid-processing-1",
+            wait_href: "/result/attempt-paid-processing-1",
+            history_href: "/history/mbti",
+            lookup_href: "/orders/lookup",
+          },
+        }),
+        mbti_access_hub_v1: createMbtiAccessHubRaw("attempt-paid-processing-1", "ord_paid_processing_1", { canRequestClaimEmail: allowed }),
+        delivery: {
+          can_view_report: false,
+          can_download_pdf: false,
+          can_resend: false,
+          can_request_claim_email: !allowed,
+          contact_email_present: true,
         },
-      }),
-      mbti_access_hub_v1: createMbtiAccessHubRaw("attempt-paid-processing-1", "ord_paid_processing_1"),
-      delivery: {
-        can_view_report: false,
-        can_download_pdf: false,
-        can_resend: false,
-        can_request_claim_email: false,
-        contact_email_present: true,
-      },
+      });
+
+      render(<OrdersClient orderNo="ord_paid_processing_1" />);
+
+      await waitFor(() => {
+        expect(screen.getByTestId("order-paid-processing-state")).toBeInTheDocument();
+      });
+
+      expect(screen.getByTestId("order-paid-processing-state")).toHaveTextContent(
+        "Payment completed. Your report is still generating or restoring. Refresh in a few seconds."
+      );
+      expect(screen.getByTestId("order-back-to-result-link")).toHaveAttribute("href", "/en/result/attempt-paid-processing-1");
+      expect(screen.getByTestId("order-back-to-result-link").querySelector("button")?.className).toContain("bg-[var(--fm-surface)]");
+      expect(screen.getByTestId("order-refresh-button").className).toContain("bg-[var(--fm-cta-orange)]");
+      expectInlineActionOrder(screen.getByTestId("order-wait-actions-paid-processing"), [
+        ...(allowed ? ["Recover with purchase email"] : []),
+        "Back to my test result",
+        "Refresh",
+        "Contact support",
+      ]);
+      if (allowed) {
+        expect(screen.getByTestId("order-recover-with-email-link")).toHaveAttribute("href", "/en/orders/lookup?orderNo=ord_paid_processing_1&mode=claim");
+      } else {
+        expect(screen.queryByTestId("order-recover-with-email-link")).not.toBeInTheDocument();
+      }
+      expect(screen.queryByTestId("order-download-pdf")).not.toBeInTheDocument();
+      expect(screen.queryByTestId("order-delivery-actions")).not.toBeInTheDocument();
+      expect(screen.queryByTestId("order-workspace-lite-entry")).not.toBeInTheDocument();
+      expect(hoisted.routerReplace).not.toHaveBeenCalled();
+      expect(hoisted.fetchAttemptReportAccess).not.toHaveBeenCalled();
     });
 
-    render(<OrdersClient orderNo="ord_paid_processing_1" />);
-
-    await waitFor(() => {
-      expect(screen.getByTestId("order-paid-processing-state")).toBeInTheDocument();
-    });
-
-    expect(screen.getByTestId("order-paid-processing-state")).toHaveTextContent(
-      "Payment completed. Your report is still generating or restoring. Refresh in a few seconds."
-    );
-    expect(screen.getByTestId("order-back-to-result-link")).toHaveAttribute("href", "/en/result/attempt-paid-processing-1");
-    expect(screen.getByTestId("order-back-to-result-link").querySelector("button")?.className).toContain("bg-[var(--fm-surface)]");
-    expect(screen.getByTestId("order-refresh-button").className).toContain("bg-[var(--fm-cta-orange)]");
-    expectInlineActionOrder(screen.getByTestId("order-wait-actions-paid-processing"), [
-      "Back to my test result",
-      "Refresh",
-      "Contact support",
-    ]);
-    expect(screen.queryByTestId("order-delivery-actions")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("order-workspace-lite-entry")).not.toBeInTheDocument();
-    expect(hoisted.routerReplace).not.toHaveBeenCalled();
-    expect(hoisted.fetchAttemptReportAccess).not.toHaveBeenCalled();
-  });
+  }
 
   it("recovers pending payment actions from order status when the URL has no pay params", async () => {
     hoisted.getOrderStatus.mockResolvedValue({
