@@ -5,6 +5,10 @@ import { localizedPath, type Locale } from "@/lib/i18n/locales";
 
 const SCIENCE_RELATED_PAGE_HREF_RE = /^\/(?:method-boundaries|item-design-notes|reliability-validity)(?:$|[/?#])/;
 
+function localizeScienceRelatedHref(href: string, locale?: Locale): string {
+  return locale && SCIENCE_RELATED_PAGE_HREF_RE.test(href) ? localizedPath(href, locale) : href;
+}
+
 export function stripMarkdownEmphasisMarkers(text: string): string {
   return text.replace(/\*+/g, "");
 }
@@ -28,9 +32,7 @@ export function renderCmsInlineMarkdown(
         return <span key={key}>{rawLabel}</span>;
       }
 
-      const href = options.locale && SCIENCE_RELATED_PAGE_HREF_RE.test(safeHref)
-        ? localizedPath(safeHref, options.locale)
-        : safeHref;
+      const href = localizeScienceRelatedHref(safeHref, options.locale);
       const label = rawLabel.trim() === safeHref.trim()
         ? labelInternalHref(safeHref, options.internalLinkLabels, options.locale ?? "zh") ?? rawLabel
         : rawLabel;
@@ -52,7 +54,7 @@ export function renderCmsInlineMarkdown(
       const partKey = `${key}-plain-${partIndex}`;
       if (textPart.type === "link") {
         return (
-          <a key={partKey} href={textPart.href} className="text-[var(--fm-accent)] underline-offset-2 hover:underline">
+          <a key={partKey} href={localizeScienceRelatedHref(textPart.href, options.locale)} className="text-[var(--fm-accent)] underline-offset-2 hover:underline">
             {textPart.label}
           </a>
         );

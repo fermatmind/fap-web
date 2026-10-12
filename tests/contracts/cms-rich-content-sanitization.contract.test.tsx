@@ -389,6 +389,27 @@ describe("CMS rich content sanitization contract", () => {
     expect(html).not.toMatch(/href="\/(?:method-boundaries|item-design-notes|reliability-validity)(?:["?#])/);
   });
 
+  it.each(["en", "zh"] as const)("localizes bare science reference paths from the public CMS payload for %s", (locale) => {
+    const page = stripContentPageReaderMetadata(makeContentPage("", {
+      slug: "science", path: "/science", title: "Science", locale,
+      contentMd: "Related pages include /method-boundaries, /item-design-notes, and /reliability-validity. Related assessments include /tests/mbti-personality-test-16-personality-types.",
+    }));
+    const html = renderToStaticMarkup(<ContentPageTemplate page={page} locale={locale} />);
+    const reader = document.createElement("div");
+    reader.innerHTML = html;
+    const body = reader.querySelector("[data-animation-profile]");
+
+    expect(Array.from(body?.querySelectorAll("a") ?? [], (node) => node.getAttribute("href"))).toEqual([
+      `/${locale}/method-boundaries`, `/${locale}/item-design-notes`, `/${locale}/reliability-validity`,
+      "/tests/mbti-personality-test-16-personality-types",
+    ]);
+    expect(body?.textContent).toBe(locale === "en"
+      ? "Related pages include Method boundaries, Item design notes, and Reliability and validity. Related assessments include MBTI personality test."
+      : "Related pages include 方法边界, 题目设计说明, and 信度与效度. Related assessments include MBTI免费测试.");
+    expect(renderToStaticMarkup(<div>{renderCmsInlineMarkdown("/en/item-design-notes /zh/method-boundaries /item-design-notes", "bare", { locale })}</div>)).toContain('href="/en/item-design-notes"');
+    expect(renderToStaticMarkup(<div>{renderCmsInlineMarkdown("/item-design-notes", "no-locale")}</div>)).toContain('href="/item-design-notes"');
+  });
+
   it("preserves explicit languages, external links and unrelated routes while filtering unsafe science Markdown URLs", () => {
     const html = renderToStaticMarkup(<div>{renderCmsInlineMarkdown(
       "[English](/en/item-design-notes) [Chinese](/zh/method-boundaries) [External](https://example.com/item-design-notes) [Test](/tests/mbti-personality-test-16-personality-types) [Other](/item-design-notes-extra) [Fragment](#items) [Unsafe](javascript:alert) [Protocol-relative](//example.com/item-design-notes)",
