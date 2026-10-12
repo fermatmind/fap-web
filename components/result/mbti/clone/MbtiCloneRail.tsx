@@ -104,7 +104,7 @@ export function MbtiCloneRail({
         <div className={styles.railIdentityCard} data-testid="mbti-rail-profile-identity">
           <p className={styles.railCodePrimary}>{profileIdentity.code}</p>
           {nameLine ? <p className={styles.railNameLine}>{nameLine}</p> : null}
-          {profileIdentity.rarity ? <p className={styles.railRarity}>{`稀有度：${profileIdentity.rarity}`}</p> : null}
+          {profileIdentity.rarity ? <p className={styles.railRarity}>{locale === "zh" ? `稀有度：${profileIdentity.rarity}` : `Rarity: ${profileIdentity.rarity}`}</p> : null}
           {profileIdentity.keywords.length > 0 ? (
             <div className={styles.railKeywordRow}>
               {profileIdentity.keywords.slice(0, 6).map((keyword) => (

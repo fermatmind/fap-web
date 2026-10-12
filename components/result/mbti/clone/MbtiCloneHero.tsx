@@ -7,6 +7,7 @@ import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
 import type { PersonalityDesktopCloneAssetSlot } from "@/lib/cms/personality-desktop-clone";
 
 type MbtiCloneHeroProps = {
+  locale?: "zh" | "en";
   profileIdentity: ProfileIdentity;
   illustrationSlotId: MbtiDesktopCloneAssetSlotId;
   illustrationLabel: string;
@@ -18,6 +19,7 @@ function formatNameLine(profileIdentity: ProfileIdentity) {
 }
 
 export function MbtiCloneHero({
+  locale = "zh",
   profileIdentity,
   illustrationSlotId,
   illustrationLabel,
@@ -36,7 +38,7 @@ export function MbtiCloneHero({
         ) : null}
         {profileIdentity.rarity ? (
           <p data-testid="mbti-hero-rarity" className={styles.heroRarityPill}>
-            {`稀有度：${profileIdentity.rarity}`}
+            {locale === "zh" ? `稀有度：${profileIdentity.rarity}` : `Rarity: ${profileIdentity.rarity}`}
           </p>
         ) : null}
         {profileIdentity.keywords.length > 0 ? (

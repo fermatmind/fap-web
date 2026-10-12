@@ -40,7 +40,7 @@ export async function generateMetadata({
     locale,
   });
   const viewModel = buildSharePageViewModel(shareSummary);
-  const copy = buildShareMetadataCopy(viewModel);
+  const copy = buildShareMetadataCopy(viewModel, locale);
   const pathname = `/${locale}/share`;
   const seoSurface = viewModel.seoSurface
     ? {

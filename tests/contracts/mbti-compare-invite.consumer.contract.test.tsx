@@ -404,12 +404,12 @@ describe("MBTI compare invite consumer contract", () => {
       title: "ENFP-T 邀请你来测 MBTI 并对比｜FermatMind",
       description: "查看 MBTI 对比邀请",
       url: "http://localhost:3000/zh/compare/mbti/invite-123",
-      images: ["http://localhost:3000/og/compare/mbti/invite-123"],
+      images: ["http://localhost:3000/og/compare/mbti/invite-123?locale=zh"],
     });
     expect(metadata.twitter).toMatchObject({
       title: "ENFP-T 邀请你来测 MBTI 并对比｜FermatMind",
       description: "查看 MBTI 对比邀请",
-      images: ["http://localhost:3000/og/compare/mbti/invite-123"],
+      images: ["http://localhost:3000/og/compare/mbti/invite-123?locale=zh"],
     });
   });
 
@@ -423,16 +423,16 @@ describe("MBTI compare invite consumer contract", () => {
       }),
     });
 
-    expect(metadata.title).toBe("ENFP-T × INFJ-A MBTI 对比｜FermatMind");
+    expect(metadata.title).toBe("ENFP-T × INFJ-A MBTI comparison | FermatMind");
     expect(metadata.description).toBe(
       "Both profiles align on idealism, but differ on how quickly they externalize judgment."
     );
     expect(metadata.alternates?.canonical).toBe("http://localhost:3000/en/compare/mbti/invite-123");
     expect(metadata.openGraph).toMatchObject({
-      images: ["http://localhost:3000/og/compare/mbti/invite-123"],
+      images: ["http://localhost:3000/og/compare/mbti/invite-123?locale=en"],
     });
     expect(metadata.twitter).toMatchObject({
-      images: ["http://localhost:3000/og/compare/mbti/invite-123"],
+      images: ["http://localhost:3000/og/compare/mbti/invite-123?locale=en"],
     });
   });
 
@@ -457,13 +457,22 @@ describe("MBTI compare invite consumer contract", () => {
       }),
     });
 
-    expect(metadata.title).toBe("MBTI 对比邀请｜FermatMind");
-    expect(metadata.description).toBe("查看 MBTI 对比邀请");
+    expect(metadata.title).toBe("MBTI compare invite | FermatMind");
+    expect(metadata.description).toBe("View this MBTI compare invite");
     expect(metadata.openGraph).toMatchObject({
-      images: ["http://localhost:3000/og/compare/mbti/invite-404"],
+      images: ["http://localhost:3000/og/compare/mbti/invite-404?locale=en"],
     });
     expect(metadata.twitter).toMatchObject({
-      images: ["http://localhost:3000/og/compare/mbti/invite-404"],
+      images: ["http://localhost:3000/og/compare/mbti/invite-404?locale=en"],
     });
   });
+  it("keeps English pending and unavailable OG copy in English", () => {
+    const pending = renderToStaticMarkup(renderCompareOgImage(buildCompareInviteViewModel(createPendingFixture()), "en"));
+    const unavailable = renderToStaticMarkup(renderCompareOgImage(null, "en"));
+    expect(pending).toContain("You are invited to take the test and compare results");
+    expect(pending).not.toMatch(/\p{Script=Han}/u);
+    expect(unavailable).not.toMatch(/\p{Script=Han}/u);
+    expect(renderToStaticMarkup(renderCompareOgImage(null, "zh"))).toContain("邀请你来测并完成对比");
+  });
+
 });

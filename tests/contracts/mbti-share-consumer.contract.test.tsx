@@ -1141,4 +1141,13 @@ describe("MBTI share consumer contract", () => {
 
     expect(taglineMetadata.description).toBe("Tagline fallback copy");
   });
+  it("localizes English OG labels and unavailable copy while preserving the Chinese version", () => {
+    const english = renderToStaticMarkup(renderShareOgImage(buildSharePageViewModel(createShareFixture()), "en"));
+    const unavailable = renderToStaticMarkup(renderShareOgImage(null, "en"));
+    expect(english).toContain("Campaigner");
+    expect(english).not.toMatch(/\p{Script=Han}/u);
+    expect(unavailable).not.toMatch(/\p{Script=Han}/u);
+    expect(renderToStaticMarkup(renderShareOgImage(null, "zh"))).toContain("人格倾向摘要将在这里展示");
+  });
+
 });

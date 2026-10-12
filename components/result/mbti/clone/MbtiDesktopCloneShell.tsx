@@ -250,12 +250,14 @@ function resolvePremiumTeaserItems(
 function buildPremiumTeaserBlock({
   locale,
   zhTitle,
+  enTitle,
   source,
   fallback,
   testId,
 }: {
   locale: "zh" | "en";
   zhTitle: string;
+  enTitle: string;
   source: CompatibilityTeaserSource;
   fallback: TeaserFallbackBlock;
   testId: string;
@@ -268,7 +270,7 @@ function buildPremiumTeaserBlock({
   const overlayCtaLabel = locale === "zh" ? "解锁完整报告" : "Unlock full report";
 
   return {
-    title: locale === "zh" ? zhTitle : normalizeText(source?.title, fallback?.title, zhTitle),
+    title: locale === "zh" ? zhTitle : normalizeText(source?.title, fallback?.title, enTitle),
     items: resolvePremiumTeaserItems(source, fallback, locale),
     overlayTitle,
     overlayBody,
@@ -1007,6 +1009,7 @@ export function MbtiDesktopCloneShell({
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "你可能会喜欢的职业选择",
+            enTitle: "Career choices you may enjoy",
             source: null,
             fallback: slots.chapters.career.lockedBlocks[0],
             testId: "mbti-premium-career-career-ideas",
@@ -1014,6 +1017,7 @@ export function MbtiDesktopCloneShell({
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "适合你的工作方式",
+            enTitle: "Work styles that suit you",
             source: null,
             fallback: slots.chapters.career.lockedBlocks[1],
             testId: "mbti-premium-career-work-styles",
@@ -1046,6 +1050,7 @@ export function MbtiDesktopCloneShell({
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "什么能让你充满活力？",
+            enTitle: "What energizes you?",
             source: null,
             fallback: slots.chapters.growth.lockedBlocks[0],
             testId: "mbti-premium-growth-what-energizes",
@@ -1053,6 +1058,7 @@ export function MbtiDesktopCloneShell({
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: ZH_GROWTH_DRAINER_TITLE,
+            enTitle: "What drains your energy?",
             source: null,
             fallback: slots.chapters.growth.lockedBlocks[1],
             testId: "mbti-premium-growth-what-drains",
@@ -1085,6 +1091,7 @@ export function MbtiDesktopCloneShell({
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "你的人际关系优势",
+            enTitle: "Your relationship strengths",
             source: null,
             fallback: slots.chapters.relationships.lockedBlocks[0],
             testId: "mbti-premium-relationships-superpowers",
@@ -1092,6 +1099,7 @@ export function MbtiDesktopCloneShell({
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "人际关系陷阱",
+            enTitle: "Relationship pitfalls",
             source: null,
             fallback: slots.chapters.relationships.lockedBlocks[1],
             testId: "mbti-premium-relationships-pitfalls",
@@ -1116,7 +1124,7 @@ export function MbtiDesktopCloneShell({
   if (storageContentPending && mustUsePublishedContent && !snapshotMode) {
     return (
       <section data-testid="mbti-desktop-clone-content-loading" className={styles.cloneRoot}>
-        <p>正在加载结果内容...</p>
+        <p>{cloneLocale === "zh" ? "正在加载结果内容..." : "Loading result content..."}</p>
       </section>
     );
   }
@@ -1154,6 +1162,7 @@ export function MbtiDesktopCloneShell({
     >
       <div className={styles.shell}>
         <MbtiCloneHero
+          locale={cloneLocale}
           profileIdentity={slots.hero.profileIdentity}
           illustrationSlotId={slots.hero.asset.slotId}
           illustrationLabel={slots.hero.asset.label}
@@ -1223,7 +1232,7 @@ export function MbtiDesktopCloneShell({
             {shouldRenderTrailingNodes ? trailingNodes : null}
             {storageMeta?.package_hash ? (
               <p className={styles.packageReceipt} data-testid="mbti-content-package-receipt">
-                内容包 {storageMeta.package_id ?? "mbti-zh-result"} · {storageMeta.package_hash} · revision {storageMeta.revision_no ?? "-"}
+                {cloneLocale === "zh" ? "内容包" : "Content package"} {storageMeta.package_id ?? "mbti-zh-result"} · {storageMeta.package_hash} · revision {storageMeta.revision_no ?? "-"}
               </p>
             ) : null}
           </main>

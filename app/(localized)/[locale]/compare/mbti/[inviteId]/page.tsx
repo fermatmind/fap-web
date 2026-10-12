@@ -38,7 +38,7 @@ export async function generateMetadata({
     inviteId,
     locale,
   });
-  const copy = buildCompareMetadataCopy(buildCompareInviteViewModel(data));
+  const copy = buildCompareMetadataCopy(buildCompareInviteViewModel(data), locale);
   const pathname = `/${locale}/compare/mbti/${inviteId}`;
 
   return buildPageMetadata({
@@ -46,7 +46,7 @@ export async function generateMetadata({
     pathname,
     title: copy.title,
     description: copy.description,
-    imagePath: `/og/compare/mbti/${inviteId}`,
+    imagePath: `/og/compare/mbti/${inviteId}?locale=${locale}`,
     noindex: true,
     alternatesByLocale: {
       en: `/en/compare/mbti/${inviteId}`,

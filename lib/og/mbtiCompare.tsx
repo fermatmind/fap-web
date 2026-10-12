@@ -1,3 +1,4 @@
+import type { Locale } from "@/lib/i18n/locales";
 import type { MbtiCompareInviteViewModel } from "@/lib/mbti/compareInvite";
 
 type CompareProfileView = {
@@ -37,7 +38,7 @@ function resolveParticipantLabel(
   };
 }
 
-function buildCompareOgView(viewModel?: MbtiCompareInviteViewModel | null): CompareOgView {
+function buildCompareOgView(viewModel: MbtiCompareInviteViewModel | null | undefined, locale: Locale): CompareOgView {
   const status = viewModel?.status === "ready" || viewModel?.status === "purchased"
     ? "ready"
     : "pending";
@@ -47,9 +48,9 @@ function buildCompareOgView(viewModel?: MbtiCompareInviteViewModel | null): Comp
     inviter: resolveParticipantLabel(viewModel?.inviterCard ?? null, "MBTI"),
     invitee: resolveParticipantLabel(viewModel?.inviteeCard ?? null, "MBTI"),
     compare: {
-      title: viewModel?.compareSummary?.title || "MBTI 对比邀请",
+      title: viewModel?.compareSummary?.title || (locale === "zh" ? "MBTI 对比邀请" : "MBTI compare invite"),
       summary: truncateText(
-        viewModel?.compareSummary?.summary || "查看 MBTI 对比邀请",
+        viewModel?.compareSummary?.summary || (locale === "zh" ? "查看 MBTI 对比邀请" : "View this MBTI compare invite"),
         180
       ),
       sharedCount: viewModel?.compareSummary?.sharedCount ?? null,
@@ -58,51 +59,51 @@ function buildCompareOgView(viewModel?: MbtiCompareInviteViewModel | null): Comp
   };
 }
 
-export function buildCompareMetadataCopy(viewModel?: MbtiCompareInviteViewModel | null): {
+export function buildCompareMetadataCopy(viewModel?: MbtiCompareInviteViewModel | null, locale: Locale = "zh"): {
   title: string;
   description: string;
 } {
   if (!viewModel) {
     return {
-      title: "MBTI 对比邀请｜FermatMind",
-      description: "查看 MBTI 对比邀请",
+      title: (locale === "zh" ? "MBTI 对比邀请｜FermatMind" : "MBTI compare invite | FermatMind"),
+      description: (locale === "zh" ? "查看 MBTI 对比邀请" : "View this MBTI compare invite"),
     };
   }
 
   const isReady = viewModel.status === "ready" || viewModel.status === "purchased";
   const inviterCode = viewModel.inviterCard?.displayType || viewModel.inviterCard?.canonicalTypeCode;
   const inviteeCode = viewModel.inviteeCard?.displayType || viewModel.inviteeCard?.canonicalTypeCode;
-  const description = viewModel.compareSummary?.summary || "查看 MBTI 对比邀请";
+  const description = viewModel.compareSummary?.summary || (locale === "zh" ? "查看 MBTI 对比邀请" : "View this MBTI compare invite");
 
   if (!isReady) {
     return {
       title: inviterCode
-        ? `${inviterCode} 邀请你来测 MBTI 并对比｜FermatMind`
-        : "MBTI 对比邀请｜FermatMind",
+        ? (locale === "zh" ? `${inviterCode} 邀请你来测 MBTI 并对比｜FermatMind` : `${inviterCode} invites you to take MBTI and compare | FermatMind`)
+        : (locale === "zh" ? "MBTI 对比邀请｜FermatMind" : "MBTI compare invite | FermatMind"),
       description,
     };
   }
 
   return {
     title: inviterCode && inviteeCode
-      ? `${inviterCode} × ${inviteeCode} MBTI 对比｜FermatMind`
-      : "MBTI 对比邀请｜FermatMind",
+      ? (locale === "zh" ? `${inviterCode} × ${inviteeCode} MBTI 对比｜FermatMind` : `${inviterCode} × ${inviteeCode} MBTI comparison | FermatMind`)
+      : (locale === "zh" ? "MBTI 对比邀请｜FermatMind" : "MBTI compare invite | FermatMind"),
     description,
   };
 }
 
-export function renderCompareOgImage(viewModel?: MbtiCompareInviteViewModel | null) {
-  const view = buildCompareOgView(viewModel);
+export function renderCompareOgImage(viewModel?: MbtiCompareInviteViewModel | null, locale: Locale = "zh") {
+  const view = buildCompareOgView(viewModel, locale);
   const isPending = view.status === "pending";
   const title = isPending
-    ? view.inviter.typeCode || "MBTI 对比邀请"
+    ? view.inviter.typeCode || (locale === "zh" ? "MBTI 对比邀请" : "MBTI compare invite")
     : `${view.inviter.typeCode || "MBTI"} × ${view.invitee.typeCode || "MBTI"}`;
   const subtitle = isPending
-    ? view.inviter.typeName || "邀请你来测并完成对比"
-    : (view.compare.title || "MBTI 对比");
+    ? view.inviter.typeName || (locale === "zh" ? "邀请你来测并完成对比" : "You are invited to take the test and compare results")
+    : (view.compare.title || (locale === "zh" ? "MBTI 对比" : "MBTI comparison"));
   const narrative = isPending
-    ? "邀请你来测并完成对比"
-    : truncateText(view.compare.summary || "查看对比结果", 160);
+    ? (locale === "zh" ? "邀请你来测并完成对比" : "You are invited to take the test and compare results")
+    : truncateText(view.compare.summary || (locale === "zh" ? "查看对比结果" : "View the comparison results"), 160);
 
   return (
     <div
@@ -163,7 +164,7 @@ export function renderCompareOgImage(viewModel?: MbtiCompareInviteViewModel | nu
               color: "#bfdbfe",
             }}
           >
-            {isPending ? "MBTI 对比邀请" : "MBTI 对比"}
+            {isPending ? (locale === "zh" ? "MBTI 对比邀请" : "MBTI compare invite") : (locale === "zh" ? "MBTI 对比" : "MBTI comparison")}
           </div>
 
           <div
@@ -227,7 +228,7 @@ export function renderCompareOgImage(viewModel?: MbtiCompareInviteViewModel | nu
                 {view.inviter.typeCode || "MBTI"}
               </div>
               <div style={{ display: "flex", fontSize: 18, color: "#e2e8f0" }}>
-                {view.inviter.typeName || "MBTI 对比邀请"}
+                {view.inviter.typeName || (locale === "zh" ? "MBTI 对比邀请" : "MBTI compare invite")}
               </div>
             </div>
 
@@ -248,7 +249,7 @@ export function renderCompareOgImage(viewModel?: MbtiCompareInviteViewModel | nu
                   {view.invitee.typeCode || "MBTI"}
                 </div>
                 <div style={{ display: "flex", fontSize: 18, color: "#e2e8f0" }}>
-                  {view.invitee.typeName || "MBTI 对比邀请"}
+                  {view.invitee.typeName || (locale === "zh" ? "MBTI 对比邀请" : "MBTI compare invite")}
                 </div>
               </div>
             ) : null}

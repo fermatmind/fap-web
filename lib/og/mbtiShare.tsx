@@ -1,4 +1,5 @@
 import type { MbtiSharePageViewModel } from "@/lib/mbti/publicProjection";
+import type { Locale } from "@/lib/i18n/locales";
 
 type ShareDimensionView = {
   key: string;
@@ -25,13 +26,13 @@ function truncateText(value: string, maxLength: number): string {
   return `${value.slice(0, Math.max(0, maxLength - 1)).trimEnd()}…`;
 }
 
-function buildShareOgView(viewModel?: MbtiSharePageViewModel | null): ShareOgView {
+function buildShareOgView(viewModel: MbtiSharePageViewModel | null | undefined, locale: Locale): ShareOgView {
   const card = viewModel?.card;
   const scaleCode = viewModel?.scaleCode === "BIG5_OCEAN" ? "Big Five" : "MBTI";
 
   return {
     typeCode: card?.displayType || card?.canonicalTypeCode || `FermatMind ${scaleCode}`,
-    typeName: card?.typeName || card?.title || card?.displayType || `${scaleCode} 分享摘要`,
+    typeName: card?.typeName || card?.title || card?.displayType || (locale === "zh" ? `${scaleCode} 分享摘要` : `${scaleCode} shared summary`),
     subtitle: card?.subtitle || card?.tagline || `${scaleCode} public-safe summary`,
     narrative: truncateText(
       card?.summary || card?.subtitle || card?.tagline || `View this ${scaleCode} share summary.`,
@@ -59,29 +60,31 @@ function buildShareOgView(viewModel?: MbtiSharePageViewModel | null): ShareOgVie
       })
       .filter((dimension): dimension is ShareDimensionView => Boolean(dimension))
       .slice(0, 5),
-    ctaLabel: viewModel?.primaryCtaLabel || "开始 MBTI 免费测试",
+    ctaLabel: viewModel?.primaryCtaLabel || (locale === "zh" ? "开始 MBTI 免费测试" : "Start the free MBTI test"),
   };
 }
 
-export function buildShareMetadataCopy(viewModel?: MbtiSharePageViewModel | null): {
+export function buildShareMetadataCopy(viewModel?: MbtiSharePageViewModel | null, locale: Locale = "zh"): {
   title: string;
   description: string;
 } {
   const card = viewModel?.card;
   const fallbackTitle = card?.displayType || card?.title || card?.canonicalTypeCode || card?.typeName || (
-    viewModel?.scaleCode === "BIG5_OCEAN" ? "Big Five 分享摘要" : "MBTI 分享摘要"
+    locale === "zh"
+      ? viewModel?.scaleCode === "BIG5_OCEAN" ? "Big Five 分享摘要" : "MBTI 分享摘要"
+      : viewModel?.scaleCode === "BIG5_OCEAN" ? "Big Five shared summary" : "MBTI shared summary"
   );
 
   return {
     title: card?.displayType && card.typeName
       ? `${card.displayType} · ${card.typeName}｜FermatMind`
       : `${fallbackTitle}｜FermatMind`,
-    description: card?.summary || card?.subtitle || card?.tagline || "查看人格类型分享",
+    description: card?.summary || card?.subtitle || card?.tagline || (locale === "zh" ? "查看人格类型分享" : "View this personality type share"),
   };
 }
 
-export function renderShareOgImage(viewModel?: MbtiSharePageViewModel | null) {
-  const view = buildShareOgView(viewModel);
+export function renderShareOgImage(viewModel?: MbtiSharePageViewModel | null, locale: Locale = "zh") {
+  const view = buildShareOgView(viewModel, locale);
 
   return (
     <div
@@ -162,7 +165,9 @@ export function renderShareOgImage(viewModel?: MbtiSharePageViewModel | null) {
                   color: "#a7f3d0",
                 }}
               >
-                {viewModel?.scaleCode === "BIG5_OCEAN" ? "Big Five 分享" : "MBTI 分享"}
+                {locale === "zh"
+                  ? viewModel?.scaleCode === "BIG5_OCEAN" ? "Big Five 分享" : "MBTI 分享"
+                  : viewModel?.scaleCode === "BIG5_OCEAN" ? "Big Five share" : "MBTI share"}
               </div>
 
               <div
@@ -232,7 +237,7 @@ export function renderShareOgImage(viewModel?: MbtiSharePageViewModel | null) {
                   color: "#cbd5e1",
                 }}
               >
-                开始了解你的人格轮廓
+                {locale === "zh" ? "开始了解你的人格轮廓" : "Start understanding your personality profile"}
               </div>
               <div
                 style={{
@@ -279,7 +284,7 @@ export function renderShareOgImage(viewModel?: MbtiSharePageViewModel | null) {
                   color: "#a7f3d0",
                 }}
               >
-                稀有度
+                {locale === "zh" ? "稀有度" : "Rarity"}
               </div>
               <div
                 style={{
@@ -340,7 +345,7 @@ export function renderShareOgImage(viewModel?: MbtiSharePageViewModel | null) {
                   color: "#a7f3d0",
                 }}
               >
-                维度摘要
+                {locale === "zh" ? "维度摘要" : "Dimension summary"}
               </div>
 
               {view.dimensions.length > 0 ? (
@@ -390,7 +395,7 @@ export function renderShareOgImage(viewModel?: MbtiSharePageViewModel | null) {
                     color: "#cbd5e1",
                   }}
                 >
-                  人格倾向摘要将在这里展示
+                  {locale === "zh" ? "人格倾向摘要将在这里展示" : "A summary of personality preferences will appear here"}
                 </div>
               )}
             </div>
