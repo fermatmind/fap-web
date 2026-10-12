@@ -71,6 +71,20 @@ it('renders nullable AI links as text and rejects unsafe or unapproved external 
   }
 });
 
+it('renders declared fit copy independently of historical body marker items', () => {
+  const page = normalizeCareerPage(original, 'zh', 'accountants-and-auditors');
+  expect(page).not.toBeNull();
+  if (!page) return;
+  const fit = page.content.blocks.find(block => block.copyKey === 'career.block.fit');
+  expect(fit).toBeDefined();
+  if (!fit) return;
+  fit.items = fit.items.filter(item => item.copyKey !== 'career.item.personality-fit-block');
+  const surface = buildCareerPageDisplaySurface(page, careerDisplayIdentity('accountants-and-auditors', {}), original.display.components.primary_cta.href);
+  const html = renderToStaticMarkup(<CareerDisplaySurface surface={surface} />);
+  expect(html).toContain('career-dossier-fit-center');
+  expect(html).toContain(original.display.components.personality_fit_block.direct_answer);
+});
+
 it.skipIf(!process.env.CAREER_PUBLIC_API_DIR)('renders every supplied public API page through the actual component tree', async () => {
   const dir = process.env.CAREER_PUBLIC_API_DIR!;
   const files = readdirSync(dir).filter(file => file.endsWith('.json'));
@@ -86,7 +100,7 @@ it.skipIf(!process.env.CAREER_PUBLIC_API_DIR)('renders every supplied public API
     const node = document.createElement('div');
     node.innerHTML = renderToStaticMarkup(<CareerDisplaySurface surface={surface} />);
     expect(node.querySelector('[data-testid="career-display-surface"]'), slug).not.toBeNull();
-    for (const component of ['career-dossier-ai-impact', 'career-dossier-china-salary', 'career-dossier-us-salary']) {
+    for (const component of ['career-dossier-ai-impact', 'career-dossier-china-salary', 'career-dossier-us-salary', 'career-dossier-fit-center']) {
       expect(node.querySelector(`[data-testid="${component}"]`), `${slug}:${component}`).not.toBeNull();
     }
     expect(node.querySelectorAll('a[href^="javascript:"]'), slug).toHaveLength(0);

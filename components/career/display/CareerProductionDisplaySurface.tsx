@@ -884,6 +884,13 @@ export function CareerProductionDisplaySurface({
         .map((item) => careerComponentForV3CopyKey(item.copyKey))
         .filter((componentId): componentId is CareerDisplayComponentId => componentId !== null),
     );
+    // Current fit copy is declared by display, independently of historical body items.
+    if (block.copyKey === "career.block.fit" &&
+        ["riasec_fit_block", "personality_fit_block"].every(id => surface.componentOrder.includes(id as CareerDisplayComponentId)) &&
+        supportsRiasecFit(publishedComponents.riasec_fit_block) && supportsCareerDossierFitCenter(publishedComponents.personality_fit_block)) {
+      availableComponents.add("riasec_fit_block");
+      availableComponents.add("personality_fit_block");
+    }
     const declares = (...componentIds: CareerDisplayComponentId[]) => componentIds.every((componentId) => availableComponents.has(componentId));
 
     if (block.copyKey === "career.block.quick-decision" && declares("fermat_decision_card", "fit_decision_checklist")) {
