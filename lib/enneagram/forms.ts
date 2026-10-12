@@ -93,7 +93,7 @@ export function getEnneagramVariantSummary(formCode: string | null | undefined, 
   const meta = resolveEnneagramFormMeta(formCode);
   if (locale === "zh") {
     return meta.formCode === "enneagram_forced_choice_144"
-      ? `${meta.questionCount} 题，约 ${meta.estimatedMinutes} 分钟。每题在两个描述中选择更贴近你的一个，适合更正式的迫选版本。`
+      ? `${meta.questionCount} 题，约 ${meta.estimatedMinutes} 分钟。每题在两个描述中选择更贴近你的一个，适合希望比较两项描述的人。`
       : `${meta.questionCount} 题，约 ${meta.estimatedMinutes} 分钟。使用五点量表回答每个描述，适合标准自评入口。`;
   }
 
