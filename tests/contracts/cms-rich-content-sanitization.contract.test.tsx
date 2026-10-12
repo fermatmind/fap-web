@@ -10,6 +10,7 @@ import { renderPersonalitySections } from "@/lib/cms/personality-sections";
 import { renderTopicSections } from "@/lib/cms/topic-sections";
 import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import { renderCjkPunctuationText } from "@/lib/content/textPunctuation";
+import { renderCmsInlineMarkdown } from "@/lib/content/markdownInline";
 import type { ContentPage } from "@/lib/cms/content-pages";
 
 const ROOT = process.cwd();
@@ -370,6 +371,39 @@ describe("CMS rich content sanitization contract", () => {
     expect(html).not.toContain('href="/science"');
     expect(html).not.toContain('href="/method-boundaries"');
     expect(html).not.toContain('href="/tests/mbti-personality-test-16-personality-types"');
+  });
+
+  it.each(["en", "zh"] as const)("localizes the three science Markdown references for %s without changing copy", (locale) => {
+    const page = stripContentPageReaderMetadata(makeContentPage("", {
+      slug: "science", path: "/science", title: "Science", locale,
+      contentMd: "Related pages: [Method boundaries](/method-boundaries), [Item design notes](/item-design-notes?from=science#items), [Reliability and validity](/reliability-validity).",
+    }));
+    const html = renderToStaticMarkup(<ContentPageTemplate page={page} locale={locale} />);
+    const reader = document.createElement("div");
+    reader.innerHTML = html;
+
+    expect(Array.from(reader.querySelectorAll("[data-animation-profile] a"), (node) => node.getAttribute("href"))).toEqual([
+      `/${locale}/method-boundaries`, `/${locale}/item-design-notes?from=science#items`, `/${locale}/reliability-validity`,
+    ]);
+    expect(reader.textContent).toContain("Related pages: Method boundaries, Item design notes, Reliability and validity.");
+    expect(html).not.toMatch(/href="\/(?:method-boundaries|item-design-notes|reliability-validity)(?:["?#])/);
+  });
+
+  it("preserves explicit languages, external links and unrelated routes while filtering unsafe science Markdown URLs", () => {
+    const html = renderToStaticMarkup(<div>{renderCmsInlineMarkdown(
+      "[English](/en/item-design-notes) [Chinese](/zh/method-boundaries) [External](https://example.com/item-design-notes) [Test](/tests/mbti-personality-test-16-personality-types) [Other](/item-design-notes-extra) [Fragment](#items) [Unsafe](javascript:alert) [Protocol-relative](//example.com/item-design-notes)",
+      "science-links", { locale: "zh" }
+    )}</div>);
+    const reader = document.createElement("div");
+    reader.innerHTML = html;
+
+    expect(Array.from(reader.querySelectorAll("a"), (node) => node.getAttribute("href"))).toEqual([
+      "/en/item-design-notes", "/zh/method-boundaries", "https://example.com/item-design-notes",
+      "/tests/mbti-personality-test-16-personality-types", "/item-design-notes-extra", "#items",
+    ]);
+    expect(reader.textContent).toContain("Unsafe Protocol-relative");
+    expectNoExecutableCmsHtml(html);
+    expect(renderToStaticMarkup(<div>{renderCmsInlineMarkdown("[Notes](/item-design-notes)", "no-locale")}</div>)).toContain('href="/item-design-notes"');
   });
 
   it("neutralizes unsafe Markdown link URLs while preserving text", () => {

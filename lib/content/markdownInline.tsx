@@ -1,7 +1,9 @@
 import type { ReactNode } from "react";
 import { sanitizeCmsUrl } from "@/lib/cms/sanitizeCmsRichText";
 import { labelInternalHref, splitInternalLinkText, type InternalLinkLabelMap } from "@/lib/content/internalLinkText";
-import type { Locale } from "@/lib/i18n/locales";
+import { localizedPath, type Locale } from "@/lib/i18n/locales";
+
+const SCIENCE_RELATED_PAGE_HREF_RE = /^\/(?:method-boundaries|item-design-notes|reliability-validity)(?:$|[/?#])/;
 
 export function stripMarkdownEmphasisMarkers(text: string): string {
   return text.replace(/\*+/g, "");
@@ -20,14 +22,17 @@ export function renderCmsInlineMarkdown(
     const key = `${keyPrefix}-${index}`;
     const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
     if (link) {
-      const href = sanitizeCmsUrl(link[2] ?? "");
+      const safeHref = sanitizeCmsUrl(link[2] ?? "");
       const rawLabel = stripMarkdownEmphasisMarkers(link[1] ?? "");
-      if (!href) {
+      if (!safeHref) {
         return <span key={key}>{rawLabel}</span>;
       }
 
-      const label = rawLabel.trim() === href.trim()
-        ? labelInternalHref(href, options.internalLinkLabels, options.locale ?? "zh") ?? rawLabel
+      const href = options.locale && SCIENCE_RELATED_PAGE_HREF_RE.test(safeHref)
+        ? localizedPath(safeHref, options.locale)
+        : safeHref;
+      const label = rawLabel.trim() === safeHref.trim()
+        ? labelInternalHref(safeHref, options.internalLinkLabels, options.locale ?? "zh") ?? rawLabel
         : rawLabel;
       const isExternal = /^https?:\/\//i.test(href);
       return (
