@@ -74,8 +74,11 @@ try {
   const page = response.career_page;
   if (response.bundle_version !== 'career.detail.page.v1' || response.locale_policy?.requested_locale !== 'zh-CN' ||
       response.identity?.canonical_slug !== 'accountants-and-auditors' || page?.locale !== 'zh-CN' ||
-      page.display?.contract_version !== 'career.detail.display.v1' || page.hero?.ai?.availability !== 'available' ||
+      page.display?.contract_version !== 'career.detail.display.v1' || !['available', 'missing'].includes(page.hero?.ai?.availability) ||
       page.hero?.badges?.length !== 3) throw new Error('API contract');
+  const ai = page.hero.ai;
+  if (ai.availability === 'missing' ? ai.fact !== null || ai.fact_ref !== null :
+      typeof ai.fact?.display_value !== 'string' || !ai.fact.display_value.trim()) throw new Error('AI availability');
   // Exclude React transport scripts so cached props cannot masquerade as rendered content.
   category = 'stream';
   const rendered = completeStream(html);
@@ -125,7 +128,9 @@ try {
   const normalize = value => decode(value).replace(/\s+/g, '');
   const visible = normalize(rendered.replace(/<[^>]*>/g, ''));
   const components = page.display.components;
-  const expected = [page.subject.name, page.hero.ai.fact?.display_value, ...page.hero.badges,
+  if (ai.availability === 'missing' && (!rendered.includes('data-career-ai-unavailable="true"') ||
+      !visible.includes(normalize('暂无数据')))) throw new Error('AI missing state');
+  const expected = [page.subject.name, ai.availability === 'available' ? ai.fact.display_value : ai.label, ...page.hero.badges,
     ...page.hero.metrics.map(metric => metric.fact?.display_value), components.hero.quick_answer,
     components.definition_block, components.faq_block.items[0]?.question];
   for (const value of expected) {
