@@ -68,8 +68,8 @@ function DecisionTable({ item, content }: { item: CareerContentV3Item; content: 
           <tbody role="rowgroup">{tableRows.map((row, rowIndex) => <tr key={`${item.id}:${rowIndex}`} role="row">{row.map((cell, cellIndex) => cellIndex === 0
             ? <th key={cellIndex} id={`${item.id}-row-${rowIndex}`} role="rowheader" scope="row">{cell}</th>
             : <td key={cellIndex} role="cell" headers={`${item.id}-column-${cellIndex} ${item.id}-row-${rowIndex}`}>
-                <span aria-hidden="true" className={styles.mobileLabel}>{labels[cellIndex]}</span>
-                <span className={styles.value}>{cell}</span>
+                <span aria-hidden="true">{labels[cellIndex]}</span>
+                <span>{cell}</span>
               </td>)}</tr>)}</tbody>
         </table>
       </div>

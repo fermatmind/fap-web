@@ -60,7 +60,7 @@
   color: #465066;
 }
 
-.mobileLabel {
+.table td > span[aria-hidden="true"] {
   display: block;
   font-size: 12px;
   line-height: 16px;
@@ -68,7 +68,7 @@
   color: #657087;
 }
 
-.value {
+.table td > span:last-child {
   display: block;
   margin-top: 4px;
 }
@@ -125,11 +125,11 @@
     line-height: 24px;
   }
 
-  .mobileLabel {
+  .table td > span[aria-hidden="true"] {
     display: none;
   }
 
-  .value {
+  .table td > span:last-child {
     margin-top: 0;
   }
 }
