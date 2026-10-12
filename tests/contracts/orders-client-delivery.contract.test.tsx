@@ -800,7 +800,7 @@ describe("OrdersClient delivery contract", () => {
       paymentRecoveryToken: "recovery_pending_pay_1",
     });
     expect(screen.getByText("Provider: alipay")).toBeInTheDocument();
-    expect(screen.getByText("Continue payment in the provider page, then return to this tab.")).toBeInTheDocument();
+    expect(screen.getByText("Complete payment on the payment page, then return here and wait for the status to update.")).toBeInTheDocument();
     expect(screen.getByTestId("order-back-to-result-link")).toHaveAttribute("href", "/en/result/ord_pending_pay_attempt_1");
     expectInlineActionOrder(screen.getByTestId("order-wait-actions-pending"), [
       "Back to my test result",

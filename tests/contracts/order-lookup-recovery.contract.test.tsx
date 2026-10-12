@@ -627,7 +627,7 @@ describe("OrderLookupForm recovery contract", () => {
 
     await waitFor(() => {
       expect(screen.getByTestId("order-lookup-feedback")).toHaveTextContent(
-        "We’ve received the request. When the order matches, the report link will be sent to the purchase email."
+        "We’ve received the request. When the order and email match, the report link will be sent to your purchase email."
       );
     });
   });

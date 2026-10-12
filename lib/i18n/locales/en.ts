@@ -15,8 +15,8 @@ const en: SiteDictionary = {
     profile: "My Account",
     menu: "Menu",
     closeMenu: "Close menu",
-    completedPrefix: "Completed in last 30 days:",
-    completedSuffix: "assessments",
+    completedPrefix: "Cumulative test participants:",
+    completedSuffix: "",
     switchToEnglish: "EN",
     switchToChinese: "中文",
   },
@@ -113,7 +113,7 @@ const en: SiteDictionary = {
   card: {
     compactLabel: "Compact visual",
     a11yVisualDescriptions: {
-      bars_ocean: "Five rising bars representing OCEAN personality traits.",
+      bars_ocean: "A bar chart representing higher and lower values across the five OCEAN dimensions.",
       wave_clinical: "Clinical trend wave lines expressing multidomain variation.",
       grid_nine: "Nine-node matrix representing Enneagram structure.",
       ring_four: "Four-segment ring representing a four-domain behavior pattern.",
@@ -162,8 +162,8 @@ const en: SiteDictionary = {
         cooldownWithoutRetry: "You already started {form_label}. Please try again later.",
         limitExceededWithWindow: "You have reached the restart limit for {form_label} in the last 30 days.",
         limitExceededDefault: "You have reached the restart limit for {form_label}. Please try again later.",
-        genericWithRetry: "Starting is temporarily limited. Please try again in {retry_after}.",
-        genericWithoutRetry: "Starting is temporarily limited. Please try again later.",
+        genericWithRetry: "There are currently many requests to start assessments. Please try again in {retry_after}.",
+        genericWithoutRetry: "There are currently many requests to start assessments. Please try again later.",
       },
       guidance: "If you want to continue, come back later or explore another assessment.",
       retryCountdown: "Please wait {retry_after} before retrying.",
@@ -196,7 +196,7 @@ const en: SiteDictionary = {
     refund: "Refund",
     support: "Help",
     manageEmailPreferences: "Manage email preferences",
-    unsubscribeFromEmails: "Unsubscribe from emails",
+    unsubscribeFromEmails: "Unsubscribe from all emails",
     copyright: "All rights reserved.",
     allTestsTitle: "All tests",
     articlesTitle: "FermatMind Blog",
@@ -211,7 +211,7 @@ const en: SiteDictionary = {
       company: "Company",
       policies: "Terms & policies",
     },
-    tailnote: "See the Micro. Lead the Macro.",
+    tailnote: "Measure yourself, discover careers, build your future.",
   },
   commerce: {
     unlock_title: "Unlock full report",
@@ -263,7 +263,7 @@ const en: SiteDictionary = {
     qrCodeHint: "Scan this QR code in your payment app to complete checkout.",
     qrCodeGenerating: "Generating secure QR code...",
     qrCodeUnavailable: "Unable to render QR code. Please refresh and try again.",
-    openPaymentHint: "Continue payment in the provider page, then return to this tab.",
+    openPaymentHint: "Complete payment on the payment page, then return here and wait for the status to update.",
     openPaymentPage: "Open payment page",
     recoveryRequired: "This order is not available under the current identity.",
     recoveryHint: "You may have switched browsers, devices, or anonymous identities. Use order lookup to recover this payment flow.",
@@ -382,7 +382,7 @@ const en: SiteDictionary = {
       statusDisabled: "Disabled",
       save: "Save preferences",
       saving: "Saving...",
-      unsubscribeCta: "Unsubscribe from emails",
+      unsubscribeCta: "Unsubscribe from all emails",
       successMessage:
         "Your subscriber preferences are saved. Marketing updates, report recovery emails, and product updates now use the states shown below.",
       invalidTitle: "This link is invalid or has expired.",
@@ -391,11 +391,11 @@ const en: SiteDictionary = {
       fields: {
         marketing_updates: {
           title: "Marketing updates",
-          description: "Product and marketing updates about FermatMind offers, launches, and announcements.",
+          description: "Receive FermatMind product and marketing updates. This does not affect report recovery emails.",
         },
         report_recovery: {
           title: "Report recovery",
-          description: "Recovery and delivery emails that help you restore access to your report and order emails.",
+          description: "Receive emails for report recovery, replacement links, and delivery.",
         },
         product_updates: {
           title: "Product updates",
@@ -408,9 +408,9 @@ const en: SiteDictionary = {
       },
     },
     unsubscribe: {
-      metadataTitle: "Unsubscribe from emails",
+      metadataTitle: "Unsubscribe from all emails",
       metadataDescription: "Use the email link to unsubscribe from the related FermatMind emails.",
-      title: "Unsubscribe from emails",
+      title: "Unsubscribe from all emails",
       description: "Use the unsubscribe link in your email to continue.",
       missingDescription: "Open this page from the unsubscribe link inside your email.",
       confirmTitle: "Confirm unsubscribe",

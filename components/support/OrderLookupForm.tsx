@@ -201,7 +201,7 @@ export function OrderLookupForm({
   const blindSuccessMessage =
     locale === "zh"
       ? "我们已接受请求。订单与邮箱匹配时，报告链接会发送到你的购买邮箱。"
-      : "We’ve received the request. When the order matches, the report link will be sent to the purchase email.";
+      : "We’ve received the request. When the order and email match, the report link will be sent to your purchase email.";
 
   const waitMessage = locale === "zh" ? "请稍后再试。" : "Please wait a moment before trying again.";
   const lookupErrorMessage =

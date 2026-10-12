@@ -3,22 +3,22 @@ import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 // Product UI authority for these six landing pages. CMS/registry text must not
 // override their headings or version-button labels; runtime availability stays API-owned.
 const ASSESSMENT_LANDING_UI: Partial<Record<string, Record<"zh" | "en", string>>> = {
-  [SCALE_CANONICAL_SLUG_MAP.MBTI]: { zh: "MBTI 性格免费测试", en: "Free MBTI-Style Personality Test" },
+  [SCALE_CANONICAL_SLUG_MAP.MBTI]: { zh: "MBTI 性格免费测试", en: "Free 16-Type MBTI-Style Personality Test" },
   [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: { zh: "大五人格免费测试（Big Five）", en: "Free Big Five Personality Test" },
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: { zh: "九型人格免费测试（Enneagram）", en: "Free Enneagram Personality Test" },
   [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: { zh: "IQ智商免费测试", en: "Free IQ Test" },
-  [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { zh: "免费情商测试：60题情绪与关系自评", en: "Free EQ Test: 60-Item Emotional Intelligence Self-Report" },
+  [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { zh: "免费情商测试：60题情绪与关系自评", en: "Free EQ Test: 60-Item Emotion and Relationship Self-Report" },
   [SCALE_CANONICAL_SLUG_MAP.RIASEC]: { zh: "霍兰德职业兴趣免费测试（RIASEC）", en: "Free Holland Code Career Interest Test (RIASEC)" },
 };
 
 // English search copy is distinct from the concise on-page heading.
 const EN_SEARCH_COPY: Partial<Record<string, { title: string; description: string }>> = {
-  [SCALE_CANONICAL_SLUG_MAP.MBTI]: { title: "Free MBTI Personality Test: 16 Types & Preferences", description: "Explore your four-letter type and four preference pairs. Choose 93 questions (about 10 minutes) or 144 (about 15), with free results and explanations." },
+  [SCALE_CANONICAL_SLUG_MAP.MBTI]: { title: "Free MBTI Personality Test: 16 Types & Preferences", description: "Free MBTI test: 93 questions (~10 min) or 144 (~15). Explore 16 types, four preference pairs and next steps for self-understanding and communication reference." },
   [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: { title: "Free Big Five Personality Test: OCEAN Traits", description: "Explore five OCEAN personality traits and 30 facets with a free 90- or 120-question Big Five test. Compare versions and understand scores and percentiles." },
-  [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: { title: "Free Enneagram Test: Explore Your 9-Type Profile", description: "Explore your nine-type profile with a free Enneagram test. Rate 105 statements in about 12 minutes, or make 144 paired choices in about 18 minutes." },
-  [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: { title: "Free IQ Test: 30 Original Visual Reasoning Questions", description: "Try 30 original visual reasoning questions for free in about 20 minutes. Understand raw results and the simulated Beta indicator, with a worked example and clear next steps." },
-  [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { title: "Free EQ Test: 60-Item Emotional Intelligence Self-Report", description: "Take 60 self-report items in about 10 minutes. View free EQ-60 results and learn about four dimensions, provisional references and evidence limits." },
-  [SCALE_CANONICAL_SLUG_MAP.RIASEC]: { title: "Free Holland Code Career Test: RIASEC Interests", description: "Explore the work activities you enjoy with a free Holland Code test. Choose 60 or 140 questions and view your six RIASEC scores and three-letter code." },
+  [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: { title: "Free Enneagram Test: Explore Your 9-Type Profile", description: "Free Enneagram: 105 ratings (~12 min) or 144 two-option choices (~18). Read nine-type distributions and candidate explanations against real experiences, motivations and reactions." },
+  [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: { title: "Free IQ Test: 30 Original Visual Reasoning Questions", description: "Try FermatMind’s 30 original visual reasoning tasks free (~20 min). Distinguish raw scores, accuracy and random Beta; use reasoning examples to choose review and reading paths." },
+  [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { title: "Free EQ Test: 60-Item Emotion and Relationship Self-Report", description: "FermatMind EQ-60: 60-item self-report (~10 min), currently free with results. Review four-dimensional tendencies, scoring, interim references and scientific limits before joining." },
+  [SCALE_CANONICAL_SLUG_MAP.RIASEC]: { title: "Free Holland Code Career Test: RIASEC Interests", description: "Free Holland Code interest test: 60 questions (~8 min) or 140 (~18). View six RIASEC interests and a three-letter code to explore specific activities and career directions." },
 };
 
 const ZH_SEARCH_COPY: Partial<Record<string, { title: string; description: string }>> = {
@@ -42,21 +42,22 @@ const ZH_SEARCH_COPY: Partial<Record<string, { title: string; description: strin
 };
 
 const HERO_DESCRIPTIONS: Partial<Record<string, Partial<Record<"zh" | "en", string>>>> = {
-  [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { zh: "约10分钟完成60题自评，当前测试与结果免费。查看自我觉察、情绪调节、共情理解和关系管理的四维结果，再结合具体事件与反馈阅读；结果反映本次自我描述。", en: "Complete 60 self-report items in about 10 minutes. The current test and results are free. Explore Self-Awareness, Emotion Regulation, Empathy and Relationship Management, then compare your answers with real events and feedback." },
+  [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { zh: "约10分钟完成60题自评，当前测试与结果免费。查看自我觉察、情绪调节、共情理解和关系管理的四维结果，再结合具体事件与反馈阅读；结果反映本次自我描述。", en: "Complete 60 self-report items in about 10 minutes. The current test and results are free. View four-dimensional results for Self-Awareness, Emotion Regulation, Empathy and Relationship Management, then read them alongside specific events and feedback. Results reflect your self-description in this response session." },
   [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: {
     zh: "大五人格测试观察 OCEAN 五个连续维度。120 题约 15 分钟，90 题约 11 分钟；两版均可免费完成并查看结果。按可投入时间选择版本，再结合具体情境阅读分数。",
+    en: "The Big Five test examines five continuous OCEAN dimensions. The 120-question version takes about 15 minutes, and the 90-question version about 11. Both are free to complete and view results. Choose a version based on the time you can spend, then read scores in specific contexts.",
   },
   [SCALE_CANONICAL_SLUG_MAP.MBTI]: {
     zh: "了解你的 16 型人格结果与四组偏好。93 题约 10 分钟，144 题约 15 分钟，两版均可免费完成并查看结果，用于自我了解与沟通参考。",
-    en: "See your four-letter type and the preferences behind it. Choose 93 questions in about 10 minutes or 144 in about 15. Both provide free results and preference explanations.",
+    en: "Learn about your 16-type personality result and four preference pairs. Choose 93 questions in about 10 minutes or 144 in about 15. Both versions are free to complete and view results, for self-understanding and communication reference.",
   },
   [SCALE_CANONICAL_SLUG_MAP.RIASEC]: {
     zh: "了解你更喜欢哪些工作活动，查看六维兴趣分布与前三项代码。60 题约 8 分钟，140 题约 18 分钟，两版均可免费完成并查看结果。",
-    en: "Explore the work activities you enjoy. Choose 60 questions in about 8 minutes or 140 in about 18. Both include free RIASEC results and a three-letter code.",
+    en: "Explore the work activities you prefer, your six-dimensional interest distribution, and the code for your top three interests. Choose 60 questions in about 8 minutes or 140 in about 18. Both versions are free to complete and view results.",
   },
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: {
     zh: "了解你的九型分布与候选类型。105 题按程度作答，约 12 分钟；144 题每题二选一，约 18 分钟。两版均可免费完成并查看结果。",
-    en: "Explore your nine-type profile and compare the patterns that fit your experience. Rate 105 statements or make 144 paired choices; both include free results.",
+    en: "Explore your nine-type distribution and candidate types. Rate the degree to which 105 items apply to you in about 12 minutes, or choose between two options for each of 144 items in about 18 minutes. Both versions are free to complete and view results.",
   },
 };
 
@@ -94,16 +95,16 @@ const ZH_ENTRY_LABELS: Record<string, string> = {
 };
 
 const EN_ENTRY_LABELS: Record<string, string> = {
-  mbti_144: "Start free 144-question test",
-  mbti_93: "Start free 93-question test",
-  big5_120: "Start free 120-question test",
-  big5_90: "Start free 90-question test",
-  enneagram_likert_105: "Start free 105-question test",
-  enneagram_forced_choice_144: "Start free 144-question test",
-  riasec_60: "Start free 60-question test",
-  riasec_140: "Start free 140-question test",
+  mbti_144: "144 questions · About 15 minutes · Free test",
+  mbti_93: "93 questions · About 10 minutes · Free test",
+  big5_120: "Start 120-question Full Edition · Free test",
+  big5_90: "Start 90-question Short Edition · Free test",
+  enneagram_likert_105: "Start 105 items · Degree ratings · Free test",
+  enneagram_forced_choice_144: "Start 144 items · Two-option choices · Free test",
+  riasec_60: "Start 60-question Standard Edition · Free test",
+  riasec_140: "Start 140-question Extended Edition · Free test",
   owner_original_30: "Start free 30-question test",
-  eq_60: "Start free 60-item self-report",
+  eq_60: "Start 60-item self-report · About 10 minutes · Free",
 };
 
 export type AssessmentArtwork = "mbti" | "big-five" | "enneagram" | "iq" | "eq" | "riasec";

@@ -52,7 +52,7 @@ export default async function BusinessPage({
       title: isZh ? "团队画像" : "Team Mapping",
       body: isZh
         ? "可围绕成员自愿分享的沟通偏好讨论具体协作问题，不由类型或分数决定分工。"
-        : "Discuss specific collaboration questions using preferences that people choose to share; types and scores do not determine roles.",
+        : "Discuss specific collaboration questions using communication preferences that members voluntarily share; types and scores do not determine the division of work.",
     },
     {
       title: isZh ? "发展建议" : "Growth Insights",
@@ -74,7 +74,7 @@ export default async function BusinessPage({
         <p className="m-0 max-w-3xl text-[var(--fm-text-muted)]">
           {isZh
             ? "了解组织中的自我观察与沟通探索需求。测评内容不用于招聘筛选、录用、晋升或岗位适配判断；具体可提供的服务范围请联系支持确认。"
-            : "Explore needs for voluntary self-reflection and workplace conversations. Assessment content is not used for hiring selection, promotion or role-fit judgments; contact support to confirm available services."}
+            : "Explore organizational needs for self-observation and communication. Assessment content is not used for recruitment screening, hiring, promotion or job-fit judgments; contact support to confirm the scope of available services."}
         </p>
         <div className="pt-1">
           <Link href={localizedPath("/help", locale)}>

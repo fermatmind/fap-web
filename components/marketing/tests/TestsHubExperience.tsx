@@ -98,8 +98,8 @@ const HUB_FEATURES = [
     icon: ShieldCheck,
     titleZh: "科学方法，可靠专业",
     bodyZh: "基于心理学与测量学的科学模型。",
-    titleEn: "Research-led methods",
-    bodyEn: "Built around psychology and assessment models.",
+    titleEn: "Scientific methods, reliable expertise",
+    bodyEn: "Based on scientific models from psychology and psychometrics.",
   },
   {
     icon: UserRound,

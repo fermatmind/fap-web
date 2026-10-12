@@ -125,10 +125,10 @@ describe("Email preferences and unsubscribe contract", () => {
       expect(screen.getByLabelText(/Marketing updates/i)).toBeInTheDocument();
     });
 
-    expect(screen.getByLabelText(/Report recovery/i)).toBeInTheDocument();
+    expect(screen.getByRole("checkbox", { name: "Report recovery" })).toBeInTheDocument();
     expect(screen.getByLabelText(/Product updates/i)).toBeInTheDocument();
-    expect(screen.getByText(/Product and marketing updates about FermatMind offers/i)).toBeInTheDocument();
-    expect(screen.getByText(/restore access to your report and order emails/i)).toBeInTheDocument();
+    expect(screen.getByText(/Receive FermatMind product and marketing updates/i)).toBeInTheDocument();
+    expect(screen.getByText(/report recovery, replacement links, and delivery/i)).toBeInTheDocument();
     expect(screen.getByText(/not the same as marketing campaigns/i)).toBeInTheDocument();
   });
 
@@ -194,7 +194,7 @@ describe("Email preferences and unsubscribe contract", () => {
       })
     );
 
-    expect(screen.getByTestId("email-unsubscribe-missing")).toHaveTextContent("Unsubscribe from emails");
+    expect(screen.getByTestId("email-unsubscribe-missing")).toHaveTextContent("Unsubscribe from all emails");
     expect(screen.getByText("Open this page from the unsubscribe link inside your email.")).toBeInTheDocument();
     expect(hoisted.unsubscribeEmail).not.toHaveBeenCalled();
   });
