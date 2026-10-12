@@ -1,4 +1,5 @@
 import { CareerEvidenceLine } from "@/components/career/display/CareerEvidenceLine";
+import styles from "./CareerDossierEntryDecisions.module.css";
 import {
   careerContentV3ColumnCopy,
   careerContentV3ItemCopy,
@@ -61,25 +62,16 @@ function DecisionTable({ item, content }: { item: CareerContentV3Item; content: 
   const labels = stringArray(item.data.column_labels).length ? stringArray(item.data.column_labels) : columns.map((column) => careerContentV3ColumnCopy(column, content.locale) ?? column);
   return (
     <>
-      <div className="mt-4 hidden overflow-x-auto md:block">
-        <table className="w-full table-fixed border-collapse text-left text-sm leading-6">
-          <thead><tr>{labels.map((label) => <th key={label} scope="col" className="border border-[#DCE3F0] bg-[#EEF3FB] px-3 py-3 font-bold text-[#243B7A]">{label}</th>)}</tr></thead>
-          <tbody>{tableRows.map((row, rowIndex) => <tr key={`${item.id}:${rowIndex}`}>{row.map((cell, cellIndex) => cellIndex === 0
-            ? <th key={`${rowIndex}:${cellIndex}`} scope="row" className="border border-[#DCE3F0] bg-[#F8FAFD] px-3 py-3 align-top font-bold text-[#243B7A]">{cell}</th>
-            : <td key={`${rowIndex}:${cellIndex}`} className="border border-[#DCE3F0] px-3 py-3 align-top text-[#465066]">{cell}</td>)}</tr>)}</tbody>
+      <div className={styles.wrapper}>
+        <table className={styles.table} role="table">
+          <thead role="rowgroup"><tr role="row">{labels.map((label, index) => <th key={index} id={`${item.id}-column-${index}`} role="columnheader" scope="col">{label}</th>)}</tr></thead>
+          <tbody role="rowgroup">{tableRows.map((row, rowIndex) => <tr key={`${item.id}:${rowIndex}`} role="row">{row.map((cell, cellIndex) => cellIndex === 0
+            ? <th key={cellIndex} id={`${item.id}-row-${rowIndex}`} role="rowheader" scope="row">{cell}</th>
+            : <td key={cellIndex} role="cell" headers={`${item.id}-column-${cellIndex} ${item.id}-row-${rowIndex}`}>
+                <span aria-hidden="true" className={styles.mobileLabel}>{labels[cellIndex]}</span>
+                <span className={styles.value}>{cell}</span>
+              </td>)}</tr>)}</tbody>
         </table>
-      </div>
-      <div className="mt-4 grid gap-3 md:hidden">
-        {tableRows.map((row, rowIndex) => (
-          <article key={`${item.id}:mobile:${rowIndex}`} className="min-w-0 rounded-xl border border-[#DCE3F0] bg-[#F8FAFD] p-4">
-            {row.map((cell, cellIndex) => (
-              <div key={`${rowIndex}:${cellIndex}`} className={cellIndex === 0 ? "font-bold text-[#243B7A]" : "mt-3"}>
-                {cellIndex > 0 ? <p className="m-0 text-xs font-bold text-[#657087]">{labels[cellIndex]}</p> : null}
-                <p className={`m-0 ${cellIndex > 0 ? "mt-1 text-sm leading-6 text-[#465066]" : ""}`}>{cell}</p>
-              </div>
-            ))}
-          </article>
-        ))}
       </div>
       <CareerEvidenceLine content={content} factRefs={item.factRefs} sourceRefs={item.sourceRefs} />
     </>

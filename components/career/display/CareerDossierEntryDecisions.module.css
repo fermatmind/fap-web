@@ -1,0 +1,133 @@
+.wrapper {
+  margin-top: 16px;
+  min-width: 0;
+}
+
+.table {
+  display: block;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.table thead {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.table tbody {
+  display: grid;
+  gap: 12px;
+}
+
+.table tbody tr {
+  display: block;
+  min-width: 0;
+  border: 1px solid #DCE3F0;
+  border-radius: 12px;
+  background: #F8FAFD;
+  padding: 16px;
+}
+
+.table tbody th,
+.table td {
+  display: block;
+  overflow-wrap: anywhere;
+  vertical-align: top;
+}
+
+.table tbody th {
+  line-height: 28px;
+}
+
+.table th {
+  color: #243B7A;
+  font-weight: 700;
+}
+
+.table td {
+  margin-top: 12px;
+  color: #465066;
+}
+
+.mobileLabel {
+  display: block;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  color: #657087;
+}
+
+.value {
+  display: block;
+  margin-top: 4px;
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    overflow-x: auto;
+  }
+
+  .table {
+    display: table;
+    table-layout: fixed;
+  }
+
+  .table thead {
+    position: static;
+    display: table-header-group;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  .table tbody {
+    display: table-row-group;
+  }
+
+  .table tbody tr {
+    display: table-row;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
+  }
+
+  .table thead th,
+  .table tbody th,
+  .table td {
+    display: table-cell;
+    border: 1px solid #DCE3F0;
+    padding: 12px;
+    margin: 0;
+  }
+
+  .table thead th {
+    background: #EEF3FB;
+  }
+
+  .table tbody th {
+    background: #F8FAFD;
+    line-height: 24px;
+  }
+
+  .mobileLabel {
+    display: none;
+  }
+
+  .value {
+    margin-top: 0;
+  }
+}
