@@ -46,7 +46,7 @@ function Sources({ links, componentId }: { links: CareerPublishedSourceLink[]; c
     <footer className="border-t border-[#E5E9F2] bg-[#F6F8FC] px-6 py-5 sm:px-8">
       <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs font-semibold text-[#2C3E8C]" data-career-api-list={`${componentId}.source_links`}>
         {links.map((source, index) => (
-          <a key={source.id} href={source.href} target="_blank" rel="noreferrer" title={source.scope} {...apiField(`${componentId}.source_links[${index}].label`)}>{source.label}</a>
+          <a key={source.id} href={source.href ?? undefined} target="_blank" rel="noreferrer" title={source.scope} {...apiField(`${componentId}.source_links[${index}].label`)}>{source.label}</a>
         ))}
       </div>
     </footer>

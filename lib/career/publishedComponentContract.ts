@@ -77,16 +77,18 @@ export type CareerPublishedFitDecisionCenter = {
   boundary: string;
   source_links: Array<{
     label: string;
-    href: string;
-    usage: string;
+    href: string | null;
+    usage?: string;
+    id?: string;
+    scope?: string;
   }>;
 };
 
 export type CareerPublishedSourceLink = {
   id: string;
   label: string;
-  href: string;
-  scope: string;
+  href: string | null;
+  scope?: string;
 };
 
 export type CareerPublishedWorkRisk = {
@@ -254,12 +256,12 @@ function validatePrimarySnapshot(value: unknown): boolean {
   return (salary.ui === undefined || (hasExactKeys(salary.ui, uiKeys) && uiKeys.every(key => isNonEmptyString((salary.ui as Record<string, unknown>)[key])))) &&
     requiredStrings.every((key) => isNonEmptyString(salary[key])) &&
     optionalStrings.every((key) => salary[key] === undefined || typeof salary[key] === "string") &&
-    (salary.fact_refs === undefined || isStringArray(salary.fact_refs)) &&
+    (salary.fact_refs === undefined || isStringArray(salary.fact_refs, 0)) &&
     ["china_ai_row", "china_class_row", "china_name_row", "china_soc_row"].every((key) => isStringOrScalarRecord(salary[key])) &&
     isScalarRecordArray(salary.bls_table, BLS_TABLE_ROW_KEY_SETS) &&
     isScalarRecordArray(salary.china_edu_table, [["学历段", "岗位方向", "说明"], ["label", "value"]]) &&
     isScalarRecordArray(salary.china_industry_table, [["行业", "需求"], ["行业", "需求", "备注"], ["label", "value"]]) &&
-    isScalarRecordArray(salary.china_salary_table, [["城市/区间", "月薪参考"], ["label", "value"]]);
+    isScalarRecordArray(salary.china_salary_table, [["城市/区间", "月薪参考"], ["城市/区间", "城市~1区间", "月薪参考"], ["城市/区间", "年工资参照（行业/岗位大类）"], ["城市/区间", "年工资参照（行业/人员大类）"], ["label", "value"]]);
 }
 
 function validateSecondarySnapshot(value: unknown): boolean {
@@ -277,8 +279,8 @@ function validateSecondarySnapshot(value: unknown): boolean {
   }
 
   if (suppliedKeys.some(key => key in value) && (
-    !suppliedKeys.every(key => key in value) || !isScalarRecordArray(value.wage_tiers, [["label", "value", "equivalent", "interpretation"]], 3)
-    || !Array.isArray(value.wage_tiers) || value.wage_tiers.length !== 3
+    !suppliedKeys.every(key => key in value) || !isScalarRecordArray(value.wage_tiers, [["label", "value", "equivalent", "interpretation"]], 1)
+    || !Array.isArray(value.wage_tiers) || value.wage_tiers.length < 1 || value.wage_tiers.length > 5
     || !isStringArray(value.wage_column_labels) || value.wage_column_labels.length !== 4
     || !isNonEmptyString(value.industry_value_label)
   )) return false;
@@ -445,13 +447,13 @@ function validateFitDecisionCenter(value: unknown): boolean {
       ["answer", "cta_label", "evidence_level", "label", "question", "watchout"].every((key) => isNonEmptyString(item[key])) &&
       /^\/(?:en|zh)\/tests\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(String(item.cta_href)) &&
       isStringArray(item.signals)) &&
-    Array.isArray(value.directions) && value.directions.length === 6 &&
+    Array.isArray(value.directions) && value.directions.length >= 1 && value.directions.length <= 6 &&
     value.directions.every((item) => {
       if (!hasExactKeys(item, ["direction", "fit_signals", "watchouts"], ["target"]) ||
         !["direction", "fit_signals", "watchouts"].every((key) => isNonEmptyString(item[key]))) {
         return false;
       }
-      if (item.target === undefined) return true;
+      if (item.target === undefined || item.target === null) return true;
       return hasExactKeys(item.target, ["href", "slug", "title"]) &&
         isNonEmptyString(item.target.slug) && isNonEmptyString(item.target.title) &&
         /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(item.target.slug) &&
@@ -460,13 +462,16 @@ function validateFitDecisionCenter(value: unknown): boolean {
     Array.isArray(value.questions) && value.questions.length >= 8 && value.questions.length <= 10 &&
     value.questions.every((item) => hasStringFields(item, ["answer", "question"])) &&
     Array.isArray(value.source_links) && value.source_links.length >= 4 &&
-    value.source_links.every((item) => hasStringFields(item, ["href", "label", "usage"]) &&
-      /^https:\/\//.test(String(item.href)));
+    value.source_links.every((item) => hasExactKeys(item, ["href", "label"], ["usage", "id", "scope"]) && isNonEmptyString(item.label) &&
+      ["usage", "id", "scope"].every(key => item[key] === undefined || isNonEmptyString(item[key])) &&
+      (item.href === null || /^https:\/\//.test(String(item.href)) || /^#career-visual-group-[a-z-]+$/.test(String(item.href))));
 }
 
 function validateSourceLinks(value: unknown, minimum = 3): boolean {
   return Array.isArray(value) && value.length >= minimum && value.every((item) =>
-    hasStringFields(item, ["href", "id", "label", "scope"]) && /^https:\/\//.test(String(item.href))
+    hasExactKeys(item, ["href", "id", "label"], ["scope"]) && isNonEmptyString(item.id) && isNonEmptyString(item.label) &&
+    (item.scope === undefined || isNonEmptyString(item.scope)) &&
+    (item.href === null || /^https:\/\//.test(String(item.href)) || /^#career-visual-group-[a-z-]+$/.test(String(item.href)))
   );
 }
 
@@ -515,8 +520,8 @@ function validateOutlookTransitions(value: unknown): boolean {
       ["source_id", "fact_ref", "source_ref"],
     )) &&
     validateContextLinks(value.context_links) &&
-    Array.isArray(value.transitions) && value.transitions.length >= 6 && value.transitions.length <= 8 && value.transitions.every((item) =>
-      hasStringFields(item, ["capability_gaps", "shared_capabilities", "target_href", "target_slug", "target_title", "transition_distance"]) &&
+    Array.isArray(value.transitions) && value.transitions.length >= 1 && value.transitions.length <= 8 && value.transitions.every((item) =>
+      hasStringFields(item, ["capability_gaps", "shared_capabilities", "target_href", "target_slug", "target_title", "transition_distance"], ["source_id"]) &&
       new RegExp(`^/(?:en|zh)/career/jobs/${String(item.target_slug)}$`).test(String(item.target_href))
     ) && validateSourceLinks(value.source_links, 4);
 }

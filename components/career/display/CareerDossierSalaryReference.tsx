@@ -11,6 +11,7 @@ type ChinaSalaryContent = {
   answer: string;
   officialIntro: string;
   officialRows: ScalarRow[];
+  officialValueField: string;
   scenarioRows: ScalarRow[];
   driverRows: ScalarRow[];
   aiAnswer: string;
@@ -101,7 +102,9 @@ function safeSourceUrl(value: string): string | null {
 
 function sourceItems(values: Array<string | null>): Array<{ label: string; href: string }> {
   const items = values.flatMap((value) => value?.split(/[；;]/) ?? []).map((item) => {
-    const [labelValue, hrefValue] = item.split("｜").map((part) => part.trim());
+    const parts = item.split("｜").map((part) => part.trim());
+    const labelValue = parts[0];
+    const hrefValue = parts[1] ?? item.match(/https:\/\/[^\s；;。]+/u)?.[0];
     const href = hrefValue ? safeSourceUrl(hrefValue) : null;
     return labelValue && href ? { label: labelValue, href } : null;
   });
@@ -128,7 +131,8 @@ function parseChinaSalary(value: CareerPublishedValue): ChinaSalaryContent | nul
   const aiAnswer = text(salary.china_ai_row);
   const boundary = text(salary.china_salary_note);
   const caseNote = text(salary.china_open);
-  const officialRows = rows(salary.china_salary_table, ["城市/区间", "月薪参考"], 3);
+  const officialValueField = ["月薪参考", "年工资参照（行业/岗位大类）", "年工资参照（行业/人员大类）"].find(key => Array.isArray(salary.china_salary_table) && salary.china_salary_table.every(row => isRecord(row) && text(row[key]))) ?? "月薪参考";
+  const officialRows = rows(salary.china_salary_table, ["城市/区间", officialValueField], 3, ["城市~1区间"]);
   const scenarioRows = rows(salary.china_edu_table, ["学历段", "岗位方向", "说明"], 4);
   const driverRows = rows(salary.china_industry_table, ["行业", "需求"], 3);
   const sources = sourceItems([
@@ -147,7 +151,7 @@ function parseChinaSalary(value: CareerPublishedValue): ChinaSalaryContent | nul
   }
 
   if (!heading || !answer || !officialIntro || !aiAnswer || !boundary || !caseNote ||
-    !officialRows || !scenarioRows || !driverRows || sources.length < 2) {
+    !officialRows || !scenarioRows || !driverRows || sources.length < 1) {
     return null;
   }
 
@@ -157,6 +161,7 @@ function parseChinaSalary(value: CareerPublishedValue): ChinaSalaryContent | nul
     answer,
     officialIntro,
     officialRows,
+    officialValueField,
     scenarioRows,
     driverRows,
     aiAnswer,
@@ -183,7 +188,7 @@ function parseUsSalary(value: CareerPublishedValue): UsSalaryContent | null {
   const outlookHeading = text(value.outlook_heading);
   const boundary = text(value.boundary);
   const authoritySourcesRaw = text(value.authority_sources);
-  const blsRows = rows(value.bls_table, ["指标", "数值", "说明"], 8, ["fact_ref"]);
+  const blsRows = rows(value.bls_table, ["指标", "数值", "说明"], 1, ["fact_ref"]);
   if (!blsRows) return null;
   const wageRows = blsRows.filter((row) => /(?:薪资|wages)/iu.test(row["指标"]));
   const outlookRows = blsRows.filter((row) => /(?:就业|outlook)/iu.test(row["指标"]));
@@ -194,8 +199,8 @@ function parseUsSalary(value: CareerPublishedValue): UsSalaryContent | null {
   let wageColumnLabels: string[] | null = null;
   const industryValueLabel = text(value.industry_value_label);
   if (Object.hasOwn(value, "wage_tiers")) {
-    const supplied = rows(value.wage_tiers, ["label", "value", "equivalent", "interpretation"], 3);
-    if (!supplied || supplied.length !== 3 || !Array.isArray(value.wage_column_labels)
+    const supplied = rows(value.wage_tiers, ["label", "value", "equivalent", "interpretation"], 1);
+    if (!supplied || (supplied.length < 1 || supplied.length > 5) || !Array.isArray(value.wage_column_labels)
       || value.wage_column_labels.length !== 4 || value.wage_column_labels.some(label => !text(label))
       || !industryValueLabel) return null;
     suppliedWageTiers = supplied.map(row => ({label: row.label, annual: row.value, monthly: row.equivalent, interpretation: row.interpretation, sourceIndexes: []}));
@@ -203,7 +208,7 @@ function parseUsSalary(value: CareerPublishedValue): UsSalaryContent | null {
   }
   if (!heading || !directAnswer || !wageHeading || !interpretationHeading || !interpretationRows ||
     !industryHeading || !industryRows || !factorsHeading || !factorRows || !outlookHeading || !boundary ||
-    !authoritySourcesRaw || !industryPeriod || !outlookPeriod || wageRows.length !== 5 || outlookRows.length !== 3 || sources.length < 2) return null;
+    !authoritySourcesRaw || !industryPeriod || !outlookPeriod || (!suppliedWageTiers && wageRows.length !== 5) || outlookRows.length < 1) return null;
   return {
     heading,
     directAnswer,
@@ -346,7 +351,8 @@ export function CareerDossierChinaSalary({ value, locale, contentV3 = null, inte
           {content.officialRows.map((row, index) => (
             <article key={row["城市/区间"]}>
               <h4 data-career-api-field={`career_snapshot_primary_locale.salary.china_salary_table[${index}].城市/区间`}>{row["城市/区间"]}</h4>
-              <p data-career-api-field={`career_snapshot_primary_locale.salary.china_salary_table[${index}].月薪参考`}>{row["月薪参考"]}</p>
+              {row["城市~1区间"] && <p data-career-api-field={`career_snapshot_primary_locale.salary.china_salary_table[${index}].城市~1区间`}>{row["城市~1区间"]}</p>}
+              <p data-career-api-field={`career_snapshot_primary_locale.salary.china_salary_table[${index}].${content.officialValueField}`}>{row[content.officialValueField]}</p>
             </article>
           ))}
         </div>
@@ -557,7 +563,7 @@ export function CareerDossierUsSalary({ value, locale, contentV3 = null, interfa
       <aside className={visual.salarySources} aria-label={interfaceLabels?.["interface.us_salary.sources_label"] ?? (locale === "zh" ? "美国薪资和就业数据来源" : "U.S. wage and employment sources")}>
         <p data-career-api-field="career_snapshot_secondary_locale.boundary">{content.boundary}</p>
         <SourceLinks items={content.sourceItems} prefix="career_snapshot_secondary_locale" />
-        <span aria-hidden="true" className="sr-only" data-career-api-field="career_snapshot_secondary_locale.authority_sources">{content.authoritySourcesRaw}</span>
+        <p data-career-api-field="career_snapshot_secondary_locale.authority_sources">{content.authoritySourcesRaw}</p>
       </aside>
     </section>
   );

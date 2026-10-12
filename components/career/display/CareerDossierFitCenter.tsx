@@ -106,7 +106,7 @@ export function supportsCareerDossierFitCenter(value: unknown): value is CareerP
     typeof candidate.direct_answer === "string" &&
     Array.isArray(candidate.signals) && candidate.signals.length === 3 &&
     Array.isArray(candidate.assessments) && candidate.assessments.length === 6 &&
-    Array.isArray(candidate.directions) && candidate.directions.length === 6 &&
+    Array.isArray(candidate.directions) && candidate.directions.length >= 1 && candidate.directions.length <= 6 &&
     Array.isArray(candidate.questions) && candidate.questions.length >= 8 &&
     Array.isArray(candidate.source_links) && candidate.source_links.length >= 4;
 }
@@ -250,7 +250,7 @@ export function CareerDossierFitCenter({ value, riasec, locale, sectionLabel, se
         <p {...apiField("personality_fit_block.boundary")}>{value.boundary}</p>
         <div data-career-api-list="personality_fit_block.source_links">
           {value.source_links.map((source, index) => (
-            <a key={source.href} href={source.href} target="_blank" rel="noreferrer" title={source.usage} data-career-api-field={`personality_fit_block.source_links[${index}].label`}>
+            <a key={`${source.href}:${index}`} href={source.href ?? undefined} target="_blank" rel="noreferrer" title={source.usage ?? source.scope} data-career-api-field={`personality_fit_block.source_links[${index}].label`}>
               {source.label}
             </a>
           ))}

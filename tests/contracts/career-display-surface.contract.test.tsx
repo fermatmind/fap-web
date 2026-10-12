@@ -1256,7 +1256,7 @@ describe("career display surface contract", () => {
     expect(surface?.subject.canonicalSlug).toBe("writers");
   });
 
-  it("renders the accountant fit decision center from the enhanced backend contract", () => {
+  it.each([1, 3, 5, 6])("renders all %i supplied fit directions from the enhanced backend contract", (directionCount) => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({
       slug: "accountants-and-auditors",
       locale: "zh",
@@ -1306,7 +1306,7 @@ describe("career display surface contract", () => {
         ["管理会计", "financial-analysts", "金融与投资分析师"],
         ["法务会计", "fraud-examiners-investigators-and-analysts", "欺诈审查员、调查员和分析师"],
         ["财务负责人", "financial-managers", "财务经理"],
-      ].map(([direction, slug, title]) => ({
+      ].slice(0, directionCount).map(([direction, slug, title]) => ({
         direction,
         fit_signals: "把兴趣和能力映射到具体任务。",
         target: { slug, title, href: `/zh/career/jobs/${slug}` },
@@ -1347,7 +1347,7 @@ describe("career display surface contract", () => {
     expect(riasecBaseline?.compareDocumentPosition(assessmentGrid as Node) ?? 0)
       .toBe(Node.DOCUMENT_POSITION_FOLLOWING);
     const directionLinks = document.querySelectorAll('[data-career-api-list="personality_fit_block.directions"] > a[data-career-direction-target]');
-    expect(directionLinks).toHaveLength(6);
+    expect(directionLinks).toHaveLength(directionCount);
     expect(directionLinks[0]).toHaveAttribute("href", "/zh/career/jobs/bookkeeping-accounting-and-auditing-clerks");
     expect(directionLinks[0]).toHaveTextContent("查看相关职业：簿记、会计与审计文员");
     expect(document.querySelectorAll('[data-career-api-list="personality_fit_block.questions"] > details')).toHaveLength(10);
@@ -1366,6 +1366,16 @@ describe("career display surface contract", () => {
     );
     expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(surface?.componentOrder.length ?? 0);
     expect(document.body).not.toHaveTextContent("[object Object]");
+
+    const fit = page.personality_fit_block as { directions: Array<{ target: { href: string } }> };
+    const directions = fit.directions;
+    fit.directions = [];
+    expect(normalizeCareerPublishedComponents(page, ["personality_fit_block"])).toBeNull();
+    fit.directions = Array.from({ length: 7 }, () => directions[0]);
+    expect(normalizeCareerPublishedComponents(page, ["personality_fit_block"])).toBeNull();
+    fit.directions = structuredClone(directions);
+    fit.directions[0].target.href = "javascript:alert(1)";
+    expect(normalizeCareerPublishedComponents(page, ["personality_fit_block"])).toBeNull();
   });
 
 });

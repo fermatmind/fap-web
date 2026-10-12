@@ -24,20 +24,96 @@ type AiImpactContent = {
 };
 
 const AI_SOURCE_HOSTS = new Set([
-  "www.bls.gov",
-  "www.weforum.org",
-  "www.ilo.org",
-  "pcaobus.org",
-  "www.cicpa.org.cn",
-  "pubsonline.informs.org",
-  "link.springer.com",
-  "www.onetonline.org",
+  "airc.nist.gov",
   "arxiv.org",
-  "www.sagaftra.org",
-  "nvlpubs.nist.gov",
-  "scjgj.gz.gov.cn",
-  "www.samr.gov.cn",
+  "cpc.people.com.cn",
+  "csrc.nist.gov",
+  "dbc.ca.gov",
+  "dhbc.ca.gov",
   "fermatmind.com",
+  "fgs.moa.gov.cn",
+  "gdconf.com",
+  "gdkfq.ezhou.gov.cn",
+  "ghzrzyw.beijing.gov.cn",
+  "info.narm.org",
+  "jncc.jinan.gov.cn",
+  "kjs.mof.gov.cn",
+  "link.springer.com",
+  "media.defense.gov",
+  "mzzj.sh.gov.cn",
+  "nij.ojp.gov",
+  "nvlpubs.nist.gov",
+  "openstd.samr.gov.cn",
+  "pcaobus.org",
+  "pilot.caac.gov.cn",
+  "policy.mofcom.gov.cn",
+  "pubsonline.informs.org",
+  "scjgj.gz.gov.cn",
+  "sfj.beijing.gov.cn",
+  "sjfg.samr.gov.cn",
+  "sjj.beijing.gov.cn",
+  "srsj.cngy.gov.cn",
+  "studentprivacy.ed.gov",
+  "wjw.beijing.gov.cn",
+  "wjw.shanxi.gov.cn",
+  "wjw.wuxi.gov.cn",
+  "www.accessdata.fda.gov",
+  "www.af.mil",
+  "www.ai.mil",
+  "www.americanbar.org",
+  "www.apa.org",
+  "www.archives.gov",
+  "www.army.mil",
+  "www.beijing.gov.cn",
+  "www.bls.gov",
+  "www.caac.gov.cn",
+  "www.cac.gov.cn",
+  "www.cdc.gov",
+  "www.cdss.ca.gov",
+  "www.cicpa.org.cn",
+  "www.consumerfinance.gov",
+  "www.court.gov.cn",
+  "www.cpsc.gov",
+  "www.ecfr.gov",
+  "www.goarmy.com",
+  "www.gov.cn",
+  "www.govinfo.gov",
+  "www.guangde.gov.cn",
+  "www.hbs.edu",
+  "www.ilo.org",
+  "www.imo.org",
+  "www.iso.org",
+  "www.leg.state.fl.us",
+  "www.marines.mil",
+  "www.mee.gov.cn",
+  "www.mem.gov.cn",
+  "www.moe.gov.cn",
+  "www.mohurd.gov.cn",
+  "www.most.gov.cn",
+  "www.mynextmove.org",
+  "www.navy.mil",
+  "www.ncac.gov.cn",
+  "www.nhc.gov.cn",
+  "www.nhtsa.gov",
+  "www.nist.gov",
+  "www.onetonline.org",
+  "www.osha.gov",
+  "www.parktool.com",
+  "www.sac.gov.cn",
+  "www.sagaftra.org",
+  "www.samr.gov.cn",
+  "www.sara.gov.cn",
+  "www.shanghai.gov.cn",
+  "www.spaceforce.mil",
+  "www.stats.gov.cn",
+  "www.unesco.org",
+  "www.weforum.org",
+  "www.who.int",
+  "xmsyj.moa.gov.cn",
+  "xxgk.mot.gov.cn",
+  "xzfg.moj.gov.cn",
+  "xzfy.moj.gov.cn",
+  "ypjg.ln.gov.cn"
 ]);
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -52,8 +128,8 @@ function rows(value: unknown, keys: string[], minimum: number, optionalKeys: str
   if (!Array.isArray(value) || value.length < minimum) return null;
   const parsed = value.map((item) => {
     if (!isRecord(item) || Object.keys(item).some((key) => !keys.includes(key) && !optionalKeys.includes(key)) || keys.some((key) => !(key in item))) return null;
-    const row = Object.fromEntries(keys.map((key) => [key, text(item[key])])) as Record<string, string | null>;
-    if (!Object.values(row).every(Boolean)) return null;
+    const row = Object.fromEntries(keys.map((key) => [key, key === "链接" && item[key] === null ? "" : text(item[key])])) as Record<string, string | null>;
+    if (keys.some(key => key !== "链接" && !row[key]) || (keys.includes("链接") && item["链接"] !== null && !row["链接"])) return null;
     for (const key of optionalKeys) {
       const optionalValue = text(item[key]);
       if (optionalValue) row[key] = optionalValue;
@@ -66,7 +142,7 @@ function rows(value: unknown, keys: string[], minimum: number, optionalKeys: str
 function safeSourceUrl(value: string): string | null {
   try {
     const url = new URL(value);
-    return url.protocol === "https:" && (AI_SOURCE_HOSTS.has(url.hostname) || url.href === "https://gdkfq.ezhou.gov.cn/gk/xxgkml/zcfg_1828/gjzcfg/202011/t20201113_368318.html") ? url.toString() : null;
+    return url.protocol === "https:" && !url.username && !url.password && (AI_SOURCE_HOSTS.has(url.hostname) || url.href === "https://gdkfq.ezhou.gov.cn/gk/xxgkml/zcfg_1828/gjzcfg/202011/t20201113_368318.html") ? url.toString() : null;
   } catch {
     return null;
   }
@@ -94,7 +170,7 @@ function parseAiImpact(value: CareerPublishedValue): AiImpactContent | null {
   if (!heading || !answer || !evidenceIntro || !differenceIntro || !responsibilityIntro ||
     !transition || !methodCards || !taskRows || !evidenceRows || !differenceRows ||
     !responsibilitySteps || !riskRows || !actionRows || !questions || !authorityLinks ||
-    [...evidenceRows, ...questions, ...authorityLinks].some((row) => safeSourceUrl(row["链接"]) === null)) {
+    [...evidenceRows, ...questions, ...authorityLinks].some((row) => row["链接"] !== "" && row["链接"] !== "编辑建议，无外部链接或采用效果证据" && safeSourceUrl(row["链接"]) === null)) {
     return null;
   }
 
@@ -122,6 +198,7 @@ export function supportsCareerDossierAiImpact(value: CareerPublishedValue): bool
 }
 
 function SourceLink({ href, children, field }: { href: string; children: string; field: string }) {
+  if (!safeSourceUrl(href)) return <span data-career-api-field={field}>{href || children}</span>;
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" data-career-api-field={field}>
       {children}
