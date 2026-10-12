@@ -262,7 +262,7 @@ function ScaleTechnicalNotePage({ locale, testSlug, testTitle, fetchTechnicalNot
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">{locale === "en" ? "Technical note v0.1" : "技术说明 v0.1"}</p>
           <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950">{heading}</h1>
           <p className="m-0 max-w-3xl text-base leading-8 text-slate-700">
-            {locale === "en" ? "Read the assessment methods, their limits, and the current evidence status." : "本页只渲染后端技术说明契约返回的公开安全方法、边界与数据状态。"}
+            {locale === "en" ? "This page shows only methods, boundaries, and data status designated safe for public display by the assessment’s technical note." : "本页只渲染后端技术说明契约返回的公开安全方法、边界与数据状态。"}
           </p>
           <p className="m-0 text-sm text-slate-500">{testTitle}</p>
         </div>
