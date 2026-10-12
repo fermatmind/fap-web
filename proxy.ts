@@ -263,6 +263,7 @@ async function probeCareerPublicAbsence(
   const query = new URLSearchParams({
     locale: toApiLocale(probe.locale),
     org_id: "0",
+    projection_contract: "career.detail.presence.v1",
   });
 
   try {
@@ -287,10 +288,12 @@ async function probeCareerPublicAbsence(
 
     const payload = await response.json();
     const canonicalSlug = payload?.identity?.canonical_slug;
+    const isCurrentIdentity = payload?.bundle_version === 'career.detail.page.v1' ||
+      payload?.bundle_version === 'career.detail.presence.v1';
     // Current fixed identities must reach the page's request/response validator.
     // A different Current identity is a contract failure, never an inferred alias.
     if (isSafeCareerJobSlug(canonicalSlug) && canonicalSlug !== probe.slug &&
-        (payload?.bundle_version !== 'career.detail.page.v1' || canonicalSlug === normalizeCareerJobSlug(probe.slug))) {
+        (!isCurrentIdentity || canonicalSlug === normalizeCareerJobSlug(probe.slug))) {
       const target = request.nextUrl.clone();
       target.pathname = `/${probe.locale}/career/jobs/${canonicalSlug}`;
       return NextResponse.redirect(target, 308);

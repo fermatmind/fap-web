@@ -28,6 +28,7 @@ describe("proxy boundary contract", () => {
   it.each(["en", "zh"])("returns the authoritative held status for the %s software developers route", async (locale) => {
     const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
       expect(String(input)).toContain("/api/v0.5/career/jobs/software-developers");
+      expect(new URL(String(input)).searchParams.get("projection_contract")).toBe("career.detail.presence.v1");
       expect(init?.method).toBe("GET");
       return new Response(null, { status: 404 });
     });
@@ -56,6 +57,23 @@ describe("proxy boundary contract", () => {
     const response = await proxyHandler(new NextRequest(`https://example.com/${locale}/career/jobs/Actors?utm=a`));
     expect(response.status).toBe(308);
     expect(response.headers.get("location")).toBe(`https://example.com/${locale}/career/jobs/actors?utm=a`);
+  });
+
+  it.each(["en", "zh"])("uses the small presence contract without redirecting mismatched Current identities in %s", async locale => {
+    vi.stubGlobal("fetch", vi.fn(async () => Response.json({bundle_version: "career.detail.presence.v1", identity: {canonical_slug: "librarians"}})));
+    const mismatch = await proxyHandler(new NextRequest(`https://example.com/${locale}/career/jobs/librarians-and-media-collections-specialists`));
+    expect(mismatch.headers.get("location")).toBeNull();
+    vi.stubGlobal("fetch", vi.fn(async () => Response.json({bundle_version: "career.detail.presence.v1", identity: {canonical_slug: "actors"}})));
+    const normalized = await proxyHandler(new NextRequest(`https://example.com/${locale}/career/jobs/Actors?utm=a`));
+    expect(normalized.status).toBe(308);
+    expect(normalized.headers.get("location")).toBe(`https://example.com/${locale}/career/jobs/actors?utm=a`);
+  });
+
+  it.each([410, 503])("preserves authoritative absence versus temporary probe failures (%s)", async status => {
+    vi.stubGlobal("fetch", vi.fn(async () => new Response(null, {status})));
+    const response = await proxyHandler(new NextRequest("https://example.com/zh/career/jobs/actors"));
+    expect(response.status).toBe(status === 410 ? 410 : 200);
+    expect(response.headers.get("location")).toBeNull();
   });
 
   it.each(["en", "zh"])("redirects a backend-resolved alias before streaming in %s", async (locale) => {
