@@ -513,8 +513,11 @@ function ReportHeader({
               <span>{t("本次兴趣重点", "Your interest pattern")}</span>
               <strong>{summary?.rankingDisplay || vm.interpretationState?.tieDisplay?.headline || vm.topCode}</strong>
               {tieNote ? <p>{tieNote}</p> : null}
-              {!summary && vm.interpretationState?.tieDisplay?.alternateCodes.length ? (
+              {vm.interpretationState?.tieDisplay?.alternateCodes.length ? (
                 <p>{t("可同时参考的阅读顺序", "Additional reading order")}: {vm.interpretationState.tieDisplay.alternateCodes.join(" / ")}</p>
+              ) : null}
+              {vm.interpretationState?.tieDisplay?.boundary && vm.interpretationState.tieDisplay.boundary !== summary?.boundary ? (
+                <p>{vm.interpretationState.tieDisplay.boundary}</p>
               ) : null}
             </div>
             <div className={styles.highlights}>
@@ -530,6 +533,11 @@ function ReportHeader({
               {!summary ? <p>{t("暂无可展示的后端阅读重点。", "No reading highlights are available.")}</p> : null}
             </div>
             <p className={styles.summaryNext}><strong>{t("下一步建议", "Your next step")}</strong>{" "}{summary?.nextStep || t("暂无可展示的后端下一步建议。", "No next-step guidance is available.")}</p>
+            {summary?.boundary ? (
+              <p className={styles.summaryNext} data-testid="riasec-result-boundary">
+                {summary.boundary}
+              </p>
+            ) : null}
           </div>
         </SummaryContent>
       ) : null}

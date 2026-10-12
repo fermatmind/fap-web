@@ -25,6 +25,33 @@ function model() {
   return vm;
 }
 
+function summaryModel(sampleKey: "zh-CN-60" | "zh-CN-140", nearTie = true) {
+  const source = structuredClone(backendSamples[sampleKey]);
+  if (nearTie) {
+    source.scores.dimensions.find((item) => item.code === "S")!.score = 70;
+    Object.assign(source.interpretation_state.tie_display_v1, {
+      kind: "near_tie",
+      position: "top2_top3_near_tie",
+      dimensions: ["A", "S"],
+      groups: [],
+      alternate_codes: ["ISA"],
+      display_copy: {
+        headline: "IAS",
+        note: "这些维度分数接近，不宜据此强调先后顺序。",
+        boundary: source.interpretation_state.alternate_code.display_boundary,
+      },
+    });
+  }
+  return assembleRiasecResultViewModel(
+    {
+      scale_code: "RIASEC",
+      type_code: "IAS",
+      riasec_public_projection_v2: source,
+    } as unknown as ReportResponse,
+    "zh",
+  );
+}
+
 describe("RIASEC interactive reading experience", () => {
   it("links chart and dimension controls to the selected insight without sorting scores", () => {
     const vm = model();
@@ -104,6 +131,44 @@ describe("RIASEC interactive reading experience", () => {
     expect(screen.getByTestId("riasec-result-summary")).toHaveTextContent(
       vm.resultSummary!.nextStep,
     );
+  });
+
+  it.each(["zh-CN-60", "zh-CN-140"] as const)(
+    "preserves result boundaries and alternate reading orders alongside the %s summary",
+    (sampleKey) => {
+      const vm = summaryModel(sampleKey);
+      expect(vm.resultSummary?.boundary).toBeTruthy();
+      expect(vm.interpretationState?.tieDisplay?.alternateCodes).toEqual(["ISA"]);
+      render(<RiasecResultShell locale="zh" viewModel={vm} />);
+      const summary = screen.getByTestId("riasec-result-summary");
+      expect(summary).toHaveTextContent(vm.resultSummary!.boundary);
+      expect(summary).toHaveTextContent(vm.interpretationState!.tieDisplay!.boundary);
+      expect(summary).toHaveTextContent("可同时参考的阅读顺序: ISA");
+      expect(summary).toHaveTextContent(vm.resultSummary!.nextStep);
+    },
+  );
+
+  it("keeps near-tie boundaries when the summary is absent and deduplicates equal boundaries", () => {
+    const vm = summaryModel("zh-CN-60");
+    const boundary = vm.interpretationState!.tieDisplay!.boundary;
+    vm.resultSummary!.boundary = boundary;
+    const { rerender } = render(<RiasecResultShell locale="zh" viewModel={vm} />);
+    expect(within(screen.getByTestId("riasec-result-summary")).getAllByText(boundary)).toHaveLength(1);
+    vm.resultSummary = null;
+    rerender(<RiasecResultShell locale="zh" viewModel={vm} />);
+    expect(within(screen.getByTestId("riasec-result-summary")).getAllByText(boundary)).toHaveLength(1);
+    vm.moduleVisibilityPolicy!.modules.find((item) => item.key === "hero_activity_chain")!.visibility = "hidden";
+    rerender(<RiasecResultShell locale="zh" viewModel={vm} />);
+    expect(screen.queryByTestId("riasec-result-summary")).not.toBeInTheDocument();
+  });
+
+  it("shows a backend summary boundary without adding a reading order for a non-tied result", () => {
+    const vm = summaryModel("zh-CN-140", false);
+    vm.moduleVisibilityPolicy!.modules.find((item) => item.key === "hero_activity_chain")!.visibility = "hidden";
+    render(<RiasecResultShell locale="zh" viewModel={vm} />);
+    const summary = screen.getByTestId("riasec-result-summary");
+    expect(summary).toHaveTextContent(vm.resultSummary!.boundary);
+    expect(summary).not.toHaveTextContent("可同时参考的阅读顺序");
   });
 
   it("shows allowed detailed copy directly without a disclosure button", () => {
