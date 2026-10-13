@@ -4,6 +4,7 @@ import { HomeMinimalShell } from "@/components/marketing/HomeMinimalShell";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { DEFAULT_SHARE_IMAGE_URL } from "@/lib/cms/media";
+import { withHomeShareCard } from "@/lib/brand/homeShareCard";
 import { localizedPath } from "@/lib/i18n/locales";
 import { getHomePageContent } from "@/lib/marketing/homepageContent";
 import { getHomepageRecommendedArticles } from "@/lib/marketing/homepageRecommendedArticles";
@@ -24,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const copy = await getHomePageContent(ROOT_LOCALE).catch(() => null);
 
   if (!copy) {
-    return buildPageMetadata({
+    return withHomeShareCard(buildPageMetadata({
       locale: ROOT_LOCALE,
       pathname: ROOT_PATH,
       title: "费马测试 — 免费人格测评、职业测试与智商检测",
@@ -36,10 +37,10 @@ export async function generateMetadata(): Promise<Metadata> {
         zh: "/",
         xDefault: "/",
       },
-    });
+    }), ROOT_LOCALE);
   }
 
-  return buildPageMetadata({
+  return withHomeShareCard(buildPageMetadata({
     locale: ROOT_LOCALE,
     pathname: ROOT_PATH,
     title: copy.seo.title,
@@ -50,7 +51,7 @@ export async function generateMetadata(): Promise<Metadata> {
       zh: "/",
       xDefault: "/",
     },
-  });
+  }), ROOT_LOCALE);
 }
 
 function buildRootHomeJsonLd(copy: Awaited<ReturnType<typeof getHomePageContent>>) {

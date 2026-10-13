@@ -4,6 +4,7 @@ import { HomeMinimalShell } from "@/components/marketing/HomeMinimalShell";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { DEFAULT_SHARE_IMAGE_URL } from "@/lib/cms/media";
+import { withHomeShareCard } from "@/lib/brand/homeShareCard";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { getHomePageContent } from "@/lib/marketing/homepageContent";
@@ -30,7 +31,7 @@ export async function generateMetadata({
   const copy = await getHomePageContent(locale).catch(() => null);
 
   if (!copy) {
-    return buildPageMetadata({
+    return withHomeShareCard(buildPageMetadata({
       locale,
       pathname: isZh ? "/zh" : pathname,
       canonicalPathname: pathname,
@@ -43,10 +44,10 @@ export async function generateMetadata({
         zh: "/",
         xDefault: "/",
       },
-    });
+    }), locale);
   }
 
-  return buildPageMetadata({
+  return withHomeShareCard(buildPageMetadata({
     locale,
     pathname: isZh ? "/zh" : pathname,
     canonicalPathname: pathname,
@@ -58,7 +59,7 @@ export async function generateMetadata({
       zh: "/",
       xDefault: "/",
     },
-  });
+  }), locale);
 }
 
 function buildHomeJsonLd(locale: Locale, copy: Awaited<ReturnType<typeof getHomePageContent>>) {

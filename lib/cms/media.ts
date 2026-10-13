@@ -67,5 +67,5 @@ export function cmsManagedMediaUrl(value: string | null | undefined): string | n
   });
 }
 
-export const DEFAULT_SHARE_IMAGE_URL = new URL("/brand/share-20261013.png", process.env.NEXT_PUBLIC_SITE_URL || SITE_URL).href;
+export const DEFAULT_SHARE_IMAGE_URL = new URL("/brand/share-home-en-20261014.png", process.env.NEXT_PUBLIC_SITE_URL || SITE_URL).href;
 export const DEFAULT_TEST_COVER_URL = new URL("/brand/mark-20261013.png", process.env.NEXT_PUBLIC_SITE_URL || SITE_URL).href;
