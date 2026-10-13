@@ -1013,12 +1013,12 @@ describe("MBTI share consumer contract", () => {
       title: "ENFP-T · Campaigner｜FermatMind",
       description: "This public MBTI share page keeps only the lightweight result summary and never exposes paid content.",
       url: "http://localhost:3000/zh/share",
-      images: ["https://api.fermatmind.com/static/share/mbti_wide_1200x630.png"],
+      images: ["http://localhost:3000/brand/share-20261013.png"],
     });
     expect(metadata.twitter).toMatchObject({
       title: "ENFP-T · Campaigner｜FermatMind",
       description: "This public MBTI share page keeps only the lightweight result summary and never exposes paid content.",
-      images: ["https://api.fermatmind.com/static/share/mbti_wide_1200x630.png"],
+      images: ["http://localhost:3000/brand/share-20261013.png"],
     });
     expect(JSON.stringify(metadata)).not.toContain("/share/share-123");
     expect(JSON.stringify(metadata)).not.toContain("/og/share/share-123");

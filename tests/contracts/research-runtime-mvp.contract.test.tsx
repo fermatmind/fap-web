@@ -238,10 +238,10 @@ describe("Research runtime MVP contract", () => {
     expect(metadata.openGraph?.title).toBe("Backend Research SEO Title");
     expect(metadata.openGraph?.description).toBe("Backend Research SEO description.");
     expect(metadata.openGraph?.url).toBe("http://localhost:3000/en/research/backend-research-report");
-    expect(metadata.openGraph?.images).toEqual(["https://api.fermatmind.com/static/share/mbti_wide_1200x630.png"]);
+    expect(metadata.openGraph?.images).toEqual(["http://localhost:3000/brand/share-20261013.png"]);
     expect(metadata.twitter?.title).toBe("Backend Research SEO Title");
     expect(metadata.twitter?.description).toBe("Backend Research SEO description.");
-    expect(metadata.twitter?.images).toEqual(["https://api.fermatmind.com/static/share/mbti_wide_1200x630.png"]);
+    expect(metadata.twitter?.images).toEqual(["http://localhost:3000/brand/share-20261013.png"]);
     expect(readSource("app/(localized)/[locale]/research/[slug]/page.tsx")).not.toContain("Dataset");
     expect(readSource("app/(localized)/[locale]/research/[slug]/page.tsx")).not.toContain("MBTI Salary & Turnover Report");
   });

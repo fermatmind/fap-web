@@ -63,7 +63,7 @@ test("share metadata strips private IDs and compare metadata stays noindex", asy
   expect(shareHtml.toLowerCase()).toContain("noindex");
   expect(shareHtml).toContain('property="og:image"');
   expect(shareHtml).toContain('name="twitter:image"');
-  expect(shareHtml).toContain("/static/share/mbti_wide_1200x630.png");
+  expect(shareHtml).toContain("/brand/share-20261013.png");
   const metadataTags = shareHtml.match(/<(?:meta|link)\b[^>]*>/g) ?? [];
   expect(metadataTags.join("\n")).not.toContain(shareId);
   expect(shareHtml).toContain('rel="canonical" href="https://fermatmind.com/en/share"');

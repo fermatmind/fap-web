@@ -1,4 +1,5 @@
 import { resolveApiOrigin } from "@/lib/api-base";
+import { SITE_URL } from "@/lib/site";
 import { normalizeMediaAssetUrl } from "@/lib/url/safeContentUrls";
 
 export const CANONICAL_MEDIA_ASSET_ORIGIN = "https://assets.fermatmind.com";
@@ -66,5 +67,5 @@ export function cmsManagedMediaUrl(value: string | null | undefined): string | n
   });
 }
 
-export const DEFAULT_SHARE_IMAGE_URL = backendStaticMediaUrl("/static/share/mbti_wide_1200x630.png");
-export const DEFAULT_TEST_COVER_URL = backendStaticMediaUrl("/static/share/mbti_square_600x600.png");
+export const DEFAULT_SHARE_IMAGE_URL = new URL("/brand/share-20261013.png", process.env.NEXT_PUBLIC_SITE_URL || SITE_URL).href;
+export const DEFAULT_TEST_COVER_URL = new URL("/brand/mark-20261013.png", process.env.NEXT_PUBLIC_SITE_URL || SITE_URL).href;
