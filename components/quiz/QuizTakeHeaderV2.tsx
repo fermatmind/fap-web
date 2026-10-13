@@ -1,4 +1,5 @@
 import styles from "./AssessmentTake.module.css";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 import { LiveCompletedCounter } from "@/components/marketing/LiveCompletedCounter";
 
 export function QuizTakeHeaderV2({
@@ -31,12 +32,15 @@ export function QuizTakeHeaderV2({
   const safeTotal = Math.max(1, total);
   const safeCurrent = Math.min(Math.max(1, current), safeTotal);
   const percent = Math.round((Math.max(0, answered) / safeTotal) * 100);
+  const brandContent = brand === "费马测试" || brand === "FermatMind"
+    ? <BrandLogo locale={brand === "费马测试" ? "zh" : "en"} />
+    : brand;
 
   if (appearance === "focused") {
     return (
       <header className={styles.header}>
         <div className={styles.headerRow}>
-          <p className={styles.testName}>{brand}</p>
+          <p className={styles.testName}>{brandContent}</p>
           {typeof estimatedMinutes === "number" && estimatedMinutes > 0 ? (
             <p className={styles.time}>{estimatedTimeLabel} {estimatedMinutes} {minutesUnit}</p>
           ) : null}
@@ -56,7 +60,7 @@ export function QuizTakeHeaderV2({
     <header className="space-y-[var(--fm-gap-sm)] rounded-2xl border border-[var(--fm-border)] bg-white/95 p-[var(--fm-space-4)] shadow-[var(--fm-shadow-sm)] backdrop-blur">
       <div className="flex flex-wrap items-start justify-between gap-[var(--fm-gap-sm)]">
         <div className="min-w-0">
-          <p className="m-0 font-serif text-lg font-semibold text-[var(--fm-text)]">{brand}</p>
+          <p className="m-0 font-serif text-lg font-semibold text-[var(--fm-text)]">{brandContent}</p>
           {showCompletedCount ? (
             <p className="fm-tabular-nums mt-1 flex flex-wrap items-baseline gap-1 text-xs text-[var(--fm-text-muted)]">
               {completedPrefix ? <span>{completedPrefix}</span> : null}

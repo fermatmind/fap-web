@@ -178,6 +178,7 @@ export function buildArticleJsonLd(input: ArticleSchemaInput) {
     publisher: {
       "@type": "Organization",
       name: "FermatMind",
+      logo: canonicalUrl("/brand/mark-20261013.png"),
     },
     datePublished: input.datePublished,
     dateModified: input.dateModified,
@@ -222,6 +223,7 @@ export function buildOrganizationJsonLd(input: OrganizationSchemaInput) {
     "@type": "Organization",
     "@id": `${url}#organization`,
     url,
+    logo: canonicalUrl("/brand/mark-20261013.png"),
     name: input.name,
     description: input.description,
     inLanguage: input.locale === "zh" ? "zh-CN" : "en",

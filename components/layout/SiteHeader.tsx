@@ -10,6 +10,7 @@ import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
 import { useLocaleSwitchHref } from "@/components/i18n/useLocaleSwitchHref";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 import {
   PublicNavigationLink,
   PublicNavigationPendingIndicator,
@@ -225,7 +226,7 @@ export function SiteHeader({
                   : "text-[1.22rem] leading-none xl:text-[1.28rem]"
               )}
             >
-              {dict.header.brand}
+              <BrandLogo locale={locale} priority />
             </PublicNavigationLink>
           </div>
 
@@ -352,7 +353,7 @@ export function SiteHeader({
           >
             <div className="flex items-center justify-between border-b border-[var(--fm-border-soft)] px-4 py-4">
               <PublicNavigationLink href={withLocale("/")} prefetch={false} onClick={handleMobileLinkClick} className="font-serif text-xl font-semibold text-[#15140f]">
-                {dict.header.brand}
+                <BrandLogo locale={locale} />
               </PublicNavigationLink>
               <button
                 type="button"

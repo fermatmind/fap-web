@@ -1,3 +1,4 @@
+import { canonicalUrl } from "@/lib/site";
 import type { Locale } from "@/lib/i18n/locales";
 import type { MbtiCompareInviteViewModel } from "@/lib/mbti/compareInvite";
 
@@ -137,22 +138,9 @@ export function renderCompareOgImage(viewModel?: MbtiCompareInviteViewModel | nu
             padding: 34,
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              alignSelf: "flex-start",
-              borderRadius: 999,
-              border: "1px solid rgba(191, 219, 254, 0.45)",
-              background: "rgba(15, 23, 42, 0.32)",
-              padding: "10px 16px",
-              fontSize: 22,
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-            }}
-          >
-            FermatMind
-          </div>
+          {/* ImageResponse renders native image elements. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={canonicalUrl("/brand/mark-20261013.png")} alt="FermatMind" width={56} height={56} />
 
           <div
             style={{

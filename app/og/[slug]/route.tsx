@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 import { getTestBySlug } from "@/lib/content";
-import { getSiteHost } from "@/lib/site";
+import { canonicalUrl, getSiteHost } from "@/lib/site";
 
 const CANVAS_WIDTH = 1200;
 const CANVAS_HEIGHT = 630;
@@ -55,21 +55,9 @@ export async function GET(
             "ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            alignSelf: "flex-start",
-            padding: "10px 18px",
-            borderRadius: "999px",
-            border: "1px solid rgba(248, 250, 252, 0.45)",
-            fontSize: 28,
-            letterSpacing: "0.06em",
-            textTransform: "uppercase",
-          }}
-        >
-          FermatMind
-        </div>
+        {/* ImageResponse renders native image elements. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={canonicalUrl("/brand/mark-20261013.png")} alt="FermatMind" width={56} height={56} />
 
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           <div style={{ fontSize: 74, fontWeight: 700, lineHeight: 1.08 }}>

@@ -1,4 +1,5 @@
 import { Container } from "@/components/layout/Container";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 import { SiteFooterSocialRail } from "@/components/layout/SiteFooterSocialRail";
 import { PublicNavigationLink } from "@/components/navigation/PublicNavigationPendingIndicator";
 import { getDictSync } from "@/lib/i18n/getDict";
@@ -139,6 +140,9 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
         <SiteFooterSocialRail locale={locale} />
 
         <div className="border-t border-slate-300/70 pt-7 text-center">
+          <PublicNavigationLink href={withLocale("/")} prefetch={false} className="mb-4 inline-flex rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-500">
+            <BrandLogo locale={locale} />
+          </PublicNavigationLink>
           <p className="m-0 text-sm font-medium leading-6 text-slate-500">{dict.footer.tailnote}</p>
           <p data-visual-volatile="true" className="m-0 mt-3 text-sm text-slate-500">
             © {new Date().getFullYear()} FermatMind. {dict.footer.copyright}
