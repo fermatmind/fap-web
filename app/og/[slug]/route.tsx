@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 import { getTestBySlug } from "@/lib/content";
-import { canonicalUrl, getSiteHost } from "@/lib/site";
+import { SITE_URL, getSiteHost } from "@/lib/site";
 
 const CANVAS_WIDTH = 1200;
 const CANVAS_HEIGHT = 630;
@@ -57,7 +57,7 @@ export async function GET(
       >
         {/* ImageResponse renders native image elements. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={canonicalUrl("/brand/mark-20261013.png")} alt="FermatMind" width={56} height={56} />
+        <img src={new URL("/brand/mark-20261013.png", process.env.NEXT_PUBLIC_SITE_URL || SITE_URL).href} alt="FermatMind" width={56} height={56} />
 
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           <div style={{ fontSize: 74, fontWeight: 700, lineHeight: 1.08 }}>

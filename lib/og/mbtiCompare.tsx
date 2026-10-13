@@ -1,4 +1,4 @@
-import { canonicalUrl } from "@/lib/site";
+import { SITE_URL } from "@/lib/site";
 import type { Locale } from "@/lib/i18n/locales";
 import type { MbtiCompareInviteViewModel } from "@/lib/mbti/compareInvite";
 
@@ -140,7 +140,7 @@ export function renderCompareOgImage(viewModel?: MbtiCompareInviteViewModel | nu
         >
           {/* ImageResponse renders native image elements. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={canonicalUrl("/brand/mark-20261013.png")} alt="FermatMind" width={56} height={56} />
+          <img src={new URL("/brand/mark-20261013.png", process.env.NEXT_PUBLIC_SITE_URL || SITE_URL).href} alt="FermatMind" width={56} height={56} />
 
           <div
             style={{
