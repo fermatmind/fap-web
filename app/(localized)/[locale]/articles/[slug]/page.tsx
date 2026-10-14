@@ -155,7 +155,15 @@ function renderArticleBody(article: CmsArticle, locale: Locale, canonicalPath: s
         sourcePath={canonicalPath}
         contentId={article.id}
       >
-        {renderSimpleMarkdown(article.contentMd, { locale, minimumHeadingLevel: 2, headingIdPrefix: "article-body", scrollableTables: IQ_PUBLIC_ARTICLE_SLUGS.has(article.slug) || (locale === "en" && article.slug === "gaokao-major-adjustment-unacceptable-major-checklist") }) ?? <div className="whitespace-pre-wrap">{article.contentMd}</div>}
+        {renderSimpleMarkdown(article.contentMd, {
+          locale,
+          minimumHeadingLevel: 2,
+          headingIdPrefix: "article-body",
+          scrollableTables: IQ_PUBLIC_ARTICLE_SLUGS.has(article.slug) || (locale === "en" && [
+            "gaokao-major-adjustment-unacceptable-major-checklist",
+            "a-levels-t-levels-apprenticeship-choose-at-16-england",
+          ].includes(article.slug)),
+        }) ?? <div className="whitespace-pre-wrap">{article.contentMd}</div>}
       </AttributedCmsLinkHydrator>
     );
   }
