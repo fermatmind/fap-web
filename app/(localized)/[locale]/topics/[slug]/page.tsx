@@ -80,6 +80,10 @@ export async function generateMetadata({
   const canonicalPath = buildCanonicalPath(topic.slug, locale);
   const normalizedSeo = normalizeTopicSeoPayload(seo, topic, locale);
   const noindex = !topic.isIndexable || shouldNoindex(normalizedSeo.meta.robots);
+  const robotsTokens = (normalizedSeo.surface?.robotsPolicy || normalizedSeo.meta.robots || "")
+    .toLowerCase()
+    .split(",")
+    .map((part) => part.trim());
   const metadata = buildPageMetadata({
     locale,
     pathname: canonicalPath,
@@ -88,6 +92,7 @@ export async function generateMetadata({
     imagePath: normalizedSeo.surface?.og.image ?? normalizedSeo.meta.og.image ?? undefined,
     seoSurface: normalizedSeo.surface,
     noindex: !normalizedSeo.surface ? noindex : undefined,
+    noindexFollow: robotsTokens.includes("follow") && !robotsTokens.includes("nofollow"),
     alternatesByLocale: {
       en: buildTopicFrontendUrl("en", topic.slug),
       zh: buildTopicFrontendUrl("zh", topic.slug),

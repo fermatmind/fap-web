@@ -27,6 +27,32 @@ function read(relPath: string): string {
 }
 
 describe("topics cms helpers", () => {
+  it("preserves explicit follow while keeping a public topic noindex", async () => {
+    const topic = normalizeTopicProfileDetail({ topic_code: "education", slug: "education", locale: "en", title: "Education", status: "published", is_public: true, is_indexable: false }, [], {}, null);
+    let robots = "noindex,follow";
+    vi.doMock("next/server", async () => ({
+      ...await vi.importActual<typeof import("next/server")>("next/server"),
+      connection: vi.fn(async () => undefined),
+    }));
+    vi.doMock("@/lib/cms/publicDetailBundle", () => ({
+      loadPublicDetailBundle: async () => {
+        const seo = normalizeTopicSeoPayload(null, topic, "en");
+        seo.meta.robots = robots;
+        return { detail: topic, seo };
+      },
+    }));
+    const { generateMetadata } = await import("@/app/(localized)/[locale]/topics/[slug]/page");
+    try {
+      for (const [policy, follow] of [["noindex,follow", true], ["noindex,nofollow", false], ["noindex", false]] as const) {
+        robots = policy;
+        const metadata = await generateMetadata({ params: Promise.resolve({ locale: "en", slug: topic.slug }) });
+        expect(metadata.robots).toMatchObject({ index: false, follow, googleBot: { index: false, follow } });
+      }
+    } finally {
+      vi.doUnmock("@/lib/cms/publicDetailBundle");
+      vi.doUnmock("next/server");
+    }
+  });
   it("does not invent a translation when the backend has one public locale", () => {
     const topic = normalizeTopicProfileDetail({ topic_code: "education", slug: "education", locale: "en", title: "Education", status: "published", is_public: true, is_indexable: false }, [], {}, null);
     const seo = normalizeTopicSeoPayload({ surface: null, meta: { title: "Education", description: "Options", canonical: "https://fermatmind.com/en/topics/education", alternates: { en: "https://fermatmind.com/en/topics/education", "zh-CN": null }, og: { title: "Education", description: "Options", image: null, type: "article" }, twitter: { card: "summary", title: "Education", description: "Options", image: null }, robots: "noindex,follow" }, jsonld: null }, topic, "en");
