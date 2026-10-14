@@ -22,19 +22,20 @@ function duration(value: number | null): string {
   return `${Math.floor(seconds / 60).toString().padStart(2, "0")}:${(seconds % 60).toString().padStart(2, "0")}`;
 }
 
-function ScoreGauge({ score, locale }: { score: number | null; locale: Locale }) {
-  const progress = score === null ? null : (score - 55) / 90;
+function ScoreGauge({ score, locale, beta }: { score: number | null; locale: Locale; beta: boolean }) {
+  const minimum = beta ? 73 : 55;
+  const progress = score === null ? null : (score - minimum) / (145 - minimum);
   const angle = progress === null ? null : Math.PI * (1 - progress);
   const needle = angle === null ? null : { x: 160 + 89 * Math.cos(angle), y: 160 - 89 * Math.sin(angle) };
   return (
     <svg viewBox="0 0 320 245" className="mx-auto w-full max-w-[320px]" role="img"
-      aria-label={locale === "zh" ? `IQ得分：${score ?? "待估计"}，显示范围55至145` : `IQ score: ${score ?? "not available"}, display range 55 to 145`}>
+      aria-label={locale === "zh" ? `IQ得分${beta ? "（Beta）" : ""}：${score ?? "待估计"}，显示范围${minimum}至145` : `IQ score${beta ? " (Beta)" : ""}: ${score ?? "not available"}, display range ${minimum} to 145`}>
       <path d="M 45 160 A 115 115 0 0 1 275 160" fill="none" stroke="var(--fm-border)" strokeWidth="13" strokeLinecap="round" />
       {progress !== null ? <path d="M 45 160 A 115 115 0 0 1 275 160" pathLength="100" fill="none"
         stroke="var(--fm-accent)" strokeWidth="13" strokeLinecap="round" strokeDasharray={`${progress * 100} 100`}
         className="transition-[stroke-dasharray] duration-500 motion-reduce:transition-none" /> : null}
-      {[55, 70, 85, 100, 115, 130, 145].map((tick) => {
-        const tickAngle = Math.PI * (1 - (tick - 55) / 90);
+      {(beta ? [73, 85, 100, 115, 130, 145] : [55, 70, 85, 100, 115, 130, 145]).map((tick) => {
+        const tickAngle = Math.PI * (1 - (tick - minimum) / (145 - minimum));
         return <text key={tick} x={160 + 142 * Math.cos(tickAngle)} y={165 - 142 * Math.sin(tickAngle)}
           textAnchor="middle" fill="var(--fm-text-muted)" fontSize="11">{tick}</text>;
       })}
@@ -99,10 +100,16 @@ export function IqResultShell({ locale, reportData, resultData, accessView }: {
   const viewModel = buildIqResultViewModel({ locale, reportData, resultData, accessView });
   const presentation = buildIqResultPresentation({ locale, reportData, resultData, locked: viewModel.locked });
   const zh = locale === "zh";
+  const beta = presentation.scoreKind === "beta_reference";
+  const percentileText = beta && presentation.percentile !== null
+    ? `${presentation.percentile.toFixed(2)}%` : percent(presentation.percentile);
   const correctText = presentation.correct !== null && presentation.total !== null
     ? `${presentation.correct}/${presentation.total}` : "—";
   const shortSummary = presentation.percentile !== null
-    ? zh ? `本次表现约处于参考人群的第${percent(presentation.percentile).replace("%", "")}百分位。`
+    ? beta
+      ? zh ? `模型参考百分位为${percentileText}，不代表真实人群排名。`
+        : `Model-reference percentile: ${percentileText}. This is not a rank in a real population.`
+      : zh ? `本次表现约处于参考人群的第${percent(presentation.percentile).replace("%", "")}百分位。`
       : `This result is approximately at percentile ${percent(presentation.percentile).replace("%", "")} in the reference population.`
     : zh ? "IQ得分与人群位置暂未生成。" : "An IQ score and population rank are not available yet.";
 
@@ -116,11 +123,12 @@ export function IqResultShell({ locale, reportData, resultData, accessView }: {
       {viewModel.bankStatus ? <Alert><span data-testid="iq-bank-placeholder-notice" data-bank-id={viewModel.bankStatus.bankId}>{viewModel.bankStatus.notice}</span></Alert> : null}
       <div className="grid items-stretch gap-[var(--fm-gap-lg)] lg:grid-cols-[minmax(280px,0.85fr)_minmax(0,1.4fr)]">
         <Card data-testid="iq-standard-score-module">
-          <CardHeader><CardTitle>{zh ? "IQ得分" : "IQ score"}</CardTitle></CardHeader>
+          <CardHeader><CardTitle>{beta ? zh ? "IQ得分（Beta）" : "IQ score (Beta)" : zh ? "IQ得分" : "IQ score"}</CardTitle></CardHeader>
           <CardContent>
-            <ScoreGauge score={presentation.standardScore} locale={locale} />
+            <ScoreGauge score={presentation.standardScore} locale={locale} beta={beta} />
             <p className="text-center text-sm text-[var(--fm-text-muted)]" data-testid="iq-standard-score-status">
-              {presentation.standardScore !== null ? zh ? "依据真人参考分布换算" : "Based on the human reference distribution"
+              {beta ? zh ? "自定义 Beta 参考分，尚未验证为人群 IQ。" : "A designed Beta reference score, not a validated population IQ."
+                : presentation.standardScore !== null ? zh ? "依据真人参考分布换算" : "Based on the human reference distribution"
                 : zh ? "暂无法估计" : "Not available yet"}
             </p>
           </CardContent>
@@ -133,7 +141,7 @@ export function IqResultShell({ locale, reportData, resultData, accessView }: {
               : shortSummary}</p>
             <dl className="grid grid-cols-2 gap-x-[var(--fm-gap-lg)] gap-y-[var(--fm-gap-xl)]">
               {[
-                { label: zh ? "百分位" : "Percentile", value: percent(presentation.percentile), testId: presentation.percentile !== null ? "iq-percentile" : "iq-percentile-unavailable" },
+                { label: beta ? zh ? "模型参考百分位" : "Model-reference percentile" : zh ? "百分位" : "Percentile", value: percentileText, testId: presentation.percentile !== null ? "iq-percentile" : "iq-percentile-unavailable" },
                 { label: zh ? "正确率" : "Accuracy", value: percent(presentation.percentCorrect), testId: "iq-accuracy" },
                 { label: zh ? "答对题数" : "Correct answers", value: correctText, testId: "iq-correct-count" },
                 { label: zh ? "用时" : "Time taken", value: duration(presentation.durationMs), testId: "iq-duration" },

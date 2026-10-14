@@ -1444,7 +1444,7 @@ export default function ResultClient({
       }, INVITE_PROGRESS_POLL_MS);
     };
 
-    const loadFallbackResult = async () => {
+    const fetchResultForCurrentAttempt = async () => {
       const request = {
         attemptId,
         locale,
@@ -1455,9 +1455,13 @@ export default function ResultClient({
               ...(resultAccessToken ? { accessToken: resultAccessToken } : {}),
             }),
       };
-      const response = usePrintAccessTokenOnly
+      return usePrintAccessTokenOnly
         ? await fetchAttemptResult(request)
         : await runWithAuthRetry(() => fetchAttemptResult(request));
+    };
+
+    const loadFallbackResult = async () => {
+      const response = await fetchResultForCurrentAttempt();
       if (!active || generationTimedOut) {
         return { ready: false };
       }
@@ -1651,7 +1655,19 @@ export default function ResultClient({
         const eqReportReady = isEqV5ReportResponse(reportResponse);
         const richReportReady = canRenderRichResultReport(reportResponse);
         const iqReportReady = isIqReportResponse(reportResponse) && !isGeneratingReportResponse(reportResponse);
-        if (eqReportReady || richReportReady || iqReportReady) {
+        if (iqReportReady) {
+          markReady();
+          // Frozen IQ reports omit attempt duration. Read its saved result as
+          // supplementary data without replacing or blocking the ready report.
+          void fetchResultForCurrentAttempt().then((response) => {
+            if (!active || !hasReadyResultPayload(response)) return;
+            if (isIqScaleCode(normalizeText(response.meta?.scale_code))) {
+              setResultData(response);
+            }
+          }).catch(() => undefined);
+          return;
+        }
+        if (eqReportReady || richReportReady) {
           markReady();
           return;
         }

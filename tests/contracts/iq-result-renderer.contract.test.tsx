@@ -187,3 +187,67 @@ describe("IQ three-module result presentation", () => {
     expect(model.primaryDisplayScore).toBe(77);
   });
 });
+
+// Approved designed-scale fixtures, not human norms or calibrated IRT scores.
+function designedBeta(overrides: Record<string, unknown> = {}) {
+  return {
+    status: "available", source_kind: "designed_reference",
+    model_version: "owner30_design_anchors_2026_10_14_v1",
+    raw_score: 6, standard_score: 102, display_score: 102, percentile: 55.3007,
+    production_normed: false, claim_eligible: false, population_percentile_eligible: false,
+    ...overrides,
+  };
+}
+
+describe("designed IQ Beta reference rendering", () => {
+  it.each(["zh", "en"] as const)("shows approved score and model percentile without an unlock notice in %s", (locale) => {
+    show(fixture({ summary: { raw_score: 6, question_count: 30, beta_standard_score: 107, beta_reference: designedBeta() } }), locale, null, { accessState: "ready" } as AttemptReportAccessView);
+    expect(screen.getByTestId("iq-standard-score-value")).toHaveTextContent("102");
+    expect(screen.getByTestId("iq-percentile")).toHaveTextContent("55.30%");
+    expect(screen.getByTestId("iq-percentile")).toHaveTextContent(locale === "zh" ? "模型参考百分位" : "Model-reference percentile");
+    expect(screen.getByTestId("iq-standard-score-module")).toHaveTextContent("Beta");
+    expect(screen.getByTestId("iq-standard-score-status")).toHaveTextContent(locale === "zh" ? "尚未验证" : "not a validated");
+    expect(screen.queryByTestId("iq-reference-population")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("iq-report-locked-notice")).not.toBeInTheDocument();
+  });
+
+  it.each([
+    [0,73,73,3.59], [1,85,85,15.87], [2,88.75,89,22.66], [3,92.5,93,30.85], [4,96.25,96,40.13],
+    [5,100,100,50], [6,102,102,55.3], [7,104,104,60.51], [8,106,106,65.54], [9,108,108,70.31],
+    [10,110,110,74.75], [11,112,112,78.81], [12,114,114,82.47], [13,116,116,85.69], [14,118,118,88.49],
+    [15,120,120,90.88], [16,122,122,92.88], [17,124,124,94.52], [18,126,126,95.85], [19,128,128,96.9],
+    [20,130,130,97.72], [21,131.5,132,98.21], [22,133,133,98.61], [23,134.5,135,98.93], [24,136,136,99.18],
+    [25,137.5,138,99.38], [26,139,139,99.53], [27,140.5,141,99.65], [28,142,142,99.74], [29,143.5,144,99.81], [30,145,145,99.87],
+  ])("preserves backend row R=%s, unrounded=%s, displayed=%s, percentile=%s", (raw, score, displayed, percentile) => {
+    const model = presentation(fixture({ summary: { raw_score: raw, question_count: 30, beta_reference: designedBeta({ raw_score: raw, standard_score: score, display_score: displayed, percentile }) } }));
+    expect(model.standardScore).toBe(displayed);
+    expect(model.percentile).toBe(percentile);
+    expect(model.scoreKind).toBe("beta_reference");
+  });
+
+  it.each([{ source_kind: "random_simulation_baseline" }, { model_version: "unknown" }, { status: "pending" }, { production_normed: true }, { population_percentile_eligible: true }, { standard_score: 146 }, { standard_score: 72 }, { display_score: 103 }, { percentile: 100 }, { percentile: 0 }])("rejects malformed or incompatible Beta %j", (overrides) => {
+    expect(presentation(fixture({ beta_reference: designedBeta(overrides) })).standardScore).toBeNull();
+  });
+
+  it("honors explicit null in a report and rejects blocked, technical and locked attempts", () => {
+    const result = { result: { normed_json: { beta_reference: designedBeta() } } } as unknown as ResultResponse;
+    expect(presentation(fixture({ beta_reference: null }), result).standardScore).toBeNull();
+    expect(presentation(fixture({ scoring: { status: "blocked_unscored" }, beta_reference: designedBeta() })).standardScore).toBeNull();
+    expect(presentation(fixture({ technical_failure: true, beta_reference: designedBeta() })).standardScore).toBeNull();
+    show(fixture({ beta_reference: designedBeta() }), "en", null, { accessState: "locked" } as AttemptReportAccessView);
+    expect(screen.getByTestId("iq-standard-score-value")).toHaveTextContent("—");
+  });
+
+  it("keeps model percentiles from an existing full report snapshot independent of legacy Beta", () => {
+    const report = fixture({ beta_reference: designedBeta(), summary: { raw_score: 6, question_count: 30, beta_standard_score: 107 } });
+    show(report);
+    expect(screen.getByTestId("iq-standard-score-value")).toHaveTextContent("102");
+    expect(screen.getByTestId("iq-correct-count")).toHaveTextContent("6/30");
+  });
+
+  it("has named Beta charts and no automated accessibility violations", async () => {
+    const { container } = show(fixture({ beta_reference: designedBeta() }));
+    expect(within(screen.getByTestId("iq-standard-score-module")).getByRole("img")).toHaveAccessibleName(/Beta.*73至145/);
+    expect((await axe(container)).violations).toEqual([]);
+  });
+});

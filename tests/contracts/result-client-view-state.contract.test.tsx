@@ -51,6 +51,7 @@ type IqResultShellProps = {
   } | null;
   resultData?: {
     iq_estimate?: number | null;
+    result?: { breakdown_json?: { duration_ms?: number } };
   } | null;
 };
 
@@ -191,6 +192,7 @@ vi.mock("@/components/result/iq/IqResultShell", () => ({
   IqResultShell: ({ reportData, resultData }: IqResultShellProps) => (
     <div data-testid="iq-result-shell">
       {String(reportData?.summary?.iq_estimate ?? resultData?.iq_estimate ?? "iq-shell")}
+      <span data-testid="iq-saved-duration">{resultData?.result?.breakdown_json?.duration_ms ?? "missing"}</span>
     </div>
   ),
 }));
@@ -1512,12 +1514,31 @@ describe("ResultClient view-state contract", () => {
       },
       meta: { scale_code: "IQ_INTELLIGENCE_QUOTIENT" },
     } as unknown as ReportResponse);
+    hoisted.fetchAttemptResult.mockResolvedValue({
+      ok: true, meta: { scale_code: "IQ_RAVEN" },
+      result: { breakdown_json: { duration_ms: 23522 } },
+    } as unknown as ResultResponse);
 
     render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
 
     await waitFor(() => expect(screen.getByTestId("iq-result-shell")).toBeInTheDocument());
-    expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
+    await waitFor(() => expect(screen.getByTestId("iq-saved-duration")).toHaveTextContent("23522"));
+    expect(hoisted.fetchAttemptResult).toHaveBeenCalledTimes(1);
     expect(screen.queryByTestId("rich-result-report")).not.toBeInTheDocument();
+  });
+
+  it("keeps a ready IQ report when the supplementary result read fails", async () => {
+    hoisted.fetchAttemptReport.mockResolvedValue({
+      ok: true, locked: false, variant: "full",
+      report: { schema_version: "iq.report.v1", scale_code: "IQ_INTELLIGENCE_QUOTIENT", summary: { raw_score: 6 } },
+      meta: { scale_code: "IQ_INTELLIGENCE_QUOTIENT" },
+    } as unknown as ReportResponse);
+    hoisted.fetchAttemptResult.mockRejectedValue(new ApiError({ status: 404, errorCode: "RESULT_NOT_FOUND", message: "result not found" }));
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+    await waitFor(() => expect(screen.getByTestId("iq-result-shell")).toBeInTheDocument());
+    expect(screen.getByTestId("iq-saved-duration")).toHaveTextContent("missing");
+    expect(screen.queryByTestId("rich-result-report")).not.toBeInTheDocument();
+    expect(screen.queryByText(/失败|unable to load/i)).not.toBeInTheDocument();
   });
 
   it("retries report without auth but preserves anon ownership when ATTEMPT_NOT_FOUND is returned", async () => {

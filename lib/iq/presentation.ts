@@ -43,6 +43,7 @@ export type IqPerformanceDimension = {
 };
 
 export type IqResultPresentation = {
+  scoreKind: "beta_reference" | "normative_reasoning" | null;
   standardScore: number | null;
   percentile: number | null;
   referencePopulation: string | null;
@@ -124,10 +125,26 @@ export function buildIqResultPresentation({
     && text(normative?.norm_table_version) !== null && text(normative?.model_version) !== null
     && percentile !== null && percentile > 0 && percentile < 100 && standardScore !== null;
 
+  // The designed Beta is a separate atomic backend interpretation. Never
+  // recreate it from legacy Beta/IQ fields or label its CDF as a population rank.
+  const betaSource = sources.find((source) => Object.hasOwn(source, "beta_reference"));
+  const beta = record(betaSource?.beta_reference);
+  const betaScore = number(beta?.standard_score);
+  const betaDisplay = count(beta?.display_score);
+  const betaPercentile = number(beta?.percentile);
+  const betaEligible = !blocked && !locked && beta?.status === "available"
+    && beta?.source_kind === "designed_reference"
+    && beta?.model_version === "owner30_design_anchors_2026_10_14_v1"
+    && beta?.production_normed === false && beta?.population_percentile_eligible === false
+    && betaScore !== null && betaScore >= 73 && betaScore <= 145
+    && betaDisplay !== null && betaDisplay === Math.floor(betaScore + 0.5)
+    && betaPercentile !== null && betaPercentile > 0 && betaPercentile < 100;
+
   return {
-    standardScore: eligible ? Math.min(145, Math.max(55, Math.floor(standardScore! + 0.5))) : null,
-    percentile: eligible ? percentile : null,
-    referencePopulation: eligible ? referencePopulation : null,
+    scoreKind: betaEligible ? "beta_reference" : eligible ? "normative_reasoning" : null,
+    standardScore: betaEligible ? betaDisplay : eligible ? Math.min(145, Math.max(55, Math.floor(standardScore! + 0.5))) : null,
+    percentile: betaEligible ? betaPercentile : eligible ? percentile : null,
+    referencePopulation: !betaEligible && eligible ? referencePopulation : null,
     correct, total,
     percentCorrect: correct !== null && total !== null ? correct / total * 100 : null,
     durationMs: duration !== null && duration > 0 ? duration : null,
