@@ -179,6 +179,13 @@ afterEach(() => {
 });
 
 describe("article CMS metadata consumption gate", () => {
+  it("keeps public noindex articles' explicit follow policy without enabling index or hreflang", async () => {
+    for (const [policy, follow] of [["noindex,follow", true], ["noindex,follow,nofollow", false], ["noindex", false]] as const) {
+      const metadata = await loadArticleMetadata({ article: makeArticle({ isIndexable: false }), seo: makeSeo({ robots: policy }) });
+      expect(metadata.robots).toMatchObject({ index: false, follow, googleBot: { index: false, follow } });
+      expect(metadata.alternates?.languages).toBeUndefined();
+    }
+  });
   it("normalizes only eligible Article/Breadcrumb fragments and alternates from article.seo.authority.v1", () => {
     const normalized = normalizeArticleSeoPayload({
       meta: {

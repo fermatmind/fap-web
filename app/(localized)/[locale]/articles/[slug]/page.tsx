@@ -213,6 +213,10 @@ export async function generateMetadata({
   const noindex = !article.isIndexable || shouldNoindex(seo?.meta.robots);
   const articleImage = article.coverImageVariants.og?.url ?? article.coverImageVariants.hero?.url ?? article.coverImageUrl;
 
+  const robotsTokens = (seo?.surface?.robotsPolicy || seo?.meta.robots || "")
+    .toLowerCase()
+    .split(",")
+    .map((part) => part.trim());
   const metadata = buildPageMetadata({
     locale,
     pathname: canonicalPath,
@@ -224,6 +228,7 @@ export async function generateMetadata({
     imagePath: seo?.surface?.og.image ?? seo?.meta.og.image ?? articleImage ?? undefined,
     seoSurface: seo?.surface,
     noindex: !seo?.surface ? noindex : undefined,
+    noindexFollow: robotsTokens.includes("follow") && !robotsTokens.includes("nofollow"),
     alternatesByLocale: {
       en: buildCanonicalPath(article.slug, "en"),
       zh: buildCanonicalPath(article.slug, "zh"),
