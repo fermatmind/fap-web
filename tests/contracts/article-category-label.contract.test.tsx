@@ -21,6 +21,26 @@ const data = (name: string) => ({ blog: blog(name), items: [article], landingSur
 
 afterEach(() => { vi.doUnmock("@/lib/cms/articles"); vi.resetModules(); });
 describe("article badges use published CMS category labels", () => {
+  it.each(["en", "zh"] as const)("keeps C02 seven-day records readable and fillable in %s", async (locale) => {
+    vi.resetModules();
+    const slug = "big-five-conscientiousness-low-procrastination-task-plan";
+    const contentMd = "| Day | Avoided task | Trigger | Start action | Artifact | Completion | Blocker | Tomorrow |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n" + Array.from({ length: 7 }, (_, day) => `| ${day + 1} | | | | | | | |`).join("\n");
+    vi.doMock("@/lib/cms/articles", async (original) => ({ ...await original<typeof import("@/lib/cms/articles")>(),
+      getCmsArticleWithLastKnownGood: vi.fn(async () => ({ value: { ...article, locale, slug, contentMd }, source: "fresh" })),
+      getCmsArticleSeoWithLastKnownGood: vi.fn(async () => ({ value: null, source: "fresh" })),
+      getCmsArticlesWithLastKnownGood: vi.fn(async () => ({ value: data("Career and learning choices"), source: "fresh", stale: false })),
+    }));
+    const { default: Page } = await import("@/app/(localized)/[locale]/articles/[slug]/page");
+    const html = renderToStaticMarkup(await Page({ params: Promise.resolve({ locale, slug }) }));
+    expect(html).toContain('role="region"');
+    expect(html).toContain('tabindex="0"');
+    expect(html).toContain(`aria-label="${locale === "zh" ? "可横向滚动的表格" : "Horizontally scrollable table"}"`);
+    expect(html).toContain('min-width:1280px;table-layout:fixed');
+    expect(html.match(/<tr(?:\s[^>]*)?>/g)).toHaveLength(8);
+    expect(html.match(/<td[^>]*><\/td>/g)).toHaveLength(49);
+    expect(html).toContain("Tomorrow");
+  });
+
   it.each(["en", "zh"] as const)("keeps C01 observation columns readable and blank in %s", async (locale) => {
     vi.resetModules();
     const slug = "holland-career-interest-test-can-and-cannot-tell-you";
