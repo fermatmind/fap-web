@@ -194,7 +194,9 @@ export default async function TopicDetailPage({
   // The IQ/EQ editorial comparison already lives in the authored body.
   const answerSurface = isIqEqTopic && topic.answerSurface
     ? { ...topic.answerSurface, summaryBlocks: [], compareBlocks: [] }
-    : topic.answerSurface;
+    : topic.slug === "england-post16-options" && topic.answerSurface
+      ? { ...topic.answerSurface, compareBlocks: [] }
+      : topic.answerSurface;
   const renderedEntryGroups = renderTopicEntryGroups(topic.entryGroups, locale);
   const isMbtiTopic =
     String(topic.topicCode || "").toLowerCase() === "mbti" || String(topic.slug || "").toLowerCase() === "mbti";
