@@ -27,6 +27,12 @@ function read(relPath: string): string {
 }
 
 describe("topics cms helpers", () => {
+  it("does not invent a translation when the backend has one public locale", () => {
+    const topic = normalizeTopicProfileDetail({ topic_code: "education", slug: "education", locale: "en", title: "Education", status: "published", is_public: true, is_indexable: false }, [], {}, null);
+    const seo = normalizeTopicSeoPayload({ surface: null, meta: { title: "Education", description: "Options", canonical: "https://fermatmind.com/en/topics/education", alternates: { en: "https://fermatmind.com/en/topics/education", "zh-CN": null }, og: { title: "Education", description: "Options", image: null, type: "article" }, twitter: { card: "summary", title: "Education", description: "Options", image: null }, robots: "noindex,follow" }, jsonld: null }, topic, "en");
+    expect(seo.meta.alternates["zh-CN"]).toBeNull();
+    expect(seo.meta.alternates.en).toBe("http://localhost:3000/en/topics/education");
+  });
   it("maps frontend locale and topic links correctly", () => {
     expect(mapFrontendLocaleToTopicsApiLocale("en")).toBe("en");
     expect(mapFrontendLocaleToTopicsApiLocale("zh")).toBe("zh-CN");

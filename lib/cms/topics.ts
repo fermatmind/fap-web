@@ -537,8 +537,8 @@ export function normalizeTopicSeoPayload(
       description,
       canonical: normalizedCanonical,
       alternates: {
-        en: canonicalUrl(buildTopicFrontendUrl("en", profile.slug)),
-        "zh-CN": canonicalUrl(buildTopicFrontendUrl("zh", profile.slug)),
+        en: seo?.meta.alternates.en ? canonicalUrl(buildTopicFrontendUrl("en", profile.slug)) : null,
+        "zh-CN": seo?.meta.alternates["zh-CN"] ? canonicalUrl(buildTopicFrontendUrl("zh", profile.slug)) : null,
       },
       og: {
         title: fallbackText(seo?.meta.og.title, profile.seoMeta?.ogTitle, title),

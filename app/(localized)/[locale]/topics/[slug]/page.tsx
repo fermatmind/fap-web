@@ -108,6 +108,11 @@ export async function generateMetadata({
     alternates: {
       ...metadata.alternates,
       canonical,
+      languages: Object.fromEntries(
+        Object.entries(normalizedSeo.meta.alternates).filter(
+          (entry): entry is [string, string] => Boolean(entry[1]),
+        ),
+      ),
     },
     openGraph: {
       type: "article",
