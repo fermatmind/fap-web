@@ -159,7 +159,7 @@ function renderArticleBody(article: CmsArticle, locale: Locale, canonicalPath: s
           locale,
           minimumHeadingLevel: 2,
           headingIdPrefix: "article-body",
-          scrollableTables: IQ_PUBLIC_ARTICLE_SLUGS.has(article.slug) || article.slug === "a-levels-t-levels-apprenticeship-choose-at-16-england" || (locale === "en" && [
+          scrollableTables: IQ_PUBLIC_ARTICLE_SLUGS.has(article.slug) || article.slug === "a-levels-t-levels-apprenticeship-choose-at-16-england" || article.slug === "holland-career-interest-test-can-and-cannot-tell-you" || (locale === "en" && [
             "gaokao-major-adjustment-unacceptable-major-checklist",
           ].includes(article.slug)),
         }) ?? <div className="whitespace-pre-wrap">{article.contentMd}</div>}
