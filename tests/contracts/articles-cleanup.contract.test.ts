@@ -365,9 +365,14 @@ describe("articles cleanup contract", () => {
           excerpt: "",
           content_md: [
             "<!-- FM_SLOT:ABOVE_THE_FOLD_QA_START --> 正文开头。",
+            "<!-- body_visual:big_five_conscientiousness_task_plan_flow -->",
             "继续正文。 <!-- FM_SLOT:ABOVE_THE_FOLD_QA_END -->",
           ].join("\n\n"),
-          content_html: "<p>&lt;!-- FM_SLOT:VISIBLE_FAQ_START --&gt; HTML 正文。 &lt;!-- FM_SLOT:VISIBLE_FAQ_END --&gt;</p>",
+          content_html: "<p>&lt;!-- FM_SLOT:VISIBLE_FAQ_START --&gt; HTML 正文。 &lt;!-- body_visual:task_plan_flow --&gt; &lt;!-- FM_SLOT:VISIBLE_FAQ_END --&gt;</p>",
+          body_visual: {
+            image_url: "https://assets.fermatmind.com/articles/task-plan/body.jpg",
+            fallback_authorized: true,
+          },
           status: "published",
           is_public: true,
           is_indexable: true,
@@ -390,6 +395,9 @@ describe("articles cleanup contract", () => {
     expect(article?.contentMd).not.toContain("FM_SLOT");
     expect(article?.contentHtml).not.toContain("FM_SLOT");
     expect(article?.excerpt).not.toContain("FM_SLOT");
+    expect(article?.contentMd).not.toContain("body_visual:");
+    expect(article?.contentHtml).not.toContain("body_visual:");
+    expect(article?.bodyVisual?.imageUrl).toBe("https://assets.fermatmind.com/articles/task-plan/body.jpg");
   });
 
   it("normalizes public article body visual metadata without exposing editorial package internals", async () => {

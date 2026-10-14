@@ -98,7 +98,7 @@ export type CmsHtmlSanitizeOptions = {
   locale?: Locale;
 };
 
-const INTERNAL_CMS_SLOT_MARKER_RE = /(?:<!--|&lt;!--)\s*FM_SLOT:[\s\S]*?(?:-->|--&gt;)/gi;
+const INTERNAL_CMS_SLOT_MARKER_RE = /(?:<!--|&lt;!--)\s*(?:FM_SLOT|body_visual):[\s\S]*?(?:-->|--&gt;)/gi;
 
 export function stripInternalCmsSlotMarkers(value: string): string {
   return value.replace(INTERNAL_CMS_SLOT_MARKER_RE, "");
