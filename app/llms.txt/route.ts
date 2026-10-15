@@ -32,6 +32,7 @@ import {
   LLMS_ROUTE_PERSONALITY_TIMEOUT_MS,
   LLMS_ROUTE_LIMITS,
   limitLlmsRouteEntries,
+  limitLlmsRouteEntriesByLocale,
   withLlmsRouteBudget,
 } from "@/lib/seo/llmsRouteBudget";
 import { getSiteUrlOrThrow } from "@/lib/site";
@@ -337,13 +338,15 @@ export async function GET() {
   );
   const testEntries = dedupePaths(backendTestEntries.map((entry) => entry.path));
 
-  const articleEntries = dedupePaths(
-    limitLlmsRouteEntries(
-      [...enArticles, ...zhArticles]
+  // Apply eligibility and deduplication before sharing the fixed budget, so a
+  // larger English inventory cannot permanently crowd out Chinese articles.
+  const articleEntries = limitLlmsRouteEntriesByLocale(
+    [enArticles, zhArticles].map((articles) => dedupePaths(
+      articles
         .filter((article) => article.isIndexable && article.llmsEligible !== false)
-        .map((article) => article.href),
-      LLMS_ROUTE_LIMITS.articles
-    )
+        .map((article) => article.href)
+    )),
+    LLMS_ROUTE_LIMITS.articles
   );
 
   const guideEntries = dedupePaths([

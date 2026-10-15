@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import type { CmsArticleLlmsEntry } from "@/lib/cms/articles";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 const ROOT = process.cwd();
@@ -87,7 +88,10 @@ function classifyRouteFamily(pathname: string): string {
   return "unknown";
 }
 
-function mockLlmsDependencies() {
+function mockLlmsDependencies(
+  articleRows?: Record<"en" | "zh", CmsArticleLlmsEntry[]>,
+  unavailableLocale: "en" | "zh" | null = null
+) {
   vi.resetModules();
 
 
@@ -184,9 +188,10 @@ function mockLlmsDependencies() {
     listCmsArticlesForLlmsWithLastKnownGood: vi.fn(
       async ({ locale, maxPages }: { locale: "en" | "zh"; maxPages?: number }) => {
         articleEnumerationCalls.push({ locale, maxPages });
+        if (locale === unavailableLocale) throw new Error("CMS article source unavailable");
 
         return {
-          value:
+          value: articleRows?.[locale] ?? (
             locale === "en"
               ? [
                   {
@@ -201,7 +206,7 @@ function mockLlmsDependencies() {
                 ]
               : maxPages && maxPages > 1
                 ? [pageTwoZhArticle]
-                : [],
+                : []),
         };
       }
     ),
@@ -368,6 +373,35 @@ describe("llms parity governance", () => {
       ])
     );
     expect(extractCanonicalUrls(llmsFullText).length).toBeGreaterThan(llmsFullUrls.length);
+  });
+
+  it.each([
+    { en: 60, zh: 60, expectedEn: 20, expectedZh: 20, unavailableLocale: null },
+    { en: 60, zh: 2, expectedEn: 38, expectedZh: 2, unavailableLocale: null },
+    { en: 0, zh: 60, expectedEn: 0, expectedZh: 40, unavailableLocale: "en" as const },
+    { en: 60, zh: 0, expectedEn: 40, expectedZh: 0, unavailableLocale: "zh" as const },
+  ])("shares the fixed article budget without starving a locale: $en en / $zh zh", async ({ en, zh, expectedEn, expectedZh, unavailableLocale }) => {
+    const rows = (locale: "en" | "zh", count: number): CmsArticleLlmsEntry[] => [
+      { slug: "noindex", locale, title: "Hidden", excerpt: "", updatedAt: null, href: `/${locale}/articles/noindex`, isIndexable: false, llmsEligible: true },
+      { slug: "held", locale, title: "Held", excerpt: "", updatedAt: null, href: `/${locale}/articles/held`, isIndexable: true, llmsEligible: false },
+      ...Array.from({ length: count }, (_, index) => ({
+        slug: `article-${index}`, locale, title: `Article ${index}`, excerpt: "", updatedAt: null,
+        href: `/${locale}/articles/article-${index}`, isIndexable: true, llmsEligible: true,
+      })),
+    ];
+    const enRows = rows("en", en);
+    // A duplicate must not consume a slot and displace another eligible article.
+    mockLlmsDependencies({ en: en > 0 ? [enRows[2], ...enRows] : enRows, zh: rows("zh", zh) }, unavailableLocale);
+    const { GET } = await import("@/app/llms.txt/route");
+    const text = await (await GET()).text();
+    const articles = uniqueSorted(extractCanonicalUrls(text)).filter((url) => /\/(?:en|zh)\/articles\//.test(url));
+    expect(articles).toHaveLength(40);
+    expect(articles.filter((url) => url.includes("/en/articles/"))).toHaveLength(expectedEn);
+    expect(articles.filter((url) => url.includes("/zh/articles/"))).toHaveLength(expectedZh);
+    if (en > 0) expect(articles).toContain(`${SITE_URL}/en/articles/article-0`);
+    if (zh > 0) expect(articles).toContain(`${SITE_URL}/zh/articles/article-0`);
+    expect(text).not.toContain("/articles/noindex");
+    expect(text).not.toContain("/articles/held");
   });
 
   it("includes eligible CMS articles beyond the first article list page in both llms surfaces", async () => {

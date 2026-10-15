@@ -42,6 +42,23 @@ export function limitLlmsRouteEntries<T>(items: readonly T[], limit: number): T[
   return items.slice(0, Math.floor(limit));
 }
 
+export function limitLlmsRouteEntriesByLocale<T>(
+  locales: readonly (readonly T[])[],
+  limit: number
+): T[] {
+  if (!Number.isFinite(limit) || limit <= 0) return [];
+
+  const budget = Math.floor(limit);
+  const selected: T[] = [];
+  const longest = Math.max(0, ...locales.map((items) => items.length));
+  for (let index = 0; index < longest && selected.length < budget; index += 1) {
+    for (const items of locales) {
+      if (index < items.length && selected.length < budget) selected.push(items[index]);
+    }
+  }
+  return selected;
+}
+
 export async function withLlmsRouteBudget<T>(
   load: (signal: AbortSignal) => Promise<T>,
   fallback: T,
