@@ -7,7 +7,7 @@ describe("English assessment search copy", () => {
     ["MBTI", "16 Types", "four preference pairs"],
     ["BIG5_OCEAN", "OCEAN", "30 facets"],
     ["ENNEAGRAM", "9-Type", "two-option choices"],
-    ["IQ_RAVEN", "Original Visual Reasoning", "random Beta"],
+    ["IQ_RAVEN", "Matrix Reasoning", "test and results are free"],
     ["EQ_60", "Self-Report", "interim references"],
     ["RIASEC", "Holland Code", "three-letter code"],
   ] as const)("gives %s a distinct English search title and an accurate description", (code, term, explanation) => {
@@ -26,6 +26,8 @@ describe("English assessment search copy", () => {
   });
 
   it.each([
+    ["IQ_RAVEN", "zh", "免费智商测试（IQ）", "免费智商测试（IQ）：30题图形推理，测试与结果免费", "30道原创图形与矩阵推理题"],
+    ["IQ_RAVEN", "en", "Free IQ Test", "Free IQ Test: 30 Matrix Reasoning Questions & Free Results", "30 original visual matrix reasoning questions"],
     ["MBTI", "zh", "MBTI 16 型人格免费测试", "MBTI 免费测试：16 型人格与偏好解读", "了解你的 16 型人格结果与四组偏好。"],
     ["MBTI", "en", "Free 16-Type MBTI-Style Personality Test", "Free MBTI Personality Test: 16 Types & Preferences", "Learn about your 16-type personality result and four preference pairs."],
     ["RIASEC", "zh", "霍兰德职业兴趣免费测试（RIASEC）", "霍兰德职业兴趣免费测试（RIASEC）", "了解你更喜欢哪些工作活动"],

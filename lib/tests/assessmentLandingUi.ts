@@ -6,7 +6,7 @@ const ASSESSMENT_LANDING_UI: Partial<Record<string, Record<"zh" | "en", string>>
   [SCALE_CANONICAL_SLUG_MAP.MBTI]: { zh: "MBTI 性格免费测试", en: "Free 16-Type MBTI-Style Personality Test" },
   [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: { zh: "大五人格免费测试（Big Five）", en: "Free Big Five Personality Test" },
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: { zh: "九型人格免费测试（Enneagram）", en: "Free Enneagram Personality Test" },
-  [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: { zh: "IQ智商免费测试", en: "Free IQ Test" },
+  [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: { zh: "免费智商测试（IQ）", en: "Free IQ Test" },
   [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { zh: "免费情商测试：60题情绪与关系自评", en: "Free EQ Test: 60-Item Emotion and Relationship Self-Report" },
   [SCALE_CANONICAL_SLUG_MAP.RIASEC]: { zh: "霍兰德职业兴趣免费测试（RIASEC）", en: "Free Holland Code Career Interest Test (RIASEC)" },
 };
@@ -16,7 +16,7 @@ const EN_SEARCH_COPY: Partial<Record<string, { title: string; description: strin
   [SCALE_CANONICAL_SLUG_MAP.MBTI]: { title: "Free MBTI Personality Test: 16 Types & Preferences", description: "Free MBTI test: 93 questions (~10 min) or 144 (~15). Explore 16 types, four preference pairs and next steps for self-understanding and communication reference." },
   [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: { title: "Free Big Five Personality Test: OCEAN Traits", description: "Explore five OCEAN personality traits and 30 facets with a free 90- or 120-question Big Five test. Compare versions and understand scores and percentiles." },
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: { title: "Free Enneagram Test: Explore Your 9-Type Profile", description: "Free Enneagram: 105 ratings (~12 min) or 144 two-option choices (~18). Read nine-type distributions and candidate explanations against real experiences, motivations and reactions." },
-  [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: { title: "Free IQ Test: 30 Original Visual Reasoning Questions", description: "Try FermatMind’s 30 original visual reasoning tasks free (~20 min). Distinguish raw scores, accuracy and random Beta; use reasoning examples to choose review and reading paths." },
+  [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: { title: "Free IQ Test: 30 Matrix Reasoning Questions & Free Results", description: "Take 30 original visual matrix reasoning questions in about 20 minutes. The test and results are free. Explore your performance on this form, with clear scoring limits." },
   [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { title: "Free EQ Test: 60-Item Emotion and Relationship Self-Report", description: "FermatMind EQ-60: 60-item self-report (~10 min), currently free with results. Review four-dimensional tendencies, scoring, interim references and scientific limits before joining." },
   [SCALE_CANONICAL_SLUG_MAP.RIASEC]: { title: "Free Holland Code Career Test: RIASEC Interests", description: "Free Holland Code interest test: 60 questions (~8 min) or 140 (~18). View six RIASEC interests and a three-letter code to explore specific activities and career directions." },
 };
@@ -24,8 +24,8 @@ const EN_SEARCH_COPY: Partial<Record<string, { title: string; description: strin
 const ZH_SEARCH_COPY: Partial<Record<string, { title: string; description: string }>> = {
   [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { title: "免费情商测试：60题情绪与关系自评", description: "费马EQ-60为60题自评，约10分钟，当前测试与结果免费。了解四维倾向、计分、阶段性参照和科学边界，再决定是否参加。" },
   [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: {
-    title: "免费智商测试：30题原创视觉推理练习",
-    description: "免费体验费马30题原创视觉推理练习，预计约20分钟。了解原始成绩、正确率与随机Beta指标的区别，结合具体推理示例选择复盘与阅读路径。",
+    title: "免费智商测试（IQ）：30题图形推理，测试与结果免费",
+    description: "在线完成费马30题原创图形与矩阵推理练习，预计约20分钟，测试与结果均免费。观察本次规律识别与抽象推理表现，了解成绩含义和使用边界；不替代专业智力评估。",
   },
   [SCALE_CANONICAL_SLUG_MAP.MBTI]: {
     title: "MBTI 免费测试：16 型人格与偏好解读",
@@ -42,6 +42,10 @@ const ZH_SEARCH_COPY: Partial<Record<string, { title: string; description: strin
 };
 
 const HERO_DESCRIPTIONS: Partial<Record<string, Partial<Record<"zh" | "en", string>>>> = {
+  [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: {
+    zh: "30道原创图形与矩阵推理题，预计约20分钟，测试与结果均免费。完成后了解自己在本次推理任务中的表现；这是推理练习，不替代专业智力评估。",
+    en: "30 original visual matrix reasoning questions, about 20 minutes, with free results. Explore your performance on this form. This reasoning exercise does not replace a professional intelligence assessment.",
+  },
   [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { zh: "约10分钟完成60题自评，当前测试与结果免费。查看自我觉察、情绪调节、共情理解和关系管理的四维结果，再结合具体事件与反馈阅读；结果反映本次自我描述。", en: "Complete 60 self-report items in about 10 minutes. The current test and results are free. View four-dimensional results for Self-Awareness, Emotion Regulation, Empathy and Relationship Management, then read them alongside specific events and feedback. Results reflect your self-description in this response session." },
   [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: {
     zh: "大五人格测试观察 OCEAN 五个连续维度。120 题约 15 分钟，90 题约 11 分钟；两版均可免费完成并查看结果。按可投入时间选择版本，再结合具体情境阅读分数。",
