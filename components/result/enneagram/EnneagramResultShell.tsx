@@ -25,6 +25,7 @@ import type {
   EnneagramResultViewModel,
 } from "@/lib/enneagram/resultAssembler";
 import type { Locale } from "@/lib/i18n/locales";
+import { buildEnneagramPublicContentPath, resolveEnneagramPublicRouteEntry } from "@/lib/personality/enneagramPublicRoutes";
 import styles from "./enneagramResult.module.css";
 
 const CHAPTERS = [
@@ -456,6 +457,9 @@ export function EnneagramResultShell({
   const candidate =
     viewModel.candidates.find((item) => item.typeId === selectedType) ??
     viewModel.candidates[0];
+  const publicTypeEntry = candidate
+    ? resolveEnneagramPublicRouteEntry([`type-${candidate.typeId}`])
+    : null;
   const overview = report?.moduleMap.result_overview?.content ?? {};
   const retakeHref = buildEnneagramTakeHref(
     SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM,
@@ -635,6 +639,17 @@ export function EnneagramResultShell({
                       <dd>{candidate.sectionMap["2.5"].reflectionQuestion}</dd>
                     </div>
                   </dl>
+                  {publicTypeEntry ? (
+                    <Link
+                      href={buildEnneagramPublicContentPath(locale, publicTypeEntry)}
+                      className={buttonVariants({ variant: "outline", className: "h-auto max-w-full text-center" })}
+                      prefetch={false}
+                    >
+                      {isZh
+                        ? `阅读${candidate.typeName}的公开解释`
+                        : `Read the public guide to ${candidate.typeName}`}
+                    </Link>
+                  ) : null}
                   <div className={styles.resultMethodNote} role="note">
                     <strong>
                       {String(overview.title ?? chapters[0].title)}

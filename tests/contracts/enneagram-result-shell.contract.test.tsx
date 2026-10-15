@@ -17,6 +17,54 @@ function renderResult(options: Parameters<typeof createSevenChapterReport>[0] = 
 describe("Enneagram production seven-chapter shell", () => {
   beforeEach(() => { api.fetch.mockResolvedValue({ observation_state_v1: null }); api.assign.mockResolvedValue({ observation_state_v1: { version: "enneagram_observation_state.v1", attempt_id: "attempt-1", scale_code: "ENNEAGRAM", status: "active", tasks: [] } }); });
 
+  it.each(
+    (["en", "zh-CN"] as const).flatMap((locale) =>
+      (["enneagram_likert_105", "enneagram_forced_choice_144"] as const).flatMap((formCode) =>
+        (["clear", "close_call"] as const).map((scope) => ({ locale, formCode, scope }))
+      )
+    )
+  )("links every reading candidate to its $locale public core guide for $formCode / $scope", ({ locale: reportLocale, formCode, scope }) => {
+    const locale = reportLocale === "zh-CN" ? "zh" : "en";
+    const reportData = createSevenChapterReport({ locale: reportLocale, formCode, scope });
+    const viewModel = assembleEnneagramResultViewModel({ reportData, locale, gate: { isFreeVariant: false } });
+    const before = JSON.stringify(viewModel);
+    render(<EnneagramResultShell locale={locale} attemptId="synthetic-guide-matrix" reportLocked={false} viewModel={viewModel} />);
+    const guide = () => screen.getByRole("link", { name: locale === "zh" ? /的公开解释/ : /Read the public guide/ });
+    expect(guide()).toHaveAttribute("href", `/${locale}/personality/enneagram/type-1`);
+    for (const candidate of viewModel.candidates) {
+      fireEvent.click(screen.getByRole("button", { name: new RegExp(`#${candidate.rank} · ${candidate.typeName}`) }));
+      expect(guide()).toHaveAttribute("href", `/${locale}/personality/enneagram/type-${candidate.typeId}`);
+      expect(guide()).toHaveTextContent(candidate.typeName);
+    }
+    expect(JSON.stringify(viewModel)).toBe(before);
+  });
+
+  it.each(["en", "zh-CN"] as const)("keeps all three FC144 tied candidates and their guides in %s", (reportLocale) => {
+    const locale = reportLocale === "zh-CN" ? "zh" : "en";
+    const reportData = createSevenChapterReport({ locale: reportLocale, formCode: "enneagram_forced_choice_144", scope: "close_call", top: [6, 3, 9] });
+    const payload = reportData.enneagram_report_v2 as unknown as { candidates: { score_norm: number; score_display: number }[]; distribution: { type: string; score_norm: number; score_display: number }[] };
+    for (const row of [...payload.candidates, ...payload.distribution.filter((row) => ["6", "3", "9"].includes(row.type))]) {
+      row.score_norm = .5;
+      row.score_display = 50;
+    }
+    const viewModel = assembleEnneagramResultViewModel({ reportData, locale, gate: { isFreeVariant: false } });
+    const before = JSON.stringify(viewModel);
+    render(<EnneagramResultShell locale={locale} attemptId="synthetic-multiway-tie" reportLocked={false} viewModel={viewModel} />);
+    for (const candidate of viewModel.candidates) {
+      fireEvent.click(screen.getByRole("button", { name: new RegExp(`#${candidate.rank} · ${candidate.typeName}`) }));
+      expect(screen.getByRole("link", { name: locale === "zh" ? /的公开解释/ : /Read the public guide/ })).toHaveAttribute("href", `/${locale}/personality/enneagram/type-${candidate.typeId}`);
+    }
+    expect(viewModel.candidates.map((candidate) => candidate.typeId)).toEqual(["6", "3", "9"]);
+    expect(JSON.stringify(viewModel)).toBe(before);
+  });
+
+  it.each(["en", "zh"] as const)("does not invent a guide when the %s canonical result is unavailable", (locale) => {
+    const viewModel = assembleEnneagramResultViewModel({ reportData: { ok: true }, locale, gate: { isFreeVariant: false } });
+    render(<EnneagramResultShell locale={locale} attemptId="synthetic-unavailable" reportLocked={false} viewModel={viewModel} />);
+    expect(screen.getByTestId("enneagram-canonical-payload-unavailable")).toBeVisible();
+    expect(screen.queryByRole("link")).not.toBeInTheDocument();
+  });
+
   it.each(["clear", "close_call", "diffuse", "low_quality"] as const)("renders the %s state with seven ordered chapters", async (scope) => {
     renderResult({ scope });
     expect(screen.getByTestId("enneagram-result-shell")).toHaveAttribute("data-interpretation-scope", scope);
