@@ -7,7 +7,7 @@ describe("English assessment search copy", () => {
     ["MBTI", "16 Types", "four preference pairs"],
     ["BIG5_OCEAN", "OCEAN", "30 facets"],
     ["ENNEAGRAM", "9-Type", "two-option choices"],
-    ["IQ_RAVEN", "Matrix Reasoning", "test and results are free"],
+    ["IQ_RAVEN", "Matrix Reasoning", "Free test and results"],
     ["EQ_60", "Self-Report", "interim references"],
     ["RIASEC", "Holland Code", "three-letter code"],
   ] as const)("gives %s a distinct English search title and an accurate description", (code, term, explanation) => {
@@ -15,6 +15,7 @@ describe("English assessment search copy", () => {
     const en = getAssessmentLandingUi(slug, "en")!;
     expect(en.seoTitle).toContain(term);
     expect(en.seoDescription).toContain(explanation);
+    if (code === "IQ_RAVEN") expect(en.seoDescription).toContain("no substitute for professional IQ assessment");
     if (code !== "EQ_60") expect(en.seoTitle).not.toEqual(en.title);
     expect(en.seoTitle!.length).toBeLessThan(65);
     expect(en.seoDescription!.length).toBeLessThan(180);
