@@ -46,7 +46,7 @@ export default async function Preview({ params, searchParams }: {
         {[["zero", "偏低 · 73分"], ["low", "较低 · 85分"], ["middle", "中段 · 104分"], ["high", "较高 · 130分"]].map(([key, label]) => <Link
           key={key} href={`/${locale}/dev/iq-result?sample=${key}&tools=1`}
           aria-current={(requested ?? "middle") === key ? "page" : undefined}
-          className="rounded-full border border-[var(--fm-border)] px-3 py-1.5 aria-[current=page]:bg-[var(--fm-accent)] aria-[current=page]:text-white">{label}</Link>)}
+          className="rounded-full border border-[var(--fm-border)] px-3 py-2 aria-[current=page]:bg-[var(--fm-accent)] aria-[current=page]:text-white">{label}</Link>)}
       </nav>
     </aside> : null}
     <IqResultShell locale={locale} reportData={report} resultData={null} accessView={null} />
