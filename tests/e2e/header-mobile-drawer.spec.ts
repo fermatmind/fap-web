@@ -48,7 +48,7 @@ test.describe("mobile header drawer", () => {
     await expect(drawer.getByRole("link", { name: "My Account", exact: true })).toBeVisible();
     await expect(drawer.getByRole("link", { name: "Search", exact: true })).toHaveCount(0);
     await expect(drawer.getByRole("link", { name: "Business", exact: true })).toHaveCount(0);
-    await expect(drawer.getByRole("link", { name: "中文", exact: true })).toBeVisible();
+    await expect(drawer.getByRole("link", { name: "Chinese", exact: true })).toBeVisible();
 
     await drawer.getByRole("button", { name: "Tests menu", exact: true }).click();
     await expect(drawer.getByRole("menuitem", { name: "Tests hub", exact: true })).toBeVisible();

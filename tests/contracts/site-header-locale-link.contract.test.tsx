@@ -39,6 +39,21 @@ describe("SiteHeader locale link contract", () => {
     navigationState.pathname = "/zh/tests/enneagram-personality-test-nine-types/take";
   });
 
+  it("keeps expanded IQ mobile and desktop language menus fully English", async () => {
+    navigationState.pathname = "/en/tests/iq-test-intelligence-quotient-assessment";
+    const { container } = render(<LocaleProvider locale="en"><SiteHeader /></LocaleProvider>);
+    fireEvent.click(screen.getByRole("button", { name: "Menu" }));
+    expect(screen.getByRole("link", { name: "Chinese" })).toHaveAttribute("href", "/zh/tests/iq-test-intelligence-quotient-assessment");
+    expect(container.textContent).not.toMatch(/\p{Script=Han}/u);
+    fireEvent.click(screen.getAllByRole("button", { name: "Close menu" })[0]);
+    fireEvent.click(screen.getByRole("button", { name: "Language menu" }));
+    expect(await screen.findByRole("menuitem", { name: "Chinese (Simplified)" })).toHaveAttribute("href", "/zh/tests/iq-test-intelligence-quotient-assessment");
+    expect(container.textContent).not.toMatch(/\p{Script=Han}/u);
+    for (const element of container.querySelectorAll("[aria-label],[alt],[title]")) {
+      expect([element.getAttribute("aria-label"), element.getAttribute("alt"), element.getAttribute("title")].join(" ")).not.toMatch(/\p{Script=Han}/u);
+    }
+  });
+
   it("sends an article without a verified translation to the other language article list on mobile", () => {
     navigationState.pathname = "/zh/articles/independent-root";
     render(<LocaleProvider locale="zh"><SiteHeader /></LocaleProvider>);

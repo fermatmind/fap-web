@@ -18,7 +18,7 @@ const en: SiteDictionary = {
     completedPrefix: "Cumulative test participants:",
     completedSuffix: "",
     switchToEnglish: "EN",
-    switchToChinese: "中文",
+    switchToChinese: "Chinese",
   },
   tests: {
     title: "Tests",
@@ -182,7 +182,7 @@ const en: SiteDictionary = {
     minutes_unit: "min",
   },
   lang: {
-    zh_label: "中文",
+    zh_label: "Chinese",
     en_label: "EN",
   },
   cookie: {

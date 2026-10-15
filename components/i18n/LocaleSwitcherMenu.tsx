@@ -6,7 +6,7 @@ import { type Locale } from "@/lib/i18n/locales";
 import { useLocaleSwitchHref } from "@/components/i18n/useLocaleSwitchHref";
 
 const languageOptions: Array<{ locale: Locale; label: string; code: string }> = [
-  { locale: "zh", label: "简体中文", code: "ZH" },
+  { locale: "zh", label: "Chinese (Simplified)", code: "ZH" },
   { locale: "en", label: "English", code: "EN" },
 ];
 
@@ -36,7 +36,7 @@ export default function LocaleSwitcherMenu({
               aria-current="true"
               className="fm-header-dropdown-link fm-locale-menu-item is-current flex cursor-default items-center justify-between gap-6 bg-[var(--fm-bg-soft)] text-[var(--fm-text-main)]"
             >
-              <span>{option.label}</span>
+              <span>{locale === "zh" && option.locale === "zh" ? "简体中文" : option.label}</span>
               <span aria-hidden="true" className="fm-locale-menu-code">{option.code}</span>
             </span>
           );
@@ -54,7 +54,7 @@ export default function LocaleSwitcherMenu({
               onSelect();
             }}
           >
-            <span>{option.label}</span>
+            <span>{locale === "zh" && option.locale === "zh" ? "简体中文" : option.label}</span>
             <span aria-hidden="true" className="fm-locale-menu-code">{option.code}</span>
           </PublicNavigationLink>
         );
