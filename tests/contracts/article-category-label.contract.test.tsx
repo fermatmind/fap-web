@@ -64,8 +64,10 @@ describe("article badges use published CMS category labels", () => {
   it.each([
     ["en", "gaokao-major-adjustment-unacceptable-major-checklist", true],
     ["zh", "gaokao-major-adjustment-unacceptable-major-checklist", false],
+    ["en", "eq60-score-and-results-guide", true],
+    ["zh", "eq60-score-and-results-guide", true],
     ["en", article.slug, false],
-  ] as const)("keeps the reviewed checklist table readable without widening other articles (%s, %s)", async (locale, slug, scrollable) => {
+  ] as const)("keeps reviewed article tables readable without widening other articles (%s, %s)", async (locale, slug, scrollable) => {
     vi.resetModules();
     const contentMd = "| Sequence | Do not ask first | Check first | Output |\n| --- | --- | --- | --- |\n| 1 | Is this school worth applying for? | Check the application model | A verified list |";
     vi.doMock("@/lib/cms/articles", async (original) => ({ ...await original<typeof import("@/lib/cms/articles")>(),
@@ -77,7 +79,7 @@ describe("article badges use published CMS category labels", () => {
     const html = renderToStaticMarkup(await Page({ params: Promise.resolve({ locale, slug }) }));
     expect(html.includes('role="region"')).toBe(scrollable);
     expect(html.includes('min-width:640px')).toBe(scrollable);
-    if (scrollable) expect(html).toContain('aria-label="Horizontally scrollable table" tabindex="0"');
+    if (scrollable) expect(html).toContain(`aria-label="${locale === "zh" ? "可横向滚动的表格" : "Horizontally scrollable table"}" tabindex="0"`);
     expect(html).toContain("A verified list");
   });
 
