@@ -460,6 +460,8 @@ describe("SEO core test detail availability", () => {
         expect(heroProps.title).toBe(locale === "zh"
           ? "免费情商测试：60题情绪与关系自评"
           : "Free EQ Test: 60-Item Emotion and Relationship Self-Report");
+      } else if (slug === SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN) {
+        expect(heroProps.title).toBe(locale === "zh" ? "免费智商测试（IQ）" : "Free IQ Test");
       } else {
         expect(heroProps.title).toContain(locale === "zh" ? "免费测试" : "Free");
       }
@@ -476,7 +478,7 @@ describe("SEO core test detail availability", () => {
       const intro = elements.find((element) => element.type === AssessmentLandingIntro);
       if (intro) {
         const props = intro.props as { description?: string };
-        if ([SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM, SCALE_CANONICAL_SLUG_MAP.RIASEC, SCALE_CANONICAL_SLUG_MAP.EQ_60].some((target) => target === slug)
+        if ([SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM, SCALE_CANONICAL_SLUG_MAP.RIASEC, SCALE_CANONICAL_SLUG_MAP.EQ_60, SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN].some((target) => target === slug)
           || slug === SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN) {
           expect(props.description).toBeDefined();
         } else {
