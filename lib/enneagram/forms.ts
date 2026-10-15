@@ -98,7 +98,7 @@ export function getEnneagramVariantSummary(formCode: string | null | undefined, 
   }
 
   return meta.formCode === "enneagram_forced_choice_144"
-    ? `${meta.questionCount} questions, about ${meta.estimatedMinutes} minutes. Choose the closer statement in each pair for the formal forced-choice form.`
+    ? `${meta.questionCount} questions, about ${meta.estimatedMinutes} minutes. Choose the closer statement in each pair.`
     : `${meta.questionCount} questions, about ${meta.estimatedMinutes} minutes. Rate each statement on a five-point scale for the standard self-report form.`;
 }
 
