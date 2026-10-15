@@ -18,7 +18,7 @@ export function iqResultCopy(score: number | null, locale: Locale) {
   };
   if (score < 100) return {
     band: "low",
-    title: zh ? "智商得分低于平均水平" : "IQ score below the average range",
+    title: zh ? "智商得分低于平均水平" : "IQ score below average",
     description: zh
       ? "你在本次测试中的得分偏低，部分题目的变化规律可能还没有完全找到。遇到复杂题目时，可以先观察图形之间的共同点，再逐项比较差异、排除不符合规律的选项。先把思路理清，再逐步提高答题熟练度。"
       : "Your score on this test was on the lower side, and you may not yet have identified all the patterns in some items. For complex questions, look for shared features first, then compare differences and eliminate options that do not fit. Focus on clarifying your reasoning before building fluency.",
@@ -32,7 +32,7 @@ export function iqResultCopy(score: number | null, locale: Locale) {
   };
   return {
     band: "high",
-    title: zh ? "智商得分高于平均水平" : "IQ score above the average range",
+    title: zh ? "智商得分高于平均水平" : "IQ score above average",
     description: zh
       ? "你在本次测试中取得了较高得分，在规律识别与推理任务中表现较好。可以进一步挑战条件更多、变化更复杂的题目，尝试清楚地解释每一步推理。遇到熟悉的题型时，也别忘了检查是否存在其他可能的规律。"
       : "You achieved a higher score on this test and performed well on the pattern recognition and reasoning tasks. Try questions with more conditions and more complex changes, explaining each step of your reasoning clearly. Even with familiar item formats, check whether another rule could also fit.",
