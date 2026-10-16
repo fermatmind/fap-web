@@ -55,6 +55,7 @@ type Props = {
   locale: Locale;
   testSlug: string;
   testTitle: string;
+  initialTechnicalNote?: ScaleTechnicalNoteV1 | null;
 };
 
 type TechnicalNotePageProps = Props & {
@@ -155,12 +156,17 @@ function renderMetricCard(metric: ScaleMetricDefinition, testIdPrefix: string, l
   );
 }
 
-function ScaleTechnicalNotePage({ locale, testSlug, testTitle, fetchTechnicalNote, pageTestId, testIdPrefix, heading, validateTechnicalNote }: TechnicalNotePageProps) {
-  const [technicalNote, setTechnicalNote] = useState<ScaleTechnicalNoteV1 | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
+function ScaleTechnicalNotePage({ locale, testSlug, testTitle, initialTechnicalNote, fetchTechnicalNote, pageTestId, testIdPrefix, heading, validateTechnicalNote }: TechnicalNotePageProps) {
+  const [clientTechnicalNote, setTechnicalNote] = useState<ScaleTechnicalNoteV1 | null>(null);
+  const [clientError, setError] = useState<string | null>(null);
+  const [clientLoading, setLoading] = useState(true);
+  const technicalNote = initialTechnicalNote === undefined ? clientTechnicalNote : initialTechnicalNote;
+  const error = initialTechnicalNote === undefined ? clientError : initialTechnicalNote === null
+    ? (locale === "en" ? "The technical note could not be loaded. You can still read the method boundaries on the result page." : "当前无法读取技术说明。你仍可以先按结果页的方法边界阅读本次测量结果。") : null;
+  const loading = initialTechnicalNote === undefined && clientLoading;
 
   useEffect(() => {
+    if (initialTechnicalNote !== undefined) return;
     let active = true;
 
     void fetchTechnicalNote()
@@ -195,7 +201,7 @@ function ScaleTechnicalNotePage({ locale, testSlug, testTitle, fetchTechnicalNot
     return () => {
       active = false;
     };
-  }, [fetchTechnicalNote, locale, validateTechnicalNote]);
+  }, [fetchTechnicalNote, initialTechnicalNote, locale, validateTechnicalNote]);
 
   const orderedSections = useMemo(() => {
     if (!technicalNote) {
@@ -406,13 +412,14 @@ function ScaleTechnicalNotePage({ locale, testSlug, testTitle, fetchTechnicalNot
   );
 }
 
-export function EnneagramTechnicalNotePage({ locale, testSlug, testTitle }: Props) {
+export function EnneagramTechnicalNotePage({ locale, testSlug, testTitle, initialTechnicalNote }: Props) {
   const fetchNote = useCallback(() => fetchEnneagramTechnicalNote(locale), [locale]);
   return (
     <ScaleTechnicalNotePage
       locale={locale}
       testSlug={testSlug}
       testTitle={testTitle}
+      initialTechnicalNote={initialTechnicalNote}
       fetchTechnicalNote={fetchNote}
       pageTestId="enneagram-technical-note-page"
       testIdPrefix="enneagram-technical-note"

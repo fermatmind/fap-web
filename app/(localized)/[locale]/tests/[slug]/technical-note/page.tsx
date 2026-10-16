@@ -5,6 +5,7 @@ import { SCALE_CANONICAL_SLUG_MAP, resolveCanonicalSlug } from "@/lib/assessment
 import { getTestBySlug, resolveTestTitleByLocale } from "@/lib/content";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import { getPublicEnneagramTechnicalNote } from "@/lib/enneagram/technicalNote.server";
 
 const TECHNICAL_NOTE_ROUTE_CONFIG = {
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: {
@@ -29,10 +30,12 @@ export async function generateMetadata({
   const title = test ? resolveTestTitleByLocale(test, locale) : "Technical Note";
   const routeConfig = TECHNICAL_NOTE_ROUTE_CONFIG[slug as keyof typeof TECHNICAL_NOTE_ROUTE_CONFIG];
   const routePath = `/tests/${slug}/technical-note`;
+  const unavailable = slug === SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM && !await getPublicEnneagramTechnicalNote(locale);
 
   return {
     title: `${title} - ${locale === "en" ? "Technical Note" : "技术说明"}`,
     description: locale === "en" ? `Methods, score interpretation, evidence status, and use boundaries for ${title}.` : `${title}的方法、分数解释、证据状态与使用边界。`,
+    ...(unavailable ? { robots: { index: false, follow: true } } : {}),
     alternates: {
       canonical: localizedPath(routePath, locale),
       ...(test && routeConfig && test.scale_code === routeConfig.scaleCode ? {
@@ -65,12 +68,15 @@ export default async function TechnicalNoteRoute({
   }
 
   const TechnicalNotePage = routeConfig.Component;
+  const initialTechnicalNote = slug === SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM
+    ? await getPublicEnneagramTechnicalNote(locale) : undefined;
 
   return (
     <TechnicalNotePage
       locale={locale}
       testSlug={slug}
       testTitle={resolveTestTitleByLocale(test, locale)}
+      initialTechnicalNote={initialTechnicalNote}
     />
   );
 }

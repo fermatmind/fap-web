@@ -1,4 +1,5 @@
 import { render, screen, waitFor, within } from "@testing-library/react";
+import { renderToStaticMarkup } from "react-dom/server";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { EnneagramTechnicalNotePage, RiasecTechnicalNotePage } from "@/components/result/enneagram/EnneagramTechnicalNotePage";
 
@@ -436,6 +437,35 @@ describe("enneagram technical note page contract", () => {
     hoisted.fetchRiasecTechnicalNote.mockResolvedValueOnce(createRiasecTechnicalNoteResponse());
     render(<RiasecTechnicalNotePage locale="en" testSlug="holland-career-interest-test-riasec" testTitle="RIASEC" />);
     expect(await screen.findByTestId("riasec-technical-note-error")).not.toHaveTextContent(/\p{Script=Han}/u);
+  });
+
+  it("renders authoritative technical-note body in the initial server HTML without a browser fetch", async () => {
+    const note = createTechnicalNoteResponse().technical_note_v1;
+    const html = renderToStaticMarkup(<EnneagramTechnicalNotePage locale="zh" testSlug="enneagram-personality-test-nine-types" testTitle="九型人格" initialTechnicalNote={note} />);
+    expect(html).toContain("测试目标");
+    expect(html).toContain("用于解释当前九型测量要回答的问题");
+    expect(html).not.toContain("正在加载技术说明");
+    render(<EnneagramTechnicalNotePage locale="zh" testSlug="enneagram-personality-test-nine-types" testTitle="九型人格" initialTechnicalNote={note} />);
+    expect(screen.getByTestId("enneagram-technical-note-meta")).toBeInTheDocument();
+    expect(hoisted.fetchEnneagramTechnicalNote).not.toHaveBeenCalled();
+  });
+
+  it("uses a refreshed server note instead of retaining the previous rendered version", () => {
+    const first = createTechnicalNoteResponse().technical_note_v1;
+    const view = render(<EnneagramTechnicalNotePage locale="zh" testSlug="enneagram-personality-test-nine-types" testTitle="九型人格" initialTechnicalNote={first} />);
+    const next = { ...first, sections: [{ section_key: "test_goal", title: "更新的方法", body: "已发布版本的当前公开说明。" }] };
+    view.rerender(<EnneagramTechnicalNotePage locale="zh" testSlug="enneagram-personality-test-nine-types" testTitle="九型人格" initialTechnicalNote={next} />);
+    expect(screen.getByTestId("enneagram-technical-note-section-test_goal")).toHaveTextContent("已发布版本的当前公开说明");
+    expect(hoisted.fetchEnneagramTechnicalNote).not.toHaveBeenCalled();
+  });
+
+  it("keeps a failed server read unavailable without replacing it with a second client read", () => {
+    const html = renderToStaticMarkup(<EnneagramTechnicalNotePage locale="en" testSlug="enneagram-personality-test-nine-types" testTitle="Enneagram" initialTechnicalNote={null} />);
+    expect(html).toContain("Technical note unavailable");
+    expect(html).not.toContain("enneagram-technical-note-sections");
+    render(<EnneagramTechnicalNotePage locale="en" testSlug="enneagram-personality-test-nine-types" testTitle="Enneagram" initialTechnicalNote={null} />);
+    expect(screen.getByTestId("enneagram-technical-note-error")).toBeInTheDocument();
+    expect(hoisted.fetchEnneagramTechnicalNote).not.toHaveBeenCalled();
   });
 
 });
