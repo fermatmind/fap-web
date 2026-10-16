@@ -26,6 +26,7 @@ const LIVE_AUTHORITATIVE_ARTICLE_SLUGS = new Set([
   "iq-test-narrative-portrait",
   "iq-test-growth-guide",
   "what-is-iq-and-how-it-is-measured",
+  "online-iq-tests-compared",
   "eq-test-tool-guide",
   "emotional-intelligence-models-and-measures",
   "eq60-score-and-results-guide",

@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { getCmsArticle, getCmsArticleSeo, getCmsArticleWithLastKnownGood, getCmsArticleSeoWithLastKnownGood } from "@/lib/cms/articles";
 import { clearLastKnownGoodForTests } from "@/lib/cms/last-known-good";
 
-const slugs = ["iq-test-score-and-limits-explained", "iq-test-tool-guide", "iq-test-narrative-portrait", "iq-test-growth-guide", "what-is-iq-and-how-it-is-measured", "eq-test-tool-guide", "emotional-intelligence-models-and-measures", "eq60-score-and-results-guide", "emotional-awareness-regulation-and-relationship-practice"];
+const slugs = ["iq-test-score-and-limits-explained", "iq-test-tool-guide", "iq-test-narrative-portrait", "iq-test-growth-guide", "what-is-iq-and-how-it-is-measured", "online-iq-tests-compared", "eq-test-tool-guide", "emotional-intelligence-models-and-measures", "eq60-score-and-results-guide", "emotional-awareness-regulation-and-relationship-practice"];
 const response = (payload: unknown, status = 200) => new Response(JSON.stringify(payload), { status, headers: { "Content-Type": "application/json" } });
 const article = (slug: string, locale: string, revision = 1) => ({ ok: true, article: { id: 1, org_id: 0, slug, locale, title: "Current reasoning guide", excerpt: "Current limits", content_md: `Current body ${revision}`, status: "published", is_public: true, is_indexable: false, published_revision_id: revision } });
 const seo = (slug: string) => ({ meta: { title: "Current reasoning guide", description: "Current limits", canonical: `https://fermatmind.com/en/articles/${slug}`, robots: "noindex,follow" } });
