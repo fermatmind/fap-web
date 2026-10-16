@@ -473,7 +473,9 @@ export default async function ArticleDetailPage({
           {article.bodyVisual?.imageUrl ? (
             <ArticleResponsiveImage
               src={article.bodyVisual.imageUrl}
-              alt={article.coverImageAlt ?? article.title}
+              alt={article.bodyVisual.imageUrl === article.coverImageUrl
+                ? (article.coverImageAlt ?? article.title)
+                : article.title}
               mode="hero"
               className="aspect-[16/9] rounded-lg border border-[var(--fm-border)]"
             />
