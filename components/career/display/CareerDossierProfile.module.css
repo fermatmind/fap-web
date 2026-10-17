@@ -344,7 +344,8 @@
   font-size: 12px;
   line-height: 1.6;
   color: #465168;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .judgmentSection {
