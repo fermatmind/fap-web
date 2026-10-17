@@ -563,8 +563,8 @@ function getCoreTestIntroCopy(locale: Locale, item: HomeCoreTestItem, title: str
 
     if (key.includes("iq")) {
       return {
-        card: "想练习推理能力吗？完成视觉与数字题，获得一份清晰的原始分参考。",
-        detail: "智商测试包含视觉和数字推理练习，适合在常模权威上线前作为能力训练与原始分参考。",
+        card: "想体验图形推理吗？完成30道原创视觉矩阵题，查看本次答对题数与正确率。",
+        detail: "当前IQ测试是费马原创30题视觉矩阵推理练习，帮助你了解本次作答表现；不替代专业智力评估。",
         action: "开始智商免费测试。",
       };
     }
@@ -618,8 +618,8 @@ function getCoreTestIntroCopy(locale: Locale, item: HomeCoreTestItem, title: str
 
   if (key.includes("iq")) {
     return {
-      card: "Want to practice reasoning? Complete visual and numerical questions and get a clear raw-score reference.",
-      detail: "The IQ test includes visual and numerical reasoning exercises, suitable for ability practice and raw-score reference before normed authority is available.",
+      card: "Explore visual reasoning with 30 original matrix questions. See your correct-answer count and accuracy.",
+      detail: "The current FermatMind IQ test is an original 30-question visual matrix reasoning exercise. Review your performance on this form; it does not replace a professional intelligence assessment.",
       action: "Start the free IQ test.",
     };
   }

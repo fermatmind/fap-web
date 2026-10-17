@@ -164,8 +164,8 @@ const EXPECTED_ZH_CARDS = [
   {
     title: "智商测试",
     accessibleTitle: "IQ 智商测试",
-    copy: "想练习推理能力吗？完成视觉与数字题，获得一份清晰的原始分参考。 开始智商免费测试。",
-    detail: "智商测试包含视觉和数字推理练习，适合在常模权威上线前作为能力训练与原始分参考。",
+    copy: "想体验图形推理吗？完成30道原创视觉矩阵题，查看本次答对题数与正确率。 开始智商免费测试。",
+    detail: "当前IQ测试是费马原创30题视觉矩阵推理练习，帮助你了解本次作答表现；不替代专业智力评估。",
     href: "/zh/tests/iq-test-intelligence-quotient-assessment",
   },
   {
@@ -189,10 +189,14 @@ const EXPECTED_ZH_CARDS = [
 ];
 
 describe("homepage v1 core grid contract", () => {
-  it("localizes recommendation stars on the English homepage", async () => {
+  it("localizes recommendation stars and IQ card facts on the English homepage", async () => {
     render(<HomePageExperience locale="en" copy={await getHomePageContent("en")} />);
     expect(screen.getAllByLabelText("Recommended: 5 out of 5 stars")).toHaveLength(6);
     expect(screen.queryByLabelText("推荐指数 5 星")).not.toBeInTheDocument();
+    const iqLink = screen.getByRole("link", { name: /Explore visual reasoning with 30 original matrix questions/ });
+    expect(iqLink).toHaveAttribute("href", "/en/tests/iq-test-intelligence-quotient-assessment");
+    expect(iqLink.closest("article")).toHaveTextContent("it does not replace a professional intelligence assessment.");
+    expect(iqLink.closest("article")).not.toHaveTextContent("visual and numerical");
   });
 
   it("renders exactly six core test cards with four fields each", async () => {
