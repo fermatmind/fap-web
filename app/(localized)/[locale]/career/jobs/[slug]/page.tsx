@@ -1,3 +1,4 @@
+import { fetchCareerLinkTargets } from "@/lib/career/api/fetchCareerLinkTargets";
 import type { Metadata } from 'next';
 import { cache } from "react";
 import { resolveCareerGuideMetadataTitle } from '@/lib/seo/careerGuideMetadataTitle';
@@ -166,6 +167,7 @@ export default async function CareerJobDetailPage({params, searchParams}: {param
   const restoredSurface = result.restoredIdentity
     ? buildCareerPageDisplaySurface(page, result.restoredIdentity, ctaHref)
     : null;
+  if (restoredSurface) restoredSurface.careerLinkPaths = await fetchCareerLinkTargets();
   const faq = restoredSurface?.faqItems ?? careerPageFaq(page);
   return <main data-evidence-page-family="career_job_detail" className="min-h-screen bg-slate-50">
     <AnalyticsPageViewTracker eventName={CAREER_TRACKING_EVENTS.jobDetailView} properties={buildCareerAttributionPayload({locale, entrySurface: 'career_job_detail', sourcePageType: 'career_job_detail', targetAction: 'view_surface', landingPath, routeFamily: 'job_detail', subjectKind: 'job_slug', subjectKey: job.slug})} />

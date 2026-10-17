@@ -408,6 +408,7 @@ export function CareerDossierChinaSalary({ value, locale, contentV3 = null, inte
       <aside className={visual.salarySources} aria-label={interfaceLabels?.["interface.china_salary.sources_label"] ?? (locale === "zh" ? "中国大陆薪资数据来源与使用边界" : "Chinese mainland salary sources and usage boundaries")}>
         {isRecord(value) && isRecord(value.salary) && Array.isArray(value.salary.bls_table) ? value.salary.bls_table.map((row, index) => isRecord(row) ? (
           <p key={index}>
+            <strong data-career-api-field={`career_snapshot_primary_locale.salary.bls_table[${index}].指标`}>{text(row["指标"])}</strong>{" · "}
             <span data-career-api-field={`career_snapshot_primary_locale.salary.bls_table[${index}].数值`}>{text(row["数值"])}</span>{" · "}
             <span data-career-api-field={`career_snapshot_primary_locale.salary.bls_table[${index}].说明`}>{text(row["说明"])}</span>
           </p>

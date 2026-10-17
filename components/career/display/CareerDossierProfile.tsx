@@ -101,6 +101,7 @@ export function CareerDossierProfile({
         data-career-published-answer={systemItem.answer}
       >
         <span className="sr-only" data-career-api-field="career_quick_answers_block.heading">{quickAnswers.heading}</span>
+        <div className={styles.sectionHeadingCompact}><h3>{systemItem.question}</h3></div>
         <p className={styles.directAnswer} data-career-api-field="career_quick_answers_block.items[0].answer">{systemItem.answer}</p>
         <div
           className={styles.trackFigure}
@@ -147,7 +148,10 @@ export function CareerDossierProfile({
             <div className={styles.foundation}>
               <BookOpenCheck aria-hidden="true" size={18} strokeWidth={1.8} />
               <strong data-career-api-field="career_quick_answers_block.items[0].table.rows[2].label">{sharedFoundation.label}</strong>
-              <span data-career-api-field="career_quick_answers_block.items[0].table.rows[2].value">{sharedFoundation.value}</span>
+              <span>
+                <span data-career-api-field="career_quick_answers_block.items[0].table.rows[2].value">{sharedFoundation.value}</span>
+                {sharedFoundation.secondary_value ? <span className={styles.foundationNote} data-career-api-field="career_quick_answers_block.items[0].table.rows[2].secondary_value">{sharedFoundation.secondary_value}</span> : null}
+              </span>
             </div>
           ) : null}
         </div>

@@ -11,6 +11,8 @@ type RiasecFit = {
 
 type Props = {
   interfaceLabels?: Record<string, string>;
+  primaryCtaHref?: string;
+  careerLinkPaths?: readonly string[] | null;
   value: CareerPublishedFitDecisionCenter;
   riasec: RiasecFit;
   locale: "en" | "zh";
@@ -94,6 +96,13 @@ function AssessmentGlyph({ id }: { id: AssessmentId }) {
   );
 }
 
+function attributedRiasecHref(href: string, primaryCtaHref: string): string {
+  const published = new URL(href, "https://fermatmind.com");
+  const primary = new URL(primaryCtaHref, "https://fermatmind.com");
+  primary.searchParams.forEach((value, key) => published.searchParams.set(key, value));
+  return `${published.pathname}${published.search}${published.hash}`;
+}
+
 function apiField(path: string) {
   return { "data-career-api-field": path };
 }
@@ -111,7 +120,7 @@ export function supportsCareerDossierFitCenter(value: unknown): value is CareerP
     Array.isArray(candidate.source_links) && candidate.source_links.length >= 4;
 }
 
-export function CareerDossierFitCenter({ value, riasec, locale, sectionLabel, sectionLabelId, interfaceLabels }: Props) {
+export function CareerDossierFitCenter({ value, riasec, locale, sectionLabel, sectionLabelId, interfaceLabels, primaryCtaHref, careerLinkPaths }: Props) {
   const isZh = locale === "zh";
 
   return (
@@ -177,10 +186,10 @@ export function CareerDossierFitCenter({ value, riasec, locale, sectionLabel, se
                 <strong>{interfaceLabels?.["interface.fit.assessment_misuse_label"] ?? (isZh ? "别这样用：" : "Do not use it this way: ")}</strong>{assessment.watchout}
               </p>
               <Link
-                href={assessment.cta_href}
+                href={assessment.id === "riasec" && primaryCtaHref ? attributedRiasecHref(assessment.cta_href, primaryCtaHref) : assessment.cta_href}
                 className={visual.fitAssessmentCta}
                 data-career-api-field={`personality_fit_block.assessments[${index}].cta_label`}
-                data-career-api-href={assessment.cta_href}
+                data-career-api-href={assessment.id === "riasec" && primaryCtaHref ? attributedRiasecHref(assessment.cta_href, primaryCtaHref) : assessment.cta_href}
               >
                 {assessment.cta_label}<span aria-hidden="true">→</span>
               </Link>
@@ -198,6 +207,7 @@ export function CareerDossierFitCenter({ value, riasec, locale, sectionLabel, se
         </div>
         <div className={visual.fitDirectionGrid} data-career-api-list="personality_fit_block.directions">
           {value.directions.map((direction, index) => {
+            const canNavigate = direction.target && (careerLinkPaths === undefined || careerLinkPaths?.includes(direction.target.href));
             const cardContent = (
               <>
               <h4 {...apiField(`personality_fit_block.directions[${index}].direction`)}>{direction.direction}</h4>
@@ -205,13 +215,13 @@ export function CareerDossierFitCenter({ value, riasec, locale, sectionLabel, se
               <p><strong>{interfaceLabels?.["interface.fit.direction_caution_label"] ?? (isZh ? "注意：" : "Watch for: ")}</strong><span {...apiField(`personality_fit_block.directions[${index}].watchouts`)}>{direction.watchouts}</span></p>
               {direction.target ? (
                 <span className={visual.fitDirectionTarget} {...apiField(`personality_fit_block.directions[${index}].target.title`)}>
-                  {interfaceLabels?.["interface.fit.related_career_label"] ?? (isZh ? "查看相关职业：" : "Explore related career: ")}{direction.target.title}<span aria-hidden="true">→</span>
+                  {interfaceLabels?.["interface.fit.related_career_label"] ?? (isZh ? "查看相关职业：" : "Explore related career: ")}{direction.target.title}{canNavigate ? <span aria-hidden="true">→</span> : null}
                 </span>
               ) : null}
               </>
             );
 
-            return direction.target ? (
+            return direction.target && canNavigate ? (
               <Link
                 key={direction.direction}
                 href={direction.target.href}
@@ -224,6 +234,7 @@ export function CareerDossierFitCenter({ value, riasec, locale, sectionLabel, se
             ) : (
               <article key={direction.direction} className={visual.fitDirectionCard}>
                 {cardContent}
+                {direction.target ? <p>{isZh ? "职业详情暂不可用" : "Career profile unavailable"}</p> : null}
               </article>
             );
           })}

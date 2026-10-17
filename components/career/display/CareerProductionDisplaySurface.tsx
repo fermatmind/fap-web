@@ -652,7 +652,7 @@ function SourceCard({ surface, embedded = false }: { surface: CareerDisplaySurfa
       {typeof sourceCard.note === "string" ? <p className="m-0 mt-4 text-sm leading-7 text-[#5B6678]" data-career-api-field="source_card.note">{sourceCard.note}</p> : null}
       {secondaryLinks.length ? <p className={visual.salarySourceLinks}>
         {secondaryLinks.map((entry, index) => <span key={entry.href}>
-          {index > 0 ? " · " : null}<Link href={entry.href}>{entry.label}</Link>
+          {index > 0 ? " · " : null}<Link href={entry.href}>{entry.label}{entry.href.startsWith(surface.locale === "zh" ? "/en/" : "/zh/") && !/英文|英语|中文|English|Chinese|\((?:EN|ZH)\)/iu.test(entry.label) ? (surface.locale === "zh" ? "（英文）" : " (Chinese)") : null}</Link>
         </span>)}
       </p> : null}
     </Container>
@@ -957,7 +957,7 @@ export function CareerProductionDisplaySurface({
       return <>
         <ComponentFrame id="riasec_fit_block" instanceKey={block.instanceKey} hidden><span data-career-api-component="riasec_fit_block" /></ComponentFrame>
         <ComponentFrame id="personality_fit_block" instanceKey={block.instanceKey}>
-          <CareerDossierFitCenter interfaceLabels={surface.interfaceLabels} value={fitCenter as CareerPublishedFitDecisionCenter} riasec={riasec} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-title`} />
+          <CareerDossierFitCenter careerLinkPaths={surface.careerLinkPaths} primaryCtaHref={primaryCtaHref} interfaceLabels={surface.interfaceLabels} value={fitCenter as CareerPublishedFitDecisionCenter} riasec={riasec} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-title`} />
         </ComponentFrame>
       </>;
     }
@@ -985,7 +985,7 @@ export function CareerProductionDisplaySurface({
     const outlook = publishedComponents.market_signal_card;
     if (block.copyKey === "career.block.market-signals" && declares("market_signal_card") && supportsCareerOutlookTransitions(outlook)) {
       return <ComponentFrame id="market_signal_card" instanceKey={block.instanceKey}>
-        <CareerDossierOutlookTransitions interfaceLabels={surface.interfaceLabels} value={outlook as CareerPublishedOutlookTransitions} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-title`} contentV3={surface.contentV3} />
+        <CareerDossierOutlookTransitions careerLinkPaths={surface.careerLinkPaths} interfaceLabels={surface.interfaceLabels} value={outlook as CareerPublishedOutlookTransitions} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-title`} contentV3={surface.contentV3} />
       </ComponentFrame>;
     }
 
@@ -1321,7 +1321,7 @@ export function CareerProductionDisplaySurface({
           <span data-career-api-component="riasec_fit_block" />
         </ComponentFrame>,
         <ComponentFrame key="personality_fit_block" id="personality_fit_block">
-          <CareerDossierFitCenter interfaceLabels={surface.interfaceLabels}
+          <CareerDossierFitCenter careerLinkPaths={surface.careerLinkPaths} primaryCtaHref={primaryCtaHref} interfaceLabels={surface.interfaceLabels}
             value={fitCenter as CareerPublishedFitDecisionCenter}
             riasec={riasec}
             locale={surface.locale}
@@ -1345,7 +1345,7 @@ export function CareerProductionDisplaySurface({
     } else if (group.id === "market-signals" && isEnhanced && supportsCareerOutlookTransitions(publishedComponents.market_signal_card)) {
       componentNodes = [
         <ComponentFrame key="market_signal_card" id="market_signal_card">
-          <CareerDossierOutlookTransitions interfaceLabels={surface.interfaceLabels} value={publishedComponents.market_signal_card as CareerPublishedOutlookTransitions} locale={surface.locale} sectionLabel={visualGroupLabel(group, isZh)} sectionLabelId={`career-visual-group-title-${group.id}`} contentV3={surface.contentV3} />
+          <CareerDossierOutlookTransitions careerLinkPaths={surface.careerLinkPaths} interfaceLabels={surface.interfaceLabels} value={publishedComponents.market_signal_card as CareerPublishedOutlookTransitions} locale={surface.locale} sectionLabel={visualGroupLabel(group, isZh)} sectionLabelId={`career-visual-group-title-${group.id}`} contentV3={surface.contentV3} />
         </ComponentFrame>,
       ];
     } else {

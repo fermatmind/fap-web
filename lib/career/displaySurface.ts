@@ -252,6 +252,7 @@ export type CareerDisplaySurfaceViewModel = {
   presentationV1Available: boolean;
   presentationV2: CareerPresentationV2 | null;
   contentV3: CareerContentV3 | null;
+  careerLinkPaths?: readonly string[] | null;
   dossierRenderPlan: CareerDossierRenderPlan | null;
   cta: {
     label: string;

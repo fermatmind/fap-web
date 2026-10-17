@@ -78,7 +78,7 @@
 .trackFigure {
   position: relative;
   display: grid;
-  gap: 64px;
+  gap: 20px;
   margin-top: 0;
   padding: 0 4px;
 }
@@ -186,22 +186,33 @@
 }
 
 .foundation {
-  position: absolute;
-  top: 50%;
-  left: 50%;
   z-index: 1;
   display: flex;
-  width: calc(100% - 8px);
+  grid-row: 2;
+  width: 100%;
   min-height: 32px;
   align-items: center;
   justify-content: center;
   gap: 9px;
   padding: 6px 14px;
-  transform: translate(-50%, -50%);
   border: 1px solid #cfdaeb;
   background: #f1f4fb;
   font-size: 10px;
   color: #566173;
+}
+
+.foundationNote {
+  display: block;
+  margin-top: 4px;
+}
+
+.foundation > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.foundation > svg {
+  flex-shrink: 0;
 }
 
 .foundation strong {
