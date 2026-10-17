@@ -189,11 +189,15 @@ function parseUsSalary(value: CareerPublishedValue): UsSalaryContent | null {
   const boundary = text(value.boundary);
   const authoritySourcesRaw = text(value.authority_sources);
   const blsRows = rows(value.bls_table, ["指标", "数值", "说明"], 1, ["fact_ref"]);
-  // The existing BLS contract declares five wage rows followed by three
-  // employment rows. Reader-facing translations are not field identifiers.
-  if (!blsRows || blsRows.length !== 8) return null;
-  const wageRows = blsRows.slice(0, 5);
-  const outlookRows = blsRows.slice(5);
+  // Current BLS tables declare five wage rows followed by three employment
+  // rows. The existing compact variant supplies wage_tiers and one employment
+  // row instead. Neither representation uses translated labels as identifiers.
+  if (!blsRows) return null;
+  const wageRowCount = blsRows.length === 8 ? 5
+    : blsRows.length === 1 && Object.hasOwn(value, "wage_tiers") ? 0 : -1;
+  if (wageRowCount < 0) return null;
+  const wageRows = blsRows.slice(0, wageRowCount);
+  const outlookRows = blsRows.slice(wageRowCount);
   const industryPeriod = text(value.industry_period) ?? `${industryHeading ?? ""} ${industryRows?.map((row) => row.note).join(" ") ?? ""}`.match(/20\d{2}/u)?.[0] ?? null;
   const outlookPeriod = text(value.outlook_period) ?? outlookRows[0]?.["指标"].match(/20\d{2}[–—-]20\d{2}/u)?.[0] ?? null;
   const sources = sourceItems([...blsRows.map((row) => row["说明"]), authoritySourcesRaw]);

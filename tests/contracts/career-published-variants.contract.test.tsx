@@ -2,7 +2,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { expect, it } from 'vitest';
-import { publishedCareerPage } from './publishedCareerPage';
+import { publishedCareerPage } from '@/tests/fixtures/career-page/publishedCareerPage';
 import { normalizeCareerPublishedComponents } from '@/lib/career/publishedComponentContract';
 import { normalizeCareerPage } from '@/lib/career/careerPage';
 import { buildCareerPageDisplaySurface, careerDisplayIdentity } from '@/lib/career/pageDisplay';

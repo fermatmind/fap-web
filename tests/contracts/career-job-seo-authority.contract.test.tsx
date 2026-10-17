@@ -6,7 +6,7 @@ import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
 import { buildSelectedCareerDisplaySurfaceFixture } from "@/tests/contracts/careerDisplaySurface.fixture";
 import emptyCareerPage from "@/tests/fixtures/career-page/health-educators.en.json";
 
-import { publishedCareerPage } from "./publishedCareerPage";
+import { publishedCareerPage } from "@/tests/fixtures/career-page/publishedCareerPage";
 const pageFixture = await publishedCareerPage("zh");
 const englishPageFixture = await publishedCareerPage("en");
 

@@ -1,4 +1,4 @@
-import {publishedCareerPage} from './publishedCareerPage';
+import {publishedCareerPage} from '@/tests/fixtures/career-page/publishedCareerPage';
 const accountants = await publishedCareerPage('zh');
 import {careerEvidenceLabel} from '@/lib/career/evidenceLabels';
 import {readFileSync, readdirSync, writeFileSync} from 'node:fs';

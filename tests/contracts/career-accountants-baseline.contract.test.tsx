@@ -1,4 +1,4 @@
-import { publishedCareerPage } from './publishedCareerPage';
+import { publishedCareerPage } from '@/tests/fixtures/career-page/publishedCareerPage';
 const currentPage = await publishedCareerPage('zh');
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, it, expect } from 'vitest';

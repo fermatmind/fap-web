@@ -7,7 +7,7 @@ import type {CareerPublishedValue} from '@/lib/career/publishedComponentContract
 import {CareerDisplaySurface} from '@/components/career/display/CareerDisplaySurface';
 import {normalizeCareerPage} from '@/lib/career/careerPage';
 import {buildCareerPageDisplaySurface, careerDisplayIdentity} from '@/lib/career/pageDisplay';
-import {publishedCareerPage} from './publishedCareerPage';
+import {publishedCareerPage} from '@/tests/fixtures/career-page/publishedCareerPage';
 
 const page = await publishedCareerPage('zh') as {display: {components: {ai_impact_table: CareerPublishedValue}}};
 type LinkRow = Record<string, string>;

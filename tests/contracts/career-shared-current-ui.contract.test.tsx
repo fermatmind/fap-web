@@ -6,7 +6,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { CareerDisplaySurface } from '@/components/career/display/CareerDisplaySurface';
 import { normalizeCareerPage } from '@/lib/career/careerPage';
 import { buildCareerPageDisplaySurface } from '@/lib/career/pageDisplay';
-import { publishedCareerPage } from './publishedCareerPage';
+import { publishedCareerPage } from '@/tests/fixtures/career-page/publishedCareerPage';
 
 const { fetchBundle } = vi.hoisted(() => ({ fetchBundle: vi.fn() }));
 vi.mock('@/lib/career/api/fetchCareerJobBundle', () => ({ fetchCareerJobBundle: fetchBundle }));
