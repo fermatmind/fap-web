@@ -207,7 +207,7 @@ export function CareerDossierProfile({
           </div>
           <ol className={styles.responsibilityList} data-career-api-list="responsibilities_block">
             {responsibilities.map((item, index) => {
-              const [, title, description] = splitPublished(item, "｜", 3);
+              const [category, title, description] = splitPublished(item, "｜", 3);
               const Icon = responsibilityIcons[index] ?? FileText;
               return (
                 <li key={item} data-career-published-value={item}>
@@ -215,7 +215,7 @@ export function CareerDossierProfile({
                   <Icon aria-hidden="true" size={19} strokeWidth={1.75} />
                   <div>
                     <div className={styles.responsibilityTitle}>
-                      <strong>{title}</strong>
+                      <strong>{category ? <span data-career-responsibility-category>{category}</span> : null}{category && title ? " · " : null}{title}</strong>
                     </div>
                     <p data-career-api-field={`responsibilities_block[${index}]`}>{description}</p>
                   </div>

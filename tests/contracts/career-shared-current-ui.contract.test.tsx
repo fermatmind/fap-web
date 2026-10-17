@@ -73,6 +73,15 @@ function readerRoot(node: ReactNode) {
   return root;
 }
 
+function expectResponsibilityCopy(root: Element, values: string[], pageKey: string) {
+  const rows = root.querySelectorAll('[data-career-api-list="responsibilities_block"] > li');
+  expect(rows.length, pageKey).toBe(values.length);
+  values.forEach((value, index) => {
+    const parts = value.split(/｜| \| /u).map(part => part.trim());
+    for (const part of parts) expect(rows[index].textContent, `${pageKey}:${index}`).toContain(part);
+  });
+}
+
 describe('Current shared UI through the actual detail route', () => {
   it.each(samples)('renders $locale/$subject.canonical_slug with the existing rich UI and reader-visible content', async raw => {
     const root = readerRoot(await route(raw));
@@ -109,9 +118,7 @@ describe('Current shared UI through the actual detail route', () => {
       const parts = row.split(/｜| \| /u);
       expect(root.textContent).toContain(parts.slice(1).join(parts.length > 1 ? ' | ' : '') || row);
     }
-    for (const value of c.responsibilities_block) {
-      for (const text of value.split(/｜| \| /u).slice(1)) expect(root.textContent).toContain(text);
-    }
+    expectResponsibilityCopy(profile, c.responsibilities_block, `${raw.locale}:${raw.subject.canonical_slug}`);
     for (const row of c.onet_structured_fields_block.rows) expect(root.textContent).toContain(row.value);
     for (const source of normalizeCareerPage(raw, raw.locale === 'zh-CN' ? 'zh' : 'en', raw.subject.canonical_slug)!.content.sources) {
       expect([...root.querySelectorAll('[data-testid="source-list"] details')].some(item => item.textContent?.includes(source.name) || (source.scope !== null && item.textContent?.includes(source.scope)))).toBe(true);
@@ -221,6 +228,7 @@ it.skipIf(!process.env.CAREER_SHARED_UI_CORPUS)('selects the same actual route r
     expect(profile.querySelector('h3')?.textContent, key).toBe(system.question);
     const secondary = system.table.rows[2].secondary_value;
     if (secondary) expect(profile.querySelector('[data-career-api-field$="rows[2].secondary_value"]')?.textContent, key).toBe(secondary);
+    expectResponsibilityCopy(profile, c.responsibilities_block, key);
     const salary = readerRoot(<CareerDossierChinaSalary value={c.career_snapshot_primary_locale} locale={locale} />);
     c.career_snapshot_primary_locale.salary.bls_table.forEach((row: Record<string,string>, index: number) => {
       const indicator = salary.querySelector(`[data-career-api-field="career_snapshot_primary_locale.salary.bls_table[${index}].指标"]`);

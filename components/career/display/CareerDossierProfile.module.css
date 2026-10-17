@@ -309,6 +309,7 @@
 
 .responsibilityList li > div {
   display: flex;
+  flex-wrap: wrap;
   min-width: 0;
   align-items: center;
   gap: 12px;
@@ -328,6 +329,8 @@
 
 .responsibilityTitle {
   flex: 0 0 auto;
+  max-width: 100%;
+  overflow-wrap: anywhere;
   justify-content: flex-start;
 }
 
@@ -339,6 +342,7 @@
 }
 
 .responsibilityList p {
+  flex: 1 1 12rem;
   min-width: 0;
   margin: 0;
   font-size: 12px;
