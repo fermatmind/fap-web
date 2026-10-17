@@ -203,7 +203,7 @@ describe("career content v3 contract", () => {
     expect(screen.queryByText("primary_cta → secondary_cta → path")).not.toBeInTheDocument();
   });
 
-  it("preserves the existing English navigation transport behavior", () => {
+  it("keeps English navigation transport internal like every other locale", () => {
     const fixture = surfaceFixture("en");
     const content = productionIsomorphicV3Fixture("en");
     content.blocks.splice(-1, 0, {
@@ -223,9 +223,9 @@ describe("career content v3 contract", () => {
 
     render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "en")} />);
 
-    expect(screen.getByTestId("career-dossier-toc").querySelectorAll("a")).toHaveLength(12);
-    expect(document.querySelector('[data-content-block-id="navigation"]')).not.toBeNull();
-    expect(screen.getByText("Existing English navigation transport")).toBeInTheDocument();
+    expect(screen.getByTestId("career-dossier-toc").querySelectorAll("a")).toHaveLength(11);
+    expect(document.querySelector('[data-content-block-id="navigation"]')).toBeNull();
+    expect(screen.queryByText("Existing English navigation transport")).not.toBeInTheDocument();
   });
 
   it("folds a distinct review date into the compact source disclosure once", () => {

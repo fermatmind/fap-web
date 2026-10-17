@@ -47,6 +47,7 @@ import {
   CareerPublishedSemanticSection,
 } from "@/components/career/display/CareerPublishedSemanticSection";
 import {
+  CAREER_DISPLAY_ACCOUNTANTS_SLUG,
   CAREER_DISPLAY_SUPPORTED_COMPONENTS,
   type CareerDisplayComponentId,
   type CareerDisplaySection,
@@ -461,7 +462,10 @@ function CareerProductionHero({
   const aiExposure = presentationV2?.hero.aiExposure ?? presentationV1?.hero.aiExposure ?? null;
   const visibleAiExposure = aiExposure;
   const missingPublishedAi = !aiExposure && (
-    Boolean(published) && Boolean(surface.hero?.aiExposureLabel)
+    (Boolean(published) && Boolean(surface.hero?.aiExposureLabel)) ||
+    // Preserve the old presentation contract without applying its occupation
+    // exception to Current file-backed pages.
+    (!surface.contentV3 && surface.locale === "zh" && surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG)
   );
   const unavailableAi = surface.locale === "zh" ? "暂无数据" : "No data available";
   const publishedHero = Boolean(published);

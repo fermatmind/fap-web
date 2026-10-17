@@ -23,9 +23,10 @@ describe('single-source career route integration',()=>{
     expect(html.match(/data-career-visual-group=/g)).toHaveLength(11);
     expect(html).toContain('29.05美元/小时');
   });
-  it('rejects incomplete Chinese accountant mappings before rendering',async()=>{
-    fetchMock.mockResolvedValue(bundle('accountants-and-auditors'));
-    await expect(render('accountants-and-auditors')).rejects.toThrow('CAREER_PAGE_DISPLAY_INVALID');
+  it.each(['actors','accountants-and-auditors'])('rejects malformed display mappings for %s without fallback',async slug=>{
+    const payload=bundle(slug);
+    fetchMock.mockResolvedValue({...payload,career_page:{...payload.career_page,display:{contract_version:'unsupported'}}});
+    await expect(render(slug)).rejects.toThrow('CAREER_PAGE_DISPLAY_INVALID');
   });
   it('keeps the English accountant on the common file renderer',async()=>{
     fetchMock.mockResolvedValue(bundle('accountants-and-auditors','en'));
