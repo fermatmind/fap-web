@@ -65,6 +65,8 @@ async function route(page: RawPage) {
 }
 const slugs = ['accountants-and-auditors', 'actors', 'actuaries', 'registered-nurses', 'electrical-and-electronics-engineering-technicians', 'medical-equipment-repairers', 'passenger-attendants', 'receptionists'];
 const samples = await Promise.all(slugs.flatMap(slug => (['zh', 'en'] as const).map(locale => publishedCareerPage(locale, slug))));
+const optionalProfileSamples = await Promise.all(['coroners', 'judges-magistrate-judges-and-magistrates'].flatMap(slug =>
+  (['zh', 'en'] as const).map(locale => publishedCareerPage(locale, slug))));
 
 function readerRoot(node: ReactNode) {
   const root = document.createElement('div');
@@ -82,6 +84,29 @@ function expectResponsibilityCopy(root: Element, values: string[], pageKey: stri
   });
 }
 
+function expectOptionalProfileCopy(root: Element, raw: RawPage) {
+  const value = raw.display.components.career_ai_description_block;
+  const nodes = root.querySelectorAll('[data-testid="career-ai-description-block"]');
+  expect(nodes.length).toBe(value ? 1 : 0);
+  if (!value) return;
+  const node = nodes[0];
+  expect(node.closest('[data-career-v3-block-copy-key="career.block.profile"], [data-career-visual-group="profile"]')).not.toBeNull();
+  expect(node.querySelector('[data-career-api-field="career_ai_description_block.heading"]')?.textContent).toBe(value.heading);
+  value.body.forEach((paragraph: string, index: number) => {
+    expect(node.querySelector(`[data-career-api-field="career_ai_description_block.body[${index}]"]`)?.textContent).toBe(paragraph);
+  });
+}
+
+function expectIndustryNotes(root: Element, value: RawPage['display']['components']['career_snapshot_primary_locale']) {
+  const rows = root.querySelectorAll('[data-career-api-list="career_snapshot_primary_locale.salary.china_industry_table"] > article');
+  value.salary.china_industry_table.forEach((row: Record<string, string>, index: number) => {
+    const note = rows[index].querySelector(`[data-career-api-field="career_snapshot_primary_locale.salary.china_industry_table[${index}].备注"]`);
+    expect(note?.textContent ?? '').toBe(row['备注'] ?? '');
+    expect(rows[index].textContent).toContain(row['行业']);
+    expect(rows[index].textContent).toContain(row['需求']);
+  });
+}
+
 describe('Current shared UI through the actual detail route', () => {
   it.each(samples)('renders $locale/$subject.canonical_slug with the existing rich UI and reader-visible content', async raw => {
     const root = readerRoot(await route(raw));
@@ -90,6 +115,8 @@ describe('Current shared UI through the actual detail route', () => {
       expect(root.querySelector(`[data-testid="career-dossier-${part}"]`), part).not.toBeNull();
     }
     const c = raw.display.components;
+    expectOptionalProfileCopy(root, raw);
+    expectIndustryNotes(root, c.career_snapshot_primary_locale);
     const profile = root.querySelector('[data-testid="career-dossier-profile"]')!;
     const system = c.career_quick_answers_block.items.find((item: {key:string}) => item.key === 'qa3');
     expect(profile.querySelector('h3')?.textContent).toBe(system.question);
@@ -131,6 +158,27 @@ describe('Current shared UI through the actual detail route', () => {
       expect(root.textContent).toContain(item.question);
       expect(root.textContent).toContain(item.answer);
     }
+  });
+
+  it.each(optionalProfileSamples)('preserves optional profile explanation and row notes for $locale/$subject.canonical_slug', async raw => {
+    const root = readerRoot(await route(raw));
+    expectOptionalProfileCopy(root, raw);
+    expectIndustryNotes(root, raw.display.components.career_snapshot_primary_locale);
+  });
+
+  it('does not create an empty module for an omitted profile explanation', async () => {
+    const raw = structuredClone(optionalProfileSamples[1]);
+    raw.display.component_order = raw.display.component_order.filter((id: string) => id !== 'career_ai_description_block');
+    delete raw.display.components.career_ai_description_block;
+    const root = readerRoot(await route(raw));
+    expect(root.querySelector('#career-component-career_ai_description_block')).toBeNull();
+    expect(root.querySelector('[data-testid="career-ai-description-block"]')).toBeNull();
+  });
+
+  it('retains fail-closed behavior for an unsupported explanation variant', async () => {
+    const raw = structuredClone(optionalProfileSamples[1]);
+    raw.display.components.career_ai_description_block = {availability:'unavailable', reason_code:'source_locale_unavailable'};
+    await expect(route(raw)).rejects.toThrow('CAREER_PAGE_DISPLAY_INVALID:career_ai_description_block');
   });
 
   it('preserves invalid related-card copy while removing navigation; inventory failure only disables related targets', async () => {
@@ -220,8 +268,9 @@ it.skipIf(!process.env.CAREER_SHARED_UI_CORPUS)('selects the same actual route r
     pair.add(raw.locale);
     pairs.set(raw.subject.canonical_slug, pair);
     locales.set(raw.locale, (locales.get(raw.locale) ?? 0) + 1);
-    await route(raw).catch(error => { throw new Error(`${key}: ${error.message}`); });
+    const routed = await route(raw).catch(error => { throw new Error(`${key}: ${error.message}`); });
     const c = raw.display.components;
+    if (c.career_ai_description_block) expectOptionalProfileCopy(readerRoot(routed), raw);
     const locale = raw.locale === 'en' ? 'en' : 'zh';
     const profile = readerRoot(<CareerDossierProfile definition={c.definition_block} responsibilities={c.responsibilities_block} workContext={c.work_context_block} quickAnswers={c.career_quick_answers_block} professionalBasis={c.onet_structured_fields_block} locale={locale} />);
     const system = c.career_quick_answers_block.items.find((item: {key:string}) => item.key === 'qa3');
@@ -230,6 +279,7 @@ it.skipIf(!process.env.CAREER_SHARED_UI_CORPUS)('selects the same actual route r
     if (secondary) expect(profile.querySelector('[data-career-api-field$="rows[2].secondary_value"]')?.textContent, key).toBe(secondary);
     expectResponsibilityCopy(profile, c.responsibilities_block, key);
     const salary = readerRoot(<CareerDossierChinaSalary value={c.career_snapshot_primary_locale} locale={locale} />);
+    expectIndustryNotes(salary, c.career_snapshot_primary_locale);
     c.career_snapshot_primary_locale.salary.bls_table.forEach((row: Record<string,string>, index: number) => {
       const indicator = salary.querySelector(`[data-career-api-field="career_snapshot_primary_locale.salary.bls_table[${index}].指标"]`);
       expect(indicator?.textContent, key).toBe(row['指标']);

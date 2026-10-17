@@ -874,6 +874,15 @@ export function CareerProductionDisplaySurface({
     );
   };
 
+  // Current may declare this optional profile component without a V3 copy key.
+  // Structured profile rendering still owns every declared profile component.
+  const profileAiDescription = surface.componentOrder.includes("career_ai_description_block") &&
+    publishedComponents?.career_ai_description_block !== undefined ? (
+      <ComponentFrame key="career_ai_description_block" id="career_ai_description_block">
+        {renderComponent("career_ai_description_block")}
+      </ComponentFrame>
+    ) : null;
+
   const renderV3RichBlock = (
     block: CareerDossierRenderPlanBlock,
   ): ReactNode | null => {
@@ -911,7 +920,7 @@ export function CareerProductionDisplaySurface({
     if (block.copyKey === "career.block.profile" && declares(
       "definition_block", "responsibilities_block", "work_context_block", "career_quick_answers_block", "onet_structured_fields_block",
     ) && supportsStructuredCareerDossierProfile(publishedComponents)) {
-      return <CareerDossierProfile
+      return <><CareerDossierProfile
           definition={publishedComponents.definition_block as string}
           responsibilities={publishedComponents.responsibilities_block as string[]}
           workContext={publishedComponents.work_context_block as string}
@@ -919,7 +928,7 @@ export function CareerProductionDisplaySurface({
           interfaceLabels={surface.interfaceLabels}
           professionalBasis={publishedComponents.onet_structured_fields_block as CareerPublishedOnetStructuredFieldsBlock}
           locale={surface.locale}
-        />;
+        />{profileAiDescription}</>;
     }
 
     const directionComparison = publishedComponents.adjacent_career_comparison_table;
@@ -1276,6 +1285,7 @@ export function CareerProductionDisplaySurface({
           professionalBasis={publishedComponents.onet_structured_fields_block as CareerPublishedOnetStructuredFieldsBlock}
           locale={surface.locale}
         />,
+        profileAiDescription,
       ];
     } else if (group.id === "direction-comparison" && isEnhanced) {
       const directionComparison = publishedComponents.adjacent_career_comparison_table;

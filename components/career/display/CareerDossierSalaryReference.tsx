@@ -134,7 +134,7 @@ function parseChinaSalary(value: CareerPublishedValue): ChinaSalaryContent | nul
   const officialValueField = ["月薪参考", "年工资参照（行业/岗位大类）", "年工资参照（行业/人员大类）"].find(key => Array.isArray(salary.china_salary_table) && salary.china_salary_table.every(row => isRecord(row) && text(row[key]))) ?? "月薪参考";
   const officialRows = rows(salary.china_salary_table, ["城市/区间", officialValueField], 3, ["城市~1区间"]);
   const scenarioRows = rows(salary.china_edu_table, ["学历段", "岗位方向", "说明"], 4);
-  const driverRows = rows(salary.china_industry_table, ["行业", "需求"], 3);
+  const driverRows = rows(salary.china_industry_table, ["行业", "需求"], 3, ["备注"]);
   const sources = sourceItems([
     text(salary.china_ref),
     text(salary.china_intl),
@@ -395,6 +395,7 @@ export function CareerDossierChinaSalary({ value, locale, contentV3 = null, inte
             <article key={row["行业"]}>
               <h4 data-career-api-field={`career_snapshot_primary_locale.salary.china_industry_table[${index}].行业`}>{row["行业"]}</h4>
               <p data-career-api-field={`career_snapshot_primary_locale.salary.china_industry_table[${index}].需求`}>{row["需求"]}</p>
+              {row["备注"] ? <p data-career-api-field={`career_snapshot_primary_locale.salary.china_industry_table[${index}].备注`}>{row["备注"]}</p> : null}
             </article>
           ))}
         </div>
