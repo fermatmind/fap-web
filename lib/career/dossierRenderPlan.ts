@@ -75,6 +75,7 @@ const INTERNAL_BLOCK_COPY_KEYS = new Set([
   "career.block.review-validity-card",
   "career.block.final-cta",
   "career.block.source-register",
+  "career.block.navigation",
 ]);
 
 export type CareerDossierRenderPlanBlock = {
@@ -118,10 +119,12 @@ export function isCareerRegisteredV3BlockCopyKey(copyKey: string): boolean {
 
 export function isCareerInternalV3BlockCopyKey(
   copyKey: string,
-  locale?: CareerContentV3["locale"],
+  _locale?: CareerContentV3["locale"],
 ): boolean {
-  return INTERNAL_BLOCK_COPY_KEYS.has(copyKey) ||
-    (locale === "zh" && copyKey === "career.block.navigation");
+  // Retain the optional argument for existing callers; navigation is internal
+  // in every locale.
+  void _locale;
+  return INTERNAL_BLOCK_COPY_KEYS.has(copyKey);
 }
 
 function declaredComponents(items: readonly CareerContentV3Item[]): CareerDisplayComponentId[] {

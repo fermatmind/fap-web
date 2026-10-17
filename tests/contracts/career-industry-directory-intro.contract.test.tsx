@@ -18,7 +18,7 @@ async function render(locale: string, slug: string, q?: string) {
   return renderToStaticMarkup(createElement(() => page));
 }
 
-describe("scoped Chinese career industry directory introduction", () => {
+describe("shared career industry directory introduction", () => {
   it.each(scopedFamilies)("renders one named H1 for %s while retaining the directory and search", async (slug) => {
     const html = await render("zh", slug);
     expect(html.match(/<h1\b/g)).toHaveLength(1);
@@ -29,6 +29,16 @@ describe("scoped Chinese career industry directory introduction", () => {
     expect(html).toContain('data-testid="career-occupation-row"');
     expect(html).toContain("暂不公开详情");
     expect(html).not.toContain('/zh/career/jobs/');
+  });
+
+  it.each(scopedFamilies)("renders the same directory UI in English for %s", async slug => {
+    const html = await render("en", slug);
+    expect(html.match(/<h1\b/g)).toHaveLength(1);
+    expect(html).toContain(`${formatCareerFamilyTitle(slug, "en")} career directory</h1>`);
+    expect(html).toContain('This directory is not a live job board');
+    expect(html).toContain(`action="/en/career/industries/${slug}"`);
+    expect(html).toContain('name="q"');
+    expect(html).toContain('data-testid="career-occupation-row"');
   });
 
   it("keeps query filtering usable without changing heading identity", async () => {

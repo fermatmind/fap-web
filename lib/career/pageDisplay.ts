@@ -1,7 +1,7 @@
 import type { CareerPage } from '@/lib/career/careerPage';
 import { careerContentV3FaqItems } from '@/lib/career/contentV3';
 import { buildCareerDossierRenderPlan } from '@/lib/career/dossierRenderPlan';
-import { normalizeCareerPublishedComponents } from '@/lib/career/publishedComponentContract';
+import { normalizeCareerPublishedComponents, type CareerPublishedValue } from '@/lib/career/publishedComponentContract';
 import { CAREER_DISPLAY_RIASEC_TEST_SLUG, buildCareerDisplayCtaAttribution, type CareerDisplayComponentId, type CareerDisplaySurfaceViewModel } from '@/lib/career/displaySurface';
 import { CAREER_PRESENTATION_V2_VERSION, CAREER_PRESENTATION_V2_DESIGN_AUTHORITY, CAREER_PRESENTATION_V2_TEMPLATE_ID } from '@/lib/career/presentationV2';
 import { supportsCareerDossierChinaSalary, supportsCareerDossierUsSalary } from '@/components/career/display/CareerDossierSalaryReference';
@@ -40,22 +40,29 @@ export function buildCareerPageDisplaySurface(page: CareerPage, identity: { slug
   if (Object.keys(components).length !== componentOrder.length) fail('components');
   const primary = components.primary_cta;
   const path = `/${locale}/career/jobs/${identity.slug}`;
-  if (display.path !== path || !record(primary) || typeof primary.label !== 'string' || !primary.label.trim() || primary.href !== ctaHref.split('?')[0]) fail('cta');
-  const label = primary.label;
+  if (display.path !== path) fail('path');
+  if (componentOrder.includes('primary_cta') && (!record(primary) || typeof primary.label !== 'string' || !primary.label.trim() || primary.href !== ctaHref.split('?')[0])) fail('cta');
+  const label = record(primary) && typeof primary.label === 'string' ? primary.label : '';
   const faqItems = careerContentV3FaqItems(content);
   const publishedComponents = normalizeCareerPublishedComponents(components, componentOrder, true);
   if (!publishedComponents) fail('components');
   for (const id of componentOrder) if (publishedComponents[id] === undefined) fail(id);
   // Reuse the original renderer's shape checks. A mapped payload must not
   // silently fall through to its generic presentation when a rich block fails.
-  if (!supportsCareerDossierChinaSalary(publishedComponents.career_snapshot_primary_locale!) ||
-    !supportsCareerDossierUsSalary(publishedComponents.career_snapshot_secondary_locale!) ||
-    !supportsCareerDossierFitCenter(publishedComponents.personality_fit_block) ||
-    !supportsCareerWorkRisk(publishedComponents.career_risk_cards) ||
-    !supportsCareerProgression(publishedComponents.career_path_block) ||
-    !supportsCareerOutlookTransitions(publishedComponents.market_signal_card)) fail('original-components');
-  if (locale === 'zh' && (!supportsCareerDossierAiImpact(publishedComponents.ai_impact_table!) ||
-    !supportsCareerDossierDirectionComparison(publishedComponents.adjacent_career_comparison_table!))) fail('original-components.zh');
+  const richReaders: Partial<Record<CareerDisplayComponentId, (value: CareerPublishedValue) => boolean>> = {
+    career_snapshot_primary_locale: supportsCareerDossierChinaSalary,
+    career_snapshot_secondary_locale: supportsCareerDossierUsSalary,
+    personality_fit_block: supportsCareerDossierFitCenter,
+    career_risk_cards: supportsCareerWorkRisk,
+    career_path_block: supportsCareerProgression,
+    market_signal_card: supportsCareerOutlookTransitions,
+    ai_impact_table: supportsCareerDossierAiImpact,
+    adjacent_career_comparison_table: supportsCareerDossierDirectionComparison,
+  };
+  for (const id of componentOrder) {
+    const reader = richReaders[id];
+    if (reader && !reader(publishedComponents[id]!)) fail(`original-components.${id}`);
+  }
   let aiExposure: NonNullable<CareerDisplaySurfaceViewModel['presentationV2']>['hero']['aiExposure'] = null;
   if (page.hero.ai.availability === 'available') {
     const fact = page.hero.ai.fact;
@@ -70,7 +77,7 @@ export function buildCareerPageDisplaySurface(page: CareerPage, identity: { slug
   const dossierRenderPlan = buildCareerDossierRenderPlan(content, null)!;
   if (dossierRenderPlan.source === 'content_v3') {
     // Navigation is rendered by the original breadcrumb, CTA and source footer.
-    dossierRenderPlan.blocks = dossierRenderPlan.blocks.map(block => ({...block, title:sectionTitles[block.id], ...(block.id === 'navigation' ? {renderable:false, visibleInToc:false} : {})}));
+    dossierRenderPlan.blocks = dossierRenderPlan.blocks.filter(block => !block.declaredComponentIds.length || block.declaredComponentIds.some(id => componentOrder.includes(id))).map(block => ({...block, title:sectionTitles[block.id], ...(block.id === 'navigation' ? {renderable:false, visibleInToc:false} : {})}));
   }
   return {
     surfaceVersion: 'display.surface.v1', assetType: 'career_job_public_display', assetRole: 'formal_pilot_master', status: 'ready_for_pilot', locale,

@@ -21,7 +21,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const dynamic = "force-dynamic";
 
-const ZH_DIRECTORY_INTRO_FAMILIES = new Set([
+const DIRECTORY_INTRO_FAMILIES = new Set([
   "building-and-grounds-cleaning",
   "construction-and-extraction",
   "education-training-and-library",
@@ -97,7 +97,7 @@ export default async function CareerIndustryDetailPage({
     notFound();
   }
 
-  const showDirectoryIntro = locale === "zh" && slug === familySlug && ZH_DIRECTORY_INTRO_FAMILIES.has(familySlug);
+  const showDirectoryIntro = slug === familySlug && DIRECTORY_INTRO_FAMILIES.has(familySlug);
   const industryPath = localizedPath(`/career/industries/${familySlug}`, locale);
   const jobsPath = localizedPath("/career", locale);
   const visibleMembers = filterCareerDatasetMembers({
@@ -125,11 +125,10 @@ export default async function CareerIndustryDetailPage({
           {showDirectoryIntro ? (
             <div className="max-w-3xl space-y-4">
               <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">
-                {family.title}职业目录
+                {locale === "zh" ? `${family.title}职业目录` : `${family.title} career directory`}
               </h1>
               <p className="m-0 text-base leading-7 text-slate-600">
-                按站内职业分类浏览{family.title}岗位，使用搜索筛选职业，并进入已开放的详情页比较工作任务。
-                本目录不代表实时招聘，也不是完整的本地职业分类；具体岗位信息与适用范围请查看详情页注明的来源。
+                {locale === "zh" ? `按站内职业分类浏览${family.title}岗位，使用搜索筛选职业，并进入已开放的详情页比较工作任务。本目录不代表实时招聘，也不是完整的本地职业分类；具体岗位信息与适用范围请查看详情页注明的来源。` : `Browse ${family.title} roles by the site’s occupational categories, filter them with search, and compare tasks on available detail pages. This directory is not a live job board or a complete local classification; see each detail page for its sources and scope.`}
               </p>
             </div>
           ) : <div aria-hidden="true" />}

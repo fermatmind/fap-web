@@ -2,14 +2,15 @@ import { readFileSync } from 'node:fs';
 import { get } from 'node:https';
 
 /** Contract input is published API output or a temporary backend projection. */
-export async function publishedCareerPage(locale: 'zh' | 'en') {
-  if (locale === 'zh' && process.env.CAREER_TEST_PAGE_FILE) return JSON.parse(readFileSync(process.env.CAREER_TEST_PAGE_FILE, 'utf8'));
+export async function publishedCareerPage(locale: 'zh' | 'en', slug = 'accountants-and-auditors') {
+  if (slug === 'accountants-and-auditors' && locale === 'zh' && process.env.CAREER_TEST_PAGE_FILE) return JSON.parse(readFileSync(process.env.CAREER_TEST_PAGE_FILE, 'utf8'));
   if (process.env.CAREER_PAGE_CORPUS) {
     const pages = readFileSync(process.env.CAREER_PAGE_CORPUS, 'utf8').trim().split('\n').map(line => JSON.parse(line));
-    const page = pages.find(value => value.subject?.canonical_slug === 'accountants-and-auditors' && value.locale === (locale === 'zh' ? 'zh-CN' : 'en'));
-    if (page) return page;
+    const page = pages.find(value => value.subject?.canonical_slug === slug && value.locale === (locale === 'zh' ? 'zh-CN' : 'en'));
+    if (!page) throw new Error(`CAREER_CORPUS_PAGE_MISSING:${locale}:${slug}`);
+    return page;
   }
-  const url = new URL('/api/v0.5/career/jobs/accountants-and-auditors', process.env.NEXT_PUBLIC_API_URL || 'https://api.fermatmind.com');
+  const url = new URL(`/api/v0.5/career/jobs/${slug}`, process.env.NEXT_PUBLIC_API_URL || 'https://api.fermatmind.com');
   url.searchParams.set('locale', locale === 'zh' ? 'zh-CN' : 'en');
   url.searchParams.set('projection_contract', 'career.detail.page.v1');
   const bundle = await new Promise<{career_page?: unknown}>((resolve, reject) => {

@@ -48,7 +48,7 @@ const loadCareerJobBundle = cache(async (locale: Locale, slug: string) => {
       ![buildCareerJobFrontendUrl(locale, job.slug), `https://fermatmind.com${buildCareerJobFrontendUrl(locale, job.slug)}`].includes(job.seoSurface.canonicalUrl ?? ''))) {
     throw new Error('CAREER_PAGE_SEO_PAIR_INVALID');
   }
-  return {job, page, restoredIdentity:locale === 'zh' && (job.slug === 'accountants-and-auditors' || page.display !== undefined) ? careerDisplayIdentity(job.slug, raw.ontology) : null};
+  return {job, page, restoredIdentity:page.display !== undefined ? careerDisplayIdentity(job.slug, raw.ontology) : null};
 });
 function isIndexableState(indexState: string | null | undefined): boolean {
   const normalized = String(indexState ?? "").trim().toLowerCase();

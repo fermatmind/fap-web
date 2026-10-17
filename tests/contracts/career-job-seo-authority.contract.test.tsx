@@ -414,10 +414,10 @@ describe("career job seo.surface.v1 authority contract", () => {
     const html = renderToStaticMarkup(page as ReactNode);
 
     expect(html).toContain('"@type":"Occupation"');
-    expect(html).toContain('"name":"Accountants and auditors"');
+    expect(html).toContain(JSON.stringify({name:englishPageFixture.subject.name}).slice(1,-1));
     expect(html).toContain(CANONICAL);
     expect(html).not.toContain("Bundle Occupation");
-    expect(html).toContain('data-career-dossier-plan="career_page"');
+    expect(html).toContain('data-career-dossier-plan="content_v3"');
   });
 
   it("keeps the English accountant route on the current renderer", async () => {
@@ -434,8 +434,8 @@ describe("career job seo.surface.v1 authority contract", () => {
       searchParams: Promise.resolve({}),
     });
     const html = renderToStaticMarkup(page as ReactNode);
-    expect(html).toContain("Accountants and auditors");
-    expect(html).not.toContain('data-career-production-template="career-production-v1"');
+    expect(html).toContain(englishPageFixture.subject.name);
+    expect(html).toContain('data-career-production-template="career-production-v1"');
   });
 
   it("keeps robots on backend SEO authority when career trust gates block structured data", async () => {

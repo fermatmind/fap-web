@@ -47,7 +47,6 @@ import {
   CareerPublishedSemanticSection,
 } from "@/components/career/display/CareerPublishedSemanticSection";
 import {
-  CAREER_DISPLAY_ACCOUNTANTS_SLUG,
   CAREER_DISPLAY_SUPPORTED_COMPONENTS,
   type CareerDisplayComponentId,
   type CareerDisplaySection,
@@ -462,8 +461,7 @@ function CareerProductionHero({
   const aiExposure = presentationV2?.hero.aiExposure ?? presentationV1?.hero.aiExposure ?? null;
   const visibleAiExposure = aiExposure;
   const missingPublishedAi = !aiExposure && (
-    (surface.locale === "zh" && surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG)
-    || (Boolean(published) && Boolean(surface.hero?.aiExposureLabel))
+    Boolean(published) && Boolean(surface.hero?.aiExposureLabel)
   );
   const unavailableAi = surface.locale === "zh" ? "暂无数据" : "No data available";
   const publishedHero = Boolean(published);
@@ -564,14 +562,12 @@ function CareerProductionHero({
 function SourceCard({ surface, embedded = false }: { surface: CareerDisplaySurfaceViewModel; embedded?: boolean }) {
   const Container = embedded ? "div" : "section";
   const Heading = embedded ? "h3" : "h2";
-  const v3Sources = surface.locale === "zh"
-    ? surface.contentV3?.sources ?? []
-    : [];
+  const v3Sources = surface.contentV3?.sources ?? [];
   const sourceScopeKeys = new Set(["exact", "editorial_synthesis", "recruitment_proxy", "parent_occupation_proxy", "industry_proxy", "contextual"]);
   const sourceTitle = (source: {scope?: string | null; name:string}) =>
     source.scope && !sourceScopeKeys.has(source.scope) ? source.scope : source.name;
   const evidenceLabel = (kind: string | null | undefined) =>
-    kind === "primary_document" ? "原始资料" : kind === "editorial_design" ? "编辑设计" : kind;
+    kind === "primary_document" ? (surface.locale === "zh" ? "原始资料" : "Primary document") : kind === "editorial_design" ? (surface.locale === "zh" ? "编辑设计" : "Editorial design") : kind;
   const rawSourceCard = surface.publishedComponents?.source_card;
   const sourceCard = rawSourceCard && typeof rawSourceCard === "object" && !Array.isArray(rawSourceCard) ? rawSourceCard : {};
   const rawSignals = sourceCard.eeat_signals;
@@ -587,7 +583,7 @@ function SourceCard({ surface, embedded = false }: { surface: CareerDisplaySurfa
     return {
       text,
       href: match[2],
-      linkLabel: recordId && /^[A-Z]{2}\d+$/u.test(recordId) ? `查看 ${recordId} 原始职位` : "查看原始资料",
+      linkLabel: recordId && /^[A-Z]{2}\d+$/u.test(recordId) ? (surface.locale === "zh" ? `查看 ${recordId} 原始职位` : `View original job ${recordId}`) : (surface.locale === "zh" ? "查看原始资料" : "View original source"),
     };
   };
   return (
@@ -612,7 +608,7 @@ function SourceCard({ surface, embedded = false }: { surface: CareerDisplaySurfa
               <div className="mt-3 border-t border-[#DCE3F0] pt-3 text-sm leading-7 text-[#2a3346]">
                 {source.url ? (
                   <a href={source.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-[#2C3E8C] underline underline-offset-2">
-                    {surface.interfaceLabels?.["interface.sources.original_source_link_label"] ?? "查看原始资料"}：{sourceTitle(source)}
+                    {surface.interfaceLabels?.["interface.sources.original_source_link_label"] ?? (surface.locale === "zh" ? "查看原始资料" : "View original source")}：{sourceTitle(source)}
                   </a>
                 ) : null}
                 {source.details.length > 0 ? (
@@ -626,7 +622,7 @@ function SourceCard({ surface, embedded = false }: { surface: CareerDisplaySurfa
                     })}
                   </ul>
                 ) : null}
-                {source.limitation ? <p className="m-0 mt-2 rounded-lg bg-[#FFF6E9] px-3 py-2 text-xs leading-5 text-[#6A5738]"><strong>{surface.interfaceLabels?.["interface.sources.limitation_label"] ?? "使用限制"}：</strong>{source.limitation}</p> : null}
+                {source.limitation ? <p className="m-0 mt-2 rounded-lg bg-[#FFF6E9] px-3 py-2 text-xs leading-5 text-[#6A5738]"><strong>{surface.interfaceLabels?.["interface.sources.limitation_label"] ?? (surface.locale === "zh" ? "使用限制" : "Limitations")}：</strong>{source.limitation}</p> : null}
               </div>
             </details>
           </li>
@@ -771,7 +767,7 @@ export function CareerProductionDisplaySurface({
         locale={surface.locale}
       />;
     }
-    if (componentId === "source_card") return surface.contentV3?.facts.length || (surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG && surface.contentV3?.sources.length)
+    if (componentId === "source_card") return surface.contentV3?.sources.length
       ? <SourceCard surface={surface} embedded={Boolean(groupHeader)} />
       : publishedComponents
         ? <CareerPublishedSemanticSection componentId={componentId} value={publishedComponents[componentId]!} sources={surface.sources} reviewValidity={surface.reviewValidity} locale={surface.locale} />
@@ -891,7 +887,7 @@ export function CareerProductionDisplaySurface({
       availableComponents.add("riasec_fit_block");
       availableComponents.add("personality_fit_block");
     }
-    const declares = (...componentIds: CareerDisplayComponentId[]) => componentIds.every((componentId) => availableComponents.has(componentId));
+    const declares = (...componentIds: CareerDisplayComponentId[]) => componentIds.every((componentId) => availableComponents.has(componentId) && surface.componentOrder.includes(componentId));
 
     if (block.copyKey === "career.block.quick-decision" && declares("fermat_decision_card", "fit_decision_checklist")) {
       const decision = publishedComponents.fermat_decision_card;
@@ -991,7 +987,7 @@ export function CareerProductionDisplaySurface({
 
     if (block.copyKey === "career.block.sources") {
       const nodes = block.declaredComponentIds.flatMap((componentId) => {
-        if (!availableComponents.has(componentId)) return [];
+        if (!availableComponents.has(componentId) || !surface.componentOrder.includes(componentId)) return [];
         if (INTERNAL_COMPONENT_IDS.has(componentId)) return [];
         if (publishedComponents[componentId] === undefined) return [
           <ComponentFrame key={componentId} id={componentId} instanceKey={block.instanceKey}>
@@ -1010,17 +1006,17 @@ export function CareerProductionDisplaySurface({
           <ComponentFrame key={componentId} id={componentId} instanceKey={block.instanceKey}>{component}</ComponentFrame>,
         ];
       });
-      const sourceRegister = surface.locale === "zh" && surface.contentV3?.sources.length &&
+      const sourceRegister = surface.contentV3?.sources.length &&
         !block.declaredComponentIds.includes("source_card")
         ? <SourceCard surface={surface} embedded />
         : null;
       return nodes.length > 0 ? <>{nodes}{sourceRegister}</> : null;
     }
 
-    const components = block.declaredComponentIds.filter((componentId) => !INTERNAL_COMPONENT_IDS.has(componentId));
+    const components = block.declaredComponentIds.filter((componentId) => surface.componentOrder.includes(componentId) && !INTERNAL_COMPONENT_IDS.has(componentId));
     if (components.length === 0 || components.some((componentId) => publishedComponents[componentId] === undefined)) return null;
     const nodes = components.map((componentId) => renderComponent(componentId));
-    if (nodes.some((node) => node === null)) return null;
+    if (nodes.every((node) => node === null)) return null;
     return <>{nodes.map((node, index) => (
       <ComponentFrame id={components[index]} instanceKey={block.instanceKey} key={`${components[index]}:${index}`}>{node}</ComponentFrame>
     ))}</>;
@@ -1132,9 +1128,9 @@ export function CareerProductionDisplaySurface({
                 ))}
               </nav>
             </div>
-            <section className={visual.assessmentRail} data-testid="career-production-assessment-rail">
+            {surface.componentOrder.includes("primary_cta") ? <section className={visual.assessmentRail} data-testid="career-production-assessment-rail">
               <Link href={primaryCtaHref} className={visual.assessmentRailCta}>{surface.interfaceLabels ? surface.cta.label : copy.startTest}<span aria-hidden="true">→</span></Link>
-            </section>
+            </section> : null}
           </aside>
           <main className={`min-w-0 ${visual.componentStack}`}>
             {hero ? <section data-career-visual-group="overview">{hero}</section> : null}

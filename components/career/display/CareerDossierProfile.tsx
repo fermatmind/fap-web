@@ -36,17 +36,19 @@ type Props = {
 const responsibilityIcons = [Calculator, ClipboardCheck, FileText, BarChart3, FileSearch, MessageSquareText] as const;
 
 function splitPublished(value: string, delimiter: string, parts: number): string[] {
-  const segments = value.split(delimiter).map((item) => item.trim());
+  const separator = value.includes(delimiter) ? delimiter : " | ";
+  const segments = value.split(separator).map((item) => item.trim());
   if (segments.length < parts) return ["", "", value];
 
-  return [segments[0], segments[1], segments.slice(2).join(delimiter)];
+  return [segments[0], segments[1], segments.slice(2).join(separator)];
 }
 
 function splitWorkFact(value: string): [string, string] {
-  const delimiterIndex = value.indexOf("｜");
+  const delimiter = value.match(/｜| \| /u);
+  const delimiterIndex = delimiter?.index ?? -1;
   if (delimiterIndex === -1) return ["", value.trim()];
 
-  return [value.slice(0, delimiterIndex).trim(), value.slice(delimiterIndex + 1).trim()];
+  return [value.slice(0, delimiterIndex).trim(), value.slice(delimiterIndex + (delimiter?.[0].length ?? 1)).trim()];
 }
 
 export function CareerDossierProfile({
@@ -58,9 +60,9 @@ export function CareerDossierProfile({
   professionalBasis,
   locale,
 }: Props) {
-  const systemItem = quickAnswers.items[0];
-  const boundaryItem = quickAnswers.items[1];
-  const judgmentItem = quickAnswers.items[2];
+  const systemItem = quickAnswers.items.find(item => item.key === "qa3")!;
+  const boundaryItem = quickAnswers.items.find(item => item.key === "qa2")!;
+  const judgmentItem = quickAnswers.items.find(item => item.key === "qa1")!;
   const systemRows = systemItem.table.rows;
   const accountingTrack = systemRows[0];
   const auditingTrack = systemRows[1];
@@ -294,20 +296,28 @@ export function CareerDossierProfile({
           <div className={styles.footerTitle}>
             <h3 data-career-api-field="onet_structured_fields_block.heading">{professionalBasis.heading}</h3>
           </div>
-          <div className={styles.basisSummary}>
-            <BookOpenCheck aria-hidden="true" size={20} strokeWidth={1.75} />
-            <p>
+          <details>
+            <summary className={styles.basisSummary}>
+              <BookOpenCheck aria-hidden="true" size={20} strokeWidth={1.75} />
+              <span>
+                {professionalBasis.rows.map((row, index) => (
+                  <span key={row.label} data-career-api-field={`onet_structured_fields_block.rows[${index}].label`}>{row.label}</span>
+                ))}
+              </span>
+            </summary>
+            <dl>
               {professionalBasis.rows.map((row, index) => (
-                <span
-                  key={row.label}
-                  title={row.value}
-                  data-career-api-field={`onet_structured_fields_block.rows[${index}].label`}
-                >
-                  {row.label}
-                </span>
+                <div key={row.label}>
+                  <dt>{row.label}</dt>
+                  <dd>
+                    <span data-career-api-field={`onet_structured_fields_block.rows[${index}].value`}>{row.value}</span>
+                    {row.alternate_value ? <span data-career-api-field={`onet_structured_fields_block.rows[${index}].alternate_value`}> · {row.alternate_value}</span> : null}
+                    {row.secondary_value ? <span data-career-api-field={`onet_structured_fields_block.rows[${index}].secondary_value`}> · {row.secondary_value}</span> : null}
+                  </dd>
+                </div>
               ))}
-            </p>
-          </div>
+            </dl>
+          </details>
         </section>
       </div>
     </div>

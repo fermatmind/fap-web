@@ -441,7 +441,7 @@
   color: #2c3e8c;
 }
 
-.basisSummary p {
+.basisSummary > span {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -451,7 +451,7 @@
   line-height: 1.65;
 }
 
-.basisSummary span {
+.basisSummary > span > span {
   max-width: 100%;
   padding: 4px 8px;
   border: 1px solid #e8ecf4;

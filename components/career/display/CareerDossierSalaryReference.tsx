@@ -94,7 +94,7 @@ function rows(value: unknown, keys: string[], minimum: number, optionalKeys: str
 function safeSourceUrl(value: string): string | null {
   try {
     const url = new URL(value);
-    return url.protocol === "https:" && SALARY_SOURCE_HOSTS.has(url.hostname) ? url.toString() : null;
+    return url.protocol === "https:" && !url.username && !url.password && SALARY_SOURCE_HOSTS.has(url.hostname) ? url.toString() : null;
   } catch {
     return null;
   }
@@ -102,7 +102,7 @@ function safeSourceUrl(value: string): string | null {
 
 function sourceItems(values: Array<string | null>): Array<{ label: string; href: string }> {
   const items = values.flatMap((value) => value?.split(/[；;]/) ?? []).map((item) => {
-    const parts = item.split("｜").map((part) => part.trim());
+    const parts = item.split(/｜| \| /u).map((part) => part.trim());
     const labelValue = parts[0];
     const hrefValue = parts[1] ?? item.match(/https:\/\/[^\s；;。]+/u)?.[0];
     const href = hrefValue ? safeSourceUrl(hrefValue) : null;
@@ -189,9 +189,11 @@ function parseUsSalary(value: CareerPublishedValue): UsSalaryContent | null {
   const boundary = text(value.boundary);
   const authoritySourcesRaw = text(value.authority_sources);
   const blsRows = rows(value.bls_table, ["指标", "数值", "说明"], 1, ["fact_ref"]);
-  if (!blsRows) return null;
-  const wageRows = blsRows.filter((row) => /(?:薪资|wages)/iu.test(row["指标"]));
-  const outlookRows = blsRows.filter((row) => /(?:就业|outlook)/iu.test(row["指标"]));
+  // The existing BLS contract declares five wage rows followed by three
+  // employment rows. Reader-facing translations are not field identifiers.
+  if (!blsRows || blsRows.length !== 8) return null;
+  const wageRows = blsRows.slice(0, 5);
+  const outlookRows = blsRows.slice(5);
   const industryPeriod = text(value.industry_period) ?? `${industryHeading ?? ""} ${industryRows?.map((row) => row.note).join(" ") ?? ""}`.match(/20\d{2}/u)?.[0] ?? null;
   const outlookPeriod = text(value.outlook_period) ?? outlookRows[0]?.["指标"].match(/20\d{2}[–—-]20\d{2}/u)?.[0] ?? null;
   const sources = sourceItems([...blsRows.map((row) => row["说明"]), authoritySourcesRaw]);
@@ -304,7 +306,7 @@ function SourceLinks({ items, prefix }: { items: Array<{ label: string; href: st
 // Keep every non-link chunk readable, and use the same source URL policy as SourceLinks.
 function SalaryExplanation({ value }: { value: string }) {
   return value.split(/[；;]/).map((chunk, index) => {
-    const parts = chunk.trim().split("｜");
+    const parts = chunk.trim().split(/｜| \| /u);
     const href = parts.length === 2 ? safeSourceUrl(parts[1].trim()) : null;
     return <span key={index}>{index > 0 ? "；" : null}{href && parts[0].trim()
       ? <a href={href} target="_blank" rel="noopener noreferrer">{parts[0].trim()}</a>

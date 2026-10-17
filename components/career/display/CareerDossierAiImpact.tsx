@@ -184,6 +184,8 @@ function safeSourceUrl(value: string): string | null {
   }
 }
 
+// Published link cells also permit editorial notes. Notes remain escaped text;
+// URL-shaped values must still satisfy the existing exact URL/host policy.
 function parseAiImpact(value: CareerPublishedValue): AiImpactContent | null {
   if (!isRecord(value)) return null;
 
@@ -206,7 +208,8 @@ function parseAiImpact(value: CareerPublishedValue): AiImpactContent | null {
   if (!heading || !answer || !evidenceIntro || !differenceIntro || !responsibilityIntro ||
     !transition || !methodCards || !taskRows || !evidenceRows || !differenceRows ||
     !responsibilitySteps || !riskRows || !actionRows || !questions || !authorityLinks ||
-    [...evidenceRows, ...questions, ...authorityLinks].some((row) => row["链接"] !== "" && row["链接"] !== "编辑建议，无外部链接或采用效果证据" && safeSourceUrl(row["链接"]) === null)) {
+    [...evidenceRows, ...questions, ...authorityLinks].some((row) => row["链接"] !== "" && safeSourceUrl(row["链接"]) === null &&
+      /(?:[a-z][a-z0-9+.-]*\s*:|\/\/|www\.)/iu.test(row["链接"]))) {
     return null;
   }
 
