@@ -79,6 +79,18 @@ fi
 # The runner's value is no longer inherited by generic commands or children.
 unset TRACK_INGEST_TOKEN
 
+# Resolve the independent authority before activation. A transient read failure
+# must not leave an installed release waiting on a new external dependency.
+if [[ "$REQUIRE_LLMS_FULL_ARTIFACT" == "1" ]]; then
+  expected_career_count="$(node --input-type=module <<'NODE'
+import { parseCareerCurrentInventory } from './scripts/ops/career-current-inventory.mjs';
+const response = await fetch('https://api.fermatmind.com/api/v0.5/seo/sitemap-source', { signal: AbortSignal.timeout(20000) });
+if (!response.ok) throw new Error('CAREER_CURRENT_INVENTORY_UNAVAILABLE');
+console.log(parseCareerCurrentInventory(await response.json()).paths.length);
+NODE
+  )"
+fi
+
 [[ "${GITHUB_RUN_ID:-}" =~ ^[0-9]+$ && "${GITHUB_RUN_ATTEMPT:-}" =~ ^[0-9]+$ ]]
 control="${APP_DIR%/}/.deploy-incoming/${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${DEPLOY_SHA:0:12}"
 remote_archive="$control/fap-web-${DEPLOY_SHA}.tar.gz"
@@ -177,13 +189,7 @@ curl --fail --silent --show-error --connect-timeout 10 --max-time 20 "$PUBLIC_BA
 if [ "$REQUIRE_LLMS_FULL_ARTIFACT" = 1 ]; then
   scp -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -P "$DEPLOY_PORT" \
     "$DEPLOY_USER@$DEPLOY_HOST:$remote_llms_full_receipt" "$local_llms_full_receipt"
-  expected_career_count="$(node --input-type=module <<'NODE'
-import { parseCareerCurrentInventory } from './scripts/ops/career-current-inventory.mjs';
-const response = await fetch('https://api.fermatmind.com/api/v0.5/seo/sitemap-source', { signal: AbortSignal.timeout(20000) });
-if (!response.ok) throw new Error('CAREER_CURRENT_INVENTORY_UNAVAILABLE');
-console.log(parseCareerCurrentInventory(await response.json()).paths.length);
-NODE
-  )"
+
   jq -e --arg sha "$DEPLOY_SHA" --argjson career_count "$expected_career_count" '
     .schema_version == "fermatmind.llms-full-artifact-receipt.v1" and
     .revision == $sha and .mode == "complete" and .source == "cache" and

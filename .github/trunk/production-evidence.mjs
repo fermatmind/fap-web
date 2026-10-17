@@ -24,6 +24,38 @@ export function verifyProductionBinding({ run, artifact, timing, outcome, ci, re
   return candidate;
 }
 
+export function verifyInstalledBinding({run, artifact, timing, outcome, ci, receipt, jobs, repository, active}) {
+  const candidate = artifact.name.replace(/^trunk-production-/, '');
+  const production = jobs.filter(j => j.name === 'Production ordered activation with atomic LKG fallback');
+  const staging = jobs.filter(j => j.name === 'Staging artifact activation and smoke');
+  const policy = jobs.filter(j => j.name === 'Bind successful main CI and release artifact');
+  const complete = j => j.status === 'completed';
+  const activation = 'Activate production candidate; installer restores previous release on failed smoke';
+  if (!sha(candidate) || candidate === '0'.repeat(40) || candidate !== active
+    || !Number.isSafeInteger(run.id) || run.status !== 'completed' || run.conclusion !== 'failure'
+    || run.head_branch !== 'main' || run.event !== 'workflow_run' || run.run_attempt !== 1
+    || production.length !== 1 || !complete(production[0]) || production[0].conclusion !== 'failure'
+    || production[0].steps?.filter(s => s.name === activation && s.conclusion === 'failure').length !== 1
+    || staging.length !== 1 || !complete(staging[0]) || staging[0].conclusion !== 'success'
+    || policy.length !== 1 || !complete(policy[0]) || policy[0].conclusion !== 'success'
+    || timing.schema_version !== 'fermatmind.trunk-delivery-timing.v1' || timing.sha !== candidate
+    || timing.repository !== repository || String(timing.deploy_run_id) !== String(run.id)
+    || Number(timing.deploy_run_attempt) !== 1 || String(timing.ci_run_id) !== String(ci.id)
+    || timing.production_outcome !== 'failure' || timing.production_smoke_completed_at !== null
+    || !Number.isFinite(Date.parse(timing.production_finished_at))
+    || ci.head_sha !== candidate || ci.head_branch !== 'main' || ci.event !== 'push'
+    || ci.status !== 'completed' || ci.conclusion !== 'success' || ci.run_attempt !== 1
+    || ci.repository?.full_name !== repository
+    || receipt.schema_version !== 'fermatmind.trunk-validation.v1' || receipt.sha !== candidate
+    || String(receipt.ci_run_id) !== String(ci.id) || receipt.result !== 'success' || receipt.classification?.deploy !== true
+    || outcome?.schema_version !== 'fermatmind.deploy-outcome.v1' || outcome.revision !== candidate
+    || outcome.status !== 'success' || outcome.phase !== 'complete' || outcome.exit_code !== 0
+    || outcome.rollback !== 'not_needed' || !/^[a-f0-9]{64}$/.test(outcome.archive_sha256 ?? '')) {
+    throw new Error('UNVERIFIED_INSTALLED_ACTIVE');
+  }
+  return {sha: candidate, runId: run.id};
+}
+
 export function githubProductionEvidence(repository) {
   const api = path => JSON.parse(execFileSync('gh', ['api', `repos/${repository}/${path}`], {
     encoding: 'utf8', timeout: 30000, stdio: ['ignore', 'pipe', 'pipe'], maxBuffer: 8 * 1024 * 1024,
@@ -53,7 +85,7 @@ export function githubProductionEvidence(repository) {
       return name => { if (!documents.has(name)) throw new Error(`Missing production evidence: ${name}`); return documents.get(name); };
     } finally { rmSync(temp, {recursive:true, force:true}); }
   };
-  const reader = async (run, job) => {
+  const load = async (run) => {
     const matches = artifacts(run.id).filter(a => /^trunk-production-[a-f0-9]{40}$/.test(a.name));
     if (matches.length !== 1) throw new Error('Ambiguous production candidate artifact');
     const artifact = matches[0];
@@ -70,7 +102,32 @@ export function githubProductionEvidence(repository) {
     if (validations.length !== 1) throw new Error('Ambiguous CI validation artifact');
     const receipt = readArchive(validations[0])('trunk-validation.json');
     const outcome = repository.endsWith('/fap-web') ? read('deploy-outcome.json') : null;
-    return verifyProductionBinding({run, artifact, timing, outcome, ci, receipt, job});
+    return {run, artifact, timing, outcome, ci, receipt};
+  };
+  const reader = async (run, job) => verifyProductionBinding({...await load(run), job});
+  // This evidence permits only a new forward deployment. It never accepts the
+  // failed run or changes the production baseline used by classification.
+  reader.installed = async (active, baseline) => {
+    const found = [];
+    for (let page = 1; ; page++) {
+      const response = api(`actions/workflows/deploy.yml/runs?per_page=100&page=${page}`);
+      const runs = response.workflow_runs;
+      if (!Array.isArray(runs)) throw new Error('INVALID_INSTALLED_RUN_HISTORY');
+      for (const run of runs) {
+        if (run.id === baseline.runId) {
+          if (found.length !== 1) throw new Error('AMBIGUOUS_INSTALLED_ACTIVE');
+          return found[0];
+        }
+        if (run.head_branch !== 'main' || run.event !== 'workflow_run') continue;
+        const matches = artifacts(run.id).filter(a => a.name === `trunk-production-${active}`);
+        if (!matches.length) continue;
+        if (matches.length !== 1) throw new Error('AMBIGUOUS_INSTALLED_ARTIFACT');
+        const result = api(`actions/runs/${run.id}/attempts/1/jobs?per_page=100`);
+        if (result.total_count !== result.jobs?.length) throw new Error('INCOMPLETE_INSTALLED_JOBS');
+        found.push(verifyInstalledBinding({...await load(run), jobs: result.jobs, repository, active}));
+      }
+      if (runs.length < 100) throw new Error('INSTALLED_BASELINE_BOUNDARY_MISSING');
+    }
   };
   reader.skip = async (run,jobs) => {
     const inventory=artifacts(run.id),matches=inventory.filter(a=>/^trunk-deploy-skip-[a-f0-9]{40}$/.test(a.name));

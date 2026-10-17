@@ -114,3 +114,48 @@ for (const status of ['success', 'failed']) {
     }
   });
 }
+
+for (const mode of ['success', 'inventory-timeout', 'inventory-invalid', 'receipt-mismatch', 'revision-mismatch']) {
+  test(`LLMS authority is read before activation and retains postinstall checks: ${mode}`, () => {
+    const root = mkdtempSync(path.join(tmpdir(), 'release-inventory-'));
+    try {
+      const bin = path.join(root, 'bin');
+      mkdirSync(bin);
+      const calls = path.join(root, 'calls');
+      const outcome = path.join(root, 'outcome.json');
+      const llms = path.join(root, 'llms.json');
+      writeFileSync(outcome, JSON.stringify({ schema_version: 'fermatmind.deploy-outcome.v1', revision: sha, status: 'success', phase: 'complete', exit_code: 0 }));
+      writeFileSync(llms, JSON.stringify({ schema_version: 'fermatmind.llms-full-artifact-receipt.v1', revision: mode === 'receipt-mismatch' ? oldSha : sha,
+        mode: 'complete', source: 'cache', body_sha256: 'd'.repeat(64), bytes: 100, duration_ms: 1,
+        counts: { career: 2092, big_five: 104, enneagram: 116 }, verified_at: new Date().toISOString() }));
+      const preload = path.join(root, 'fetch.mjs');
+      writeFileSync(preload, `import { appendFileSync } from 'node:fs';
+globalThis.fetch = async (url) => {
+  if (url !== 'https://api.fermatmind.com/api/v0.5/seo/sitemap-source') throw new Error('Unexpected URL');
+  appendFileSync(process.env.CALL_LOG, 'inventory\\n');
+  if (process.env.TEST_MODE === 'inventory-timeout') throw new DOMException('Timed out', 'TimeoutError');
+  const slugs = Array.from({length:1046}, (_,i) => 'career-'+i);
+  const items = slugs.flatMap(slug => ['en','zh'].map(locale => ({loc:'https://fermatmind.com/'+locale+'/career/jobs/'+slug})));
+  return {ok:true, json:async () => ({ok:process.env.TEST_MODE !== 'inventory-invalid', source:'backend_sitemap_generator', count:items.length, items,
+    career_current_identity:{manifest_sha256:'e'.repeat(64),storage_count:1046,file_count:2092,slugs,aliases:{}}})};
+};\n`);
+      writeFileSync(path.join(bin, 'ssh'), '#!/usr/bin/env bash\ncase "$*" in *timeout*install_standalone_release.sh*) echo installer >> "$CALL_LOG" ;; esac\n', { mode: 0o700 });
+      writeFileSync(path.join(bin, 'scp'), '#!/usr/bin/env bash\nlast="${@: -1}"\nif [[ "$last" != *:* ]]; then\n case "$*" in *llms-full-artifact-receipt.json*) cp "$FIXTURE_LLMS" "$last" ;; *) cp "$FIXTURE_OUTCOME" "$last" ;; esac\nfi\n', { mode: 0o700 });
+      writeFileSync(path.join(bin, 'curl'), `#!/usr/bin/env bash\nprintf '%s' '{"revision":"${mode === 'revision-mismatch' ? oldSha : sha}"}'\n`, { mode: 0o700 });
+      const result = spawnSync('bash', ['.github/trunk/deploy-web-release.sh'], {
+        env: { ...process.env, PATH: `${bin}:${process.env.PATH}`, NODE_OPTIONS: `--import=${preload}`, CALL_LOG: calls, TEST_MODE: mode,
+          FIXTURE_OUTCOME: outcome, FIXTURE_LLMS: llms, DEPLOY_HOST: 'test.invalid', DEPLOY_USER: 'test', DEPLOY_PORT: '22',
+          APP_DIR: `${root}/app`, APP_NAME: 'test', APP_PORT: '3000', PUBLIC_BASE_URL: 'https://test.invalid', DEPLOY_SHA: sha,
+          RELEASE_ARCHIVE: `${root}/archive`, RELEASE_ARCHIVE_SHA256: 'd'.repeat(64), RELEASE_MANIFEST_DIGEST: `sha256:${'c'.repeat(64)}`,
+          ARTIFACT_DIGEST: `sha256:${'e'.repeat(64)}`, GITHUB_RUN_ID: '1', GITHUB_RUN_ATTEMPT: '1', RUNNER_TEMP: root,
+          REQUIRE_LLMS_FULL_ARTIFACT: '1', REQUIRE_CONTENT_RELEASE_REVALIDATION: '0', REQUIRE_TRACKING_INGEST_RUNTIME: '0' },
+        encoding: 'utf8', timeout: 10000,
+      });
+      assert.equal(result.error, undefined);
+      assert.equal(result.status === 0, mode === 'success', result.stdout + result.stderr);
+      assert.deepEqual(readFileSync(calls, 'utf8').trim().split('\n'), mode.startsWith('inventory-') ? ['inventory'] : ['inventory', 'installer']);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+}
