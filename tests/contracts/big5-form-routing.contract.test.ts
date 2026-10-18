@@ -20,6 +20,15 @@ describe("big5 form routing contract", () => {
     expect(normalizeBig5FormCode("unknown-form")).toBe("big5_120");
   });
 
+  it("keeps the API standard_90 alias on the 90-question take route in both languages", () => {
+    expect(normalizeBig5FormCode(" standard_90 ")).toBe("big5_90");
+    for (const locale of ["zh", "en"] as const) {
+      expect(buildBig5TakeHref("big-five-personality-test-ocean-model", locale, "standard_90")).toBe(
+        `/${locale}/tests/big-five-personality-test-ocean-model/take?form=big5_90`
+      );
+    }
+  });
+
   it("uses 15/11 as fallback truth and prefers lookup form projections", () => {
     expect(listBig5FormMetas().map((form) => form.estimatedMinutes)).toEqual([15, 11]);
     expect(getBig5DurationSummary("zh")).toBe("15分钟 / 11分钟");
