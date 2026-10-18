@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArticleByline } from "@/components/articles/ArticleByline";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
 import { CmsMediaAuthorityShell } from "@/components/marketing/CmsMediaAuthorityShell";
+import { HomeHeroAnimation } from "@/components/marketing/home/HomeHeroAnimation";
 import { Container } from "@/components/layout/Container";
 import type { CmsArticle } from "@/lib/cms/articles";
 import { localizedPath, stripLocalePrefix, type Locale } from "@/lib/i18n/locales";
@@ -36,7 +37,6 @@ const UNVERIFIED_SOCIAL_PROOF_PATTERNS = [
 ] as const;
 
 const HOMEPAGE_HERO_ASSETS = {
-  brain: "https://static.lingcecdn.com/www/myfunquizcom/assets/img/home/top.png",
   users: [
     "https://static.lingcecdn.com/www/myfunquizcom/_nuxt/user-group-1.DxbeeUB9.png",
     "https://static.lingcecdn.com/www/myfunquizcom/_nuxt/user-group-2.BTUn3P5c.png",
@@ -218,21 +218,21 @@ function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageConten
           "radial-gradient(circle at 76% 34%, rgba(180,151,255,0.16) 0%, rgba(180,151,255,0.08) 30%, rgba(247,248,245,0) 56%), linear-gradient(112deg, #f7f8f5 0%, #faf8f1 54%, #f7f3fb 100%)",
       }}
     >
-      <Container className="relative z-10 grid min-h-[41rem] w-full max-w-[82rem] items-center gap-10 px-6 py-14 md:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(24rem,34rem)] lg:py-20">
+      <Container className="relative z-10 grid min-h-[41rem] w-full max-w-[85rem] items-center gap-6 px-6 py-14 md:px-8 lg:grid-cols-[minmax(0,526fr)_minmax(0,746fr)]">
         <div className="mx-auto w-full max-w-[43rem] text-center lg:mx-0 lg:text-left">
           <h1
             aria-label={heroCopy.title}
-            className="m-0 text-balance break-words text-[2.55rem] font-black leading-tight tracking-normal text-[#333] sm:text-[2.8rem] lg:text-[3rem] xl:text-[3.2rem]"
+            className="m-0 text-balance break-words text-[2.55rem] font-black leading-tight tracking-normal text-[#333] sm:text-[2.8rem] lg:text-[2.5rem] lg:leading-[1.2]"
           >
             {titleSegments
               ? titleSegments.map((segment) => (
-                  <span key={segment} aria-hidden="true" className="inline-block whitespace-nowrap">
+                  <span key={segment} aria-hidden="true" className="inline-block whitespace-nowrap lg:block">
                     {segment}
                   </span>
                 ))
               : heroCopy.title}
           </h1>
-          <p className="m-0 mt-7 max-w-2xl text-[1.1rem] font-medium leading-9 text-[#5f6066] lg:text-[1.18rem]">
+          <p className="m-0 mt-6 max-w-2xl text-[1.1rem] font-medium leading-9 text-[#5f6066] lg:text-base lg:leading-[1.6]">
             {heroCopy.subhead || copy.hero.subhead}
           </p>
 
@@ -262,14 +262,14 @@ function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageConten
           )}
 
           {ctas.length > 0 ? (
-            <div className="mt-9 grid gap-4 sm:grid-cols-2">
+            <div className="mt-6 flex flex-wrap justify-center gap-4 lg:justify-start">
               {ctas.map((item) => (
                 <Link
                   key={`${item.variant}-${item.href}`}
                   href={withLocale(locale, item.href)}
                   prefetch={false}
                   className={cn(
-                    "inline-flex min-h-[3.4rem] items-center justify-center whitespace-nowrap rounded-full px-8 text-base font-bold tracking-normal transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8c77e4]",
+                    "inline-flex min-h-[3.125rem] min-w-[12.125rem] items-center justify-center whitespace-nowrap rounded-full px-6 text-base font-bold tracking-normal transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8c77e4]",
                     item.variant === "primary" && "bg-[#8c77e4] text-white shadow-[0_14px_26px_rgba(140,119,228,0.35)] hover:bg-[#7a63df]",
                     item.variant === "secondary" && "bg-white text-[#333] shadow-[0_10px_22px_rgba(59,45,105,0.14)] hover:text-[#8c77e4]"
                   )}
@@ -282,18 +282,8 @@ function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageConten
           ) : null}
         </div>
 
-        <div className="relative mx-auto hidden w-full max-w-[34rem] lg:block">
-          <div aria-hidden className="absolute inset-8 rounded-full bg-white/45 blur-3xl" />
-          {/* eslint-disable-next-line @next/next/no-img-element -- Legacy external hero media is outside the product-owned Next image allowlist. */}
-          <img
-            src={HOMEPAGE_HERO_ASSETS.brain}
-            alt=""
-            aria-hidden="true"
-            className="relative mx-auto h-[31rem] w-auto max-w-full object-contain drop-shadow-[0_25px_55px_rgba(133,113,218,0.20)]"
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-          />
+        <div className="relative mx-auto hidden w-full max-w-[46.625rem] lg:block">
+          <HomeHeroAnimation locale={locale} />
         </div>
       </Container>
     </section>

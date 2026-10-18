@@ -106,7 +106,7 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
         href={item.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="block w-fit text-[0.98rem] font-medium leading-7 text-slate-950 transition-colors duration-150 hover:text-lime-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-500"
+        className="fm-footer-link"
       >
         {item.label}
       </a>
@@ -115,7 +115,7 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
         key={`${item.href}-${item.label}`}
         href={withLocale(item.href)}
         prefetch={false}
-        className="block w-fit text-[0.98rem] font-medium leading-7 text-slate-950 transition-colors duration-150 hover:text-lime-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-500"
+        className="fm-footer-link"
       >
         {item.label}
       </PublicNavigationLink>
@@ -127,26 +127,46 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
       data-site-footer="true"
       className="fm-section-footer fm-site-footer-light border-t border-[var(--fm-border-subtle)] text-[var(--fm-text-main)]"
     >
-      <Container className="max-w-7xl space-y-16 py-20 md:py-28">
-        <div className="grid grid-cols-2 gap-x-14 gap-y-14 md:grid-cols-5 lg:gap-x-18 xl:gap-x-24">
-          {footerGroups.map((group) => (
-            <div key={group.key} className="space-y-5" data-testid={`site-footer-group-${group.key}`}>
-              <p className="m-0 text-sm font-medium leading-6 text-slate-500">{group.title}</p>
-              <div className="min-h-5 space-y-2.5">{group.links.map(renderFooterLink)}</div>
-            </div>
-          ))}
+      <Container className="fm-footer-container">
+        <div className="fm-footer-main">
+          <div className="fm-footer-brand">
+            <PublicNavigationLink
+              href={withLocale("/")}
+              prefetch={false}
+              aria-label={dict.header.brand}
+              className="fm-footer-brand-link"
+            >
+              <BrandLogo locale={locale} />
+              <span>{dict.header.brand}</span>
+            </PublicNavigationLink>
+            <p className="fm-footer-description">{dict.footer.tailnote}</p>
+            <SiteFooterSocialRail locale={locale} />
+          </div>
+
+          <nav className="fm-footer-navigation" aria-label={locale === "zh" ? "页脚导航" : "Footer navigation"}>
+            {footerGroups.map((group) => (
+              <div key={group.key} className="fm-footer-group" data-testid={`site-footer-group-${group.key}`}>
+                <h2 className="fm-footer-heading">{group.title}</h2>
+                <ul className="fm-footer-links">
+                  {group.links.map((item) => <li key={item.href}>{renderFooterLink(item)}</li>)}
+                </ul>
+              </div>
+            ))}
+          </nav>
         </div>
 
-        <SiteFooterSocialRail locale={locale} />
-
-        <div className="border-t border-slate-300/70 pt-7 text-center">
-          <PublicNavigationLink href={withLocale("/")} prefetch={false} className="mb-4 inline-flex rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-500">
-            <BrandLogo locale={locale} />
-          </PublicNavigationLink>
-          <p className="m-0 text-sm font-medium leading-6 text-slate-500">{dict.footer.tailnote}</p>
-          <p data-visual-volatile="true" className="m-0 mt-3 text-sm text-slate-500">
+        <div className="fm-footer-legal">
+          <p data-visual-volatile="true" className="m-0">
             © {new Date().getFullYear()} FermatMind. {dict.footer.copyright}
           </p>
+          <a
+            href="https://beian.miit.gov.cn/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="fm-footer-link"
+          >
+            苏ICP备2025222299号-1
+          </a>
         </div>
       </Container>
     </footer>
