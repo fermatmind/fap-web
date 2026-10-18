@@ -30,13 +30,11 @@ function detailCacheOptions(locale: Locale | string, slug: string): {
   };
 }
 
-function bundleCacheOptions(locale: Locale | string, slug: string) {
-  return toApiLocale(locale) === "zh-CN"
-    ? {
-        cache: "no-store" as const,
-        headers: { "Cache-Control": "no-cache", Pragma: "no-cache" },
-      }
-    : { ...PUBLIC_API_CACHE_OPTIONS, ...detailCacheOptions(locale, slug) };
+function bundleCacheOptions() {
+  return {
+    cache: "no-store" as const,
+    headers: { "Cache-Control": "no-cache", Pragma: "no-cache" },
+  };
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -120,14 +118,14 @@ export async function fetchCareerJobBundle(
         locale: input.locale,
         timeoutMs: CAREER_JOB_DETAIL_FETCH_TIMEOUT_MS,
         skipAuth: true,
-        ...bundleCacheOptions(input.locale, normalizedSlug),
+        ...bundleCacheOptions(),
       }
     );
     const raw = isRecord(bundle.data) ? bundle.data : bundle;
-    // Current Chinese metadata belongs to the same immutable page response.
+    // Current metadata belongs to the same immutable page response in both locales.
     // Do not start an independent SEO read that can replay a different decision.
     if (input.includeSeoAuthority !== true ||
-        (toApiLocale(input.locale) === "zh-CN" && (Object.hasOwn(raw, "career_page") || raw.bundle_version === CAREER_DETAIL_PROJECTION_CACHE_VERSION))) {
+        (Object.hasOwn(raw, "career_page") || raw.bundle_version === CAREER_DETAIL_PROJECTION_CACHE_VERSION)) {
       return bundle;
     }
     return attachSeoAuthorityToBundle(bundle, await fetchCareerJobSeoAuthority({ ...input, normalizedSlug }));

@@ -84,23 +84,23 @@ describe("CAREER-DETAIL-DELIVERY-10K-01", () => {
     expect(source).toContain('require_career_renderer_revision "$PUBLIC_BASE_URL" "public"');
   });
 
-  it("tags both detail and SEO authority fetches by normalized locale and slug", () => {
+  it("keeps normalized tags for compatibility SEO while Current detail bypasses stale data", () => {
     const source = read("lib/career/api/fetchCareerJobBundle.ts");
 
     expect(careerDetailCacheTag("zh", "Software-Developer")).toBe("career-detail:zh-CN:software-developer");
     expect(careerDetailCacheTag("en", "Software-Developer")).toBe("career-detail:en:software-developer");
-    expect(source.match(/detailCacheOptions\(/g)?.length).toBe(3);
+    expect(source.match(/detailCacheOptions\(/g)?.length).toBe(2);
     expect(source).toContain("revalidate: CAREER_DETAIL_REVALIDATE_SECONDS");
-    expect(source).toContain('toApiLocale(locale) === "zh-CN"');
+    expect(source).not.toContain('toApiLocale(locale) === "zh-CN"');
     expect(source).toContain('cache: "no-store" as const');
   });
 
-  it("bypasses stale projection data only for the authoritative Chinese bundle", () => {
+  it("bypasses stale projection data for both authoritative locales", () => {
     const source = read("lib/career/api/fetchCareerJobBundle.ts");
 
     expect(CAREER_DETAIL_PROJECTION_CACHE_VERSION).toBe("career.detail.page.v1");
     expect(source).toContain("function bundleCacheOptions");
-    expect(source).toContain("...bundleCacheOptions(input.locale, normalizedSlug)");
+    expect(source).toContain("...bundleCacheOptions()");
     expect(source).toContain('query.set("projection_contract", CAREER_DETAIL_PROJECTION_CACHE_VERSION)');
     expect(source).toContain('headers: { "Cache-Control": "no-cache", Pragma: "no-cache" }');
     expect(source.match(/\.\.\.detailCacheOptions\(input\.locale, input\.normalizedSlug\)/g)).toHaveLength(1);

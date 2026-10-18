@@ -25,7 +25,7 @@ describe("CAREER-DETAIL-CACHE-BUDGET-REPAIR-01", () => {
     const compatibilitySeoIndex = source.indexOf("await fetchCareerJobSeoAuthority({ ...input, normalizedSlug })");
     expect(bundleFetchIndex).toBeGreaterThan(-1);
     expect(compatibilitySeoIndex).toBeGreaterThan(bundleFetchIndex);
-    expect(source).toContain('toApiLocale(input.locale) === "zh-CN"');
+    expect(source).not.toContain('toApiLocale(input.locale) === "zh-CN"');
     expect(source).toContain('Object.hasOwn(raw, "career_page")');
     expect(source.match(/timeoutMs: CAREER_JOB_DETAIL_FETCH_TIMEOUT_MS/g)?.length).toBe(2);
     expect(source).toContain('cache: "no-store" as const');

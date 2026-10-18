@@ -67,6 +67,27 @@ describe("career job backend bundle contract", () => {
     expect(payload).not.toBeNull();
   });
 
+  it.each(["zh", "en"] as const)("reads fresh %s Current body and metadata from one response", async locale => {
+    let version = 0;
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit & { next?: unknown }) => {
+      const url = String(input);
+      expect(url).toContain("/api/v0.5/career/jobs/accountants-and-auditors?");
+      expect(url).toContain("projection_contract=career.detail.page.v1");
+      expect(url).toContain(`locale=${locale === "zh" ? "zh-CN" : "en"}`);
+      expect(init?.cache).toBe("no-store");
+      expect(init?.next).toBeUndefined();
+      expect(new Headers(init?.headers).get("Cache-Control")).toBe("no-cache");
+      version++;
+      return jsonResponse({bundle_version: "career.detail.page.v1", career_page: {source_content_sha256: `version-${version}`}});
+    });
+    vi.stubGlobal("fetch", fetchMock);
+    const first = await fetchCareerJobBundle({locale, slug: "accountants-and-auditors", includeSeoAuthority: true});
+    const second = await fetchCareerJobBundle({locale, slug: "accountants-and-auditors", includeSeoAuthority: true});
+    expect(first).toMatchObject({career_page: {source_content_sha256: "version-1"}});
+    expect(second).toMatchObject({career_page: {source_content_sha256: "version-2"}});
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
   it("requests the backend next-step links endpoint for job detail only", async () => {
     vi.stubGlobal(
       "fetch",
