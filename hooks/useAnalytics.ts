@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { trackEvent, trackLandingPageView, type AnalyticsProperties } from "@/lib/analytics";
 import { hasAnalyticsConsent } from "@/lib/consent/store";
+import { trackVibeCafePageView } from "@/lib/tracking/vibeCafe";
 
 const CANONICAL_LANDING_PAGE_VIEW_EVENTS = new Set(["landing_pv", "view_landing", "landing_view"]);
 
@@ -28,6 +29,7 @@ export function useAnalyticsPageView(
     const pageViewKey = `${canonicalLandingPageView ? "landing_pv" : eventName}:${trackingKey ?? pathname}`;
     const trackPageViewOnce = () => {
       if (!hasAnalyticsConsent()) return;
+      if (canonicalLandingPageView) trackVibeCafePageView();
       if (trackedKeysRef.current.has(pageViewKey)) return;
       trackedKeysRef.current.add(pageViewKey);
       if (canonicalLandingPageView) {

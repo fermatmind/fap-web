@@ -11,6 +11,7 @@ const hoisted = vi.hoisted(() => ({
   trackLandingPageView: vi.fn(),
   trackEvent: vi.fn(),
   trackReturnToPublicContentIfEligible: vi.fn(),
+  trackVibeCafePageView: vi.fn(),
 }));
 
 vi.mock("next/navigation", () => ({
@@ -28,12 +29,17 @@ vi.mock("@/lib/observability/sentry", () => ({
   initSentry: vi.fn(),
 }));
 
+vi.mock("@/lib/tracking/vibeCafe", () => ({
+  trackVibeCafePageView: hoisted.trackVibeCafePageView,
+}));
+
 afterEach(() => {
   window.localStorage.clear();
   hoisted.initAnalytics.mockReset();
   hoisted.trackLandingPageView.mockReset();
   hoisted.trackEvent.mockReset();
   hoisted.trackReturnToPublicContentIfEligible.mockReset();
+  hoisted.trackVibeCafePageView.mockReset();
 });
 
 describe("analytics consent page view replay contract", () => {
@@ -48,12 +54,14 @@ describe("analytics consent page view replay contract", () => {
     );
 
     expect(hoisted.trackLandingPageView).not.toHaveBeenCalled();
+    expect(hoisted.trackVibeCafePageView).not.toHaveBeenCalled();
     expect(hoisted.initAnalytics).toHaveBeenCalledTimes(1);
 
     fireEvent.click(screen.getByTestId("cookie-banner-accept"));
 
     await waitFor(() => {
       expect(hoisted.trackLandingPageView).toHaveBeenCalledTimes(1);
+      expect(hoisted.trackVibeCafePageView).toHaveBeenCalledTimes(1);
       expect(hoisted.initAnalytics).toHaveBeenCalledTimes(2);
     });
     expect(hoisted.trackLandingPageView).toHaveBeenCalledWith({ locale: "zh" });
@@ -80,6 +88,7 @@ describe("analytics consent page view replay contract", () => {
       expect(screen.queryByRole("button", { name: "拒绝" })).toBeNull();
     });
     expect(hoisted.trackLandingPageView).not.toHaveBeenCalled();
+    expect(hoisted.trackVibeCafePageView).not.toHaveBeenCalled();
     expect(hoisted.trackEvent).not.toHaveBeenCalled();
     expect(hoisted.initAnalytics).toHaveBeenCalledTimes(1);
   });
