@@ -8,6 +8,7 @@ import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import { applyMbtiPhase2Fixture } from "@/tests/helpers/mbtiPhase2Fixture";
 import reportReadyMbtiProjectionFixture from "../fixtures/report_ready.mbti.projection.json";
+import publicEnfpZhDesktopCloneFixture from "../fixtures/mbti/desktop-clone.enfp-t.zh-CN.public.json";
 
 function createMbtiReportFixture(
   mutate?: (fixture: Record<string, unknown>) => void
@@ -327,6 +328,73 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
     return Math.abs(sectionCenter - viewportCenter) < 160;
   }, getMbtiDesktopAnchorId("offerFull"));
 
+});
+
+test("MBTI Chinese 93Q isolated free journey submits once without checkout", async ({ page }) => {
+  const attemptId = "mbti-zh-free-93-synthetic";
+  let starts = 0;
+  let submits = 0;
+  let checkouts = 0;
+  const questions = Array.from({ length: 93 }, (_, index) => ({
+    question_id: `SYNTHETIC_ZH_${index + 1}`,
+    order: index + 1,
+    text: `隔离样本题 ${index + 1}`,
+    options: [{ code: "A", text: "符合" }, { code: "B", text: "不符合" }],
+  }));
+  const freeReport = {
+    ...createMbtiReportFixtureWithOptions({ personalizationLocale: "zh-CN", hasUnlock: true }),
+    locked: false, variant: "full", access_level: "full", unlock_stage: "full", unlock_source: "none",
+    access_mode: "free_full", access_source: "free_full_report_mode", free_full_report_mode: true,
+    paywall_suppressed: true, upgrade_sku: null, upgrade_sku_effective: null, offers: [], modules_preview: [],
+  };
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.addInitScript(() => localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "denied", updatedAt: "2026-10-18T00:00:00Z" })));
+  const fulfill = (route: Parameters<Parameters<Page["route"]>[1]>[0], body: unknown) => route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify(body) });
+  await page.route("**/api/track", (route) => fulfill(route, { ok: true }));
+  await page.route("**/api/v0.3/auth/guest*", (route) => fulfill(route, { ok: true, fm_token: "fm_zh_free_synthetic_token_123456" }));
+  await page.route("**/api/v0.3/me/attempts/link-anon*", (route) => fulfill(route, { ok: true, linked_attempt_ids: [] }));
+  await page.route("**/api/v0.3/scales/MBTI/questions*", (route) => fulfill(route, { ok: true, scale_code: "MBTI", form_code: "mbti_93", questions: { items: questions } }));
+  await page.route("**/api/v0.3/attempts/start", (route) => {
+    starts += 1;
+    expect(route.request().postDataJSON()).toMatchObject({ scale_code: "MBTI", form_code: "mbti_93" });
+    return fulfill(route, { ok: true, attempt_id: attemptId, scale_code: "MBTI", form_code: "mbti_93" });
+  });
+  await page.route("**/api/v0.3/attempts/submit", (route) => {
+    submits += 1;
+    const body = route.request().postDataJSON();
+    expect(body.attempt_id).toBe(attemptId);
+    expect(body.answers).toHaveLength(93);
+    expect(body.answers.every((answer: { code: string }) => answer.code === "A")).toBe(true);
+    return fulfill(route, { ok: true, attempt_id: attemptId });
+  });
+  await page.route(`**/api/v0.3/attempts/${attemptId}/report-access*`, (route) => fulfill(route, {
+    ok: true, attempt_id: attemptId, access_state: "ready", report_state: "ready", pdf_state: "ready",
+    unlock_stage: "full", unlock_source: "none", access_source: "free_full_report_mode", access_mode: "free_full",
+    free_full_report_mode: true, paywall_suppressed: true,
+    actions: { page_href: `/zh/result/${attemptId}`, history_href: "/zh/history/mbti" }, payload: freeReport,
+  }));
+  await page.route(`**/api/v0.3/attempts/${attemptId}/report?*`, (route) => fulfill(route, freeReport));
+  await page.route(`**/api/v0.3/attempts/${attemptId}/submission*`, (route) => fulfill(route, { ok: true, submission: { id: attemptId, state: "ready" } }));
+  await page.route("**/api/v0.3/orders*", (route) => { checkouts += 1; return fulfill(route, { ok: false }); });
+  // Published anonymous ENFP-T content captured on 2026-10-18; no private result or answer data.
+  await page.route("**/api/v0.5/personality/enfp-t/desktop-clone?*", (route) => fulfill(route, publicEnfpZhDesktopCloneFixture));
+  await page.goto("/zh/tests/mbti-personality-test-16-personality-types/take?form=mbti_93");
+  await expect(page.getByRole("heading", { name: "隔离样本题 1", exact: true })).toBeVisible();
+  expect(starts).toBe(0);
+  for (let index = 0; index < 92; index += 1) {
+    await page.getByRole("radio").first().click();
+    await expect(page.getByRole("heading", { name: `隔离样本题 ${index + 2}`, exact: true })).toBeVisible();
+  }
+  const response = await clickLastOptionAndWaitForSubmitAndUrl({ page, option: page.getByRole("radio").first(), targetUrl: new RegExp(`/zh/result/${attemptId}`) });
+  expect(response.status()).toBe(200);
+  await expect(page.getByTestId("mbti-result-shell")).toBeVisible({ timeout: 20000 });
+  for (const chapter of ["traits", "career", "growth", "relationships"]) await expect(page.getByTestId(`mbti-chapter-${chapter}`)).toBeVisible();
+  await expect(page.getByTestId("result-email-gate")).toHaveCount(0);
+  await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveCount(0);
+  await expect(page.getByTestId("result-email-recovery-card")).toBeVisible();
+  expect(starts).toBe(1);
+  expect(submits).toBe(1);
+  expect(checkouts).toBe(0);
 });
 
 test("MBTI cross assessment metadata preserves canonical identity without retired copy overlays", async ({ page }) => {
