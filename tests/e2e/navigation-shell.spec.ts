@@ -44,7 +44,7 @@ test("site chrome is consistent across help and articles pages", async ({ page }
   await expectSiteChromeVisible(page);
 
   await page.goto("/en/articles");
-  await expect(page.getByRole("link", { name: "FermatMind", exact: true })).toBeVisible();
+  await expectSiteChromeVisible(page);
   const helpMenuTrigger = page.getByRole("navigation").getByRole("button", { name: "Help menu", exact: true });
   await expect(helpMenuTrigger).toBeVisible();
   await helpMenuTrigger.click();

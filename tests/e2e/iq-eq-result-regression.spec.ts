@@ -636,14 +636,13 @@ test("IQ renders stem prompt/svg and submits with visual options", async ({ page
         ok: true,
         locked: false,
         variant: "full",
-        schema_version: "iq.report.v1",
         scale_code: "IQ_INTELLIGENCE_QUOTIENT",
-        summary: { raw_score: 1, question_count: 1 },
-        scoring: { status: "scored" },
-        duration_ms: 1000,
         report: {
-          scale_code: "IQ_RAVEN",
-          sections: [],
+          schema_version: "iq.report.v1",
+          scale_code: "IQ_INTELLIGENCE_QUOTIENT",
+          summary: { raw_score: 1, question_count: 1 },
+          scoring: { status: "scored" },
+          duration_ms: 1000,
         },
       }),
     });
@@ -666,9 +665,12 @@ test("IQ renders stem prompt/svg and submits with visual options", async ({ page
   });
   expect(submitCalls).toBe(1);
   expect(submitResponse.status()).toBe(200);
-  await expect(page.getByRole("heading", { name: "IQ Test Results", exact: true })).toBeVisible();
-  await expect(page.getByText("An IQ score and population rank are not available yet.", { exact: true })).toBeVisible();
-  await expect(page.getByText("Correct answers", { exact: true }).locator("..")).toContainText("1");
+  // Preserve the result reader's ten-second ready hold.
+  await expect(page.getByTestId("iq-result-shell")).toBeVisible({ timeout: 20000 });
+  await expect(page.getByTestId("iq-standard-score-status")).toHaveText("Not available yet");
+  await expect(page.getByTestId("iq-standard-score-value")).toHaveText("—");
+  await expect(page.getByTestId("iq-percentile-unavailable")).toContainText("—");
+  await expect(page.getByTestId("iq-correct-count")).toContainText("1/1");
 });
 
 test("result page falls back to attempts/{id}/result when report is unavailable", async ({ page }) => {

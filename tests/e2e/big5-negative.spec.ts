@@ -338,7 +338,7 @@ test("@release BIG5 429 start error returns bounded retry guidance", async ({ pa
 
   if (process.env.PLAYWRIGHT_SERVER_MODE === "production") {
     await expect(page.getByText(
-      "Starting is temporarily limited. Please try again in 1 minute."
+      "There are currently many requests to start assessments. Please try again in 1 minute."
     )).toBeVisible();
     expect(startCalls).toBe(2);
   } else {

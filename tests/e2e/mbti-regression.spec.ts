@@ -961,7 +961,7 @@ test("MBTI result uses the same clone shell across mobile and desktop viewports"
 
     await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
     await expect(cloneShell).toBeVisible();
-    await expect(page.getByRole("link", { name: "费马测试", exact: true })).toBeVisible();
+    await expect(page.getByTestId("site-header-container").getByRole("link", { name: "费马测试", exact: true })).toBeVisible();
     const layout = await page.evaluate(() => {
       const hero = document.querySelector('[data-testid="mbti-hero"]')!.getBoundingClientRect();
       const logo = document.querySelector('header a[href="/"]')!.getBoundingClientRect();
