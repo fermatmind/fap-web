@@ -211,7 +211,7 @@ export function IqOptionBoard({
                     : "border-[var(--fm-border)] bg-white"
                 )}
               >
-                <div className="flex w-full items-start gap-3">
+                <div className="flex min-w-0 w-full flex-col items-start gap-3">
                   <span
                     className={cn(
                       "inline-flex h-8 min-w-[32px] shrink-0 items-center justify-center rounded-full border px-2 text-sm font-semibold",
@@ -223,7 +223,7 @@ export function IqOptionBoard({
                     {letter}
                   </span>
 
-                  <span className="flex aspect-[16/9] w-full max-w-[156px] shrink-0 items-center justify-center overflow-hidden rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-2">
+                  <span className="flex aspect-[16/9] min-w-0 w-full max-w-[156px] items-center justify-center overflow-hidden rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-2">
                     {option.svg || option.image ? (
                       <IqGraphic
                         svg={option.svg}

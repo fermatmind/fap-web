@@ -517,7 +517,8 @@ test("EQ Chinese result localizes technical labels on mobile and desktop viewpor
   await expect(page.getByTestId("eq-sjt-bridge")).toHaveCount(0);
 });
 
-test("IQ renders stem prompt/svg and submits with visual options", async ({ page }) => {
+for (const graphicKind of ["svg", "image"] as const) {
+test(`IQ renders stem prompt/svg and submits with visual options (${graphicKind})`, async ({ page }) => {
   const attemptId = "iq-stem-flow-001";
   let submitCalls = 0;
   const iqQuestion = {
@@ -532,7 +533,10 @@ test("IQ renders stem prompt/svg and submits with visual options", async ({ page
         paths: [{ d: "M 5 5 L 115 5 L 115 75 L 5 75 Z", fill: "#f8fafc" }],
       },
     },
-    options: [
+    options: graphicKind === "image" ? Array.from({ length: 6 }, (_, index) => ({
+      code: String.fromCharCode(65 + index),
+      image: { src: `/iq-mobile-option-${index}.svg`, width: 300, height: 148, alt: `Synthetic option ${index + 1}` },
+    })) : [
       {
         code: "A",
         svg: {
@@ -549,6 +553,13 @@ test("IQ renders stem prompt/svg and submits with visual options", async ({ page
       },
     ],
   };
+  if (graphicKind === "image") {
+    await page.route("**/iq-mobile-option-*.svg", (route) => route.fulfill({
+      status: 200,
+      contentType: "image/svg+xml",
+      body: '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="148" viewBox="0 0 300 148"><rect x="5" y="5" width="290" height="138" fill="#235a47"/></svg>',
+    }));
+  }
   await mockTrack(page);
   await mockGuestToken(page, "fm_iq_stem_token_123456");
   await mockAttemptLinkAnon(page);
@@ -648,6 +659,39 @@ test("IQ renders stem prompt/svg and submits with visual options", async ({ page
     });
   });
 
+  for (const locale of ["zh", "en"] as const) {
+    await page.goto(`/${locale}/tests/iq-test-intelligence-quotient-assessment/take`);
+    await expect(page.getByRole("heading", { name: /Which option fits\?|哪个选项适合？/ })).toBeVisible();
+    for (const viewport of [{ width: 320, height: 568 }, { width: 390, height: 844 }]) {
+      await page.setViewportSize(viewport);
+      const board = page.getByTestId("iq-option-board-mobile");
+      await expect(board).toBeVisible();
+      const options = board.getByRole("radio");
+      if (graphicKind === "image") {
+        await expect(board.locator("img")).toHaveCount(6);
+        await expect.poll(() => board.locator("img").evaluateAll((images) => images.every((image) => image instanceof HTMLImageElement && image.complete && image.naturalWidth > 0))).toBe(true);
+      }
+      for (const option of await options.all()) {
+        const buttonBounds = await option.boundingBox();
+        const graphicBounds = await option.getByRole("img").boundingBox();
+        expect(buttonBounds).not.toBeNull();
+        expect(graphicBounds).not.toBeNull();
+        expect(buttonBounds!.height).toBeGreaterThanOrEqual(128);
+        expect(graphicBounds!.y).toBeGreaterThanOrEqual(buttonBounds!.y - 1);
+        expect(graphicBounds!.y + graphicBounds!.height).toBeLessThanOrEqual(buttonBounds!.y + buttonBounds!.height + 1);
+        expect(graphicBounds!.x).toBeGreaterThanOrEqual(buttonBounds!.x - 1);
+        expect(graphicBounds!.x + graphicBounds!.width).toBeLessThanOrEqual(buttonBounds!.x + buttonBounds!.width + 1);
+        await expect(option).toHaveAttribute("aria-checked", "false");
+      }
+      expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(viewport.width + 1);
+      await options.first().focus();
+      await page.keyboard.press("Tab");
+      await expect(options.nth(1)).toBeFocused();
+      await expect(options.nth(1)).toHaveAttribute("aria-checked", "false");
+      expect(submitCalls).toBe(0);
+    }
+  }
+  await page.setViewportSize({ width: 1280, height: 720 });
   await page.goto("/en/tests/iq-test-intelligence-quotient-assessment/take");
   await expect(page.getByRole("heading", { name: /Which option fits\?|哪个选项适合？/ })).toBeVisible();
   await expect(page.getByTestId("iq-stem-svg").first()).toBeVisible();
@@ -672,6 +716,7 @@ test("IQ renders stem prompt/svg and submits with visual options", async ({ page
   await expect(page.getByTestId("iq-percentile-unavailable")).toContainText("—");
   await expect(page.getByTestId("iq-correct-count")).toContainText("1/1");
 });
+}
 
 test("result page falls back to attempts/{id}/result when report is unavailable", async ({ page }) => {
   const attemptId = "result-fallback-001";

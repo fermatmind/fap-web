@@ -274,7 +274,7 @@ const zh: SiteDictionary = {
       kicker: "Workspace Lite",
       title: "MBTI Workspace Lite",
       descriptionPrimary: "这里是你当前身份下的 MBTI Workspace Lite 回访入口，可继续已保存的结果入口。",
-      descriptionRecovery: "需要跨设备找回已保存结果时，输入绑定邮箱即可查看该邮箱下的结果。",
+      descriptionRecovery: "需要跨设备找回已保存结果时，输入绑定邮箱；若当前会话无法直接显示结果，请从该邮箱收到的安全链接继续。",
       descriptionWorkspaceEntry: "这里现在就是你的 MBTI Workspace Lite 入口：继续查看当前结果，或用邮箱找回已保存结果。",
       recoverCta: "用邮箱找回结果",
       listTitle: "已保存的结果入口",

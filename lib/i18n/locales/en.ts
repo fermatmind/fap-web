@@ -275,7 +275,7 @@ const en: SiteDictionary = {
       kicker: "Workspace Lite",
       title: "MBTI Workspace Lite",
       descriptionPrimary: "Re-enter saved MBTI result entries from the current workspace-lite surface.",
-      descriptionRecovery: "Need to recover saved results from another device? Enter the bound email to reopen that email's results.",
+      descriptionRecovery: "Need saved results on another device? Enter the bound email. If this session cannot display them directly, continue through the secure links sent to that address.",
       descriptionWorkspaceEntry:
         "This is now your MBTI Workspace Lite entry: continue from saved results here, or recover saved results by email.",
       recoverCta: "Recover by email",
