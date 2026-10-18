@@ -13,6 +13,7 @@ for (const locale of ['zh', 'en'] as const) {
   function candidate(displayValue = '67%') {
     const page = normalizeCareerPage(structuredClone(raw), locale, 'accountants-and-auditors')!;
     const fact = {...page.content.facts[0], factId: 'fermatmind-ai-impact-estimate', displayValue, sourceRefs: ['source-fermatmind-ai-rubric'], derivation: 'Editorial estimate; not a probability.'};
+    page.content.facts = page.content.facts.filter(item => !item.sourceRefs.includes('source-fermatmind-ai-rubric'));
     page.content.facts.push(fact);
     page.content.sources = page.content.sources.filter(source => source.id !== 'source-fermatmind-ai-rubric');
     page.content.sources.push({...page.content.sources[0], id: 'source-fermatmind-ai-rubric', name: 'FermatMind scoring method', publisher: 'FermatMind', details: ['Three representative tasks; weights 1, 1, 1.', 'Task: review; 75; ai-work[0]'], limitation: 'Not a job-loss probability.'});
@@ -39,7 +40,9 @@ for (const locale of ['zh', 'en'] as const) {
     const page = candidate('7/10');
     const build = () => buildCareerPageDisplaySurface(page, {slug: page.content.subject.canonicalSlug}, raw.display.components.primary_cta.href);
     expect(build().presentationV2?.hero.aiExposure?.scale).toBe(10);
-    expect(renderToStaticMarkup(<CareerDisplaySurface surface={build()} />)).not.toContain('href="#career-ai-assessment-method"');
+    const element = document.createElement('div');
+    element.innerHTML = renderToStaticMarkup(<CareerDisplaySurface surface={build()} />);
+    expect(element.querySelector('[data-testid="career-production-ai-gauge"] a')).toBeNull();
     for (const value of ['101%', '-1%', '1.5%', '067%', '67', '67％']) {
       page.hero.ai.fact!.displayValue = value;
       expect(build).toThrow('CAREER_PAGE_DISPLAY_INVALID:hero.ai');
