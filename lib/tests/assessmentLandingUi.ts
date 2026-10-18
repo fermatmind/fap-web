@@ -113,6 +113,14 @@ const EN_ENTRY_LABELS: Record<string, string> = {
 
 export type AssessmentArtwork = "mbti" | "big-five" | "enneagram" | "iq" | "eq" | "riasec";
 
+export function resolveAssessmentLandingSocialImage(slug: string, locale: "zh" | "en", selectedImage: string) {
+  const legacyMbtiImage = "https://api.fermatmind.com/static/share/mbti_square_600x600.png";
+  return slug === "holland-career-interest-test-riasec"
+    && (!selectedImage || selectedImage === legacyMbtiImage)
+    ? `/og/page/holland-career-interest-test-riasec?locale=${locale}`
+    : selectedImage;
+}
+
 const HERO_ARTWORK: Partial<Record<string, AssessmentArtwork>> = {
   [SCALE_CANONICAL_SLUG_MAP.MBTI]: "mbti",
   [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: "big-five",

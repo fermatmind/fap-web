@@ -67,7 +67,7 @@ export async function generateMetadata({
 
   const pathname = buildBigFivePublicContentPath(locale, entry);
   const shouldIndex = robotsAllowsIndex(asset);
-  return buildPageMetadata({
+  const metadata = buildPageMetadata({
     locale,
     pathname,
     canonicalCandidate: asset.canonicalPath,
@@ -85,6 +85,7 @@ export async function generateMetadata({
       xDefault: alternatePath(asset.hreflang.en, buildBigFivePublicContentPath("en", entry)),
     },
   });
+  return { ...metadata, twitter: { ...metadata.twitter, card: "summary" } };
 }
 
 export default async function BigFiveDimensionPage({

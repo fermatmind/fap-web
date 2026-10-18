@@ -1,4 +1,4 @@
-import { getAssessmentEditorialLayout, getAssessmentLandingUi } from "@/lib/tests/assessmentLandingUi";
+import { getAssessmentEditorialLayout, getAssessmentLandingUi, resolveAssessmentLandingSocialImage } from "@/lib/tests/assessmentLandingUi";
 import { parseLandingFaq as parseFaq, parseMbtiEditorial } from "@/lib/tests/mbtiLandingEditorial";
 import { MbtiWhyChoose, MbtiFaqAnswers } from "@/components/tests/MbtiEditorialSections";
 import { AssessmentLandingIntro } from "@/components/tests/AssessmentLandingIntro";
@@ -780,7 +780,8 @@ export async function generateMetadata({
     || cmsLandingSurfaceContent.seoDescription
     || seoDescription
     || (metadataAuthority.metadata.allowed ? test.description : "");
-  const ogImage = ogImageAuthority || (metadataAuthority.metadata.allowed ? test.cover_image : "");
+  const selectedImage = ogImageAuthority || (metadataAuthority.metadata.allowed ? test.cover_image : "");
+  const ogImage = resolveAssessmentLandingSocialImage(test.slug, locale, selectedImage);
   const iqLaunchSeoGuard = resolveIqLaunchSeoGuard({
     slug: test.slug,
     scaleCode: test.scale_code,
