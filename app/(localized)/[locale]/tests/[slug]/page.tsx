@@ -339,15 +339,15 @@ function buildFlagshipVariantFaq(kind: "mbti" | "big5" | "enneagram" | "riasec",
     return [
       {
         q: "Big Five 90Q 和 120Q 有什么区别？",
-        a: "90Q 适合先快速看五维轮廓与主要差异；120Q 会给出更完整的维度分布、特质解释与应用建议。",
+        a: "90Q 共 90 题，每个细分面向 3 题；120Q 共 120 题，每个细分面向 4 题。两个版本都覆盖五大特质和 30 个细分面向，使用相同的报告解释框架。",
       },
       {
         q: "我应该先做哪一个版本？",
-        a: "如果你想先用更轻的成本判断自己是否适合 Big Five，先做 90Q；如果你已经明确要看更完整的特质档案，直接做 120Q。",
+        a: "想减少作答题数，可以选 90Q；愿意为每个细分面向多回答一道题，可以选 120Q。请按可投入的时间选择，并完整作答。",
       },
       {
         q: "两个版本都会给出什么？",
-        a: "两个版本都会给出五大特质的基础分布与解释；120Q 会提供更完整的结构细节，更适合放进职业、关系和压力情境里阅读。",
+        a: "两个版本都围绕五大特质和 30 个细分面向组织解释，并提供职业、关系和压力等情境的阅读线索。实际可查看的报告内容取决于报告访问范围。",
       },
       {
         q: "这是不是临床或诊断工具？",
@@ -422,15 +422,15 @@ function buildFlagshipVariantFaq(kind: "mbti" | "big5" | "enneagram" | "riasec",
   return [
     {
       q: "What is the difference between Big Five 90Q and 120Q?",
-      a: "90Q is the faster read for the five-factor outline and the main differences. 120Q gives a fuller trait distribution with deeper interpretation and application notes.",
+      a: "90Q has 90 items, with 3 items per facet. 120Q has 120 items, with 4 items per facet. Both cover five domains and 30 facets and use the same report interpretation framework.",
     },
     {
       q: "Which version should I start with?",
-      a: "Start with 90Q if you want a lighter first pass. Choose 120Q when you already know you want the fuller trait profile immediately.",
+      a: "Choose 90Q if you prefer fewer items. Choose 120Q if you are willing to answer one more item per facet. Select the form that fits the time you can set aside, and complete all items.",
     },
     {
       q: "What do both versions include?",
-      a: "Both versions provide the core five-factor read. 120Q goes deeper on structure and is better for career, relationship, and stress-context interpretation.",
+      a: "Both forms organize interpretation around five domains and 30 facets, with reading prompts for work, relationships, and stress. The report content you can view depends on your report access.",
     },
     {
       q: "Is this a clinical or diagnostic tool?",

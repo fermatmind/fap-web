@@ -44,6 +44,7 @@ const BIG5_FORM_ALIAS_MAP = new Map<string, Big5FormCode>([
   ["90", "big5_90"],
   ["big5-90", "big5_90"],
   ["short_90", "big5_90"],
+  ["standard_90", "big5_90"],
 ]);
 
 export function isBig5ScaleCode(scaleCode: string | null | undefined): boolean {
