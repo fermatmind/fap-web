@@ -106,7 +106,7 @@ export function PublicContentAssetRenderer({
               {entityLabel(asset, locale)}
             </div>
             <div className="space-y-4">
-              <h1 className="m-0 max-w-4xl text-4xl font-semibold leading-tight tracking-normal text-[var(--fm-text)] md:text-6xl">
+              <h1 className="m-0 max-w-4xl break-words text-4xl font-semibold leading-tight tracking-normal text-[var(--fm-text)] md:text-6xl">
                 {asset.title}
               </h1>
               {asset.summary ? (

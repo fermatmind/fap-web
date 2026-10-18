@@ -29,6 +29,7 @@ function EditorialItems({ content, items, richBody, locale }: { content: MbtiEdi
     <h3>{item.title}</h3>
     <div>{richBody ? renderSimpleMarkdown(item.body, { allowImages: false, scrollableTables: true, minimumHeadingLevel: 4, locale }) : item.body.split(/\n\s*\n/u).map((paragraph, index) => <p key={index}>{paragraph}</p>)}</div>
     {item.id === "versions" && content.comparison ? <div id="version-comparison" className={styles.comparison}>
+      <p className="md:hidden">{locale === "zh" ? "左右滑动表格，比较两个版本。" : "Scroll sideways to compare both versions."}</p>
       <div className={styles.tableScroll} role="region" aria-label={content.comparison.caption} tabIndex={0}>
         <table>
           <caption>{content.comparison.caption}</caption>
