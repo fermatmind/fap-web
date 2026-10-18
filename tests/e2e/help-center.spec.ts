@@ -98,11 +98,13 @@ test("support center surfaces the self-serve entry points and they navigate to f
   await expect(page.getByRole("heading", { level: 1, name: "Support & Trust Center" })).toBeVisible();
 
   const quickActions = page.getByTestId("support-quick-tools").locator("a");
-  await expect(quickActions).toHaveCount(4);
-  await expect(quickActions.nth(0)).toContainText(/(?:Order lookup|Look up an order)/);
-  await expect(quickActions.nth(1)).toContainText(/(?:Email preferences|Manage email preferences)/);
-  await expect(quickActions.nth(2)).toContainText("Unsubscribe");
-  await expect(quickActions.nth(3)).toContainText("Privacy and data information");
+  await expect(quickActions).toHaveCount(5);
+  await expect(quickActions.nth(0)).toContainText("Find saved results");
+  await expect(quickActions.nth(0)).toHaveAttribute("href", "/en/results/lookup");
+  await expect(quickActions.nth(1)).toContainText(/(?:Order lookup|Look up an order)/);
+  await expect(quickActions.nth(2)).toContainText(/(?:Email preferences|Manage email preferences)/);
+  await expect(quickActions.nth(3)).toContainText("Unsubscribe");
+  await expect(quickActions.nth(4)).toContainText("Privacy and data information");
   await expect(page.getByTestId("support-quick-tools")).not.toContainText("Search");
   await expect(page.getByTestId("support-topic-groups")).toContainText("Frequently Asked Questions");
   await expect(page.getByTestId("support-topic-groups")).toContainText("About FermatMind");
