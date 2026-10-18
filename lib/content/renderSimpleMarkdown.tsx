@@ -39,27 +39,11 @@ function normalizeText(value: string): string {
   return value.replace(/\s+/g, " ").trim();
 }
 
-function splitLooseListText(value: string): string[] {
-  const lines = normalizeLineBreaks(value)
+function splitBlockquoteLines(value: string): string[] {
+  return normalizeLineBreaks(value)
     .split("\n")
-    .map((line) => line.replace(/^[\s>*-]+/, "").trim())
+    .map((line) => line.trim())
     .filter(Boolean);
-
-  if (lines.length > 1) {
-    return lines;
-  }
-
-  const single = normalizeText(value);
-  if (!single) {
-    return [];
-  }
-
-  const delimited = single
-    .split(/\s*[;；•]\s*/g)
-    .map((part) => part.trim())
-    .filter(Boolean);
-
-  return delimited.length > 1 ? delimited : [single];
 }
 
 function isBlankLine(line: string | undefined): boolean {
@@ -538,7 +522,7 @@ export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOp
             key={key}
             className="m-0 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] px-4 py-3 italic text-[var(--fm-text-muted)]"
           >
-            {splitLooseListText(block.text).map((item, itemIndex) => (
+            {splitBlockquoteLines(block.text).map((item, itemIndex) => (
               <p key={`${key}-quote-${itemIndex}`} className={itemIndex === 0 ? "m-0" : "mt-2"}>
                 {renderInlineMarkdown(item, `${key}-quote-${itemIndex}`, options)}
               </p>
