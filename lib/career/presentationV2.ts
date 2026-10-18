@@ -26,7 +26,7 @@ export type CareerPresentationV2 = {
     stats: Array<{ key: string; label: string; value: string; sourceLabel: string | null; factRef?: string }>;
     aiExposure: {
       value: number;
-      scale: 10;
+      scale: 10 | 100;
       displayValue: string;
       label: string;
       note: string | null;
@@ -108,13 +108,13 @@ export function normalizeCareerPresentationV2(
     const sourceLabel = text(source.source_label);
     const note = source.note === null ? null : text(source.note);
     if (
-      !Number.isInteger(source.value) || (source.value as number) < 0 || (source.value as number) > 10 ||
-      source.scale !== 10 || source.display_value !== `${source.value}/10` || !label || !sourceLabel ||
+      !Number.isInteger(source.value) || (source.value as number) < 0 || (source.value as number) > (source.scale === 100 ? 100 : 10) ||
+      (source.scale !== 10 && source.scale !== 100) || source.display_value !== (source.scale === 100 ? `${source.value}%` : `${source.value}/10`) || !label || !sourceLabel ||
       (source.note !== null && !note)
     ) return null;
     aiExposure = {
       value: source.value as number,
-      scale: 10,
+      scale: source.scale as 10 | 100,
       displayValue: source.display_value as string,
       label,
       note,

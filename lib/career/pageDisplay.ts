@@ -66,10 +66,11 @@ export function buildCareerPageDisplaySurface(page: CareerPage, identity: { slug
   let aiExposure: NonNullable<CareerDisplaySurfaceViewModel['presentationV2']>['hero']['aiExposure'] = null;
   if (page.hero.ai.availability === 'available') {
     const fact = page.hero.ai.fact;
-    const score = fact?.displayValue.match(/^(10|[0-9])\/10$/);
+    const percent = fact?.displayValue.match(/^(100|[1-9]?[0-9])%$/);
+    const score = percent ?? fact?.displayValue.match(/^(10|[0-9])\/10$/);
     const source = content.sources.find(s => fact?.sourceRefs.includes(s.id));
     if (!fact || !score || !source) fail('hero.ai');
-    aiExposure = {value:Number(score[1]),scale:10,displayValue:fact.displayValue,label:page.hero.ai.label,note:fact.derivation,sourceLabel:source.publisher ?? source.name};
+    aiExposure = {value:Number(score[1]),scale:percent ? 100 : 10,displayValue:fact.displayValue,label:page.hero.ai.label,note:fact.derivation,sourceLabel:source.publisher ?? source.name};
   }
   const missing = locale === 'zh' ? '暂无数据' : 'No data available';
   if (!record(display.section_titles) || content.blocks.some(block => typeof display.section_titles !== 'object' || !display.section_titles || typeof (display.section_titles as Record<string, unknown>)[block.id] !== 'string')) fail('section_titles');

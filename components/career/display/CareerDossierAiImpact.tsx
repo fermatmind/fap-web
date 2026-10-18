@@ -1,3 +1,4 @@
+import { CareerAiAssessmentMethod } from './CareerAiAssessmentMethod';
 import visual from "@/components/career/display/CareerProductionVisual.module.css";
 import { CareerEvidenceLine } from "@/components/career/display/CareerEvidenceLine";
 import type { CareerContentV3 } from "@/lib/career/contentV3";
@@ -263,6 +264,8 @@ export function CareerDossierAiImpact({ value, locale, contentV3 = null, interfa
         <h2 data-career-api-field="ai_impact_table.heading">{content.heading}</h2>
         <p className={visual.aiImpactAnswer} data-career-api-field="ai_impact_table.answer">{content.answer}</p>
       </header>
+
+      <CareerAiAssessmentMethod content={contentV3} />
 
       <section className={visual.aiImpactSection} aria-label={interfaceLabels?.["interface.ai_impact.method_cards_label"] ?? (locale === "zh" ? "AI 影响判断层次" : "AI impact assessment layers")}>
         <div className={visual.aiImpactMethodGrid} data-career-api-list="ai_impact_table.method_cards">

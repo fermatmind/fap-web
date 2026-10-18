@@ -1,3 +1,4 @@
+import { CareerAiAssessmentMethod, CareerAiScoreInfoLink } from './CareerAiAssessmentMethod';
 import Link from 'next/link';
 import { Breadcrumb } from '@/components/breadcrumb/Breadcrumb';
 import { CAREER_PAGE_SECTIONS, careerPageHasPublicBody, type CareerPage, type CareerPageMetric } from '@/lib/career/careerPage';
@@ -42,7 +43,7 @@ export function CareerPageTemplate({page, ctaHref, rendererRelease}: {page: Care
             {!careerPageHasPublicBody(page) ? <p data-nosnippet="true" className="mt-3" data-career-body-state="pending">{zh ? '正文待补充' : 'Career content pending'}</p> : null}
             {hero.badges.length ? <div className={`flex flex-wrap ${visual.heroBadges}`}>{hero.badges.map((badge,i)=><span key={i} className={`rounded-full border border-white/25 bg-white/[.16] text-[12.5px] ${visual.heroBadge}`}>{badge}</span>)}</div> : null}
           </div>
-          <div className={visual.heroGaugePublished} data-career-metric="ai"><div><strong className="block text-center" data-career-ai-unavailable={!hero.ai.fact ? "true" : undefined}>{hero.ai.fact?.displayValue ?? (zh ? '暂无数据' : <abbr title="No data available" className="no-underline">N/A</abbr>)}</strong><span className="block pt-1 text-center text-xs">{hero.ai.label}</span>{!hero.ai.fact ? <span data-nosnippet="true" className="block text-center text-xs">{zh ? '数据待补充' : 'Data pending'}</span> : <CareerEvidenceLine content={content} factRefs={[hero.ai.fact.factId]} inverse />}</div></div>
+          <div className={visual.heroGaugePublished} data-career-metric="ai"><div><strong className="block text-center" data-career-ai-unavailable={!hero.ai.fact ? "true" : undefined}>{hero.ai.fact?.displayValue ?? (zh ? '暂无数据' : <abbr title="No data available" className="no-underline">N/A</abbr>)}</strong><span className="block pt-1 text-center text-xs">{hero.ai.label}<CareerAiScoreInfoLink content={content} /></span>{!hero.ai.fact ? <span data-nosnippet="true" className="block text-center text-xs">{zh ? '数据待补充' : 'Data pending'}</span> : <CareerEvidenceLine content={content} factRefs={[hero.ai.fact.factId]} inverse />}</div></div>
           {content.subject.summary ? <p className={`${visual.heroLead} m-0 mt-3 text-[15.5px] leading-7 text-white/95`}>{content.subject.summary}</p> : <CareerPagePlaceholder locale={content.locale} />}
           <div className={`grid ${visual.heroStats}`}>{hero.metrics.map(metric)}</div>
         </header>
@@ -51,6 +52,7 @@ export function CareerPageTemplate({page, ctaHref, rendererRelease}: {page: Care
           if (id === 'sources') blocks.push(...auxiliary);
           return <section key={id} id={`career-content-${id}`} data-career-visual-group={id} className={`${visual.visualGroup} ${visual.compoundGroup} ${id === 'quick-decision' ? visual.accountantsQuickDecisionGroup : ''}`} aria-labelledby={`career-title-${id}`}>
             <header className={visual.quickDecisionHeader}><h2 id={`career-title-${id}`} className={visual.quickDecisionTitle}>{title(id)}</h2></header>
+            {id === 'ai-impact' ? <CareerAiAssessmentMethod content={content} /> : null}
             {!blocks.length ? <CareerPagePlaceholder locale={content.locale} /> : blocks.map(block => <div key={block.id} data-career-content-block={block.id}>
               {block.availability === 'missing' || !block.items.length ? <CareerPagePlaceholder locale={content.locale} /> : block.items.map((item, i) => renderItem(item, i, id === 'quick-decision'))}
             </div>)}

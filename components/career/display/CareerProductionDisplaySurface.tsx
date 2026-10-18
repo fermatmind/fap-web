@@ -1,3 +1,4 @@
+import { CareerAiScoreInfoLink } from './CareerAiAssessmentMethod';
 import type { ReactNode } from "react";
 import Link from "next/link";
 import visual from "@/components/career/display/CareerProductionVisual.module.css";
@@ -526,7 +527,7 @@ function CareerProductionHero({
         <div className={published ? visual.heroGaugePublished : `mt-4 inline-flex items-center gap-3 rounded-xl px-4 py-2 lg:absolute lg:right-[30px] lg:top-[30px] lg:mt-0 lg:block lg:h-[118px] lg:w-[118px] lg:rounded-full lg:px-3 lg:pt-7 lg:text-center ${visual.heroGauge}`} data-testid="career-production-ai-gauge">
           <div>
             <strong data-career-ai-unavailable={!visibleAiExposure && !legacyAiImpact?.score ? "true" : undefined} className="block text-center text-2xl leading-none lg:text-3xl" data-career-api-field={visibleAiExposure ? `${presentationField}.hero.ai_exposure.display_value` : undefined}>{visibleAiExposure?.displayValue ?? legacyAiImpact?.score ?? (surface.locale === "zh" ? unavailableAi : <abbr title={unavailableAi} className="no-underline">N/A</abbr>)}</strong>
-            <span className="block pt-1 text-center text-xs leading-4 text-white/85" data-career-api-field={visibleAiExposure ? `${presentationField}.hero.ai_exposure.label` : undefined}>{visibleAiExposure?.label ?? surface.hero?.aiExposureLabel ?? legacyAiImpact?.heading ?? (surface.locale === "zh" ? "AI影响" : "AI task exposure")}</span>
+            <span className="block pt-1 text-center text-xs leading-4 text-white/85" data-career-api-field={visibleAiExposure ? `${presentationField}.hero.ai_exposure.label` : undefined}>{visibleAiExposure?.label ?? surface.hero?.aiExposureLabel ?? legacyAiImpact?.heading ?? (surface.locale === "zh" ? "AI影响" : "AI task exposure")}<CareerAiScoreInfoLink content={surface.contentV3} /></span>
             {visibleAiExposure ? <span className="sr-only" data-career-api-field={`${presentationField}.hero.ai_exposure.source_label`}>{visibleAiExposure.sourceLabel}</span> : null}
           </div>
         </div>
