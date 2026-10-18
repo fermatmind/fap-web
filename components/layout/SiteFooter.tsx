@@ -5,6 +5,7 @@ import { PublicNavigationLink } from "@/components/navigation/PublicNavigationPe
 import { getDictSync } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
+import styles from "./site-footer.module.css";
 
 type FooterLinkItem = {
   href: string;
@@ -125,7 +126,7 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
     <footer
       data-private-result-print-hidden="true"
       data-site-footer="true"
-      className="fm-section-footer fm-site-footer-light border-t border-[var(--fm-border-subtle)] text-[var(--fm-text-main)]"
+      className={`${styles.footer} fm-section-footer fm-site-footer-light border-t border-[var(--fm-border-subtle)] text-[var(--fm-text-main)]`}
     >
       <Container className="fm-footer-container">
         <div className="fm-footer-main">
