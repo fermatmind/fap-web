@@ -11,8 +11,8 @@ export function SiteFooterSocialRail({ locale }: { locale: Locale }) {
   const [activeSocialKey, setActiveSocialKey] = useState<string | null>(null);
 
   return (
-    <div className="fm-social-rail border-t border-slate-300/70 pt-8">
-      <div className="fm-social-list">
+    <div className="fm-social-rail">
+      <div className="fm-social-list fm-social-list--brand">
         {FOOTER_SOCIAL_ITEMS.map((item) => (
           <div
             key={item.key}

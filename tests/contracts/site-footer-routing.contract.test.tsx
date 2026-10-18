@@ -4,6 +4,15 @@ import { LocaleProvider } from "@/components/i18n/LocaleContext";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 
 describe("site footer routing contract", () => {
+  it.each(["en", "zh"] as const)("exposes the official ICP record without the filing entity in %s", (locale) => {
+    render(<LocaleProvider locale={locale}><SiteFooter locale={locale} /></LocaleProvider>);
+
+    const filing = screen.getByRole("link", { name: "苏ICP备2025222299号-1" });
+    expect(filing).toHaveAttribute("href", "https://beian.miit.gov.cn/");
+    expect(filing).toHaveAttribute("rel", "noopener noreferrer");
+    expect(screen.queryByText("无锡市海峪贸易有限公司")).not.toBeInTheDocument();
+  });
+
   it("keeps english footer structure aligned while exposing only authority-backed company links", () => {
     render(
       <LocaleProvider locale="en">

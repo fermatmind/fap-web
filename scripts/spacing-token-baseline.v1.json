@@ -15,16 +15,10 @@
       "count": 1
     },
     {
-      "file": "components/layout/SiteFooter.tsx",
-      "rule": "disallowed-spacing-key",
-      "snippet": "py-28",
-      "count": 1
-    },
-    {
       "file": "components/marketing/HomePageExperience.tsx",
       "rule": "disallowed-spacing-key",
       "snippet": "mt-9",
-      "count": 2
+      "count": 1
     },
     {
       "file": "components/marketing/HomePageExperience.tsx",
@@ -161,13 +155,7 @@
     {
       "file": "app/(localized)/[locale]/support/page.tsx",
       "rule": "no-new-half-step-utility",
-      "snippet": "mt-0.5",
-      "count": 1
-    },
-    {
-      "file": "app/(localized)/[locale]/support/page.tsx",
-      "rule": "no-new-half-step-utility",
-      "snippet": "px-2.5",
+      "snippet": "py-3.5",
       "count": 1
     },
     {
@@ -180,12 +168,6 @@
       "file": "components/career/v1/ConfidenceBoundary.tsx",
       "rule": "no-new-half-step-utility",
       "snippet": "mt-1.5",
-      "count": 1
-    },
-    {
-      "file": "components/layout/SiteFooter.tsx",
-      "rule": "no-new-half-step-utility",
-      "snippet": "space-y-2.5",
       "count": 1
     },
     {

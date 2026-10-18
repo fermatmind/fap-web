@@ -1,0 +1,96 @@
+.scene {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 600 / 434;
+  pointer-events: none;
+}
+
+.artwork {
+  object-fit: contain;
+}
+
+.foreground {
+  position: absolute;
+  inset: 0;
+}
+
+.foregroundLeft {
+  clip-path: inset(0 58% 0 0);
+  transform: translate(-1%, 5.07%) scaleY(0.978);
+  transform-origin: left top;
+}
+
+.foregroundRight {
+  clip-path: inset(0 0 0 43%);
+  transform: translate(-1%, 3%);
+}
+
+.panel,
+.categories {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  font-family: inherit;
+}
+
+.categories {
+  animation: categories-enter 700ms ease-out both;
+}
+
+.pieChart {
+  transform-origin: 443px 152px;
+  animation: chart-breathe 7s ease-in-out infinite;
+}
+
+.progressFill,
+.panelLine {
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: chart-progress 6s ease-in-out infinite;
+}
+
+.chartDot {
+  animation: dot-pulse 5s ease-in-out infinite;
+}
+
+.bookStack {
+  animation: book-float 6s ease-in-out infinite;
+}
+
+@keyframes categories-enter {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes book-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-1px); }
+}
+
+@keyframes chart-breathe {
+  0%, 100% { transform: scale(0.94); opacity: 0.75; }
+  50% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes chart-progress {
+  0%, 100% { transform: scaleX(0.55); }
+  50% { transform: scaleX(1); }
+}
+
+@keyframes dot-pulse {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .categories,
+  .bookStack,
+  .pieChart,
+  .progressFill,
+  .panelLine,
+  .chartDot {
+    animation: none;
+  }
+}

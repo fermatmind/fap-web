@@ -72,7 +72,12 @@ test("desktop hero preserves its complete title, primary entry, and image", asyn
       const hero = page.locator("main.fm-homepage section").first();
       await expect(hero.getByRole("heading", { level: 1 })).toBeVisible();
       await expect(hero.getByRole("link", { name: locale === "en" ? "Take a free test" : "免费测试", exact: true })).toBeVisible();
-      await expect(hero.locator('img[src*="/home/top.png"]')).toBeVisible();
+      const artwork = hero.getByTestId("home-hero-animation");
+      await expect(artwork).toBeVisible();
+      await expect(artwork.getByTestId("home-hero-panel")).toBeVisible();
+      await expect(artwork.locator("[data-hero-category]")).toHaveCount(5);
+      await expect(artwork.locator("img").first()).toHaveAttribute("src", /fermat-standing-seated-foreground/);
+      await expect(artwork.locator("img").first()).toHaveJSProperty("complete", true);
       await expectNoHorizontalOverflow(page);
     }
   }
