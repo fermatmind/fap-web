@@ -143,7 +143,7 @@ describe("MBTI history account-center contract", () => {
     expect(screen.getByRole("heading", { level: 1, name: "MBTI Workspace Lite" })).toBeInTheDocument();
     expect(screen.getByText("Re-enter saved MBTI result entries from the current workspace-lite surface.")).toBeInTheDocument();
     expect(
-      screen.getByText("Need to recover saved results from another device? Enter the bound email to reopen that email's results.")
+      screen.getByText("Need saved results on another device? Enter the bound email. If this session cannot display them directly, continue through the secure links sent to that address.")
     ).toBeInTheDocument();
     expect(
       screen.getByText("This is now your MBTI Workspace Lite entry: continue from saved results here, or recover saved results by email.")
@@ -444,7 +444,7 @@ describe("MBTI history account-center contract", () => {
 
     expect(screen.getByRole("heading", { level: 1, name: "MBTI Workspace Lite" })).toBeInTheDocument();
     expect(screen.getByText("这里是你当前身份下的 MBTI Workspace Lite 回访入口，可继续已保存的结果入口。")).toBeInTheDocument();
-    expect(screen.getByText("需要跨设备找回已保存结果时，输入绑定邮箱即可查看该邮箱下的结果。")).toBeInTheDocument();
+    expect(screen.getByText("需要跨设备找回已保存结果时，输入绑定邮箱；若当前会话无法直接显示结果，请从该邮箱收到的安全链接继续。")).toBeInTheDocument();
     expect(screen.getByText("这里现在就是你的 MBTI Workspace Lite 入口：继续查看当前结果，或用邮箱找回已保存结果。")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-history-recovery-cta")).toHaveAttribute("href", "/zh/results/lookup");
 

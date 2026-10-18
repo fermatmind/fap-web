@@ -1064,7 +1064,7 @@ export default function ResultClient({
     setEmailBindFeedback(null);
 
     try {
-      await runWithAuthRetry(() => bindAttemptEmail({
+      const response = await runWithAuthRetry(() => bindAttemptEmail({
         attemptId,
         email: normalizedEmail,
         anonId,
@@ -1072,10 +1072,19 @@ export default function ResultClient({
         surface: "result_recovery",
       }));
       setEmailRecoverySaved(true);
+      const emailQueued = response.result_access_link_email_queued;
       setEmailBindFeedback(
-        locale === "zh"
-          ? "邮箱已保存，访问链接会发送到该邮箱。你可以继续查看当前结果。"
-          : "Email saved. An access link will be sent there, and this result remains available here."
+        emailQueued === true
+          ? locale === "zh"
+            ? "邮箱已保存，访问链接已加入发送队列。你可以继续查看当前结果。"
+            : "Email saved. An access link is queued for sending. This result remains available here."
+          : emailQueued === false
+            ? locale === "zh"
+              ? "邮箱已保存，但访问链接暂时无法发送。你可以继续查看当前结果，稍后从找回结果入口重试。"
+              : "Email saved, but an access link could not be queued. This result remains available here. Try Find saved results again later."
+            : locale === "zh"
+              ? "邮箱已保存。你可以继续查看当前结果。"
+              : "Email saved. This result remains available here."
       );
       trackEvent("result_email_bind_saved", {
         attempt_id: attemptId,

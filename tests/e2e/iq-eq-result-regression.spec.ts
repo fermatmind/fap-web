@@ -648,6 +648,33 @@ test("IQ renders stem prompt/svg and submits with visual options", async ({ page
     });
   });
 
+  for (const locale of ["zh", "en"] as const) {
+    await page.goto(`/${locale}/tests/iq-test-intelligence-quotient-assessment/take`);
+    await expect(page.getByRole("heading", { name: /Which option fits\?|哪个选项适合？/ })).toBeVisible();
+    for (const viewport of [{ width: 320, height: 568 }, { width: 390, height: 844 }]) {
+      await page.setViewportSize(viewport);
+      const board = page.getByTestId("iq-option-board-mobile");
+      await expect(board).toBeVisible();
+      const options = board.getByRole("radio");
+      for (const option of await options.all()) {
+        const buttonBounds = await option.boundingBox();
+        const graphicBounds = await option.getByRole("img").boundingBox();
+        expect(buttonBounds).not.toBeNull();
+        expect(graphicBounds).not.toBeNull();
+        expect(buttonBounds!.height).toBeGreaterThanOrEqual(128);
+        expect(graphicBounds!.x).toBeGreaterThanOrEqual(buttonBounds!.x - 1);
+        expect(graphicBounds!.x + graphicBounds!.width).toBeLessThanOrEqual(buttonBounds!.x + buttonBounds!.width + 1);
+        await expect(option).toHaveAttribute("aria-checked", "false");
+      }
+      expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(viewport.width + 1);
+      await options.first().focus();
+      await page.keyboard.press("Tab");
+      await expect(options.nth(1)).toBeFocused();
+      await expect(options.nth(1)).toHaveAttribute("aria-checked", "false");
+      expect(submitCalls).toBe(0);
+    }
+  }
+  await page.setViewportSize({ width: 1280, height: 720 });
   await page.goto("/en/tests/iq-test-intelligence-quotient-assessment/take");
   await expect(page.getByRole("heading", { name: /Which option fits\?|哪个选项适合？/ })).toBeVisible();
   await expect(page.getByTestId("iq-stem-svg").first()).toBeVisible();

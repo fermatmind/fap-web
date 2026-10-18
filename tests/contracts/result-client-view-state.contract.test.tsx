@@ -947,7 +947,12 @@ describe("ResultClient view-state contract", () => {
     expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledTimes(2);
   });
 
-  it("shows a non-blocking email recovery card on ready results and keeps the preview visible after binding", async () => {
+  it.each([
+    ["en", true], ["en", false], ["en", undefined],
+    ["zh", true], ["zh", false], ["zh", undefined],
+  ] as const)("keeps the %s result visible (email queued: %s) and reports the email queue status accurately", async (locale, queued) => {
+    hoisted.pathname = `/${locale}/result/attempt-123`;
+    hoisted.bindAttemptEmail.mockResolvedValue({ ok: true, ...(queued === undefined ? {} : { result_access_link_email_queued: queued }) });
     hoisted.fetchAttemptReport.mockResolvedValue(cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse);
 
     render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
@@ -957,7 +962,7 @@ describe("ResultClient view-state contract", () => {
     });
 
     expect(screen.getByTestId("result-email-recovery-card")).toHaveTextContent(
-      "Save an email to recover this result"
+      locale === "zh" ? "保存邮箱，随时找回这份结果" : "Save an email to recover this result"
     );
     expect(screen.getByTestId("result-email-recovery-card")).not.toHaveTextContent("Result recovery");
     expect(screen.getByTestId("result-email-recovery-card")).not.toHaveTextContent("This does not block the free result preview");
@@ -973,15 +978,32 @@ describe("ResultClient view-state contract", () => {
         attemptId: "attempt-123",
         email: "owner@example.test",
         anonId: "anon_result_test",
-        locale: "en",
+        locale,
         surface: "result_recovery",
       });
     });
 
     expect(screen.getByTestId("result-email-recovery-feedback")).toHaveTextContent(
-      "Email saved. An access link will be sent there"
+      queued === true
+        ? locale === "zh" ? "访问链接已加入发送队列" : "An access link is queued for sending"
+        : queued === false
+          ? locale === "zh" ? "访问链接暂时无法发送" : "an access link could not be queued"
+          : locale === "zh" ? "邮箱已保存。你可以继续查看当前结果。" : "Email saved. This result remains available here."
     );
     expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+  });
+
+  it.each(["en", "zh"])("keeps the %s result visible when saving the recovery email fails", async (locale) => {
+    hoisted.pathname = `/${locale}/result/attempt-123`;
+    hoisted.fetchAttemptReport.mockResolvedValue(cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse);
+    hoisted.bindAttemptEmail.mockRejectedValueOnce(new ApiError({ status: 503, errorCode: "RETRY", message: "Please retry." }));
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+    await screen.findByTestId("result-email-recovery-card");
+    fireEvent.change(screen.getByTestId("result-email-recovery-input"), { target: { value: "owner@example.test" } });
+    fireEvent.submit(screen.getByTestId("result-email-recovery-submit").closest("form") as HTMLFormElement);
+    await waitFor(() => expect(screen.getByRole("alert")).toHaveTextContent("Please retry."));
+    expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+    expect(screen.queryByTestId("result-email-recovery-feedback")).not.toBeInTheDocument();
   });
 
   it("keeps MBTI continue-test attribution params for recommendation scene links", () => {

@@ -2379,6 +2379,7 @@ export type ClaimReportEmailResponse = {
 
 export type AttemptEmailBindResponse = {
   ok: boolean;
+  result_access_link_email_queued?: boolean;
   attempt_id?: string;
   status?: "active" | "pending" | "verified" | string;
   binding_id?: string;
