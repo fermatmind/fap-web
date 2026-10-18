@@ -123,15 +123,16 @@ describe("public api cache contract", () => {
     expect(source).not.toContain('export const dynamic = "force-dynamic"');
   });
 
-  it("renders Chinese Current detail from an uncached bundle while retaining cached SEO authority", () => {
+  it("renders bilingual Current detail from an uncached bundle while retaining legacy SEO caching", () => {
     const source = read("app/(localized)/[locale]/career/jobs/[slug]/page.tsx");
     const fetchSource = read("lib/career/api/fetchCareerJobBundle.ts");
 
     expect(source).toContain('export const dynamic = "force-dynamic"');
     expect(source).not.toContain("export const revalidate = 300");
     expect(source).not.toContain('cache: "no-store"');
-    expect(fetchSource).toContain('toApiLocale(locale) === "zh-CN"');
+    expect(fetchSource).not.toContain('toApiLocale(locale) === "zh-CN"');
     expect(fetchSource).toContain('cache: "no-store" as const');
+    expect(fetchSource).toContain('Object.hasOwn(raw, "career_page")');
     expect(fetchSource).toContain("detailCacheOptions");
   });
 
