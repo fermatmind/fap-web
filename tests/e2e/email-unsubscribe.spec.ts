@@ -15,7 +15,7 @@ test("email unsubscribe without a token shows the explanation state", async ({ p
 
   await page.goto("/en/email/unsubscribe");
 
-  await expect(page.getByRole("heading", { level: 3, name: "Unsubscribe from emails" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 3, name: "Unsubscribe from all emails" })).toBeVisible();
   await expect(page.getByText("Open this page from the unsubscribe link inside your email.")).toBeVisible();
   await expect(
     page.getByTestId("email-unsubscribe-missing").getByRole("link", { name: "Manage email preferences" })

@@ -48,8 +48,8 @@ test("email preferences with a token loads the saved preferences", async ({ page
   await expect(page.getByTestId("email-preferences-status-marketing-updates")).toHaveText("Enabled");
   await expect(page.getByTestId("email-preferences-status-report-recovery")).toHaveText("Enabled");
   await expect(page.getByTestId("email-preferences-status-product-updates")).toHaveText("Disabled");
-  await expect(page.getByText(/Product and marketing updates about FermatMind offers/i)).toBeVisible();
-  await expect(page.getByText(/restore access to your report and order emails/i)).toBeVisible();
+  await expect(page.getByText("Receive FermatMind product and marketing updates. This does not affect report recovery emails.", { exact: true })).toBeVisible();
+  await expect(page.getByText("Receive emails for report recovery, replacement links, and delivery.", { exact: true })).toBeVisible();
   await expect(page.getByText(/not the same as marketing campaigns/i)).toBeVisible();
 });
 
@@ -120,7 +120,7 @@ test("help and footer discoverability both reach the email preferences surfaces"
   await expect(page).toHaveURL("/en/support");
   await page.getByTestId("support-quick-tools").locator('a[href="/en/email/unsubscribe"]').click();
   await expect(page).toHaveURL("/en/email/unsubscribe");
-  await expect(page.getByRole("heading", { level: 3, name: "Unsubscribe from emails" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 3, name: "Unsubscribe from all emails" })).toBeVisible();
 });
 
 let stopPublicApiFixture: (() => Promise<void>) | undefined;
