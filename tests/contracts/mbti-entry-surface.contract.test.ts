@@ -1,6 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
+import { getHeaderDropdownMenus } from "@/lib/navigation/headerDropdownMenus";
+import { getSelfUnderstandingResources } from "@/lib/navigation/selfUnderstandingResources";
 import { buildMbtiEntryHref } from "@/lib/mbti/entryTracking";
 import {
   MBTI_TYPE_CODES,
@@ -178,15 +180,14 @@ describe("mbti entry surface contract", () => {
     expect(count(source, 'data-testid="personality-start-mbti-cta"')).toBe(0);
   });
 
-  it("keeps header personality navigation focused on the hub plus family-level entry points", () => {
-    const source = read("lib/navigation/headerDropdownMenus.ts");
-
-    expect(source).toContain('{ href: "/personality", label: "All personality profiles" }');
-    expect(source).toContain('{ href: "/personality#nt", label: "Analysts (NT)" }');
-    expect(source).toContain('{ href: "/personality#nf", label: "Diplomats (NF)" }');
-    expect(source).toContain('{ href: "/personality#sj", label: "Sentinels (SJ)" }');
-    expect(source).toContain('{ href: "/personality#sp", label: "Explorers (SP)" }');
-    expect(source).not.toContain('{ href: "/personality/intp", label: "INTP personality" }');
+  it.each(["zh", "en"] as const)("keeps the MBTI directory reachable through the six-area %s resource navigation", (locale) => {
+    const menu = getHeaderDropdownMenus(locale).find((item) => item.key === "personality")!;
+    expect(menu.items.map((item) => item.href)).toEqual([
+      "/topics", "/topics#mbti", "/topics#big-five", "/topics#enneagram", "/topics#riasec", "/topics#iq", "/topics#eq",
+    ]);
+    const mbti = getSelfUnderstandingResources(locale).find((item) => item.id === "mbti")!;
+    expect(mbti.paths[0].href).toBe("/personality");
+    expect(menu.items.some((item) => item.href === "/personality/intp")).toBe(false);
   });
 
   it("wires personality detail with one primary mbti CTA and entry tracking", () => {
