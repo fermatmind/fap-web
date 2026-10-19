@@ -223,7 +223,7 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
       </section>
 
       {guide.bodyMd.trim() || guide.bodyHtml.trim() ? (
-        <article className="space-y-4 text-[var(--fm-text)] [&_a]:text-[var(--fm-accent)] [&_a]:underline-offset-2 [&_a:hover]:underline">
+        <article className="space-y-4 text-[var(--fm-text)] [&_h2]:scroll-mt-24 [&_h3]:scroll-mt-24 [&_a]:text-[var(--fm-accent)] [&_a]:underline-offset-2 [&_a:hover]:underline">
             {renderGuideBody(guide, locale)}
         </article>
       ) : null}
