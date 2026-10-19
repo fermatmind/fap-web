@@ -6,7 +6,7 @@ const zh: SiteDictionary = {
     home: "首页",
     tests: "测试",
     articles: "博客",
-    personality: "人格",
+    personality: "认识自己",
     career: "职业",
     help: "帮助",
     business: "企业版",

@@ -36,12 +36,12 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
   const articleLinks =
     locale === "zh"
       ? [
-          { href: "/topics", label: "主题" },
+          { href: "/topics", label: "认识自己" },
           { href: "/career/guides", label: "职业指南" },
           { href: "/articles", label: dict.header.articles },
         ]
       : [
-          { href: "/topics", label: "Topics" },
+          { href: "/topics", label: "Understand yourself" },
           { href: "/career/guides", label: "Career Guides" },
           { href: "/articles", label: dict.header.articles },
         ];

@@ -1,24 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  ArrowRight,
-  ArrowUpRight,
-  BrainCircuit,
-  BriefcaseBusiness,
-  ChartNoAxesCombined,
-  CircleHelp,
-  FlaskConical,
-  Lightbulb,
-  MessageCircleMore,
-  Scale,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
+import { SelfUnderstandingResources } from "@/components/topics/SelfUnderstandingResources";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { getCmsArticlesWithLastKnownGood, type CmsArticle } from "@/lib/cms/articles";
+import { getRelationshipReadingLinks, getSelfUnderstandingResources } from "@/lib/navigation/selfUnderstandingResources";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import {
@@ -33,122 +24,26 @@ export const revalidate = 300;
 
 type ArticleJourneyKey = "self" | "action" | "relationships" | "career";
 
-type QuestionPath = {
-  key: ArticleJourneyKey;
-  title: string;
-  steps: string[];
-  linkLabel: string;
-  href: string;
-  icon: typeof BrainCircuit;
-  surfaceClassName: string;
-  iconClassName: string;
-};
-
-type TrustLink = {
-  key: string;
-  title: string;
-  description: string;
-  href: string;
-  icon: typeof FlaskConical;
-  surfaceClassName: string;
-  iconClassName: string;
-};
+type QuestionPath = { key: ArticleJourneyKey; title: string; href: string };
+type TrustLink = { key: string; title: string; href: string };
 
 function buildQuestionPaths(locale: Locale, withLocale: (pathname: string) => string): QuestionPath[] {
-  const isZh = locale === "zh";
-
+  const zh = locale === "zh";
   return [
-    {
-      key: "self",
-      title: isZh ? "我想更清楚地认识自己" : "I want to understand myself more clearly",
-      steps: isZh
-        ? ["选择测评", "看懂结果", "了解优势与成长方向"]
-        : ["Choose a test", "Understand the result", "Find strengths and growth directions"],
-      linkLabel: isZh ? "选择适合我的测评" : "Choose an assessment",
-      href: withLocale("/tests"),
-      icon: BrainCircuit,
-      surfaceClassName: "border-[#ded7f4] bg-[#f5f2ff] hover:bg-[#efebff]",
-      iconClassName: "bg-[#e7dffc] text-[#6750b7]",
-    },
-    {
-      key: "action",
-      title: isZh ? "我有结果，但不知道怎么用" : "I have a result, but I do not know how to use it",
-      steps: isZh
-        ? ["识别重点", "建立假设", "转化为行动实验"]
-        : ["Find the signal", "Build a hypothesis", "Turn it into an experiment"],
-      linkLabel: isZh ? "查看人格画像与解释" : "Explore profiles and interpretation",
-      href: withLocale("/personality"),
-      icon: Lightbulb,
-      surfaceClassName: "border-[#d7e8e8] bg-[#eff8f7] hover:bg-[#e8f4f2]",
-      iconClassName: "bg-[#dcefed] text-[#226c69]",
-    },
-    {
-      key: "relationships",
-      title: isZh ? "我想改善关系与沟通" : "I want to improve relationships and communication",
-      steps: isZh
-        ? ["理解差异", "识别摩擦", "使用沟通指南"]
-        : ["Understand differences", "Spot friction", "Use a communication guide"],
-      linkLabel: isZh ? "阅读人格与关系主题" : "Read personality and relationship topics",
-      href: withLocale("/topics/mbti"),
-      icon: MessageCircleMore,
-      surfaceClassName: "border-[#eedfd1] bg-[#fff7ee] hover:bg-[#fff1e2]",
-      iconClassName: "bg-[#f9e6d2] text-[#9a5b22]",
-    },
-    {
-      key: "career",
-      title: isZh ? "我正在做专业或职业选择" : "I am choosing a major or career direction",
-      steps: isZh
-        ? ["探索兴趣", "比较岗位", "查看职业路径"]
-        : ["Explore interests", "Compare roles", "Review career paths"],
-      linkLabel: isZh ? "进入职业决策指南" : "Open career decision guides",
-      href: withLocale("/career/guides"),
-      icon: BriefcaseBusiness,
-      surfaceClassName: "border-[#d8e3f3] bg-[#f0f6fd] hover:bg-[#e9f2fb]",
-      iconClassName: "bg-[#dfeafa] text-[#315d96]",
-    },
+    { key: "self", title: zh ? "我想更清楚地认识自己" : "I want to understand myself", href: withLocale("/tests") },
+    { key: "action", title: zh ? "我有结果，但不知道怎么用" : "I have a result. How do I use it?", href: withLocale("/topics#result-guides") },
+    { key: "relationships", title: zh ? "我想改善关系与沟通" : "I want to improve relationships and communication", href: withLocale("/topics#relationship-guides") },
+    { key: "career", title: zh ? "我正在做专业或职业选择" : "I am choosing a major or career", href: withLocale("/career/guides") },
   ];
 }
 
 function buildTrustLinks(locale: Locale, withLocale: (pathname: string) => string): TrustLink[] {
-  const isZh = locale === "zh";
-
+  const zh = locale === "zh";
   return [
-    {
-      key: "science",
-      title: isZh ? "测评科学" : "Assessment science",
-      description: isZh ? "了解测评背后的理论、证据和适用范围。" : "Understand the theory, evidence, and intended use behind assessments.",
-      href: withLocale("/science"),
-      icon: FlaskConical,
-      surfaceClassName: "border-[#ded7f4] bg-[#f5f2ff] hover:bg-[#efebff]",
-      iconClassName: "bg-[#e7dffc] text-[#6750b7]",
-    },
-    {
-      key: "reliability",
-      title: isZh ? "信度与效度" : "Reliability and validity",
-      description: isZh ? "判断一份测评是否稳定，以及是否真的测到了它声称的内容。" : "Judge whether a test is stable and measures what it claims to measure.",
-      href: withLocale("/reliability-validity"),
-      icon: ChartNoAxesCombined,
-      surfaceClassName: "border-[#d7e8e8] bg-[#eff8f7] hover:bg-[#e8f4f2]",
-      iconClassName: "bg-[#dcefed] text-[#226c69]",
-    },
-    {
-      key: "boundaries",
-      title: isZh ? "方法边界" : "Method boundaries",
-      description: isZh ? "看清结果可以支持哪些判断，又不能替代哪些决定。" : "See which judgments results can support and which decisions they cannot replace.",
-      href: withLocale("/method-boundaries"),
-      icon: Scale,
-      surfaceClassName: "border-[#eedfd1] bg-[#fff7ee] hover:bg-[#fff1e2]",
-      iconClassName: "bg-[#f9e6d2] text-[#9a5b22]",
-    },
-    {
-      key: "misconceptions",
-      title: isZh ? "常见误区" : "Common misconceptions",
-      description: isZh ? "避免把人格、能力或职业兴趣误解成固定命运。" : "Avoid treating personality, ability, or career interest as fixed destiny.",
-      href: withLocale("/common-misconceptions"),
-      icon: CircleHelp,
-      surfaceClassName: "border-[#d8e3f3] bg-[#f0f6fd] hover:bg-[#e9f2fb]",
-      iconClassName: "bg-[#dfeafa] text-[#315d96]",
-    },
+    { key: "science", title: zh ? "测评科学" : "Assessment science", href: withLocale("/science") },
+    { key: "reliability", title: zh ? "信度与效度" : "Reliability and validity", href: withLocale("/reliability-validity") },
+    { key: "boundaries", title: zh ? "方法边界" : "Method boundaries", href: withLocale("/method-boundaries") },
+    { key: "misconceptions", title: zh ? "常见误区" : "Common misconceptions", href: withLocale("/common-misconceptions") },
   ];
 }
 
@@ -285,7 +180,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return buildPageMetadata({
     locale,
     pathname: isZh ? "/zh/topics" : "/en/topics",
-    title: isZh ? "从真实问题开始" : "Start with a real question",
+    title: isZh ? "认识自己：人格、兴趣与能力阅读指南" : "Understand yourself: personality, interests and abilities",
     description: isZh
       ? "选择你现在面对的情况，将测评、结果解释和行动指南串成一条清晰路径。"
       : "Choose the situation you face now and connect assessments, result interpretation, and action guidance.",
@@ -299,7 +194,7 @@ export default async function TopicsPage({ params }: { params: Promise<{ locale:
   const isZh = locale === "zh";
   const withLocale = (pathname: string) => localizedPath(pathname, locale);
   const canonicalPath = isZh ? "/zh/topics" : "/en/topics";
-  const heroTitle = isZh ? "从一个真实问题开始" : "Start with a real question";
+  const heroTitle = isZh ? "认识自己，从好问题开始。" : "Understand yourself. Start with a good question.";
   const articleResult = await getCmsArticlesWithLastKnownGood({
     locale,
     page: 1,
@@ -311,6 +206,8 @@ export default async function TopicsPage({ params }: { params: Promise<{ locale:
   const curatedArticles = selectJourneyArticles(articleResult.value.items, articleLandingItems);
   const questionPaths = buildQuestionPaths(locale, withLocale);
   const trustLinks = buildTrustLinks(locale, withLocale);
+  const resources = getSelfUnderstandingResources(locale);
+  const relationshipLinks = getRelationshipReadingLinks(locale);
 
   const collectionPageJsonLd = buildCollectionPageJsonLd({
     path: canonicalPath,
@@ -330,7 +227,7 @@ export default async function TopicsPage({ params }: { params: Promise<{ locale:
   });
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: isZh ? "首页" : "Home", path: isZh ? "/zh" : "/en" },
-    { name: isZh ? "主题" : "Topics", path: canonicalPath },
+    { name: isZh ? "认识自己" : "Understand yourself", path: canonicalPath },
   ]);
   const journeyItemListJsonLd = buildItemListJsonLd({
     path: canonicalPath,
@@ -361,83 +258,37 @@ export default async function TopicsPage({ params }: { params: Promise<{ locale:
       {curatedItemListJsonLd ? <JsonLd id="topics-recommended-articles" data={curatedItemListJsonLd} /> : null}
 
       <div className="pt-6 md:pt-8">
-        <Breadcrumb items={[{ label: isZh ? "首页" : "Home", href: withLocale("/") }, { label: isZh ? "主题" : "Topics" }]} />
+        <Breadcrumb items={[{ label: isZh ? "首页" : "Home", href: withLocale("/") }, { label: isZh ? "认识自己" : "Understand yourself" }]} />
       </div>
 
-      <h1 className="sr-only">{isZh ? "主题" : "Topics"}</h1>
+      <SelfUnderstandingResources locale={locale} />
 
-      <section
-        id="topics-question-paths-section"
-        className="scroll-mt-24 pt-6 md:pt-8"
-        aria-label={isZh ? "选择你正在面对的问题" : "Choose the question you are facing"}
-      >
-        <div className="grid gap-5 md:grid-cols-2">
+      <section id="topics-question-paths-section" className="scroll-mt-24 border-t border-[var(--fm-border-subtle)] py-8" aria-labelledby="question-paths-title">
+        <h2 id="question-paths-title" className="mb-4 mt-0 font-serif text-2xl font-semibold">{isZh ? "按问题找答案" : "Find an answer to your question"}</h2>
+        <div className="grid items-start gap-x-10 md:grid-cols-2 lg:gap-x-14">
           {questionPaths.map((item) => {
-            const Icon = item.icon;
-            return (
-              <article key={item.key} className="min-w-0">
-                <TrackedEntryCtaLink
-                  href={item.href}
-                  eventName="continue_exploration"
-                  eventProperties={{ action_category: "choose_question_path", entry_surface: `topics_question_${item.key}`, source_page_type: "topics_index", locale }}
-                  className={`group flex h-full min-h-[208px] flex-col rounded-[28px] border p-7 transition-[background-color,border-color,transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-[0_18px_42px_rgba(38,42,68,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)] focus-visible:ring-offset-4 motion-reduce:transform-none ${item.surfaceClassName}`}
-                >
-                  <div className="flex items-start justify-between gap-6">
-                    <h3 className="m-0 max-w-xl font-serif text-[1.65rem] font-semibold leading-tight tracking-[-0.015em] text-[#171c2d]">{item.title}</h3>
-                    <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:rotate-2 motion-reduce:transform-none ${item.iconClassName}`}><Icon aria-hidden="true" className="h-5 w-5" /></span>
-                  </div>
-                  <ol className="m-0 mt-8 flex list-none flex-wrap items-center gap-y-2 text-xs font-semibold text-[#394053]">
-                    {item.steps.map((step, index) => (
-                      <li key={step} className="flex items-center">
-                        <span className="rounded-full bg-white/80 px-3 py-2">{step}</span>
-                        {index < item.steps.length - 1 ? <ArrowRight aria-hidden="true" className="mx-2 h-3.5 w-3.5 text-[#8a90a0]" /> : null}
-                      </li>
-                    ))}
-                  </ol>
-                  <span className="mt-auto inline-flex items-center gap-2 pt-7 text-sm font-semibold text-[#263a60]">
-                    {item.linkLabel}
-                    <ArrowRight aria-hidden="true" className="h-4 w-4 transition-transform group-hover:translate-x-1 motion-reduce:transform-none" />
-                  </span>
-                </TrackedEntryCtaLink>
-              </article>
-            );
-          })}
-        </div>
-      </section>
-
-      <section
-        className="pt-12 md:pt-16"
-        aria-label={isZh ? "测评科学与使用边界" : "Assessment science and use boundaries"}
-      >
-        <div className="grid gap-5 md:grid-cols-2">
-          {trustLinks.map((item) => {
-            const Icon = item.icon;
-            return (
-              <TrackedEntryCtaLink
-                key={item.key}
-                href={item.href}
-                eventName="continue_exploration"
-                eventProperties={{ action_category: "read_method_content", entry_surface: `topics_trust_${item.key}`, source_page_type: "topics_index", locale }}
-                className={`group flex min-h-[176px] flex-col rounded-[28px] border p-7 transition-[background-color,border-color,transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-[0_18px_42px_rgba(38,42,68,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)] focus-visible:ring-offset-4 motion-reduce:transform-none ${item.surfaceClassName}`}
-              >
-                <div className="flex items-start justify-between gap-6">
-                  <span className="inline-flex items-center gap-2 font-serif text-[1.45rem] font-semibold leading-tight tracking-[-0.015em] text-[#171c2d]">
-                    {item.title}
-                    <ArrowUpRight aria-hidden="true" className="h-4 w-4 shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transform-none" />
-                  </span>
-                  <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:rotate-2 motion-reduce:transform-none ${item.iconClassName}`}>
-                    <Icon aria-hidden="true" className="h-5 w-5" />
-                  </span>
-                </div>
-                <span className="mt-auto block max-w-xl pt-6 text-sm leading-6 text-[#667277]">{item.description}</span>
-              </TrackedEntryCtaLink>
-            );
+            if (item.key === "action" || item.key === "relationships") {
+              const isResults = item.key === "action";
+              const links = isResults
+                ? resources.map((resource) => ({ label: resource.title, href: resource.paths[1].href }))
+                : relationshipLinks;
+              return (
+                <details key={item.key} id={isResults ? "result-guides" : "relationship-guides"} className="group scroll-mt-24 border-b border-[var(--fm-border-subtle)]">
+                  <summary className="cursor-pointer rounded-sm py-4 text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)]">{item.title}</summary>
+                  <p className="mb-2 mt-0 text-xs leading-6 text-[var(--fm-text-muted)]">{isResults ? (isZh ? "选择你做过的测评，直接阅读结果说明。" : "Choose your assessment to read its result guide.") : (isZh ? "从具体互动入手，选择一种阅读角度。" : "Start with an interaction and choose a reading perspective.")}</p>
+                  <ul className={`m-0 grid list-none gap-x-4 p-0 pb-3 ${isResults ? "sm:grid-cols-2" : ""}`}>
+                    {links.map((link) => <li key={link.href}><TrackedEntryCtaLink href={withLocale(link.href)} eventName="continue_exploration" eventProperties={{ action_category: "choose_question_path", entry_surface: `topics_question_${item.key}`, source_page_type: "topics_index", locale }} className="flex min-h-11 items-center justify-between gap-2 rounded-sm py-2 text-sm underline decoration-[var(--fm-border-subtle)] underline-offset-4 hover:text-[#526223] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)]"><span>{link.label}</span><ArrowUpRight aria-hidden="true" className="h-4 w-4 shrink-0" /></TrackedEntryCtaLink></li>)}
+                  </ul>
+                </details>
+              );
+            }
+            return <TrackedEntryCtaLink key={item.key} href={item.href} eventName="continue_exploration" eventProperties={{ action_category: "choose_question_path", entry_surface: `topics_question_${item.key}`, source_page_type: "topics_index", locale }} className="flex min-h-14 items-center justify-between gap-3 rounded-sm border-b border-[var(--fm-border-subtle)] py-4 text-sm font-semibold hover:text-[#526223] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)]"><span>{item.title}</span><ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0" /></TrackedEntryCtaLink>;
           })}
         </div>
       </section>
 
       {curatedArticles.length ? (
-          <section className="pb-12 pt-12 md:pb-16 md:pt-16" aria-labelledby="topics-recommended-title">
+          <section className="pb-8 pt-2" aria-labelledby="topics-recommended-title">
             <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
               <div>
                 <h2 id="topics-recommended-title" className="m-0 font-serif text-[1.75rem] font-semibold tracking-tight text-[var(--fm-text)] md:text-[2.125rem]">{isZh ? "精选阅读" : "Featured reading"}</h2>
@@ -461,7 +312,7 @@ export default async function TopicsPage({ params }: { params: Promise<{ locale:
                       href={withLocale(`/articles/${article.slug}`)}
                       eventName="continue_exploration"
                       eventProperties={{ action_category: "read_related_content", entry_surface: "topics_recommended_content", source_page_type: "topics_index", content_slug: article.slug, locale }}
-                      className="flex h-full min-h-[390px] flex-col overflow-hidden rounded-[24px] border border-[#e1e4e9] bg-white transition-[border-color,transform,box-shadow] hover:-translate-y-1 hover:border-[#c8c3df] hover:shadow-[0_18px_42px_rgba(38,42,68,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)] focus-visible:ring-offset-4 motion-reduce:transform-none"
+                      className="flex h-full min-h-[320px] flex-col overflow-hidden rounded-[24px] border border-[#e1e4e9] bg-white transition-[border-color,transform,box-shadow] hover:-translate-y-1 hover:border-[#c8c3df] hover:shadow-[0_18px_42px_rgba(38,42,68,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)] focus-visible:ring-offset-4 motion-reduce:transform-none"
                     >
                       <ArticleResponsiveImage
                         src={article.coverImageUrl}
@@ -492,6 +343,12 @@ export default async function TopicsPage({ params }: { params: Promise<{ locale:
             </div>
           </section>
       ) : null}
+      <section className="border-t border-[var(--fm-border-subtle)] py-8" aria-labelledby="method-links-title">
+        <h2 id="method-links-title" className="mb-4 mt-0 font-serif text-2xl font-semibold">{isZh ? "研究与方法" : "Research and methods"}</h2>
+        <div className="grid gap-x-6 sm:grid-cols-2 lg:grid-cols-4">
+          {trustLinks.map((item) => <TrackedEntryCtaLink key={item.key} href={item.href} eventName="continue_exploration" eventProperties={{ action_category: "read_method_content", entry_surface: `topics_trust_${item.key}`, source_page_type: "topics_index", locale }} className="inline-flex min-h-14 flex-col items-start justify-center gap-1 rounded-sm py-2 hover:text-[#526223] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)]"><span className="inline-flex items-center gap-2 text-sm font-semibold">{item.title}<ArrowUpRight aria-hidden="true" className="h-3.5 w-3.5" /></span></TrackedEntryCtaLink>)}
+        </div>
+      </section>
     </Container>
   );
 }

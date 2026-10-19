@@ -21,12 +21,12 @@ describe("locale purity contract", () => {
     const indexSource = read("app/(localized)/[locale]/topics/page.tsx");
     const detailSource = read("app/(localized)/[locale]/topics/[slug]/page.tsx");
 
-    expect(indexSource).toContain('isZh ? "从一个真实问题开始" : "Start with a real question"');
-    expect(indexSource).toContain('isZh ? "选择你正在面对的问题" : "Choose the question you are facing"');
+    expect(indexSource).toContain('isZh ? "认识自己，从好问题开始。" : "Understand yourself. Start with a good question."');
+    expect(indexSource).toContain('isZh ? "按问题找答案" : "Find an answer to your question"');
     expect(indexSource).toContain('isZh ? "精选阅读" : "Featured reading"');
     expect(indexSource).not.toContain('isZh ? "测评主题" : "Explore by model"');
     expect(indexSource).not.toContain('isZh ? "测评能回答什么，不能回答什么" : "What assessments can and cannot answer"');
-    expect(indexSource.indexOf('aria-label={isZh ? "测评科学与使用边界"')).toBeLessThan(
+    expect(indexSource.indexOf('aria-labelledby="method-links-title"')).toBeGreaterThan(
       indexSource.indexOf('aria-labelledby="topics-recommended-title"'),
     );
     expect(detailSource).toContain('locale === "zh" ? "主题摘要" : "Topic summary"');

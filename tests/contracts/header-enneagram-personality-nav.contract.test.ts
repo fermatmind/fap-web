@@ -14,16 +14,16 @@ describe("header Enneagram personality navigation", () => {
     expect(enPersonalityMenu?.items).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          href: "/personality/enneagram",
-          label: "Enneagram",
+          href: "/topics#enneagram",
+          label: "Enneagram & growth",
         }),
       ])
     );
     expect(zhPersonalityMenu?.items).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          href: "/personality/enneagram",
-          label: "九型人格",
+          href: "/topics#enneagram",
+          label: "九型人格与成长",
         }),
       ])
     );

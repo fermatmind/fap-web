@@ -7,6 +7,7 @@ describe("site footer routing contract", () => {
   it.each(["en", "zh"] as const)("exposes the official ICP record without the filing entity in %s", (locale) => {
     render(<LocaleProvider locale={locale}><SiteFooter locale={locale} /></LocaleProvider>);
 
+    expect(screen.getByRole("link", { name: locale === "zh" ? "认识自己" : "Understand yourself" })).toHaveAttribute("href", `/${locale}/topics`);
     const filing = screen.getByRole("link", { name: "苏ICP备2025222299号-1" });
     expect(filing).toHaveAttribute("href", "https://beian.miit.gov.cn/");
     expect(filing).toHaveAttribute("rel", "noopener noreferrer");

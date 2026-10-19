@@ -5,14 +5,14 @@ const primaryNavTargets = {
   en: [
     ["tests", "/en/tests"],
     ["articles", "/en/articles"],
-    ["personality", "/en/personality"],
+    ["personality", "/en/topics"],
     ["career", "/en/career"],
     ["help", "/en/support"],
   ],
   zh: [
     ["tests", "/zh/tests"],
     ["articles", "/zh/articles"],
-    ["personality", "/zh/personality"],
+    ["personality", "/zh/topics"],
     ["career", "/zh/career"],
     ["help", "/zh/support"],
   ],
@@ -22,14 +22,14 @@ const primaryNavLabels = {
   en: {
     tests: "Tests",
     articles: "Blog",
-    personality: "Personality",
+    personality: "Understand yourself",
     career: "Career",
     help: "Help",
   },
   zh: {
     tests: "测试",
     articles: "博客",
-    personality: "人格",
+    personality: "认识自己",
     career: "职业",
     help: "帮助",
   },

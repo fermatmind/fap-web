@@ -6,7 +6,7 @@ const en: SiteDictionary = {
     home: "Home",
     tests: "Tests",
     articles: "Blog",
-    personality: "Personality",
+    personality: "Understand yourself",
     career: "Career",
     help: "Help",
     business: "Business",
