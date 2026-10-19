@@ -31,7 +31,7 @@ describe("navigation dead link contract", () => {
       expect(footer).not.toContain(`href: "${href}"`);
     }
     expect(footer).not.toContain('{ href: "/articles", label: "All articles" }');
-    expect(footer).toContain('{ href: "/topics", label: "Topics" }');
+    expect(footer).toContain('{ href: "/topics", label: "Understand yourself" }');
     expect(footer).toContain('{ href: "/career/guides", label: "Career Guides" }');
     expect(footer).toContain('{ href: "/articles", label: dict.header.articles }');
     expect(footer).not.toContain('{ href: "/articles", label: "Research reports" }');

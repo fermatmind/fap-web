@@ -52,6 +52,7 @@ export function SiteHeader({
   const [mobileExpandedKey, setMobileExpandedKey] = useState<HeaderNavKey | null>(null);
   const [activeDropdown, setActiveDropdown] = useState<HeaderNavKey | null>(null);
   const desktopNavRef = useRef<HTMLDivElement | null>(null);
+  const mobileDialogRef = useRef<HTMLElement | null>(null);
   const openDropdownTimeoutRef = useRef<number | null>(null);
   const closeDropdownTimeoutRef = useRef<number | null>(null);
   const pathname = usePathname() ?? "/";
@@ -77,7 +78,7 @@ export function SiteHeader({
   const navItems = [
     { key: "tests", href: "/tests", label: dict.header.tests },
     { key: "articles", href: "/articles", label: dict.header.articles },
-    { key: "personality", href: "/personality", label: dict.header.personality },
+    { key: "personality", href: priorityFlags.topicsEnabled ? "/topics" : "/personality", label: dict.header.personality },
     { key: "career", href: "/career", label: dict.header.career },
     { key: "help", href: "/support", label: dict.header.help },
   ] satisfies Array<{ key: HeaderNavKey; href: string; label: string }>;
@@ -194,10 +195,30 @@ export function SiteHeader({
 
     const { style } = document.body;
     const previousOverflow = style.overflow;
+    const returnFocus = document.activeElement;
     style.overflow = "hidden";
+    mobileDialogRef.current?.querySelector<HTMLButtonElement>("button")?.focus();
+
+    function trapFocus(event: KeyboardEvent) {
+      if (event.key !== "Tab") return;
+      const links = mobileDialogRef.current?.querySelectorAll<HTMLElement>("a[href], button:not([disabled])");
+      if (!links?.length) return;
+      const first = links[0];
+      const last = links[links.length - 1];
+      if (event.shiftKey && (document.activeElement === first || !mobileDialogRef.current?.contains(document.activeElement))) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && (document.activeElement === last || !mobileDialogRef.current?.contains(document.activeElement))) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+    document.addEventListener("keydown", trapFocus);
 
     return () => {
       style.overflow = previousOverflow;
+      document.removeEventListener("keydown", trapFocus);
+      if (returnFocus instanceof HTMLElement && returnFocus.isConnected) returnFocus.focus();
     };
   }, [menuOpen]);
 
@@ -345,6 +366,7 @@ export function SiteHeader({
           />
 
           <aside
+            ref={mobileDialogRef}
             role="dialog"
             aria-modal="true"
             aria-label={dict.header.menu}

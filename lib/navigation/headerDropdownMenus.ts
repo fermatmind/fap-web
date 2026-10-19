@@ -1,3 +1,4 @@
+import { getSelfUnderstandingMenu } from "@/lib/navigation/selfUnderstandingResources";
 import type { Locale } from "@/lib/i18n/locales";
 import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 
@@ -32,17 +33,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
     articles: [
       { href: "/articles", label: "All articles" },
     ],
-    personality: [
-      { href: "/personality", label: "All personality profiles" },
-      { href: "/personality/big-five", label: "Big Five (OCEAN)" },
-      { href: "/personality/enneagram", label: "Enneagram" },
-      { href: "/personality#nt", label: "Analysts (NT)" },
-      { href: "/personality#nf", label: "Diplomats (NF)" },
-      { href: "/personality#sj", label: "Sentinels (SJ)" },
-      { href: "/personality#sp", label: "Explorers (SP)" },
-      { href: "/topics/mbti", label: "MBTI topic hub" },
-      { href: "/career/recommendations", label: "Career recommendations" },
-    ],
+    personality: getSelfUnderstandingMenu("en"),
     career: [
       { href: "/career/recommendations", label: "Career fit" },
       { href: "/career", label: "Occupation library" },
@@ -72,11 +63,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/articles/big-five-tool-guide", label: "大五工具说明" },
       { href: "/articles/eq-test-tool-guide", label: "EQ 工具说明" },
     ],
-    personality: [
-      { href: "/personality", label: "MBTI人格" },
-      { href: "/personality/big-five", label: "大五人格（OCEAN）" },
-      { href: "/personality/enneagram", label: "九型人格" },
-    ],
+    personality: getSelfUnderstandingMenu("zh"),
     career: [
       { href: "/career/recommendations", label: "职业匹配" },
       { href: "/career", label: "职业库" },
