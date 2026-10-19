@@ -66,7 +66,7 @@ function renderGuideBody(guide: CareerGuideDetailViewModel, locale: Locale) {
   }
 
   if (bodyMd.trim()) {
-    return renderSimpleMarkdown(bodyMd, { locale });
+    return renderSimpleMarkdown(bodyMd, { locale, headingIdPrefix: "career-guide-body", scrollableTables: true });
   }
 
   return null;

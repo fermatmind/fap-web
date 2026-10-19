@@ -28,7 +28,7 @@ import styles from "./career-paths.module.css";
 
 export const revalidate = 300;
 
-const PAGE_UPDATED_AT = "2026-09-04";
+const PAGE_UPDATED_AT = "2026-10-19";
 
 type GuideGroup = {
   key: string;
@@ -92,7 +92,7 @@ const GUIDE_GROUPS: GuideGroup[] = [
     title: { en: "Use assessment signals", zh: "使用测评线索" },
     summary: {
       en: "Use MBTI, Big Five, IQ, and EQ as decision inputs without turning them into labels.",
-      zh: "把 MBTI、大五、IQ 与 EQ 当作决策输入，而不是职业标签。",
+      zh: "先用霍兰德／RIASEC 整理任务兴趣，再用人格线索观察工作方式；能力要看实际产出与反馈。",
     },
     slugs: [
       "from-mbti-to-job-fit",
@@ -406,8 +406,17 @@ export default async function CareerGuidesPage({ params }: { params: Promise<{ l
                     </div>
                   </div>
                   <div className={styles.guideGrid}>
+                    {isZh && group.key === "personality-fit" ? (
+                      <Link href="/zh/articles/riasec-holland-career-interest-test-explained" className={styles.guideCard}>
+                        <span className={styles.guideIndex}>01</span>
+                        <p>职业兴趣</p>
+                        <h3>霍兰德／RIASEC：从兴趣到真实任务</h3>
+                        <small>读懂六维兴趣线索，再沿文章中的演员、电影视频编辑档案与完整填写示例，安排一次低成本试做。</small>
+                        <strong>理解兴趣并开始验证<ArrowRight aria-hidden="true" /></strong>
+                      </Link>
+                    ) : null}
                     {group.guides.map((guide, index) => (
-                      <GuideLinkCard key={guide.slug} guide={guide} locale={locale} index={index + 1} />
+                      <GuideLinkCard key={guide.slug} guide={guide} locale={locale} index={index + (isZh && group.key === "personality-fit" ? 2 : 1)} />
                     ))}
                   </div>
                 </section>
