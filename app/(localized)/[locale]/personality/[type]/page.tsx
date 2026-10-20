@@ -10,6 +10,7 @@ import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink"
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
 import { CrossTypeDetailedSections } from "@/components/personality/CrossTypeDetailedSections";
+import { MbtiTestVersionNote } from "@/components/personality/MbtiTestVersionNote";
 import { PublicTopicEdgeModule } from "@/components/public-topic-graph/PublicTopicEdgeRenderer";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
@@ -39,7 +40,7 @@ import {
 } from "@/lib/cms/personality-sections";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, toApiLocale, type Locale } from "@/lib/i18n/locales";
-import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
+import { DEFAULT_MBTI_FORM_CODE, resolveMbtiFormMeta } from "@/lib/mbti/forms";
 import {
   buildMbtiEntryHref,
   buildMbtiEntryTrackingPayload,
@@ -151,7 +152,7 @@ function buildPersonalitySectionShortcuts(
         href: `#${section.key}`,
         kind: "anchor" as const,
       })),
-      { key: "take_test", label: locale === "zh" ? "开始免费测试" : "Start the free test", description: "", href: testHref, kind: "test" },
+      { key: "take_test", label: locale === "zh" ? "开始免费测试" : formatMbtiTestCtaLabel(locale), description: "", href: testHref, kind: "test" },
     ];
   }
   const sectionKeys = new Set(sections.map((section) => section.key).filter(Boolean));
@@ -183,7 +184,7 @@ function buildPersonalitySectionShortcuts(
         { key: "best_fit_work", label: "Best-fit work", description: "Role clusters", href: workHref, kind: "anchor" },
         { key: "strengths", label: "Strengths / weak spots", description: "Growth levers", href: strengthsHref, kind: "anchor" },
         // Contract marker: Take the test.
-        { key: "take_test", label: "Start the free test", description: "Confirm your type", href: testHref, kind: "test" },
+        { key: "take_test", label: formatMbtiTestCtaLabel(locale), description: "Confirm your type", href: testHref, kind: "test" },
       ];
 }
 
@@ -563,7 +564,9 @@ function redirectNonCanonicalBaseRouteIfNeeded(
 }
 
 function formatMbtiTestCtaLabel(locale: Locale): string {
-  return locale === "zh" ? "MBTI免费测试" : "Free MBTI test";
+  if (locale === "zh") return "MBTI免费测试";
+  const form = resolveMbtiFormMeta(DEFAULT_MBTI_FORM_CODE);
+  return `Free ${form.questionCount}-question test · ~${form.estimatedMinutes} min`;
 }
 
 const loadPersonalityPublicDetail = cache(async function loadPersonalityPublicDetail(
@@ -1309,13 +1312,16 @@ function PersonalityComparisonPage({
             <h1 className="m-0 max-w-4xl font-sans text-4xl font-semibold leading-[1.04] tracking-tight text-white sm:text-5xl">{heading}</h1>
             {description ? <p className="m-0 max-w-3xl text-base leading-8 text-white/88">{description}</p> : null}
             {hasCurrentReaderSections ? (
-              <TrackedEntryCtaLink
-                href={buildMbtiEntryHref({ locale, formCode: DEFAULT_MBTI_FORM_CODE, entrySurface: "mbti_personality_comparison", sourcePageType: "personality_comparison", targetAction: "start_test", sourcePath: canonicalPath })}
-                eventProperties={{ ...mbtiEntryViewTrackingProps, target_action: "start_test" }}
-                className="inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#5f447e] shadow-sm transition hover:bg-white/90"
-              >
-                {locale === "zh" ? "开始 MBTI 免费测试" : "Start the free MBTI test"}
-              </TrackedEntryCtaLink>
+              <>
+                <TrackedEntryCtaLink
+                  href={buildMbtiEntryHref({ locale, formCode: DEFAULT_MBTI_FORM_CODE, entrySurface: "mbti_personality_comparison", sourcePageType: "personality_comparison", targetAction: "start_test", sourcePath: canonicalPath })}
+                  eventProperties={{ ...mbtiEntryViewTrackingProps, target_action: "start_test" }}
+                  className="inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#5f447e] shadow-sm transition hover:bg-white/90"
+                >
+                  {locale === "zh" ? "开始 MBTI 免费测试" : formatMbtiTestCtaLabel(locale)}
+                </TrackedEntryCtaLink>
+                {locale === "en" ? <MbtiTestVersionNote /> : null}
+              </>
             ) : null}
           </div>
           <div className="grid min-h-40 content-center gap-4 rounded-[2rem] border border-white/15 bg-white/10 p-6 text-white/92">
@@ -1884,11 +1890,12 @@ export default async function PersonalityDetailPage({
               prefetch
               data-testid="mbti-personality-primary-cta"
               eventProperties={mbtiPrimaryCtaTrackingProps}
-              className={buttonVariants({ variant: "outline", size: "sm" })}
+              className={buttonVariants({ variant: "outline", size: "sm", className: locale === "en" ? "h-auto max-w-full whitespace-normal text-center" : undefined })}
             >
               {formatMbtiTestCtaLabel(locale)}
             </TrackedEntryCtaLink>
           </div>
+          {locale === "en" ? <MbtiTestVersionNote /> : null}
         </div>
         {detail.heroQuote ? (
           <blockquote className="m-0 rounded-2xl border border-[rgba(16,24,40,0.10)] bg-[var(--fm-surface-muted)] p-4 text-sm italic text-[var(--fm-text-muted)]">
