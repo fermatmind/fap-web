@@ -152,7 +152,7 @@ function buildPersonalitySectionShortcuts(
         href: `#${section.key}`,
         kind: "anchor" as const,
       })),
-      { key: "take_test", label: locale === "zh" ? "开始免费测试" : formatMbtiTestCtaLabel(locale), description: "", href: testHref, kind: "test" },
+      { key: "take_test", label: formatMbtiTestCtaLabel(locale), description: "", href: testHref, kind: "test" },
     ];
   }
   const sectionKeys = new Set(sections.map((section) => section.key).filter(Boolean));
@@ -173,7 +173,7 @@ function buildPersonalitySectionShortcuts(
         { key: "career", label: "职业", description: "职业倾向", href: careerHref, kind: "anchor" },
         { key: "best_fit_work", label: "适合工作", description: "岗位簇", href: workHref, kind: "anchor" },
         { key: "strengths", label: "优缺点", description: "优势与弱点", href: strengthsHref, kind: "anchor" },
-        { key: "take_test", label: "立即测试", description: "确认类型", href: testHref, kind: "test" },
+        { key: "take_test", label: formatMbtiTestCtaLabel(locale), description: "确认类型", href: testHref, kind: "test" },
       ]
     : [
         { key: "what", label: "What it means", description: "Type definition", href: whatHref, kind: "anchor" },
@@ -564,8 +564,8 @@ function redirectNonCanonicalBaseRouteIfNeeded(
 }
 
 function formatMbtiTestCtaLabel(locale: Locale): string {
-  if (locale === "zh") return "MBTI免费测试";
   const form = resolveMbtiFormMeta(DEFAULT_MBTI_FORM_CODE);
+  if (locale === "zh") return `MBTI免费测试 · ${form.questionCount} 题 · 约 ${form.estimatedMinutes} 分钟`;
   return `Free ${form.questionCount}-question test · ~${form.estimatedMinutes} min`;
 }
 
@@ -1318,9 +1318,9 @@ function PersonalityComparisonPage({
                   eventProperties={{ ...mbtiEntryViewTrackingProps, target_action: "start_test" }}
                   className="inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#5f447e] shadow-sm transition hover:bg-white/90"
                 >
-                  {locale === "zh" ? "开始 MBTI 免费测试" : formatMbtiTestCtaLabel(locale)}
+                  {formatMbtiTestCtaLabel(locale)}
                 </TrackedEntryCtaLink>
-                {locale === "en" ? <MbtiTestVersionNote /> : null}
+                <MbtiTestVersionNote locale={locale} />
               </>
             ) : null}
           </div>
@@ -1890,12 +1890,12 @@ export default async function PersonalityDetailPage({
               prefetch
               data-testid="mbti-personality-primary-cta"
               eventProperties={mbtiPrimaryCtaTrackingProps}
-              className={buttonVariants({ variant: "outline", size: "sm", className: locale === "en" ? "h-auto max-w-full whitespace-normal text-center" : undefined })}
+              className={buttonVariants({ variant: "outline", size: "sm", className: "h-auto max-w-full whitespace-normal text-center" })}
             >
               {formatMbtiTestCtaLabel(locale)}
             </TrackedEntryCtaLink>
           </div>
-          {locale === "en" ? <MbtiTestVersionNote /> : null}
+          <MbtiTestVersionNote locale={locale} />
         </div>
         {detail.heroQuote ? (
           <blockquote className="m-0 rounded-2xl border border-[rgba(16,24,40,0.10)] bg-[var(--fm-surface-muted)] p-4 text-sm italic text-[var(--fm-text-muted)]">
