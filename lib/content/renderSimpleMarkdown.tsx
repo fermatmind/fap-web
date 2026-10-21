@@ -8,6 +8,7 @@ type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 type MarkdownRenderOptions = {
   allowImages?: boolean;
   scrollableTables?: boolean;
+  compactMatrixHeaders?: readonly [string, string, string, string];
   minimumHeadingLevel?: HeadingLevel;
   headingIdPrefix?: string;
   internalLinkLabels?: InternalLinkLabelMap;
@@ -529,18 +530,21 @@ export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOp
             ))}
           </blockquote>
         );
-      case "table":
+      case "table": {
+        const compactMatrix = options.compactMatrixHeaders?.length === block.headers.length
+          && block.headers.every((header, index) => header === options.compactMatrixHeaders?.[index]);
         return (
           <div key={key} className="overflow-x-auto rounded-xl border border-[var(--fm-border)]"
             role={options.scrollableTables ? "region" : undefined}
             aria-label={options.scrollableTables ? (options.locale === "zh" ? "可横向滚动的表格" : "Horizontally scrollable table") : undefined}
             tabIndex={options.scrollableTables ? 0 : undefined}>
             <table className="w-full border-collapse text-left text-sm"
-              style={options.scrollableTables ? { minWidth: Math.max(480, block.headers.length * 160), tableLayout: "fixed" } : undefined}>
+              style={compactMatrix ? { tableLayout: "fixed" } : options.scrollableTables ? { minWidth: Math.max(480, block.headers.length * 160), tableLayout: "fixed" } : undefined}>
+              {compactMatrix ? <colgroup><col style={{ width: "16%" }} /><col /><col /><col /></colgroup> : null}
               <thead className="bg-[var(--fm-surface-muted)] text-[var(--fm-text)]">
                 <tr>
                   {block.headers.map((header, headerIndex) => (
-                    <th key={`${key}-head-${headerIndex}`} className="border-b border-[var(--fm-border)] px-3 py-2 font-semibold">
+                    <th key={`${key}-head-${headerIndex}`} className={`border-b border-[var(--fm-border)] py-2 font-semibold ${compactMatrix ? "px-2 text-center" : "px-3"}`}>
                       {renderInlineMarkdown(header, `${key}-head-${headerIndex}`, options)}
                     </th>
                   ))}
@@ -550,7 +554,7 @@ export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOp
                 {block.rows.map((row, rowIndex) => (
                   <tr key={`${key}-row-${rowIndex}`} className="border-t border-[var(--fm-border)]">
                     {block.headers.map((_, cellIndex) => (
-                      <td key={`${key}-row-${rowIndex}-cell-${cellIndex}`} className="px-3 py-2 align-top text-[var(--fm-text-muted)]">
+                      <td key={`${key}-row-${rowIndex}-cell-${cellIndex}`} className={`py-2 align-top text-[var(--fm-text-muted)] ${compactMatrix ? "whitespace-nowrap px-2 text-center" : "px-3"}`}>
                         {renderInlineMarkdown(row[cellIndex] ?? "", `${key}-row-${rowIndex}-cell-${cellIndex}`, options)}
                       </td>
                     ))}
@@ -560,6 +564,7 @@ export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOp
             </table>
           </div>
         );
+      }
       case "code":
         return (
           <pre

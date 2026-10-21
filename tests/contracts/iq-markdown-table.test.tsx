@@ -15,6 +15,21 @@ describe("IQ readable Markdown tables", () => {
     expect(screen.getByRole("cell", { name: "75 seconds" })).toBeInTheDocument();
   });
 
+  it("fits only the opted-in matrix headers while keeping the XOR table scrollable", () => {
+    const matrix = "| Row | First cell | Second cell | Third cell |\n| --- | --- | --- | --- |\n| 3 | ○○○ | ○○○○ | ? |";
+    render(<div>{renderSimpleMarkdown(`${matrix}\n\n${wideTable}`, {
+      locale: "en", scrollableTables: true,
+      compactMatrixHeaders: ["Row", "First cell", "Second cell", "Third cell"],
+    })}</div>);
+    const [grid, comparison] = screen.getAllByRole("table");
+    expect(grid.style.minWidth).toBe("");
+    expect(grid).toHaveStyle({ tableLayout: "fixed" });
+    expect(screen.getByRole("cell", { name: "○○○○" })).toHaveClass("whitespace-nowrap");
+    expect(screen.getByRole("cell", { name: "?" })).toBeInTheDocument();
+    expect(comparison).toHaveStyle({ minWidth: "1120px", tableLayout: "fixed" });
+    expect(screen.getAllByRole("region")).toHaveLength(2);
+  });
+
   it("keeps the existing layout unless the caller opts in", () => {
     render(<div>{renderSimpleMarkdown(wideTable)}</div>);
     expect(screen.queryByRole("region")).not.toBeInTheDocument();

@@ -160,6 +160,9 @@ function renderArticleBody(article: CmsArticle, locale: Locale, canonicalPath: s
           minimumHeadingLevel: 2,
           headingIdPrefix: "article-body",
           scrollableTables: true,
+          compactMatrixHeaders: locale === "en" && article.slug === "iq-test-tool-guide"
+            ? ["Row", "First cell", "Second cell", "Third cell"]
+            : undefined,
         }) ?? <div className="whitespace-pre-wrap">{article.contentMd}</div>}
       </AttributedCmsLinkHydrator>
     );

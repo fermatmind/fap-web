@@ -21,6 +21,26 @@ const data = (name: string) => ({ blog: blog(name), items: [article], landingSur
 
 afterEach(() => { vi.doUnmock("@/lib/cms/articles"); vi.resetModules(); });
 describe("article badges use published CMS category labels", () => {
+  it.each([
+    ["en", "iq-test-tool-guide", true],
+    ["zh", "iq-test-tool-guide", false],
+    ["en", "another-guide", false],
+  ] as const)("limits compact matrix rendering to the English guide (%s, %s)", async (locale, slug, compact) => {
+    vi.resetModules();
+    const matrix = "| Row | First cell | Second cell | Third cell |\n| --- | --- | --- | --- |\n| 3 | ○○○ | ○○○○ | ? |";
+    const comparison = "| A | B | OR | AND | XOR | A−B |\n| --- | --- | --- | --- | --- | --- |\n| 1 | 1 | 1 | 1 | 0 | 0 |";
+    vi.doMock("@/lib/cms/articles", async (original) => ({ ...await original<typeof import("@/lib/cms/articles")>(),
+      getCmsArticleWithLastKnownGood: vi.fn(async () => ({ value: { ...article, locale, slug, contentMd: `${matrix}\n\n${comparison}` }, source: "fresh" })),
+      getCmsArticleSeoWithLastKnownGood: vi.fn(async () => ({ value: null, source: "fresh" })),
+      getCmsArticlesWithLastKnownGood: vi.fn(async () => ({ value: data("Career and learning choices"), source: "fresh", stale: false })),
+    }));
+    const { default: Page } = await import("@/app/(localized)/[locale]/articles/[slug]/page");
+    const html = renderToStaticMarkup(await Page({ params: Promise.resolve({ locale, slug }) }));
+    expect(html.includes('<colgroup>')).toBe(compact);
+    expect(html.includes('min-width:640px')).toBe(!compact);
+    expect(html).toContain('min-width:960px;table-layout:fixed');
+    expect(html).toContain("○○○○");
+  });
   it.each(["en", "zh"] as const)("keeps C02 seven-day records readable and fillable in %s", async (locale) => {
     vi.resetModules();
     const slug = "big-five-conscientiousness-low-procrastination-task-plan";
