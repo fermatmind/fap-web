@@ -129,7 +129,7 @@ function buildDimensionSummary(
     title: dominantLabel,
     value: roundedPercent > 0 ? `${roundedPercent}%` : fallback.value,
     body: locale === "en"
-      ? normalizeText(primary?.summary, projectionViewModel?.summary, projectionViewModel?.heroSummary)
+      ? normalizeText(primary?.summary)
       : normalizeText(primary?.summary, headline.supportingLine, headline.summary, fallback.body),
   };
 }

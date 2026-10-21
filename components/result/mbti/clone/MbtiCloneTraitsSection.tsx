@@ -269,7 +269,7 @@ export function MbtiCloneTraitsSection({
                     <p className={styles.summarySupplement} data-testid="mbti-trait-b">{traitEntry.b}</p>
                   </> : <p className={styles.summaryText} role="status">{traitCatalogPending ? "正在加载维度解读…" : "维度解读暂时不可用，请稍后重试。"}</p>}
                 </div>
-              ) : <p className={styles.summaryText}>{summaryDescription}</p>}
+              ) : summaryDescription ? <p className={styles.summaryText}>{summaryDescription}</p> : null}
               {locale !== "zh" && bandNuance ? (
                 <p className={styles.summarySupplement} data-testid="mbti-traits-band-nuance">
                   {bandNuance}

@@ -150,8 +150,10 @@ describe("MBTI shell authored fields contract", () => {
     const reportData = createEnglishPublishedProjectionFixture();
     render(<RichResultReport locale="en" reportData={reportData} />);
 
-    expect(await screen.findByTestId("mbti-traits-summary-pane")).toHaveTextContent("The authoritative English result summary.");
+    expect(await screen.findByTestId("mbti-traits-summary-pane")).toHaveTextContent("Extraversion");
+    expect(screen.getByTestId("mbti-traits-summary-pane")).not.toHaveTextContent("The authoritative English result summary.");
     expect(screen.getByTestId("mbti-traits-summary-pane")).not.toHaveTextContent("旧中文摘要");
+    expect([...screen.getByTestId("mbti-traits-summary-pane").querySelectorAll("p")].filter((p) => !p.textContent?.trim())).toHaveLength(0);
     expect(screen.getByTestId("mbti-chapter-traits")).toHaveTextContent("Authoritative English decision example.");
     for (const [chapter, expected] of [
       ["career", "Authoritative English career example."],
