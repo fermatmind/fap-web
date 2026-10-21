@@ -1175,7 +1175,9 @@ test("MBTI deepened user state can shift revisit focus and recommendation priori
 
   await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
   await expect(page.getByTestId("mbti-hero")).toContainText("ENFP-T");
-  await expect(page.getByTestId("mbti-projection-section-traits-close-call-axes")).toHaveCount(0);
+  const closeCallAxes = page.getByTestId("mbti-projection-section-traits-close-call-axes");
+  await expect(closeCallAxes).toBeVisible();
+  await expect(closeCallAxes).toHaveAttribute("data-section-key", "traits.close_call_axes");
   await expect(page.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
     "data-recommendation-key",
     "read-explain"
