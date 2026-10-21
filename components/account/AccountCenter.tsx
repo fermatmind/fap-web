@@ -41,6 +41,7 @@ import {
   googleLogin,
   logoutAccount,
   requestAccountRecovery,
+  requestEmailLogin,
   requestGoogleAccountLink,
   updateAccount,
   type Account,
@@ -202,9 +203,11 @@ declare global {
 function GoogleLogin({
   locale,
   onSession,
+  allowEmail = true,
 }: {
   locale: Locale;
   onSession: (session: AccountSession) => Promise<void>;
+  allowEmail?: boolean;
 }) {
   const zh = locale === "zh";
   const [challenge, setChallenge] = useState<LoginChallenge | null>(null);
@@ -213,6 +216,8 @@ function GoogleLogin({
   const [busy, setBusy] = useState(false);
   const [ticket, setTicket] = useState("");
   const [sent, setSent] = useState(false);
+  const [email, setEmail] = useState("");
+  const [emailSent, setEmailSent] = useState(false);
   const target = useRef<HTMLDivElement>(null);
   const refresh = useCallback(async () => {
     setError("");
@@ -272,12 +277,60 @@ function GoogleLogin({
   return (
     <div className={styles.login}>
       <ShieldCheck size={22} aria-hidden="true" />
-      <h2>{zh ? "登录，保存你的探索" : "Keep your results together"}</h2>
+      <h2>
+        {allowEmail
+          ? zh ? "登录，保存你的探索" : "Keep your results together"
+          : zh ? "连接 Google 账号" : "Connect Google"}
+      </h2>
       <p>
         {zh
-          ? "使用 Google 账号登录，在不同设备继续查看结果与已购报告。"
-          : "Sign in with Google to return to your results and purchased reports across devices."}
+          ? "登录后，在不同设备继续查看结果与已购报告。"
+          : "Sign in to return to your results and purchased reports across devices."}
       </p>
+      {allowEmail && (
+        <form className={styles.emailLogin} onSubmit={async (event) => {
+          event.preventDefault();
+          setBusy(true);
+          setError("");
+          try {
+            await requestEmailLogin(email.trim(), locale);
+            setEmailSent(true);
+          } catch (e) {
+            setError(e instanceof ApiError && e.status === 429
+              ? (zh ? "请求过于频繁，请稍后再试。" : "Too many requests. Please try again later.")
+              : (zh ? "登录邮件暂时无法发送，请稍后重试。" : "Sign-in email could not be sent. Please try again later."));
+          } finally {
+            setBusy(false);
+          }
+        }}>
+          <label>
+            {zh ? "邮箱" : "Email"}
+            <input type="email" autoComplete="email" required maxLength={254}
+              value={email} onChange={(event) => {
+                setEmail(event.target.value);
+                setEmailSent(false);
+              }} />
+          </label>
+          <button type="submit" className={styles.primary} disabled={busy}>
+            {busy
+              ? (zh ? "请稍候…" : "Please wait…")
+              : emailSent
+                ? (zh ? "重新发送登录邮件" : "Resend sign-in email")
+                : (zh ? "用邮箱登录 / 注册" : "Continue with email")}
+          </button>
+          <p>{zh
+            ? "无需密码。首次验证邮箱后创建账号，登录链接15分钟内有效。"
+            : "No password needed. Verify a new email to create an account. Sign-in links expire in 15 minutes."}</p>
+          {emailSent && <p role="status">{zh
+            ? "登录邮件已发送。请在收件箱或垃圾邮件中查收，打开链接后确认登录。"
+            : "Check your inbox or spam folder. Open the email link and confirm to sign in."}</p>}
+        </form>
+      )}
+      {allowEmail && (
+        <p className={styles.loginDivider}>
+          {zh ? "或使用 Google 继续" : "Or continue with Google"}
+        </p>
+      )}
       {challenge?.configured ? (
         <>
           <Script
@@ -287,8 +340,8 @@ function GoogleLogin({
             onError={() =>
               setError(
                 zh
-                  ? "Google 暂时无法加载，请重试或使用邮箱找回。"
-                  : "Google could not load. Retry or use email recovery.",
+                  ? "Google 暂时无法加载。你可以使用邮箱登录。"
+                  : "Google could not load. You can sign in with email.",
               )
             }
           />
@@ -302,8 +355,8 @@ function GoogleLogin({
       ) : challenge ? (
         <p role="status">
           {zh
-            ? "Google 登录配置尚未就绪，仍可通过邮箱找回已有结果。"
-            : "Google sign-in is not configured yet. Email recovery remains available."}
+            ? "Google 登录暂不可用。你可以使用邮箱登录。"
+            : "Google sign-in is unavailable. You can sign in with email."}
         </p>
       ) : (
         <LoaderCircle
@@ -554,16 +607,14 @@ export default function AccountCenter({ locale }: { locale: Locale }) {
     void load();
   }, [load]);
   useEffect(() => {
-    const params = new URLSearchParams(window.location.hash.slice(1));
-    const token = params.get("verify");
-    if (token) {
+    const readVerification = () => {
+      const params = new URLSearchParams(window.location.hash.slice(1));
+      const token = params.get("verify");
+      if (!token) return;
       setVerification(token);
-      window.history.replaceState(
-        null,
-        "",
-        window.location.pathname + window.location.search,
-      );
-    }
+      window.history.replaceState(null, "", window.location.pathname + window.location.search);
+    };
+    readVerification();
     const changed = (event: StorageEvent) => {
       if (event.key === "fm_account_session_v1") {
         setItems([]);
@@ -572,7 +623,11 @@ export default function AccountCenter({ locale }: { locale: Locale }) {
       }
     };
     window.addEventListener("storage", changed);
-    return () => window.removeEventListener("storage", changed);
+    window.addEventListener("hashchange", readVerification);
+    return () => {
+      window.removeEventListener("storage", changed);
+      window.removeEventListener("hashchange", readVerification);
+    };
   }, [load]);
   useEffect(() => {
     if (section !== "settings" || !account) return;
@@ -761,12 +816,12 @@ export default function AccountCenter({ locale }: { locale: Locale }) {
           {verification && (
             <div className={styles.verify}>
               <h2>
-                {zh ? "确认关联到你的费马账号" : "Confirm your account link"}
+                {zh ? "确认登录或关联账号" : "Confirm sign-in or account link"}
               </h2>
               <p>
                 {zh
-                  ? "仅在你本人发起关联时继续。此操作会关联已验证邮箱对应的身份或资产。"
-                  : "Continue only if you requested this link. This connects the verified identity or assets to your account."}
+                  ? "仅在你本人请求此邮件时继续。验证后可登录账号，或完成你请求的结果与权益关联。"
+                  : "Continue only if you requested this email. Confirm to sign in or complete your requested result and purchase recovery."}
               </p>
               <button
                 type="button"
@@ -779,7 +834,9 @@ export default function AccountCenter({ locale }: { locale: Locale }) {
                     if (r.fm_token) await onSession(r);
                     else await load();
                     setVerification("");
-                    setNotice(zh ? "关联已完成。" : "Link completed.");
+                    setNotice(r.fm_token
+                      ? (zh ? "登录成功。" : "Signed in.")
+                      : (zh ? "关联已完成。" : "Link completed."));
                   } catch (e) {
                     setError(message(e, zh));
                   } finally {
@@ -787,7 +844,7 @@ export default function AccountCenter({ locale }: { locale: Locale }) {
                   }
                 }}
               >
-                {zh ? "确认关联" : "Confirm link"}
+                {zh ? "确认并继续" : "Confirm and continue"}
               </button>
             </div>
           )}
@@ -1158,7 +1215,7 @@ export default function AccountCenter({ locale }: { locale: Locale }) {
                       </button>
                     </form>
                     {!account.google_connected && (
-                      <GoogleLogin locale={locale} onSession={onSession} />
+                      <GoogleLogin locale={locale} onSession={onSession} allowEmail={false} />
                     )}
                   </section>
                   <section>

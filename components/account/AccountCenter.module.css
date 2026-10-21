@@ -383,6 +383,21 @@
   justify-content: space-between;
   margin-top: 16px;
 }
+.emailLogin {
+  display: grid;
+  gap: 12px;
+  max-width: 420px;
+  margin: 20px 0;
+}
+.emailLogin > p {
+  color: var(--ac-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+.login .loginDivider {
+  padding-top: 18px;
+  border-top: 1px solid var(--ac-line);
+}
 .loginLinks > a,
 .textButton {
   display: inline-flex;

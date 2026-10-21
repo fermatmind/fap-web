@@ -20,6 +20,8 @@ const mocks = vi.hoisted(() => ({
   challenge: vi.fn(),
   replace: vi.fn(),
   orders: vi.fn(),
+  emailLogin: vi.fn(),
+  confirm: vi.fn(),
 }));
 vi.mock("next/navigation", () => ({
   useRouter: () => ({ replace: mocks.replace }),
@@ -41,8 +43,9 @@ vi.mock("@/lib/account/api", () => ({
   googleLogin: vi.fn(),
   logoutAccount: vi.fn(),
   requestAccountRecovery: vi.fn(),
+  requestEmailLogin: mocks.emailLogin,
   requestGoogleAccountLink: vi.fn(),
-  confirmAccountEmail: vi.fn(),
+  confirmAccountEmail: mocks.confirm,
   downloadAccountPdf: vi.fn(),
 }));
 
@@ -85,6 +88,8 @@ beforeEach(() => {
   mocks.challenge.mockResolvedValue({ configured: false });
   mocks.history.mockResolvedValue({ items: [], meta: { last_page: 1 } });
   mocks.orders.mockResolvedValue({ items: [], meta: { last_page: 1 } });
+  mocks.emailLogin.mockResolvedValue({ verification_email_sent: true });
+  mocks.confirm.mockResolvedValue({ linked_attempt_ids: [] });
 });
 
 describe("account center", () => {
@@ -346,10 +351,35 @@ describe("account center", () => {
   it("keeps email recovery available when Google is unconfigured", async () => {
     mocks.account.mockResolvedValue({ account: null, preview: true });
     render(<AccountCenter locale="zh" />);
-    await screen.findByText(/Google 登录配置尚未就绪/);
+    await screen.findByText(/Google 登录暂不可用/);
     expect(
       screen.getByRole("link", { name: /用邮箱找回结果/ }),
     ).toHaveAttribute("href", "/zh/results/lookup");
+  });
+
+  it("offers email signup and sign-in independently of Google availability", async () => {
+    mocks.account.mockResolvedValue({ account: null, preview: true });
+    render(<AccountCenter locale="zh" />);
+    const email = await screen.findByRole("textbox", { name: "邮箱" });
+    fireEvent.change(email, { target: { value: "owner@example.test" } });
+    fireEvent.click(screen.getByRole("button", { name: "用邮箱登录 / 注册" }));
+    await screen.findByText(/登录邮件已发送/);
+    expect(mocks.emailLogin).toHaveBeenCalledWith("owner@example.test", "zh");
+    expect(screen.getByText(/无需密码/)).toBeInTheDocument();
+  });
+
+  it("opens an email proof arriving in the current tab and removes it from the address", async () => {
+    mocks.account.mockResolvedValue({ account: null, preview: true });
+    render(<AccountCenter locale="zh" />);
+    await screen.findByRole("textbox", { name: "邮箱" });
+    const token = "v".repeat(64);
+    window.history.replaceState(null, "", `/zh/account#verify=${token}`);
+    fireEvent(window, new Event("hashchange"));
+    await screen.findByRole("button", { name: "确认并继续" });
+    expect(window.location.hash).toBe("");
+    fireEvent.click(screen.getByRole("button", { name: "确认并继续" }));
+    await screen.findByText("关联已完成。");
+    expect(mocks.confirm).toHaveBeenCalledWith(token);
   });
 
   it("renders an actionable error and clears rows on failure", async () => {
