@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { type ReactNode, useState } from "react";
 import Link from "next/link";
 import { DimensionBars } from "@/components/result/DimensionBars";
 import { MbtiCloneAssetSlot } from "@/components/result/mbti/clone/MbtiCloneAssetSlot";
@@ -45,6 +45,7 @@ type MbtiCloneTraitsSectionProps = {
   toolsPrompt?: string;
   bodyPending?: boolean;
   bodyUnavailable?: boolean;
+  children?: ReactNode;
 };
 
 function normalizeText(...values: unknown[]): string {
@@ -127,6 +128,7 @@ export function MbtiCloneTraitsSection({
   toolsPrompt,
   bodyPending = false,
   bodyUnavailable = false,
+  children,
 }: MbtiCloneTraitsSectionProps) {
   const [selectedAxisCode, setSelectedAxisCode] = useState<string | null>(null);
   const normalizedDimensions = dimensions
@@ -331,10 +333,11 @@ export function MbtiCloneTraitsSection({
         data-body-source={bodySource}
       >
         {bodyPending || bodyUnavailable ? <p role="status">{bodyPending ? "正在加载人格解读…" : "人格解读暂时不可用，请稍后重试。"}</p> : null}
-        {paragraphs.map((paragraph, index) => (
+        {paragraphs.filter((paragraph) => paragraph.trim()).map((paragraph, index) => (
           <p key={`${index}-${paragraph.slice(0, 24)}`}>{paragraph}</p>
         ))}
       </div>
+      {children}
     </section>
   );
 }

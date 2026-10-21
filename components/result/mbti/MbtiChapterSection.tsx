@@ -1024,7 +1024,8 @@ function renderChapterVisualSlot(
 
 function renderPremiumTeaserSection(
   section: MbtiResultProjectionSectionViewModel,
-  locale: Locale
+  locale: Locale,
+  showUnlockCopy = true,
 ) {
   const payload = asRecord(section.payload);
   const teaser = normalizeText(payload?.teaser, payload?.summary, section.bodyMd);
@@ -1035,12 +1036,14 @@ function renderPremiumTeaserSection(
   return (
     <div className="space-y-3 rounded-2xl border border-dashed border-slate-300 bg-slate-50/90 p-4">
       <p className="m-0 text-sm leading-7 text-slate-700">{teaser}</p>
-      <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700">
-        {locale === "zh" ? "正式版预告" : "Premium section preview"}
-      </p>
-      <p className="m-0 text-sm text-slate-600">
-        {locale === "zh" ? "完整章节会在正式解锁后开放。" : "Unlock the full section in the premium experience."}
-      </p>
+      {showUnlockCopy ? <>
+        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700">
+          {locale === "zh" ? "正式版预告" : "Premium section preview"}
+        </p>
+        <p className="m-0 text-sm text-slate-600">
+          {locale === "zh" ? "完整章节会在正式解锁后开放。" : "Unlock the full section in the premium experience."}
+        </p>
+      </> : null}
     </div>
   );
 }
@@ -1361,7 +1364,7 @@ function splitLegacyBlocksForNarrative(section: ReportSection | null | undefined
   return { visible, locked };
 }
 
-function renderProjectionSection(
+export function renderMbtiProjectionSection(
   section: MbtiResultProjectionSectionViewModel,
   locale: Locale,
   projectionDimensions: MbtiPublicProjectionDimensionViewModel[],
@@ -1370,6 +1373,7 @@ function renderProjectionSection(
     attemptId?: string;
     displayOrder?: number;
     isPrimaryFocus?: boolean;
+    hideUnlockCopy?: boolean;
   }
 ) {
   let content: ReactNode = null;
@@ -1422,7 +1426,7 @@ function renderProjectionSection(
       content = renderPreferredRoleListSection(section);
       break;
     case "premium_teaser":
-      content = renderPremiumTeaserSection(section, locale);
+      content = renderPremiumTeaserSection(section, locale, options?.hideUnlockCopy !== true);
       break;
     case "bullets":
       content = renderProjectionBulletsSection(section);
@@ -1892,7 +1896,7 @@ export function MbtiChapterSection({
             className="space-y-4"
           >
               {orderedProjectionSections.map((section, index) =>
-                renderProjectionSection(section, locale, projectionDimensions, personalization, {
+                renderMbtiProjectionSection(section, locale, projectionDimensions, personalization, {
                   attemptId,
                   displayOrder: projectionSections.findIndex((candidate) => candidate.key === section.key) + 1 || index + 1,
                   isPrimaryFocus: section.key === primaryFocusKey,

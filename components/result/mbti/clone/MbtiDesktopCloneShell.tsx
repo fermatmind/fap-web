@@ -4,6 +4,7 @@ import { type MouseEvent as ReactMouseEvent, type ReactNode, useCallback, useEff
 import type { HighlightCard, MbtiSectionUnlock, ReportSection, ResolvedOffer, RichResultHeadline } from "@/components/result/RichResultReport";
 import { MbtiCloneEnergyBlock } from "@/components/result/mbti/clone/MbtiCloneEnergyBlock";
 import { MbtiCloneFinalOffer } from "@/components/result/mbti/clone/MbtiCloneFinalOffer";
+import { renderMbtiProjectionSection } from "@/components/result/mbti/MbtiChapterSection";
 import { MbtiCloneHero } from "@/components/result/mbti/clone/MbtiCloneHero";
 import { MbtiCloneIdeaListBlock } from "@/components/result/mbti/clone/MbtiCloneIdeaListBlock";
 import { MbtiCloneNarrativeSection } from "@/components/result/mbti/clone/MbtiCloneNarrativeSection";
@@ -586,6 +587,33 @@ export function MbtiDesktopCloneShell({
   const snapshotContentSource = snapshotContentStatus?.ok ? snapshotContentStatus.source : slots.meta.contentSource;
   const primaryOffer = resolvePrimaryOffer(offers);
   const fullContentVisible = snapshotMode || isUnlocked || suppressUnlockSurfaces;
+  const useEnglishProjectionContent = cloneLocale === "en" && !snapshotMode && fullContentVisible;
+  const englishProjectionBody = (chapter: "traits" | "career" | "growth" | "relationships"): ReactNode[] => {
+    if (!useEnglishProjectionContent) return [];
+
+    const chapterSections = (projectionViewModel?.sections ?? []).filter((section) =>
+      section.key.startsWith(`${chapter}.`)
+      || (chapter === "traits" && ["letters_intro", "overview", "trait_overview"].includes(section.key)),
+    );
+    if (chapterSections.length === 0) {
+      return [<p key={`${chapter}-unavailable`} role="status" data-testid={`mbti-${chapter}-content-unavailable`}>
+        This section is currently unavailable. Please refresh to try again.
+      </p>];
+    }
+
+    return chapterSections.map((section, index) => renderMbtiProjectionSection(
+      section,
+      cloneLocale,
+      projectionViewModel?.dimensions ?? [],
+      projectionViewModel?.personalization,
+      {
+        attemptId: inviteUnlockAttemptId,
+        displayOrder: index + 1,
+        isPrimaryFocus: projectionViewModel?.personalization?.orchestration?.primaryFocusKey === section.key,
+        hideUnlockCopy: fullContentVisible,
+      },
+    ));
+  };
   const unlockedCareerIdeaBlock = fullContentVisible
     ? withOverrideTitle(
         slots.chapters.career.careerIdeas,
@@ -1004,7 +1032,7 @@ export function MbtiDesktopCloneShell({
         unlockInviteLabel={sectionInviteCtaLabel}
         unlockInviteHref={inviteCtaRenderHref}
         onInviteCtaClick={handleInviteCtaClick}
-        postCoreBlocks={careerPostCoreBlocks}
+        postCoreBlocks={[...careerPostCoreBlocks, ...englishProjectionBody("career")]}
         premiumTeasers={fullContentVisible ? [] : [
           buildPremiumTeaserBlock({
             locale: cloneLocale,
@@ -1045,7 +1073,7 @@ export function MbtiDesktopCloneShell({
         unlockInviteLabel={sectionInviteCtaLabel}
         unlockInviteHref={inviteCtaRenderHref}
         onInviteCtaClick={handleInviteCtaClick}
-        postCoreBlocks={growthPostCoreBlocks}
+        postCoreBlocks={[...growthPostCoreBlocks, ...englishProjectionBody("growth")]}
         premiumTeasers={fullContentVisible ? [] : [
           buildPremiumTeaserBlock({
             locale: cloneLocale,
@@ -1086,7 +1114,7 @@ export function MbtiDesktopCloneShell({
         unlockInviteLabel={sectionInviteCtaLabel}
         unlockInviteHref={inviteCtaRenderHref}
         onInviteCtaClick={handleInviteCtaClick}
-        postCoreBlocks={relationshipsPostCoreBlocks}
+        postCoreBlocks={[...relationshipsPostCoreBlocks, ...englishProjectionBody("relationships")]}
         premiumTeasers={fullContentVisible ? [] : [
           buildPremiumTeaserBlock({
             locale: cloneLocale,
@@ -1225,7 +1253,9 @@ export function MbtiDesktopCloneShell({
               bodyUnavailable={locale === "zh" && traitCatalog.unavailable}
               tools={snapshotMode ? snapshotTraitsTools : traitsTools}
               toolsPrompt={snapshotMode ? "" : traitsToolsPrompt}
-            />
+            >
+              {englishProjectionBody("traits")}
+            </MbtiCloneTraitsSection>
 
             {deepNarrativeSectionsNode}
             {shouldRenderFinalOffer ? finalOfferNode : null}

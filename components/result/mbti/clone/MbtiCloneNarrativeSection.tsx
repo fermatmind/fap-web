@@ -101,11 +101,11 @@ export function MbtiCloneNarrativeSection({
         printDecorative
       />
       <div className={styles.sectionParagraphs}>
-        {introParagraphs.map((paragraph, index) => (
+        {introParagraphs.filter((paragraph) => paragraph.trim()).map((paragraph, index) => (
           <p key={`${id}-paragraph-${index}`}>{paragraph}</p>
         ))}
       </div>
-      <MbtiCloneInfluentialTraitsCard
+      {!isUnlocked || traits.some((trait) => trait.label.trim()) || traitsUnlock ? <MbtiCloneInfluentialTraitsCard
         sectionId={id}
         locale={locale}
         traits={traits}
@@ -116,7 +116,7 @@ export function MbtiCloneNarrativeSection({
         unlockInviteLabel={unlockInviteLabel}
         unlockInviteHref={unlockInviteHref}
         onInviteCtaClick={onInviteCtaClick}
-      />
+      /> : null}
       {strengths ? (
         <MbtiCloneStrengthWeaknessBlock data={strengths} testId={`mbti-p0-${id}-strengths`} />
       ) : null}

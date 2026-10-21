@@ -108,10 +108,80 @@ function overrideProjectionSectionSelection(
   metaPersonalization.section_selection_keys = sectionSelectionKeys;
 }
 
+function createEnglishPublishedProjectionFixture(locked = false): ReportResponse {
+  const report = createReportFixture({ personalizationLocale: "en-US", hasUnlock: !locked });
+  Object.assign(report, {
+    locked,
+    variant: locked ? "free" : "full",
+    access_level: locked ? "free" : "full",
+    free_full_report_mode: !locked,
+    paywall_suppressed: !locked,
+    ...(locked ? {} : { offers: [], modules_preview: [] }),
+  });
+  const projection = asRecord(report.mbti_public_projection_v1)!;
+  projection.summary_card = {
+    ...asRecord(projection.summary_card),
+    subtitle: "旧中文摘要不应出现在英文结果",
+    summary: "The authoritative English result summary.",
+  };
+  if (Array.isArray(projection.dimensions)) {
+    projection.dimensions = projection.dimensions.map((dimension) => ({
+      ...asRecord(dimension), summary: null, description: null,
+    }));
+  }
+  projection.sections = [
+    { key: "overview", render: "rich_text", title: "Overview", body_md: "Authoritative English overview." },
+    { key: "traits.decision_style", render: "rich_text", title: "Decision style", body_md: "Authoritative English decision example." },
+    { key: "career.summary", render: "rich_text", title: "Career context", body_md: "Authoritative English career example." },
+    { key: "growth.summary", render: "rich_text", title: "Growth context", body_md: "Authoritative English growth example." },
+    { key: "relationships.summary", render: "rich_text", title: "Relationship context", body_md: "Authoritative English relationship example." },
+    { key: "growth.motivators", render: "premium_teaser", title: "Motivators", payload: { teaser: "Additional backend-provided English insight." } },
+  ];
+  return report;
+}
+
 describe("MBTI shell authored fields contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     window.sessionStorage.clear();
+  });
+
+  it("renders unlocked English projection chapters instead of empty clone placeholders", async () => {
+    const reportData = createEnglishPublishedProjectionFixture();
+    render(<RichResultReport locale="en" reportData={reportData} />);
+
+    expect(await screen.findByTestId("mbti-traits-summary-pane")).toHaveTextContent("The authoritative English result summary.");
+    expect(screen.getByTestId("mbti-traits-summary-pane")).not.toHaveTextContent("旧中文摘要");
+    expect(screen.getByTestId("mbti-chapter-traits")).toHaveTextContent("Authoritative English decision example.");
+    for (const [chapter, expected] of [
+      ["career", "Authoritative English career example."],
+      ["growth", "Authoritative English growth example."],
+      ["relationships", "Authoritative English relationship example."],
+    ]) {
+      const section = screen.getByTestId(`mbti-chapter-${chapter}`);
+      expect(section).toHaveTextContent(expected);
+      expect([...section.querySelectorAll("p")].filter((p) => !p.textContent?.trim())).toHaveLength(0);
+      expect(section).not.toHaveTextContent("Influential Traits");
+    }
+    expect(screen.getByTestId("mbti-chapter-growth")).toHaveTextContent("Additional backend-provided English insight.");
+    expect(screen.queryByText("Unlock the full section in the premium experience.")).not.toBeInTheDocument();
+  });
+
+  it("does not render full English projection bodies for a locked result", async () => {
+    render(<RichResultReport locale="en" reportData={createEnglishPublishedProjectionFixture(true)} />);
+    await screen.findByTestId("mbti-result-shell");
+    expect(screen.queryByText("Authoritative English career example.")).not.toBeInTheDocument();
+    expect(screen.queryByText("Authoritative English growth example.")).not.toBeInTheDocument();
+    expect(screen.queryByText("Authoritative English relationship example.")).not.toBeInTheDocument();
+  });
+
+  it("reports missing English projection content without inventing chapter text", async () => {
+    const reportData = createEnglishPublishedProjectionFixture();
+    asRecord(reportData.mbti_public_projection_v1)!.sections = [];
+    render(<RichResultReport locale="en" reportData={reportData} />);
+    for (const chapter of ["traits", "career", "growth", "relationships"]) {
+      expect(await screen.findByTestId(`mbti-${chapter}-content-unavailable`)).toHaveTextContent("This section is currently unavailable.");
+    }
   });
 
   it("renders the backend-canonical FAQ payload through the active result reader", async () => {

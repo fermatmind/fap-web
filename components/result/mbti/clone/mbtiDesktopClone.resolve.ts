@@ -108,7 +108,8 @@ function resolveProfileIdentity(
 function buildDimensionSummary(
   dimensions: Array<Record<string, unknown>>,
   headline: RichResultHeadline,
-  projectionViewModel?: MbtiResultProjectionViewModel | null,
+  projectionViewModel: MbtiResultProjectionViewModel | null | undefined,
+  locale: Locale,
 ) {
   const primary = dimensions[0] ?? null;
   const roundedPercent = normalizeDimensionPercent(primary);
@@ -127,7 +128,9 @@ function buildDimensionSummary(
     eyebrow: axisTitle || fallback.eyebrow,
     title: dominantLabel,
     value: roundedPercent > 0 ? `${roundedPercent}%` : fallback.value,
-    body: normalizeText(primary?.summary, headline.supportingLine, headline.summary, fallback.body),
+    body: locale === "en"
+      ? normalizeText(primary?.summary, projectionViewModel?.summary, projectionViewModel?.heroSummary)
+      : normalizeText(primary?.summary, headline.supportingLine, headline.summary, fallback.body),
   };
 }
 
@@ -144,7 +147,7 @@ export function resolveMbtiDesktopCloneSlots({
   const language = isZh ? "zh" : "en";
   const content = isZh || options.allowStorageContentForLocale ? storageContent : null;
   const placeholders = MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH;
-  const dimensionSummary = buildDimensionSummary(dimensions, headline, projectionViewModel);
+  const dimensionSummary = buildDimensionSummary(dimensions, headline, projectionViewModel, locale);
   const authoringLevel = content ? "fullCode" : "placeholder";
   const contentSource = content ? "storage" : "placeholder";
   const profileIdentity = resolveProfileIdentity(
