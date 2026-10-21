@@ -459,7 +459,7 @@ describe("SEO core test detail availability", () => {
       if (slug === SCALE_CANONICAL_SLUG_MAP.EQ_60) {
         expect(heroProps.title).toBe(locale === "zh"
           ? "免费情商测试：60题情绪与关系自评"
-          : "Free EQ Test: 60-Item Emotion and Relationship Self-Report");
+          : "Free Emotional Intelligence Test (EQ)");
       } else if (slug === SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN) {
         expect(heroProps.title).toBe(locale === "zh" ? "免费智商测试（IQ）" : "Free IQ Test");
       } else {

@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import publicFixtures from "../fixtures/public-content/marketing-public.json";
 import { startPublicContentApiFixture } from "./helpers/public-content-api-fixture";
 
 let stopPublicApiFixture: (() => Promise<void>) | undefined;
@@ -9,7 +10,10 @@ for (const locale of ["en", "zh"] as const) {
   test(`${locale} tests hub keeps its complete assessment cards readable and aligned`, async ({ page }) => {
     await page.goto(`/${locale}/tests`);
     const hub = page.locator('main section[aria-labelledby="tests-hub-title"]');
-    await expect(hub.getByRole("heading", { level: 1, name: locale === "en" ? "Free assessments" : "免费测试" })).toBeVisible();
+    const published = locale === "en"
+      ? publicFixtures["/v0.5/landing-surfaces/tests?locale=en&org_id=0"]
+      : publicFixtures["/v0.5/landing-surfaces/tests?locale=zh-CN&org_id=0"];
+    await expect(hub.getByRole("heading", { level: 1, name: published.surface.payload_json.hero.title })).toBeVisible();
     const cards = hub.locator("article");
     await expect(cards).toHaveCount(6);
     for (const card of await cards.all()) {

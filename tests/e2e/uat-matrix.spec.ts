@@ -928,13 +928,18 @@ test.describe("UAT matrix (mock)", () => {
 test.describe("UAT matrix (live public readiness)", () => {
   test.skip(!isLiveMode, "Live mode only.");
 
-  test("preprod connectivity check", async ({ page }) => {
+  test("preprod connectivity check", async ({ page, request }) => {
     // Read the real staging surface without API, authentication or payment mocks.
     const response = await page.goto("https://staging.fermatmind.com/en/tests");
     expect(response?.status()).toBe(200);
     expect(response?.headers()["x-robots-tag"]).toContain("noindex");
     const hub = page.locator('main section[aria-labelledby="tests-hub-title"]');
-    await expect(hub.getByRole("heading", { level: 1, name: "Free assessments" })).toBeVisible();
+    const surface = await request.get("https://staging-api.fermatmind.com/api/v0.5/landing-surfaces/tests?locale=en&org_id=0");
+    expect(surface.status()).toBe(200);
+    const published = await surface.json();
+    expect(published.ok).toBe(true);
+    expect(typeof published.surface.payload_json.hero.title).toBe("string");
+    await expect(hub.getByRole("heading", { level: 1, name: published.surface.payload_json.hero.title })).toBeVisible();
     await expect(hub.locator("article")).toHaveCount(6);
     await expect(hub.locator('a[href="/en/tests/iq-test-intelligence-quotient-assessment"]')).toBeVisible();
     await expect(hub.locator('a[href="/en/tests/eq-test-emotional-intelligence-assessment"]')).toBeVisible();
