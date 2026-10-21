@@ -555,14 +555,73 @@
   font-size: 11px;
   color: var(--ac-blue);
 }
-.testItem > svg {
-  margin-top: 6px;
-  color: #7c91ab;
-  transition: transform 0.15s;
+.testActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  margin-top: 16px;
 }
-.testItem:hover > svg {
-  transform: translateX(4px);
+.testActions a {
+  min-height: 44px;
 }
+.retake {
+  color: var(--ac-muted) !important;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: underline !important;
+  text-underline-offset: 4px;
+}
+.careerSources {
+  margin-top: 28px;
+  padding: 22px 0;
+  border-block: 1px solid var(--ac-line);
+}
+.careerSources > h3 {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.careerSources > p {
+  font-size: 12px;
+  color: var(--ac-muted);
+}
+.careerSource {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 0;
+}
+.careerSource > div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+.careerSource span,
+.careerSource small {
+  font-size: 12px;
+  color: var(--ac-muted);
+}
+.careerSource strong {
+  font-size: 17px;
+}
+.stepNumber {
+  font-size: 12px;
+  color: var(--ac-blue);
+  margin-bottom: 16px;
+}
+.stepAction {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ac-blue);
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: auto;
+}
+
 .career {
   padding: 30px 0 38px;
   animation: appear 0.25s ease;
@@ -989,6 +1048,14 @@
   }
   .career > h2 {
     font-size: 25px;
+  }
+  .careerSource {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+  .careerSource a {
+    min-height: 44px;
   }
   .careerGrid {
     grid-template-columns: 1fr;

@@ -2459,6 +2459,7 @@ export type BootResponse = {
 
 export type MeAttemptItem = {
   has_result?: boolean;
+  is_submitted?: boolean;
   question_count?: number;
   attempt_id: string;
   scale_code?: string;

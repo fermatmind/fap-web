@@ -124,6 +124,18 @@ export function completedTests(items: MeAttemptItem[]) {
       .map((item) => accountScale(item.scale_code)),
   );
 }
+function hasSavedResult(item: MeAttemptItem) {
+  return (
+    item.has_result === true ||
+    (item.has_result === undefined && Boolean(item.type_code))
+  );
+}
+function resultHref(item: MeAttemptItem, locale: Locale) {
+  return item.access_summary?.actions?.page_href ===
+    `/result/${item.attempt_id}`
+    ? localizedPath(`/result/${encodeURIComponent(item.attempt_id)}`, locale)
+    : null;
+}
 function reportLabel(item: MeAttemptItem, zh: boolean) {
   const summary = item.access_summary;
   if (!summary) return zh ? "查看结果状态" : "Check result status";
@@ -462,7 +474,7 @@ export default function AccountCenter({ locale }: { locale: Locale }) {
   const section: Section = sections.includes(rawSection as Section)
     ? (rawSection as Section)
     : "overview";
-  const [view, setView] = useState<"self" | "career">("self");
+  const view = section === "career" ? "career" : "self";
   const [account, setAccount] = useState<Account | null>(null);
   const [items, setItems] = useState<MeAttemptItem[]>([]);
   const [membership, setMembership] = useState<AccountMembership | null>(null);
@@ -485,11 +497,11 @@ export default function AccountCenter({ locale }: { locale: Locale }) {
     [email, setEmail] = useState(""),
     [busy, setBusy] = useState(false);
   const titles = zh
-    ? ["仪表板", "我的测评", "我的报告", "职业探索", "账号设置"]
+    ? ["仪表板", "测评中心", "结果与报告", "职业探索", "账号设置"]
     : [
         "Overview",
-        "My assessments",
-        "My reports",
+        "Assessment center",
+        "Results & reports",
         "Career exploration",
         "Account settings",
       ];
@@ -614,7 +626,7 @@ export default function AccountCenter({ locale }: { locale: Locale }) {
       event.preventDefault();
       const target =
         event.key === "Home" ? "self" : event.key === "End" ? "career" : next;
-      setView(target);
+      go(target === "self" ? "overview" : "career");
       document.getElementById(`${target}-tab`)?.focus();
     }
   };
@@ -622,14 +634,10 @@ export default function AccountCenter({ locale }: { locale: Locale }) {
   const completedCount = ACCOUNT_TESTS.filter((test) =>
     completed.has(test.code),
   ).length;
-  const latest = items.find(
-    (item) => item.has_result === true || item.type_code,
-  );
+  const savedResults = items.filter(hasSavedResult);
+  const latest = savedResults.find((item) => resultHref(item, locale));
   const nextTest = ACCOUNT_TESTS.find((test) => !completed.has(test.code));
-  const rowHref = (item: MeAttemptItem) =>
-    item.access_summary?.actions?.page_href === `/result/${item.attempt_id}`
-      ? path(`/result/${encodeURIComponent(item.attempt_id)}`)
-      : null;
+  const rowHref = (item: MeAttemptItem) => resultHref(item, locale);
   async function saveProfile(event: FormEvent) {
     event.preventDefault();
     setBusy(true);
@@ -648,10 +656,16 @@ export default function AccountCenter({ locale }: { locale: Locale }) {
       setBusy(false);
     }
   }
+  const submittedReports = items.filter(
+    (item) =>
+      hasSavedResult(item) || (item.is_submitted ?? Boolean(item.submitted_at)),
+  );
   const reportRows =
     filter === "all"
-      ? items
-      : items.filter((item) => accountScale(item.scale_code) === filter);
+      ? submittedReports
+      : submittedReports.filter(
+          (item) => accountScale(item.scale_code) === filter,
+        );
 
   return (
     <div className={styles.root}>
@@ -777,7 +791,7 @@ export default function AccountCenter({ locale }: { locale: Locale }) {
               </button>
             </div>
           )}
-          {section === "overview" && (
+          {(section === "overview" || section === "career") && (
             <>
               <div className={styles.viewBar}>
                 <p>
@@ -794,7 +808,7 @@ export default function AccountCenter({ locale }: { locale: Locale }) {
                     aria-selected={view === "self"}
                     tabIndex={view === "self" ? 0 : -1}
                     onKeyDown={(event) => tabKey(event, "career")}
-                    onClick={() => setView("self")}
+                    onClick={() => go("overview")}
                   >
                     {zh ? "认识自己" : "Know yourself"}
                     <small>
@@ -810,7 +824,7 @@ export default function AccountCenter({ locale }: { locale: Locale }) {
                     aria-selected={view === "career"}
                     tabIndex={view === "career" ? 0 : -1}
                     onKeyDown={(event) => tabKey(event, "self")}
-                    onClick={() => setView("career")}
+                    onClick={() => go("career")}
                   >
                     {zh ? "职业探索" : "Explore careers"}
                     <small>
@@ -847,35 +861,31 @@ export default function AccountCenter({ locale }: { locale: Locale }) {
                       <div className={styles.next}>
                         <span>{zh ? "下一步" : "NEXT STEP"}</span>
                         <h3>
-                          {latest
+                          {nextTest
                             ? zh
-                              ? "继续阅读最近结果"
-                              : "Continue your latest result"
-                            : nextTest
-                              ? zh
-                                ? `从${nextTest.zh}开始`
-                                : `Start with ${nextTest.en}`
-                              : zh
-                                ? "查看全部报告"
-                                : "View all reports"}
+                              ? `下一项：${nextTest.zh}`
+                              : `Next: ${nextTest.en}`
+                            : zh
+                              ? "查看最近保存的结果"
+                              : "Read your latest saved result"}
                         </h3>
                         <Link
                           className={styles.primary}
                           href={
-                            latest && rowHref(latest)
-                              ? rowHref(latest)!
-                              : nextTest
-                                ? path(`/tests/${nextTest.slug}`)
+                            nextTest
+                              ? path(`/tests/${nextTest.slug}`)
+                              : latest
+                                ? rowHref(latest)!
                                 : path("/account?section=reports")
                           }
                         >
-                          {latest
+                          {nextTest
                             ? zh
-                              ? "查看结果"
-                              : "Open result"
+                              ? "开始测评"
+                              : "Start assessment"
                             : zh
-                              ? "开始探索"
-                              : "Start exploring"}
+                              ? "查看结果"
+                              : "Open result"}
                           <ArrowRight size={16} aria-hidden="true" />
                         </Link>
                       </div>
@@ -915,85 +925,142 @@ export default function AccountCenter({ locale }: { locale: Locale }) {
                         </Link>
                       ))}
                     </div>
-                    {nextTest && (
-                      <Link
-                        className={styles.textButton}
-                        href={path(`/tests/${nextTest.slug}`)}
-                      >
-                        {zh
-                          ? `下一项：${nextTest.zh}`
-                          : `Next assessment: ${nextTest.en}`}
-                        <ArrowRight size={15} aria-hidden="true" />
-                      </Link>
-                    )}
+                    <Link
+                      className={styles.textButton}
+                      href={path("/account?section=career")}
+                    >
+                      {zh
+                        ? "用测评结果探索职业"
+                        : "Use your results to explore careers"}
+                      <ArrowRight size={15} aria-hidden="true" />
+                    </Link>
                   </div>
                 </section>
               ) : (
-                <CareerPanel locale={locale} tabbed />
+                <CareerPanel
+                  locale={locale}
+                  items={items}
+                  loading={loading}
+                  failed={Boolean(error)}
+                  tabbed
+                />
               )}
-              <section className={styles.recent}>
-                <div className={styles.sectionHeading}>
-                  <h2>{zh ? "最近的结果" : "Recent results"}</h2>
-                  <button
-                    type="button"
-                    className={styles.textButton}
-                    onClick={() => go("reports")}
-                  >
-                    {zh ? "全部报告" : "All reports"}
-                    <ArrowRight size={15} />
-                  </button>
-                </div>
-                {loading ? (
-                  <p role="status">
-                    {zh ? "正在读取结果…" : "Loading results…"}
-                  </p>
-                ) : items.length ? (
-                  renderReports(items.slice(0, 3))
-                ) : (
-                  <p className={styles.muted}>
-                    {zh
-                      ? "当前身份下还没有已保存的结果。完成一项测评，或通过原邮箱找回。"
-                      : "No saved results for this identity yet. Complete an assessment or recover results by email."}
-                  </p>
-                )}
-              </section>
+              {section === "overview" && (
+                <section className={styles.recent}>
+                  <div className={styles.sectionHeading}>
+                    <h2>{zh ? "最近的结果" : "Recent results"}</h2>
+                    <button
+                      type="button"
+                      className={styles.textButton}
+                      onClick={() => go("reports")}
+                    >
+                      {zh ? "全部报告" : "All reports"}
+                      <ArrowRight size={15} />
+                    </button>
+                  </div>
+                  {loading ? (
+                    <p role="status">
+                      {zh ? "正在读取结果…" : "Loading results…"}
+                    </p>
+                  ) : savedResults.length ? (
+                    renderReports(savedResults.slice(0, 3))
+                  ) : (
+                    <p className={styles.muted}>
+                      {zh
+                        ? "当前身份下还没有已保存的结果。完成一项测评，或通过原邮箱找回。"
+                        : "No saved results for this identity yet. Complete an assessment or recover results by email."}
+                    </p>
+                  )}
+                </section>
+              )}
             </>
           )}
-          {section === "career" && <CareerPanel locale={locale} />}
           {section === "assessments" && (
-            <div className={styles.testGrid}>
-              {ACCOUNT_TESTS.map((test, i) => (
+            <section aria-label={zh ? "选择测评" : "Choose an assessment"}>
+              <div className={styles.reportToolbar}>
+                <p>
+                  {zh
+                    ? "选择想了解的方面。已有结果可以直接阅读，重测会保留原记录。"
+                    : "Choose what to explore. Read saved results or take a new assessment without replacing earlier records."}
+                </p>
                 <Link
-                  className={styles.testItem}
-                  key={test.code}
-                  href={path(`/tests/${test.slug}`)}
+                  className={styles.textButton}
+                  href={path("/account?section=reports")}
                 >
-                  <span className={styles.testNumber}>0{i + 1}</span>
-                  <div>
-                    <h2>{zh ? test.zh : test.en}</h2>
-                    <p>{zh ? test.topicZh : test.topicEn}</p>
-                    <span>
-                      {completed.has(test.code)
-                        ? zh
-                          ? "已完成 · 可以再次测评"
-                          : "Completed · take again"
-                        : zh
-                          ? "开始测评"
-                          : "Start assessment"}
-                    </span>
-                  </div>
-                  <ArrowRight size={18} />
+                  {zh ? "查看全部结果" : "View all results"}
+                  <ArrowRight size={15} />
                 </Link>
-              ))}
-            </div>
+              </div>
+              <div className={styles.testGrid}>
+                {ACCOUNT_TESTS.map((test, i) => {
+                  const saved = savedResults.find(
+                    (item) => accountScale(item.scale_code) === test.code,
+                  );
+                  return (
+                    <article className={styles.testItem} key={test.code}>
+                      <span className={styles.testNumber}>0{i + 1}</span>
+                      <div>
+                        <h2>{zh ? test.zh : test.en}</h2>
+                        <p>{zh ? test.topicZh : test.topicEn}</p>
+                        <span>
+                          {loading
+                            ? zh
+                              ? "正在读取记录…"
+                              : "Loading history…"
+                            : error
+                              ? zh
+                                ? "记录暂不可用"
+                                : "History unavailable"
+                              : saved
+                                ? zh
+                                  ? "已有结果"
+                                  : "Result saved"
+                                : zh
+                                  ? "尚无结果"
+                                  : "No saved result"}
+                        </span>
+                        <div className={styles.testActions}>
+                          {saved && (
+                            <Link
+                              className={styles.textButton}
+                              href={path(
+                                `/account?section=reports&scale=${test.code}`,
+                              )}
+                            >
+                              {zh ? "查看已有结果" : "View saved results"}
+                              <ArrowRight size={15} />
+                            </Link>
+                          )}
+                          <Link
+                            className={
+                              saved ? styles.retake : styles.textButton
+                            }
+                            href={path(`/tests/${test.slug}`)}
+                          >
+                            {saved
+                              ? zh
+                                ? "重新测评"
+                                : "Take again"
+                              : zh
+                                ? "开始测评"
+                                : "Start assessment"}
+                            {!saved && <ArrowRight size={15} />}
+                          </Link>
+                        </div>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            </section>
           )}
           {section === "reports" && (
             <section className={styles.reports}>
               <div className={styles.reportToolbar}>
                 <p>
                   {zh
-                    ? "每次测评分别保存，保留题本与时间。"
-                    : "Every assessment is saved separately with its form and date."}
+                    ? "查看已提交测评的结果、报告和可用 PDF；每次记录分别保存。"
+                    : "Read submitted results, reports and available PDFs. Each attempt is kept separately."}
                 </p>
                 <label>
                   {zh ? "筛选测评" : "Filter assessment"}
@@ -1025,12 +1092,20 @@ export default function AccountCenter({ locale }: { locale: Locale }) {
                       ? "使用原邮箱找回旧结果，或开始一项新的测评。"
                       : "Recover earlier results by email, or start an assessment."}
                   </p>
-                  <Link
-                    className={styles.primary}
-                    href={path("/results/lookup")}
-                  >
-                    {zh ? "找回结果" : "Recover results"}
-                  </Link>
+                  <div className={styles.testActions}>
+                    <Link
+                      className={styles.primary}
+                      href={path("/account?section=assessments")}
+                    >
+                      {zh ? "选择一项测评" : "Choose an assessment"}
+                    </Link>
+                    <Link
+                      className={styles.textButton}
+                      href={path("/results/lookup")}
+                    >
+                      {zh ? "找回旧结果" : "Recover earlier results"}
+                    </Link>
+                  </div>
                 </div>
               )}
             </section>
@@ -1306,7 +1381,7 @@ export default function AccountCenter({ locale }: { locale: Locale }) {
               <Icon size={19} />
               <span>
                 {zh
-                  ? ["总览", "测评", "报告", "职业", "我的"][i]
+                  ? ["总览", "做测评", "看结果", "职业", "我的"][i]
                   : ["Home", "Tests", "Reports", "Career", "Account"][i]}
               </span>
             </button>
@@ -1400,36 +1475,74 @@ export default function AccountCenter({ locale }: { locale: Locale }) {
 
 function CareerPanel({
   locale,
+  items,
+  loading,
+  failed,
   tabbed = false,
 }: {
   locale: Locale;
+  items: MeAttemptItem[];
+  loading: boolean;
+  failed: boolean;
   tabbed?: boolean;
 }) {
   const zh = locale === "zh";
-  const links = [
+  const path = (value: string) => localizedPath(value, locale);
+  const saved = items.filter(hasSavedResult);
+  const interest = saved.find(
+    (item) => accountScale(item.scale_code) === "RIASEC",
+  );
+  const personality = saved.find(
+    (item) => accountScale(item.scale_code) === "MBTI",
+  );
+  const interestHref = interest ? resultHref(interest, locale) : null;
+  const sourceRows = [interest, personality].filter(
+    (item): item is MeAttemptItem => Boolean(item),
+  );
+  const steps = [
     {
-      href: "/career/recommendations",
-      icon: Compass,
-      title: zh ? "职业线索" : "Career directions",
-      copy: zh
-        ? "结合兴趣和人格结果，缩小探索范围。"
-        : "Explore possible directions using interests and personality signals.",
+      href:
+        interestHref ??
+        path(
+          interest
+            ? "/account?section=reports&scale=RIASEC"
+            : "/tests/holland-career-interest-test-riasec",
+        ),
+      title: zh ? "读懂职业兴趣" : "Understand your interests",
+      copy: interest
+        ? zh
+          ? "从已保存的职业兴趣结果中，找出愿意尝试的任务与环境。"
+          : "Use your saved interest result to identify tasks and environments to try."
+        : zh
+          ? "先完成职业兴趣测评，获得六类工作兴趣的线索。"
+          : "Start with a career interest assessment to explore six kinds of work interests.",
+      action: interestHref
+        ? zh
+          ? "阅读兴趣结果"
+          : "Read interest result"
+        : interest
+          ? zh
+            ? "查看兴趣报告状态"
+            : "Check interest report status"
+          : zh
+            ? "开始职业兴趣测评"
+            : "Start interest assessment",
     },
     {
-      href: "/career",
-      icon: LayoutGrid,
-      title: zh ? "职业库" : "Occupation library",
+      href: path("/career"),
+      title: zh ? "比较真实工作" : "Compare real occupations",
       copy: zh
-        ? "了解工作任务、环境与入门要求。"
-        : "Explore work tasks, environments and entry requirements.",
+        ? "带着结果里的线索，比较工作任务、环境和入门要求。"
+        : "Compare work tasks, environments and entry requirements against your result signals.",
+      action: zh ? "浏览职业库" : "Browse occupations",
     },
     {
-      href: "/career/guides",
-      icon: FileText,
-      title: zh ? "职业指南" : "Career guides",
+      href: path("/career/guides"),
+      title: zh ? "用实践验证方向" : "Test a direction in practice",
       copy: zh
-        ? "把候选方向转化为任务实践与下一步。"
-        : "Turn possible directions into practical next steps.",
+        ? "选择一个候选方向，通过小任务、访谈或项目检验想法。"
+        : "Choose a possible direction and test it through a small task, interview or project.",
+      action: zh ? "查看职业指南" : "Open career guides",
     },
   ];
   return (
@@ -1439,36 +1552,98 @@ function CareerPanel({
       aria-labelledby={tabbed ? "career-tab" : undefined}
       className={styles.career}
     >
-      <p className={styles.eyebrow}>{zh ? "职业探索" : "CAREER EXPLORATION"}</p>
+      <p className={styles.eyebrow}>
+        {zh ? "从结果到行动" : "FROM RESULTS TO ACTION"}
+      </p>
       <h2>
         {zh
-          ? "从了解自己，到了解工作"
-          : "From understanding yourself to understanding work"}
+          ? "先了解兴趣，再探索真实工作"
+          : "Start with interests. Explore real work."}
       </h2>
       <p className={styles.muted}>
         {zh
-          ? "测评提供线索，真实任务和现实条件帮助你验证方向。"
-          : "Assessments provide signals. Real tasks and practical constraints help you test a direction."}
+          ? "测评提供探索线索。用工作任务与现实条件，判断一个方向是否值得继续。"
+          : "Assessments offer signals. Use real tasks and practical constraints to decide which direction to explore."}
       </p>
-      <div className={styles.careerGrid}>
-        {links.map(({ href, icon: Icon, title, copy }) => (
-          <Link href={localizedPath(href, locale)} key={href}>
-            <Icon size={25} />
-            <h3>{title}</h3>
-            <p>{copy}</p>
-            <ArrowRight size={18} />
-          </Link>
-        ))}
-      </div>
-      <Link
-        className={styles.primary}
-        href={localizedPath(
-          "/tests/holland-career-interest-test-riasec",
-          locale,
+      <div className={styles.careerSources}>
+        <h3>{zh ? "你的探索起点" : "Your starting point"}</h3>
+        {loading ? (
+          <p role="status">
+            {zh ? "正在读取已保存的结果…" : "Loading saved results…"}
+          </p>
+        ) : failed ? (
+          <p role="status">
+            {zh
+              ? "结果暂未读取成功，请先使用上方重试。"
+              : "Results could not be loaded. Use Retry above."}
+          </p>
+        ) : sourceRows.length ? (
+          sourceRows.map((item) => {
+            const href = resultHref(item, locale);
+            return (
+              <div key={item.attempt_id} className={styles.careerSource}>
+                <div>
+                  <span>
+                    {item.scale_code === "RIASEC"
+                      ? zh
+                        ? "职业兴趣"
+                        : "Career interests"
+                      : zh
+                        ? "MBTI 人格"
+                        : "MBTI personality"}
+                  </span>
+                  <strong>
+                    {item.type_code || (zh ? "已保存结果" : "Saved result")}
+                  </strong>
+                  <small>{reportLabel(item, zh)}</small>
+                </div>
+                {href && (
+                  <Link className={styles.textButton} href={href}>
+                    {zh ? "阅读结果" : "Read result"}
+                    <ArrowRight size={15} />
+                  </Link>
+                )}
+              </div>
+            );
+          })
+        ) : (
+          <p>
+            {zh
+              ? "还没有职业兴趣或 MBTI 结果。可以先做测评，也可以直接浏览职业库。"
+              : "No career interest or MBTI results yet. Start an assessment or browse occupations directly."}
+          </p>
         )}
+        {!loading && !failed && interest && (
+          <p className={styles.muted}>
+            {zh
+              ? "这些是已保存的独立测评结果；职业方向还需要结合能力、经历和现实条件。"
+              : "These are separate saved assessments. Career decisions also depend on skills, experience and practical constraints."}
+          </p>
+        )}
+      </div>
+      {!loading && !failed && (
+        <div className={styles.careerGrid}>
+          {steps.map((step, index) => (
+            <Link href={step.href} key={step.title}>
+              <span className={styles.stepNumber}>0{index + 1}</span>
+              <h3>{step.title}</h3>
+              <p>{step.copy}</p>
+              <span className={styles.stepAction}>
+                {step.action}
+                <ArrowRight size={16} />
+              </span>
+            </Link>
+          ))}
+        </div>
+      )}
+      <Link
+        className={styles.textButton}
+        href={path("/career/recommendations")}
       >
-        {zh ? "探索职业兴趣" : "Explore career interests"}
-        <ArrowRight size={16} />
+        {zh
+          ? "了解兴趣、人格与职业线索如何结合"
+          : "How interests and personality inform career exploration"}
+        <ArrowRight size={15} />
       </Link>
     </section>
   );

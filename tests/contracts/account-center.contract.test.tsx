@@ -51,6 +51,7 @@ function row(code: string, patch: Partial<MeAttemptItem> = {}): MeAttemptItem {
     attempt_id: `attempt-${code}`,
     scale_code: code,
     has_result: true,
+    is_submitted: true,
     submitted_at: "2026-10-20T12:00:00Z",
     question_count: 60,
     scale_version: "v1",
@@ -111,7 +112,7 @@ describe("account center", () => {
     expect(
       within(screen.getByRole("navigation", { name: "账号导航" })).getByRole(
         "button",
-        { name: "我的报告" },
+        { name: "结果与报告" },
       ),
     ).toBeInTheDocument();
     expect(
@@ -173,20 +174,173 @@ describe("account center", () => {
     ).toBeInTheDocument();
   });
 
-  it("supports arrow-key tabs with focus and selection", async () => {
-    render(<AccountCenter locale="zh" />);
+  it("keeps sidebar, tabs and reload on the same career route, including keyboard focus", async () => {
+    const view = render(<AccountCenter locale="zh" />);
     const self = await screen.findByRole("tab", { name: /认识自己/ });
     fireEvent.keyDown(self, { key: "ArrowRight" });
+    expect(mocks.replace).toHaveBeenCalledWith("/zh/account?section=career", {
+      scroll: false,
+    });
     const career = screen.getByRole("tab", { name: /职业探索/ });
-    expect(career).toHaveAttribute("aria-selected", "true");
     expect(career).toHaveFocus();
+    mocks.search = "section=career";
+    view.rerender(<AccountCenter locale="zh" />);
+    expect(career).toHaveAttribute("aria-selected", "true");
     expect(screen.getByRole("tabpanel")).toHaveAttribute(
       "aria-labelledby",
       "career-tab",
     );
+    expect(
+      within(screen.getByRole("navigation", { name: "账号导航" })).getByRole(
+        "button",
+        { name: "职业探索" },
+      ),
+    ).toHaveAttribute("aria-current", "page");
     fireEvent.keyDown(career, { key: "Home" });
+    expect(mocks.replace).toHaveBeenLastCalledWith(
+      "/zh/account?section=overview",
+      { scroll: false },
+    );
     expect(self).toHaveFocus();
-    expect(self).toHaveAttribute("aria-selected", "true");
+  });
+
+  it("separates choosing a test from reading a saved result, with an explicit retake action", async () => {
+    mocks.search = "section=assessments";
+    mocks.history.mockResolvedValue({
+      items: [row("MBTI")],
+      meta: { last_page: 1 },
+    });
+    render(<AccountCenter locale="zh" />);
+    const saved = await screen.findByRole("link", { name: "查看已有结果" });
+    expect(saved).toHaveAttribute(
+      "href",
+      "/zh/account?section=reports&scale=MBTI",
+    );
+    expect(screen.getByRole("link", { name: "重新测评" })).toHaveAttribute(
+      "href",
+      "/zh/tests/mbti-personality-test-16-personality-types",
+    );
+    expect(
+      screen.getByRole("heading", { name: "测评中心", level: 1 }),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole("button", { name: "我的测评" }),
+    ).not.toBeInTheDocument();
+  });
+
+  it("starts career exploration from saved interests rather than requiring a retake", async () => {
+    mocks.search = "section=career";
+    mocks.history.mockResolvedValue({
+      items: [
+        row("RIASEC", { type_code: "SAE" }),
+        row("MBTI", { type_code: "ENFP-A" }),
+      ],
+      meta: { last_page: 1 },
+    });
+    render(<AccountCenter locale="zh" />);
+    await screen.findByText("SAE");
+    expect(screen.getByText("ENFP-A")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /阅读兴趣结果/ })).toHaveAttribute(
+      "href",
+      "/zh/result/attempt-RIASEC",
+    );
+    expect(
+      screen.queryByRole("link", { name: /开始职业兴趣测评/ }),
+    ).not.toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /浏览职业库/ })).toHaveAttribute(
+      "href",
+      "/zh/career",
+    );
+    expect(screen.getByRole("link", { name: /查看职业指南/ })).toHaveAttribute(
+      "href",
+      "/zh/career/guides",
+    );
+  });
+
+  it("never fabricates a report URL when a saved interest result has no backend reading action", async () => {
+    mocks.search = "section=career";
+    mocks.history.mockResolvedValue({
+      items: [
+        row("RIASEC", {
+          type_code: "SAE",
+          access_summary: {
+            access_state: "expired",
+            report_state: "unavailable",
+            actions: { page_href: "/result/another-user", pdf_href: null },
+          } as MeAttemptItem["access_summary"],
+        }),
+      ],
+      meta: { last_page: 1 },
+    });
+    render(<AccountCenter locale="zh" />);
+    await screen.findByText("SAE");
+    expect(
+      screen.queryByRole("link", { name: "阅读结果" }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: /查看兴趣报告状态/ }),
+    ).toHaveAttribute("href", "/zh/account?section=reports&scale=RIASEC");
+  });
+
+  it("offers a start path for empty career history without inventing result values", async () => {
+    mocks.search = "section=career";
+    render(<AccountCenter locale="en" />);
+    await screen.findByText(/No career interest or MBTI results yet/);
+    expect(
+      screen.getByRole("link", { name: /Start interest assessment/ }),
+    ).toHaveAttribute("href", "/en/tests/holland-career-interest-test-riasec");
+    expect(screen.queryByText("ENFP-A")).not.toBeInTheDocument();
+  });
+
+  it("does not present unfinished attempts as generated reports", async () => {
+    mocks.search = "section=reports";
+    mocks.history.mockResolvedValue({
+      items: [
+        row("MBTI"),
+        row("EQ_60", {
+          has_result: false,
+          is_submitted: false,
+          type_code: "",
+          submitted_at: "2026-10-20T12:00:00Z",
+        }),
+        row("ENNEAGRAM", {
+          has_result: false,
+          is_submitted: undefined,
+          type_code: "",
+          submitted_at: null,
+        }),
+        row("IQ_RAVEN", { has_result: false }),
+      ],
+      meta: { last_page: 1 },
+    });
+    render(<AccountCenter locale="zh" />);
+    await screen.findByRole("heading", { name: "MBTI 人格" });
+    expect(
+      screen.queryByRole("heading", { name: "情商测试" }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "智商测试" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole("heading", { name: "九型人格" }),
+    ).not.toBeInTheDocument();
+  });
+
+  it("gives the dashboard a next assessment while keeping recent results available", async () => {
+    mocks.history.mockResolvedValue({
+      items: [row("MBTI")],
+      meta: { last_page: 1 },
+    });
+    render(<AccountCenter locale="zh" />);
+    await screen.findByRole("heading", { name: "下一项：大五人格" });
+    expect(screen.getByRole("link", { name: "开始测评" })).toHaveAttribute(
+      "href",
+      "/zh/tests/big-five-personality-test-ocean-model",
+    );
+    expect(screen.getByRole("link", { name: "查看结果" })).toHaveAttribute(
+      "href",
+      "/zh/result/attempt-MBTI",
+    );
   });
 
   it("keeps email recovery available when Google is unconfigured", async () => {
