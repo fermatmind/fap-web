@@ -68,6 +68,8 @@ describe("analytics SEO metadata sitemap canonical governance", () => {
 
   it("keeps result, order, share, payment, and take routes noindex and out of sitemap", () => {
     expect(PRIVATE_FLOW_ROUTE_EXCLUDES).toEqual([
+      "/account",
+      "/account/*",
       "/result/*",
       "/orders/*",
       "/share/*",
@@ -78,6 +80,8 @@ describe("analytics SEO metadata sitemap canonical governance", () => {
     ]);
 
     for (const sample of [
+      "/zh/account",
+      "/en/account?section=reports",
       "/zh/result/private-result",
       "/zh/results/lookup",
       "/zh/orders/ORD-RAW-123",

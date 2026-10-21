@@ -4,6 +4,7 @@ import path from "node:path";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { getOrCreateAnonId, queuePendingAnonLinkAttempt, readPendingAnonLinkAttempts } from "@/lib/anon";
 import { linkAnonAttemptsOnceOnLoginSuccess } from "@/lib/api/v0_3";
+import { saveOwnershipProof } from "@/lib/account/storage";
 import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
@@ -45,6 +46,8 @@ describe("link-anon login helper contract", () => {
   it("deduplicates by sorted attempts, uses the stored auth token, and clears queue on success", async () => {
     queuePendingAnonLinkAttempt("attempt_b");
     queuePendingAnonLinkAttempt("attempt_a");
+    saveOwnershipProof("attempt_a", "a".repeat(64));
+    saveOwnershipProof("attempt_b", "b".repeat(64));
 
     const fetchSpy = vi.fn().mockResolvedValue(
       jsonResponse({
@@ -76,7 +79,10 @@ describe("link-anon login helper contract", () => {
     expect(headers.get("X-Anon-Id")).toBe("anon_login_001");
     expect(JSON.parse(String(init?.body))).toEqual({
       anon_id: "anon_login_001",
-      attempt_ids: ["attempt_a", "attempt_b"],
+      proofs: [
+        { attempt_id: "attempt_a", resume_token: "a".repeat(64) },
+        { attempt_id: "attempt_b", resume_token: "b".repeat(64) },
+      ],
     });
     expect(readPendingAnonLinkAttempts()).toEqual([]);
   });
@@ -86,6 +92,9 @@ describe("link-anon login helper contract", () => {
     vi.setSystemTime(new Date("2026-03-08T00:00:00.000Z"));
 
     queuePendingAnonLinkAttempt("attempt_404");
+    for (const id of ["attempt_404", "attempt_should_skip", "attempt_retry_after_ttl"]) {
+      saveOwnershipProof(id, "r".repeat(64));
+    }
 
     const fetchSpy = vi.fn()
       .mockResolvedValueOnce(
@@ -135,6 +144,7 @@ describe("link-anon login helper contract", () => {
 
   it("keeps the queue on non-404 errors and retries on the next login success", async () => {
     queuePendingAnonLinkAttempt("attempt_retry");
+    saveOwnershipProof("attempt_retry", "r".repeat(64));
 
     const fetchSpy = vi.fn()
       .mockResolvedValueOnce(
@@ -178,6 +188,36 @@ describe("link-anon login helper contract", () => {
 
     expect(fetchSpy).toHaveBeenCalledTimes(2);
     expect(readPendingAnonLinkAttempts()).toEqual([]);
+  });
+
+  it("never claims by anonymous id alone and retries when a result proof becomes available", async () => {
+    queuePendingAnonLinkAttempt("legacy_attempt");
+    const fetchSpy = vi.fn().mockResolvedValue(jsonResponse({ ok: true, linked_attempt_ids: ["legacy_attempt"] }));
+    vi.stubGlobal("fetch", fetchSpy);
+    const login = { authToken: "fm_token_legacy_123456", anonId: "legacy_anon", attemptIds: ["legacy_attempt"] };
+
+    await linkAnonAttemptsOnceOnLoginSuccess(login);
+    expect(fetchSpy).not.toHaveBeenCalled();
+    expect(readPendingAnonLinkAttempts()).toEqual(["legacy_attempt"]);
+
+    saveOwnershipProof("legacy_attempt", "r".repeat(64));
+    await linkAnonAttemptsOnceOnLoginSuccess(login);
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
+    expect(readPendingAnonLinkAttempts()).toEqual([]);
+  });
+
+  it("keeps unproven results queued when only part of a batch can be linked", async () => {
+    queuePendingAnonLinkAttempt("owned_attempt");
+    queuePendingAnonLinkAttempt("unproven_attempt");
+    saveOwnershipProof("owned_attempt", "r".repeat(64));
+    const fetchSpy = vi.fn().mockResolvedValue(jsonResponse({ ok: true, linked_attempt_ids: ["owned_attempt"] }));
+    vi.stubGlobal("fetch", fetchSpy);
+
+    await linkAnonAttemptsOnceOnLoginSuccess({ authToken: "fm_token_partial_123456", anonId: "partial_anon", attemptIds: ["owned_attempt", "unproven_attempt"] });
+
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
+    expect(JSON.parse(String(fetchSpy.mock.calls[0][1]?.body)).proofs).toEqual([{ attempt_id: "owned_attempt", resume_token: "r".repeat(64) }]);
+    expect(readPendingAnonLinkAttempts()).toEqual(["unproven_attempt"]);
   });
 
   it("generates anonymous ids from crypto fallback without insecure randomness", () => {

@@ -152,7 +152,7 @@ describe("mbti ads whitelist contract", () => {
     expect(headerMenus).toContain('/tests/mbti-personality-test-16-personality-types", label: "MBTI 性格测试"');
     expect(headerMenus).not.toContain('/tests/mbti-personality-test-16-personality-types/take", label: "MBTI personality test"');
     expect(siteHeader).not.toContain("shouldHidePrivateLookupHeaderCta");
-    expect(siteHeader).toContain('href={withLocale("/results/lookup")}');
+    expect(siteHeader).toContain('href={withLocale("/account")}');
     expect(siteHeader).not.toContain('href={withLocale("/tests/mbti-personality-test-16-personality-types/take")}');
     expect(hero).toContain('href={withLocale("/tests/mbti-personality-test-16-personality-types")}');
     expect(socialProof).toContain('href={withLocale("/tests/mbti-personality-test-16-personality-types")}');

@@ -123,11 +123,11 @@ describe("SiteHeader locale link contract", () => {
     render(<LocaleProvider locale={locale}><SiteHeader /></LocaleProvider>);
     const label = locale === "zh" ? "我的账户" : "My Account";
     const desktopEntry = screen.getByRole("link", { name: label });
-    expect(desktopEntry).toHaveAttribute("href", `/${locale}/results/lookup`);
+    expect(desktopEntry).toHaveAttribute("href", `/${locale}/account`);
     fireEvent.click(screen.getByRole("button", { name: locale === "zh" ? "菜单" : "Menu" }));
     const entries = screen.getAllByRole("link", { name: label });
     expect(entries).toHaveLength(2);
-    for (const entry of entries) expect(entry).toHaveAttribute("href", `/${locale}/results/lookup`);
+    for (const entry of entries) expect(entry).toHaveAttribute("href", `/${locale}/account`);
     fireEvent.click(entries[1]);
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });

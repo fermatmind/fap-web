@@ -103,7 +103,7 @@ describe("public navigation pending feedback", () => {
 
     expect(header).toContain("<PublicNavigationPendingIndicator locale={locale} />");
     expect(header).toContain("<PublicNavigationLink");
-    expect(header).toMatch(/<Link[\s\S]*?href=\{withLocale\("\/results\/lookup"\)\}/);
+    expect(header).toMatch(/<Link[\s\S]*?href=\{withLocale\("\/account"\)\}/);
     expect(dropdown).toContain("<PublicNavigationLink");
     expect(footer).toContain("<PublicNavigationLink");
     expect(localeMenu).toContain("<PublicNavigationLink");

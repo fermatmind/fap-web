@@ -2833,17 +2833,22 @@ export async function linkAnonAttemptsOnceOnLoginSuccess({
   }
 
   try {
-    await linkAnonAttempts({
+    const response = await linkAnonAttempts({
       anonId: normalizedAnonId,
       attemptIds: normalizedAttemptIds,
       authToken: normalizedToken,
     });
 
-    removePendingAnonLinkAttempts(normalizedAttemptIds);
-    setSessionLinkAnonDedupEntry(dedupKey, {
-      status: "done",
-      updatedAt: Date.now(),
-    });
+    const linkedAttemptIds = response.linked_attempt_ids ?? [];
+    removePendingAnonLinkAttempts(linkedAttemptIds);
+    if (normalizedAttemptIds.every((id) => linkedAttemptIds.includes(id))) {
+      setSessionLinkAnonDedupEntry(dedupKey, {
+        status: "done",
+        updatedAt: Date.now(),
+      });
+    } else {
+      removeSessionLinkAnonDedupEntry(dedupKey);
+    }
   } catch (error) {
     if (error instanceof ApiError && (error.status === 404 || error.status === 501)) {
       markLinkAnonUnsupported();

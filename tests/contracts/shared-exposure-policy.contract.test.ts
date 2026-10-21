@@ -17,6 +17,8 @@ function read(relPath: string): string {
 describe("shared discoverability exposure policy", () => {
   it("centralizes private-flow and shared final deny path detection", () => {
     expect(PRIVATE_FLOW_ROUTE_EXCLUDES).toEqual([
+      "/account",
+      "/account/*",
       "/result/*",
       "/orders/*",
       "/share/*",
@@ -27,6 +29,8 @@ describe("shared discoverability exposure policy", () => {
     ]);
 
     for (const sample of [
+      "/zh/account",
+      "/en/account?section=reports",
       "/en/tests/mbti-personality-test-16-personality-types/take",
       "/zh/tests/mbti-personality-test-16-personality-types/take?step=1",
       "/en/result/example",
