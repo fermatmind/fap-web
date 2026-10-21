@@ -47,6 +47,29 @@ describe("llms-full rebuild amplification guard", () => {
     expect(replacement).toHaveBeenCalledTimes(1);
   });
 
+  it("lets a new release retry an old release failure without losing its own cooldown", async () => {
+    await createSharedCacheDirectory();
+    process.env.FERMATMIND_LLMS_FULL_GENERATOR_VERSION = "a".repeat(64);
+    process.env.NEXT_PUBLIC_RELEASE = "1".repeat(40);
+    const cache = await import("@/lib/seo/llmsFullResponseCache");
+    await expect(cache.getOrStartLlmsFullBuild(SITE_URL, async () => null)).resolves.toBeNull();
+
+    process.env.NEXT_PUBLIC_RELEASE = "2".repeat(40);
+    const replacement = vi.fn(async () => null);
+    await expect(cache.getOrStartLlmsFullBuild(SITE_URL, replacement)).resolves.toBeNull();
+    expect(replacement).toHaveBeenCalledTimes(1);
+    const suppressed = vi.fn(async () => "complete");
+    await expect(cache.getOrStartLlmsFullBuild(SITE_URL, suppressed)).resolves.toBeNull();
+    expect(suppressed).not.toHaveBeenCalled();
+    process.env.NEXT_PUBLIC_RELEASE = "1".repeat(40);
+    await expect(cache.getOrStartLlmsFullBuild(SITE_URL, suppressed)).resolves.toBeNull();
+    process.env.NEXT_PUBLIC_RELEASE = "2".repeat(40);
+    await expect(cache.getOrStartLlmsFullBuild(SITE_URL, suppressed)).resolves.toBeNull();
+    expect(suppressed).not.toHaveBeenCalled();
+    const cooldown = JSON.parse(await readFile(cache.getLlmsFullBuildCooldownPath(SITE_URL), "utf8"));
+    expect(cooldown.revision).toBe("2".repeat(40));
+  });
+
   it("does not carry a failed generator cooldown into a corrected generator", async () => {
     await createSharedCacheDirectory();
     process.env.FERMATMIND_LLMS_FULL_GENERATOR_VERSION = "a".repeat(64);

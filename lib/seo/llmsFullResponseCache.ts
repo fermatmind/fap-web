@@ -16,6 +16,7 @@ type LlmsFullResponseCache = {
 
 type LlmsFullBuildCooldown = {
   siteUrl: string;
+  revision: string;
   generation: string;
   generatorVersion: string;
   retryAfterMs: number;
@@ -78,10 +79,12 @@ export function getLlmsFullSharedCachePath(siteUrl = "default"): string {
   );
 }
 
+// Failed attempts belong to one release; compatible successful artifacts and
+// the shared build lease still span releases.
 export function getLlmsFullBuildCooldownPath(siteUrl = "default"): string {
   return path.join(
     getLlmsFullSharedCacheDirectory(),
-    `fermatmind-llms-full-build-cooldown.${siteCacheId(siteUrl)}.v1.json`
+    `fermatmind-llms-full-build-cooldown.${siteCacheId(`${siteUrl}|${runtimeRevision()}`)}.v1.json`
   );
 }
 
@@ -250,6 +253,7 @@ async function hasActiveBuildCooldown(siteUrl: string): Promise<boolean> {
     const payload = JSON.parse(raw) as Partial<LlmsFullBuildCooldown>;
 
     return payload.siteUrl === siteUrl &&
+      payload.revision === runtimeRevision() &&
       payload.generation === await readInvalidationGeneration(siteUrl) &&
       payload.generatorVersion === generatorVersion() &&
       Number(payload.retryAfterMs) > Date.now();
@@ -272,6 +276,7 @@ async function writeBuildCooldown(siteUrl: string, generation: string, buildGene
     const temporary = path.join(temporaryDirectory, "cooldown.json");
     const payload: LlmsFullBuildCooldown = {
       siteUrl,
+      revision: runtimeRevision(),
       generation,
       generatorVersion: buildGeneratorVersion,
       retryAfterMs: Date.now() + LLMS_FULL_BUILD_FAILURE_COOLDOWN_MS,
