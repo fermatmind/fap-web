@@ -81,6 +81,7 @@ test.describe("MBTI history account-center entry", () => {
     await page.getByRole("link", { name: "My Account", exact: true }).click();
     await expect(page).toHaveURL("/en/account");
     await expect(page.getByRole("heading", { level: 1, name: "Overview" })).toBeVisible();
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
     await page.getByRole("link", { name: "Recover results by email", exact: true }).click();
     await expect(page).toHaveURL("/en/results/lookup");
     await expect(page.getByRole("heading", { level: 1, name: "Find saved results" })).toBeVisible();

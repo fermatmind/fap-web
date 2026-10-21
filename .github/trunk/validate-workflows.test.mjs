@@ -47,7 +47,22 @@ test("browser modes retain selected scenarios in isolated jobs after fast failur
   const browser = ci.split("  browser-tests:\n")[1].split("\n  contract-shards:\n")[0];
   assert.doesNotMatch(build, /playwright|run-changed-tests/);
   assert.match(browser, /needs: \[classify, build, contracts\]/);
-  assert.match(browser, /if: contains\(needs\.classify\.outputs\.classification, 'tests\/e2e\/'\)/);
+  const condition = browser.match(/if: \$\{\{ (.+) \}\}/)[1];
+  assert.match(condition, /!cancelled\(\)/, "skipped contract shards must not implicitly skip selected browser tests");
+  const evaluate = new Function("needs", "cancelled", "contains", `return ${condition};`);
+  const needs = {
+    classify: { result: "success", outputs: { classification: 'tests/e2e/account.spec.ts' } },
+    build: { result: "success" }, contracts: { result: "success" },
+  };
+  const selected = (jobs = needs, cancelled = false) => evaluate(jobs, () => cancelled, (value, part) => value.includes(part));
+  assert.equal(selected(), true);
+  assert.equal(selected(needs, true), false);
+  assert.equal(selected({ ...needs, classify: { ...needs.classify, outputs: { classification: 'docs/guide.md' } } }), false);
+  for (const job of ["classify", "build", "contracts"]) {
+    for (const result of ["failure", "cancelled", "skipped"]) {
+      assert.equal(selected({ ...needs, [job]: { ...needs[job], result } }), false);
+    }
+  }
   assert.match(browser, /server_mode: \[default, production\]/);
   assert.match(browser, /PLAYWRIGHT_SERVER_MODE: \$\{\{ matrix\.server_mode \}\}/);
   assert.match(browser, /NEXT_PUBLIC_API_URL: http:\/\/127\.0\.0\.1:8000/);
