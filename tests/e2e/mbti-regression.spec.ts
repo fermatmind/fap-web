@@ -1033,7 +1033,7 @@ test("MBTI result uses the same clone shell across mobile and desktop viewports"
     const layout = await page.evaluate(() => {
       const hero = document.querySelector('[data-testid="mbti-hero"]')!.getBoundingClientRect();
       const logo = document.querySelector('header a[href="/"]')!.getBoundingClientRect();
-      const account = document.querySelector('header a[href="/zh/results/lookup"]')!.getBoundingClientRect();
+      const account = document.querySelector('header a[href="/zh/account"]')!.getBoundingClientRect();
       return { left: hero.left, right: hero.right, logoLeft: logo.left, accountRight: account.right, overflow: document.documentElement.scrollWidth - window.innerWidth };
     });
     expect(layout.overflow).toBeLessThanOrEqual(1);

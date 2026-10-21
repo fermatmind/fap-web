@@ -67,17 +67,29 @@ async function mockHistory(page: Page, items: Array<Record<string, unknown>>) {
 }
 
 test.describe("MBTI history account-center entry", () => {
-  test("header account entry recovers results by email for both locales", async ({ page }) => {
+  test("header opens the account center and preserves email recovery for both locales", async ({ page }) => {
     await mockCommonApis(page);
     await mockHistory(page, []);
+    await page.route("**/api/v0.3/me/account", (route) => route.fulfill({
+      json: { ok: true, account: null, preview: false },
+    }));
+    await page.route("**/api/v0.3/auth/google/challenge", (route) => route.fulfill({
+      json: { ok: true, configured: false },
+    }));
 
     await page.goto("/en");
     await page.getByRole("link", { name: "My Account", exact: true }).click();
+    await expect(page).toHaveURL("/en/account");
+    await expect(page.getByRole("heading", { level: 1, name: "Overview" })).toBeVisible();
+    await page.getByRole("link", { name: "Recover results by email", exact: true }).click();
     await expect(page).toHaveURL("/en/results/lookup");
     await expect(page.getByRole("heading", { level: 1, name: "Find saved results" })).toBeVisible();
 
     await page.goto("/zh");
     await page.getByRole("link", { name: "我的账户", exact: true }).click();
+    await expect(page).toHaveURL("/zh/account");
+    await expect(page.getByRole("heading", { level: 1, name: "仪表板" })).toBeVisible();
+    await page.getByRole("link", { name: "用邮箱找回结果", exact: true }).click();
     await expect(page).toHaveURL("/zh/results/lookup");
     await expect(page.getByRole("heading", { level: 1, name: "找回结果" })).toBeVisible();
   });
