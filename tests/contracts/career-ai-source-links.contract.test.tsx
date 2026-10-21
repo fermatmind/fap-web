@@ -1,7 +1,8 @@
 import {readFileSync} from 'node:fs';
 import {join} from 'node:path';
 import {renderToStaticMarkup} from 'react-dom/server';
-import {describe, expect, it} from 'vitest';
+import {describe, expect, it, vi} from 'vitest';
+import {render} from '@testing-library/react';
 import {CareerDossierAiImpact, supportsCareerDossierAiImpact} from '@/components/career/display/CareerDossierAiImpact';
 import type {CareerPublishedValue} from '@/lib/career/publishedComponentContract';
 import {CareerDisplaySurface} from '@/components/career/display/CareerDisplaySurface';
@@ -22,6 +23,21 @@ function withSourceUrl(url: string) {
 }
 
 describe('Career AI source links from Current files', () => {
+  it('keeps separately labelled citations to the same source without React key collisions', () => {
+    const value = structuredClone(page.display.components.ai_impact_table) as Record<string, CareerPublishedValue>;
+    const links = value.authority_links as LinkRow[];
+    links.push({...links[0], '来源': 'The same source, cited for another scope'});
+    const errors = vi.spyOn(console, 'error').mockImplementation(() => {});
+    try {
+      const {container} = render(<CareerDossierAiImpact value={value} locale="zh" />);
+      expect(container.querySelectorAll('[data-career-api-list="ai_impact_table.authority_links"] li')).toHaveLength(links.length);
+      expect(container.textContent).toContain('The same source, cited for another scope');
+      expect(errors.mock.calls.some(call => String(call[0]).includes('same key'))).toBe(false);
+    } finally {
+      errors.mockRestore();
+    }
+  });
+
   it('renders the unmodified projected AI payload and retains its answer', () => {
     const value = page.display.components.ai_impact_table;
     expect(supportsCareerDossierAiImpact(value)).toBe(true);

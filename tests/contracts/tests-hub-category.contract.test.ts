@@ -34,7 +34,7 @@ describe("tests hub and category contract", () => {
     expect(categoryExperience).toContain("免费人格测试");
     expect(categoryExperience).toContain("免费职业测试");
     expect(sharedCards).toContain("getFreeTestPrimaryLabel(item, locale)");
-    expect(hubExperience).toContain('locale === "zh" ? "免费测试"');
+    expect(hubExperience).toContain("{content.hero.title}");
     expect(contentAdapter).toContain("开始 MBTI 免费测试");
     expect(contentAdapter).toContain('return "大五人格"');
     expect(contentAdapter).toContain('return "霍兰德职业兴趣"');

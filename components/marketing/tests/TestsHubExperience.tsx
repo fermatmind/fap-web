@@ -245,7 +245,7 @@ export function TestsHubExperience({ content, locale }: { content: TestsHubConte
     >
       <Container className="max-w-[82rem] px-5 md:px-8">
         <h1 id="tests-hub-title" className="sr-only">
-          {locale === "zh" ? "免费测试" : "Free assessments"}
+          {content.hero.title}
         </h1>
         <div className="rounded-none border border-violet-100/80 bg-[linear-gradient(135deg,#fbf8ff_0%,#f5f9ff_44%,#ffffff_100%)] px-5 py-6 shadow-[0_24px_80px_rgba(88,80,160,0.10)] md:px-8 lg:px-10">
           <div className="grid gap-3 md:grid-cols-3">

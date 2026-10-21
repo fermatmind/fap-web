@@ -402,7 +402,7 @@ export function CareerDossierAiImpact({ value, locale, contentV3 = null, interfa
         <h3 id="ai-impact-sources-title">{interfaceLabels?.["interface.ai_impact.sources.heading"] ?? (locale === "zh" ? "权威来源与使用边界" : "Authoritative sources and usage boundaries")}</h3>
         <ul data-career-api-list="ai_impact_table.authority_links">
           {content.authorityLinks.map((source, index) => (
-            <li key={source["链接"]}>
+            <li key={`${source["链接"]}:${index}`}>
               <SourceLink href={source["链接"]} field={`ai_impact_table.authority_links[${index}].链接`}>{source["来源"]}</SourceLink>
               <span data-career-api-field={`ai_impact_table.authority_links[${index}].类型`}>{source["类型"]}</span>
               <span data-career-api-field={`ai_impact_table.authority_links[${index}].适用范围`}>{source["适用范围"]}</span>

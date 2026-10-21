@@ -8,7 +8,7 @@ describe("English assessment search copy", () => {
     ["BIG5_OCEAN", "OCEAN", "30 facets"],
     ["ENNEAGRAM", "9-Type", "two-option choices"],
     ["IQ_RAVEN", "Matrix Reasoning", "Free test and results"],
-    ["EQ_60", "Self-Report", "interim references"],
+    ["EQ_60", "Emotional Intelligence", "self-report"],
     ["RIASEC", "Holland Code", "three-letter code"],
   ] as const)("gives %s a distinct English search title and an accurate description", (code, term, explanation) => {
     const slug = SCALE_CANONICAL_SLUG_MAP[code];
@@ -20,7 +20,7 @@ describe("English assessment search copy", () => {
     expect(en.seoTitle!.length).toBeLessThan(65);
     expect(en.seoDescription!.length).toBeLessThan(180);
     expect(en.title).toMatch(/^Free /u);
-    if (!["MBTI", "RIASEC", "ENNEAGRAM", "IQ_RAVEN", "EQ_60"].includes(code)) {
+    if (!["MBTI", "RIASEC", "ENNEAGRAM", "IQ_RAVEN", "EQ_60", "BIG5_OCEAN"].includes(code)) {
       expect(getAssessmentLandingUi(slug, "zh")?.seoTitle).toBeUndefined();
       expect(getAssessmentLandingUi(slug, "zh")?.seoDescription).toBeUndefined();
     }
@@ -31,11 +31,11 @@ describe("English assessment search copy", () => {
     ["IQ_RAVEN", "en", "Free IQ Test", "Free IQ Test: 30 Matrix Reasoning Questions & Free Results", "30 original visual matrix reasoning questions"],
     ["MBTI", "zh", "MBTI 16 型人格免费测试", "MBTI 免费测试：16 型人格与偏好解读", "了解你的 16 型人格结果与四组偏好。"],
     ["MBTI", "en", "Free 16-Type MBTI-Style Personality Test", "Free MBTI Personality Test: 16 Types & Preferences", "Learn about your 16-type personality result and four preference pairs."],
-    ["RIASEC", "zh", "霍兰德职业兴趣免费测试（RIASEC）", "霍兰德职业兴趣免费测试（RIASEC）", "了解你更喜欢哪些工作活动"],
-    ["RIASEC", "en", "Free Holland Code Career Interest Test (RIASEC)", "Free Holland Code Career Test: RIASEC Interests", "Explore the work activities you prefer,"],
-    ["BIG5_OCEAN", "en", "Free Big Five Personality Test", "Free Big Five Personality Test: OCEAN Traits", "five continuous OCEAN dimensions"],
-    ["EQ_60", "zh", "免费情商测试：60题情绪与关系自评", "免费情商测试：60题情绪与关系自评", "约10分钟完成60题自评"],
-    ["EQ_60", "en", "Free EQ Test: 60-Item Emotion and Relationship Self-Report", "Free EQ Test: 60-Item Emotion and Relationship Self-Report", "Complete 60 self-report items in about 10 minutes."],
+    ["RIASEC", "zh", "霍兰德职业兴趣免费测试（RIASEC）", "免费霍兰德职业兴趣测试：RIASEC 六维与三字代码", "了解你更喜欢哪些工作活动"],
+    ["RIASEC", "en", "Free Holland Code Career Interest Test (RIASEC)", "Free Career Interest Test: Holland Code (RIASEC)", "Find work activities you would like to explore"],
+    ["BIG5_OCEAN", "en", "Free Big Five Personality Test", "Free Big Five Personality Test: OCEAN Traits & Results", "five continuous personality traits"],
+    ["EQ_60", "zh", "免费情商测试：60题情绪与关系自评", "免费情商测试（EQ）：60题自评与四维结果", "约10分钟完成60题情商自评"],
+    ["EQ_60", "en", "Free Emotional Intelligence Test (EQ)", "Free Emotional Intelligence Test (EQ) & Results", "60-question emotional intelligence self-report in about 10 minutes"],
     ["ENNEAGRAM", "zh", "九型人格免费测试（Enneagram）", "九型人格免费测试（Enneagram）", "了解你的九型分布与候选类型。"],
     ["ENNEAGRAM", "en", "Free Enneagram Personality Test", "Free Enneagram Test: Explore Your 9-Type Profile", "Explore your nine-type distribution and candidate types."],
   ] as const)("keeps the approved %s %s H1, search title and hero introduction", (code, locale, title, seoTitle, heroStart) => {
