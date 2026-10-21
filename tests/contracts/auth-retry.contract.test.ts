@@ -1,8 +1,8 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import { saveAccountSession, clearAccountSession } from "@/lib/account/storage";
 import { ApiError } from "@/lib/api-client";
 import { ensureFmTokenReady, runWithGuestTokenRetry } from "@/lib/auth/authRetry";
 import {
-  clearFmToken,
   getFmToken,
   GuestTokenRequestError,
   requestGuestToken,
@@ -12,7 +12,41 @@ import {
 describe("auth guest token retry contract", () => {
   beforeEach(() => {
     vi.restoreAllMocks();
-    clearFmToken();
+    clearAccountSession();
+  });
+
+  it("does not silently downgrade an expired account to a guest", async () => {
+    saveAccountSession("fm_aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee");
+    const fetch = vi.fn(); vi.stubGlobal("fetch", fetch);
+    const error = new ApiError({status:401,errorCode:"UNAUTHENTICATED",message:"Expired"});
+    const runner = vi.fn().mockRejectedValue(error);
+    await expect(runWithGuestTokenRetry({runner, locale:"en"})).rejects.toBe(error);
+    expect(fetch).not.toHaveBeenCalled(); expect(runner).toHaveBeenCalledTimes(1); expect(getFmToken()).toBeNull();
+  });
+
+  it("does not overwrite a newer account with a delayed guest response", async () => {
+    let resolve!: (value: Response) => void;
+    vi.stubGlobal("fetch", vi.fn(() => new Promise<Response>(r => {resolve = r;})));
+    const pending = requestGuestToken({anonId:"test-browser",locale:"en"});
+    saveAccountSession("fm_aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee");
+    resolve(new Response(JSON.stringify({ok:true,fm_token:"fm_11111111-2222-3333-4444-555555555555"}),{status:200}));
+    await expect(pending).resolves.toBe("fm_aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee");
+    expect(getFmToken()).toBe("fm_aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee");
+  });
+
+  it("preserves an account when the existing result bootstrap requests a forced guest refresh", async () => {
+    saveAccountSession("fm_aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee");
+    const fetch = vi.fn(); vi.stubGlobal("fetch", fetch);
+    await expect(ensureFmTokenReady({forceRefresh:true,anonId:"old-result-browser",locale:"en"})).resolves.toBe("existing");
+    expect(fetch).not.toHaveBeenCalled();
+    expect(getFmToken()).toBe("fm_aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee");
+  });
+
+  it("still refreshes an existing guest when the result bootstrap requests it", async () => {
+    setFmToken("fm_aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee");
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(JSON.stringify({ok:true,fm_token:"fm_11111111-2222-3333-4444-555555555555"}),{status:200})));
+    await expect(ensureFmTokenReady({forceRefresh:true,anonId:"old-result-browser",locale:"en"})).resolves.toBe("issued");
+    expect(getFmToken()).toBe("fm_11111111-2222-3333-4444-555555555555");
   });
 
   it("stores guest token on success", async () => {

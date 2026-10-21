@@ -1,3 +1,4 @@
+import { readOwnershipProofs, saveOwnershipProof } from "@/lib/account/storage";
 import { getFmToken } from "@/lib/auth/fmToken";
 import { getOrCreateAnonId, removePendingAnonLinkAttempts } from "@/lib/anon";
 import { buildApiUrl } from "@/lib/api-base";
@@ -2457,6 +2458,8 @@ export type BootResponse = {
 };
 
 export type MeAttemptItem = {
+  has_result?: boolean;
+  question_count?: number;
   attempt_id: string;
   scale_code?: string;
   submitted_at?: string | null;
@@ -3137,7 +3140,9 @@ export async function startAttempt({
     )
   );
 
-  return assertApiOk(response, "Failed to start attempt.");
+  const started = assertApiOk(response, "Failed to start attempt.");
+  saveOwnershipProof(started.attempt_id, started.resume_token);
+  return started;
 }
 
 export async function fetchScaleQuestions({
@@ -3978,11 +3983,14 @@ export async function linkAnonAttempts({
     };
   }
 
+  const proofs = readOwnershipProofs().filter(proof => normalizedAttemptIds.includes(proof.attempt_id));
+  if (proofs.length === 0) return {ok: true, linked_attempt_ids: [], skipped_attempt_ids: normalizedAttemptIds};
+
   const response = await apiClient.post<LinkAnonAttemptsResponse>(
     "/v0.3/me/attempts/link-anon",
     {
       anon_id: normalizedAnonId,
-      attempt_ids: normalizedAttemptIds,
+      proofs,
     },
     {
       ...anonHeader(normalizedAnonId),

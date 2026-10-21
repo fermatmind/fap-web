@@ -528,7 +528,7 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
   applyNonceCspHeaders(requestHeaders, cspNonce);
   // Next.js reads the nonce from the incoming CSP request header even during
   // the report-only rollout phase; only the outgoing response controls enforcement.
-  requestHeaders.set("Content-Security-Policy", buildNonceCsp(cspNonce));
+  requestHeaders.set("Content-Security-Policy", buildNonceCsp(cspNonce, strippedPath === "/account"));
   requestHeaders.delete("x-anon-id");
   requestHeaders.delete(PRIVATE_ANALYTICS_SUPPRESSION_HEADER);
   requestHeaders.delete(RESULT_PAGE_SNAPSHOT_SHELL_HEADER);
@@ -559,7 +559,7 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
       headers: requestHeaders,
     },
   });
-  applyNonceCspHeaders(response.headers, cspNonce);
+  applyNonceCspHeaders(response.headers, cspNonce, strippedPath === "/account");
 
   if (shouldAttachAnon && resolvedAnonId && (!cookieAnonId || cookieAnonId !== resolvedAnonId)) {
     response.cookies.set({
@@ -580,6 +580,11 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
     response.headers.set("X-Robots-Tag", PRIVATE_NOINDEX_VALUE);
     response.headers.set("Cache-Control", PRIVATE_CACHE_CONTROL_VALUE);
     response.headers.set("Referrer-Policy", "no-referrer");
+    if (strippedPath === "/account") {
+      const localPreview = ["localhost", "127.0.0.1"].includes(request.nextUrl.hostname);
+      response.headers.set("Referrer-Policy", localPreview ? "no-referrer-when-downgrade" : "strict-origin-when-cross-origin");
+      response.headers.set("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
+    }
   }
 
   return response;

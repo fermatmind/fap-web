@@ -1,4 +1,6 @@
 export const PRIVATE_FLOW_ROUTE_EXCLUDES = [
+  "/account",
+  "/account/*",
   "/result/*",
   "/orders/*",
   "/share/*",
@@ -9,6 +11,7 @@ export const PRIVATE_FLOW_ROUTE_EXCLUDES = [
 ] as const;
 
 export const SHARED_DISCOVERABILITY_DENY_PATH_PATTERNS: readonly RegExp[] = [
+  /^\/account(\/|$)/i,
   /^\/cms-preview(\/|$)/i,
   /^\/api(\/|$)/i,
   /^\/og(\/|$)/i,

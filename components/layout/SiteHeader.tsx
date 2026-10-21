@@ -345,7 +345,7 @@ export function SiteHeader({
               <LocaleSwitcher />
 
               <Link
-                href={withLocale("/results/lookup")}
+                href={withLocale("/account")}
                 prefetch={false}
                 className={startButtonClass}
               >
@@ -466,7 +466,7 @@ export function SiteHeader({
             <div className="shrink-0 border-t border-[var(--fm-border-soft)] bg-[var(--fm-bg-page)] p-4">
               <div className="flex items-center gap-2">
                 <Link
-                  href={withLocale("/results/lookup")}
+                  href={withLocale("/account")}
                   prefetch={false}
                   className={`${buttonVariants({ size: "sm" })} flex-1 justify-center`}
                   onClick={handleMobileLinkClick}

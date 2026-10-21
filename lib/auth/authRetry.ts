@@ -1,3 +1,4 @@
+import { clearAccountSession, isAccountSession } from "@/lib/account/storage";
 import { ApiError } from "@/lib/api-client";
 import { getFmToken, requestGuestToken } from "@/lib/auth/fmToken";
 
@@ -20,6 +21,11 @@ export async function runWithGuestTokenRetry<T>({
     return await runner();
   } catch (error) {
     if (!isUnauthorizedApiError(error)) {
+      throw error;
+    }
+
+    if (isAccountSession()) {
+      clearAccountSession();
       throw error;
     }
 
@@ -46,7 +52,7 @@ export async function ensureFmTokenReady({
   locale?: string;
   forceRefresh?: boolean;
 }): Promise<"existing" | "issued"> {
-  if (!forceRefresh && getFmToken()) {
+  if (getFmToken() && (!forceRefresh || isAccountSession())) {
     return "existing";
   }
 

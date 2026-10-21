@@ -199,6 +199,7 @@ async function request<T>(method: string, path: string, body?: Json, init: Reque
 }
 
 export const apiClient = {
+  patch: <T>(path: string, body?: Json, init?: RequestOptions) => request<T>("PATCH", path, body, init),
   get: <T>(path: string, init?: RequestOptions) => request<T>("GET", path, undefined, init),
   getPublic: async <T>(path: string, init?: RequestOptions) => {
     try {

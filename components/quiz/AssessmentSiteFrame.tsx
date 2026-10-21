@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type { ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import styles from "./AssessmentTake.module.css";
 
@@ -16,8 +16,17 @@ export function AssessmentSiteFrame({ children, header, footer, locale }: {
   locale: Locale;
 }) {
   const pathname = usePathname();
+  useEffect(() => {
+    const changed = (event: StorageEvent) => {
+      if (event.key === "fm_account_session_v1" && event.oldValue !== event.newValue) window.location.reload();
+    };
+    window.addEventListener("storage", changed);
+    return () => window.removeEventListener("storage", changed);
+  }, []);
   const focusedSlug = FOCUSED_ASSESSMENT_SLUGS.find((slug) => pathname === localizedPath(`/tests/${slug}/take`, locale));
   const focused = Boolean(focusedSlug) && isImmersiveSingleFlowEnabled();
+
+  if (pathname === localizedPath("/account", locale)) return <>{children}</>;
 
   if (!focused) {
     return <div className="fm-page-background min-h-screen text-[var(--fm-text)]">{header}{children}{footer}</div>;

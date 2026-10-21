@@ -161,6 +161,7 @@ export async function requestGuestToken({
   anonId?: string;
   locale?: string;
 } = {}): Promise<string> {
+  const previousToken = getFmToken();
   const headers = new Headers({
     "Content-Type": "application/json",
     Accept: "application/json",
@@ -217,6 +218,9 @@ export async function requestGuestToken({
     });
   }
 
+  // A delayed guest response must not replace a newer sign-in or another guest session.
+  const currentToken = getFmToken();
+  if (currentToken && currentToken !== previousToken) return currentToken;
   setFmToken(token);
   return token;
 }
