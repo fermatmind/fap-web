@@ -49,7 +49,7 @@ export const getAccount = () =>
 export const getLoginChallenge = () =>
   apiClient.post<LoginChallenge>("/v0.3/auth/google/challenge", {});
 export const requestEmailLogin = (email: string, locale: string) =>
-  apiClient.post("/v0.3/auth/account/email", { email, locale });
+  apiClient.post<{ verification_email_sent: boolean; verification_email_captured?: boolean }>("/v0.3/auth/account/email", { email, locale });
 export const googleLogin = (
   credential: string,
   challenge_id: string,

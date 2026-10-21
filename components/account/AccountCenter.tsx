@@ -21,7 +21,6 @@ import {
   HelpCircle,
   House,
   LayoutGrid,
-  LoaderCircle,
   LogOut,
   Settings,
   ShieldCheck,
@@ -218,6 +217,7 @@ function GoogleLogin({
   const [sent, setSent] = useState(false);
   const [email, setEmail] = useState("");
   const [emailSent, setEmailSent] = useState(false);
+  const [emailCaptured, setEmailCaptured] = useState(false);
   const target = useRef<HTMLDivElement>(null);
   const refresh = useCallback(async () => {
     setError("");
@@ -274,6 +274,7 @@ function GoogleLogin({
       element.innerHTML = "";
     };
   }, [ready, challenge, locale, onSession, refresh, zh]);
+  if (!allowEmail && !challenge?.configured) return null;
   return (
     <div className={styles.login}>
       <ShieldCheck size={22} aria-hidden="true" />
@@ -293,7 +294,8 @@ function GoogleLogin({
           setBusy(true);
           setError("");
           try {
-            await requestEmailLogin(email.trim(), locale);
+            const delivery = await requestEmailLogin(email.trim(), locale);
+            setEmailCaptured(delivery.verification_email_captured === true);
             setEmailSent(true);
           } catch (e) {
             setError(e instanceof ApiError && e.status === 429
@@ -309,24 +311,25 @@ function GoogleLogin({
               value={email} onChange={(event) => {
                 setEmail(event.target.value);
                 setEmailSent(false);
+                setEmailCaptured(false);
               }} />
           </label>
           <button type="submit" className={styles.primary} disabled={busy}>
             {busy
               ? (zh ? "请稍候…" : "Please wait…")
               : emailSent
-                ? (zh ? "重新发送登录邮件" : "Resend sign-in email")
+                ? (emailCaptured ? (zh ? "重新生成测试邮件" : "Regenerate test email") : (zh ? "重新发送登录邮件" : "Resend sign-in email"))
                 : (zh ? "用邮箱登录 / 注册" : "Continue with email")}
           </button>
           <p>{zh
             ? "无需密码。首次验证邮箱后创建账号，登录链接15分钟内有效。"
             : "No password needed. Verify a new email to create an account. Sign-in links expire in 15 minutes."}</p>
-          {emailSent && <p role="status">{zh
-            ? "登录邮件已发送。请在收件箱或垃圾邮件中查收，打开链接后确认登录。"
-            : "Check your inbox or spam folder. Open the email link and confirm to sign in."}</p>}
+          {emailSent && <p role="status">{emailCaptured
+            ? (zh ? "测试环境：验证邮件已记录，未实际投递。请使用测试邮件中的链接验收。" : "Test environment: the email was captured, not delivered. Use the captured verification link to test sign-in.")
+            : (zh ? "登录邮件已发送。请在收件箱或垃圾邮件中查收，打开链接后确认登录。" : "Check your inbox or spam folder. Open the email link and confirm to sign in.")}</p>}
         </form>
       )}
-      {allowEmail && (
+      {allowEmail && challenge?.configured && (
         <p className={styles.loginDivider}>
           {zh ? "或使用 Google 继续" : "Or continue with Google"}
         </p>
@@ -352,19 +355,7 @@ function GoogleLogin({
             </span>
           )}
         </>
-      ) : challenge ? (
-        <p role="status">
-          {zh
-            ? "Google 登录暂不可用。你可以使用邮箱登录。"
-            : "Google sign-in is unavailable. You can sign in with email."}
-        </p>
-      ) : (
-        <LoaderCircle
-          className={styles.spin}
-          size={20}
-          aria-label={zh ? "加载中" : "Loading"}
-        />
-      )}
+      ) : null}
       {ticket && (
         <div className={styles.notice}>
           <p>
@@ -403,7 +394,7 @@ function GoogleLogin({
           {zh ? "用邮箱找回结果" : "Recover results by email"}{" "}
           <ArrowRight size={14} aria-hidden="true" />
         </Link>
-        <button
+        {challenge?.configured && <button
           type="button"
           className={styles.textButton}
           disabled={busy}
@@ -413,7 +404,7 @@ function GoogleLogin({
           }}
         >
           {zh ? "重新加载登录" : "Reload sign-in"}
-        </button>
+        </button>}
       </div>
     </div>
   );

@@ -351,7 +351,9 @@ describe("account center", () => {
   it("keeps email recovery available when Google is unconfigured", async () => {
     mocks.account.mockResolvedValue({ account: null, preview: true });
     render(<AccountCenter locale="zh" />);
-    await screen.findByText(/Google 登录暂不可用/);
+    await screen.findByRole("button", { name: "用邮箱登录 / 注册" });
+    expect(screen.queryByText("或使用 Google 继续")).not.toBeInTheDocument();
+    expect(screen.queryByText("正在加载 Google 登录…")).not.toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: /用邮箱找回结果/ }),
     ).toHaveAttribute("href", "/zh/results/lookup");
@@ -366,6 +368,16 @@ describe("account center", () => {
     await screen.findByText(/登录邮件已发送/);
     expect(mocks.emailLogin).toHaveBeenCalledWith("owner@example.test", "zh");
     expect(screen.getByText(/无需密码/)).toBeInTheDocument();
+  });
+
+  it("identifies captured test mail without claiming delivery", async () => {
+    mocks.account.mockResolvedValue({ account: null, preview: true });
+    mocks.emailLogin.mockResolvedValue({ verification_email_sent: false, verification_email_captured: true });
+    render(<AccountCenter locale="zh" />);
+    fireEvent.change(await screen.findByRole("textbox", { name: "邮箱" }), { target: { value: "preview@example.test" } });
+    fireEvent.click(screen.getByRole("button", { name: "用邮箱登录 / 注册" }));
+    await screen.findByText(/测试环境：验证邮件已记录，未实际投递/);
+    expect(screen.queryByText(/登录邮件已发送/)).not.toBeInTheDocument();
   });
 
   it("opens an email proof arriving in the current tab and removes it from the address", async () => {
