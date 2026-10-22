@@ -36,7 +36,7 @@ export function CareerRiasecExploreLink({ locale, careerName, href, subjectSlug 
         ? "把本页与另外 1—2 个职业放在一起，记录实际任务、入行要求和工作条件的差异；还不知道的信息先留作待核问题。"
         : "Compare this page with one or two other careers. Note differences in tasks, entry requirements and working conditions, and keep unknowns as questions to investigate.",
       label: zh ? "去职业库查找其他候选" : "Find other options in the career library",
-      path: `/${locale}/career/jobs`,
+      path: `/${locale}/career`,
       action: "browse_career_options",
     },
     {

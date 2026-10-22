@@ -31,7 +31,8 @@ describe.each<Locale>(["zh", "en"])("career detail next steps: %s", locale => {
     expect(doc.querySelectorAll("a")).toHaveLength(4);
     expect(doc.querySelector("script")).toBeNull();
     expect(doc.querySelector("h2")?.textContent).toContain("Materials <script>private</script>");
-    for (const path of ["tests", "jobs", "guides"]) expect(doc.querySelector(`a[href="/${locale}/career/${path}"]`)).not.toBeNull();
+    for (const path of ["/career/tests", "/career", "/career/guides"]) expect(doc.querySelector(`a[href="/${locale}${path}"]`)).not.toBeNull();
+    expect(doc.querySelector(`a[href="/${locale}/career/jobs"]`)).toBeNull();
     const riasec = new URL(doc.querySelector('[data-target-action="start_riasec_test"]')!.getAttribute("href")!, "https://fermatmind.com");
     expect(riasec.pathname).toBe(`/${locale}/tests/holland-career-interest-test-riasec`);
     expect(riasec.searchParams.get("subject_key")).toBe("materials-scientists");
