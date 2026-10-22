@@ -22,7 +22,9 @@ type Copy = {
   assessmentMap: Array<{ goal: string; test: string; output: string; path: string }>;
   comparisonTitle: string;
   comparisonColumns: string[];
-  comparison: Array<{ subject: string; holland: string; mbti: string }>;
+  comparison: Array<{ subject: string; holland: string; mbti: string; bigFive: string }>;
+  comparisonNote: string;
+  comparisonReading: Array<{ title: string; href: string }>;
   scopeTitle: string;
   scope: Array<{ title: string; body: string }>;
   nextTitle: string;
@@ -47,13 +49,18 @@ const COPY = {
       { goal: "想反思偏好与沟通方式", test: "MBTI 偏好测试", output: "偏好维度与类型解释，不能替代职业兴趣或能力评估。", path: "/tests/mbti-personality-test-16-personality-types" },
       { goal: "想了解连续的人格特质", test: "大五人格测试", output: "五个连续人格维度及其解释，不能单独决定职业。", path: "/tests/big-five-personality-test-ocean-model" },
     ],
-    comparisonTitle: "霍兰德 vs MBTI：职业选择时分别怎么用？",
-    comparisonColumns: ["比较项目", "霍兰德 RIASEC", "MBTI 偏好"],
+    comparisonTitle: "霍兰德、MBTI 与大五：分别帮助你观察什么？",
+    comparisonColumns: ["比较项目", "霍兰德 RIASEC", "MBTI 风格偏好", "大五连续特质"],
     comparison: [
-      { subject: "主要问题", holland: "更愿意投入哪些工作活动和环境？", mbti: "如何描述自己的偏好与互动方式？" },
-      { subject: "结果形式", holland: "六维兴趣分布与三字代码。", mbti: "偏好维度与类型解释。" },
-      { subject: "职业探索用途", holland: "提出活动与职业方向，再核对真实任务。", mbti: "反思工作方式与协作情境，再与实际经历比较。" },
-      { subject: "共同边界", holland: "兴趣不等于技能、资格或职业成功率。", mbti: "类型不等于技能、资格或职业成功率。" },
+      { subject: "主要问题", holland: "更愿意投入哪些工作活动和环境？", mbti: "如何描述自己的偏好与互动方式？", bigFive: "通常如何行动、协作及应对压力？" },
+      { subject: "结果形式", holland: "六维兴趣分布与三字代码。", mbti: "偏好维度与类型解释。", bigFive: "五个连续维度及其解释。" },
+      { subject: "职业探索用途", holland: "提出活动与职业方向，再核对真实任务。", mbti: "反思工作方式与协作情境，再与实际经历比较。", bigFive: "观察一般行为倾向，再核对具体情境与反例。" },
+      { subject: "共同边界", holland: "兴趣不等于技能、资格或职业成功率。", mbti: "类型不等于技能、资格或职业成功率。", bigFive: "特质不能换成兴趣代码，也不能决定岗位胜任力。" },
+    ],
+    comparisonNote: "先按问题选择工具：工作活动看兴趣，沟通方式可参考偏好，一般行为倾向可参考连续特质。后两者按需补充，不必全部做完；费马 MBTI 风格题本为本站自有偏好工具，不代表官方 MBTI 认证。用真实任务、技能和条件继续核对。",
+    comparisonReading: [
+      { title: "MBTI 和霍兰德结果不一致时，怎样继续探索", href: "/articles/mbti-vs-holland-career-choice" },
+      { title: "为什么大五特质不能换成 RIASEC 兴趣代码", href: "/articles/big-five-vs-riasec-personality-traits-and-career-interests" },
     ],
     scopeTitle: "选择职业测试前，先分清三个问题",
     scope: [
@@ -90,13 +97,18 @@ const COPY = {
       { goal: "How can I reflect on preferences and communication?", test: "MBTI-style preference test", output: "Preference dimensions and type explanations, not an interest or ability assessment.", path: "/tests/mbti-personality-test-16-personality-types" },
       { goal: "What are my continuous personality traits?", test: "Big Five personality test", output: "Five continuous trait dimensions and explanations, not a career decision on their own.", path: "/tests/big-five-personality-test-ocean-model" },
     ],
-    comparisonTitle: "Holland Code vs. MBTI: how can each inform career exploration?",
-    comparisonColumns: ["Comparison", "Holland Code / RIASEC", "MBTI-style preferences"],
+    comparisonTitle: "Holland Code, MBTI, and Big Five: what does each help you observe?",
+    comparisonColumns: ["Comparison", "Holland Code / RIASEC", "MBTI-style preferences", "Big Five traits"],
     comparison: [
-      { subject: "Main question", holland: "Which work activities and environments would I enjoy?", mbti: "How do I describe my preferences and interactions?" },
-      { subject: "Results", holland: "Six interest areas and a three-letter code.", mbti: "Preference dimensions and type explanations." },
-      { subject: "Career use", holland: "Suggest activities and directions, then check real work tasks.", mbti: "Reflect on work styles and collaboration, then compare real experiences." },
-      { subject: "Shared limits", holland: "Interests do not establish skills, qualifications or career success rates.", mbti: "Types do not establish skills, qualifications or career success rates." },
+      { subject: "Main question", holland: "Which work activities and environments would I enjoy?", mbti: "How do I describe my preferences and interactions?", bigFive: "How do I usually act, collaborate, and respond to pressure?" },
+      { subject: "Results", holland: "Six interest areas and a three-letter code.", mbti: "Preference dimensions and type explanations.", bigFive: "Five continuous dimensions and explanations." },
+      { subject: "Career use", holland: "Suggest activities and directions, then check real work tasks.", mbti: "Reflect on work styles and collaboration, then compare real experiences.", bigFive: "Observe general tendencies, then check situations and counterexamples." },
+      { subject: "Shared limits", holland: "Interests do not establish skills, qualifications or career success rates.", mbti: "Types do not establish skills, qualifications or career success rates.", bigFive: "Traits cannot become interest codes or establish job competence." },
+    ],
+    comparisonNote: "Choose by your question: interests for work activities, optional preference reflection for communication, and optional continuous traits for general tendencies. You do not need all three tests. FermatMind uses its own MBTI-style preference questionnaires, not official MBTI certification instruments. Continue with evidence about tasks, skills, and conditions.",
+    comparisonReading: [
+      { title: "How to explore different MBTI and Holland results", href: "/articles/mbti-vs-holland-code-career-choice" },
+      { title: "Why Big Five traits cannot become a RIASEC code", href: "/articles/big-five-vs-riasec-personality-traits-and-career-interests" },
     ],
     scopeTitle: "Three questions to separate before choosing a career test",
     scope: [
@@ -198,9 +210,14 @@ export default async function CareerTestsPage({ params }: PageProps) {
               <th scope="row" className="border-b border-slate-200 p-3 align-top font-medium">{item.subject}</th>
               <td className="border-b border-slate-200 p-3 align-top text-slate-600">{item.holland}</td>
               <td className="border-b border-slate-200 p-3 align-top text-slate-600">{item.mbti}</td>
+              <td className="border-b border-slate-200 p-3 align-top text-slate-600">{item.bigFive}</td>
             </tr>)}</tbody>
           </table>
         </div>
+        <p className="m-0 text-sm leading-7 text-slate-600">{copy.comparisonNote}</p>
+        <ul className="m-0 list-disc space-y-3 pl-5" data-testid="career-tests-comparison-reading">
+          {copy.comparisonReading.map(item => <li key={item.href}><Link href={withLocale(item.href)} className="text-sm underline underline-offset-4">{item.title}</Link></li>)}
+        </ul>
       </section>
 
       <section aria-labelledby="career-tests-scope" className="mx-auto max-w-4xl space-y-6">
