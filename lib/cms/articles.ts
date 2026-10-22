@@ -18,7 +18,7 @@ import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurf
 import { canonicalUrl } from "@/lib/site";
 
 const DEFAULT_ORG_ID = "0";
-// These controlled IQ/EQ articles must reflect publication and withdrawal on every
+// These controlled articles must reflect publication and withdrawal on every
 // detail/SEO read across Next workers. Their LKG wrappers already fail closed.
 const LIVE_AUTHORITATIVE_ARTICLE_SLUGS = new Set([
   "iq-test-score-and-limits-explained",
@@ -31,6 +31,10 @@ const LIVE_AUTHORITATIVE_ARTICLE_SLUGS = new Set([
   "emotional-intelligence-models-and-measures",
   "eq60-score-and-results-guide",
   "emotional-awareness-regulation-and-relationship-practice",
+  "riasec-holland-career-interest-test-explained",
+  "what-is-riasec-holland-code-career-interest-test",
+  "mbti-vs-holland-career-choice",
+  "mbti-vs-holland-code-career-choice",
 ]);
 const DEFAULT_LIST_PER_PAGE = 20;
 const DEFAULT_ENUMERATION_PER_PAGE = 100;

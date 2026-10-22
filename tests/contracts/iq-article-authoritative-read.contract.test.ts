@@ -2,14 +2,15 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { getCmsArticle, getCmsArticleSeo, getCmsArticleWithLastKnownGood, getCmsArticleSeoWithLastKnownGood } from "@/lib/cms/articles";
 import { clearLastKnownGoodForTests } from "@/lib/cms/last-known-good";
 
-const slugs = ["iq-test-score-and-limits-explained", "iq-test-tool-guide", "iq-test-narrative-portrait", "iq-test-growth-guide", "what-is-iq-and-how-it-is-measured", "online-iq-tests-compared", "eq-test-tool-guide", "emotional-intelligence-models-and-measures", "eq60-score-and-results-guide", "emotional-awareness-regulation-and-relationship-practice"];
+const riasecSlugs = ["riasec-holland-career-interest-test-explained", "what-is-riasec-holland-code-career-interest-test", "mbti-vs-holland-career-choice", "mbti-vs-holland-code-career-choice"];
+const slugs = ["iq-test-score-and-limits-explained", "iq-test-tool-guide", "iq-test-narrative-portrait", "iq-test-growth-guide", "what-is-iq-and-how-it-is-measured", "online-iq-tests-compared", "eq-test-tool-guide", "emotional-intelligence-models-and-measures", "eq60-score-and-results-guide", "emotional-awareness-regulation-and-relationship-practice", ...riasecSlugs];
 const response = (payload: unknown, status = 200) => new Response(JSON.stringify(payload), { status, headers: { "Content-Type": "application/json" } });
 const article = (slug: string, locale: string, revision = 1) => ({ ok: true, article: { id: 1, org_id: 0, slug, locale, title: "Current reasoning guide", excerpt: "Current limits", content_md: `Current body ${revision}`, status: "published", is_public: true, is_indexable: false, published_revision_id: revision } });
 const seo = (slug: string) => ({ meta: { title: "Current reasoning guide", description: "Current limits", canonical: `https://fermatmind.com/en/articles/${slug}`, robots: "noindex,follow" } });
 beforeEach(() => { clearLastKnownGoodForTests(); });
 afterEach(() => { vi.unstubAllGlobals(); vi.restoreAllMocks(); clearLastKnownGoodForTests(); });
 
-describe("IQ/EQ article authoritative reads", () => {
+describe("Controlled article authoritative reads", () => {
   it.each(slugs.flatMap(slug => ["en", "zh-CN"].map(locale => [slug, locale])))("reads detail and SEO without worker data cache for %s %s", async (slug, locale) => {
     const fetcher = vi.fn(async (input: RequestInfo | URL, options?: RequestInit) => { void options; return String(input).includes("/seo?") ? response(seo(slug)) : response(article(slug, locale)); });
     vi.stubGlobal("fetch", fetcher);
@@ -29,8 +30,8 @@ describe("IQ/EQ article authoritative reads", () => {
     expect(fetcher.mock.calls[0]?.[1]).toMatchObject({ next: { revalidate: 300, tags: ["article-detail:en:unrelated-article"] } });
     expect(fetcher.mock.calls[1]?.[1]).toMatchObject({ next: { revalidate: 300, tags: ["article-seo:en:unrelated-article"] } });
   });
-  it("publication and withdrawal replace current reads without falling back to a previous body", async () => {
-    const slug = slugs[0]; let revision = 1; let status = 200;
+  it.each([slugs[0], ...riasecSlugs])("publication and withdrawal replace current reads without a previous body for %s", async (slug) => {
+    let revision = 1; let status = 200;
     vi.stubGlobal("fetch", vi.fn(async () => response(status === 200 ? article(slug, "en", revision) : { error: "not found" }, status)));
     expect((await getCmsArticleWithLastKnownGood(slug, "en")).value?.publishedRevisionId).toBe(1);
     revision = 2;
@@ -40,8 +41,7 @@ describe("IQ/EQ article authoritative reads", () => {
     status = 500;
     await expect(getCmsArticleWithLastKnownGood(slug, "en")).rejects.toThrow();
   });
-  it("a late old response cannot become the next authoritative body", async () => {
-    const slug = slugs[0];
+  it.each([slugs[0], ...riasecSlugs])("a late old response cannot become the next authoritative body for %s", async (slug) => {
     let finishOld!: (value: Response) => void;
     const old = new Promise<Response>(resolve => { finishOld = resolve; });
     const fetcher = vi.fn<(...args: [RequestInfo | URL, RequestInit?]) => Promise<Response>>()
@@ -55,8 +55,8 @@ describe("IQ/EQ article authoritative reads", () => {
     expect((await getCmsArticleWithLastKnownGood(slug, "en")).value?.publishedRevisionId).toBe(2);
     for (const [, options] of fetcher.mock.calls) expect(options?.cache).toBe("no-store");
   });
-  it("SEO withdrawal and transport failure never return prior metadata", async () => {
-    const slug = slugs[0]; let status = 200;
+  it.each([slugs[0], ...riasecSlugs])("SEO withdrawal and transport failure never return prior metadata for %s", async (slug) => {
+    let status = 200;
     vi.stubGlobal("fetch", vi.fn(async () => response(status === 200 ? seo(slug) : { error: "unavailable" }, status)));
     expect((await getCmsArticleSeoWithLastKnownGood(slug, "en")).value?.meta.title).toBe("Current reasoning guide");
     status = 404;
