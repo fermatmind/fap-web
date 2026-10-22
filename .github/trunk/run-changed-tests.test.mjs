@@ -26,6 +26,19 @@ test('assessment component and helper directories distinguish product sources fr
   }
  }
 });
+test('career assessment index is product code without suppressing real tests',()=>{
+ const route='app/(localized)/[locale]/career/tests/';
+ const contract='tests/contracts/riasec-growth-sprint.contract.test.tsx';
+ const native=route+'reader.test.mjs';
+ const plan=changedTestPlan([{status:'M',path:route+'page.tsx'},
+  {status:'A',path:contract},{status:'A',path:native}],{vitest:true});
+ assert.deepEqual(plan.vitest,[contract]);assert.deepEqual(plan.node,[native]);
+ assert.deepEqual(plan.unsupported,[]);
+ for(const suffix of ['__tests__/reader.tsx','tests/reader.tsx','reader.test.tsx','reader.rs']){
+  assert.throws(()=>changedTestPlan([{status:'A',path:route+suffix}],{vitest:true}),/Unsupported/);
+ }
+ assert.deepEqual(changedTestPlan([{status:'D',path:native}],{vitest:true}).removed,[native]);
+});
 test('changed PHP JS Python Shell execute real runner commands; removed and unsupported are explicit',()=>{
  const p=changedTestPlan(['backend/tests/Feature/AmbtiTest.php','.github/trunk/x.test.mjs','backend/tests/Sre/test_a.py','backend/tests/Sre/test_a.sh'].map(path=>({status:'A',path})).concat([{status:'D',path:'backend/tests/Feature/RemovedTest.php'}]));
  assert.equal(p.removed.length,1);const calls=[];
