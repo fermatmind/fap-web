@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { verifyInstalledBinding, verifyProductionBinding } from './production-evidence.mjs';
+import { resolveProductionCi, verifyInstalledBinding, verifyProductionBinding } from './production-evidence.mjs';
 
 const candidate = 'b'.repeat(40);
 const repository = 'fermatmind/fap-web';
@@ -73,3 +73,27 @@ for (const [name, mutate] of mutations) {
     assert.throws(() => verifyInstalledBinding(input), /UNVERIFIED_INSTALLED_ACTIVE/);
   });
 }
+
+test('production receipt binds its exact CI without a stale filtered-list lookup', () => {
+  const input = fixture();
+  const ci = { ...input.ci, path: '.github/workflows/ci.yml' };
+  const api = path => { assert.equal(path, 'actions/runs/10'); return ci; };
+  assert.equal(resolveProductionCi({ candidate, timing: input.timing, api }), ci);
+  for (const change of [{ id: 11 }, { path: '.github/workflows/nightly.yml' }, { head_sha: 'd'.repeat(40) },
+    { event: 'workflow_dispatch' }, { head_branch: 'feature' }, { run_attempt: 2 },
+    { status: 'in_progress' }, { conclusion: 'failure' }]) {
+    assert.throws(() => resolveProductionCi({ candidate, timing: input.timing, api: () => ({ ...ci, ...change }) }), /Ambiguous production CI binding/);
+  }
+  assert.throws(() => resolveProductionCi({ candidate, timing: { ci_run_id: '../10' }, api }), /Invalid production CI identity/);
+});
+
+test('legacy timing retains unique successful push binding and rejects ambiguity', () => {
+  const timing = { pushed_at: '2026-10-17T12:00:00Z' };
+  const ci = { ...fixture().ci, path: '.github/workflows/ci.yml', created_at: timing.pushed_at };
+  const api = path => {
+    assert.equal(path, `actions/workflows/ci.yml/runs?head_sha=${candidate}&per_page=100`);
+    return { workflow_runs: [ci, { ...ci, id: 11, event: 'workflow_dispatch' }] };
+  };
+  assert.equal(resolveProductionCi({ candidate, timing, api }), ci);
+  assert.throws(() => resolveProductionCi({ candidate, timing, api: () => ({ workflow_runs: [ci, { ...ci, id: 12 }] }) }), /Ambiguous production CI binding/);
+});
