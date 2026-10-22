@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import type { ReactNode } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import worksheet from "@/lib/marketing/riasecWorksheet.json";
 import { buildCareerDisplayCtaHref } from "@/lib/career/displaySurface";
@@ -11,6 +11,9 @@ import CareerTestsPage, { generateMetadata as hubMetadata } from "@/app/(localiz
 import HollandPdfPage, { generateMetadata as pdfMetadata } from "@/app/(localized)/[locale]/holland-test/pdf-download/page";
 
 vi.mock("next/link", () => ({ default: ({ href, children, ...props }: { href: string; children: ReactNode }) => <a href={href} {...props}>{children}</a> }));
+
+beforeEach(() => { vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com"); });
+afterEach(() => { vi.unstubAllEnvs(); });
 
 function documentFrom(html: string): Document {
   return new DOMParser().parseFromString(html, "text/html");
