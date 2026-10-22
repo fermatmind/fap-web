@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { parseCareerCurrentInventory } from '../../scripts/ops/career-current-inventory.mjs';
+import { parseCareerCurrentInventory, readCareerCurrentInventoryForDeployment } from '../../scripts/ops/career-current-inventory.mjs';
 
 function fixture(aliasCount) {
   const slugs = Array.from({ length: 1046 }, (_, i) => `role-${i}`);
@@ -63,7 +63,71 @@ test('rejects duplicate, substituted and stale alias URLs even at the same count
 
  test('release receipt count uses the same validated inventory as the artifact verifier', () => {
   const source = fs.readFileSync(new URL('./deploy-web-release.sh', import.meta.url), 'utf8');
-  assert.match(source, /parseCareerCurrentInventory\(await response.json\(\)\).paths.length/);
+  assert.match(source, /\(await readCareerCurrentInventoryForDeployment\(\)\).paths.length/);
   assert.match(source, /\.counts.career == \$career_count/);
   assert.doesNotMatch(source, /\.counts.career == 2088/);
+});
+
+function reader(responses, elapsedPerRead = 0) {
+  let time = 0;
+  let reads = 0;
+  const waits = [];
+  return {
+    read: () => readCareerCurrentInventoryForDeployment({
+      fetchImpl: async (url, options) => {
+        assert.equal(url, 'https://api.fermatmind.com/api/v0.5/seo/sitemap-source');
+        assert.ok(options.signal instanceof AbortSignal);
+        time += elapsedPerRead;
+        const value = responses[Math.min(reads++, responses.length - 1)];
+        if (value instanceof Error) throw value;
+        return { ok: value !== 'http-error', json: async () => value };
+      },
+      wait: async milliseconds => { waits.push(milliseconds); time += milliseconds; },
+      now: () => time,
+    }),
+    observed: () => ({ reads, waits, elapsed: time }),
+  };
+}
+const fallback = { ok: true, source: 'backend_sitemap_generator_fallback', count: 0, items: [] };
+
+test('deployment reads a valid inventory once without waiting', async () => {
+  const probe = reader([fixture(3)]);
+  assert.equal((await probe.read()).paths.length, 2092);
+  assert.deepEqual(probe.observed(), { reads: 1, waits: [], elapsed: 0 });
+});
+test('deployment waits for explicit fallback to recover and uses only the validated response', async () => {
+  const valid = fixture(3);
+  const probe = reader([fallback, fallback, valid]);
+  assert.deepEqual(await probe.read(), parseCareerCurrentInventory(valid));
+  assert.deepEqual(probe.observed(), { reads: 3, waits: [15_000, 15_000], elapsed: 30_000 });
+});
+test('persistent fallback fails after five reads and never supplies a count', async () => {
+  const probe = reader([fallback]);
+  await assert.rejects(probe.read(), /CAREER_CURRENT_INVENTORY_FALLBACK_EXHAUSTED/);
+  assert.deepEqual(probe.observed(), { reads: 5, waits: [15_000, 15_000, 15_000, 15_000], elapsed: 60_000 });
+});
+test('slow fallback reads share one bounded deadline', async () => {
+  const probe = reader([fallback], 30_000);
+  await assert.rejects(probe.read(), /CAREER_CURRENT_INVENTORY_FALLBACK_EXHAUSTED/);
+  assert.deepEqual(probe.observed(), { reads: 2, waits: [15_000], elapsed: 75_000 });
+});
+test('fallback recovery still rejects invalid identity, duplicate paths and alias drift', async () => {
+  for (const mutate of [
+    p => { p.career_current_identity.storage_count = 1045; },
+    p => { p.career_current_identity.file_count = 2090; },
+    p => { p.items[0] = p.items[1]; },
+    p => { p.career_current_identity.aliases['role-1045'] = 'role-1044'; },
+  ]) {
+    const invalid = fixture(3); mutate(invalid);
+    const probe = reader([fallback, invalid, fixture(3)]);
+    await assert.rejects(probe.read(), /CAREER_CURRENT_/);
+    assert.equal(probe.observed().reads, 2);
+  }
+});
+test('HTTP, network and unmarked invalid responses fail immediately without retry', async () => {
+  for (const response of ['http-error', new Error('network unavailable'), {}, { ...fallback, ok: false }, { ...fallback, source: 'unknown' }]) {
+    const probe = reader([response, fixture(3)]);
+    await assert.rejects(probe.read());
+    assert.deepEqual(probe.observed(), { reads: 1, waits: [], elapsed: 0 });
+  }
 });

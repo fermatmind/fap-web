@@ -83,10 +83,8 @@ unset TRACK_INGEST_TOKEN
 # must not leave an installed release waiting on a new external dependency.
 if [[ "$REQUIRE_LLMS_FULL_ARTIFACT" == "1" ]]; then
   expected_career_count="$(node --input-type=module <<'NODE'
-import { parseCareerCurrentInventory } from './scripts/ops/career-current-inventory.mjs';
-const response = await fetch('https://api.fermatmind.com/api/v0.5/seo/sitemap-source', { signal: AbortSignal.timeout(60000) });
-if (!response.ok) throw new Error('CAREER_CURRENT_INVENTORY_UNAVAILABLE');
-console.log(parseCareerCurrentInventory(await response.json()).paths.length);
+import { readCareerCurrentInventoryForDeployment } from './scripts/ops/career-current-inventory.mjs';
+console.log((await readCareerCurrentInventoryForDeployment()).paths.length);
 NODE
   )"
 fi
