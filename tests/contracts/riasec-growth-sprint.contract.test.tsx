@@ -16,7 +16,7 @@ import type { ReportResponse } from "@/lib/api/v0_3";
 import backendSamples from "@/app/(localized)/[locale]/(app)/dev/riasec-reading/backend-samples.json";
 import { metadata as resultMetadata } from "@/app/(localized)/[locale]/(app)/result/[id]/page";
 
-vi.mock("next/link", () => ({ default: ({ href, children, ...props }: { href: string; children: ReactNode }) => <a href={href} {...props}>{children}</a> }));
+vi.mock("next/link", () => ({ default: ({ href, children, prefetch: _prefetch, ...props }: { href: string; children: ReactNode; prefetch?: boolean }) => { void _prefetch; return <a href={href} {...props}>{children}</a>; } }));
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn(), trackObservableFunnelEvent: vi.fn() }));
 vi.mock("@/app/(localized)/[locale]/(app)/result/[id]/ResultClient", () => ({ default: () => null }));
 
@@ -79,9 +79,9 @@ describe.each<Locale>(["zh", "en"])("RIASEC growth sprint: %s", locale => {
 
   it("uses an escaped career name and preserves existing attribution on the canonical test path", () => {
     const href = buildCareerDisplayCtaHref({ locale, subjectSlug: "materials-scientists", landingPath: localizedPath("/career/jobs/materials-scientists", locale) });
-    const document = documentFrom(renderToStaticMarkup(<CareerRiasecExploreLink locale={locale} careerName={'Materials <script>alert(1)</script>'} href={href} />));
+    const document = documentFrom(renderToStaticMarkup(<CareerRiasecExploreLink locale={locale} careerName={'Materials <script>alert(1)</script>'} href={href} subjectSlug="materials-scientists" />));
     expect(document.querySelector("script")).toBeNull();
-    const link = document.querySelector("a")!;
+    const link = document.querySelector('[data-test-slug="holland-career-interest-test-riasec"]')!;
     const url = new URL(link.getAttribute("href")!, "https://fermatmind.com");
     expect(url.pathname).toBe(`/${locale}/tests/holland-career-interest-test-riasec`);
     expect(url.searchParams.get("subject_key")).toBe("materials-scientists");
