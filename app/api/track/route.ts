@@ -128,6 +128,11 @@ function isNativeIngestTarget(target: string, origin: string): boolean {
   } catch { return false; }
 }
 
+const CAREER_ATTRIBUTION_INGEST_FIELDS = [
+  "entry_surface", "source_page_type", "target_action", "landing_path", "route_family",
+  "subject_kind", "subject_key", "query_mode", "query_text", "locale", "blocked_claim_kind",
+] as const;
+
 // The native SEO ingest is strict. Request identity travels in X-Request-Id;
 // browser-only CTA detail must not broaden the backend event schema.
 const SEO_ATTRIBUTION_INGEST_FIELDS = [
@@ -295,9 +300,10 @@ export async function POST(request: NextRequest) {
   const seoAttributionTarget = isSeoConversionFunnelEvent(normalizedEventName)
     ? (nativeOrigin ? `${nativeOrigin}/api/v0.5/seo/attribution/events` : undefined)
     : undefined;
+  const nativeCareerAttributionTarget = nativeOrigin ? `${nativeOrigin}/api/v0.5/career/attribution/events` : undefined;
   const careerAttributionTarget = process.env.CAREER_ATTRIBUTION_INGEST_ENDPOINT?.trim()
     || process.env.ANALYTICS_ENDPOINT?.trim()
-    || (nativeOrigin ? `${nativeOrigin}/api/v0.5/career/attribution/events` : undefined);
+    || nativeCareerAttributionTarget;
   const targets = uniqueTargets(
     isCareerAttributionEvent(normalizedEventName)
       ? [seoAttributionTarget, careerAttributionTarget]
@@ -331,7 +337,10 @@ export async function POST(request: NextRequest) {
             ...identityHeaders,
             ...(token ? { Authorization: `Bearer ${token}` } : {}),
           },
-          body: JSON.stringify(url === seoAttributionTarget ? toSeoAttributionIngestEnvelope(event) : event),
+          body: JSON.stringify(url === seoAttributionTarget ? toSeoAttributionIngestEnvelope(event)
+            : url === nativeCareerAttributionTarget ? { ...event, payload: Object.fromEntries(CAREER_ATTRIBUTION_INGEST_FIELDS
+              .filter(key => event.payload[key as keyof typeof event.payload] !== undefined)
+              .map(key => [key, event.payload[key as keyof typeof event.payload]])) } : event),
         });
 
         return response.ok;
