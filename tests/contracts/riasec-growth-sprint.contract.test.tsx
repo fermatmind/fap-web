@@ -9,8 +9,16 @@ import { buildCareerDisplayCtaHref } from "@/lib/career/displaySurface";
 import { CareerRiasecExploreLink } from "@/components/career/CareerRiasecExploreLink";
 import CareerTestsPage, { generateMetadata as hubMetadata } from "@/app/(localized)/[locale]/career/tests/page";
 import HollandPdfPage, { generateMetadata as pdfMetadata } from "@/app/(localized)/[locale]/holland-test/pdf-download/page";
+import { RIASEC_RESULT_EXAMPLES } from "@/components/tests/RiasecResultExamples";
+import { RiasecResultShell } from "@/components/result/riasec/RiasecResultShell";
+import { assembleRiasecResultViewModel } from "@/lib/riasec/resultAssembler";
+import type { ReportResponse } from "@/lib/api/v0_3";
+import backendSamples from "@/app/(localized)/[locale]/(app)/dev/riasec-reading/backend-samples.json";
+import { metadata as resultMetadata } from "@/app/(localized)/[locale]/(app)/result/[id]/page";
 
 vi.mock("next/link", () => ({ default: ({ href, children, ...props }: { href: string; children: ReactNode }) => <a href={href} {...props}>{children}</a> }));
+vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn(), trackObservableFunnelEvent: vi.fn() }));
+vi.mock("@/app/(localized)/[locale]/(app)/result/[id]/ResultClient", () => ({ default: () => null }));
 
 beforeEach(() => { vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com"); });
 afterEach(() => { vi.unstubAllEnvs(); });
@@ -69,5 +77,46 @@ describe.each<Locale>(["zh", "en"])("RIASEC growth sprint: %s", locale => {
     expect(url.pathname).toBe(`/${locale}/tests/holland-career-interest-test-riasec`);
     expect(url.searchParams.get("subject_key")).toBe("materials-scientists");
     expect(link.textContent).toContain("Materials <script>alert(1)</script>");
+  });
+
+  it("labels all three synthetic examples and preserves six-dimension score and tie semantics", async () => {
+    const document = documentFrom(renderToStaticMarkup(await HollandPdfPage({ params: params() })));
+    const examples = document.querySelector('[data-testid="riasec-result-examples"]')!;
+    expect(examples.textContent).toContain(locale === "zh" ? "不是真实用户报告" : "not real user reports");
+    expect(examples.textContent).toContain(locale === "zh" ? "不是百分位、能力分或职业成功率" : "not percentiles, ability scores, or career success rates");
+    expect(examples.textContent).toContain(locale === "zh" ? "60 题与 140 题不可直接比较分差" : "Do not compare numeric score differences across");
+    expect(examples.textContent).toContain(locale === "zh" ? "判定阈值" : "not thresholds");
+    for (const example of RIASEC_RESULT_EXAMPLES) {
+      const card = examples.querySelector(`[data-example="${example.key}"]`)!;
+      expect([...card.querySelectorAll("dt")].map(el => el.textContent?.charAt(0))).toEqual(["R", "I", "A", "S", "E", "C"]);
+      expect([...card.querySelectorAll("dd")].map(el => Number(el.textContent))).toEqual([...example.scores]);
+      expect(card.textContent).toContain(example.codes.join(" / "));
+      expect(example.scores[1]).toBeGreaterThan(example.scores[2]);
+      expect(example.scores[2]).toBeGreaterThanOrEqual(example.scores[3]);
+      for (const code of example.codes) expect([...code].sort()).toEqual(["A", "I", "S"]);
+    }
+    expect(RIASEC_RESULT_EXAMPLES[1].scores[2] - RIASEC_RESULT_EXAMPLES[1].scores[3]).toBe(2);
+    expect(RIASEC_RESULT_EXAMPLES[2].scores[2]).toBe(RIASEC_RESULT_EXAMPLES[2].scores[3]);
+    expect(examples.querySelector('a[href*="/result/"]')).toBeNull();
+  });
+
+  it.each([60, 140] as const)("links a real %i-question report to local reading and career exploration without leaking result data", async (form) => {
+    const key = `${locale === "zh" ? "zh-CN" : "en"}-${form}` as keyof typeof backendSamples;
+    const vm = assembleRiasecResultViewModel({ scale_code: "RIASEC", type_code: "IAS", riasec_public_projection_v2: backendSamples[key] } as unknown as ReportResponse, locale);
+    const before = structuredClone(vm);
+    const document = documentFrom(renderToStaticMarkup(<RiasecResultShell locale={locale} viewModel={vm} attemptId="private-attempt" />));
+    expect(vm).toEqual(before);
+    expect(document.querySelector('[data-testid="riasec-result-summary"]')?.textContent).toContain(vm.resultSummary!.rankingDisplay);
+    const steps = document.querySelector('[data-testid="riasec-career-next-steps"]')!;
+    const hrefs = [...steps.querySelectorAll("a")].map(a => a.getAttribute("href"));
+    expect(hrefs).toEqual([`/${locale}/holland-test/pdf-download#interpret-results`, `/${locale}/career`, `/${locale}/career/guides`]);
+    expect(document.querySelector('a[href="#riasec-career-next"]')).not.toBeNull();
+    const guide = documentFrom(renderToStaticMarkup(await HollandPdfPage({ params: params() })));
+    const reading = guide.getElementById("interpret-results")!;
+    expect(reading.querySelector(`a[href="/${locale}/career"]`)).not.toBeNull();
+    expect(reading.querySelector(`a[href="/${locale}/career/guides"]`)).not.toBeNull();
+    expect(reading.textContent).toContain(locale === "zh" ? "无搜索结果" : "empty search");
+    expect(reading.textContent).toContain(locale === "zh" ? "不以示例补齐个人分数" : "do not fill missing scores");
+    expect(resultMetadata.robots).toMatchObject({ index: false, follow: false });
   });
 });

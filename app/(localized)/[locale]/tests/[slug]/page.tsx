@@ -1554,6 +1554,13 @@ export default async function TestLandingPage({
 
           {showsMentalHealthDisclaimer ? <MentalHealthDisclaimer locale={locale} /> : null}
 
+          {showsRiasecActions ? (
+            <section className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5" data-testid="riasec-result-example-entry">
+              <h2 className="m-0 text-lg font-semibold">{locale === "zh" ? "先看看结果怎样读" : "See how to read a result"}</h2>
+              <p className="mb-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">{locale === "zh" ? "用明确标注的合成示例了解六维兴趣、Top 3 与接近/并列，再把结果带到真实职业任务中探索。" : "Explore clearly labeled synthetic examples of six interest dimensions, Top 3, and close or tied scores, then connect your result with real work tasks."}</p>
+              <Link className="mt-3 inline-block text-sm underline underline-offset-4" href={`${localizedPath("/holland-test/pdf-download", locale)}#result-examples`}>{locale === "zh" ? "查看合成结果示例与解读步骤" : "View synthetic result examples and reading steps"}</Link>
+            </section>
+          ) : null}
           {showsRiasecActions ? <RiasecLandingSurfaceSections surface={landingSurface} /> : null}
 
           {!hasFreeFullReportAuthority && (rollout.paywallMode === "free_only" || !rollout.commerceEnabled) ? (

@@ -23,6 +23,7 @@ import {
 } from "./readingContent";
 import styles from "./RiasecReadingReport.module.css";
 import { RiasecExploration } from "./RiasecExploration";
+import { RiasecCareerNextSteps } from "./RiasecCareerNextSteps";
 
 type Props = {
   viewModel: RiasecResultViewModel;
@@ -44,6 +45,7 @@ const ANCHORS = {
   combinations: "riasec-combinations",
   activities: "riasec-activities",
   context: "riasec-context",
+  career: "riasec-career-next",
 };
 
 export function RiasecReadingReport({
@@ -116,6 +118,7 @@ export function RiasecReadingReport({
     ...(hasContext
       ? [{ id: ANCHORS.context, label: t("工作偏好", "Work preferences") }]
       : []),
+    { id: ANCHORS.career, label: t("职业探索", "Career exploration") },
   ];
   const chapterKey = chapters.map((chapter) => chapter.id).join(",");
 
@@ -352,6 +355,10 @@ export function RiasecReadingReport({
               locale={locale}
               showPreferences={hasContext}
             />
+            <section id={ANCHORS.career} className={styles.chapter}>
+              <h2>{t("从兴趣结果到职业探索", "From your interests to career exploration")}</h2>
+              <RiasecCareerNextSteps locale={locale} />
+            </section>
             {emailRecovery ? (
               <section id="riasec-email-recovery" className={styles.chapter}>
                 {emailRecovery}
