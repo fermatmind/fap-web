@@ -51,7 +51,7 @@ export default async function HollandPdfPage({ params }: Props) {
         </div>
       </header>
       <RiasecResultExamples locale={locale} />
-      <section id="interpret-results" aria-labelledby="interpret-results-title" className="mx-auto max-w-4xl scroll-mt-28 space-y-4" data-testid="riasec-interpretation-path">
+      <section id="interpret-results" aria-labelledby="interpret-results-title" className="mx-auto max-w-4xl scroll-mt-24 space-y-4" data-testid="riasec-interpretation-path">
         <h2 id="interpret-results-title" className="m-0 text-2xl font-semibold">{locale === "zh" ? "把你的结果变成一次职业探索" : "Turn your result into a career exploration"}</h2>
         <ol className="m-0 list-decimal space-y-4 pl-5 leading-7 text-slate-600">
           <li>{locale === "zh" ? "先读本次报告的作答质量。若有谨慎解读提示，结合近期经历重新核对，不急着定方向。这里的合成示例不能代替你的个人结果。" : "Start with your report’s response-quality guidance. If it calls for caution, check it against recent experiences before choosing a direction. The synthetic examples here cannot replace your personal result."}</li>

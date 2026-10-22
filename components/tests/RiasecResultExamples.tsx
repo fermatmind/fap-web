@@ -30,7 +30,7 @@ export function RiasecResultExamples({ locale }: { locale: Locale }) {
     "A and S both score 72, tying for second and third. IAS / ISA are two reading orders for the same interest combination. Keep both kinds of activities open for exploration.",
   ];
 
-  return <section id="result-examples" aria-labelledby="result-examples-title" className="mx-auto max-w-4xl scroll-mt-28 space-y-4" data-testid="riasec-result-examples">
+  return <section id="result-examples" aria-labelledby="result-examples-title" className="mx-auto max-w-4xl scroll-mt-24 space-y-4" data-testid="riasec-result-examples">
     <h2 id="result-examples-title" className="m-0 text-2xl font-semibold">{zh ? "合成结果示例：怎样读六维与 Top 3" : "Synthetic result examples: six dimensions and Top 3"}</h2>
     <p className="m-0 text-sm leading-7 text-slate-600">{zh
       ? "以下数字是为教学构造的合成示例，不是真实用户报告，也不是你的结果。0–100 表示本题本的维度兴趣分数，不是百分位、能力分或职业成功率；60 题与 140 题不可直接比较分差。"
