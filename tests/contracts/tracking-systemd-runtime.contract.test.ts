@@ -39,6 +39,32 @@ describe("systemd standalone private runtime", () => {
     expect(head.headers.get("Cache-Control")).toBe("no-store");
     expect(await head.text()).toBe(""); expect(JSON.stringify([...head.headers])).not.toContain(token);
   });
+  it.each(["https://api.fermatmind.com", staging])("forwards career clicks to the native attribution receiver without optional endpoint variables (%s)", async origin => {
+    managed(origin);
+    const fetch = vi.fn().mockResolvedValue(new Response(null, { status: 202 })); vi.stubGlobal("fetch", fetch);
+    const host = origin === staging ? "staging.fermatmind.com" : "fermatmind.com";
+    const response = await POST(new NextRequest(`https://${host}/api/track`, { method: "POST", body: JSON.stringify({
+      eventName: "career_support_link_click", anonymousId: "fixture_career_planning", path: "/en/career/guides",
+      payload: { locale: "en", entry_surface: "career_guides", source_page_type: "landing", target_action: "select_start_candidates", landing_path: "/en/career/guides", route_family: "landing", subject_kind: "none", query_mode: "non_query" },
+    }) }));
+    expect(await response.json()).toMatchObject({ ok: true, forwarded: 1 });
+    expect(fetch).toHaveBeenCalledTimes(1);
+    expect(fetch.mock.calls[0][0]).toBe(`${origin}/api/v0.5/career/attribution/events`);
+    expect(fetch.mock.calls[0][1].headers.Authorization).toBe(`Bearer ${token}`);
+    expect(JSON.parse(fetch.mock.calls[0][1].body)).toMatchObject({ eventName: "career_support_link_click", payload: { source_page_type: "landing", target_action: "select_start_candidates" } });
+  });
+  it("keeps an unsafe configured career endpoint fail-closed instead of bypassing it with the native default", async () => {
+    managed("https://api.fermatmind.com"); vi.stubEnv("CAREER_ATTRIBUTION_INGEST_ENDPOINT", "https://outside.invalid/api/v0.5/career/attribution/events");
+    const fetch = vi.fn(); vi.stubGlobal("fetch", fetch);
+    const response = await POST(new NextRequest("https://fermatmind.com/api/track", { method: "POST", body: JSON.stringify({ eventName: "career_support_link_click", path: "/en/career/guides", payload: {} }) }));
+    expect(response.status).toBe(502); expect(await response.json()).toMatchObject({ ok: false, error: "invalid_ingest_target" }); expect(fetch).not.toHaveBeenCalled();
+  });
+  it("does not invent a career receiver when tracking runtime is disabled", async () => {
+    writeFileSync(path.join(root, "REVISION"), sha);
+    const fetch = vi.fn(); vi.stubGlobal("fetch", fetch);
+    const response = await POST(new NextRequest("https://fermatmind.com/api/track", { method: "POST", body: JSON.stringify({ eventName: "career_support_link_click", path: "/en/career/guides", payload: {} }) }));
+    expect(await response.json()).toMatchObject({ ok: true, forwarded: 0 }); expect(fetch).not.toHaveBeenCalled();
+  });
   it("ignores stale inherited credentials and origins for a deployed release", () => {
     managed(); vi.stubEnv("TRACK_INGEST_TOKEN", "different_fixture_stale_token_123456789");
     vi.stubEnv("TRACK_INGEST_API_ORIGIN", "https://api.fermatmind.com");
