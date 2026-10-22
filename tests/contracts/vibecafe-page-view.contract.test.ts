@@ -22,6 +22,7 @@ afterEach(() => {
   Reflect.deleteProperty(navigator, "globalPrivacyControl");
   vi.unstubAllEnvs();
   vi.unstubAllGlobals();
+  vi.restoreAllMocks();
 });
 
 describe("VibeCafe consented public page views", () => {
@@ -51,6 +52,22 @@ describe("VibeCafe consented public page views", () => {
     window.history.pushState({}, "", "/zh/articles");
     track();
     expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it("preserves normal Chrome collection with the upstream CORS protocol", () => {
+    setAnalyticsConsent("granted");
+    vi.spyOn(navigator, "userAgent", "get").mockReturnValue("Mozilla/5.0 Chrome/155.0.0.0 Safari/537.36");
+    track();
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(fetchMock.mock.calls[0][1]).toMatchObject({ mode: "cors", credentials: "omit" });
+  });
+
+  it.each(["HeadlessChrome/155.0.0.0", "headlesschrome/155.0.0.0"])("excludes upstream-rejected headless traffic before allocating identity: %s", (userAgent) => {
+    setAnalyticsConsent("granted");
+    vi.spyOn(navigator, "userAgent", "get").mockReturnValue(`Mozilla/5.0 ${userAgent} Safari/537.36`);
+    track();
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(window.localStorage.getItem(storageKey)).toBeNull();
   });
 
   it.each([

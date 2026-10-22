@@ -16,6 +16,10 @@ export function trackVibeCafePageView(): void {
   if (typeof window === "undefined" || process.env.NEXT_PUBLIC_ANALYTICS_ENABLED !== "true") return;
   if (!hasAnalyticsConsent()) return;
 
+  // The receiver drops HeadlessChrome traffic with a CORS-less 204. Exclude it
+  // before allocating a visitor ID; real browsers keep the official protocol.
+  if (/\bHeadlessChrome\//i.test(navigator.userAgent)) return;
+
   const privacyNavigator = navigator as Navigator & { globalPrivacyControl?: boolean };
   const privacyWindow = window as Window & { doNotTrack?: string };
   if (navigator.doNotTrack === "1" || privacyWindow.doNotTrack === "1" || privacyNavigator.globalPrivacyControl) return;
