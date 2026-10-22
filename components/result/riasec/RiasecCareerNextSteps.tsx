@@ -13,7 +13,7 @@ export function RiasecCareerNextSteps({ locale }: { locale: Locale }) {
       <li><Link className="underline underline-offset-4" href={localizedPath("/career/guides", locale)}>{zh ? "查看职业指南，规划一次低成本尝试" : "Use career guides to plan a small, low-cost trial"}</Link></li>
     </ol>
     <p className="text-sm">{zh
-      ? "在工作表中记录愿意尝试的任务、需要补齐的技能、当地资格要求及时间成本。这里是探索导航，不是根据三字代码生成的职业匹配名单；链接不会携带你的结果或答案。"
-      : "Use the worksheet to record tasks to try, skill gaps, local qualification requirements, and time costs. These links support exploration; they are not a job-match list generated from your code, and they do not carry your result or answers."}</p>
+      ? "在工作表中记录愿意尝试的任务、需要补齐的技能、当地资格要求及时间成本。这些链接通向公开职业资源；请自行核对具体任务与进入条件，三字代码仅用于整理探索线索。链接不会携带你的结果或答案。"
+      : "Use the worksheet to record tasks to try, skill gaps, local qualification requirements, and time costs. These links open public career resources. Check specific tasks and entry requirements yourself, using your three-letter code to organize exploration. The links do not carry your result or answers."}</p>
   </div>;
 }
