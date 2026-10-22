@@ -83,7 +83,7 @@ unset TRACK_INGEST_TOKEN
 # must not leave an installed release waiting on a new external dependency.
 if [[ "$REQUIRE_LLMS_FULL_ARTIFACT" == "1" ]]; then
   expected_career_count="$(node --input-type=module <<'NODE'
-import { readCareerCurrentInventoryForDeployment } from './scripts/ops/career-current-inventory.mjs';
+import { readCareerCurrentInventoryForDeployment } from './.github/trunk/read-career-current-inventory.mjs';
 console.log((await readCareerCurrentInventoryForDeployment()).paths.length);
 NODE
   )"

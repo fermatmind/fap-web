@@ -1,7 +1,8 @@
 import fs from "node:fs";
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { parseCareerCurrentInventory, readCareerCurrentInventoryForDeployment } from '../../scripts/ops/career-current-inventory.mjs';
+import { parseCareerCurrentInventory } from '../../scripts/ops/career-current-inventory.mjs';
+import { readCareerCurrentInventoryForDeployment } from './read-career-current-inventory.mjs';
 
 function fixture(aliasCount) {
   const slugs = Array.from({ length: 1046 }, (_, i) => `role-${i}`);
@@ -63,9 +64,17 @@ test('rejects duplicate, substituted and stale alias URLs even at the same count
 
  test('release receipt count uses the same validated inventory as the artifact verifier', () => {
   const source = fs.readFileSync(new URL('./deploy-web-release.sh', import.meta.url), 'utf8');
+  assert.match(source, /from '\.\/\.github\/trunk\/read-career-current-inventory.mjs'/);
   assert.match(source, /\(await readCareerCurrentInventoryForDeployment\(\)\).paths.length/);
   assert.match(source, /\.counts.career == \$career_count/);
   assert.doesNotMatch(source, /\.counts.career == 2088/);
+});
+
+test('deployment waiting stays outside the shared LLMS generator module', async () => {
+  const shared = await import('../../scripts/ops/career-current-inventory.mjs');
+  assert.equal(Object.hasOwn(shared, 'readCareerCurrentInventoryForDeployment'), false);
+  assert.equal(typeof shared.parseCareerCurrentInventory, 'function');
+  assert.equal(typeof shared.hasExactCareerPaths, 'function');
 });
 
 function reader(responses, elapsedPerRead = 0) {
