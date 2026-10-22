@@ -10,14 +10,16 @@ function read(relPath: string): string {
 }
 
 describe("career three-surface navigation contract", () => {
-  it("keeps the career dropdown focused on fit, library, and guides in both locales", () => {
+  it("keeps the career dropdown focused on test selection, fit, library, and guides in both locales", () => {
     const expected = {
       en: [
+        { href: "/career/tests", label: "Choose career tests" },
         { href: "/career/recommendations", label: "Career fit" },
         { href: "/career", label: "Occupation library" },
         { href: "/career/guides", label: "Career Guides" },
       ],
       zh: [
+        { href: "/career/tests", label: "职业测试选型" },
         { href: "/career/recommendations", label: "职业匹配" },
         { href: "/career", label: "职业库" },
         { href: "/career/guides", label: "职业指南" },
@@ -27,9 +29,9 @@ describe("career three-surface navigation contract", () => {
     for (const locale of ["en", "zh"] as const) {
       const careerMenu = getHeaderDropdownMenus(locale).find((menu) => menu.key === "career");
       expect(careerMenu?.items).toEqual(expected[locale]);
-      expect(careerMenu?.items).toHaveLength(3);
+      expect(careerMenu?.items).toHaveLength(4);
       expect(careerMenu?.items.some((item) => item.href === "/career/industries")).toBe(false);
-      expect(careerMenu?.items.some((item) => item.href === "/career/tests")).toBe(false);
+      expect(careerMenu?.items.some((item) => item.href === "/career/tests")).toBe(true);
     }
   });
 
@@ -52,7 +54,7 @@ describe("career three-surface navigation contract", () => {
     expect(source).toContain("buildFAQPageJsonLd");
     expect(source).toContain("buildItemListJsonLd");
     expect(source).toContain('id="faq"');
-    expect(source).toContain("职业路径：转行、技能差距与行动计划");
+    expect(source).toContain("职业规划：找方向、比较职业与行动复盘");
     expect(source).not.toContain("listCareerJobs");
     expect(source).not.toContain("92% 匹配");
   });

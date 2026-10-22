@@ -35,8 +35,8 @@ describe("public api cache contract", () => {
   });
 
   it.each(["en", "zh"] as const)("bounds the live guide exception without weakening neighboring cache policy (%s)", async (locale) => {
-    const liveSlug = "iq-eq-balance-at-work";
-    const slugs = [liveSlug, `${liveSlug}-related`, "unrelated-guide"];
+    const liveSlugs = ["iq-eq-balance-at-work", "how-to-find-right-career-direction", "career-transition-playbook"];
+    const slugs = [...liveSlugs, ...liveSlugs.map((slug) => `${slug}-related`), "unrelated-guide"];
     const fetcher = vi.fn(async (input: RequestInfo | URL, options?: RequestInit) => {
       void options;
       const url = new URL(String(input));
@@ -52,10 +52,10 @@ describe("public api cache contract", () => {
       expect(await getCareerGuideFromCmsBySlug(slug, locale)).toMatchObject({ slug, bodyMd: "Current guide body" });
       expect((await getCareerGuideSeoFromCmsBySlug(slug, locale))?.meta.title).toBe("Guide metadata");
     }
-    expect(fetcher).toHaveBeenCalledTimes(6);
-    expect(fetcher.mock.calls.filter(([input]) => new URL(String(input)).pathname.split("/")[4] === liveSlug)).toHaveLength(2);
+    expect(fetcher).toHaveBeenCalledTimes(14);
+    expect(fetcher.mock.calls.filter(([input]) => liveSlugs.includes(new URL(String(input)).pathname.split("/")[4]))).toHaveLength(6);
     for (const [input, options] of fetcher.mock.calls as [RequestInfo | URL, RequestInit & { next?: { revalidate?: number } }][]) {
-      const selected = new URL(String(input)).pathname.split("/")[4] === liveSlug;
+      const selected = liveSlugs.includes(new URL(String(input)).pathname.split("/")[4]);
       if (selected) {
         expect(options.cache).toBe("no-store");
         expect(options.next).toBeUndefined();
@@ -91,14 +91,11 @@ describe("public api cache contract", () => {
     }
   });
 
-  it("forces static rendering only for public SEO detail pages that do not require per-request nonce HTML", () => {
-    const publicSeoDetailRoutes = [
-      "app/(localized)/[locale]/career/guides/[slug]/page.tsx",
-    ];
-
-    for (const file of publicSeoDetailRoutes) {
-      expect(read(file)).toContain('export const dynamic = "force-static"');
-    }
+  it("lets selected guide reads opt out while neighboring guides retain route revalidation", () => {
+    const source = read("app/(localized)/[locale]/career/guides/[slug]/page.tsx");
+    expect(source).not.toContain('export const dynamic = "force-static"');
+    expect(source).not.toContain('export const dynamic = "force-dynamic"');
+    expect(source).toContain("export const revalidate = 300");
   });
 
   it("renders personality detail and comparison HTML per request so the CSP nonce matches the document", () => {
