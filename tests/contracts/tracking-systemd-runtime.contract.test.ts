@@ -51,7 +51,7 @@ describe("systemd standalone private runtime", () => {
     expect(fetch).toHaveBeenCalledTimes(1);
     expect(fetch.mock.calls[0][0]).toBe(`${origin}/api/v0.5/career/attribution/events`);
     expect(fetch.mock.calls[0][1].headers.Authorization).toBe(`Bearer ${token}`);
-    expect(JSON.parse(fetch.mock.calls[0][1].body)).toMatchObject({ eventName: "career_support_link_click", payload: { source_page_type: "landing", target_action: "select_start_candidates" } });
+    expect(JSON.parse(fetch.mock.calls[0][1].body).payload).toEqual({ locale: "en", entry_surface: "career_guides", source_page_type: "landing", target_action: "select_start_candidates", landing_path: "/en/career/guides", route_family: "landing", subject_kind: "none", query_mode: "non_query" });
   });
   it("keeps an unsafe configured career endpoint fail-closed instead of bypassing it with the native default", async () => {
     managed("https://api.fermatmind.com"); vi.stubEnv("CAREER_ATTRIBUTION_INGEST_ENDPOINT", "https://outside.invalid/api/v0.5/career/attribution/events");
