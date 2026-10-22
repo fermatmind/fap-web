@@ -42,6 +42,15 @@ describe.each<Locale>(["zh", "en"])("RIASEC growth sprint: %s", locale => {
     ]);
     expect(document.querySelectorAll('[data-testid="career-tests-holland-mbti-comparison"] tbody tr')).toHaveLength(4);
     expect(document.querySelector(`a[href="/${locale}/holland-test/pdf-download"]`)).not.toBeNull();
+    const reading = document.querySelector('[data-testid="career-tests-comparison-reading"]')!;
+    expect([...reading.querySelectorAll("a")].map(a => a.getAttribute("href"))).toEqual([
+      `/${locale}/articles/${locale === "zh" ? "mbti-vs-holland-career-choice" : "mbti-vs-holland-code-career-choice"}`,
+      `/${locale}/articles/big-five-vs-riasec-personality-traits-and-career-interests`,
+    ]);
+    const comparison = document.querySelector('[data-testid="career-tests-holland-mbti-comparison"]')!;
+    expect(comparison.querySelectorAll("thead th")).toHaveLength(4);
+    expect(comparison.textContent).toContain(locale === "zh" ? "不能换成兴趣代码" : "cannot become interest codes");
+    expect(document.querySelector('[aria-labelledby="career-tests-comparison"]')!.textContent).toContain(locale === "zh" ? "不必全部做完" : "do not need all three tests");
     const meta = await hubMetadata({ params: params() });
     expect(meta.alternates?.canonical).toBe(`https://fermatmind.com/${locale}/career/tests`);
     expect(meta.description).toMatch(locale === "zh" ? /职业兴趣测试/ : /career interest test/);
