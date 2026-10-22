@@ -109,20 +109,25 @@ probe_headers() {
   local url="$1"
   local follow_redirects="${2:-0}"
   local headers
+  local attempt curl_status
+  local -a curl_args=(-fsSI --connect-timeout "$HTTP_CONNECT_TIMEOUT_SEC" --max-time "$HTTP_REQUEST_TIMEOUT_SEC")
 
   if [[ "$follow_redirects" == "1" ]]; then
-    headers="$(curl -fsSIL \
-      --connect-timeout "$HTTP_CONNECT_TIMEOUT_SEC" \
-      --max-time "$HTTP_REQUEST_TIMEOUT_SEC" \
-      "$url")"
-  else
-    headers="$(curl -fsSI \
-      --connect-timeout "$HTTP_CONNECT_TIMEOUT_SEC" \
-      --max-time "$HTTP_REQUEST_TIMEOUT_SEC" \
-      "$url")"
+    curl_args+=(-L)
   fi
 
-  printf '%s\n' "$headers" | sed -n '1,20p'
+  for attempt in 1 2; do
+    if headers="$(curl "${curl_args[@]}" "$url")"; then
+      printf '%s\n' "$headers" | sed -n '1,20p'
+      return 0
+    else
+      curl_status=$?
+    fi
+    if [[ "$follow_redirects" != "1" || "$curl_status" -ne 28 || "$attempt" -eq 2 ]]; then
+      return "$curl_status"
+    fi
+    log "public header probe timed out; retrying once"
+  done
 }
 
 wait_for_local_app_ready() {
@@ -466,14 +471,25 @@ require_sitemap_health() {
   local body_file
   local status
   local loc_count
+  local attempt curl_status
 
   body_file="$(mktemp "${TMPDIR:-/tmp}/fap-web-sitemap.XXXXXX")"
   trap 'rm -f "$body_file"' RETURN
 
-  if ! status="$(curl -sS --max-time "$SITEMAP_CURL_TIMEOUT_SEC" -o "$body_file" -w '%{http_code}' "$url")"; then
-    log "sitemap health failed: curl request failed url=${url}"
-    exit 1
-  fi
+  for attempt in 1 2; do
+    # A timed-out response may have left a partial document in the output file.
+    : > "$body_file"
+    if status="$(curl -sS --max-time "$SITEMAP_CURL_TIMEOUT_SEC" -o "$body_file" -w '%{http_code}' "$url")"; then
+      break
+    else
+      curl_status=$?
+    fi
+    if [[ "$curl_status" -ne 28 || "$attempt" -eq 2 ]]; then
+      log "sitemap health failed: curl request failed url=${url}"
+      exit 1
+    fi
+    log "sitemap request timed out; retrying once"
+  done
 
   if [[ "$status" != "200" ]]; then
     log "sitemap health failed: expected status=200 actual=${status} url=${url}"
