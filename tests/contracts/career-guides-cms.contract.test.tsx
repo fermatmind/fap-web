@@ -376,7 +376,7 @@ describe("career guides frontend boundary contract", () => {
     expect(listSource).toContain("Breadcrumb");
     expect(listSource).toContain('localizedPath("/career", locale)');
     expect(listSource).toContain("职业路径");
-    expect(listSource).toContain("Career paths");
+    expect(listSource).toContain("Career planning");
   });
 
   it("removes the redundant hero links and gives each guide group an editorial section marker", () => {
@@ -606,5 +606,35 @@ describe("career guides frontend boundary contract", () => {
     );
     expect(metadata.openGraph?.title).toBe("From MBTI to Job Fit");
     expect(metadata.twitter?.title).toBe("From MBTI to Job Fit");
+  });
+});
+
+describe("selected planning publication cache boundary", () => {
+  it.each(["how-to-find-right-career-direction", "career-transition-playbook"])("reads current detail and SEO for %s", async (slug) => {
+    const fetcher = vi.fn(async (_input: RequestInfo | URL, init?: RequestInit) => {
+      expect(init?.cache).toBe("no-store");
+      return jsonResponse({ ok: true, guide: { slug, locale: "en", title: "Published guide", is_public: true }, meta: { title: "Published SEO" } });
+    });
+    vi.stubGlobal("fetch", fetcher);
+    expect((await getCareerGuideFromCmsBySlug(slug, "en"))?.title).toBe("Published guide");
+    expect((await getCareerGuideSeoFromCmsBySlug(slug, "en"))?.meta.title).toBe("Published SEO");
+    expect(fetcher).toHaveBeenCalledTimes(2);
+  });
+
+  it("keeps unrelated guide reads on the existing cache policy", async () => {
+    vi.stubGlobal("fetch", vi.fn(async (_input: RequestInfo | URL, init?: RequestInit) => {
+      expect((init as RequestInit & { next?: { revalidate: number } })?.next?.revalidate).toBe(300);
+      expect(init?.cache).not.toBe("no-store");
+      return jsonResponse({ ok: true, guide: { slug: "annual-career-review-system", locale: "en", title: "Annual review" } });
+    }));
+    expect((await getCareerGuideFromCmsBySlug("annual-career-review-system", "en"))?.title).toBe("Annual review");
+  });
+
+  it("distinguishes absence from an unavailable selected guide", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => jsonResponse({ ok: false, error: "NOT_FOUND" }, 404)));
+    expect(await getCareerGuideFromCmsBySlug("career-transition-playbook", "en")).toBeNull();
+    vi.stubGlobal("fetch", vi.fn(async () => jsonResponse({ ok: false }, 503)));
+    await expect(getCareerGuideFromCmsBySlug("career-transition-playbook", "en")).rejects.toThrow();
+    await expect(listCareerGuidesFromCms("en", { fresh: true, throwOnUnavailable: true })).rejects.toThrow();
   });
 });

@@ -35,6 +35,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
     ],
     personality: getSelfUnderstandingMenu("en"),
     career: [
+      { href: "/career/tests", label: "Choose career tests" },
       { href: "/career/recommendations", label: "Career fit" },
       { href: "/career", label: "Occupation library" },
       { href: "/career/guides", label: "Career Guides" },
@@ -65,6 +66,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
     ],
     personality: getSelfUnderstandingMenu("zh"),
     career: [
+      { href: "/career/tests", label: "职业测试选型" },
       { href: "/career/recommendations", label: "职业匹配" },
       { href: "/career", label: "职业库" },
       { href: "/career/guides", label: "职业指南" },

@@ -7,14 +7,17 @@ import {
   CheckCircle2,
   ClipboardList,
   Compass,
-  Route,
   SearchCheck,
   Target,
 } from "lucide-react";
+import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
+import { CAREER_TRACKING_EVENTS } from "@/lib/career/attribution";
+import { careerPlanningExample } from "@/lib/career/planningExample";
+import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { listCareerGuidesFromCms, type CareerGuideListItem } from "@/lib/cms/career-guides";
+import { getCareerGuideFromCmsBySlug, listCareerGuidesFromCms, type CareerGuideListItem } from "@/lib/cms/career-guides";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import {
@@ -28,7 +31,7 @@ import styles from "./career-paths.module.css";
 
 export const revalidate = 300;
 
-const PAGE_UPDATED_AT = "2026-10-19";
+const PAGE_UPDATED_AT = "2026-10-22";
 
 type GuideGroup = {
   key: string;
@@ -129,11 +132,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return buildPageMetadata({
     locale,
     pathname: locale === "zh" ? "/zh/career/guides" : "/en/career/guides",
-    title: locale === "zh" ? "职业路径：转行、技能差距与行动计划" : "Career Paths: Skills, Transitions, and Action Plans",
+    title: locale === "zh" ? "职业规划：找方向、比较职业与行动复盘" : "Career Planning: Compare, Test, and Review",
     description:
       locale === "zh"
-        ? "从当前状态走向目标职业：盘点可迁移能力、识别技能差距，并用项目、学习与求职行动验证路径。"
-        : "Move from your current position toward a target career by mapping transferable strengths, skill gaps, projects, learning, and job-search actions.",
+        ? "从没有方向、已有候选或已有目标开始，比较真实任务、核对门槛，用低成本验证和工作表更新职业计划。"
+        : "Start without a direction, with a shortlist, or with a target role. Compare real tasks, check entry barriers, and plan a low-cost test and review.",
     alternatesByLocale: {
       en: "/en/career/guides",
       zh: "/zh/career/guides",
@@ -183,13 +186,28 @@ export default async function CareerGuidesPage({ params }: { params: Promise<{ l
   const locale = resolveLocale(localeParam);
   const isZh = locale === "zh";
   const canonicalPath = isZh ? "/zh/career/guides" : "/en/career/guides";
-  const pageTitle = isZh ? "从现在，走向你的目标职业" : "Move from where you are to your target career";
+  const pageTitle = isZh ? "职业规划，从你的起点开始" : "Career planning, from your starting point";
   const pageDescription = isZh
-    ? "看清可迁移能力、技能差距与阶段任务，把职业方向变成一条可执行、可验证的路径。"
-    : "Map transferable strengths, skill gaps, and staged actions to turn a career direction into a testable path.";
+    ? "没有方向、已有候选、已有目标：先比较真实工作，再做一次小验证，带着证据调整下一步。"
+    : "No direction, a shortlist, or a target: compare real work, try one small task, and use the evidence to choose your next step.";
   const jobsPath = localizedPath("/career", locale);
-  const recommendationsPath = localizedPath("/career/recommendations", locale);
-  const guides = await listCareerGuidesFromCms(locale);
+  const testsPath = localizedPath("/career/tests", locale);
+  const directionPath = localizedPath("/career/guides/how-to-find-right-career-direction", locale);
+  const transitionPath = localizedPath("/career/guides/career-transition-playbook", locale);
+  const worksheetPath = localizedPath("/holland-test/pdf-download", locale);
+  const [listRead, exampleRead] = await Promise.allSettled([
+    listCareerGuidesFromCms(locale, { fresh: true, throwOnUnavailable: true }),
+    getCareerGuideFromCmsBySlug("how-to-find-right-career-direction", locale),
+  ]);
+  const guides = listRead.status === "fulfilled" ? listRead.value : [];
+  const example = exampleRead.status === "fulfilled" && exampleRead.value
+    ? careerPlanningExample(exampleRead.value.bodyMd, locale) : null;
+  const exampleUnavailable = exampleRead.status === "rejected";
+  const planningLink = (href: string, action: string, label: string, className?: string) => (
+    <TrackedCareerLink href={href} className={className} eventName={CAREER_TRACKING_EVENTS.supportLinkClick}
+      eventPayload={{ locale, entrySurface: "career_guides", sourcePageType: "landing",
+        targetAction: action, landingPath: canonicalPath, routeFamily: "landing" }}>{label}<ArrowRight aria-hidden="true" /></TrackedCareerLink>
+  );
   const groupedGuides = groupGuides(guides);
   const featuredGuides = orderBySlugs(guides, FEATURED_GUIDE_SLUGS);
   const faqItems = isZh
@@ -230,7 +248,7 @@ export default async function CareerGuidesPage({ params }: { params: Promise<{ l
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: isZh ? "首页" : "Home", path: isZh ? "/zh" : "/en" },
     { name: isZh ? "职业" : "Career", path: isZh ? "/zh/career" : "/en/career" },
-    { name: isZh ? "职业路径" : "Career paths", path: canonicalPath },
+    { name: isZh ? "职业规划" : "Career planning", path: canonicalPath },
   ]);
   const faqJsonLd = buildFAQPageJsonLd(faqItems);
   const itemListJsonLd = buildItemListJsonLd({
@@ -251,7 +269,7 @@ export default async function CareerGuidesPage({ params }: { params: Promise<{ l
       icon: Target,
       title: isZh ? "确定目标方向" : "Choose a target",
       description: isZh ? "先核对真实工作内容，再建立少量候选方向。" : "Check real work first, then build a small shortlist.",
-      href: recommendationsPath,
+      href: "#explore-work",
     },
     {
       number: "02",
@@ -265,14 +283,14 @@ export default async function CareerGuidesPage({ params }: { params: Promise<{ l
       icon: SearchCheck,
       title: isZh ? "完成低成本验证" : "Run a low-cost test",
       description: isZh ? "用项目、访谈或短期协作验证日常工作。" : "Use a project, conversation, or short collaboration to test the work.",
-      href: "#career-transition",
+      href: "#worked-example",
     },
     {
       number: "04",
       icon: BookOpenCheck,
       title: isZh ? "准备求职证据" : "Prepare job-search evidence",
       description: isZh ? "整理作品、案例和目标岗位清单，再开始投递。" : "Prepare work samples, cases, and a target-role list before applying.",
-      href: "#guides",
+      href: "#target-plan",
     },
   ];
 
@@ -299,37 +317,65 @@ export default async function CareerGuidesPage({ params }: { params: Promise<{ l
             items={[
               { label: isZh ? "首页" : "Home", href: localizedPath("/", locale) },
               { label: isZh ? "职业" : "Career", href: jobsPath },
-              { label: isZh ? "职业路径" : "Career paths" },
+              { label: isZh ? "职业规划" : "Career planning" },
             ]}
           />
           <div className={styles.heroCopy}>
-            <p className={styles.eyebrow}>{isZh ? "职业路径 · CAREER PATH" : "CAREER PATH"}</p>
+            <p className={styles.eyebrow}>{isZh ? "职业规划 · CAREER PLANNING" : "CAREER PLANNING"}</p>
             <h1>{pageTitle}</h1>
             <p>{pageDescription}</p>
           </div>
+          <nav className={styles.heroStarts} aria-label={isZh ? "选择你的起点" : "Choose your starting point"}>
+            {planningLink("#explore-work", "select_start_no_direction", isZh ? "没有明确方向" : "No clear direction", styles.startOption)}
+            {planningLink("#worked-example", "select_start_candidates", isZh ? "已有候选职业" : "Have a shortlist", styles.startOption)}
+            {planningLink("#target-plan", "select_start_target", isZh ? "已有目标职业" : "Have a target role", styles.startOption)}
+          </nav>
         </Container>
       </section>
 
       <Container as="div" className={styles.content}>
-        <section className={styles.startCard} aria-labelledby="career-path-start-title">
-          <div className={styles.startIntro}>
-            <span className={styles.iconBadge}><Route aria-hidden="true" /></span>
-            <div>
-              <p className={styles.sectionKicker}>{isZh ? "选择你的起点" : "Choose your starting point"}</p>
-              <h2 id="career-path-start-title">{isZh ? "先确认方向，再拆解路径" : "Confirm the direction, then map the path"}</h2>
-            </div>
+        <nav className={styles.contentsNav} aria-label={isZh ? "本页目录" : "On this page"}>
+          <a href="#explore-work">{isZh ? "01 找方向" : "01 Explore"}</a>
+          <a href="#worked-example">{isZh ? "02 比较与验证示例" : "02 Compare and test"}</a>
+          <a href="#target-plan">{isZh ? "03 行动与复盘" : "03 Act and review"}</a>
+          <a href="#guides">{isZh ? "04 全部指南" : "04 All guides"}</a>
+        </nav>
+        <section id="explore-work" className={styles.exploreSection} aria-labelledby="career-explore-title">
+          <p className={styles.sectionKicker}>{isZh ? "没有方向，也能开始" : "You can start without a direction"}</p>
+          <h2 id="career-explore-title">{isZh ? "先找愿意重复的活动" : "Start with activities you would repeat"}</h2>
+          <p>{isZh ? "写下最近一次愿意投入、做出产出和不想重复的活动。把兴趣感受、能力证据和现实条件分开，再找两个职业核对日常任务。你可以不做测试。" : "Write down an activity you wanted to repeat, one with a concrete output, and one you disliked. Separate interest, capability evidence and practical constraints, then investigate two roles. A test is optional."}</p>
+          <div className={styles.actionRow}>
+            {planningLink(testsPath, "choose_exploration_tool", isZh ? "选择职业探索工具" : "Choose an exploration tool", styles.outlineAction)}
+            {planningLink("#worked-example", "explore_without_test", isZh ? "不做测试，直接调查工作活动" : "Explore work without taking a test", styles.outlineAction)}
+            {planningLink(directionPath, "continue_from_results", isZh ? "已有结果：填写候选比较表" : "Have results? Build a comparison record", styles.outlineAction)}
           </div>
-          <div className={styles.startActions}>
-            <Link href={recommendationsPath} className={styles.startOption}>
-              <span><small>{isZh ? "还没有明确方向" : "No clear direction yet"}</small><strong>{isZh ? "先做职业匹配" : "Start with career fit"}</strong></span>
-              <ArrowRight aria-hidden="true" />
-            </Link>
-            <Link href={jobsPath} className={styles.startOption}>
-              <span><small>{isZh ? "已经有目标职业" : "Already have a target role"}</small><strong>{isZh ? "核对职业要求" : "Check role requirements"}</strong></span>
-              <ArrowRight aria-hidden="true" />
-            </Link>
+        </section>
+
+        <section id="worked-example" className={styles.exampleSection} aria-labelledby="career-example-title">
+          <p className={styles.sectionKicker}>{isZh ? "完整教学示例" : "A complete teaching example"}</p>
+          <h2 id="career-example-title">{isZh ? "演员与电影视频编辑：比较、验证、复盘" : "Actors and video editors: compare, test, review"}</h2>
+          <p className={styles.sourceNote}>{isZh ? "以下为合成教学案例。正文复用已发布的找方向指南，职业任务参考链接档案及美国 O*NET；2026-10-22 核对。美国资料不能替代中国或其他地区的目标岗位、训练和资格核实。" : "A synthetic teaching case from the published direction guide. Role facts refer to the linked dossiers and U.S. O*NET, checked on 22 October 2026; local entry conditions require separate verification."}</p>
+          {example ? <div className={styles.exampleBody}>{renderSimpleMarkdown(example, { locale, minimumHeadingLevel: 3, headingIdPrefix: "career-hub-example", scrollableTables: true })}</div> : <p role="status">{exampleUnavailable
+            ? (isZh ? "示例服务暂不可用。可稍后重试，或先查看工作表和下方行动步骤。" : "The example is temporarily unavailable. Try again later, or use the worksheet and action steps below.")
+            : (isZh ? "当前没有已发布的完整示例，请使用找方向指南的比较表。" : "No complete example is currently published. Use the direction guide's comparison record.")}</p>}
+          <div className={styles.actionRow}>
+            {planningLink(directionPath, "open_direction_guide", isZh ? "打开指南与可复制比较表" : "Open the guide and copyable record", styles.outlineAction)}
+            {planningLink(worksheetPath, "open_planning_worksheet", isZh ? "使用现有 PDF 工作表" : "Use the existing PDF worksheet", styles.outlineAction)}
           </div>
-          <p className={styles.sourceNote}>{isZh ? "职业要求来自现有公开职业库；路径指南来自 CMS，页面不生成未经来源支持的个性化结论。" : "Role requirements come from the public occupation library; path guides come from the CMS. This page does not generate unsupported personalized conclusions."}</p>
+        </section>
+
+        <section id="target-plan" className={styles.exploreSection} aria-labelledby="career-target-title">
+          <p className={styles.sectionKicker}>{isZh ? "已有目标，落实下一步" : "Have a target? Make the next step concrete"}</p>
+          <h2 id="career-target-title">{isZh ? "核门槛，做验证，定复盘日期" : "Check the barrier, test, set a review date"}</h2>
+          <ol className={styles.targetSteps}>
+            <li>{isZh ? "写清目标职业、地区与岗位层级，读目标岗位要求；把必备资格、可迁移证据和待补技能分开，注明来源和日期。" : "Name the role, region and level. Read target requirements; separate required eligibility, transferable evidence and skill gaps. Record a source and date."}</li>
+            <li>{isZh ? "选择一个最影响决定的未知，写下试做输入、时间与成本上限、完成条件和产出。点击示例或下载不代表完成了验证。" : "Choose one uncertainty that matters to the decision. Specify inputs, time and cost limits, a completion condition and an output. Opening an example or downloading a file does not complete a test."}</li>
+            <li>{isZh ? "约定复盘日期，记录实际产出、反馈来源与约束变化，再决定继续、调整或暂缓，以及下一次行动。记录留在你的笔记或工作表中。" : "Set a review date. Record the output, feedback source and changed constraints, then decide to continue, adjust or pause and name the next action. Keep the record in your own notes or worksheet."}</li>
+          </ol>
+          <div className={styles.actionRow}>
+            {planningLink(transitionPath, "plan_target_validation", isZh ? "阅读转型手册，填写继续或暂停条件" : "Plan a test and continue or pause conditions", styles.outlineAction)}
+            {planningLink(worksheetPath, "open_action_worksheet", isZh ? "用工作表记录行动与复盘" : "Record your action and review", styles.outlineAction)}
+          </div>
         </section>
 
         <section className={styles.pathWorkspace} aria-labelledby="career-path-map-title">
@@ -393,6 +439,9 @@ export default async function CareerGuidesPage({ params }: { params: Promise<{ l
             </div>
             <p>{isZh ? "职业库负责解释“这个职业是什么”；这里专注“怎样走到那里”。" : "The occupation library explains the role; this page focuses on how to move toward it."}</p>
           </div>
+          {guides.length === 0 ? <p role="status">{listRead.status === "rejected"
+            ? (isZh ? "指南列表暂不可用，请稍后重试。" : "The guide list is temporarily unavailable. Please try again later.")
+            : (isZh ? "当前没有已发布指南。" : "No guides are currently published.")}</p> : null}
           <div className={styles.groupList}>
             {groupedGuides
               .filter((group) => group.guides.length > 0)

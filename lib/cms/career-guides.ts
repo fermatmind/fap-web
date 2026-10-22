@@ -123,6 +123,8 @@ type CmsCareerGuideSeoApiResponse = {
 };
 
 export type ListCareerGuidesOptions = {
+  fresh?: boolean;
+  throwOnUnavailable?: boolean;
   page?: number;
   perPage?: number;
   category?: string;
@@ -677,7 +679,7 @@ export async function listCareerGuidesFromCms(
         {
           locale,
           skipAuth: true,
-          ...PUBLIC_API_CACHE_OPTIONS,
+          ...(options.fresh ? { cache: "no-store" as const } : PUBLIC_API_CACHE_OPTIONS),
         }
       );
 
@@ -711,7 +713,7 @@ export async function listCareerGuidesFromCms(
 
     return items;
   } catch (error) {
-    if (isRecoverableCareerGuideListError(error)) {
+    if (!options.throwOnUnavailable && isRecoverableCareerGuideListError(error)) {
       return [];
     }
 
@@ -739,7 +741,7 @@ export async function getCareerGuideFromCmsBySlug(
       {
         locale,
         skipAuth: true,
-        ...(normalizedSlug === "iq-eq-balance-at-work" ? { cache: "no-store" as const } : PUBLIC_API_CACHE_OPTIONS),
+        ...(["iq-eq-balance-at-work", "how-to-find-right-career-direction", "career-transition-playbook"].includes(normalizedSlug) ? { cache: "no-store" as const } : PUBLIC_API_CACHE_OPTIONS),
       }
     );
 
@@ -778,7 +780,7 @@ export async function getCareerGuideSeoFromCmsBySlug(
       {
         locale,
         skipAuth: true,
-        ...(normalizedSlug === "iq-eq-balance-at-work" ? { cache: "no-store" as const } : PUBLIC_API_CACHE_OPTIONS),
+        ...(["iq-eq-balance-at-work", "how-to-find-right-career-direction", "career-transition-playbook"].includes(normalizedSlug) ? { cache: "no-store" as const } : PUBLIC_API_CACHE_OPTIONS),
       }
     );
 

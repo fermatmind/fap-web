@@ -624,3 +624,36 @@
     transition: none;
   }
 }
+
+/* The existing compass composition now carries all three starting states. */
+.hero { min-height: 0; }
+.heroInner { padding-bottom: 2rem; }
+.heroCopy { max-width: 54rem; padding-top: 2rem; }
+.heroCopy h1 { max-width: 50rem; font-size: clamp(2.25rem, 4vw, 3.75rem); }
+.heroCopy > p:last-child { max-width: 45rem; line-height: 1.65; }
+.heroStarts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 2rem; }
+.heroStarts .startOption { min-height: 3.5rem; border-radius: .8rem; background: rgba(255,255,255,.95); font-weight: 600; }
+.contentsNav, .actionRow { display: flex; flex-wrap: wrap; gap: .8rem 1.5rem; }
+.contentsNav { padding-bottom: 1.25rem; border-bottom: 1px solid var(--fm-border, #dedbe5); }
+.contentsNav a { color: #6047cc; text-decoration: underline; text-underline-offset: .3em; }
+.exploreSection, .exampleSection { min-width: 0; scroll-margin-top: 7rem; }
+.exploreSection h2, .exampleSection h2 { margin: .6rem 0 1rem; font: 600 clamp(1.7rem,3vw,2.4rem)/1.2 var(--font-fm-serif),serif; }
+.exploreSection p, .targetSteps { max-width: 64rem; line-height: 1.8; }
+.exampleBody { margin: 1.5rem 0; overflow-wrap: anywhere; }
+.exampleBody h3 { scroll-margin-top: 7rem; }
+.exampleBody table { font-size: .92rem; }
+.exampleBody [role="region"] { max-width: 100%; }
+.targetSteps { padding-left: 1.4rem; }
+.targetSteps li { margin-bottom: .8rem; }
+.actionRow { margin-top: 1.5rem; }
+.actionRow a { max-width: 100%; overflow-wrap: anywhere; }
+.page a:focus-visible, .exampleBody [tabindex]:focus-visible { outline: 3px solid #6047cc; outline-offset: 4px; }
+.page section[id] { scroll-margin-top: 7rem; }
+@media (max-width: 767px) {
+  .heroCopy { padding-top: 1.25rem; }
+  .heroCopy h1 { font-size: 2.1rem; }
+  .heroInner { padding-bottom: 1.5rem; }
+  .heroStarts { grid-template-columns: 1fr; gap: .5rem; margin-top: 1.25rem; }
+  .heroStarts .startOption { min-height: 2.8rem; padding: .7rem 1rem; }
+  .content { padding-top: 1.5rem; gap: 2.75rem; }
+}

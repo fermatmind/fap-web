@@ -14,6 +14,7 @@ export const CAREER_ROUTE_FAMILIES = [
 ] as const;
 
 export const CAREER_ENTRY_SURFACES = [
+  "career_guides",
   "career_landing",
   "career_landing_jobs_preview",
   "career_landing_recommendation_preview",
@@ -30,6 +31,7 @@ export const CAREER_ENTRY_SURFACES = [
 ] as const;
 
 export const CAREER_SOURCE_PAGE_TYPES = [
+  "landing",
   "career_landing",
   "career_job_index",
   "career_job_search",

@@ -24,7 +24,7 @@ import { resolveCareerGuideMetadataTitle } from "@/lib/seo/careerGuideMetadataTi
 import { buildBreadcrumbJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 
-export const dynamic = "force-static";
+// Selected revised guides opt out through their API read; other guides retain ISR.
 export const revalidate = 300;
 
 function shouldNoindex(robotsValue: string | null | undefined): boolean {
