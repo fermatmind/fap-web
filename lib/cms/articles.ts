@@ -21,6 +21,9 @@ const DEFAULT_ORG_ID = "0";
 // These controlled articles must reflect publication and withdrawal on every
 // detail/SEO read across Next workers. Their LKG wrappers already fail closed.
 const LIVE_AUTHORITATIVE_ARTICLE_SLUGS = new Set([
+  "ric-holland-code-career-exploration",
+  "iar-holland-code-career-exploration",
+  "sae-holland-code-career-exploration",
   "iq-test-score-and-limits-explained",
   "iq-test-tool-guide",
   "iq-test-narrative-portrait",

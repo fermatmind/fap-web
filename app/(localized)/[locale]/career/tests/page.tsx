@@ -232,6 +232,23 @@ export default async function CareerTestsPage({ params }: PageProps) {
         </dl>
       </section>
 
+      <section aria-labelledby="career-code-samples" className="mx-auto max-w-4xl space-y-4" data-testid="career-code-samples">
+        <h2 id="career-code-samples" className="m-0 text-2xl font-semibold">{locale === "zh" ? "从三字代码走到一次真实任务探索" : "Turn a three-letter code into a task to explore"}</h2>
+        <p className="m-0 text-sm leading-7 text-slate-600">{locale === "zh" ? "三个样本分别比较检修、设计和帮助学习中的活动。职业按任务选作探索示例，保留完整六维，不是个人匹配排名。" : "Compare activities in repair, design, and helping people learn. Occupations illustrate tasks to explore; keep your full six-interest profile rather than treating these as a personal fit ranking."}</p>
+        <ul className="m-0 grid list-none gap-4 p-0 md:grid-cols-3">
+          {[
+            { code: "RIC", slug: "ric-holland-code-career-exploration", zh: "实作、诊断与记录", en: "Hands-on work, diagnosis, and records" },
+            { code: "IAR", slug: "iar-holland-code-career-exploration", zh: "研究、设计与制作", en: "Research, design, and making" },
+            { code: "SAE", slug: "sae-holland-code-career-exploration", zh: "帮助学习、表达与倡议", en: "Helping people learn, expression, and advocacy" },
+          ].map(sample => <li key={sample.code}>
+            <Link href={withLocale(`/articles/${sample.slug}`)} className="block h-full rounded-2xl border border-slate-200 p-5 text-sm leading-6 underline underline-offset-4 hover:border-slate-400 focus-visible:outline focus-visible:outline-2">
+              <span className="block text-lg font-semibold">{sample.code}</span>
+              {sample[locale]}
+            </Link>
+          </li>)}
+        </ul>
+      </section>
+
       <section aria-labelledby="career-tests-next" className="mx-auto max-w-4xl space-y-6">
         <h2 id="career-tests-next" className="m-0 text-2xl font-semibold">{copy.nextTitle}</h2>
         <ol className="m-0 list-decimal space-y-5 pl-6">
