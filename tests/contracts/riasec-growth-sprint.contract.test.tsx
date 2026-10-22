@@ -51,6 +51,13 @@ describe.each<Locale>(["zh", "en"])("RIASEC growth sprint: %s", locale => {
     expect(comparison.querySelectorAll("thead th")).toHaveLength(4);
     expect(comparison.textContent).toContain(locale === "zh" ? "不能换成兴趣代码" : "cannot become interest codes");
     expect(document.querySelector('[aria-labelledby="career-tests-comparison"]')!.textContent).toContain(locale === "zh" ? "不必全部做完" : "do not need all three tests");
+    const samples = document.querySelector('[data-testid="career-code-samples"]')!;
+    expect([...samples.querySelectorAll("a")].map(a => a.getAttribute("href"))).toEqual([
+      `/${locale}/articles/ric-holland-code-career-exploration`,
+      `/${locale}/articles/iar-holland-code-career-exploration`,
+      `/${locale}/articles/sae-holland-code-career-exploration`,
+    ]);
+    expect(samples.textContent).toContain(locale === "zh" ? "不是个人匹配排名" : "rather than treating these as a personal fit ranking");
     const meta = await hubMetadata({ params: params() });
     expect(meta.alternates?.canonical).toBe(`https://fermatmind.com/${locale}/career/tests`);
     expect(meta.description).toMatch(locale === "zh" ? /职业兴趣测试/ : /career interest test/);
