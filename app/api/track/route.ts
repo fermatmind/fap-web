@@ -295,9 +295,12 @@ export async function POST(request: NextRequest) {
   const seoAttributionTarget = isSeoConversionFunnelEvent(normalizedEventName)
     ? (nativeOrigin ? `${nativeOrigin}/api/v0.5/seo/attribution/events` : undefined)
     : undefined;
+  const careerAttributionTarget = process.env.CAREER_ATTRIBUTION_INGEST_ENDPOINT?.trim()
+    || process.env.ANALYTICS_ENDPOINT?.trim()
+    || (nativeOrigin ? `${nativeOrigin}/api/v0.5/career/attribution/events` : undefined);
   const targets = uniqueTargets(
     isCareerAttributionEvent(normalizedEventName)
-      ? [seoAttributionTarget, process.env.CAREER_ATTRIBUTION_INGEST_ENDPOINT ?? process.env.ANALYTICS_ENDPOINT]
+      ? [seoAttributionTarget, careerAttributionTarget]
       : [
           seoAttributionTarget,
           process.env.MBTI_ATTRIBUTION_INGEST_ENDPOINT,
