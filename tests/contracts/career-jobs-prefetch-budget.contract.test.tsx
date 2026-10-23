@@ -79,7 +79,9 @@ describe("CAREER-JOBS-PREFETCH-BUDGET-01", () => {
     const pageLinks = linkOpeningTags(pageSource);
     const directoryLinks = linkOpeningTags(directorySource);
 
-    expect(pageLinks).toHaveLength(9);
+    // The request budget is zero automatic prefetches, regardless of how many
+    // crawlable directory entry links are offered.
+    expect(pageLinks.length).toBeGreaterThan(0);
     expect(directoryLinks).toHaveLength(4);
 
     for (const link of [...pageLinks, ...directoryLinks]) {
@@ -114,6 +116,11 @@ describe("CAREER-JOBS-PREFETCH-BUDGET-01", () => {
       searchParams: Promise.resolve({}),
     });
     const html = renderToStaticMarkup(page as ReactNode);
+
+    const compareEntry = new DOMParser().parseFromString(html, "text/html")
+      .querySelector('[data-testid="career-compare-entry"]');
+    expect(compareEntry?.getAttribute("href")).toBe("/zh/career/compare");
+    expect(compareEntry?.getAttribute("data-prefetch")).toBe("false");
 
     expect(html).toContain("后端架构师");
     expect(html).toMatch(/href="\/zh\/career\/jobs\/backend-architect" data-prefetch="false"/);

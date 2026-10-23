@@ -242,10 +242,19 @@ describe("SAEP-PLANNED-PR-05 Career Hub crawlable links", () => {
     });
     const stream = await renderToReadableStream(page as ReactNode);
     const reader = stream.getReader();
-    const firstChunk = await reader.read();
-    const html = new TextDecoder().decode(firstChunk.value);
+    const decoder = new TextDecoder();
+    let html = "";
+    // Network/React chunk boundaries are not the shell boundary. Read the core
+    // shell while the optional manifest is still deliberately unresolved.
+    while (!html.includes("</main>")) {
+      const chunk = await reader.read();
+      if (chunk.done) break;
+      html += decoder.decode(chunk.value, { stream: true });
+    }
 
     expect(html).toContain('data-testid="career-library-workspace"');
+    expect(html).toContain('href="/en/career/jobs/data-scientists"');
+    expect(html).toContain('href="/en/career/compare"');
     expect(html).not.toContain('data-testid="career-directory-family-hub-link"');
     expect(optionalManifestGet).toHaveBeenCalledWith(
       "/v0.5/career/first-wave/discoverability-manifest?locale=en",
