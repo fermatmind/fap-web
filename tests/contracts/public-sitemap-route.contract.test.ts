@@ -14,8 +14,10 @@ const ARTICLE_EN_URL = "https://fermatmind.com/en/articles/major-career-mismatch
 const PERSONALITY_COMPARISON_URL = "https://fermatmind.com/en/personality/intj-a-vs-intj-t";
 const TEST_URL = "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types";
 const CAREER_URL = "https://fermatmind.com/zh/career/jobs/software-developers";
-const RETIRED_CAREER_ROOT_EN_URL = "https://fermatmind.com/en/career";
-const RETIRED_CAREER_ROOT_ZH_URL = "https://fermatmind.com/zh/career";
+const CAREER_ROOT_EN_URL = "https://fermatmind.com/en/career";
+const CAREER_ROOT_ZH_URL = "https://fermatmind.com/zh/career";
+const RESOURCE_EN_URL = "https://fermatmind.com/en/holland-test/pdf-download";
+const RESOURCE_ZH_URL = "https://fermatmind.com/zh/holland-test/pdf-download";
 const OTHER_URL = "https://fermatmind.com/en/method-boundaries";
 
 function backendSitemapPayload() {
@@ -27,8 +29,11 @@ function backendSitemapPayload() {
       { loc: PERSONALITY_COMPARISON_URL, lastmod: "2026-07-02T01:00:00Z" },
       { loc: TEST_URL, lastmod: "2026-07-03" },
       { loc: CAREER_URL, lastmod: "2026-07-04" },
-      { loc: RETIRED_CAREER_ROOT_EN_URL, lastmod: "2026-07-04" },
-      { loc: RETIRED_CAREER_ROOT_ZH_URL, lastmod: "2026-07-04" },
+      { loc: CAREER_ROOT_EN_URL },
+      { loc: CAREER_ROOT_ZH_URL },
+      { loc: RESOURCE_EN_URL },
+      { loc: RESOURCE_ZH_URL },
+      { loc: CAREER_ROOT_EN_URL },
       { loc: OTHER_URL, lastmod: "2026-07-05" },
       { loc: "https://www.fermatmind.com/zh/articles/major-career-mismatch-job-search-skills-plan" },
       { loc: "https://fermatmind.com/zh/result/private-attempt" },
@@ -55,11 +60,15 @@ describe("public sitemap route", () => {
 
     expect(entries.map((entry) => entry.loc)).toEqual([
       ARTICLE_EN_URL,
+      CAREER_ROOT_EN_URL,
+      RESOURCE_EN_URL,
       OTHER_URL,
       PERSONALITY_COMPARISON_URL,
       TEST_URL,
       ARTICLE_URL,
+      CAREER_ROOT_ZH_URL,
       CAREER_URL,
+      RESOURCE_ZH_URL,
     ]);
     expect(xml).toContain(`<loc>${ARTICLE_URL}</loc>`);
     expect(xml).toContain(`<loc>${ARTICLE_EN_URL}</loc>`);
@@ -70,10 +79,26 @@ describe("public sitemap route", () => {
     expect(xml).not.toContain("/payment/");
     expect(xml).not.toContain("/share/");
     expect(xml).not.toContain("/take");
-    expect(xml).not.toContain(`<loc>${RETIRED_CAREER_ROOT_EN_URL}</loc>`);
-    expect(xml).not.toContain(`<loc>${RETIRED_CAREER_ROOT_ZH_URL}</loc>`);
+    expect(xml).toContain(`<loc>${CAREER_ROOT_EN_URL}</loc>`);
+    expect(xml).toContain(`<loc>${CAREER_ROOT_ZH_URL}</loc>`);
     expect(xml).not.toContain("example.com");
     expect(xml).not.toContain("utm=1");
+  });
+
+  it("keeps all four authority targets unique and omits unknown update times across generations", () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date("2030-01-01T00:00:00Z"));
+    const first = buildPublicSitemapEntries(backendSitemapPayload());
+    vi.setSystemTime(new Date("2040-01-01T00:00:00Z"));
+    const second = buildPublicSitemapEntries(backendSitemapPayload());
+    vi.useRealTimers();
+    expect(second).toEqual(first);
+    for (const loc of [CAREER_ROOT_EN_URL, CAREER_ROOT_ZH_URL, RESOURCE_EN_URL, RESOURCE_ZH_URL]) {
+      expect(second.filter((entry) => entry.loc === loc)).toEqual([{ loc }]);
+      expect(buildPublicSitemapXml(second)).toContain(`<loc>${loc}</loc>\n  </url>`);
+    }
+    expect(buildPublicSitemapXml(second)).toContain("<lastmod>2026-07-01T16:00:00.000Z</lastmod>");
+    expect(buildPublicSitemapEntries({ items: [] })).toEqual([]);
   });
 
   it("serves /sitemap.xml from backend sitemap-source at runtime", async () => {
@@ -107,9 +132,9 @@ describe("public sitemap route", () => {
 
     expect(families.tests.map((entry) => entry.loc)).toEqual([TEST_URL]);
     expect(families.articles.map((entry) => entry.loc)).toEqual([ARTICLE_EN_URL, ARTICLE_URL]);
-    expect(families.career.map((entry) => entry.loc)).toEqual([CAREER_URL]);
+    expect(families.career.map((entry) => entry.loc)).toEqual([CAREER_ROOT_EN_URL, CAREER_ROOT_ZH_URL, CAREER_URL]);
     expect(families.personality.map((entry) => entry.loc)).toEqual([PERSONALITY_COMPARISON_URL]);
-    expect(families.other.map((entry) => entry.loc)).toEqual([OTHER_URL]);
+    expect(families.other.map((entry) => entry.loc)).toEqual([RESOURCE_EN_URL, OTHER_URL, RESOURCE_ZH_URL]);
     expect(new Set(familyEntries.map((entry) => entry.loc))).toEqual(
       new Set(rootEntries.map((entry) => entry.loc))
     );
