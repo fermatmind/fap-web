@@ -1,0 +1,24 @@
+.root { overflow-wrap: anywhere; }
+.controls { display: grid; gap: 1rem; margin: 1.5rem 0; }
+.slot { min-width: 0; border: 1px solid #cbd5e1; border-radius: 1rem; background: white; padding: 1rem; }
+.select { display: block; width: 100%; min-height: 48px; margin: .5rem 0; border: 1px solid #64748b; border-radius: .5rem; padding: .5rem; background: white; }
+.button { min-height: 44px; padding: .5rem .75rem; color: #115e59; text-decoration: underline; }
+.root :is(button, select, a, summary):focus-visible { outline: 3px solid #0f766e; outline-offset: 3px; }
+.table { width: 100%; table-layout: fixed; border-collapse: collapse; background: white; }
+.table caption { text-align: left; font-weight: 700; padding: 1rem 0; }
+.table th, .table td { padding: 1rem; text-align: left; vertical-align: top; border: 1px solid #cbd5e1; min-width: 0; }
+.table thead th { background: #ecfdf5; }
+.table th:first-child { width: 20%; }
+.table td { width: 40%; }
+.table summary { cursor: pointer; min-height: 44px; padding: .5rem 0; color: #115e59; font-weight: 600; }
+@media (min-width: 640px) { .controls { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 639px) {
+  .table, .table tbody { display: block; }
+  .table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .table tr { display: block; margin-bottom: 1rem; border: 1px solid #cbd5e1; border-radius: .75rem; overflow: hidden; }
+  .table th:first-child, .table td { display: block; width: 100%; border: 0; padding: 1rem; }
+  .table tbody th { background: #ecfdf5; }
+  .table td + td { border-top: 1px dashed #94a3b8; }
+  .mobileName { display: block; font-weight: 700; margin-bottom: .5rem; }
+}
+@media (min-width: 640px) { .mobileName { display: none; } }
