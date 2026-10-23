@@ -1,0 +1,16 @@
+.printRecord { display: none; }
+.value { white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; }
+@media print {
+  @page worksheet-record { size: A4; margin: 15mm; }
+  :global(body:has([data-worksheet-print]) *:not(:has([data-worksheet-print])):not([data-worksheet-print]):not([data-worksheet-print] *)) { display: none !important; }
+  :global(body:has([data-worksheet-print])) { background: white !important; color: black !important; }
+  :global(body:has([data-worksheet-print]) main) { max-width: none !important; padding: 0 !important; }
+  .shell { border: 0 !important; padding: 0 !important; margin: 0 !important; background: white !important; max-width: none !important; }
+  .printRecord { display: block; color: black; page: worksheet-record; font-size: 11pt; line-height: 1.5; }
+  .printRecord h2 { font-size: 18pt; font-weight: 700; margin: 0 0 12pt; }
+  .printRecord h3 { font-size: 13pt; font-weight: 700; margin: 16pt 0 8pt; }
+  .printRecord dt { font-weight: 600; }
+  .printRecord h2, .printRecord h3, .printRecord dt { break-after: avoid; }
+  .printRecord dd { margin: 0 0 1em; }
+  .value { max-height: none; overflow: visible; }
+}

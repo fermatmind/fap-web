@@ -4,6 +4,7 @@ import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
+import { RiasecWorksheet } from "@/components/marketing/RiasecWorksheet";
 import { RiasecResultExamples } from "@/components/tests/RiasecResultExamples";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
@@ -42,14 +43,18 @@ export default async function HollandPdfPage({ params }: Props) {
         <h1 className="m-0 text-3xl font-semibold tracking-tight md:text-4xl">{META[locale].title}</h1>
         <p className="m-0 leading-7 text-slate-600">{copy.intro}</p>
         <div className="flex flex-wrap gap-3">
-          <a href={`/resources/riasec/fermatmind-career-exploration-${locale}.pdf`} download className={buttonVariants({ variant: "default" })} data-testid="riasec-pdf-download">
-            {locale === "zh" ? "免费下载 PDF 工作表（2 页）" : "Download the free PDF worksheet (2 pages)"}
+          <a href="#my-worksheet" className={buttonVariants({ variant: "default" })}>
+            {locale === "zh" ? "在线填写我的探索记录" : "Fill in my exploration record"}
+          </a>
+          <a href={`/resources/riasec/fermatmind-career-exploration-${locale}.pdf`} download className={buttonVariants({ variant: "outline" })} data-testid="riasec-pdf-download">
+            {locale === "zh" ? "下载空白 PDF 工作表（2 页）" : "Download the blank PDF worksheet (2 pages)"}
           </a>
           <Link href={localizedPath("/tests/holland-career-interest-test-riasec", locale)} className={buttonVariants({ variant: "outline" })}>
             {locale === "zh" ? "在线完成霍兰德职业兴趣测试" : "Take the online Holland Code interest test"}
           </Link>
         </div>
       </header>
+      <RiasecWorksheet locale={locale} />
       <RiasecResultExamples locale={locale} />
       <section id="interpret-results" aria-labelledby="interpret-results-title" className="mx-auto max-w-4xl scroll-mt-24 space-y-4" data-testid="riasec-interpretation-path">
         <h2 id="interpret-results-title" className="m-0 text-2xl font-semibold">{locale === "zh" ? "把你的结果变成一次职业探索" : "Turn your result into a career exploration"}</h2>
