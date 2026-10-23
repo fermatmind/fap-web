@@ -47,8 +47,15 @@ describe("Career tools use consent and independent task units", () => {
     expect(envelope.payload.utm_source).toBe("fermatmind_qa");
     expect(envelope.payload).not.toHaveProperty("private_notes");
     expect(envelope.payload).not.toHaveProperty("is_internal");
+    const unknownCampaign = { ...body, payload: { ...body.payload, utm_campaign: "campaign with spaces", utm_medium: "x".repeat(33) } };
+    expect((await POST(new NextRequest("https://fermatmind.com/api/track", {method:"POST",body:JSON.stringify(unknownCampaign)}))).status).toBe(200);
+    const retainedEvent = JSON.parse(fetchMock.mock.calls[2][1].body);
+    expect(retainedEvent.payload.target_action).toBe("compare_entered");
+    expect(retainedEvent.payload.utm_source).toBe("fermatmind_qa");
+    expect(retainedEvent.payload).not.toHaveProperty("utm_campaign");
+    expect(retainedEvent.payload).not.toHaveProperty("utm_medium");
     const invalid=await POST(new NextRequest("https://fermatmind.com/api/track", {method:"POST",body:JSON.stringify({...body,requestId:"bad id"})}));
     expect(invalid.status).toBe(400);
-    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(fetchMock).toHaveBeenCalledTimes(3);
   });
 });

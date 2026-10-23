@@ -346,6 +346,12 @@ export async function POST(request: NextRequest) {
           body: JSON.stringify(url === seoAttributionTarget ? toSeoAttributionIngestEnvelope(event)
             : url === nativeCareerAttributionTarget ? { ...event, payload: Object.fromEntries(CAREER_ATTRIBUTION_INGEST_FIELDS
               .filter(key => event.payload[key as keyof typeof event.payload] !== undefined)
+              .filter(key => {
+                if (!key.startsWith("utm_")) return true;
+                const value = event.payload[key as keyof typeof event.payload];
+                const limit = key === "utm_medium" ? 32 : 96;
+                return typeof value === "string" && value.length <= limit && /^[A-Za-z0-9._-]+$/.test(value);
+              })
               .map(key => [key, event.payload[key as keyof typeof event.payload]])) } : event),
         });
 
