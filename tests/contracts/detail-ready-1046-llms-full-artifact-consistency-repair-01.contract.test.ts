@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 const SITE_URL = "https://fermatmind.com";
 const REQUIRED_SLUGS = [
@@ -85,6 +85,11 @@ function mockLlmsFullDependencies(
     createConfiguredStagingLlmsResponse: vi.fn(() => new Response("staging", { status: 410 })),
     isConfiguredStagingDiscoverability: vi.fn(() => false),
   }));
+  // This contract exercises Career inventory/cache invalidation, not live
+  // Enneagram publication authority.
+  vi.doMock("@/lib/seo/enneagramLlmsSource", () => ({
+    listEnneagramLlmsFullEntries: vi.fn(async () => []),
+  }));
   vi.doMock("@/lib/seo/backendSitemapSource", () => ({
     listBackendSitemapBigFiveZhPaths: vi.fn(async () => []),
     listBackendSitemapMbtiPersonalityPaths: vi.fn(async () => []),
@@ -139,7 +144,17 @@ function mockLlmsFullDependencies(
   return { listBackendSitemapCareerJobPaths, listCmsArticlesForLlmsWithLastKnownGood };
 }
 
+const networkFetch = vi.fn<typeof fetch>(async () => {
+  throw new Error("Unexpected network access in LLMS artifact contract fixture");
+});
+
+beforeEach(() => {
+  networkFetch.mockClear();
+  vi.stubGlobal("fetch", networkFetch);
+});
+
 afterEach(() => {
+  const networkCalls = networkFetch.mock.calls.slice();
   vi.resetModules();
   vi.unstubAllGlobals();
   vi.restoreAllMocks();
@@ -148,6 +163,7 @@ afterEach(() => {
   delete process.env.FERMATMIND_LLMS_FULL_REQUIRE_CAREER_COHORT;
   delete process.env.FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT;
   delete process.env.FERMATMIND_LLMS_FULL_REQUIRE_IQ_COHORT;
+  expect(networkCalls).toEqual([]);
 });
 
 describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
