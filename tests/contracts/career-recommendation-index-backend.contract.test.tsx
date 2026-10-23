@@ -143,6 +143,10 @@ describe("career recommendation index backend contract", () => {
     });
     const html = renderToStaticMarkup(page as ReactNode);
 
+    expect(html).toContain("Explore careers by MBTI-style type");
+    expect(html).toContain("This index does not combine your test results");
+    expect(html).not.toContain("Build your career profile");
+    expect(html).not.toContain("Start career matching");
     expect(html).toContain("career-recommendation-index-card");
     expect(html).toContain("INTJ Career Match");
     expect(html).toContain('href="/en/career/recommendations/mbti/intj"');
@@ -209,5 +213,26 @@ describe("career recommendation index backend contract", () => {
     expect(html).not.toContain("Open recommendation direction");
     expect(html).not.toContain("Fit score:");
     expect(html).not.toContain("Confidence score:");
+  });
+});
+
+describe("public recommendation index empty states", () => {
+  it.each([
+    ["zh", { items: [] }, "暂无公开类型建议"],
+    ["en", { items: [] }, "No public type suggestions are available yet"],
+    ["zh", null, "公开职业索引暂时无法加载"],
+    ["en", null, "The public career index is temporarily unavailable"],
+    ["en", { items: [{}] }, "The public career index is temporarily unavailable"],
+  ])("distinguishes %s published emptiness from unavailable identity", async (locale, payload, message) => {
+    vi.doMock("@/lib/i18n/getDict", () => ({ resolveLocale: () => locale }));
+    vi.doMock("@/lib/career/api/fetchCareerRecommendationIndex", () => ({
+      fetchCareerRecommendationIndex: vi.fn(async () => payload),
+    }));
+    const { default: Page } = await import("@/app/(localized)/[locale]/career/recommendations/page");
+    const html = renderToStaticMarkup(await Page({ params: Promise.resolve({ locale }) }));
+    expect(html).toContain(message);
+    expect(html).not.toContain("This is not an empty result");
+    expect(html).not.toContain("career-recommendation-index-card");
+    expect(html).toContain(`href="/${locale}/career"`);
   });
 });

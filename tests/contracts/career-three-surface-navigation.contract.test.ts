@@ -43,7 +43,9 @@ describe("career three-surface navigation contract", () => {
     expect(source).toContain("buildFAQPageJsonLd");
     expect(source).toContain("buildItemListJsonLd");
     expect(source).toContain('id="faq"');
-    expect(source).toContain("职业匹配：适合我的职业方向");
+    expect(source).toContain("按 MBTI 类型探索职业方向");
+    expect(source).toContain("This index does not combine your test results");
+    expect(source).not.toContain("Build your career profile");
     expect(source).not.toContain("92% 匹配");
   });
 

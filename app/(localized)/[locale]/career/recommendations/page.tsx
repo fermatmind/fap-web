@@ -31,7 +31,7 @@ import {
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import styles from "./recommendations.module.css";
 
-const PAGE_UPDATED_AT = "2026-09-04";
+const PAGE_UPDATED_AT = "2026-10-23";
 
 export async function generateMetadata({
   params,
@@ -44,11 +44,11 @@ export async function generateMetadata({
   return buildPageMetadata({
     locale,
     pathname: locale === "zh" ? "/zh/career/recommendations" : "/en/career/recommendations",
-    title: locale === "zh" ? "职业匹配：适合我的职业方向" : "Career Fit: Find Careers That Suit You",
+    title: locale === "zh" ? "按 MBTI 类型探索职业方向" : "Explore careers by MBTI-style type",
     description:
       locale === "zh"
-        ? "结合职业兴趣、人格倾向、工作偏好与现实条件，查看可解释的职业匹配线索和候选方向。"
-        : "Use career interests, personality tendencies, work preferences, and practical constraints to explore explainable career-fit signals.",
+        ? "浏览按 MBTI 类型组织的公开职业探索建议，再结合兴趣、能力和入行要求核对真实工作任务。"
+        : "Browse career exploration suggestions organized by MBTI-style type. Compare the suggested tasks with your interests, skills and entry requirements.",
     alternatesByLocale: {
       en: "/en/career/recommendations",
       zh: "/zh/career/recommendations",
@@ -67,10 +67,10 @@ export default async function CareerRecommendationsPage({
   const isZh = locale === "zh";
   const withLocale = (pathname: string) => localizedPath(pathname, locale);
   const canonicalPath = isZh ? "/zh/career/recommendations" : "/en/career/recommendations";
-  const pageTitle = isZh ? "找到更适合你的职业" : "Find careers that fit you better";
+  const pageTitle = isZh ? "按 MBTI 类型探索职业方向" : "Explore careers by MBTI-style type";
   const pageDescription = isZh
-    ? "综合职业兴趣、人格倾向、工作偏好与现实条件，给出可解释、可比较的职业探索线索。"
-    : "Combine career interests, personality tendencies, work preferences, and practical constraints into explainable career exploration signals.";
+    ? "选择一个类型，查看已发布的职业探索建议。本索引不会合并你的测评结果，也不评估你的能力和现实条件。"
+    : "Choose a type to browse its published career suggestions. This index does not combine your test results or assess your skills and circumstances.";
   const riasecTestPath = withLocale("/tests/holland-career-interest-test-riasec");
   const mbtiTestPath = withLocale("/tests/mbti-personality-test-16-personality-types");
   const jobsPath = withLocale("/career");
@@ -79,11 +79,12 @@ export default async function CareerRecommendationsPage({
   const payload = await fetchCareerRecommendationIndex({ locale });
   const recommendationItems = adaptCareerRecommendationIndex({ locale, payload });
   const featuredRecommendations = recommendationItems.slice(0, 3);
+  const isEmptyPublishedIndex = payload !== null && Array.isArray(payload.items) && payload.items.length === 0;
   const faqItems = isZh
     ? [
         {
-          question: "职业匹配和职业测试有什么区别？",
-          answer: "职业测试提供兴趣或人格信号；职业匹配把这些信号与工作任务、环境偏好和现实条件放在一起比较，用于缩小探索范围。",
+          question: "本页建议是否根据我的测评结果生成？",
+          answer: "不是。本页展示公开的 MBTI 类型职业索引，没有读取或合并你的测评结果。请自行选择类型，并用实际任务、入行要求和个人条件核对候选方向。",
         },
         {
           question: "MBTI 能直接决定适合的职业吗？",
@@ -96,8 +97,8 @@ export default async function CareerRecommendationsPage({
       ]
     : [
         {
-          question: "How is career fit different from a career test?",
-          answer: "A career test provides interest or personality signals. Career fit compares those signals with work tasks, environments, and practical constraints to narrow exploration.",
+          question: "Are these suggestions based on my test results?",
+          answer: "No. This is a public career index organized by MBTI-style type. It does not read or combine your test results. Choose a type, then check actual tasks, entry requirements and your circumstances.",
         },
         {
           question: "Can MBTI determine the right career?",
@@ -122,7 +123,7 @@ export default async function CareerRecommendationsPage({
   const faqJsonLd = buildFAQPageJsonLd(faqItems);
   const itemListJsonLd = buildItemListJsonLd({
     path: canonicalPath,
-    title: isZh ? "可用职业匹配类型" : "Available career-fit types",
+    title: isZh ? "公开 MBTI 职业类型入口" : "Public MBTI-style career starting points",
     description: isZh ? "由公开职业推荐索引提供的类型入口。" : "Type entry points supplied by the public career recommendation index.",
     locale,
     items: recommendationItems.map((item) => ({
@@ -158,18 +159,18 @@ export default async function CareerRecommendationsPage({
   const evidenceItems = [
     {
       icon: Compass,
-      title: isZh ? "兴趣吻合" : "Interest alignment",
-      description: isZh ? "比较你愿意持续投入的活动，而不是只匹配职位名称。" : "Compare activities you would sustain, not job titles alone.",
+      title: isZh ? "从类型建议起步" : "Type-based starting points",
+      description: isZh ? "先读某个类型已发布的职业建议，把它们当作待核对的候选。" : "Read the published career suggestions for a type as starting points to investigate.",
     },
     {
       icon: Sparkles,
-      title: isZh ? "能力迁移" : "Transferable strengths",
-      description: isZh ? "识别可以带入新岗位的经验、方法和协作能力。" : "Identify experience, methods, and collaboration skills that transfer.",
+      title: isZh ? "核对真实工作" : "Check actual work",
+      description: isZh ? "打开职业资料，核对日常任务、工作条件和入行要求。" : "Check everyday tasks, working conditions and entry requirements in occupation profiles.",
     },
     {
       icon: BriefcaseBusiness,
-      title: isZh ? "工作环境" : "Work environment",
-      description: isZh ? "核对自主性、节奏、协作方式与现实机会。" : "Check autonomy, pace, collaboration, and real opportunities.",
+      title: isZh ? "积累自己的证据" : "Build your own evidence",
+      description: isZh ? "用小项目、访谈和实际要求检验兴趣与能力，再决定是否继续。" : "Use projects, conversations and real requirements to check interests and skills before committing.",
     },
   ];
 
@@ -218,11 +219,11 @@ export default async function CareerRecommendationsPage({
             <p className={styles.heroDescription}>{pageDescription}</p>
             <div className={styles.heroActions}>
               <Link href={riasecTestPath} className={styles.primaryAction}>
-                {isZh ? "开始职业匹配" : "Start career matching"}
+                {isZh ? "独立探索职业兴趣" : "Explore career interests separately"}
                 <ArrowRight aria-hidden="true" className="size-4" />
               </Link>
               <Link href="#recommendations" className={styles.secondaryAction}>
-                {isZh ? "已有结果？查看类型建议" : "Have results? View type guidance"}
+                {isZh ? "选择 MBTI 类型" : "Choose an MBTI-style type"}
               </Link>
             </div>
           </div>
@@ -235,8 +236,8 @@ export default async function CareerRecommendationsPage({
             <div className={styles.sectionHeadingRow}>
               <span className={styles.iconBadge}><Target aria-hidden="true" /></span>
               <div>
-                <p className={styles.sectionKicker}>{isZh ? "三个输入" : "Three inputs"}</p>
-                <h2 id="career-profile-title">{isZh ? "建立你的职业画像" : "Build your career profile"}</h2>
+                <p className={styles.sectionKicker}>{isZh ? "独立探索工具" : "Separate exploration tools"}</p>
+                <h2 id="career-profile-title">{isZh ? "选择你需要的探索方式" : "Choose your next exploration step"}</h2>
               </div>
             </div>
             <div className={styles.profileRows}>
@@ -255,7 +256,7 @@ export default async function CareerRecommendationsPage({
               })}
             </div>
             <p className={styles.boundaryNote}>
-              {isZh ? "完成的信号越完整，越容易缩小值得验证的职业范围。" : "More complete inputs make it easier to narrow the careers worth validating."}
+              {isZh ? "这些入口分别提供兴趣、偏好或职业资料，不会在本页合并为个人画像。" : "These tools offer interests, preferences or occupation information separately; this page does not combine them into a personal profile."}
             </p>
           </article>
 
@@ -263,13 +264,13 @@ export default async function CareerRecommendationsPage({
             <div className={styles.sectionHeadingRow}>
               <span className={styles.iconBadge}><Sparkles aria-hidden="true" /></span>
               <div>
-                <p className={styles.sectionKicker}>{isZh ? "公开匹配入口" : "Public fit entry points"}</p>
-                <h2>{isZh ? "从真实结果继续" : "Continue from a real result"}</h2>
+                <p className={styles.sectionKicker}>{isZh ? "公开索引示例" : "Public index examples"}</p>
+                <h2>{isZh ? "类型入口示例" : "Example type entry points"}</h2>
               </div>
             </div>
             {featuredRecommendations.length > 0 ? (
               <div className={styles.previewRows}>
-                {featuredRecommendations.map((item, index) => {
+                {featuredRecommendations.map((item) => {
                   const typeLabel = item.recommendationSubjectMeta.canonicalTypeCode
                     ?? item.recommendationSubjectMeta.typeCode
                     ?? item.recommendationSubjectMeta.displayTitle;
@@ -290,7 +291,7 @@ export default async function CareerRecommendationsPage({
                       }}
                       className={styles.previewRow}
                     >
-                      <span className={styles.previewRank}>{String(index + 1).padStart(2, "0")}</span>
+                      <span className={styles.previewRank}><Fingerprint aria-hidden="true" className="size-4" /></span>
                       <span className={styles.previewCopy}>
                         <strong>{typeLabel}</strong>
                         <small>{isZh ? "查看职业适配线索与取舍" : "Review career-fit signals and trade-offs"}</small>
@@ -304,8 +305,10 @@ export default async function CareerRecommendationsPage({
               <div className={styles.unavailable} role="status" data-testid="career-recommendations-unavailable">
                 <Search aria-hidden="true" />
                 <div>
-                  <strong>{isZh ? "职业匹配暂时无法加载" : "Career fit is temporarily unavailable"}</strong>
-                  <p>{isZh ? "这不是空结果，请稍后重试或先浏览职业库。" : "This is not an empty result. Try again later or browse occupations."}</p>
+                  <strong>{isEmptyPublishedIndex
+                    ? (isZh ? "暂无公开类型建议" : "No public type suggestions are available yet")
+                    : (isZh ? "公开职业索引暂时无法加载" : "The public career index is temporarily unavailable")}</strong>
+                  <p>{isZh ? "可以先浏览职业库，稍后再查看类型索引。" : "Browse occupations now, or return to the type index later."}</p>
                 </div>
               </div>
             )}
@@ -314,8 +317,8 @@ export default async function CareerRecommendationsPage({
 
         <section className={styles.evidenceSection} aria-labelledby="career-fit-evidence-title">
           <div className={styles.centeredHeading}>
-            <p className={styles.sectionKicker}>{isZh ? "可解释，而不是黑盒" : "Explainable, not a black box"}</p>
-            <h2 id="career-fit-evidence-title">{isZh ? "为什么推荐这些方向" : "Why these directions are recommended"}</h2>
+            <p className={styles.sectionKicker}>{isZh ? "用证据核对候选方向" : "Check candidates against evidence"}</p>
+            <h2 id="career-fit-evidence-title">{isZh ? "从类型建议到实际验证" : "From type suggestions to practical checks"}</h2>
           </div>
           <div className={styles.evidenceGrid}>
             {evidenceItems.map((item) => {
@@ -386,10 +389,10 @@ export default async function CareerRecommendationsPage({
         <section className={styles.faqSection} id="faq" aria-labelledby="career-fit-faq-title">
           <div className={styles.faqIntro}>
             <p className={styles.sectionKicker}>{isZh ? "方法边界" : "Method boundaries"}</p>
-            <h2 id="career-fit-faq-title">{isZh ? "职业匹配常见问题" : "Career-fit questions"}</h2>
+            <h2 id="career-fit-faq-title">{isZh ? "类型职业索引常见问题" : "Type-based career index questions"}</h2>
             <p>
               {isZh ? "页面更新于" : "Updated"} <time dateTime={PAGE_UPDATED_AT}>{PAGE_UPDATED_AT}</time>{isZh ? "。" : "."}
-              {isZh ? "匹配入口由公开职业推荐 API 提供，方法说明用于帮助你正确理解结果。" : " Entry points are supplied by the public career recommendation API; method notes help you interpret them correctly."}
+              {isZh ? "类型入口来自公开 MBTI 职业推荐索引；前三项是索引示例，不是为你排序的职业结果。" : " Entry points come from the public MBTI career recommendation index. The first three entries are examples from that index, not a ranking for you."}
             </p>
             <nav className={styles.faqLinks} aria-label={isZh ? "相关职业页面" : "Related career pages"}>
               <Link href={jobsPath}>{isZh ? "查看职业库" : "Browse occupations"}<ArrowRight aria-hidden="true" /></Link>
