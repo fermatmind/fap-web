@@ -131,6 +131,7 @@ function isNativeIngestTarget(target: string, origin: string): boolean {
 const CAREER_ATTRIBUTION_INGEST_FIELDS = [
   "entry_surface", "source_page_type", "target_action", "landing_path", "route_family",
   "subject_kind", "subject_key", "query_mode", "query_text", "locale", "blocked_claim_kind",
+  "tool_run_id", "output_format", "resource_key", "traffic_quality", "utm_source", "utm_medium", "utm_campaign", "utm_content",
 ] as const;
 
 // The native SEO ingest is strict. Request identity travels in X-Request-Id;
@@ -251,7 +252,12 @@ export async function POST(request: NextRequest) {
       ? filterTrackingPayload(normalizedEventName, payloadSource as Record<string, unknown>)
       : {};
 
-  const requestId = crypto.randomUUID();
+  const suppliedRequestId = (body as { requestId?: unknown }).requestId;
+  if (suppliedRequestId !== undefined && (typeof suppliedRequestId !== "string"
+    || !/^[A-Za-z0-9._:-]{1,128}$/.test(suppliedRequestId))) {
+    return NextResponse.json({ ok: false, error: "invalid_request_id" }, { status: 400 });
+  }
+  const requestId = typeof suppliedRequestId === "string" ? suppliedRequestId : crypto.randomUUID();
   const anonymousId = safeText((body as { anonymousId?: unknown }).anonymousId);
   const rawPath = safeText((body as { path?: unknown }).path);
   if (shouldSuppressAnalyticsForUrl(rawPath)) {

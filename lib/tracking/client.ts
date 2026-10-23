@@ -399,6 +399,7 @@ export async function trackClientEvent({
 
   try {
     const envelope = {
+      requestId: crypto.randomUUID(),
       eventName: normalizedEventName,
       payload: filteredPayload,
       anonymousId,
