@@ -12,15 +12,15 @@ describe("career recommendations entry availability contract", () => {
   it("separates career discovery paths from the recommendation list", () => {
     const source = read("app/(localized)/[locale]/career/recommendations/page.tsx");
 
-    expect(source).toContain("找到更适合你的职业");
-    expect(source).toContain("Find careers that fit you better");
-    expect(source).toContain("建立你的职业画像");
-    expect(source).toContain("从真实结果继续");
+    expect(source).toContain("按 MBTI 类型探索职业方向");
+    expect(source).toContain("Explore careers by MBTI-style type");
+    expect(source).toContain("选择你需要的探索方式");
+    expect(source).toContain("类型入口示例");
     expect(source).toContain("职业兴趣");
     expect(source).toContain("人格倾向");
     expect(source).toContain("现实条件");
-    expect(source).toContain("可解释，而不是黑盒");
-    expect(source).toContain("已有结果？查看类型建议");
+    expect(source).toContain("用证据核对候选方向");
+    expect(source).toContain("选择 MBTI 类型");
     expect(source).toContain("career-recommendations-hero");
     expect(source).toContain("featuredRecommendations.length > 0");
     expect(source).toContain("recommendationItems.length > 0");
@@ -32,7 +32,8 @@ describe("career recommendations entry availability contract", () => {
     expect(source).not.toContain("选择你的 MBTI 类型");
     expect(source).not.toContain("推荐页先给方向和取舍");
     expect(source).not.toContain("职业推荐用于缩小方向");
-    expect(source).not.toContain("选择 MBTI 类型");
+    expect(source).toContain("本索引不会合并你的测评结果");
+    expect(source).not.toContain("建立你的职业画像");
     expect(source).not.toContain("先做大五人格");
     expect(source).not.toContain("选择测评");
     expect(source).not.toContain("热点职业");
