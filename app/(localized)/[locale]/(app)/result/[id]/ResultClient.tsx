@@ -29,6 +29,7 @@ import {
 } from "@/lib/access/unifiedAccess";
 import { getOrCreateAnonId, readPendingAnonLinkAttempts } from "@/lib/anon";
 import { trackEvent } from "@/lib/analytics";
+import { useResultVisibilityObservation } from "@/hooks/useResultVisibilityObservation";
 import {
   bindAttemptEmail,
   fetchAttemptReport,
@@ -1914,6 +1915,10 @@ export default function ResultClient({
         : "failed";
   const viewState: "processing" | "ready" | "failed" =
     rawViewState === "ready" && processingGateStartedAt !== null && !readyHoldElapsed ? "processing" : rawViewState;
+  useResultVisibilityObservation({
+    attemptId, anonId, receipt: reportData?.result_visibility_receipt ?? resultData?.result_visibility_receipt,
+    enabled: viewState === "ready" && !printMode && !usePrintAccessTokenOnly,
+  });
   const processingBackendReady = rawViewState === "ready";
   const mbtiPdfReadyCandidate = printSnapshotContractValid && resolvedScaleCode === "MBTI" && viewState === "ready" && hasRichReport && Boolean(reportData);
   const mbtiPdfContentReadyCandidate =
@@ -2211,7 +2216,7 @@ export default function ResultClient({
 
   if (isIqScaleCode(resolvedScaleCode)) {
     return (
-      <div className="space-y-[var(--fm-gap-md)]">
+      <div data-result-visible-root className="space-y-[var(--fm-gap-md)]">
         {renderOptionalEmailRecoveryCard()}
         <IqResultShell
           locale={locale}
@@ -2225,7 +2230,7 @@ export default function ResultClient({
 
   if (hasEqV5Report && reportData) {
     return (
-      <div className="space-y-[var(--fm-gap-md)]">
+      <div data-result-visible-root className="space-y-[var(--fm-gap-md)]">
         {renderOptionalEmailRecoveryCard()}
         <EQResultV5
           locale={locale}
@@ -2239,7 +2244,7 @@ export default function ResultClient({
 
   if (hasRichReport && reportData) {
     return (
-      <div className="space-y-[var(--fm-gap-md)]">
+      <div data-result-visible-root className="space-y-[var(--fm-gap-md)]">
         {resolvedScaleCode !== "RIASEC" || !hasRiasecProjection(reportData) ? renderOptionalEmailRecoveryCard() : null}
         <RichResultReport
           locale={locale}
@@ -2262,7 +2267,7 @@ export default function ResultClient({
 
   if (hasRiasecProjection(resultData)) {
     return (
-      <div className="space-y-[var(--fm-gap-md)]">
+      <div data-result-visible-root className="space-y-[var(--fm-gap-md)]">
         <RiasecResultShell
           locale={locale}
           viewModel={assembleRiasecResultViewModel(resultData, locale)}
@@ -2303,7 +2308,7 @@ export default function ResultClient({
       : "";
 
   return (
-    <div className="space-y-[var(--fm-gap-md)]">
+    <div data-result-visible-root className="space-y-[var(--fm-gap-md)]">
       {renderOptionalEmailRecoveryCard()}
       <ResultSummary
         title={

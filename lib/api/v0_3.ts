@@ -247,6 +247,7 @@ export type AttemptSubmissionResponse = {
 
 export type ResultResponse = {
   ok: boolean;
+  result_visibility_receipt?: string | null;
   attempt_id?: string;
   result?: {
     type_code?: string;
@@ -1047,6 +1048,7 @@ export type MbtiPreviewContractV1Raw = {
 };
 
 export type ReportResponse = {
+  result_visibility_receipt?: string | null;
   ok?: boolean;
   locked?: boolean;
   generating?: boolean;
@@ -3330,6 +3332,20 @@ export async function fetchAttemptResult({
   );
 
   return assertApiOk(response, "Failed to load result.");
+}
+
+/** Owner-only acknowledgment, deliberately separate from /api/track. */
+export async function observeAttemptResult({ attemptId, anonId, receipt }: {
+  attemptId: string; anonId?: string; receipt: string;
+}): Promise<void> {
+  if (!getFmToken()) throw new Error("Owner credential unavailable");
+  const response = await apiClient.post<{ ok: boolean; persisted: boolean }>(
+    `/v0.3/attempts/${attemptId}/result-observation`,
+    { receipt, consent_state: "granted" },
+    anonHeader(resolveAnonId(anonId))
+  );
+  assertApiOk(response, "Result observation unavailable");
+  if (!response.persisted) throw new Error("Result observation not persisted");
 }
 
 export async function fetchAttemptSubmission({
