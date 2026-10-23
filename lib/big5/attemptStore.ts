@@ -290,6 +290,7 @@ export const useBig5AttemptStore = create<Big5AttemptStore>()(
           return {
             ...state,
             attemptId,
+            startedAt: state.attemptId === attemptId ? state.startedAt : Date.now(),
             resumeToken: resumeToken ?? state.resumeToken,
             disclaimerVersion: disclaimerVersion ?? state.disclaimerVersion,
             disclaimerHash: disclaimerHash ?? state.disclaimerHash,

@@ -819,7 +819,7 @@ export default function Big5TakeClient({
     answersSnapshot: Record<string, string>,
     runId?: number,
   ): Promise<string> => {
-    const durationMs = Math.max(1000, Date.now() - startedAt);
+    const durationMs = Math.max(1000, Date.now() - useBig5AttemptStore.getState().startedAt);
     const answeredCountSnapshot = questions.reduce(
       (count, question) => count + (answersSnapshot[question.question_id] ? 1 : 0),
       0
@@ -856,7 +856,7 @@ export default function Big5TakeClient({
 
     markSubmitted();
     return resolveResultAttemptId(response, activeAttemptId);
-  }, [anonId, buildEventPayload, isFlowActive, markSubmitted, questions, runWithAuthRetry, startedAt]);
+  }, [anonId, buildEventPayload, isFlowActive, markSubmitted, questions, runWithAuthRetry]);
 
   const handleSubmit = useCallback(async (pendingSelection?: LastSelectionContext, runId?: number): Promise<string | null> => {
     if (submitInFlightRef.current || staleDraftError) {

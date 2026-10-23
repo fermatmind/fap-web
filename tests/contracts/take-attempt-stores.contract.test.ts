@@ -195,6 +195,23 @@ describe("take attempt stores", () => {
     expect(reloaded.getState().state.attemptId).toBeNull();
   });
 
+  it("big5 starts timing with a new server attempt instead of its persisted draft age", () => {
+    vi.useFakeTimers();
+    const oldStart = new Date("2026-09-19T06:14:18Z").getTime();
+    vi.setSystemTime(oldStart);
+    useBig5AttemptStore.setState({ startedAt: oldStart, attemptId: "old-attempt" });
+    useBig5AttemptStore.getState().setAnswer("bq1", "3");
+    const newStart = new Date("2026-10-23T06:14:18Z").getTime();
+    vi.setSystemTime(newStart);
+    useBig5AttemptStore.getState().clearAttemptMeta();
+    useBig5AttemptStore.getState().setAttemptMeta({ attemptId: "new-attempt" });
+    expect(useBig5AttemptStore.getState().startedAt).toBe(newStart);
+    expect(useBig5AttemptStore.getState().answers).toEqual({ bq1: "3" });
+    vi.setSystemTime(newStart + 616_000);
+    useBig5AttemptStore.getState().setAttemptMeta({ attemptId: "new-attempt" });
+    expect(Date.now() - useBig5AttemptStore.getState().startedAt).toBe(616_000);
+  });
+
   it("big5 clearAttemptMeta preserves answers while dropping stale attempt metadata", () => {
     const store = useBig5AttemptStore.getState();
 
