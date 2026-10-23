@@ -1,3 +1,4 @@
+import { renderToStaticMarkup } from "react-dom/server";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { trackCareerToolEvent } from "@/lib/career/toolTracking";
@@ -47,6 +48,17 @@ describe("worksheet output fidelity", () => {
 });
 
 describe.each(["zh", "en"] as const)("worksheet state and safety: %s", locale => {
+  it("keeps server-rendered inputs and output actions disabled until handlers are ready", () => {
+    const server = new DOMParser().parseFromString(renderToStaticMarkup(<RiasecWorksheet locale={locale} />), "text/html");
+    expect(server.querySelector("[data-worksheet-ready]")?.getAttribute("data-worksheet-ready")).toBe("false");
+    expect(server.querySelectorAll("[data-worksheet-field]")).toHaveLength(25);
+    for (const input of server.querySelectorAll("[data-worksheet-field]")) expect(input.closest("fieldset")?.hasAttribute("disabled")).toBe(true);
+    for (const control of server.querySelectorAll("button, select")) expect(control.hasAttribute("disabled")).toBe(true);
+    expect(server.body.textContent).toContain(locale === "zh" ? "工作表正在加载" : "worksheet is loading");
+    render(<RiasecWorksheet locale={locale} />);
+    expect(field("experiment")).toBeEnabled();
+    expect(screen.getByRole("button", { name: /复制当前记录|Copy current record/ })).toBeEnabled();
+  });
   it("preserves my entries across example and label language switches; cancelled clear retains them", () => {
     render(<RiasecWorksheet locale={locale} />);
     expect(document.querySelectorAll("[data-worksheet-field]")).toHaveLength(25);
