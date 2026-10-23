@@ -50,9 +50,10 @@ describe("EQ existing exact publication and rollback cache closure", () => {
     vi.resetModules();
     const { apiClient } = await import("@/lib/api-client");
     let authority = "candidate";
+    const preview = { previewModeId: "test", previewModeSigningKey: "test", previewModeEncryptionKey: "test" };
     const nextCache = new IncrementalCache({
-      dev: false, requestHeaders: {},
-      getPrerenderManifest: () => ({ version: 4, routes: {}, dynamicRoutes: {}, notFoundRoutes: [], preview: { previewModeId: "test", previewModeSigningKey: "test", previewModeEncryptionKey: "test" } }),
+      dev: false, requestHeaders: {}, previewProps: preview,
+      prerenderManifest: { version: 4, routes: {}, dynamicRoutes: {}, notFoundRoutes: [], preview },
     });
     const apiDataCache = new Map<string, TestLookup>();
     const read = vi.spyOn(apiClient, "getPublic").mockImplementation(async <T>(url: string): Promise<T> => {
