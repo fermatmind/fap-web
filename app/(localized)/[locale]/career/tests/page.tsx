@@ -9,6 +9,8 @@ import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { buildBreadcrumbJsonLd, buildCollectionPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
+import { OfficialCareerToolLink } from "./OfficialCareerToolLink";
+
 type Copy = {
   title: string;
   description: string;
@@ -248,6 +250,39 @@ export default async function CareerTestsPage({ params }: PageProps) {
           </li>)}
         </ul>
       </section>
+
+      {locale === "en" ? (
+        <section aria-labelledby="career-tools-next-step" className="mx-auto max-w-4xl space-y-6" data-testid="career-tools-next-step">
+          <h2 id="career-tools-next-step" className="m-0 text-2xl font-semibold">Which tool should I use for my next step?</h2>
+          <p className="m-0 text-sm leading-7 text-slate-600">Start with the question you need to answer. You can explore interests here, then use official resources to check work and training in the place where you plan to work.</p>
+          <ol className="m-0 list-decimal space-y-6 pl-6">
+            <li className="pl-1">
+              <h3 className="m-0 text-lg font-semibold">Find work activities you want to explore</h3>
+              <p className="m-0 mt-2 text-sm leading-7 text-slate-600">FermatMind’s RIASEC test gives you six interest scores and a three-letter code. For another interest exploration tool, the O*NET Interest Profiler links interests to occupations in the US O*NET system. These are separate assessments; their scores are not interchangeable.</p>
+              <OfficialCareerToolLink href="https://onetinterestprofiler.org/" resourceKey="onet_interest_profiler" className="mt-2 inline-block text-sm underline underline-offset-4">O*NET Interest Profiler — external site</OfficialCareerToolLink>
+            </li>
+            <li className="pl-1">
+              <h3 className="m-0 text-lg font-semibold">Check job tasks and entry routes where you plan to work</h3>
+              <p className="m-0 mt-2 text-sm leading-7 text-slate-600">For US occupations, My Next Move uses O*NET information to help you explore work and preparation. O*NET OnLine provides more detailed occupational information; it is not itself an interest test. For England, the National Careers Service website offers career profiles and a course search. Check current entry requirements with the relevant provider or professional body.</p>
+              <ul className="m-0 mt-2 list-disc space-y-2 pl-5 text-sm">
+                <li><OfficialCareerToolLink href="https://www.mynextmove.org/" resourceKey="mynextmove" className="underline underline-offset-4">My Next Move — external US career information</OfficialCareerToolLink></li>
+                <li><OfficialCareerToolLink href="https://www.onetonline.org/" resourceKey="onet_online" className="underline underline-offset-4">O*NET OnLine — external US occupation database</OfficialCareerToolLink></li>
+                <li><OfficialCareerToolLink href="https://nationalcareers.service.gov.uk/explore-careers" resourceKey="england_profiles" className="underline underline-offset-4">National Careers Service career profiles — external site, England</OfficialCareerToolLink></li>
+                <li><OfficialCareerToolLink href="https://nationalcareers.service.gov.uk/find-a-course" resourceKey="england_courses" className="underline underline-offset-4">Find a course — external site, England</OfficialCareerToolLink></li>
+              </ul>
+            </li>
+            <li className="pl-1">
+              <h3 className="m-0 text-lg font-semibold">Discuss your options when you need local support</h3>
+              <p className="m-0 mt-2 text-sm leading-7 text-slate-600">The National Careers Service website’s skills assessment suggests careers based on what you like doing and feel good at. Its help page explains support routes by age and circumstances, including the DWP Jobs and Careers Service for adults living in England. Scotland, Wales and Northern Ireland have separate services linked from that site. FermatMind helps you reflect and explore; it does not provide official local qualification advice.</p>
+              <ul className="m-0 mt-2 list-disc space-y-2 pl-5 text-sm">
+                <li><OfficialCareerToolLink href="https://nationalcareers.service.gov.uk/discover-your-skills-and-careers" resourceKey="england_skills" className="underline underline-offset-4">Discover your skills and careers — external assessment</OfficialCareerToolLink></li>
+                <li><OfficialCareerToolLink href="https://nationalcareers.service.gov.uk/help-and-support" resourceKey="england_support" className="underline underline-offset-4">Find the relevant support service — external help page</OfficialCareerToolLink></li>
+              </ul>
+            </li>
+          </ol>
+          <p className="m-0 text-sm leading-7 text-slate-600">For example, if helping people learn interests you, compare the daily tasks and entry routes for two education roles, then try one tutoring activity or speak with someone doing the work. An interest result starts that enquiry; it does not establish eligibility or choose a job for you.</p>
+        </section>
+      ) : null}
 
       <section aria-labelledby="career-tests-next" className="mx-auto max-w-4xl space-y-6">
         <h2 id="career-tests-next" className="m-0 text-2xl font-semibold">{copy.nextTitle}</h2>
