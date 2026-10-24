@@ -1,0 +1,348 @@
+{
+  "slug": "message-tone",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "relationships",
+  "title": {
+    "en": "Your First Move with an Ambiguous Message",
+    "zh": "一句话看不准语气：你会先怎么接？"
+  },
+  "description": {
+    "en": "Six fictional message choices about a plain question, relevant context and a pause before adding a story. Find your clarification style.",
+    "zh": "六次虚构消息选择，直接问一句、看看相关情境，或先停一下不添故事，发现你的澄清方式。"
+  },
+  "introduction": {
+    "en": "All messages in this quiz are invented. A short reply can have many meanings, and the quiz cannot reveal the sender’s hidden mood. Choose your own next step in a small ordinary exchange, not a diagnosis of somebody else’s intentions.",
+    "zh": "题目中的消息都虚构。短回复可有多种含义，测试不能揭示发送者隐藏心情。选的是自己在普通小交流的下一步，不诊断别人的意图。"
+  },
+  "focus": {
+    "en": "Responding to mild textual ambiguity by asking directly, checking relevant context or leaving uncertainty unresolved for a while.",
+    "zh": "通过直接问、核对相关情境，或暂时不解读，回应轻微文字模糊。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "A fictional friend replies “fine” to a casual plan. You…",
+        "zh": "虚构朋友对普通计划回“行”，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask one concrete question if the plan still needs clarification.",
+            "zh": "计划仍需澄清时，问一个具体问题。"
+          },
+          "points": {
+            "ask": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Check the actual question they were answering before interpreting the word.",
+            "zh": "先看对方在答哪个实际问题，再理解这个字。"
+          },
+          "points": {
+            "context": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Let the short reply stand without adding a hidden mood.",
+            "zh": "让短回复先成立，不添隐藏心情。"
+          },
+          "points": {
+            "pause": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "Punctuation differs from the person’s usual style. You…",
+        "zh": "标点与平时风格不同，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Avoid treating punctuation alone as a definite emotional message.",
+            "zh": "不只凭标点认定情绪消息。"
+          },
+          "points": {
+            "pause": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Look at whether any concrete arrangement has changed.",
+            "zh": "看是否有具体安排变化。"
+          },
+          "points": {
+            "context": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask plainly about the part that actually affects your next step.",
+            "zh": "直接问真正影响下一步的部分。"
+          },
+          "points": {
+            "ask": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "You need an answer about timing rather than tone. You…",
+        "zh": "需要的是时间回答而非语气判断，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask for the time detail in a short ordinary sentence.",
+            "zh": "用简短普通话问时间细节。"
+          },
+          "points": {
+            "ask": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Refer back to the last agreed time before sending another question.",
+            "zh": "再问之前，回看上次约定时间。"
+          },
+          "points": {
+            "context": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Wait within the time already agreed rather than filling the gap.",
+            "zh": "在已约时间内等待，不填补空白。"
+          },
+          "points": {
+            "pause": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A message is delayed. Your first move is…",
+        "zh": "消息晚了，你第一步是……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Notice any known schedule context without inventing a reason.",
+            "zh": "留意已知日程情境，不编理由。"
+          },
+          "points": {
+            "context": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Let the delay remain unexplained if no decision depends on it.",
+            "zh": "若无决定依赖，让延迟暂时没解释。"
+          },
+          "points": {
+            "pause": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Send one clear follow-up only if a practical answer is needed.",
+            "zh": "确需实际答案时，才发一条清楚跟进。"
+          },
+          "points": {
+            "ask": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "You realize your own message may be unclear. You…",
+        "zh": "发现自己的消息可能不清楚，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Clarify what you meant rather than asking the other person to decode it.",
+            "zh": "说明本意，不让对方解码。"
+          },
+          "points": {
+            "ask": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Add the one context detail needed to understand it.",
+            "zh": "添理解所需的一处情境细节。"
+          },
+          "points": {
+            "context": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Avoid several rapid explanations if the original exchange can wait.",
+            "zh": "原交流能等时，不连发许多快速解释。"
+          },
+          "points": {
+            "pause": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What makes the exchange feel clearer?",
+        "zh": "怎样会让交流更清楚？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A needed uncertainty was asked about without mind-reading.",
+            "zh": "需要澄清的不确定被问了，不靠读心。"
+          },
+          "points": {
+            "ask": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The actual topic and relevant facts were visible again.",
+            "zh": "实际话题与相关事实重新可见。"
+          },
+          "points": {
+            "context": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Not every short reply had to become an emotional puzzle.",
+            "zh": "不必每个短回复都变情绪谜题。"
+          },
+          "points": {
+            "pause": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "ask",
+      "title": {
+        "en": "The Plain-Question Clarifier",
+        "zh": "普通问句澄清者"
+      },
+      "summary": {
+        "en": "Your next step turns a needed uncertainty into a small question. You can ask what affects the plan without demanding an account of the other person’s entire mood. The result does not mean every brief reply needs a follow-up.",
+        "zh": "你的下一步把必要不确定变成小问题。可以问影响计划的部分，不要求对方交代整份心情。结果不说每条短回复都需追问。"
+      },
+      "example": {
+        "en": "Instead of asking whether “fine” secretly means annoyance, you might ask whether the agreed meeting time still works.",
+        "zh": "你可能不问“行”是不是暗含不快，而问已约见面时间是否仍合适。"
+      },
+      "strength": {
+        "en": "A concrete question gives the sender something answerable and can separate the practical uncertainty from an unsupported interpretation of tone.",
+        "zh": "具体问题给发送者可回答的对象，也把实际不确定与没依据语气解读分开。"
+      },
+      "tradeoff": {
+        "en": "Repeated clarification can make a casual exchange feel like an examination. Asking only what changes your next step keeps the question proportionate.",
+        "zh": "反复澄清会让随意交流像考试。只问改变下一步的内容，让问题相称。"
+      },
+      "experiment": {
+        "en": "Name one fact you actually need for a small plan and ask for it directly. Leave the sender’s unexpressed mood outside the question.",
+        "zh": "说清小计划实际需要的一项事实，直接问。把对方未表达的心情留在问题外。"
+      }
+    },
+    {
+      "id": "context",
+      "title": {
+        "en": "The Relevant-Context Checker",
+        "zh": "相关情境核对者"
+      },
+      "summary": {
+        "en": "Your message scene becomes clearer when you return to what was actually being discussed. A short word may answer a practical question more simply than a tone story suggests. The portrait values relevant context rather than claiming you can reconstruct a hidden intention.",
+        "zh": "回到实际在谈什么，你的消息场景更清楚。短字也许只在简单回答实际问题，不像语气故事那样复杂。画像珍惜相关情境，不宣称能重建隐藏意图。"
+      },
+      "example": {
+        "en": "You might reread the agreed date and the question immediately before a reply, rather than searching a long conversation for proof of a feeling.",
+        "zh": "你可能回看已约日期与回复前一问，不在长聊天里搜索某种感受的证明。"
+      },
+      "strength": {
+        "en": "A small context check can prevent a reply from being separated from its actual topic and reduce unnecessary follow-up questions.",
+        "zh": "小情境核对能让回复不脱离实际话题，也减少无谓追问。"
+      },
+      "tradeoff": {
+        "en": "Collecting more context can become overanalysis when the relevant detail is already clear. A direct question or a pause may be the better next choice.",
+        "zh": "相关细节已明白后，继续收情境会变过度分析。下一步也许可直接问或停一停。"
+      },
+      "experiment": {
+        "en": "For one mild ambiguity, reread only the current question and last agreement. Stop if they already answer the practical issue.",
+        "zh": "遇一次轻微模糊，只重读当前问题与上一约定。如果已回答实际问题，就停。"
+      }
+    },
+    {
+      "id": "pause",
+      "title": {
+        "en": "The Unwritten-Story Pauser",
+        "zh": "先不编故事的停顿者"
+      },
+      "summary": {
+        "en": "Your first move lets some uncertainty stay uncertain. A short reply or a delay does not have to become a story about what the sender must feel. The ending values a chosen pause without suggesting that needed practical questions should never be asked.",
+        "zh": "你的第一步允许不确定暂时就是不确定。短回复或延迟，不必变发送者必然感受的故事。结局珍惜主动停顿，不建议永远不问必要实际问题。"
+      },
+      "example": {
+        "en": "If no arrangement needs an immediate answer, you might put the phone aside instead of composing several interpretations of a brief message.",
+        "zh": "若安排不急着等答案，你可能先放手机，不为短消息编几种解释。"
+      },
+      "strength": {
+        "en": "A pause can keep an ordinary exchange from gathering unsupported emotional meaning and leave room for the sender to speak for themselves later.",
+        "zh": "停顿能让普通交流不积累没依据情绪含义，也给发送者以后自己表达留空间。"
+      },
+      "tradeoff": {
+        "en": "Waiting can become avoidance if a clear practical issue needs an answer. A pause works best when you know what would make a question necessary.",
+        "zh": "有明确实际问题待答时，等待也会成回避。知道何时必须问，停顿才好用。"
+      },
+      "experiment": {
+        "en": "For one non-urgent message, leave the meaning open and choose when you would need a practical follow-up. Do something else until that point.",
+        "zh": "对一条不急消息，先开放含义，定何时需要实际跟进。在那之前做别的。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "ask",
+    "context",
+    "pause"
+  ]
+}

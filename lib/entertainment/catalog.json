@@ -51,6 +51,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "borrowed-book",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "relationships",
+    "title": {
+      "en": "Your Borrowed-Book Agreement Style",
+      "zh": "借一本书：你会怎样把约定说好？"
+    },
+    "description": {
+      "en": "Six ordinary lending choices about return arrangements, sharing a reading thread and agreeing on care. Find the book-sharing style you choose.",
+      "zh": "六次普通借书选择，安排归还、分享阅读线索、约好怎样爱惜，发现你会选择的借书方式。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "campfire-storyteller",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -68,6 +85,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "celebrating-a-friend",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "relationships",
+    "title": {
+      "en": "How Would You Meet a Friend’s Good News?",
+      "zh": "朋友分享好消息：你会怎样接住？"
+    },
+    "description": {
+      "en": "Six small good-news choices about hearing their version, sending a personal acknowledgment and joining a shared moment when invited.",
+      "zh": "六次小好消息选择，听对方自己的版本、给个人致意，或受邀共享一个瞬间，发现你的回应侧重。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "celebration-planner",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -79,6 +113,23 @@
     "description": {
       "en": "Six fictional celebration choices about the person’s wishes, a memorable shared moment and contributions people can freely choose. Find your planning portrait.",
       "zh": "六次虚构庆祝选择，围绕当事人意愿、值得记住的共同瞬间与自愿贡献，发现你的策划画像。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "choosing-together",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "relationships",
+    "title": {
+      "en": "How Do You Make a Small Choice Together?",
+      "zh": "一起选件小事：你会用哪种办法？"
+    },
+    "description": {
+      "en": "Six shared-choice scenes compare clarifying criteria, taking turns, trying a small sample and choosing separate parts. Four complete decision-style portraits await.",
+      "zh": "六个共同小选择场景，比较说清条件、轮流、短试与分选部分，四种完整趣味画像等你查看。"
     },
     "minutes": 2,
     "questionCount": 6,
@@ -408,6 +459,23 @@
     "minQuestionCount": 3
   },
   {
+    "slug": "friendship-invitation",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "relationships",
+    "title": {
+      "en": "Your Friendship Invitation Style",
+      "zh": "发个一起玩的邀请：你会怎样开口？"
+    },
+    "description": {
+      "en": "Six low-pressure invitation choices about a clear plan, a shared interest and an easy way to choose. Find the invitation shape your choices create.",
+      "zh": "六次轻松邀请选择，写清计划、接住共同兴趣、让回答容易，发现你会发出怎样形状的邀请。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "game-night-reset",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -504,6 +572,23 @@
     "description": {
       "en": "Six imagined shared-journey choices about conversation, personal space and the little practical arrangements that make a seat comfortable.",
       "zh": "六次想象同行选择，围绕聊天、个人空间与让座位舒服的小安排，发现你在这段旅程中的邻座画像。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "hosting-a-guest",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "relationships",
+    "title": {
+      "en": "How Would You Welcome an Overnight Guest?",
+      "zh": "朋友住一晚：你会怎样介绍这个家？"
+    },
+    "description": {
+      "en": "Six fictional short-stay choices about a simple house note, a shared first tour and asking as needs arise. Find your guest-orientation style.",
+      "zh": "六次虚构短住选择，留简单居家便条、一起走一小圈、需要时再问，发现你会怎样帮来客熟悉环境。"
     },
     "minutes": 2,
     "questionCount": 6,
@@ -623,6 +708,23 @@
     "description": {
       "en": "Six original magical-shop scenes find your shopkeeper portrait: the careful labeler, the lending librarian, or the small-wonder demonstrator. Every result is free.",
       "zh": "6个原创魔法小店情境，看看你是认真贴标签的店主、愿意借出魔法的馆员，还是演示小奇迹的人。完整结果免费。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "message-tone",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "relationships",
+    "title": {
+      "en": "Your First Move with an Ambiguous Message",
+      "zh": "一句话看不准语气：你会先怎么接？"
+    },
+    "description": {
+      "en": "Six fictional message choices about a plain question, relevant context and a pause before adding a story. Find your clarification style.",
+      "zh": "六次虚构消息选择，直接问一句、看看相关情境，或先停一下不添故事，发现你的澄清方式。"
     },
     "minutes": 2,
     "questionCount": 6,
@@ -850,6 +952,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "quiet-company",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "relationships",
+    "title": {
+      "en": "Your Quiet-Company Scene",
+      "zh": "不用一直说话：你的安静作伴画面"
+    },
+    "description": {
+      "en": "Six calm shared-time choices about parallel pages, a view noticed together and a small task with very little talk. Find the scene you would choose today.",
+      "zh": "六次安静共处选择，翻各自书页、一起留意景象，或少说话做件小事，发现今天你会选的作伴画面。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "rainy-window",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -882,6 +1001,23 @@
     "minutes": 2,
     "questionCount": 6,
     "minQuestionCount": 6
+  },
+  {
+    "slug": "relationship-values",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "relationships",
+    "title": {
+      "en": "Which Relationship Values Lead Your Choices?",
+      "zh": "关系价值侧重：这些选择里你更看重什么？"
+    },
+    "description": {
+      "en": "24 paired choices compare four original relationship-value directions. See raw counts and every tied leading portrait, with no compatibility prediction, ranking of love or norms.",
+      "zh": "24组成对选择，比较四个原创关系价值方向。查看原始计数与全部并列画像；不预测适配、不排爱的高低，也不设常模。"
+    },
+    "minutes": 5,
+    "questionCount": 24,
+    "minQuestionCount": 24
   },
   {
     "slug": "response-color",
@@ -946,6 +1082,23 @@
     "description": {
       "en": "Six passenger music choices about taking turns, connecting different tastes and leaving room for quiet. Find your role in an imaginary shared queue.",
       "zh": "六次乘客听歌选择，安排轮次、连接不同口味、给安静留空间，发现你在想象点歌队列里的角色。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "saying-goodbye",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "relationships",
+    "title": {
+      "en": "Your Gentle Goodbye Style",
+      "zh": "愉快见面快结束：你会怎样告别？"
+    },
+    "description": {
+      "en": "Six ordinary visit-ending choices about a clear finish, one remembered detail and an optional next opening. Find the goodbye you choose today.",
+      "zh": "六次普通见面收尾选择，清楚结束、记住一个细节、留可选下次入口，发现今天愿选的告别。"
     },
     "minutes": 2,
     "questionCount": 6,

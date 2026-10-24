@@ -1,0 +1,348 @@
+{
+  "slug": "hosting-a-guest",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "relationships",
+  "title": {
+    "en": "How Would You Welcome an Overnight Guest?",
+    "zh": "朋友住一晚：你会怎样介绍这个家？"
+  },
+  "description": {
+    "en": "Six fictional short-stay choices about a simple house note, a shared first tour and asking as needs arise. Find your guest-orientation style.",
+    "zh": "六次虚构短住选择，留简单居家便条、一起走一小圈、需要时再问，发现你会怎样帮来客熟悉环境。"
+  },
+  "introduction": {
+    "en": "Imagine a welcome overnight visit that both people have agreed to. The quiz focuses on how you explain an unfamiliar space and its ordinary routines, not how luxurious your home is or how much work a host should do.",
+    "zh": "想象双方已同意的一次受欢迎过夜来访。题目只看怎样介绍陌生空间与普通日常，不评家多豪华，也不规定主人该付出多少劳动。"
+  },
+  "focus": {
+    "en": "Helping a guest become oriented through a short written guide, a shared walkthrough or a responsive ask-as-needed approach.",
+    "zh": "通过短文字说明、共同走看或需要时回应，帮助来客熟悉环境。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Your guest has just arrived. You offer…",
+        "zh": "朋友刚到，你提供……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A short note with the few practical things they need.",
+            "zh": "一张写少数所需实际信息的短便条。"
+          },
+          "points": {
+            "note": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A brief walk through the shared parts of the home.",
+            "zh": "一起简短走看家里共用部分。"
+          },
+          "points": {
+            "tour": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "An invitation to ask about things as they come up.",
+            "zh": "遇到需要时再问的邀请。"
+          },
+          "points": {
+            "ask": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "You have only a little time before your own activity. You…",
+        "zh": "自己的活动前只剩一点时间，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Show the essential places together and leave the rest for later.",
+            "zh": "一起看必要位置，其余留稍后。"
+          },
+          "points": {
+            "tour": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Leave a clear small written orientation the guest can revisit.",
+            "zh": "留清楚小文字说明，方便回看。"
+          },
+          "points": {
+            "note": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Say when you are available for questions and what they can use meanwhile.",
+            "zh": "说明何时可问、期间可用什么。"
+          },
+          "points": {
+            "ask": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "The guest wants to be independent during the stay. You…",
+        "zh": "朋友希望住时自在独立，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Make a simple guide to the agreed common items.",
+            "zh": "给已约共用品一份简单指引。"
+          },
+          "points": {
+            "note": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask which one thing they still want explained.",
+            "zh": "问仍想听解释的哪一件事。"
+          },
+          "points": {
+            "ask": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Offer one short walkthrough, then leave them room to settle.",
+            "zh": "提供一次短走看，再留安顿空间。"
+          },
+          "points": {
+            "tour": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "An ordinary house routine differs from theirs. You…",
+        "zh": "一个普通居家习惯与对方不同，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Explain it when it becomes relevant and ask what arrangement would fit.",
+            "zh": "相关时再解释，也问怎样安排合适。"
+          },
+          "points": {
+            "ask": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Show the routine once in its actual place.",
+            "zh": "到实际位置示范一次。"
+          },
+          "points": {
+            "tour": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Add one clear line to the small house note.",
+            "zh": "给小便条添一行清楚说明。"
+          },
+          "points": {
+            "note": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "A repeated small question comes up. You…",
+        "zh": "一个小问题反复出现，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Put the answer where the guest can easily find it.",
+            "zh": "把答案放在来客容易找到的地方。"
+          },
+          "points": {
+            "note": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Offer to show the relevant spot once more without making it a test.",
+            "zh": "再示范一次相关位置，不把它当考试。"
+          },
+          "points": {
+            "tour": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask whether a different explanation would be more useful.",
+            "zh": "问换种说明是否更有用。"
+          },
+          "points": {
+            "ask": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What would make the visit feel well oriented?",
+        "zh": "怎样会让来访者熟悉得舒服？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "We had a shared picture of the space without a long lecture.",
+            "zh": "不用长讲课，也有一份共同空间图。"
+          },
+          "points": {
+            "tour": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The guest could return to useful information independently.",
+            "zh": "来客可独立回看有用信息。"
+          },
+          "points": {
+            "note": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Questions could be asked without embarrassment as needs changed.",
+            "zh": "需要变化时，也可不尴尬地问。"
+          },
+          "points": {
+            "ask": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "note",
+      "title": {
+        "en": "The Little-House-Note Host",
+        "zh": "小便条迎客者"
+      },
+      "summary": {
+        "en": "Your welcome leaves a few useful facts where the guest can return to them. A note can give independence without requiring somebody to memorize a tour. The portrait values a practical information format rather than the quality or size of your home.",
+        "zh": "你的欢迎把几条有用信息留在来客可回看的位置。便条能给独立，不要求把导览背下来。画像珍惜实际信息形式，不评家品质或大小。"
+      },
+      "example": {
+        "en": "You might leave a small card showing where agreed shared cups and spare blankets are, alongside the time you both chose for the next morning.",
+        "zh": "你可能留小卡说明已同意共用的杯子与备用毯在哪，也写双方约好的次晨时间。"
+      },
+      "strength": {
+        "en": "A short reference can reduce repeated guessing and let the guest use ordinary shared space without needing to interrupt every time.",
+        "zh": "短参考能减少重复猜测，也让来客用普通共用空间时不必次次打断。"
+      },
+      "tradeoff": {
+        "en": "A note can become a wall of rules if every preference is included. Keeping only the useful shared details leaves room for an actual visit.",
+        "zh": "把每个偏好都塞入，便条会成规则墙。只留有用共同细节，才给真正来访留空间。"
+      },
+      "experiment": {
+        "en": "For a willing short stay, write three practical details the guest asked for or will actually use. Leave the rest open to a simple question.",
+        "zh": "一次自愿短住，写三条来客问过或实际会用的细节。其余留给简单询问。"
+      }
+    },
+    {
+      "id": "tour",
+      "title": {
+        "en": "The One-Little-Tour Host",
+        "zh": "一起走一圈的迎客者"
+      },
+      "summary": {
+        "en": "Your guest’s first orientation happens in the space itself. A short shared walk lets a name connect with an actual place. This result describes an introduction style, not a requirement to guide or entertain a visitor throughout the stay.",
+        "zh": "来客的初次熟悉发生在空间里。短短共走让名称连到实际位置。结果描述介绍方式，不要求全程带领或招待。"
+      },
+      "example": {
+        "en": "You might show the agreed common shelf and a comfortable place for the guest’s bag, then let them settle without narrating every object in the room.",
+        "zh": "你可能指出已约共用架与可放包的位置，就让朋友安顿，不把房间每件东西都讲一遍。"
+      },
+      "strength": {
+        "en": "Seeing a few places together can make instructions easier to picture and give a guest a concrete reference for a later question.",
+        "zh": "一起看几个位置，让说明更易想象，也给之后提问具体参照。"
+      },
+      "tradeoff": {
+        "en": "A first tour can contain more than a tired guest wants to take in. A brief version and permission to ask again can work better than completeness.",
+        "zh": "第一圈可能比累着的来客想接收的更多。简短版本与允许再问，可能比全面更好。"
+      },
+      "experiment": {
+        "en": "Offer a short orientation to a willing guest and ask which place matters first. Stop after the useful part rather than finishing an imagined full tour.",
+        "zh": "给愿意的来客短介绍，问先想知道哪个位置。有用部分后就停，不必走完想象中的全导览。"
+      }
+    },
+    {
+      "id": "ask",
+      "title": {
+        "en": "The Ask-as-Needed Host",
+        "zh": "需要时再问的迎客者"
+      },
+      "summary": {
+        "en": "Your welcome keeps questions ordinary as the stay unfolds. You do not need to predict every need in advance. The portrait values an available response while leaving both host and guest free to have their own time.",
+        "zh": "你的欢迎让问题随短住展开也普通。不必提前预测所有需要。画像珍惜可回应，也让主客都保留自己时间。"
+      },
+      "example": {
+        "en": "You might explain the few essentials first and say when you can answer other questions, so the guest does not need to store a long list of information immediately.",
+        "zh": "你可能先说明少数必要项，再说何时可答其他问题，不让来客立刻存一长串信息。"
+      },
+      "strength": {
+        "en": "A responsive approach can make the explanation fit the question actually being asked and keep a short visit from beginning with too many assumptions.",
+        "zh": "按需回应让说明贴合实际问题，也让短访不从过多假定开始。"
+      },
+      "tradeoff": {
+        "en": "An invitation to ask can feel vague if the host is unavailable without saying so. Naming a simple contact or timing arrangement helps it work.",
+        "zh": "主人不可用却没说明时，“随时问”会模糊。说清简单联系或时间安排，邀请才好用。"
+      },
+      "experiment": {
+        "en": "Tell a willing guest the essentials and one clear way to ask later. Give an honest time boundary rather than promising constant availability.",
+        "zh": "告诉愿意的来客必要项与之后怎么问。给诚实时间边界，不承诺一直可用。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "note",
+    "tour",
+    "ask"
+  ]
+}

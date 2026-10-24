@@ -1,0 +1,348 @@
+{
+  "slug": "friendship-invitation",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "relationships",
+  "title": {
+    "en": "Your Friendship Invitation Style",
+    "zh": "发个一起玩的邀请：你会怎样开口？"
+  },
+  "description": {
+    "en": "Six low-pressure invitation choices about a clear plan, a shared interest and an easy way to choose. Find the invitation shape your choices create.",
+    "zh": "六次轻松邀请选择，写清计划、接住共同兴趣、让回答容易，发现你会发出怎样形状的邀请。"
+  },
+  "introduction": {
+    "en": "Imagine inviting a willing acquaintance or friend to an ordinary activity. A yes, a no or another time can all be complete answers. The quiz follows your way of making an offer; it does not measure popularity or predict whether someone will accept.",
+    "zh": "想象邀朋友或熟人做件普通小事。答应、拒绝或另约时间，都可完整成立。题目只跟随提供邀请的方式，不测人气，也不预测对方是否接受。"
+  },
+  "focus": {
+    "en": "Making an invitation understandable through its concrete plan, personal point of connection or comfortable choice boundary.",
+    "zh": "通过具体安排、个人联系点或舒服选择边界，让邀请易懂。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "You want to invite someone to an ordinary outing. You begin with…",
+        "zh": "想邀人普通外出，你先写……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A specific activity, approximate time and place.",
+            "zh": "具体活动、大致时间地点。"
+          },
+          "points": {
+            "plan": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Why the activity reminded you of an interest they shared.",
+            "zh": "为什么活动让你想到对方分享的兴趣。"
+          },
+          "points": {
+            "interest": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "An invitation with a clear, comfortable option to decline.",
+            "zh": "清楚也方便拒绝的邀请。"
+          },
+          "points": {
+            "choice": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "Your first message feels too vague. You add…",
+        "zh": "第一条消息太模糊，你添……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One practical detail that makes the plan easy to picture.",
+            "zh": "让计划容易想象的一项实际细节。"
+          },
+          "points": {
+            "plan": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A short reason this might be enjoyable for both of you.",
+            "zh": "双方可能觉得有趣的一条短理由。"
+          },
+          "points": {
+            "interest": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A simple question rather than an assumed arrangement.",
+            "zh": "一个简单问题，不把安排当已定。"
+          },
+          "points": {
+            "choice": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "The person cannot make the proposed time. You…",
+        "zh": "对方没法按提议时间来，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Accept the answer without asking them to justify it.",
+            "zh": "接受回答，不要求理由。"
+          },
+          "points": {
+            "choice": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Offer one other time only if they want to consider it.",
+            "zh": "只有对方愿意再看时，提供另一时间。"
+          },
+          "points": {
+            "plan": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Keep the shared-interest thread open without immediately rescheduling.",
+            "zh": "保留共同兴趣话头，不立刻重排。"
+          },
+          "points": {
+            "interest": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "You are inviting several people with different tastes. You…",
+        "zh": "邀几位口味不同的人，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Name the shared part of the activity without claiming everybody will love it.",
+            "zh": "说清活动共同部分，不宣称人人都会爱。"
+          },
+          "points": {
+            "interest": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Describe the plan plainly so each can decide.",
+            "zh": "普通说明计划，让各自决定。"
+          },
+          "points": {
+            "plan": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Make joining one part or passing equally ordinary.",
+            "zh": "只参加一部分或不来，都普通。"
+          },
+          "points": {
+            "choice": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "An invitee asks what the commitment involves. You…",
+        "zh": "受邀者问需要投入什么，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Give the expected duration and any genuinely relevant practical detail.",
+            "zh": "说预计时长与确实相关的实际细节。"
+          },
+          "points": {
+            "plan": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Explain which part connects with the interest you mentioned.",
+            "zh": "说明哪部分连着先前提到的兴趣。"
+          },
+          "points": {
+            "interest": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Clarify what can be changed or declined before they decide.",
+            "zh": "决定前说清哪些可改、可不参加。"
+          },
+          "points": {
+            "choice": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What makes the invitation feel well made?",
+        "zh": "怎样会让邀请发得舒服？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "It showed a real reason I thought of this person.",
+            "zh": "有确实想到这个人的理由。"
+          },
+          "points": {
+            "interest": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The answer could be chosen freely without managing my feelings.",
+            "zh": "回答能自由选，不用照顾我的情绪。"
+          },
+          "points": {
+            "choice": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The person could understand the actual plan without a long message exchange.",
+            "zh": "不用聊很长就懂实际计划。"
+          },
+          "points": {
+            "plan": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "plan",
+      "title": {
+        "en": "The Clear-Plan Invitation",
+        "zh": "计划说清的邀请"
+      },
+      "summary": {
+        "en": "Your invitation gives another person a small plan they can actually picture. A time, place and activity make the next answer easier. This result describes the message shape you chose, not a guarantee of acceptance or a measure of how organized you are.",
+        "zh": "你的邀请给对方一个实际可想象的小计划。时间、地点、活动，让下一回答容易。结果只描述所选信息形状，不保证被接受，也不测多有条理。"
+      },
+      "example": {
+        "en": "You might ask about a short public sketch afternoon with an approximate finish, rather than sending “we should hang out sometime” and leaving all details to them.",
+        "zh": "你可能约一个大致结束时间明确的公共速写下午，不只发“哪天一起玩”再把细节留给对方。"
+      },
+      "strength": {
+        "en": "Concrete information can reduce back-and-forth and let the recipient decide whether the actual arrangement fits their time and interest.",
+        "zh": "具体信息能减少来回，也让接收者按实际安排判断时间兴趣是否合适。"
+      },
+      "tradeoff": {
+        "en": "A detailed plan can feel decided in advance if the other person has no room to change it. A question keeps clarity compatible with choice.",
+        "zh": "对方没空间改时，详细计划也会像事先定好。问句能让清楚与选择并存。"
+      },
+      "experiment": {
+        "en": "Make one small invitation with three useful details and a genuine question. Leave the recipient room to change one part or decline the whole plan.",
+        "zh": "一次小邀请写三个有用细节，再给真问题。让接收者可改一部分，也可整份拒绝。"
+      }
+    },
+    {
+      "id": "interest",
+      "title": {
+        "en": "The Shared-Interest Invitation",
+        "zh": "兴趣接上的邀请"
+      },
+      "summary": {
+        "en": "Your invitation says why this person came to mind. A small point of connection can make an ordinary plan feel personal without claiming that you know every preference they have. The ending values a specific link rather than a claim of special compatibility.",
+        "zh": "你的邀请说清为什么想到这个人。小联系点能让普通计划有个人意味，也不宣称知道对方全部偏好。结局珍惜具体联系，不主张特殊匹配。"
+      },
+      "example": {
+        "en": "After a friend mentions liking handmade maps, you might invite them to a small map display and say that their comment reminded you of it.",
+        "zh": "朋友提过喜欢手绘地图，你可能邀看小地图展，也说明因那句话想到对方。"
+      },
+      "strength": {
+        "en": "A real interest link can make the invitation understandable and show that the suggestion is connected to something the person chose to share.",
+        "zh": "真实兴趣联系让邀请易懂，也表明建议连着对方主动分享过的东西。"
+      },
+      "tradeoff": {
+        "en": "A past interest may have changed. Keeping your wording tentative lets the person update you without having to defend a new preference.",
+        "zh": "过去兴趣也可能变了。措辞留余地，让对方可更新偏好，不用为变化辩解。"
+      },
+      "experiment": {
+        "en": "Link one optional invitation to an interest the person actually expressed. Include enough room for “that is not for me now” to be an easy answer.",
+        "zh": "把一次可选邀请连到对方实际表达过的兴趣，也让“我现在不想这个”容易回答。"
+      }
+    },
+    {
+      "id": "choice",
+      "title": {
+        "en": "The Easy-Answer Invitation",
+        "zh": "回答容易的邀请"
+      },
+      "summary": {
+        "en": "Your invitation does not require a particular answer to remain kind. A clear yes, no or alternative can all fit inside it. This portrait values the shape of the offer without assuming that you should make every possible accommodation.",
+        "zh": "你的邀请不需要特定回答才继续友好。清楚答应、拒绝或替代，都在其中。画像珍惜提供形状，不要求你迁就所有可能。"
+      },
+      "example": {
+        "en": "You might invite a friend to a short activity, mention that passing is fine and then accept their no without sending several replacement plans.",
+        "zh": "你可能邀朋友短活动，说明不来也可，再接受拒绝，不连续发送多份替代计划。"
+      },
+      "strength": {
+        "en": "A comfortable response boundary can lower the pressure of deciding and keep an invitation from turning into a task to manage the sender’s expectations.",
+        "zh": "舒服回答边界能减轻决定压力，也让邀请不变成管理发送者期待的任务。"
+      },
+      "tradeoff": {
+        "en": "Repeatedly saying “no pressure” can itself become a lot of reassurance. A short clear offer followed by accepting the answer may work better.",
+        "zh": "反复说“没压力”本身也会很多。短而清楚提供后接受回答，可能更有效。"
+      },
+      "experiment": {
+        "en": "Send one specific invitation and let the first clear response stand. If you offer an alternative, check that another suggestion is wanted first.",
+        "zh": "发一次具体邀请，让第一份清楚回答成立。再给替代之前，先确认欢迎另一个建议。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "plan",
+    "interest",
+    "choice"
+  ]
+}

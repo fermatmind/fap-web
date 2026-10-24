@@ -1,0 +1,847 @@
+{
+  "slug": "relationship-values",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "relationships",
+  "title": {
+    "en": "Which Relationship Values Lead Your Choices?",
+    "zh": "关系价值侧重：这些选择里你更看重什么？"
+  },
+  "description": {
+    "en": "24 paired choices compare four original relationship-value directions. See raw counts and every tied leading portrait, with no compatibility prediction, ranking of love or norms.",
+    "zh": "24组成对选择，比较四个原创关系价值方向。查看原始计数与全部并列画像；不预测适配、不排爱的高低，也不设常模。"
+  },
+  "introduction": {
+    "en": "This web edition adapts FermatMind’s original LOVE_ROLE public preview, keeping all 24 Chinese items and the one-count-per-selected-option rule. English wording and four concise web portraits are new; this is not the full mini-program report. Each direction appears in 12 comparisons. Counts are relative to these pairs, all ties remain visible, and no thresholds or population norms apply. The preview has not undergone psychometric validation. Reflect on a current or recent relationship only if you want to; if the pairs do not fit, you can leave. Results do not diagnose attachment, rate relationship quality or predict partner compatibility.",
+    "zh": "网页版改编自费马原创 LOVE_ROLE 公开预览，保留全部24道中文题与每次选择计1次的规则。英文和四种简版画像为网站新增，不等同于小程序完整报告。每方向参与12次比较；计数只相对于这些配对，并列完整保留，不设阈值或人群常模。预览未经心理测量验证。只在自愿时回顾当前或近期关系；配对不合情境可以离开。结果不诊断依恋、不评关系质量，也不预测伴侣适配。"
+  },
+  "focus": {
+    "en": "Relative choices among romantic expression, practical partnership, emotional companionship and growth with autonomy.",
+    "zh": "浪漫表达、务实协作、情感陪伴与成长自主之间的相对选择。"
+  },
+  "minutes": 5,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "On an important day, I would rather design a memorable occasion together.",
+            "zh": "重要日子里，我更想一起设计一段有纪念感的安排。"
+          },
+          "points": {
+            "romantic_expression": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "On an important day, I would rather complete something together that helps our everyday life.",
+            "zh": "重要日子里，我更想一起完成一件对生活有帮助的事。"
+          },
+          "points": {
+            "practical_partnership": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When showing care, I more naturally take on a practical task the other person is facing.",
+            "zh": "表达在意时，我更自然地处理一项对方正面对的实际任务。"
+          },
+          "points": {
+            "practical_partnership": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When showing care, I more naturally prepare a small ritual with personal meaning.",
+            "zh": "表达在意时，我更自然地准备带有个人意义的小仪式。"
+          },
+          "points": {
+            "romantic_expression": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When planning a weekend, I look forward more to creating an experience different from everyday life.",
+            "zh": "规划周末时，我更期待营造一次不同于日常的体验。"
+          },
+          "points": {
+            "romantic_expression": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When planning a weekend, I look forward more to advancing a plan we both care about.",
+            "zh": "规划周末时，我更期待推进一项双方都关心的计划。"
+          },
+          "points": {
+            "practical_partnership": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Looking back on a relationship’s development, I value more the real-life problems we have solved together.",
+            "zh": "回看关系进展时，我更珍惜共同解决过的现实问题。"
+          },
+          "points": {
+            "practical_partnership": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Looking back on a relationship’s development, I value more our shared stories and symbols.",
+            "zh": "回看关系进展时，我更珍惜共同故事和象征。"
+          },
+          "points": {
+            "romantic_expression": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When the other person feels low, I would rather express care through a thoughtful arrangement.",
+            "zh": "对方经历低落时，我更想用有心意的安排表达在意。"
+          },
+          "points": {
+            "romantic_expression": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When the other person feels low, I would rather make time to understand how they feel now.",
+            "zh": "对方经历低落时，我更想留出时间听懂当下感受。"
+          },
+          "points": {
+            "emotional_companionship": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When a relationship settles into a steady period, I would rather maintain attentive emotional conversation.",
+            "zh": "关系进入平稳期后，我更想保持细致的情绪交流。"
+          },
+          "points": {
+            "emotional_companionship": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When a relationship settles into a steady period, I would rather keep surprises and rituals alive.",
+            "zh": "关系进入平稳期后，我更想继续保留惊喜和仪式。"
+          },
+          "points": {
+            "romantic_expression": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When wanting more closeness, I more naturally create a special shared experience.",
+            "zh": "想增加亲近感时，我更自然地创造一段特别的共同体验。"
+          },
+          "points": {
+            "romantic_expression": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When wanting more closeness, I more naturally have an unhurried conversation.",
+            "zh": "想增加亲近感时，我更自然地进行一次不赶时间的对话。"
+          },
+          "points": {
+            "emotional_companionship": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "After a minor disagreement, I would rather first hear fully what matters to both people.",
+            "zh": "发生小摩擦后，我更愿意先把双方在意的部分听完整。"
+          },
+          "points": {
+            "emotional_companionship": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "After a minor disagreement, I would rather reconnect through a meaningful action.",
+            "zh": "发生小摩擦后，我更愿意用一个有意义的动作重新靠近。"
+          },
+          "points": {
+            "romantic_expression": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When celebrating progress together, I place more value on keeping the moment as a relationship memory.",
+            "zh": "共同庆祝进展时，我更看重把时刻记录成关系记忆。"
+          },
+          "points": {
+            "romantic_expression": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When celebrating progress together, I place more value on both people continuing to develop their own directions.",
+            "zh": "共同庆祝进展时，我更看重彼此仍能发展自己的方向。"
+          },
+          "points": {
+            "growth_autonomy": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When thinking about what keeps a relationship lively, I would rather support both people in trying new personal goals.",
+            "zh": "想到关系的活力时，我更愿意支持双方尝试新的个人目标。"
+          },
+          "points": {
+            "growth_autonomy": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When thinking about what keeps a relationship lively, I would rather arrange new shared rituals.",
+            "zh": "想到关系的活力时，我更愿意安排新的共同仪式。"
+          },
+          "points": {
+            "romantic_expression": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "During a busy period, I would rather keep a regular moment that belongs just to us.",
+            "zh": "面对忙碌阶段，我更想保留一个只属于双方的固定时刻。"
+          },
+          "points": {
+            "romantic_expression": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "During a busy period, I would rather give both people uninterrupted time for personal growth.",
+            "zh": "面对忙碌阶段，我更想让双方都有不被打断的成长时间。"
+          },
+          "points": {
+            "growth_autonomy": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When expressing long-term care, I more naturally support the other person in making important choices autonomously.",
+            "zh": "表达长期在意时，我更自然地支持对方自主作出重要选择。"
+          },
+          "points": {
+            "growth_autonomy": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When expressing long-term care, I more naturally create ways of marking memories that can continue.",
+            "zh": "表达长期在意时，我更自然地创造可延续的纪念方式。"
+          },
+          "points": {
+            "romantic_expression": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When life gets busy, I would rather first redistribute specific tasks.",
+            "zh": "生活变忙时，我更想先重新分配具体任务。"
+          },
+          "points": {
+            "practical_partnership": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When life gets busy, I would rather first understand the pressure each person is carrying.",
+            "zh": "生活变忙时，我更想先了解双方承受的压力。"
+          },
+          "points": {
+            "emotional_companionship": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When facing a shared difficulty, I more naturally clarify what each person most needs understood.",
+            "zh": "遇到共同难题时，我更自然地确认彼此最需要被理解的部分。"
+          },
+          "points": {
+            "emotional_companionship": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When facing a shared difficulty, I more naturally list available resources and the next step.",
+            "zh": "遇到共同难题时，我更自然地列出资源和下一步。"
+          },
+          "points": {
+            "practical_partnership": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When planning the future, I place more value on whether responsibilities and time arrangements are workable.",
+            "zh": "规划未来时，我更看重责任和时间安排是否可执行。"
+          },
+          "points": {
+            "practical_partnership": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When planning the future, I place more value on whether both people’s hopes and concerns have been expressed clearly.",
+            "zh": "规划未来时，我更看重双方的期待和担忧是否被说清。"
+          },
+          "points": {
+            "emotional_companionship": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When one person needs support, I tend more toward steady, attentive company.",
+            "zh": "一方需要支持时，我更倾向提供稳定而专注的陪伴。"
+          },
+          "points": {
+            "emotional_companionship": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When one person needs support, I tend more toward practical assistance that can be put into action.",
+            "zh": "一方需要支持时，我更倾向提供可落地的协助。"
+          },
+          "points": {
+            "practical_partnership": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When building an everyday life together, I place more value on a reliable way to cooperate.",
+            "zh": "建立共同生活时，我更看重形成可靠的合作方式。"
+          },
+          "points": {
+            "practical_partnership": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When building an everyday life together, I place more value on room for both people to make independent decisions.",
+            "zh": "建立共同生活时，我更看重双方保留独立决定的空间。"
+          },
+          "points": {
+            "growth_autonomy": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When resources are limited, I would rather clarify each person’s individual development needs they do not want to give up.",
+            "zh": "资源有限时，我更想分别确认各自不能放弃的发展需要。"
+          },
+          "points": {
+            "growth_autonomy": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When resources are limited, I would rather agree on priorities and a division of tasks together.",
+            "zh": "资源有限时，我更想一起确定优先顺序和分工。"
+          },
+          "points": {
+            "practical_partnership": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "For a long-term goal, I would rather break it into steps we carry out together.",
+            "zh": "面对长期目标时，我更愿意把它拆成共同执行的步骤。"
+          },
+          "points": {
+            "practical_partnership": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "For a long-term goal, I would rather let each person advance along a path that suits them.",
+            "zh": "面对长期目标时，我更愿意让双方按适合自己的路径推进。"
+          },
+          "points": {
+            "growth_autonomy": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Once a relationship is stable, I place more value on continuing to revisit personal boundaries and directions for growth.",
+            "zh": "关系稳定后，我更重视持续更新个人边界和成长方向。"
+          },
+          "points": {
+            "growth_autonomy": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Once a relationship is stable, I place more value on continuing to maintain everyday cooperation.",
+            "zh": "关系稳定后，我更重视持续维护日常合作。"
+          },
+          "points": {
+            "practical_partnership": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When the other person tries a new direction, I would rather keep learning how they feel during the process.",
+            "zh": "对方尝试新方向时，我更想持续了解过程中的感受。"
+          },
+          "points": {
+            "emotional_companionship": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When the other person tries a new direction, I would rather respect the pace of their autonomous exploration.",
+            "zh": "对方尝试新方向时，我更想尊重对方自主探索的节奏。"
+          },
+          "points": {
+            "growth_autonomy": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When opinions differ, I place more value on both people still having room for their own judgment.",
+            "zh": "出现意见差异时，我更看重双方是否仍能保留自己的判断。"
+          },
+          "points": {
+            "growth_autonomy": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When opinions differ, I place more value on both people feeling understood.",
+            "zh": "出现意见差异时，我更看重双方是否感到被理解。"
+          },
+          "points": {
+            "emotional_companionship": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When a relationship gives a sense of security, I would rather deepen sharing and mutual company.",
+            "zh": "关系带来安全感时，我更想加深分享和相互陪伴。"
+          },
+          "points": {
+            "emotional_companionship": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When a relationship gives a sense of security, I would rather use that support for each person’s growth.",
+            "zh": "关系带来安全感时，我更想把这份支持用于各自成长。"
+          },
+          "points": {
+            "growth_autonomy": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When arranging shared time, I look forward more to also supporting each person’s independent plans.",
+            "zh": "安排共同时间时，我更期待也能支持各自独立的计划。"
+          },
+          "points": {
+            "growth_autonomy": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When arranging shared time, I look forward more to room for an in-depth conversation.",
+            "zh": "安排共同时间时，我更期待有深入交流的空间。"
+          },
+          "points": {
+            "emotional_companionship": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "romantic_expression",
+      "title": {
+        "en": "Romantic Expression & Ritual",
+        "zh": "浪漫表达与仪式感"
+      },
+      "summary": {
+        "en": "Romantic-expression choices received one of your highest raw counts across these pairs. You more often selected a meaningful occasion, shared symbol or memorable gesture when it stood beside another value direction. This describes the comparison within these answers, not how romantic you are in every relationship.",
+        "zh": "这些配对里，浪漫表达获得了你的最高原始计数之一。与另一价值方向并列时，你较常选择有意义的安排、共同象征或值得记住的动作。它描述本次答案内的比较，不说明你在所有关系里有多浪漫。"
+      },
+      "example": {
+        "en": "For an ordinary milestone, you might want a little shared ritual or a line in a notebook that makes the moment recognizable later. The other person may prefer a different form.",
+        "zh": "普通里程碑时，你也许想留一个共同小仪式或笔记一句话，让以后能认出这一刻。对方仍可能更喜欢别的形式。"
+      },
+      "strength": {
+        "en": "A chosen symbol or occasion can give attention a visible shape and help a shared memory become easier to revisit without needing a grand event.",
+        "zh": "主动选择的象征或时刻，能让关注有可见形状，也让共同记忆容易重访，不必盛大活动。"
+      },
+      "tradeoff": {
+        "en": "A meaningful gesture can miss the other person’s preference or leave a practical need untouched. A higher count does not make ritual the right response to every situation.",
+        "zh": "有意义的动作也会没接上对方偏好，或留下实际需要未处理。计数较高，不让仪式成为每种情境的正确回答。"
+      },
+      "experiment": {
+        "en": "Ask whether a small shared ritual would be welcome before planning one. Choose a modest version together and leave either person free to change the idea.",
+        "zh": "安排小共同仪式前，先问是否欢迎。一起选适度版本，也让任何一方可改想法。"
+      }
+    },
+    {
+      "id": "practical_partnership",
+      "title": {
+        "en": "Practical Partnership",
+        "zh": "务实协作与共同建设"
+      },
+      "summary": {
+        "en": "Practical-partnership responses received one of your highest counts in this questionnaire. You more often chose workable tasks, shared plans or concrete assistance when those choices were compared with another direction. The result is a relative choice count, not a measure of reliability, effort or relationship success.",
+        "zh": "本题本里，务实协作获得了你的最高计数之一。与另一方向比较时，你较常选择可执行任务、共同计划或具体协助。结果是相对选择计数，不测可靠程度、努力或关系成功。"
+      },
+      "example": {
+        "en": "When a week becomes busy, you might want to clarify a shared task and agree on a manageable division rather than letting each person guess what is expected.",
+        "zh": "一周忙起来时，你可能想说清一件共同任务，约容易掌握的分工，不让双方猜彼此预期。"
+      },
+      "strength": {
+        "en": "A practical agreement can make care usable in an ordinary day and bring a shared plan within the time and resources the people actually have.",
+        "zh": "实际约定能让关心在普通日子里可用，也让共同计划贴合双方实际时间资源。"
+      },
+      "tradeoff": {
+        "en": "Solving a task does not necessarily answer a wish to be heard or a need for autonomy. An offer works better when the other person can choose whether it helps.",
+        "zh": "解决任务不一定回应想被听见或需要自主的愿望。对方能选是否有帮助时，提供更合适。"
+      },
+      "experiment": {
+        "en": "Offer one specific form of help and ask what part is actually wanted. Agree on its limits rather than turning a small task into a permanent role.",
+        "zh": "提供一种具体帮助，问实际想要哪部分。约好边界，不把小任务变永久角色。"
+      }
+    },
+    {
+      "id": "emotional_companionship",
+      "title": {
+        "en": "Emotional Companionship",
+        "zh": "情感陪伴与相互理解"
+      },
+      "summary": {
+        "en": "Emotional-companionship responses received one of your highest raw counts here. You more often selected attentive conversation, shared understanding or company when those options appeared beside another direction. This is not an emotional-intelligence score or evidence that you know another person’s feelings without asking.",
+        "zh": "这里，情感陪伴获得了你的最高原始计数之一。与另一方向并列时，你较常选专注对话、相互理解或作伴。它不是情商分，也不证明无需询问就知道别人感受。"
+      },
+      "example": {
+        "en": "Before changing a shared plan, you might want both people to say what they hope for and what feels difficult, with room to keep some details private.",
+        "zh": "改变共同计划前，你可能希望双方说想要什么、哪里为难，也留空间保留部分私人细节。"
+      },
+      "strength": {
+        "en": "A wanted conversation can make concerns and hopes more visible, giving a shared decision more than assumptions about what the other person must mean.",
+        "zh": "双方愿意的对话能让顾虑期待更可见，让共同决定不只依靠对另一人意思的假设。"
+      },
+      "tradeoff": {
+        "en": "More conversation is not automatically better when someone wants quiet or a concrete next step. Listening also includes accepting the amount they choose to share.",
+        "zh": "对方想安静或要具体下一步时，更多对话不自动更好。倾听也包括接受对方选分享多少。"
+      },
+      "experiment": {
+        "en": "Ask whether the other person wants listening, practical thinking together or space. Follow the answer without treating one response as more caring than the others.",
+        "zh": "问对方想倾听、一起想实际办法还是留空间。按答案来，不把一种回应评得更有爱。"
+      }
+    },
+    {
+      "id": "growth_autonomy",
+      "title": {
+        "en": "Shared Growth & Autonomy",
+        "zh": "共同成长与彼此独立"
+      },
+      "summary": {
+        "en": "Growth-and-autonomy responses received one of your highest counts across these pairs. You more often chose personal direction, independent judgment or room for each person’s development when compared with another value. The result does not measure commitment or predict how close a relationship will become.",
+        "zh": "这些配对里，成长与自主获得了你的最高计数之一。与另一价值比较时，你较常选个人方向、独立判断或各自发展空间。结果不测投入，也不预测关系会变多亲近。"
+      },
+      "example": {
+        "en": "Two people might support each other’s separate hobby time while still choosing a modest shared plan that both actually want. Independence and company need not use the same schedule.",
+        "zh": "两人可以支持各自爱好时间，也主动选一份都愿意的适度共同安排。独立与作伴不必用同一套日程。"
+      },
+      "strength": {
+        "en": "Making room for individual choices can let a shared arrangement include two people’s changing interests rather than requiring one common path for everything.",
+        "zh": "为个人选择留位置，能让共同安排容纳双方变化中的兴趣，不必所有事都走同一路。"
+      },
+      "tradeoff": {
+        "en": "Autonomy can be hard to read if shared expectations remain vague. Naming what each person is choosing can make independence coexist with understandable connection.",
+        "zh": "共同预期含糊时，自主也可能难读。说清各自选什么，能让独立与可理解联系并存。"
+      },
+      "experiment": {
+        "en": "Name one personal activity and one shared activity you each want room for. Discuss a workable arrangement without treating either kind as a test of the relationship.",
+        "zh": "分别说一项想保留的个人活动与共同活动。商量可行安排，不把任何一类当关系考试。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "romantic_expression",
+    "practical_partnership",
+    "emotional_companionship",
+    "growth_autonomy"
+  ],
+  "source": {
+    "kind": "FermatMind original mini-program public preview adaptation",
+    "sourceForm": "love_role_forced_choice_24",
+    "itemBankVersion": "0.1.0-preview",
+    "scoringVersion": "0.1.0-preview",
+    "itemBankSha256": "5eb3ba5e9bee03414eecc948fb5812367424a121db94a3fbb69d9f3ab47f54b8",
+    "reviewProvenance": "role_based_model_review; human_expert_review_completed=false",
+    "webResultEdition": "four concise original website portraits; not the full mini-program report"
+  }
+}

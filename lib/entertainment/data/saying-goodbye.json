@@ -1,0 +1,348 @@
+{
+  "slug": "saying-goodbye",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "relationships",
+  "title": {
+    "en": "Your Gentle Goodbye Style",
+    "zh": "愉快见面快结束：你会怎样告别？"
+  },
+  "description": {
+    "en": "Six ordinary visit-ending choices about a clear finish, one remembered detail and an optional next opening. Find the goodbye you choose today.",
+    "zh": "六次普通见面收尾选择，清楚结束、记住一个细节、留可选下次入口，发现今天愿选的告别。"
+  },
+  "introduction": {
+    "en": "Imagine ending a pleasant visit with someone who also has their own plans. A goodbye can be warm without becoming a promise of constant contact. The quiz describes a small closing moment, not attachment, closeness or how much either person cares.",
+    "zh": "想象结束一次愉快到访，对方也有自己的安排。告别可温暖，不必变成持续联系承诺。题目只描述小收尾时刻，不测依恋、亲近或双方关心多少。"
+  },
+  "focus": {
+    "en": "Closing a visit through an understandable end, a concrete appreciation or a freely chosen possibility of another meeting.",
+    "zh": "通过易懂的结束、具体欣赏，或自由选择的再会可能，为见面收尾。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "The agreed visit time is nearly over. You first…",
+        "zh": "已约见面时间快到，你先……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Name the finish so neither person has to guess.",
+            "zh": "说清将结束，让双方不用猜。"
+          },
+          "points": {
+            "clear": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Mention one small part you enjoyed.",
+            "zh": "提一个自己喜欢的小部分。"
+          },
+          "points": {
+            "detail": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Leave a simple optional opening for another visit.",
+            "zh": "留一个可选下次见面的简单入口。"
+          },
+          "points": {
+            "future": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "You are both enjoying the conversation. You…",
+        "zh": "双方都聊得开心，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Keep the agreed finish and let the enjoyable part remain complete.",
+            "zh": "保留已约结束，让愉快部分本身完整。"
+          },
+          "points": {
+            "clear": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Save one specific thread you might return to later.",
+            "zh": "留一个以后也许可接的具体话头。"
+          },
+          "points": {
+            "future": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Say what you appreciated about this particular conversation.",
+            "zh": "说清这次对话欣赏什么。"
+          },
+          "points": {
+            "detail": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "Someone says “we should do this again.” You…",
+        "zh": "有人说“以后再这样玩”，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Offer one concrete invitation only if you actually want to.",
+            "zh": "只有自己真想时，才给一个具体邀请。"
+          },
+          "points": {
+            "future": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Respond warmly without deciding the next plan at the doorway.",
+            "zh": "温暖回应，不必在门口定下一计划。"
+          },
+          "points": {
+            "detail": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Let the goodbye finish before another arrangement starts.",
+            "zh": "让告别先结束，再开另一安排。"
+          },
+          "points": {
+            "clear": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A small shared activity remains unfinished. You…",
+        "zh": "一项共同小活动还没做完，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Mark a stopping point and make the next round separately optional.",
+            "zh": "标出停止点，下一轮另行可选。"
+          },
+          "points": {
+            "clear": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Remember the part that was enjoyable rather than calling the visit incomplete.",
+            "zh": "记住愉快部分，不说到访因此不完整。"
+          },
+          "points": {
+            "detail": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask whether both would like a future moment to continue.",
+            "zh": "问双方是否想以后有时接着做。"
+          },
+          "points": {
+            "future": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "You want to send a brief message afterward. You prefer…",
+        "zh": "之后想发一条短消息，你更愿……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One specific thank-you for something from the visit.",
+            "zh": "为到访里一件具体事道谢。"
+          },
+          "points": {
+            "detail": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A clear closing note without another request attached.",
+            "zh": "清楚收尾便条，不附新请求。"
+          },
+          "points": {
+            "clear": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "One optional next idea, with no need for an immediate decision.",
+            "zh": "一个可选下次想法，不急着决定。"
+          },
+          "points": {
+            "future": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What makes the goodbye feel right?",
+        "zh": "怎样会让告别恰好？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The visit had a clear end without becoming abrupt.",
+            "zh": "见面有清楚结尾，也不突兀。"
+          },
+          "points": {
+            "clear": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A small real detail of the time together was appreciated.",
+            "zh": "共处的一点真实细节被欣赏。"
+          },
+          "points": {
+            "detail": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Another meeting remained possible rather than owed.",
+            "zh": "下次仍可能，而不是欠着。"
+          },
+          "points": {
+            "future": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "clear",
+      "title": {
+        "en": "The Clear-End Goodbye",
+        "zh": "清楚结尾的告别"
+      },
+      "summary": {
+        "en": "Your goodbye gives the visit a recognizable stopping point. Ending can be part of enjoying the time rather than proof that it was not enough. The portrait concerns this closing style, not how easily you detach or how much company you want.",
+        "zh": "你的告别给到访一个可辨认停止点。结束可以是享受时间的一部分，不证明不够好。画像只谈收尾方式，不评你多容易抽离或想要多少作伴。"
+      },
+      "example": {
+        "en": "You might mention that the agreed hour is nearly finished, put away the shared materials and thank the person before either has to guess whether to stay.",
+        "zh": "你可能说明已约一小时快完，归好共用材料，再道谢，不让任何一方猜该不该留。"
+      },
+      "strength": {
+        "en": "A clear end can reduce awkward uncertainty and leave both people free to return to the plans they chose beyond the visit.",
+        "zh": "清楚结束减少尴尬不确定，也让双方自由回到见面之外已选安排。"
+      },
+      "tradeoff": {
+        "en": "A finish can feel sudden if it is announced only at the last second. A little notice can keep clarity warm and usable.",
+        "zh": "最后一秒才说结束，会突兀。提前一点提醒，清楚也可温和好用。"
+      },
+      "experiment": {
+        "en": "For one willing visit, name the approximate finish early and give a short closing cue. Keep the final thanks simple and let the end stand.",
+        "zh": "一次自愿到访，及早说大致结束，再给短收尾提示。最后感谢简单，让结束成立。"
+      }
+    },
+    {
+      "id": "detail",
+      "title": {
+        "en": "The One-Good-Detail Goodbye",
+        "zh": "留一个好细节的告别"
+      },
+      "summary": {
+        "en": "Your goodbye keeps one particular part of the visit in view. A small appreciation can be enough to make the closing personal. The result does not require a summary of everything that mattered or a matching emotional response from the other person.",
+        "zh": "你的告别把到访里一处具体部分留在视野。一点欣赏就足够让收尾有个人意味。结果不要求总结所有意义，也不要求对方有相同情绪回应。"
+      },
+      "example": {
+        "en": "You might say you enjoyed the unexpected tiny drawing that appeared during the afternoon rather than describing the whole visit as perfect.",
+        "zh": "你可能说喜欢下午意外出现的那幅小画，不把整次到访描述成完美。"
+      },
+      "strength": {
+        "en": "A concrete detail can make thanks feel connected to the actual time together and preserve a modest memory without a grand declaration.",
+        "zh": "具体细节让感谢连到实际共处，也保留适度记忆，不必宏大宣言。"
+      },
+      "tradeoff": {
+        "en": "Searching for the perfect closing detail can delay a simple goodbye. An honest ordinary sentence is often enough for a small visit.",
+        "zh": "找完美收尾细节，也会拖住简单告别。小到访里，一句诚实普通话常已够。"
+      },
+      "experiment": {
+        "en": "At one pleasant ending, name a single detail you enjoyed and stop there. Let the other person receive it without needing to match the sentence.",
+        "zh": "一次愉快结束，说一个喜欢细节就停。让对方接收，不必回同等一句。"
+      }
+    },
+    {
+      "id": "future",
+      "title": {
+        "en": "The Open-Next-Door Goodbye",
+        "zh": "下次门留着的告别"
+      },
+      "summary": {
+        "en": "Your closing leaves a possible next encounter without deciding the whole future of the connection. An invitation can remain small, specific and optional. The portrait values an open door rather than making repeated contact a requirement for a successful goodbye.",
+        "zh": "你的收尾留下下次相遇可能，不决定联系全部未来。邀请可以小、具体且可选。画像珍惜开放门，不要求反复联系，告别才算成功。"
+      },
+      "example": {
+        "en": "After enjoying a shared sketch session, you might mention another short afternoon you would welcome, while accepting that the other person may not choose it.",
+        "zh": "共享速写愉快后，你可能提另一个愿意的小下午，也接受对方未必选择。"
+      },
+      "strength": {
+        "en": "A clear optional opening can make genuine interest understandable without turning the next meeting into an obligation created by a warm ending.",
+        "zh": "清楚可选入口让真实兴趣易懂，不让温暖结束制造下次见面义务。"
+      },
+      "tradeoff": {
+        "en": "Too many next ideas can crowd out the visit that is finishing. One modest option leaves more room for an actual choice.",
+        "zh": "下次想法太多，会挤掉正在结束的这次。一项适度选项更给真实选择留空间。"
+      },
+      "experiment": {
+        "en": "If you genuinely want another meeting, offer one small next possibility and leave the answer open. Let today’s visit remain worthwhile either way.",
+        "zh": "真想再见时，给一项小可能，再留回答开放。无论怎样，今天到访都仍可值得。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "clear",
+    "detail",
+    "future"
+  ]
+}

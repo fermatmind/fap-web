@@ -1,0 +1,436 @@
+{
+  "slug": "choosing-together",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "relationships",
+  "title": {
+    "en": "How Do You Make a Small Choice Together?",
+    "zh": "一起选件小事：你会用哪种办法？"
+  },
+  "description": {
+    "en": "Six shared-choice scenes compare clarifying criteria, taking turns, trying a small sample and choosing separate parts. Four complete decision-style portraits await.",
+    "zh": "六个共同小选择场景，比较说清条件、轮流、短试与分选部分，四种完整趣味画像等你查看。"
+  },
+  "introduction": {
+    "en": "Imagine two willing people choosing an ordinary leisure activity. No method is best for every situation, and the four approaches can be combined. The result describes the choices in this game rather than fairness, decisiveness or the quality of a relationship.",
+    "zh": "想象双方愿意选一项普通休闲活动。没有哪种方法处处最好，四种方式也可组合。结果只描述本次选择，不评公平、果断或关系质量。"
+  },
+  "focus": {
+    "en": "Settling a small shared choice through explicit criteria, a turn arrangement, a bounded trial or a divisible plan.",
+    "zh": "通过清楚条件、轮次安排、小范围试用或可分计划，敲定小共同选择。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "You both suggest different activities. You first…",
+        "zh": "双方提不同活动，你先……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask which two conditions matter most to each person.",
+            "zh": "问各自最在意哪两个条件。"
+          },
+          "points": {
+            "criteria": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Offer a simple alternating-choice arrangement.",
+            "zh": "提一个简单轮流选择安排。"
+          },
+          "points": {
+            "turns": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Suggest a short sample of one option before deciding further.",
+            "zh": "提议短试一个，再决定更多。"
+          },
+          "points": {
+            "trial": 1
+          }
+        },
+        {
+          "id": "o4",
+          "label": {
+            "en": "Look for a plan with separate parts each can choose.",
+            "zh": "找能分成部分、各自可选的计划。"
+          },
+          "points": {
+            "parts": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "Two options look equally appealing. You prefer to…",
+        "zh": "两个选项都吸引人，你更愿……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Choose one now and give the other person the next agreed turn.",
+            "zh": "这次选一个，下次给另一人已约轮次。"
+          },
+          "points": {
+            "turns": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Compare the one difference that would actually affect the visit.",
+            "zh": "比较真正影响到访的一处不同。"
+          },
+          "points": {
+            "criteria": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Try the smallest version that can answer your uncertainty.",
+            "zh": "试能回答不确定的最小版本。"
+          },
+          "points": {
+            "trial": 1
+          }
+        },
+        {
+          "id": "o4",
+          "label": {
+            "en": "Use one part from each without forcing a single winner.",
+            "zh": "各取一部分，不强求唯一赢家。"
+          },
+          "points": {
+            "parts": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "A sample turns out different from what you imagined. You…",
+        "zh": "试一下发现与想象不同，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Use that experience to decide whether you want more.",
+            "zh": "按体验决定是否还想更多。"
+          },
+          "points": {
+            "trial": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Revisit the original conditions in light of what changed.",
+            "zh": "根据变化重看原先条件。"
+          },
+          "points": {
+            "criteria": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Let the next choice follow the turn arrangement if both still want it.",
+            "zh": "双方仍愿意时，让下一选择按已约轮次。"
+          },
+          "points": {
+            "turns": 1
+          }
+        },
+        {
+          "id": "o4",
+          "label": {
+            "en": "Keep the enjoyable piece and leave the rest separate.",
+            "zh": "留愉快部分，其余分开。"
+          },
+          "points": {
+            "parts": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "One person says a proposed method does not work for them. You…",
+        "zh": "一人说提议方法不适合自己，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask which condition makes it unsuitable.",
+            "zh": "问什么条件让它不合适。"
+          },
+          "points": {
+            "criteria": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Change the turn arrangement rather than treating it as a debt.",
+            "zh": "改轮次安排，不把它当欠账。"
+          },
+          "points": {
+            "turns": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Offer another small trial only if a trial is welcome.",
+            "zh": "只有欢迎试时，才另给小试。"
+          },
+          "points": {
+            "trial": 1
+          }
+        },
+        {
+          "id": "o4",
+          "label": {
+            "en": "Check whether making separate choices would be more comfortable.",
+            "zh": "问分开选择是否更舒服。"
+          },
+          "points": {
+            "parts": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The activity can fit only a short time. You choose…",
+        "zh": "只有一小段活动时间，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One small sample with an explicit finish.",
+            "zh": "一个有明确结束的小样本。"
+          },
+          "points": {
+            "trial": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The option meeting the few conditions both named.",
+            "zh": "符合双方说过少数条件的选项。"
+          },
+          "points": {
+            "criteria": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "One person’s choice for this agreed short round.",
+            "zh": "本次已约短回合由一人选。"
+          },
+          "points": {
+            "turns": 1
+          }
+        },
+        {
+          "id": "o4",
+          "label": {
+            "en": "Two brief separate parts and one optional meeting point.",
+            "zh": "两小段分选部分与一个可选碰面点。"
+          },
+          "points": {
+            "parts": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What makes the choice feel settled?",
+        "zh": "怎样会让选择定得舒服？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "We understood what the decision depended on.",
+            "zh": "明白决定依据是什么。"
+          },
+          "points": {
+            "criteria": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "We had a turn arrangement we could both revise.",
+            "zh": "有一份双方都可修改的轮次安排。"
+          },
+          "points": {
+            "turns": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "We learned enough from trying without overcommitting.",
+            "zh": "试到足够了解，也没过度承诺。"
+          },
+          "points": {
+            "trial": 1
+          }
+        },
+        {
+          "id": "o4",
+          "label": {
+            "en": "We could share time without requiring one identical preference.",
+            "zh": "能共处，也不要求偏好相同。"
+          },
+          "points": {
+            "parts": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "criteria",
+      "title": {
+        "en": "The Two-Conditions Chooser",
+        "zh": "说清两条件的选择者"
+      },
+      "summary": {
+        "en": "Your shared choice becomes clearer when the relevant conditions are named. Time, interest or effort can be discussed before an option wins. The portrait follows your chosen decision method, not a score for rationality or a claim that feelings are less important.",
+        "zh": "相关条件被说清时，你的共同选择更明白。时间、兴趣或精力，可先于选项胜出被讨论。画像只跟随决定方法，不给理性打分，也不说感受较不重要。"
+      },
+      "example": {
+        "en": "Before choosing a short outing, you might learn that one person wants somewhere easy to leave and the other wants one unfamiliar thing to see.",
+        "zh": "选短外出前，你可能先知道一人想方便离开，另一人想看一件陌生东西。"
+      },
+      "strength": {
+        "en": "A few explicit conditions can reveal a workable overlap and prevent the choice from becoming a contest between two unexplained favorites.",
+        "zh": "少数清楚条件能显出可行交集，也让选择不变成两个没解释的最爱之间较量。"
+      },
+      "tradeoff": {
+        "en": "Comparing endlessly can use up the time meant for the activity. The conditions need only be clear enough for this small decision.",
+        "zh": "比较无尽会用掉原给活动的时间。条件只需清楚到足够本次小决定。"
+      },
+      "experiment": {
+        "en": "For one minor shared choice, each name two conditions that matter. Find one option that fits enough, and stop comparing when both freely agree.",
+        "zh": "一次小共同选择，各说两个重要条件。找一个足够合适选项，双方自由同意后就停比。"
+      }
+    },
+    {
+      "id": "turns",
+      "title": {
+        "en": "The Revisable-Turns Chooser",
+        "zh": "轮流也可改的选择者"
+      },
+      "summary": {
+        "en": "Your shared plan gives choosing a turn rather than asking every occasion to contain both first preferences. The arrangement remains something both people can revise. The result is not proof that exact alternation is the fairest method in every relationship.",
+        "zh": "你的共同安排给选择一个轮次，不要求每次同时容纳双方首选。安排仍可由双方修改。结果不证明精确轮流是每段关系最公平方法。"
+      },
+      "example": {
+        "en": "Two friends might agree to choose alternate short films for one afternoon, while keeping a clear option to stop or change the format.",
+        "zh": "两位朋友可约一个下午轮流选短片，也保留停下或换形式的清楚选项。"
+      },
+      "strength": {
+        "en": "An agreed turn can reduce repeated negotiation and make room for an experience one person would not have selected first on their own.",
+        "zh": "约定轮次减少反复协商，也容纳一人独自原本不会优先选择的体验。"
+      },
+      "tradeoff": {
+        "en": "A turn can become a debt if consent is assumed forever. Rechecking the arrangement matters more than maintaining a perfect scorecard.",
+        "zh": "若同意被假定永久存在，轮次会成债。重新确认，比维护完美计分表重要。"
+      },
+      "experiment": {
+        "en": "Try a turn arrangement for one bounded leisure session only if both want it. Agree beforehand that either person can ask to revise the plan.",
+        "zh": "双方愿意时，只为一场有边界休闲试轮流。提前约好谁都可提修改。"
+      }
+    },
+    {
+      "id": "trial",
+      "title": {
+        "en": "The Small-Sample Chooser",
+        "zh": "先试小样的选择者"
+      },
+      "summary": {
+        "en": "Your decision starts with a little actual experience. A small sample can answer something discussion alone has not settled. The ending values a bounded test without claiming that another trial is always better than accepting a no.",
+        "zh": "你的决定从一点实际体验开始。小样本能回答单靠讨论还没定的东西。结局珍惜有边界试用，不说多试一次永远比接受拒绝更好。"
+      },
+      "example": {
+        "en": "You might try the first few minutes of a voluntary craft demonstration together, then choose whether the longer version interests both people.",
+        "zh": "你可能一起自愿看手工演示前几分钟，再选双方是否对长版本都有兴趣。"
+      },
+      "strength": {
+        "en": "A modest sample can turn an abstract preference into a clearer choice while keeping the cost of changing direction small.",
+        "zh": "适度样本把抽象偏好变更清楚选择，也让转方向代价保持小。"
+      },
+      "tradeoff": {
+        "en": "Repeated samples can become the whole activity without agreement. Naming one question and one finish helps the trial stay small.",
+        "zh": "反复小样可能没约好就占整场活动。说清一个问题与一个结束，让尝试仍小。"
+      },
+      "experiment": {
+        "en": "Choose one small trial that can answer a real shared uncertainty. Decide its finish before starting and treat the result as information rather than an obligation to continue.",
+        "zh": "选一个能回答真实共同不确定的小试。开始前定结束，把结果当信息，不当继续义务。"
+      }
+    },
+    {
+      "id": "parts",
+      "title": {
+        "en": "The Separate-Parts Chooser",
+        "zh": "分开也能共享的选择者"
+      },
+      "summary": {
+        "en": "Your plan asks whether the choice can have more than one part. Separate preferences do not always need a single winner. The portrait describes a divisible leisure arrangement, not a claim that splitting up is the answer to every disagreement.",
+        "zh": "你的安排会问选择能否不只一部分。不同偏好不总需要唯一赢家。画像只描述可分休闲安排，不说每次分歧都该分开。"
+      },
+      "example": {
+        "en": "At a small fair, you might each choose a different stall for a short stretch and then share one agreed final stop.",
+        "zh": "小市集里，你们可各短逛一个不同摊位，再共享一处已约最后停点。"
+      },
+      "strength": {
+        "en": "A divisible plan can preserve both interests and make shared time flexible without requiring one person to abandon a genuine preference.",
+        "zh": "可分计划能保留双方兴趣，让共处灵活，不要求一人放弃真实偏好。"
+      },
+      "tradeoff": {
+        "en": "A split can feel distant if one person wanted company for the main part. Naming what is shared keeps the plan understandable.",
+        "zh": "若一人主要想作伴，分开会显远。说清共同部分，计划才易懂。"
+      },
+      "experiment": {
+        "en": "For one small outing, ask whether separate parts and one shared moment would suit both people. Keep staying together available too.",
+        "zh": "一次小外出，问分选部分加一个共同瞬间是否合双方，也保留全程一起的选择。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "criteria",
+    "turns",
+    "trial",
+    "parts"
+  ]
+}

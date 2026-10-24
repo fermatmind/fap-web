@@ -1,0 +1,348 @@
+{
+  "slug": "celebrating-a-friend",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "relationships",
+  "title": {
+    "en": "How Would You Meet a Friend’s Good News?",
+    "zh": "朋友分享好消息：你会怎样接住？"
+  },
+  "description": {
+    "en": "Six small good-news choices about hearing their version, sending a personal acknowledgment and joining a shared moment when invited.",
+    "zh": "六次小好消息选择，听对方自己的版本、给个人致意，或受邀共享一个瞬间，发现你的回应侧重。"
+  },
+  "introduction": {
+    "en": "Imagine a friend shares an ordinary achievement they are glad about. You are responding to news they chose to tell you, not planning a surprise. The result describes a response format, not how much you care or how the friendship should celebrate.",
+    "zh": "想象朋友分享自己开心的一件普通进展。你回应的是对方主动告诉你的消息，不策划惊喜。结果只描述回应形式，不衡量关心，也不规定友情该怎样庆祝。"
+  },
+  "focus": {
+    "en": "Responding to a friend’s chosen good news through their own account, a personal message or an invited shared acknowledgment.",
+    "zh": "通过朋友自己的讲述、个人信息或受邀共同致意，回应对方主动分享的好消息。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "A friend says they finished a project they enjoyed. You first…",
+        "zh": "朋友说做完一个喜欢的项目，你先……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask which part they are happiest to have reached.",
+            "zh": "问最开心到达的是哪部分。"
+          },
+          "points": {
+            "listen": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Send a brief personal acknowledgment tied to what they shared.",
+            "zh": "按所分享内容发简短个人致意。"
+          },
+          "points": {
+            "note": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask whether they want company for a small shared celebration.",
+            "zh": "问是否想有伴做一次小庆祝。"
+          },
+          "points": {
+            "join": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "They seem eager to tell the story. You…",
+        "zh": "对方很想讲经过，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Let their account set the pace instead of moving straight to advice.",
+            "zh": "让对方讲述定节奏，不立刻转建议。"
+          },
+          "points": {
+            "listen": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Keep one specific detail for a thoughtful later message.",
+            "zh": "记一处具体细节，稍后写有心信息。"
+          },
+          "points": {
+            "note": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Offer to hear it during a small meeting if they want one.",
+            "zh": "若愿意，可在小见面里听。"
+          },
+          "points": {
+            "join": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "You cannot meet when the news arrives. You…",
+        "zh": "消息到时没法见面，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Send one small personal message without promising a larger event.",
+            "zh": "发一条个人小信息，不许诺更大活动。"
+          },
+          "points": {
+            "note": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask whether they would enjoy telling you more another time.",
+            "zh": "问之后是否愿多讲一点。"
+          },
+          "points": {
+            "listen": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Offer one optional future moment together rather than an assumed appointment.",
+            "zh": "提供一个可选未来共处时刻，不当已定约会。"
+          },
+          "points": {
+            "join": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "Someone suggests sharing the news more widely. You…",
+        "zh": "有人提议更广分享消息，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask the friend how they want the news acknowledged.",
+            "zh": "问朋友希望消息怎样被致意。"
+          },
+          "points": {
+            "join": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Keep your own response personal unless more sharing is invited.",
+            "zh": "没被邀更多分享时，自己的回应先个人化。"
+          },
+          "points": {
+            "note": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Listen to what the friend actually says about the achievement before retelling it.",
+            "zh": "转述前，听清朋友自己怎样讲进展。"
+          },
+          "points": {
+            "listen": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The friend wants the moment to stay modest. You…",
+        "zh": "朋友想让这刻适度一点，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Let a brief message be enough without adding another request.",
+            "zh": "让短信息足够，不再添请求。"
+          },
+          "points": {
+            "note": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Hear the part they want to share and let the topic move naturally.",
+            "zh": "听愿分享部分，让话题自然走。"
+          },
+          "points": {
+            "listen": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Choose a small invited shared moment with a clear finish.",
+            "zh": "选一次受邀、小且结束清楚的共同瞬间。"
+          },
+          "points": {
+            "join": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What would you like your response to give?",
+        "zh": "希望自己的回应带来什么？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Room for them to enjoy telling the news in their own way.",
+            "zh": "让对方按自己的方式享受讲消息。"
+          },
+          "points": {
+            "listen": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A particular acknowledgment they can receive in their own time.",
+            "zh": "一份可按自己时间接收的具体致意。"
+          },
+          "points": {
+            "note": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Company they actually asked for around the good moment.",
+            "zh": "围绕好时刻真正想要的作伴。"
+          },
+          "points": {
+            "join": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "listen",
+      "title": {
+        "en": "The Their-Version Listener",
+        "zh": "听对方版本的伙伴"
+      },
+      "summary": {
+        "en": "Your response gives the friend space to say what the news means to them. You do not need to choose the impressive part in advance. The portrait values their own account rather than measuring your capacity for empathy.",
+        "zh": "你的回应给朋友空间说消息对自己意味着什么。不必提前选最厉害部分。画像珍惜对方自己的讲述，不测你的共情容量。"
+      },
+      "example": {
+        "en": "You might ask which small moment in finishing the project felt best and let the answer be ordinary rather than turning it into a motivational speech.",
+        "zh": "你可能问做完项目哪个小瞬间最好，让答案可以普通，不把它变励志演讲。"
+      },
+      "strength": {
+        "en": "Listening to the person’s version can make acknowledgment more particular and keep a happy update from becoming another person’s interpretation of success.",
+        "zh": "听本人版本让致意更具体，也让开心更新不被别人的成功解释代替。"
+      },
+      "tradeoff": {
+        "en": "Too many questions can turn good news into an interview. A simple warm response can be enough when the friend has said what they wanted.",
+        "zh": "问题太多会把好消息变采访。朋友讲完想讲的，简单温暖回应就够。"
+      },
+      "experiment": {
+        "en": "Ask one optional question about what the person enjoyed, then follow their pace. Let them keep any part of the story they do not want to tell.",
+        "zh": "问一个可选问题，看看对方享受什么，再跟节奏。任何不想讲的部分都可保留。"
+      }
+    },
+    {
+      "id": "note",
+      "title": {
+        "en": "The Personal-Acknowledgment Partner",
+        "zh": "个人致意的伙伴"
+      },
+      "summary": {
+        "en": "Your response can be a small message with a particular detail that belongs to this news. It need not become a plan for a bigger celebration. The ending values a personal acknowledgment without treating its length as a measure of care.",
+        "zh": "你的回应可是一条带着本消息具体细节的小信息，不必变成更大庆祝计划。结局珍惜个人致意，不按字数衡量关心。"
+      },
+      "example": {
+        "en": "You might write that you remember the little model’s first sketch and are glad the friend now has a finished version they enjoy.",
+        "zh": "你可能写记得小模型最初草图，也为朋友现在有喜欢的成品而开心。"
+      },
+      "strength": {
+        "en": "A concise personal note can be received at the friend’s own pace and give recognition without requiring them to host a conversation immediately.",
+        "zh": "简短个人便条可按朋友节奏接收，表达看见，也不要求对方立刻主持对话。"
+      },
+      "tradeoff": {
+        "en": "A written note can assume more about the achievement than you know. Keeping it tied to what was actually shared makes it easier to receive.",
+        "zh": "文字便条可能假定比已知更多。贴着实际分享的内容写，更容易接收。"
+      },
+      "experiment": {
+        "en": "Send one short acknowledgment of a specific detail the friend shared. Leave out a request for the next achievement or a required reply.",
+        "zh": "针对朋友分享的具体细节发简短致意，不附下一成就要求或必须回复。"
+      }
+    },
+    {
+      "id": "join",
+      "title": {
+        "en": "The Invited-Moment Partner",
+        "zh": "受邀共享时刻的伙伴"
+      },
+      "summary": {
+        "en": "Your response offers company around a happy moment, with the form chosen by the person sharing it. A small visit or shared toast can be enough. The portrait does not make public attention or a group event necessary for news to matter.",
+        "zh": "你的回应提供好时刻周围的作伴，形式由分享者选。小到访或共同举杯就可足够。画像不要求公开关注或群体活动，消息才有意义。"
+      },
+      "example": {
+        "en": "You might ask whether the friend wants a short look at the finished piece together, then keep the visit within the shape they actually chose.",
+        "zh": "你可能问朋友想不想一起短看成品，再按对方确实选的形状见面。"
+      },
+      "strength": {
+        "en": "An invited shared moment can make company concrete while keeping the recipient in charge of how visible or elaborate the acknowledgment becomes.",
+        "zh": "受邀共同瞬间让作伴具体，也让接收者掌握致意多公开、多复杂。"
+      },
+      "tradeoff": {
+        "en": "An offer of celebration can quietly become work for the person with the news. A small clear invitation should leave declining comfortable.",
+        "zh": "庆祝提供也会悄悄成为分享消息者的工作。小而清楚邀请应让拒绝自在。"
+      },
+      "experiment": {
+        "en": "Offer one modest shared moment only if the person wants it. Ask what shape would suit them before gathering anyone else into the plan.",
+        "zh": "只有对方想要才提供一次适度共同瞬间。把其他人加入前，先问怎样合适。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "listen",
+    "note",
+    "join"
+  ]
+}

@@ -1,0 +1,348 @@
+{
+  "slug": "quiet-company",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "relationships",
+  "title": {
+    "en": "Your Quiet-Company Scene",
+    "zh": "不用一直说话：你的安静作伴画面"
+  },
+  "description": {
+    "en": "Six calm shared-time choices about parallel pages, a view noticed together and a small task with very little talk. Find the scene you would choose today.",
+    "zh": "六次安静共处选择，翻各自书页、一起留意景象，或少说话做件小事，发现今天你会选的作伴画面。"
+  },
+  "introduction": {
+    "en": "Imagine both people have already said they would enjoy quiet company. The choices compare different forms of that time, not whether quiet is better than conversation. Your result is a scene to try, not a social-energy or attachment label.",
+    "zh": "想象双方都已表达愿意安静作伴。选择比较的是这段时间的不同形式，不评安静是否比聊天更好。结果是一幕可试场景，不是社交能量或依恋标签。"
+  },
+  "focus": {
+    "en": "Shaping an agreed quiet interval through separate activities, shared attention or a small coordinated task.",
+    "zh": "通过各自活动、共同注意或小协作任务，安排已同意的安静时段。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "You both choose a quiet half hour. You picture…",
+        "zh": "双方都选安静半小时，你想象……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Two different books or projects at the same table.",
+            "zh": "同桌两本不同书或两件不同作品。"
+          },
+          "points": {
+            "pages": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A comfortable place to look at one ordinary view together.",
+            "zh": "一个可一起看普通景象的舒服位置。"
+          },
+          "points": {
+            "view": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A tiny puzzle or sorting task done side by side.",
+            "zh": "并排做一个小谜题或分类小事。"
+          },
+          "points": {
+            "task": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "You want the time to feel shared without much speech. You…",
+        "zh": "想少说话也有共同感，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Choose a view both can follow at their own pace.",
+            "zh": "选双方可各按节奏看的景象。"
+          },
+          "points": {
+            "view": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Keep your separate activities near enough to share an occasional detail.",
+            "zh": "各自活动靠近，偶尔可分享一个细节。"
+          },
+          "points": {
+            "pages": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Set one simple joint action with no need for constant instructions.",
+            "zh": "约一项简单共同行动，不用持续指挥。"
+          },
+          "points": {
+            "task": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "One person finishes their activity first. You…",
+        "zh": "一方先做完自己的活动，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Let them begin another small independent thing.",
+            "zh": "让对方开始另一小独立活动。"
+          },
+          "points": {
+            "pages": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Pause together over something both can quietly notice.",
+            "zh": "一起停在双方可安静留意的东西上。"
+          },
+          "points": {
+            "view": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Offer a new small shared piece only if both want it.",
+            "zh": "双方都想时，才提供一小块共同内容。"
+          },
+          "points": {
+            "task": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A short sentence breaks the silence. You like it to be…",
+        "zh": "一句短话打破安静，你喜欢它是……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A small observation about what you are seeing together.",
+            "zh": "对共同所见的一点小观察。"
+          },
+          "points": {
+            "view": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A brief coordination cue for the little task.",
+            "zh": "小任务的一句短配合提示。"
+          },
+          "points": {
+            "task": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "An optional detail from either person’s separate page.",
+            "zh": "来自任一人独立书页的可选细节。"
+          },
+          "points": {
+            "pages": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "You have ten minutes left. You prefer…",
+        "zh": "还剩十分钟，你更愿……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Finishing one tiny shared piece without extending the time.",
+            "zh": "完成一小块共同内容，不延长时间。"
+          },
+          "points": {
+            "task": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Staying with the same view without needing a conclusion.",
+            "zh": "继续同一景象，不必下结论。"
+          },
+          "points": {
+            "view": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Letting each person find their own stopping point.",
+            "zh": "让各自找到自己停止点。"
+          },
+          "points": {
+            "pages": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What picture best keeps the quiet company?",
+        "zh": "哪幅画最能留下安静作伴？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Two open pages, with different things happening on each.",
+            "zh": "两页打开的纸，各自发生不同东西。"
+          },
+          "points": {
+            "pages": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "One small finished task and a comfortable empty space afterward.",
+            "zh": "一件小事完成，之后留舒服空白。"
+          },
+          "points": {
+            "task": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Two people noticing one changing ordinary scene.",
+            "zh": "两个人留意同一幅变化中的普通景象。"
+          },
+          "points": {
+            "view": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "pages",
+      "title": {
+        "en": "The Two-Open-Pages Scene",
+        "zh": "两页都打开的画面"
+      },
+      "summary": {
+        "en": "Your quiet company lets each person remain inside a separate activity while sharing the same little interval. An occasional detail can cross between the pages without becoming a demand for conversation. The scene does not say how much closeness either person feels.",
+        "zh": "你的安静作伴让双方待在各自活动里，也共享一小段时间。偶尔细节可在纸页间越过，不变成必须对话。画面不说明任何一方感到多亲近。"
+      },
+      "example": {
+        "en": "One person might read while another sketches, with a willing glance at a line or drawing when either has something they want to share.",
+        "zh": "一人读书，一人速写，谁有想分享的句子或画时，另一人愿意看一眼。"
+      },
+      "strength": {
+        "en": "Separate pages can preserve different interests and paces without requiring the whole shared interval to become one joint assignment.",
+        "zh": "各自纸页能保留不同兴趣节奏，不让整段共处变成单一共同作业。"
+      },
+      "tradeoff": {
+        "en": "A parallel arrangement can feel unclear if one person expected interaction. Naming that quiet company is the plan makes the scene easier to choose.",
+        "zh": "若一方原期待互动，并行安排会不清楚。说好这段选安静作伴，画面才易主动选择。"
+      },
+      "experiment": {
+        "en": "Agree on a short parallel session with a willing person and one easy way to ask for attention. Let the rest of the time remain undemanding.",
+        "zh": "和愿意的人约一次短并行时段，也约一个容易请求注意的方式。其余时间保持不索求。"
+      }
+    },
+    {
+      "id": "view",
+      "title": {
+        "en": "The Shared-Window Scene",
+        "zh": "一起望窗的画面"
+      },
+      "summary": {
+        "en": "Your quiet time has one ordinary view that both people may notice differently. You do not need to describe everything for the moment to be shared. The ending values co-attention without claiming that a shared view creates a particular emotional bond.",
+        "zh": "你的安静时间有一个双方可不同留意的普通景象。不必描述一切，这一刻也可共享。结局珍惜共同注意，不宣称共同景象制造某种特定情感纽带。"
+      },
+      "example": {
+        "en": "You might watch the light move across an illustrated garden together and each mention one small detail only if you want to.",
+        "zh": "你们可以一起看光在插画花园里移动，各自愿意才提一处小细节。"
+      },
+      "strength": {
+        "en": "A common point of attention can give quiet time a gentle center while leaving each person free to have their own experience of it.",
+        "zh": "共同注意点给安静时间温和中心，也让各自自由有自己的体验。"
+      },
+      "tradeoff": {
+        "en": "One view can become boring to someone else before it does to you. A simple chance to change the scene keeps the arrangement shared.",
+        "zh": "同一景象可能对方先觉得无聊。留简单换景机会，安排才继续共同。"
+      },
+      "experiment": {
+        "en": "Choose an ordinary view with someone who wants quiet company and agree on a short interval. Leave without needing to extract a lesson or matching memory.",
+        "zh": "与愿意安静作伴的人选普通景象，约短时段。离开时不必提炼教训或相同记忆。"
+      }
+    },
+    {
+      "id": "task",
+      "title": {
+        "en": "The Little-Shared-Piece Scene",
+        "zh": "一小块共做的画面"
+      },
+      "summary": {
+        "en": "Your quiet company includes something small to do together: a few pieces, a simple arrangement or one bounded finish. The task gives the interval a shape without demanding a stream of talk. The result does not measure cooperative ability.",
+        "zh": "你的安静作伴有一件小东西可一起做：几块拼片、简单排列或有边界的完成。任务给时段形状，不要求话流。结果不测合作能力。"
+      },
+      "example": {
+        "en": "You might sort a few paper shapes into a small collage together, using brief cues and leaving the remaining supplies for another day.",
+        "zh": "你们可能一起把几片纸形排成小拼贴，用简短提示，其余材料留以后。"
+      },
+      "strength": {
+        "en": "A tiny coordinated action can make shared time concrete and let participation be visible without needing a long conversation.",
+        "zh": "一项微型配合行动让共处具体，也让参与可见，不必长对话。"
+      },
+      "tradeoff": {
+        "en": "A task can expand until it no longer feels restful or voluntary. Agreeing on a small finish keeps the activity in proportion to the time chosen.",
+        "zh": "任务会扩大到不再轻松自愿。约好小结尾，让活动与所选时间相称。"
+      },
+      "experiment": {
+        "en": "Choose one tiny shared task with a clear finish and permission to stop. Let finishing it close the activity rather than automatically beginning another.",
+        "zh": "选一项结尾清楚、可停下的微型共同任务。完成就收住，不自动开始下一件。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "pages",
+    "view",
+    "task"
+  ]
+}

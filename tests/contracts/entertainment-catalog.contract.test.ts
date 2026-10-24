@@ -1,4 +1,5 @@
 import { isMissingFunRoute } from "@/lib/entertainment/routing";
+import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, it, expect } from "vitest";
 import catalog from "@/lib/entertainment/catalog.json";
@@ -124,17 +125,26 @@ describe("original entertainment catalog", () => {
     console.info(`Covered ${total} answer combinations across ${catalog.length} products (${catalog.length * 2} locale entries); small quizzes enumerate paths, long additive quizzes use the score-state coverage reported above.`);
   });
 
-  it("retains the original mini-preview color pair schedule, raw wins and ties without norms", async () => {
-    const quiz = (await loadFunQuiz("response-color"))!;
+  it.each([
+    { slug: "response-color", directions: ["red", "yellow", "blue", "green"], zhHash: "2b0716394b70aa1267adf07c4233624010ca21bfcadf6123fff7e9d8c43ecb62", source: { sourceForm: "personality_color_forced_choice_24", itemBankVersion: "0.1.1-preview", scoringVersion: "0.1.1-preview", itemBankSha256: "c63bf210ef8a755868212f20d77af0f14389041f3effa4cab77ffdee34a911e0" } },
+    { slug: "relationship-values", directions: ["romantic_expression", "practical_partnership", "emotional_companionship", "growth_autonomy"], zhHash: "51b475e5ca2c99fe4a168e5661ed7c4db8f493b50dc208f3f9d60682077a5f99", source: { sourceForm: "love_role_forced_choice_24", itemBankVersion: "0.1.0-preview", scoringVersion: "0.1.0-preview", itemBankSha256: "5eb3ba5e9bee03414eecc948fb5812367424a121db94a3fbb69d9f3ab47f54b8" } },
+  ])("retains the original mini-preview $slug items, paired schedule, raw wins and ties without norms", async ({ slug, directions, zhHash, source }) => {
+    const quiz = (await loadFunQuiz(slug))!;
     expect(quiz.questions).toHaveLength(24);
-    const pairs = ["red|yellow", "yellow|red", "red|yellow", "yellow|red", "red|blue", "blue|red", "red|blue", "blue|red", "red|green", "green|red", "red|green", "green|red", "yellow|blue", "blue|yellow", "yellow|blue", "blue|yellow", "yellow|green", "green|yellow", "yellow|green", "green|yellow", "blue|green", "green|blue", "blue|green", "green|blue"];
+    expect(quiz.tieOrder).toEqual(directions);
+    const pairIndices = [[0,1],[1,0],[0,1],[1,0],[0,2],[2,0],[0,2],[2,0],[0,3],[3,0],[0,3],[3,0],[1,2],[2,1],[1,2],[2,1],[1,3],[3,1],[1,3],[3,1],[2,3],[3,2],[2,3],[3,2]];
+    const pairs = pairIndices.map(pair => pair.map(index => directions[index]).join("|"));
     expect(quiz.questions.map(q => q.options.map(o => Object.keys(o.points!)[0]).join("|"))).toEqual(pairs);
+    // Canonical Chinese text + option mapping from the frozen original item banks.
+    const projection = quiz.questions.map(q => [q.prompt.zh, q.options.map(o => [o.label.zh, Object.keys(o.points!)[0]])]);
+    expect(createHash("sha256").update(JSON.stringify(projection)).digest("hex")).toBe(zhHash);
+    expect(JSON.parse(readFileSync(`lib/entertainment/data/${slug}.json`, "utf8")).source).toMatchObject(source);
     for (const direction of quiz.tieOrder) {
       expect(quiz.questions.flatMap(q => q.options).filter(o => Object.hasOwn(o.points!, direction))).toHaveLength(12);
     }
     expect(quiz.questions.flatMap(q => q.options).every(o => Object.values(o.points!).length === 1 && Object.values(o.points!)[0] === 1)).toBe(true);
     const allFirst = Object.fromEntries(quiz.questions.map(q => [q.id, q.options[0].id]));
-    expect(resolveFunQuiz(quiz, allFirst)).toMatchObject({ scores: { red: 6, yellow: 6, blue: 6, green: 6 }, resultIds: quiz.tieOrder });
+    expect(resolveFunQuiz(quiz, allFirst)).toMatchObject({ scores: Object.fromEntries(directions.map(direction => [direction, 6])), resultIds: quiz.tieOrder });
     expect(quiz.introduction.en).toContain("not the full mini-program report");
     expect(quiz.introduction.en).toContain("no thresholds or population norms");
     expect(quiz.introduction.en).toContain("has not undergone psychometric validation");
