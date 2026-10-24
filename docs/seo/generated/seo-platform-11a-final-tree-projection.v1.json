@@ -1136,8 +1136,8 @@
     },
     {
       "path": ".github/workflows/nightly.yml",
-      "sha256": "548b4d7b28f6258494b65c68cc9fcfe44a9219b4445e53eb96be4c677672bd6b",
-      "byte_size": 2761,
+      "sha256": "5f20410c1accfdccfa790a76e9cd129fa840e2cfbe44fa31c5c153d6646461e4",
+      "byte_size": 4439,
       "classification": "deterministic_tool"
     },
     {
@@ -2953,5 +2953,5 @@
       "classification": "contract_only"
     }
   ],
-  "projection_self_hash": "26f942e2be9031912e38e87518b73877f8b21c0654f6f5971d043523500c76c6"
+  "projection_self_hash": "643f0a67bb88d5991877052f6fc967afab196c41c8c4b09ac453d21e73d2e323"
 }
