@@ -24,6 +24,12 @@ describe("UX-03 report reading and domain export", () => {
     expect(context.domains[1].mean).toBeNull();
     expect(context.norm.region).toBe("");
   });
+  it("keeps the actual quality notice visible before any domain is expanded", () => {
+    const context = buildBig5ReadingContext({ projection: null, quality: { level: "D", notice_body: "This response pattern has limited confidence." } });
+    render(<Big5ReadingGuide context={context} locale="en" />);
+    expect(screen.getByRole("note")).toBeVisible();
+    expect(screen.getByRole("note")).toHaveTextContent("limited confidence");
+  });
   it("localizes both extreme facet bands without changing exported codes", () => {
     const context = buildBig5ReadingContext({ projection: { facet_vector: [{ key: "O1", bucket: "extreme_low" }, { key: "O2", bucket: "extreme_high" }] }, includeFacets: true });
     render(<Big5ReadingGuide context={context} locale="zh" />);

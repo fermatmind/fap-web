@@ -21,6 +21,7 @@ export function Big5ReadingGuide({ locale, context }: { locale: Locale; context:
   ].filter(Boolean).join(" · ") || (zh ? "本次未提供可显示数值" : "No displayable value provided");
   return <section className="space-y-5 rounded-2xl border border-slate-200 bg-white p-5" data-testid="big5-reading-guide" aria-label={zh ? "五域与面向阅读" : "Domain and facet reading"}>
     <h2 className="text-xl font-semibold">{zh ? "先看五域，再看六个面向" : "Start with five domains, then explore six facets each"}</h2>
+    {context.quality.notice ? <p role="note" className="rounded-lg border border-amber-200 bg-amber-50 p-3">{context.quality.notice}</p> : null}
     <p>{zh ? "高低不是好坏。各面向属于本题本采用的 IPIP-NEO 解释体系；缺失不等于零分。" : "High and low are not good and bad. These facets belong to this form’s IPIP-NEO interpretation framework; missing does not mean zero."}</p>
     <button type="button" className="min-h-11 rounded-lg border px-4 py-2 focus-visible:outline-2 focus-visible:outline-offset-2" aria-expanded={expanded.length === 5} onClick={() => setExpanded(expanded.length === 5 ? [] : context.domains.map((row) => row.code))}>{expanded.length === 5 ? (zh ? "收起全部面向" : "Collapse all facets") : (zh ? "展开全部面向" : "Expand all facets")}</button>
     <div className="space-y-3">{context.domains.map((domain) => {
@@ -42,7 +43,6 @@ export function Big5ReadingGuide({ locale, context }: { locale: Locale; context:
         [zh ? "作答质量" : "Response quality", context.quality.level],
       ].map(([label, val]) => <div key={label}><dt className="font-semibold">{label}</dt><dd>{val ?? unknown}{val === "" ? unknown : ""}</dd></div>)}</dl>
       <p>{context.norm.explanation || (zh ? "参照信息不足时不作人群排名；90与120题的参照不能混用，也不由界面语言推测国家。" : "Insufficient reference evidence does not support population rankings. Do not mix 90- and 120-item references or infer country from interface language.")}</p>
-      {context.quality.notice ? <p role="note">{context.quality.notice}</p> : null}
     </details>
     <section className="space-y-3" aria-label={zh ? "我的习惯实验" : "My habit experiment"}>
       <h3 className="text-lg font-semibold">{zh ? "选一个情境，试一个可撤回的改变" : "Choose a context and one reversible change"}</h3>
