@@ -1,6 +1,7 @@
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
+import { pathToFileURL } from "node:url";
 import { describe, expect, it } from "vitest";
 import {
   isCurrentRiasecPack12AllowedFile,
@@ -86,6 +87,33 @@ describe("SEO runtime QA agent", () => {
     expect(script).toContain("--no-network");
     expect(docs).toContain("CI contract tests use `--no-network`");
     expect(fs.existsSync(path.join(ROOT, "docs/seo/generated/seo-runtime-qa-agent.v1.json"))).toBe(false);
+  });
+
+  it("reads mixed-case alternate rel tokens throughout streamed HTML", async () => {
+    const { inspectFetchedPublicSample } = await import(
+      pathToFileURL(path.join(ROOT, "scripts/seo/check-public-runtime-seo-qa.mjs")).href
+    );
+    const result = inspectFetchedPublicSample(
+      { path: "/en/example" },
+      { siteUrl: "https://fermatmind.com" },
+      "https://fermatmind.com/en/example",
+      {
+        response: { status: 200, headers: new Headers({ "content-type": "text/html" }) },
+        body: `<html><head><link rel="canonical" href="/en/example"></head><body>
+          <link REL="stylesheet Alternate" hrefLang="en" href="/en/example">
+          <link rel="ALTERNATE	stylesheet" HREFLANG="zh-CN" href="/zh/example">
+          <link rel="alternate-other" hreflang="fr" href="/fr/example">
+          <link rel="alternate" hreflang="x-default" href="/en/example">
+        </body></html>`,
+      },
+    );
+
+    expect(result.passed).toBe(true);
+    expect(result.hreflang).toEqual([
+      { hreflang: "en", href: "https://fermatmind.com/en/example" },
+      { hreflang: "zh-CN", href: "https://fermatmind.com/zh/example" },
+      { hreflang: "x-default", href: "https://fermatmind.com/en/example" },
+    ]);
   });
 
   it("keeps current PR changed files inside the approved runtime QA scope", () => {

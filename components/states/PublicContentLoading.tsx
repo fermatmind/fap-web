@@ -8,7 +8,7 @@ export function PublicContentLoading() {
   const label = locale === "zh" ? "正在加载页面内容" : "Loading page content";
 
   return (
-    <Container as="main" className="min-h-[52vh] py-[var(--fm-section-y)]">
+    <Container as="main" className="min-h-screen py-[var(--fm-section-y)]">
       <div
         role="status"
         aria-live="polite"

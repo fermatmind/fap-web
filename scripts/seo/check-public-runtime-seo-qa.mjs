@@ -117,7 +117,7 @@ function readHreflangLinks(html, rawUrl) {
       hreflang: readAttribute(tag, "hreflang"),
       href: readAttribute(tag, "href"),
     }))
-    .filter((candidate) => candidate.rel.toLowerCase().split(/\\s+/).includes("alternate") && candidate.hreflang && candidate.href)) {
+    .filter((candidate) => candidate.rel.toLowerCase().split(/\s+/).includes("alternate") && candidate.hreflang && candidate.href)) {
     try {
       links.push({
         hreflang: row.hreflang,
