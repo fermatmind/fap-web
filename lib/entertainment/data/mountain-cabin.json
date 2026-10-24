@@ -1,0 +1,348 @@
+{
+  "slug": "mountain-cabin",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "nature",
+  "title": {
+    "en": "Your Role in a Shared Mountain Cabin",
+    "zh": "山间小屋：你会怎样安顿这一晚？"
+  },
+  "description": {
+    "en": "Six fictional cabin choices about essential supplies, making the common room comfortable and agreeing on personal space. Find your shared-cabin portrait.",
+    "zh": "在六个虚构小屋场景里，准备基本用品、布置共同房间、约定个人空间，发现你会怎样安顿这一晚。"
+  },
+  "introduction": {
+    "en": "Everyone in this imagined cabin has arrived safely, and the evening is a simple shared stay. Choose what you would arrange first. This is about a recreational room-sharing story, not mountain travel guidance or a verdict on housemate compatibility.",
+    "zh": "想象中的来客都已安全到达，这一晚只是简单共住。选你会先安排什么。这是一则休闲共居故事，不指导登山，也不判定室友匹配。"
+  },
+  "focus": {
+    "en": "The practical handover, shared atmosphere and personal-space agreements of a short fictional stay.",
+    "zh": "一次虚构短住里的实用交接、共同氛围与个人空间约定。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "The cabin door opens onto an unfamiliar common room. You…",
+        "zh": "小屋门打开，眼前是陌生公共房间，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Locate the shared supplies and note where they belong.",
+            "zh": "找到共用品，记清放回哪里。"
+          },
+          "points": {
+            "keeper": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Arrange the chairs so people can settle comfortably.",
+            "zh": "摆好椅子，让大家舒服安顿。"
+          },
+          "points": {
+            "nest": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask which areas each person would like to keep quiet.",
+            "zh": "问各自希望哪些区域安静。"
+          },
+          "points": {
+            "boundary": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "Several bags are blocking the common path. You suggest…",
+        "zh": "几只包挡住公共通路，你提议……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A marked place for shared items and a clear walkway.",
+            "zh": "标出共用品位置，腾清通路。"
+          },
+          "points": {
+            "keeper": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A separate personal spot for each person’s belongings.",
+            "zh": "每人一处放个人物品的位置。"
+          },
+          "points": {
+            "boundary": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A quick room reset before the relaxed evening begins.",
+            "zh": "轻松夜晚前，先一起简短收拾房间。"
+          },
+          "points": {
+            "nest": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "Some guests want conversation while someone wants to read. You…",
+        "zh": "有人想聊天，也有人想读书，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Agree on a quiet corner and a more social corner.",
+            "zh": "约一个安静角与一个聊天角。"
+          },
+          "points": {
+            "boundary": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Adjust the shared seating so both are comfortable.",
+            "zh": "调整共同座位，让两边都舒服。"
+          },
+          "points": {
+            "nest": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Make sure the shared lamp can be found when needed.",
+            "zh": "让需要时找得到共用灯。"
+          },
+          "points": {
+            "keeper": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A mug goes missing from its usual shelf. You…",
+        "zh": "一只杯子没在常用架上，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Check the agreed return place and update the simple arrangement.",
+            "zh": "查看约定归位处，顺手调整简单安排。"
+          },
+          "points": {
+            "keeper": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask before looking through anyone’s personal things.",
+            "zh": "找个人物品前先询问。"
+          },
+          "points": {
+            "boundary": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Offer an available spare so the evening can continue comfortably.",
+            "zh": "拿个现成备用杯，让夜晚舒服继续。"
+          },
+          "points": {
+            "nest": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Before bedtime, you would most like to settle…",
+        "zh": "睡前你最想安排明白……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "What noise and shared-room use everyone can expect.",
+            "zh": "大家对声音和公共房使用的预期。"
+          },
+          "points": {
+            "boundary": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Where tomorrow’s basic shared items will be.",
+            "zh": "明天基本共用品放在哪。"
+          },
+          "points": {
+            "keeper": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A gentle common-room close with a place to sit quietly.",
+            "zh": "轻轻收尾公共房，也留个安静坐处。"
+          },
+          "points": {
+            "nest": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "The cabin guest book asks what made the stay work. You write…",
+        "zh": "小屋留言簿问，这次共住为什么顺畅，你写……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A common room that felt easy to inhabit.",
+            "zh": "一个容易自在待着的公共房间。"
+          },
+          "points": {
+            "nest": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Simple shared-item arrangements people could actually use.",
+            "zh": "大家确实用得上的简单共用品安排。"
+          },
+          "points": {
+            "keeper": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Clear personal space alongside time together.",
+            "zh": "相处时间旁边，也有清楚个人空间。"
+          },
+          "points": {
+            "boundary": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "keeper",
+      "title": {
+        "en": "The Cabin-Shelf Keeper",
+        "zh": "小屋架边照料者"
+      },
+      "summary": {
+        "en": "Your short stay becomes easier through practical things having a place. A mug, lamp or shared supply does not need an elaborate system to be findable. The portrait values usable arrangements without making you the default caretaker for every guest.",
+        "zh": "你的短住通过实用品各有位置而变轻松。杯子、灯与共用物不需要复杂系统，也能找得到。画像珍惜可用安排，不默认让你照料所有来客。"
+      },
+      "example": {
+        "en": "For a shared art weekend, you might keep the common scissors in one visible tray and agree to put them back after use.",
+        "zh": "一起画画的周末，你可能把共用剪刀放在一个可见托盘，约好用完归位。"
+      },
+      "strength": {
+        "en": "A small reliable arrangement can reduce repeated searching and let the group spend more of its time on the activity it came to enjoy.",
+        "zh": "小而可靠的安排，能减少反复寻找，让群体把更多时间留给原本想享受的活动。"
+      },
+      "tradeoff": {
+        "en": "A system nobody else helped choose can become your private maintenance job; a shared arrangement needs shared ownership too.",
+        "zh": "若系统无人共同选择，也可能变成你的私人维护工作；共同安排也需要共同承担。"
+      },
+      "experiment": {
+        "en": "Make one shared item easier to find, then ask the people using it whether the return place works for them too.",
+        "zh": "让一件共用品更容易找，再问使用者这个归位位置对他们是否也方便。"
+      }
+    },
+    {
+      "id": "nest",
+      "title": {
+        "en": "The Common-Room Nester",
+        "zh": "公共房安顿者"
+      },
+      "summary": {
+        "en": "Your cabin story centers on a room people can comfortably inhabit together. Chairs, pauses and an available spare help the evening settle. The ending is about this chosen atmosphere, not a promise that you can make every group feel at home.",
+        "zh": "你的小屋故事围绕一个大家能共同舒服待着的房间。椅子、停顿与现成备用品，让夜晚安顿下来。结局说的是所选氛围，不承诺你能让所有群体自在。"
+      },
+      "example": {
+        "en": "At a casual craft visit, you might move a spare chair into an easier conversation circle before starting another planned activity.",
+        "zh": "轻松手工来访时，你可能先把备用椅移进方便聊天的圈子，再开始下一项计划。"
+      },
+      "strength": {
+        "en": "Attending to the shared setting can make a simple activity feel welcoming without needing more entertainment or a packed schedule.",
+        "zh": "照顾共同环境，能让简单活动有欢迎感，不必再加娱乐项目或排满日程。"
+      },
+      "tradeoff": {
+        "en": "A comfortable atmosphere is partly subjective. Asking what someone wants can work better than adding the detail you personally find cozy.",
+        "zh": "舒服氛围也因人而异。先问对方想要什么，可能比添一件自己觉得温暖的东西更合适。"
+      },
+      "experiment": {
+        "en": "For one small shared activity, ask what practical change would make the space easier to enjoy and choose one manageable adjustment together.",
+        "zh": "为一次小共同活动，问什么实际变化会让空间更自在，再一起选一个容易做到的调整。"
+      }
+    },
+    {
+      "id": "boundary",
+      "title": {
+        "en": "The Quiet-Corner Negotiator",
+        "zh": "安静角落商量者"
+      },
+      "summary": {
+        "en": "Your cabin works through clear expectations around noise, belongings and personal space. Time together does not have to erase a quiet corner. The portrait values a conversation about boundaries rather than inferring that you always prefer solitude.",
+        "zh": "你的小屋通过声音、物品与个人空间的清楚预期来运转。相处不必抹去安静角落。画像珍惜边界商量，不推断你总喜欢独处。"
+      },
+      "example": {
+        "en": "During a shared hobby stay, you might agree that one table corner is for personal materials and another remains available to everyone.",
+        "zh": "一起住着做爱好活动时，你可能约定桌子一角放个人材料，另一角继续供大家使用。"
+      },
+      "strength": {
+        "en": "Making expectations visible can prevent people from treating different needs as unexplained rejection or deliberate disruption of the group.",
+        "zh": "让预期可见，能减少把不同需求读成莫名拒绝，或故意打乱群体的误会。"
+      },
+      "tradeoff": {
+        "en": "A clear agreement can still need revision during the stay. Treating it as discussable helps avoid turning an early preference into a permanent rule.",
+        "zh": "清楚约定也可能在共住中需要调整。允许讨论，就不易把最初偏好变成永久规则。"
+      },
+      "experiment": {
+        "en": "Before a shared activity, name one preference that affects others and ask for theirs. Find a workable arrangement without requiring identical needs.",
+        "zh": "共同活动前，说一项会影响别人的偏好，也问问对方的。找可行安排，不要求需求相同。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "keeper",
+    "nest",
+    "boundary"
+  ]
+}

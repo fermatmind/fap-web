@@ -1,0 +1,348 @@
+{
+  "slug": "desert-oasis",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "nature",
+  "title": {
+    "en": "Design an Imaginary Oasis Rest Stop",
+    "zh": "设计你的想象绿洲歇脚站"
+  },
+  "description": {
+    "en": "Six fictional design choices about clear orientation, a memorable welcome and room to rest. Discover the rest stop your choices build.",
+    "zh": "六次虚构设计选择，安排清楚指引、值得记住的欢迎和可安静休息的位置，看看你会建出怎样的歇脚站。"
+  },
+  "introduction": {
+    "en": "This is an illustrated design game, not a desert travel plan. The travelers have already arrived safely and have everything they need. You choose what makes a short rest stop easy to use and pleasant to remember.",
+    "zh": "这是一场插画设计游戏，不是沙漠旅行计划。旅客已安全抵达，也具备所需物品。你选择怎样让短暂歇脚处容易使用、值得回味。"
+  },
+  "focus": {
+    "en": "Designing a public resting place through practical legibility, a shared memory or unhurried space.",
+    "zh": "通过实际清晰度、共同记忆或不催促的空间，设计一处公共歇脚点。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "You can add one feature at the illustrated entrance. You choose…",
+        "zh": "可在插画入口加一项，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A clear diagram showing the facilities and exits.",
+            "zh": "清楚标出设施与出口的简图。"
+          },
+          "points": {
+            "sign": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A welcoming mosaic made of visitors’ invented symbols.",
+            "zh": "由来客自创符号拼成的欢迎马赛克。"
+          },
+          "points": {
+            "mosaic": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A quiet bench set apart from the busiest crossing.",
+            "zh": "与繁忙通路分开的安静长椅。"
+          },
+          "points": {
+            "shade": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "New arrivals keep asking the same simple question. You…",
+        "zh": "新来者不断问同一个简单问题，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Move the answer to the place where they first need it.",
+            "zh": "把答案放到最先需要它的位置。"
+          },
+          "points": {
+            "sign": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Offer a small waiting nook while they get oriented.",
+            "zh": "先给一个可安顿的等待角落。"
+          },
+          "points": {
+            "shade": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Turn the answer into a memorable picture on the wall.",
+            "zh": "把答案做成墙上好记的画面。"
+          },
+          "points": {
+            "mosaic": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "A blank wall is ready for your design. You use it for…",
+        "zh": "一面空墙等你设计，你用来……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A collective picture that can grow with each visitor.",
+            "zh": "可随每位来客生长的共同图画。"
+          },
+          "points": {
+            "mosaic": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A simple visual guide to using the stop.",
+            "zh": "如何使用歇脚站的简明视觉指引。"
+          },
+          "points": {
+            "sign": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A calm surface with very little demanding attention.",
+            "zh": "不怎么索要注意的安静表面。"
+          },
+          "points": {
+            "shade": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "Some visitors want company and others want quiet. You…",
+        "zh": "有的来客想交流，有的想安静，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Keep a separate quiet space with an easy path through.",
+            "zh": "留独立安静处，也方便经过。"
+          },
+          "points": {
+            "shade": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Make the different areas obvious in the layout.",
+            "zh": "让布局里的不同区域一眼可辨。"
+          },
+          "points": {
+            "sign": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Offer an optional shared drawing table away from the quiet seats.",
+            "zh": "在安静座位之外设自愿共画桌。"
+          },
+          "points": {
+            "mosaic": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The rest stop is becoming visually crowded. You remove…",
+        "zh": "歇脚站的视觉信息渐渐太多，你先移走……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Duplicate instructions that repeat the same message.",
+            "zh": "反复说同件事的重复说明。"
+          },
+          "points": {
+            "sign": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Decorations that make the shared picture hard to notice.",
+            "zh": "让共同图画难以被看见的杂饰。"
+          },
+          "points": {
+            "mosaic": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Extra activities that have spread into the resting space.",
+            "zh": "蔓延进休息区的额外活动。"
+          },
+          "points": {
+            "shade": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What would you like visitors to say as they leave?",
+        "zh": "希望来客离开时说什么？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "I could settle for a while without being asked to do anything.",
+            "zh": "我可以安顿一会儿，不被要求做什么。"
+          },
+          "points": {
+            "shade": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "I knew where to go without having to guess.",
+            "zh": "不用猜，我就知道该去哪。"
+          },
+          "points": {
+            "sign": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "I remember the small picture we helped make together.",
+            "zh": "我记得我们一起添过的那幅小画。"
+          },
+          "points": {
+            "mosaic": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "sign",
+      "title": {
+        "en": "The Clear-Sign Oasis",
+        "zh": "清楚指引的绿洲"
+      },
+      "summary": {
+        "en": "Your imaginary rest stop welcomes through clarity. A traveler can find the next useful place without decoding a wall of instructions. The result reflects your chosen design emphasis, not a qualification in accessibility or public-space planning.",
+        "zh": "你的想象歇脚站通过清楚来欢迎。旅客不必破解满墙说明，就能找到下一处有用位置。结果对应所选设计重点，不认证无障碍或公共空间规划资格。"
+      },
+      "example": {
+        "en": "For a casual open workshop, you might put the materials sign beside the actual supplies instead of hiding the information in a long welcome message.",
+        "zh": "办开放手工活动时，你可能把材料说明放在用品旁边，而不是藏在一段很长的欢迎词里。"
+      },
+      "strength": {
+        "en": "Useful information at the moment it is needed can reduce guesswork and leave more attention for enjoying the place itself.",
+        "zh": "需要时就能看见的有用信息，能减少猜测，也给享受场所本身留下注意力。"
+      },
+      "tradeoff": {
+        "en": "More signs do not always mean more clarity. A confusing layout may need one practical change rather than another paragraph explaining it.",
+        "zh": "标牌更多不总等于更清楚。混乱布局也许需要实际调整，不是再加一段解释。"
+      },
+      "experiment": {
+        "en": "Look at one small shared setup. Move its most useful instruction to the point of use, then ask a newcomer what still feels unclear.",
+        "zh": "看看一个小共用布置。把最有用说明移到使用点，再问新人还有哪里不清楚。"
+      }
+    },
+    {
+      "id": "mosaic",
+      "title": {
+        "en": "The Shared-Mosaic Oasis",
+        "zh": "共同拼画的绿洲"
+      },
+      "summary": {
+        "en": "Your stop leaves visitors a small optional mark to make together. A mosaic or picture gives the visit a memory beyond simply passing through. The ending favors a shared creative trace without requiring everyone to participate.",
+        "zh": "你的歇脚站让来客可自愿留下一点共同痕迹。拼画或图案，让到访除了路过还有记忆。结局珍惜共同创作痕迹，但不要求人人参与。"
+      },
+      "example": {
+        "en": "At a community craft afternoon, you might offer a small square for each willing visitor to decorate, while leaving a clear way to enjoy the display without adding one.",
+        "zh": "社区手作下午，你可能给愿意的人一小格装饰，也让不添格子的人自在欣赏作品。"
+      },
+      "strength": {
+        "en": "A tiny shared contribution can make an unfamiliar place feel connected to the people who passed through it rather than finished entirely in advance.",
+        "zh": "一点共同贡献，能让陌生场所与经过的人发生联系，不必一切都在事先完成。"
+      },
+      "tradeoff": {
+        "en": "A growing collection can become busy or demanding. Deciding what remains optional helps the display stay welcoming to people who only want to look.",
+        "zh": "不断增长的集合也会变杂或形成要求。说清可选，能让只想看的人继续自在。"
+      },
+      "experiment": {
+        "en": "Offer one very small contribution in a group activity, including a comfortable option to watch. Keep the invitation brief enough that nobody owes an explanation.",
+        "zh": "在群体活动里提供一个很小的贡献机会，也欢迎只看。邀请简短一点，让人不必解释为什么不做。"
+      }
+    },
+    {
+      "id": "shade",
+      "title": {
+        "en": "The Unhurried-Bench Oasis",
+        "zh": "不催促长椅的绿洲"
+      },
+      "summary": {
+        "en": "Your illustrated oasis gives rest a place that does not require a task. A quiet bench is a complete feature, not an empty gap waiting for another activity. The result describes a design you selected here rather than your social energy level.",
+        "zh": "你的插画绿洲给不附带任务的休息留位置。安静长椅本身就是完整设施，不是等待塞入活动的空白。结果描述本次设计，不判断你的社交能量。"
+      },
+      "example": {
+        "en": "In a hobby gathering, you might leave one seating area free from games and demonstrations so someone can stay nearby without joining every round.",
+        "zh": "爱好聚会里，你可能留一处不设游戏演示的座位，让人待在附近也不必每轮都加入。"
+      },
+      "strength": {
+        "en": "An undemanding place to pause can make participation more flexible and give people a way to remain present at a pace they choose.",
+        "zh": "一处不索求表现的停歇点，让参与更灵活，也让人按自己节奏继续在场。"
+      },
+      "tradeoff": {
+        "en": "Quiet space can be accidentally taken over unless its purpose is understandable. A simple shared agreement may protect it better than silently hoping.",
+        "zh": "若用途不明，安静空间也会意外被占。一个简单共识，可能比默默希望更能保留它。"
+      },
+      "experiment": {
+        "en": "In one shared plan, leave a genuine pause with no optional task attached. Check that people can use it without having to justify wanting a break.",
+        "zh": "在一份共同安排里，留一次真正停顿，不附可选任务。让想休息的人也不用解释理由。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "sign",
+    "mosaic",
+    "shade"
+  ]
+}

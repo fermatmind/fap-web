@@ -1,0 +1,239 @@
+{
+  "slug": "island-day",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "nature",
+  "title": {
+    "en": "One Day on Postcard Island",
+    "zh": "明信片岛的一天"
+  },
+  "description": {
+    "en": "Follow three choices through an original island story. A silent bell, an unfinished mural and a ferry ledger lead to three different keepsakes.",
+    "zh": "跟随三次选择走进原创小岛故事。无声的钟、未完成壁画与渡船簿，通向三件不同纪念。完整结局免费。"
+  },
+  "introduction": {
+    "en": "You arrive on a fictional island with a return ticket already arranged. A postcard asks you to find what today’s visitors should remember. Follow the small mystery you prefer; this is an interactive tale, not a travel plan or an assessment of courage.",
+    "zh": "你带着已安排好的返程票，来到虚构小岛。一张明信片请你寻找今天的来客该记住什么。沿喜欢的小谜题走；这是互动短篇，不是旅行安排或勇气评估。"
+  },
+  "focus": {
+    "en": "Choosing what to preserve when a place offers a sound, a collaborative picture and an unfinished record.",
+    "zh": "当一处地方留下声音、共同图画与未完成记录时，选择保存什么。"
+  },
+  "minutes": 2,
+  "mechanism": "branch",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "The postcard names two starting places. You choose…",
+        "zh": "明信片写了两个起点，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The square where a bell has been silent all morning.",
+            "zh": "一整早没有钟声的广场。"
+          },
+          "next": "q2"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The lane where today’s mural has a blank panel.",
+            "zh": "今日壁画留着空格的小巷。"
+          },
+          "next": "q3"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The bell keeper says the silence marks a day of listening. You…",
+        "zh": "守钟人说，沉默代表今天要聆听。你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask what visitors have heard in the quiet square.",
+            "zh": "问来客在安静广场听见了什么。"
+          },
+          "next": "q4"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Visit the ferry desk to see how the day is being recorded.",
+            "zh": "去渡船柜台，看今天怎样被记下。"
+          },
+          "next": "q5"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "The mural’s blank panel is reserved for any visitor who wants to add a mark. You…",
+        "zh": "壁画空格留给任何愿意添一笔的来客，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Add one small shape beside someone else’s line.",
+            "zh": "沿别人画线旁添一个小形状。"
+          },
+          "next": "q4"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask where the earlier visitors’ names have been kept.",
+            "zh": "问较早来客的名字记在哪里。"
+          },
+          "next": "q5"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A keeper offers two postcards for your return trip. You choose…",
+        "zh": "保管者给返程提供两张明信片，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A card listing the small sounds heard when the bell stayed quiet.",
+            "zh": "一张列着钟不响时听见的小声音的卡。"
+          },
+          "result": "bell"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A card printed with the mural’s growing collection of marks.",
+            "zh": "一张印着壁画上不断增加笔迹的卡。"
+          },
+          "result": "mural"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The ferry ledger has a space beside today’s date. You…",
+        "zh": "渡船簿在今日日期旁留着空处，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Write one plain detail you want the next visitor to find.",
+            "zh": "写一个希望下位来客看见的朴素细节。"
+          },
+          "result": "ledger"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Choose the mural postcard and let the ledger remain open.",
+            "zh": "选壁画明信片，让船簿继续开放。"
+          },
+          "result": "mural"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "bell",
+      "title": {
+        "en": "The Card of Quiet Sounds",
+        "zh": "安静声音卡"
+      },
+      "summary": {
+        "en": "You leave with a record of what became audible when the bell did not ring. The island’s missing event turns into another kind of presence. Your ending gives a quiet interval a shape without requiring it to deliver a dramatic revelation.",
+        "zh": "你带走一份钟不响时所听见的记录。小岛缺席的事件，变成另一种在场。结局给安静间隔一个形状，不要求它必须带来戏剧性启示。"
+      },
+      "example": {
+        "en": "After a busy exhibition room, you might remember the little courtyard pause between displays as clearly as the main object you went to see.",
+        "zh": "离开热闹展厅后，你可能同样清楚地记得展品之间小庭院的停顿，而不只有专程去看的主展品。"
+      },
+      "strength": {
+        "en": "This ending makes room for an interval to matter on its own, so a visit does not need a constant series of highlights to feel worthwhile.",
+        "zh": "这个结局让间隔本身有价值，一次到访不必连着不断出现亮点，才算值得。"
+      },
+      "tradeoff": {
+        "en": "Quiet is not automatically meaningful to everyone. You can enjoy this ending while allowing another visitor to prefer an event with more movement.",
+        "zh": "安静不自动对所有人有意义。你可以享受此结局，也允许别的来客更喜欢热闹事件。"
+      },
+      "experiment": {
+        "en": "Remember one small pause from a recent enjoyable day. Describe it in a sentence without asking it to explain your whole mood or personality.",
+        "zh": "回想最近愉快一天里的一次小停顿，用一句话描述，不必让它解释全部心情或人格。"
+      }
+    },
+    {
+      "id": "mural",
+      "title": {
+        "en": "The Shared-Mural Card",
+        "zh": "共同壁画卡"
+      },
+      "summary": {
+        "en": "Your postcard carries marks made by people who did not arrive together. Each addition is small, yet the picture becomes a record of passing company. The ending values a contribution that can sit beside others without needing to become the center.",
+        "zh": "你的明信片带着并非结伴抵达的人留下的笔迹。每次新增都小，画面却成为路过相伴的记录。结局珍惜能与他人并存、不必站到中心的贡献。"
+      },
+      "example": {
+        "en": "At an open craft table, you might add one tile to a communal pattern and enjoy seeing it remain visible among many different choices.",
+        "zh": "开放手工桌上，你可能为共同图案添一块小片，也享受它与许多不同选择一起可见。"
+      },
+      "strength": {
+        "en": "A shared picture can preserve difference without asking everyone to make the same kind of mark or arrive with a complete plan.",
+        "zh": "共同画面能保留差异，不必人人留下同一种笔迹，或带着完整计划才来。"
+      },
+      "tradeoff": {
+        "en": "Adding your mark can become a demand if every visitor is expected to join. The picture stays more welcoming when looking without contributing is also allowed.",
+        "zh": "如果每位来客都必须加一笔，贡献也会变要求。只看不添也被允许时，画面更欢迎人。"
+      },
+      "experiment": {
+        "en": "Contribute one small piece to a shared recreational activity if you want. Notice a different person’s piece without ranking either contribution.",
+        "zh": "愿意的话，为一个共同休闲活动添一小部分。也留意他人的不同贡献，不给两者排名。"
+      }
+    },
+    {
+      "id": "ledger",
+      "title": {
+        "en": "The Open-Ledger Note",
+        "zh": "开放船簿便条"
+      },
+      "summary": {
+        "en": "You place one plain detail beside today’s date and leave the next entry empty. The island keeps a trace without pretending the day can be fully captured. Your ending gives a future reader a starting point while letting their visit be different.",
+        "zh": "你在今日日期旁留一个朴素细节，也让下一栏空着。小岛保存痕迹，却不假装能完整捕捉一天。结局给未来读者一个起点，也允许对方有不同到访。"
+      },
+      "example": {
+        "en": "A short note in a family recipe book might describe when you enjoyed a dish, while leaving space for the next cook to add a different occasion.",
+        "zh": "家庭食谱里一则短记，可以写这道菜何时让你愉快，也留空间让下位做菜者添上别的场合。"
+      },
+      "strength": {
+        "en": "A modest dated note can be easier to return to than an ambitious record that tries to preserve every moment equally.",
+        "zh": "一则适度带日期便条，可能比试图平均保存每个瞬间的宏大档案更容易回看。"
+      },
+      "tradeoff": {
+        "en": "A record can become another obligation if each day must earn an entry. Empty pages can remain part of the arrangement too.",
+        "zh": "若每天都必须值得一记，记录也会变义务。空白页同样可以留在安排里。"
+      },
+      "experiment": {
+        "en": "Write one dated detail from today that you would enjoy finding later. Leave tomorrow’s space empty until there is something you actually want to add.",
+        "zh": "写一个以后会愿意看见的今日细节。明天那格先空着，等到确实有想添的东西再写。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "bell",
+    "mural",
+    "ledger"
+  ]
+}

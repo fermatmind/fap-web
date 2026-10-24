@@ -1,0 +1,348 @@
+{
+  "slug": "rainy-window",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "nature",
+  "title": {
+    "en": "Your Rainy-Window Sketchbook",
+    "zh": "雨窗速写本：你会画下哪一层？"
+  },
+  "description": {
+    "en": "Six visual framing choices about a window’s foreground, reflections and the distant scene. Find the illustrated view your sketchbook keeps.",
+    "zh": "六次视觉取景选择，围绕窗前物、玻璃倒影与远处景象，看看速写本会留下哪一层画面。"
+  },
+  "introduction": {
+    "en": "Imagine making a small sketch from indoors while illustrated rain crosses the window. You choose a frame and what to leave outside it. This is a drawing game, with no need to judge your real artistic skill or look into anybody else’s private space.",
+    "zh": "想象在室内速写，插画雨丝划过窗面。你选择取景，也选择什么留在画框外。这是绘画小游戏，不评判真实画技，也无需看进他人私人空间。"
+  },
+  "focus": {
+    "en": "Framing a layered picture by focusing on nearby objects, reflections or the view beyond the glass.",
+    "zh": "面对分层画面，把焦点放在近处物件、倒影或玻璃之外的景象。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Your first sketch has room for one main subject. You choose…",
+        "zh": "第一幅速写只留一个主要对象，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A cup and plant on the inner windowsill.",
+            "zh": "内窗台的一只杯子与植物。"
+          },
+          "points": {
+            "near": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The room reflected faintly over the glass.",
+            "zh": "玻璃上淡淡叠出的房间倒影。"
+          },
+          "points": {
+            "reflection": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The line of rooftops beyond the rain.",
+            "zh": "雨后方那一排屋顶线。"
+          },
+          "points": {
+            "distance": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "A raindrop crosses the picture. You…",
+        "zh": "一滴雨划过画面，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Use it to separate the reflected room from the outer view.",
+            "zh": "用它分开房间倒影与外面景象。"
+          },
+          "points": {
+            "reflection": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Keep it as a small mark beside the sill object.",
+            "zh": "把它当窗台物件旁的小笔迹。"
+          },
+          "points": {
+            "near": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Let it partly blur a distant line.",
+            "zh": "让它稍稍模糊远处的一条线。"
+          },
+          "points": {
+            "distance": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "The sketch feels crowded. You remove…",
+        "zh": "速写看起来太满，你先去掉……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Indoor details so the far view has more space.",
+            "zh": "室内细节，给远景更多空间。"
+          },
+          "points": {
+            "distance": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Most of the outer view so the close subject stands out.",
+            "zh": "大部分外景，让近处对象突出。"
+          },
+          "points": {
+            "near": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Strong outlines that hide the overlapping layers.",
+            "zh": "遮住叠层关系的过强轮廓。"
+          },
+          "points": {
+            "reflection": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "You can add one small color accent. It goes on…",
+        "zh": "可加一点颜色，你把它放在……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The edge of the familiar cup beside you.",
+            "zh": "身旁熟悉杯子的边缘。"
+          },
+          "points": {
+            "near": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A reflected lamp that appears to float over the view.",
+            "zh": "仿佛浮在景象上的灯倒影。"
+          },
+          "points": {
+            "reflection": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A tiny distant shape that anchors the whole frame.",
+            "zh": "锚住整个画框的一点远处形状。"
+          },
+          "points": {
+            "distance": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "A second page lets you change the frame. You…",
+        "zh": "第二页允许换一种取景，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Show how two layers occupy the same patch of glass.",
+            "zh": "画出两层如何占着同一片玻璃。"
+          },
+          "points": {
+            "reflection": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Crop closer to an ordinary object you know well.",
+            "zh": "更近地裁出一个熟悉日常物件。"
+          },
+          "points": {
+            "near": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Widen the outer view and reduce the window frame.",
+            "zh": "扩大外景，缩小窗框比例。"
+          },
+          "points": {
+            "distance": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What title fits your favorite finished page?",
+        "zh": "给最喜欢的成品页取标题，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Beyond the Rain Line.",
+            "zh": "雨线以外。"
+          },
+          "points": {
+            "distance": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Small Things on the Sill.",
+            "zh": "窗台上的小东西。"
+          },
+          "points": {
+            "near": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Two Rooms in One Pane.",
+            "zh": "一片玻璃里的两个空间。"
+          },
+          "points": {
+            "reflection": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "near",
+      "title": {
+        "en": "The Windowsill Still-Life",
+        "zh": "窗台静物页"
+      },
+      "summary": {
+        "en": "Your page stays close to the cup, plant and familiar edge beside you. Rain becomes a setting around an ordinary subject rather than the whole event. This ending describes your selected frame, not a preference for staying indoors in every part of life.",
+        "zh": "你的纸页停在杯子、植物与身边熟悉边缘。雨成为日常对象周围的背景，不必独占事件。结局描述所选画框，不推断你在人生各处都偏爱待在室内。"
+      },
+      "example": {
+        "en": "You might sketch the corner of a reading table with one favorite object, letting the rest of the room remain a few loose lines.",
+        "zh": "你可能画阅读桌一角的一件喜欢物品，让房间其余部分只留下几条松线。"
+      },
+      "strength": {
+        "en": "A nearby ordinary subject makes a short drawing session approachable and lets small relationships of placement carry the picture.",
+        "zh": "近处日常对象让短速写容易开始，也让细小位置关系撑起画面。"
+      },
+      "tradeoff": {
+        "en": "A tight crop can leave out the setting that gives an object its particular mood. One wider page may offer another useful reading.",
+        "zh": "紧裁可能省掉赋予物件氛围的环境。再画一张稍宽画面，也许会有另一种读法。"
+      },
+      "experiment": {
+        "en": "Draw one object already beside you twice: once very close, once with a little context. Notice which frame you enjoy today without turning it into a rule.",
+        "zh": "画身旁已有物件两次：一次很近，一次带点环境。看看今天喜欢哪种，不必把它变成规则。"
+      }
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "en": "The Layered-Glass Page",
+        "zh": "叠影玻璃页"
+      },
+      "summary": {
+        "en": "Your window holds two views at once. A reflected room and an outer scene can overlap without needing one to disappear. The ending follows your interest in visual layers within this drawing game, not a claim that you see hidden truths.",
+        "zh": "你的窗面同时留住两幅景象。房间倒影与外景可以叠着，不必先让一方消失。结局跟随绘画游戏中的分层兴趣，不宣称你能看穿隐藏真相。"
+      },
+      "example": {
+        "en": "In a collage, you might place a translucent scrap over a printed shape and enjoy the third image that their overlap creates.",
+        "zh": "做拼贴时，你可能把半透明纸片叠在印刷形状上，欣赏重合后出现的第三幅图。"
+      },
+      "strength": {
+        "en": "Layering can connect otherwise separate elements and give a modest picture depth without needing a large number of objects.",
+        "zh": "叠层能连接原本分开的元素，让小画面有深度，不必塞进大量物件。"
+      },
+      "tradeoff": {
+        "en": "Too many overlapping layers can make the picture difficult to read. Keeping one clear edge can help another viewer find a starting point.",
+        "zh": "叠层过多也会难读。留一条清楚边缘，能帮其他观者找到起点。"
+      },
+      "experiment": {
+        "en": "Try one simple two-layer collage using materials you already have. Keep one part uncovered so both the layers and their overlap remain visible.",
+        "zh": "用已有材料试一张简单双层拼贴。留一部分不覆盖，让各层与重叠处都可见。"
+      }
+    },
+    {
+      "id": "distance",
+      "title": {
+        "en": "The Rooftops-Beyond Page",
+        "zh": "雨外屋顶页"
+      },
+      "summary": {
+        "en": "Your sketch reaches through the window toward a broader view. A distant line or tiny accent anchors the page while the room becomes a frame. This is a visual choice made here, not a declaration that you always seek distant horizons.",
+        "zh": "你的速写穿过窗面，伸向较宽景象。远线或小色点锚住纸页，房间退成画框。这是本次视觉选择，不宣称你总在追逐远方。"
+      },
+      "example": {
+        "en": "From an ordinary public viewpoint, you might sketch the broad skyline first and use just a small foreground corner to show where you were standing.",
+        "zh": "从普通公共观景点，你可能先画大轮廓，只用一小块前景说明自己站在哪里。"
+      },
+      "strength": {
+        "en": "A broader frame can make the relationship between separate shapes visible and give a small distant detail a place within a whole composition.",
+        "zh": "较宽画框让不同形状的关系可见，也让一个远处小细节在完整构图里有位置。"
+      },
+      "tradeoff": {
+        "en": "A distant subject can become generic if the close framing is removed entirely. One nearby reference may make the view more particular.",
+        "zh": "若近处取景全被删去，远景可能变得泛泛。一个身边参照能让视野更具体。"
+      },
+      "experiment": {
+        "en": "Sketch a familiar wide view with one nearby reference included. Change only the crop on a second page and compare what the two frames emphasize.",
+        "zh": "画一幅熟悉广景，留一个近处参照。第二页只改裁切，比较两种画框各突出什么。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "near",
+    "reflection",
+    "distance"
+  ]
+}

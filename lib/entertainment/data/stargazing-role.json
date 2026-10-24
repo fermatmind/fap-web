@@ -1,0 +1,348 @@
+{
+  "slug": "stargazing-role",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "nature",
+  "title": {
+    "en": "Your Role at an Imaginary Stargazing Night",
+    "zh": "想象观星夜：你会带来什么？"
+  },
+  "description": {
+    "en": "Six choices about a fictional sky gathering: finding patterns, giving them stories and making an evening easy to join. No astronomy knowledge required.",
+    "zh": "围绕一场虚构星空聚会做六次选择：找图案、讲故事、让夜晚容易参与。不需要天文学知识。"
+  },
+  "introduction": {
+    "en": "The sky in this quiz is a made-up star chart. You are helping create a recreational evening around it, so you can choose practical comfort, visual patterns or a shared story without needing to identify a real constellation.",
+    "zh": "测试里的天空是一张虚构星图。你正围绕它组织休闲夜晚，可以选实际舒适、视觉图案或共同故事，不需要辨认真实星座。"
+  },
+  "focus": {
+    "en": "Making a shared sky-chart evening memorable through its pattern, its narrative or its practical welcome.",
+    "zh": "通过图案、叙事或实际欢迎方式，让共同看星图的夜晚留下记忆。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "The gathering begins with an unfamiliar star chart. You…",
+        "zh": "聚会从一张陌生星图开始，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Connect a few dots into an easy-to-find shape.",
+            "zh": "把几颗点连成容易找的形状。"
+          },
+          "points": {
+            "pattern": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Invent a short tale for one cluster.",
+            "zh": "给一簇星点编个短故事。"
+          },
+          "points": {
+            "tale": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Make sure everyone has a comfortable place to view it.",
+            "zh": "让每个人都有舒服看图的位置。"
+          },
+          "points": {
+            "host": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "A new person arrives halfway through. You offer…",
+        "zh": "中途来了一个新人，你提供……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A place to settle and a simple outline of the evening.",
+            "zh": "安顿的位置与今晚安排的简单说明。"
+          },
+          "points": {
+            "host": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The three dots that orient the whole picture.",
+            "zh": "能定位整张图的三个点。"
+          },
+          "points": {
+            "pattern": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The one-sentence version of the story so far.",
+            "zh": "至今故事的一句话版本。"
+          },
+          "points": {
+            "tale": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "Two clusters look similar. You would enjoy…",
+        "zh": "两簇星点看起来相像，你会喜欢……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Giving them different characters in a shared tale.",
+            "zh": "在故事里给它们不同角色。"
+          },
+          "points": {
+            "tale": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Comparing the small difference between their shapes.",
+            "zh": "比较形状上的小差别。"
+          },
+          "points": {
+            "pattern": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Checking whether the group wants a pause before continuing.",
+            "zh": "问大家继续前是否想休息。"
+          },
+          "points": {
+            "host": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "There is room for one extra activity. You choose…",
+        "zh": "还有空间加一个小活动，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Let each person trace one invented constellation.",
+            "zh": "让每人描一个自创星座图案。"
+          },
+          "points": {
+            "pattern": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A brief round where everyone can add a story sentence.",
+            "zh": "一小轮人人可添一句的故事。"
+          },
+          "points": {
+            "tale": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A relaxed break with an easy return to the chart.",
+            "zh": "一段放松休息，也方便回来接着看。"
+          },
+          "points": {
+            "host": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The printed chart is too crowded for the whole group. You…",
+        "zh": "印出的星图太密，大家看得费力，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Split the viewing into comfortable smaller turns.",
+            "zh": "分成舒服的小轮次看。"
+          },
+          "points": {
+            "host": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Highlight just one cluster for the next few minutes.",
+            "zh": "接下来几分钟只突出一簇。"
+          },
+          "points": {
+            "pattern": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Tell one small story without requiring every dot to be found.",
+            "zh": "讲个不必找齐每颗星的小故事。"
+          },
+          "points": {
+            "tale": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What souvenir would you make for this imaginary night?",
+        "zh": "你会为这个想象夜晚做什么纪念？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A little story with room for someone else’s ending.",
+            "zh": "一个给别人留结尾空间的小故事。"
+          },
+          "points": {
+            "tale": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A simple chart of the shapes the group invented.",
+            "zh": "一张标着大家自创形状的简图。"
+          },
+          "points": {
+            "pattern": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A note about how to make the next gathering welcoming.",
+            "zh": "一笔关于下次如何让聚会舒适的记录。"
+          },
+          "points": {
+            "host": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "pattern",
+      "title": {
+        "en": "The Constellation Sketcher",
+        "zh": "星形速写者"
+      },
+      "summary": {
+        "en": "Your imaginary sky night gains a few clear shapes. You make the chart approachable by connecting just enough dots to offer a starting point. This is a story role, not a test of spatial intelligence or real astronomical knowledge.",
+        "zh": "你的想象星空夜有了几处清楚形状。你连上恰好的几个点，为陌生星图提供起点。这是故事角色，不测试空间智力或真实天文知识。"
+      },
+      "example": {
+        "en": "When introducing a complex game map, you might point out three main landmarks before explaining every symbol scattered between them.",
+        "zh": "介绍复杂游戏地图时，你可能先指出三个主要地标，再慢慢解释其间散落的符号。"
+      },
+      "strength": {
+        "en": "A simple visible pattern can lower the first step into a busy picture and give a group something specific to notice together.",
+        "zh": "简单可见图案能降低进入复杂画面的第一步，也给群体一个可共同留意的具体对象。"
+      },
+      "tradeoff": {
+        "en": "A useful starting pattern may leave other details out. It works best as an invitation to explore rather than the only valid way to read the chart.",
+        "zh": "有用起始图案难免省略细节。把它当探索邀请，而非唯一合法读法，会更合适。"
+      },
+      "experiment": {
+        "en": "Take one crowded recreational image and mark a simple starting route. Ask another person what different path they would like to follow.",
+        "zh": "选一张内容多的休闲图片，标一条简单起始路线，再问别人愿意走哪条不同路径。"
+      }
+    },
+    {
+      "id": "tale",
+      "title": {
+        "en": "The Sky-Story Weaver",
+        "zh": "星空故事编织者"
+      },
+      "summary": {
+        "en": "Your made-up constellations become characters and connections in a shared tale. The gathering can enjoy the sky without memorizing its whole chart. The ending reflects the narrative choices you made here, rather than declaring you a born storyteller.",
+        "zh": "你的虚构星座变成共同故事里的角色与联系。聚会不必背完整张星图，也能享受天空。结局对应本次叙事选择，不宣称你天生就是讲故事的人。"
+      },
+      "example": {
+        "en": "At a drawing afternoon, you might connect everyone’s separate sketches with a playful one-sentence premise that each person is free to change.",
+        "zh": "绘画下午，你可能用一句有趣开头连接各人的独立草图，也允许每个人改写它。"
+      },
+      "strength": {
+        "en": "A shared narrative can make unfamiliar details memorable and offer a way to participate that does not depend on technical knowledge.",
+        "zh": "共同叙事能让陌生细节留下记忆，也提供一种不依赖专业知识的参与方式。"
+      },
+      "tradeoff": {
+        "en": "One lively story can crowd out other readings if it becomes fixed too quickly. Leaving an unfinished line can help other people add their own view.",
+        "zh": "活泼故事若太快固定，也可能挤掉其他读法。留一句未完，能让别人添自己的视角。"
+      },
+      "experiment": {
+        "en": "Make a tiny story from three unrelated objects. Invite someone to replace one sentence, and see what new connection appears.",
+        "zh": "用三个不相关物体编个微型故事。邀请别人替换一句，看看会出现什么新联系。"
+      }
+    },
+    {
+      "id": "host",
+      "title": {
+        "en": "The Comfortable-Night Host",
+        "zh": "舒适星夜照应者"
+      },
+      "summary": {
+        "en": "Your sky gathering is held together by a place to settle, a pause and a clear way back in. The chart matters, but so does being able to enjoy it. This portrait values practical welcome without assigning you responsibility for every guest.",
+        "zh": "你的星空聚会靠安顿位置、适当停顿和清楚返回方式串起来。星图重要，能自在欣赏也重要。画像珍惜实际欢迎，不让你对每位来客负责到底。"
+      },
+      "example": {
+        "en": "For a casual photo-sharing evening, you might check seating and make a break possible before adding more slides to an already full plan.",
+        "zh": "办一场轻松照片分享夜，你可能先看看座位、留休息机会，再决定是否继续加幻灯片。"
+      },
+      "strength": {
+        "en": "Practical comfort can make an unfamiliar activity easier to enter, especially when people want different amounts of time or conversation.",
+        "zh": "实际舒适让陌生活动更易加入，尤其当大家需要的停留与交流程度不同。"
+      },
+      "tradeoff": {
+        "en": "Preparing every detail can leave you little room to enjoy the evening yourself. A simple arrangement shared with others may be enough.",
+        "zh": "照顾每个细节可能让你无暇享受夜晚。与大家共同做个简单安排，也许已足够。"
+      },
+      "experiment": {
+        "en": "For one small gathering, choose the two practical details that matter most and share one preparation task with someone who wants to help.",
+        "zh": "为一次小聚会选最重要的两项实际细节，再把一件准备工作交给愿意帮忙的人一起做。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "pattern",
+    "tale",
+    "host"
+  ]
+}

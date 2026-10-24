@@ -1,0 +1,348 @@
+{
+  "slug": "river-crossing",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "nature",
+  "title": {
+    "en": "The Paper River: How Will You Cross?",
+    "zh": "纸上河流：你会怎么过河？"
+  },
+  "description": {
+    "en": "Six choices on a tabletop river map about testing a route, coordinating a crossing and choosing a workable pace. A fictional puzzle, not outdoor safety advice.",
+    "zh": "在桌面河流地图上做六次选择，试路线、协作过河、安排节奏。这是虚构小游戏，不提供真实户外安全建议。"
+  },
+  "introduction": {
+    "en": "The river is drawn on paper and the travelers are tokens. You can erase a bridge and try again, so no real crossing or risk is involved. Follow how you would solve this small map problem with a companion.",
+    "zh": "河流画在纸上，旅客只是棋子。桥可以擦掉重画，不涉及真实涉水风险。按你愿意的方式，与同伴一起解这张小地图的问题。"
+  },
+  "focus": {
+    "en": "Trying a reversible route, agreeing on assistance and keeping a tabletop challenge within a chosen pace.",
+    "zh": "尝试可撤回路线、约定协助，并让桌面挑战保持合适节奏。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Three paper bridges connect the banks. Your first move is…",
+        "zh": "三座纸桥连接两岸，你的第一步是……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Move one token along a short route to see how it works.",
+            "zh": "先用一枚棋子走短路，看看规则怎么运行。"
+          },
+          "points": {
+            "tester": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask the other player which token they want to move together.",
+            "zh": "问同伴想一起移动哪枚棋子。"
+          },
+          "points": {
+            "partner": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Choose an easy route that leaves time to pause.",
+            "zh": "选一条容易的路，留时间停一停。"
+          },
+          "points": {
+            "pacer": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The first drawn bridge ends one square short. You…",
+        "zh": "第一座画出的桥差一格，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Extend it with one erasable line and test again.",
+            "zh": "添一条可擦线，再试一次。"
+          },
+          "points": {
+            "tester": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Set the tokens aside while you rethink the next move.",
+            "zh": "先放下棋子，重新想下一步。"
+          },
+          "points": {
+            "pacer": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask your companion to draw while you move a token.",
+            "zh": "请同伴画线，自己移动棋子。"
+          },
+          "points": {
+            "partner": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "One player likes quick moves and one likes long pauses. You…",
+        "zh": "一个玩家喜欢快走，一个喜欢长停顿，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Agree on turns with room for both rhythms.",
+            "zh": "约好轮次，给两种节奏留空间。"
+          },
+          "points": {
+            "pacer": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Pair up for a single move before separating again.",
+            "zh": "先共同完成一步，再各自走。"
+          },
+          "points": {
+            "partner": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Try a brief timed round and then discuss it.",
+            "zh": "试一段短计时回合，再讨论感受。"
+          },
+          "points": {
+            "tester": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A route needs two tokens at once. You prefer…",
+        "zh": "一条路需要同时移动两枚棋子，你更愿意……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A clear count-in so each player knows the shared step.",
+            "zh": "清楚倒数，让双方知道共同一步。"
+          },
+          "points": {
+            "partner": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A practice move with spare tokens first.",
+            "zh": "先用备用棋子练一次。"
+          },
+          "points": {
+            "tester": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A slower crossing with an agreed stopping square.",
+            "zh": "慢一点走，并约定停在哪一格。"
+          },
+          "points": {
+            "pacer": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "You could add a harder bridge to the map. You…",
+        "zh": "可以在地图上添一座难桥，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Keep the current challenge if it already feels satisfying.",
+            "zh": "若当前挑战已满足，就先保留它。"
+          },
+          "points": {
+            "pacer": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Add one trial bridge that can be erased easily.",
+            "zh": "添一座容易擦掉的试验桥。"
+          },
+          "points": {
+            "tester": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask whether the other player wants to build it with you.",
+            "zh": "问同伴是否想一起建这座桥。"
+          },
+          "points": {
+            "partner": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "Which last image would you put on the game box?",
+        "zh": "给游戏盒选最后一幅图，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Two tokens crossing on a clearly shared cue.",
+            "zh": "两枚棋子按共同信号过河。"
+          },
+          "points": {
+            "partner": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "An erased route beside the small bridge that finally worked.",
+            "zh": "擦掉的旧路线旁，一座终于可行的小桥。"
+          },
+          "points": {
+            "tester": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A crossing with a pleasant stopping place halfway.",
+            "zh": "一条中途有舒服歇脚处的路线。"
+          },
+          "points": {
+            "pacer": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "tester",
+      "title": {
+        "en": "The Erasable-Bridge Tester",
+        "zh": "可擦纸桥试行者"
+      },
+      "summary": {
+        "en": "Your paper crossing develops through small reversible trials. A short move reveals more than a perfectly imagined route, and an erased line can be part of the solution. The portrait applies to this tabletop story rather than real-world risk taking.",
+        "zh": "你的纸上过河靠一次次可撤回小尝试推进。走一小步，比只想象完美路线更有信息；擦掉的线也是解法的一部分。画像只对应桌面故事，不评价现实冒险。"
+      },
+      "example": {
+        "en": "When learning a new board-game move, you might use a spare piece to demonstrate one turn before committing the actual game pieces to it.",
+        "zh": "学习一种新桌游走法时，你可能用备用棋子演示一回合，再让正式棋子走。"
+      },
+      "strength": {
+        "en": "A bounded trial makes uncertainty visible and can reveal a mistaken assumption before it becomes part of a larger arrangement.",
+        "zh": "有边界的尝试让不确定可见，也能在错误假设进入更大安排前发现它。"
+      },
+      "tradeoff": {
+        "en": "Trying repeatedly can become aimless if you never name what each attempt is meant to show; a small question helps the next move matter.",
+        "zh": "若不说明每次要看什么，反复试也可能失去方向；一个小问题让下一步有意义。"
+      },
+      "experiment": {
+        "en": "For a harmless hobby puzzle, define one tiny question and make one reversible trial. Keep the useful observation even if you erase the first route.",
+        "zh": "面对一个无害爱好小难题，定一个小问题，做一次可撤回尝试。即便擦掉路线，也保留有用观察。"
+      }
+    },
+    {
+      "id": "partner",
+      "title": {
+        "en": "The Two-Token Partner",
+        "zh": "双棋协作伙伴"
+      },
+      "summary": {
+        "en": "Your route becomes clearer when the crossing is shared explicitly. You choose signals, roles and moments of coordination rather than assuming another token will follow. This ending values a negotiated joint move, not compulsory togetherness in every situation.",
+        "zh": "你的路线在明确协作时变清楚。你选择信号、分工与配合时刻，不假定另一枚棋子自然跟随。结局珍惜商量后的共同行动，不要求任何情境都结伴。"
+      },
+      "example": {
+        "en": "During a two-person model build, you might ask one person to hold a piece while the other connects it, then swap roles when that helps.",
+        "zh": "双人拼模型时，你可能约一人扶住、一人连接，有用时再交换角色。"
+      },
+      "strength": {
+        "en": "An agreed shared step can reduce guessing and make help specific enough that both people can decide whether they want it.",
+        "zh": "约定的共同一步减少猜测，也让帮助具体到双方都能决定是否愿意。"
+      },
+      "tradeoff": {
+        "en": "Coordination costs attention too. A task that either player can comfortably do alone may not need a meeting before every move.",
+        "zh": "配合也消耗注意。一人即可自在完成的事，不必每移动一步都开会。"
+      },
+      "experiment": {
+        "en": "In one small shared activity, ask what help would actually be useful. Agree on a single joint step and leave the rest flexible.",
+        "zh": "在一项小共同活动中，问清什么帮助确实有用。只约定一个协作步骤，其余保持灵活。"
+      }
+    },
+    {
+      "id": "pacer",
+      "title": {
+        "en": "The Rest-Stop Route Maker",
+        "zh": "歇脚路线规划者"
+      },
+      "summary": {
+        "en": "Your map gives the crossing a pace people can choose. An easy bridge and a halfway stop are part of the game rather than signs that it is being played badly. The ending prefers a satisfying challenge over an automatically harder one.",
+        "zh": "你的地图给过河留了可选择的节奏。容易的桥与半途歇脚，都是游戏一部分，不说明玩得差。结局偏向让人满足的挑战，而非自动选择更难。"
+      },
+      "example": {
+        "en": "At a casual puzzle afternoon, you might finish a comfortable round and pause for conversation instead of raising the difficulty as soon as someone succeeds.",
+        "zh": "休闲解谜下午，你可能完成一轮合适难度后聊一会儿，不因有人成功就立刻加难。"
+      },
+      "strength": {
+        "en": "A chosen pace can make a shared activity easier to enjoy across different energy levels, without turning every pause into a problem to solve.",
+        "zh": "可选择的节奏让精力不同的人更容易享受活动，不必把每次停顿都当问题处理。"
+      },
+      "tradeoff": {
+        "en": "The easiest route may eventually stop being interesting; pacing includes noticing when you actually want a new challenge rather than avoiding every change.",
+        "zh": "最容易的路也可能渐渐无趣；安排节奏也包括发现何时真想挑战，不是回避所有变化。"
+      },
+      "experiment": {
+        "en": "Before adding difficulty to a recreational activity, ask whether you want more challenge or more enjoyment of the current round. Choose either deliberately.",
+        "zh": "给休闲活动加难前，问自己想要更多挑战，还是继续享受当前一轮。两者都可主动选择。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "tester",
+    "partner",
+    "pacer"
+  ]
+}

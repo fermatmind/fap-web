@@ -1,0 +1,348 @@
+{
+  "slug": "snow-day",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "nature",
+  "title": {
+    "en": "Build a Snow-Day Sculpture in Your Imagination",
+    "zh": "雪日造型师：你会堆出什么？"
+  },
+  "description": {
+    "en": "Six illustrated snow-building choices about stable forms, surprising characters and a scene that can change. Discover your original snow-sculpture style.",
+    "zh": "六次插画堆雪选择，搭稳形状、创造角色、让场景继续变化。发现你的原创雪雕玩法，不需要真实下雪。"
+  },
+  "introduction": {
+    "en": "All the snow is on the page, and every structure can be redrawn. You are choosing how to play with an imagined sculpture, not receiving real construction or weather advice. Your result is about this small creative scene.",
+    "zh": "雪都在纸上，每个造型都能重画。你选择怎样玩一座想象雪雕，不接收真实建筑或天气建议。结果只谈这幕小小创作。"
+  },
+  "focus": {
+    "en": "Building an imagined sculpture through structural arrangement, character expression or changeable play.",
+    "zh": "通过结构安排、角色表情或可变化玩法，搭一座想象雪雕。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "A blank patch of illustrated snow is ready. You begin with…",
+        "zh": "一块插画雪地等着你，你先做……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A wide simple base and a few balanced shapes.",
+            "zh": "宽一点的简单底座与几块平衡形状。"
+          },
+          "points": {
+            "builder": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A face that gives the sculpture a character.",
+            "zh": "让雪雕有角色感的一张脸。"
+          },
+          "points": {
+            "character": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Several loose shapes that can be rearranged later.",
+            "zh": "几块以后还能重排的松散造型。"
+          },
+          "points": {
+            "player": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "A tall part keeps leaning in your drawing. You…",
+        "zh": "画里的高处总有点歪，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Redraw the lower shapes to support the upper one.",
+            "zh": "重画下方造型，托住上面那块。"
+          },
+          "points": {
+            "builder": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Make the lean part of the character’s gesture.",
+            "zh": "把歪斜变成角色动作的一部分。"
+          },
+          "points": {
+            "character": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Turn it into two shorter pieces with more ways to play.",
+            "zh": "拆成两块矮造型，增加玩法。"
+          },
+          "points": {
+            "player": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "A friend adds an unexpected small snow shape. You…",
+        "zh": "朋友添了一小块意想不到的雪造型，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Give it a role in the scene’s little cast.",
+            "zh": "给它安排进场景的小角色阵容。"
+          },
+          "points": {
+            "character": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Use it as a piece people can move around.",
+            "zh": "把它当成大家能移动的部件。"
+          },
+          "points": {
+            "player": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Find a place where it fits the overall arrangement.",
+            "zh": "找一个适合整体构成的位置。"
+          },
+          "points": {
+            "builder": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "You have time for one more detail. You choose…",
+        "zh": "还有时间加一个细节，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A small doorway that tokens can move through.",
+            "zh": "让棋子可穿过的一扇小门。"
+          },
+          "points": {
+            "player": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A repeated shape that ties the structure together.",
+            "zh": "把结构连起来的重复形状。"
+          },
+          "points": {
+            "builder": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "An expression that changes the sculpture’s mood.",
+            "zh": "改变雪雕情绪的一个表情。"
+          },
+          "points": {
+            "character": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The next panel shows the sculpture partly melted. You…",
+        "zh": "下一格里，雪雕已经融掉一部分，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Sketch the interesting form that still stands.",
+            "zh": "画下仍站着的有趣结构。"
+          },
+          "points": {
+            "builder": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Invent what the character says about the change.",
+            "zh": "想象角色会怎样说这次变化。"
+          },
+          "points": {
+            "character": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Make a new game from the pieces left over.",
+            "zh": "用剩下部件换一个新玩法。"
+          },
+          "points": {
+            "player": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "Which image belongs on your imaginary snow-day postcard?",
+        "zh": "想象雪日明信片上，你选哪幅？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A cast of snow figures with a funny shared moment.",
+            "zh": "一群雪角色，正共享一个有趣瞬间。"
+          },
+          "points": {
+            "character": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A simple sculpture whose parts fit together satisfyingly.",
+            "zh": "部件配合得很舒服的一座简单雪雕。"
+          },
+          "points": {
+            "builder": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A changeable scene with a new arrangement waiting.",
+            "zh": "可变化场景，等着下一次重排。"
+          },
+          "points": {
+            "player": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "builder",
+      "title": {
+        "en": "The Snow-Shape Builder",
+        "zh": "雪形搭建者"
+      },
+      "summary": {
+        "en": "Your imagined sculpture comes together through a satisfying arrangement of parts. You enjoy giving the picture a base, a relation and a form that holds visually. This game does not assess engineering ability or imply a correct way to build real snow.",
+        "zh": "你的想象雪雕通过部件之间舒服的安排成形。你喜欢给画面一个底座、一种关系与视觉上成立的形状。游戏不评估工程能力，也不指导真实堆雪方法。"
+      },
+      "example": {
+        "en": "In a paper collage, you might move the large pieces until the composition feels balanced before adding the smallest decorative scraps.",
+        "zh": "做拼贴时，你可能先移动大纸块，让构图舒服，再添最小的装饰碎片。"
+      },
+      "strength": {
+        "en": "Attention to arrangement can give a playful idea a clear shape that others can recognize and build on without needing a long explanation.",
+        "zh": "对构成的关注，能让趣味想法形状清楚，别人不用长解释也能看懂并接着添。"
+      },
+      "tradeoff": {
+        "en": "A tidy composition can become restrictive if every new addition must preserve the original plan; one deliberate odd piece may keep the game alive.",
+        "zh": "若每次新增都必须维护原计划，整齐构图也可能变拘束；一块主动的不规则能让游戏继续活着。"
+      },
+      "experiment": {
+        "en": "Arrange five paper scraps into a simple form, then invite one unexpected addition. See what can change while the picture still feels connected.",
+        "zh": "用五片纸排个简单造型，再邀请一块意外新增。看看哪些可变，画面又仍能连在一起。"
+      }
+    },
+    {
+      "id": "character",
+      "title": {
+        "en": "The Snow-Cast Creator",
+        "zh": "雪中角色创造者"
+      },
+      "summary": {
+        "en": "Your snow shapes become someone: a face, a gesture and a tiny shared moment give them life. The ending favors character expression within this imagined scene rather than identifying your own hidden emotional style.",
+        "zh": "你的雪形变成了某个人：脸、动作与共同瞬间让它们活起来。结局看重想象场景里的角色表达，不辨认你隐藏的情绪风格。"
+      },
+      "example": {
+        "en": "A lopsided clay figure might become an eager messenger leaning forward, turning an accidental shape into part of a fictional character.",
+        "zh": "一只歪歪泥偶，也许变成向前探身的急切信使，让偶然形状成为虚构角色的一部分。"
+      },
+      "strength": {
+        "en": "A character can make an imperfect shape meaningful and give several people an easy way to add dialogue or another small scene.",
+        "zh": "角色能让不完美形状有意思，也方便几个人添对白或接一幕小场景。"
+      },
+      "tradeoff": {
+        "en": "Giving everything a character can distract from the pleasure of shape alone. Some pieces can simply remain shapes without a backstory.",
+        "zh": "给一切都安排角色，也可能遮住纯粹形状的乐趣。有些部件可以只是形状，不需要身世。"
+      },
+      "experiment": {
+        "en": "Take one existing doodle and add a gesture plus a single line of dialogue. Leave its biography unwritten and enjoy just that moment.",
+        "zh": "选一幅已有涂鸦，加一个动作和一句对白。先不写身世，只享受那一刻。"
+      }
+    },
+    {
+      "id": "player",
+      "title": {
+        "en": "The Rearranging Snow-Player",
+        "zh": "重排雪景玩家"
+      },
+      "summary": {
+        "en": "Your snow scene is made to be moved, changed and played again. A doorway or loose piece matters because it invites another move. The result celebrates this chosen play structure without claiming that every unfinished thing is better left unfinished.",
+        "zh": "你的雪景本就为了移动、改变与再玩。小门和松散部件有意义，因为它们邀请下一步。结果珍惜本次玩法结构，不宣称所有未完成都该永不完成。"
+      },
+      "example": {
+        "en": "With a small toy scene, you might keep a few pieces unattached so the next visitor can invent a different path through it.",
+        "zh": "搭小玩具场景时，你可能留几块不固定，让下一位参与者能发明不同走法。"
+      },
+      "strength": {
+        "en": "A changeable arrangement gives other people something concrete to try and makes the activity less dependent on protecting a finished display.",
+        "zh": "可变化的安排给别人具体可试的东西，也让活动不必依赖守护一件完成展品。"
+      },
+      "tradeoff": {
+        "en": "Constant rearrangement can frustrate someone who wanted to keep a finished picture. Agreeing on what is movable helps both kinds of enjoyment coexist.",
+        "zh": "不断重排也可能让想保留成品的人困扰。约清哪些可移动，能让两种乐趣并存。"
+      },
+      "experiment": {
+        "en": "In a small shared build, mark one part as changeable and one part as finished for now. Invite another person to try a move within that agreement.",
+        "zh": "在小型共建里，约一部分可变、一部分暂时完成，再邀请别人按这个约定尝试移动。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "builder",
+    "character",
+    "player"
+  ]
+}

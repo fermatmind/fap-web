@@ -1,0 +1,239 @@
+{
+  "slug": "forest-soundtrack",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "nature",
+  "title": {
+    "en": "The Forest’s Missing Last Note",
+    "zh": "森林乐曲失去的最后一音"
+  },
+  "description": {
+    "en": "An original branching forest tale in three to four choices. Follow a broken rhythm to an echo, a chorus or a deliberate quiet ending.",
+    "zh": "用3至4次选择走进原创森林分支短篇。沿着断开的节奏，走向回声、合奏，或主动留下的安静结尾。"
+  },
+  "introduction": {
+    "en": "In this paper forest, a tune stops one note before its ending. Talking trees ask what should come next. You can follow a sound, invite another voice or let a pause remain. The result is a story ending, not a hearing or musical aptitude test.",
+    "zh": "纸上森林里，一段曲子在最后一音前停住。会说话的树问接下来该是什么。你可以跟随声音、邀请另一声部，或让停顿留下。结果是故事结局，不测听力或音乐天赋。"
+  },
+  "focus": {
+    "en": "Responding to an unfinished fictional tune through repetition, collaboration or a chosen silence.",
+    "zh": "面对未完成的虚构旋律，选择重复、合作或主动安静。"
+  },
+  "minutes": 2,
+  "mechanism": "branch",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "The tune breaks off beside a hollow tree. You first…",
+        "zh": "曲子在空心树旁停住，你先……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Follow the faint repeat coming from the next clearing.",
+            "zh": "跟着下一处空地传来的轻轻重复声。"
+          },
+          "next": "q2"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask the gathered paper birds what they want to add.",
+            "zh": "问聚着的纸鸟想添什么。"
+          },
+          "next": "q3"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The clearing repeats every note except the missing one. You…",
+        "zh": "空地重复了除缺失音以外的每一音，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Repeat one short phrase and listen for its return.",
+            "zh": "重复一个短乐句，等待它回来。"
+          },
+          "next": "q4"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Carry the unfinished phrase back to the paper birds.",
+            "zh": "把未完乐句带回纸鸟那里。"
+          },
+          "next": "q3"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "Each paper bird offers a different final note. You…",
+        "zh": "每只纸鸟提供不同的最后一音，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Invite them to make one shared ending in turns.",
+            "zh": "邀请它们轮流接成一个共同结尾。"
+          },
+          "next": "q5"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask whether the tune might end with a pause instead.",
+            "zh": "问曲子能否用一次停顿结束。"
+          },
+          "next": "q4"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "The hollow tree offers you a last choice. You choose…",
+        "zh": "空心树给出最后选择，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A brief echo of the opening phrase.",
+            "zh": "开头乐句的一次短回声。"
+          },
+          "result": "echo"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A pause that lets the forest remain unfinished tonight.",
+            "zh": "让森林今晚暂留未完的一次停顿。"
+          },
+          "result": "pause"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The shared tune reaches its final beat. You…",
+        "zh": "共同曲子来到最后一拍，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Let the birds’ different notes close together as a chorus.",
+            "zh": "让纸鸟不同音符以合奏收尾。"
+          },
+          "result": "chorus"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Leave one beat empty so another visitor can continue tomorrow.",
+            "zh": "空一拍，留给明天来客接续。"
+          },
+          "result": "pause"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "echo",
+      "title": {
+        "en": "The Returning Echo",
+        "zh": "返回的回声"
+      },
+      "summary": {
+        "en": "Your forest closes by bringing back a piece of its beginning. The missing ending does not need a brand-new invention; a short return gives the tune a recognizable shape. This is the route you chose in a tale, not a measure of musical preference.",
+        "zh": "你的森林通过带回一段开头来收尾。缺失结尾不必全新发明，一次短返回就让曲子形状可辨。这是短篇所选路线，不衡量音乐偏好。"
+      },
+      "example": {
+        "en": "A small handmade booklet might end by repeating the shape from its first page, giving the reader a familiar place to arrive.",
+        "zh": "一本小手作册，可以在末页重复首页形状，让读者有个熟悉的抵达处。"
+      },
+      "strength": {
+        "en": "A returning element can connect an ending to what came before and make a modest creative piece feel held together.",
+        "zh": "返回的元素能把结尾与前文连接，让一件小创作整体相连。"
+      },
+      "tradeoff": {
+        "en": "Repetition can become automatic if it never changes with the story. A return is more satisfying when it still fits what happened along the way.",
+        "zh": "重复若从不随故事变化，也会变自动动作。返回仍贴合途中经历时，更容易满足。"
+      },
+      "experiment": {
+        "en": "Finish one tiny creative piece by revisiting a detail from its beginning. Adjust it slightly to reflect what the piece became.",
+        "zh": "完成一件微型创作时，重访开头细节，再稍作调整，让它对应作品后来长成的样子。"
+      }
+    },
+    {
+      "id": "chorus",
+      "title": {
+        "en": "The Paper-Bird Chorus",
+        "zh": "纸鸟合奏"
+      },
+      "summary": {
+        "en": "Your missing note becomes a shared ending made from different contributions. The tune does not need every bird to sing identically. It closes because the separate voices have found a moment they can make together.",
+        "zh": "你缺失的一音变成了不同贡献构成的共同结尾。曲子不要求每只鸟唱得一样，而是因各个声部找到可一起完成的瞬间而收束。"
+      },
+      "example": {
+        "en": "In a group drawing, you might let each person add one final small mark rather than asking the most confident artist to finish everybody’s work.",
+        "zh": "群体绘画里，你可能让每人添一个最后小笔迹，而不是让最自信的画者包办所有收尾。"
+      },
+      "strength": {
+        "en": "A shared ending can keep the contributors visible and make completion feel like an event the group participated in together.",
+        "zh": "共同结尾能让贡献者可见，也让完成像一件大家共同参与的事件。"
+      },
+      "tradeoff": {
+        "en": "Coordination can be tiring if every tiny decision needs everyone. One bounded final contribution can work better than keeping the whole piece open forever.",
+        "zh": "每个小决定都要人人参与时，配合会累。一次有边界的最后贡献，可能比永远开放更合适。"
+      },
+      "experiment": {
+        "en": "For a small shared project, invite one optional finishing contribution from each interested person and agree on when the piece will be complete.",
+        "zh": "给一个共同小项目，邀请每位愿意的人提供一次可选收尾贡献，并约清什么时候算完成。"
+      }
+    },
+    {
+      "id": "pause",
+      "title": {
+        "en": "The Note Left for Tomorrow",
+        "zh": "留给明天的一音"
+      },
+      "summary": {
+        "en": "Your forest lets the last beat stay empty. The silence is chosen rather than repaired, and tomorrow’s visitor may hear the opening differently. The ending allows a small creative experience to remain open without turning every gap into a duty.",
+        "zh": "你的森林让最后一拍空着。安静是主动选择，不是等待修补；明天来客也许会以不同方式听开头。结局允许小创作开放，不把每个空缺都变成义务。"
+      },
+      "example": {
+        "en": "You might leave a spare page in a shared sketchbook so a future visitor can begin there, rather than filling every space before handing it over.",
+        "zh": "你可能在共同速写本留一页，供以后来客从那里开始，不在交出去前填满每处空白。"
+      },
+      "strength": {
+        "en": "A deliberate open space can make continuation possible without requiring the current maker to decide every future contribution in advance.",
+        "zh": "主动留白使接续成为可能，不要求当前创作者提前决定所有未来贡献。"
+      },
+      "tradeoff": {
+        "en": "An open ending may confuse people who expected a finished piece. Naming the choice helps distinguish invitation from an overlooked task.",
+        "zh": "期待成品的人可能对开放结尾困惑。说明这是选择，能分清邀请与遗忘任务。"
+      },
+      "experiment": {
+        "en": "Leave one small optional space in a creative exchange and label it as an invitation. Let the next person decide whether to use it.",
+        "zh": "在创作交换里留一个小型可选空间，标明是邀请，再让下一人决定是否使用。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "echo",
+    "chorus",
+    "pause"
+  ]
+}

@@ -1,0 +1,348 @@
+{
+  "slug": "cloud-drift",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "nature",
+  "title": {
+    "en": "What Do You See in the Drifting Clouds?",
+    "zh": "看云小游戏：你会看见什么？"
+  },
+  "description": {
+    "en": "Six visual imagination choices turn drifting clouds into a picture, a moving scene or a space left open. No weather prediction or hidden-trait reading.",
+    "zh": "六次视觉想象，把浮云变成一张画面、一段移动场景，或一片留白。不预报天气，也不解读隐藏特质。"
+  },
+  "introduction": {
+    "en": "Imagine looking at harmless illustrated clouds from a comfortable window. There is no correct shape to discover. This quiz follows how you play with an ambiguous picture, and its result is an original creative metaphor.",
+    "zh": "想象从舒适窗边看几朵无害的插画云。没有必须找出的正确形状。测试跟随你怎样玩一张模糊图片，结果是原创创意比喻。"
+  },
+  "focus": {
+    "en": "Giving an ambiguous visual shape an outline, a sequence or permission to stay unnamed.",
+    "zh": "面对模糊图形时，为它勾轮廓、接续情节，或允许它暂不命名。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "A cloud has one long curve and a small bump. You first…",
+        "zh": "云有一条长弧和一个小凸起，你先……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Trace a creature’s outline around them.",
+            "zh": "沿它们描出一只小生物。"
+          },
+          "points": {
+            "outline": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Imagine the bump arriving and the curve moving away.",
+            "zh": "想象凸起刚到、长弧正离开。"
+          },
+          "points": {
+            "scene": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Enjoy the shape without deciding what it is.",
+            "zh": "欣赏形状，先不决定像什么。"
+          },
+          "points": {
+            "open": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The cloud separates into two pieces. You…",
+        "zh": "云分成两块，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Let the picture become two unrelated shapes.",
+            "zh": "让画面变成两个互不相关的形状。"
+          },
+          "points": {
+            "open": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Imagine a brief chase between the pieces.",
+            "zh": "想象两块之间的一小段追逐。"
+          },
+          "points": {
+            "scene": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Find a new silhouette in each piece.",
+            "zh": "在每一块里找新剪影。"
+          },
+          "points": {
+            "outline": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "A friend sees a ship where you saw a fish. You prefer to…",
+        "zh": "朋友看见船，你原先看见鱼，你更愿意……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Compare which edges suggest each picture.",
+            "zh": "比较哪些边缘分别像船和鱼。"
+          },
+          "points": {
+            "outline": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Put the ship and fish into one little tale.",
+            "zh": "把船和鱼接进一个小故事。"
+          },
+          "points": {
+            "scene": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Keep both readings without settling it.",
+            "zh": "留着两种看法，不必定论。"
+          },
+          "points": {
+            "open": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "You sketch the cloud on a scrap of paper. You add…",
+        "zh": "在废纸上速写这朵云，你会加……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "An arrow showing where the next frame might go.",
+            "zh": "一支指向下一格画面的箭头。"
+          },
+          "points": {
+            "scene": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Only the curve, with plenty of blank paper.",
+            "zh": "只画曲线，留大片空纸。"
+          },
+          "points": {
+            "open": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A few defining lines that make the image recognizable.",
+            "zh": "几条让形象可辨认的线。"
+          },
+          "points": {
+            "outline": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "A cloud dissolves before your picture feels finished. You…",
+        "zh": "画面还没想完，云已散开，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Keep the unfinished sketch as it is.",
+            "zh": "按原样留下未完成草图。"
+          },
+          "points": {
+            "open": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Save the outline you had already noticed.",
+            "zh": "记下先前已看见的轮廓。"
+          },
+          "points": {
+            "outline": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Make its disappearance the story’s last beat.",
+            "zh": "把消失写成故事最后一拍。"
+          },
+          "points": {
+            "scene": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "For a tiny cloud gallery, you choose…",
+        "zh": "给一个迷你云画廊选展品，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Three distinct silhouettes with playful names.",
+            "zh": "三个有趣名字的清楚剪影。"
+          },
+          "points": {
+            "outline": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A sequence of one shape turning into another.",
+            "zh": "一个形状变成另一个的连续画面。"
+          },
+          "points": {
+            "scene": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "An unnamed shape with room for visitors’ readings.",
+            "zh": "一幅未命名形状，留给观众各自理解。"
+          },
+          "points": {
+            "open": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "outline",
+      "title": {
+        "en": "The Silhouette Finder",
+        "zh": "轮廓发现者"
+      },
+      "summary": {
+        "en": "Your cloud play gives a loose shape a recognizable edge. A few lines are enough to turn drifting ambiguity into something you can point to and share. This describes the illustrated choices, not a hidden perceptual ability.",
+        "zh": "你的看云游戏会给松散形状一个可辨认边缘。几条线已足够把漂浮模糊变成能指出、能分享的东西。它描述插画选择，不揭示隐藏知觉能力。"
+      },
+      "example": {
+        "en": "Looking at a harmless ink blot, you might circle the curve that resembles a sleeping cat and show a friend exactly which part caught your eye.",
+        "zh": "看一块无害墨迹时，你可能圈出像熟睡猫的弧线，给朋友指出具体是哪一段吸引你。"
+      },
+      "strength": {
+        "en": "A clear outline makes an imaginative reading easy to communicate, giving someone else a simple starting point for their own picture.",
+        "zh": "清楚轮廓让想象容易传达，也给他人的新画面一个简单起点。"
+      },
+      "tradeoff": {
+        "en": "Once a shape has a name, other possible readings can become harder to notice; the first outline does not need to be the final one.",
+        "zh": "形状一旦有名，其他读法可能不容易再看见；第一条轮廓不必是最终答案。"
+      },
+      "experiment": {
+        "en": "Make two different doodles from the same simple curve. Let the second picture change the first rather than trying to prove which one is correct.",
+        "zh": "从同一条简单曲线画出两种涂鸦。让第二幅改变第一幅，不必证明哪种才对。"
+      }
+    },
+    {
+      "id": "scene",
+      "title": {
+        "en": "The Moving-Cloud Storyteller",
+        "zh": "浮云叙事者"
+      },
+      "summary": {
+        "en": "Your cloud picture keeps asking what happens next. A split, a drift or a disappearance becomes a beat in a tiny sequence. The ending reflects this round of imaginative choices, not a general ranking of creativity.",
+        "zh": "你的云画面总会问接着发生什么。分裂、飘动或消失，都变成小小连续场景的一拍。结局对应本轮想象选择，不给创造力排等级。"
+      },
+      "example": {
+        "en": "You might turn three uneven paper scraps into a tiny sequence: a boat leaves, meets a wave and arrives somewhere the last scrap suggests.",
+        "zh": "你可能把三片不规则纸屑接成一段短场景：小船离开、遇浪，再到达最后一片暗示的地方。"
+      },
+      "strength": {
+        "en": "A sequence can connect separate visual details and give a shared playful activity momentum without needing a polished drawing first.",
+        "zh": "连续场景能连接零散视觉细节，让共同小游戏有推进感，不必先画得精致。"
+      },
+      "tradeoff": {
+        "en": "A story can fill every gap so quickly that the original image disappears; pausing on one frame may reveal a detail worth keeping.",
+        "zh": "故事若太快填满每个空隙，原图可能消失；停在某一格，或许能保留一个好细节。"
+      },
+      "experiment": {
+        "en": "Draw a three-frame story from one ordinary shape. Leave one frame quiet enough that another person could suggest a different next move.",
+        "zh": "从一个普通形状画三格短篇。让其中一格安静一点，给别人提出不同下一步的空间。"
+      }
+    },
+    {
+      "id": "open",
+      "title": {
+        "en": "The Unnamed-Sky Watcher",
+        "zh": "留白天空观察者"
+      },
+      "summary": {
+        "en": "Your cloud game leaves some shapes unnamed. You can enjoy an image before deciding what it represents, and different readings may sit beside each other. This is a chosen style of play, not evidence of greater openness as a trait.",
+        "zh": "你的看云游戏会留下一些未命名形状。尚未决定代表什么，也可以欣赏画面，不同读法还可并列。这是所选游戏方式，不证明某种人格更开放。"
+      },
+      "example": {
+        "en": "In a casual sketch exchange, you might pass on an unfinished curve and let the next person decide whether it becomes an object at all.",
+        "zh": "在随手交换涂鸦时，你可能传下一条未完曲线，让下一人决定它是否需要成为物体。"
+      },
+      "strength": {
+        "en": "Leaving a little visual space can invite multiple readings and make a playful exchange feel less like a contest to find the right answer.",
+        "zh": "一点视觉留白能邀请多种理解，让小游戏少一点争找正确答案的味道。"
+      },
+      "tradeoff": {
+        "en": "An unnamed picture can be difficult to share if nobody knows where to begin; one small prompt may help without closing all possibilities.",
+        "zh": "若无人知道从哪开始，未命名画面可能难分享；一个小提示就能帮忙，不必封住全部可能。"
+      },
+      "experiment": {
+        "en": "Spend one minute with a simple pattern without naming it. Then write a single optional title, and allow yourself to change it later.",
+        "zh": "用一分钟看一个简单图案，先不命名。之后写一个可选标题，也允许以后再改。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "outline",
+    "scene",
+    "open"
+  ]
+}

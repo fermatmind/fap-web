@@ -1,0 +1,239 @@
+{
+  "slug": "firefly-evening",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "nature",
+  "title": {
+    "en": "The Paper-Firefly Evening",
+    "zh": "纸萤火的傍晚"
+  },
+  "description": {
+    "en": "Follow three choices through a temporary paper-light exhibition. Choose a final signal, a shared display or a quiet closing scene in an original story.",
+    "zh": "用三次选择走过临时纸灯展。在原创故事中，选择最后的信号、共同展示或安静闭场，完整结局免费。"
+  },
+  "introduction": {
+    "en": "These fireflies are folded paper lights in a fictional evening exhibition. Nothing living is captured or handled. A keeper asks you to help decide how the display should end, and the choices lead to three complete story endings.",
+    "zh": "萤火是虚构傍晚展览里折出的纸灯，没有活物被捕捉或摆弄。保管者请你一起决定展览怎样结束，选择通向三个完整故事结局。"
+  },
+  "focus": {
+    "en": "Giving a temporary shared display an ending while preserving choice about participation and keepsakes.",
+    "zh": "为临时共同展览安排结尾，同时保留是否参与、是否留念的选择。"
+  },
+  "minutes": 2,
+  "mechanism": "branch",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "The keeper offers two ways to spend the last few minutes. You choose…",
+        "zh": "保管者提供最后几分钟的两种安排，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Help gather the paper lights for a final pattern.",
+            "zh": "帮忙把纸灯聚成最后一个图案。"
+          },
+          "next": "q2"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Walk to the viewing bench for one last look.",
+            "zh": "走向观景长椅，再看最后一眼。"
+          },
+          "next": "q3"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The pattern has a gap that visitors may fill voluntarily. You…",
+        "zh": "图案有个来客可自愿补上的空处，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Offer one light and ask others whether they want to join.",
+            "zh": "添一盏灯，也问别人是否愿意。"
+          },
+          "next": "q4"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Use one light as a simple closing signal instead.",
+            "zh": "把一盏灯作为简单闭场信号。"
+          },
+          "next": "q5"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "The bench has a postcard box and an empty seat. You…",
+        "zh": "长椅边有明信片盒和一个空位，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Sit for the final change without adding anything.",
+            "zh": "坐下看最后一次变化，不再添加。"
+          },
+          "next": "q5"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Take a blank card to draw the shared pattern later.",
+            "zh": "拿张空卡，之后画下共同图案。"
+          },
+          "next": "q4"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "The keeper asks what should happen to the final pattern. You choose…",
+        "zh": "保管者问最后图案该怎样收尾，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Let everyone who wants to join arrange one final light together.",
+            "zh": "让愿意的人一起安排最后一盏灯。"
+          },
+          "result": "shared"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Save one small sketch and let the display finish as planned.",
+            "zh": "留一张小速写，让展览按计划结束。"
+          },
+          "result": "quiet"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "One light remains on as the exit opens. You…",
+        "zh": "出口打开时，还有一盏灯亮着，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Use it as a clear signal that tonight’s display is complete.",
+            "zh": "用它清楚示意今晚展览已经完成。"
+          },
+          "result": "signal"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Enjoy the last view, then leave the ending quiet.",
+            "zh": "欣赏最后景象，让结尾保持安静。"
+          },
+          "result": "quiet"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "shared",
+      "title": {
+        "en": "The Last Light Together",
+        "zh": "一起安放的最后一灯"
+      },
+      "summary": {
+        "en": "Your evening closes with a small shared act. Those who want to join place one final light, while watching remains a complete way to participate. The story ends with company that is invited rather than required.",
+        "zh": "你的傍晚以一个小小共同行动结束。愿意的人放好最后一灯，只观看也算完整参与。故事以受邀而非被要求的相伴收尾。"
+      },
+      "example": {
+        "en": "At the end of a communal craft table, you might invite interested participants to arrange the finished pieces for one final view, without insisting everybody stay.",
+        "zh": "共同手作桌结束时，你可能邀请有兴趣的人一起排好作品看最后一眼，不坚持人人留下。"
+      },
+      "strength": {
+        "en": "A bounded shared action can mark completion and make different small contributions visible without requiring a grand ceremony.",
+        "zh": "一个有边界的共同行动能标出完成，也让不同小贡献可见，不必盛大仪式。"
+      },
+      "tradeoff": {
+        "en": "A final activity can extend an evening beyond what people chose. Making the finish brief and optional keeps it from becoming another obligation.",
+        "zh": "最后活动也可能把傍晚延长到超出意愿。简短且可选，才不易成为另一项义务。"
+      },
+      "experiment": {
+        "en": "For a shared recreational activity, offer one short optional closing action and make leaving without joining equally comfortable.",
+        "zh": "为一项共同休闲活动提供一次简短可选收尾，也让不加入直接离开同样自在。"
+      }
+    },
+    {
+      "id": "signal",
+      "title": {
+        "en": "The Clear Closing Light",
+        "zh": "清楚的闭场灯"
+      },
+      "summary": {
+        "en": "Your final light tells visitors that the display is complete and the exit is ready. A clear ending does not erase the pleasure of what came before. This ending values a legible transition rather than measuring how decisive you are.",
+        "zh": "你的最后一灯告诉来客：展览完成，出口已开。清楚结尾不会抹掉之前的愉快。结局看重可辨认的过渡，不衡量你有多果断。"
+      },
+      "example": {
+        "en": "After a casual game afternoon, you might name the last round before starting it so everybody can plan their own goodbye.",
+        "zh": "轻松游戏下午，你可能在开始前说明这是最后一轮，让每个人安排自己的告别。"
+      },
+      "strength": {
+        "en": "A simple closing signal can reduce uncertainty and help people enjoy the last part without wondering whether another activity is about to begin.",
+        "zh": "一个简单闭场信号能减少不确定，让人享受最后一段，不用猜是否又有新活动。"
+      },
+      "tradeoff": {
+        "en": "A clear finish can feel abrupt if nobody has time to complete their current step. A little notice can make the boundary easier to use.",
+        "zh": "若没人来得及完成手头一步，清楚结束也可能突兀。稍留预告时间，边界会更好用。"
+      },
+      "experiment": {
+        "en": "In one small shared plan, agree on a finish signal early enough that everyone can complete their current step and choose how to leave.",
+        "zh": "在一个小共同安排里，及早约定结束信号，让大家完成手头一步，也选择怎样离开。"
+      }
+    },
+    {
+      "id": "quiet",
+      "title": {
+        "en": "The Quiet Last View",
+        "zh": "安静的最后一眼"
+      },
+      "summary": {
+        "en": "Your paper-firefly evening ends with attention rather than another addition. You may keep a small sketch or simply the last view. The ending lets a temporary experience finish without needing to preserve all of it.",
+        "zh": "你的纸萤火傍晚以关注结束，不再追加东西。可以留一张小速写，也可以只留最后景象。结局允许短暂体验结束，不必保存它的全部。"
+      },
+      "example": {
+        "en": "At the close of a small exhibition, you might pause for one final look and then go, without adding a purchase or another photograph to make the visit count.",
+        "zh": "小展览闭场时，你可能停下看最后一眼就离开，不必另买东西或再拍一张才算到过。"
+      },
+      "strength": {
+        "en": "A chosen final look can give a brief experience a stopping point and leave memory room to hold only the details that matter to you.",
+        "zh": "主动的最后一眼能给短体验停止点，也让记忆只保留对你有意义的细节。"
+      },
+      "tradeoff": {
+        "en": "Quiet closure may be hard for others to read in a shared activity. A simple goodbye can make your chosen ending clear without turning it into a performance.",
+        "zh": "共同活动里，安静收尾可能让别人难读。一句简单告别就能说明结束，不必变成表演。"
+      },
+      "experiment": {
+        "en": "After one enjoyable optional activity, name a single detail you want to remember and let the rest remain part of the passing experience.",
+        "zh": "一项愉快可选活动结束后，说出一个想记住的细节，让其余部分继续属于流逝中的体验。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "shared",
+    "signal",
+    "quiet"
+  ]
+}

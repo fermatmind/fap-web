@@ -1,0 +1,348 @@
+{
+  "slug": "night-garden",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "nature",
+  "title": {
+    "en": "What Would You Notice in the Night Garden?",
+    "zh": "夜色花园：你先留意什么？"
+  },
+  "description": {
+    "en": "Six illustrated night-garden scenes follow quiet sounds, changing shadows and tiny details. Discover your style of attention inside this fictional walk.",
+    "zh": "六幅夜间花园插画，跟随细小声音、变化影子和微小细节。发现你在这段虚构漫步里选择的注意方向。"
+  },
+  "introduction": {
+    "en": "The garden is a safe illustrated scene viewed at your own pace. No real night walk, wildlife contact or sensory test is needed. You choose which details to bring into focus, not how sharp your hearing or vision is.",
+    "zh": "花园是可按自己节奏观看的安全插画。不需要真实夜游、接触野生动物或做感官测试。你选择关注哪些细节，不测试听力视力有多敏锐。"
+  },
+  "focus": {
+    "en": "Selecting sound cues, light patterns or close details when an illustrated scene cannot be taken in all at once.",
+    "zh": "无法一次看全插画时，选择声音线索、光影图案或近处细节。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "The first garden panel includes three details. You follow…",
+        "zh": "第一幅花园画面里有三处细节，你跟随……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A faint chime drawn near the gate.",
+            "zh": "门边画出的轻轻风铃声。"
+          },
+          "points": {
+            "listener": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The shape of a lantern shadow across the path.",
+            "zh": "横在路上的灯笼影子。"
+          },
+          "points": {
+            "shadow": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A small bead of water on a leaf edge.",
+            "zh": "叶缘一颗小水珠。"
+          },
+          "points": {
+            "detail": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "A breeze changes the illustrated scene. You notice…",
+        "zh": "一阵风让插画场景变化，你注意……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The shadow line shifting across two stones.",
+            "zh": "影子线掠过两块石头。"
+          },
+          "points": {
+            "shadow": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Which drawn sounds now overlap.",
+            "zh": "哪些画出的声音现在叠在一起。"
+          },
+          "points": {
+            "listener": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "One leaf tip moving against a still branch.",
+            "zh": "一片叶尖在静止树枝旁晃动。"
+          },
+          "points": {
+            "detail": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "You can add one caption to the panel. You choose…",
+        "zh": "可以给画面加一句说明，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The curled edge of the smallest petal.",
+            "zh": "最小花瓣卷起的边缘。"
+          },
+          "points": {
+            "detail": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A rhythm of taps, pauses and another tap.",
+            "zh": "轻敲、停顿、又一声轻敲的节奏。"
+          },
+          "points": {
+            "listener": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A bright window shape repeated in a dark puddle.",
+            "zh": "暗水洼里重复的明亮窗形。"
+          },
+          "points": {
+            "shadow": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "Two illustrated paths lead to equally calm scenes. You choose the one with…",
+        "zh": "两条插画小路都通往平静场景，你选有……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A pattern of light gaps beneath a trellis.",
+            "zh": "棚架下面一格格透光。"
+          },
+          "points": {
+            "shadow": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A cluster of tiny seeds beside a label.",
+            "zh": "标签旁一小簇种子。"
+          },
+          "points": {
+            "detail": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A few distinct sounds with quiet space between.",
+            "zh": "几种分明声音，中间留着安静。"
+          },
+          "points": {
+            "listener": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "For a close-up panel, you would keep…",
+        "zh": "画一个特写格子，你会保留……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A bell and the short marks suggesting its sound.",
+            "zh": "一只铃与暗示响声的短线。"
+          },
+          "points": {
+            "listener": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The contrast where a leaf becomes a silhouette.",
+            "zh": "叶片变成剪影处的明暗对照。"
+          },
+          "points": {
+            "shadow": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A tiny pattern that the wide view almost misses.",
+            "zh": "全景几乎漏掉的小小纹理。"
+          },
+          "points": {
+            "detail": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "Your final garden note is mostly about…",
+        "zh": "最后一则花园笔记，主要写……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One small detail you want to draw again.",
+            "zh": "一个想再画一次的小细节。"
+          },
+          "points": {
+            "detail": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "How the scene changed as light moved.",
+            "zh": "光移动时场景怎样变化。"
+          },
+          "points": {
+            "shadow": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The imaginary sound that made the scene feel present.",
+            "zh": "哪种想象声音让场景有临场感。"
+          },
+          "points": {
+            "listener": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "listener",
+      "title": {
+        "en": "The Quiet-Sound Collector",
+        "zh": "轻声收集者"
+      },
+      "summary": {
+        "en": "Your illustrated walk gives the scene a sound layer. Chimes, taps and pauses help you imagine the garden beyond its visible edges. The result follows what you chose to attend to, not a claim about hearing ability or sensitivity.",
+        "zh": "你的插画漫步给场景添了一层声音。风铃、轻敲与停顿，让花园在可见边缘之外延展。结果来自所选关注方向，不宣称听力或敏感程度。"
+      },
+      "example": {
+        "en": "When describing a familiar room in a short story, you might include a kettle click and the silence afterward instead of adding another list of furniture.",
+        "zh": "写熟悉房间的小故事时，你可能写水壶咔哒声及其后的安静，不再多列一串家具。"
+      },
+      "strength": {
+        "en": "A few carefully chosen sounds can give an imagined place rhythm and help other people picture an atmosphere without needing many visual details.",
+        "zh": "几种选好的声音能给想象空间节奏，让他人无需大量视觉细节也能感到氛围。"
+      },
+      "tradeoff": {
+        "en": "Filling every pause with a new sound can make a scene feel crowded; quiet space is also part of the sound picture.",
+        "zh": "每次停顿都填新声音，也会让场景拥挤；安静空隙同样属于声音画面。"
+      },
+      "experiment": {
+        "en": "Describe one ordinary place using two sounds and a pause. Keep the exercise comfortable and skip any sound you do not enjoy attending to.",
+        "zh": "用两种声音和一次停顿描述一个普通地点。让练习保持舒适，不想关注的声音可以跳过。"
+      }
+    },
+    {
+      "id": "shadow",
+      "title": {
+        "en": "The Lantern-Shadow Reader",
+        "zh": "灯影阅读者"
+      },
+      "summary": {
+        "en": "Your garden takes shape through light, contrast and movement across surfaces. A shadow can link distant parts of the picture, and a reflection can make a second frame. This is a visual-story preference within the game, not a personality measure.",
+        "zh": "你的花园通过光、明暗与表面移动成形。影子可以连接画面远处，倒影也能形成第二画框。这是游戏里的视觉叙事偏好，不是人格测量。"
+      },
+      "example": {
+        "en": "In a harmless still-life sketch, you might draw the shadow cast by a mug before adding the mug’s printed pattern or its handle detail.",
+        "zh": "画一幅无害静物速写时，你可能先画杯子投影，再加杯身图案和把手细节。"
+      },
+      "strength": {
+        "en": "Noticing light relationships can give a busy scene a simple structure and show how familiar objects change as the viewpoint changes.",
+        "zh": "留意光的关系，能给复杂场景简单结构，也让熟悉物体随视角变化重新显现。"
+      },
+      "tradeoff": {
+        "en": "A striking contrast may pull attention away from quieter details. One clear shadow does not have to organize the whole picture.",
+        "zh": "强烈明暗可能把注意从细小之处拉走；一条鲜明影子不必统领整张画。"
+      },
+      "experiment": {
+        "en": "Make two small sketches of the same object with different imagined lighting. Notice what changes in the picture without ranking one view as better.",
+        "zh": "用两种想象光线画同一物体的小草图。看看画面怎么变，不必把一种视角评得更好。"
+      }
+    },
+    {
+      "id": "detail",
+      "title": {
+        "en": "The Leaf-Edge Observer",
+        "zh": "叶缘细节观察者"
+      },
+      "summary": {
+        "en": "Your night-garden story pauses close to the leaf edge. A small curl, seed or water bead becomes enough for a panel of its own. The ending values selected detail rather than claiming you notice everything others miss.",
+        "zh": "你的夜色花园故事会停在叶片边缘。一点卷曲、一颗种子或水珠，足够独占一格画面。结局珍惜所选细节，不宣称你总能看见别人遗漏的一切。"
+      },
+      "example": {
+        "en": "While drawing a houseplant you already know, you might spend a little time on one leaf junction rather than trying to finish the entire pot.",
+        "zh": "画一株熟悉室内植物时，你可能在一个叶片连接处停一会儿，不急着完成整盆。"
+      },
+      "strength": {
+        "en": "A small focus can make an enormous scene approachable and give a short creative exercise a clear, manageable subject.",
+        "zh": "一个小焦点能让庞大场景容易靠近，也给短创作练习一个清楚、可操作的对象。"
+      },
+      "tradeoff": {
+        "en": "Staying close to one detail can hide how the whole picture fits together; occasionally stepping back can restore its context.",
+        "zh": "一直贴着细节，也可能看不清全图关系；偶尔退一步，可以找回它的情境。"
+      },
+      "experiment": {
+        "en": "Pick one harmless visual detail in your room and sketch it for a minute. Then draw a tiny frame showing where it sits in the larger scene.",
+        "zh": "选房间里一个无害视觉细节画一分钟，再加一个小框，画出它在更大场景中的位置。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "listener",
+    "shadow",
+    "detail"
+  ]
+}

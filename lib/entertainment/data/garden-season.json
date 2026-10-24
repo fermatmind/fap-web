@@ -1,0 +1,348 @@
+{
+  "slug": "garden-season",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "nature",
+  "title": {
+    "en": "Which Season Is Your Imaginary Garden In?",
+    "zh": "你的想象花园正在哪个季节？"
+  },
+  "description": {
+    "en": "Choose among six garden scenes about beginning, tending, gathering and resting. Find the season your choices give this fictional garden today.",
+    "zh": "在六个花园场景里，选择开始、照料、收集与休整，看看今天的选择会把这座虚构花园带到哪个季节。"
+  },
+  "introduction": {
+    "en": "You can design this imaginary garden without buying seeds or knowing how to grow them. The seasons describe a garden story, not age, life stage or mental health. Choose the kind of attention you would enjoy giving it now.",
+    "zh": "设计这座想象花园，不必买种子或懂种植。季节描述的是花园故事，不代表年龄、人生阶段或心理健康。选你现在愿意给它的关注方式。"
+  },
+  "focus": {
+    "en": "How an imagined growing cycle makes room for an initial trial, repeated care and a deliberate pause.",
+    "zh": "一个想象生长周期，怎样容纳初次尝试、持续照料与主动停歇。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "An empty garden patch is yours for a season. Your first wish is…",
+        "zh": "一小块空花地交给你一季，你最先想……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Try a tiny corner with something unfamiliar.",
+            "zh": "在小角落试一种陌生东西。"
+          },
+          "points": {
+            "spring": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Set up a routine for the plants already there.",
+            "zh": "为已有植物安排照料节奏。"
+          },
+          "points": {
+            "summer": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Look at what the ground needs before adding more.",
+            "zh": "先看土地需要什么，再决定添不添。"
+          },
+          "points": {
+            "winter": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "A few fictional seedlings appear. What catches your attention?",
+        "zh": "几株虚构小苗冒出来，你关注……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "How to keep their regular care manageable.",
+            "zh": "怎样让日常照料容易维持。"
+          },
+          "points": {
+            "summer": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Which new shapes might emerge next.",
+            "zh": "接着可能出现哪些新形状。"
+          },
+          "points": {
+            "spring": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Whether part of the bed should stay undisturbed.",
+            "zh": "是否留一部分花床不去动它。"
+          },
+          "points": {
+            "winter": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "The garden has one extra free afternoon. You choose…",
+        "zh": "花园多了一个空闲下午，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Leave the tools down and observe what is already enough.",
+            "zh": "放下工具，看看已有的哪些已足够。"
+          },
+          "points": {
+            "winter": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Start one small labeled experiment.",
+            "zh": "开始一个有标记的小尝试。"
+          },
+          "points": {
+            "spring": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Return to a familiar task that keeps the bed going.",
+            "zh": "做一件熟悉的维护小事。"
+          },
+          "points": {
+            "summer": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A section has grown more than you expected. You…",
+        "zh": "有一片比预想长得更多，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Adjust your care plan to its actual size.",
+            "zh": "按实际规模调整照料计划。"
+          },
+          "points": {
+            "summer": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Save a little space to try a different arrangement.",
+            "zh": "留小块空间，试另一种布局。"
+          },
+          "points": {
+            "spring": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Reduce the next round so the garden can rest.",
+            "zh": "减小下一轮规模，让花园休整。"
+          },
+          "points": {
+            "winter": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "A garden notebook has an empty page. You write…",
+        "zh": "花园笔记留着空白页，你写……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One question for the next small trial.",
+            "zh": "下次小尝试想追的一个问题。"
+          },
+          "points": {
+            "spring": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "What repeated care was actually useful.",
+            "zh": "哪些持续照料确实有用。"
+          },
+          "points": {
+            "summer": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "What you are content to leave until later.",
+            "zh": "哪些事愿意安心留到以后。"
+          },
+          "points": {
+            "winter": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "The story’s last picture shows…",
+        "zh": "故事最后一幅画是……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Tools put away beside a bed allowed to be quiet.",
+            "zh": "工具收好，一块被允许安静的花床。"
+          },
+          "points": {
+            "winter": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A new shoot with plenty of unclaimed space.",
+            "zh": "一株新芽，旁边还有未安排的空地。"
+          },
+          "points": {
+            "spring": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A garden held together by small regular visits.",
+            "zh": "靠一趟趟小照料维持的花园。"
+          },
+          "points": {
+            "summer": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "spring",
+      "title": {
+        "en": "The Trial-Shoot Garden",
+        "zh": "试芽的花园"
+      },
+      "summary": {
+        "en": "Your garden story begins with a small trial rather than a fully planted plot. Newness is given a little room to show what it might become. This is a season you selected in a game, not a prediction of your future.",
+        "zh": "你的花园故事从一小次试种开始，不急着种满。新东西得到一点空间，慢慢显出可能。这是游戏里选出的季节，不是对未来的预测。"
+      },
+      "example": {
+        "en": "For a window box in the story, you might reserve one labeled corner for an unfamiliar color instead of redesigning every pot at once.",
+        "zh": "在故事的窗台花箱里，你可能留一个标记角落试陌生颜色，不必一次重排所有花盆。"
+      },
+      "strength": {
+        "en": "A small trial makes curiosity easier to act on while keeping the rest of the imagined garden available for later choices.",
+        "zh": "小尝试让好奇容易行动，也让想象花园的其余空间继续留给之后选择。"
+      },
+      "tradeoff": {
+        "en": "New shoots still need some attention after the first exciting moment; too many experiments can make that attention difficult to give.",
+        "zh": "第一阵兴奋过后，新芽仍要一点关注；尝试过多时，这份关注可能难给。"
+      },
+      "experiment": {
+        "en": "Choose one small recreational experiment and decide what would make you want to return to it once, without committing to a whole new routine.",
+        "zh": "选一个小型休闲尝试，想想什么会让你愿意再回来一次，不必先承诺全新日程。"
+      }
+    },
+    {
+      "id": "summer",
+      "title": {
+        "en": "The Tended-Bed Garden",
+        "zh": "细细照料的花园"
+      },
+      "summary": {
+        "en": "Your garden has a rhythm of returning. The satisfying part is not only what appears on the first day, but how a few manageable visits keep a chosen patch going. The portrait describes your selected story rhythm rather than your reliability as a person.",
+        "zh": "你的花园有一趟趟返回的节奏。满足不只在第一天出现了什么，也在几次容易维持的照料如何让一片花地继续。画像描述所选故事节奏，不评判你是否可靠。"
+      },
+      "example": {
+        "en": "In the fictional bed, you might keep a short note of the one repeated task that matters instead of creating an elaborate garden management system.",
+        "zh": "在虚构花床里，你可能只记下最需要重复的一件小事，不另建复杂的花园管理系统。"
+      },
+      "strength": {
+        "en": "Modest repeated attention can make a chosen activity feel familiar and approachable instead of requiring a fresh burst of motivation every time.",
+        "zh": "适量的持续关注，让选定活动变得熟悉、容易靠近，不必每次都重新鼓起劲。"
+      },
+      "tradeoff": {
+        "en": "A routine can outlive the reason you wanted it. Returning regularly is most useful when you still have freedom to change its scale.",
+        "zh": "日程可能比最初想做的理由活得更久。仍可调整规模时，规律返回更容易有用。"
+      },
+      "experiment": {
+        "en": "Look at one enjoyable recurring activity. Keep the smallest helpful part of its routine and remove one step that has become needless work.",
+        "zh": "看看一项喜欢的重复活动。保留最小的有用日程，也去掉一项已经多余的步骤。"
+      }
+    },
+    {
+      "id": "winter",
+      "title": {
+        "en": "The Resting-Soil Garden",
+        "zh": "休整土壤的花园"
+      },
+      "summary": {
+        "en": "Your garden ending leaves a bed quiet and the tools put away. Rest is part of this imagined cycle rather than evidence that the garden has failed. The picture leaves a future season possible without requiring you to schedule it now.",
+        "zh": "你的花园结尾让花床安静，也收起工具。休整是想象周期的一部分，不证明花园失败。画面留着未来一季的可能，却不要求现在就排定它。"
+      },
+      "example": {
+        "en": "You might close a seasonal craft box after using it and leave a note about what remains, rather than starting the next project immediately.",
+        "zh": "你也许会在季节手作结束后合上材料盒，记下剩余东西，不急着马上开始下一项。"
+      },
+      "strength": {
+        "en": "A chosen pause can protect attention and make the activity easier to revisit because unfinished maintenance is no longer silently expanding.",
+        "zh": "主动停歇能照顾注意力，也让活动更容易重访，因为未完成维护没有继续悄悄扩大。"
+      },
+      "tradeoff": {
+        "en": "A pause may need a practical closing step; leaving every loose end scattered can make the eventual return feel harder than it needs to.",
+        "zh": "停歇有时也需要实际收尾；任由所有零碎散着，可能让以后返回比必要的更难。"
+      },
+      "experiment": {
+        "en": "Give one optional activity a tidy stopping point: save what matters, put the tools away, and leave the next visit genuinely optional.",
+        "zh": "为一项可选活动设清楚停止点：保存有用内容、收好工具，让下一次回来真的可选。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "spring",
+    "summer",
+    "winter"
+  ]
+}

@@ -1,0 +1,348 @@
+{
+  "slug": "beachcomber",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "nature",
+  "title": {
+    "en": "Beachcomber Quiz: What Catches Your Eye?",
+    "zh": "海边拾趣：什么会吸引你停下？"
+  },
+  "description": {
+    "en": "Six shoreline illustration choices about noticing patterns, tracing an object’s story and deciding what to leave in place. Find your beachcomber portrait.",
+    "zh": "在六个海岸插画场景里，留意图案、追想物件故事、决定把什么留在原处，发现你的海边拾趣画像。"
+  },
+  "introduction": {
+    "en": "Everything on this illustrated beach can stay where it is. Choose what you would notice, sketch or wonder about; there is no need to collect real shells or handle wildlife. The results are original story portraits rather than environmental expertise.",
+    "zh": "插画海滩上的东西都可以留在原处。选你会留意、速写或好奇的部分，不必采集真实贝壳或接触野生动物。结果是原创故事画像，不认证环境专业知识。"
+  },
+  "focus": {
+    "en": "Looking at an ordinary shoreline object through its repeating form, imagined history or place in the wider scene.",
+    "zh": "从重复形状、想象来历或与周围场景的关系，看一件普通海岸物件。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "A row of drawn shells lies along a tide line. You…",
+        "zh": "一排画出的贝壳沿潮线排开，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Compare the repeating curves and gaps.",
+            "zh": "比较反复出现的曲线与间距。"
+          },
+          "points": {
+            "pattern": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Wonder how this particular row came together.",
+            "zh": "好奇这一排具体怎样聚到一起。"
+          },
+          "points": {
+            "story": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Look at how the row sits within the whole beach.",
+            "zh": "看看这排贝壳在整片海滩的位置。"
+          },
+          "points": {
+            "place": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "A smooth illustrated pebble has one pale stripe. You would…",
+        "zh": "一块光滑插画石子有一条浅纹，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Imagine a short journey that ends at this spot.",
+            "zh": "想象一段终于来到此处的小旅程。"
+          },
+          "points": {
+            "story": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Sketch the stripe next to nearby lines in the sand.",
+            "zh": "把浅纹与附近沙线画在一起。"
+          },
+          "points": {
+            "pattern": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Keep it in the picture with the surrounding stones.",
+            "zh": "把它连同周围石头一起留在画里。"
+          },
+          "points": {
+            "place": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "You can make one page from the scene. You choose…",
+        "zh": "可以从场景做一页作品，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A wide view with one object marked where you found it.",
+            "zh": "一幅全景，标出物件原来的位置。"
+          },
+          "points": {
+            "place": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Several small comparisons of texture and shape.",
+            "zh": "几组纹理和形状的小比较。"
+          },
+          "points": {
+            "pattern": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A fictional postcard written by a traveling pebble.",
+            "zh": "一张旅行石子写的虚构明信片。"
+          },
+          "points": {
+            "story": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A friend asks why you stopped at this ordinary detail. You say…",
+        "zh": "朋友问为什么为这个普通细节停下，你会说……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "It repeats a shape I had not noticed across the scene.",
+            "zh": "它在场景里重复了我先前没留意的形状。"
+          },
+          "points": {
+            "pattern": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "It makes me curious about what happened before this picture.",
+            "zh": "它让我好奇画面出现之前发生过什么。"
+          },
+          "points": {
+            "story": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "It changes how I see the things arranged around it.",
+            "zh": "它改变了我看周围排列关系的方式。"
+          },
+          "points": {
+            "place": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "A wave in the next illustration rearranges the row. You…",
+        "zh": "下一幅插画里的浪重新排了那一列，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Let the change become the next part of the imagined journey.",
+            "zh": "把变化接成想象旅程的下一段。"
+          },
+          "points": {
+            "story": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Compare the new pattern with the earlier sketch.",
+            "zh": "把新图案与先前速写比较。"
+          },
+          "points": {
+            "pattern": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Enjoy the new arrangement without restoring the old one.",
+            "zh": "欣赏新排列，不急着复原旧样。"
+          },
+          "points": {
+            "place": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "At the end, your favorite souvenir is…",
+        "zh": "结束时，你最喜欢的纪念是……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A sketch that keeps the object in its original setting.",
+            "zh": "让物件仍处在原场景的速写。"
+          },
+          "points": {
+            "place": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A small page of shapes you can turn into a design later.",
+            "zh": "一小页以后可做设计的形状。"
+          },
+          "points": {
+            "pattern": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A tiny invented tale that began with one found detail.",
+            "zh": "从一个所见细节长出的微型虚构故事。"
+          },
+          "points": {
+            "story": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "pattern",
+      "title": {
+        "en": "The Shoreline Pattern Finder",
+        "zh": "潮线图案发现者"
+      },
+      "summary": {
+        "en": "Your beach picture gathers curves, stripes and intervals into a little visual collection. You can take an idea away without taking the object. The portrait follows the patterns you chose in this game rather than assigning a design talent.",
+        "zh": "你的海滩画面把曲线、纹路与间隔收成一小份视觉收藏。带走想法，不必带走物件。画像跟随游戏里所选图案，不评定设计天赋。"
+      },
+      "example": {
+        "en": "On an ordinary walk, you might sketch a repeated window shape and later use its rhythm in the border of a handmade card.",
+        "zh": "普通散步时，你可能画下重复的窗形，之后把那种节奏用在手工卡片边框。"
+      },
+      "strength": {
+        "en": "A pattern turns a small observation into something you can revisit and adapt while leaving the original scene available to others.",
+        "zh": "图案让小观察变成可回看、可改编的东西，也把原场景留给其他人。"
+      },
+      "tradeoff": {
+        "en": "Looking only for repetition can smooth away the odd details that make this particular place distinctive; an exception may be worth including.",
+        "zh": "只找重复，也可能抹平这处地方独有的细节；偶尔一个例外也值得收入。"
+      },
+      "experiment": {
+        "en": "Sketch a repeated shape from something already around you, then include one deliberate variation so the page keeps a little surprise.",
+        "zh": "从身边已有事物画一个重复形状，再添一个主动变化，让纸面保留一点惊喜。"
+      }
+    },
+    {
+      "id": "story",
+      "title": {
+        "en": "The Pebble-Postcard Writer",
+        "zh": "石子明信片作者"
+      },
+      "summary": {
+        "en": "Your shoreline detail becomes the beginning of an invented journey. You wonder about a before and an after, while keeping imagination separate from known history. The ending is a story-making invitation rather than proof that you can read an object’s past.",
+        "zh": "你的海岸细节变成虚构旅程的开头。你好奇之前与之后，也把想象和已知历史分开。结局邀请创作故事，不证明你能读出物件过去。"
+      },
+      "example": {
+        "en": "A chipped button in a craft box might inspire a fictional traveler’s note even when you know nothing about who originally used it.",
+        "zh": "手工盒里一颗缺口纽扣，也许能启发虚构旅人的便条，即使你并不知道原先谁用过它。"
+      },
+      "strength": {
+        "en": "An invented journey can make ordinary details memorable and give a short creative exercise a concrete starting point without needing a large plot.",
+        "zh": "虚构旅程能让普通细节难忘，也给短创作具体起点，不必先准备大情节。"
+      },
+      "tradeoff": {
+        "en": "An appealing story can sound like a fact if its imagined parts are not clear; a playful label helps another person enjoy it on the right terms.",
+        "zh": "好听故事若没标清想象部分，也可能被当事实；一个趣味标签能帮助他人按恰当方式欣赏。"
+      },
+      "experiment": {
+        "en": "Write three fictional sentences from an ordinary object’s viewpoint. Add a title that makes clear this is an invention, not a recovered history.",
+        "zh": "从普通物体视角写三句虚构短文，再取一个明确表明这是创作、不是历史复原的标题。"
+      }
+    },
+    {
+      "id": "place",
+      "title": {
+        "en": "The Leave-It-There Observer",
+        "zh": "原处观景者"
+      },
+      "summary": {
+        "en": "Your beachcombing portrait keeps the small object within the larger view. Its position, neighbors and changing arrangement are part of what interests you. The ending values context and does not turn a game choice into a claim of environmental virtue.",
+        "zh": "你的拾趣画像把小物件留在大景里。位置、邻近之物与变化排列，都是吸引你的部分。结局珍惜情境，不把游戏选择变成环保品德证明。"
+      },
+      "example": {
+        "en": "At a public display, you might sketch one object together with its neighboring labels and the space around it rather than isolating it in every frame.",
+        "zh": "看公共展陈时，你可能把一个物件连同旁边标签和周围空隙一起画下，不在每格都单独截出它。"
+      },
+      "strength": {
+        "en": "Keeping context in view can preserve relationships that disappear when a detail is separated from the arrangement that gave it meaning.",
+        "zh": "把情境留在视野里，能保留细节被单独摘出时容易消失的联系。"
+      },
+      "tradeoff": {
+        "en": "A wide view can make a favorite small feature hard to see; you can keep both a context sketch and a close-up without choosing only one.",
+        "zh": "全景也可能让喜欢的小特征难看清；情境速写与特写可以同时保留，不必二选一。"
+      },
+      "experiment": {
+        "en": "Make a quick wide sketch of a familiar arrangement, then add one close-up. Notice what each view includes and what it leaves outside the frame.",
+        "zh": "给一个熟悉排列画全景速写，再加一幅特写。看看各自包含了什么，又把什么留在画框外。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "pattern",
+    "story",
+    "place"
+  ]
+}

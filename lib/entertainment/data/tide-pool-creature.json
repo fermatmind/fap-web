@@ -1,0 +1,348 @@
+{
+  "slug": "tide-pool-creature",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "nature",
+  "title": {
+    "en": "Which Tide-Pool Neighbor Would You Be?",
+    "zh": "潮池邻居：你会是哪种小生物？"
+  },
+  "description": {
+    "en": "Six imagined low-tide situations about sharing shelter, making room and responding to a crowded pool. Meet your original tide-pool neighbor portrait.",
+    "zh": "在六个想象中的退潮场景里，选择如何共用遮蔽处、腾出空间、面对拥挤潮池，发现你的原创潮池邻居画像。"
+  },
+  "introduction": {
+    "en": "This pool is a tiny fictional neighborhood, not a lesson in marine biology. Choose how you would arrange its shared spaces. The animal names are story symbols, and the ending does not infer your personality from real animal behavior.",
+    "zh": "这里是虚构的小社区，不是海洋生物学课堂。选你愿意怎样安排共享空间。动物名只是故事符号，结局不会依据真实动物行为推断人格。"
+  },
+  "focus": {
+    "en": "Access to shared shelter and the difference between a common base, flexible movement and a protected nook.",
+    "zh": "共用遮蔽处时，公共据点、灵活移动与保留小角落之间的选择。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "The story pool has one shaded rock and several arrivals. You…",
+        "zh": "潮池故事里只有一块阴凉岩石，又来了几位邻居。你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Suggest turns so everyone can use the shade.",
+            "zh": "提议轮流，让大家都能用到阴凉。"
+          },
+          "points": {
+            "crab": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Look for several smaller shaded places nearby.",
+            "zh": "在附近寻找几处更小的阴影。"
+          },
+          "points": {
+            "shrimp": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Keep one quiet corner and mark where others can pass.",
+            "zh": "留一个安静角落，也标清他人通路。"
+          },
+          "points": {
+            "anemone": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "A new neighbor cannot tell which gaps are open. You…",
+        "zh": "新邻居不知道哪些石缝可进入，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Show two possible routes and let them choose.",
+            "zh": "指两条可选路线，让对方选。"
+          },
+          "points": {
+            "shrimp": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Make the shared entrance easy to recognize.",
+            "zh": "把共同入口标清楚。"
+          },
+          "points": {
+            "crab": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Explain which nook is private and which is open.",
+            "zh": "说明哪处是私人角落、哪处开放。"
+          },
+          "points": {
+            "anemone": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "Your favorite resting place is busy today. You prefer to…",
+        "zh": "今天喜欢的休息处很忙，你更愿意……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Use your smaller nook for a while.",
+            "zh": "先用自己较小的角落。"
+          },
+          "points": {
+            "anemone": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Arrange a later shared resting time.",
+            "zh": "约一个稍晚的共同休息时间。"
+          },
+          "points": {
+            "crab": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Try another part of the imaginary pool.",
+            "zh": "试试想象潮池的另一边。"
+          },
+          "points": {
+            "shrimp": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A path through the pool crosses a resting area. You…",
+        "zh": "一条穿过潮池的通路经过休息区，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Set a clear shared passing lane.",
+            "zh": "划清一条共同通道。"
+          },
+          "points": {
+            "crab": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Find an alternative route around it.",
+            "zh": "绕着它另找一条路线。"
+          },
+          "points": {
+            "shrimp": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Add a simple boundary around the resting nook.",
+            "zh": "给休息角落加一个简单边界。"
+          },
+          "points": {
+            "anemone": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Two groups want different amounts of company. You…",
+        "zh": "两群邻居想要的陪伴程度不同，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Create both a quiet nook and an open gathering spot.",
+            "zh": "同时留安静角落和开放聚处。"
+          },
+          "points": {
+            "anemone": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Suggest moving between smaller gatherings.",
+            "zh": "提议在几个小聚处之间自由走动。"
+          },
+          "points": {
+            "shrimp": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Agree on a shared gathering with an easy exit.",
+            "zh": "约一次共同聚会，也方便随时离开。"
+          },
+          "points": {
+            "crab": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "At the end of this pool story, what feels most satisfying?",
+        "zh": "潮池故事结束时，什么最让你满足？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The shared shelter has a workable arrangement.",
+            "zh": "共用遮蔽处有了可行安排。"
+          },
+          "points": {
+            "crab": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "There are several routes rather than one crowded center.",
+            "zh": "有几条可走路线，不只一个拥挤中心。"
+          },
+          "points": {
+            "shrimp": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Everyone knows where some personal space remains.",
+            "zh": "大家都知道哪里仍可保留个人空间。"
+          },
+          "points": {
+            "anemone": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "crab",
+      "title": {
+        "en": "The Common-Rock Crab",
+        "zh": "共用岩石小蟹"
+      },
+      "summary": {
+        "en": "Your fictional neighbor keeps returning to the common rock and making its use understandable. The portrait is about arranging shared access, not being the person who must solve every disagreement in a real group.",
+        "zh": "你的虚构邻居总会回到公共岩石，把使用方式安排明白。这幅画像说的是共用机会，不要求你在真实群体里解决每一次分歧。"
+      },
+      "example": {
+        "en": "In a shared craft room, you might suggest a simple turn system for the one large table instead of quietly claiming it for the whole afternoon.",
+        "zh": "在共用手工房，你可能为唯一的大桌子提议简单轮次，而不是默默占上一下午。"
+      },
+      "strength": {
+        "en": "A visible arrangement can reduce guessing and make a limited common resource easier for newcomers to approach.",
+        "zh": "可见的安排能减少猜测，也让新来者更容易使用有限的公共资源。"
+      },
+      "tradeoff": {
+        "en": "An arrangement that works once may need revision when the group changes; keeping it fair does not require you to police everybody.",
+        "zh": "一次可行的安排，会随群体变化而需要调整；保持公平不要求你监督每个人。"
+      },
+      "experiment": {
+        "en": "For one small shared resource, ask whether a turn or an agreed time would help, and invite the other users to shape the arrangement.",
+        "zh": "面对一项小型共用资源，可以问轮次或约定时间是否有用，也邀请其他使用者共同安排。"
+      }
+    },
+    {
+      "id": "shrimp",
+      "title": {
+        "en": "The Many-Paths Shrimp",
+        "zh": "多条路线小虾"
+      },
+      "summary": {
+        "en": "Your tide-pool portrait finds more than one way through a crowded space. You tend to spread the story across several small places rather than making every need compete at the same rock.",
+        "zh": "你的潮池画像会在拥挤空间里寻找不止一条路。你把故事分散到几个小地方，让需求不必都在同一块岩石上竞争。"
+      },
+      "example": {
+        "en": "When a common lounge is full, you might suggest two smaller tables for different activities instead of insisting everyone fit into one conversation.",
+        "zh": "公共休息室满了时，你可能提议两张小桌分别活动，不坚持所有人挤进同一场对话。"
+      },
+      "strength": {
+        "en": "Offering alternatives can lower pressure on the center and give people more than one comfortable way to take part.",
+        "zh": "提供替代选项，能减轻中心压力，也给参与者不止一种舒适加入方式。"
+      },
+      "tradeoff": {
+        "en": "Constantly moving around a problem can leave a genuinely unfair shared arrangement unchanged, so an alternative is not always the whole answer.",
+        "zh": "不断绕开问题，也可能让确实不公平的共同安排原样保留，替代路线不总是全部答案。"
+      },
+      "experiment": {
+        "en": "Notice one low-stakes situation with a crowded center. Offer a second option, then check whether anyone still needs the original arrangement addressed.",
+        "zh": "留意一个低风险的中心拥挤场景。提供第二选项后，也问问原来的安排是否仍需要处理。"
+      }
+    },
+    {
+      "id": "anemone",
+      "title": {
+        "en": "The Sheltered-Nook Anemone",
+        "zh": "守着小角落的海葵"
+      },
+      "summary": {
+        "en": "Your story neighbor makes room by keeping a recognizable nook. A clear private corner can sit beside an open path. The ending favors legible boundaries rather than permanent retreat from everyone else.",
+        "zh": "你的故事邻居通过保留一个可辨认的小角落来安顿空间。清楚的私人角落可以与开放通道并存。结局看重可读的边界，不意味着永远退出他人。"
+      },
+      "example": {
+        "en": "At a shared desk, you might label a small personal tray while leaving the central supplies available to everybody using the room.",
+        "zh": "在共用书桌上，你可能给自己的小托盘做标记，同时让中央用品继续供大家使用。"
+      },
+      "strength": {
+        "en": "Clear edges let people approach without guessing which objects or spaces are available and which need permission first.",
+        "zh": "清楚的边缘让人靠近时不用猜：哪些物品空间开放，哪些要先问许可。"
+      },
+      "tradeoff": {
+        "en": "A boundary can become too broad if it quietly absorbs space others also rely on; naming it gives everyone a chance to discuss the fit.",
+        "zh": "边界若悄悄吸收他人也需要的空间，可能过宽；说出来才有共同讨论的机会。"
+      },
+      "experiment": {
+        "en": "Name one small space or object you prefer to keep personal, and separately name something you are happy to share.",
+        "zh": "说清一个希望保留个人使用的小空间或物品，也分别指出一件愿意分享的东西。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "crab",
+    "shrimp",
+    "anemone"
+  ]
+}

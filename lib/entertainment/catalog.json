@@ -1,5 +1,39 @@
 [
   {
+    "slug": "beachcomber",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "nature",
+    "title": {
+      "en": "Beachcomber Quiz: What Catches Your Eye?",
+      "zh": "海边拾趣：什么会吸引你停下？"
+    },
+    "description": {
+      "en": "Six shoreline illustration choices about noticing patterns, tracing an object’s story and deciding what to leave in place. Find your beachcomber portrait.",
+      "zh": "在六个海岸插画场景里，留意图案、追想物件故事、决定把什么留在原处，发现你的海边拾趣画像。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "birdwatching-companion",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "nature",
+    "title": {
+      "en": "What Kind of Birdwatching Companion Are You?",
+      "zh": "观鸟同行：你会怎样分享一次发现？"
+    },
+    "description": {
+      "en": "Six choices in a fictional birdwatching club about waiting, recording a sighting and sharing it without making the outing a competition.",
+      "zh": "在虚构观鸟小组里做六次选择：等待、记录发现、分享见闻，让一次外出不必变成比赛。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "city-wanderer",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -17,6 +51,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "cloud-drift",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "nature",
+    "title": {
+      "en": "What Do You See in the Drifting Clouds?",
+      "zh": "看云小游戏：你会看见什么？"
+    },
+    "description": {
+      "en": "Six visual imagination choices turn drifting clouds into a picture, a moving scene or a space left open. No weather prediction or hidden-trait reading.",
+      "zh": "六次视觉想象，把浮云变成一张画面、一段移动场景，或一片留白。不预报天气，也不解读隐藏特质。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "coffee-break",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -28,6 +79,23 @@
     "description": {
       "en": "A six-question break-time quiz about a change of scene, a small sensory ritual, or easy company. No coffee required and no health claims.",
       "zh": "6道小憩情境题，看看你更想换个场景、享受一个感官小仪式，还是找人轻松聊聊。不必喝咖啡，不涉及健康判断。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "desert-oasis",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "nature",
+    "title": {
+      "en": "Design an Imaginary Oasis Rest Stop",
+      "zh": "设计你的想象绿洲歇脚站"
+    },
+    "description": {
+      "en": "Six fictional design choices about clear orientation, a memorable welcome and room to rest. Discover the rest stop your choices build.",
+      "zh": "六次虚构设计选择，安排清楚指引、值得记住的欢迎和可安静休息的位置，看看你会建出怎样的歇脚站。"
     },
     "minutes": 2,
     "questionCount": 6,
@@ -102,6 +170,57 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "firefly-evening",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "nature",
+    "title": {
+      "en": "The Paper-Firefly Evening",
+      "zh": "纸萤火的傍晚"
+    },
+    "description": {
+      "en": "Follow three choices through a temporary paper-light exhibition. Choose a final signal, a shared display or a quiet closing scene in an original story.",
+      "zh": "用三次选择走过临时纸灯展。在原创故事中，选择最后的信号、共同展示或安静闭场，完整结局免费。"
+    },
+    "minutes": 2,
+    "questionCount": 3,
+    "minQuestionCount": 3
+  },
+  {
+    "slug": "forest-soundtrack",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "nature",
+    "title": {
+      "en": "The Forest’s Missing Last Note",
+      "zh": "森林乐曲失去的最后一音"
+    },
+    "description": {
+      "en": "An original branching forest tale in three to four choices. Follow a broken rhythm to an echo, a chorus or a deliberate quiet ending.",
+      "zh": "用3至4次选择走进原创森林分支短篇。沿着断开的节奏，走向回声、合奏，或主动留下的安静结尾。"
+    },
+    "minutes": 2,
+    "questionCount": 4,
+    "minQuestionCount": 3
+  },
+  {
+    "slug": "garden-season",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "nature",
+    "title": {
+      "en": "Which Season Is Your Imaginary Garden In?",
+      "zh": "你的想象花园正在哪个季节？"
+    },
+    "description": {
+      "en": "Choose among six garden scenes about beginning, tending, gathering and resting. Find the season your choices give this fictional garden today.",
+      "zh": "在六个花园场景里，选择开始、照料、收集与休整，看看今天的选择会把这座虚构花园带到哪个季节。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "group-chat-role",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -117,6 +236,23 @@
     "minutes": 2,
     "questionCount": 6,
     "minQuestionCount": 6
+  },
+  {
+    "slug": "island-day",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "nature",
+    "title": {
+      "en": "One Day on Postcard Island",
+      "zh": "明信片岛的一天"
+    },
+    "description": {
+      "en": "Follow three choices through an original island story. A silent bell, an unfinished mural and a ferry ledger lead to three different keepsakes.",
+      "zh": "跟随三次选择走进原创小岛故事。无声的钟、未完成壁画与渡船簿，通向三件不同纪念。完整结局免费。"
+    },
+    "minutes": 2,
+    "questionCount": 3,
+    "minQuestionCount": 3
   },
   {
     "slug": "kitchen-improviser",
@@ -204,6 +340,23 @@
     "minQuestionCount": 2
   },
   {
+    "slug": "mountain-cabin",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "nature",
+    "title": {
+      "en": "Your Role in a Shared Mountain Cabin",
+      "zh": "山间小屋：你会怎样安顿这一晚？"
+    },
+    "description": {
+      "en": "Six fictional cabin choices about essential supplies, making the common room comfortable and agreeing on personal space. Find your shared-cabin portrait.",
+      "zh": "在六个虚构小屋场景里，准备基本用品、布置共同房间、约定个人空间，发现你会怎样安顿这一晚。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "museum-visitor",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -215,6 +368,23 @@
     "description": {
       "en": "Six exhibit choices reveal your visiting rhythm: looking closely, following connections, or making meaning together. Free portraits for a more personal museum day.",
       "zh": "6道展览情境题，看看你偏向细看一件、追踪关联，还是与人共同理解。免费获得更贴近自己的观展画像。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "night-garden",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "nature",
+    "title": {
+      "en": "What Would You Notice in the Night Garden?",
+      "zh": "夜色花园：你先留意什么？"
+    },
+    "description": {
+      "en": "Six illustrated night-garden scenes follow quiet sounds, changing shadows and tiny details. Discover your style of attention inside this fictional walk.",
+      "zh": "六幅夜间花园插画，跟随细小声音、变化影子和微小细节。发现你在这段虚构漫步里选择的注意方向。"
     },
     "minutes": 2,
     "questionCount": 6,
@@ -272,6 +442,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "rainy-window",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "nature",
+    "title": {
+      "en": "Your Rainy-Window Sketchbook",
+      "zh": "雨窗速写本：你会画下哪一层？"
+    },
+    "description": {
+      "en": "Six visual framing choices about a window’s foreground, reflections and the distant scene. Find the illustrated view your sketchbook keeps.",
+      "zh": "六次视觉取景选择，围绕窗前物、玻璃倒影与远处景象，看看速写本会留下哪一层画面。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "reading-ritual",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -283,6 +470,23 @@
     "description": {
       "en": "Six recreational reading scenes explore how you choose, pause, and return: one world, a trail of books, or a small recurring appointment. Full results free.",
       "zh": "6道休闲阅读情境题，看看你如何选书、停下与重新回来：沉入一个世界、串起几本书，还是保留小小的阅读约定。完整结果免费。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "river-crossing",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "nature",
+    "title": {
+      "en": "The Paper River: How Will You Cross?",
+      "zh": "纸上河流：你会怎么过河？"
+    },
+    "description": {
+      "en": "Six choices on a tabletop river map about testing a route, coordinating a crossing and choosing a workable pace. A fictional puzzle, not outdoor safety advice.",
+      "zh": "在桌面河流地图上做六次选择，试路线、协作过河、安排节奏。这是虚构小游戏，不提供真实户外安全建议。"
     },
     "minutes": 2,
     "questionCount": 6,
@@ -304,6 +508,23 @@
     "minutes": 2,
     "questionCount": 3,
     "minQuestionCount": 3
+  },
+  {
+    "slug": "snow-day",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "nature",
+    "title": {
+      "en": "Build a Snow-Day Sculpture in Your Imagination",
+      "zh": "雪日造型师：你会堆出什么？"
+    },
+    "description": {
+      "en": "Six illustrated snow-building choices about stable forms, surprising characters and a scene that can change. Discover your original snow-sculpture style.",
+      "zh": "六次插画堆雪选择，搭稳形状、创造角色、让场景继续变化。发现你的原创雪雕玩法，不需要真实下雪。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
   },
   {
     "slug": "souvenir-story",
@@ -340,6 +561,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "stargazing-role",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "nature",
+    "title": {
+      "en": "Your Role at an Imaginary Stargazing Night",
+      "zh": "想象观星夜：你会带来什么？"
+    },
+    "description": {
+      "en": "Six choices about a fictional sky gathering: finding patterns, giving them stories and making an evening easy to join. No astronomy knowledge required.",
+      "zh": "围绕一场虚构星空聚会做六次选择：找图案、讲故事、让夜晚容易参与。不需要天文学知识。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "storybook-narrator",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -351,6 +589,23 @@
     "description": {
       "en": "Six storytelling choices find your narrator: the close-up lens, the village chorus, or the sideways wink. A free style game, not a writing ability test.",
       "zh": "6道讲故事选择题，看看你的叙述者更像近景镜头、村庄合唱，还是侧着眨眼的旁白。免费风格游戏，不评价写作能力。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "tide-pool-creature",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "nature",
+    "title": {
+      "en": "Which Tide-Pool Neighbor Would You Be?",
+      "zh": "潮池邻居：你会是哪种小生物？"
+    },
+    "description": {
+      "en": "Six imagined low-tide situations about sharing shelter, making room and responding to a crowded pool. Meet your original tide-pool neighbor portrait.",
+      "zh": "在六个想象中的退潮场景里，选择如何共用遮蔽处、腾出空间、面对拥挤潮池，发现你的原创潮池邻居画像。"
     },
     "minutes": 2,
     "questionCount": 6,

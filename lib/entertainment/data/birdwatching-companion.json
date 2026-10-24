@@ -1,0 +1,348 @@
+{
+  "slug": "birdwatching-companion",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "nature",
+  "title": {
+    "en": "What Kind of Birdwatching Companion Are You?",
+    "zh": "观鸟同行：你会怎样分享一次发现？"
+  },
+  "description": {
+    "en": "Six choices in a fictional birdwatching club about waiting, recording a sighting and sharing it without making the outing a competition.",
+    "zh": "在虚构观鸟小组里做六次选择：等待、记录发现、分享见闻，让一次外出不必变成比赛。"
+  },
+  "introduction": {
+    "en": "Imagine a club looking at illustrated birds through a viewing window. Choose how you would take part when a brief sighting is easy to miss. You do not need species knowledge, and no result ranks your observation skill.",
+    "zh": "想象小组透过观察窗看插画里的鸟。一次短暂现身很容易错过，你会怎样参与？不需要鸟种知识，结果也不给观察能力排名。"
+  },
+  "focus": {
+    "en": "The difference between giving a sighting time, keeping a useful record and helping another observer find the view.",
+    "zh": "给一次现身留时间、保留有用记录，以及帮另一位观察者找到视野之间的选择。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Nothing appears in the first illustrated scene. You…",
+        "zh": "第一幅观察场景里暂时没有鸟，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Keep one comfortable viewing spot and wait a little.",
+            "zh": "选一个舒服观察点，稍等一会儿。"
+          },
+          "points": {
+            "waiter": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Note the time and where the group has looked.",
+            "zh": "记下时间与小组看过的位置。"
+          },
+          "points": {
+            "recorder": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Check that everyone can see through the window.",
+            "zh": "看看每个人能否透过窗看到。"
+          },
+          "points": {
+            "guide": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "A small bird appears on a far branch. You first…",
+        "zh": "远处树枝出现一只小鸟，你先……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Describe a nearby landmark so others can find it.",
+            "zh": "用旁边地标指给其他人看。"
+          },
+          "points": {
+            "guide": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Stay with the view for a few unhurried moments.",
+            "zh": "不急着移开，再看几刻。"
+          },
+          "points": {
+            "waiter": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Sketch the branch location before the bird moves.",
+            "zh": "先画下树枝位置，以免它移开。"
+          },
+          "points": {
+            "recorder": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "Someone missed the sighting and feels left out. You…",
+        "zh": "有人错过了现身，觉得没跟上，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Offer your simple note without making it a scorecard.",
+            "zh": "分享简单记录，不把它当成绩单。"
+          },
+          "points": {
+            "recorder": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Offer the clearer viewing spot for the next panel.",
+            "zh": "把更清楚的观察点留给下一幅画。"
+          },
+          "points": {
+            "guide": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Sit with them for another short quiet look.",
+            "zh": "陪对方再安静看一小会儿。"
+          },
+          "points": {
+            "waiter": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "The club has a page for today’s discovery. You add…",
+        "zh": "小组有一页今日发现记录，你会加……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A few details you could actually make out.",
+            "zh": "几处确实看清的细节。"
+          },
+          "points": {
+            "recorder": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A note that it was worth slowing down for.",
+            "zh": "一笔说明：这次值得慢下来。"
+          },
+          "points": {
+            "waiter": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Directions that help the next person locate the branch.",
+            "zh": "能帮下一人找到树枝的指引。"
+          },
+          "points": {
+            "guide": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Another observer wants a different window. You…",
+        "zh": "另一位观察者想换窗口，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Help make the switch without blocking anyone’s view.",
+            "zh": "帮忙换位置，不挡住其他人的视野。"
+          },
+          "points": {
+            "guide": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Keep your spot if you still enjoy watching there.",
+            "zh": "自己若仍喜欢，就继续在原处看。"
+          },
+          "points": {
+            "waiter": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Mark which views came from which window.",
+            "zh": "注明不同窗口分别看见了什么。"
+          },
+          "points": {
+            "recorder": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "At the end, what would you most like the group to keep?",
+        "zh": "结束时，你最希望小组保留什么？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A shared memory that nobody had to rush to earn.",
+            "zh": "一份不必争抢才配拥有的共同记忆。"
+          },
+          "points": {
+            "waiter": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A clear, modest record of what was actually seen.",
+            "zh": "一份清楚适度的实际见闻记录。"
+          },
+          "points": {
+            "recorder": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "An easier way for a new person to join the next look.",
+            "zh": "让新来者下次更容易加入的办法。"
+          },
+          "points": {
+            "guide": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "waiter",
+      "title": {
+        "en": "The Patient-Window Companion",
+        "zh": "慢看窗边同行者"
+      },
+      "summary": {
+        "en": "Your club story makes room for a sighting to happen without turning waiting into wasted time. You choose a view you can stay with. The portrait follows your imagined outing, not a claim that you are always patient.",
+        "zh": "你的小组故事让现身有时间发生，不把等待自动算作浪费。你选一个能待住的视野。画像对应想象中的外出，不宣称你永远耐心。"
+      },
+      "example": {
+        "en": "At a small public demonstration, you might enjoy watching one stage unfold instead of moving to the next station before anything has had time to happen.",
+        "zh": "看一场小型公开演示时，你可能愿意看一段过程展开，不在事情刚开始就赶到下一站。"
+      },
+      "strength": {
+        "en": "An unhurried presence can make a shared activity feel less like collecting achievements and more like spending time with what is there.",
+        "zh": "不催促的在场，让共同活动少一点收集成就，多一点与眼前之物共处。"
+      },
+      "tradeoff": {
+        "en": "Waiting feels different to different people; your comfortable pause may need an easy exit for someone who would rather move on.",
+        "zh": "不同人对等待感受不同；你舒服的停留，也应让想继续走的人方便离开。"
+      },
+      "experiment": {
+        "en": "Choose one optional activity to spend a few unhurried minutes with. Decide your own stopping point rather than treating staying longer as automatically better.",
+        "zh": "选一项可选活动，不赶时间地待几分钟。自己决定停止点，不把更久自动视为更好。"
+      }
+    },
+    {
+      "id": "recorder",
+      "title": {
+        "en": "The Field-Note Companion",
+        "zh": "随手记录同行者"
+      },
+      "summary": {
+        "en": "Your sighting becomes a small record someone can return to. You keep the location and the details you actually noticed, leaving the rest undecided. The ending values a useful trace rather than a complete or impressive collection.",
+        "zh": "你的发现变成可回看的小记录。你保留位置与实际注意到的细节，让其余部分保持未定。结局珍惜有用痕迹，不追求完整或令人印象深刻的收藏。"
+      },
+      "example": {
+        "en": "After seeing a temporary display, you might sketch its layout and one memorable detail so a friend can understand what caught your attention.",
+        "zh": "看完临时展陈，你可能画下布局与一个难忘细节，让朋友明白什么吸引了你。"
+      },
+      "strength": {
+        "en": "A modest record helps memory stay inspectable and shareable without requiring another person to have been in exactly the same place.",
+        "zh": "适度记录让记忆可查看、可分享，不要求对方当时必须站在同一处。"
+      },
+      "tradeoff": {
+        "en": "Recording can take attention away from the moment itself. A short note may be enough, and some enjoyable views can remain unrecorded.",
+        "zh": "记录也会把注意从当下移开。短短一笔可能已够，有些愉快画面也可以不留档。"
+      },
+      "experiment": {
+        "en": "Keep one observation as three plain details, then stop documenting and return to the activity. Let the note serve the experience rather than replace it.",
+        "zh": "把一次观察记成三个朴素细节，然后停下记录、回到活动。让笔记服务体验，不代替体验。"
+      }
+    },
+    {
+      "id": "guide",
+      "title": {
+        "en": "The Shared-View Companion",
+        "zh": "共享视野同行者"
+      },
+      "summary": {
+        "en": "Your imagined outing includes the person who has not yet found the branch. You make the view easier to locate and participation easier to enter. The result does not appoint you permanent guide or make other people’s enjoyment your responsibility.",
+        "zh": "你想象的外出包含那位还没找到树枝的人。你让视野容易定位、参与容易进入。结果不会任命你为永久向导，也不把他人的愉快全交给你负责。"
+      },
+      "example": {
+        "en": "At a shared art table, you might turn a demonstration slightly so the person at the end can see, then return to your own making.",
+        "zh": "在共用美术桌，你可能把演示稍转向桌尾的人，让对方看见后，再继续自己的创作。"
+      },
+      "strength": {
+        "en": "A simple orientation cue can lower the cost of joining and let someone take part without pretending they already know where to look.",
+        "zh": "一个简单定位提示，能降低加入成本，让人不用假装已知道看哪里也能参与。"
+      },
+      "tradeoff": {
+        "en": "Helping without asking can interrupt someone who was enjoying a different view. An offer works best when declining it is comfortable.",
+        "zh": "没问就帮忙，也可能打断正享受另一种视野的人。允许轻松拒绝，帮助才更合适。"
+      },
+      "experiment": {
+        "en": "Offer one concrete orientation cue in a shared activity, then ask whether the person wants more help or would prefer to explore on their own.",
+        "zh": "在共同活动里提供一个具体定位提示，再问对方想继续获得帮助，还是更愿意自己探索。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "waiter",
+    "recorder",
+    "guide"
+  ]
+}
