@@ -119,8 +119,8 @@ export function FunQuizClient({ quiz, locale }: { quiz: FunQuiz; locale: Locale 
 
   return <section id="play" aria-label={zh ? "开始娱乐测试" : "Play the quiz"} className="my-8 rounded-xl border border-violet-200 bg-white p-5 shadow-sm sm:p-8">
     {stage === "welcome" && <>
-      <h2 className="text-2xl font-semibold">{zh ? "准备好进入故事了吗？" : "Ready to step into the story?"}</h2>
-      <p className="my-4 text-slate-600">{zh ? "按你现在最愿意的方式选择。没有正确答案，完整结果直接显示；不会提交六测答卷。" : "Choose what appeals to you today. There are no right answers, and your complete result appears here immediately."}</p>
+      <h2 className="text-2xl font-semibold">{zh ? "准备好开始了吗？" : "Ready to try the quiz?"}</h2>
+      <p className="my-4 text-slate-600">{zh ? "请按每题说明选择。没有标准答案，完整结果直接显示；不会提交六测答卷。" : "Follow each question’s wording. There are no right answers, and your complete result appears here immediately."}</p>
       <div className="flex flex-wrap gap-3"><button className={`${action} bg-violet-700 text-white`} onClick={() => start()}>{zh ? "开始测试" : "Start quiz"}</button>
         {draft && <button className={action} onClick={() => start(true)}>{zh ? "恢复本标签页进度" : "Resume this tab’s progress"}</button>}
         {draft && <button className={action} onClick={clearDraft}>{zh ? "清除已存进度" : "Delete saved progress"}</button>}
@@ -155,7 +155,7 @@ export function FunQuizClient({ quiz, locale }: { quiz: FunQuiz; locale: Locale 
           {([ ["example", zh ? "生活里的一个例子" : "A small everyday example"], ["strength", zh ? "你带来的好处" : "What you bring"], ["tradeoff", zh ? "也有这样的取舍" : "The tradeoff"], ["experiment", zh ? "可以尝试的小行动" : "One thing to try"] ] as const).map(([key, label]) => <section key={key}><h3 className="font-semibold">{label}</h3><p className="mt-2 leading-8 text-slate-700">{portrait[key][locale]}</p></section>)}
         </article>;
       })}
-      <p className="mt-6 border-t pt-5 text-sm leading-6 text-slate-600">{zh ? "结果来自本故事的选项规则，不是人格诊断、能力分数或职业建议，也不能换算为 MBTI 类型。今天的情境与偏好可能影响选择。" : "This result follows this story’s choice rules. It is not a diagnosis, ability score, career recommendation, or MBTI equivalent. Your current mood and context can change your choices."}</p>
+      <p className="mt-6 border-t pt-5 text-sm leading-6 text-slate-600">{zh ? "结果来自本测试的选项规则，不是人格诊断、能力分数或职业建议，也不能换算为 MBTI 类型。今天的情境与偏好可能影响选择。" : "This result follows this quiz’s choice rules. It is not a diagnosis, ability score, career recommendation, or MBTI equivalent. Your current mood and context can change your choices."}</p>
       <div className="mt-6 flex flex-wrap gap-3"><button className={action} onClick={copy}>{zh ? "复制结果与链接" : "Copy result and link"}</button><button className={action} onClick={() => start()}>{zh ? "重新测试" : "Retake quiz"}</button></div>
       {copyFallback && <textarea aria-label={zh ? "手动复制结果" : "Result text for manual copying"} readOnly value={copyFallback} className="mt-4 min-h-40 w-full rounded border p-3" onFocus={event => event.target.select()} />}
       <section className="mt-10 border-t pt-7" aria-label={zh ? "可选下一步" : "Optional next steps"}>

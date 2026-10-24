@@ -1,0 +1,348 @@
+{
+  "slug": "potluck-contribution",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "social",
+  "title": {
+    "en": "What Is Your Potluck Contribution Style?",
+    "zh": "聚餐带一道菜：你会怎样接上这一桌？"
+  },
+  "description": {
+    "en": "Six fictional potluck choices about fitting a shared menu, making a contribution easy to handle and explaining what you brought. Find your table contribution portrait.",
+    "zh": "六次虚构聚餐选择，搭配共同菜单、让所带贡献容易交接、说明自己带了什么，发现你会怎样接上这一桌。"
+  },
+  "introduction": {
+    "en": "Imagine planning one contribution to a friendly potluck. The quiz concerns coordination and presentation, not cooking skill, nutrition or dietary advice. Choose what you would arrange when the host and other guests already have their own plans.",
+    "zh": "想象给友好聚餐带一份东西。测试只谈协调与呈现，不测厨艺，也不提供营养或饮食建议。主人与其他来客已有计划，你会怎样接上？"
+  },
+  "focus": {
+    "en": "Fitting a contribution into a shared plan through menu coordination, practical handover or clear information.",
+    "zh": "通过菜单协调、实际交接或清楚信息，把一份贡献接入共同安排。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "The host shares a list of dishes already planned. You first…",
+        "zh": "主人发来已计划菜品清单，你先……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Look for a gap your contribution could complement.",
+            "zh": "找一处自己的贡献可补上的空位。"
+          },
+          "points": {
+            "menu": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Check how much space and serving equipment will be available.",
+            "zh": "问能放多少、有哪些上桌工具。"
+          },
+          "points": {
+            "handover": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask what information the host wants with each contribution.",
+            "zh": "问主人希望每份贡献附什么信息。"
+          },
+          "points": {
+            "note": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "Two guests plan similar dishes. You…",
+        "zh": "两位来客打算带相近菜品，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask whether a different contribution would fit the table better.",
+            "zh": "问换一种贡献是否更配这一桌。"
+          },
+          "points": {
+            "menu": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Clarify portions and containers so the similar dishes can coexist if wanted.",
+            "zh": "说清份量和容器，若愿意也能并存。"
+          },
+          "points": {
+            "handover": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Make the difference between the two dishes easy to understand.",
+            "zh": "让两道菜的不同容易看懂。"
+          },
+          "points": {
+            "note": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "Your contribution is ready to bring. You most want to prepare…",
+        "zh": "要带的东西准备好了，你最想先备好……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A short accurate note explaining what it is.",
+            "zh": "一张简短准确、说明是什么的便条。"
+          },
+          "points": {
+            "note": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A simple arrival handover that does not add work for the host.",
+            "zh": "不额外给主人添活的简单抵达交接。"
+          },
+          "points": {
+            "handover": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A message showing how it fits with the agreed menu.",
+            "zh": "一条说明如何配合已约菜单的消息。"
+          },
+          "points": {
+            "menu": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "The host changes the table arrangement. You…",
+        "zh": "主人调整桌面安排，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Adapt the container or serving plan to the space actually offered.",
+            "zh": "按实际给出的空间调整容器或上桌安排。"
+          },
+          "points": {
+            "handover": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Check whether the changed table still needs your planned contribution.",
+            "zh": "确认变化后是否仍需要原先那份贡献。"
+          },
+          "points": {
+            "menu": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Update the small note so it matches how the dish is now presented.",
+            "zh": "更新小便条，让它与现有呈现相符。"
+          },
+          "points": {
+            "note": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "A guest asks a detail you do not know about what you brought. You…",
+        "zh": "来客问所带东西的一项细节，你并不知道，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Say what you know and what you cannot confirm.",
+            "zh": "分清自己知道与不能确认的。"
+          },
+          "points": {
+            "note": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask the host whether another available option would be easier for the guest.",
+            "zh": "问主人是否有别的现成选项更方便对方。"
+          },
+          "points": {
+            "menu": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Help the person locate the item or information without taking over their choice.",
+            "zh": "帮对方找到东西或信息，不接管选择。"
+          },
+          "points": {
+            "handover": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What makes your contribution feel well received?",
+        "zh": "什么让你觉得这份贡献接得顺？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "It arrived with little extra arranging needed from anyone else.",
+            "zh": "抵达后不太需要别人额外安排。"
+          },
+          "points": {
+            "handover": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "It fitted the shared table rather than competing with everything on it.",
+            "zh": "它配合共同餐桌，不与桌上一切竞争。"
+          },
+          "points": {
+            "menu": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "People could understand what was offered without guessing.",
+            "zh": "大家不用猜就能明白提供了什么。"
+          },
+          "points": {
+            "note": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "menu",
+      "title": {
+        "en": "The Menu-Connection Contributor",
+        "zh": "菜单接续贡献者"
+      },
+      "summary": {
+        "en": "Your potluck contribution starts with the table that already exists. You look for a useful fit rather than an isolated impressive dish. The portrait values coordination in this fictional gathering, not culinary skill or how generous a person you are.",
+        "zh": "你的聚餐贡献从已有餐桌开始。你找有用搭配，不只追求单独惊艳的一道菜。画像珍惜虚构聚会里的协调，不评厨艺或慷慨程度。"
+      },
+      "example": {
+        "en": "If several substantial dishes are already planned, you might ask the host whether a simpler contrasting contribution would be useful before deciding what to bring.",
+        "zh": "若已有几份丰盛菜品计划，你可能先问主人是否需要一种更简单、不同的贡献，再决定带什么。"
+      },
+      "strength": {
+        "en": "Seeing the whole shared plan can prevent accidental duplication and make one modest contribution feel purposeful within a group effort.",
+        "zh": "看见整体共同计划，能减少无意重复，也让适度贡献在群体合作中有作用。"
+      },
+      "tradeoff": {
+        "en": "Fitting the plan too carefully can leave your own enjoyment out. A useful contribution can also be something you genuinely want to make or bring.",
+        "zh": "过分配合计划也可能漏掉自己的乐趣。有用贡献也可以是你确实想做或想带的。"
+      },
+      "experiment": {
+        "en": "Before one group contribution, ask what would fit and name one option you would enjoy offering. Look for an overlap rather than silently doing everything requested.",
+        "zh": "做一次群体贡献前，问什么合适，也说一个自己愿意提供的选项。找重合，不默默包下所有要求。"
+      }
+    },
+    {
+      "id": "handover",
+      "title": {
+        "en": "The Easy-Handover Contributor",
+        "zh": "顺手交接贡献者"
+      },
+      "summary": {
+        "en": "Your contribution includes the practical moment when it arrives. Space, containers and a clear handover help the host receive it without inventing another task. The result does not make you the person who must arrange the whole gathering.",
+        "zh": "你的贡献也包含抵达的实际瞬间。空间、容器与清楚交接，让主人不用临时再发明任务就能接收。结果不让你包办整场聚会。"
+      },
+      "example": {
+        "en": "For a communal craft display, you might bring your piece in a container that is easy to place and explain whether it needs to return home with you.",
+        "zh": "共同手作展示时，你可能用容易摆放的容器带作品，也说明是否需要随你带回。"
+      },
+      "strength": {
+        "en": "A manageable handover respects the work already happening around a shared event and lets the contribution become usable without much hidden coordination.",
+        "zh": "容易处理的交接照顾共同活动里已有工作，也让贡献无需大量隐形协调就能使用。"
+      },
+      "tradeoff": {
+        "en": "Preparing for every possible logistical detail can become more work than the contribution itself. Checking the few actual constraints is often enough.",
+        "zh": "为所有可能后勤细节预备，可能比贡献本身更累。核清少数实际限制，往往已够。"
+      },
+      "experiment": {
+        "en": "For one shared event, ask where your contribution should go and what needs to happen afterward. Keep the handover as simple as the answers allow.",
+        "zh": "一次共同活动前，问自己的贡献放哪、之后要做什么，再按答案把交接尽量做简单。"
+      }
+    },
+    {
+      "id": "note",
+      "title": {
+        "en": "The Clear-Note Contributor",
+        "zh": "清楚便条贡献者"
+      },
+      "summary": {
+        "en": "Your table portrait puts understandable information beside what you offer. A small accurate note can replace repeated guessing and questions. This ending concerns clarity, and it does not claim that a label can guarantee suitability for every guest.",
+        "zh": "你的餐桌画像把易懂信息放在所提供东西旁。一张准确小便条能减少反复猜测与询问。结局只谈清楚，不宣称标签能保证适合每位来客。"
+      },
+      "example": {
+        "en": "At a shared hobby table, you might label the materials you actually brought and say plainly when you do not know a detail someone asks about.",
+        "zh": "共同爱好桌上，你可能标清自己实际带来的材料，被问到不知道的细节时也直接说明。"
+      },
+      "strength": {
+        "en": "Accurate bounded information gives another person a better basis for their own choice without requiring you to decide on their behalf.",
+        "zh": "准确且有边界的信息，给别人自主选择更好依据，不要求你代为决定。"
+      },
+      "tradeoff": {
+        "en": "A long note can hide the most useful detail. Keeping the explanation short also makes the unknown parts easier to notice.",
+        "zh": "便条过长会藏住最有用细节。简短说明，也让未知部分更容易被看见。"
+      },
+      "experiment": {
+        "en": "Write one small contribution note with two parts: what you can confirm and any relevant detail you cannot. Let the recipient choose what to do with it.",
+        "zh": "给一份小贡献写两部分便条：能确认什么，以及有哪些相关细节不能确认。让接收者自己选怎么用。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "menu",
+    "handover",
+    "note"
+  ]
+}

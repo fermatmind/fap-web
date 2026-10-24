@@ -1,0 +1,348 @@
+{
+  "slug": "campfire-storyteller",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "social",
+  "title": {
+    "en": "Your Role in a Circle of Storytellers",
+    "zh": "围坐讲故事：你会怎样接住这一圈？"
+  },
+  "description": {
+    "en": "Six original spoken-story choices about suspense, a well-timed joke and letting others add a line. Find the role you choose around this imaginary story circle.",
+    "zh": "六次原创口述故事选择，铺悬念、接一个时机合适的笑点、让别人添一句，发现你会怎样参与想象故事圈。"
+  },
+  "introduction": {
+    "en": "Imagine a comfortable group telling made-up stories together. The campfire is just the setting of the tale. Choose how you would shape a short spoken moment, with room for different tastes and for anyone to pass.",
+    "zh": "想象一群舒服围坐的人一起讲编造故事，篝火只是故事布景。你会怎样安排一小段口述时刻？不同口味都可存在，任何人也可跳过。"
+  },
+  "focus": {
+    "en": "Shaping a live story moment through anticipation, comic timing or a contribution shared around the circle.",
+    "zh": "通过期待、笑点时机或围坐者的共同贡献，塑造现场讲述的一刻。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "You are invited to begin a short tale. You choose…",
+        "zh": "受邀开一个短故事，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One unexplained detail that makes listeners curious.",
+            "zh": "一个尚未解释、让人好奇的细节。"
+          },
+          "points": {
+            "suspense": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A familiar situation with one playful twist.",
+            "zh": "一个熟悉场景，加一点有趣转折。"
+          },
+          "points": {
+            "humor": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A simple opening that the next person can continue.",
+            "zh": "方便下一人续接的简单开头。"
+          },
+          "points": {
+            "circle": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The group is leaning in. Your next move is…",
+        "zh": "大家正听进去，你接着会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Pause just before revealing the surprising detail.",
+            "zh": "在揭开意外细节前短暂停一下。"
+          },
+          "points": {
+            "suspense": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Let a small joke release the tension.",
+            "zh": "用一个小笑点松一松。"
+          },
+          "points": {
+            "humor": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Offer the next line to someone who wants a turn.",
+            "zh": "把下一句交给愿意接的人。"
+          },
+          "points": {
+            "circle": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "A listener asks for a lighter story. You…",
+        "zh": "有位听者想听轻松一点，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Turn the mysterious noise into something ordinary and funny.",
+            "zh": "把神秘声响转成普通又好笑的东西。"
+          },
+          "points": {
+            "humor": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Keep curiosity but remove the frightening part.",
+            "zh": "保留好奇，去掉吓人的部分。"
+          },
+          "points": {
+            "suspense": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask what sort of shared continuation would feel comfortable.",
+            "zh": "问怎样共同续接会舒服些。"
+          },
+          "points": {
+            "circle": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "Another person adds an unexpected line. You…",
+        "zh": "另一人添了意外的一句，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Use it as the next question the tale needs to answer.",
+            "zh": "把它当故事接下来要回答的问题。"
+          },
+          "points": {
+            "suspense": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Echo its funny detail once without making the person the joke.",
+            "zh": "接一次有趣细节，不拿对方本人做笑话。"
+          },
+          "points": {
+            "humor": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Let their contribution change where the group takes the story.",
+            "zh": "让这份贡献改变共同故事方向。"
+          },
+          "points": {
+            "circle": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The story needs to finish soon. You prefer…",
+        "zh": "故事快要收尾，你更愿……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A last round where willing people add one short sentence.",
+            "zh": "愿意的人各添一个短句的最后一轮。"
+          },
+          "points": {
+            "circle": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A compact reveal that answers the opening question.",
+            "zh": "简短揭晓，回答开头问题。"
+          },
+          "points": {
+            "suspense": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A final playful reversal that ends on a light beat.",
+            "zh": "最后一次趣味反转，轻轻收住。"
+          },
+          "points": {
+            "humor": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What would you like the circle to remember?",
+        "zh": "你希望这一圈记住什么？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The moment a small setup paid off with a laugh.",
+            "zh": "一个小铺垫终于换来笑声的瞬间。"
+          },
+          "points": {
+            "humor": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The question everyone wanted to hear answered.",
+            "zh": "大家都想听到答案的那个问题。"
+          },
+          "points": {
+            "suspense": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "How different voices made one little story together.",
+            "zh": "不同声音怎样一起做成一个小故事。"
+          },
+          "points": {
+            "circle": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "suspense",
+      "title": {
+        "en": "The Curious-Pause Storyteller",
+        "zh": "好奇停顿讲述者"
+      },
+      "summary": {
+        "en": "Your spoken tale gathers attention around a question and a carefully placed pause. You enjoy giving listeners something to wait for, then paying it off. The result concerns story timing in this game, not your ability to influence people.",
+        "zh": "你的口述故事用一个问题与恰好停顿聚住注意。你喜欢给听者一个可期待之处，再回应它。结果只谈游戏里的讲述时机，不评影响他人的能力。"
+      },
+      "example": {
+        "en": "You might begin with a missing garden sign, reveal two ordinary clues and then explain its unexpected destination before the short story ends.",
+        "zh": "你可能从一块不见的花园牌开始，给两条普通线索，再在短篇结束前说明它意外去了哪里。"
+      },
+      "strength": {
+        "en": "A clear question can give a short story direction and make small details feel connected without requiring a complicated plot.",
+        "zh": "清楚问题能给短故事方向，让小细节相连，不必复杂情节。"
+      },
+      "tradeoff": {
+        "en": "Delaying the answer too long can turn curiosity into frustration. A good pause depends on what these listeners actually enjoy, not a fixed dramatic rule.",
+        "zh": "拖太久会让好奇变烦躁。好的停顿取决于眼前听者喜欢什么，不是固定戏剧规则。"
+      },
+      "experiment": {
+        "en": "Tell a one-minute invented story with one question and one answer. Keep the pause short enough that the payoff still belongs to the same small scene.",
+        "zh": "讲一分钟虚构故事，只留一个问题与一个答案。停顿短一点，让揭晓仍在同一小场景里。"
+      }
+    },
+    {
+      "id": "humor",
+      "title": {
+        "en": "The Light-Turn Storyteller",
+        "zh": "轻巧转折讲述者"
+      },
+      "summary": {
+        "en": "Your circle finds a playful turn in something familiar. A small reversal can release tension without making another person the target. The ending favors a light spoken beat rather than declaring you the funny one in every group.",
+        "zh": "你的故事圈在熟悉事里找到趣味转折。小反转能放松气氛，不必把另一个人当目标。结局偏向轻巧口述节拍，不宣称你在所有群体里都负责搞笑。"
+      },
+      "example": {
+        "en": "A mysterious tapping in your invented tale might turn out to be a very serious pigeon checking whether its name is on the guest list.",
+        "zh": "你编的故事里，神秘敲击也许来自一只很认真的鸽子，正在确认宾客名单上有没有它。"
+      },
+      "strength": {
+        "en": "A gentle comic turn can make an ordinary scene memorable and offer a shared release when everyone is comfortable with the tone.",
+        "zh": "温和趣味转折能让普通场景难忘，也在大家接受这种口味时提供共同放松。"
+      },
+      "tradeoff": {
+        "en": "A joke can miss even with good intentions. Letting it pass without explaining why others should laugh can keep the story circle comfortable.",
+        "zh": "即便善意，笑话也会没接住。允许它过去，不解释别人为何该笑，故事圈更容易自在。"
+      },
+      "experiment": {
+        "en": "Write a three-sentence fictional scene with one ordinary detail that turns unexpectedly playful. Keep real people’s vulnerabilities outside the joke.",
+        "zh": "写三句虚构场景，让一个普通细节意外有趣起来。不把真人的脆弱处放进笑点。"
+      }
+    },
+    {
+      "id": "circle",
+      "title": {
+        "en": "The Shared-Line Storyteller",
+        "zh": "共同续句讲述者"
+      },
+      "summary": {
+        "en": "Your story is something the circle can build rather than a performance it must only watch. You leave a line for the next willing voice. The portrait values participation while keeping passing or simply listening equally legitimate.",
+        "zh": "你的故事是这一圈可共同搭建的东西，不只是必须观看的表演。你给下位愿意的声音留一句。画像珍惜参与，也同样允许跳过或只听。"
+      },
+      "example": {
+        "en": "You might start with a fictional parcel arriving at the wrong library, then invite each interested listener to add one possible item inside it.",
+        "zh": "你可能从虚构包裹寄错图书馆开头，邀请每位有兴趣的听者各添一种里面可能装的东西。"
+      },
+      "strength": {
+        "en": "A simple shared prompt can lower the effort of joining and let different styles become part of the same small creative moment.",
+        "zh": "简单共同提示能降低加入所需精力，也让不同风格进入同一个小创作时刻。"
+      },
+      "tradeoff": {
+        "en": "An open story can lose its ending if every person must add another branch. A chosen final round can keep collaboration enjoyable and bounded.",
+        "zh": "如果每个人都必须再添分支，开放故事会丢掉结尾。约定最后一轮，能让合作有趣也有边界。"
+      },
+      "experiment": {
+        "en": "Invite a willing group to make a tiny story with one sentence each and an explicit option to pass. Agree on the final round before starting.",
+        "zh": "邀请愿意的一小组每人一句做微型故事，明确也可跳过。开始前约好最后一轮。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "suspense",
+    "humor",
+    "circle"
+  ]
+}

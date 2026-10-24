@@ -1,0 +1,348 @@
+{
+  "slug": "dinner-host",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "social",
+  "title": {
+    "en": "What Kind of Casual Dinner Host Are You?",
+    "zh": "轻松请吃饭：你会怎样安排这一桌？"
+  },
+  "description": {
+    "en": "Six imagined dinner choices about a flowing meal, flexible combinations and keeping preparation small enough to enjoy your own invitation.",
+    "zh": "六次想象晚餐选择，安排用餐节奏、灵活组合，也让准备规模小到自己能享受这份邀请。"
+  },
+  "introduction": {
+    "en": "Picture a casual fictional dinner with people you know. The quiz looks at the shape of the meal and the host’s workload; it is not a cooking, nutrition or dietary-suitability test. Different arrangements can all make a pleasant evening.",
+    "zh": "想象与熟人共享一顿轻松虚构晚餐。题目只看用餐形状与主人工作量，不测厨艺、营养或饮食适合程度。不同安排都可以让夜晚愉快。"
+  },
+  "focus": {
+    "en": "Hosting through a clear sequence, a table of choices or a deliberately simple preparation plan.",
+    "zh": "通过清楚顺序、一桌可选组合或主动简化的准备计划来请客。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "You begin planning the imaginary meal. You first decide…",
+        "zh": "开始计划想象晚餐，你先决定……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A simple order in which the parts of the meal will arrive.",
+            "zh": "各部分怎样按简单顺序上桌。"
+          },
+          "points": {
+            "flow": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A few components people can combine in different ways.",
+            "zh": "几样可让人自行搭配的部分。"
+          },
+          "points": {
+            "choice": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The smallest preparation plan that still sounds enjoyable.",
+            "zh": "仍让人期待的最小准备计划。"
+          },
+          "points": {
+            "simple": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "Several guests have different tastes. You prefer…",
+        "zh": "几位来客口味不同，你更愿……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A small range of clearly presented options.",
+            "zh": "几种清楚呈现的可选项。"
+          },
+          "points": {
+            "choice": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "One manageable shared meal agreed in advance.",
+            "zh": "提前约好一顿容易准备的共同餐。"
+          },
+          "points": {
+            "simple": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A sequence with a moment to choose between two parts.",
+            "zh": "在顺序里留一次两者可选的时刻。"
+          },
+          "points": {
+            "flow": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "Preparation is taking longer than expected. You…",
+        "zh": "准备比预想花时间，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Remove an extra dish so you can sit with the guests.",
+            "zh": "去掉额外一道，让自己也能坐下来。"
+          },
+          "points": {
+            "simple": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Reshape the order so the ready part can begin the evening.",
+            "zh": "调整顺序，让已备好部分先开启夜晚。"
+          },
+          "points": {
+            "flow": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Use a simpler set of components that still gives some choice.",
+            "zh": "改成更简单但仍可搭配的几个部分。"
+          },
+          "points": {
+            "choice": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "The first guests arrive early. You…",
+        "zh": "第一批来客早到，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Give them a clear sense of how the meal will unfold.",
+            "zh": "简单说明这顿饭接着怎么展开。"
+          },
+          "points": {
+            "flow": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Keep the welcome easy without adding another preparation task.",
+            "zh": "轻松欢迎，不再增加准备任务。"
+          },
+          "points": {
+            "simple": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Show what is available now and what will be offered later.",
+            "zh": "说明现在与稍后分别有哪些可选。"
+          },
+          "points": {
+            "choice": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Conversation is enjoyable as the meal ends. You choose…",
+        "zh": "饭接近结束，大家聊得开心，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A relaxed closing with no extra course to produce.",
+            "zh": "放松收尾，不再做额外一道。"
+          },
+          "points": {
+            "simple": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A small final shared moment that gives the meal a finish.",
+            "zh": "留一个小共同瞬间，让晚餐收束。"
+          },
+          "points": {
+            "flow": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Letting people choose whether to linger or finish.",
+            "zh": "让大家自己选再待会儿或结束。"
+          },
+          "points": {
+            "choice": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What would you like to repeat next time?",
+        "zh": "下次你最想保留什么？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "An arrangement that let different preferences coexist.",
+            "zh": "让不同偏好能并存的安排。"
+          },
+          "points": {
+            "choice": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A meal with an easy beginning, middle and finish.",
+            "zh": "开始、中段、结尾都顺畅的一餐。"
+          },
+          "points": {
+            "flow": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A scale of preparation that left me time to enjoy the company.",
+            "zh": "准备规模让我也有时间享受作伴。"
+          },
+          "points": {
+            "simple": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "flow",
+      "title": {
+        "en": "The Easy-Sequence Host",
+        "zh": "顺着节奏的主人"
+      },
+      "summary": {
+        "en": "Your fictional dinner has a clear unfolding shape. The ready part begins, the next part has its moment and the meal can finish without confusion. The portrait values a useful sequence rather than a perfectly controlled evening.",
+        "zh": "你的虚构晚餐有清楚展开形状。备好的部分开始，下一部分有自己的时刻，也能明白收尾。画像珍惜有用顺序，不追求完美控制夜晚。"
+      },
+      "example": {
+        "en": "You might put one simple shared plate on the table while the next planned part is being finished, so the guests understand where the meal is in its sequence.",
+        "zh": "你可能先上一份简单共同餐盘，再完成已计划的下一部分，让来客知道晚餐进到哪里。"
+      },
+      "strength": {
+        "en": "A modest sequence can make preparation and participation easier to follow without requiring every minute of conversation to be scheduled.",
+        "zh": "适度顺序让准备与参与更易跟随，不必把每分钟聊天都排进日程。"
+      },
+      "tradeoff": {
+        "en": "A sequence can become inflexible if the host feels every planned moment must happen. A pleasant conversation may justify changing the order.",
+        "zh": "若主人觉得每个计划时刻都必须发生，顺序会变僵。愉快聊天也可以成为改顺序的理由。"
+      },
+      "experiment": {
+        "en": "For one small shared event, name just the beginning, main part and finish. Leave the timing between them loose enough for the people actually there.",
+        "zh": "为一次小共同活动，只定开始、主体和结束。中间时间留松一点，容纳实际在场的人。"
+      }
+    },
+    {
+      "id": "choice",
+      "title": {
+        "en": "The Mix-and-Choose Host",
+        "zh": "自在搭配的主人"
+      },
+      "summary": {
+        "en": "Your table offers a few understandable choices rather than one required way to take part. Different preferences can sit in the same meal. This ending concerns hosting style, not a claim that a set of options can meet every person’s needs.",
+        "zh": "你的餐桌提供几种易懂选择，不要求唯一参与方式。不同偏好可以坐在同一餐里。结局只谈请客方式，不宣称一组选项能满足每个人全部需求。"
+      },
+      "example": {
+        "en": "For a fictional build-your-own supper, you might explain the available parts clearly and let each guest choose a combination instead of assigning everyone the same plate.",
+        "zh": "虚构自选晚餐里，你可能说清现有部分，让各人搭配，不给所有人分同一盘。"
+      },
+      "strength": {
+        "en": "A small choice can give guests agency while keeping the gathering shared, especially when everyone understands what the available options are.",
+        "zh": "小选择能给来客自主，也让聚会继续共同，尤其当大家明白现有选项时。"
+      },
+      "tradeoff": {
+        "en": "Too many options can multiply preparation and make choosing tiring. A few distinct choices may be more usable than an elaborate range.",
+        "zh": "选项过多会放大准备，也让选择累。几种分明选项，可能比庞大范围更好用。"
+      },
+      "experiment": {
+        "en": "Offer two clear options in one small shared activity and leave the recipient free to choose. Notice whether the options help or simply add complexity.",
+        "zh": "在一个小共同活动里提供两个清楚选项，让接收者自由选择。看看它们有帮助，还是只增加复杂。"
+      }
+    },
+    {
+      "id": "simple",
+      "title": {
+        "en": "The Sit-Down-and-Enjoy Host",
+        "zh": "也能坐下来享受的主人"
+      },
+      "summary": {
+        "en": "Your hosting plan leaves room for the person who made the invitation to enjoy it too. Removing an extra dish can be a positive design choice. The portrait does not equate a simple meal with low effort or limited care.",
+        "zh": "你的请客计划也给发出邀请的人留下享受空间。去掉额外一道，可以是积极设计选择。画像不会把简单一餐等同敷衍或少关心。"
+      },
+      "example": {
+        "en": "You might choose one manageable main arrangement and a simple finish so you can spend the evening at the table rather than repeatedly leaving to prepare more.",
+        "zh": "你可能选一个好掌握的主体安排与简单收尾，让自己留在桌边，而非反复起身继续准备。"
+      },
+      "strength": {
+        "en": "A manageable scale can protect the purpose of the gathering and make it easier to offer another invitation in the future.",
+        "zh": "容易掌握的规模，能照顾聚会原本目的，也让以后再发邀请容易一点。"
+      },
+      "tradeoff": {
+        "en": "Simplifying without checking can remove something guests were relying on. A short conversation helps distinguish an optional flourish from a useful part of the plan.",
+        "zh": "不先询问就简化，也可能删掉来客正需要的东西。短商量能分清额外花样与有用安排。"
+      },
+      "experiment": {
+        "en": "Before a small invitation, remove one optional flourish and keep one thing you genuinely want to share. Check that the remaining plan is clear to everyone involved.",
+        "zh": "一次小邀请前，去掉一项可选花样，保留一件确实想分享的东西。让相关的人都明白剩下安排。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "flow",
+    "choice",
+    "simple"
+  ]
+}

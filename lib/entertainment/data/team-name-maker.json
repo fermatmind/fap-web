@@ -1,0 +1,348 @@
+{
+  "slug": "team-name-maker",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "social",
+  "title": {
+    "en": "How Does Your Team Name Take Shape?",
+    "zh": "小队起名：你会怎么凑出这个名字？"
+  },
+  "description": {
+    "en": "Six playful naming choices about wordplay, a shared reference and a decision the group can comfortably make. Find your original team-name role.",
+    "zh": "六次趣味起名选择，玩文字、接共同经历、做大家自在的决定，发现你的原创小队起名角色。"
+  },
+  "introduction": {
+    "en": "Imagine naming a casual fictional hobby team for one event. You can make, revise or discard any suggestion. The result follows how you approach this little naming task; it does not evaluate creativity, popularity or leadership.",
+    "zh": "想象给一个只参加一场活动的虚构爱好小队起名。提议都可创作、修改或放弃。结果只跟随这次小起名方式，不评创造力、人气或领导力。"
+  },
+  "focus": {
+    "en": "Making a shared name through playful word combinations, an inclusive reference or a manageable selection process.",
+    "zh": "通过趣味词语组合、大家都能进入的共同指涉，或好掌握的选择过程来起名。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "A blank sign needs the team’s name. You begin with…",
+        "zh": "空牌子需要小队名，你先从……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Two ordinary words that become funny together.",
+            "zh": "两个放一起会有趣的普通词。"
+          },
+          "points": {
+            "wordplay": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Something the group actually experienced together.",
+            "zh": "大家确实共同经历过的事。"
+          },
+          "points": {
+            "reference": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A quick way for everyone to suggest and choose.",
+            "zh": "每人都能提议并选择的快速办法。"
+          },
+          "points": {
+            "process": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The first suggestion is clever but hard to explain. You…",
+        "zh": "第一个建议很巧，却难解释，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Try a shorter combination that keeps the playful sound.",
+            "zh": "试更短组合，保留有趣读音。"
+          },
+          "points": {
+            "wordplay": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask whether a simpler shared reference would work better.",
+            "zh": "问更简单共同指涉是否好用。"
+          },
+          "points": {
+            "reference": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Include it in a small shortlist with room for alternatives.",
+            "zh": "先放进小候选单，也留替代选项。"
+          },
+          "points": {
+            "process": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "A new member does not know the story behind the name. You…",
+        "zh": "新成员不知道名字背后故事，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Explain the context and invite a new detail they can add.",
+            "zh": "说明前情，也邀请添一个新细节。"
+          },
+          "points": {
+            "reference": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Offer a version that is enjoyable without knowing the story.",
+            "zh": "提供不懂前情也能觉得好玩的版本。"
+          },
+          "points": {
+            "wordplay": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Check whether the name still feels acceptable to the whole team.",
+            "zh": "确认名字对全队是否仍合适。"
+          },
+          "points": {
+            "process": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "Several names receive equal support. You prefer to…",
+        "zh": "几个名字支持相当，你更愿……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Agree on one quick selection rule everyone accepts.",
+            "zh": "约一个大家接受的简短选择规则。"
+          },
+          "points": {
+            "process": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Combine two favorites into a new playful option.",
+            "zh": "把两个喜欢的合成趣味新选项。"
+          },
+          "points": {
+            "wordplay": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Choose the reference that best fits this particular event.",
+            "zh": "选最贴这场活动的共同指涉。"
+          },
+          "points": {
+            "reference": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Someone is uncomfortable with one suggestion. You…",
+        "zh": "有人对一个建议不舒服，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Remove it from consideration and keep the process moving.",
+            "zh": "先从候选移开，继续选择。"
+          },
+          "points": {
+            "process": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Rework the wording without making that person the joke.",
+            "zh": "重做措辞，不把对方变成笑话。"
+          },
+          "points": {
+            "wordplay": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Find a shared reference that does not depend on that discomfort.",
+            "zh": "另找不依赖这份不舒服的共同指涉。"
+          },
+          "points": {
+            "reference": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What makes the final team name satisfying?",
+        "zh": "最终名字怎样最让你满足？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "It carries a small story that everybody can enter.",
+            "zh": "带着人人可进入的小故事。"
+          },
+          "points": {
+            "reference": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "It sounds playful enough to enjoy saying aloud.",
+            "zh": "说出口就有趣，大家愿意喊。"
+          },
+          "points": {
+            "wordplay": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "It is a decision the group can use without more debate.",
+            "zh": "群体能用起来，不必继续争论。"
+          },
+          "points": {
+            "process": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "wordplay",
+      "title": {
+        "en": "The Word-Combination Maker",
+        "zh": "词语组合制造者"
+      },
+      "summary": {
+        "en": "Your team name grows by putting ordinary words into an unexpected partnership. A playful sound can work before there is a complicated explanation. This result reflects one naming game, not a ranking of your creativity or sense of humor.",
+        "zh": "你的小队名通过让普通词语意外搭档长出来。有趣读音可以先成立，不必复杂解释。结果只对应一个起名游戏，不排创造力或幽默感高低。"
+      },
+      "example": {
+        "en": "A hobby group might become the Paper Comets after someone combines a material on the table with an unrelated image from the evening’s doodles.",
+        "zh": "爱好小组可能因为有人把桌上材料与当晚涂鸦里的无关图像组合，成了“纸彗星”。"
+      },
+      "strength": {
+        "en": "A fresh combination can give a temporary group an easy shared phrase without requiring everyone to know a long personal history.",
+        "zh": "新组合能给临时群体一个容易共用的短语，不必人人知道长长个人前情。"
+      },
+      "tradeoff": {
+        "en": "A clever sound may be difficult to read or mean something unintended to someone else. Trying it aloud together can reveal what needs changing.",
+        "zh": "巧读音也可能难读，或对别人有意外含义。一起念一遍，能显出需要改哪里。"
+      },
+      "experiment": {
+        "en": "Combine three pairs of ordinary words for an imaginary team. Say each aloud and keep the one that feels easy to share, not merely the most elaborate.",
+        "zh": "给想象小队组合三对普通词，各念一遍，留最容易分享的，不只选最花哨的。"
+      }
+    },
+    {
+      "id": "reference",
+      "title": {
+        "en": "The Shared-Reference Maker",
+        "zh": "共同指涉起名者"
+      },
+      "summary": {
+        "en": "Your team name keeps a small piece of the group’s own context. A shared moment can make the name feel particular to this event. The portrait values a reference people can enter, rather than an inside story that proves who belongs.",
+        "zh": "你的小队名留着一点群体自己的情境。共同瞬间让名字贴合这场活动。画像珍惜大家可进入的指涉，不把内幕故事当归属证明。"
+      },
+      "example": {
+        "en": "A group that accidentally drew the same tiny umbrella might use that image in its name and briefly explain it to a newcomer who joins later.",
+        "zh": "一组人恰好都画了小雨伞，可能把它用进名字，也给后来新人简短说明。"
+      },
+      "strength": {
+        "en": "A shared reference can make a temporary identity memorable and give the name a story that is modest enough to retell.",
+        "zh": "共同指涉让临时身份难忘，也给名字一个不难重讲的小故事。"
+      },
+      "tradeoff": {
+        "en": "A reference can exclude someone if its meaning is guarded or repeatedly tested. Explaining it and allowing it to change keeps the name usable.",
+        "zh": "含义被守着或反复考问时，指涉会排人。愿意说明，也允许变化，名字才好用。"
+      },
+      "experiment": {
+        "en": "Choose one harmless shared moment for an imaginary group name, then write a one-sentence explanation that a new member could understand without a quiz.",
+        "zh": "选一个无害共同瞬间做想象队名，再写一句说明，让新成员无需被考也能懂。"
+      }
+    },
+    {
+      "id": "process",
+      "title": {
+        "en": "The Shortlist-and-Choose Maker",
+        "zh": "候选单选择推动者"
+      },
+      "summary": {
+        "en": "Your naming game becomes manageable through a short list and an agreed way to finish. The final name does not have to contain every person’s first choice to be usable. This ending concerns the group’s decision process rather than leadership status.",
+        "zh": "你的起名游戏通过小候选单与约定收尾方式变容易掌握。最终名字不必容纳每人最初选择，也能用起来。结局只谈共同决定过程，不授予领导地位。"
+      },
+      "example": {
+        "en": "You might invite one suggestion per person, check for objections and then use a simple agreed vote for the temporary event name.",
+        "zh": "你可能请每人提一个，先看有无不合适处，再按约定简单投票选临时活动名。"
+      },
+      "strength": {
+        "en": "A bounded choice process can stop a low-stakes task from expanding into endless discussion and leave more time for the activity itself.",
+        "zh": "有边界选择过程，能让低风险小事不扩大成无尽讨论，把时间留给活动本身。"
+      },
+      "tradeoff": {
+        "en": "A quick process can overlook a meaningful concern if finishing becomes the only goal. A brief chance to name a problem should remain available.",
+        "zh": "若结束变成唯一目标，快速过程会漏掉重要顾虑。仍应留一个简短指出问题的机会。"
+      },
+      "experiment": {
+        "en": "For one small shared choice, agree on a short list and how you will finish. Include one chance to raise a concern before settling the result.",
+        "zh": "面对一个小共同选择，约好候选单与结束方式。定结果前，也留一次提出顾虑的机会。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "wordplay",
+    "reference",
+    "process"
+  ]
+}

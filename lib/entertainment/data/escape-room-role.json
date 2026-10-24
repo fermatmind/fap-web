@@ -1,0 +1,348 @@
+{
+  "slug": "escape-room-role",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "social",
+  "title": {
+    "en": "Your Escape-Room Team Role",
+    "zh": "密室小队：你会怎样推进线索？"
+  },
+  "description": {
+    "en": "Six fictional puzzle-room choices about connecting clues, trying a hypothesis and keeping track of the remaining game time. No intelligence score or real emergency decisions.",
+    "zh": "六次虚构谜题房间选择，连接线索、试验假设、留意剩余游戏时间。不打智力分，也不涉及真实紧急决策。"
+  },
+  "introduction": {
+    "en": "This is a friendly paper escape-room game: every door is imaginary and anyone can stop. Choose how you would help the group work with its clues. The portraits describe a play role, not a ranking of reasoning, courage or teamwork ability.",
+    "zh": "这是一场友好的纸上密室游戏，门是想象的，任何人都可停下。选你愿怎样帮小组处理线索。画像描述玩法角色，不给推理、勇气或团队能力排名。"
+  },
+  "focus": {
+    "en": "Connecting existing clues, testing a specific explanation and deciding when the group should change its use of game time.",
+    "zh": "连接已有线索、试一个具体解释，以及决定小组何时调整游戏时间用法。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "The table holds a symbol card, a map and a number strip. You…",
+        "zh": "桌上有符号卡、地图和数字条，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Lay them beside each other to look for a shared feature.",
+            "zh": "并排放好，找共同特征。"
+          },
+          "points": {
+            "connector": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Try one explicit way the symbols might match the numbers.",
+            "zh": "试一种符号与数字对应的明确方式。"
+          },
+          "points": {
+            "tester": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Note what the group has checked and how much game time remains.",
+            "zh": "记下查过什么、还剩多少游戏时间。"
+          },
+          "points": {
+            "keeper": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "A teammate has a plausible explanation. You ask…",
+        "zh": "队友提出一个似乎可行的解释，你问……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "What single result would show whether this idea works?",
+            "zh": "出现什么单一结果，能看出解释是否可行？"
+          },
+          "points": {
+            "tester": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Which other clue does this connect with?",
+            "zh": "它与另一条什么线索相连？"
+          },
+          "points": {
+            "connector": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "How long do we want to try it before switching?",
+            "zh": "想试多久再换一种？"
+          },
+          "points": {
+            "keeper": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "The same failed code is suggested again. You…",
+        "zh": "同一个失败密码又被提出，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Point to the checked list so the group can use its next attempt differently.",
+            "zh": "指出已试清单，让下次尝试换个用法。"
+          },
+          "points": {
+            "keeper": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Look for a clue that changes how the code should be read.",
+            "zh": "找能改变密码读法的另一线索。"
+          },
+          "points": {
+            "connector": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Change one part of the hypothesis and test only that part.",
+            "zh": "只改假设一部分，并只试那部分。"
+          },
+          "points": {
+            "tester": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "Someone finds a new picture fragment. You…",
+        "zh": "有人发现新的图片碎片，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Compare its edges and symbols with the pieces already found.",
+            "zh": "把边缘和符号与已有碎片比较。"
+          },
+          "points": {
+            "connector": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Place it in the one spot your current explanation predicts.",
+            "zh": "放进当前解释预计它该在的位置。"
+          },
+          "points": {
+            "tester": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Update the shared clue list before the next group decision.",
+            "zh": "下次共同决定前更新线索清单。"
+          },
+          "points": {
+            "keeper": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The group is stuck with little game time left. You suggest…",
+        "zh": "剩余游戏时间不多，小组卡住，你提议……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Agree whether to request the game’s optional hint.",
+            "zh": "商量是否申请游戏提供的可选提示。"
+          },
+          "points": {
+            "keeper": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Review the one connection that still lacks support.",
+            "zh": "重看仍缺支持的一处联系。"
+          },
+          "points": {
+            "connector": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Make one last clearly defined trial rather than several guesses.",
+            "zh": "做最后一次明确试验，不连着乱猜。"
+          },
+          "points": {
+            "tester": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "In the debrief, you most want to discuss…",
+        "zh": "复盘时，你最想聊……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Which test actually changed the explanation.",
+            "zh": "哪次试验确实改变了解释。"
+          },
+          "points": {
+            "tester": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "How separate clues finally formed one picture.",
+            "zh": "分开线索最后怎样拼成一幅图。"
+          },
+          "points": {
+            "connector": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "When the team changed approach or chose a hint.",
+            "zh": "小组何时换办法或选择提示。"
+          },
+          "points": {
+            "keeper": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "connector",
+      "title": {
+        "en": "The Clue-Connection Maker",
+        "zh": "线索连接者"
+      },
+      "summary": {
+        "en": "Your puzzle role keeps the found pieces in relation to each other. A symbol may matter because it changes how another clue is read. The ending describes your chosen game approach rather than measuring your ability to find patterns in real life.",
+        "zh": "你的谜题角色让找到的部件彼此有关系。一个符号可能因改变另一线索读法而重要。结局只描述所选游戏方式，不测现实找规律能力。"
+      },
+      "example": {
+        "en": "You might place a drawn map beside a symbol strip and ask whether the repeated mark belongs to a location rather than guessing a code immediately.",
+        "zh": "你可能把地图与符号条并排，问重复标记是否属于某个地点，不立刻猜密码。"
+      },
+      "strength": {
+        "en": "A visible connection can help a team share what it already knows and reduce the chance that a useful clue stays isolated with one player.",
+        "zh": "可见联系能帮小队共享已有信息，也减少有用线索只孤零零留在某位玩家手里的情况。"
+      },
+      "tradeoff": {
+        "en": "A neat pattern can be accidental. Checking what the proposed connection actually predicts helps prevent a satisfying story from replacing the game’s evidence.",
+        "zh": "好看规律也可能偶然。核对这处联系实际预示什么，能防止顺耳故事代替游戏证据。"
+      },
+      "experiment": {
+        "en": "For one recreational puzzle, lay out the known pieces and name one proposed connection. Then ask what observation would make you reconsider it.",
+        "zh": "面对一个休闲谜题，摆出已知部件，说一处拟议联系，再问什么观察会让你重想它。"
+      }
+    },
+    {
+      "id": "tester",
+      "title": {
+        "en": "The One-Hypothesis Tester",
+        "zh": "单步假设试验者"
+      },
+      "summary": {
+        "en": "Your game advances by giving one explanation a clear trial. You want to know what a move will show before making several more guesses. The portrait is about this fictional puzzle process, not a scientific aptitude score.",
+        "zh": "你的游戏通过给一个解释一次清楚试验推进。连着多猜之前，你想知道这步会显示什么。画像只谈虚构谜题过程，不给科学天赋打分。"
+      },
+      "example": {
+        "en": "You might change only the order of a three-symbol code while keeping the symbols fixed, so the next result can answer one specific question.",
+        "zh": "你可能只改三符号密码的顺序，保留符号本身，让下一结果只回答一个具体问题。"
+      },
+      "strength": {
+        "en": "A bounded trial can make failure informative and give the team a result it can use instead of another unexplained yes or no.",
+        "zh": "有边界试验能让失败带信息，也给小队可使用的结果，不只是又一个莫名对错。"
+      },
+      "tradeoff": {
+        "en": "Testing without pausing to share the idea can leave others unsure what happened. A quick statement of the question keeps the trial collaborative.",
+        "zh": "不先分享想法就试，也会让别人不知发生什么。简短说明问题，试验更容易共同参与。"
+      },
+      "experiment": {
+        "en": "Before trying a move in a shared puzzle, state the single question it tests. Afterward, share what changed and what remains uncertain.",
+        "zh": "共同谜题试一步之前，说清它只测试哪个问题。之后分享什么变了，什么还不确定。"
+      }
+    },
+    {
+      "id": "keeper",
+      "title": {
+        "en": "The Shared-Time Keeper",
+        "zh": "共同游戏时间照应者"
+      },
+      "summary": {
+        "en": "Your role keeps attempts, time and the option of a hint visible. The group can decide how to use its remaining play rather than repeating a move unnoticed. The result does not make you responsible for keeping everyone productive.",
+        "zh": "你的角色让已试内容、时间与提示选项可见。小组能决定怎样用剩余游戏，而非没察觉地重复走法。结果不让你对每个人的效率负责。"
+      },
+      "example": {
+        "en": "You might mark two codes as already tried and ask whether the group wants one more attempt or the optional hint before the round ends.",
+        "zh": "你可能标出两组已试密码，在回合结束前问大家想再试一次，还是用可选提示。"
+      },
+      "strength": {
+        "en": "A small shared record can reduce avoidable repetition and make a change of approach feel like a group choice rather than a personal interruption.",
+        "zh": "一份小共同记录能减少无谓重复，也让换办法成为共同选择，而非个人打断。"
+      },
+      "tradeoff": {
+        "en": "Frequent time reminders can make a relaxed game tense. Agreeing on a few check-in points may work better than announcing every passing minute.",
+        "zh": "频繁报时会让轻松游戏紧张。约几个查看点，可能比每过一分钟都提醒更合适。"
+      },
+      "experiment": {
+        "en": "For one timed recreational activity, agree on one midpoint check and one closing signal. Let the rest of the time belong to playing.",
+        "zh": "为一项计时休闲活动，约一个中途查看点与一个结束信号，其余时间留给玩。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "connector",
+    "tester",
+    "keeper"
+  ]
+}

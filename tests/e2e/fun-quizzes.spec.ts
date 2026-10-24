@@ -1,7 +1,7 @@
 import { test, expect, type Page } from "@playwright/test";
 import catalog from "../../lib/entertainment/catalog.json";
 
-const samples = ["woodland-animal", "group-chat-role", "fantasy-party-role", "lost-letter-adventure", "portal-choice", "spell-school-elective", "island-day", "snow-day", "response-color", "dream-train"];
+const samples = ["woodland-animal", "group-chat-role", "fantasy-party-role", "lost-letter-adventure", "portal-choice", "spell-school-elective", "island-day", "snow-day", "response-color", "dream-train", "board-game-table", "escape-room-role"];
 async function finish(page: Page, zh: boolean) {
   for (let step = 0; step < 30; step++) {
     await page.getByRole("radio").first().check();

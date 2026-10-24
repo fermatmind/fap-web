@@ -1,0 +1,348 @@
+{
+  "slug": "party-arrival",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "social",
+  "title": {
+    "en": "How Do You Find Your Place at a Party?",
+    "zh": "聚会刚到场：你会怎样找到位置？"
+  },
+  "description": {
+    "en": "Six low-pressure arrival scenes about settling in, joining one conversation and taking part through a shared activity. Find your arrival style for this round.",
+    "zh": "六个轻松到场场景，安顿自己、加入一段对话、通过共同活动参与，看看这次你会怎样找到位置。"
+  },
+  "introduction": {
+    "en": "Imagine arriving at a friendly gathering already underway. There is no best entrance, no requirement to be outgoing and no need to perform. Choose how you would like to join today; the portrait is situational rather than a fixed social type.",
+    "zh": "想象到达一场已开始的友好聚会。没有最佳进门方式，不要求外向，也不需要表演。按今天愿意的方式加入；画像是情境性的，不是固定社交类型。"
+  },
+  "focus": {
+    "en": "Entering a gathering through a small conversation, an activity with visible rules or a gentle settling-in interval.",
+    "zh": "通过一段小对话、规则可见的活动，或温和安顿间隔进入聚会。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "You step into the gathering. Your first comfortable move is…",
+        "zh": "走进聚会，你最舒服的第一步是……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Say hello to one available person.",
+            "zh": "和一位方便的人打个招呼。"
+          },
+          "points": {
+            "conversation": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Look for a shared activity that is easy to join.",
+            "zh": "找一个容易加入的共同活动。"
+          },
+          "points": {
+            "activity": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Find a place to put your things and take in the room.",
+            "zh": "先放好东西，看看房间。"
+          },
+          "points": {
+            "landing": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "A conversation is in full flow beside you. You…",
+        "zh": "身旁一段对话正热，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Listen briefly for a natural opening to ask one question.",
+            "zh": "短听一下，等自然空处问一个问题。"
+          },
+          "points": {
+            "conversation": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Join the nearby drawing table instead of interrupting.",
+            "zh": "先加入旁边绘画桌，不打断对话。"
+          },
+          "points": {
+            "activity": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Let yourself settle without needing to join immediately.",
+            "zh": "允许自己先安顿，不必立刻加入。"
+          },
+          "points": {
+            "landing": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "The host asks what would help you get comfortable. You choose…",
+        "zh": "主人问怎样更容易自在，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A quick orientation to the room and where I can sit.",
+            "zh": "简单指一下房间与可坐位置。"
+          },
+          "points": {
+            "landing": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "An introduction to one person who has time to talk.",
+            "zh": "介绍一位有时间聊的人。"
+          },
+          "points": {
+            "conversation": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The simple rules for an open group activity.",
+            "zh": "介绍开放共同活动的简单玩法。"
+          },
+          "points": {
+            "activity": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "You do not know the background of a joke. You…",
+        "zh": "一个笑话的前情你不知道，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask a short context question when there is a pause.",
+            "zh": "停顿时简短问一下前情。"
+          },
+          "points": {
+            "conversation": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Give yourself time to follow without pretending to understand.",
+            "zh": "给自己时间跟上，不假装懂。"
+          },
+          "points": {
+            "landing": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Find a current activity where the shared context is visible.",
+            "zh": "找一种当下内容可见的活动加入。"
+          },
+          "points": {
+            "activity": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Another guest arrives after you. You would naturally offer…",
+        "zh": "另一位来客比你晚到，你自然会提供……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A place beside the activity if they want to try.",
+            "zh": "如果愿意，一起参与活动的位置。"
+          },
+          "points": {
+            "activity": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A simple hello and one easy question.",
+            "zh": "一声招呼和一个容易回答的问题。"
+          },
+          "points": {
+            "conversation": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A little orientation and room to choose their own pace.",
+            "zh": "一点方位介绍，也留自己选节奏的空间。"
+          },
+          "points": {
+            "landing": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What would make the arrival feel complete?",
+        "zh": "怎样会让你觉得已顺利到场？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "I had time to settle without needing to prove I belong.",
+            "zh": "有时间安顿，不必证明自己属于这里。"
+          },
+          "points": {
+            "landing": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "One small conversation gave me a way into the evening.",
+            "zh": "一段小对话让我进入这个夜晚。"
+          },
+          "points": {
+            "conversation": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Doing something together made joining feel straightforward.",
+            "zh": "一起做点事，让加入变得直接。"
+          },
+          "points": {
+            "activity": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "conversation",
+      "title": {
+        "en": "The One-Conversation Arriver",
+        "zh": "一段对话的到场者"
+      },
+      "summary": {
+        "en": "Your arrival finds an opening through one person and one manageable exchange. You do not need to work the whole room for the evening to begin. The ending follows these choices and does not label you introverted or extroverted.",
+        "zh": "你的到场通过一个人与一段可掌握交流找到入口。夜晚开始，不必先与全屋所有人打交道。结局跟随本次选择，不给你贴内外向标签。"
+      },
+      "example": {
+        "en": "At an open hobby gathering, you might ask someone about the piece they are already making rather than searching for a topic impressive enough for everybody.",
+        "zh": "开放爱好聚会里，你可能问一个人正做的作品，不必找能惊艳所有人的话题。"
+      },
+      "strength": {
+        "en": "A small exchange gives participation a concrete starting point and lets connection grow at a scale both people can comfortably choose.",
+        "zh": "一段小交流给参与具体起点，也让联系按双方舒服的规模慢慢长。"
+      },
+      "tradeoff": {
+        "en": "One conversation can become hard to leave if it is treated as the only route into the gathering. A simple pause or goodbye can keep the evening flexible.",
+        "zh": "若把一段对话当作进入聚会的唯一路线，也可能难离开。简单停顿或告别，能让夜晚灵活。"
+      },
+      "experiment": {
+        "en": "At a willing social moment, ask one specific easy question and listen to the answer. Let one exchange count without requiring it to become a lasting connection.",
+        "zh": "在双方愿意的社交时刻，问一个具体易答问题并听回答。一次交流本身就算数，不必发展成长期联系。"
+      }
+    },
+    {
+      "id": "activity",
+      "title": {
+        "en": "The Shared-Activity Arriver",
+        "zh": "一起做点事的到场者"
+      },
+      "summary": {
+        "en": "Your way into the gathering is something visible to do together. A drawing, game or small shared task offers context without demanding a polished introduction. The portrait describes a chosen entry route rather than a limit on your conversational ability.",
+        "zh": "你通过看得见、可一起做的事进入聚会。绘画、游戏或小共同任务提供前情，不要求精致自我介绍。画像描述所选入口，不限定你的对话能力。"
+      },
+      "example": {
+        "en": "At a casual craft evening, you might ask how to join the open collage table and begin with one small piece beside the others.",
+        "zh": "轻松手工夜里，你可能问怎么加入开放拼贴桌，从其他人旁边一小块开始。"
+      },
+      "strength": {
+        "en": "A shared activity gives newcomers immediate common ground and can let conversation emerge from what people are already doing.",
+        "zh": "共同活动给新人即时共同内容，也让对话从正在做的事自然出现。"
+      },
+      "tradeoff": {
+        "en": "Taking on a task can become a way to stay busy without enjoying the gathering. Joining does not mean you must keep helping all evening.",
+        "zh": "认领任务也可能让人一直忙却没享受聚会。加入不等于整晚都必须帮忙。"
+      },
+      "experiment": {
+        "en": "Join one optional activity for a small round and then check whether you want to continue, talk or pause. Let the activity be an entrance rather than an obligation.",
+        "zh": "自愿参加一小轮活动，再看看想继续、聊天还是停一下。让活动成为入口，不变义务。"
+      }
+    },
+    {
+      "id": "landing",
+      "title": {
+        "en": "The Gentle-Landing Arriver",
+        "zh": "轻轻安顿的到场者"
+      },
+      "summary": {
+        "en": "Your arrival includes a moment to put things down and understand the room. Taking time is part of joining, not evidence that you are doing it wrong. The ending leaves your later level of conversation and activity entirely open.",
+        "zh": "你的到场包含放下东西、理解房间的一刻。用一点时间也是加入的一部分，不说明你做错了。结局让之后想聊多少、参与多少都保持开放。"
+      },
+      "example": {
+        "en": "On arriving at a friendly event, you might first learn where coats go and where you can sit before deciding which conversation or activity to approach.",
+        "zh": "到友好活动时，你可能先知道外套放哪、可坐哪里，再决定靠近哪段对话或活动。"
+      },
+      "strength": {
+        "en": "A settling interval can make the next choice feel deliberate and reduce the pressure to respond to every part of a busy room immediately.",
+        "zh": "一段安顿间隔让下一选择更主动，也减少必须立刻回应满屋所有内容的压力。"
+      },
+      "tradeoff": {
+        "en": "Waiting for complete comfort can sometimes delay a small enjoyable step. A gentle landing can include a modest hello when you want one.",
+        "zh": "有时等到完全舒服才动，会拖过本可愉快的一小步。愿意时，轻轻安顿也能包含一声小招呼。"
+      },
+      "experiment": {
+        "en": "Give yourself a simple arrival sequence for one event: put things down, orient yourself, then choose one small next step. Adjust it to how you feel that day.",
+        "zh": "为一次活动准备简单到场顺序：放东西、看清方位，再选下一小步。按当天感受调整。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "conversation",
+    "activity",
+    "landing"
+  ]
+}

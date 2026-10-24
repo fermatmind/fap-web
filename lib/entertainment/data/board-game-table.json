@@ -1,0 +1,348 @@
+{
+  "slug": "board-game-table",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "social",
+  "title": {
+    "en": "Who Are You at the Board-Game Table?",
+    "zh": "桌游一桌人：你会带来哪种玩法？"
+  },
+  "description": {
+    "en": "Six casual game-night choices about learning rules, enjoying a challenge and helping mixed experience levels play together. Find your table portrait.",
+    "zh": "六次休闲桌游选择，学习规则、享受挑战、让经验不同的人同桌玩，发现你在这一桌的趣味画像。"
+  },
+  "introduction": {
+    "en": "Think of a friendly board game with no money at stake. Choose what you would enjoy doing when the table includes both familiar and new players. The result describes this game-night scene, not intelligence, leadership or your worth as a friend.",
+    "zh": "想象一场不涉及金钱的友好桌游，同桌既有熟手也有新手。选你会喜欢怎样参与。结果只描述这场游戏，不评智力、领导力或朋友价值。"
+  },
+  "focus": {
+    "en": "Making rules understandable, pursuing an interesting challenge and keeping a mixed-experience table enjoyable.",
+    "zh": "让规则易懂、追求有趣挑战，以及让经验不同的一桌人继续享受游戏。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "A new game is opened. You would like to…",
+        "zh": "新桌游拆开，你想……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Walk through one example turn before starting.",
+            "zh": "开始前演示一个示例回合。"
+          },
+          "points": {
+            "explainer": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Look for a move that might create an interesting contest.",
+            "zh": "看看什么走法会带来有趣较量。"
+          },
+          "points": {
+            "challenger": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask how much explanation and practice the group wants.",
+            "zh": "问大家想听多少说明、练多久。"
+          },
+          "points": {
+            "welcomer": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "A rule is unclear during the first round. You…",
+        "zh": "第一轮碰到不清楚的规则，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Check the relevant line and agree how to use it this round.",
+            "zh": "核对相关一条，约好本轮怎样用。"
+          },
+          "points": {
+            "explainer": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Suggest a quick shared ruling so the contest can continue.",
+            "zh": "提议快速达成共同判法，让较量继续。"
+          },
+          "points": {
+            "challenger": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Check that the new player understands before moving on.",
+            "zh": "确认新玩家明白了再继续。"
+          },
+          "points": {
+            "welcomer": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "One player has a strong early lead. You find yourself…",
+        "zh": "一名玩家早早领先，你发现自己……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Enjoying the puzzle of how another player could catch up.",
+            "zh": "享受其他人如何追上的走法难题。"
+          },
+          "points": {
+            "challenger": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Pointing out a rule interaction that anyone can use.",
+            "zh": "指出任何人都可使用的规则关联。"
+          },
+          "points": {
+            "explainer": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Checking whether everyone still wants the same kind of round.",
+            "zh": "问大家是否仍想玩同样的这一轮。"
+          },
+          "points": {
+            "welcomer": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A beginner asks for advice on their turn. You…",
+        "zh": "新手在自己回合求建议，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask whether they want a hint or just time to try.",
+            "zh": "问想要提示，还是只想多点时间试。"
+          },
+          "points": {
+            "welcomer": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Show two legal options without choosing for them.",
+            "zh": "说明两种合法选项，不替对方选。"
+          },
+          "points": {
+            "explainer": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Describe the interesting tradeoff between two competitive moves.",
+            "zh": "讲两种竞争性走法之间有趣的取舍。"
+          },
+          "points": {
+            "challenger": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The table has time for one more game. You suggest…",
+        "zh": "还有时间再玩一局，你提议……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A round with a fresh strategic constraint everyone accepts.",
+            "zh": "一轮大家都接受的新策略限制。"
+          },
+          "points": {
+            "challenger": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A quick recap of the rules that caused confusion.",
+            "zh": "简短回顾刚才引起困惑的规则。"
+          },
+          "points": {
+            "explainer": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Asking whether the group wants a rematch, a lighter game or a finish.",
+            "zh": "问大家想重赛、轻松换局，还是结束。"
+          },
+          "points": {
+            "welcomer": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What would make this game night feel successful?",
+        "zh": "什么会让这场桌游夜让你满足？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Different experience levels could participate without pretending.",
+            "zh": "经验不同的人都能参与，不必装懂。"
+          },
+          "points": {
+            "welcomer": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The group understood the game well enough to make its own choices.",
+            "zh": "大家懂到足以自己做选择。"
+          },
+          "points": {
+            "explainer": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "There was a close or surprising contest worth talking about.",
+            "zh": "出现过值得聊的接近或意外较量。"
+          },
+          "points": {
+            "challenger": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "explainer",
+      "title": {
+        "en": "The Example-Turn Explainer",
+        "zh": "示例回合说明者"
+      },
+      "summary": {
+        "en": "Your table portrait makes the rules usable through a concrete example. You prefer people to understand their options rather than simply copy the most experienced player. The result concerns this game scene, not a general teaching ability score.",
+        "zh": "你的同桌画像通过具体示例让规则可用。你更愿大家理解选项，而非照抄最熟练的人。结果只谈这场游戏，不给通用教学能力打分。"
+      },
+      "example": {
+        "en": "You might demonstrate drawing a card, choosing an action and ending a turn with spare pieces before asking a new player to make their first real move.",
+        "zh": "你可能用备用棋子演示抽牌、选动作、结束回合，再让新手做第一步正式走法。"
+      },
+      "strength": {
+        "en": "One example can make an abstract rule easier to follow and help a newcomer ask a question they could not form from the rulebook alone.",
+        "zh": "一个示例能让抽象规则易跟随，也帮新人问出只读规则书时还说不清的问题。"
+      },
+      "tradeoff": {
+        "en": "Explaining too far ahead can become another barrier. A short usable example may serve the table better than showing every possible exception at once.",
+        "zh": "解释太超前也会成障碍。简短可用示例，可能比一次展示所有例外更适合这一桌。"
+      },
+      "experiment": {
+        "en": "When explaining one recreational rule, show one ordinary turn and stop for a question. Add the next detail only when the group needs it.",
+        "zh": "解释一条休闲规则时，演示一个普通回合就停下等提问。到大家需要时再添下一细节。"
+      }
+    },
+    {
+      "id": "challenger",
+      "title": {
+        "en": "The Friendly-Contest Seeker",
+        "zh": "友好较量寻找者"
+      },
+      "summary": {
+        "en": "You enjoy a table where moves create an interesting contest. A comeback, a constraint or a surprising interaction gives you something to explore. The portrait does not equate winning with value, and a close contest can be satisfying regardless of the final score.",
+        "zh": "你喜欢走法能形成有趣较量的一桌。追赶、限制或意外关联，让你有可探索之处。画像不把获胜等同价值，比分接近的过程也可以与最终胜负无关地满足。"
+      },
+      "example": {
+        "en": "You might enjoy testing an unfamiliar opening in a rematch because it changes the contest, even if it gives you a less certain chance of winning.",
+        "zh": "重赛时，你可能愿试陌生开局，因为它改变了较量，即使自己赢的把握更小。"
+      },
+      "strength": {
+        "en": "An interesting challenge can keep a familiar game lively and provide a concrete focus for talking about choices after the round.",
+        "zh": "有趣挑战能让熟悉游戏保持活力，也给赛后讨论选择一个具体焦点。"
+      },
+      "tradeoff": {
+        "en": "A challenge that delights you may overwhelm someone learning the basics. Agreeing on the level of competition keeps the contest shared rather than imposed.",
+        "zh": "让你兴奋的挑战，可能压住正在学基础的人。约好竞争程度，较量才是共同选择而非强加。"
+      },
+      "experiment": {
+        "en": "Before a rematch, ask whether everyone wants a competitive round or a practice round. Enjoy the chosen version without treating either as lesser.",
+        "zh": "重赛前，问大家想认真较量还是练习。享受共同选中的版本，不把哪种看得更低。"
+      }
+    },
+    {
+      "id": "welcomer",
+      "title": {
+        "en": "The Mixed-Table Welcomer",
+        "zh": "不同经验同桌的照应者"
+      },
+      "summary": {
+        "en": "Your game night makes room for people who need different amounts of help, time or intensity. You ask what kind of round the table wants. This ending values a shared fit without making you responsible for everybody’s mood.",
+        "zh": "你的桌游夜给需要不同帮助、时间或强度的人留空间。你会问这一桌想玩怎样的一轮。结局珍惜共同合适，不让你对每个人心情负责。"
+      },
+      "example": {
+        "en": "When a beginner pauses, you might ask whether they want a hint, more thinking time or a simpler practice round rather than assuming which would help.",
+        "zh": "新手停住时，你可能问想要提示、多想一会儿还是简单练习，不替对方假定哪种有帮助。"
+      },
+      "strength": {
+        "en": "A direct check-in can keep differences in experience from becoming embarrassment and allow people to take part on terms they understand.",
+        "zh": "直接询问能让经验差异少变成尴尬，也让人按自己明白的条件参与。"
+      },
+      "tradeoff": {
+        "en": "Checking every moment can interrupt the game. An agreed signal for help or a break may let the group relax without constant monitoring.",
+        "zh": "时刻询问也会打断游戏。约一个求助或休息信号，可能让大家不用持续监测也能放松。"
+      },
+      "experiment": {
+        "en": "At one casual group activity, ask once how people want help offered. Agree on a simple signal and then enjoy participating yourself.",
+        "zh": "一次休闲群体活动里，问一次大家希望怎样获得帮助。约简单信号后，也让自己享受参与。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "explainer",
+    "challenger",
+    "welcomer"
+  ]
+}

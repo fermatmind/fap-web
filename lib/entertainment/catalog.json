@@ -34,6 +34,40 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "board-game-table",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "social",
+    "title": {
+      "en": "Who Are You at the Board-Game Table?",
+      "zh": "桌游一桌人：你会带来哪种玩法？"
+    },
+    "description": {
+      "en": "Six casual game-night choices about learning rules, enjoying a challenge and helping mixed experience levels play together. Find your table portrait.",
+      "zh": "六次休闲桌游选择，学习规则、享受挑战、让经验不同的人同桌玩，发现你在这一桌的趣味画像。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "campfire-storyteller",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "social",
+    "title": {
+      "en": "Your Role in a Circle of Storytellers",
+      "zh": "围坐讲故事：你会怎样接住这一圈？"
+    },
+    "description": {
+      "en": "Six original spoken-story choices about suspense, a well-timed joke and letting others add a line. Find the role you choose around this imaginary story circle.",
+      "zh": "六次原创口述故事选择，铺悬念、接一个时机合适的笑点、让别人添一句，发现你会怎样参与想象故事圈。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "city-wanderer",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -119,6 +153,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "dinner-host",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "social",
+    "title": {
+      "en": "What Kind of Casual Dinner Host Are You?",
+      "zh": "轻松请吃饭：你会怎样安排这一桌？"
+    },
+    "description": {
+      "en": "Six imagined dinner choices about a flowing meal, flexible combinations and keeping preparation small enough to enjoy your own invitation.",
+      "zh": "六次想象晚餐选择，安排用餐节奏、灵活组合，也让准备规模小到自己能享受这份邀请。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "dragon-housemate",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -170,6 +221,23 @@
     "minQuestionCount": 3
   },
   {
+    "slug": "escape-room-role",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "social",
+    "title": {
+      "en": "Your Escape-Room Team Role",
+      "zh": "密室小队：你会怎样推进线索？"
+    },
+    "description": {
+      "en": "Six fictional puzzle-room choices about connecting clues, trying a hypothesis and keeping track of the remaining game time. No intelligence score or real emergency decisions.",
+      "zh": "六次虚构谜题房间选择，连接线索、试验假设、留意剩余游戏时间。不打智力分，也不涉及真实紧急决策。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "fantasy-party-role",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -181,6 +249,23 @@
     "description": {
       "en": "Choose through six original fantasy expedition scenes to find your party role: route scout, ward keeper, or spell tinkerer. All story results are free.",
       "zh": "走过6个原创奇幻远行情境，看看你是探路斥候、结界守护者还是咒语修补师。所有故事结果免费。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "festival-companion",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "social",
+    "title": {
+      "en": "Your Festival Companion Style",
+      "zh": "逛节庆同行：你会怎样约好这一程？"
+    },
+    "description": {
+      "en": "Six fictional festival choices about a shared anchor event, flexible separate wandering and trying a small new activity. Find the companion role you choose today.",
+      "zh": "六次虚构节庆选择，约一个共同重点、灵活分开逛、试一项小新活动，发现今天愿意选择的同行方式。"
     },
     "minutes": 2,
     "questionCount": 6,
@@ -266,6 +351,23 @@
     "description": {
       "en": "Six everyday messaging choices reveal your chat contribution: signal keeper, spark starter, or quiet connector. Free full results without an account.",
       "zh": "6道日常聊天题，看看你更像信息整理员、话题点火者还是安静的连接者。无需账户，完整结果免费。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "group-trip-seatmate",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "social",
+    "title": {
+      "en": "What Kind of Seatmate Are You on a Group Trip?",
+      "zh": "同行一段路：你是哪种邻座？"
+    },
+    "description": {
+      "en": "Six imagined shared-journey choices about conversation, personal space and the little practical arrangements that make a seat comfortable.",
+      "zh": "六次想象同行选择，围绕聊天、个人空间与让座位舒服的小安排，发现你在这段旅程中的邻座画像。"
     },
     "minutes": 2,
     "questionCount": 6,
@@ -459,6 +561,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "party-arrival",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "social",
+    "title": {
+      "en": "How Do You Find Your Place at a Party?",
+      "zh": "聚会刚到场：你会怎样找到位置？"
+    },
+    "description": {
+      "en": "Six low-pressure arrival scenes about settling in, joining one conversation and taking part through a shared activity. Find your arrival style for this round.",
+      "zh": "六个轻松到场场景，安顿自己、加入一段对话、通过共同活动参与，看看这次你会怎样找到位置。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "playlist-maker",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -491,6 +610,23 @@
     "minutes": 2,
     "questionCount": 4,
     "minQuestionCount": 3
+  },
+  {
+    "slug": "potluck-contribution",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "social",
+    "title": {
+      "en": "What Is Your Potluck Contribution Style?",
+      "zh": "聚餐带一道菜：你会怎样接上这一桌？"
+    },
+    "description": {
+      "en": "Six fictional potluck choices about fitting a shared menu, making a contribution easy to handle and explaining what you brought. Find your table contribution portrait.",
+      "zh": "六次虚构聚餐选择，搭配共同菜单、让所带贡献容易交接、说明自己带了什么，发现你会怎样接上这一桌。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
   },
   {
     "slug": "quest-reward",
@@ -674,6 +810,23 @@
     "description": {
       "en": "Six storytelling choices find your narrator: the close-up lens, the village chorus, or the sideways wink. A free style game, not a writing ability test.",
       "zh": "6道讲故事选择题，看看你的叙述者更像近景镜头、村庄合唱，还是侧着眨眼的旁白。免费风格游戏，不评价写作能力。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "team-name-maker",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "social",
+    "title": {
+      "en": "How Does Your Team Name Take Shape?",
+      "zh": "小队起名：你会怎么凑出这个名字？"
+    },
+    "description": {
+      "en": "Six playful naming choices about wordplay, a shared reference and a decision the group can comfortably make. Find your original team-name role.",
+      "zh": "六次趣味起名选择，玩文字、接共同经历、做大家自在的决定，发现你的原创小队起名角色。"
     },
     "minutes": 2,
     "questionCount": 6,

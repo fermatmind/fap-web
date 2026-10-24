@@ -1,0 +1,348 @@
+{
+  "slug": "group-trip-seatmate",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "social",
+  "title": {
+    "en": "What Kind of Seatmate Are You on a Group Trip?",
+    "zh": "同行一段路：你是哪种邻座？"
+  },
+  "description": {
+    "en": "Six imagined shared-journey choices about conversation, personal space and the little practical arrangements that make a seat comfortable.",
+    "zh": "六次想象同行选择，围绕聊天、个人空间与让座位舒服的小安排，发现你在这段旅程中的邻座画像。"
+  },
+  "introduction": {
+    "en": "Picture a comfortable fictional group journey with ordinary shared seats. You choose how to use the time and space beside another person. No result ranks sociability or predicts travel compatibility; a seatmate can want different things on different days.",
+    "zh": "想象一段舒适虚构团体旅程，大家坐普通共用座位。你选择怎样使用与他人相邻的时间空间。结果不排社交高低，也不预测旅行匹配；同一个邻座每天也会想要不同。"
+  },
+  "focus": {
+    "en": "Negotiating a shared seat through a gentle conversation, an undemanding parallel activity or practical space agreements.",
+    "zh": "通过轻松交流、无要求的并行活动或实际空间约定，共用一段邻座。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "You settle beside another traveler. You first…",
+        "zh": "在另一位旅客身旁坐下，你先……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Offer a brief hello and see whether they want to talk.",
+            "zh": "简短招呼，看看对方是否想聊。"
+          },
+          "points": {
+            "talk": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Settle into your own quiet activity while leaving company possible.",
+            "zh": "安顿自己的安静活动，也保留作伴可能。"
+          },
+          "points": {
+            "parallel": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Check where shared bags and small items can go.",
+            "zh": "确认共用包袋与小物可放哪里。"
+          },
+          "points": {
+            "practical": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The group has a long uneventful stretch. You prefer…",
+        "zh": "有一长段平静路程，你更愿……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Reading or looking out together without needing constant conversation.",
+            "zh": "各自读书或一起看窗外，不必持续说话。"
+          },
+          "points": {
+            "parallel": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A relaxed exchange about something both people choose.",
+            "zh": "聊一件双方愿意谈的轻松事。"
+          },
+          "points": {
+            "talk": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Making the shared space easier to use before relaxing.",
+            "zh": "先让共用空间好用，再放松。"
+          },
+          "points": {
+            "practical": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "A neighbor starts a conversation while you are reading. You…",
+        "zh": "邻座在你读书时开口，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Name a comfortable time to chat after a short pause.",
+            "zh": "说明稍停后方便聊的一段时间。"
+          },
+          "points": {
+            "talk": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Explain the small space or item issue if that is why they asked.",
+            "zh": "若对方为小空间或物件开口，先说清安排。"
+          },
+          "points": {
+            "practical": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Say kindly that you would like quiet for a while.",
+            "zh": "温和说明想安静一会儿。"
+          },
+          "points": {
+            "parallel": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "Several people want to use the same little shared table. You…",
+        "zh": "几个人都想用同一张小共用桌，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Agree on a simple turn or space split.",
+            "zh": "约一个简单轮次或空间划分。"
+          },
+          "points": {
+            "practical": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Choose a table-free activity for yourself this stretch.",
+            "zh": "这段自己先选不用桌面的活动。"
+          },
+          "points": {
+            "parallel": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask what each person is hoping to do and talk through a fit.",
+            "zh": "问各自想做什么，聊出一种搭配。"
+          },
+          "points": {
+            "talk": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Someone asks whether silence means the journey is going badly. You…",
+        "zh": "有人问，安静是否说明同行不愉快，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Say quiet company can be a complete way to share the stretch.",
+            "zh": "说明安静作伴也可以是完整同行方式。"
+          },
+          "points": {
+            "parallel": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Offer a light conversation if they would enjoy one.",
+            "zh": "若对方愿意，提供一段轻松交流。"
+          },
+          "points": {
+            "talk": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask whether any specific practical discomfort needs changing.",
+            "zh": "问是否有具体不舒服的安排要改。"
+          },
+          "points": {
+            "practical": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What detail makes this neighboring seat feel good?",
+        "zh": "什么细节让这段邻座舒服？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "We could talk and stop without making either awkward.",
+            "zh": "想聊可聊，想停可停，两者都不尴尬。"
+          },
+          "points": {
+            "talk": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Small shared-space expectations were clear.",
+            "zh": "小型共用空间预期清楚。"
+          },
+          "points": {
+            "practical": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "We could each do our own thing without feeling absent.",
+            "zh": "可以各做各的，也不觉得谁缺席。"
+          },
+          "points": {
+            "parallel": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "talk",
+      "title": {
+        "en": "The Easy-Conversation Seatmate",
+        "zh": "轻松交流的邻座"
+      },
+      "summary": {
+        "en": "Your shared journey makes room for a little conversation that both people can choose. An opening and a pause can coexist. The portrait describes the exchange you selected in this scene rather than assigning a fixed level of sociability.",
+        "zh": "你的同行给双方可选择的小交流留位置。开口与停顿可以并存。画像描述这个场景里所选交流，不分配固定社交程度。"
+      },
+      "example": {
+        "en": "You might ask about a book a neighbor has chosen to mention, then happily return to the window when the conversation reaches a natural pause.",
+        "zh": "你可能问邻座主动提到的书，再在自然停顿时自在转回窗外。"
+      },
+      "strength": {
+        "en": "A modest invitation to talk can make shared time feel personal while leaving the other person free to choose how much to contribute.",
+        "zh": "适度邀请聊天能让共处时间有个人联系，也让对方自由选择聊多少。"
+      },
+      "tradeoff": {
+        "en": "A friendly opening is still optional for the other person. Treating short replies as permission to pause keeps the exchange comfortable.",
+        "zh": "友好开口对另一人仍可选。把简短回应也视为可停顿的信号，交流更舒服。"
+      },
+      "experiment": {
+        "en": "Offer one easy conversation opening in a willing shared moment, then leave an equally easy pause rather than trying to keep every minute filled.",
+        "zh": "在愿意的共处时刻开一个轻松话题，也留同样容易的停顿，不必填满每一分钟。"
+      }
+    },
+    {
+      "id": "parallel",
+      "title": {
+        "en": "The Parallel-Page Seatmate",
+        "zh": "并行书页的邻座"
+      },
+      "summary": {
+        "en": "Your seatmate portrait enjoys being nearby without requiring a continuous exchange. Separate pages or a shared view can hold company quietly. This ending does not infer avoidance, loneliness or a general preference to be alone.",
+        "zh": "你的邻座画像享受靠近，却不要求连续交流。各自书页或共同景象，也可安静作伴。结局不推断回避、孤独或普遍偏爱独处。"
+      },
+      "example": {
+        "en": "Two friends might read different books on the same journey and occasionally share a sentence, without needing to turn the whole trip into a conversation.",
+        "zh": "两位朋友可以一路读不同的书，偶尔分享一句，不必把整段路都变对话。"
+      },
+      "strength": {
+        "en": "Parallel activity gives companionship a low-demand form and can let different energy levels coexist within the same small space.",
+        "zh": "并行活动给作伴一种低要求形式，也让不同精力状态在小空间并存。"
+      },
+      "tradeoff": {
+        "en": "Quiet can be misread if a shared expectation is never named. One simple statement of preference can prevent unnecessary guessing.",
+        "zh": "共同预期从不说明时，安静也可能被误读。一句简单偏好说明，能减少无谓猜测。"
+      },
+      "experiment": {
+        "en": "When sharing quiet time with someone willing, name that you enjoy their company and also want a little independent activity. Ask what would suit them.",
+        "zh": "与愿意的人共享安静时，说明喜欢作伴，也想做一点独立活动，再问对方怎样合适。"
+      }
+    },
+    {
+      "id": "practical",
+      "title": {
+        "en": "The Clear-Space Seatmate",
+        "zh": "共用空间说得清的邻座"
+      },
+      "summary": {
+        "en": "Your journey becomes comfortable through small shared arrangements that do not have to be guessed. A table turn or a place for bags can matter more than another activity. The ending does not appoint you manager of the whole trip.",
+        "zh": "你的旅程通过不用猜的小共用安排变舒服。桌面轮次或包袋位置，也许比再加活动更重要。结局不任命你管理整段旅途。"
+      },
+      "example": {
+        "en": "You might agree where each person’s small items can sit before spreading a map across a shared table during a leisurely outing.",
+        "zh": "轻松外出时，你可能先约好各自小物放哪，再把地图摊上共用桌。"
+      },
+      "strength": {
+        "en": "A clear arrangement can reduce accidental interruptions and make a limited shared space feel easier for both people to use.",
+        "zh": "清楚安排能减少无意打扰，让有限共用空间对双方都更好用。"
+      },
+      "tradeoff": {
+        "en": "Arranging every detail can become fussy when no one is actually uncomfortable. Checking the one real constraint may be enough.",
+        "zh": "没人实际不舒服时，安排每个细节也会琐碎。核清一个真实限制，可能已够。"
+      },
+      "experiment": {
+        "en": "For one small shared space, ask what is getting in the way and agree on one simple change. Leave the other details flexible.",
+        "zh": "面对一个小共用空间，问什么确实碍事，再约一项简单变化。其他细节保持灵活。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "talk",
+    "parallel",
+    "practical"
+  ]
+}
