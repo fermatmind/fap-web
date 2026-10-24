@@ -67,33 +67,51 @@ async function mockHistory(page: Page, items: Array<Record<string, unknown>>) {
 }
 
 test.describe("MBTI history account-center entry", () => {
-  test("header opens the account center and preserves email recovery for both locales", async ({ page }) => {
-    await mockCommonApis(page);
-    await mockHistory(page, []);
-    await page.route("**/api/v0.3/me/account", (route) => route.fulfill({
-      json: { ok: true, account: null, preview: false },
-    }));
-    await page.route("**/api/v0.3/auth/google/challenge", (route) => route.fulfill({
-      json: { ok: true, configured: false },
-    }));
+  for (const mobile of [false, true]) {
+    test(`header opens the account center and preserves email recovery for both locales (${mobile ? "mobile" : "desktop"})`, async ({ page }) => {
+      if (mobile) await page.setViewportSize({ width: 390, height: 844 });
+      await mockCommonApis(page);
+      await mockHistory(page, []);
+      await page.route("**/api/v0.3/me/account", (route) => route.fulfill({
+        json: { ok: true, account: null, preview: false },
+      }));
+      await page.route("**/api/v0.3/auth/google/challenge", (route) => route.fulfill({
+        json: { ok: true, configured: false },
+      }));
 
-    await page.goto("/en");
-    await page.getByRole("link", { name: "My Account", exact: true }).click();
-    await expect(page).toHaveURL("/en/account");
-    await expect(page.getByRole("heading", { level: 1, name: "Overview" })).toBeVisible();
-    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
-    await page.getByRole("link", { name: "Recover results by email", exact: true }).click();
-    await expect(page).toHaveURL("/en/results/lookup");
-    await expect(page.getByRole("heading", { level: 1, name: "Find saved results" })).toBeVisible();
+      await page.goto("/en");
+      if (mobile) await page.getByTestId("cookie-banner-decline").click();
+      const menu = page.getByRole("button", { name: mobile ? "Menu" : "Tests menu", exact: true });
+      await menu.click();
+      await expect(menu).toHaveAttribute("aria-expanded", "true");
+      if (!mobile) await menu.click();
+      const enAccountDocument = page.waitForResponse((response) =>
+        response.request().isNavigationRequest() && new URL(response.url()).pathname === "/en/account");
+      await page.getByRole("link", { name: "My Account", exact: true }).click();
+      expect((await enAccountDocument).headers()["x-robots-tag"]).toContain("noindex");
+      await expect(page).toHaveURL("/en/account");
+      await expect(page.getByRole("heading", { level: 1, name: "Overview" })).toBeVisible();
+      await expect(page.locator('meta[name="robots"]')).toHaveCount(1);
+      await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+      await page.getByRole("link", { name: "Recover results by email", exact: true }).click();
+      await expect(page).toHaveURL("/en/results/lookup");
+      await expect(page.getByRole("heading", { level: 1, name: "Find saved results" })).toBeVisible();
 
-    await page.goto("/zh");
-    await page.getByRole("link", { name: "我的账户", exact: true }).click();
-    await expect(page).toHaveURL("/zh/account");
-    await expect(page.getByRole("heading", { level: 1, name: "仪表板" })).toBeVisible();
-    await page.getByRole("link", { name: "用邮箱找回结果", exact: true }).click();
-    await expect(page).toHaveURL("/zh/results/lookup");
-    await expect(page.getByRole("heading", { level: 1, name: "找回结果" })).toBeVisible();
-  });
+      await page.goto("/zh");
+      if (mobile) await page.getByRole("button", { name: "菜单", exact: true }).click();
+      const zhAccountDocument = page.waitForResponse((response) =>
+        response.request().isNavigationRequest() && new URL(response.url()).pathname === "/zh/account");
+      await page.getByRole("link", { name: "我的账户", exact: true }).click();
+      expect((await zhAccountDocument).headers()["x-robots-tag"]).toContain("noindex");
+      await expect(page).toHaveURL("/zh/account");
+      await expect(page.getByRole("heading", { level: 1, name: "仪表板" })).toBeVisible();
+      await expect(page.locator('meta[name="robots"]')).toHaveCount(1);
+      await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+      await page.getByRole("link", { name: "用邮箱找回结果", exact: true }).click();
+      await expect(page).toHaveURL("/zh/results/lookup");
+      await expect(page.getByRole("heading", { level: 1, name: "找回结果" })).toBeVisible();
+    });
+  }
 
   test("history hero keeps recovery while the latest full row exposes workspace-lite re-entry and PDF", async ({ page }) => {
     await mockCommonApis(page);

@@ -2,7 +2,6 @@
 
 import { ChevronDown, Menu, X } from "lucide-react";
 import dynamic from "next/dynamic";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { useLocale } from "@/components/i18n/LocaleContext";
@@ -344,13 +343,13 @@ export function SiteHeader({
             <div className="flex shrink-0 items-center gap-2">
               <LocaleSwitcher />
 
-              <Link
+              {/* A new document gives private account metadata its own lifecycle. */}
+              <a
                 href={withLocale("/account")}
-                prefetch={false}
                 className={startButtonClass}
               >
                 {dict.header.profile}
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -465,14 +464,13 @@ export function SiteHeader({
 
             <div className="shrink-0 border-t border-[var(--fm-border-soft)] bg-[var(--fm-bg-page)] p-4">
               <div className="flex items-center gap-2">
-                <Link
+                <a
                   href={withLocale("/account")}
-                  prefetch={false}
                   className={`${buttonVariants({ size: "sm" })} flex-1 justify-center`}
                   onClick={handleMobileLinkClick}
                 >
                   {dict.header.profile}
-                </Link>
+                </a>
               </div>
             </div>
           </aside>
