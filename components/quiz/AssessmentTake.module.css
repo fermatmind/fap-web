@@ -129,8 +129,9 @@
 .pairOption:focus-visible { outline: 3px solid #0071e3; outline-offset: 4px; }
 .feedback { display: grid; place-items: center; min-height: 62px; padding: 16px 0; }
 .feedback p { color: var(--quiz-muted); font-size: 12px; line-height: 1.6; }
-.footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 16px; border-top: 1px solid #ededf0; }
-.footer > button { min-height: 40px; padding: 8px 16px; border: 0; border-radius: 22px; background: #f5f5f7; box-shadow: none; color: #1d1d1f; font-size: 12px; font-weight: 500; }
+.footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding-top: 16px; border-top: 1px solid #ededf0; }
+.footer button { height: auto; min-height: 48px; max-width: 100%; white-space: normal; }
+.footer > button { padding: 8px 16px; border: 0; border-radius: 22px; background: #f5f5f7; box-shadow: none; color: #1d1d1f; font-size: 12px; font-weight: 500; }
 .footer > button:not(:disabled):hover { background: #e8e8ed; }
 .footer > button::before { content: "‹"; margin-right: 8px; font-size: 22px; line-height: 1; }
 
