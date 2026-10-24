@@ -1722,10 +1722,10 @@ export function MbtiResultShell({
             {locale === "zh" ? "继续了解与观察" : "Continue understanding and observing"}
           </h2>
           <div className="flex flex-col gap-4 sm:flex-row">
-            <Link href={personalityHref} className={buttonVariants({ variant: "outline" })}>
+            <Link href={personalityHref} className={buttonVariants({ variant: "outline", className: "h-auto min-w-0 whitespace-normal text-center" })}>
               {locale === "zh" ? `了解 ${publicTypeCode} 人格` : `Explore the ${publicTypeCode} personality`}
             </Link>
-            <Link href={`${personalityHref}#growth_edges`} className={buttonVariants({ variant: "outline" })}>
+            <Link href={`${personalityHref}#growth_edges`} className={buttonVariants({ variant: "outline", className: "h-auto min-w-0 whitespace-normal text-center" })}>
               {locale === "zh" ? "尝试观察练习" : "Try an observation exercise"}
             </Link>
           </div>
