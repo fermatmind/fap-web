@@ -80,6 +80,8 @@ describe("homepage recommended articles page block contract", () => {
             is_public: true,
             published_revision: { id: 61 },
             published_at: "2026-04-21T00:00:00Z",
+            material_updated_at: "2026-10-24T00:00:00Z",
+            updated_at: "2026-10-25T00:00:00Z",
           },
           {
             slug: "incomplete-article",
@@ -118,6 +120,7 @@ describe("homepage recommended articles page block contract", () => {
       slug: "cms-selected-article",
       title: "CMS 运营配置文章",
       locale: "zh-CN",
+      updatedAt: "2026-10-24T00:00:00Z",
       coverImageUrl: "https://api.fermatmind.com/static/articles/covers/cms-selected-article.svg",
       coverImageAlt: "CMS 运营配置文章封面",
       category: { slug: "self-knowledge", name: "自我理解" },

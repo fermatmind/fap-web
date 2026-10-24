@@ -345,7 +345,7 @@ describe("homepage v1 density contract", () => {
         publishedAt: "2026-04-18",
         scheduledAt: null,
         createdAt: "2026-04-18",
-        updatedAt: "2026-04-18",
+        updatedAt: "2026-10-24",
         category: { id: 1, slug: "mbti", name: "MBTI" },
         tags: [],
         seoMeta: null,
@@ -354,7 +354,7 @@ describe("homepage v1 density contract", () => {
       },
     ];
 
-    render(<HomePageExperience locale="zh" copy={homeCopy} articles={articles} />);
+    const { rerender } = render(<HomePageExperience locale="zh" copy={homeCopy} articles={articles} />);
 
     expect(
       screen
@@ -395,5 +395,15 @@ describe("homepage v1 density contract", () => {
     });
     expect(screen.getByRole("img", { name: "抽象职业罗盘与六个方向节点" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /查看全部文章/ })).toHaveAttribute("href", "/zh/articles");
+    expect(screen.getByText("更新于 2026年10月24日")).toBeInTheDocument();
+    expect(screen.queryByText("2026年4月18日")).not.toBeInTheDocument();
+
+    const englishArticles = articles.map((article) => ({ ...article, locale: "en" }));
+    rerender(<HomePageExperience locale="en" copy={homeCopy} articles={englishArticles} />);
+    expect(screen.getByText("Updated October 24, 2026")).toBeInTheDocument();
+    expect(articles[0].publishedAt).toBe("2026-04-18");
+
+    rerender(<HomePageExperience locale="en" copy={homeCopy} articles={englishArticles.map((article) => ({ ...article, updatedAt: null }))} />);
+    expect(screen.getByText("Updated April 18, 2026")).toBeInTheDocument();
   });
 });

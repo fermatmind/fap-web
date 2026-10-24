@@ -22,6 +22,7 @@ type RecommendedArticleRecord = {
   excerpt?: unknown;
   published_at?: unknown;
   updated_at?: unknown;
+  material_updated_at?: unknown;
   created_at?: unknown;
   reading_minutes?: unknown;
   category?: unknown;
@@ -248,7 +249,7 @@ function normalizeRecommendedArticle(value: unknown, locale: Locale): CmsArticle
     publishedAt: normalizeNullableText(record.published_at),
     scheduledAt: null,
     createdAt: normalizeNullableText(record.created_at),
-    updatedAt: normalizeNullableText(record.updated_at),
+    updatedAt: normalizeNullableText(record.material_updated_at) ?? normalizeNullableText(record.updated_at),
     category,
     tags,
     seoMeta: null,
