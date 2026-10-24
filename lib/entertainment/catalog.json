@@ -289,6 +289,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "creative-spark",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "metaphor",
+    "title": {
+      "en": "How Does Your Small Creative Idea Catch Fire?",
+      "zh": "一个小创意来了，你会先怎么接？"
+    },
+    "description": {
+      "en": "Six recreational idea choices follow a surprising prompt, a rough working version or a willing listener. Find your idea-start portrait.",
+      "zh": "六次休闲创意选择，跟意外提示、粗糙试版或愿意听的人，看想法怎样开始。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "date-plan-detour",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -657,6 +674,23 @@
     "description": {
       "en": "Six imagined shared-journey choices about conversation, personal space and the little practical arrangements that make a seat comfortable.",
       "zh": "六次想象同行选择，围绕聊天、个人空间与让座位舒服的小安排，发现你在这段旅程中的邻座画像。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "harbor-light",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "metaphor",
+    "title": {
+      "en": "What Signal Would Your Fictional Harbor Light Send?",
+      "zh": "虚构港口里，你会设计怎样的灯语？"
+    },
+    "description": {
+      "en": "Design an original harbor signal through six choices about rhythm, readable shapes and a little local legend.",
+      "zh": "用节奏、可读图形与本地小传说的六个选择，设计原创港口灯语。"
     },
     "minutes": 2,
     "questionCount": 6,
@@ -1054,6 +1088,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "pocket-map",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "metaphor",
+    "title": {
+      "en": "What Would Your Pocket Map Remember?",
+      "zh": "你的口袋小地图，会记住什么？"
+    },
+    "description": {
+      "en": "Sketch an invented place through six choices about landmarks, personal stops and playful omissions. Discover your map’s particular purpose.",
+      "zh": "用地标、个人停点与趣味省略六个选择，画虚构地点，看小地图的独特用途。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "portal-choice",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -1275,6 +1326,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "seasonal-table",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "metaphor",
+    "title": {
+      "en": "How Would Your Imaginary Table Mark a New Season?",
+      "zh": "换一个季节，想象桌面会添什么？"
+    },
+    "description": {
+      "en": "Make six table-scene choices about a seasonal trace, a space for change and an optional shared contribution.",
+      "zh": "六次桌面场景选择，留季节痕迹、变化位置或自愿共享的一份。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "secret-door",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -1290,6 +1358,23 @@
     "minutes": 2,
     "questionCount": 3,
     "minQuestionCount": 3
+  },
+  {
+    "slug": "secret-garden-gate",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "metaphor",
+    "title": {
+      "en": "How Would You Open the Gate to a Small Creative Work?",
+      "zh": "小作品想分享：你的花园门会怎样打开？"
+    },
+    "description": {
+      "en": "Use an imaginary garden gate to explore sharing a small creative work through a finished glimpse, a process note or an invitation to contribute.",
+      "zh": "借想象花园门，用成品一瞥、过程小记或参与邀请，探索分享小作品。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
   },
   {
     "slug": "shared-hobby",
@@ -1428,6 +1513,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "story-ending",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "metaphor",
+    "title": {
+      "en": "How Will the Last Page of the Paper Parade End?",
+      "zh": "纸游行最后一页，会怎样写完？"
+    },
+    "description": {
+      "en": "Choose an actual branching ending for an original tale about a paper parade arriving at an unfinished square.",
+      "zh": "为原创纸游行抵达未完广场的故事，沿真正分支选一个结尾。"
+    },
+    "minutes": 2,
+    "questionCount": 4,
+    "minQuestionCount": 3
+  },
+  {
     "slug": "storybook-narrator",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -1496,6 +1598,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "time-capsule",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "metaphor",
+    "title": {
+      "en": "What Would Your Ordinary-Day Time Capsule Keep?",
+      "zh": "普通一天时间胶囊，你会放进什么？"
+    },
+    "description": {
+      "en": "Choose six harmless fictional keepsakes for a future reader: present details, open questions and useful little instructions.",
+      "zh": "为未来读者选六份无害虚构留念：当下细节、开放问题与实用小指引。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "tiny-kingdom",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -1507,6 +1626,23 @@
     "description": {
       "en": "Six miniature-world choices lead to an original kingdom of exchanges, experiments, or well-kept promises. A playful design portrait, with every result free.",
       "zh": "6道微型世界选择题，看看你的原创小王国更像交换集市、试验工坊，还是承诺档案馆。趣味设计画像，完整结果免费。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "tiny-superpower",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "metaphor",
+    "title": {
+      "en": "Which Tiny Original Superpower Would You Pick?",
+      "zh": "只在小事里有用：你会选哪种原创微能力？"
+    },
+    "description": {
+      "en": "Choose an original low-stakes power for six fictional scenes: finding a missing word, placing a tiny pause or revealing a useful edge.",
+      "zh": "为六个虚构小场景选原创微能力：找到漏词、放入短暂停顿或显出有用边缘。"
     },
     "minutes": 2,
     "questionCount": 6,

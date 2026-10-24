@@ -1,0 +1,348 @@
+{
+  "slug": "pocket-map",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "metaphor",
+  "title": {
+    "en": "What Would Your Pocket Map Remember?",
+    "zh": "你的口袋小地图，会记住什么？"
+  },
+  "description": {
+    "en": "Sketch an invented place through six choices about landmarks, personal stops and playful omissions. Discover your map’s particular purpose.",
+    "zh": "用地标、个人停点与趣味省略六个选择，画虚构地点，看小地图的独特用途。"
+  },
+  "introduction": {
+    "en": "This is a creative map of an invented place, not directions for a real journey or a test of orientation. Decide what to include and what to leave out; a small map can have a limited purpose.",
+    "zh": "这是虚构地点的创意地图，不是真出行指引，也不考方向感。选画什么、省什么；小图可以只做一件事。"
+  },
+  "focus": {
+    "en": "Recording the structure of an imagined place, the stops that matter to a character or discoveries left for a future reader.",
+    "zh": "记录虚构地方结构、角色在意的停点，或留给后来读者的发现。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "The first mark on your pocket map is…",
+        "zh": "口袋图第一笔是……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A recognizable central shape with the paths around it.",
+            "zh": "可认中央形与周围路。"
+          },
+          "points": {
+            "landmarks": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A small place where the fictional traveler would linger.",
+            "zh": "虚构旅人会多待的一小处。"
+          },
+          "points": {
+            "stops": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "An unfilled corner labeled “something to notice here.”",
+            "zh": "空角写“这里还有可发现的”。"
+          },
+          "points": {
+            "gaps": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The map is getting crowded. You keep…",
+        "zh": "地图太满，你留……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The few stops that explain this character’s visit.",
+            "zh": "能说明角色此行的几个停点。"
+          },
+          "points": {
+            "stops": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Enough blank space for a reader’s own discovery.",
+            "zh": "给读者发现留的足够空白。"
+          },
+          "points": {
+            "gaps": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The main shapes needed to understand the invented layout.",
+            "zh": "理解虚构布局所需主形。"
+          },
+          "points": {
+            "landmarks": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "You add one annotation. It says…",
+        "zh": "加一条注释，你写……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Leave this little square available for a new detail.",
+            "zh": "这小方格留给新细节。"
+          },
+          "points": {
+            "gaps": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "This shape connects the two illustrated districts.",
+            "zh": "此形连两片画中区域。"
+          },
+          "points": {
+            "landmarks": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The character paused here to finish a tiny sketch.",
+            "zh": "角色在此停下画完小速写。"
+          },
+          "points": {
+            "stops": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "Two routes reach the same drawn place. You show…",
+        "zh": "两路到同一画中地点，你展示……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "How each route relates to the central landmark.",
+            "zh": "两路分别怎样靠中央地标。"
+          },
+          "points": {
+            "landmarks": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The different little stops along each route.",
+            "zh": "各路沿途不同小停点。"
+          },
+          "points": {
+            "stops": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "One complete route and room to invent an alternative.",
+            "zh": "一条完整路，留空间另编。"
+          },
+          "points": {
+            "gaps": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Another reader redraws the fictional map. You hope…",
+        "zh": "另一读者重画此虚构图，你希望……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "They choose their own meaningful stops.",
+            "zh": "他们选自己的有意思停点。"
+          },
+          "points": {
+            "stops": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The basic relationships between places remain readable.",
+            "zh": "地点基本关系仍可读。"
+          },
+          "points": {
+            "landmarks": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "They add something that my version left open.",
+            "zh": "他们添我版留开放的东西。"
+          },
+          "points": {
+            "gaps": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "Your map’s title would emphasize…",
+        "zh": "地图标题强调……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The room still available for discoveries.",
+            "zh": "仍留给发现的余地。"
+          },
+          "points": {
+            "gaps": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "One character’s small visit to this place.",
+            "zh": "一个角色的小小到访。"
+          },
+          "points": {
+            "stops": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The recognizable shape of an invented neighborhood.",
+            "zh": "虚构街区可认的形状。"
+          },
+          "points": {
+            "landmarks": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "landmarks",
+      "title": {
+        "en": "The Readable-Landmark Map",
+        "zh": "地标可读的小地图"
+      },
+      "summary": {
+        "en": "Your pocket map keeps the imagined place understandable. A few stable shapes give the reader reference points without pretending that a small sketch contains every detail of the world.",
+        "zh": "你的图让想象地好懂。几处稳定形给参照，不装小图能容世界全部细节。"
+      },
+      "example": {
+        "en": "A square tower between two drawn lanes might let a reader understand where the paper market sits relative to the river.",
+        "zh": "两画巷间方塔，可让读者懂纸市场与河的相对位置。"
+      },
+      "strength": {
+        "en": "Clear reference points help an invented setting remain coherent as the story moves, leaving other details free to change or remain unspecified.",
+        "zh": "清楚参照让故事移动时虚构地仍连贯，其余可变或不指定。"
+      },
+      "tradeoff": {
+        "en": "A map can be clear but impersonal if it only shows structure. One chosen small detail can give the drawing character without confusing its layout.",
+        "zh": "只展结构，图也可清却无特点。添一处小细节，不乱布局也添个性。"
+      },
+      "experiment": {
+        "en": "Draw three fictional landmarks and two connecting paths. Explain their relationships in one sentence before adding decorations or invented street names.",
+        "zh": "画三虚构地标两连接路，先用一句说明关系，再添装饰与街名。"
+      }
+    },
+    {
+      "id": "stops",
+      "title": {
+        "en": "The Linger-Here Pocket Map",
+        "zh": "在这里多待的小地图"
+      },
+      "summary": {
+        "en": "Your map records a particular visit rather than the whole place. A stop earns its mark through what a fictional character did there, not through official importance or popularity.",
+        "zh": "你的图记特定到访，不是整地。停点因角色做过什么获标，不因官方重要或热门。"
+      },
+      "example": {
+        "en": "A tiny mark by a made-up bridge might note where the traveler sat to finish drawing the shape of a passing cloud.",
+        "zh": "虚构桥旁小记，可写旅人在此坐着画完一朵过云。"
+      },
+      "strength": {
+        "en": "A selected stop can turn a plain layout into a small narrative and let a reader see how one character actually used the setting.",
+        "zh": "选定停点把平面图变小叙事，让读者看角色如何使用场景。"
+      },
+      "tradeoff": {
+        "en": "Your chosen stops will not be another reader’s chosen stops. Keeping the map explicitly personal avoids presenting one route as the best experience.",
+        "zh": "你的停点未必是别人停点。明确个人图，不把一路说成最佳体验。"
+      },
+      "experiment": {
+        "en": "Invent a character’s twenty-minute visit and mark only three stops. Give each a plain action rather than a rating or claim of hidden significance.",
+        "zh": "编角色二十分钟到访，只标三停点。各写普通动作，不评分或称暗有深意。"
+      }
+    },
+    {
+      "id": "gaps",
+      "title": {
+        "en": "The Leave-a-Square-Open Map",
+        "zh": "留一个空格的小地图"
+      },
+      "summary": {
+        "en": "Your map invites another version by leaving selected space open. An omission is part of the creative invitation, not a trap, a missing safety instruction or a test of imagination.",
+        "zh": "你的图靠留空邀另一版。省略是创意邀请，不是陷阱、缺安全指令或想象力考题。"
+      },
+      "example": {
+        "en": "A blank square beside an invented square might ask the next reader to add a small shop, a bench or something entirely different.",
+        "zh": "虚构广场旁空格可请后来读者添小店、长椅或全异物。"
+      },
+      "strength": {
+        "en": "An intentional gap gives another person a concrete way to contribute and lets the fictional place grow without treating the first drawing as final.",
+        "zh": "刻意空白给人具体贡献方式，让虚构地可长，不把首图当定稿。"
+      },
+      "tradeoff": {
+        "en": "Too many gaps can make an invitation vague. A little established structure gives the next reader something useful to respond to.",
+        "zh": "空白太多，邀请会含糊。已有一点结构，后来读者才有东西回应。"
+      },
+      "experiment": {
+        "en": "Draw a small invented neighborhood with one clearly marked blank plot. Offer two possible additions while explicitly leaving room for a third idea.",
+        "zh": "画小虚构街区，标一空地。给两添法，同时明确可有第三想法。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "landmarks",
+    "stops",
+    "gaps"
+  ]
+}

@@ -1,0 +1,348 @@
+{
+  "slug": "time-capsule",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "metaphor",
+  "title": {
+    "en": "What Would Your Ordinary-Day Time Capsule Keep?",
+    "zh": "普通一天时间胶囊，你会放进什么？"
+  },
+  "description": {
+    "en": "Choose six harmless fictional keepsakes for a future reader: present details, open questions and useful little instructions.",
+    "zh": "为未来读者选六份无害虚构留念：当下细节、开放问题与实用小指引。"
+  },
+  "introduction": {
+    "en": "Make a capsule in imagination only. Do not include private information, other people’s messages or promises about your future self. This game does not predict your future or create a reminder or scheduled task.",
+    "zh": "只在想象中做胶囊。不放隐私、别人信息或对未来自己的许诺。本游戏不预测未来，也不创建提醒或定时任务。"
+  },
+  "focus": {
+    "en": "Preserving a current scene, a question that can remain open or a small practical way to revisit an ordinary activity.",
+    "zh": "保存当下场景、可保持开放的问题或重访普通活动的小实用方法。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Your capsule’s first page contains…",
+        "zh": "胶囊第一页放……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A specific description of an ordinary invented afternoon.",
+            "zh": "一个虚构普通午后的具体描写。"
+          },
+          "points": {
+            "scene": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A question a future reader can answer differently.",
+            "zh": "未来读者可不同回答的问题。"
+          },
+          "points": {
+            "question": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A simple way to repeat a harmless small activity.",
+            "zh": "重复无害小活动的简单方法。"
+          },
+          "points": {
+            "instruction": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "You must replace a vague note. You add…",
+        "zh": "需换掉模糊便条，你添……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A clearer question with room for several answers.",
+            "zh": "更清楚且容多答案的问题。"
+          },
+          "points": {
+            "question": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The one missing step that makes the activity understandable.",
+            "zh": "让活动可懂的缺失一步。"
+          },
+          "points": {
+            "instruction": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A sound or object that makes the moment particular.",
+            "zh": "让片刻具体的声音或物。"
+          },
+          "points": {
+            "scene": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "A future reader has changed their tastes. Your note…",
+        "zh": "未来读者口味变了，你的便条……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Offers the activity as optional rather than a duty.",
+            "zh": "把活动当可选，不当义务。"
+          },
+          "points": {
+            "instruction": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Describes what was here without asking them to like it.",
+            "zh": "只写当时有什么，不要求喜欢。"
+          },
+          "points": {
+            "scene": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Welcomes an answer unlike the one imagined today.",
+            "zh": "欢迎与今天想象不同的回答。"
+          },
+          "points": {
+            "question": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "You have space for one last line. It says…",
+        "zh": "最后还能写一句，你写……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Here is the ordinary detail I wanted to remember.",
+            "zh": "这是想记住的普通细节。"
+          },
+          "points": {
+            "scene": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "What would you notice differently now?",
+            "zh": "现在你会不同留意什么？"
+          },
+          "points": {
+            "question": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Use or change this little method only if it helps.",
+            "zh": "有用才用或改这小方法。"
+          },
+          "points": {
+            "instruction": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The capsule’s contents should remain…",
+        "zh": "胶囊内容最好仍……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Open enough for a new interpretation.",
+            "zh": "开放到能有新解读。"
+          },
+          "points": {
+            "question": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Specific enough to evoke this invented day.",
+            "zh": "具体到能唤起此虚构一天。"
+          },
+          "points": {
+            "scene": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Clear enough to try without reconstructing the past.",
+            "zh": "清楚到不重建过去也能试。"
+          },
+          "points": {
+            "instruction": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What makes the capsule complete?",
+        "zh": "什么让胶囊完整？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A small ordinary activity has a usable return path.",
+            "zh": "小普通活动有可用返回路。"
+          },
+          "points": {
+            "instruction": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "This particular moment has a modest written trace.",
+            "zh": "此特定片刻有一点文字痕迹。"
+          },
+          "points": {
+            "scene": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A question can travel forward without demanding an answer.",
+            "zh": "问题可往前，不索取答案。"
+          },
+          "points": {
+            "question": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "scene",
+      "title": {
+        "en": "The Ordinary-Scene Capsule",
+        "zh": "保存普通场景的胶囊"
+      },
+      "summary": {
+        "en": "Your capsule preserves what a small moment looked or sounded like. Specificity matters more than making the invented day seem historically important or emotionally profound.",
+        "zh": "你的胶囊保存小片刻看听起来怎样。具体比把虚构日写成历史大事或深刻情绪重要。"
+      },
+      "example": {
+        "en": "A note might describe a paper envelope on a windowsill, a passing bicycle bell and the unfinished corner of a drawing.",
+        "zh": "便条可写窗台纸信封、经过的车铃与画上未完角。"
+      },
+      "strength": {
+        "en": "A concrete scene gives a future reader something to imagine without requiring agreement about what the moment meant or how it should be valued.",
+        "zh": "具体景给未来读者想象之物，不要求同意意义或价值。"
+      },
+      "tradeoff": {
+        "en": "A capsule selects a fragment, not an entire life. One vivid paragraph should not be presented as a complete account of a real person or period.",
+        "zh": "胶囊选碎片，不是整人生。一段生动文不等于真实人或时段全貌。"
+      },
+      "experiment": {
+        "en": "Write five observable details from an invented ordinary day. Remove any private identifiers and let the scene end without a moral or prediction.",
+        "zh": "写虚构日五可观察细节，去私人标识，不加道理或预测收尾。"
+      }
+    },
+    {
+      "id": "question",
+      "title": {
+        "en": "The Still-Open Question Capsule",
+        "zh": "问题仍开放的胶囊"
+      },
+      "summary": {
+        "en": "Your capsule sends a question forward without assigning a future answer. The reader is allowed to be different, uninterested or unsure without disappointing the person who imagined the note.",
+        "zh": "你的胶囊送问题往前，不指定未来答案。读者可不同、不感兴趣或不确定，不使写者失望。"
+      },
+      "example": {
+        "en": "A fictional note might ask which ordinary object the future reader would choose to draw now, leaving room for an entirely new choice.",
+        "zh": "虚构便条可问未来想画哪件普通物，给全新选择余地。"
+      },
+      "strength": {
+        "en": "An open question lets a capsule become a conversation across imagined time rather than a checklist of goals the future must satisfy.",
+        "zh": "开放问让胶囊成跨想象时间对话，不是未来须满足的目标表。"
+      },
+      "tradeoff": {
+        "en": "Even a friendly question can feel like a test when an expected answer is implied. Keeping the wording optional preserves the invitation.",
+        "zh": "友善问题若暗示期待答案也像考题。可选措辞能保留邀请。"
+      },
+      "experiment": {
+        "en": "Write one harmless question for an imaginary future reader. Add a sentence explicitly welcoming a different answer, no answer or a changed question.",
+        "zh": "给想象未来读者写一无害问题，添一句欢迎不同答案、不答或改问题。"
+      }
+    },
+    {
+      "id": "instruction",
+      "title": {
+        "en": "The Little-Return Method Capsule",
+        "zh": "留下小方法的胶囊"
+      },
+      "summary": {
+        "en": "Your capsule keeps a small action understandable. A useful instruction can survive changing tastes because the future reader is free to try, adapt or ignore it.",
+        "zh": "你的胶囊让小动作仍好懂。指引可过口味变化，因为未来读者可试、改或忽略。"
+      },
+      "example": {
+        "en": "A fictional note might explain a three-step paper arrangement that once made a dull tabletop scene more interesting to its maker.",
+        "zh": "虚构便条可说明三步纸布置，曾让作者觉得平淡桌景有趣。"
+      },
+      "strength": {
+        "en": "A clear little method offers a practical way back to an activity without demanding that the reader recreate the original setting or feeling.",
+        "zh": "清楚小方法给活动返回路，不要求重建原环境或感觉。"
+      },
+      "tradeoff": {
+        "en": "Instructions can lose context as time passes. Naming their limited purpose helps a future reader decide whether they still want to use them.",
+        "zh": "指引会随时间失背景。写清有限用途，未来读者更好选是否仍用。"
+      },
+      "experiment": {
+        "en": "Invent a harmless three-step creative activity and label what it is for. Include permission to change any step rather than promising a future result.",
+        "zh": "编无害三步创作活动，标用途，允许改任何步，不承诺未来成果。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "scene",
+    "question",
+    "instruction"
+  ]
+}

@@ -1,0 +1,348 @@
+{
+  "slug": "seasonal-table",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "metaphor",
+  "title": {
+    "en": "How Would Your Imaginary Table Mark a New Season?",
+    "zh": "换一个季节，想象桌面会添什么？"
+  },
+  "description": {
+    "en": "Make six table-scene choices about a seasonal trace, a space for change and an optional shared contribution.",
+    "zh": "六次桌面场景选择，留季节痕迹、变化位置或自愿共享的一份。"
+  },
+  "introduction": {
+    "en": "This is a fictional tabletop scene, not food advice, a purchase list or a forecast of your life stage. Use drawn or imagined objects; a season is simply the story’s occasion for a small change.",
+    "zh": "这是虚构桌景，不是饮食建议、购买清单或人生阶段预测。用画出或想象的物，季节只给故事一个小变化契机。"
+  },
+  "focus": {
+    "en": "Marking a transition by keeping one trace, making a place available or inviting a shared addition.",
+    "zh": "留一处痕迹、腾一个位置或邀共享添加，标记转换。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "A new season arrives in your drawing. You add…",
+        "zh": "画中新季来了，你添……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One small drawn object that recalls the changing outside scene.",
+            "zh": "一件记外景变化的小画物。"
+          },
+          "points": {
+            "trace": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "An empty place ready for something not chosen yet.",
+            "zh": "一个未选用途的空位置。"
+          },
+          "points": {
+            "space": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A place where a willing guest can add their own drawing.",
+            "zh": "一个愿意客人可添自己画的位置。"
+          },
+          "points": {
+            "shared": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The previous season still has a place. You keep…",
+        "zh": "上一季仍有位置，你留……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A gap between the old arrangement and whatever comes next.",
+            "zh": "旧布置与未来之间一段空。"
+          },
+          "points": {
+            "space": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "One contribution that its maker still wants displayed.",
+            "zh": "一份作者仍想展示的贡献。"
+          },
+          "points": {
+            "shared": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A small detail that makes the change visible by comparison.",
+            "zh": "对照可看出变化的小细节。"
+          },
+          "points": {
+            "trace": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "The table is too full. You would…",
+        "zh": "桌太满，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask before removing someone else’s contribution.",
+            "zh": "移别人贡献前先问。"
+          },
+          "points": {
+            "shared": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Keep one clear seasonal detail rather than many symbols.",
+            "zh": "留一个清楚季节细节，不堆符号。"
+          },
+          "points": {
+            "trace": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Remove one thing and leave the place unassigned.",
+            "zh": "移一物，位置暂不指定。"
+          },
+          "points": {
+            "space": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "Your caption for the table says…",
+        "zh": "桌景图注写……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Here is one ordinary sign that the scene has changed.",
+            "zh": "这是场景变动的普通迹象。"
+          },
+          "points": {
+            "trace": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Something can arrive here without being decided today.",
+            "zh": "这里可有新物，今天不必定。"
+          },
+          "points": {
+            "space": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "This scene has room for another willing contribution.",
+            "zh": "这景容得下另一自愿贡献。"
+          },
+          "points": {
+            "shared": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "A fictional guest sees the table differently. You…",
+        "zh": "虚构客人对桌景看法不同，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Keep an open place for an alternative arrangement.",
+            "zh": "留开放位置给另种布置。"
+          },
+          "points": {
+            "space": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Explain the particular detail I chose without making it universal.",
+            "zh": "解释所选细节，不当普遍象征。"
+          },
+          "points": {
+            "trace": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Invite their version only if they want to add it.",
+            "zh": "他们想添时才邀另一版。"
+          },
+          "points": {
+            "shared": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "At the next transition, you hope the table can…",
+        "zh": "下次转换时，希望桌景能……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Hold evidence that more than one person helped make it.",
+            "zh": "留多人一起造的痕迹。"
+          },
+          "points": {
+            "shared": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Change without every place already having a rule.",
+            "zh": "能变，不是每处已有规则。"
+          },
+          "points": {
+            "space": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Show one small difference from the earlier scene.",
+            "zh": "显出与前景一处小不同。"
+          },
+          "points": {
+            "trace": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "trace",
+      "title": {
+        "en": "The One-Seasonal-Trace Table",
+        "zh": "留一处季节痕迹的桌面"
+      },
+      "summary": {
+        "en": "Your table marks change through one specific detail. The object does not stand for everyone’s experience of a season; it simply makes this fictional scene’s transition visible.",
+        "zh": "你的桌用一个具体细节标变化。物不代表所有人季节体验，只让此虚构转换可见。"
+      },
+      "example": {
+        "en": "A drawn branch with one new paper leaf might sit beside an earlier sketch, making the difference easy to notice.",
+        "zh": "一根添新纸叶的画枝，可放早先草图旁，差异好看见。"
+      },
+      "strength": {
+        "en": "A small trace can make a transition concrete without turning the table into a collection of every possible seasonal symbol.",
+        "zh": "一处小痕迹让转换具体，不把桌变成全套季节符号集。"
+      },
+      "tradeoff": {
+        "en": "A seasonal symbol may mean different things in different places. Naming the detail plainly is clearer than treating one climate or tradition as universal.",
+        "zh": "不同地方季节符号不同。普通指明细节，比把一种气候传统当普遍更清楚。"
+      },
+      "experiment": {
+        "en": "Draw two tabletop scenes with only one ordinary detail changed. Write what visibly changed, without turning the difference into a lesson about personal growth.",
+        "zh": "画两桌景，只变一普通细节，写可见变化，不升成人成长教训。"
+      }
+    },
+    {
+      "id": "space",
+      "title": {
+        "en": "The Place-Still-Available Table",
+        "zh": "还留一个位置的桌面"
+      },
+      "summary": {
+        "en": "Your transition includes something not yet assigned. An available place lets the fictional table change later without demanding that the new season immediately arrive with a complete plan.",
+        "zh": "你的转换有未指定之处。可用位置让虚构桌以后变，不要新季立刻带全计划。"
+      },
+      "example": {
+        "en": "One clear square beside the existing objects might remain empty through the first drawing and gain a small paper shape in a later version.",
+        "zh": "旧物旁一空方可在首图留白，后版才添小纸形。"
+      },
+      "strength": {
+        "en": "Leaving a visible place open gives incompleteness an intentional role and lets a small arrangement welcome change at a chosen pace.",
+        "zh": "留可见空位给未完刻意角色，让小布置按自选节奏迎变化。"
+      },
+      "tradeoff": {
+        "en": "An open place can still become an expectation to fill it perfectly. The scene can remain complete even if that square stays empty.",
+        "zh": "空位也会变成必须完美填上的期待。那格一直空，场景也可完整。"
+      },
+      "experiment": {
+        "en": "Draw a table with one deliberately unassigned place. Give the space a neutral caption and imagine leaving it unchanged in the next drawing.",
+        "zh": "画一桌，留刻意未指定位置，写中性图注，想象下一图仍不改。"
+      }
+    },
+    {
+      "id": "shared",
+      "title": {
+        "en": "The Add-Your-Own Table",
+        "zh": "可以自愿添一份的桌面"
+      },
+      "summary": {
+        "en": "Your table marks a season by becoming a shared composition. Another person can add a different detail without having to agree with your interpretation of the change.",
+        "zh": "你的桌以共作标季节。别人可添不同细节，不需同意你的变化解读。"
+      },
+      "example": {
+        "en": "Two fictional guests might place a paper bird and a little abstract shape beside your drawn branch, each with their own short caption.",
+        "zh": "两虚构客可在画枝旁添纸鸟与抽象小形，各有短图注。"
+      },
+      "strength": {
+        "en": "An optional contribution lets the arrangement acknowledge several views and makes its shared character visible rather than assuming everybody experiences a season alike.",
+        "zh": "自愿贡献让布置承认多视角，不假定人人季节体验相同。"
+      },
+      "tradeoff": {
+        "en": "A shared table still needs room and consent. Removing or displaying another person’s real work should not be assumed from this fictional invitation.",
+        "zh": "共享桌仍需空间与同意。此虚构邀请不代表可随意撤或展别人真实作品。"
+      },
+      "experiment": {
+        "en": "Invent two characters who add different harmless details to a seasonal drawing. Give both equal caption space and let a third character simply look.",
+        "zh": "编两角色给季节画添不同无害细节，图注等空间，第三角色可只看。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "trace",
+    "space",
+    "shared"
+  ]
+}

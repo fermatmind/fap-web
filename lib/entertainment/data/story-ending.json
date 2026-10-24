@@ -1,0 +1,264 @@
+{
+  "slug": "story-ending",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "metaphor",
+  "title": {
+    "en": "How Will the Last Page of the Paper Parade End?",
+    "zh": "纸游行最后一页，会怎样写完？"
+  },
+  "description": {
+    "en": "Choose an actual branching ending for an original tale about a paper parade arriving at an unfinished square.",
+    "zh": "为原创纸游行抵达未完广场的故事，沿真正分支选一个结尾。"
+  },
+  "introduction": {
+    "en": "A fictional parade of paper figures reaches a square with a blank final page. No choice is a moral test. Your route determines what happens in the tale: a returned object, a new shared scene or an open continuation.",
+    "zh": "纸角色的虚构游行到广场，最后一页仍空。选择不作道德考题。路线决定归还小物、新共作景或开放延续。"
+  },
+  "focus": {
+    "en": "Deciding what an original tale resolves, what its characters make together and what it leaves available beyond the final page.",
+    "zh": "决定原创故事解决什么、角色共造什么，以及末页后留什么开放。"
+  },
+  "minutes": 2,
+  "mechanism": "branch",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "The paper parade reaches a square. You follow…",
+        "zh": "纸游行到广场，你跟着……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A figure carrying a sign that belongs somewhere else.",
+            "zh": "拿着应放别处牌子的纸人。"
+          },
+          "next": "q2"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A group arranging an empty circle in the square.",
+            "zh": "在广场排空圆圈的一组纸人。"
+          },
+          "next": "q3"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The sign came from the parade’s starting bench. You choose…",
+        "zh": "牌子来自出发长椅，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Return with the figure to see the bench again.",
+            "zh": "随纸人返回再看长椅。"
+          },
+          "next": "q4"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask whether the sign can have a place in the new circle.",
+            "zh": "问牌子可否在新圆圈有位置。"
+          },
+          "next": "q5"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "The circle has a space no figure has claimed. You choose…",
+        "zh": "圆圈有一处无人认领空位，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Invite one optional contribution from each willing figure.",
+            "zh": "邀每位愿意纸人添一小份。"
+          },
+          "next": "q5"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Keep the gap as a path beyond the square.",
+            "zh": "留空口，作广场外的小路。"
+          },
+          "next": "q6"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "At the starting bench, the figure can…",
+        "zh": "回到出发长椅，纸人可……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Put the sign back and end with a view of the quiet bench.",
+            "zh": "放回牌，以安静长椅景收尾。"
+          },
+          "result": "return"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Leave a note and take a new blank sign toward the square.",
+            "zh": "留便条，带新空牌往广场。"
+          },
+          "next": "q6"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The willing figures have made a small shared scene. You…",
+        "zh": "愿意的纸人共造小景，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "End with the scene and its different contributions visible.",
+            "zh": "让小景与各份贡献可见，收尾。"
+          },
+          "result": "together"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Let one figure leave a blank space for tomorrow’s addition.",
+            "zh": "让一纸人留空，给明天添加。"
+          },
+          "next": "q6"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "The final page has one spare corner. You put…",
+        "zh": "末页还剩一角，你放……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A path that continues beyond the page, with no required destination.",
+            "zh": "一条延伸纸外的路，不指定终点。"
+          },
+          "result": "open"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The starting bench beside the square, linking the two scenes.",
+            "zh": "把出发长椅放广场旁，连起两景。"
+          },
+          "result": "return"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "return",
+      "title": {
+        "en": "The Ending That Returns One Small Thing",
+        "zh": "归还一件小物的结尾"
+      },
+      "summary": {
+        "en": "Your route closes a modest loop in the original tale. The bench and sign connect the last scene with the first, without claiming that every character’s future is now settled.",
+        "zh": "路线为原创故事合一个小环。长椅与牌连末景首景，不称角色未来全定。"
+      },
+      "example": {
+        "en": "The final illustration might show the sign resting beside the bench while the paper square remains visible in the distance.",
+        "zh": "末图可画牌在椅边，纸广场远处仍可见。"
+      },
+      "strength": {
+        "en": "A concrete return gives the reader a recognizable point of closure and lets a small object carry the connection between scenes.",
+        "zh": "具体归还给读者可认收束，让小物承载场景联系。"
+      },
+      "tradeoff": {
+        "en": "A neat loop can feel too complete if every loose detail is forced back into place. This ending only resolves the one object it follows.",
+        "zh": "所有散细节硬归位，环也过圆。此结尾只解决跟着的那一物。"
+      },
+      "experiment": {
+        "en": "Write two opening lines for a fictional object’s journey and a last line that returns to it. Leave at least one surrounding detail unresolved.",
+        "zh": "写虚构物旅程两开头句，一末句回它，至少留一周围细节未解。"
+      }
+    },
+    {
+      "id": "together",
+      "title": {
+        "en": "The Ending Made from Several Contributions",
+        "zh": "几份贡献共成的结尾"
+      },
+      "summary": {
+        "en": "Your route ends with a scene the willing figures made together. The final page shows different contributions sharing a place without insisting that every character wanted the same ending.",
+        "zh": "路线以愿意纸人共作景结束。末页显不同贡献共处，不坚持每角色想同结局。"
+      },
+      "example": {
+        "en": "One figure’s sign, another’s paper arch and a third’s little drawing might form a square that none of them designed alone.",
+        "zh": "一人的牌、另一纸拱与第三小画可成无人独创的广场。"
+      },
+      "strength": {
+        "en": "Visible contributions make the shared ending concrete and give the reader several small actions to recognize rather than a vague claim of togetherness.",
+        "zh": "可见贡献让共作结尾具体，给读者可认小动作，不空称团结。"
+      },
+      "tradeoff": {
+        "en": "A shared scene can still leave out quieter perspectives. The story can acknowledge a figure who watched or declined without treating them as a problem.",
+        "zh": "共享景仍可漏安静视角。故事可承认只看或不参加者，不当问题。"
+      },
+      "experiment": {
+        "en": "Invent a three-character final scene and give each willing contributor one distinct harmless addition. Let a fourth character simply enjoy the view.",
+        "zh": "编三角色末景，各愿意者一独特无害添加，第四角色可只欣赏。"
+      }
+    },
+    {
+      "id": "open",
+      "title": {
+        "en": "The Ending with a Path Beyond the Page",
+        "zh": "纸页之外仍有路的结尾"
+      },
+      "summary": {
+        "en": "Your route lets the tale stop while one possibility remains open. The continuing path is an invitation to imagine, not a promise of a sequel or a refusal to finish the present scene.",
+        "zh": "路线让故事停而一可能仍开放。延伸路是想象邀请，不许诺续集，也不拒绝完成当景。"
+      },
+      "example": {
+        "en": "The final corner might show a narrow paper path leaving the square while the completed parade rests behind it.",
+        "zh": "末角可画窄纸路离广场，已完成游行在后方歇。"
+      },
+      "strength": {
+        "en": "An open continuation lets the world feel larger than the selected story while still giving the reader a clear last image to keep.",
+        "zh": "开放延续让世界大于所选故事，仍给读者清楚末图。"
+      },
+      "tradeoff": {
+        "en": "Openness can feel evasive if the current scene never reaches a stopping point. This parade has arrived; only the next journey remains undecided.",
+        "zh": "当景没停点，开放会像逃避。这游行已抵达，只有下一程未定。"
+      },
+      "experiment": {
+        "en": "Write a fictional final image with one completed action and one open path. Make the completed part clear before adding any hint of continuation.",
+        "zh": "写有一完成动作与一开放路的虚构末图，先说清完成，再暗示延续。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "return",
+    "together",
+    "open"
+  ]
+}

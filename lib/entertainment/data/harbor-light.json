@@ -1,0 +1,348 @@
+{
+  "slug": "harbor-light",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "metaphor",
+  "title": {
+    "en": "What Signal Would Your Fictional Harbor Light Send?",
+    "zh": "虚构港口里，你会设计怎样的灯语？"
+  },
+  "description": {
+    "en": "Design an original harbor signal through six choices about rhythm, readable shapes and a little local legend.",
+    "zh": "用节奏、可读图形与本地小传说的六个选择，设计原创港口灯语。"
+  },
+  "introduction": {
+    "en": "This is an illustrated fictional harbor, never real navigation or emergency guidance. Ships and signals are story props. The ending reflects how you designed a message, not leadership ability or a promise to guide other people.",
+    "zh": "这是插画虚构港口，绝非真实航行或紧急指引。船与信号是故事道具。结局谈你怎样设计信息，不评领导力，也不承诺引导别人。"
+  },
+  "focus": {
+    "en": "Making a fictional signal recognizable through repeated timing, an explicit visual key or an original shared story.",
+    "zh": "用重复时序、明确图例或原创共享故事，让虚构信号可认。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Your harbor light has one signature. It is…",
+        "zh": "港灯有一处招牌，是……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A short rhythm repeated with a clear pause.",
+            "zh": "有明确停顿的重复短节奏。"
+          },
+          "points": {
+            "pulse": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Three simple symbols explained on a nearby sign.",
+            "zh": "三种简单符号，近旁牌上有解释。"
+          },
+          "points": {
+            "key": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "An original little tale that gives the light its name.",
+            "zh": "给灯起名的一则原创小故事。"
+          },
+          "points": {
+            "legend": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "A newcomer asks what the signal means. You offer…",
+        "zh": "新来者问灯语什么意思，你提供……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A plain key with an example of each fictional symbol.",
+            "zh": "普通图例，各虚构符号带例子。"
+          },
+          "points": {
+            "key": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The short local story, clearly labeled as an invention.",
+            "zh": "明确标虚构的一段本地故事。"
+          },
+          "points": {
+            "legend": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A written pattern showing the rhythm and the pause.",
+            "zh": "写下节奏与停顿的模式。"
+          },
+          "points": {
+            "pulse": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "Fog exists only in the drawing. You keep the idea understandable by…",
+        "zh": "雾只在画里出现，你靠什么让构想仍好懂？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Retelling the tale without relying on seeing the light.",
+            "zh": "不靠看灯，也讲得懂故事。"
+          },
+          "points": {
+            "legend": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Describing the timing in ordinary words as well.",
+            "zh": "也用普通话描述时序。"
+          },
+          "points": {
+            "pulse": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Putting the symbol meanings in the caption.",
+            "zh": "把符号意思放图注。"
+          },
+          "points": {
+            "key": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "You simplify the invented signal. You remove…",
+        "zh": "简化虚构灯语，你删……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "An extra beat that made the rhythm hard to recognize.",
+            "zh": "让节奏难认的额外一拍。"
+          },
+          "points": {
+            "pulse": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A symbol whose meaning overlaps another too closely.",
+            "zh": "意思与另一太近的符号。"
+          },
+          "points": {
+            "key": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A backstory detail that distracted from the short tale.",
+            "zh": "偏离短故事的身世细节。"
+          },
+          "points": {
+            "legend": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "For an illustrated festival, your harbor shares…",
+        "zh": "插画节庆时，港口分享……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A small card letting readers interpret the fictional marks.",
+            "zh": "让读者解释虚构记号的小卡。"
+          },
+          "points": {
+            "key": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A sequence of drawings showing one repeated light pattern.",
+            "zh": "展示一个重复灯样的连图。"
+          },
+          "points": {
+            "pulse": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A new episode of the original light’s local story.",
+            "zh": "原创港灯本地故事的新一段。"
+          },
+          "points": {
+            "legend": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "The final page emphasizes…",
+        "zh": "最后一页强调……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Why this particular invented harbor remembers its light.",
+            "zh": "这个虚构港口为何记住这盏灯。"
+          },
+          "points": {
+            "legend": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "How a reader can understand the designed message.",
+            "zh": "读者怎样理解设计的信息。"
+          },
+          "points": {
+            "key": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "How a simple pattern becomes recognizable over time.",
+            "zh": "简单模式怎样随重复变可认。"
+          },
+          "points": {
+            "pulse": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "pulse",
+      "title": {
+        "en": "The Pause-and-Pulse Light",
+        "zh": "有停顿的节奏灯"
+      },
+      "summary": {
+        "en": "Your fictional signal becomes recognizable through timing. The pause is part of the message, allowing a small repeated pattern to stand out without becoming a constant stream of flashes.",
+        "zh": "你的虚构信号靠时序可认。停顿也是信息，让重复小模式突出，不需持续闪烁。"
+      },
+      "example": {
+        "en": "An illustrated sequence might show two small glows, a longer empty frame and then the same two glows returning.",
+        "zh": "连图可画两次小亮、一格较长空白，再回两次亮。"
+      },
+      "strength": {
+        "en": "A simple rhythm can give an invented place a memorable signature and lets the story show repetition without explaining a complex code.",
+        "zh": "简单节奏给虚构地方可记招牌，不解释复杂密码也能展重复。"
+      },
+      "tradeoff": {
+        "en": "A rhythm can be interpreted differently by different readers. A written description should accompany the imaginary light rather than assuming its meaning is obvious.",
+        "zh": "不同读者可不同理解节奏。想象灯应附文字，不假定意思显然。"
+      },
+      "experiment": {
+        "en": "Draw a five-frame fictional light sequence with at least one pause. Caption the pattern and clearly label it as invented rather than navigational.",
+        "zh": "画至少一停的五帧虚构灯图，写模式图注，明确是虚构而非航行信号。"
+      }
+    },
+    {
+      "id": "key",
+      "title": {
+        "en": "The Clearly-Keyed Harbor Light",
+        "zh": "图例清楚的港灯"
+      },
+      "summary": {
+        "en": "Your harbor signal gives its reader an explicit key. Understanding is part of the design, so a newcomer does not have to guess what a beautiful mark secretly means.",
+        "zh": "你的港灯给读者明确图例。理解就是设计部分，新来者不必猜美丽记号暗意。"
+      },
+      "example": {
+        "en": "Three original shapes on an illustrated sign might represent a fictional reading hour, a paper parade and a quiet exhibition.",
+        "zh": "画牌三原创形，可代表虚构阅读时、纸游行与安静展。"
+      },
+      "strength": {
+        "en": "An explicit key makes the invitation more accessible within the story and lets readers take part without already knowing the invented place.",
+        "zh": "明确图例让故事内邀请更易参与，不先熟悉虚构地也可玩。"
+      },
+      "tradeoff": {
+        "en": "More symbols do not always make a richer message. If the key grows longer than the scene, a smaller vocabulary may serve the story better.",
+        "zh": "更多符号未必更丰富。图例比场景还长时，小词汇反更合故事。"
+      },
+      "experiment": {
+        "en": "Invent two harmless harbor symbols and write one unambiguous fictional meaning for each. Ask whether the meanings are distinct without adding a third.",
+        "zh": "编两个无害港符，各写一个明确虚构意思。检查有区别，先不添第三个。"
+      }
+    },
+    {
+      "id": "legend",
+      "title": {
+        "en": "The Story-Named Harbor Light",
+        "zh": "由故事得名的港灯"
+      },
+      "summary": {
+        "en": "Your signal belongs to a particular invented place through a short tale. Its meaning comes from shared fiction rather than a claim that the light predicts anyone’s future.",
+        "zh": "你的信号靠短故事属于特定虚构地。意思来自共享虚构，不是灯预测谁未来。"
+      },
+      "example": {
+        "en": "The harbor might call its light “the borrowed lantern” after an original story about neighbors lending props for a tiny evening play.",
+        "zh": "港灯可叫“借来的提灯”，来自邻里为傍晚小戏借道具的原创故事。"
+      },
+      "strength": {
+        "en": "A local tale can connect a visual design to the life of its fictional setting and make an otherwise ordinary light feel specific.",
+        "zh": "本地故事把视觉设计连到虚构日常，让普通灯有特点。"
+      },
+      "tradeoff": {
+        "en": "A memorable legend is still a story, not evidence of real history or a substitute for a clear practical message in the real world.",
+        "zh": "难忘传说仍是故事，不是真历史证据，也不替代现实明确实用信息。"
+      },
+      "experiment": {
+        "en": "Write an original three-sentence legend for an imaginary light. Keep its stakes small and add a final note identifying the tale as fiction.",
+        "zh": "为想象灯写三句原创传说，保持小事件，末注明确故事虚构。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "pulse",
+    "key",
+    "legend"
+  ]
+}

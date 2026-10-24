@@ -1,0 +1,348 @@
+{
+  "slug": "creative-spark",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "metaphor",
+  "title": {
+    "en": "How Does Your Small Creative Idea Catch Fire?",
+    "zh": "一个小创意来了，你会先怎么接？"
+  },
+  "description": {
+    "en": "Six recreational idea choices follow a surprising prompt, a rough working version or a willing listener. Find your idea-start portrait.",
+    "zh": "六次休闲创意选择，跟意外提示、粗糙试版或愿意听的人，看想法怎样开始。"
+  },
+  "introduction": {
+    "en": "Choose for one low-stakes creative idea, not your work performance. The result describes an approach in this game; it does not identify a fixed creative type, learning style or level of talent.",
+    "zh": "只为一个轻松创意选，不评工作表现。结果描述本游戏中的做法，不认定固定创意类型、学习风格或才华高低。"
+  },
+  "focus": {
+    "en": "Starting a small idea by changing the prompt, making a rough version or testing how another willing person understands it.",
+    "zh": "换提示、造粗版或听愿意者怎样理解，启动小想法。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "You want a small new idea. You begin by…",
+        "zh": "想来个小新点子，你先……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Combining two ordinary things that do not usually meet.",
+            "zh": "把两件不常相遇的普通物相配。"
+          },
+          "points": {
+            "prompt": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Making the simplest visible version of a vague thought.",
+            "zh": "把模糊念头做成最简单可见版。"
+          },
+          "points": {
+            "prototype": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Telling a willing friend one sentence and hearing their question.",
+            "zh": "向愿意朋友说一句，听其问题。"
+          },
+          "points": {
+            "listener": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The first attempt feels flat. You…",
+        "zh": "第一次试着平，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Change one part of the rough version and compare.",
+            "zh": "改粗版一处作对照。"
+          },
+          "points": {
+            "prototype": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask what another person actually understood.",
+            "zh": "问别人实际理解到什么。"
+          },
+          "points": {
+            "listener": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Change one constraint to generate a different possibility.",
+            "zh": "换一限制，造另可能。"
+          },
+          "points": {
+            "prompt": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "You have ten casual minutes. You choose…",
+        "zh": "有十分钟随手玩，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One brief conversation about the idea, with permission.",
+            "zh": "经同意，短聊这个点子。"
+          },
+          "points": {
+            "listener": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Several unusual starting prompts without finishing them.",
+            "zh": "列几条奇起点，不用做完。"
+          },
+          "points": {
+            "prompt": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "One rough sketch or mock version to react to.",
+            "zh": "一粗画或样版，让自己回应。"
+          },
+          "points": {
+            "prototype": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A surprising detail appears. You…",
+        "zh": "出现意外细节，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Use it to pose a different little question.",
+            "zh": "用它提出不同小问题。"
+          },
+          "points": {
+            "prompt": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Put it into the rough version and see what changes.",
+            "zh": "放入粗版，看哪里变。"
+          },
+          "points": {
+            "prototype": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Explain the detail and notice which part interests a listener.",
+            "zh": "解释细节，看听者对哪处有兴趣。"
+          },
+          "points": {
+            "listener": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "You decide whether to continue. You most want…",
+        "zh": "决定要不要继续，你最想……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A concrete version that makes the next change visible.",
+            "zh": "具体版让下一改可见。"
+          },
+          "points": {
+            "prototype": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A question that still feels enjoyable to explore.",
+            "zh": "一个仍想玩的提问。"
+          },
+          "points": {
+            "prompt": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A clearer sense of what the idea communicates.",
+            "zh": "更清楚想法传达了什么。"
+          },
+          "points": {
+            "listener": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "Your small idea can stop when…",
+        "zh": "小创意何时可停？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The conversation has answered the question I brought.",
+            "zh": "对话已答我带来的问题。"
+          },
+          "points": {
+            "listener": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The trial has shown me enough for today.",
+            "zh": "试版已给今天足够信息。"
+          },
+          "points": {
+            "prototype": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The playful possibility was enjoyable even without an output.",
+            "zh": "可能本身有趣，无产出也可。"
+          },
+          "points": {
+            "prompt": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "prompt",
+      "title": {
+        "en": "The Question-Changing Spark",
+        "zh": "换个问法的小火花"
+      },
+      "summary": {
+        "en": "Your idea starts by changing the invitation. An unusual combination or a different constraint gives an ordinary subject another possible direction without requiring a completely original discovery.",
+        "zh": "你的创意从改邀请开始。意外组合或不同限制给普通主题另一路，不要求全新发现。"
+      },
+      "example": {
+        "en": "You might ask what a postcard would look like if it could describe only sounds, then enjoy a few possible answers.",
+        "zh": "你可问明信片若只能写声音会怎样，享受几个可能答案。"
+      },
+      "strength": {
+        "en": "A fresh prompt can loosen a familiar starting point and generate alternatives before you commit effort to making any one version.",
+        "zh": "新问法可松开熟悉起点，在投入造某版前生成替代。"
+      },
+      "tradeoff": {
+        "en": "New prompts can keep replacing each other without giving one idea time to develop. Choosing a single small trial remains available whenever you want it.",
+        "zh": "新提示会一直相替，不给一想法发展。愿意时仍可选一个小试。"
+      },
+      "experiment": {
+        "en": "Take an ordinary fictional object and change one harmless constraint. Write three possible responses, then choose whether any deserves a tiny sketch.",
+        "zh": "选普通虚构物，换一无害限制，写三回应，再选是否值得画小图。"
+      }
+    },
+    {
+      "id": "prototype",
+      "title": {
+        "en": "The Rough-Version Spark",
+        "zh": "先有粗版的小火花"
+      },
+      "summary": {
+        "en": "Your idea becomes interesting when something is available to respond to. A rough version is a question made visible, not an early examination of whether your final work will be good.",
+        "zh": "有东西可回应时，你的点子活起来。粗版是可见提问，不是提前考试成品好坏。"
+      },
+      "example": {
+        "en": "A folded scrap with a penciled handle might help you understand an imagined object more quickly than another page of plans.",
+        "zh": "折纸片添铅笔把手，可能比再写一页计划更快理解想象物。"
+      },
+      "strength": {
+        "en": "A small working image can reveal specific decisions and make the next revision more concrete than a general wish to improve the idea.",
+        "zh": "小试图显出具体决定，让修改比笼统“更好”具体。"
+      },
+      "tradeoff": {
+        "en": "A rough version can become expensive if you keep polishing it before learning anything. The trial only needs enough detail to answer one question.",
+        "zh": "没学到东西就不断打磨，粗版也贵。只需足够细节答一个问题。"
+      },
+      "experiment": {
+        "en": "Make a thirty-second sketch of a harmless idea and write the one question it helps answer. Stop before improving details unrelated to that question.",
+        "zh": "三十秒画无害点子，写它帮答的一问题。无关细节先别磨。"
+      }
+    },
+    {
+      "id": "listener",
+      "title": {
+        "en": "The Willing-Listener Spark",
+        "zh": "有人愿听的小火花"
+      },
+      "summary": {
+        "en": "Your idea takes shape through a voluntary exchange. Another person’s question shows what your words actually communicate without making their approval the measure of whether the idea deserves to exist.",
+        "zh": "你的想法经自愿交流成形。别人问题显出话传了什么，不把赞同当存在资格。"
+      },
+      "example": {
+        "en": "A friend might ask which part of your imaginary exhibition a visitor would try first, helping you notice an assumption you had not explained.",
+        "zh": "朋友问想象展中访客先试哪处，帮你发现未解释的假定。"
+      },
+      "strength": {
+        "en": "A willing listener can provide a different view of an idea and help separate what is clear to its maker from what was actually shared.",
+        "zh": "愿意听者给另视角，区分作者自己清楚与实际说出的部分。"
+      },
+      "tradeoff": {
+        "en": "Feedback can pull an idea in several directions. You can thank a listener and still choose which question, if any, you want to act on.",
+        "zh": "反馈会拉多向。可谢听者，仍自己选要不要、回应哪问。"
+      },
+      "experiment": {
+        "en": "If someone wants to listen, describe a tiny fictional idea in one sentence and ask what they pictured. Treat their answer as information, not a verdict.",
+        "zh": "有人愿听时，一句讲虚构点子，问想到什么画面。把回答当信息，不当判决。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "prompt",
+    "prototype",
+    "listener"
+  ]
+}

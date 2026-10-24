@@ -1,0 +1,348 @@
+{
+  "slug": "tiny-superpower",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "metaphor",
+  "title": {
+    "en": "Which Tiny Original Superpower Would You Pick?",
+    "zh": "只在小事里有用：你会选哪种原创微能力？"
+  },
+  "description": {
+    "en": "Choose an original low-stakes power for six fictional scenes: finding a missing word, placing a tiny pause or revealing a useful edge.",
+    "zh": "为六个虚构小场景选原创微能力：找到漏词、放入短暂停顿或显出有用边缘。"
+  },
+  "introduction": {
+    "en": "All powers and characters are original inventions. Nothing here measures a real ability or grants control over another person. Each power has a small limit, and none solves a serious real-world problem.",
+    "zh": "能力与角色均原创虚构。不测真实能力，也不授予控制别人。每能力有限制，不解决严肃现实问题。"
+  },
+  "focus": {
+    "en": "Preferring a fictional power that clarifies a phrase, makes room for a voluntary pause or makes a small physical detail visible.",
+    "zh": "选能澄清短句、留自愿停顿或让实体小细节可见的虚构能力。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Your tiny power can do one thing. You choose…",
+        "zh": "微能力只做一事，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Suggest one missing ordinary word in a fictional label.",
+            "zh": "为虚构标签提一个漏掉的普通词。"
+          },
+          "points": {
+            "word": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Place a short optional pause inside an imaginary scene.",
+            "zh": "给想象场景放一个可选短停顿。"
+          },
+          "points": {
+            "pause": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Outline one small overlooked edge on an invented object.",
+            "zh": "勾出虚构物一处忽略的小边。"
+          },
+          "points": {
+            "edge": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "A paper exhibition feels confusing. You use…",
+        "zh": "纸展有点难懂，你用……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A place where a character can stop looking for a moment.",
+            "zh": "一处角色可暂时不看的停点。"
+          },
+          "points": {
+            "pause": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A visible outline separating two overlapping props.",
+            "zh": "可见边线，分开相叠两道具。"
+          },
+          "points": {
+            "edge": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "One plain word that makes a label less vague.",
+            "zh": "一个普通词，让标签不含糊。"
+          },
+          "points": {
+            "word": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "Your power must have a limit. It cannot…",
+        "zh": "能力必须有限制，它不能……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Show anything that is not already drawn in the fiction.",
+            "zh": "显出虚构画里原本没有的东西。"
+          },
+          "points": {
+            "edge": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Know what another character secretly thinks.",
+            "zh": "知道另一角色暗中想什么。"
+          },
+          "points": {
+            "word": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Stop time or force anyone to remain still.",
+            "zh": "停时间或强迫谁不动。"
+          },
+          "points": {
+            "pause": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "You use the power for a small creative task by…",
+        "zh": "用在小创作，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Finding a plainer caption for one invented image.",
+            "zh": "给一张虚构图找更普通图注。"
+          },
+          "points": {
+            "word": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Giving the maker a chance to choose whether to continue.",
+            "zh": "给作者自选是否继续的机会。"
+          },
+          "points": {
+            "pause": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Making the join between two paper shapes visible.",
+            "zh": "让两纸形连接处可见。"
+          },
+          "points": {
+            "edge": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Another character declines the offer. You…",
+        "zh": "另一角色不想接，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Let them continue without adding a pause.",
+            "zh": "不添停顿，让其继续。"
+          },
+          "points": {
+            "pause": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Keep the suggested word unused.",
+            "zh": "提议的词就不用。"
+          },
+          "points": {
+            "word": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Leave their chosen view unaltered.",
+            "zh": "不改对方选择的视野。"
+          },
+          "points": {
+            "edge": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "The tiny power’s motto would be…",
+        "zh": "微能力口号是……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Notice the little edge already there.",
+            "zh": "留意原已在的小边。"
+          },
+          "points": {
+            "edge": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "One plain word can be enough.",
+            "zh": "一个普通词也可够。"
+          },
+          "points": {
+            "word": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A moment can stay available to choose.",
+            "zh": "留片刻可自己选。"
+          },
+          "points": {
+            "pause": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "word",
+      "title": {
+        "en": "The One-Plain-Word Power",
+        "zh": "补一个普通词的微能力"
+      },
+      "summary": {
+        "en": "Your original power makes one small phrase easier to understand. It does not read minds or discover a hidden truth; it offers a possible word that a fictional writer can accept or decline.",
+        "zh": "你的原创能力让一小句更好懂。不读心或揭隐藏真相，只给虚构作者可接可拒的词。"
+      },
+      "example": {
+        "en": "A vague label saying “put it there” might gain the word “shelf,” making the small imagined instruction easier to follow.",
+        "zh": "“放那儿”的模糊标签可补“架子”，让小想象指引好跟。"
+      },
+      "strength": {
+        "en": "A tiny language adjustment gives this fictional power a bounded use and makes an ordinary communication detail worth noticing without grand claims.",
+        "zh": "小文字调整给能力有界用途，让普通沟通细节值得看，不做大主张。"
+      },
+      "tradeoff": {
+        "en": "Even a clearer word can be the wrong word for someone else. The character keeps authorship and does not have to accept the suggestion.",
+        "zh": "更清词对别人也可错。角色保有作者权，不必接受建议。"
+      },
+      "experiment": {
+        "en": "Invent a vague fictional label and two possible clarifying words. Explain how each changes the instruction without declaring one universally correct.",
+        "zh": "编模糊虚构标签与两种澄清词，写各怎样改指令，不宣称一种普遍正确。"
+      }
+    },
+    {
+      "id": "pause",
+      "title": {
+        "en": "The Optional-Little-Pause Power",
+        "zh": "放一个可选停顿的微能力"
+      },
+      "summary": {
+        "en": "Your power makes a moment available rather than taking control of time. A fictional character can use the pause, skip it or choose a different next step.",
+        "zh": "你的能力让片刻可用，不控制时间。虚构角色可用、跳过或选别的下一步。"
+      },
+      "example": {
+        "en": "In an imaginary paper parade, a small marked space might let one character stop to look while the rest of the scene continues.",
+        "zh": "想象纸游行里，一小标记位置让角色停看，其余场景继续。"
+      },
+      "strength": {
+        "en": "An optional pause can give a busy little scene another possible rhythm without requiring every participant to slow down together.",
+        "zh": "可选停点给忙碌小景另一节奏，不要求所有人一起慢。"
+      },
+      "tradeoff": {
+        "en": "A pause is not automatically helpful and cannot solve a serious problem in this game. The character’s choice gives the power its limit.",
+        "zh": "暂停不自动有用，也不解决严肃问题。角色选择就是能力边界。"
+      },
+      "experiment": {
+        "en": "Write a short fictional scene with an optional stopping point. Give the character two equally valid continuations, including one that does not use it.",
+        "zh": "写带可选停点的短虚构景，给角色两种同样有效继续法，一种不用停点。"
+      }
+    },
+    {
+      "id": "edge",
+      "title": {
+        "en": "The Already-There Outline Power",
+        "zh": "显出原有边缘的微能力"
+      },
+      "summary": {
+        "en": "Your power makes one existing detail easier to see in a fictional image. It changes visibility, not the object’s value or the character’s real capacity to understand the world.",
+        "zh": "你的能力让虚构图中已有细节更可见。它改可见度，不改物价值或角色理解世界的真能力。"
+      },
+      "example": {
+        "en": "A light outline around two overlapping paper pieces might reveal that the smaller piece is a separate removable tab.",
+        "zh": "叠纸处轻勾边，可显较小片是独立可取标签。"
+      },
+      "strength": {
+        "en": "A bounded visual cue gives the story a concrete tiny discovery and lets an ordinary construction become interesting without a dramatic secret.",
+        "zh": "有界视觉提示给故事具体小发现，让普通结构有趣，不需大秘密。"
+      },
+      "tradeoff": {
+        "en": "An outline can direct attention away from other details. The fictional viewer may choose to remove it and look at the whole picture again.",
+        "zh": "勾边也会移开别处注意。虚构观者可撤边，再看全图。"
+      },
+      "experiment": {
+        "en": "Draw two overlapping harmless shapes and imagine highlighting only one edge. Describe what becomes clearer and what remains unchanged in the drawing.",
+        "zh": "画两无害相叠形，想象只亮一边，描述什么更清、图中什么未变。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "word",
+    "pause",
+    "edge"
+  ]
+}
