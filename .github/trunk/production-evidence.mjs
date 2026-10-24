@@ -5,6 +5,16 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 const sha = value => /^[a-f0-9]{40}$/.test(value ?? '');
 
+export function resolveAcceptedActivation(jobs) {
+  const activations = jobs.filter(job => job.steps?.some(step => step.conclusion === 'success' && (
+    (job.name === 'Production ordered activation with atomic LKG fallback'
+      && step.name === 'Activate production candidate; installer restores previous release on failed smoke')
+    || (job.name.startsWith('Production exact-SHA') && step.name.startsWith('Deploy once'))
+  )));
+  if (activations.length !== 1) throw new Error('Missing accepted activation binding');
+  return activations[0];
+}
+
 export function verifyProductionBinding({ run, artifact, timing, outcome, ci, receipt, job }) {
   const candidate = artifact.name.replace(/^trunk-production-/, '');
   if (!sha(candidate) || timing.schema_version !== 'fermatmind.trunk-delivery-timing.v1'
@@ -169,9 +179,7 @@ export function githubProductionEvidence(repository) {
     const acceptedRun=api(`actions/runs/${proof.accepted_run_id}`);
     const acceptedJobs=api(`actions/runs/${proof.accepted_run_id}/attempts/1/jobs?per_page=100`);
     if(acceptedJobs.total_count!==acceptedJobs.jobs?.length) throw new Error('Incomplete accepted job inventory');
-    const activations=acceptedJobs.jobs.filter(job=>job.name.startsWith('Production exact-SHA') && job.steps?.some(step=>step.name.startsWith('Deploy once')&&step.conclusion==='success'));
-    if(activations.length!==1) throw new Error('Missing accepted activation binding');
-    const accepted=await reader(acceptedRun,activations[0]);
+    const accepted=await reader(acceptedRun,resolveAcceptedActivation(acceptedJobs.jobs));
     if(accepted!==proof.accepted_sha||(proof.reason==='already_accepted'?proof.sha!==accepted:!sha(proof.sha)))throw new Error('Invalid accepted skip baseline');
     if(proof.reason==='stale_accepted_ancestor') execFileSync('git',['merge-base','--is-ancestor',proof.sha,accepted],{stdio:'ignore'});
   };

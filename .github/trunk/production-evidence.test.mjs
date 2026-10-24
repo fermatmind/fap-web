@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { resolveProductionCi, verifyInstalledBinding, verifyProductionBinding } from './production-evidence.mjs';
+import { resolveAcceptedActivation, resolveProductionCi, verifyInstalledBinding, verifyProductionBinding } from './production-evidence.mjs';
 
 const candidate = 'b'.repeat(40);
 const repository = 'fermatmind/fap-web';
@@ -22,6 +22,26 @@ const fixture = () => ({
     { name: 'Production ordered activation with atomic LKG fallback', status: 'completed', conclusion: 'failure',
       steps: [{ name: 'Activate production candidate; installer restores previous release on failed smoke', conclusion: 'failure' }] },
   ],
+});
+
+test('accepted skip receipts recognize the current web activation and legacy evidence', () => {
+  const current = fixture().jobs[2];
+  current.conclusion = 'success';
+  current.steps[0].conclusion = 'success';
+  const legacy = { name: 'Production exact-SHA activation, smoke, and LKG fallback',
+    steps: [{ name: 'Deploy once and verify production', conclusion: 'success' }] };
+  for (const activation of [current, legacy]) {
+    assert.equal(resolveAcceptedActivation([fixture().jobs[0], activation]), activation);
+    for (const conclusion of ['failure', 'skipped', undefined]) {
+      assert.throws(() => resolveAcceptedActivation([{ ...activation,
+        steps: [{ ...activation.steps[0], conclusion }] }]), /Missing accepted activation binding/);
+    }
+  }
+  for (const jobs of [[], [current, current], [current, legacy],
+    [{ ...current, name: 'Unrelated operational job' }],
+    [{ ...current, steps: legacy.steps }]]) {
+    assert.throws(() => resolveAcceptedActivation(jobs), /Missing accepted activation binding/);
+  }
 });
 
 test('complete installation in a failed outer run is identified but remains unaccepted', () => {
