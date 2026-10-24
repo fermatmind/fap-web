@@ -6,7 +6,11 @@ async function finish(page: Page, zh: boolean) {
   for (let step = 0; step < 12; step++) {
     await page.getByRole("radio").first().check();
     const submit = page.getByRole("button", { name: zh ? "查看完整结果" : "See full result", exact: true });
-    if (await submit.count()) { await submit.dblclick(); return; }
+    if (await submit.count()) {
+      const progress = page.getByRole("progressbar");
+      expect(await progress.evaluate(node => { const bar = node as HTMLProgressElement; return bar.value === bar.max; })).toBe(true);
+      await submit.dblclick(); return;
+    }
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
   }
   throw new Error("Quiz did not terminate");
@@ -139,9 +143,10 @@ test("@release enlarged bilingual quiz text stays usable at narrow width", async
   for (const locale of ["en", "zh"] as const) {
     const zh = locale === "zh";
     await page.goto(`/${locale}/tests/play/woodland-animal`);
-    await page.evaluate(() => { document.documentElement.style.fontSize = "200%"; });
     const decline = page.getByTestId("cookie-banner-decline");
-    if (await decline.isVisible()) await decline.click();
+    if (locale === "en") await decline.click();
+    await expect(decline).toHaveCount(0);
+    await page.evaluate(() => { document.documentElement.style.fontSize = "200%"; });
     await page.getByRole("button", { name: zh ? "开始测试" : "Start quiz", exact: true }).click();
     await finish(page, zh);
     const overflow = await page.locator("#play").evaluate(node => ({ scroll: node.scrollWidth, client: node.clientWidth }));

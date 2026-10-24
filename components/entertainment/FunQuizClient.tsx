@@ -128,7 +128,7 @@ export function FunQuizClient({ quiz, locale }: { quiz: FunQuiz; locale: Locale 
     </>}
     {stage === "answer" && question && <>
       <p className="mb-3 text-sm text-slate-600">{zh ? `第 ${position + 1} 题` : `Question ${position + 1}`} · {zh ? `${resolved.path.filter(id => answers[id]).length} 题已答` : `${resolved.path.filter(id => answers[id]).length} answered`}</p>
-      <progress aria-label={zh ? "作答进度" : "Quiz progress"} className="mb-5 w-full accent-violet-700" max={catalog.find(q => q.slug === quiz.slug)!.questionCount} value={Object.keys(answers).length} />
+      <progress aria-label={zh ? "作答进度" : "Quiz progress"} className="mb-5 w-full accent-violet-700" max={resolved.complete ? resolved.path.length : catalog.find(q => q.slug === quiz.slug)!.questionCount} value={resolved.path.filter(id => answers[id]).length} />
       <h2 ref={heading} tabIndex={-1} className="text-xl font-semibold leading-relaxed outline-none">{question.prompt[locale]}</h2>
       <fieldset className="mt-5 grid gap-3"><legend className="sr-only">{question.prompt[locale]}</legend>
         {question.options.map(option => <label key={option.id} className={`flex min-h-14 cursor-pointer items-start gap-3 rounded-lg border p-4 ${answers[question.id] === option.id ? "border-violet-600 bg-violet-50" : "border-slate-300"}`}>
