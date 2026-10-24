@@ -1,0 +1,348 @@
+{
+  "slug": "paper-world",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "metaphor",
+  "title": {
+    "en": "How Would You Build a World from Paper?",
+    "zh": "只用一张纸，你会怎样造一个世界？"
+  },
+  "description": {
+    "en": "Six imaginary construction choices explore folded routes, cutout characters and layered scenery. Discover what your paper world gives visitors to do.",
+    "zh": "六次想象造纸景，探索折叠路径、剪影角色与分层景物，看你的纸世界邀请访客做什么。"
+  },
+  "introduction": {
+    "en": "Build in imagination; no tools, sharp objects or crafting skill are required. This game follows creative choices rather than measuring spatial reasoning, manual ability or artistic worth.",
+    "zh": "只需想象，不用工具、尖锐物或手艺。本游戏跟创作选择走，不测空间推理、动手能力或艺术价值。"
+  },
+  "focus": {
+    "en": "Creating a paper world around traversable routes, characters with small actions or layers that change the view.",
+    "zh": "围绕可走的路径、有小动作的角色或改变视野的层次，造纸世界。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Your first paper feature is…",
+        "zh": "第一处纸景是……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A folded path linking two parts of the sheet.",
+            "zh": "折出路径，连纸上两处。"
+          },
+          "points": {
+            "fold": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A simple character with one thing to do.",
+            "zh": "一个有事可做的简单角色。"
+          },
+          "points": {
+            "cast": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Two layers that reveal different views when moved.",
+            "zh": "移动就显不同景的两层。"
+          },
+          "points": {
+            "layers": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "A visitor enters your imagined world. They can…",
+        "zh": "访客进入想象世界，能……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Choose a little action for a paper character.",
+            "zh": "为纸角色选个小动作。"
+          },
+          "points": {
+            "cast": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Look behind a foreground shape to find another scene.",
+            "zh": "看前景后，找到另一景。"
+          },
+          "points": {
+            "layers": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Follow the route and choose where to turn.",
+            "zh": "沿路径走，选择哪里转。"
+          },
+          "points": {
+            "fold": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "One feature does not work as imagined. You…",
+        "zh": "一处不如想象，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Simplify the foreground so the second layer can be seen.",
+            "zh": "简化前景，让第二层看得到。"
+          },
+          "points": {
+            "layers": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Shorten the route so its two ends really connect.",
+            "zh": "缩短路，让两端确实相接。"
+          },
+          "points": {
+            "fold": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Give the character a smaller action the world can support.",
+            "zh": "给角色世界能承接的小动作。"
+          },
+          "points": {
+            "cast": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "You add one surprising detail. It is…",
+        "zh": "添一处意外细节，是……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A path that crosses the edge and returns elsewhere.",
+            "zh": "越过纸边再回别处的路。"
+          },
+          "points": {
+            "fold": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A background figure who briefly changes the main action.",
+            "zh": "短暂改变主要动作的背景角色。"
+          },
+          "points": {
+            "cast": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A distant shape that changes meaning when brought forward.",
+            "zh": "远形移到前，意义变了。"
+          },
+          "points": {
+            "layers": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Your paper world needs a pause. You create…",
+        "zh": "纸世界需一个停点，你造……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A place where the character can stop its little task.",
+            "zh": "角色可停下小任务的一处。"
+          },
+          "points": {
+            "cast": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "An open platform between two turns of the route.",
+            "zh": "路径两次转弯间的小平台。"
+          },
+          "points": {
+            "fold": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A clear view where the layers can rest without movement.",
+            "zh": "各层不用动也可看的清景。"
+          },
+          "points": {
+            "layers": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What would you most enjoy showing someone?",
+        "zh": "最想展示给别人什么？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "How the same pieces make a different view together.",
+            "zh": "同样纸片相叠，景怎样变。"
+          },
+          "points": {
+            "layers": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "How the little route takes them across the sheet.",
+            "zh": "小路怎样带人走过纸页。"
+          },
+          "points": {
+            "fold": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "What the paper character can choose to do next.",
+            "zh": "纸角色接下来能选做什么。"
+          },
+          "points": {
+            "cast": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "fold",
+      "title": {
+        "en": "The Folded-Route World",
+        "zh": "折出路径的世界"
+      },
+      "summary": {
+        "en": "Your paper world invites a visitor to travel through a small structure. Turns and connections matter because they let the sheet be experienced as a route rather than only an image.",
+        "zh": "你的纸世界邀人经过小结构。转弯与相连，让纸页成一段路，不只一张图。"
+      },
+      "example": {
+        "en": "An imagined folded strip might lead from a paper doorway to a little platform, then return along a different edge of the sheet.",
+        "zh": "想象折条从纸门到小平台，再沿纸的另一边返回。"
+      },
+      "strength": {
+        "en": "A connected route gives the visitor something concrete to try and helps separate a world’s usable path from its decorative background.",
+        "zh": "相连路径给访客具体可试之事，也区分可走之路与装饰背景。"
+      },
+      "tradeoff": {
+        "en": "An intricate route can overshadow the places along it. A shorter path with one interesting stopping point may offer more than many clever turns.",
+        "zh": "复杂路会抢沿途景。一条短路加有趣停点，可能比许多巧转更好玩。"
+      },
+      "experiment": {
+        "en": "Draw a route across a sheet with one entrance, one stopping point and one return. Trace it with a finger before adding more destinations.",
+        "zh": "在纸画入口、停点与返回路。先用手指走过，再添目的地。"
+      }
+    },
+    {
+      "id": "cast",
+      "title": {
+        "en": "The Little-Action Paper Cast",
+        "zh": "有小动作的纸角色"
+      },
+      "summary": {
+        "en": "Your world begins when a paper character has something small to do. The action gives the scenery a reason to matter without requiring an elaborate plot or a heroic quest.",
+        "zh": "你的世界从纸角色有件小事可做开始。动作让景有作用，不需复杂情节或英雄任务。"
+      },
+      "example": {
+        "en": "A paper figure might carry an imaginary button across a table-sized town and choose whether to deliver it or make it a sign.",
+        "zh": "纸人可把想象纽扣带过桌面城镇，选送出去或改成牌子。"
+      },
+      "strength": {
+        "en": "A simple character action can give a visitor an immediate way into the world and show which parts of the setting are relevant.",
+        "zh": "简单角色动作给访客入口，也显出场景哪些部分有关。"
+      },
+      "tradeoff": {
+        "en": "A character does not need a complete biography to move a little scene. Too much explanation may crowd out the action you wanted to show.",
+        "zh": "角色动一小幕不需全传记。解释过多，反会挤掉想展示的动作。"
+      },
+      "experiment": {
+        "en": "Invent a paper character with one object and two possible uses for it. Describe the different small scene each choice would create.",
+        "zh": "编纸角色、一物与两种用途，描述各选会造什么不同小景。"
+      }
+    },
+    {
+      "id": "layers",
+      "title": {
+        "en": "The Changing-View Paper World",
+        "zh": "层层换景的纸世界"
+      },
+      "summary": {
+        "en": "Your world changes when its parts overlap differently. A foreground edge and a distant shape can make a new relationship without adding more pieces to the sheet.",
+        "zh": "你的世界因纸片重叠不同而变。前缘与远形能造新关系，不必再添片。"
+      },
+      "example": {
+        "en": "An imagined paper arch might frame a tiny hill in one position and a character’s doorway when the front layer shifts.",
+        "zh": "纸拱一处框住小山，前层一移又成角色门口。"
+      },
+      "strength": {
+        "en": "Layered views let a small set of elements support several scenes and make the act of looking part of the world’s play.",
+        "zh": "分层视野让少量元素支持多景，也让观看动作成为玩法。"
+      },
+      "tradeoff": {
+        "en": "A reveal can be hard to follow when every layer moves at once. Keeping one part steady gives the viewer an easier reference point.",
+        "zh": "各层齐动时难跟显露。留一部分不动，观者更容易找参照。"
+      },
+      "experiment": {
+        "en": "Draw a foreground frame and a separate background on paper. Imagine shifting only the frame and write how the same background would look different.",
+        "zh": "画前景框与独立背景。只想象移框，写同一背景会怎样不同。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "fold",
+    "cast",
+    "layers"
+  ]
+}

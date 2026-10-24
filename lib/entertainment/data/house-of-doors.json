@@ -1,0 +1,264 @@
+{
+  "slug": "house-of-doors",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "metaphor",
+  "title": {
+    "en": "Which Room Will Your House of Doors Reveal?",
+    "zh": "门中小屋：这趟会发现哪一间？"
+  },
+  "description": {
+    "en": "Follow actual branching choices through an original house of unfinished rooms. Your route reveals a workshop, listening room or window garden.",
+    "zh": "沿真正分支走过原创未完小屋，路线会发现工作间、聆听室或窗边花园。"
+  },
+  "introduction": {
+    "en": "You enter a fictional exhibition house with a clear exit. Nothing is locked, dangerous or testing your courage. Choose the details you want to follow; the ending is the room your route reaches, not a hidden psychological reading.",
+    "zh": "你进入有清楚出口的虚构展览小屋。没有上锁、危险或勇气考验。选想跟的细节；结局是路线到的房间，不解读隐藏心理。"
+  },
+  "focus": {
+    "en": "Choosing what to follow when sounds, light and unfinished objects offer different routes through one original house.",
+    "zh": "声音、光与未完物提供不同路线时，选跟什么探索原创小屋。"
+  },
+  "minutes": 2,
+  "mechanism": "branch",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "In the entry hall, you follow…",
+        "zh": "入口厅里，你跟着……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A small tapping sound beyond a plain doorway.",
+            "zh": "素门后的一点敲击声。"
+          },
+          "next": "q2"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A moving patch of light beside an open stair.",
+            "zh": "开放楼梯边移动的一片光。"
+          },
+          "next": "q3"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The tapping comes from a paper mobile. Beside it you notice…",
+        "zh": "声音来自纸悬饰，旁边你留意……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A table of unfinished pieces and a penciled question.",
+            "zh": "未完零件桌与铅笔问题。"
+          },
+          "next": "q4"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A quiet corridor where the sound changes as I move.",
+            "zh": "移动时声音会变的安静廊道。"
+          },
+          "next": "q5"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "The light passes over two invitations. You choose…",
+        "zh": "光扫过两处邀请，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A curtain with a small note asking me to listen.",
+            "zh": "一片帘，上有请聆听的小纸条。"
+          },
+          "next": "q5"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "An open landing with shadows of leaves.",
+            "zh": "有叶影的开放平台。"
+          },
+          "next": "q6"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "The table’s question asks what the unfinished piece needs. You…",
+        "zh": "桌上问未完物还需什么，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Try fitting two harmless imaginary pieces together.",
+            "zh": "试把两件无害想象零件相接。"
+          },
+          "result": "workshop"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Pause to hear the different sounds the pieces make.",
+            "zh": "停听零件发的不同声音。"
+          },
+          "result": "listening"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Behind the curtain are a chair and an open window. You…",
+        "zh": "帘后有椅子与开窗，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Stay with the quiet pattern of sounds in the room.",
+            "zh": "留意房内安静声音的排列。"
+          },
+          "result": "listening"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Follow the leaf shadows just beyond the window.",
+            "zh": "跟窗外一点叶影。"
+          },
+          "next": "q6"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "A little window garden holds a watering sketch and spare labels. You…",
+        "zh": "窗边小园有浇水草图与空标签，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Leave the plants a small imagined place to keep growing.",
+            "zh": "给植物留继续长的小想象位置。"
+          },
+          "result": "garden"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Use a spare label to suggest a new little object for the house.",
+            "zh": "用空标签提议屋里一个新小物。"
+          },
+          "result": "workshop"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "workshop",
+      "title": {
+        "en": "The Room of Possible Pieces",
+        "zh": "可能零件工作间"
+      },
+      "summary": {
+        "en": "Your route ends where an unfinished object can become something else. This room offers a reversible little trial rather than a test of whether you can solve the house.",
+        "zh": "路线结束在未完物可变别样的地方。房间提供可撤回小试，不考你能否解开小屋。"
+      },
+      "example": {
+        "en": "A paper hinge and a plain frame wait on a table, ready to be tried together and separated again if the idea is uninteresting.",
+        "zh": "纸铰与素框在桌等候，可相接试，也可没趣就拆。"
+      },
+      "strength": {
+        "en": "The workshop gives your exploration a concrete stopping point and turns an intriguing detail into one small thing you can imagine doing.",
+        "zh": "工作间给探索具体停点，把有趣细节变一件可想象做的小事。"
+      },
+      "tradeoff": {
+        "en": "Reaching a workshop does not mean every curiosity needs to become a project. Looking at the unfinished pieces can be a complete visit.",
+        "zh": "到工作间不代表每份好奇都需成项目。只看未完件也算完整参观。"
+      },
+      "experiment": {
+        "en": "Invent two harmless pieces from the house and describe one reversible way they might connect. Stop before designing the rest of the machine.",
+        "zh": "编小屋两件无害零件，描述一种可撤回相接方式，不必设计整台机器。"
+      }
+    },
+    {
+      "id": "listening",
+      "title": {
+        "en": "The Room of Small Sounds",
+        "zh": "小声音聆听室"
+      },
+      "summary": {
+        "en": "Your route reaches a room where changes in sound become the exhibition. Nothing asks you to identify a secret message; staying with a simple pattern is enough.",
+        "zh": "路线到声音变化成展品的房间。不需识秘密信息，留意简单排列就够。"
+      },
+      "example": {
+        "en": "A fictional curtain might soften the tapping from the hall while an open window adds a different quiet rhythm beside it.",
+        "zh": "虚构帘让厅敲声变轻，开窗另添不同安静节奏。"
+      },
+      "strength": {
+        "en": "A listening room can give an exploratory story a pause and make ordinary differences noticeable without introducing another object to collect.",
+        "zh": "聆听室给探索故事暂停，不添要收物，也让普通差异可察。"
+      },
+      "tradeoff": {
+        "en": "The same soundscape will not suit every visitor, and silence can be its own choice. This ending does not prescribe a relaxation method.",
+        "zh": "同一声景非人人适合，安静也可选。结局不规定放松方法。"
+      },
+      "experiment": {
+        "en": "Write three ordinary fictional sounds into one room and describe their relative timing. Leave the room’s meaning open rather than decoding it.",
+        "zh": "给一间房写三种普通虚构声，描述相对时序，不解码房间意义。"
+      }
+    },
+    {
+      "id": "garden",
+      "title": {
+        "en": "The Garden at the Window",
+        "zh": "窗边仍在长的小园"
+      },
+      "summary": {
+        "en": "Your route ends at a small living-looking corner in the fictional house. The garden offers an unfinished continuation beyond the visit rather than a prize for choosing the correct doors.",
+        "zh": "路线到虚构屋里像仍活着的小角落。园给参观后未完延续，不奖励选对门。"
+      },
+      "example": {
+        "en": "A drawn leaf casts a changing shadow over a blank label, suggesting that the room will look a little different after your departure.",
+        "zh": "画叶把变动影投空标签，像你走后房间还会略变。"
+      },
+      "strength": {
+        "en": "An open-ended garden lets a story stop without freezing its world, leaving a modest sense that other ordinary moments can follow.",
+        "zh": "开放小园让故事停而世界不冻住，留以后仍有普通片刻的感觉。"
+      },
+      "tradeoff": {
+        "en": "A continuing scene does not need a promised transformation. This garden can remain small, uneven and different from what a visitor expected.",
+        "zh": "延续场景不必承诺蜕变。小园可小、不齐，与访客预期不同。"
+      },
+      "experiment": {
+        "en": "Draw a fictional window garden now and one ordinary change it might show later. Give both images equal space without making the second superior.",
+        "zh": "画现在的虚构窗园及之后一处普通变化，两图等大，不说后一幅更高级。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "workshop",
+    "listening",
+    "garden"
+  ]
+}

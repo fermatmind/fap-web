@@ -1,0 +1,348 @@
+{
+  "slug": "camera-roll",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "everyday",
+  "title": {
+    "en": "Your Camera-Roll Curator Style",
+    "zh": "相册里的这些照片：你会怎样挑？"
+  },
+  "description": {
+    "en": "Six fictional photo-library choices about finding an image again, keeping a few favorites and making a small sequence. Find your camera-roll curation style.",
+    "zh": "六次虚构照片库选择，方便重找、留少数喜欢、排一段小序列，发现你的相册整理趣味。"
+  },
+  "introduction": {
+    "en": "Imagine a made-up camera roll; this quiz never accesses your actual photos. Choose how you would select and revisit its pictures. The result is about a small curation task, not memory ability or a requirement to delete or share anything.",
+    "zh": "想象一份编造相册；测试不会访问你的实际照片。选怎样挑选并回看图片。结果只谈小策展任务，不测记忆力，也不要求删除或分享东西。"
+  },
+  "focus": {
+    "en": "Making a fictional photo collection usable through retrieval, a small favorite set or a deliberate viewing sequence.",
+    "zh": "通过重找、少量喜欢集合或主动观看顺序，让虚构照片集合好用。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "The imaginary roll contains many pictures from one day. You first…",
+        "zh": "想象相册里有同一天许多图，你先……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Make a simple way to find the day again.",
+            "zh": "做一个容易再找到这天的办法。"
+          },
+          "points": {
+            "find": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Choose a few pictures you actually want to revisit.",
+            "zh": "选少数确实想回看的。"
+          },
+          "points": {
+            "favorites": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Arrange a short beginning-to-end sequence.",
+            "zh": "排一个有起止的短序列。"
+          },
+          "points": {
+            "sequence": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "Several similar frames show the same moment. You prefer…",
+        "zh": "几张相似画面是同一瞬间，你更愿……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One favorite frame without needing it to represent everything.",
+            "zh": "一张喜欢的，不必代表全部。"
+          },
+          "points": {
+            "favorites": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A few contrasting frames that show a small change.",
+            "zh": "几张有对照、显出小变化的。"
+          },
+          "points": {
+            "sequence": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A clear grouping so you know where the set belongs.",
+            "zh": "分组清楚，知道整套归哪里。"
+          },
+          "points": {
+            "find": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "You want to show a willing friend a small part. You…",
+        "zh": "想给愿意的朋友看一小部分，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Select a short viewing order with an easy finish.",
+            "zh": "选短观看顺序，也方便结束。"
+          },
+          "points": {
+            "sequence": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Locate the few images relevant to what they asked about.",
+            "zh": "找与对方所问相关的几张。"
+          },
+          "points": {
+            "find": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Offer one favorite and let them choose whether to see more.",
+            "zh": "先给一张喜欢的，由对方选是否多看。"
+          },
+          "points": {
+            "favorites": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "An old picture is difficult to locate. You wish you had…",
+        "zh": "一张旧图难找，你希望曾有……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A small ordinary label that matches how you search.",
+            "zh": "符合自己搜法的小普通标签。"
+          },
+          "points": {
+            "find": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A tiny favorite set where the picture could live.",
+            "zh": "可把它放进去的小喜欢集合。"
+          },
+          "points": {
+            "favorites": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A short story sequence that gives it a place.",
+            "zh": "让它有位置的一段短故事序列。"
+          },
+          "points": {
+            "sequence": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The collection feels too large for a relaxed look. You…",
+        "zh": "集合太大，难轻松看，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Choose just a few favorites for this viewing.",
+            "zh": "只为本次观看选几张喜欢的。"
+          },
+          "points": {
+            "favorites": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Use one clear group rather than opening everything.",
+            "zh": "只用一个清楚分组，不全打开。"
+          },
+          "points": {
+            "find": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Make one brief sequence and leave the rest outside it.",
+            "zh": "排一段简短序列，其余先留在外面。"
+          },
+          "points": {
+            "sequence": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What makes the fictional roll enjoyable to return to?",
+        "zh": "什么让虚构相册值得回看？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "I can find a particular thing without rebuilding the whole day.",
+            "zh": "找具体东西时，不必重建整天。"
+          },
+          "points": {
+            "find": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A small set is enough for a pleasant visit.",
+            "zh": "小集合就够愉快看一回。"
+          },
+          "points": {
+            "favorites": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The images make a little movement when seen in order.",
+            "zh": "图按顺序看，有一点推进。"
+          },
+          "points": {
+            "sequence": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "find",
+      "title": {
+        "en": "The Find-It-Again Curator",
+        "zh": "容易重找的策展者"
+      },
+      "summary": {
+        "en": "Your fictional roll becomes a place you can return to with a question. A small label or grouping helps a particular image reappear. The portrait values usable retrieval rather than treating a perfectly organized archive as a personal achievement you owe.",
+        "zh": "你的虚构相册变成可带着问题回来的地方。小标签或分组，让具体图片再出现。画像珍惜好用重找，不把完美档案当你欠下的个人成就。"
+      },
+      "example": {
+        "en": "You might name one small set after an outing’s ordinary theme, using words you would actually remember when looking for it later.",
+        "zh": "你可能按一次外出的普通主题给小集合命名，用以后真会想到的词。"
+      },
+      "strength": {
+        "en": "A simple retrieval cue can lower the effort of revisiting a collection and make one useful image available without sorting everything.",
+        "zh": "简单重找提示能降低回看所需精力，也不必全整理就找到有用一张。"
+      },
+      "tradeoff": {
+        "en": "More labels can become harder to maintain than the pictures. A few cues that match your own searches may be enough.",
+        "zh": "标签太多会比照片难维护。符合自己搜法的少数提示，也许已够。"
+      },
+      "experiment": {
+        "en": "For a fictional or already-owned small collection, add one label you would naturally search for. Test that cue once before creating a larger system.",
+        "zh": "给虚构或已有小集合添一个自然会搜的标签。先试一次提示，再想更大系统。"
+      }
+    },
+    {
+      "id": "favorites",
+      "title": {
+        "en": "The Favorite-Few Curator",
+        "zh": "喜欢几张就好的策展者"
+      },
+      "summary": {
+        "en": "Your roll offers a small doorway rather than requiring a complete tour. A few chosen pictures can hold today’s enjoyment while the rest remain available. The result does not say the unchosen images are worthless or need removing.",
+        "zh": "你的相册提供小入口，不要求完整巡游。几张选中图足够今天欣赏，其余仍可用。结果不说没选的无价值或要删掉。"
+      },
+      "example": {
+        "en": "You might choose three ordinary images for a short shared look and leave the full day’s collection for another optional time.",
+        "zh": "你可能选三张普通图短短共看，整天照片留另一次可选时间。"
+      },
+      "strength": {
+        "en": "A small favorite set can make revisiting feel light enough to enjoy, especially when the whole collection is larger than the time you want to spend.",
+        "zh": "小喜欢集合让回看轻到能享受，尤其当整份大过愿花时间时。"
+      },
+      "tradeoff": {
+        "en": "Choosing only favorites can hide an unexpected detail in the wider set. An occasional open browse can offer another way to enjoy it.",
+        "zh": "只看最爱也会漏掉大集合里的意外细节。偶尔自由翻，也有另一种乐趣。"
+      },
+      "experiment": {
+        "en": "Pick a tiny set for one viewing and call it today’s selection, not the definitive best. Leave room to choose differently another time.",
+        "zh": "为一次观看挑极小集合，叫它今天所选，不叫最终最佳。留以后不同选择空间。"
+      }
+    },
+    {
+      "id": "sequence",
+      "title": {
+        "en": "The Little-Sequence Curator",
+        "zh": "小序列策展者"
+      },
+      "summary": {
+        "en": "Your pictures gain something from being seen in a chosen order. A beginning, contrast and ending can make a little movement between separate frames. The portrait follows this viewing preference rather than claiming your version is the true story of the day.",
+        "zh": "你的图在所选顺序里得到新东西。开头、对照与结尾，让分开画面之间有小推进。画像只跟随观看偏好，不说你的版本就是那天真实唯一故事。"
+      },
+      "example": {
+        "en": "A wide view, a tiny detail and a final empty table might become a three-picture sequence about an ordinary shared afternoon.",
+        "zh": "全景、小细节、最后空桌，可排成普通共同下午的三图序列。"
+      },
+      "strength": {
+        "en": "A short sequence can give another viewer a clear path through a small set without demanding they inspect every image equally.",
+        "zh": "短序列给观者一条清楚路径，不要求每图平均细看。"
+      },
+      "tradeoff": {
+        "en": "An elegant order can make a day look more coherent than it felt. A caption can keep the selection visibly a chosen edit.",
+        "zh": "漂亮顺序会让一天看起来比实际更连贯。说明一句，可让人看见这只是主动剪选。"
+      },
+      "experiment": {
+        "en": "Arrange three invented or shareable images into a short sequence, then try another order. Notice how the edit changes the little story.",
+        "zh": "把三张虚构或可分享图排短序列，再换顺序。看看剪选怎样改变小故事。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "find",
+    "favorites",
+    "sequence"
+  ]
+}

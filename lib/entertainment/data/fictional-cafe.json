@@ -1,0 +1,348 @@
+{
+  "slug": "fictional-cafe",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "metaphor",
+  "title": {
+    "en": "What Kind of Impossible Café Would You Open?",
+    "zh": "你会开一家怎样的不可能咖啡馆？"
+  },
+  "description": {
+    "en": "Design an imaginary café where visitors exchange tiny performances, borrowed words or invented colors. Six choices shape its unusual invitation.",
+    "zh": "设计一间交换小表演、借来文字或新造颜色的虚构咖啡馆，六个选择决定特别邀请。"
+  },
+  "introduction": {
+    "en": "No real business plan, menu expertise or purchase is involved. You are inventing a place with one playful rule. The result concerns the experience you designed, not career suitability or entrepreneurial ability.",
+    "zh": "不做真实商业计划，不需菜单知识或购买。你只为虚构场所创一条趣味规则。结果谈设计的体验，不评职业适合或创业能力。"
+  },
+  "focus": {
+    "en": "Offering visitors a tiny stage, a shared language experiment or a way to make something visually new.",
+    "zh": "给访客一个小舞台、共享文字实验或造出新视觉的机会。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Your café’s impossible feature is…",
+        "zh": "咖啡馆的不可能特色是……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Each empty saucer can become a miniature stage.",
+            "zh": "每个空碟都能变迷你舞台。"
+          },
+          "points": {
+            "stage": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Visitors can borrow a sentence and return it changed.",
+            "zh": "访客可借一句话，改写后归还。"
+          },
+          "points": {
+            "words": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Guests can mix a color that has no name yet.",
+            "zh": "客人能调一种还没名字的颜色。"
+          },
+          "points": {
+            "colors": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "A newcomer does not want to participate. You offer…",
+        "zh": "新客不想参与，你提供……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A sentence to read privately without returning anything.",
+            "zh": "一句可私读、不必还的文字。"
+          },
+          "points": {
+            "words": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A place to watch colors without having to make one.",
+            "zh": "只看颜色、不必动手的位置。"
+          },
+          "points": {
+            "colors": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A seat where watching counts as the whole visit.",
+            "zh": "看表演便算完整到访的座位。"
+          },
+          "points": {
+            "stage": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "A regular leaves one contribution. It is…",
+        "zh": "常客留下一份贡献，是……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A tiny swatch with an invented and changeable name.",
+            "zh": "一块新色样，名字随时可改。"
+          },
+          "points": {
+            "colors": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A ten-second scene made from ordinary table objects.",
+            "zh": "普通桌物演的十秒小戏。"
+          },
+          "points": {
+            "stage": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A new ending to a sentence someone left earlier.",
+            "zh": "给前人一句话换的新结尾。"
+          },
+          "points": {
+            "words": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "The café needs one house rule. You choose…",
+        "zh": "馆里需一条规则，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Anyone can leave a scene before its final bow.",
+            "zh": "任何人都可在谢幕前离开。"
+          },
+          "points": {
+            "stage": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A borrowed sentence must remain open to another version.",
+            "zh": "借来的句子须容得下另一版。"
+          },
+          "points": {
+            "words": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Nobody has to agree on the name of a new shade.",
+            "zh": "不必人人同意新色叫什么。"
+          },
+          "points": {
+            "colors": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The room is empty at closing. What remains?",
+        "zh": "打烊后空屋里留下……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A few phrases ready for different readers tomorrow.",
+            "zh": "几句话等明天不同读者。"
+          },
+          "points": {
+            "words": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "One little stage waiting for a new ordinary object.",
+            "zh": "一个小舞台等新普通物登场。"
+          },
+          "points": {
+            "stage": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A changing palette without a compulsory final picture.",
+            "zh": "变动色盘，不强求最终画作。"
+          },
+          "points": {
+            "colors": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "The invitation on the door says…",
+        "zh": "门上的邀请写……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Make a shade the world has not named here yet.",
+            "zh": "在这里调出世界未起名的一色。"
+          },
+          "points": {
+            "colors": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Borrow a line and see what happens to it.",
+            "zh": "借一句话，看看会变什么。"
+          },
+          "points": {
+            "words": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Let a small everyday thing take the stage.",
+            "zh": "让日常小东西上一次台。"
+          },
+          "points": {
+            "stage": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "stage",
+      "title": {
+        "en": "The Saucer-Stage Café",
+        "zh": "碟子小剧场咖啡馆"
+      },
+      "summary": {
+        "en": "Your café makes ordinary things briefly perform. A spoon or paper scrap can become a character without the visitor needing to be an actor or the audience needing to applaud.",
+        "zh": "你的馆让普通物短暂演出。匙或纸片可当角色，访客不必会演，观众不必鼓掌。"
+      },
+      "example": {
+        "en": "A folded receipt might sail across a saucer while its maker gives it one line about searching for the edge of the table.",
+        "zh": "折收据驶过碟子，作者给它一句寻找桌边的台词。"
+      },
+      "strength": {
+        "en": "A tiny stage gives playful expression a clear, manageable frame and lets an everyday object be seen differently for a short visit.",
+        "zh": "小舞台给表达清晰可控的框，让日常物在短到访中被换种眼光看。"
+      },
+      "tradeoff": {
+        "en": "Even a tiny performance can feel exposing. Your imagined café works best when watching, declining and stopping midway remain complete ways to visit.",
+        "zh": "再小表演也可能怕被看。观看、拒绝和中途停下都算完整到访，馆才好玩。"
+      },
+      "experiment": {
+        "en": "Give one harmless object a two-line scene on a drawn saucer. End the performance while it is still small enough to enjoy.",
+        "zh": "在画的碟子上，给一件无害物写两句戏，仍小到有趣时就收场。"
+      }
+    },
+    {
+      "id": "words",
+      "title": {
+        "en": "The Borrowed-Sentence Café",
+        "zh": "借一句话咖啡馆"
+      },
+      "summary": {
+        "en": "Your invented place lets language travel between visitors. A sentence is a shared starting point rather than a test of who writes the cleverest or most revealing response.",
+        "zh": "你的场所让文字在访客间走动。句子是共享起点，不考谁写得最聪明或最袒露。"
+      },
+      "example": {
+        "en": "A card saying “the cupboard opened onto Tuesday” might return tomorrow with a new ending and an entirely different imagined cupboard.",
+        "zh": "写“柜门打开就是星期二”的卡片，明天可换结尾，柜子也全不同。"
+      },
+      "strength": {
+        "en": "Borrowing a line lowers the size of the blank page and gives strangers an indirect, optional way to contribute to the same fiction.",
+        "zh": "借一句话缩小空白页，让陌生人间接且自愿参与同一虚构。"
+      },
+      "tradeoff": {
+        "en": "A sentence can be misunderstood or changed in a way its first writer dislikes. Fictional contributions should be offered only when that openness is welcome.",
+        "zh": "句子可能被误读或改得作者不喜。只有欢迎开放改写时，才把虚构贡献放出。"
+      },
+      "experiment": {
+        "en": "Write one clearly fictional sentence and make two different endings yourself. Notice how the same beginning can support incompatible but enjoyable stories.",
+        "zh": "写一句明确虚构的话，自写两种结尾，看看同一开头如何容纳相异有趣故事。"
+      }
+    },
+    {
+      "id": "colors",
+      "title": {
+        "en": "The Unnamed-Shade Café",
+        "zh": "还没起名的颜色咖啡馆"
+      },
+      "summary": {
+        "en": "Your café invites visitors to make a visual possibility before explaining it. A new shade can exist without one correct name, a polished picture or a message about personality.",
+        "zh": "你的馆邀请先造视觉可能，再解释。新颜色可没有唯一正名、精画或人格寓意。"
+      },
+      "example": {
+        "en": "A guest might imagine mixing pale blue with the color of a remembered ticket and call the result “almost boarding.”",
+        "zh": "客人可想象浅蓝混记忆中票根色，叫它“快登车了”。"
+      },
+      "strength": {
+        "en": "An unnamed palette gives small visual experiments room to remain provisional, so trying a combination need not become a claim about artistic talent.",
+        "zh": "无名色盘让小实验可暂定，试配色不变成画技主张。"
+      },
+      "tradeoff": {
+        "en": "Invented colors may be difficult to describe accessibly. A short text description can let another visitor enjoy the idea without relying on sight alone.",
+        "zh": "新色可能难描述。添短文字，让他人不只靠视觉也能享受想法。"
+      },
+      "experiment": {
+        "en": "Invent a harmless color name and describe it in ordinary words, including an imagined texture or setting. No actual materials or purchases are needed.",
+        "zh": "造无害色名，用普通话描述，带一种想象质地或场景，不需材料购买。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "stage",
+    "words",
+    "colors"
+  ]
+}

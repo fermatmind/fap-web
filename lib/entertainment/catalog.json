@@ -68,6 +68,40 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "browser-tabs",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "everyday",
+    "title": {
+      "en": "What Is Your Casual-Tab Keeping Style?",
+      "zh": "随手打开的标签页：你会怎么留？"
+    },
+    "description": {
+      "en": "Six fictional browsing choices about a useful question, one small next action and a later-interest shelf. Find the way you keep a casual tab.",
+      "zh": "六次虚构浏览选择，留一个有用问题、接一个小行动，或放进稍后兴趣架，发现你会怎样留标签页。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "camera-roll",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "everyday",
+    "title": {
+      "en": "Your Camera-Roll Curator Style",
+      "zh": "相册里的这些照片：你会怎样挑？"
+    },
+    "description": {
+      "en": "Six fictional photo-library choices about finding an image again, keeping a few favorites and making a small sequence. Find your camera-roll curation style.",
+      "zh": "六次虚构照片库选择，方便重找、留少数喜欢、排一段小序列，发现你的相册整理趣味。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "campfire-storyteller",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -238,6 +272,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "cozy-object",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "metaphor",
+    "title": {
+      "en": "Which Ordinary Object Holds Your Cozy Scene?",
+      "zh": "你的温暖小场景，会由哪件普通物陪着？"
+    },
+    "description": {
+      "en": "Build a fictional cozy scene through six choices about a cup, a blanket and a notebook, each offering a different kind of invitation.",
+      "zh": "用杯子、毯子与笔记本的六次选择，搭一个虚构温暖场景，每件物发出不同邀请。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "date-plan-detour",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -402,6 +453,40 @@
     "description": {
       "en": "Six fictional festival choices about a shared anchor event, flexible separate wandering and trying a small new activity. Find the companion role you choose today.",
       "zh": "六次虚构节庆选择，约一个共同重点、灵活分开逛、试一项小新活动，发现今天愿意选择的同行方式。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "festival-mask",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "metaphor",
+    "title": {
+      "en": "Which Original Festival Mask Would You Design?",
+      "zh": "虚构节庆之夜：你会设计哪张面具？"
+    },
+    "description": {
+      "en": "Design an original costume for one fictional evening through six choices about bells, windows and moving paper ribbons.",
+      "zh": "用铃声、窗口与活动纸带的六次选择，为虚构节庆一夜设计原创装扮。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "fictional-cafe",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "metaphor",
+    "title": {
+      "en": "What Kind of Impossible Café Would You Open?",
+      "zh": "你会开一家怎样的不可能咖啡馆？"
+    },
+    "description": {
+      "en": "Design an imaginary café where visitors exchange tiny performances, borrowed words or invented colors. Six choices shape its unusual invitation.",
+      "zh": "设计一间交换小表演、借来文字或新造颜色的虚构咖啡馆，六个选择决定特别邀请。"
     },
     "minutes": 2,
     "questionCount": 6,
@@ -593,6 +678,23 @@
     "minutes": 2,
     "questionCount": 6,
     "minQuestionCount": 6
+  },
+  {
+    "slug": "house-of-doors",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "metaphor",
+    "title": {
+      "en": "Which Room Will Your House of Doors Reveal?",
+      "zh": "门中小屋：这趟会发现哪一间？"
+    },
+    "description": {
+      "en": "Follow actual branching choices through an original house of unfinished rooms. Your route reveals a workshop, listening room or window garden.",
+      "zh": "沿真正分支走过原创未完小屋，路线会发现工作间、聆听室或窗边花园。"
+    },
+    "minutes": 2,
+    "questionCount": 4,
+    "minQuestionCount": 3
   },
   {
     "slug": "inside-joke",
@@ -833,6 +935,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "note-taking-doodles",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "everyday",
+    "title": {
+      "en": "How Do Your Notes Catch an Idea?",
+      "zh": "想法刚来时：你的笔记会怎么接？"
+    },
+    "description": {
+      "en": "Six note-play choices about a useful line, a quick visual sketch and connections between fragments. Find your way of catching a small idea on paper.",
+      "zh": "六次纸上记录选择，用一句有用话、快画图形或连接碎片，发现你会怎样接住小想法。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "paper-creature-language",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -850,6 +969,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "paper-world",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "metaphor",
+    "title": {
+      "en": "How Would You Build a World from Paper?",
+      "zh": "只用一张纸，你会怎样造一个世界？"
+    },
+    "description": {
+      "en": "Six imaginary construction choices explore folded routes, cutout characters and layered scenery. Discover what your paper world gives visitors to do.",
+      "zh": "六次想象造纸景，探索折叠路径、剪影角色与分层景物，看你的纸世界邀请访客做什么。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "party-arrival",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -861,6 +997,23 @@
     "description": {
       "en": "Six low-pressure arrival scenes about settling in, joining one conversation and taking part through a shared activity. Find your arrival style for this round.",
       "zh": "六个轻松到场场景，安顿自己、加入一段对话、通过共同活动参与，看看这次你会怎样找到位置。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "personal-museum",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "metaphor",
+    "title": {
+      "en": "What Would Your Museum of Ordinary Moments Collect?",
+      "zh": "你的普通时刻博物馆，会收藏什么？"
+    },
+    "description": {
+      "en": "Curate six imaginary exhibits from an ordinary day: little events, overlooked details and connections between people who choose to share.",
+      "zh": "从普通一天策六个想象展品：小事件、易忽略细节，与自愿分享的人际连接。"
     },
     "minutes": 2,
     "questionCount": 6,
@@ -1088,6 +1241,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "room-atmosphere",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "everyday",
+    "title": {
+      "en": "What Atmosphere Would Your Imaginary Room Hold?",
+      "zh": "想象一间房：你会留下什么氛围？"
+    },
+    "description": {
+      "en": "Arrange a fictional room through six choices about light, open space and collected layers. Meet the atmosphere you chose to make.",
+      "zh": "用六次灯光、留白与物件层次的选择，布置虚构房间，看看你选出了什么氛围。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "saying-goodbye",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -1292,6 +1462,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "thrift-shop-find",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "everyday",
+    "title": {
+      "en": "Your Imaginary Secondhand-Shelf Find",
+      "zh": "想象二手架：你会为哪件小物停下？"
+    },
+    "description": {
+      "en": "Six fictional shelf choices about using an object again, imagining a new purpose and keeping its visible story. Discover your secondhand-find portrait.",
+      "zh": "六次虚构货架选择，再用一件东西、想一种新用途、保留可见故事，发现你的拾物趣味画像。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "tide-pool-creature",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -1320,6 +1507,40 @@
     "description": {
       "en": "Six miniature-world choices lead to an original kingdom of exchanges, experiments, or well-kept promises. A playful design portrait, with every result free.",
       "zh": "6道微型世界选择题，看看你的原创小王国更像交换集市、试验工坊，还是承诺档案馆。趣味设计画像，完整结果免费。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "tiny-treat",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "everyday",
+    "title": {
+      "en": "What Is Your Tiny Finish-Line Treat?",
+      "zh": "小事告一段落：你想怎样庆祝一下？"
+    },
+    "description": {
+      "en": "Choose a small way to mark an ordinary finish: a sensory moment, a playful token or a little unassigned time.",
+      "zh": "选一种小事完成后的标记：感官小片刻、趣味小记号，或一段不安排的时间。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "weather-in-a-bottle",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "metaphor",
+    "title": {
+      "en": "What Weather Would Your Story Bottle Hold?",
+      "zh": "故事小瓶里，你会装哪种天气？"
+    },
+    "description": {
+      "en": "Create a fictional bottle containing a soft mist, a passing breeze or a brief sunbeam. Six scene choices shape its atmosphere.",
+      "zh": "创一只装薄雾、微风或短日光的虚构瓶子，六次场景选择塑造瓶内氛围。"
     },
     "minutes": 2,
     "questionCount": 6,

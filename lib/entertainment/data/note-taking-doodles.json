@@ -1,0 +1,348 @@
+{
+  "slug": "note-taking-doodles",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "everyday",
+  "title": {
+    "en": "How Do Your Notes Catch an Idea?",
+    "zh": "想法刚来时：你的笔记会怎么接？"
+  },
+  "description": {
+    "en": "Six note-play choices about a useful line, a quick visual sketch and connections between fragments. Find your way of catching a small idea on paper.",
+    "zh": "六次纸上记录选择，用一句有用话、快画图形或连接碎片，发现你会怎样接住小想法。"
+  },
+  "introduction": {
+    "en": "Imagine recording one recreational idea with paper you already have. You do not need neat handwriting or drawing experience. The result describes a note format you selected today, not memory, intelligence or a scientifically established learning style.",
+    "zh": "想象用已有纸记一个休闲想法，不需要字整齐或会画画。结果只描述今天选的笔记形式，不测记忆、智力，也不认定科学学习风格。"
+  },
+  "focus": {
+    "en": "Capturing an idea as a plain verbal cue, a visual relationship or a link between separate fragments.",
+    "zh": "用普通文字提示、视觉关系或分开碎片之间的连接来抓住想法。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "A small idea appears while you are making something. You…",
+        "zh": "做东西时冒一个小想法，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Write one sentence saying what you want to return to.",
+            "zh": "写一句想回头看什么。"
+          },
+          "points": {
+            "line": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Draw a rough shape showing how the parts relate.",
+            "zh": "粗画形状，显出部件关系。"
+          },
+          "points": {
+            "sketch": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Put two related fragments beside it with connecting marks.",
+            "zh": "旁边放两个相关碎片，画线相连。"
+          },
+          "points": {
+            "links": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "You have only a little space on the page. You keep…",
+        "zh": "纸上只有一点空间，你留……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The simplest outline that makes the idea visible.",
+            "zh": "让想法可见的最简单轮廓。"
+          },
+          "points": {
+            "sketch": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The question or next step in ordinary words.",
+            "zh": "用普通话写问题或下一步。"
+          },
+          "points": {
+            "line": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The connection that made this fragment interesting.",
+            "zh": "让碎片有意思的那处联系。"
+          },
+          "points": {
+            "links": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "You return to yesterday’s note. You most need…",
+        "zh": "回看昨天笔记，你最需要……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A line explaining why I wrote it.",
+            "zh": "一句说明当时为何记。"
+          },
+          "points": {
+            "line": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A few visible links to the other parts of the idea.",
+            "zh": "与想法其他部分的几处可见连接。"
+          },
+          "points": {
+            "links": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A rough picture of the arrangement I had in mind.",
+            "zh": "当时脑中排列的粗图。"
+          },
+          "points": {
+            "sketch": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A new fragment does not fit the first version. You…",
+        "zh": "新碎片不合首版，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Place it beside the old one and draw the possible relationship.",
+            "zh": "放在旧片旁，画可能关系。"
+          },
+          "points": {
+            "links": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Redraw a small variation rather than perfecting the first sketch.",
+            "zh": "重画小变化，不完善第一草图。"
+          },
+          "points": {
+            "sketch": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Write a short contrast between the two versions.",
+            "zh": "简短写出两版对照。"
+          },
+          "points": {
+            "line": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "A willing friend asks what the note means. You show…",
+        "zh": "愿意的朋友问笔记什么意思，你展示……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The one sentence that gives it a starting point.",
+            "zh": "给它起点的那一句。"
+          },
+          "points": {
+            "line": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The part of the sketch that holds the main relationship.",
+            "zh": "草图里承载主要关系的部分。"
+          },
+          "points": {
+            "sketch": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The two fragments and why I connected them.",
+            "zh": "两个碎片，以及为什么相连。"
+          },
+          "points": {
+            "links": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What would make this little note useful later?",
+        "zh": "什么让小笔记以后仍有用？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The page reminds me what connected to what.",
+            "zh": "纸页提醒什么连着什么。"
+          },
+          "points": {
+            "links": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "I can picture the idea without needing a polished drawing.",
+            "zh": "不用精致图，也能想象想法。"
+          },
+          "points": {
+            "sketch": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "One ordinary line lets me begin again.",
+            "zh": "一句普通话就让我重新开始。"
+          },
+          "points": {
+            "line": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "line",
+      "title": {
+        "en": "The One-Line Return Cue",
+        "zh": "一句话返回提示"
+      },
+      "summary": {
+        "en": "Your note catches the idea in a line you can understand later. The point is not polished prose but a small return path. This portrait values plain words without suggesting they are the best format for every idea or every person.",
+        "zh": "你的笔记用以后能懂的一句抓住想法。重点不是精致文章，而是小返回路。画像珍惜普通话，不说它最适合每个想法或每个人。"
+      },
+      "example": {
+        "en": "You might write “try the narrow paper strip as a handle” and leave the surrounding design unfinished until another visit.",
+        "zh": "你可能写“试把窄纸条当把手”，周围设计未完也可留到下次。"
+      },
+      "strength": {
+        "en": "A short verbal cue can preserve the reason for an idea and make it easier to take one wanted next step.",
+        "zh": "短文字提示能保留想法理由，也方便迈想要的一小步。"
+      },
+      "tradeoff": {
+        "en": "A sentence can flatten a visual relationship that a tiny drawing would show more directly. Adding a sketch remains available.",
+        "zh": "句子也会压平小画更直接显示的视觉关系。仍可以添草图。"
+      },
+      "experiment": {
+        "en": "Write one note using the words you would naturally say aloud. Read it once later and add only the detail you actually needed.",
+        "zh": "用自己自然会说的话写一条笔记。稍后读一次，只添确实需要的细节。"
+      }
+    },
+    {
+      "id": "sketch",
+      "title": {
+        "en": "The Rough-Shape Return Cue",
+        "zh": "粗线条返回提示"
+      },
+      "summary": {
+        "en": "Your note holds the idea through a visible arrangement. A rough box, arrow or silhouette can be enough to bring the relationship back. The ending concerns a chosen note format rather than drawing talent or visual intelligence.",
+        "zh": "你的笔记靠可见排列保留想法。粗方框、箭头或剪影，就可带回关系。结局只谈所选记录形式，不评画技或视觉智力。"
+      },
+      "example": {
+        "en": "You might sketch two paper pieces overlapping and add an arrow, instead of describing the whole construction in several paragraphs.",
+        "zh": "你可能画两片纸重叠，加支箭头，不用几段话描述整套构造。"
+      },
+      "strength": {
+        "en": "A small rough sketch can keep spatial relationships available and give a later trial something concrete to respond to.",
+        "zh": "小粗图能保留空间关系，也给后续尝试具体可回应的东西。"
+      },
+      "tradeoff": {
+        "en": "A picture without any label may be hard to read after the moment has passed. One plain word can help without making the drawing elaborate.",
+        "zh": "过了当下，无标签图可能难懂。加一个普通词就有帮助，不必画复杂。"
+      },
+      "experiment": {
+        "en": "Sketch one idea in under a minute and add the single label that makes it understandable to your later self. Leave the rest rough.",
+        "zh": "用不到一分钟画一个想法，加一处让以后自己能懂的标签。其余留粗。"
+      }
+    },
+    {
+      "id": "links",
+      "title": {
+        "en": "The Connected-Fragments Return Cue",
+        "zh": "碎片相连的返回提示"
+      },
+      "summary": {
+        "en": "Your note keeps the relation between pieces, not only the pieces themselves. An arrow or short link can preserve why two fragments met. The portrait values a particular connection rather than claiming that more connected notes always mean better thinking.",
+        "zh": "你的笔记保留碎片关系，不只碎片本身。箭头或短连线能留住为什么相遇。画像珍惜具体连接，不宣称连线越多思考越好。"
+      },
+      "example": {
+        "en": "A line from a story and a small paper shape might sit on the same page with one note explaining the idea that linked them.",
+        "zh": "故事一句与小纸形可同页放，旁边一笔说明什么想法把它们相连。"
+      },
+      "strength": {
+        "en": "A visible connection can help you revisit the spark between two details without reconstructing the entire earlier chain of thought.",
+        "zh": "可见连接帮你重访两个细节之间火花，不必重建先前整条思路。"
+      },
+      "tradeoff": {
+        "en": "Too many links can make a small note hard to enter. One useful connection may matter more than a complete web.",
+        "zh": "连线太多，小笔记也难进入。一处有用联系，也许比完整网重要。"
+      },
+      "experiment": {
+        "en": "Place two fragments from a harmless idea together and write why they connect. Keep only one link you would actually want to revisit.",
+        "zh": "把一个无害想法的两个碎片放一起，写为何相连。只留真想重访的一条。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "line",
+    "sketch",
+    "links"
+  ]
+}

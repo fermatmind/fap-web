@@ -1,0 +1,348 @@
+{
+  "slug": "personal-museum",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "metaphor",
+  "title": {
+    "en": "What Would Your Museum of Ordinary Moments Collect?",
+    "zh": "你的普通时刻博物馆，会收藏什么？"
+  },
+  "description": {
+    "en": "Curate six imaginary exhibits from an ordinary day: little events, overlooked details and connections between people who choose to share.",
+    "zh": "从普通一天策六个想象展品：小事件、易忽略细节，与自愿分享的人际连接。"
+  },
+  "introduction": {
+    "en": "Use invented or public harmless moments, not private messages or other people’s personal belongings. This museum is a storytelling exercise, not a measure of memory quality or how meaningful your life has been.",
+    "zh": "只用虚构或公开无害时刻，不用私信或别人的私人物。博物馆是故事练习，不评记忆能力或人生多有意义。"
+  },
+  "focus": {
+    "en": "Collecting a sequence of little events, the fine detail of one moment or the connections that made something shared.",
+    "zh": "收藏小事件序列、一个片刻的细节，或让事情被共享的连接。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "The first display case contains…",
+        "zh": "第一个展柜里是……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Three little scenes showing how an ordinary day unfolded.",
+            "zh": "三幕小景，展示普通一天展开。"
+          },
+          "points": {
+            "sequence": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "One overlooked texture described closely.",
+            "zh": "一处细看描写的易忽略质地。"
+          },
+          "points": {
+            "detail": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A fictional exchange that made a moment shared.",
+            "zh": "让片刻被共享的虚构交流。"
+          },
+          "points": {
+            "connection": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "You have room for only a short label. You write…",
+        "zh": "标签只能很短，你写……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The particular thing a quick glance would miss.",
+            "zh": "匆匆一眼会错过的具体之处。"
+          },
+          "points": {
+            "detail": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "What each willing participant added to the moment.",
+            "zh": "每位自愿参与者添了什么。"
+          },
+          "points": {
+            "connection": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "What changed between the first and last scene.",
+            "zh": "首幕与末幕之间变了什么。"
+          },
+          "points": {
+            "sequence": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "Two exhibits seem similar. You distinguish them by…",
+        "zh": "两件展品像，你用什么区分？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The different people or contributions in each imagined exchange.",
+            "zh": "每次想象交流中不同贡献。"
+          },
+          "points": {
+            "connection": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Their different places in the day’s small sequence.",
+            "zh": "它们在日中序列的不同位置。"
+          },
+          "points": {
+            "sequence": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The one texture or sound that belongs to each.",
+            "zh": "各自独有的一点质地或声音。"
+          },
+          "points": {
+            "detail": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A visitor asks where to begin. You suggest…",
+        "zh": "访客问先看哪，你建议……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Follow the little day from its beginning.",
+            "zh": "从那小小一天的开头走。"
+          },
+          "points": {
+            "sequence": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Start with one object and spend a little longer there.",
+            "zh": "先看一物，在那里多待片刻。"
+          },
+          "points": {
+            "detail": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Look for the moment someone made room for another contribution.",
+            "zh": "找谁给另一份贡献留位置的片刻。"
+          },
+          "points": {
+            "connection": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "One exhibit must leave. You keep the museum coherent by…",
+        "zh": "必须撤一件展品，你靠什么保持连贯？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Keeping the remaining observations specific.",
+            "zh": "让留下的观察仍具体。"
+          },
+          "points": {
+            "detail": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Closing the gap with a plain transition.",
+            "zh": "用普通转场接好缺口。"
+          },
+          "points": {
+            "sequence": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Preserving how the shared moment was created.",
+            "zh": "保留共享片刻如何形成。"
+          },
+          "points": {
+            "connection": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "Your museum’s final wall says…",
+        "zh": "博物馆末墙写……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Some small moments were made together.",
+            "zh": "有些小片刻是一起造的。"
+          },
+          "points": {
+            "connection": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "This ordinary thing had more to notice.",
+            "zh": "这普通物还有值得看之处。"
+          },
+          "points": {
+            "detail": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A day can have a story without a grand event.",
+            "zh": "一天没有大事也可有故事。"
+          },
+          "points": {
+            "sequence": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "sequence",
+      "title": {
+        "en": "The Small-Day Story Museum",
+        "zh": "小小一天故事馆"
+      },
+      "summary": {
+        "en": "Your museum gives ordinary events a sequence. It does not need a dramatic climax; a beginning, a change and a stopping point can make the exhibits belong together.",
+        "zh": "你的馆给普通事件顺序，不需高潮。开端、变化与停点就让展品相连。"
+      },
+      "example": {
+        "en": "A fictional display might move from an unopened paper packet to a first attempt and finally the folded object left on a shelf.",
+        "zh": "虚构展可从未拆纸包，到首试，最后到架上折好物。"
+      },
+      "strength": {
+        "en": "A modest sequence helps visitors understand what changed and lets a day remain particular without claiming that every minute carried a lesson.",
+        "zh": "适度序列让访客懂什么变了，保留一天特点，不称每分钟都有教训。"
+      },
+      "tradeoff": {
+        "en": "Selecting a sequence always leaves something out. A tidy story should not be mistaken for a complete record of a real day or person.",
+        "zh": "选择顺序总会遗漏。整齐故事不等于真实一天或一个人的完整记录。"
+      },
+      "experiment": {
+        "en": "Invent three exhibits from an uneventful fictional afternoon. Give each a plain time cue and let one small change connect the three.",
+        "zh": "虚构平凡午后三展品，各给普通时间提示，用一个小变化相连。"
+      }
+    },
+    {
+      "id": "detail",
+      "title": {
+        "en": "The Close-Look Museum",
+        "zh": "多看一眼博物馆"
+      },
+      "summary": {
+        "en": "Your exhibits slow the glance enough for an ordinary detail to appear. The museum values specificity, not a claim that hidden meanings are waiting inside every object.",
+        "zh": "你的展品让目光慢到看见普通细节。馆珍惜具体，不声称每物藏深意。"
+      },
+      "example": {
+        "en": "One case might show the uneven edge of a fictional paper ticket, with a label describing its shape rather than inventing a tragic owner.",
+        "zh": "一个柜可展虚构票根不齐边缘，标签写形状，不编悲情主人。"
+      },
+      "strength": {
+        "en": "A close description can make a small exhibit memorable and offer visitors something concrete to notice even when they know nothing about its context.",
+        "zh": "细描让小展品可记，也让不知背景的访客有具体可看之处。"
+      },
+      "tradeoff": {
+        "en": "Detail without any context can leave a visitor unsure why it was selected. One simple sentence about the curatorial choice may help.",
+        "zh": "毫无背景的细节让访客不懂为何选。一句普通策展理由可帮忙。"
+      },
+      "experiment": {
+        "en": "Describe one invented everyday object using three observable details. Add a label about why it caught your eye without assigning it a secret meaning.",
+        "zh": "用三处可观察细节写虚构日常物，加一句吸引目光的理由，不赋秘密寓意。"
+      }
+    },
+    {
+      "id": "connection",
+      "title": {
+        "en": "The Shared-Moment Museum",
+        "zh": "一起造片刻的博物馆"
+      },
+      "summary": {
+        "en": "Your museum collects how contributions met. A moment becomes an exhibit because more than one willing participant helped it take shape, not because anyone owed the museum a personal story.",
+        "zh": "你的馆收藏贡献如何相遇。片刻因多人自愿参与而成展品，不因谁欠馆一个私密故事。"
+      },
+      "example": {
+        "en": "A fictional case might pair two different suggestions for a picnic sign and show the third version the group chose together.",
+        "zh": "虚构柜可并放野餐牌两种提案，展示大家一起选出的第三版。"
+      },
+      "strength": {
+        "en": "Showing contributions makes shared authorship visible and can help an exhibit acknowledge the small ways an ordinary moment was made together.",
+        "zh": "展示贡献让共同创作可见，展品能承认普通片刻一起形成的小方式。"
+      },
+      "tradeoff": {
+        "en": "Shared events have several perspectives. Your version should leave space for others to describe the same fictional moment differently or decline to appear.",
+        "zh": "共享事件有多视角。你的版本应容别人不同描述，也可不出现。"
+      },
+      "experiment": {
+        "en": "Invent a scene in which two characters contribute to one small object. Label both contributions without making one the secret hero of the exhibit.",
+        "zh": "编两角色共同贡献小物的场景，标两份贡献，不封谁为暗中英雄。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "sequence",
+    "detail",
+    "connection"
+  ]
+}

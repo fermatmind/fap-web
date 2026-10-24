@@ -1,0 +1,348 @@
+{
+  "slug": "room-atmosphere",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "everyday",
+  "title": {
+    "en": "What Atmosphere Would Your Imaginary Room Hold?",
+    "zh": "想象一间房：你会留下什么氛围？"
+  },
+  "description": {
+    "en": "Arrange a fictional room through six choices about light, open space and collected layers. Meet the atmosphere you chose to make.",
+    "zh": "用六次灯光、留白与物件层次的选择，布置虚构房间，看看你选出了什么氛围。"
+  },
+  "introduction": {
+    "en": "Imagine a spare room drawn on paper, with no shopping or renovation needed. Choose how it feels to enter. This is a playful arrangement exercise, not interior-design advice or an assessment of wellbeing.",
+    "zh": "想象纸上一间空房，不需购物或装修。选择走进去时的感觉。这是趣味布置练习，不是室内设计建议，也不评身心状况。"
+  },
+  "focus": {
+    "en": "Making an atmosphere through a pool of light, usable breathing space or a collection of visible details.",
+    "zh": "用一处光、能活动的留白或可见细节的集合，营造氛围。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "You draw the first thing in the room. It is…",
+        "zh": "你在房间里先画……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A small lamp illuminating one welcoming spot.",
+            "zh": "照亮一小处的灯。"
+          },
+          "points": {
+            "glow": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "An open patch with room to move a chair.",
+            "zh": "可移动椅子的一块空地。"
+          },
+          "points": {
+            "space": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A shelf holding a few different textures and stories.",
+            "zh": "摆几种质地与故事的架子。"
+          },
+          "points": {
+            "layers": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The drawing feels busy. You would…",
+        "zh": "画面太满，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Remove an object so the central area can change uses.",
+            "zh": "移一件物，让中央可换用途。"
+          },
+          "points": {
+            "space": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Group several small things into one deliberate cluster.",
+            "zh": "把几件小物聚成一组。"
+          },
+          "points": {
+            "layers": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Let a gentle light give one area a clear focus.",
+            "zh": "让柔光给一处明确焦点。"
+          },
+          "points": {
+            "glow": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "A fictional visitor settles in. You offer…",
+        "zh": "虚构访客坐下，你提供……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A little detail they can look at and ask about.",
+            "zh": "一处可看看、可问问的小细节。"
+          },
+          "points": {
+            "layers": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A comfortable spot within the lamp’s soft circle.",
+            "zh": "灯的柔和光圈内一处座位。"
+          },
+          "points": {
+            "glow": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A choice of where to sit, with space to rearrange.",
+            "zh": "可选座位，也能调整位置。"
+          },
+          "points": {
+            "space": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "You change the room for a different afternoon. You…",
+        "zh": "另一个午后想换布置，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Move the imagined light to create another small focus.",
+            "zh": "移动想象灯光，换一个小焦点。"
+          },
+          "points": {
+            "glow": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Shift the chair and let the open area serve a new activity.",
+            "zh": "移椅子，让空地承接新活动。"
+          },
+          "points": {
+            "space": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Swap one displayed object while keeping the collection small.",
+            "zh": "只换一件展示物，保持小集合。"
+          },
+          "points": {
+            "layers": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Which detail makes the drawing feel finished?",
+        "zh": "什么细节让画面像完成了？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The room still has an unassigned corner.",
+            "zh": "还留一角没有指定用途。"
+          },
+          "points": {
+            "space": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The objects look chosen rather than merely accumulated.",
+            "zh": "物件像经过挑选，而非堆积。"
+          },
+          "points": {
+            "layers": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "One warm point draws the eye without lighting everything.",
+            "zh": "一点温暖引目光，不必照亮全部。"
+          },
+          "points": {
+            "glow": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "Give the imaginary room a caption.",
+        "zh": "给想象房间写一句图注。"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Several small things can belong together here.",
+            "zh": "几件小东西可在这里相伴。"
+          },
+          "points": {
+            "layers": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "There is a light for this particular moment.",
+            "zh": "有一盏灯照着这个当下。"
+          },
+          "points": {
+            "glow": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "This room has room to become something else.",
+            "zh": "这间房还可变成别的样子。"
+          },
+          "points": {
+            "space": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "glow",
+      "title": {
+        "en": "The Pool-of-Light Room",
+        "zh": "一圈灯光的房间"
+      },
+      "summary": {
+        "en": "Your imagined atmosphere gathers around a visible point of warmth. A small lit area gives the room a place to begin without requiring every corner to be equally bright.",
+        "zh": "你想象的氛围围着一处可见暖光聚拢。小小亮处给房间一个起点，不要求每角同样明亮。"
+      },
+      "example": {
+        "en": "A lamp beside an ordinary chair might become the center of your drawing, with the surrounding room allowed to remain loosely described.",
+        "zh": "普通椅旁一盏灯就可成为画面中心，周围房间可以不必画得很细。"
+      },
+      "strength": {
+        "en": "A clear light focus can make an arrangement feel intentional while leaving you free to keep the rest of the picture simple.",
+        "zh": "明确光点让布置有心意，其余画面仍可简单。"
+      },
+      "tradeoff": {
+        "en": "A beautiful glow cannot replace a usable arrangement. In a real room, different activities and people could need quite different lighting and space.",
+        "zh": "好看光晕不能代替可用布置。现实中不同活动和人，会需要不同光线与空间。"
+      },
+      "experiment": {
+        "en": "Draw one small circle of light on a room sketch. Put only one wanted activity inside it and leave the other corners undecided.",
+        "zh": "在房间草图画一圈光，只放一项想做的活动，其余角落暂不决定。"
+      }
+    },
+    {
+      "id": "space",
+      "title": {
+        "en": "The Room-with-Room Room",
+        "zh": "仍有余地的房间"
+      },
+      "summary": {
+        "en": "Your atmosphere comes from what remains available. An open area lets the room support different moments instead of telling every visitor exactly how to use it.",
+        "zh": "你的氛围来自仍可使用的地方。留白让房间承接不同当下，不必规定访客怎么用。"
+      },
+      "example": {
+        "en": "You might draw a chair near a clear patch of floor and imagine moving it for a conversation, a paper project or a quiet pause.",
+        "zh": "你可在空地旁画椅子，想象为聊天、纸作或稍作停留而移动。"
+      },
+      "strength": {
+        "en": "Leaving a place unassigned can make an imagined room adaptable and help a later idea find somewhere to happen without a complete redesign.",
+        "zh": "不指定全部位置，让想象房间可调整，后来想法有地方发生，不必全重画。"
+      },
+      "tradeoff": {
+        "en": "Openness can feel unfinished if nothing gives it character. A single chosen object can add a point of interest without filling the whole room.",
+        "zh": "若没有特点，空白也像未完成。一件选定物可添趣味，不必填满。"
+      },
+      "experiment": {
+        "en": "On paper, remove one object from a crowded room drawing. Sketch two different things that the newly available space could support.",
+        "zh": "在纸上从拥挤房间删一件物，画出新空位可承接的两种事情。"
+      }
+    },
+    {
+      "id": "layers",
+      "title": {
+        "en": "The Small-Collection Room",
+        "zh": "小收藏相伴的房间"
+      },
+      "summary": {
+        "en": "Your room tells its story through a few visible layers. Different textures and objects can share a corner while keeping their individual details available to notice.",
+        "zh": "你的房间用几层可见细节讲故事。不同质地物件共享一角，各自特点仍可看见。"
+      },
+      "example": {
+        "en": "A folded cloth, a postcard and a curious paper shape might sit together because their colors or memories make an interesting small conversation.",
+        "zh": "折布、明信片与奇形纸片可放一起，因为色彩或记忆让它们有话可说。"
+      },
+      "strength": {
+        "en": "A modest collection can make an imaginary space specific and give a visitor several gentle starting points for looking or conversation.",
+        "zh": "适量集合让想象空间具体，也给访客几个观看或聊天的小起点。"
+      },
+      "tradeoff": {
+        "en": "Adding another layer does not always add another meaning. When details compete, removing or regrouping one can make the remaining objects easier to enjoy.",
+        "zh": "多一层未必多一份意思。细节争抢时，移走或重组一件，更易欣赏其余。"
+      },
+      "experiment": {
+        "en": "Choose three objects in a fictional room sketch and write one reason they belong together. Stop before adding a fourth simply to fill a gap.",
+        "zh": "在虚构房间草图选三物，写一个相伴理由。不因空位就添第四件。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "glow",
+    "space",
+    "layers"
+  ]
+}

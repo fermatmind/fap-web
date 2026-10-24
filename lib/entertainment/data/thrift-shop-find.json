@@ -1,0 +1,348 @@
+{
+  "slug": "thrift-shop-find",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "everyday",
+  "title": {
+    "en": "Your Imaginary Secondhand-Shelf Find",
+    "zh": "想象二手架：你会为哪件小物停下？"
+  },
+  "description": {
+    "en": "Six fictional shelf choices about using an object again, imagining a new purpose and keeping its visible story. Discover your secondhand-find portrait.",
+    "zh": "六次虚构货架选择，再用一件东西、想一种新用途、保留可见故事，发现你的拾物趣味画像。"
+  },
+  "introduction": {
+    "en": "Browse an illustrated shelf with no real purchase to make. The objects are story props, and leaving empty-handed is always possible. Choose what catches your interest; this does not rate taste, frugality or your ability to judge an item’s condition.",
+    "zh": "逛一排插画货架，不需要真实购买。物件都是故事道具，空手离开也始终可选。选什么吸引你，不评品位、节俭或判断物品状况的能力。"
+  },
+  "focus": {
+    "en": "Seeing a fictional reused object through a current use, a possible transformation or a small trace of its existing character.",
+    "zh": "从当前用途、可能改造或已有小痕迹，看一件虚构再用物。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Three illustrated objects sit on a shelf. You stop at…",
+        "zh": "三件插画物放在架上，你停在……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A simple box that fits something you already need to store.",
+            "zh": "刚好能收已有东西的简单盒子。"
+          },
+          "points": {
+            "use": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A plain frame you can imagine turning into something different.",
+            "zh": "能想象改作别的东西的素框。"
+          },
+          "points": {
+            "remake": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A notebook cover with an interesting visible old label.",
+            "zh": "封面留有有趣旧标签的笔记本。"
+          },
+          "points": {
+            "trace": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "An object has an unusual shape. You first ask…",
+        "zh": "物件形状不寻常，你先问……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "What new small project could this shape begin?",
+            "zh": "形状可开启什么新小项目？"
+          },
+          "points": {
+            "remake": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Would its existing function fit something I actually do?",
+            "zh": "现有功能是否适合自己真在做的事？"
+          },
+          "points": {
+            "use": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "What can I notice about it without inventing a history?",
+            "zh": "不编历史，我实际能看见它什么？"
+          },
+          "points": {
+            "trace": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "You can choose only one prop for the story. You prefer…",
+        "zh": "故事里只能选一个道具，你更愿……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The one whose worn detail makes it particular.",
+            "zh": "磨损细节让它特别的那个。"
+          },
+          "points": {
+            "trace": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The one you can use without first planning a makeover.",
+            "zh": "不先改造就能用的那个。"
+          },
+          "points": {
+            "use": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The one that gives an idea a small physical starting point.",
+            "zh": "给想法一个小实体起点的那个。"
+          },
+          "points": {
+            "remake": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A possible project would take more effort than expected. You…",
+        "zh": "可能的改造比预想费力，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Reduce it to one small transformation or leave it.",
+            "zh": "缩成一个小变化，或放下它。"
+          },
+          "points": {
+            "remake": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Return to whether the object has an ordinary use already.",
+            "zh": "回到物件是否已有普通用途。"
+          },
+          "points": {
+            "use": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Enjoy its detail in a sketch without keeping the object.",
+            "zh": "速写欣赏细节，不留物件本身。"
+          },
+          "points": {
+            "trace": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "You make a note about your favorite shelf object. It says…",
+        "zh": "为最喜欢的架上物记一笔，你写……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The ordinary place where it would be useful.",
+            "zh": "它会有用的一个普通位置。"
+          },
+          "points": {
+            "use": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "One possible change, with no promise to complete it.",
+            "zh": "一种可能变化，不许诺必须完成。"
+          },
+          "points": {
+            "remake": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The visible mark that made me look twice.",
+            "zh": "让我多看一眼的可见痕迹。"
+          },
+          "points": {
+            "trace": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What makes the imagined find satisfying?",
+        "zh": "怎样会让想象拾物满足？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A small old detail stayed interesting without a dramatic backstory.",
+            "zh": "一点旧细节有趣，不必戏剧身世。"
+          },
+          "points": {
+            "trace": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "An existing need met an existing object.",
+            "zh": "已有需要碰上一件已有物。"
+          },
+          "points": {
+            "use": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "One possibility became concrete enough to play with.",
+            "zh": "一个可能具体到能玩一下。"
+          },
+          "points": {
+            "remake": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "use",
+      "title": {
+        "en": "The Ready-to-Use Find",
+        "zh": "顺手再用的小物"
+      },
+      "summary": {
+        "en": "Your shelf story notices a use that already exists in your day. The object does not have to become a major project before it earns a place in the scene. This is an imagined choice, not a recommendation to buy something you do not need.",
+        "zh": "你的货架故事留意日常里已有的用途。物件不必先变大项目，才有位置。这是想象选择，不建议购买并不需要的东西。"
+      },
+      "example": {
+        "en": "A small reused box might fit the loose paper you already keep, without requiring a new collection to fill it.",
+        "zh": "一个再用小盒，也许刚好装已有散纸，不必先开新收藏来填它。"
+      },
+      "strength": {
+        "en": "Starting from an actual use can keep a playful object choice grounded and reduce the extra work hidden inside an appealing imagined project.",
+        "zh": "从实际用途开始，让趣味物件选择有落点，也减少诱人想象项目里藏的额外工作。"
+      },
+      "tradeoff": {
+        "en": "Usefulness is not the only possible source of enjoyment. A purely decorative or playful object can still be a choice if you genuinely want it.",
+        "zh": "有用不是唯一乐趣。确实想要时，纯装饰或趣味物件也可被选择。"
+      },
+      "experiment": {
+        "en": "Look at one object you already have and name a use it serves now. Let that be enough without immediately adding an improvement project.",
+        "zh": "看一件已有物，说出它现在服务的用途。让这样就够，不立刻添改进项目。"
+      }
+    },
+    {
+      "id": "remake",
+      "title": {
+        "en": "The One-Change Possibility",
+        "zh": "只改一处的可能"
+      },
+      "summary": {
+        "en": "Your imaginary find offers a starting point for making something different. A frame, box or odd shape can invite one small change. The portrait values a bounded possibility rather than requiring every appealing object to become a finished makeover.",
+        "zh": "你的想象拾物给做出不同东西一个起点。框、盒或奇怪形状，都可邀请一次小变化。画像珍惜有边界可能，不要求每件吸引物都变成完整改造。"
+      },
+      "example": {
+        "en": "You might draw one paper insert for an empty frame you already own, rather than redesigning the whole room around it.",
+        "zh": "你可能给已有空框画一张纸内页，不为它重设计整间房。"
+      },
+      "strength": {
+        "en": "A concrete starting object can make an idea easier to try because it provides a scale and shape to respond to.",
+        "zh": "具体起始物让想法容易试，因为它提供可回应的大小与形状。"
+      },
+      "tradeoff": {
+        "en": "Possible transformations can accumulate as obligations. Choosing one and releasing another helps the idea remain play rather than a growing queue of duties.",
+        "zh": "可能改造会堆成义务。选一个、放另一个，想法更能保持游戏而非增长任务队列。"
+      },
+      "experiment": {
+        "en": "Choose one already-owned object for a reversible paper mockup. Stop after the mockup and decide separately whether any further change is wanted.",
+        "zh": "选一件已有物做可撤回的纸上样稿。样稿后先停，再另行决定是否想更多改变。"
+      }
+    },
+    {
+      "id": "trace",
+      "title": {
+        "en": "The Visible-Trace Find",
+        "zh": "看得见痕迹的小物"
+      },
+      "summary": {
+        "en": "Your shelf portrait stays with the mark that is actually visible: a label, a curve or a little worn edge. It can be interesting without a story you cannot verify. The ending offers a way to look, not an ability to read an object’s past.",
+        "zh": "你的货架画像停在实际可见标记：标签、曲线或磨边。不必有无法核实的身世，也能有趣。结局提供看法，不赋予读物件过去的能力。"
+      },
+      "example": {
+        "en": "A faded printed label might become a tiny drawing subject, while its unknown owner and history remain simply unknown.",
+        "zh": "褪色印刷标签可成微型绘画对象，未知主人与历史仍只是未知。"
+      },
+      "strength": {
+        "en": "Attention to a visible trace can make an ordinary object particular and offer a small creative subject without needing to possess it.",
+        "zh": "留意可见痕迹让普通物具体，也给小创作对象，不必拥有它。"
+      },
+      "tradeoff": {
+        "en": "An attractive invented history can slip into a factual claim. Keeping what you saw separate from what you imagined protects the pleasure of both.",
+        "zh": "好听的虚构历史会滑成事实主张。分清看见与想象，能同时保留两者乐趣。"
+      },
+      "experiment": {
+        "en": "Sketch one visible detail of an ordinary object. If you invent a tale from it, label that tale as fiction and let the observation remain separate.",
+        "zh": "速写普通物一个可见细节。如由此编故事，标成虚构，让观察单独保留。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "use",
+    "remake",
+    "trace"
+  ]
+}

@@ -1,0 +1,348 @@
+{
+  "slug": "weather-in-a-bottle",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "metaphor",
+  "title": {
+    "en": "What Weather Would Your Story Bottle Hold?",
+    "zh": "故事小瓶里，你会装哪种天气？"
+  },
+  "description": {
+    "en": "Create a fictional bottle containing a soft mist, a passing breeze or a brief sunbeam. Six scene choices shape its atmosphere.",
+    "zh": "创一只装薄雾、微风或短日光的虚构瓶子，六次场景选择塑造瓶内氛围。"
+  },
+  "introduction": {
+    "en": "The bottle is an original story prop. Weather here describes imagined pacing and visibility, not a forecast, mood diagnosis or way to infer hidden feelings from a picture.",
+    "zh": "瓶子是原创故事道具。这里的天气描述想象节奏与可见程度，不是预报、情绪诊断，也不靠图片推隐藏感受。"
+  },
+  "focus": {
+    "en": "Shaping an imaginary scene through gradual reveal, gentle movement or a clearly illuminated moment.",
+    "zh": "用逐渐显露、轻轻移动或清晰照亮的一刻，塑造想象场景。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "When the bottle opens, the story first shows…",
+        "zh": "打开瓶子，故事先显出……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One shape slowly emerging through pale mist.",
+            "zh": "淡雾里慢慢浮出一个形状。"
+          },
+          "points": {
+            "mist": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A small ribbon moving toward something off the page.",
+            "zh": "小丝带朝纸页外某处移动。"
+          },
+          "points": {
+            "breeze": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "One ordinary object briefly lit in clear sunlight.",
+            "zh": "普通物被清楚日光短暂照亮。"
+          },
+          "points": {
+            "sun": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The next page needs a change. You…",
+        "zh": "下一页需变化，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Let the moving air carry a little clue onward.",
+            "zh": "让风把小线索带往下一处。"
+          },
+          "points": {
+            "breeze": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Move the light so another detail becomes visible.",
+            "zh": "移光，让另一细节可见。"
+          },
+          "points": {
+            "sun": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Let the outline become clearer one part at a time.",
+            "zh": "让轮廓一部分部分清楚。"
+          },
+          "points": {
+            "mist": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "A reader asks what is inside. You answer…",
+        "zh": "读者问里面有什么，你答……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Look at the thing the light is touching now.",
+            "zh": "看此刻光碰着的东西。"
+          },
+          "points": {
+            "sun": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Wait for one more edge to appear.",
+            "zh": "等再显出一条边。"
+          },
+          "points": {
+            "mist": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Follow the small movement to the next page.",
+            "zh": "跟小移动去下一页。"
+          },
+          "points": {
+            "breeze": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "Your bottle has one limit. It can only…",
+        "zh": "瓶子有个限制，只能……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Reveal what was already drawn behind the haze.",
+            "zh": "显出原已画在雾后的东西。"
+          },
+          "points": {
+            "mist": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Move light paper props, never decide where people go.",
+            "zh": "吹轻纸道具，不替人选去哪。"
+          },
+          "points": {
+            "breeze": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Illuminate one small area for a short time.",
+            "zh": "短时间照亮一小处。"
+          },
+          "points": {
+            "sun": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Near the ending, you would like…",
+        "zh": "临近结尾，你想……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The moving ribbon to find a temporary resting place.",
+            "zh": "移动丝带找到暂时落点。"
+          },
+          "points": {
+            "breeze": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The last outline to become clear enough to recognize.",
+            "zh": "末个轮廓清楚到可认。"
+          },
+          "points": {
+            "mist": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "One detail to stay bright long enough to be noticed.",
+            "zh": "一个细节亮到能被看见。"
+          },
+          "points": {
+            "sun": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "The bottle’s label reads…",
+        "zh": "瓶子标签写……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A little light for one ordinary thing.",
+            "zh": "一点光，照一件普通物。"
+          },
+          "points": {
+            "sun": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Open slowly; the shape will arrive in pieces.",
+            "zh": "慢慢打开，形状分片到来。"
+          },
+          "points": {
+            "mist": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A small movement can carry the scene onward.",
+            "zh": "小移动也能带场景往前。"
+          },
+          "points": {
+            "breeze": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "mist",
+      "title": {
+        "en": "The Gradually-Clearing Bottle",
+        "zh": "轮廓渐显的小瓶"
+      },
+      "summary": {
+        "en": "Your story weather lets a scene arrive in parts. The mist gives attention a sequence, allowing a shape to become recognizable without requiring a dramatic secret behind it.",
+        "zh": "你的故事天气让场景分部分到来。雾给注意一个顺序，不需背后藏大秘密。"
+      },
+      "example": {
+        "en": "A drawn bridge might first appear as a pale line, then two posts and finally an ordinary path across a small stream.",
+        "zh": "画中桥先是浅线，再两柱，最后才是跨小溪的普通路。"
+      },
+      "strength": {
+        "en": "A gradual reveal can make a simple image interesting through timing rather than requiring a new surprise or larger spectacle on every page.",
+        "zh": "渐显靠时机让简单图有趣，不必每页另造惊喜或大场面。"
+      },
+      "tradeoff": {
+        "en": "Withholding too much can frustrate a reader. The bottle needs to reveal enough concrete detail for the waiting itself to remain worthwhile.",
+        "zh": "藏太多也使读者挫折。瓶子要显出够具体的细节，让等待仍值得。"
+      },
+      "experiment": {
+        "en": "Draw one harmless object in three increasingly clear versions. Make sure the final image answers what the earlier outlines led a reader to expect.",
+        "zh": "画无害物三版，逐次清楚。末图要回应早先轮廓带出的期待。"
+      }
+    },
+    {
+      "id": "breeze",
+      "title": {
+        "en": "The Page-Turning Breeze Bottle",
+        "zh": "把纸页带动的风瓶"
+      },
+      "summary": {
+        "en": "Your bottle gives a fictional scene a small direction of movement. A ribbon or scrap can carry attention onward while every character remains free to choose their own route.",
+        "zh": "你的瓶给虚构场景一点移动方向。丝带或碎纸带目光向前，角色仍自由选路。"
+      },
+      "example": {
+        "en": "A paper leaf might drift from a windowsill to an unfinished drawing, making the next page feel connected to the previous room.",
+        "zh": "纸叶从窗台漂向未完画，让下一页与上一间房相连。"
+      },
+      "strength": {
+        "en": "A modest moving detail can connect scenes without making every transition depend on an explanation, a command or an urgent event.",
+        "zh": "小移动细节能连场景，不让每次转场都靠解释、命令或紧急事。"
+      },
+      "tradeoff": {
+        "en": "Movement alone does not give a story meaning. A place to pause can help readers notice what the drifting detail actually brought into view.",
+        "zh": "移动本身不带意义。停点能让读者留意漂动细节到底带来了什么。"
+      },
+      "experiment": {
+        "en": "Write two short scenes connected by one light paper prop. Let it stop in the second scene so a new detail can become the focus.",
+        "zh": "写两短景，用一轻纸道具相连。第二景让它停，新细节才能成焦点。"
+      }
+    },
+    {
+      "id": "sun",
+      "title": {
+        "en": "The Ordinary-Thing Sunbeam",
+        "zh": "照亮普通物的一束光"
+      },
+      "summary": {
+        "en": "Your weather selects one visible moment. The sunbeam does not make the object extraordinary by itself; it gives an ordinary thing a clear chance to be noticed.",
+        "zh": "你的天气挑出一个可见片刻。光不自动使物非凡，只给普通物被看见的机会。"
+      },
+      "example": {
+        "en": "A fictional sunbeam might cross the handle of a plain cup and reveal a small notch that was already there.",
+        "zh": "虚构日光掠过素杯把手，显出原有的一处小缺口。"
+      },
+      "strength": {
+        "en": "A clear illuminated detail gives a scene a concrete focal point and lets a short passage feel complete without explaining an entire setting.",
+        "zh": "照亮具体细节给场景焦点，不解释整个环境也可让短段完整。"
+      },
+      "tradeoff": {
+        "en": "One bright detail can distract from everything around it. Moving the light later can acknowledge that other parts of the scene also exist.",
+        "zh": "一处亮点也会遮其余。后来移光，可承认场景其他部分同样存在。"
+      },
+      "experiment": {
+        "en": "Choose an invented everyday object and write three lines about a brief light crossing it. Describe what changes in visibility rather than giving it a prophecy.",
+        "zh": "选虚构日常物，写三行短光掠过，只写可见变化，不赋预言。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "mist",
+    "breeze",
+    "sun"
+  ]
+}

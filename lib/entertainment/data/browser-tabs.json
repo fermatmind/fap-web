@@ -1,0 +1,348 @@
+{
+  "slug": "browser-tabs",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "everyday",
+  "title": {
+    "en": "What Is Your Casual-Tab Keeping Style?",
+    "zh": "随手打开的标签页：你会怎么留？"
+  },
+  "description": {
+    "en": "Six fictional browsing choices about a useful question, one small next action and a later-interest shelf. Find the way you keep a casual tab.",
+    "zh": "六次虚构浏览选择，留一个有用问题、接一个小行动，或放进稍后兴趣架，发现你会怎样留标签页。"
+  },
+  "introduction": {
+    "en": "Imagine a made-up set of casual tabs. You do not paste or upload real links here. The quiz follows what you would do with these imaginary interests, not your discipline, attention span or actual browsing history.",
+    "zh": "想象一组编造的休闲标签页，这里不粘贴或上传真实链接。题目只跟随怎样处理这些想象兴趣，不测自律、注意时长，也不读取实际浏览历史。"
+  },
+  "focus": {
+    "en": "Keeping a casual online interest through the question behind it, an immediate small trial or an optional place to revisit later.",
+    "zh": "通过背后问题、当下小试或以后可回看的位置，保留随手在线兴趣。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "An interesting fictional page is open. You first want to keep…",
+        "zh": "有趣的虚构网页开着，你先想留……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The question that made you open it.",
+            "zh": "让自己打开它的那个问题。"
+          },
+          "points": {
+            "question": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "One small thing you could actually try from it.",
+            "zh": "其中一件实际可试的小事。"
+          },
+          "points": {
+            "action": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A place to return when you want casual browsing again.",
+            "zh": "以后想随意翻时可回来的位置。"
+          },
+          "points": {
+            "shelf": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "Several related pages have accumulated. You…",
+        "zh": "几页相关内容积起来，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Choose one small next action rather than reading all of them first.",
+            "zh": "选一个小下一步，不必先全读完。"
+          },
+          "points": {
+            "action": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Write the common question and see which page answers it.",
+            "zh": "写共同问题，看看哪页在回答。"
+          },
+          "points": {
+            "question": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Group the interest somewhere optional instead of leaving every tab active.",
+            "zh": "把兴趣放一处可选位置，不必每页都开着。"
+          },
+          "points": {
+            "shelf": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "A tab has lost its original context. You ask…",
+        "zh": "标签页已忘了原来前情，你问……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "What did I want to find out when I opened this?",
+            "zh": "打开时原想知道什么？"
+          },
+          "points": {
+            "question": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Would I enjoy revisiting this without a task attached?",
+            "zh": "不附任务，我还会喜欢重看吗？"
+          },
+          "points": {
+            "shelf": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Is there one small wanted thing to do with this now?",
+            "zh": "现在有一件真想做的小事吗？"
+          },
+          "points": {
+            "action": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "The page offers more ideas than you can use. You…",
+        "zh": "页面给的想法比能用的多，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Save a modest interest group with no promise to complete it.",
+            "zh": "存一小组兴趣，不许诺全部完成。"
+          },
+          "points": {
+            "shelf": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Keep only what serves the current question.",
+            "zh": "只留服务当前问题的部分。"
+          },
+          "points": {
+            "question": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Try one idea and leave the others outside today’s plan.",
+            "zh": "试一个，其余不放进今天计划。"
+          },
+          "points": {
+            "action": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "You return to casual browsing another day. You prefer to find…",
+        "zh": "另一天回到休闲浏览，你更愿找到……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One note explaining why a page mattered to you.",
+            "zh": "一笔说明页面为什么曾有意义。"
+          },
+          "points": {
+            "question": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A simple record of the small trial you already made.",
+            "zh": "已做小尝试的一笔简单记录。"
+          },
+          "points": {
+            "action": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A small shelf you can browse or ignore freely.",
+            "zh": "可自由翻、也可不管的小架子。"
+          },
+          "points": {
+            "shelf": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What would make the imaginary tabs feel manageable?",
+        "zh": "怎样让想象标签页好掌握？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "An interest could wait without becoming unfinished homework.",
+            "zh": "兴趣可等待，不变未做作业。"
+          },
+          "points": {
+            "shelf": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A question could be answered without collecting every related link.",
+            "zh": "不用收齐所有相关链接，也能回答一个问题。"
+          },
+          "points": {
+            "question": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A small wanted action could happen without a whole new project.",
+            "zh": "不用开全新项目，也能做一件想做小事。"
+          },
+          "points": {
+            "action": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "question",
+      "title": {
+        "en": "The Question-Behind-the-Tab Keeper",
+        "zh": "留住问题的标签页保管者"
+      },
+      "summary": {
+        "en": "Your imaginary tab keeps the reason you opened it. A short question can remain useful even when the page itself is no longer left on screen. The portrait values a clear thread of curiosity rather than a requirement to research everything thoroughly.",
+        "zh": "你的想象标签页留着打开理由。短问题仍可有用，页面本身不必一直在屏幕。画像珍惜清楚好奇线索，不要求把一切彻底研究。"
+      },
+      "example": {
+        "en": "You might note “Which paper fold makes this corner work?” beside one hobby reference instead of saving ten similar pages with no explanation.",
+        "zh": "你可能在一份爱好参考旁记“哪个折法让这角成立？”，不存十页却不知为何。"
+      },
+      "strength": {
+        "en": "A remembered question can help you choose what to revisit and recognize when the current interest has been answered well enough.",
+        "zh": "记得问题能帮你选回看什么，也识别当前兴趣何时已得到足够回答。"
+      },
+      "tradeoff": {
+        "en": "A question can become overly narrow and hide an enjoyable detour. Leaving a little optional browsing room can preserve the play.",
+        "zh": "问题过窄也会藏住愉快岔路。留一点可选随意翻，能保留游戏感。"
+      },
+      "experiment": {
+        "en": "For one casual interest, write the single question that brought you there. Keep one useful reference and let the rest stay optional.",
+        "zh": "给一个休闲兴趣写带你来的单一问题。留一份有用参考，其余仍可选。"
+      }
+    },
+    {
+      "id": "action",
+      "title": {
+        "en": "The One-Small-Try Keeper",
+        "zh": "接一次小试的标签页保管者"
+      },
+      "summary": {
+        "en": "Your tab points toward a little thing you actually want to try. The interest can become an experience before it becomes a collection. This ending does not say that reading for pleasure must always produce an action.",
+        "zh": "你的标签页指向一件真想试的小事。兴趣可以先成体验，再决定是否成收藏。结局不说享受阅读必须产出行动。"
+      },
+      "example": {
+        "en": "After seeing a fictional paper-flower guide, you might try one fold with spare paper before collecting more variations.",
+        "zh": "看到虚构纸花说明后，你可能先用散纸试一折，再决定是否收更多变化。"
+      },
+      "strength": {
+        "en": "A small trial can make a casual idea concrete and reveal whether you want to keep exploring without committing to a larger project.",
+        "zh": "小试让随手想法具体，也让你看是否想继续，不必承诺大项目。"
+      },
+      "tradeoff": {
+        "en": "Moving to action too quickly can skip a detail you wanted to understand. A brief return to the relevant explanation can help the trial stay enjoyable.",
+        "zh": "动得太快也会跳过想懂的细节。短回相关说明，让尝试更愉快。"
+      },
+      "experiment": {
+        "en": "Choose one reversible hobby trial from something already available to you. After trying, decide separately whether another step would be fun.",
+        "zh": "从已有可用东西选一次可撤回爱好小试。试后再另选下一步是否有趣。"
+      }
+    },
+    {
+      "id": "shelf",
+      "title": {
+        "en": "The Optional-Interest Shelf Keeper",
+        "zh": "稍后兴趣架保管者"
+      },
+      "summary": {
+        "en": "Your casual links have a place to wait without remaining active tasks. A small shelf can be browsed when you want and ignored when you do not. The portrait values optional return rather than measuring how efficiently you clear a browser.",
+        "zh": "你的休闲链接有一处可等的位置，不必持续当活动任务。小架子想看可看，不想也可忽略。画像珍惜可选返回，不测清浏览器效率。"
+      },
+      "example": {
+        "en": "You might keep a short list of playful exhibition ideas under one plain title, without assigning yourself a date to visit each one.",
+        "zh": "你可能把几个趣味展览想法放在一条普通标题下，不给自己逐一参观日期。"
+      },
+      "strength": {
+        "en": "An optional place can separate a genuine interest from a commitment and reduce the pressure to finish every curiosity before moving on.",
+        "zh": "可选位置能分清真实兴趣与承诺，减少必须先完成每份好奇才可继续的压力。"
+      },
+      "tradeoff": {
+        "en": "A shelf can become so large that it is no longer enjoyable to revisit. Keeping only what still interests you can make the collection lighter.",
+        "zh": "架子大到不想再看时，也失去作用。只留仍有兴趣的，集合可更轻。"
+      },
+      "experiment": {
+        "en": "Make a tiny optional list from a few casual interests. Give yourself permission to remove an entry without calling the original curiosity a waste.",
+        "zh": "从几个休闲兴趣做极小可选清单。允许移走一条，也不把原先好奇叫浪费。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "question",
+    "action",
+    "shelf"
+  ]
+}

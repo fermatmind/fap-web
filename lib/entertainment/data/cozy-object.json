@@ -1,0 +1,348 @@
+{
+  "slug": "cozy-object",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "metaphor",
+  "title": {
+    "en": "Which Ordinary Object Holds Your Cozy Scene?",
+    "zh": "你的温暖小场景，会由哪件普通物陪着？"
+  },
+  "description": {
+    "en": "Build a fictional cozy scene through six choices about a cup, a blanket and a notebook, each offering a different kind of invitation.",
+    "zh": "用杯子、毯子与笔记本的六次选择，搭一个虚构温暖场景，每件物发出不同邀请。"
+  },
+  "introduction": {
+    "en": "These objects are story symbols, not diagnostic projective-test images. Imagine an easy afternoon with things already on hand; the ending follows your selected scenes, not hidden needs.",
+    "zh": "这些物件是故事象征，不是诊断式投射图片。用已有物想象轻松午后；结局按所选场景走，不推隐藏需要。"
+  },
+  "focus": {
+    "en": "A cozy scene centered on a small ritual, a soft boundary or a place for wandering thoughts.",
+    "zh": "围着小仪式、柔软边界或游走想法的落脚处，搭温暖场景。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Your scene begins with…",
+        "zh": "场景开始于……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A familiar cup placed ready for a small ritual.",
+            "zh": "熟悉杯子摆好，开始小仪式。"
+          },
+          "points": {
+            "cup": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A light blanket marking a place to settle.",
+            "zh": "轻毯划出能坐下的一处。"
+          },
+          "points": {
+            "blanket": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "An open notebook with no required topic.",
+            "zh": "打开笔记本，不指定题目。"
+          },
+          "points": {
+            "notebook": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The afternoon changes unexpectedly. You keep…",
+        "zh": "午后临时变化，你保留……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A small comfortable place I can return to.",
+            "zh": "一处可返回的小舒适位置。"
+          },
+          "points": {
+            "blanket": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A page for whatever new thought arrives.",
+            "zh": "一页接住新来的念头。"
+          },
+          "points": {
+            "notebook": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "One familiar beginning even if the rest changes.",
+            "zh": "其余变也留一个熟悉开头。"
+          },
+          "points": {
+            "cup": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "The scene has one quiet action. You…",
+        "zh": "场景里有个安静动作，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Write a fragment without making it a project.",
+            "zh": "写个碎片，不把它变项目。"
+          },
+          "points": {
+            "notebook": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Repeat a simple familiar preparation slowly.",
+            "zh": "慢慢重复一项熟悉准备。"
+          },
+          "points": {
+            "cup": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Arrange the edge of the place where I am sitting.",
+            "zh": "理一理坐处边缘。"
+          },
+          "points": {
+            "blanket": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A small detail makes the scene yours. It is…",
+        "zh": "让场景像你的细节是……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A repeated gesture associated with this particular cup.",
+            "zh": "与这只杯相连的重复动作。"
+          },
+          "points": {
+            "cup": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A line that could only have come from this afternoon.",
+            "zh": "只会来自此午后的一句话。"
+          },
+          "points": {
+            "notebook": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The particular fold that makes the corner inviting.",
+            "zh": "让角落想坐的那种折法。"
+          },
+          "points": {
+            "blanket": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "You move the imaginary scene elsewhere. You bring…",
+        "zh": "把想象场景搬到别处，你带……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The idea of a small place with a gentle edge.",
+            "zh": "一处有柔和边缘的小位置。"
+          },
+          "points": {
+            "blanket": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A brief ritual I can adapt to the new place.",
+            "zh": "能在新处调整的短仪式。"
+          },
+          "points": {
+            "cup": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Permission for a page to remain unfinished.",
+            "zh": "允许一页未写完。"
+          },
+          "points": {
+            "notebook": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What is the scene offering?",
+        "zh": "这个场景在邀请什么？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A little room for thoughts that do not need an outcome.",
+            "zh": "容纳不必产出成果的念头。"
+          },
+          "points": {
+            "notebook": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A place to settle without occupying the whole afternoon.",
+            "zh": "坐一会儿，不占整午后。"
+          },
+          "points": {
+            "blanket": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A familiar act that gives a moment a beginning.",
+            "zh": "熟悉动作给片刻一个开头。"
+          },
+          "points": {
+            "cup": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "cup",
+      "title": {
+        "en": "The Familiar-Cup Scene",
+        "zh": "熟悉杯子的场景"
+      },
+      "summary": {
+        "en": "Your cozy symbol is an ordinary object with a repeatable beginning. The cup holds a small ritual in the story without promising to fix an entire day.",
+        "zh": "你的温暖象征是能重复开头的普通物。故事中的杯子承载小仪式，不承诺修好一天。"
+      },
+      "example": {
+        "en": "In your scene, placing a cup on its usual coaster might be enough to say that a short personal moment has begun.",
+        "zh": "你的场景里，把杯子放熟悉杯垫，就足以宣布一小段自己的片刻开始。"
+      },
+      "strength": {
+        "en": "A familiar gesture can give a scene continuity even when the rest of the afternoon is different from what you first imagined.",
+        "zh": "熟悉动作给场景连续性，即使午后其余与最初想象不同。"
+      },
+      "tradeoff": {
+        "en": "A ritual can become restrictive if every detail must be exact. The cup in this story can change shape without losing its invitation.",
+        "zh": "每个细节都必须精确，仪式也会拘束。故事中的杯子可换样，邀请仍在。"
+      },
+      "experiment": {
+        "en": "Write a three-line cozy scene beginning with a familiar preparation. Change one detail and see whether the scene still feels recognizably yours.",
+        "zh": "以熟悉准备开头写三行温暖场景，改一处细节，看是否仍像你的场景。"
+      }
+    },
+    {
+      "id": "blanket",
+      "title": {
+        "en": "The Gently-Edged Corner",
+        "zh": "柔软边缘的小角落"
+      },
+      "summary": {
+        "en": "Your object gives the imagined scene a boundary you can feel. A blanket marks a modest place to settle without making the whole world disappear outside it.",
+        "zh": "你的物给想象场景可感边界。毯子标出一小处停留，不让外界全部消失。"
+      },
+      "example": {
+        "en": "A casually folded blanket on the end of a seat might distinguish a short pause from the rest of an otherwise ordinary room.",
+        "zh": "座位一端随意折的毯子，让短暂停留与普通房间其余区分。"
+      },
+      "strength": {
+        "en": "A soft edge makes the scene specific and portable in imagination, so coziness does not depend on furnishing an entire perfect room.",
+        "zh": "柔和边缘让场景具体，也便于想象搬走，不依赖整间完美布置。"
+      },
+      "tradeoff": {
+        "en": "Even an inviting corner can feel limiting after a while. Leaving it and returning later does not make the scene any less cozy.",
+        "zh": "再诱人的角落也会坐够。离开以后再回，不会让温暖变少。"
+      },
+      "experiment": {
+        "en": "Draw a small corner and give it one visible boundary. Leave an opening so the imagined person can come and go without a rule.",
+        "zh": "画小角落，给一处可见边缘，留个开口，让想象的人自由进出。"
+      }
+    },
+    {
+      "id": "notebook",
+      "title": {
+        "en": "The Unfinished-Page Scene",
+        "zh": "允许未完的一页"
+      },
+      "summary": {
+        "en": "Your cozy object welcomes thoughts without demanding a polished outcome. The notebook is a place for a fragment to exist, not a promise that every fragment becomes useful.",
+        "zh": "你的温暖物接纳念头，不要求精致产出。笔记本让碎片存在，不许诺每片都要有用。"
+      },
+      "example": {
+        "en": "Your imagined afternoon might leave one strange sentence beside a little sketch, with plenty of blank page still around them.",
+        "zh": "你的想象午后留一句奇怪话与小画，周围仍有大片空页。"
+      },
+      "strength": {
+        "en": "A page with no required topic lets a scene hold curiosity and incompleteness together rather than converting every interesting detail into a task.",
+        "zh": "不指定题目的纸页，能让好奇与未完共处，不把有趣细节都变任务。"
+      },
+      "tradeoff": {
+        "en": "An open page can still feel like pressure when you think it must be filled. Closing the notebook is an equally valid ending to the scene.",
+        "zh": "以为必须填满时，空页也有压力。合上本子同样是合适结尾。"
+      },
+      "experiment": {
+        "en": "Write one harmless fragment on a page and deliberately leave space around it. Give the page a title only if that adds to the enjoyment.",
+        "zh": "写一条无害碎片，刻意留空。只有添乐趣时才给这一页起标题。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "cup",
+    "blanket",
+    "notebook"
+  ]
+}

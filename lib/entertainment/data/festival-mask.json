@@ -1,0 +1,348 @@
+{
+  "slug": "festival-mask",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "metaphor",
+  "title": {
+    "en": "Which Original Festival Mask Would You Design?",
+    "zh": "虚构节庆之夜：你会设计哪张面具？"
+  },
+  "description": {
+    "en": "Design an original costume for one fictional evening through six choices about bells, windows and moving paper ribbons.",
+    "zh": "用铃声、窗口与活动纸带的六次选择，为虚构节庆一夜设计原创装扮。"
+  },
+  "introduction": {
+    "en": "This is about an optional fictional costume, not social masking, hidden identity, autism or a psychological assessment. All characters and motifs are original. You can enjoy the design without wearing anything.",
+    "zh": "这是自愿的虚构装扮，不谈社交伪装、隐藏身份、自闭症，也不作心理评估。角色与纹样均原创，不真戴也能玩设计。"
+  },
+  "focus": {
+    "en": "A costume that signals through a small sound, frames a changing view or leaves a visible moving trail.",
+    "zh": "用小声音发信号、框出变化视野，或留下可见移动轨迹的装扮。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Your original mask has one special feature.",
+        "zh": "原创面具有一处特色。"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Tiny imaginary bells that answer one deliberate gesture.",
+            "zh": "想象小铃回应一个刻意手势。"
+          },
+          "points": {
+            "bells": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A little frame that changes what the wearer points out.",
+            "zh": "小框改变佩戴者指出的景。"
+          },
+          "points": {
+            "window": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Paper ribbons that trace the character’s movement.",
+            "zh": "纸带描出角色的移动。"
+          },
+          "points": {
+            "ribbons": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The festival begins quietly. Your character…",
+        "zh": "节庆安静开始，你的角色……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Frames a small overlooked decoration for others to notice.",
+            "zh": "框起易忽略小装饰让人看。"
+          },
+          "points": {
+            "window": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Makes one slow movement so the trail becomes visible.",
+            "zh": "慢动一次，让轨迹可见。"
+          },
+          "points": {
+            "ribbons": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Gives one brief sound with a clear beginning and end.",
+            "zh": "发一声短响，有明确始终。"
+          },
+          "points": {
+            "bells": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "Someone prefers to watch from a distance. You…",
+        "zh": "有人想远看，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Let the movement remain visible without approaching them.",
+            "zh": "远远可看移动，不靠近对方。"
+          },
+          "points": {
+            "ribbons": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Keep the imagined sound brief and easy to avoid.",
+            "zh": "让想象声音短，也容易避开。"
+          },
+          "points": {
+            "bells": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Point out a decoration without requiring a response.",
+            "zh": "指出装饰，不要求回应。"
+          },
+          "points": {
+            "window": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "Your design must become simpler. You keep…",
+        "zh": "设计需简化，你保留……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The one gesture that makes a recognizable little signal.",
+            "zh": "发出可认小信号的那一手势。"
+          },
+          "points": {
+            "bells": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A single frame with an open view.",
+            "zh": "一个视野开放的框。"
+          },
+          "points": {
+            "window": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "One ribbon whose path can be followed.",
+            "zh": "一条可跟踪的纸带。"
+          },
+          "points": {
+            "ribbons": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The costume’s little story concerns…",
+        "zh": "装扮的小故事讲……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A character who notices the festival from unusual angles.",
+            "zh": "从特别角度看节庆的角色。"
+          },
+          "points": {
+            "window": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A character who gives each scene a small audible cue.",
+            "zh": "给每幕一处小声音提示的角色。"
+          },
+          "points": {
+            "bells": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A character who draws passing routes in the air.",
+            "zh": "把经过之路画在空中的角色。"
+          },
+          "points": {
+            "ribbons": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "At the end of the evening, you preserve…",
+        "zh": "当夜结束，你保留……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A drawing of one memorable path through the imagined air.",
+            "zh": "想象空中一条难忘路径的画。"
+          },
+          "points": {
+            "ribbons": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The small view the frame helped me notice.",
+            "zh": "框帮我留意的一小幅景。"
+          },
+          "points": {
+            "window": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A written description of the character’s tiny signal.",
+            "zh": "角色小信号的一段文字描写。"
+          },
+          "points": {
+            "bells": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "bells",
+      "title": {
+        "en": "The One-Chime Festival Character",
+        "zh": "一声铃的节庆角色"
+      },
+      "summary": {
+        "en": "Your costume gives the fictional character a deliberate signal. A small chime marks a moment without requiring constant noise or turning every entrance into the center of the festival.",
+        "zh": "你的装扮给虚构角色刻意信号。小铃标片刻，不需一直响，也不让每次入场都成焦点。"
+      },
+      "example": {
+        "en": "The character might raise one hand, make a brief imaginary bell sound and then leave the next scene to someone else.",
+        "zh": "角色可举手发短想象铃声，再把下一幕交给别人。"
+      },
+      "strength": {
+        "en": "A bounded signal gives the design a recognizable action and makes it possible to describe the costume through something it does.",
+        "zh": "有边界信号给设计可认动作，也可通过它做什么来描述装扮。"
+      },
+      "tradeoff": {
+        "en": "Sound is not equally enjoyable for everyone. In the fictional festival, a silent gesture or written cue can carry the same role.",
+        "zh": "声音非人人喜欢。虚构节庆中，安静手势或文字提示也能担同角色。"
+      },
+      "experiment": {
+        "en": "Invent a silent equivalent of your character’s one chime. Describe how a visitor could recognize it without hearing anything at all.",
+        "zh": "为一声铃编安静等价动作，描述访客完全不用听怎样仍可认出。"
+      }
+    },
+    {
+      "id": "window",
+      "title": {
+        "en": "The View-Framing Festival Character",
+        "zh": "替景物开小窗的角色"
+      },
+      "summary": {
+        "en": "Your mask frames attention rather than concealing a secret identity. The fictional character helps one small piece of the festival become visible from an unexpected angle.",
+        "zh": "你的面具框注意，不藏秘密身份。虚构角色让节庆一小部分从意外角度可见。"
+      },
+      "example": {
+        "en": "A simple open frame might turn a hanging paper shape into a tiny landscape when the character holds it at just the right angle.",
+        "zh": "简单开框换个角度，可让悬纸片成为小景。"
+      },
+      "strength": {
+        "en": "A frame gives the design an interactive invitation without requiring another visitor to perform, disclose anything or accept a character assigned to them.",
+        "zh": "小框给设计互动邀请，不要求别人表演、披露或接受被分角色。"
+      },
+      "tradeoff": {
+        "en": "Pointing out a view can become directing someone’s attention too firmly. Another visitor may prefer a different angle or no invitation at all.",
+        "zh": "指出视角也可能太强势。别人可选别角度，也可不接邀请。"
+      },
+      "experiment": {
+        "en": "Draw a plain festival scene and sketch two frames around different parts. Write a different original character line for each chosen view.",
+        "zh": "画普通节庆景，框两处，各写一句原创角色台词。"
+      }
+    },
+    {
+      "id": "ribbons",
+      "title": {
+        "en": "The Air-Drawing Festival Character",
+        "zh": "在空中画路径的角色"
+      },
+      "summary": {
+        "en": "Your costume makes a passing movement visible in imagination. The ribbon belongs to an original evening character whose story is expressed through a trail rather than a fixed emblem.",
+        "zh": "你的装扮让经过的动作在想象中可见。纸带属原创夜间角色，故事用轨迹而非固定徽号表达。"
+      },
+      "example": {
+        "en": "The character might move slowly past a drawn doorway, leaving a curved paper trail that suggests a greeting without needing words.",
+        "zh": "角色可慢过画的门口，弯纸轨迹像招呼，不需话语。"
+      },
+      "strength": {
+        "en": "A visible trail can make the costume’s motion part of its design and give even a simple character a distinct way to enter a scene.",
+        "zh": "可见轨迹把动作纳入设计，让简单角色也有独特入场方式。"
+      },
+      "tradeoff": {
+        "en": "An elaborate moving design can crowd the imagined space. Keeping the trail small and optional helps the festival remain enjoyable for nearby characters.",
+        "zh": "复杂活动装扮会占空间。轨迹保持小且可选择，旁边角色也好玩。"
+      },
+      "experiment": {
+        "en": "Draw three still positions of one imaginary ribbon movement. Give the sequence a short title that describes its path rather than a hidden personality.",
+        "zh": "画想象纸带三帧静姿，短标题描述路径，不写隐藏人格。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "bells",
+    "window",
+    "ribbons"
+  ]
+}
