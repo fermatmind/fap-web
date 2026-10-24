@@ -60,6 +60,8 @@ export function RiasecReadingReport({
   const rootRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const insightRef = useRef<HTMLDivElement>(null);
+  const exportPanelRef = useRef<HTMLElement | null>(null);
+  const [hasExportPanel, setHasExportPanel] = useState(false);
   const [activeSection, setActiveSection] = useState<string>(ANCHORS.overview);
   const [selected, setSelected] = useState(
     vm.primaryType || vm.dimensions[0]?.code || "",
@@ -123,6 +125,13 @@ export function RiasecReadingReport({
     { id: ANCHORS.career, label: t("职业探索", "Career exploration") },
   ];
   const chapterKey = chapters.map((chapter) => chapter.id).join(",");
+
+  useEffect(() => {
+    // Navigation only: facts and access remain owned by the shared consumer.
+    exportPanelRef.current = rootRef.current?.closest("[data-result-visible-root]")
+      ?.querySelector<HTMLElement>('[data-testid="result-export-panel"]') ?? null;
+    setHasExportPanel(Boolean(exportPanelRef.current));
+  }, [vm]);
 
   useEffect(() => {
     const root = rootRef.current;
@@ -220,6 +229,7 @@ export function RiasecReadingReport({
         actions={actions}
         emailRecovery={emailRecovery}
       />
+
       <div className={styles.grid} data-testid="riasec-deep-report">
         <div className={styles.main}>
           <DimensionChart
@@ -230,6 +240,15 @@ export function RiasecReadingReport({
             onSelect={setSelected}
             locale={locale}
           />
+          {hasExportPanel ? (
+            <button type="button" className={styles.takeawayEntry} onClick={() => {
+              const summary = exportPanelRef.current?.querySelector<HTMLElement>("summary");
+              summary?.scrollIntoView({ block: "center" });
+              summary?.focus({ preventScroll: true });
+            }}>
+              {t("带着结果，与 AI 继续聊", "Explore your results with AI")}
+            </button>
+          ) : null}
           <div
             className={styles.body}
             data-testid={slots.length ? "riasec-deep-content-slots" : undefined}

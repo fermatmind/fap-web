@@ -4,10 +4,28 @@ import { RiasecResultShell } from "@/components/result/riasec/RiasecResultShell"
 import { assembleRiasecResultViewModel } from "@/lib/riasec/resultAssembler";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import samples from "@/app/(localized)/[locale]/(app)/dev/riasec-reading/backend-samples.json";
+import { ResultExportPanel } from "@/components/result-export/ResultExportPanel";
+import { buildRiasecResultExport } from "@/lib/riasec/exportAdapter";
 
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn(), trackObservableFunnelEvent: vi.fn() }));
 
 describe("RIASEC interest to trial loop", () => {
+  it("links the summary action to the authorized shared panel with keyboard focus", () => {
+    const report = { riasec_public_projection_v2: samples["en-60"] } as unknown as ReportResponse;
+    const vm = assembleRiasecResultViewModel(report, "en");
+    render(<div data-result-visible-root>
+      <RiasecResultShell locale="en" viewModel={vm} />
+      <ResultExportPanel projection={buildRiasecResultExport(report, "en")!} locale="en" />
+    </div>);
+    const panel = screen.getByTestId("result-export-panel");
+    const summary = panel.querySelector("summary")!;
+    const scroll = vi.fn();
+    Object.defineProperty(summary, "scrollIntoView", { value: scroll });
+    fireEvent.click(screen.getByRole("button", { name: "Explore your results with AI" }));
+    expect(summary).toHaveFocus();
+    expect(scroll).toHaveBeenCalledWith({ block: "center" });
+    expect((within(panel).getByLabelText("Full export preview") as HTMLTextAreaElement).value).toContain("riasec_60");
+  });
   it.each(["zh-CN-60", "zh-CN-140", "en-60", "en-140"] as const)("keeps %s scores separate from optional personal notes and same-language resources", key => {
     const locale = key.startsWith("zh") ? "zh" : "en";
     const vm = assembleRiasecResultViewModel({ riasec_public_projection_v2: samples[key] } as unknown as ReportResponse, locale);

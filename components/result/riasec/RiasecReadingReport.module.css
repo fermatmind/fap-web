@@ -575,3 +575,6 @@
 .noteField { display: grid; gap: 8px; margin-top: 18px; font-weight: 600; }
 .noteField textarea { display: block; box-sizing: border-box; width: 100%; min-width: 0; padding: 12px; border: 1px solid #a5b8b4; border-radius: 8px; background: #fff; color: #243b37; font: inherit; font-weight: 400; line-height: 1.6; resize: vertical; }
 .noteField textarea:focus-visible, .activityChoice input:focus-visible { outline: 3px solid #398276; outline-offset: 3px; }
+.takeawayEntry { display: block; min-height: 44px; margin: 16px 0 24px; padding: 12px 20px; border: 0; border-radius: 10px; background: #246b5f; color: #fff; font: inherit; font-weight: 600; text-align: left; cursor: pointer; }
+.takeawayEntry:focus-visible { outline: 3px solid #246b5f; outline-offset: 3px; }
+@media print { .takeawayEntry { display: none; } }
