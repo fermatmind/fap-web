@@ -9,12 +9,12 @@ import { buildPublicSitemapFamilyMap } from "@/lib/seo/publicSitemap";
 import { filterTrackingPayload } from "@/lib/tracking/events";
 import type { Answers, FunQuiz } from "@/lib/entertainment/types";
 
-function enumerate(quiz: FunQuiz, answer: Answers = {}, seen = new Set<string>(), questions = new Set<string>()): number {
+function enumerate(quiz: FunQuiz, answer: Answers = {}, seen = new Set<string>(), questions = new Set<string>(), soloResults = new Set<string>()): number {
   const state = resolveFunQuiz(quiz, answer);
   for (const id of state.path) questions.add(id);
-  if (state.complete) { for (const id of state.resultIds) seen.add(id); return 1; }
+  if (state.complete) { for (const id of state.resultIds) seen.add(id); if (state.resultIds.length === 1) soloResults.add(state.resultIds[0]); return 1; }
   const next = quiz.questions.find(q => q.id === state.path.at(-1))!;
-  return next.options.reduce((count, option) => count + enumerate(quiz, { ...answer, [next.id]: option.id }, seen, questions), 0);
+  return next.options.reduce((count, option) => count + enumerate(quiz, { ...answer, [next.id]: option.id }, seen, questions, soloResults), 0);
 }
 
 describe("original entertainment catalog", () => {
@@ -75,10 +75,11 @@ describe("original entertainment catalog", () => {
     let total = 0;
     for (const card of catalog) {
       const quiz = (await loadFunQuiz(card.slug))!;
-      const results = new Set<string>(), questions = new Set<string>();
-      const paths = enumerate(quiz, {}, results, questions);
+      const results = new Set<string>(), questions = new Set<string>(), soloResults = new Set<string>();
+      const paths = enumerate(quiz, {}, results, questions, soloResults);
       total += paths;
       expect([...results].sort(), quiz.slug).toEqual(quiz.tieOrder.slice().sort());
+      expect([...soloResults].sort(), `${quiz.slug}: every portrait must also have an unambiguous witness`).toEqual(quiz.tieOrder.slice().sort());
       expect([...questions].sort(), quiz.slug).toEqual(quiz.questions.map(q => q.id).sort());
       if (quiz.mechanism === "tally") expect(paths).toBe(quiz.questions.reduce((n, q) => n * q.options.length, 1));
     }

@@ -1,0 +1,348 @@
+{
+  "slug": "weekend-pace",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "everyday",
+  "title": {
+    "en": "What Is Your Weekend Pace?",
+    "zh": "你的周末节奏是什么？"
+  },
+  "description": {
+    "en": "Six low-stakes planning scenes explore what makes a weekend feel yours: a few anchors, room for surprises, or protected breathing space. All results free.",
+    "zh": "6道轻松的安排题，看看怎样的周末更有自己的感觉：有几个锚点、容纳惊喜，还是守住留白。完整结果免费。"
+  },
+  "introduction": {
+    "en": "Think about an ordinary weekend when you have some choice over your time. Paid work, caring responsibilities, money, and access can limit that choice; answer within your own circumstances. This is a playful look at preferred pacing, not a productivity score.",
+    "zh": "请想一个你能部分自主安排的普通周末。工作、照顾责任、预算与出行条件都会限制选择，请按自己的条件回答。这是对喜好节奏的趣味探索，不是生产力评分。"
+  },
+  "focus": {
+    "en": "How you balance a satisfying plan, responsiveness to the moment, and time that remains unclaimed.",
+    "zh": "你怎样平衡有期待的计划、对当下的回应，以及暂时不分配的时间。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "You can reserve one part of Saturday before the week ends. You would…",
+        "zh": "周末之前，可以先留出周六的一段时间，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Book one thing I look forward to and leave the rest loose.",
+            "zh": "定一件期待的事，其他时间松一点。"
+          },
+          "points": {
+            "anchor": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Keep it open until I know what the day feels like.",
+            "zh": "先不定，看看当天的感觉。"
+          },
+          "points": {
+            "open": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Protect a stretch when nobody expects anything from me.",
+            "zh": "留一段没人等我做什么的时间。"
+          },
+          "points": {
+            "space": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "A friend suggests a last-minute afternoon outing. You first check…",
+        "zh": "朋友临时约下午出去，你先看……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Whether I actually have energy for company today.",
+            "zh": "今天是否有精力和人相处。"
+          },
+          "points": {
+            "space": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Whether it clashes with the one plan I wanted to keep.",
+            "zh": "会不会撞上我本来想保留的安排。"
+          },
+          "points": {
+            "anchor": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Whether the idea sounds more interesting than my current options.",
+            "zh": "这个点子是否比现在的选择更有趣。"
+          },
+          "points": {
+            "open": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "Which Sunday evening thought would feel most satisfying?",
+        "zh": "周日晚上，哪种感受最让你满足？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "I followed a few unexpected interests.",
+            "zh": "顺着几件临时感兴趣的事走了走。"
+          },
+          "points": {
+            "open": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "I did the one or two things I had been anticipating.",
+            "zh": "做到了原本期待的一两件事。"
+          },
+          "points": {
+            "anchor": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "I had enough time without having to account for it.",
+            "zh": "有过不用交代去向和产出的时间。"
+          },
+          "points": {
+            "space": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A small chore could fill the free hour between two activities. You…",
+        "zh": "两项活动中间空一小时，正好能塞进一件小家务，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Check whether leaving that gap empty would make the day nicer.",
+            "zh": "先看看留白会不会让这一天更舒服。"
+          },
+          "points": {
+            "space": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Use a short list so the chore does not swallow the next plan.",
+            "zh": "用短清单完成它，别吞掉后面的安排。"
+          },
+          "points": {
+            "anchor": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Decide later; I may discover something else I want to do.",
+            "zh": "到时再说，也许会临时想做别的。"
+          },
+          "points": {
+            "open": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The weather changes your main outdoor plan. You prefer to…",
+        "zh": "天气打乱了主要的户外安排，你更想……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Choose a different activity on the spot.",
+            "zh": "现场换一个想做的活动。"
+          },
+          "points": {
+            "open": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Keep the same meaningful part in a simpler indoor version.",
+            "zh": "换成简单的室内版，保留最期待的部分。"
+          },
+          "points": {
+            "anchor": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Take the cancellation as permission to have less on.",
+            "zh": "让取消成为少安排一点的机会。"
+          },
+          "points": {
+            "space": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "For next weekend, which invitation would you most like to receive?",
+        "zh": "下周末，你最想收到哪种邀请？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "“One clear plan, and you can leave the rest of the day free.”",
+            "zh": "“只约一件明确的事，剩下的时间归你。”"
+          },
+          "points": {
+            "anchor": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "“Let us decide together when the day comes.”",
+            "zh": "“到了当天，再一起看看想干什么。”"
+          },
+          "points": {
+            "open": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "“No need to reply quickly; we can also leave this week quiet.”",
+            "zh": "“不用急着回，这周安静一点也可以。”"
+          },
+          "points": {
+            "space": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "anchor",
+      "title": {
+        "en": "A Few Good Anchors",
+        "zh": "几个刚刚好的锚点"
+      },
+      "summary": {
+        "en": "Your choices favor a weekend with something specific to anticipate, without scheduling every hour. An anchor gives the day shape: a class, a walk, a meal with someone. The rest can breathe around it.",
+        "zh": "你的选择偏向让周末有一件具体可期待的事，又不把每小时排满。一次课、一次散步或一顿相聚，像锚点一样给一天形状，其他时间可以围着它松动。"
+      },
+      "example": {
+        "en": "You might reserve a Saturday morning market visit, then avoid promising the afternoon to three other things. Even a short outing can feel worthwhile when it is the part you chose deliberately.",
+        "zh": "你可能先留好周六上午逛集市的时间，再不把下午同时许给三件事。哪怕活动很短，只要是主动挑选的部分，也能让人觉得值得。"
+      },
+      "strength": {
+        "en": "A clear anchor makes coordination easier and protects anticipation from being crowded out by small chores. It offers direction without requiring a packed itinerary.",
+        "zh": "明确的锚点让协同更容易，也保护期待，不让它被零碎家务挤掉。它提供方向，而不要求满满当当的行程。"
+      },
+      "tradeoff": {
+        "en": "When the anchor changes, the whole weekend may briefly feel canceled. The important part might be company or novelty, not the exact booking you made.",
+        "zh": "锚点一变动，可能会短暂觉得整个周末都没了。其实真正重要的，也许是陪伴或新鲜感，而不是那一张具体的预约。"
+      },
+      "experiment": {
+        "en": "Name why your next anchor matters and sketch one smaller alternative. Then leave one gap genuinely open instead of treating it as an unfinished plan.",
+        "zh": "说清下一个锚点为什么重要，再想一个更小的替代方案。也留一段真正开放的空隙，不把它看成尚未完成的安排。"
+      }
+    },
+    {
+      "id": "open",
+      "title": {
+        "en": "The Open Afternoon",
+        "zh": "打开的下午"
+      },
+      "summary": {
+        "en": "You prefer a weekend that can answer the mood and opportunities of the day. Your choices make room for invitations, detours, and interests that are hard to predict on Thursday. Openness feels enjoyable when you still have a real choice about saying yes.",
+        "zh": "你喜欢周末能回应当天的状态与机会。你的选择给邀请、绕行，以及周四还想不到的兴趣留出空间。只要“答应”确实是可选的，开放就会更有趣。"
+      },
+      "example": {
+        "en": "A walk might turn into a visit to a small exhibition you notice along the way. The pleasure comes from following interest, rather than proving you can fit more activities in.",
+        "zh": "散步时看见一场小展览，你可能就走进去看看。乐趣来自顺着兴趣走，不是证明自己一天能塞进更多活动。"
+      },
+      "strength": {
+        "en": "You can adapt when conditions change and notice possibilities that a rigid itinerary would exclude. A free afternoon does not have to be a vacant one.",
+        "zh": "条件改变时，你比较容易顺势调整，也能看见严格行程之外的可能。没有预定的下午，并不一定空洞。"
+      },
+      "tradeoff": {
+        "en": "Leaving everything open can make shared plans difficult or let other people claim all your time. A late decision is still a decision with consequences.",
+        "zh": "什么都不提前定，也可能让共同安排变难，或让别人占满你的时间。晚一点做决定，同样会产生实际影响。"
+      },
+      "experiment": {
+        "en": "For your next open day, agree on one check-in time with anyone involved. Keep a simple personal limit, such as how late you want to return.",
+        "zh": "下次留白时，可以和同行者约一个确认安排的时间。也留一条自己的简单边界，例如希望几点回家。"
+      }
+    },
+    {
+      "id": "space",
+      "title": {
+        "en": "Protected Breathing Space",
+        "zh": "被守住的留白"
+      },
+      "summary": {
+        "en": "Your answers make unclaimed time part of a good weekend. You want room to notice what you need before agreeing to another activity. This story portrait values choice and margin, without treating solitude as morally better than a busy social day.",
+        "zh": "你的答案把尚未分配的时间也算作好周末的一部分。你想先有空间知道自己需要什么，再答应下一场活动。这份画像看重选择与余裕，不认为独处比热闹的社交日更高明。"
+      },
+      "example": {
+        "en": "You might keep Sunday morning free from messages and errands, then decide whether to read or see someone later. The point is that the hour belongs to you before it belongs to a list.",
+        "zh": "你可能不在周日上午安排消息和跑腿，晚一点再决定读书还是见人。重点是，这段时间先属于你，然后才属于清单。"
+      },
+      "strength": {
+        "en": "Margin can make a plan kinder to different energy levels and prevent every pleasant invitation from becoming another obligation you must fulfill.",
+        "zh": "余裕能让安排更照顾不同的精力状态，也避免每个愉快的邀请，最后都变成一项必须完成的义务。"
+      },
+      "tradeoff": {
+        "en": "Others may mistake an unexplained absence for disinterest. Protecting space works more smoothly when the boundary is stated rather than left for people to guess.",
+        "zh": "没有说明的缺席，有时会被误以为不感兴趣。把留白的边界说出来，通常比让别人猜更容易相处。"
+      },
+      "experiment": {
+        "en": "Try one clear sentence before the weekend: “I am keeping this part of the day free; I can confirm later.” Offer another time only if you want one.",
+        "zh": "周末前试着说一句明确的话：“这段时间我想先不安排，晚点再确认。”只有你真想再约时，才需要补上另一个时间。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "anchor",
+    "open",
+    "space"
+  ]
+}

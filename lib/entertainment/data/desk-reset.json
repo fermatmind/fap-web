@@ -1,0 +1,348 @@
+{
+  "slug": "desk-reset",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "everyday",
+  "title": {
+    "en": "What Kind of Desk Reset Fits You?",
+    "zh": "你的桌面想怎样重新开始？"
+  },
+  "description": {
+    "en": "Six creative-workspace choices find your reset portrait: ready stations, a portable kit, or a clear stage. A playful preference quiz, not an organization grade.",
+    "zh": "6道创作桌面选择题，看看你更适合准备好的小站、可移动工具包，还是一块清爽舞台。不评判整洁能力，完整结果免费。"
+  },
+  "introduction": {
+    "en": "Imagine a small personal surface used for a hobby, notes, or making something. It can be a shared table or a temporary corner rather than a dedicated desk. The quiz explores what feels easy to use, without ranking tidy people above messy people.",
+    "zh": "想象一小块用于爱好、笔记或手作的个人台面。它可以是共用桌子或临时角落，不一定是专属书桌。这里探索怎样用起来顺手，不把整洁的人排在杂乱的人之上。"
+  },
+  "focus": {
+    "en": "How you want tools, active materials, and open space to support the next small activity.",
+    "zh": "你希望工具、正在用的材料与空白空间，怎样支持接下来的一项小活动。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Before starting a small creative task, you would rather…",
+        "zh": "开始一项小创作前，你更想……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Have the usual tools waiting in known places.",
+            "zh": "常用工具已经在熟悉位置等着。"
+          },
+          "points": {
+            "stations": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Bring out one compact kit with what this task needs.",
+            "zh": "拿出一个装着本次所需物品的小工具包。"
+          },
+          "points": {
+            "kit": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Clear a simple open area and add only the first item.",
+            "zh": "先留出一块空白，只放第一件要用的东西。"
+          },
+          "points": {
+            "stage": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "You need to stop halfway through. You prefer to…",
+        "zh": "做到一半需要停下，你更想……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Pack the active pieces together so they can travel or wait.",
+            "zh": "把当前材料装在一起，方便带走或暂放。"
+          },
+          "points": {
+            "kit": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Leave a recognizable setup that shows where to resume.",
+            "zh": "留下看得出做到哪里的摆放状态。"
+          },
+          "points": {
+            "stations": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Record the next step and return the surface to open space.",
+            "zh": "记下下一步，再让台面恢复空白。"
+          },
+          "points": {
+            "stage": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "A shared table must be used for dinner later. You…",
+        "zh": "共用桌子晚点要吃饭，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Keep materials in a tray or bag that can move as one unit.",
+            "zh": "把材料放进托盘或袋子，整组移动。"
+          },
+          "points": {
+            "kit": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Use a small defined zone so each tool has a return spot.",
+            "zh": "划出一小片区域，让工具都有回去的位置。"
+          },
+          "points": {
+            "stations": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Take out very little at a time and clear it between stages.",
+            "zh": "一次只拿少量东西，每个阶段之间收回。"
+          },
+          "points": {
+            "stage": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A tool you rarely use is taking the best spot. You would…",
+        "zh": "不常用的工具占了最顺手的位置，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Move it back so everyday tools keep their familiar places.",
+            "zh": "挪开它，让日常工具保留熟悉的位置。"
+          },
+          "points": {
+            "stations": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Put it with the specific kit that needs it.",
+            "zh": "把它放进确实用得上的那组工具包。"
+          },
+          "points": {
+            "kit": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Store it away until the task specifically calls for it.",
+            "zh": "先收起来，等具体任务需要时再拿。"
+          },
+          "points": {
+            "stage": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "What feels most inviting when you return to a project?",
+        "zh": "重新回来做这件事时，什么最能邀请你开始？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A surface that does not compete with the first thing I want to make.",
+            "zh": "台面不和我第一件想做的东西争注意力。"
+          },
+          "points": {
+            "stage": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The active kit, ready to open in whichever spot is available.",
+            "zh": "当前工具包随时能在有空位的地方打开。"
+          },
+          "points": {
+            "kit": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A familiar arrangement that helps me find the next tool.",
+            "zh": "熟悉的摆放，下一件工具容易找到。"
+          },
+          "points": {
+            "stations": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "Your desk reset has worked when…",
+        "zh": "桌面重新整理后，怎样算是对你有用？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "I can find the ordinary tools without searching each time.",
+            "zh": "常用工具不必每次重新找。"
+          },
+          "points": {
+            "stations": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "I can move the whole activity without losing its small parts.",
+            "zh": "整项活动可以搬走，小零件也不容易散。"
+          },
+          "points": {
+            "kit": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The first step feels visible because there is room for it.",
+            "zh": "第一步因为有空间，变得清楚、愿意动手。"
+          },
+          "points": {
+            "stage": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "stations",
+      "title": {
+        "en": "Ready Little Stations",
+        "zh": "准备好的小站"
+      },
+      "summary": {
+        "en": "Your answers favor recognizable homes for the tools you use often. A desk feels inviting when it helps you locate the next thing without restarting a search. The arrangement can be visually busy or quiet; its usefulness comes from familiarity, not a particular aesthetic.",
+        "zh": "你的答案偏向给常用工具留认得出的位置。桌面能帮你找到下一件东西、不必重新找起时，就更愿意靠近。摆放可以热闹，也可以安静；好用来自熟悉感，不来自某种固定审美。"
+      },
+      "example": {
+        "en": "Pens may live beside the notebook you actually use, while the current project stays in a defined corner. The setup makes sense to you even if it would not suit another person’s desk.",
+        "zh": "笔可以待在真正会用的本子旁边，当前项目则留在一个明确角落。这种安排对你说得通，不代表一定适合另一个人的桌子。"
+      },
+      "strength": {
+        "en": "You reduce small locating decisions and can preserve a visible starting point for an ongoing activity. Familiar places can make returning feel straightforward.",
+        "zh": "你减少了找东西时的琐碎决定，也能给持续中的活动留一个看得见的起点。熟悉的位置，让回来继续变得直接。"
+      },
+      "tradeoff": {
+        "en": "A useful station can turn into permanent storage for a project that has ended. Locations need occasional revision as the activities themselves change.",
+        "zh": "有用的小站，也可能慢慢变成已经结束项目的永久仓库。活动变化时，位置同样需要偶尔重新考虑。"
+      },
+      "experiment": {
+        "en": "Choose one often-used tool and give it an easy return place. Remove one object from that station if it no longer supports what you actually do there.",
+        "zh": "选一件常用工具，给它一个容易放回的位置。如果小站里有一件东西已不再支持实际活动，也可以移走它。"
+      }
+    },
+    {
+      "id": "kit",
+      "title": {
+        "en": "The Portable Kit",
+        "zh": "可以一起带走的工具包"
+      },
+      "summary": {
+        "en": "Your workspace portrait keeps an activity together rather than tying it to one surface. You want the materials to open easily, move when needed, and close without losing the thread. A kit can be a bag, tray, or ordinary box you already own.",
+        "zh": "你的桌面画像把一项活动收在一起，而不是绑在一个台面上。你希望材料容易展开、需要时能移动，收起来也不丢线索。工具包可以是已有的袋子、托盘或普通盒子。"
+      },
+      "example": {
+        "en": "A small drawing project might fit into one tray that moves from a table to a shelf before dinner. The tray preserves the activity while giving the shared space back.",
+        "zh": "一个小绘画项目可以放进托盘，晚饭前从桌面移到架子上。托盘让活动保持在一起，也把共用空间还回来。"
+      },
+      "strength": {
+        "en": "You can make a temporary workspace feel usable and reduce the chance that small parts get separated during a transition. Flexibility becomes part of the setup.",
+        "zh": "你能让临时空间也用起来顺手，并减少转换位置时小零件散开的机会。灵活性本身，就是摆放的一部分。"
+      },
+      "tradeoff": {
+        "en": "A container can become a hidden pile if everything goes into it without a clear purpose. Portability helps only when opening the kit is still easy.",
+        "zh": "如果什么都不分用途地塞进去，容器也可能变成藏起来的杂物堆。打开仍然轻松时，可移动才真正有帮助。"
+      },
+      "experiment": {
+        "en": "Try packing only the active task’s materials in one existing container, with a short next-step note. Leave unrelated supplies outside rather than buying a larger box.",
+        "zh": "可以用一个现有容器，只装当前任务的材料，再留一句下一步。把无关物品留在外面，不必先换更大的盒子。"
+      }
+    },
+    {
+      "id": "stage",
+      "title": {
+        "en": "The Clear Stage",
+        "zh": "让第一步有地方出现"
+      },
+      "summary": {
+        "en": "Your choices give the next activity a little open space before adding tools. A clear stage helps you see what you want to begin with. This portrait is about the experience of starting, not a claim that empty desks are more disciplined or creative.",
+        "zh": "你的选择会先给下一项活动留一点空，再加入工具。像舞台一样的空白，帮你看见想从什么开始。这份画像谈的是开始的体验，不声称空桌子意味着更自律或更有创意。"
+      },
+      "example": {
+        "en": "You might put away yesterday’s materials, take out one sheet, and choose the first tool only when you know the next action. The whole room does not need to be reset.",
+        "zh": "你可能收起昨天的材料，拿出一张纸，知道下一步后再选第一件工具。不必连整个房间都重新整理一遍。"
+      },
+      "strength": {
+        "en": "You can make the immediate action stand out and avoid letting old materials silently set the agenda for what happens next.",
+        "zh": "你会让眼前的动作更突出，也不让旧材料悄悄替接下来的活动设定议程。"
+      },
+      "tradeoff": {
+        "en": "Clearing can become a prerequisite that delays doing the thing you wanted to do. A small usable patch may be enough even when the rest remains unfinished.",
+        "zh": "清理也可能变成开始之前必须完成的大事，反而推迟真正想做的活动。哪怕其他地方没收完，一小块可用空间也可能已经足够。"
+      },
+      "experiment": {
+        "en": "Clear only the area needed for one first action, then begin before adjusting anything else. Notice whether that smaller reset gives you the room you wanted.",
+        "zh": "只清出第一步需要的面积，然后先开始，不急着调整别处。看看这样小一点的重置，是否已经给了你想要的空间。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "stations",
+    "kit",
+    "stage"
+  ]
+}

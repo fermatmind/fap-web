@@ -1,0 +1,348 @@
+{
+  "slug": "reading-ritual",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "everyday",
+  "title": {
+    "en": "What Is Your Reading Ritual?",
+    "zh": "你会用什么方式走进一本书？"
+  },
+  "description": {
+    "en": "Six recreational reading scenes explore how you choose, pause, and return: one world, a trail of books, or a small recurring appointment. Full results free.",
+    "zh": "6道休闲阅读情境题，看看你如何选书、停下与重新回来：沉入一个世界、串起几本书，还是保留小小的阅读约定。完整结果免费。"
+  },
+  "introduction": {
+    "en": "Use “book” broadly: print, accessible digital text, or an audiobook you enjoy. Answer for voluntary reading, not required study or work. No pace or format makes someone a better reader; this is about what keeps the experience inviting for you.",
+    "zh": "这里的“书”也包括你喜欢的无障碍电子文本或有声书。请代入自愿阅读，而不是学习与工作的必读任务。速度和载体不决定谁更会读书，这里关注的是怎样让你愿意继续走近。"
+  },
+  "focus": {
+    "en": "How continuity, curiosity between books, and a familiar reading occasion shape your leisure reading.",
+    "zh": "一本书的连续感、书与书之间的好奇，以及熟悉的阅读时段，怎样塑造你的休闲阅读。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "You have a free reading hour. You are drawn to…",
+        "zh": "有一小时可以自由阅读，你更想……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Stay with one book long enough to settle into its world.",
+            "zh": "和一本书待久一点，进入它的世界。"
+          },
+          "points": {
+            "immerse": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Follow a reference from one book into another.",
+            "zh": "顺着一本书的线索，翻到另一本。"
+          },
+          "points": {
+            "trail": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Return to the book I keep for this familiar time of day.",
+            "zh": "回到这个时段习惯拿起的那本书。"
+          },
+          "points": {
+            "appointment": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "A book mentions a topic you know little about. You…",
+        "zh": "书里提到一个陌生话题，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Mark it and look for another book or source to browse.",
+            "zh": "做个标记，找另一本文本或资料逛逛。"
+          },
+          "points": {
+            "trail": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Keep going so the current chapter’s thread stays intact.",
+            "zh": "先读下去，保留当前章节的线索。"
+          },
+          "points": {
+            "immerse": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Save one question to revisit in my next reading session.",
+            "zh": "留一个问题，下次阅读时再看。"
+          },
+          "points": {
+            "appointment": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "You must stop in the middle of a chapter. What helps most?",
+        "zh": "需要在章节中途停下时，什么最能帮你回来？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A short note about where the scene or argument stands.",
+            "zh": "留一句当前情节或论述走到哪里的提示。"
+          },
+          "points": {
+            "immerse": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Putting the book in the spot where I usually read.",
+            "zh": "把书放回平时会拿起它的位置。"
+          },
+          "points": {
+            "appointment": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Leaving the interesting related titles beside it.",
+            "zh": "把几本有联系的书名放在旁边。"
+          },
+          "points": {
+            "trail": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A book is not holding your attention today. You prefer to…",
+        "zh": "今天这本书有点读不进去，你更愿意……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Try a different text and see what conversation develops.",
+            "zh": "换一份文本，看看能接出什么对话。"
+          },
+          "points": {
+            "trail": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Keep the reading occasion small and leave the book for another day.",
+            "zh": "把这次阅读缩短，书可以改天再读。"
+          },
+          "points": {
+            "appointment": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Find a quieter or longer stretch before deciding it is not for me.",
+            "zh": "找一段更安静或完整的时间，再判断是否不合适。"
+          },
+          "points": {
+            "immerse": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "After finishing something you enjoyed, you want to…",
+        "zh": "读完一份喜欢的作品后，你想……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Sit with its atmosphere before starting something new.",
+            "zh": "先和它留下的氛围待一会儿。"
+          },
+          "points": {
+            "immerse": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Choose the next small reading companion for my routine.",
+            "zh": "为熟悉的阅读时段挑下一位小伙伴。"
+          },
+          "points": {
+            "appointment": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Explore another voice on a question it raised.",
+            "zh": "找另一个声音，看看它提出的问题。"
+          },
+          "points": {
+            "trail": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "Which reading setup sounds most inviting?",
+        "zh": "哪种阅读安排最吸引你？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A few connected books I can move between freely.",
+            "zh": "几本有联系、可以自由来回翻的书。"
+          },
+          "points": {
+            "trail": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "One comfortable stretch with a single text.",
+            "zh": "一段可以舒服地和一份文本相处的时间。"
+          },
+          "points": {
+            "immerse": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A modest, familiar slot without a page target.",
+            "zh": "一个不设页数目标、熟悉而不长的时段。"
+          },
+          "points": {
+            "appointment": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "immerse",
+      "title": {
+        "en": "One World at a Time",
+        "zh": "一次住进一个世界"
+      },
+      "summary": {
+        "en": "Your answers favor enough continuity to feel the shape of one work. You enjoy staying with a voice, scene, or argument rather than constantly changing companions. Immersion here is a preference for an experience, not a measure of attention span or reading ability.",
+        "zh": "你的答案偏向保留足够连续感，去感受一部作品的形状。你喜欢和一种声音、一段情节或一条论述待久一点，而不是不断更换对象。这里的沉浸是一种体验偏好，不衡量注意力或阅读能力。"
+      },
+      "example": {
+        "en": "You might reread the last paragraph after a break so the scene returns, then continue without checking every reference immediately. The pleasure is in hearing this particular work through.",
+        "zh": "中断后，你可能重读上一段，让场景回来，再继续向前，不急着检查每一条延伸资料。乐趣在于把这一部作品的声音听下去。"
+      },
+      "strength": {
+        "en": "You give a work time to develop and may notice changes in tone or structure that are harder to feel in scattered fragments.",
+        "zh": "你会给作品展开的时间，也可能注意到语气与结构的变化，而这些变化在零散片段中不那么容易感到。"
+      },
+      "tradeoff": {
+        "en": "Waiting for a perfectly uninterrupted hour can make reading harder to begin. A short encounter can still be worthwhile, even if the whole chapter must wait.",
+        "zh": "总等一个完全不被打扰的小时，也可能让阅读更难开始。即使完整章节要晚点再读，一次短暂接触仍然可以有意义。"
+      },
+      "experiment": {
+        "en": "Leave a one-line return note at your next stopping point. Try one shorter session without asking it to feel as complete as a long one.",
+        "zh": "下次停下时，给自己留一句返回提示。也试一次短一点的阅读，不要求它拥有长时段那样完整的感觉。"
+      }
+    },
+    {
+      "id": "trail",
+      "title": {
+        "en": "A Trail Between Books",
+        "zh": "书与书之间的小径"
+      },
+      "summary": {
+        "en": "Your reading portrait follows connections. A question in one text can send you toward another voice, form, or subject. You enjoy the conversation between works, even when the route is not linear and several books remain open at once.",
+        "zh": "你的阅读画像沿着关联前进。一份文本里的问题，会把你引向另一种声音、形式或主题。即使路线不直、同时有几本书打开，你也享受作品之间的对话。"
+      },
+      "example": {
+        "en": "A story about a harbor may make you curious about maps, then about a travel diary. Those are different kinds of reading, and each can give the others a new context.",
+        "zh": "一个港口故事，可能让你想看地图，再想读旅行日记。这些阅读形式不同，却能互相带来新的背景。"
+      },
+      "strength": {
+        "en": "You can notice unexpected connections and keep curiosity active across a collection. Not every book has to be finished before it contributes something useful or enjoyable.",
+        "zh": "你会注意意外的联系，也让好奇在一组作品之间持续流动。一本书不必先被读完，才有资格带来有趣或有用的东西。"
+      },
+      "tradeoff": {
+        "en": "A promising trail can become a collection of saved titles with little actual reading. Following references also does not make the claims in them automatically reliable.",
+        "zh": "有前景的小径也可能变成一串收藏书名，实际阅读却不多。顺着引用走，也不代表引用中的说法自动可靠。"
+      },
+      "experiment": {
+        "en": "Pick one connection to follow this week and park the rest on a short list. Write what question links the two works, without forcing them to agree.",
+        "zh": "这周可以只跟进一条联系，把其他线索暂存成短清单。写下两部作品由什么问题连接，不必强求它们观点一致。"
+      }
+    },
+    {
+      "id": "appointment",
+      "title": {
+        "en": "A Small Reading Appointment",
+        "zh": "一个小小的阅读约定"
+      },
+      "summary": {
+        "en": "Your choices make reading easy to return to through a familiar occasion. A certain chair, a journey, or a few evening minutes can become an invitation. The ritual matters because it welcomes you back, not because it produces a daily streak.",
+        "zh": "你的选择通过熟悉的场景，让阅读更容易被重新拿起。一把椅子、一段行程，或晚间的几分钟，都可以成为邀请。习惯的意义是欢迎你回来，而不是生产连续打卡记录。"
+      },
+      "example": {
+        "en": "You might keep a book near the place where you pause after dinner and read only as long as it remains pleasant. The small appointment can survive a busy day without turning into a quota.",
+        "zh": "你可能把书放在晚饭后会歇一会儿的位置，读到仍觉得舒服就好。这个小约定可以适应忙碌的一天，不必变成定额。"
+      },
+      "strength": {
+        "en": "You reduce the effort of deciding how to begin and give a book a place in ordinary life. Modest consistency can feel gentler than an ambitious schedule.",
+        "zh": "你降低了每次开始前做决定的成本，也给书在日常生活里留了位置。适度的稳定，有时比雄心勃勃的计划更温和。"
+      },
+      "tradeoff": {
+        "en": "A disrupted routine does not erase the reading you have enjoyed. Treating the appointment as a rule can make returning feel like catching up on a debt.",
+        "zh": "习惯被打乱，并不会抹掉已经享受过的阅读。若把约定变成规则，回来时反而可能像在追赶一笔欠债。"
+      },
+      "experiment": {
+        "en": "Choose a welcoming place for your current book, then give yourself explicit permission to miss a day. Return with a small page or passage, not a catch-up target.",
+        "zh": "给正在读的书选一个容易拿起的位置，也明确允许自己某天不读。回来时，从一页或一小段开始，不必补足进度。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "immerse",
+    "trail",
+    "appointment"
+  ]
+}

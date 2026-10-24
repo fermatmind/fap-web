@@ -119,15 +119,35 @@ test("@release denied clipboard offers a clean public result summary", async ({ 
   await page.addInitScript(() => {
     Object.defineProperty(navigator, "clipboard", { value: { writeText: () => Promise.reject(new Error("Denied")) } });
   });
-  await page.goto("/en/tests/play/lost-letter-adventure");
+  await page.goto("/en/tests/play/woodland-animal");
   await page.getByRole("button", { name: "Start quiz", exact: true }).click();
   await finish(page, false);
   await page.getByRole("button", { name: "Copy result and link" }).click();
   const fallback = page.getByRole("textbox", { name: "Result text for manual copying" });
   await expect(fallback).toBeVisible();
   const text = await fallback.inputValue();
-  expect(text).toContain("https://fermatmind.com/en/tests/play/lost-letter-adventure");
+  expect(text).toContain("https://fermatmind.com/en/tests/play/woodland-animal");
+  expect(text).toContain("Tied portraits:");
+  expect(text).toContain("Jay"); expect(text).toContain("Beaver"); expect(text).toContain("Hedgehog");
   expect(text).not.toMatch(/\bq[1-9]\b|\bo[1-9]\b|answers?/);
   const sharedUrl = new URL(text.split("\n").at(-1)!);
   expect(sharedUrl.search).toBe(""); expect(sharedUrl.hash).toBe("");
+});
+
+test("@release enlarged bilingual quiz text stays usable at narrow width", async ({ page }) => {
+  await page.setViewportSize({ width: 360, height: 800 });
+  for (const locale of ["en", "zh"] as const) {
+    const zh = locale === "zh";
+    await page.goto(`/${locale}/tests/play/woodland-animal`);
+    await page.evaluate(() => { document.documentElement.style.fontSize = "200%"; });
+    const decline = page.getByTestId("cookie-banner-decline");
+    if (await decline.isVisible()) await decline.click();
+    await page.getByRole("button", { name: zh ? "开始测试" : "Start quiz", exact: true }).click();
+    await finish(page, zh);
+    const overflow = await page.locator("#play").evaluate(node => ({ scroll: node.scrollWidth, client: node.clientWidth }));
+    expect(overflow.scroll).toBeLessThanOrEqual(overflow.client);
+    await expect(page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link" })).toBeVisible();
+    await page.getByRole("button", { name: zh ? "重新测试" : "Retake quiz", exact: true }).click();
+    await expect(page.locator("#play h2")).toBeFocused();
+  }
 });

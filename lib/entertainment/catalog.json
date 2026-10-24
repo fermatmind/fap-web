@@ -1,5 +1,56 @@
 [
   {
+    "slug": "city-wanderer",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "everyday",
+    "title": {
+      "en": "What Kind of City Wanderer Are You?",
+      "zh": "在城市里闲逛，你会沿什么线索走？"
+    },
+    "description": {
+      "en": "Six city-walk choices reveal the thread you follow: spatial patterns, neighborhood rhythms, or layers of local stories. All original portraits free.",
+      "zh": "6道城市闲逛选择题，看看你会追踪空间结构、街区节奏，还是地方故事的层次。原创完整画像免费。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "coffee-break",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "everyday",
+    "title": {
+      "en": "What Kind of Coffee Break Do You Actually Want?",
+      "zh": "你真正想要哪种小憩？"
+    },
+    "description": {
+      "en": "A six-question break-time quiz about a change of scene, a small sensory ritual, or easy company. No coffee required and no health claims.",
+      "zh": "6道小憩情境题，看看你更想换个场景、享受一个感官小仪式，还是找人轻松聊聊。不必喝咖啡，不涉及健康判断。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "desk-reset",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "everyday",
+    "title": {
+      "en": "What Kind of Desk Reset Fits You?",
+      "zh": "你的桌面想怎样重新开始？"
+    },
+    "description": {
+      "en": "Six creative-workspace choices find your reset portrait: ready stations, a portable kit, or a clear stage. A playful preference quiz, not an organization grade.",
+      "zh": "6道创作桌面选择题，看看你更适合准备好的小站、可移动工具包，还是一块清爽舞台。不评判整洁能力，完整结果免费。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "fantasy-party-role",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -34,6 +85,40 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "kitchen-improviser",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "everyday",
+    "title": {
+      "en": "What Kind of Kitchen Improviser Are You?",
+      "zh": "厨房临场发挥时，你是哪一派？"
+    },
+    "description": {
+      "en": "Six fictional dinner decisions explore how you adapt when ingredients, time, and tastes do not line up. Find your improvising style, not a cooking skill grade.",
+      "zh": "6道虚构晚餐选择题，看看食材、时间和口味对不上时，你怎样调整。不评价厨艺，完整结果免费。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "lost-key-search",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "everyday",
+    "title": {
+      "en": "What Is Your Missing-Keys Search Style?",
+      "zh": "钥匙一时找不到，你会怎么找？"
+    },
+    "description": {
+      "en": "Six harmless misplaced-object scenes explore your search story: replay the sequence, scan the space, or use another perspective. This is not a memory or ability test.",
+      "zh": "6道物品暂时找不到的小情境，看看你会回放经过、扫描空间，还是借助另一种视角。不测试记忆力或能力，完整结果免费。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "lost-letter-adventure",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -51,12 +136,97 @@
     "minQuestionCount": 2
   },
   {
-    "slug": "woodland-animal",
+    "slug": "museum-visitor",
     "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "everyday",
+    "title": {
+      "en": "What Kind of Museum Visitor Are You?",
+      "zh": "逛博物馆时，你会怎样看？"
+    },
+    "description": {
+      "en": "Six exhibit choices reveal your visiting rhythm: looking closely, following connections, or making meaning together. Free portraits for a more personal museum day.",
+      "zh": "6道展览情境题，看看你偏向细看一件、追踪关联，还是与人共同理解。免费获得更贴近自己的观展画像。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "playlist-maker",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "everyday",
+    "title": {
+      "en": "What Kind of Playlist Maker Are You?",
+      "zh": "你的歌单会怎样照顾一段时间？"
+    },
+    "description": {
+      "en": "Six playlist decisions explore three original curating styles: a story arc, shared-room energy, or surprising discoveries. No genre stereotypes or copyrighted song excerpts.",
+      "zh": "6道歌单选择题，探索故事弧线、照顾现场或发现惊喜三种策划方式。不按曲风贴人格标签，不使用歌曲摘录。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "reading-ritual",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "everyday",
+    "title": {
+      "en": "What Is Your Reading Ritual?",
+      "zh": "你会用什么方式走进一本书？"
+    },
+    "description": {
+      "en": "Six recreational reading scenes explore how you choose, pause, and return: one world, a trail of books, or a small recurring appointment. Full results free.",
+      "zh": "6道休闲阅读情境题，看看你如何选书、停下与重新回来：沉入一个世界、串起几本书，还是保留小小的阅读约定。完整结果免费。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "souvenir-story",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "everyday",
+    "title": {
+      "en": "What Kind of Souvenir Story Do You Keep?",
+      "zh": "你会留下怎样的纪念？"
+    },
+    "description": {
+      "en": "Six keepsake choices explore what makes a reminder meaningful: continued use, a specific memory, or a story shared with someone. No purchase required.",
+      "zh": "6道纪念物选择题，看看什么让提醒变得有意义：继续使用、一段具体记忆，还是与人共享的故事。不必购物，完整结果免费。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "weekend-pace",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "everyday",
+    "title": {
+      "en": "What Is Your Weekend Pace?",
+      "zh": "你的周末节奏是什么？"
+    },
+    "description": {
+      "en": "Six low-stakes planning scenes explore what makes a weekend feel yours: a few anchors, room for surprises, or protected breathing space. All results free.",
+      "zh": "6道轻松的安排题，看看怎样的周末更有自己的感觉：有几个锚点、容纳惊喜，还是守住留白。完整结果免费。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "woodland-animal",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "nature",
     "title": {
-      "en": "What Woodland Animal Is Your Trail Style?",
+      "en": "Which Woodland Animal Matches Your Trail Style?",
       "zh": "你的林间同行动物是什么？"
     },
     "description": {

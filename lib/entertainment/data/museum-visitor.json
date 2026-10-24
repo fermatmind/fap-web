@@ -1,0 +1,348 @@
+{
+  "slug": "museum-visitor",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "everyday",
+  "title": {
+    "en": "What Kind of Museum Visitor Are You?",
+    "zh": "逛博物馆时，你会怎样看？"
+  },
+  "description": {
+    "en": "Six exhibit choices reveal your visiting rhythm: looking closely, following connections, or making meaning together. Free portraits for a more personal museum day.",
+    "zh": "6道展览情境题，看看你偏向细看一件、追踪关联，还是与人共同理解。免费获得更贴近自己的观展画像。"
+  },
+  "introduction": {
+    "en": "Imagine a museum or small local exhibition where you can choose your route. There is no knowledge test. Reading every label, enjoying the room, or sharing a conversation are different ways to visit, not a ranking of cultural sophistication.",
+    "zh": "想象一场可以自主选择路线的博物馆或本地小展览。这里不考知识。读标签、感受空间或与同行者聊聊，都是不同的参观方式，不是文化品位的高低排名。"
+  },
+  "focus": {
+    "en": "Where you place attention when the collection offers more objects and stories than you can take in at once.",
+    "zh": "展品与故事比一次能看完的更多时，你会把注意力放在哪里。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "You have one hour in an unfamiliar exhibition. You start by…",
+        "zh": "第一次看这个展，只有一小时，你会先……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Choosing one object that makes me want to stop.",
+            "zh": "找一件让我想停下来的展品。"
+          },
+          "points": {
+            "close": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Looking at the room map and the exhibition’s main thread.",
+            "zh": "看看平面图和整个展览的主线。"
+          },
+          "points": {
+            "thread": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Asking my companion what they are drawn to.",
+            "zh": "问问同行者先被什么吸引。"
+          },
+          "points": {
+            "together": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "An object has a long label and an intriguing surface. You…",
+        "zh": "一件展品有很长的说明，表面细节也很有趣，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Follow the label to its links with other objects.",
+            "zh": "顺着说明，看看它和其他展品的关联。"
+          },
+          "points": {
+            "thread": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Spend time with its visible details before reading more.",
+            "zh": "先留意看得见的细节，再决定读多少。"
+          },
+          "points": {
+            "close": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Compare what each of us noticed first.",
+            "zh": "和同行者比比，刚才先注意到什么。"
+          },
+          "points": {
+            "together": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "Which moment would you most like to remember afterward?",
+        "zh": "离开展览后，你最想记住哪种瞬间？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "An unexpected conversation prompted by one exhibit.",
+            "zh": "一件展品引出的一段意外对话。"
+          },
+          "points": {
+            "together": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A tiny detail I would have missed if I hurried.",
+            "zh": "一个走快了就会错过的微小细节。"
+          },
+          "points": {
+            "close": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The way several rooms changed my view of one theme.",
+            "zh": "几个展厅怎样逐步改变我对同一主题的理解。"
+          },
+          "points": {
+            "thread": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A popular gallery is crowded. You prefer to…",
+        "zh": "热门展厅有点挤，你更想……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Find a quieter related room and continue the same story.",
+            "zh": "去安静些的相关展厅，接着看这条线。"
+          },
+          "points": {
+            "thread": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Choose one less crowded object and stay with it.",
+            "zh": "挑一件不那么挤的展品，认真看一会儿。"
+          },
+          "points": {
+            "close": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Check whether my companion wants to split up and meet later.",
+            "zh": "问问同行者是否想分开看，稍后再集合。"
+          },
+          "points": {
+            "together": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "You encounter something you do not understand. You…",
+        "zh": "遇到一件暂时看不懂的东西，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask a companion what questions it gives them.",
+            "zh": "问同行者，它让你想到什么问题。"
+          },
+          "points": {
+            "together": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Look again and list what I can actually see.",
+            "zh": "再看一遍，先确认自己实际看见了什么。"
+          },
+          "points": {
+            "close": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Look for the curator’s explanation or a neighboring comparison.",
+            "zh": "找找策展说明或附近可供对照的展品。"
+          },
+          "points": {
+            "thread": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "There is time for one final stop. You choose…",
+        "zh": "最后还够看一处，你会选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A room that completes a connection I have been following.",
+            "zh": "能补上我一直追踪的关联的展厅。"
+          },
+          "points": {
+            "thread": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "An object I want to spend a little more time with.",
+            "zh": "一件还想多待一会儿的展品。"
+          },
+          "points": {
+            "close": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A place where we can talk about what stayed with us.",
+            "zh": "一个能聊聊各自印象的地方。"
+          },
+          "points": {
+            "together": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "close",
+      "title": {
+        "en": "The Close Look",
+        "zh": "靠近一件事物"
+      },
+      "summary": {
+        "en": "Your museum choices favor depth of attention over the number of rooms covered. You want an encounter long enough for details to emerge. One object can make a visit feel complete without representing the whole collection.",
+        "zh": "你的观展选择偏向注意力的深度，而不是走过多少个展厅。你希望和一件东西相处久一点，让细节浮现。一次参观可以因为一件展品而完整，却不必由它代表整个馆藏。"
+      },
+      "example": {
+        "en": "You might spend several minutes with a worn handle, a brushstroke, or an unexpected texture, then read enough to distinguish your observation from the object’s documented story.",
+        "zh": "你可能花几分钟留意磨损的把手、一道笔触或意外的肌理，再读一点说明，分清自己的观察与展品已有记录的故事。"
+      },
+      "strength": {
+        "en": "You notice specifics and give an object space to be more than a label. This makes room for questions that a quick overview may miss.",
+        "zh": "你会注意具体之处，让展品不只是一张标签。这样的停留，也给概览中容易错过的问题留下空间。"
+      },
+      "tradeoff": {
+        "en": "A powerful encounter with one object cannot stand in for the history of an entire place or people. Context can change an attractive first impression.",
+        "zh": "一件展品带来的强烈感受，不能替代整个地区或人群的历史。补上背景后，最初的印象也可能改变。"
+      },
+      "experiment": {
+        "en": "Choose one object on your next visit and note one detail plus one question. Read its source label before deciding what your observation might mean.",
+        "zh": "下次挑一件展品，记一个细节和一个问题。在判断观察意味着什么之前，先看看它的来源说明。"
+      }
+    },
+    {
+      "id": "thread",
+      "title": {
+        "en": "The Connection Follower",
+        "zh": "沿着线索走的人"
+      },
+      "summary": {
+        "en": "You enjoy seeing how objects speak to one another across a room or theme. Your portrait favors a route with connections: changes in use, contrasting interpretations, or an idea that grows from gallery to gallery. You do not need to finish every room to follow a useful thread.",
+        "zh": "你喜欢看展品怎样跨越房间或主题相互回应。你的画像偏向有连接的路线：用途的改变、不同解释的对照，或随着展厅推进而逐渐展开的想法。不必看完每个房间，也能追到一条有意思的线。"
+      },
+      "example": {
+        "en": "A tool in the first room may change how you understand an object in the last. You might return briefly to compare them, rather than treating the exhibition as a checklist of independent highlights.",
+        "zh": "第一间的工具，可能改变你对最后一间某件物品的理解。你也许会短暂折返比较，而不把展览当成彼此独立的打卡点。"
+      },
+      "strength": {
+        "en": "You can connect details to a larger question and make the exhibition easier to describe afterward. A clear thread can organize a complex visit.",
+        "zh": "你能把细节接回一个较大的问题，也更容易在离开后讲清这次展览。一条清楚的线索，可以帮助整理复杂的参观体验。"
+      },
+      "tradeoff": {
+        "en": "The curator’s route is one interpretation, not the only possible story. Following it too tightly can make surprising details seem irrelevant before you have looked.",
+        "zh": "策展路线是一种解释，不是唯一可能的故事。跟得太紧时，意外细节也可能在你细看之前就被判定为无关。"
+      },
+      "experiment": {
+        "en": "Follow one exhibition question, then deliberately stop at an object that seems not to fit. Ask what additional context would help you understand the contrast.",
+        "zh": "下次可以追踪一个展览问题，再有意停在一件似乎不合这条线的展品前。想想还缺哪些背景，才能理解这个对照。"
+      }
+    },
+    {
+      "id": "together",
+      "title": {
+        "en": "The Conversation Visit",
+        "zh": "把参观变成对话"
+      },
+      "summary": {
+        "en": "You enjoy a visit that makes room for another person’s attention alongside your own. A companion’s question or memory can open a different way into an object. The point is shared exploration, not having to agree on what the exhibition means.",
+        "zh": "你喜欢让自己的注意力与另一个人的注意力并排出现。同行者的问题或记忆，可能给一件展品打开另一种入口。重点是共同探索，不必对展览的意义达成一致。"
+      },
+      "example": {
+        "en": "One person notices a material while another remembers a similar object at home. Talking about both can enrich the visit, provided that guesses remain separate from the museum’s documented facts.",
+        "zh": "一个人注意材料，另一个人想起家里的类似物件。聊聊两者能丰富参观，但仍要把猜想与馆方记录的事实分开。"
+      },
+      "strength": {
+        "en": "You invite different observations and make visiting feel accessible to people who do not share the same prior knowledge. A good question can include someone without testing them.",
+        "zh": "你愿意接纳不同观察，也让知识背景不同的人更容易一起看展。一个好问题可以邀请参与，而不是考查对方。"
+      },
+      "tradeoff": {
+        "en": "A companion may want silence or a different pace. Shared meaning grows more comfortably when you can spend part of the visit apart and meet again.",
+        "zh": "同行者也可能想安静，或想用不同速度看。能够分开看一会儿再会合时，共同理解反而更自在。"
+      },
+      "experiment": {
+        "en": "Ask one open question at the next exhibition, then agree on a short independent stretch. Compare one observation afterward without trying to choose a winning interpretation.",
+        "zh": "下次看展时，先问一个开放的问题，再约一小段各自参观。回来交流一个观察，不必选出谁的解释最好。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "close",
+    "thread",
+    "together"
+  ]
+}

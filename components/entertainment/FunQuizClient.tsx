@@ -109,7 +109,8 @@ export function FunQuizClient({ quiz, locale }: { quiz: FunQuiz; locale: Locale 
   async function copy() {
     if (!result) return;
     const url = `https://fermatmind.com/${locale}/tests/play/${quiz.slug}`;
-    const text = `${quiz.title[locale]}\n${result.title[locale]}\n${zh ? "趣味故事结果，仅供娱乐。" : "A playful story result, for entertainment."}\n${url}`;
+    const sharedTitle = resolved.resultIds.length > 1 ? `${zh ? "并列画像：" : "Tied portraits: "}${resolved.resultIds.map(id => quiz.results.find(portrait => portrait.id === id)!.title[locale]).join(zh ? "、" : "; ")}` : result.title[locale];
+    const text = `${quiz.title[locale]}\n${sharedTitle}\n${zh ? "趣味故事结果，仅供娱乐。" : "A playful story result, for entertainment."}\n${url}`;
     try { await navigator.clipboard.writeText(text); setMessage(zh ? "已复制结果名称与测试链接。" : "Copied the result name and quiz link."); }
     catch { setCopyFallback(text); setMessage(zh ? "无法自动复制，请选中下方文字手动复制。" : "Automatic copying is unavailable. Select and copy the text below."); }
   }

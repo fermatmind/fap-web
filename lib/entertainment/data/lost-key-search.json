@@ -1,0 +1,348 @@
+{
+  "slug": "lost-key-search",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "everyday",
+  "title": {
+    "en": "What Is Your Missing-Keys Search Style?",
+    "zh": "钥匙一时找不到，你会怎么找？"
+  },
+  "description": {
+    "en": "Six harmless misplaced-object scenes explore your search story: replay the sequence, scan the space, or use another perspective. This is not a memory or ability test.",
+    "zh": "6道物品暂时找不到的小情境，看看你会回放经过、扫描空间，还是借助另一种视角。不测试记忆力或能力，完整结果免费。"
+  },
+  "introduction": {
+    "en": "Picture an ordinary object misplaced at home, with no emergency or security issue involved. The quiz explores the approach you are drawn to, not whether it will find something faster. Real circumstances can call for a different approach.",
+    "zh": "想象一件普通物品在家里暂时找不到，没有紧急情况或安全问题。这里探索你更愿意采取的方式，不判断哪种一定更快。实际情境不同，合适的办法也可能不同。"
+  },
+  "focus": {
+    "en": "How sequence, physical coverage, and outside information enter your first few search decisions.",
+    "zh": "最初几步寻找中，事情发生的顺序、空间覆盖与外部信息分别怎样进入你的考虑。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Your usual key tray is empty. You first…",
+        "zh": "平时放钥匙的小盘空着，你先……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Replay what I did after coming home.",
+            "zh": "回想回家后依次做过什么。"
+          },
+          "points": {
+            "sequence": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Check one nearby area systematically before moving on.",
+            "zh": "先有顺序地检查附近一个区域。"
+          },
+          "points": {
+            "space": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask whether anyone saw or moved the keys.",
+            "zh": "问问是否有人看到或挪动过钥匙。"
+          },
+          "points": {
+            "perspective": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "You have checked the same table twice. What changes next?",
+        "zh": "同一张桌子已经看了两遍，接下来你想改变什么？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Divide the remaining area so I know what has been checked.",
+            "zh": "把剩下空间分开，弄清哪里已经看过。"
+          },
+          "points": {
+            "space": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Revisit the last moment I definitely had the object.",
+            "zh": "回到最后一次确定拿着它的时刻。"
+          },
+          "points": {
+            "sequence": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Describe what I have tried to someone who can suggest a fresh angle.",
+            "zh": "向能提供新角度的人说说已经找过哪里。"
+          },
+          "points": {
+            "perspective": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "Which piece of information would help you choose where to look?",
+        "zh": "哪条信息最能帮助你决定去哪找？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A note that a housemate cleared a particular surface.",
+            "zh": "有人说，刚整理过某个台面。"
+          },
+          "points": {
+            "perspective": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The order of rooms I visited before noticing the loss.",
+            "zh": "发现东西不见之前，去过房间的顺序。"
+          },
+          "points": {
+            "sequence": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A clear list of the drawers and shelves not yet checked.",
+            "zh": "一份还没查看过的抽屉与架子清单。"
+          },
+          "points": {
+            "space": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "You take a short pause from searching. You are likely to…",
+        "zh": "找了一阵，先停一下，你可能会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Sketch the route I took with the object.",
+            "zh": "简单写写拿着东西时走过的路线。"
+          },
+          "points": {
+            "sequence": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask a clear question instead of another broad “have you seen it?”",
+            "zh": "换一个具体问题，不再笼统问“看到了吗”。"
+          },
+          "points": {
+            "perspective": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Mark the checked zones so I do not restart everywhere.",
+            "zh": "记住已查区域，回来不必全部重来。"
+          },
+          "points": {
+            "space": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The object turns up in an unexpected place. You wonder…",
+        "zh": "东西在意外的位置找到了，你会想……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Which step of the original sequence explains how it got there?",
+            "zh": "原先哪一步，能解释它为什么到了这里？"
+          },
+          "points": {
+            "sequence": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Did someone’s information help us notice that possibility?",
+            "zh": "是不是某条信息，让我们注意到了这个可能？"
+          },
+          "points": {
+            "perspective": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Was that spot missing from the way I divided the space?",
+            "zh": "之前划分查找区域时，是不是漏了这里？"
+          },
+          "points": {
+            "space": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "For another ordinary search, what would you keep from this one?",
+        "zh": "下次再找一件普通东西，你最想保留这次的哪一点？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A manageable way to cover one area at a time.",
+            "zh": "一次覆盖一个区域的可操作办法。"
+          },
+          "points": {
+            "space": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A better question for people who may know something I do not.",
+            "zh": "一个更好地询问知情者的问题。"
+          },
+          "points": {
+            "perspective": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A clearer starting point based on the last confirmed sighting.",
+            "zh": "根据最后一次确定见到的位置，选清楚起点。"
+          },
+          "points": {
+            "sequence": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "sequence",
+      "title": {
+        "en": "The Sequence Replayer",
+        "zh": "经过回放者"
+      },
+      "summary": {
+        "en": "Your answers build the search around a chain of actions. You want a confirmed starting point and a plausible route from there to now. In this playful portrait, the missing object belongs to an unfinished little story rather than a random collection of hiding places.",
+        "zh": "你的答案围绕一串动作组织寻找。你想先有一个确定起点，再找一条通往现在的合理路线。在这份趣味画像里，东西的不见像一段还没讲完的小故事，而不是随机藏匿点的集合。"
+      },
+      "example": {
+        "en": "You might recall coming in with a bag, answering a message, and changing rooms. Each step gives you a specific place to check, while uncertain details remain guesses rather than confirmed memories.",
+        "zh": "你可能回想起带包进门、回了一条消息，然后换了房间。每一步给出一个具体查看的位置；不确定细节仍然只是猜测，不必当成确定记忆。"
+      },
+      "strength": {
+        "en": "You can turn a broad search into a few testable possibilities and avoid treating every possible place as equally likely at the beginning.",
+        "zh": "你能把笼统的寻找变成几个可以查看的可能，也不必一开始就把每个位置都当成同样可能。"
+      },
+      "tradeoff": {
+        "en": "A convincing story can be wrong. Repeating an uncertain sequence with more confidence does not supply missing evidence about where the object actually went.",
+        "zh": "讲得通的故事也可能不对。把不确定的经过重复得更自信，并不能补上东西实际去了哪里的证据。"
+      },
+      "experiment": {
+        "en": "Try separating “I know” from “I am guessing” in a small future search. If the sequence stops helping, deliberately switch to checking an unvisited area.",
+        "zh": "下次找小东西时，可以把“确定知道”和“正在猜测”分开。经过回放不再有帮助时，有意换到一片尚未查看的区域。"
+      }
+    },
+    {
+      "id": "space",
+      "title": {
+        "en": "The Zone Explorer",
+        "zh": "分区查看者"
+      },
+      "summary": {
+        "en": "Your search portrait favors visible coverage. You want to know which places have actually been checked and which remain open. A manageable zone can make an otherwise repetitive search feel more concrete, without turning the result into a speed or competence score.",
+        "zh": "你的寻找画像偏向看得见的覆盖情况。你想知道哪些地方实际查过、哪些仍然开放。范围合适的分区，让反复寻找变得具体，但这不构成速度或能力评分。"
+      },
+      "example": {
+        "en": "You might finish checking one shelf before opening another drawer, keeping track of the parts already covered. The aim is to reduce accidental repetition rather than prove that your method is the best.",
+        "zh": "你可能先看完一个架子，再开另一个抽屉，也记住已经覆盖的部分。目标是减少无意的重复，不是证明自己的方法最好。"
+      },
+      "strength": {
+        "en": "You can make a search easier to describe and share with someone else. Clear coverage can also reveal a neglected spot that a vague “everywhere” would hide.",
+        "zh": "你能更容易向别人说清已经找过哪里。明确的覆盖情况，也可能显出一个被“到处都找过了”这句话遮住的角落。"
+      },
+      "tradeoff": {
+        "en": "A zone may have been scanned without being examined closely, and the object may not be in the expected area. Coverage labels should remain open to revision.",
+        "zh": "一片区域可能只是扫过，并没仔细看；东西也可能不在预想范围内。已经查过的标签，仍然可以被修正。"
+      },
+      "experiment": {
+        "en": "For an ordinary future search, choose a small first zone and note when it has genuinely been checked. Reassess the area boundaries if the approach stops producing new information.",
+        "zh": "下次寻找普通物品时，先选一小片区域，并确认怎样才算真正查过。如果不再带来新信息，也重新看看分区边界是否合适。"
+      }
+    },
+    {
+      "id": "perspective",
+      "title": {
+        "en": "The Fresh-Angle Finder",
+        "zh": "寻找另一种视角的人"
+      },
+      "summary": {
+        "en": "Your answers look for information that is not already in your own search loop. You might ask someone what they saw, describe the problem clearly, or invite a different suggestion. The useful part is fresh evidence or a new question, not simply adding more people.",
+        "zh": "你的答案会寻找自己当前循环之外的信息。你可能问别人看到了什么、把问题说明白，或邀请不同建议。真正有用的是新证据或新问题，而不只是参与人数增加。"
+      },
+      "example": {
+        "en": "Instead of asking the whole household the same broad question again, you might ask whether the entry table was cleared that morning. A concrete answer can change where you look next.",
+        "zh": "你可能不再向家人重复同一个笼统问题，而是问早晨是否整理过门口桌面。一个具体回答，就能改变下一步的位置。"
+      },
+      "strength": {
+        "en": "You can notice when a search needs another source of information and make collaboration easier by explaining what is already known.",
+        "zh": "你能注意到什么时候需要另一个信息来源，也会通过说明已知情况，让协作更容易开始。"
+      },
+      "tradeoff": {
+        "en": "Other people’s guesses can multiply the same uncertainty, and asking for help does not entitle you to someone’s time or attention immediately.",
+        "zh": "别人的猜想也可能只是增加同一份不确定。提出帮忙请求，也不意味着对方必须立刻给出时间与注意力。"
+      },
+      "experiment": {
+        "en": "Ask one specific question that another person could realistically answer. If they cannot help, keep that as an unknown and return to a manageable independent check.",
+        "zh": "可以问一个对方确实可能回答的具体问题。如果帮不上忙，就把它留作未知，再回到自己能够完成的一小步查看。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "sequence",
+    "space",
+    "perspective"
+  ]
+}

@@ -1,0 +1,348 @@
+{
+  "slug": "city-wanderer",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "everyday",
+  "title": {
+    "en": "What Kind of City Wanderer Are You?",
+    "zh": "在城市里闲逛，你会沿什么线索走？"
+  },
+  "description": {
+    "en": "Six city-walk choices reveal the thread you follow: spatial patterns, neighborhood rhythms, or layers of local stories. All original portraits free.",
+    "zh": "6道城市闲逛选择题，看看你会追踪空间结构、街区节奏，还是地方故事的层次。原创完整画像免费。"
+  },
+  "introduction": {
+    "en": "Imagine a casual walk in an accessible area you can comfortably explore. You can adapt “walk” to any way you move through a neighborhood. The quiz is about what draws your attention, not a travel recommendation or a claim about which places are safe.",
+    "zh": "想象你在能自在探索的街区随意逛逛；“步行”也可以替换成你适合的移动方式。这里看什么会吸引注意力，不推荐具体行程，也不判断哪些地方安全。"
+  },
+  "focus": {
+    "en": "Which city signals help you build a satisfying route: layout, everyday activity, or traces of a place’s past.",
+    "zh": "空间布局、日常活动与地方过往的痕迹之中，哪些城市信号会帮你组成一条有趣路线。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "At the edge of a neighborhood, you first notice…",
+        "zh": "来到一片街区边缘时，你先留意……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "How streets, entrances, and open spaces connect.",
+            "zh": "街道、入口与开放空间怎样相连。"
+          },
+          "points": {
+            "map": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Where people pause, browse, and pass through.",
+            "zh": "人们在哪里停留、闲看与经过。"
+          },
+          "points": {
+            "rhythm": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Signs of older uses in buildings or street names.",
+            "zh": "建筑与街名里较早用途的痕迹。"
+          },
+          "points": {
+            "layers": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "You can choose one small detour. You prefer…",
+        "zh": "可以多绕一小段，你更想去……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A block that shows an interesting change in street layout.",
+            "zh": "看看街路布局有趣地变化的一块区域。"
+          },
+          "points": {
+            "map": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A place whose visible sign explains an earlier chapter of the area.",
+            "zh": "看看有公开说明、能讲出街区旧篇章的地方。"
+          },
+          "points": {
+            "layers": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A public square with a noticeably different pace.",
+            "zh": "去一处节奏明显不同的公共广场。"
+          },
+          "points": {
+            "rhythm": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "Which note would you add to your own route sketch?",
+        "zh": "给自己画的路线小图，你会加哪种备注？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "“This corner feels different at different times of day.”",
+            "zh": "“这个角落在不同时段有不同感觉。”"
+          },
+          "points": {
+            "rhythm": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "“This passage links two places that seem far apart.”",
+            "zh": "“这段通道把两个看似远的地方连了起来。”"
+          },
+          "points": {
+            "map": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "“Check the source behind this building’s date plaque.”",
+            "zh": "“可以查查这栋建筑年代牌的来源。”"
+          },
+          "points": {
+            "layers": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "An old photograph is displayed beside the street. You…",
+        "zh": "路旁公开展示着一张老照片，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Compare the street lines and viewpoints with what is here now.",
+            "zh": "对比照片与现在的街道线条和视角。"
+          },
+          "points": {
+            "map": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Read the caption and distinguish its documented facts from my guesses.",
+            "zh": "读说明，分清记录事实与自己的猜想。"
+          },
+          "points": {
+            "layers": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Notice how the pictured public life differs from today’s activity.",
+            "zh": "看看照片里的公共生活与今天的活动有什么不同。"
+          },
+          "points": {
+            "rhythm": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "You want to revisit one part of the route. You choose…",
+        "zh": "路线中有一段可以重来，你会选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A place where I still wonder what came before it.",
+            "zh": "一处还想知道以前是什么样的地方。"
+          },
+          "points": {
+            "layers": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A place whose ordinary activity I enjoyed watching.",
+            "zh": "一处普通活动就让人看得有趣的地方。"
+          },
+          "points": {
+            "rhythm": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A junction whose connections I want to understand better.",
+            "zh": "一个还想弄清连接关系的路口。"
+          },
+          "points": {
+            "map": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "Afterward, how would you describe the neighborhood?",
+        "zh": "逛完后，你更愿意怎样描述这个街区？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "As a network of connected routes and different kinds of space.",
+            "zh": "一张由相连路线与不同空间组成的网。"
+          },
+          "points": {
+            "map": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Through a few overlapping chapters, with some facts still to check.",
+            "zh": "几个叠在一起的篇章，其中还有些事实待查。"
+          },
+          "points": {
+            "layers": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Through the way daily life moves, gathers, and becomes quiet.",
+            "zh": "从日常生活怎样流动、聚集和安静下来讲起。"
+          },
+          "points": {
+            "rhythm": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "map",
+      "title": {
+        "en": "The Everyday Mapmaker",
+        "zh": "日常地图的绘制者"
+      },
+      "summary": {
+        "en": "Your city choices emphasize relationships between spaces. You notice what connects, where a route opens, and how a small passage changes the scale of a neighborhood. Your map is a personal way of understanding a place, not a claim that you have covered every route.",
+        "zh": "你的城市选择强调空间之间的关系。你会看哪里相连、路线从何处展开，以及一小段通道怎样改变街区的尺度。你的地图是一种个人理解方式，不代表已经掌握所有路线。"
+      },
+      "example": {
+        "en": "You might remember a courtyard because it links a busy road to a quiet public space. Drawing that connection afterward can help you explain the outing without listing every building.",
+        "zh": "你可能因为一个院子连接着热闹道路与安静公共空间而记住它。事后画出这条关系，就能帮你讲清这次闲逛，而不用逐栋罗列建筑。"
+      },
+      "strength": {
+        "en": "You can organize a complex environment into visible relationships and notice alternatives to the most obvious route. Connections become part of the enjoyment.",
+        "zh": "你能把复杂环境整理成看得见的关系，也会发现最显眼路线之外的连接。认出这些关系，本身就是乐趣的一部分。"
+      },
+      "tradeoff": {
+        "en": "A clean sketch leaves out lived details, access changes, and other people’s experience of the same space. A connection on paper may not be available in practice.",
+        "zh": "清楚的小图也会漏掉生活细节、通行变化，以及别人对同一空间的体验。纸面上的连接，实际未必随时可用。"
+      },
+      "experiment": {
+        "en": "Sketch one small area from memory, then mark what you are unsure about. On a later visit, check one connection rather than trying to complete the entire map.",
+        "zh": "可以凭记忆画一小片区域，并标出不确定之处。下次再来，只核实一条连接，不必急着完成整张地图。"
+      }
+    },
+    {
+      "id": "rhythm",
+      "title": {
+        "en": "The Neighborhood Rhythm Listener",
+        "zh": "听街区节奏的人"
+      },
+      "summary": {
+        "en": "Your answers follow the ordinary activity that gives a place its changing rhythm. You notice pauses, gatherings, movement, and quiet intervals. A neighborhood becomes interesting through how it is used, rather than only through a list of landmarks.",
+        "zh": "你的答案沿着普通活动，去感受一个地方不断变化的节奏。你会注意停顿、聚集、移动与安静的间隙。街区之所以有趣，不只因为地标清单，也因为它怎样被日常使用。"
+      },
+      "example": {
+        "en": "A public square may stay in your memory because it changes from hurried crossings to slow conversation. You can notice that rhythm without photographing or identifying the people involved.",
+        "zh": "一处公共广场让你记住，可能是因为它从匆忙穿行变成慢慢聊天。你可以留意这种节奏，不必拍摄或识别其中的人。"
+      },
+      "strength": {
+        "en": "You give everyday places attention and can find an enjoyable outing without needing a major attraction. Repeated visits may reveal different versions of the same space.",
+        "zh": "你愿意给日常地方注意力，不一定有大景点才觉得值得出门。重复造访，也可能看见同一空间不同的样子。"
+      },
+      "tradeoff": {
+        "en": "A brief visit offers only a sample. The scene you enjoy does not establish what life is like there for residents or at other times.",
+        "zh": "短暂到访只是一份样本。你喜欢的场景，并不能证明居民的生活状况，也不能代表其他时段。"
+      },
+      "experiment": {
+        "en": "Describe one observed rhythm with a time and place attached, then leave room for what you did not see. Choose a public detail rather than a stranger’s personal story.",
+        "zh": "可以把一个观察到的节奏连同时间与地点写下来，也留出没看到的部分。选公共场景的细节，不替陌生人编写私人的故事。"
+      }
+    },
+    {
+      "id": "layers",
+      "title": {
+        "en": "The Place-Story Collector",
+        "zh": "地方故事的拾层者"
+      },
+      "summary": {
+        "en": "Your city portrait notices that a street can hold more than one period of use. A date plaque, changed doorway, or old photograph gives you a question to follow. Curiosity about those layers does not mean the first attractive explanation is the right one.",
+        "zh": "你的城市画像注意到，一条街可以同时留着不同时期的用途。年代牌、改过的门或老照片，会给你一个值得追的问题。但喜欢这些层次，并不意味着最动人的解释就是正确解释。"
+      },
+      "example": {
+        "en": "You might compare a public historical caption with the building in front of you, then save one question for a local archive or reliable source later. The walk can remain enjoyable while the answer stays unknown.",
+        "zh": "你可能把公开的历史说明和眼前建筑比一比，再留一个问题，之后查本地档案或可靠来源。答案暂时未知，也不妨碍这次闲逛有趣。"
+      },
+      "strength": {
+        "en": "You connect visible details with questions about change and continuity. This can make an ordinary corner feel worth returning to with better context.",
+        "zh": "你会把可见细节接到变化与延续的问题上。补一些背景之后，一个普通角落也可能值得再来。"
+      },
+      "tradeoff": {
+        "en": "Romanticizing an older version of a place can obscure who used it or who was excluded. A single caption or personal memory rarely tells the whole story.",
+        "zh": "把过去想得过于浪漫，也可能遮住曾经是谁使用这里、又是谁被排除。一张说明或一份回忆，通常讲不完整个故事。"
+      },
+      "experiment": {
+        "en": "Pick one visible detail and write an open question instead of a confident conclusion. If you look it up, keep the source and distinguish evidence from a pleasing guess.",
+        "zh": "挑一个看得见的细节，写成开放问题，而不是自信的结论。之后查资料时，留下来源，也分清证据和好听的猜想。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "map",
+    "rhythm",
+    "layers"
+  ]
+}

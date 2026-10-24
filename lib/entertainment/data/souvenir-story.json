@@ -1,0 +1,348 @@
+{
+  "slug": "souvenir-story",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "everyday",
+  "title": {
+    "en": "What Kind of Souvenir Story Do You Keep?",
+    "zh": "你会留下怎样的纪念？"
+  },
+  "description": {
+    "en": "Six keepsake choices explore what makes a reminder meaningful: continued use, a specific memory, or a story shared with someone. No purchase required.",
+    "zh": "6道纪念物选择题，看看什么让提醒变得有意义：继续使用、一段具体记忆，还是与人共享的故事。不必购物，完整结果免费。"
+  },
+  "introduction": {
+    "en": "A souvenir can be a ticket, a note, a photo you already have, or an ordinary object. Imagine choosing among things you can legitimately keep. The quiz is about meaning and use, not spending, collecting status, or needing an object to prove a good experience happened.",
+    "zh": "纪念可以是一张票、一句话、一张已有照片，或普通物件。请想象在你有权保留的东西中选择。这里看重意义与用途，不评价花费、收藏身份，也不要求靠物品证明经历美好。"
+  },
+  "focus": {
+    "en": "Why one small reminder earns a place in your life after an outing is over.",
+    "zh": "一次外出结束后，什么会让一份小提醒在你的生活里留下位置。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "After a good day out, you can keep one small reminder. You choose…",
+        "zh": "愉快的一天结束，可以留一份小纪念，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Something I can actually use in ordinary life.",
+            "zh": "一个日常真的用得上的东西。"
+          },
+          "points": {
+            "use": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A detail tied to one moment I want to remember.",
+            "zh": "一个和想记住的具体瞬间有关的细节。"
+          },
+          "points": {
+            "moment": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Something connected to a story another person and I share.",
+            "zh": "一个和我与别人共同故事有关的东西。"
+          },
+          "points": {
+            "shared": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "An old ticket falls out of a pocket. What makes you keep it?",
+        "zh": "口袋里掉出一张旧票，什么会让你把它留下？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "I can remember the exact scene around that visit.",
+            "zh": "能想起那次到访时一个具体场景。"
+          },
+          "points": {
+            "moment": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "It belongs to a day I still talk about with someone.",
+            "zh": "它属于我和某个人至今还会聊的一天。"
+          },
+          "points": {
+            "shared": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "I can give it a simple second use, like a bookmark.",
+            "zh": "能让它有个简单新用途，比如书签。"
+          },
+          "points": {
+            "use": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "You describe a favorite keepsake by starting with…",
+        "zh": "介绍一份喜欢的纪念物时，你会从哪里说起？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Who was there and what we still remember together.",
+            "zh": "当时有谁，以及大家一起记得什么。"
+          },
+          "points": {
+            "shared": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "How it has quietly become part of my daily routine.",
+            "zh": "它怎样悄悄加入了我的日常。"
+          },
+          "points": {
+            "use": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "One sound, image, or feeling it brings back.",
+            "zh": "它带回来的一种声音、画面或感受。"
+          },
+          "points": {
+            "moment": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A meaningful object is too bulky to keep. You prefer to…",
+        "zh": "一件有意义的东西太占地方，没法留下，你更愿意……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Record the specific memory in a few words instead.",
+            "zh": "用几句话留下那段具体记忆。"
+          },
+          "points": {
+            "moment": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Choose a smaller useful reminder from the same occasion.",
+            "zh": "从同一次经历里挑一个更小、可用的提醒。"
+          },
+          "points": {
+            "use": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask a companion to help preserve the shared story.",
+            "zh": "和同行者一起留下那段共同故事。"
+          },
+          "points": {
+            "shared": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "You find a reminder you have not looked at for years. You…",
+        "zh": "找到一份很多年没看的纪念，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "See whether it can still have a place in what I do now.",
+            "zh": "看看它能否在现在的生活里派上用场。"
+          },
+          "points": {
+            "use": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Think of the person who might enjoy remembering it with me.",
+            "zh": "想想谁会愿意和我一起记起它。"
+          },
+          "points": {
+            "shared": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Give myself a moment to reconstruct the scene, without forcing it.",
+            "zh": "给自己一点时间回想场景，想不起也不勉强。"
+          },
+          "points": {
+            "moment": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "Which keepsake would you be happiest to rediscover next year?",
+        "zh": "明年重新发现哪种纪念，你会最开心？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One that has gathered new daily uses since I brought it home.",
+            "zh": "带回家后，又积累了新日常用途的东西。"
+          },
+          "points": {
+            "use": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "One that brings back an otherwise easy-to-forget moment.",
+            "zh": "能带回一段本来很容易忘的小瞬间的东西。"
+          },
+          "points": {
+            "moment": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "One that starts a warm shared “remember when” conversation.",
+            "zh": "能打开一次温暖的“还记得那次吗”的东西。"
+          },
+          "points": {
+            "shared": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "use",
+      "title": {
+        "en": "The Useful Companion",
+        "zh": "继续陪伴日常的物件"
+      },
+      "summary": {
+        "en": "Your keepsake choices favor a reminder that stays involved in ordinary life. Meaning grows through repeated use rather than only through careful display. The object can carry a past outing while gathering new associations in the present.",
+        "zh": "你的纪念物选择偏向继续参与普通生活的东西。意义通过反复使用慢慢增长，不只存在于小心陈列之中。它可以带着一次过去的外出，也继续积累当下的新联系。"
+      },
+      "example": {
+        "en": "A postcard might become a bookmark, or a small bowl might join your breakfast routine. The new use does not need to be impressive; it simply gives the reminder a place to belong.",
+        "zh": "明信片可以成为书签，小碗可以加入早餐习惯。新用途不必令人惊叹，只是给这份提醒一个自然待着的位置。"
+      },
+      "strength": {
+        "en": "You connect memory with the life you are living now and may find it easier to enjoy a reminder instead of protecting it from every sign of use.",
+        "zh": "你会把记忆接到眼下正在过的生活里，也可能更容易享用纪念，而不是替它挡住每一点使用痕迹。"
+      },
+      "tradeoff": {
+        "en": "Use is not the only legitimate reason to keep something. An object can matter without being productive, and some reminders are fragile or unsuitable for daily handling.",
+        "zh": "有用途不是保留东西的唯一正当理由。物件可以不实用但有意义，有些提醒也确实易损，不适合每天拿来用。"
+      },
+      "experiment": {
+        "en": "Choose one existing keepsake and consider whether a simple use would let you enjoy it more. If not, let its meaning be enough without inventing a job for it.",
+        "zh": "可以挑一件已有纪念物，想想简单用途会不会让你更享受它。如果不会，就让意义本身已经足够，不必替它编一份工作。"
+      }
+    },
+    {
+      "id": "moment",
+      "title": {
+        "en": "The Moment Marker",
+        "zh": "为一个瞬间留记号"
+      },
+      "summary": {
+        "en": "Your answers attach meaning to a specific scene rather than the general idea of a trip. A small reminder matters because it opens a door to a sound, detail, or feeling. It can be modest and still hold a vivid personal association.",
+        "zh": "你的答案把意义连到一个具体场景，而不是一趟旅行的笼统概念。小提醒之所以重要，是因为它能打开通向声音、细节或感受的门。它可以很普通，却带着鲜明的个人联系。"
+      },
+      "example": {
+        "en": "A short note saying “the rain stopped beside the blue doorway” may bring back more than a large collection of objects. You do not have to preserve every detail for that one scene to matter.",
+        "zh": "一句“雨在蓝色门边停了”的短记，可能比一大组物品更能带回场景。不必把每个细节都保存，那一刻也已经值得记得。"
+      },
+      "strength": {
+        "en": "You notice the texture of an experience and can give small events a place in your personal story. A reminder can be meaningful without anyone else recognizing its value.",
+        "zh": "你会注意经历的质地，也愿意给小事在个人故事里留位置。即使别人不理解它的价值，这份提醒依然可以有意义。"
+      },
+      "tradeoff": {
+        "en": "Memory changes over time, and an object cannot guarantee an exact replay. Trying to preserve every moment can become more work than enjoying the present one.",
+        "zh": "记忆会变化，物件也不能保证精确回放。若想把每个瞬间都保存下来，可能比享受正在发生的时刻更费力。"
+      },
+      "experiment": {
+        "en": "Capture one specific detail after your next pleasant outing, in a format already available to you. Leave the rest unrecorded and allow the memory to remain incomplete.",
+        "zh": "下次愉快外出后，用现成可用的方式记一个具体细节即可。其他部分可以不记录，也允许记忆不完整。"
+      }
+    },
+    {
+      "id": "shared",
+      "title": {
+        "en": "The Shared Story",
+        "zh": "两个人以上的故事"
+      },
+      "summary": {
+        "en": "Your keepsake portrait puts connection at the center. A reminder earns its place because it belongs to an experience you can revisit with someone. Its meaning is relational, but the people involved do not have to remember or value the day in identical ways.",
+        "zh": "你的纪念画像把连接放在中间。一份提醒能留下，是因为它属于可以和别人再次回看的经历。它的意义在关系里，但参与的人不必以完全相同的方式记得或重视那一天。"
+      },
+      "example": {
+        "en": "An ordinary menu or a short note can restart a conversation about an unplanned lunch. Someone else may remember a different detail, adding another version without replacing yours.",
+        "zh": "一张普通菜单或一句短记，都可能重新聊起那顿临时起意的午饭。对方也许记得另一处细节，增加一个版本，而不必替换你的版本。"
+      },
+      "strength": {
+        "en": "You give shared experiences a gentle route back into conversation. A small reminder can make staying in touch feel more personal than a generic update.",
+        "zh": "你给共同经历留了一条温和的返回路线。一份小提醒，可以让联系比笼统汇报近况更有个人意味。"
+      },
+      "tradeoff": {
+        "en": "A shared object does not create an obligation to keep the same level of closeness forever. People can appreciate a memory while having different present needs.",
+        "zh": "共同的物件，不会自动产生永远维持同等亲近的义务。人们可以珍惜一段记忆，同时拥有不同的当下需要。"
+      },
+      "experiment": {
+        "en": "If it feels welcome, share one specific memory with the person involved and invite their version. Offer it as a small opening rather than a test of what they remember.",
+        "zh": "如果对方愿意，可以分享一个具体记忆，也请他们讲自己的版本。把它当成一个小入口，不必考查对方记住了多少。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "use",
+    "moment",
+    "shared"
+  ]
+}

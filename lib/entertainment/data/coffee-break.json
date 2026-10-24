@@ -1,0 +1,348 @@
+{
+  "slug": "coffee-break",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "everyday",
+  "title": {
+    "en": "What Kind of Coffee Break Do You Actually Want?",
+    "zh": "你真正想要哪种小憩？"
+  },
+  "description": {
+    "en": "A six-question break-time quiz about a change of scene, a small sensory ritual, or easy company. No coffee required and no health claims.",
+    "zh": "6道小憩情境题，看看你更想换个场景、享受一个感官小仪式，还是找人轻松聊聊。不必喝咖啡，不涉及健康判断。"
+  },
+  "introduction": {
+    "en": "Picture ten minutes you can reasonably set aside. Your drink can be water, tea, or nothing at all. This quiz is about the experience of a small pause, not caffeine habits, stress diagnosis, or a promise that one kind of break will improve performance.",
+    "zh": "想象你能够合理留出的十分钟。手里可以是水、茶，也可以什么都不喝。这里探索的是短暂停顿的体验，不判断咖啡因习惯、压力状况，也不保证哪种休息会提升表现。"
+  },
+  "focus": {
+    "en": "Which ingredient makes a short break feel intentional: a different setting, attention to a small detail, or undemanding contact.",
+    "zh": "让短暂休息有主动选择感的是什么：不同场景、一个小细节，还是不费力的联系。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "With ten free minutes, you would most like to…",
+        "zh": "空出十分钟时，你最想……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Step somewhere that looks different from my desk.",
+            "zh": "去一个看起来和桌前不同的地方。"
+          },
+          "points": {
+            "scene": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Prepare a drink slowly and notice its smell or warmth.",
+            "zh": "慢慢准备一杯饮品，留意香气或温度。"
+          },
+          "points": {
+            "ritual": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask someone if they would like a brief chat.",
+            "zh": "问一个人要不要轻松聊两句。"
+          },
+          "points": {
+            "company": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "A cafe has three equally comfortable seats. You pick…",
+        "zh": "咖啡馆有三个同样舒服的座位，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A corner with a view I do not usually see.",
+            "zh": "一个能看见平时看不到风景的角落。"
+          },
+          "points": {
+            "scene": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The table where a companion can sit without rushing.",
+            "zh": "方便和同行者慢慢坐一会儿的桌边。"
+          },
+          "points": {
+            "company": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The spot with lovely light on the cup and table.",
+            "zh": "光线刚好落在杯子与桌面的位置。"
+          },
+          "points": {
+            "ritual": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "You have only five minutes today. What would you keep?",
+        "zh": "今天只有五分钟，你最想保留……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One small familiar action, done without multitasking.",
+            "zh": "一个熟悉的小动作，暂时不同时做别的。"
+          },
+          "points": {
+            "ritual": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A quick step outside my usual room.",
+            "zh": "短暂离开平时待着的房间。"
+          },
+          "points": {
+            "scene": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A few unhurried words with someone I like.",
+            "zh": "和喜欢的人不赶着聊几句。"
+          },
+          "points": {
+            "company": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "The friend you planned to meet is busy. You…",
+        "zh": "原本约好小憩的朋友临时忙了，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Offer another time and send a light hello anyway.",
+            "zh": "再约个时间，也先轻松问候一句。"
+          },
+          "points": {
+            "company": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Try a nearby spot I have been curious about.",
+            "zh": "去附近一直有点好奇的地方坐坐。"
+          },
+          "points": {
+            "scene": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Keep the little ritual and enjoy it on my own.",
+            "zh": "照样完成自己的小仪式，独自享受也好。"
+          },
+          "points": {
+            "ritual": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Which small detail would make the break memorable?",
+        "zh": "哪种小细节会让这次休息值得记住？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A cup, a texture, or a song I really noticed.",
+            "zh": "真正注意到的杯子、触感或一首歌。"
+          },
+          "points": {
+            "ritual": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A conversation that wandered somewhere unexpected.",
+            "zh": "一段自然聊到意外地方的对话。"
+          },
+          "points": {
+            "company": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A different street corner on the way back.",
+            "zh": "回程时经过一个不一样的街角。"
+          },
+          "points": {
+            "scene": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "When the break ends, you would like to think…",
+        "zh": "休息结束时，你希望心里觉得……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "I briefly stepped outside the usual backdrop.",
+            "zh": "刚才短暂离开了平时的背景。"
+          },
+          "points": {
+            "scene": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "I had a small moment of being with someone.",
+            "zh": "刚才有一小段与人同在的时间。"
+          },
+          "points": {
+            "company": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "I did not let that pleasant detail pass unnoticed.",
+            "zh": "没有让那个舒服的细节直接溜走。"
+          },
+          "points": {
+            "ritual": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "scene",
+      "title": {
+        "en": "A Change of Scene",
+        "zh": "换一幅背景"
+      },
+      "summary": {
+        "en": "Your choices give the break a different backdrop. A window, corridor, or short loop matters because it marks a shift from what you were doing. The distance can be tiny; the story is about a noticeable change, not a required outdoor adventure.",
+        "zh": "你的选择给休息换了一幅背景。窗边、走廊或一小段绕行，因为能和刚才做的事区分开来，就有了意义。距离可以很短，这里在意的是看得见的变化，不要求一定走到户外。"
+      },
+      "example": {
+        "en": "You might carry water to another room and watch the light for a moment. If leaving is not possible, turning your chair toward a different view could serve the same playful intention.",
+        "zh": "你可能拿着水去另一个房间，看一会儿光线。如果不方便离开，转一下椅子，面对不同的画面，也可以实现这个小小的愿望。"
+      },
+      "strength": {
+        "en": "You are attentive to the effect of setting on an experience. A modest change can help a pause feel like something you chose rather than an accidental delay.",
+        "zh": "你留意场景怎样参与构成体验。一点小变化，就可能让暂停更像主动选择，而不只是偶然耽搁。"
+      },
+      "tradeoff": {
+        "en": "Searching for the perfect location can consume the whole break. Access, weather, mobility, and responsibilities may also make a familiar spot the best available option.",
+        "zh": "寻找完美地点，也可能用掉整个休息。天气、行动条件与责任都会影响选择，熟悉的位置有时就是眼下最合适的地方。"
+      },
+      "experiment": {
+        "en": "Pick a nearby alternative before your next pause, and let it be good enough. Notice one difference rather than trying to turn ten minutes into a complete escape.",
+        "zh": "下次休息前，选一个附近的替代位置，够用就好。留意一个不同点，不必把十分钟变成彻底的逃离。"
+      }
+    },
+    {
+      "id": "ritual",
+      "title": {
+        "en": "A Small Sensory Ritual",
+        "zh": "一个感官小仪式"
+      },
+      "summary": {
+        "en": "You give the break a recognizable shape through attention. Warmth, a sound, a texture, or the way you arrange a cup can make an ordinary pause feel distinct. The ritual can be simple and flexible; it does not need special equipment or a purchase.",
+        "zh": "你通过注意力，让休息有了认得出的形状。温度、声音、触感，或放好杯子的方式，都能让普通的停顿变得具体。这个仪式可以很简单、很灵活，不需要特殊器具或消费。"
+      },
+      "example": {
+        "en": "Instead of scrolling while a drink cools, you might listen to one song and notice its ending. On another day, the same idea could be washing a piece of fruit slowly.",
+        "zh": "你可能不在饮品变凉时一直刷屏，而是听完一首歌，注意它怎样收尾。换一天，同样的想法也可以是慢慢洗一颗水果。"
+      },
+      "strength": {
+        "en": "You find detail in ordinary things and can make a small amount of time feel personally meaningful. Repetition can become a pleasant marker in the day.",
+        "zh": "你会在普通东西里找到细节，也能让不长的时间带上个人意味。重复的小动作，可以成为一天里舒服的标记。"
+      },
+      "tradeoff": {
+        "en": "A comforting ritual can become another rule if you feel it must be performed perfectly. A different cup or an interrupted song does not make the break invalid.",
+        "zh": "舒服的仪式如果必须完美完成，也会变成新规则。换了杯子，或一首歌被打断，都不代表这次休息作废。"
+      },
+      "experiment": {
+        "en": "Choose one detail to notice during your next pause, then allow the rest to vary. If the routine is interrupted, keep the useful part and drop the performance.",
+        "zh": "下次暂停时，只选一个值得留意的细节，其他部分可以变。仪式被打断时，留下对你有用的部分，不必补演完整流程。"
+      }
+    },
+    {
+      "id": "company",
+      "title": {
+        "en": "Easy Company",
+        "zh": "轻松同在"
+      },
+      "summary": {
+        "en": "Your preferred break includes contact that asks little from either person. You are not trying to solve a major problem or keep a conversation impressive. A few ordinary words can make the pause feel shared, provided that joining remains optional.",
+        "zh": "你想要的休息里，有一种双方都不用太费力的联系。不急着解决大问题，也不需要把聊天变得精彩。只要参与是自愿的，几句普通话就能让暂停成为共同经历。"
+      },
+      "example": {
+        "en": "You might ask a friend whether they have five minutes to talk about the small funny thing that happened today. A no can simply lead to another time, rather than a judgment about closeness.",
+        "zh": "你可能问朋友有没有五分钟，聊聊今天一件小趣事。对方没空，就换个时间，不必把它解释成关系远近的判断。"
+      },
+      "strength": {
+        "en": "You make room for everyday connection, not only milestone updates or practical requests. A low-pressure invitation can be easier to accept than a large social plan.",
+        "zh": "你在为日常联系留空间，而不只是在人生大事或有事相求时才联系。一个没有压力的小邀请，有时比大型社交安排更容易接受。"
+      },
+      "tradeoff": {
+        "en": "Another person’s availability is not under your control. If the break depends entirely on a reply, the pause may disappear while you wait.",
+        "zh": "别人是否有空，不由你控制。如果休息完全依赖一条回复，你可能等着等着，就把暂停的时间用完了。"
+      },
+      "experiment": {
+        "en": "Offer a specific short window and keep a solo alternative you would enjoy. That lets the invitation stay warm without making a response compulsory.",
+        "zh": "提出一个具体、短暂的时间窗口，也留一个自己会喜欢的独处备选。这样邀请仍然温暖，却不把回应变成义务。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "scene",
+    "ritual",
+    "company"
+  ]
+}

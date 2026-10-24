@@ -1,0 +1,348 @@
+{
+  "slug": "kitchen-improviser",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "everyday",
+  "title": {
+    "en": "What Kind of Kitchen Improviser Are You?",
+    "zh": "厨房临场发挥时，你是哪一派？"
+  },
+  "description": {
+    "en": "Six fictional dinner decisions explore how you adapt when ingredients, time, and tastes do not line up. Find your improvising style, not a cooking skill grade.",
+    "zh": "6道虚构晚餐选择题，看看食材、时间和口味对不上时，你怎样调整。不评价厨艺，完整结果免费。"
+  },
+  "introduction": {
+    "en": "Imagine making a simple meal with ingredients you already know are safe for the people eating. Choose how you would handle missing items and preferences. This quiz gives no food-safety, allergy, nutrition, or professional cooking advice.",
+    "zh": "想象你用已经确认适合用餐者的食材做一顿简单饭。请按自己处理缺料与口味差异的方式选择。这里不提供食品安全、过敏、营养或专业烹饪建议。"
+  },
+  "focus": {
+    "en": "Whether you preserve the meal’s basic structure, test a small new flavor, or build around people’s different choices.",
+    "zh": "你更倾向保留一顿饭的基本结构、小范围试新风味，还是围绕大家不同的选择来安排。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "A familiar recipe needs an ingredient you do not have. You…",
+        "zh": "熟悉的菜谱缺了一样食材，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Use a familiar substitute that fills the same role.",
+            "zh": "用熟悉、能承担相同作用的食材替代。"
+          },
+          "points": {
+            "bridge": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Try a small test portion with a different flavor direction.",
+            "zh": "先做一小份，试试另一种风味方向。"
+          },
+          "points": {
+            "test": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Offer the meal in separate parts so people can assemble it.",
+            "zh": "把饭菜分成几部分，让大家自行组合。"
+          },
+          "points": {
+            "table": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "Two friends prefer different seasonings. Your plan is…",
+        "zh": "两位朋友偏好的调味不同，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Keep a mild base and let people add their own known-safe toppings.",
+            "zh": "准备简单底味，再让大家加各自适合的配料。"
+          },
+          "points": {
+            "table": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Choose the closest familiar flavor everyone has agreed to.",
+            "zh": "选一个大家都同意、最熟悉的味道。"
+          },
+          "points": {
+            "bridge": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Make two small variations and compare which one people enjoy.",
+            "zh": "做两个小版本，看看大家喜欢哪一个。"
+          },
+          "points": {
+            "test": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "You have twenty fewer minutes than expected. You first…",
+        "zh": "可用时间突然少了二十分钟，你先……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Reduce the recipe to the parts that make it recognizably that meal.",
+            "zh": "保留让它仍像这顿饭的关键部分。"
+          },
+          "points": {
+            "bridge": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask which parts the people eating most want to keep.",
+            "zh": "问问用餐的人最想保留哪一部分。"
+          },
+          "points": {
+            "table": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Pick one quick new combination instead of several separate dishes.",
+            "zh": "只试一个快手新组合，不做几道独立菜。"
+          },
+          "points": {
+            "test": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A small variation works surprisingly well. You want to…",
+        "zh": "一次小改动意外地不错，你想……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Write down what changed so I can try it again.",
+            "zh": "记下改了什么，下次再试。"
+          },
+          "points": {
+            "test": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Show people how to add that variation if they want it.",
+            "zh": "告诉大家想要时可以怎样加上这个变化。"
+          },
+          "points": {
+            "table": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Fold it into my familiar method without changing everything else.",
+            "zh": "把它放进熟悉的做法里，不动其他部分。"
+          },
+          "points": {
+            "bridge": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Your cupboard has several small leftovers from previous meals. You…",
+        "zh": "柜里有前几顿剩下的几种少量可用食材，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Arrange a few separate options rather than force one mixture.",
+            "zh": "摆成几个独立选择，不勉强混成一道。"
+          },
+          "points": {
+            "table": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Find a familiar dish whose structure can hold them.",
+            "zh": "找一道熟悉、结构上容得下它们的菜。"
+          },
+          "points": {
+            "bridge": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Use a small amount to explore an unusual pairing.",
+            "zh": "拿少量试试一个不常见的搭配。"
+          },
+          "points": {
+            "test": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What would make an improvised dinner feel successful?",
+        "zh": "临场发挥的晚餐，怎样会让你觉得满意？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "I discovered one combination worth making again.",
+            "zh": "发现了一个值得再做的组合。"
+          },
+          "points": {
+            "test": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The meal still felt familiar despite the missing pieces.",
+            "zh": "虽然缺了东西，整顿饭仍然熟悉、完整。"
+          },
+          "points": {
+            "bridge": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "People could comfortably choose what worked for them.",
+            "zh": "大家都能自在地选到适合自己的部分。"
+          },
+          "points": {
+            "table": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "bridge",
+      "title": {
+        "en": "The Familiar Bridge",
+        "zh": "熟悉结构的搭桥者"
+      },
+      "summary": {
+        "en": "Your answers preserve what makes a meal work while allowing its parts to change. You look for the role of a missing ingredient or step, then choose a familiar alternative. The aim is a satisfying dinner rather than a faithful performance of the recipe.",
+        "zh": "你的答案倾向在变化中保留一顿饭成立的结构。你会先看缺少的食材或步骤起什么作用，再找熟悉的替代。目标是吃上一顿满意的饭，不是忠实表演菜谱。"
+      },
+      "example": {
+        "en": "If the planned vegetable is unavailable, you might choose another familiar one that suits the dish you already know. You would keep the rest of the process simple instead of redesigning the entire evening.",
+        "zh": "计划中的蔬菜没有了，你可能换成另一种熟悉、适合这道菜的食材。其他步骤保持简单，不为一次缺料重做整晚计划。"
+      },
+      "strength": {
+        "en": "You make adaptation manageable and give a group something recognizable to enjoy. Familiarity can be a useful starting point when time is limited.",
+        "zh": "你让调整变得可操作，也让一起吃饭的人有熟悉的东西可期待。时间不多时，熟悉感可以是一个好用的起点。"
+      },
+      "tradeoff": {
+        "en": "The nearest substitute does not always satisfy the original purpose. Keeping a dish recognizable can also leave less room to ask whether everyone wanted that dish today.",
+        "zh": "最接近的替代也未必能承担原来的作用。过于想保留菜的样子，也可能忘记问大家今天是否还想吃它。"
+      },
+      "experiment": {
+        "en": "Before the next small substitution, name the one quality you want to keep. Ask someone eating with you whether that quality matters to them too.",
+        "zh": "下次做小替换前，说清自己最想保留哪一种体验。也问问一起吃饭的人，他们是否同样在意这一点。"
+      }
+    },
+    {
+      "id": "test",
+      "title": {
+        "en": "The Small-Batch Explorer",
+        "zh": "小份试验派"
+      },
+      "summary": {
+        "en": "You meet a kitchen mismatch with curiosity and a bounded trial. Your portrait favors changing one thing, tasting a small portion, and keeping track of what you enjoy. This is playful preference exploration, not proof of better cooking ability.",
+        "zh": "面对厨房里的不匹配，你会带着好奇做一个有边界的小试验。你的画像偏向一次改一件事、先尝小份，再记住自己喜欢什么。这是趣味偏好探索，不证明厨艺更高。"
+      },
+      "example": {
+        "en": "Rather than season the whole pot in a new direction, you might set aside a small serving and try a familiar, suitable topping there. The main meal remains available if the experiment is unappealing.",
+        "zh": "你可能不让整锅都换新口味，而是先盛一小份，加上熟悉且合适的配料试试看。不喜欢这个试验时，正餐仍然有得吃。"
+      },
+      "strength": {
+        "en": "You can turn an obstacle into a specific question and learn something useful for the next meal. Small scope keeps novelty from taking over the entire plan.",
+        "zh": "你能把阻碍变成一个具体问题，也为下一顿留下有用经验。范围小一点，新鲜感就不必接管整个安排。"
+      },
+      "tradeoff": {
+        "en": "An interesting experiment can create more work than the group expected. Other people may simply want dinner, and they do not have to join your comparison.",
+        "zh": "有意思的试验也可能比大家预想的更费事。别人也许只是想吃饭，没有义务陪你做口味比较。"
+      },
+      "experiment": {
+        "en": "Choose one small variation and say what you are trying to find out. Keep a familiar alternative and invite feedback without asking people to praise the experiment.",
+        "zh": "只选一个小变化，说明想知道什么。保留熟悉的备选，也允许别人给出真实意见，不必为了鼓励试验而夸奖。"
+      }
+    },
+    {
+      "id": "table",
+      "title": {
+        "en": "The Choice-Friendly Table",
+        "zh": "让选择留在餐桌上"
+      },
+      "summary": {
+        "en": "Your answers make flexibility available to the people eating. Instead of solving every preference through a single finished dish, you create compatible parts and clear choices. The table is a shared arrangement, not a test of whether everyone likes the same food.",
+        "zh": "你的答案把灵活性留给实际用餐的人。不一定把所有偏好都塞进一道完成品，而是准备能相互搭配的部分与清楚的选择。餐桌是一种共同安排，不考验大家是否爱吃同一种东西。"
+      },
+      "example": {
+        "en": "You might serve a simple base with separately identified toppings everyone can choose from. This helps people express a preference without negotiating a whole new meal at the last minute.",
+        "zh": "你可能端出简单主食，再把配料分开、说明清楚。这样大家可以表达偏好，不用最后一刻为自己重新协商一整顿饭。"
+      },
+      "strength": {
+        "en": "You make different tastes visible and give people a practical way to participate. Choice can be welcoming when it is easy to understand and manageable to prepare.",
+        "zh": "你让不同口味看得见，也给大家实际参与的办法。选择清楚、准备负担可控时，它会让人更有被欢迎的感觉。"
+      },
+      "tradeoff": {
+        "en": "More options can quietly turn into more preparation for one person. A table with choices still needs clear boundaries and shared responsibility for the work.",
+        "zh": "选择越多，也可能悄悄变成某个人准备越多。能自由组合的餐桌，同样需要边界和共同分担。"
+      },
+      "experiment": {
+        "en": "For the next shared meal, offer two or three agreed options rather than an unlimited menu. Ask someone else to prepare or explain one part.",
+        "zh": "下次共同用餐，可以提供两三种商量好的选择，而不是无限菜单。也请别人承担其中一部分的准备或说明。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "bridge",
+    "test",
+    "table"
+  ]
+}

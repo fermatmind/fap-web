@@ -1,0 +1,348 @@
+{
+  "slug": "playlist-maker",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "everyday",
+  "title": {
+    "en": "What Kind of Playlist Maker Are You?",
+    "zh": "你的歌单会怎样照顾一段时间？"
+  },
+  "description": {
+    "en": "Six playlist decisions explore three original curating styles: a story arc, shared-room energy, or surprising discoveries. No genre stereotypes or copyrighted song excerpts.",
+    "zh": "6道歌单选择题，探索故事弧线、照顾现场或发现惊喜三种策划方式。不按曲风贴人格标签，不使用歌曲摘录。"
+  },
+  "introduction": {
+    "en": "Imagine making a playlist for a small gathering or a stretch of personal listening. You do not need musical training or a streaming subscription. The quiz explores how you arrange an experience, not what your favorite genre supposedly reveals about your personality.",
+    "zh": "想象你在为小聚会或自己的一段时间编歌单。不需要音乐训练或付费平台。这里看的是你怎样安排一段体验，不声称最爱的曲风暴露了什么人格秘密。"
+  },
+  "focus": {
+    "en": "How you choose sequence, listener comfort, and novelty when several tracks must share one listening space.",
+    "zh": "几首音乐要共享一段聆听空间时，你怎样选择顺序、照顾听众与加入新鲜感。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "You choose the opening track by asking…",
+        "zh": "选开场曲时，你会先想……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "What should the first scene of this listening journey feel like?",
+            "zh": "这段聆听旅程的第一幕，想是什么感觉？"
+          },
+          "points": {
+            "arc": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "What will help the people here feel comfortable joining in?",
+            "zh": "怎样让现场的人更容易自在加入？"
+          },
+          "points": {
+            "room": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "What unexpected track would be enjoyable to introduce?",
+            "zh": "哪首意外之选值得介绍一下？"
+          },
+          "points": {
+            "discovery": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "Two tracks you love clash when played back to back. You…",
+        "zh": "两首都喜欢的音乐，前后连放有点不搭，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Find a bridge track that makes the transition feel deliberate.",
+            "zh": "找一首过渡曲，让转折变得有意图。"
+          },
+          "points": {
+            "arc": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Keep the contrast if it creates an interesting surprise.",
+            "zh": "如果对比带来有趣惊喜，就保留它。"
+          },
+          "points": {
+            "discovery": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Choose the one that better fits the current setting.",
+            "zh": "选更适合当前场景的那一首。"
+          },
+          "points": {
+            "room": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "A guest asks to add a song. Your instinct is to…",
+        "zh": "来客想加一首歌，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Find a place where their contribution can comfortably join the group.",
+            "zh": "找一个能让这份贡献自在加入的位置。"
+          },
+          "points": {
+            "room": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Explore what that song might lead us toward next.",
+            "zh": "看看这首歌能把大家带向什么新方向。"
+          },
+          "points": {
+            "discovery": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Place it where it makes sense in the sequence I am building.",
+            "zh": "把它放在当前叙事顺序里合适的位置。"
+          },
+          "points": {
+            "arc": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "The gathering becomes quieter than expected. You…",
+        "zh": "聚会比预想安静了些，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Lower the intensity so conversation has room.",
+            "zh": "把强度放低一点，让聊天有空间。"
+          },
+          "points": {
+            "room": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Adjust the middle while preserving a satisfying beginning and ending.",
+            "zh": "调整中段，但保留舒服的开头与结尾。"
+          },
+          "points": {
+            "arc": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Try one unfamiliar gentle track and see whether it suits the moment.",
+            "zh": "试一首不熟悉的轻柔曲子，看看是否适合当下。"
+          },
+          "points": {
+            "discovery": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "While searching for a track, you find an unfamiliar artist. You…",
+        "zh": "找歌时，遇到一位不熟悉的创作者，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Follow a few related tracks before returning to the list.",
+            "zh": "先沿着相关作品听几首，再回来编排。"
+          },
+          "points": {
+            "discovery": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Save the track if it fills a particular point in the listening arc.",
+            "zh": "如果它正好填上聆听弧线的一处，就存下来。"
+          },
+          "points": {
+            "arc": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Check whether it is a welcome addition for the intended listeners.",
+            "zh": "看看它是否适合这次想照顾的听众。"
+          },
+          "points": {
+            "room": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "Which comment on your playlist would mean the most?",
+        "zh": "别人怎样形容你的歌单，你最开心？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "“I found something I would never have looked for.”",
+            "zh": "“听到了自己本来不会去找的东西。”"
+          },
+          "points": {
+            "discovery": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "“The whole sequence felt like a small journey.”",
+            "zh": "“整个顺序像一段小旅程。”"
+          },
+          "points": {
+            "arc": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "“It fit the room without taking over.”",
+            "zh": "“很贴合现场，又不会把现场盖过去。”"
+          },
+          "points": {
+            "room": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "arc",
+      "title": {
+        "en": "The Listening Arc",
+        "zh": "编一条聆听弧线"
+      },
+      "summary": {
+        "en": "Your playlist choices emphasize sequence. You think about how one track prepares for the next and how the ending changes the feeling of the beginning. The result is a small listening journey, even when the individual tracks come from very different styles.",
+        "zh": "你的歌单选择强调顺序：一首怎样为下一首做准备，结尾又怎样改变开头留下的感觉。即使曲子风格很不同，也能组成一段小小的聆听旅程。"
+      },
+      "example": {
+        "en": "You might open gently, leave a surprising turn in the middle, and close with something that makes the room feel settled. No particular musical genre is required for that shape.",
+        "zh": "你可能用轻一点的开场，在中间留一次意外转折，最后用一首让现场安定下来的音乐收束。这样的形状并不依赖任何特定曲风。"
+      },
+      "strength": {
+        "en": "You give transitions attention and can make a familiar set of tracks feel newly connected. A thoughtful ending can help the experience feel intentionally complete.",
+        "zh": "你会认真对待过渡，也能让熟悉的曲子产生新的连接。一个经过考虑的结尾，能让体验更像主动完成的安排。"
+      },
+      "tradeoff": {
+        "en": "A carefully planned arc may not fit a room that changes halfway through. Listeners can enjoy individual tracks without noticing the story you intended.",
+        "zh": "精心计划的弧线，未必适合中途变化的现场。听众也可能只是喜欢其中几首，而没有感到你原本想讲的故事。"
+      },
+      "experiment": {
+        "en": "Make a short five-track sequence with one clear transition you enjoy. Test it in its intended setting and allow yourself to move or remove a track.",
+        "zh": "可以做一份五首的短歌单，保留一个你喜欢的明确转折。放进预定场景里试试，也允许自己移动或删掉其中一首。"
+      }
+    },
+    {
+      "id": "room",
+      "title": {
+        "en": "The Room Listener",
+        "zh": "先听见现场的人"
+      },
+      "summary": {
+        "en": "You build a playlist around the listening situation. Your choices leave space for conversation, different preferences, and contributions from other people. Curating here means attending to a shared experience rather than keeping everyone impressed by your taste.",
+        "zh": "你会围绕聆听发生的场景编歌单。你的选择给聊天、不同偏好以及其他人的加入留空间。这里的策划，是照顾共同体验，不是一直用自己的品位让人惊叹。"
+      },
+      "example": {
+        "en": "At a small dinner, you might keep the volume low and accept a guest’s suggestion without letting a single request dominate the evening. The playlist supports the gathering rather than becoming its only subject.",
+        "zh": "小型晚餐上，你可能把音量放轻，接纳来客的推荐，同时不让单个请求接管整晚。歌单在支持聚会，而不是变成唯一话题。"
+      },
+      "strength": {
+        "en": "You notice fit and can make musical participation less intimidating. A group can have a pleasant shared soundtrack without agreeing on one favorite genre.",
+        "zh": "你会注意是否合适，也让参与音乐选择不那么有门槛。一群人不必最爱同一种曲风，也能拥有舒服的共同背景。"
+      },
+      "tradeoff": {
+        "en": "Trying to satisfy every preference can leave you with an incoherent list or no space for your own enjoyment. Shared listening does not require universal approval.",
+        "zh": "想满足所有偏好，可能让歌单散掉，也挤走你自己的享受。共同聆听不需要每个人对每首歌都点头。"
+      },
+      "experiment": {
+        "en": "Agree on a simple listening purpose, then invite one contribution per person. Keep a place for one track you personally want to share, without demanding a reaction.",
+        "zh": "先商量一个简单的聆听目的，再请每人贡献一首。也给你自己想分享的音乐留个位置，不必要求大家给出反应。"
+      }
+    },
+    {
+      "id": "discovery",
+      "title": {
+        "en": "The Unexpected Find",
+        "zh": "把意外发现带进来"
+      },
+      "summary": {
+        "en": "Your answers favor the pleasure of finding something outside the expected queue. A playlist becomes an invitation to wander into a different sound or artist. Novelty is enjoyable here when it creates an opening, not when it proves that familiar music is inferior.",
+        "zh": "你的答案偏向播放队列之外的发现感。歌单像一份邀请，把人带向不同的声音或创作者。新鲜感的乐趣是打开入口，不是证明熟悉的音乐比较低级。"
+      },
+      "example": {
+        "en": "You might place one unfamiliar track among several comfortable ones, then follow the conversation it starts. If nobody is interested, the discovery can still remain a private favorite.",
+        "zh": "你可能在几首熟悉的音乐之间放一首新发现，看看它引出什么交流。如果现场没人想聊，它也仍然可以是你私人的喜欢。"
+      },
+      "strength": {
+        "en": "You bring possibilities that a predictable selection would miss. A small surprise can give listeners an easy next artist or sound to explore for themselves.",
+        "zh": "你能带来可预期选择之外的可能。一点惊喜，就可能给听众一个愿意自己继续探索的创作者或声音方向。"
+      },
+      "tradeoff": {
+        "en": "Too many abrupt surprises can make listening tiring or turn discovery into a performance. An unfamiliar track does not need to become a lesson for everyone else.",
+        "zh": "突然变化太多，也可能让聆听疲惫，或把发现变成表演。不熟悉的曲子，不必每次都变成给别人的一堂课。"
+      },
+      "experiment": {
+        "en": "Add one unexpected track and a short reason you enjoy it, if someone asks. Leave listeners free to keep, skip, or explore it in their own time.",
+        "zh": "可以加一首意外之选；有人问时，再简单说说你喜欢它的理由。让听众自由决定留下、跳过，或以后再探索。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "arc",
+    "room",
+    "discovery"
+  ]
+}
