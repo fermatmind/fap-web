@@ -18,7 +18,7 @@
   },
   "source_repository_snapshot": {
     "repository": "fap-web",
-    "sha": "f43b8ddedbc0dcb038a9bda13a2e9a57ae0bb89b",
+    "sha": "e169f99b60eadd78874cb9f6c2af2424f9475675",
     "evidence_state": "verified_worktree"
   },
   "fixed_boundaries": {
@@ -2228,8 +2228,8 @@
     },
     {
       "path": "scripts/seo/check-public-runtime-seo-qa.mjs",
-      "sha256": "3d9bf6e667311dd0d1eaa946af75f9307e4b71c599edb650bf5cf92e175b0f3e",
-      "byte_size": 14026,
+      "sha256": "aeb9158277c3bff9bf4b5680c1362e9e267337527c6ded026255ccf4a30d2cb3",
+      "byte_size": 14025,
       "classification": "deterministic_tool"
     },
     {
@@ -2936,8 +2936,8 @@
     },
     {
       "path": "tests/contracts/seo-runtime-qa-agent.contract.test.ts",
-      "sha256": "35b039a04124eb99d16bd8291ee0185cf19d0c3bdc5de084a3ae0348f910256f",
-      "byte_size": 4280,
+      "sha256": "9cacf4a9d69b05a6838f41bdee9c0805e6c0d69dc76c38638fdbf8daefb05245",
+      "byte_size": 5558,
       "classification": "contract_only"
     },
     {
@@ -2953,5 +2953,5 @@
       "classification": "contract_only"
     }
   ],
-  "projection_self_hash": "643f0a67bb88d5991877052f6fc967afab196c41c8c4b09ac453d21e73d2e323"
+  "projection_self_hash": "ae093b0576c24900c5c551581edb8c4369696d94e77b7152e722f16a774c892b"
 }
