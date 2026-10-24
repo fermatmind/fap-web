@@ -22,12 +22,12 @@ function polygon(values: number[]) {
 
 export function IqAbilityRadar({ axes, locale }: { axes: IqRadarAxis[]; locale: Locale }) {
   const zh = locale === "zh";
-  const values = axes.map((axis) => axis.unmeasured ? 0 : axis.correct !== null && axis.total !== null && axis.total > 0
+  const values = axes.map((axis) => axis.unmeasured ? null : axis.correct !== null && axis.total !== null && axis.total > 0
     && axis.correct >= 0 && axis.correct <= axis.total ? axis.correct / axis.total : null);
-  const complete = values.length === 5 && values.every((value) => value !== null);
+  const complete = values.length === 5 && axes.every((axis, index) => axis.unmeasured || values[index] !== null);
   return <div className="mx-auto flex aspect-square w-full max-w-[440px] flex-col justify-center rounded-2xl bg-[#142038] px-3 pb-5 pt-2 text-[#aab7ca]" data-testid="iq-five-axis-chart">
     <svg viewBox="0 0 400 325" className="mx-auto w-full max-w-[440px]" role="img"
-      aria-label={zh ? "五维能力雷达，展示本次答题正确率；逻辑与言语未测，以0占位" : "Five-axis ability radar showing item accuracy; unmeasured logic and verbal axes use zero placeholders"}>
+      aria-label={zh ? "本题本答题正确率图；逻辑与言语未测，无数值" : "Form-specific item accuracy; logic and verbal are unmeasured and have no numeric value"}>
       {[0.2, 0.4, 0.6, 0.8, 1].map((level) => <polygon key={level} points={polygon(Array(5).fill(level))}
         fill="none" stroke="#2b3851" strokeWidth="1" />)}
       {axes.map((axis, index) => {
@@ -42,7 +42,6 @@ export function IqAbilityRadar({ axes, locale }: { axes: IqRadarAxis[]; locale: 
         </g>;
       })}
       {complete ? <g data-testid="iq-radar-values">
-        <polygon points={polygon(values as number[])} fill="#edbe4b" fillOpacity="0.18" stroke="#edbe4b" strokeWidth="2" />
         {values.map((value, index) => {
           if (value === null) return null;
           const location = point(index, value);
@@ -50,11 +49,11 @@ export function IqAbilityRadar({ axes, locale }: { axes: IqRadarAxis[]; locale: 
         })}
       </g> : null}
     </svg>
-    <ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[11px]" aria-label={zh ? "雷达图各维度数据" : "Radar values by dimension"}>
+    <ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm" aria-label={zh ? "雷达图各维度数据" : "Radar values by dimension"}>
       {axes.map((axis, index) => <li key={axis.code} className="inline-flex items-center gap-1">
         <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: COLORS[index] }} aria-hidden="true" />
         <span>{axis.label}</span>
-        <span className="tabular-nums">{axis.unmeasured ? zh ? "未测·0" : "Unmeasured·0" : values[index] !== null ? `${axis.correct}/${axis.total}` : "—"}</span>
+        <span className="tabular-nums">{axis.unmeasured ? zh ? "未测" : "Unmeasured" : values[index] !== null ? `${axis.correct}/${axis.total}` : "—"}</span>
       </li>)}
     </ul>
   </div>;

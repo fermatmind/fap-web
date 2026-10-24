@@ -35,6 +35,7 @@ export function EQQualityBanner({ viewModel }: { viewModel: EqV5ViewModel }) {
             {confidence.how_to_read}
           </p>
         ) : null}
+        {confidence.do_not_overread ? <p className="leading-6">{confidence.do_not_overread}</p> : null}
         {confidence.retest_note ? <p className="leading-6">{confidence.retest_note}</p> : null}
         {assets.scientific_contract.quality_rules_statement ? (
           <p className="leading-6">{assets.scientific_contract.quality_rules_statement}</p>

@@ -1,5 +1,8 @@
 "use client";
 
+import { ResultExportPanel } from "@/components/result-export/ResultExportPanel";
+import { buildIqResultExport } from "@/lib/iq/export";
+import { IqProcessPractice } from "./IqProcessPractice";
 import { IqAbilityRadar } from "./IqAbilityRadar";
 import { iqResultCopy } from "@/lib/iq/resultCopy";
 import { Alert } from "@/components/ui/alert";
@@ -31,7 +34,7 @@ function ScoreGauge({ score, locale, beta }: { score: number | null; locale: Loc
   const needle = angle === null ? null : { x: 160 + 89 * Math.cos(angle), y: 160 - 89 * Math.sin(angle) };
   return (
     <svg viewBox="0 0 320 245" className="mx-auto w-full max-w-[320px]" role="img"
-      aria-label={locale === "zh" ? `IQ得分：${score ?? "待估计"}，显示范围${minimum}至145` : `IQ score: ${score ?? "not available"}, display range ${minimum} to 145`}>
+      aria-label={locale === "zh" ? `${beta ? "Beta参考分" : "推理标准分"}：${score ?? "未提供"}，显示范围${minimum}至145` : `${beta ? "Beta reference score" : "Reasoning standard score"}: ${score ?? "not available"}, display range ${minimum} to 145`}>
       <path d="M 45 160 A 115 115 0 0 1 275 160" fill="none" stroke="var(--fm-border)" strokeWidth="13" strokeLinecap="round" />
       {progress !== null ? <path d="M 45 160 A 115 115 0 0 1 275 160" pathLength="100" fill="none"
         stroke="var(--fm-accent)" strokeWidth="13" strokeLinecap="round" strokeDasharray={`${progress * 100} 100`}
@@ -66,14 +69,17 @@ function PerformanceRadar({ dimensions, locale }: { dimensions: IqPerformanceDim
   ]} />;
 }
 
-export function IqResultShell({ locale, reportData, resultData, accessView }: {
+export function IqResultShell({ locale, reportData, resultData, accessView, exportPdfState = "unavailable", onDownloadPdf }: {
   locale: Locale;
   reportData: ReportResponse | null;
   resultData: ResultResponse | null;
   accessView: AttemptReportAccessView | null;
+  exportPdfState?: "ready" | "pending" | "unavailable";
+  onDownloadPdf?: () => Promise<void>;
 }) {
   const viewModel = buildIqResultViewModel({ locale, reportData, resultData, accessView });
   const presentation = buildIqResultPresentation({ locale, reportData, resultData, locked: viewModel.locked });
+  const exportProjection = buildIqResultExport({ locale, reportData, resultData, accessView });
   const zh = locale === "zh";
   const beta = presentation.scoreKind === "beta_reference";
   const percentileText = beta && presentation.percentile !== null
@@ -88,7 +94,7 @@ export function IqResultShell({ locale, reportData, resultData, accessView }: {
       {viewModel.bankStatus ? <Alert><span data-testid="iq-bank-placeholder-notice" data-bank-id={viewModel.bankStatus.bankId}>{viewModel.bankStatus.notice}</span></Alert> : null}
       <div className="grid items-stretch gap-[var(--fm-gap-lg)] lg:grid-cols-[minmax(280px,0.85fr)_minmax(0,1.4fr)]">
         <Card data-testid="iq-standard-score-module">
-          <CardHeader><CardTitle>{zh ? "IQ得分" : "IQ score"}</CardTitle></CardHeader>
+          <CardHeader><CardTitle>{beta ? zh ? "Beta参考分" : "Beta reference score" : zh ? "推理标准分" : "Reasoning standard score"}</CardTitle></CardHeader>
           <CardContent>
             <ScoreGauge score={presentation.standardScore} locale={locale} beta={beta} />
             {presentation.standardScore === null ? <p className="text-center text-sm text-[var(--fm-text-muted)]" data-testid="iq-standard-score-status">
@@ -104,7 +110,7 @@ export function IqResultShell({ locale, reportData, resultData, accessView }: {
               : resultCopy.description}</p>
             <dl className="grid grid-cols-2 gap-x-[var(--fm-gap-lg)] gap-y-[var(--fm-gap-xl)]">
               {[
-                { label: zh ? "超过人群比例" : "Proportion exceeded", value: percentileText, testId: presentation.percentile !== null ? "iq-percentile" : "iq-percentile-unavailable" },
+                { label: beta ? zh ? "模型参考百分位" : "Model-reference percentile" : zh ? "参考样本百分位" : "Reference-sample percentile", value: percentileText, testId: presentation.percentile !== null ? "iq-percentile" : "iq-percentile-unavailable" },
                 { label: zh ? "答题正确率" : "Answer accuracy", value: percent(presentation.percentCorrect), testId: "iq-accuracy" },
                 { label: zh ? "答对题数" : "Correct answers", value: correctText, testId: "iq-correct-count" },
                 { label: zh ? "用时" : "Time taken", value: duration(presentation.durationMs), testId: "iq-duration" },
@@ -117,9 +123,24 @@ export function IqResultShell({ locale, reportData, resultData, accessView }: {
           </CardContent>
         </Card>
       </div>
+      {exportProjection ? <ResultExportPanel projection={exportProjection} locale={locale} pdfState={exportPdfState} onDownloadPdf={onDownloadPdf} /> : null}
+      <Card data-testid="iq-reference-boundary">
+        <CardHeader><CardTitle>{zh ? "怎样理解本次结果" : "How to read this result"}</CardTitle></CardHeader>
+        <CardContent className="space-y-3 text-sm leading-6">
+          <p>{beta
+            ? zh ? "Beta参考分和模型参考百分位来自设计参考模型，不是人口排名、正式IQ或门萨资格。" : "The Beta score and model-reference percentile come from a designed reference model. They are not population ranks, formal IQ scores or Mensa eligibility."
+            : presentation.scoreKind === "normative_reasoning"
+              ? zh ? "标准分与百分位仅按本报告提供的参照样本和版本解释，不能外推未测能力。" : "Interpret the standard score and percentile only within this report’s reference sample and versions; they do not establish unmeasured abilities."
+              : zh ? "本次未提供合格参考分；仍可阅读有效的正确题数和本题本表现。缺失参照不表示零分。" : "An eligible reference score was not provided. Valid correct-answer counts and form-specific performance remain readable. Missing references do not mean zero."}</p>
+          {presentation.referenceSource ? <p className="break-words" data-testid="iq-reference-source">{zh ? "参照来源/版本：" : "Reference source / versions: "}{presentation.referenceSource}</p> : null}
+          <p>{zh ? "正确率描述本次题目表现，不代表人群排名。逻辑与言语未独立测量；未测不等于0分。用时仅在返回时显示，不是强制时限。" : "Accuracy describes these items, not population rank. Logic and verbal ability were not separately measured; unmeasured is not zero. Elapsed time is shown only when supplied and is not a time limit."}</p>
+          <p data-testid="iq-quality-notice">{zh ? "作答质量：" : "Response quality: "}{viewModel.qualityLevel || (zh ? "未提供" : "Not provided")} · {zh ? "质量说明缺失不表示质量良好；请结合实际作答条件阅读。" : "Missing quality information does not establish good response quality; consider the conditions of this attempt."}</p>
+          <p>{zh ? "中断、疲劳、图形显示和类似题型经验可能影响这次表现。按钮与图表的可访问性改善不意味着等价的非视觉智测。" : "Interruptions, fatigue, image display and experience with similar tasks may affect this attempt. More accessible controls and charts do not make this an equivalent nonvisual intelligence test."}</p>
+        </CardContent>
+      </Card>
       <Card data-testid="iq-performance-radar-module">
         <CardHeader>
-          <CardTitle>{zh ? "五维能力雷达" : "Five-axis ability radar"}</CardTitle>
+          <CardTitle>{zh ? "本题本表现" : "Performance on this form"}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid items-center gap-[var(--fm-gap-lg)] md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
@@ -136,6 +157,7 @@ export function IqResultShell({ locale, reportData, resultData, accessView }: {
           </div>
         </CardContent>
       </Card>
+      {!presentation.blocked && !viewModel.locked && presentation.correct !== null ? <IqProcessPractice locale={locale} /> : null}
     </div>
   );
 }

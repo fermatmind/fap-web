@@ -13,8 +13,8 @@ export function EQEvidenceSnapshot({ viewModel }: { viewModel: EqV5ViewModel }) 
       <div className="grid gap-3 md:grid-cols-3">
         <SnapshotMetric
           label={globalScore?.label || assets.score_system.global_index?.label || (locale === "zh" ? "综合指数" : "Global index")}
-          value={formatEqScore(globalScore?.standard_score)}
-          meta={globalScore?.percentile !== undefined ? `${locale === "zh" ? "百分位" : "Percentile"} ${formatEqScore(globalScore.percentile)}` : undefined}
+          value={`${formatEqScore(globalScore?.standard_score)} ${locale === "zh" ? "标准分" : "standard score"}`}
+          meta={`${locale === "zh" ? "原始总分" : "Raw sum"} ${formatEqScore(globalScore?.raw_score)} · ${locale === "zh" ? "参照百分位" : "Reference percentile"} ${formatEqScore(globalScore?.percentile)}`}
         />
         <SnapshotMetric
           label={locale === "zh" ? "常模状态" : "Norm status"}

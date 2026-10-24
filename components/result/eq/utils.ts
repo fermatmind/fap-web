@@ -113,7 +113,12 @@ function normalizeDimensionScore(value: unknown, fallbackCode?: string): EqV5Dim
 function normalizeDimensions(payload: EqV5ReportPayload): EqV5DimensionScore[] {
   if (Array.isArray(payload.dimension_summary)) {
     const summary = payload.dimension_summary
-      .map((item) => normalizeDimensionScore(item, item.code))
+      .map((item) => {
+        // The composer summary omits raw_score; read it only from the same
+        // canonical payload's matching score node, never another response.
+        const score = item.code ? payload.scores?.dimensions?.[item.code] : undefined;
+        return normalizeDimensionScore({ ...item, raw_score: Object.hasOwn(item, "raw_score") ? item.raw_score : score?.raw_score }, item.code);
+      })
       .filter((item): item is EqV5DimensionScore => item !== null);
     if (summary.length > 0) return summary;
   }
@@ -215,11 +220,22 @@ function requiredText(record: Record<string, unknown> | null, key: string): bool
   return text(record?.[key]).length > 0;
 }
 
+/** The canonical v1 quality asset names this caution what_to_hold_lightly.
+ * Preserve an explicit primary field, including an empty/invalid one, and fail
+ * closed if neither documented variant supplies the required warning.
+ */
+function normalizeQualityConfidence(value: unknown): EqQualityConfidenceAsset {
+  const asset = normalizeAssetObject<EqQualityConfidenceAsset>(value);
+  return Object.hasOwn(asset, "do_not_overread")
+    ? asset
+    : { ...asset, do_not_overread: asset.what_to_hold_lightly };
+}
+
 function hasRequiredEditorialAssets(payload: EqV5ReportPayload): boolean {
   const assets = asRecord(payload.assets);
   const snapshot = asRecord(assets?.result_snapshot);
   const route = asRecord(assets?.personalization_route);
-  const quality = asRecord(assets?.quality_confidence);
+  const quality = asRecord(normalizeQualityConfidence(assets?.quality_confidence));
   const science = asRecord(assets?.scientific_contract);
   const formulation = asRecord(assets?.core_formulation);
   const action = asRecord(assets?.action_prescription);
@@ -418,7 +434,7 @@ export function normalizeEqV5Report(reportData: ReportResponse, locale: Locale):
       action_prescription: normalizeAssetObject<EqActionPrescriptionAsset>(assets.action_prescription),
       sjt_bridge: normalizeAssetObject<EqSjtBridgeAsset>(assets.sjt_bridge),
       quality: normalizeAssetObject<{ explanation_asset_id?: string; confidence_label?: string }>(assets.quality),
-      quality_confidence: normalizeAssetObject<EqQualityConfidenceAsset>(assets.quality_confidence),
+      quality_confidence: normalizeQualityConfidence(assets.quality_confidence),
       psychometric_evidence_status: normalizeAssetArray<EqPsychometricEvidenceAsset>(
         assets.psychometric_evidence_status
       ),

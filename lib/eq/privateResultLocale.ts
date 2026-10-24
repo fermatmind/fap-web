@@ -15,40 +15,30 @@ const CJK_PATTERN = /[\u3400-\u9fff\uf900-\ufaff]/u;
 export function isEqPrivateResultLocaleCompatible(reportData: unknown, locale: Locale): boolean {
   if (locale !== "en") return true;
 
-  if (typeof reportData === "string") {
-    return !CJK_PATTERN.test(reportData);
+  function compatible(value: unknown, path: string[] = [], canonical = false): boolean {
+    if (typeof value === "string") return !CJK_PATTERN.test(value);
+    if (Array.isArray(value)) return value.every((item) => compatible(item, path, canonical));
+    if (!value || typeof value !== "object") return true;
+
+    const record = value as Record<string, unknown>;
+    const isCanonical = record.schema_version === "eq_60.report.v2"
+      && record.scale_code === "EQ_60" && record.eq_report_mode === "self_report"
+      && record.measurement_type === "self_report_trait_mixed_ei";
+    const currentPath = isCanonical ? [] : path;
+    const inCanonical = canonical || isCanonical;
+    const contentLocale = record.locale ?? record.content_locale ?? record.slot_locale;
+    if (typeof contentLocale === "string" && ["zh", "zh-cn", "zh_cn"].includes(contentLocale.trim().toLowerCase())) return false;
+
+    return Object.entries(record).every(([key, child]) => {
+      // Eq60ReportComposer::publicPersonalizationRoute retains a bilingual
+      // routing record here. UI copy comes exclusively from the separately
+      // localized assets.personalization_route, which is still checked below.
+      // Authority, required assets and access are independently fail-closed.
+      if (inCanonical && currentPath.length === 1 && currentPath[0] === "interpretation" && key === "personalization_route") return true;
+      return compatible(child, [...currentPath, key], inCanonical);
+    });
   }
-
-  if (Array.isArray(reportData)) {
-    return reportData.every((item) => isEqPrivateResultLocaleCompatible(item, locale));
-  }
-
-  if (reportData && typeof reportData === "object") {
-    const record = reportData as Record<string, unknown>;
-
-    // Only check declared content locale, not internal metadata locale
-    const contentLocale = (
-      record["locale"] ??
-      record["content_locale"] ??
-      record["slot_locale"]
-    );
-    if (typeof contentLocale === "string") {
-      const normalized = contentLocale.trim().toLowerCase();
-      if (normalized === "zh" || normalized === "zh-cn" || normalized === "zh_cn") {
-        return false;
-      }
-    }
-
-    // The private result payload is single-locale. Any nested CJK copy in an
-    // English report is a mismatched canonical slot, not a frontend fallback.
-    for (const value of Object.values(record)) {
-      if (!isEqPrivateResultLocaleCompatible(value, locale)) {
-        return false;
-      }
-    }
-  }
-
-  return true;
+  return compatible(reportData);
 }
 
 /**

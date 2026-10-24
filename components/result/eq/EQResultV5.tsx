@@ -1,6 +1,9 @@
 import type { ReportResponse } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
 import { isEqPrivateResultLocaleCompatible } from "@/lib/eq/privateResultLocale";
+import { ResultExportPanel } from "@/components/result-export/ResultExportPanel";
+import { buildEqResultExport } from "@/lib/eq/export";
+import { EQEventPractice } from "./EQEventPractice";
 import { EQActionPrescription } from "./EQActionPrescription";
 import { EQCareerEnvironmentLens } from "./EQCareerEnvironmentLens";
 import { EQCrossAssessmentContext } from "./EQCrossAssessmentContext";
@@ -23,6 +26,8 @@ export function EQResultV5({
   agentContextAccess,
   loadAgentContext,
   sendAgentRuntimeMessage,
+  exportPdfState = "unavailable",
+  onDownloadPdf,
 }: {
   locale: Locale;
   reportData: ReportResponse;
@@ -30,6 +35,8 @@ export function EQResultV5({
   agentContextAccess?: EqAgentContextAccess;
   loadAgentContext?: EqAgentContextLoader;
   sendAgentRuntimeMessage?: EqAgentRuntimeMessageLoader;
+  exportPdfState?: "ready" | "pending" | "unavailable";
+  onDownloadPdf?: () => Promise<void>;
 }) {
   if (isEqV5AccessRestricted(reportData)) {
     return <EQResultV5AccessRestricted locale={locale} />;
@@ -46,10 +53,12 @@ export function EQResultV5({
   }
 
   const lowConfidence = isLowConfidenceEqResult(viewModel);
+  const exportProjection = buildEqResultExport(reportData, locale);
 
   return (
-    <main data-testid="eq-result-v5" className="mx-auto w-full max-w-6xl space-y-6">
+    <main data-testid="eq-result-v5" className="mx-auto w-full min-w-0 max-w-6xl space-y-6 [overflow-wrap:anywhere]">
       <EQResultHero viewModel={viewModel} />
+      {exportProjection ? <ResultExportPanel projection={exportProjection} locale={locale} pdfState={exportPdfState} onDownloadPdf={onDownloadPdf} /> : null}
       {lowConfidence ? (
         <>
           <EQQualityBanner viewModel={viewModel} />
@@ -69,6 +78,7 @@ export function EQResultV5({
           <EQActionPrescription viewModel={viewModel} />
         </>
       )}
+      {lowConfidence ? null : <EQEventPractice locale={locale} />}
       <EQScientificBoundary viewModel={viewModel} />
       {lowConfidence ? null : <EQCrossAssessmentContext viewModel={viewModel} />}
       <EQSaveShareRelated

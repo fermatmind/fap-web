@@ -62,9 +62,9 @@ describe("IQ three-module result presentation", () => {
     expect(screen.getByTestId("iq-correct-count")).toHaveTextContent("17/30");
     expect(screen.getByTestId("iq-duration")).toHaveTextContent("03:12");
     expect(screen.getByTestId("iq-reference-population")).toHaveTextContent(locale === "zh" ? "合成测试参考样本" : "Synthetic reference sample");
-    expect(screen.getAllByRole("img")).toHaveLength(2);
+    expect(screen.getAllByRole("img")).toHaveLength(3);
     expect(screen.queryByTestId("iq-report-module")).not.toBeInTheDocument();
-    expect(screen.queryByText(/¥1\.99|¥5|certified|Mensa|IQ 估计值/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/¥1\.99|¥5|certified|IQ 估计值/i)).not.toBeInTheDocument();
   });
 
   it.each([[54, 55], [55, 55], [99.49, 99], [99.5, 100], [144.5, 145], [145, 145], [160, 145]])("displays unrounded score %s as %s", (score, expected) => {
@@ -200,21 +200,21 @@ function designedBeta(overrides: Record<string, unknown> = {}) {
 }
 
 describe("designed IQ Beta reference rendering", () => {
-  it("uses a five-axis radar with explicit zero placeholders without changing measured counts", () => {
+  it("labels unmeasured axes without zero placeholders and preserves measured counts", () => {
     show(fixture({ beta_reference: designedBeta() }));
     const chart = screen.getByTestId("iq-five-axis-chart");
-    expect(within(chart).getAllByText("0%")).toHaveLength(2);
-    expect(within(chart).getAllByText("未测·0")).toHaveLength(2);
+    expect(within(chart).queryByText("0%")).not.toBeInTheDocument();
+    expect(within(chart).getAllByText("未测")).toHaveLength(4);
     expect(within(chart).getByText("8/14")).toBeInTheDocument();
     expect(within(chart).getByText("7/13")).toBeInTheDocument();
     expect(within(chart).getByText("2/3")).toBeInTheDocument();
     expect(screen.queryByTestId("iq-result-title")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("iq-quality-notice")).not.toBeInTheDocument();
+    expect(screen.getByTestId("iq-quality-notice")).toBeInTheDocument();
     expect(screen.queryByText("维度正确率描述本次题目表现，不代表人群排名。")).not.toBeInTheDocument();
     expect(screen.getByTestId("iq-accuracy")).toHaveTextContent("答题正确率");
-    expect(screen.getByTestId("iq-percentile")).not.toHaveTextContent("模型参考");
-    expect(screen.getByTestId("iq-result-band")).toHaveTextContent("智商得分稳居平均水平");
-    expect(screen.getByTestId("iq-result-overview")).toHaveTextContent("你的本次测试表现处于平均水平");
+    expect(screen.getByTestId("iq-percentile")).toHaveTextContent("模型参考");
+    expect(screen.getByTestId("iq-result-band")).toHaveTextContent("本次参考分处于中间分段");
+    expect(screen.getByTestId("iq-result-overview")).toHaveTextContent("本次参考分处于设计分段的中间区域");
   });
 
   it.each([[73, "very_low"], [85, "low"], [100, "middle"], [115, "middle"], [116, "high"], [145, "high"]])("selects distinct product copy for score %s", (score, band) => {
@@ -227,8 +227,8 @@ describe("designed IQ Beta reference rendering", () => {
     show(fixture({ summary: { raw_score: 6, question_count: 30, beta_standard_score: 107, beta_reference: designedBeta() } }), locale, null, { accessState: "ready" } as AttemptReportAccessView);
     expect(screen.getByTestId("iq-standard-score-value")).toHaveTextContent("102");
     expect(screen.getByTestId("iq-percentile")).toHaveTextContent("55.30%");
-    expect(screen.getByTestId("iq-percentile")).toHaveTextContent(locale === "zh" ? "超过人群比例" : "Proportion exceeded");
-    expect(screen.getByTestId("iq-standard-score-module")).not.toHaveTextContent("Beta");
+    expect(screen.getByTestId("iq-percentile")).toHaveTextContent(locale === "zh" ? "模型参考百分位" : "Model-reference percentile");
+    expect(screen.getByTestId("iq-standard-score-module")).toHaveTextContent("Beta");
     expect(screen.queryByTestId("iq-standard-score-status")).not.toBeInTheDocument();
     expect(screen.queryByTestId("iq-reference-population")).not.toBeInTheDocument();
     expect(screen.queryByTestId("iq-report-locked-notice")).not.toBeInTheDocument();
@@ -270,7 +270,7 @@ describe("designed IQ Beta reference rendering", () => {
 
   it("has named Beta charts and no automated accessibility violations", async () => {
     const { container } = show(fixture({ beta_reference: designedBeta() }));
-    expect(within(screen.getByTestId("iq-standard-score-module")).getByRole("img")).toHaveAccessibleName(/IQ得分.*73至145/);
+    expect(within(screen.getByTestId("iq-standard-score-module")).getByRole("img")).toHaveAccessibleName(/Beta参考分.*73至145/);
     expect((await axe(container)).violations).toEqual([]);
   });
 });

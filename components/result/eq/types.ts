@@ -293,6 +293,7 @@ export type EqCommercialConversionActionAsset = {
 };
 
 export type EqQualityConfidenceAsset = {
+  what_to_hold_lightly?: string;
   id?: string;
   label?: string;
   body?: string;

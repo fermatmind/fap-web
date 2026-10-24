@@ -47,6 +47,7 @@ export type IqResultPresentation = {
   standardScore: number | null;
   percentile: number | null;
   referencePopulation: string | null;
+  referenceSource: string | null;
   correct: number | null;
   total: number | null;
   percentCorrect: number | null;
@@ -145,6 +146,7 @@ export function buildIqResultPresentation({
     standardScore: betaEligible ? betaDisplay : eligible ? Math.min(145, Math.max(55, Math.floor(standardScore! + 0.5))) : null,
     percentile: betaEligible ? betaPercentile : eligible ? percentile : null,
     referencePopulation: !betaEligible && eligible ? referencePopulation : null,
+    referenceSource: betaEligible ? `designed_reference / ${text(beta?.model_version)}` : eligible ? `${text(normative?.norm_table_version)} / ${text(normative?.model_version)}` : null,
     correct, total,
     percentCorrect: correct !== null && total !== null ? correct / total * 100 : null,
     durationMs: duration !== null && duration > 0 ? duration : null,
