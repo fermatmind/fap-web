@@ -1479,13 +1479,22 @@ export function RichResultReport({
   if (scaleCode === "RIASEC") {
     const authority = resolveRiasecPrivateResultAuthority(reportData);
     if (hasRiasecProjection(reportData)) {
+      const reportAttemptId = typeof reportData.attempt_id === "string" ? reportData.attempt_id.trim() || null : null;
+      const accessAttemptId = accessProjection?.attemptId.trim() || null;
+      // A supplied access context must be ready and consistent with the report identity.
+      const shareAttemptId = accessProjection
+        ? accessProjection.accessState === "ready" && accessProjection.reportState === "ready"
+          && accessAttemptId && (!reportAttemptId || reportAttemptId === accessAttemptId)
+          ? accessAttemptId
+          : null
+        : reportAttemptId;
       return (
         <RiasecResultShell
           locale={locale}
           viewModel={assembleRiasecResultViewModel(reportData, locale)}
           displayMode={printSnapshotMode ? "static" : "interactive"}
           emailRecovery={riasecEmailRecovery}
-          attemptId={typeof reportData.attempt_id === "string" ? reportData.attempt_id : null}
+          attemptId={shareAttemptId}
         />
       );
     }
