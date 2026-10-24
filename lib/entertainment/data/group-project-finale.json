@@ -1,0 +1,348 @@
+{
+  "slug": "group-project-finale",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "social",
+  "title": {
+    "en": "How Do You Close a Shared Hobby Project?",
+    "zh": "共同小作品完成了：你会怎样收尾？"
+  },
+  "description": {
+    "en": "Six hobby-project choices about visible credit, a usable handover and a modest shared finish. Find the finale role you choose for this collaboration.",
+    "zh": "六次爱好项目选择，让贡献可见、交接好用，也给合作一个适度共同结尾，发现你会选的收尾角色。"
+  },
+  "introduction": {
+    "en": "Imagine a small group finishing a paper model made for fun. The project is complete enough to enjoy, and nobody is being graded. Choose what helps the group close this version while respecting the makers’ choices about keeping or sharing it.",
+    "zh": "想象一小组完成为乐趣做的纸模型。作品已足够享受，没有人被打分。选择怎样结束这个版本，也尊重作者对保存或分享的选择。"
+  },
+  "focus": {
+    "en": "Closing a voluntary collaboration through accurate acknowledgment, a practical final state or a chosen shared moment.",
+    "zh": "通过准确致意、实际最终状态或主动选择的共同瞬间，为自愿合作收尾。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "The group puts down the last paper piece. You first…",
+        "zh": "小组放好最后一片纸，你先……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Make sure different contributions are acknowledged accurately.",
+            "zh": "让不同贡献得到准确致意。"
+          },
+          "points": {
+            "credit": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Check where the completed version and remaining materials will go.",
+            "zh": "确认成品版本与剩余材料放哪。"
+          },
+          "points": {
+            "handover": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Invite a brief shared look before everyone moves on.",
+            "zh": "邀请大家离开前简短一起看一眼。"
+          },
+          "points": {
+            "moment": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "Someone proposes showing the model publicly. You…",
+        "zh": "有人提议公开展示模型，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask the makers how they want their contributions described.",
+            "zh": "问各位作者希望怎样说明贡献。"
+          },
+          "points": {
+            "credit": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Confirm which version is the one the group agrees to show.",
+            "zh": "确认大家同意展示的是哪个版本。"
+          },
+          "points": {
+            "handover": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask whether a small private finish would suit the group better.",
+            "zh": "问一个小型私下收尾是否更适合。"
+          },
+          "points": {
+            "moment": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "One person’s contribution is easy to overlook. You…",
+        "zh": "有人的贡献不太显眼，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Name the specific work without inventing equal roles.",
+            "zh": "说清具体做过什么，不编造相同分工。"
+          },
+          "points": {
+            "credit": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Include the useful supporting material in the final handover.",
+            "zh": "把有用支持材料放进最终交接。"
+          },
+          "points": {
+            "handover": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Offer an optional chance for each person to mention one enjoyed moment.",
+            "zh": "让每人可自愿说一个喜欢瞬间。"
+          },
+          "points": {
+            "moment": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "There are leftover drafts and supplies. You…",
+        "zh": "还有草稿与用品留下，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Agree what to keep, return or let go with the people who own them.",
+            "zh": "和所有者约清留、还或放下什么。"
+          },
+          "points": {
+            "handover": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Keep a short note of who made the parts worth preserving.",
+            "zh": "简短记下值得保留部分各是谁做的。"
+          },
+          "points": {
+            "credit": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Avoid letting cleanup expand into another group event nobody chose.",
+            "zh": "不让收拾扩大成无人主动选的新活动。"
+          },
+          "points": {
+            "moment": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "A new idea appears just as the group is finishing. You…",
+        "zh": "临收尾又出现新想法，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Let this version finish and make the next idea separately optional.",
+            "zh": "让这个版本完成，新想法另行可选。"
+          },
+          "points": {
+            "moment": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Save a clear starting point without promising a new project.",
+            "zh": "留清楚起点，不许诺新项目。"
+          },
+          "points": {
+            "handover": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Record whose new idea it is without folding it into everyone’s commitment.",
+            "zh": "注明新想法来源，不并入所有人承诺。"
+          },
+          "points": {
+            "credit": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What makes this collaboration’s ending satisfying?",
+        "zh": "怎样让这次合作结尾满足？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "People can see what was made and where the final version lives.",
+            "zh": "大家看得到做成什么、最终版本在哪里。"
+          },
+          "points": {
+            "handover": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The contributions are remembered without a performance ranking.",
+            "zh": "贡献被记住，却不做表现排名。"
+          },
+          "points": {
+            "credit": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "We could enjoy finishing without owing another project.",
+            "zh": "可以享受完成，不必欠下一项目。"
+          },
+          "points": {
+            "moment": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "credit",
+      "title": {
+        "en": "The Specific-Thanks Keeper",
+        "zh": "具体致谢保留者"
+      },
+      "summary": {
+        "en": "Your project finale makes the actual contributions visible. A quiet supporting task can be named without pretending every person did the same work. The portrait values accurate acknowledgment rather than turning a hobby collaboration into a performance ranking.",
+        "zh": "你的项目收尾让实际贡献可见。安静支持任务也可被说出，不必假装人人做相同工作。画像珍惜准确致意，不把爱好合作变表现排名。"
+      },
+      "example": {
+        "en": "You might thank one person for the layout trial and another for preparing the shared materials, using the work each actually chose to do.",
+        "zh": "你可能感谢一人做试排、另一人备共用材料，按各自实际选择过的工作来致谢。"
+      },
+      "strength": {
+        "en": "Specific acknowledgment can preserve a fuller memory of the collaboration and help the final story include work that was less publicly visible.",
+        "zh": "具体致意能保留更完整合作记忆，也让最终故事包含较不显眼的工作。"
+      },
+      "tradeoff": {
+        "en": "A detailed credit list can feel like accounting if nobody wanted one. Asking how people wish to be named keeps thanks connected to their preferences.",
+        "zh": "若大家并不想要，详细贡献表也会像算账。问希望怎样被提到，让感谢贴合偏好。"
+      },
+      "experiment": {
+        "en": "After one small collaboration, name one concrete contribution you appreciated and check whether the person is comfortable with how it is shared.",
+        "zh": "一次小合作后，说一项欣赏的具体贡献，也确认对方是否接受这样的分享方式。"
+      }
+    },
+    {
+      "id": "handover",
+      "title": {
+        "en": "The Final-Version Keeper",
+        "zh": "最终版本保留者"
+      },
+      "summary": {
+        "en": "Your ending leaves a usable final state: what was made, where it belongs and what remains optional. The group does not need to reconstruct the project later. The result concerns this practical close rather than a general organizing ability score.",
+        "zh": "你的结尾留下可用最终状态：做成什么、归在哪里、哪些仍可选。小组以后不用重新拼经过。结果只谈这次实际收尾，不给一般组织能力打分。"
+      },
+      "example": {
+        "en": "You might keep one agreed photo of the finished paper model and a short note about where the original and spare materials will stay.",
+        "zh": "你可能保留大家同意的一张纸模型成品照，短记原件与备用材料放哪。"
+      },
+      "strength": {
+        "en": "A clear final version can make the project easier to enjoy afterward and prevent an old draft from being mistaken for the work the group chose to keep.",
+        "zh": "清楚最终版本让以后更容易欣赏，也避免把旧草稿误当大家决定保留的作品。"
+      },
+      "tradeoff": {
+        "en": "Saving every intermediate version can make the useful final state hard to find. A selective handover may be kinder to the future reader.",
+        "zh": "中间版本全存，也会让有用最终状态难找。有选择交接，可能更照顾未来查看者。"
+      },
+      "experiment": {
+        "en": "For one completed hobby piece, identify the version you want to keep and one note that helps you find it later. Leave unnecessary duplicates out if their owners agree.",
+        "zh": "给一件完成的爱好作品，标明要保留版本与以后能找到它的一笔说明。所有者同意时，可不留多余副本。"
+      }
+    },
+    {
+      "id": "moment",
+      "title": {
+        "en": "The Chosen-Finish Companion",
+        "zh": "主动收尾的伙伴"
+      },
+      "summary": {
+        "en": "Your collaboration gets a moment to be complete. A shared look or a small acknowledgment can close this version without creating a promise to continue. The portrait values a chosen ending and does not suggest every project needs a ceremony.",
+        "zh": "你的合作得到一个完整时刻。共同一眼或一点致意，能结束本版本，不产生必须继续的许诺。画像珍惜主动结尾，不建议所有项目都需仪式。"
+      },
+      "example": {
+        "en": "You might invite willing makers to look at the finished model for a minute, then let people leave or talk without introducing the next assignment.",
+        "zh": "你可能邀愿意的作者看成品一分钟，再让人离开或聊天，不发下一任务。"
+      },
+      "strength": {
+        "en": "A modest shared finish can protect the pleasure of making something together from becoming an endlessly renewed obligation.",
+        "zh": "适度共同收尾，能让一起做成东西的乐趣不变成无尽续约义务。"
+      },
+      "tradeoff": {
+        "en": "A symbolic finish does not replace returning belongings or making the final state clear. One practical closing step can sit beside the enjoyable moment.",
+        "zh": "象征结束不能代替归还物品或说明最终状态。一项实际收尾也可与愉快瞬间并列。"
+      },
+      "experiment": {
+        "en": "Finish one shared recreational activity with a brief optional acknowledgment and a clear next practical step, then let any future activity be a new choice.",
+        "zh": "给一项共同休闲活动以简短可选致意和清楚实际下一步收尾，让未来活动成为新选择。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "credit",
+    "handover",
+    "moment"
+  ]
+}

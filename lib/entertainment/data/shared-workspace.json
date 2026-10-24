@@ -1,0 +1,348 @@
+{
+  "slug": "shared-workspace",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "social",
+  "title": {
+    "en": "Your Role at a Shared Creative Table",
+    "zh": "共用创作桌：你会怎样交接这一页？"
+  },
+  "description": {
+    "en": "Six fictional workshop choices about work-in-progress labels, shared tools and asking what kind of feedback is wanted. Find your creative-table role.",
+    "zh": "六次虚构工作坊选择，标清进行中作品、共用工具、问明希望哪种反馈，发现你的共创桌角色。"
+  },
+  "introduction": {
+    "en": "Imagine a casual paper-craft table where several people leave work between sessions. You choose how to share materials and respond to drafts while keeping authorship and permission visible. This is a hobby scenario, not a workplace evaluation.",
+    "zh": "想象一张轻松纸艺桌，几个人在活动之间留着作品。你选择如何分享材料、回应草稿，也让作者与许可可见。这是爱好场景，不做职场评价。"
+  },
+  "focus": {
+    "en": "Making a creative handover clear through artifact labels, tool-sharing arrangements or feedback requested by the maker.",
+    "zh": "通过作品标记、工具共用安排，或作者主动想要的反馈，让创作交接清楚。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "An unfinished page is left on the common table. You…",
+        "zh": "未完成纸页留在共用桌上，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask whose page it is and what state it should be kept in.",
+            "zh": "问作者是谁、希望怎样保留现状。"
+          },
+          "points": {
+            "label": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Move available common tools to a separate clear spot without editing the page.",
+            "zh": "不改纸页，把现成共用工具另放清楚位置。"
+          },
+          "points": {
+            "tool": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Wait to offer comments until the maker says what feedback they want.",
+            "zh": "等作者说明想要什么反馈再评论。"
+          },
+          "points": {
+            "feedback": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "Two people want the same tool. You…",
+        "zh": "两人都想用同一工具，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Agree on a simple handover or turn for that item.",
+            "zh": "为这件物品约简单交接或轮次。"
+          },
+          "points": {
+            "tool": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Mark the work that is waiting so nobody mistakes it for abandoned.",
+            "zh": "标记等待中的作品，避免误以为被放弃。"
+          },
+          "points": {
+            "label": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask whether a brief peer look would be useful while they wait.",
+            "zh": "问等待时是否想要一次简短同伴查看。"
+          },
+          "points": {
+            "feedback": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "A maker says “what do you think?” about a draft. You first…",
+        "zh": "作者问草稿“你觉得怎样”，你先……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask which part they want you to respond to.",
+            "zh": "问希望你回应哪一部分。"
+          },
+          "points": {
+            "feedback": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Check which version they mean before discussing it.",
+            "zh": "讨论前确认指哪个版本。"
+          },
+          "points": {
+            "label": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Clear a place to lay it out without borrowing their personal tools.",
+            "zh": "腾一处可展开的位置，不擅借私人工具。"
+          },
+          "points": {
+            "tool": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "The session ends before the group’s project is finished. You…",
+        "zh": "活动结束，共同项目还没做完，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Leave a short note on what is done and what is still open.",
+            "zh": "短记哪些已做、哪些仍开放。"
+          },
+          "points": {
+            "label": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Return shared items to the place agreed for next time.",
+            "zh": "把共用物归到已约下次使用处。"
+          },
+          "points": {
+            "tool": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask whether the maker wants one comment now or a later review.",
+            "zh": "问作者现在想听一条，还是下次再看。"
+          },
+          "points": {
+            "feedback": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Someone suggests changing another person’s page. You…",
+        "zh": "有人建议修改另一人的纸页，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask the maker whether editing or only commenting is welcome.",
+            "zh": "问作者欢迎直接修改还是只评论。"
+          },
+          "points": {
+            "feedback": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Keep the original state identifiable before any agreed change.",
+            "zh": "在任何已同意变动前，让原状态可辨。"
+          },
+          "points": {
+            "label": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Offer common materials for a separate trial version.",
+            "zh": "提供共用材料，另做试验版本。"
+          },
+          "points": {
+            "tool": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What would make the table easy to return to?",
+        "zh": "怎样会让回到这张桌变容易？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Shared tools have a usable place and handover.",
+            "zh": "共用工具有好用的位置与交接。"
+          },
+          "points": {
+            "tool": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Drafts clearly show their maker and current state.",
+            "zh": "草稿作者与当前状态清楚可见。"
+          },
+          "points": {
+            "label": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "People know how to ask for and offer a bounded response.",
+            "zh": "大家知道怎样请求和提供有边界回应。"
+          },
+          "points": {
+            "feedback": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "label",
+      "title": {
+        "en": "The Work-in-Progress Marker",
+        "zh": "进行中状态标记者"
+      },
+      "summary": {
+        "en": "Your shared table keeps the maker and the current state of a page visible. A small note can protect an unfinished idea from being mistaken for spare material. The portrait values a clear creative handover rather than a formal project-management identity.",
+        "zh": "你的共用桌让纸页作者与当前状态可见。小便条能让未完想法不被误当备用材料。画像珍惜清楚创作交接，不授予正式项目管理身份。"
+      },
+      "example": {
+        "en": "You might leave “Mina’s trial layout, please keep as placed” beside a collage draft rather than expecting everybody to recognize which scraps are still in use.",
+        "zh": "你可能在拼贴草稿旁写“米娜试排中，请保留位置”，不期待人人认得哪些碎纸还在用。"
+      },
+      "strength": {
+        "en": "A legible state can reduce accidental changes and make it easier for someone to return without reconstructing what happened while they were away.",
+        "zh": "可读状态能减少无意变动，也让人回来时不用重建离开期间发生过什么。"
+      },
+      "tradeoff": {
+        "en": "Labeling every tiny move can take over the creative session. A short note at a real handover point may be enough.",
+        "zh": "标记每个微动作也会接管创作时间。真正交接时一则短记，也许已够。"
+      },
+      "experiment": {
+        "en": "At the end of one shared creative session, leave a two-line note: whose work it is and what is open to change. Keep the note smaller than the work.",
+        "zh": "一次共同创作结束时，留两行：是谁的作品、哪些可改。让便条比作品本身小。"
+      }
+    },
+    {
+      "id": "tool",
+      "title": {
+        "en": "The Common-Tool Handover Partner",
+        "zh": "共用工具交接伙伴"
+      },
+      "summary": {
+        "en": "Your table runs more easily when a tool can be found, used and returned without a small negotiation every time. You choose a practical handover that fits the activity. The result does not make you custodian of everyone’s belongings.",
+        "zh": "工具不用每次都重新小协商，就能找到、使用、归还时，你的桌子更顺。你选择贴活动的实际交接。结果不让你保管所有人物品。"
+      },
+      "example": {
+        "en": "You might agree where the common ruler lives and how to pass it between two people working at the same table, while personal tools remain separately identified.",
+        "zh": "你可能约好共用尺放哪、两人怎样传递，也把个人工具分别标清。"
+      },
+      "strength": {
+        "en": "A simple sharing arrangement can prevent avoidable interruption and keep access to a common resource understandable for a newcomer.",
+        "zh": "简单共用安排能减少无谓打断，也让新人明白怎样使用公共资源。"
+      },
+      "tradeoff": {
+        "en": "An overly fixed arrangement can fail when the project changes. Checking whether the actual users still find it helpful keeps the system modest.",
+        "zh": "项目变了，过度固定安排也会失效。问实际使用者是否仍有帮助，能让安排保持适度。"
+      },
+      "experiment": {
+        "en": "Choose one genuinely shared item and agree on its return place with its users. Avoid arranging somebody else’s personal materials without asking.",
+        "zh": "选一件确实共用物，与使用者约归位处。不问就安排他人私人材料的事可以省去。"
+      }
+    },
+    {
+      "id": "feedback",
+      "title": {
+        "en": "The Asked-for-Feedback Partner",
+        "zh": "回应所需反馈的伙伴"
+      },
+      "summary": {
+        "en": "Your table gives a draft a response the maker actually asked for. A question about scope comes before a list of improvements. The ending values a bounded creative exchange, not a claim that your feedback is always correct or should always be followed.",
+        "zh": "你的桌子给草稿作者实际想要的回应。先问范围，再列改进。结局珍惜有边界创作交换，不宣称你的反馈总正确或总该被采纳。"
+      },
+      "example": {
+        "en": "If a friend asks about a card design, you might check whether they want a first impression, a wording suggestion or help choosing between two versions.",
+        "zh": "朋友问卡片设计时，你可能先确认想听第一印象、文字建议，还是帮选两个版本。"
+      },
+      "strength": {
+        "en": "A clear feedback request can make a response more useful and let the maker retain ownership of the choices still being explored.",
+        "zh": "清楚反馈请求让回应更有用，也让作者继续拥有仍在探索中选择的主导权。"
+      },
+      "tradeoff": {
+        "en": "Clarifying endlessly can postpone a small useful observation. Once the scope is clear enough, one concrete response may serve better than another round of questions.",
+        "zh": "澄清过久也会推迟有用小观察。范围足够明白后，一条具体回应可能比再问一轮更好。"
+      },
+      "experiment": {
+        "en": "Before commenting on a willing person’s draft, ask what kind of response would help. Offer one specific observation and leave the final choice with the maker.",
+        "zh": "评论愿意者草稿前，问哪种回应有帮助。给一条具体观察，让最终选择留在作者手里。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "label",
+    "tool",
+    "feedback"
+  ]
+}

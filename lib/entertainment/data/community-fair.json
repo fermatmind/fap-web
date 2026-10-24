@@ -1,0 +1,348 @@
+{
+  "slug": "community-fair",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "social",
+  "title": {
+    "en": "Your Small-Help Role at a Community Fair",
+    "zh": "社区小市集：你会怎样搭把手？"
+  },
+  "description": {
+    "en": "Six fictional fair choices about a short shift, a clearly bounded task and leaving useful information for the next helper. Find your contribution style.",
+    "zh": "六次虚构市集选择，安排短时段、边界清楚的小任务，也给下一位帮手留有用信息，发现你的贡献方式。"
+  },
+  "introduction": {
+    "en": "Imagine a small fictional craft fair with optional help invited in advance. You can say what time and effort you actually want to offer. The result concerns a modest group contribution, not civic worth, work performance or an obligation to volunteer.",
+    "zh": "想象提前自愿招呼帮手的小型虚构手作市集。你可以说清实际愿给的时间精力。结果只谈一份适度群体贡献，不评公民价值、工作表现，也不要求志愿服务。"
+  },
+  "focus": {
+    "en": "Making a voluntary contribution manageable through a time boundary, a task boundary or a clear handover.",
+    "zh": "通过时间边界、任务边界或清楚交接，让自愿贡献容易掌握。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "The fair asks whether you want to help. You first specify…",
+        "zh": "市集问是否愿帮忙，你先说明……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A short time window you can genuinely offer.",
+            "zh": "一个确实愿意提供的短时段。"
+          },
+          "points": {
+            "shift": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "One small task you can take to a clear finish.",
+            "zh": "一件能做到清楚结尾的小任务。"
+          },
+          "points": {
+            "task": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "One way to make information easier for the next helper to use.",
+            "zh": "一种让下一帮手更易用信息的办法。"
+          },
+          "points": {
+            "handover": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "A sign table needs attention. You prefer to…",
+        "zh": "标牌桌需要人照应，你更愿……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Prepare the agreed set of signs and stop when they are ready.",
+            "zh": "备好已约那组标牌，完成就停。"
+          },
+          "points": {
+            "task": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Cover the table for the agreed short period.",
+            "zh": "按已约短时段照看桌子。"
+          },
+          "points": {
+            "shift": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Leave a simple note showing which signs are ready and where they go.",
+            "zh": "留简单说明，指出哪些已好、该放哪。"
+          },
+          "points": {
+            "handover": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "The organizer asks for more than originally discussed. You…",
+        "zh": "组织者提出比原来更多的帮助，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Restate the time you can offer before deciding about anything extra.",
+            "zh": "先重说可用时段，再决定额外内容。"
+          },
+          "points": {
+            "shift": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Separate the original task from the proposed addition.",
+            "zh": "分清原任务与新增部分。"
+          },
+          "points": {
+            "task": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Clarify what needs passing on if you cannot extend your help.",
+            "zh": "若不能延长，问清需交接什么。"
+          },
+          "points": {
+            "handover": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "Another helper arrives midway. You…",
+        "zh": "另一位帮手中途到达，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Show the current state and the one next action they need.",
+            "zh": "说明当前状态与所需下一动作。"
+          },
+          "points": {
+            "handover": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Agree on when your part ends and theirs begins.",
+            "zh": "约好自己何时结束、对方何时开始。"
+          },
+          "points": {
+            "shift": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Divide one concrete task so each part has a clear owner.",
+            "zh": "拆一件具体任务，让各部分归属清楚。"
+          },
+          "points": {
+            "task": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Your agreed contribution is nearly complete. You…",
+        "zh": "已约贡献快完成，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Finish the defined piece without automatically taking another.",
+            "zh": "完成已定义那件，不自动接下一件。"
+          },
+          "points": {
+            "task": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Give a short notice that your time window is ending.",
+            "zh": "简短提醒自己的时段将结束。"
+          },
+          "points": {
+            "shift": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Check that the remaining information is easy to find.",
+            "zh": "看看剩余信息是否容易找到。"
+          },
+          "points": {
+            "handover": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What would make helping feel worthwhile and sustainable?",
+        "zh": "怎样会让帮忙值得，也容易持续？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "I could leave a clear state for whoever continues.",
+            "zh": "能给接着做的人留清楚状态。"
+          },
+          "points": {
+            "handover": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The contribution fitted the time I actually wanted to give.",
+            "zh": "贡献适合自己实际愿给的时间。"
+          },
+          "points": {
+            "shift": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "One useful thing reached a recognizable finish.",
+            "zh": "一件有用小事到达可辨认结尾。"
+          },
+          "points": {
+            "task": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "shift",
+      "title": {
+        "en": "The Short-Shift Helper",
+        "zh": "短时段帮手"
+      },
+      "summary": {
+        "en": "Your contribution has a beginning and an end that other people can understand. A modest time window is still a real offer. The portrait values an honest commitment rather than suggesting that longer volunteering always means greater care.",
+        "zh": "你的贡献有别人能理解的开始和结束。适度时段仍是真实提供。画像珍惜诚实承诺，不暗示帮越久就越关心。"
+      },
+      "example": {
+        "en": "You might offer half an hour at an illustrated sign-in table and tell the organizer when you need the next person to take over.",
+        "zh": "在插画签到桌，你可能提供半小时，也告诉组织者何时需要下一人接替。"
+      },
+      "strength": {
+        "en": "A clear time boundary can make planning easier for everyone and reduce the uncertainty of an offer that sounds unlimited but cannot be.",
+        "zh": "清楚时间边界能让大家容易安排，也减少听似无限、实际不可能无限的提供。"
+      },
+      "tradeoff": {
+        "en": "A time window still needs a workable handover when others depend on the task. A little advance notice helps the boundary function in practice.",
+        "zh": "他人依赖任务时，时段也需要可用交接。提前一点提醒，让边界实际起作用。"
+      },
+      "experiment": {
+        "en": "For one voluntary group contribution, name the time you can actually offer and how you will signal the end. Keep extending it genuinely optional.",
+        "zh": "一次自愿群体贡献里，说明实际能给多久、怎样提示结束。让延长真正保持可选。"
+      }
+    },
+    {
+      "id": "task",
+      "title": {
+        "en": "The One-Finished-Thing Helper",
+        "zh": "完成一件事的帮手"
+      },
+      "summary": {
+        "en": "Your fair contribution is defined by one small useful thing reaching its finish. You can see what is included and what is a separate request. The result values a bounded task rather than measuring productivity or generosity.",
+        "zh": "你的市集贡献由一件有用小事到达结尾定义。你看得见包含什么、哪些是另一次请求。结果珍惜有边界任务，不测效率或慷慨。"
+      },
+      "example": {
+        "en": "You might agree to letter five display cards, confirm their wording with the organizer and hand over that finished set without taking on all the other signs.",
+        "zh": "你可能同意写五张展示卡，确认文字，再交好这组，不包下其他所有牌子。"
+      },
+      "strength": {
+        "en": "A concrete task boundary can make an offer easier to understand and prevent a small contribution from silently becoming an open-ended role.",
+        "zh": "具体任务边界让提供易懂，也避免小贡献悄悄长成无止境角色。"
+      },
+      "tradeoff": {
+        "en": "A defined task may still take longer than expected. Checking both its scope and the available time keeps the offer realistic.",
+        "zh": "已定义任务也可能比预想久。范围与可用时间一起确认，提供才实际。"
+      },
+      "experiment": {
+        "en": "Choose one small useful group task and state what counts as finished. Ask before adding anything beyond that definition.",
+        "zh": "选一件有用群体小任务，说明什么算完成。超出定义前，再询问是否要添。"
+      }
+    },
+    {
+      "id": "handover",
+      "title": {
+        "en": "The Clear-Next-Step Helper",
+        "zh": "下一步清楚的帮手"
+      },
+      "summary": {
+        "en": "Your help includes leaving the next person enough context to continue. A brief state note can matter as much as another finished item. The portrait values a useful handover without requiring a full record of everything that happened.",
+        "zh": "你的帮助包含给下一人足够情境接续。简短状态说明，也许与再完成一件同样重要。画像珍惜可用交接，不要求全量记录所有经过。"
+      },
+      "example": {
+        "en": "You might leave a note saying which display cards are done, where the spare materials sit and which single question still needs the organizer’s answer.",
+        "zh": "你可能留一笔：哪些展示卡已好、备用材料在哪、哪一个问题仍等组织者答。"
+      },
+      "strength": {
+        "en": "A compact handover can reduce repeated questions and let the next helper start without reconstructing the whole earlier shift.",
+        "zh": "紧凑交接能减少重复问题，让下一帮手不必重建前一班全部经过就能开始。"
+      },
+      "tradeoff": {
+        "en": "An exhaustive handover can be harder to use than a short one. The next person usually needs the current state and the relevant next step first.",
+        "zh": "穷尽交接可能比短交接难用。下一人通常先需要当前状态与相关下一步。"
+      },
+      "experiment": {
+        "en": "At one small shared handover, write three plain items: what is done, what is next and who can answer the remaining question.",
+        "zh": "一次小共同交接，写三项普通说明：已做什么、接着什么、剩余问题可问谁。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "shift",
+    "task",
+    "handover"
+  ]
+}

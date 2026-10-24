@@ -1,0 +1,348 @@
+{
+  "slug": "celebration-planner",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "social",
+  "title": {
+    "en": "Your Small-Celebration Planning Style",
+    "zh": "小庆祝策划：你会把重点放在哪？"
+  },
+  "description": {
+    "en": "Six fictional celebration choices about the person’s wishes, a memorable shared moment and contributions people can freely choose. Find your planning portrait.",
+    "zh": "六次虚构庆祝选择，围绕当事人意愿、值得记住的共同瞬间与自愿贡献，发现你的策划画像。"
+  },
+  "introduction": {
+    "en": "Imagine a modest celebration for someone who is free to say what they do and do not want. Choose how you would plan the occasion. The result describes this little planning task, not how much you care or how good a friend you are.",
+    "zh": "想象给一个可以自由表达想要与不想要的人办小庆祝。选你愿怎样策划。结果只描述这个小任务，不衡量关心多少，也不评朋友好坏。"
+  },
+  "focus": {
+    "en": "Planning recognition through an explicit preference check, a bounded event moment or a manageable shared contribution.",
+    "zh": "通过明确询问偏好、有边界的活动瞬间，或容易参与的共同贡献来安排庆祝。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "The group wants to celebrate a friend. You first…",
+        "zh": "大家想为朋友庆祝，你先……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask what kind of acknowledgment the friend would enjoy.",
+            "zh": "问朋友喜欢怎样被祝贺。"
+          },
+          "points": {
+            "asker": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Imagine one small moment that could give the occasion shape.",
+            "zh": "想一个能让这次庆祝有形状的小瞬间。"
+          },
+          "points": {
+            "moment": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Find a simple optional contribution for interested people.",
+            "zh": "找一个有兴趣者可自愿提供的小贡献。"
+          },
+          "points": {
+            "contribution": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "Someone proposes a large surprise. You…",
+        "zh": "有人提议盛大惊喜，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Check whether surprises and public attention are actually welcome.",
+            "zh": "确认惊喜与公开关注是否受欢迎。"
+          },
+          "points": {
+            "asker": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Suggest a smaller event moment with a clear beginning and end.",
+            "zh": "提议有清楚起止的小活动瞬间。"
+          },
+          "points": {
+            "moment": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Keep participation optional rather than making everyone help.",
+            "zh": "保留自愿参与，不要求人人帮忙。"
+          },
+          "points": {
+            "contribution": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "People have different amounts of time available. You…",
+        "zh": "大家能用的时间不同，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Offer a few small ways to contribute without a ranking.",
+            "zh": "提供几种小参与方式，不给贡献排名。"
+          },
+          "points": {
+            "contribution": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Choose a short shared moment people can plan around.",
+            "zh": "选一个大家容易安排的短共同瞬间。"
+          },
+          "points": {
+            "moment": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask which part matters most to the person being celebrated.",
+            "zh": "问被庆祝者哪部分最重要。"
+          },
+          "points": {
+            "asker": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "The original plan grows beyond what feels comfortable. You…",
+        "zh": "原计划越长越超出舒适范围，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Return to the recipient’s stated preference before adding more.",
+            "zh": "添更多前，回到对方说过的偏好。"
+          },
+          "points": {
+            "asker": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Keep one memorable part and remove extra activities.",
+            "zh": "保留一个好记部分，去掉额外项目。"
+          },
+          "points": {
+            "moment": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Reduce the coordination needed from each contributor.",
+            "zh": "减小每位参与者所需协调。"
+          },
+          "points": {
+            "contribution": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "A participant cannot join the occasion. You…",
+        "zh": "有人无法参加，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Offer a small optional message with no need to explain the absence.",
+            "zh": "提供一条可选短祝福，不要求解释缺席。"
+          },
+          "points": {
+            "contribution": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Make the shared moment easy to describe afterward.",
+            "zh": "让共同瞬间之后也容易讲述。"
+          },
+          "points": {
+            "moment": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Check whether the recipient wants any later acknowledgment at all.",
+            "zh": "问当事人是否希望之后再有祝贺。"
+          },
+          "points": {
+            "asker": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What would make the celebration feel right?",
+        "zh": "怎样会让你觉得这次庆祝恰好？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "It had one clear moment that did not take over the whole day.",
+            "zh": "有一个清楚瞬间，却没有接管整天。"
+          },
+          "points": {
+            "moment": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The person’s expressed wishes shaped what happened.",
+            "zh": "实际安排由当事人表达的意愿塑造。"
+          },
+          "points": {
+            "asker": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "People could contribute without owing equal time or effort.",
+            "zh": "大家可贡献，不必欠下相同时间精力。"
+          },
+          "points": {
+            "contribution": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "asker",
+      "title": {
+        "en": "The Preference-First Planner",
+        "zh": "意愿优先策划者"
+      },
+      "summary": {
+        "en": "Your celebration begins with what the person actually wants to receive. Recognition can be quiet, public, brief or postponed by choice. The portrait values asking rather than claiming that you always know the perfect way to make someone happy.",
+        "zh": "你的庆祝从对方实际愿意接收什么开始。祝贺可安静、公开、简短，或主动改期。画像珍惜询问，不宣称你总知道让别人开心的完美办法。"
+      },
+      "example": {
+        "en": "You might ask whether a friend wants a shared toast, a private note or simply an ordinary evening before inviting a larger group into the plan.",
+        "zh": "邀请更多人之前，你可能先问朋友想共同举杯、私下便条，还是一个普通夜晚。"
+      },
+      "strength": {
+        "en": "An explicit preference check can keep the occasion centered on its recipient rather than on the planner’s favorite kind of event.",
+        "zh": "明确问偏好，能让活动围绕接收者，而非策划者最喜欢的活动形式。"
+      },
+      "tradeoff": {
+        "en": "Asking too many detailed questions can turn a small celebration into homework. A few meaningful choices may be enough to establish a comfortable direction.",
+        "zh": "细节问太多，会让小庆祝变作业。少数有意义选项，也许已够确定舒服方向。"
+      },
+      "experiment": {
+        "en": "Before one small acknowledgment, ask a single concrete preference question. Use the answer to simplify the plan rather than opening a longer questionnaire.",
+        "zh": "一次小祝贺前，只问一个具体偏好问题。用答案简化安排，不开启更长问卷。"
+      }
+    },
+    {
+      "id": "moment",
+      "title": {
+        "en": "The One-Moment Planner",
+        "zh": "一个瞬间策划者"
+      },
+      "summary": {
+        "en": "Your occasion gains a recognizable shape through one bounded shared moment. A short toast, a reveal or a final photo can be enough if the person wants it. The ending values a chosen highlight rather than maximum spectacle.",
+        "zh": "你的庆祝通过一个有边界共同瞬间有了形状。对方愿意时，短举杯、揭晓或最后一张合影就可足够。结局珍惜选中的亮点，不追求最大场面。"
+      },
+      "example": {
+        "en": "For a modest hobby milestone, you might choose a five-minute display of the finished piece and leave the rest of the visit relaxed.",
+        "zh": "为一个小爱好里程碑，你可能选五分钟展示成品，其余到访继续轻松。"
+      },
+      "strength": {
+        "en": "One clear moment can make an occasion memorable without requiring a full schedule of activities or a large amount of preparation.",
+        "zh": "一个清楚瞬间能让活动难忘，不必排满项目，也不必大量准备。"
+      },
+      "tradeoff": {
+        "en": "A planned highlight can feel staged if there is no room for the people present. Keeping it brief and revisable helps the moment fit the actual evening.",
+        "zh": "若不给在场的人留空间，亮点会像摆拍。简短且可改，更能贴合实际夜晚。"
+      },
+      "experiment": {
+        "en": "Choose one small shared moment for a willing group and give it a simple finish. Let the rest of the time remain unscripted.",
+        "zh": "给愿意的小组选一个共同小瞬间，留简单结束，其余时间不写剧本。"
+      }
+    },
+    {
+      "id": "contribution",
+      "title": {
+        "en": "The Optional-Contribution Planner",
+        "zh": "自愿贡献策划者"
+      },
+      "summary": {
+        "en": "Your celebration is built from small contributions people can choose. A message, a drawing or simply being present need not carry equal weight or effort. The portrait values an accessible invitation without measuring anyone’s care by how much they provide.",
+        "zh": "你的庆祝由大家可自主选择的小贡献搭起。短话、画作或只在场，不必具有相同份量与精力。画像珍惜容易进入的邀请，不按提供多少衡量关心。"
+      },
+      "example": {
+        "en": "You might invite one sentence for a shared card while making clear that a late reply or no written contribution does not need an explanation.",
+        "zh": "你可能邀请为共同卡片写一句，也说明晚回或不写都不用解释。"
+      },
+      "strength": {
+        "en": "A manageable contribution can make coordination easier and let different people take part in ways that fit the time they actually have.",
+        "zh": "容易掌握的贡献能让协调简单，也让不同人按实际拥有的时间参与。"
+      },
+      "tradeoff": {
+        "en": "Even a small request can feel compulsory if the group tracks who has not replied. Keeping the invitation private and optional helps preserve its purpose.",
+        "zh": "小请求若被群体追踪谁未回，也会像强制。让邀请私下且可选，能照顾原本目的。"
+      },
+      "experiment": {
+        "en": "Offer one short optional contribution for a group occasion, without a public completion list. Accept different forms of participation and a comfortable no.",
+        "zh": "共同活动里，提供一项简短可选贡献，不做公开完成名单。接受不同参与方式，也接受自在拒绝。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "asker",
+    "moment",
+    "contribution"
+  ]
+}

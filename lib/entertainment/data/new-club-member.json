@@ -1,0 +1,348 @@
+{
+  "slug": "new-club-member",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "social",
+  "title": {
+    "en": "Your First-Visit Hobby Club Toolkit",
+    "zh": "兴趣小组第一次：你会带哪套入门办法？"
+  },
+  "description": {
+    "en": "Six first-visit choices about unfamiliar words, a usable process and exchanging a small contribution while learning. Find the toolkit you choose for this scene.",
+    "zh": "六次初访选择，弄懂陌生用语、跟上一段可用流程、边学边交换小贡献，发现这次会选的入门办法。"
+  },
+  "introduction": {
+    "en": "Imagine joining a friendly hobby club where beginners are welcome. You do not have to pretend expertise. The quiz describes how you approach this visit, not a fixed learning style or a prediction of which method makes you learn best.",
+    "zh": "想象加入欢迎新手的友好爱好小组。你不必装懂。题目描述这次加入方式，不是固定学习风格，也不预测哪种方法让你学得最好。"
+  },
+  "focus": {
+    "en": "Entering a hobby practice by clarifying its vocabulary, following one shared process or arranging a bounded skill exchange.",
+    "zh": "通过说清用语、跟随一段共同流程，或约一次有边界技能交换，进入爱好实践。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "The club uses a term you have never heard. You…",
+        "zh": "小组用了你从未听过的词，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask for a plain definition and keep a short note.",
+            "zh": "请人用普通话解释，留短笔记。"
+          },
+          "points": {
+            "glossary": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask where the term fits in the process being shown.",
+            "zh": "问这个词对应正在示范的哪一步。"
+          },
+          "points": {
+            "process": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask a willing partner to explain it while you help with a small task.",
+            "zh": "请愿意的伙伴解释，自己同时帮一件小事。"
+          },
+          "points": {
+            "exchange": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "A demonstration has several steps. You prefer to…",
+        "zh": "演示有几步，你更愿……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Follow one ordinary sequence before trying variations.",
+            "zh": "先跟一段普通顺序，再试变化。"
+          },
+          "points": {
+            "process": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Record the two labels that would help you ask questions later.",
+            "zh": "记两个之后方便提问的名称。"
+          },
+          "points": {
+            "glossary": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Try it alongside someone who wants a practice partner.",
+            "zh": "和愿意找练习伙伴的人并着试。"
+          },
+          "points": {
+            "exchange": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "Someone asks you to explain something you do not know yet. You…",
+        "zh": "有人请你解释尚不会的东西，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Say what you can contribute and ask another member for the missing part.",
+            "zh": "说明能贡献什么，也请其他成员补缺的部分。"
+          },
+          "points": {
+            "exchange": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Point to the current process and identify the step you are still learning.",
+            "zh": "指现有流程，说明自己还在学哪步。"
+          },
+          "points": {
+            "process": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Separate the terms you understand from the ones you need clarified.",
+            "zh": "分清懂的词与仍要问清的词。"
+          },
+          "points": {
+            "glossary": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "You want to remember the first visit. You keep…",
+        "zh": "想记住初访，你留……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A small glossary in your own plain words.",
+            "zh": "一份用自己普通表达写的小词表。"
+          },
+          "points": {
+            "glossary": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The one repeatable sequence the club actually used.",
+            "zh": "小组实际用过的一段可重复顺序。"
+          },
+          "points": {
+            "process": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A note about what you and a willing partner can exchange next time.",
+            "zh": "一笔下次与愿意的伙伴可交换什么的记录。"
+          },
+          "points": {
+            "exchange": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "A club custom differs from what you expected. You…",
+        "zh": "小组习惯与预期不同，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask which part is a shared practice and which part can vary.",
+            "zh": "问哪些是共同做法、哪些可变。"
+          },
+          "points": {
+            "process": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask what the unfamiliar phrase means in this group specifically.",
+            "zh": "问陌生表达在这个小组具体指什么。"
+          },
+          "points": {
+            "glossary": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Discuss a small way you can participate while still learning the custom.",
+            "zh": "商量边学习惯时可怎样小小参与。"
+          },
+          "points": {
+            "exchange": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What would help you feel ready for a second visit?",
+        "zh": "什么会让你觉得可以再来一次？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "I know one process well enough to start without pretending mastery.",
+            "zh": "已知一段足够开始的流程，不必装熟练。"
+          },
+          "points": {
+            "process": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "I have one concrete exchange that both people actually want.",
+            "zh": "有一次双方确实愿意的具体交换。"
+          },
+          "points": {
+            "exchange": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "I can understand and ask about the few key words I need.",
+            "zh": "能理解并追问所需的几个关键词。"
+          },
+          "points": {
+            "glossary": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "glossary",
+      "title": {
+        "en": "The Plain-Word Toolkit",
+        "zh": "普通话小词表"
+      },
+      "summary": {
+        "en": "Your first visit becomes easier when unfamiliar labels turn into words you can use. A short personal glossary gives you a way to ask the next question. The result describes this toolkit choice rather than a verbal ability or permanent learning category.",
+        "zh": "陌生标签变成自己能用的话时，你的初访更容易。一份短小个人词表，给下一次提问入口。结果只描述工具选择，不评语言能力，也不设永久学习分类。"
+      },
+      "example": {
+        "en": "At a printmaking club, you might note two unfamiliar material names with a plain description so you can recognize them during the next demonstration.",
+        "zh": "版画小组里，你可能为两个陌生材料名记普通说明，以便下次演示认出来。"
+      },
+      "strength": {
+        "en": "A few understood terms can lower the effort of following a conversation and help you describe exactly what you still need to ask.",
+        "zh": "弄懂少数词，能降低跟随讨论所需精力，也帮你说准仍要问什么。"
+      },
+      "tradeoff": {
+        "en": "Collecting terminology can postpone trying the activity itself. A small useful glossary may serve the visit better than an exhaustive vocabulary list.",
+        "zh": "收集术语也会推迟实际尝试。一份小而有用词表，可能比穷尽词汇更适合初访。"
+      },
+      "experiment": {
+        "en": "For one new hobby session, write only three terms you actually encountered and explain them plainly. Use one in a genuine question rather than memorizing the list.",
+        "zh": "一次新爱好活动，只记实际遇到的三个词并用普通话解释。用其中一个真提问，不必背整表。"
+      }
+    },
+    {
+      "id": "process",
+      "title": {
+        "en": "The One-Sequence Toolkit",
+        "zh": "先走一遍的流程卡"
+      },
+      "summary": {
+        "en": "Your first visit gains a foothold through one usable sequence. You can begin without claiming to know every variation. The portrait is about this visit’s practical entry point, not proof that following steps is always your best way to learn.",
+        "zh": "你的初访通过一段可用顺序找到落脚。你能先开始，不必声称会所有变化。画像只谈这次实际入口，不证明按步骤永远是最佳学习方法。"
+      },
+      "example": {
+        "en": "In a small model-making group, you might follow one demonstrated assembly with spare pieces before adapting the design on a later visit.",
+        "zh": "小模型组里，你可能先用备用件跟一次示范拼装，等之后再改设计。"
+      },
+      "strength": {
+        "en": "A shared sequence can make the next action understandable and give a newcomer a clear place to pause and ask when something is unfamiliar.",
+        "zh": "共同顺序能让下一动作易懂，也给新人遇到陌生处一个清楚可停下提问的位置。"
+      },
+      "tradeoff": {
+        "en": "A sequence can be mistaken for the only valid method. Asking which parts are essential keeps a useful starting point from becoming a fixed limit.",
+        "zh": "顺序可能被误当唯一方法。问清哪些必要，能让有用起点不变固定限制。"
+      },
+      "experiment": {
+        "en": "Try one ordinary version of a recreational process, then ask which step can vary. Choose a small variation only if you actually want to explore it.",
+        "zh": "试一个休闲流程的普通版本，再问哪步可变。只有真想探索时，才选一个小变化。"
+      }
+    },
+    {
+      "id": "exchange",
+      "title": {
+        "en": "The Small-Skill Exchange Toolkit",
+        "zh": "小技能交换卡"
+      },
+      "summary": {
+        "en": "Your new-club visit includes something modest you can offer while learning something else. Contribution and beginner status can coexist. The ending does not imply that you must repay every explanation or earn permission to join by being useful.",
+        "zh": "你的新组初访包含边学边可提供的一点东西。贡献与新手身份能并存。结局不暗示每次解释都要偿还，也不要求先有用才有资格加入。"
+      },
+      "example": {
+        "en": "You might help arrange the shared paper while a willing partner explains a new folding step, with both parts kept small and optional.",
+        "zh": "你可能帮摆共用纸张，同时由愿意的伙伴解释一个新折法，两部分都小且可选。"
+      },
+      "strength": {
+        "en": "A bounded exchange can make participation concrete and let a newcomer contribute without pretending to have expertise they have not developed.",
+        "zh": "有边界交换能让参与具体，也让新人不必装作已有尚未形成的熟练。"
+      },
+      "tradeoff": {
+        "en": "An exchange can become a hidden obligation if the newcomer feels they must always help. A clear welcome should remain even when there is nothing to offer back.",
+        "zh": "若新人觉得总得帮忙，交换会变隐形义务。即使没有回赠内容，清楚欢迎也应继续。"
+      },
+      "experiment": {
+        "en": "Offer one small contribution only if you want to, and ask one honest beginner question. Keep the two independent enough that neither becomes a fee for the other.",
+        "zh": "愿意时提供一次小贡献，也诚实问一个新手问题。让两者足够独立，不互相变成费用。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "glossary",
+    "process",
+    "exchange"
+  ]
+}

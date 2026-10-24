@@ -1,0 +1,348 @@
+{
+  "slug": "road-trip-dj",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "social",
+  "title": {
+    "en": "Your Shared-Queue Road-Trip DJ Style",
+    "zh": "同行点歌：你会怎样照顾这一条队列？"
+  },
+  "description": {
+    "en": "Six passenger music choices about taking turns, connecting different tastes and leaving room for quiet. Find your role in an imaginary shared queue.",
+    "zh": "六次乘客听歌选择，安排轮次、连接不同口味、给安静留空间，发现你在想象点歌队列里的角色。"
+  },
+  "introduction": {
+    "en": "You are choosing a passenger playlist for a fictional group journey; driving decisions are outside this game. The focus is how listeners share the queue, not musical expertise or a claim that anyone’s taste is better.",
+    "zh": "你在虚构团体旅程里负责乘客听歌队列，驾驶决定不在游戏里。重点是听者怎样共用队列，不评音乐专业程度，也不说谁的口味更高。"
+  },
+  "focus": {
+    "en": "Sharing music through visible turns, transitions between preferences or a clear option for less sound.",
+    "zh": "通过可见轮次、偏好之间的过渡，或清楚的少听选项来共用音乐。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Several passengers want to add music. You begin by…",
+        "zh": "几位乘客都想加歌，你先……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Agreeing on a simple turn system for the queue.",
+            "zh": "约一个简单点歌轮次。"
+          },
+          "points": {
+            "turns": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Looking for a short bridge between the different moods suggested.",
+            "zh": "在不同提议氛围之间找个短过渡。"
+          },
+          "points": {
+            "bridge": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Asking how much music and quiet people want.",
+            "zh": "问大家想听多少、想安静多久。"
+          },
+          "points": {
+            "quiet": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "Two requested tracks feel very different. You…",
+        "zh": "两首点播差别很大，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Let each have its turn without requiring a smooth blend.",
+            "zh": "各有轮次，不要求必须无缝融合。"
+          },
+          "points": {
+            "turns": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Place one connecting choice between them if people want that.",
+            "zh": "大家愿意时，中间放一个连接选项。"
+          },
+          "points": {
+            "bridge": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Offer a small pause before the next selection.",
+            "zh": "下一首前留一段小停顿。"
+          },
+          "points": {
+            "quiet": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "Someone has not added anything yet. You…",
+        "zh": "有人还没加歌，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Offer a turn once, with an easy option to pass.",
+            "zh": "邀请点一次，也方便跳过。"
+          },
+          "points": {
+            "turns": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask whether a familiar transition would help them find a choice.",
+            "zh": "问熟悉的过渡是否有助于想到想选的。"
+          },
+          "points": {
+            "bridge": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Let not choosing be a complete participation option.",
+            "zh": "让不选歌也算完整参与选择。"
+          },
+          "points": {
+            "quiet": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "The queue has grown far longer than the remaining trip. You…",
+        "zh": "队列远远长过剩下旅程，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Agree on a final short sequence with a manageable flow.",
+            "zh": "约一个有易掌握起伏的短收尾序列。"
+          },
+          "points": {
+            "bridge": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Make the remaining turns visible so nobody expects everything to play.",
+            "zh": "标清剩余轮次，不让人以为全部会播完。"
+          },
+          "points": {
+            "turns": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Check whether the group would rather finish the music early.",
+            "zh": "问大家是否更想提前结束音乐。"
+          },
+          "points": {
+            "quiet": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "A listener asks for less sound for a while. You…",
+        "zh": "一位听者想少点声音，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Make a quiet interval explicit rather than treating it as a problem.",
+            "zh": "明确留安静段，不把它当问题。"
+          },
+          "points": {
+            "quiet": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Pause the turn order so their missed choice is not treated as lost.",
+            "zh": "暂停轮次，不把对方未选的一次算丢失。"
+          },
+          "points": {
+            "turns": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Offer a gentle restart later only if listeners want one.",
+            "zh": "只有大家愿意时，稍后再温和接回。"
+          },
+          "points": {
+            "bridge": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What makes this shared listening stretch satisfying?",
+        "zh": "怎样会让这段共同听歌满足？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Different tastes could meet through a few enjoyable transitions.",
+            "zh": "不同口味能通过几个愉快过渡相遇。"
+          },
+          "points": {
+            "bridge": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Nobody had to compete for an invisible place in the queue.",
+            "zh": "没人需要争抢看不见的队列位置。"
+          },
+          "points": {
+            "turns": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Music and quiet were both available by choice.",
+            "zh": "音乐与安静都可主动选择。"
+          },
+          "points": {
+            "quiet": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "turns",
+      "title": {
+        "en": "The Visible-Queue DJ",
+        "zh": "队列看得见的点歌者"
+      },
+      "summary": {
+        "en": "Your group listening works through understandable turns. A person can offer a track or pass without competing for the controls. This result describes how you share a queue, not how broad, fashionable or sophisticated your musical taste is.",
+        "zh": "你的共同听歌通过易懂轮次来运转。每人可提供一首或跳过，不必争控制。结果只描述怎样共用队列，不评音乐口味多广、多时髦或多高级。"
+      },
+      "example": {
+        "en": "You might agree on one choice each before another round, while making clear that skipping a turn does not need an explanation.",
+        "zh": "你可能约每人先选一首再下一轮，也说明跳过不必解释。"
+      },
+      "strength": {
+        "en": "A visible order can reduce repeated negotiation and make it easier for quieter listeners to understand how a contribution can enter the shared queue.",
+        "zh": "可见顺序能减少反复协商，也让安静听者明白怎样把贡献放进共同队列。"
+      },
+      "tradeoff": {
+        "en": "A rigid order can keep playing after the group wants something else. Checking the remaining listening time helps the arrangement serve the people rather than itself.",
+        "zh": "僵硬顺序也会在大家已想换方式后继续播。看看剩余听歌时间，安排才服务人而非自身。"
+      },
+      "experiment": {
+        "en": "For one shared music session, agree on a short turn order and an option to pass. Recheck it before starting another round.",
+        "zh": "一次共同听歌，约短轮次与可跳过选项。开始下一轮前再确认。"
+      }
+    },
+    {
+      "id": "bridge",
+      "title": {
+        "en": "The Between-Tastes DJ",
+        "zh": "口味间搭桥的点歌者"
+      },
+      "summary": {
+        "en": "Your queue enjoys the movement between different suggestions. A connecting track or a small pause can let contrasting choices sit beside each other. The ending values a shared listening transition without assuming everybody must enjoy the same atmosphere.",
+        "zh": "你的队列享受不同提议之间的移动。一首连接曲或小停顿，能让相反选择并存。结局珍惜共同听歌过渡，不假定人人都应喜欢同一氛围。"
+      },
+      "example": {
+        "en": "You might place a short familiar selection between two very different requests after asking whether listeners would enjoy that bridge.",
+        "zh": "问过大家是否喜欢后，你可能在两首差异很大的点播间，放一个熟悉短选项。"
+      },
+      "strength": {
+        "en": "A considered transition can make variety feel connected and offer a group another way to appreciate a choice it would not have selected alone.",
+        "zh": "考虑过的过渡能让多样相连，也给群体另一种欣赏独自不会选的曲目的方式。"
+      },
+      "tradeoff": {
+        "en": "Trying to make every transition elegant can override the actual requests. A shared queue can include an abrupt change simply because people chose it.",
+        "zh": "想让每次过渡优雅，也可能压过实际点播。共同队列也可因为大家选择而突然转向。"
+      },
+      "experiment": {
+        "en": "Make a three-choice listening sequence for willing friends and ask where a transition helps. Keep one contrast if the group enjoys it.",
+        "zh": "给愿意的朋友排三个选项，问哪里过渡有帮助。若大家喜欢，也可保留一次鲜明对比。"
+      }
+    },
+    {
+      "id": "quiet",
+      "title": {
+        "en": "The Music-and-Pause DJ",
+        "zh": "音乐与停顿的点歌者"
+      },
+      "summary": {
+        "en": "Your shared queue includes the choice not to fill every stretch with sound. A quiet interval can be part of the listening arrangement rather than a rejection of anyone’s request. The portrait does not infer a sensory condition or a fixed social preference.",
+        "zh": "你的共同队列包含不把每一段填满声音的选择。安静间隔可属于听歌安排，不必被读成拒绝谁的点播。画像不推断感官状况或固定社交偏好。"
+      },
+      "example": {
+        "en": "During a relaxed shared journey, you might ask whether listeners want another short round or some quiet before anyone begins adding more requests.",
+        "zh": "轻松同行时，你可能在继续加点播前，问大家想再听一短轮，还是先安静。"
+      },
+      "strength": {
+        "en": "An explicit pause option can make the queue easier to share across changing preferences without requiring a personal justification for wanting less sound.",
+        "zh": "明确停顿选项，能让队列在偏好变化间更易共用，不要求为想少点声音给私人理由。"
+      },
+      "tradeoff": {
+        "en": "Quiet is not automatically everybody’s preference either. Asking once keeps the pause a shared option instead of replacing one imposed atmosphere with another.",
+        "zh": "安静也不自动是所有人偏好。问一次，能让停顿是共同选项，不是换一种强加氛围。"
+      },
+      "experiment": {
+        "en": "In one willing listening session, include an ordinary chance to pause or finish. Accept a different answer without interpreting it as a statement about the relationship.",
+        "zh": "一次共同听歌里，普通地提供暂停或结束机会。接受不同回答，不把它解读成关系表态。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "turns",
+    "bridge",
+    "quiet"
+  ]
+}

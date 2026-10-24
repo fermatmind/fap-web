@@ -1,0 +1,348 @@
+{
+  "slug": "game-night-reset",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "social",
+  "title": {
+    "en": "When Game Night Stops Being Fun, What Is Your Reset?",
+    "zh": "游戏没那么好玩了：你会怎样重新安排？"
+  },
+  "description": {
+    "en": "Six casual game-night choices about checking the table, changing one part of a round and choosing a comfortable finish. Find your reset role.",
+    "zh": "六次休闲游戏选择，问问同桌感受、只改一处玩法，或自在结束，发现你的重新安排方式。"
+  },
+  "introduction": {
+    "en": "Imagine a friendly game where someone says the current round is no longer enjoyable. Everyone can pause or stop. The quiz follows the next small group decision, not emotional diagnosis, conflict expertise or a measure of loyalty to the team.",
+    "zh": "想象友好游戏里，有人说当前这一轮不太好玩了。任何人可暂停或停止。题目只跟随下一次小共同决定，不做情绪诊断、冲突专业评价或团队忠诚测量。"
+  },
+  "focus": {
+    "en": "Responding to an explicitly stated loss of fun through a check-in, a bounded change or a clear ending.",
+    "zh": "当有人明确说不再好玩时，通过询问、小范围调整或清楚结束来回应。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "A player says the round is no longer fun. You first…",
+        "zh": "玩家说这一轮不再好玩，你先……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask what they would prefer next, without guessing the reason.",
+            "zh": "问接着希望怎样，不先猜原因。"
+          },
+          "points": {
+            "check": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Offer one specific change the group could choose to try.",
+            "zh": "提供一个群体可选择尝试的具体变化。"
+          },
+          "points": {
+            "change": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Make stopping this round a clear acceptable option.",
+            "zh": "明确说这一轮可以停下。"
+          },
+          "points": {
+            "finish": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The group wants different things from the game. You…",
+        "zh": "小组想从游戏获得的东西不同，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Separate the preferences before proposing another round.",
+            "zh": "再提一轮前，先分清不同偏好。"
+          },
+          "points": {
+            "check": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Suggest a shorter variant if everyone wants an experiment.",
+            "zh": "若大家想试，提议一个短版本。"
+          },
+          "points": {
+            "change": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "End this game and let people choose what to do afterward.",
+            "zh": "结束这款游戏，让各自选之后做什么。"
+          },
+          "points": {
+            "finish": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "Someone offers to continue just to avoid disappointing others. You…",
+        "zh": "有人说继续只是怕让别人失望，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Confirm that a comfortable finish does not need an excuse.",
+            "zh": "确认自在结束不需要借口。"
+          },
+          "points": {
+            "finish": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask what they themselves would actually choose.",
+            "zh": "问对方自己实际上想选什么。"
+          },
+          "points": {
+            "check": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Offer a small optional change without making acceptance expected.",
+            "zh": "提供一个小可选变化，不期待必须接受。"
+          },
+          "points": {
+            "change": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "Everyone genuinely wants one more attempt. You propose…",
+        "zh": "大家确实都想再试一次，你提议……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One agreed change and a short review afterward.",
+            "zh": "约一处变化，之后简短再看。"
+          },
+          "points": {
+            "change": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A simple check that the new version fits the expressed preferences.",
+            "zh": "简单确认新版符合已表达偏好。"
+          },
+          "points": {
+            "check": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A final round with an explicit stopping point.",
+            "zh": "一轮有明确停止点的最后局。"
+          },
+          "points": {
+            "finish": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The adjustment still does not help. You…",
+        "zh": "调整后仍没改善，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Let the game finish without treating the trial as failure.",
+            "zh": "让游戏结束，不把尝试当失败。"
+          },
+          "points": {
+            "finish": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask whether the group wants anything else rather than assuming.",
+            "zh": "问小组是否想要别的，不自动假定。"
+          },
+          "points": {
+            "check": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Keep the useful observation and leave further changes for another day.",
+            "zh": "留有用观察，把更多修改留到以后。"
+          },
+          "points": {
+            "change": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What makes a reset successful?",
+        "zh": "怎样算重新安排得顺？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One small change was tried because people actually wanted it.",
+            "zh": "一处小变化，是因为大家真愿意才试。"
+          },
+          "points": {
+            "change": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "People could say what they wanted without being argued out of it.",
+            "zh": "大家可说想要什么，不被争辩着撤回。"
+          },
+          "points": {
+            "check": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The group could finish and still keep the evening pleasant.",
+            "zh": "群体可以结束，夜晚也仍愉快。"
+          },
+          "points": {
+            "finish": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "check",
+      "title": {
+        "en": "The Ask-Then-Choose Resetter",
+        "zh": "先问再选的重排者"
+      },
+      "summary": {
+        "en": "Your reset starts with the preference someone actually expresses. You do not need to diagnose why the fun changed before asking what they want next. The portrait values a small check-in, not the role of permanent mediator for every group.",
+        "zh": "你的重新安排从实际表达的偏好开始。问接着想怎样之前，不必诊断乐趣为何变化。画像珍惜一次小询问，不要求你永久调解所有群体。"
+      },
+      "example": {
+        "en": "If a friend says a puzzle round feels too long, you might ask whether they want a pause, a shorter version or an end instead of insisting the original plan should work.",
+        "zh": "朋友说谜题局太长，你可能问想暂停、缩短还是结束，不坚持原计划理应有效。"
+      },
+      "strength": {
+        "en": "A direct question can replace unsupported guessing and give the next group choice a clearer basis in what people actually want.",
+        "zh": "直接问能代替没依据猜测，也让下一共同选择以实际意愿为依据。"
+      },
+      "tradeoff": {
+        "en": "Repeated check-ins can become tiring if the answer is already clear. Accepting a stated preference can matter more than finding another way to ask it.",
+        "zh": "答案已清楚后，反复询问也会累。接受已说偏好，可能比换种问法更重要。"
+      },
+      "experiment": {
+        "en": "When someone names a low-stakes preference, ask one clarifying question only if needed. Then use the answer in the next choice rather than reopening it.",
+        "zh": "别人说出低风险偏好时，只在必要时澄清一次，再把答案用进下一选择，不反复重开。"
+      }
+    },
+    {
+      "id": "change",
+      "title": {
+        "en": "The One-Change Resetter",
+        "zh": "只改一处的重排者"
+      },
+      "summary": {
+        "en": "Your game reset offers a small agreed experiment rather than a complete redesign. One change can show whether the activity still has something the group wants. This ending does not make persistence automatically better than stopping.",
+        "zh": "你的游戏重排提供一次共同同意的小试验，不彻底重做。改一处就能看活动里是否仍有大家想要的东西。结局不把坚持自动看得比停止更好。"
+      },
+      "example": {
+        "en": "A willing table might try a shorter scoring round once, then decide whether to continue based on that actual experience.",
+        "zh": "愿意的一桌人可以只试一轮更短计分，再按实际体验决定是否继续。"
+      },
+      "strength": {
+        "en": "A bounded adjustment can turn a vague hope that things improve into something the group can try and assess without a large commitment.",
+        "zh": "有边界调整能把“希望变好”变成群体可试、可感受的东西，不必大承诺。"
+      },
+      "tradeoff": {
+        "en": "Offering one more change after every no can become pressure. A trial works only while people still want the experiment.",
+        "zh": "每次拒绝后都再提一种变化，会变压力。只有大家仍愿意时，试验才合适。"
+      },
+      "experiment": {
+        "en": "For one optional shared activity, propose a single small adjustment and a clear review point. Treat declining the trial as a complete answer.",
+        "zh": "为一项可选共同活动提一处小调整与清楚再看时点，也把拒绝尝试当完整回答。"
+      }
+    },
+    {
+      "id": "finish",
+      "title": {
+        "en": "The Comfortable-Finish Resetter",
+        "zh": "自在结束的重排者"
+      },
+      "summary": {
+        "en": "Your reset makes finishing an ordinary possible outcome. A game can have been worthwhile without filling all the time originally reserved for it. The portrait values a clear stopping point, not giving up as a general habit or a verdict on the group.",
+        "zh": "你的重新安排让结束成为普通可选结果。游戏不必填满原留时间，也可以值得。画像珍惜清楚停止点，不把它解释成普遍放弃习惯或群体评价。"
+      },
+      "example": {
+        "en": "You might close a casual round, put the pieces away together and leave the remaining evening open to conversation or separate plans.",
+        "zh": "你可能收住休闲一局，一起归好棋子，再让余下夜晚可聊天也可各自安排。"
+      },
+      "strength": {
+        "en": "A comfortable finish can protect a pleasant shared memory from being stretched into obligation and let different preferences remain compatible.",
+        "zh": "自在结束能让愉快共同记忆不被拉成义务，也让不同偏好继续并存。"
+      },
+      "tradeoff": {
+        "en": "Ending abruptly can leave a practical loose end for others. A short shared closing step can make the stop easier to use.",
+        "zh": "结束过急会给别人留实际零碎。一小步共同收尾，可以让停止更好用。"
+      },
+      "experiment": {
+        "en": "Give one optional activity a clear closing step and then stop. Let the fact that it ended coexist with the fact that parts of it were enjoyable.",
+        "zh": "给一项可选活动一个清楚收尾步骤，然后停下。允许“已经结束”与“其中有愉快”同时成立。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "check",
+    "change",
+    "finish"
+  ]
+}

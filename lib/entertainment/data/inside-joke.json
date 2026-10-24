@@ -1,0 +1,348 @@
+{
+  "slug": "inside-joke",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "social",
+  "title": {
+    "en": "How Do You Keep an Inside Joke Welcoming?",
+    "zh": "共同笑点：你会怎样让它好接？"
+  },
+  "description": {
+    "en": "Six fictional humor choices about sharing context, playing with a situation and letting a joke stay small. Find your style in this group moment.",
+    "zh": "六次虚构幽默选择，分享前情、玩场景本身，也允许笑话小小就好，发现你在这一刻会怎样接住共同笑点。"
+  },
+  "introduction": {
+    "en": "Imagine a harmless recurring joke in a casual hobby group. Choose how to handle context and repetition when people know different parts of the story. This is a play portrait, not a test of humor, empathy or group loyalty.",
+    "zh": "想象轻松爱好小组里一个无害反复笑点。大家知道的故事部分不同，你会怎样处理前情与重复？结果是趣味画像，不测幽默、共情或群体忠诚。"
+  },
+  "focus": {
+    "en": "Keeping a group joke understandable through a brief context bridge, situation-based wordplay or a light touch with repetition.",
+    "zh": "通过简短前情桥接、围绕场景玩文字，或轻轻使用重复，让群体笑点容易理解。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Someone repeats a funny line from an earlier meeting. You…",
+        "zh": "有人重复上次聚会的有趣一句，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Offer the one-sentence context if anyone wants it.",
+            "zh": "有人想知道时，提供一句前情。"
+          },
+          "points": {
+            "context": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Add a new twist about the current situation.",
+            "zh": "围绕当前场景添个新转折。"
+          },
+          "points": {
+            "twist": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Enjoy the callback once without extending it.",
+            "zh": "欣赏一次回扣，不继续拉长。"
+          },
+          "points": {
+            "light": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "A new member asks what the joke means. You…",
+        "zh": "新成员问笑点什么意思，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Explain it plainly rather than making them pass a test.",
+            "zh": "直接说明，不让对方先被考。"
+          },
+          "points": {
+            "context": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Show a simple present-day version that stands on its own.",
+            "zh": "给一个不靠前情也成立的当下版本。"
+          },
+          "points": {
+            "twist": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Say it was a small moment and let the conversation move on.",
+            "zh": "说明只是个小瞬间，再让对话继续。"
+          },
+          "points": {
+            "light": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "The same joke comes up for the fourth time. You…",
+        "zh": "同一笑话出现第四次，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Let it rest rather than trying to earn another laugh.",
+            "zh": "让它歇一会儿，不再争取一次笑声。"
+          },
+          "points": {
+            "light": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Change the situation enough to make a genuinely new playful line.",
+            "zh": "换足场景，做一个确实新的趣味句。"
+          },
+          "points": {
+            "twist": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Check whether anybody is missing the context before it becomes shorthand.",
+            "zh": "在它变成暗号前，看看有人是否缺前情。"
+          },
+          "points": {
+            "context": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "An accidental typo inspires a joke. You keep the humor focused on…",
+        "zh": "一次笔误带来笑点，你让幽默落在……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "An absurd fictional situation the typo suggests.",
+            "zh": "笔误提示的一种荒诞虚构场景。"
+          },
+          "points": {
+            "twist": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A short shared explanation everyone can understand.",
+            "zh": "人人可懂的一段短共同说明。"
+          },
+          "points": {
+            "context": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "One brief laugh without making the author a recurring character.",
+            "zh": "一次短笑，不把作者变成反复角色。"
+          },
+          "points": {
+            "light": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "A joke does not land with the whole group. You…",
+        "zh": "一个笑话没被全组接住，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Let it pass without explaining why people should laugh.",
+            "zh": "让它过去，不解释大家为何该笑。"
+          },
+          "points": {
+            "light": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Offer the missing context only if someone asks.",
+            "zh": "只有被问时才补前情。"
+          },
+          "points": {
+            "context": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Move to a different harmless situation rather than repeating the same target.",
+            "zh": "换个无害场景，不重复同一对象。"
+          },
+          "points": {
+            "twist": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What would you like the group’s shared humor to feel like?",
+        "zh": "希望小组共同幽默让人感觉……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "People can understand a reference without proving they belong.",
+            "zh": "懂个指涉，不用证明自己属于这里。"
+          },
+          "points": {
+            "context": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ordinary situations can keep becoming playfully surprising.",
+            "zh": "普通场景能不断出现趣味意外。"
+          },
+          "points": {
+            "twist": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A joke can be enjoyed and then comfortably left behind.",
+            "zh": "笑话可享受，也可自在放下。"
+          },
+          "points": {
+            "light": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "context",
+      "title": {
+        "en": "The Context-Bridge Joker",
+        "zh": "前情搭桥的接梗者"
+      },
+      "summary": {
+        "en": "Your group joke has a door people can enter. A short explanation lets someone understand the reference without being tested on attendance or memory. The portrait describes your choices in this humor scene, not a certificate of inclusion or social skill.",
+        "zh": "你的群体笑点有一扇人可进入的门。短说明让人理解指涉，不必被考到场次数或记忆。画像描述本次幽默场景选择，不认证包容或社交技能。"
+      },
+      "example": {
+        "en": "If the group says “umbrella committee,” you might explain that three people once drew the same umbrella, then return to the current conversation.",
+        "zh": "小组说“雨伞委员会”时，你可能说明曾有三人画了同一把伞，再回当前对话。"
+      },
+      "strength": {
+        "en": "A compact context bridge can keep shared history from becoming a barrier and help the joke remain a small enjoyable reference.",
+        "zh": "简短前情桥能让共同历史不变障碍，也让笑话继续只是愉快小指涉。"
+      },
+      "tradeoff": {
+        "en": "A long explanation can make a brief joke feel like required reading. One clear sentence and room to move on may be enough.",
+        "zh": "长解释会让短笑话像必读资料。一句清楚话与继续往前的空间，可能已够。"
+      },
+      "experiment": {
+        "en": "Explain one harmless shared reference in a single sentence. Let the other person choose whether to ask more rather than requiring the whole backstory.",
+        "zh": "用一句解释一个无害共同指涉，让对方选是否多问，不要求听完整前史。"
+      }
+    },
+    {
+      "id": "twist",
+      "title": {
+        "en": "The Situation-Twist Joker",
+        "zh": "场景转折的接梗者"
+      },
+      "summary": {
+        "en": "Your humor finds another playful possibility in the situation itself. A typo, object or current event within the group becomes material for a new fictional turn. The result does not require another person to become the joke’s permanent target.",
+        "zh": "你的幽默在场景本身寻找另一种趣味可能。笔误、物件或小组当下事件，成为新的虚构转折素材。结果不要求让某人变成笑话永久目标。"
+      },
+      "example": {
+        "en": "A mislabeled craft box might inspire a tiny fictional office run by paper clips, rather than a running joke about the person who wrote the label.",
+        "zh": "写错标签的手工盒，可以启发一个由回形针经营的微型办公室，不必反复笑写标签的人。"
+      },
+      "strength": {
+        "en": "A new situational turn can keep a familiar joke from becoming stale and make the humor understandable without a long personal history.",
+        "zh": "新场景转折能让熟悉笑话不陈旧，也让幽默不靠长个人前情就能理解。"
+      },
+      "tradeoff": {
+        "en": "Trying to top every line can make a relaxed conversation tiring. An ordinary reply or a pause can be part of enjoying the group too.",
+        "zh": "每句都想再胜一筹，也会让轻松对话累。普通回应与停顿也可以属于群体乐趣。"
+      },
+      "experiment": {
+        "en": "Invent one harmless comic scene from an ordinary object, then stop after the small turn. Let any further joke be someone else’s optional addition.",
+        "zh": "从一个普通物体编一幕无害喜剧场景，在小转折后停下。再有笑点，也可留给别人自愿添。"
+      }
+    },
+    {
+      "id": "light",
+      "title": {
+        "en": "The Light-Touch Callback Keeper",
+        "zh": "轻轻回扣的接梗者"
+      },
+      "summary": {
+        "en": "Your joke can have its moment and then finish. You do not need a callback to become the group’s whole language. The ending values a light touch with repetition rather than implying that you are less playful than someone who adds another line.",
+        "zh": "你的笑话可以有自己的时刻，然后结束。回扣不必变成群体全部语言。结局珍惜轻轻重复，不暗示你比继续添句的人少趣味。"
+      },
+      "example": {
+        "en": "You might smile at a familiar line once and then ask about the craft someone is making now, letting the old joke remain pleasant rather than obligatory.",
+        "zh": "你可能对熟悉一句笑一下，再问对方现在做的手作，让旧笑点保持愉快，不变义务。"
+      },
+      "strength": {
+        "en": "Knowing when to leave a joke can keep a small shared memory enjoyable and leave space for new topics or people who do not share it.",
+        "zh": "知道何时放下笑话，能让共同小记忆继续愉快，也给新话题与不熟悉前情的人留空间。"
+      },
+      "tradeoff": {
+        "en": "Moving on too quickly can miss an addition someone genuinely wanted to share. A light touch can still include listening before changing the subject.",
+        "zh": "转得过快，也会错过别人真想添的内容。轻轻使用也可以包括换题前先听。"
+      },
+      "experiment": {
+        "en": "After enjoying one familiar joke, leave a natural pause and see what the group chooses next. Do not require either more humor or an immediate topic change.",
+        "zh": "享受一个熟悉笑话后，留自然停顿，看大家接着选什么。不要求更多笑点，也不要求立刻换题。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "context",
+    "twist",
+    "light"
+  ]
+}

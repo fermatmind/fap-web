@@ -68,6 +68,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "celebration-planner",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "social",
+    "title": {
+      "en": "Your Small-Celebration Planning Style",
+      "zh": "小庆祝策划：你会把重点放在哪？"
+    },
+    "description": {
+      "en": "Six fictional celebration choices about the person’s wishes, a memorable shared moment and contributions people can freely choose. Find your planning portrait.",
+      "zh": "六次虚构庆祝选择，围绕当事人意愿、值得记住的共同瞬间与自愿贡献，发现你的策划画像。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "city-wanderer",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -113,6 +130,23 @@
     "description": {
       "en": "A six-question break-time quiz about a change of scene, a small sensory ritual, or easy company. No coffee required and no health claims.",
       "zh": "6道小憩情境题，看看你更想换个场景、享受一个感官小仪式，还是找人轻松聊聊。不必喝咖啡，不涉及健康判断。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "community-fair",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "social",
+    "title": {
+      "en": "Your Small-Help Role at a Community Fair",
+      "zh": "社区小市集：你会怎样搭把手？"
+    },
+    "description": {
+      "en": "Six fictional fair choices about a short shift, a clearly bounded task and leaving useful information for the next helper. Find your contribution style.",
+      "zh": "六次虚构市集选择，安排短时段、边界清楚的小任务，也给下一位帮手留有用信息，发现你的贡献方式。"
     },
     "minutes": 2,
     "questionCount": 6,
@@ -323,6 +357,23 @@
     "minQuestionCount": 3
   },
   {
+    "slug": "game-night-reset",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "social",
+    "title": {
+      "en": "When Game Night Stops Being Fun, What Is Your Reset?",
+      "zh": "游戏没那么好玩了：你会怎样重新安排？"
+    },
+    "description": {
+      "en": "Six casual game-night choices about checking the table, changing one part of a round and choosing a comfortable finish. Find your reset role.",
+      "zh": "六次休闲游戏选择，问问同桌感受、只改一处玩法，或自在结束，发现你的重新安排方式。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "garden-season",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -357,6 +408,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "group-project-finale",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "social",
+    "title": {
+      "en": "How Do You Close a Shared Hobby Project?",
+      "zh": "共同小作品完成了：你会怎样收尾？"
+    },
+    "description": {
+      "en": "Six hobby-project choices about visible credit, a usable handover and a modest shared finish. Find the finale role you choose for this collaboration.",
+      "zh": "六次爱好项目选择，让贡献可见、交接好用，也给合作一个适度共同结尾，发现你会选的收尾角色。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "group-trip-seatmate",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -368,6 +436,23 @@
     "description": {
       "en": "Six imagined shared-journey choices about conversation, personal space and the little practical arrangements that make a seat comfortable.",
       "zh": "六次想象同行选择，围绕聊天、个人空间与让座位舒服的小安排，发现你在这段旅程中的邻座画像。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "inside-joke",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "social",
+    "title": {
+      "en": "How Do You Keep an Inside Joke Welcoming?",
+      "zh": "共同笑点：你会怎样让它好接？"
+    },
+    "description": {
+      "en": "Six fictional humor choices about sharing context, playing with a situation and letting a joke stay small. Find your style in this group moment.",
+      "zh": "六次虚构幽默选择，分享前情、玩场景本身，也允许笑话小小就好，发现你在这一刻会怎样接住共同笑点。"
     },
     "minutes": 2,
     "questionCount": 6,
@@ -527,6 +612,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "new-club-member",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "social",
+    "title": {
+      "en": "Your First-Visit Hobby Club Toolkit",
+      "zh": "兴趣小组第一次：你会带哪套入门办法？"
+    },
+    "description": {
+      "en": "Six first-visit choices about unfamiliar words, a usable process and exchanging a small contribution while learning. Find the toolkit you choose for this scene.",
+      "zh": "六次初访选择，弄懂陌生用语、跟上一段可用流程、边学边交换小贡献，发现这次会选的入门办法。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "night-garden",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -572,6 +674,23 @@
     "description": {
       "en": "Six low-pressure arrival scenes about settling in, joining one conversation and taking part through a shared activity. Find your arrival style for this round.",
       "zh": "六个轻松到场场景，安顿自己、加入一段对话、通过共同活动参与，看看这次你会怎样找到位置。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "photo-group-role",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "social",
+    "title": {
+      "en": "Your Role in the Group Photo",
+      "zh": "大家合影：你会怎样凑好这一张？"
+    },
+    "description": {
+      "en": "Six fictional group-photo choices about a readable frame, a comfortable option to pass and a moment the group actually wants to keep.",
+      "zh": "六次虚构合影选择，安排好理解的画框、自在跳过的选择，以及大家确实想留下的瞬间。"
     },
     "minutes": 2,
     "questionCount": 6,
@@ -714,6 +833,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "road-trip-dj",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "social",
+    "title": {
+      "en": "Your Shared-Queue Road-Trip DJ Style",
+      "zh": "同行点歌：你会怎样照顾这一条队列？"
+    },
+    "description": {
+      "en": "Six passenger music choices about taking turns, connecting different tastes and leaving room for quiet. Find your role in an imaginary shared queue.",
+      "zh": "六次乘客听歌选择，安排轮次、连接不同口味、给安静留空间，发现你在想象点歌队列里的角色。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "secret-door",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -729,6 +865,23 @@
     "minutes": 2,
     "questionCount": 3,
     "minQuestionCount": 3
+  },
+  {
+    "slug": "shared-workspace",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "social",
+    "title": {
+      "en": "Your Role at a Shared Creative Table",
+      "zh": "共用创作桌：你会怎样交接这一页？"
+    },
+    "description": {
+      "en": "Six fictional workshop choices about work-in-progress labels, shared tools and asking what kind of feedback is wanted. Find your creative-table role.",
+      "zh": "六次虚构工作坊选择，标清进行中作品、共用工具、问明希望哪种反馈，发现你的共创桌角色。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
   },
   {
     "slug": "snow-day",
