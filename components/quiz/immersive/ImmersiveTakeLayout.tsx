@@ -77,7 +77,7 @@ export function ImmersiveTakeLayout({
         </div>
       </section>
 
-      <footer className={appearance === "focused" ? styles.footer : "flex min-h-[48px] items-center justify-between gap-[var(--fm-gap-sm)]"}>
+      <footer className={appearance === "focused" ? styles.footer : "flex min-h-[48px] flex-wrap items-center justify-between gap-[var(--fm-gap-sm)]"}>
         <Button type="button" variant="ghost" disabled={previousDisabled} onClick={onPrevious}>
           {previousLabel}
         </Button>

@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { StrictMode, type ReactNode } from "react";
 import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import EnneagramTakeClient from "@/app/(localized)/[locale]/tests/[slug]/take/EnneagramTakeClient";
@@ -8,6 +8,7 @@ type ChildrenProps = {
 };
 
 const hoisted = vi.hoisted(() => ({
+  realFlowController: false,
   pathname: "/en/tests/enneagram-personality-test-nine-types/take",
   search: "",
   routerPush: vi.fn(),
@@ -15,6 +16,7 @@ const hoisted = vi.hoisted(() => ({
   fetchEnneagramQuestions: vi.fn(),
   startEnneagramAttempt: vi.fn(),
   submitEnneagramAttempt: vi.fn(),
+  recoverAcceptedSubmission: vi.fn(),
   buildEnneagramSubmitAnswers: vi.fn(({ questionIds, answers }: { questionIds: string[]; answers: Record<string, string> }) =>
     questionIds.map((questionId, index) => ({
       question_id: questionId,
@@ -112,6 +114,8 @@ vi.mock("@/lib/auth/fmToken", () => ({
   setFmToken: () => undefined,
 }));
 
+vi.mock("@/lib/attempt/submissionRecovery", () => ({ recoverAcceptedSubmission: hoisted.recoverAcceptedSubmission }));
+
 vi.mock("@/lib/enneagram/api", async () => {
   const actual = await vi.importActual<typeof import("@/lib/enneagram/api")>("@/lib/enneagram/api");
 
@@ -169,21 +173,25 @@ vi.mock("@/lib/attempt/resolveResultAttemptId", () => ({
   ) => response.attempt_id ?? fallbackAttemptId,
 }));
 
-vi.mock("@/lib/attempt/staleAttempt", () => ({
-  createTakeFlowController: () => ({
-    beginRun: () => 1,
-    isActive: () => true,
-    cancelCurrentRun: () => undefined,
-    schedule: (callback: () => void) => {
-      callback();
-      return 0;
-    },
-    wait: async () => true,
-    dispose: () => undefined,
-  }),
-  resolveStaleDraftResetMessage: () => "Draft reset required.",
-  shouldBlockInvalidDraftOnTakePage: () => false,
-}));
+vi.mock("@/lib/attempt/staleAttempt", async () => {
+  const actual = await vi.importActual<typeof import("@/lib/attempt/staleAttempt")>("@/lib/attempt/staleAttempt");
+  const createRealFlowController = actual.createTakeFlowController;
+  return {
+    ...actual,
+    createTakeFlowController: () => hoisted.realFlowController ? createRealFlowController() : ({
+      beginRun: () => 1,
+      isActive: () => true,
+      cancelCurrentRun: () => undefined,
+      schedule: (callback: () => void) => {
+        callback();
+        return 0;
+      },
+      wait: async () => true,
+      dispose: () => undefined,
+    }),
+    resolveStaleDraftResetMessage: () => "Draft reset required.",
+  };
+});
 
 function likertResponse() {
   return {
@@ -241,6 +249,8 @@ async function waitForQuestion(text: string) {
 describe("enneagram take flow contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    hoisted.realFlowController = false;
+    hoisted.recoverAcceptedSubmission.mockResolvedValue(false);
     window.localStorage.clear();
     hoisted.search = "";
     hoisted.pathname = "/en/tests/enneagram-personality-test-nine-types/take";
@@ -256,6 +266,51 @@ describe("enneagram take flow contract", () => {
       ok: true,
       attempt_id: "attempt_enneagram_take",
     });
+  });
+
+  it.each(["en", "zh"].flatMap((locale) => ["enneagram_likert_105", "enneagram_forced_choice_144"].map((form) => [locale, form])))("recovers %s %s without a new attempt", async (locale, form) => {
+    hoisted.pathname = `/${locale}/tests/enneagram-personality-test-nine-types/take`;
+    const forced = form === "enneagram_forced_choice_144";
+    hoisted.fetchEnneagramQuestions.mockResolvedValue(forced ? forcedChoiceResponse() : likertResponse());
+    hoisted.submitEnneagramAttempt.mockRejectedValueOnce(new TypeError("Response lost"));
+    hoisted.recoverAcceptedSubmission.mockResolvedValueOnce(true);
+    render(<EnneagramTakeClient slug="enneagram-personality-test-nine-types" formCode={form} estimatedMinutes={12} />);
+    await waitForQuestion(forced ? "I notice what can be improved." : "I pursue high standards.");
+    fireEvent.click(forced ? screen.getByRole("radio", { name: "I notice what can be improved." }) : screen.getByRole("button", { name: "Likert option" }));
+    await waitFor(() => expect(hoisted.routerPush).toHaveBeenCalledWith(`/${locale}/result/attempt_enneagram_take`));
+    expect(hoisted.startEnneagramAttempt).toHaveBeenCalledTimes(1);
+    expect(hoisted.startEnneagramAttempt).toHaveBeenCalledWith(expect.objectContaining({ formCode: form, locale: locale === "zh" ? "zh-CN" : "en" }));
+    expect(hoisted.submitEnneagramAttempt).toHaveBeenCalledTimes(1);
+  });
+
+  it("keeps a final selection and pending attempt through StrictMode replay", async () => {
+    hoisted.realFlowController = true;
+    hoisted.submitEnneagramAttempt.mockResolvedValueOnce({ ok: true, attempt_id: "slow-original-attempt" });
+    let finish!: (value: { ok: boolean; attempt_id: string }) => void;
+    hoisted.startEnneagramAttempt.mockReturnValueOnce(new Promise((resolve) => { finish = resolve; }));
+    hoisted.fetchEnneagramQuestions.mockResolvedValue(likertResponse());
+    render(<StrictMode><EnneagramTakeClient slug="enneagram-personality-test-nine-types" formCode="enneagram_likert_105" estimatedMinutes={12} /></StrictMode>);
+    await waitForQuestion("I pursue high standards.");
+    fireEvent.click(screen.getByRole("button", { name: "Likert option" }));
+    await waitFor(() => expect(hoisted.startEnneagramAttempt).toHaveBeenCalledTimes(1));
+    expect(screen.queryByText("Draft reset required.")).toBeNull();
+    await act(async () => { finish({ ok: true, attempt_id: "slow-original-attempt" }); });
+    await waitFor(() => expect(hoisted.routerPush).toHaveBeenCalledWith("/en/result/slow-original-attempt"));
+    expect(hoisted.submitEnneagramAttempt).toHaveBeenCalledWith(expect.objectContaining({ attemptId: "slow-original-attempt", answers: [{ question_id: "1", code: "2", question_index: 0 }] }));
+  });
+
+  it("locks forced-choice keyboard input while submission is pending", async () => {
+    let finish!: (value: { ok: boolean; attempt_id: string }) => void;
+    hoisted.submitEnneagramAttempt.mockReturnValueOnce(new Promise((resolve) => { finish = resolve; }));
+    hoisted.fetchEnneagramQuestions.mockResolvedValue(forcedChoiceResponse());
+    render(<EnneagramTakeClient slug="enneagram-personality-test-nine-types" formCode="enneagram_forced_choice_144" estimatedMinutes={18} />);
+    fireEvent.click(await screen.findByRole("radio", { name: "I notice what can be improved." }));
+    await waitFor(() => expect(hoisted.submitEnneagramAttempt).toHaveBeenCalledTimes(1));
+    for (const radio of screen.getAllByRole("radio")) expect(radio).toBeDisabled();
+    fireEvent.keyDown(screen.getAllByRole("radio")[0], { key: "ArrowRight" });
+    await act(async () => { finish({ ok: true, attempt_id: "attempt_enneagram_take" }); });
+    expect(hoisted.submitEnneagramAttempt.mock.calls[0][0].answers).toEqual([{ question_id: "1", code: "A", question_index: 0 }]);
+    expect(hoisted.submitEnneagramAttempt).toHaveBeenCalledTimes(1);
   });
 
   it("runs the 105 Likert form through question load, start, submit, and result redirect", async () => {

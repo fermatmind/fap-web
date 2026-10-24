@@ -307,6 +307,28 @@ describe("RIASEC shared QuizStore take flow contract", () => {
     cleanup();
   });
 
+  it.each(["en", "zh"].flatMap((locale) => [
+    [locale, "MBTI", "mbti_93", "mbti-personality-test-16-personality-types"],
+    [locale, "MBTI", "mbti_144", "mbti-personality-test-16-personality-types"],
+    [locale, "RIASEC", "riasec_60", "holland-career-interest-test-riasec"],
+    [locale, "RIASEC", "riasec_140", "holland-career-interest-test-riasec"],
+    [locale, "EQ_60", "eq_60", "eq-test-emotional-intelligence-assessment"],
+  ]))("preserves %s %s %s through lost-response recovery", async (locale, scaleCode, formCode, slug) => {
+    hoisted.pathname = `/${locale}/tests/${slug}/take`;
+    hoisted.search = `form=${formCode}`;
+    hoisted.startAttempt.mockResolvedValue({ ok: true, attempt_id: "matrix-original", scale_code: scaleCode, form_code: formCode });
+    hoisted.submitAttempt.mockRejectedValueOnce(new TypeError("Response lost"));
+    hoisted.fetchAttemptSubmission.mockResolvedValue({ ok: true, attempt_id: "matrix-original", submission: { state: "pending" } });
+    render(<QuizTakeClient slug={slug} testTitle="Synthetic assessment" scaleCode={scaleCode} formCode={formCode} estimatedMinutes={10} questionCount={2} />);
+    await answerCurrent("riasec-q1");
+    await answerCurrent("riasec-q2");
+    await waitFor(() => expect(hoisted.routerPush).toHaveBeenCalledWith(`/${locale}/result/matrix-original`));
+    expect(hoisted.startAttempt).toHaveBeenCalledTimes(1);
+    expect(hoisted.startAttempt).toHaveBeenCalledWith(expect.objectContaining({ scaleCode, formCode, locale: locale === "zh" ? "zh-CN" : "en" }));
+    expect(hoisted.submitAttempt).toHaveBeenCalledTimes(1);
+    expect(hoisted.fetchAttemptSubmission).toHaveBeenCalledWith(expect.objectContaining({ attemptId: "matrix-original" }));
+  });
+
   it("loads and submits RIASEC through shared QuizStore without losing riasec_140", async () => {
     renderClient("riasec_140");
 

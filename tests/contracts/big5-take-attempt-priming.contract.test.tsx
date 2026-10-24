@@ -31,6 +31,7 @@ const hoisted = vi.hoisted(() => {
     fetchBig5Questions: vi.fn(),
     startBig5Attempt: vi.fn(),
     submitBig5Attempt: vi.fn(),
+    recoverAcceptedSubmission: vi.fn(),
     recoverStaleAttemptSubmit: vi.fn(),
     trackEvent: vi.fn(),
     trackBig5Event: vi.fn(),
@@ -179,6 +180,8 @@ vi.mock("@/lib/auth/fmToken", () => ({
   setFmToken: () => undefined,
 }));
 
+vi.mock("@/lib/attempt/submissionRecovery", () => ({ recoverAcceptedSubmission: hoisted.recoverAcceptedSubmission }));
+
 vi.mock("@/lib/big5/api", () => ({
   fetchBig5Lookup: hoisted.fetchBig5Lookup,
   fetchBig5Questions: hoisted.fetchBig5Questions,
@@ -321,6 +324,7 @@ async function waitForFirstQuestion() {
 describe("Big Five take attempt priming", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    hoisted.recoverAcceptedSubmission.mockResolvedValue(false);
     window.localStorage.clear();
     useBig5AttemptStore.getState().resetAll();
     hoisted.pathname = "/en/tests/big-five-personality-test-ocean-model/take";
@@ -345,6 +349,21 @@ describe("Big Five take attempt priming", () => {
     hoisted.recoverStaleAttemptSubmit.mockResolvedValue({
       kind: "ignored",
     });
+  });
+
+  it.each(["en", "zh"].flatMap((locale) => ["big5_90", "big5_120"].map((form) => [locale, form])))("recovers %s %s without replacing the submitted attempt", async (locale, form) => {
+    hoisted.pathname = `/${locale}/tests/big-five-personality-test-ocean-model/take`;
+    hoisted.fetchBig5Questions.mockResolvedValue(buildQuestionResponse(1));
+    hoisted.submitBig5Attempt.mockRejectedValueOnce(new TypeError("Response lost"));
+    hoisted.recoverAcceptedSubmission.mockResolvedValueOnce(true);
+    renderClient(form);
+    await waitForFirstQuestion();
+    fireEvent.click(screen.getByRole("button", { name: "Answer current" }));
+    fireEvent.click(await screen.findByRole("button", { name: locale === "zh" ? "提交" : "Submit" }));
+    await waitFor(() => expect(hoisted.routerPush).toHaveBeenCalledWith(`/${locale}/result/attempt-big5-start-001`));
+    expect(hoisted.startBig5Attempt).toHaveBeenCalledTimes(1);
+    expect(hoisted.startBig5Attempt).toHaveBeenCalledWith(expect.objectContaining({ formCode: form, locale: locale === "zh" ? "zh-CN" : "en" }));
+    expect(hoisted.submitBig5Attempt).toHaveBeenCalledTimes(1);
   });
 
   it("passes validated public article source metadata only on the first real answer", async () => {

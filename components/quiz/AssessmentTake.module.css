@@ -135,16 +135,17 @@
 .footer > button::before { content: "‹"; margin-right: 8px; font-size: 22px; line-height: 1; }
 
 @media (max-width: 640px) {
-  .siteHeader { padding: 8px 20px; gap: 12px; }
+  .siteHeader { padding: 8px 20px; gap: 12px; flex-wrap: wrap; }
   .wordmark { font-size: 19px; }
   .exitLink { gap: 8px; font-size: 11px; }
   .siteFrame > main { display: block; padding: 20px 12px; }
   .siteFooter { width: calc(100% - 40px); padding: 4px 0; font-size: 10px; }
-  .siteFooter nav { gap: 16px; }
+  .siteFooter { flex-wrap: wrap; }
+  .siteFooter nav { gap: 16px; flex-wrap: wrap; }
   .layout { padding: 22px 20px 18px; border-radius: 24px; box-shadow: 0 8px 32px #20203408; }
-  .headerRow { align-items: flex-start; gap: 12px; }
+  .headerRow { align-items: flex-start; gap: 12px; flex-wrap: wrap; }
   .testName { max-width: 200px; font-size: 11px; line-height: 1.6; }
-  .time { max-width: 64px; white-space: normal; text-align: right; font-size: 10px; line-height: 1.6; }
+  .time { max-width: 100%; white-space: normal; text-align: left; overflow-wrap: anywhere; font-size: 10px; line-height: 1.6; }
   .progressMeta { margin-top: 16px; font-size: 14px; }
   .stage { padding-top: 24px; }
   .questionTitle { min-height: 104px; margin-bottom: 24px; font-size: 24px; line-height: 1.45; letter-spacing: -.035em; }

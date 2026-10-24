@@ -124,52 +124,55 @@ export function IqOptionBoard({
               const optionLabel = locale === "zh" ? `选项 ${letter}` : `Option ${letter}`;
 
               return (
-                <button
-                  key={`desktop-${option.code}`}
-                  type="button"
-                  role="radio"
-                  aria-checked={selected}
-                  aria-disabled={disabled}
-                  aria-label={optionLabel}
-                  disabled={disabled}
-                  data-state={selected ? "selected" : "idle"}
-                  data-layout="desktop"
-                  onClick={() => onChange(option.code)}
-                  onKeyDown={(event) => moveByArrow(idx, event)}
-                  className={cn(
-                    "group relative min-h-[170px] rounded-xl border p-3 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:cursor-not-allowed disabled:opacity-60",
-                    selected
-                      ? "border-[var(--fm-trust-blue)] bg-[var(--fm-surface-muted)] shadow-[var(--fm-shadow-md)]"
-                      : "border-[var(--fm-border)] bg-white hover:border-[var(--fm-border-strong)]"
-                  )}
-                >
-                  <span
+                <div key={`desktop-${option.code}`} className="relative min-h-[170px]">
+                  <button
+                    type="button"
+                    role="radio"
+                    aria-checked={selected}
+                    aria-disabled={disabled}
+                    aria-label={optionLabel}
+                    disabled={disabled}
+                    data-state={selected ? "selected" : "idle"}
+                    data-layout="desktop"
+                    onClick={() => onChange(option.code)}
+                    onKeyDown={(event) => moveByArrow(idx, event)}
                     className={cn(
-                      "absolute left-3 top-3 inline-flex h-7 min-w-[28px] items-center justify-center rounded-full border px-2 text-xs font-semibold",
+                      "group absolute inset-0 h-full w-full min-h-[170px] rounded-xl border p-3 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:cursor-not-allowed disabled:opacity-60",
                       selected
-                        ? "border-[var(--fm-trust-blue)] bg-[var(--fm-trust-blue)] text-white"
-                        : "border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] text-[var(--fm-text)]"
+                        ? "border-[var(--fm-trust-blue)] bg-[var(--fm-surface-muted)] shadow-[var(--fm-shadow-md)]"
+                        : "border-[var(--fm-border)] bg-white hover:border-[var(--fm-border-strong)]"
                     )}
                   >
-                    {letter}
-                  </span>
-
-                  <div className="flex h-full flex-col gap-2 pt-8">
-                    <span className="flex min-h-[108px] items-center justify-center overflow-hidden rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-2">
-                      {option.svg || option.image ? (
-                        <IqGraphic
-                          svg={option.svg}
-                          image={option.image}
-                          className="h-full w-full object-contain"
-                          ariaLabel={option.image?.alt ?? optionLabel}
-                        />
-                      ) : (
-                        <span className="text-sm font-medium text-[var(--fm-text-muted)]">{optionLabel}</span>
+                    <span
+                      className={cn(
+                        "absolute left-3 top-3 inline-flex h-7 min-w-[28px] items-center justify-center rounded-full border px-2 text-xs font-semibold",
+                        selected
+                          ? "border-[var(--fm-trust-blue)] bg-[var(--fm-trust-blue)] text-white"
+                          : "border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] text-[var(--fm-text)]"
                       )}
+                    >
+                      {letter}
                     </span>
+                  </button>
+                  <div className="pointer-events-none relative h-full p-3">
 
+                    <div className="flex h-full flex-col gap-2 pt-8">
+                      <span className="flex min-h-[108px] items-center justify-center overflow-hidden rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-2">
+                        {option.svg || option.image ? (
+                          <IqGraphic
+                            svg={option.svg}
+                            image={option.image}
+                            className="h-full w-full object-contain"
+                            ariaLabel={option.image?.alt ?? optionLabel}
+                          />
+                        ) : (
+                          <span className="text-sm font-medium text-[var(--fm-text-muted)]">{optionLabel}</span>
+                        )}
+                      </span>
+
+                    </div>
                   </div>
-                </button>
+                </div>
               );
             })}
           </div>
@@ -192,52 +195,55 @@ export function IqOptionBoard({
             const optionLabel = locale === "zh" ? `选项 ${letter}` : `Option ${letter}`;
 
             return (
-              <button
-                key={`mobile-${option.code}`}
-                type="button"
-                role="radio"
-                aria-checked={selected}
-                aria-disabled={disabled}
-                aria-label={optionLabel}
-                disabled={disabled}
-                data-state={selected ? "selected" : "idle"}
-                data-layout="mobile"
-                onClick={() => onChange(option.code)}
-                onKeyDown={(event) => moveByArrow(idx, event)}
-                className={cn(
-                  "flex min-h-[128px] w-full flex-col items-start gap-3 rounded-xl border p-3 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:cursor-not-allowed disabled:opacity-60",
-                  selected
-                    ? "border-[var(--fm-trust-blue)] bg-[var(--fm-surface-muted)] shadow-[var(--fm-shadow-sm)]"
-                    : "border-[var(--fm-border)] bg-white"
-                )}
-              >
-                <div className="flex min-w-0 w-full flex-col items-start gap-3">
+              <div key={`mobile-${option.code}`} className="relative min-h-[128px]">
+                <button
+                  type="button"
+                  role="radio"
+                  aria-checked={selected}
+                  aria-disabled={disabled}
+                  aria-label={optionLabel}
+                  disabled={disabled}
+                  data-state={selected ? "selected" : "idle"}
+                  data-layout="mobile"
+                  onClick={() => onChange(option.code)}
+                  onKeyDown={(event) => moveByArrow(idx, event)}
+                  className={cn(
+                    "absolute inset-0 h-full flex min-h-[128px] w-full flex-col items-start gap-3 rounded-xl border p-3 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:cursor-not-allowed disabled:opacity-60",
+                    selected
+                      ? "border-[var(--fm-trust-blue)] bg-[var(--fm-surface-muted)] shadow-[var(--fm-shadow-sm)]"
+                      : "border-[var(--fm-border)] bg-white"
+                  )}
+                >
                   <span
-                    className={cn(
-                      "inline-flex h-8 min-w-[32px] shrink-0 items-center justify-center rounded-full border px-2 text-sm font-semibold",
-                      selected
-                        ? "border-[var(--fm-trust-blue)] bg-[var(--fm-trust-blue)] text-white"
-                        : "border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] text-[var(--fm-text)]"
-                    )}
-                  >
-                    {letter}
+                      className={cn(
+                        "absolute left-3 top-3 inline-flex h-8 min-w-[32px] shrink-0 items-center justify-center rounded-full border px-2 text-sm font-semibold",
+                        selected
+                          ? "border-[var(--fm-trust-blue)] bg-[var(--fm-trust-blue)] text-white"
+                          : "border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] text-[var(--fm-text)]"
+                      )}
+                    >
+                      {letter}
                   </span>
+                </button>
+                <div className="pointer-events-none relative h-full p-3 pt-14">
+                  <div className="flex min-w-0 w-full flex-col items-start gap-3">
 
-                  <span className="flex aspect-[16/9] min-w-0 w-full max-w-[156px] items-center justify-center overflow-hidden rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-2">
-                    {option.svg || option.image ? (
-                      <IqGraphic
-                        svg={option.svg}
-                        image={option.image}
-                        className="h-full w-full object-contain"
-                        ariaLabel={option.image?.alt ?? optionLabel}
-                      />
-                    ) : (
-                      <span className="text-xs font-medium text-[var(--fm-text-muted)]">{optionLabel}</span>
-                    )}
-                  </span>
+                    <span className="flex aspect-[16/9] min-w-0 w-full max-w-[156px] items-center justify-center overflow-hidden rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-2">
+                      {option.svg || option.image ? (
+                        <IqGraphic
+                          svg={option.svg}
+                          image={option.image}
+                          className="h-full w-full object-contain"
+                          ariaLabel={option.image?.alt ?? optionLabel}
+                        />
+                      ) : (
+                        <span className="text-xs font-medium text-[var(--fm-text-muted)]">{optionLabel}</span>
+                      )}
+                    </span>
+                  </div>
+
                 </div>
-
-              </button>
+              </div>
             );
           })}
         </div>

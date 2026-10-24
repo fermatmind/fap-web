@@ -1,5 +1,6 @@
 import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { IqOptionBoard } from "@/components/quiz/iq/IqOptionBoard";
 import { IqImageGraphic } from "@/components/quiz/iq/IqStemSvg";
 import { IqImageCacheProvider } from "@/components/quiz/iq/IqImageCache";
 import { createIqImageCache, fetchIqImageBlob } from "@/lib/iq/imageAsset";
@@ -23,6 +24,7 @@ function imageResponse() {
 describe("attempt-bound IQ image delivery", () => {
   afterEach(() => { vi.restoreAllMocks(); Reflect.deleteProperty(HTMLImageElement.prototype, "decode"); });
   beforeEach(() => {
+    window.history.replaceState({}, "", "/en/tests/iq-test-intelligence-quotient-assessment/take");
     setFmToken(token);
     refresh.mockReset();
     vi.stubGlobal("fetch", vi.fn().mockImplementation(async () => imageResponse()));
@@ -35,13 +37,12 @@ describe("attempt-bound IQ image delivery", () => {
       const n = index + 1;
       return [imageUrl(n), ..."abcdef".split("").map((code) => imageUrl(n, `q${n}-option-${code}.webp`))];
     }).flat();
-    for (const src of assets) {
-      const view = render(<IqImageGraphic image={{ src, alt: "IQ fixture" }} />);
-      // The protected URL must never be assigned directly to an img.
-      expect(screen.queryByRole("img")).toBeNull();
-      await waitFor(() => expect(screen.getByRole("img")).toHaveAttribute("src", "blob:iq-fixture"));
-      view.unmount();
-    }
+    const view = render(<>{assets.map((src) => <IqImageGraphic key={src} image={{ src, alt: "IQ fixture" }} />)}</>);
+    // No protected source may be assigned to an img before its authenticated blob is ready.
+    expect(screen.queryAllByRole("img")).toHaveLength(0);
+    await waitFor(() => expect(screen.getAllByRole("img")).toHaveLength(210));
+    for (const image of screen.getAllByRole("img")) expect(image).toHaveAttribute("src", "blob:iq-fixture");
+    view.unmount();
     expect(fetch).toHaveBeenCalledTimes(210);
     for (const [url, init] of vi.mocked(fetch).mock.calls) {
       expect(assets).toContain(url);
@@ -90,6 +91,39 @@ describe("attempt-bound IQ image delivery", () => {
       view.unmount();
     }
     expect(refresh).not.toHaveBeenCalled();
+  });
+
+  it("retries only the failed image without reloading the question or attempt", async () => {
+    vi.mocked(fetch).mockResolvedValueOnce(new Response(null, { status: 503 }));
+    const view = render(<IqImageCacheProvider><IqImageGraphic image={{ src: imageUrl(1), alt: "Failed stem" }} /></IqImageCacheProvider>);
+    fireEvent.click(await screen.findByRole("button", { name: "Retry image: Failed stem" }));
+    await screen.findByRole("img", { name: "Failed stem" });
+    expect(fetch).toHaveBeenCalledTimes(2);
+    expect(vi.mocked(fetch).mock.calls.map(([url]) => url)).toEqual([imageUrl(1), imageUrl(1)]);
+    view.unmount();
+  });
+
+  it("retries an image render error with a fresh blob instead of the failed cached URL", async () => {
+    const view = render(<IqImageCacheProvider><IqImageGraphic image={{ src: imageUrl(1), alt: "Rendered stem" }} /></IqImageCacheProvider>);
+    fireEvent.error(await screen.findByRole("img"));
+    fireEvent.click(await screen.findByRole("button", { name: "Retry image: Rendered stem" }));
+    await screen.findByRole("img", { name: "Rendered stem" });
+    expect(fetch).toHaveBeenCalledTimes(2);
+    view.unmount();
+  });
+
+  it.each(["desktop", "mobile"] as const)("keeps %s image retry separate from choosing an answer", async (layoutMode) => {
+    vi.mocked(fetch).mockResolvedValueOnce(new Response(null, { status: 503 }));
+    const onChange = vi.fn();
+    const view = render(<IqImageCacheProvider><IqOptionBoard questionId="fixture-q1" layoutMode={layoutMode} locale="en" noOptionsLabel="Unavailable" options={[{ code: "A", image: { src: imageUrl(1), alt: "Fixture option A" } }]} onChange={onChange} /></IqImageCacheProvider>);
+    const retry = await screen.findByRole("button", { name: "Retry image: Fixture option A" });
+    expect(retry.closest('[role="radio"]')).toBeNull();
+    fireEvent.click(retry);
+    expect(onChange).not.toHaveBeenCalled();
+    await screen.findByRole("img", { name: "Fixture option A" });
+    fireEvent.click(screen.getByRole("radio", { name: "Option A" }));
+    expect(onChange).toHaveBeenCalledExactlyOnceWith("A");
+    view.unmount();
   });
 
   it("cancels obsolete question requests and never displays a late response", async () => {

@@ -49,6 +49,7 @@ import { classifyApiError } from "@/lib/observability/httpError";
 import { useConstrainQuizUrlTokens } from "@/lib/quiz/urlTokenGuard";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
+import { recoverAcceptedSubmission } from "@/lib/attempt/submissionRecovery";
 import { buildTestKpiMetadata, buildTestKpiTrackingPayload } from "@/lib/tracking/testKpiMetadata";
 import { buildPublicArticleStartMeta } from "@/lib/tracking/publicArticleStartMeta";
 import {
@@ -135,7 +136,6 @@ export default function Big5TakeClient({
   const [milestoneHint, setMilestoneHint] = useState<string | null>(null);
   const [seenMilestones, setSeenMilestones] = useState<number[]>([]);
   const [submitOverlayVisible, setSubmitOverlayVisible] = useState(false);
-  const [submitOverlayPhase, setSubmitOverlayPhase] = useState(0);
   const mountedRef = useRef(true);
   const takeFlowRef = useRef(createTakeFlowController());
   const latestAnswersRef = useRef<Record<string, string>>(answers);
@@ -889,7 +889,7 @@ export default function Big5TakeClient({
     if (firstMissingIndex >= 0) {
       if (isFlowActive(activeRunId)) {
         setCurrentIndex(firstMissingIndex);
-        setSubmitError(`Please answer question ${firstMissingIndex + 1} before submitting.`);
+        setSubmitError(locale === "zh" ? `请先完成第 ${firstMissingIndex + 1} 题再提交。` : `Please answer question ${firstMissingIndex + 1} before submitting.`);
         setSubmitErrorAction("fill_missing");
       }
       submitInFlightRef.current = false;
@@ -914,6 +914,9 @@ export default function Big5TakeClient({
       }
       return resultAttemptId;
     } catch (error) {
+      const accepted = await recoverAcceptedSubmission({ error, attemptId: activeAttemptId, anonId: anonId || undefined });
+      if (!isFlowActive(activeRunId)) return null;
+      if (accepted) return activeAttemptId;
       recoveringAttemptRef.current = true;
       const recovery = await recoverStaleAttemptSubmit({
         error,
@@ -1005,6 +1008,7 @@ export default function Big5TakeClient({
       submitInFlightRef.current = false;
     }
   }, [
+    anonId,
     applyUiError,
     buildAnswersSnapshot,
     buildEventPayload,
@@ -1035,53 +1039,18 @@ export default function Big5TakeClient({
     [cancelPendingSubmitSideEffects, resetAfterSubmit, router, withLocale]
   );
 
-  const startSubmitOverlayPhases = useCallback((runId: number) => {
-    setSubmitOverlayPhase(0);
-
-    trackEvent("ui_report_loading_phase", buildTestKpiTrackingPayload(testKpiMetadata, {
-      phase: "saving",
-      locked: true,
-      variant: "free",
-    }));
-
-    takeFlowRef.current.schedule(() => {
-      setSubmitOverlayPhase(1);
-      trackEvent("ui_report_loading_phase", buildTestKpiTrackingPayload(testKpiMetadata, {
-        phase: "analyzing",
-        locked: true,
-        variant: "free",
-      }));
-    }, 800, runId);
-
-    takeFlowRef.current.schedule(() => {
-      setSubmitOverlayPhase(2);
-      trackEvent("ui_report_loading_phase", buildTestKpiTrackingPayload(testKpiMetadata, {
-        phase: "generating",
-        locked: true,
-        variant: "free",
-      }));
-    }, 1500, runId);
-  }, [testKpiMetadata]);
-
   const handleSubmitWithOverlay = useCallback(async (pendingSelection?: LastSelectionContext): Promise<void> => {
     if (submitOverlayVisible || submitting) return;
     const runId = takeFlowRef.current.beginRun();
     setSubmitOverlayVisible(true);
-    startSubmitOverlayPhases(runId);
 
     const resultAttemptId = await handleSubmit(pendingSelection, runId);
     if (!isFlowActive(runId)) {
       return;
     }
 
-    const delayFinished = await takeFlowRef.current.wait(2200, runId);
-    if (!delayFinished || !isFlowActive(runId)) {
-      return;
-    }
-
     if (!resultAttemptId) {
       setSubmitOverlayVisible(false);
-      setSubmitOverlayPhase(0);
       return;
     }
 
@@ -1090,7 +1059,6 @@ export default function Big5TakeClient({
     finalizeSuccessfulSubmit,
     handleSubmit,
     isFlowActive,
-    startSubmitOverlayPhases,
     submitOverlayVisible,
     submitting,
   ]);
@@ -1241,6 +1209,7 @@ export default function Big5TakeClient({
             ) : null}
 
             <V2LikertScale
+          disabled={submitting || submitOverlayVisible}
               appearance="cards"
               positiveEnd="last"
               labelledBy={`assessment-question-${currentQuestion.question_id}`}
@@ -1267,7 +1236,7 @@ export default function Big5TakeClient({
         <SubmitPhaseOverlay
           visible={submitOverlayVisible}
           phases={dict.quiz.immersive.submitPhases}
-          phaseIndex={submitOverlayPhase}
+          phaseIndex={0}
         />
       </>
     );
@@ -1301,6 +1270,7 @@ export default function Big5TakeClient({
         <h2 className="m-0 text-2xl font-semibold leading-9 text-[var(--fm-text)]">{currentQuestion.text}</h2>
 
         <V2LikertScale
+          disabled={submitting || submitOverlayVisible}
           questionId={currentQuestion.question_id}
           options={currentQuestion.options}
           value={answers[currentQuestion.question_id]}
@@ -1374,7 +1344,7 @@ export default function Big5TakeClient({
       <SubmitPhaseOverlay
         visible={submitOverlayVisible}
         phases={dict.quiz.immersive.submitPhases}
-        phaseIndex={submitOverlayPhase}
+        phaseIndex={0}
       />
     </QuizShell>
   );

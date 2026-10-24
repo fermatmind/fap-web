@@ -36,6 +36,7 @@ import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
+import { recoverAcceptedSubmission } from "@/lib/attempt/submissionRecovery";
 import { readStoredTrackingAttributionPayload } from "@/lib/tracking/attribution";
 import { buildSeoAttemptStartAttributionFromSearchParams } from "@/lib/tracking/seoCtaAttribution";
 import { buildTestKpiMetadata, buildTestKpiTrackingPayload } from "@/lib/tracking/testKpiMetadata";
@@ -104,12 +105,14 @@ function normalizeEnneagramQuestions(
 
 function ForcedChoicePairGroup({
   focused = false,
+  disabled = false,
   questionId,
   options,
   value,
   onChange,
 }: {
   focused?: boolean;
+  disabled?: boolean;
   questionId: string;
   options: EnneagramOption[];
   value?: string;
@@ -118,6 +121,7 @@ function ForcedChoicePairGroup({
   const normalized = options.slice(0, 2);
 
   const moveByArrow = (index: number, event: KeyboardEvent<HTMLButtonElement>) => {
+    if (disabled) return;
     if (event.key !== "ArrowLeft" && event.key !== "ArrowRight" && event.key !== "ArrowUp" && event.key !== "ArrowDown") {
       return;
     }
@@ -143,6 +147,7 @@ function ForcedChoicePairGroup({
             role="radio"
             aria-checked={selected}
             aria-label={option.text}
+            disabled={disabled}
             onClick={() => onChange(option.code)}
             onKeyDown={(event) => moveByArrow(index, event)}
             className={focused ? takeStyles.pairOption : cn(
@@ -265,7 +270,6 @@ function EnneagramTakeInner({
   const [staleDraftError, setStaleDraftError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [submitOverlayVisible, setSubmitOverlayVisible] = useState(false);
-  const [submitOverlayPhase, setSubmitOverlayPhase] = useState(0);
   const mountedRef = useRef(true);
   const takeFlowRef = useRef(createTakeFlowController());
   const latestAnswersRef = useRef<Record<string, string>>(answers);
@@ -293,6 +297,7 @@ function EnneagramTakeInner({
     answeredCount,
     totalQuestions: total,
     attemptId,
+    attemptStarting: Boolean(ensureAttemptPromiseRef.current),
   });
 
   const isFlowActive = useCallback((runId?: number) => (
@@ -335,7 +340,9 @@ function EnneagramTakeInner({
   }, [anonId, locale]);
 
   useEffect(() => {
-    const takeFlow = takeFlowRef.current;
+    mountedRef.current = true;
+    const takeFlow = createTakeFlowController();
+    takeFlowRef.current = takeFlow;
     return () => {
       mountedRef.current = false;
       takeFlow.dispose();
@@ -410,7 +417,6 @@ function EnneagramTakeInner({
       clearAttemptMeta();
       cancelPendingSubmitSideEffects();
       setSubmitOverlayVisible(false);
-      setSubmitOverlayPhase(0);
       setSubmitting(false);
       setSubmitError(null);
       setAttemptError(null);
@@ -524,11 +530,11 @@ function EnneagramTakeInner({
 
   const handleAnswerSelection = useCallback((questionId: string, code: string) => {
     const shouldPrimeAttempt = !attemptId && !matchesSavedAttempt && Object.keys(latestAnswersRef.current).length === 0;
-    setAnswer(questionId, code);
-
+    // Establish the pending start before the synchronous draft store update.
     if (shouldPrimeAttempt) {
       void ensureAttempt();
     }
+    setAnswer(questionId, code);
   }, [attemptId, ensureAttempt, matchesSavedAttempt, setAnswer]);
 
   const submitAttemptWithId = useCallback(async (
@@ -598,9 +604,9 @@ function EnneagramTakeInner({
       setAttemptError(null);
       return resultAttemptId;
     } catch (error) {
-      if (!isFlowActive(activeRunId)) {
-        return null;
-      }
+      const accepted = await recoverAcceptedSubmission({ error, attemptId: activeAttemptId, anonId: anonId || undefined });
+      if (!isFlowActive(activeRunId)) return null;
+      if (accepted) return activeAttemptId;
       setSubmitError(
         error instanceof Error && error.message
           ? error.message
@@ -624,6 +630,7 @@ function EnneagramTakeInner({
       submitInFlightRef.current = false;
     }
   }, [
+    anonId,
     buildAnswersSnapshot,
     ensureAttempt,
     isFlowActive,
@@ -642,31 +649,18 @@ function EnneagramTakeInner({
     router.push(withLocale(`/result/${resultAttemptId}`));
   }, [cancelPendingSubmitSideEffects, resetAttempt, router, withLocale]);
 
-  const startSubmitOverlayPhases = useCallback((runId: number) => {
-    setSubmitOverlayPhase(0);
-    takeFlowRef.current.schedule(() => setSubmitOverlayPhase(1), 700, runId);
-    takeFlowRef.current.schedule(() => setSubmitOverlayPhase(2), 1400, runId);
-  }, []);
-
   const handleSubmitWithOverlay = useCallback(async (pendingSelection?: LastSelectionContext): Promise<void> => {
     if (submitOverlayVisible || submitting) return;
     const runId = takeFlowRef.current.beginRun();
     setSubmitOverlayVisible(true);
-    startSubmitOverlayPhases(runId);
 
     const resultAttemptId = await handleSubmit(pendingSelection, runId);
     if (!isFlowActive(runId)) {
       return;
     }
 
-    const delayFinished = await takeFlowRef.current.wait(1800, runId);
-    if (!delayFinished || !isFlowActive(runId)) {
-      return;
-    }
-
     if (!resultAttemptId) {
       setSubmitOverlayVisible(false);
-      setSubmitOverlayPhase(0);
       return;
     }
 
@@ -675,7 +669,6 @@ function EnneagramTakeInner({
     finalizeSuccessfulSubmit,
     handleSubmit,
     isFlowActive,
-    startSubmitOverlayPhases,
     submitOverlayVisible,
     submitting,
   ]);
@@ -760,6 +753,7 @@ function EnneagramTakeInner({
 
   const optionNode = forcedChoice ? (
     <ForcedChoicePairGroup
+      disabled={submitting || submitOverlayVisible}
       focused={immersiveEnabled}
       questionId={question.question_id}
       options={questionOptions}
@@ -776,6 +770,7 @@ function EnneagramTakeInner({
   ) : (
     <div data-testid="enneagram-likert-options">
       <V2LikertScale
+        disabled={submitting || submitOverlayVisible}
         appearance={immersiveEnabled ? "cards" : "default"}
         positiveEnd="last"
         labelledBy={immersiveEnabled && shouldRenderQuestionTitle ? `assessment-question-${question.question_id}` : undefined}
@@ -793,6 +788,7 @@ function EnneagramTakeInner({
       />
       {questionOptions.length !== 5 ? (
         <AdaptiveOptionGroup
+          disabled={submitting || submitOverlayVisible}
           questionId={question.question_id}
           options={questionOptions}
           value={selectedOptionId}
@@ -876,7 +872,7 @@ function EnneagramTakeInner({
         <SubmitPhaseOverlay
           visible={submitOverlayVisible}
           phases={dict.quiz.immersive.submitPhases}
-          phaseIndex={submitOverlayPhase}
+          phaseIndex={0}
         />
       </>
     );
@@ -932,7 +928,7 @@ function EnneagramTakeInner({
       <SubmitPhaseOverlay
         visible={submitOverlayVisible}
         phases={dict.quiz.immersive.submitPhases}
-        phaseIndex={submitOverlayPhase}
+        phaseIndex={0}
       />
     </QuizShell>
   );

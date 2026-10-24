@@ -28,7 +28,6 @@ import {
 } from "@/lib/auth/fmToken";
 import {
   fetchScaleQuestions,
-  fetchAttemptSubmission,
   startAttempt,
   submitAttempt,
   type AttemptAttributionPayload,
@@ -59,6 +58,7 @@ import {
   buildRiasecSubmitAttemptTrackingPayload,
 } from "@/lib/riasec/tracking";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
+import { recoverAcceptedSubmission } from "@/lib/attempt/submissionRecovery";
 import {
   buildTrackingAttributionPayload,
   extractAttributionParamsFromSearchParams,
@@ -378,12 +378,16 @@ export default function QuizTakeClient({
   questionCount?: number;
 }) {
   const [questions, setQuestions] = useState<TakeQuestion[]>([]);
-  const questionIds = useMemo(() => questions.flatMap((question) => (question ? [question.id] : [])), [questions]);
   const anonId = useMemo(() => getOrCreateAnonId(), []);
   const resolvedFormCode = useMemo(
     () => resolveTestKpiFormCode({ scaleCode, formCode }),
     [formCode, scaleCode]
   );
+  // Incremental IQ delivery is not a complete question inventory. Filtering a
+  // persisted draft against that subset would erase earlier answers and progress.
+  const questionIds = useMemo(() => resolvedFormCode === IQ_OWNER_ORIGINAL_30_BANK_ID
+    ? []
+    : questions.flatMap((question) => question ? [question.id] : []), [questions, resolvedFormCode]);
   return (
     <QuizStoreProvider
       slug={slug}
@@ -456,6 +460,7 @@ function QuizTakeInner({
   const resetAttempt = useQuizStore((store) => store.resetAttempt);
 
   const [questionsLoading, setQuestionsLoading] = useState(true);
+  const [draftReady, setDraftReady] = useState(false);
   const [authBlockError, setAuthBlockError] = useState<string | null>(null);
   const [questionsError, setQuestionsError] = useState<string | null>(null);
   const [attemptError, setAttemptError] = useState<string | null>(null);
@@ -464,13 +469,13 @@ function QuizTakeInner({
   const [retryAfterSeconds, setRetryAfterSeconds] = useState<number | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [submitOverlayVisible, setSubmitOverlayVisible] = useState(false);
-  const [submitOverlayPhase, setSubmitOverlayPhase] = useState(0);
   const mountedRef = useRef(true);
   const takeFlowRef = useRef(createTakeFlowController());
   const latestAnswersRef = useRef<Record<string, string>>(answers);
   const ensureAttemptPromiseRef = useRef<Promise<string | null> | null>(null);
   const submitInFlightRef = useRef(false);
   const ownerDeliveryAttemptIdRef = useRef<string | null>(null);
+  const ownerStartPromiseRef = useRef<ReturnType<typeof startIqAttempt> | null>(null);
   const ownerQuestionRequestsRef = useRef(new Map<string, ReturnType<typeof getIqAttemptQuestion>>());
   const ownerNavigationLockRef = useRef(false);
   const [ownerNavigationPending, setOwnerNavigationPending] = useState(false);
@@ -688,6 +693,9 @@ function QuizTakeInner({
     let active = true;
 
     const run = async () => {
+      // Hydration first exposes the server snapshot. Wait for the client draft
+      // before deciding whether this IQ session needs a new server attempt.
+      if (!draftReady) return;
       if (authBlockError) {
         setQuestionsLoading(false);
         return;
@@ -713,6 +721,7 @@ function QuizTakeInner({
           if (forceNewAttemptRequested && !forceNewAttemptAppliedRef.current) {
             forceNewAttemptAppliedRef.current = true;
             ownerDeliveryAttemptIdRef.current = null;
+            ownerStartPromiseRef.current = null;
             clearAttemptMeta();
           }
 
@@ -720,7 +729,7 @@ function QuizTakeInner({
 
           if (!activeAttemptId) {
             const attemptStartedAt = Date.now();
-            const startResponse = await startIqAttempt({
+            const startResponse = await (ownerStartPromiseRef.current ??= startIqAttempt({
               scale_code: IQ_CANONICAL_SCALE_CODE,
               anon_id: anonId,
               locale,
@@ -742,7 +751,10 @@ function QuizTakeInner({
               entrypoint: attribution.entrypoint,
               landing_path: attribution.landing_path,
               utm: attribution.utm,
-            });
+            }).catch((error: unknown) => {
+              ownerStartPromiseRef.current = null;
+              throw error;
+            }));
 
             if (!active) return;
 
@@ -904,6 +916,7 @@ function QuizTakeInner({
     ownerCurrentQuestionLoaded,
     questions.length,
     requestOwnerQuestion,
+    draftReady,
     runWithAuthRetry,
     setAttemptMeta,
     setQuestions,
@@ -1039,6 +1052,7 @@ function QuizTakeInner({
     if (forceNewAttemptRequested && !forceNewAttemptAppliedRef.current) {
       forceNewAttemptAppliedRef.current = true;
       ownerDeliveryAttemptIdRef.current = null;
+      ownerStartPromiseRef.current = null;
       clearAttemptMeta();
       return startFreshAttempt(runId);
     }
@@ -1120,6 +1134,7 @@ function QuizTakeInner({
   useEffect(() => {
     const takeFlow = takeFlowRef.current;
     mountedRef.current = true;
+    setDraftReady(true);
     return () => {
       mountedRef.current = false;
       // Cancel this mount's callbacks without permanently disposing the shared
@@ -1208,7 +1223,6 @@ function QuizTakeInner({
       clearAttemptMeta();
       cancelPendingSubmitSideEffects();
       setSubmitOverlayVisible(false);
-      setSubmitOverlayPhase(0);
       setSubmitting(false);
       setSubmitError(null);
       setAttemptError(null);
@@ -1244,6 +1258,7 @@ function QuizTakeInner({
     activeAttemptId: string,
     answersSnapshot: Record<string, string>,
     runId?: number,
+    questionSnapshot: TakeQuestion[] = questions,
   ): Promise<string> => {
     const durationMs = Math.max(1000, Date.now() - startedAt);
 
@@ -1252,7 +1267,7 @@ function QuizTakeInner({
           attempt_id: activeAttemptId,
           anon_id: anonId,
           answers: buildIqSubmitAnswers({
-            questions,
+            questions: questionSnapshot,
             answersByQuestionId: answersSnapshot,
           }),
           duration_ms: durationMs,
@@ -1268,7 +1283,7 @@ function QuizTakeInner({
       : await runWithAuthRetry("submit_attempt", () =>
           submitAttempt({
             attemptId: activeAttemptId,
-            answers: questions.map((item, index) => ({
+            answers: questionSnapshot.map((item, index) => ({
               question_id: item.id,
               code: answersSnapshot[item.id] ?? "",
               ...(isRiasecScale ? { question_index: index } : {}),
@@ -1343,19 +1358,33 @@ function QuizTakeInner({
     }
 
     const answersSnapshot = buildAnswersSnapshot(pendingSelection);
+    const questionSnapshot = questions.slice();
     if (isOwnerOriginalIq) {
-      const firstUndeliveredIndex = Array.from({ length: total }).findIndex((_, index) => !questions[index]);
-      if (firstUndeliveredIndex >= 0) {
+      try {
+        for (let index = 0; index < total; index += 1) {
+          if (questionSnapshot[index]) continue;
+          const response = await requestOwnerQuestion(activeAttemptId, index);
+          if (!isFlowActive(activeRunId)) {
+            submitInFlightRef.current = false;
+            return null;
+          }
+          const delivered = normalizeIqQuestionsForTake({ items: response.questions.items, locale })[0];
+          if (!delivered) throw new Error(resolveUnsupportedQuestionCopy(locale));
+          questionSnapshot[index] = delivered;
+        }
+        setQuestions(questionSnapshot);
+      } catch (error) {
         if (isFlowActive(activeRunId)) {
-          setSubmitError("Please load every IQ question before submitting.");
-          jump(firstUndeliveredIndex, total);
+          setSubmitError(toUiError(error, locale === "zh"
+            ? "题目恢复失败，请重试提交。"
+            : "Could not restore question details. Retry submission.", locale).message);
         }
         submitInFlightRef.current = false;
         return null;
       }
     }
 
-    const payloadAnswers = questions.map((item) => ({
+    const payloadAnswers = questionSnapshot.map((item) => ({
       question_id: item.id,
       code: answersSnapshot[item.id] ?? "",
     }));
@@ -1363,7 +1392,7 @@ function QuizTakeInner({
     const firstMissingIndex = payloadAnswers.findIndex((item) => !item.code);
     if (firstMissingIndex >= 0) {
       if (isFlowActive(activeRunId)) {
-        setSubmitError("Please answer every question before submitting.");
+        setSubmitError(locale === "zh" ? "请先完成所有题目再提交。" : "Please answer every question before submitting.");
         jump(firstMissingIndex, total);
       }
       submitInFlightRef.current = false;
@@ -1380,7 +1409,7 @@ function QuizTakeInner({
     setStaleDraftError(null);
 
     try {
-      const resultAttemptId = await submitAttemptWithId(activeAttemptId, answersSnapshot, activeRunId);
+      const resultAttemptId = await submitAttemptWithId(activeAttemptId, answersSnapshot, activeRunId, questionSnapshot);
       if (!isFlowActive(activeRunId) || !resultAttemptId) {
         return null;
       }
@@ -1388,24 +1417,12 @@ function QuizTakeInner({
       setRetryAfterSeconds(null);
       return resultAttemptId;
     } catch (error) {
-      if (isRiasecScale && error instanceof ApiError && (
-        error.errorCode === "REQUEST_TIMEOUT"
-        || error.errorCode === "SUBMISSION_DURABILITY_NOT_CONFIRMED"
-      )) {
-        try {
-          const submission = await fetchAttemptSubmission({ attemptId: activeAttemptId, anonId });
-          if (!isFlowActive(activeRunId)) {
-            return null;
-          }
-          const state = submission.submission?.state?.toLowerCase();
-          if (submission.ok && (state === "pending" || state === "running" || state === "succeeded")) {
-            setAttemptError(null);
-            setRetryAfterSeconds(null);
-            return activeAttemptId;
-          }
-        } catch {
-          // Keep the original submit error visible when readback is unavailable.
-        }
+      const accepted = await recoverAcceptedSubmission({ error, attemptId: activeAttemptId, anonId });
+      if (!isFlowActive(activeRunId)) return null;
+      if (accepted) {
+        setAttemptError(null);
+        setRetryAfterSeconds(null);
+        return activeAttemptId;
       }
       recoveringAttemptRef.current = true;
       const recovery = await recoverStaleAttemptSubmit({
@@ -1416,7 +1433,7 @@ function QuizTakeInner({
           setAttemptError(null);
         },
         startFreshAttempt: () => startFreshAttempt(activeRunId),
-        submitFreshAttempt: (nextAttemptId) => submitAttemptWithId(nextAttemptId, answersSnapshot, activeRunId),
+        submitFreshAttempt: (nextAttemptId) => submitAttemptWithId(nextAttemptId, answersSnapshot, activeRunId, questionSnapshot),
       });
       if (!isFlowActive(activeRunId)) {
         return null;
@@ -1475,53 +1492,18 @@ function QuizTakeInner({
     );
   };
 
-  const startSubmitOverlayPhases = (runId: number) => {
-    setSubmitOverlayPhase(0);
-
-    trackEvent("ui_report_loading_phase", buildTestKpiTrackingPayload(testKpiMetadata, {
-      phase: "saving",
-      locked: true,
-      variant: "free",
-    }));
-
-    takeFlowRef.current.schedule(() => {
-      setSubmitOverlayPhase(1);
-      trackEvent("ui_report_loading_phase", buildTestKpiTrackingPayload(testKpiMetadata, {
-        phase: "analyzing",
-        locked: true,
-        variant: "free",
-      }));
-    }, 800, runId);
-
-    takeFlowRef.current.schedule(() => {
-      setSubmitOverlayPhase(2);
-      trackEvent("ui_report_loading_phase", buildTestKpiTrackingPayload(testKpiMetadata, {
-        phase: "generating",
-        locked: true,
-        variant: "free",
-      }));
-    }, 1500, runId);
-  };
-
   const handleSubmitWithOverlay = async (pendingSelection?: LastSelectionContext) => {
     if (submitOverlayVisible || submitting) return;
     const runId = takeFlowRef.current.beginRun();
     setSubmitOverlayVisible(true);
-    startSubmitOverlayPhases(runId);
 
     const resultAttemptId = await handleSubmit(pendingSelection, runId);
     if (!isFlowActive(runId)) {
       return;
     }
 
-    const delayFinished = await takeFlowRef.current.wait(2200, runId);
-    if (!delayFinished || !isFlowActive(runId)) {
-      return;
-    }
-
     if (!resultAttemptId) {
       setSubmitOverlayVisible(false);
-      setSubmitOverlayPhase(0);
       return;
     }
 
@@ -1790,7 +1772,7 @@ function QuizTakeInner({
                   text: option.text,
                 }))}
                 value={selectedOptionId}
-                disabled={isMbtiScaleCode(normalizedScaleCode) && isTransitioning}
+                disabled={submitting || submitOverlayVisible || (isMbtiScaleCode(normalizedScaleCode) && isTransitioning)}
                 onChange={(code) =>
                   selectAndAdvance(() => {
                     handleAnswerSelection(question.id, code);
@@ -1805,7 +1787,7 @@ function QuizTakeInner({
                 questionId={question.id}
                 options={questionOptions}
                 value={selectedOptionId}
-                disabled={isMbtiScaleCode(normalizedScaleCode) && isTransitioning}
+                disabled={submitting || submitOverlayVisible || (isMbtiScaleCode(normalizedScaleCode) && isTransitioning)}
                 noOptionsLabel={dict.quiz.immersive.noOptions}
                 onChange={(code) =>
                   selectAndAdvance(() => {
@@ -1861,7 +1843,7 @@ function QuizTakeInner({
         <SubmitPhaseOverlay
           visible={submitOverlayVisible}
           phases={dict.quiz.immersive.submitPhases}
-          phaseIndex={submitOverlayPhase}
+          phaseIndex={0}
         />
       </>
     );
@@ -1919,7 +1901,7 @@ function QuizTakeInner({
               text: option.text,
             }))}
             value={selectedOptionId}
-            disabled={isMbtiScaleCode(normalizedScaleCode) && isTransitioning}
+            disabled={submitting || submitOverlayVisible || (isMbtiScaleCode(normalizedScaleCode) && isTransitioning)}
             onChange={(code) =>
               selectAndAdvance(() => {
                 handleAnswerSelection(question.id, code);
@@ -1934,7 +1916,7 @@ function QuizTakeInner({
             questionId={question.id}
             options={questionOptions}
             value={selectedOptionId}
-            disabled={isMbtiScaleCode(normalizedScaleCode) && isTransitioning}
+            disabled={submitting || submitOverlayVisible || (isMbtiScaleCode(normalizedScaleCode) && isTransitioning)}
             noOptionsLabel={dict.quiz.immersive.noOptions}
             onChange={(code) =>
               selectAndAdvance(() => {
@@ -2034,7 +2016,7 @@ function QuizTakeInner({
       <SubmitPhaseOverlay
         visible={submitOverlayVisible}
         phases={dict.quiz.immersive.submitPhases}
-        phaseIndex={submitOverlayPhase}
+        phaseIndex={0}
       />
     </QuizShell>
   );

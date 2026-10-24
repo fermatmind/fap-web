@@ -65,11 +65,12 @@ export function IqImageGraphic({
   const source = normalizedImage?.src;
   const protectedAsset = Boolean(source && isAttemptBoundIqAsset(source));
   const cache = useIqImageCache();
+  const [retryVersion, setRetryVersion] = useState(0);
   const [loaded, setLoaded] = useState<{ source: string; url?: string; failed?: boolean } | null>(null);
 
   useEffect(() => {
     if (!source || !protectedAsset) return;
-    if (cache) {
+    if (cache && retryVersion === 0) {
       let active = true;
       void cache.load(source)
         .then((url) => { if (active) setLoaded({ source, url }); })
@@ -97,7 +98,7 @@ export function IqImageGraphic({
       controller.abort();
       if (objectUrl) URL.revokeObjectURL(objectUrl);
     };
-  }, [source, protectedAsset, cache]);
+  }, [source, protectedAsset, cache, retryVersion]);
 
   if (!normalizedImage) {
     return null;
@@ -107,12 +108,24 @@ export function IqImageGraphic({
   const cachedUrl = source ? cache?.getUrl(source) : undefined;
   const current: { url?: string; failed?: boolean } | null = loaded?.source === source && loaded?.failed
     ? loaded
-    : cachedUrl ? { url: cachedUrl } : loaded?.source === source ? loaded : null;
-  if (protectedAsset && !current?.url) {
+    : loaded?.source === source ? loaded : cachedUrl ? { url: cachedUrl } : null;
+  if ((protectedAsset && !current?.url) || loaded?.source === source && loaded?.failed) {
     const zh = typeof window !== "undefined" && getLocaleFromPathname(window.location.pathname) === "zh";
     return current?.failed ? (
-      <span role="status" className="p-3 text-sm text-rose-700">
-        {zh ? "图片加载失败，请刷新重试" : "Image failed to load. Refresh to retry"}
+      <span className="relative z-10 flex flex-col items-center gap-2 p-3 text-sm text-rose-700">
+        <span role="status">{zh ? "图片加载失败" : "Image failed to load"}</span>
+        <button
+          type="button"
+          aria-label={zh ? `重试图片：${alt}` : `Retry image: ${alt}`}
+          className="pointer-events-auto min-h-11 rounded-lg border border-current px-3 focus-visible:outline-2 focus-visible:outline-offset-2"
+          onClick={(event) => {
+            event.stopPropagation();
+            setLoaded(null);
+            setRetryVersion((value) => value + 1);
+          }}
+        >
+          {zh ? "重试图片" : "Retry image"}
+        </button>
       </span>
     ) : (
       <span role="status" aria-label={alt} className="p-3 text-sm text-[var(--fm-text-muted)]">
@@ -124,6 +137,7 @@ export function IqImageGraphic({
   return (
     // eslint-disable-next-line @next/next/no-img-element -- CMS IQ assets can use authority-provided hosts that are not known at build time.
     <img
+      key={`${source}-${retryVersion}`}
       src={protectedAsset ? current?.url : normalizedImage.src}
       alt={alt}
       {...(normalizedImage.width ? { width: normalizedImage.width } : {})}
@@ -133,7 +147,7 @@ export function IqImageGraphic({
       loading="eager"
       decoding="async"
       draggable={false}
-      onError={protectedAsset ? () => setLoaded({ source: normalizedImage.src, failed: true }) : undefined}
+      onError={() => setLoaded({ source: normalizedImage.src, failed: true })}
     />
   );
 }

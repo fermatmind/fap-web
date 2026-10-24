@@ -1,4 +1,7 @@
 import { StrictMode, type ReactNode } from "react";
+import { hydrateRoot } from "react-dom/client";
+import { renderToString } from "react-dom/server";
+import { createQuizStore } from "@/lib/quiz/store";
 import { act, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import QuizTakeClient from "@/app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient";
@@ -14,6 +17,7 @@ const hoisted = vi.hoisted(() => ({
   getIqQuestions: vi.fn(),
   startIqAttempt: vi.fn(),
   submitIqAttempt: vi.fn(),
+  recoverAcceptedSubmission: vi.fn(),
   fetchScaleQuestions: vi.fn(),
   startAttempt: vi.fn(),
   submitAttempt: vi.fn(),
@@ -98,6 +102,8 @@ vi.mock("@/lib/api/v0_3", async () => {
     shouldLinkAnonAttemptsOnLoginSuccess: vi.fn(() => false),
   };
 });
+
+vi.mock("@/lib/attempt/submissionRecovery", () => ({ recoverAcceptedSubmission: hoisted.recoverAcceptedSubmission }));
 
 vi.mock("@/lib/iq/api", async () => {
   const actual = await vi.importActual<typeof import("@/lib/iq/api")>("@/lib/iq/api");
@@ -289,6 +295,7 @@ function deferredPromise<T>() {
 describe("IQ take lifecycle contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    hoisted.recoverAcceptedSubmission.mockResolvedValue(false);
     hoisted.realFlowController = false;
     window.localStorage.clear();
     hoisted.pathname = "/en/tests/iq-test-intelligence-quotient-assessment/take";
@@ -308,6 +315,65 @@ describe("IQ take lifecycle contract", () => {
       attempt_id: "iq-result-002",
     });
     hoisted.ensureFmTokenReady.mockResolvedValue("existing");
+  });
+
+  it.each(["en", "zh"])("recovers %s owner-original IQ on the same attempt", async (locale) => {
+    hoisted.pathname = `/${locale}/tests/iq-test-intelligence-quotient-assessment/take`;
+    hoisted.submitIqAttempt.mockRejectedValueOnce(new TypeError("Response lost"));
+    hoisted.recoverAcceptedSubmission.mockResolvedValueOnce(true);
+    renderClient({ formCode: IQ_OWNER_ORIGINAL_30_BANK_ID });
+    const firstBoard = await screen.findByTestId("iq-option-board-desktop");
+    fireEvent.click(within(firstBoard).getAllByRole("radio")[0]);
+    await screen.findByText("Choose the best continuation.");
+    fireEvent.click(within(screen.getByTestId("iq-option-board-desktop")).getAllByRole("radio")[1]);
+    await waitFor(() => expect(hoisted.routerPush).toHaveBeenCalledWith(`/${locale}/result/iq-attempt-start-001`));
+    expect(hoisted.startIqAttempt).toHaveBeenCalledTimes(1);
+    expect(hoisted.submitIqAttempt).toHaveBeenCalledTimes(1);
+  });
+
+  it("resumes owner IQ at the saved question and restores earlier metadata before submitting", async () => {
+    const first = renderClient({ formCode: IQ_OWNER_ORIGINAL_30_BANK_ID });
+    fireEvent.click(within(await screen.findByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option A" }));
+    await screen.findByText("Choose the best continuation.");
+    first.unmount();
+    renderClient({ formCode: IQ_OWNER_ORIGINAL_30_BANK_ID });
+    await screen.findByText("Choose the best continuation.");
+    expect(hoisted.startIqAttempt).toHaveBeenCalledTimes(1);
+    fireEvent.click(within(screen.getByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option B" }));
+    await waitFor(() => expect(hoisted.submitIqAttempt).toHaveBeenCalledTimes(1));
+    expect(hoisted.submitIqAttempt.mock.calls[0][0].answers.map((answer: { option_code: string }) => answer.option_code)).toEqual(["A", "B"]);
+    expect(hoisted.getIqAttemptQuestion).toHaveBeenCalledWith(expect.objectContaining({ attemptId: "iq-attempt-start-001", index: 0 }));
+  });
+
+  it("hydrates a saved owner IQ draft before deciding to create another attempt", async () => {
+    const props = { slug: "iq-test-intelligence-quotient-assessment", testTitle: "IQ Test", scaleCode: "IQ_RAVEN", formCode: IQ_OWNER_ORIGINAL_30_BANK_ID, questionCount: 2 };
+    const html = renderToString(<QuizTakeClient {...props} />);
+    const store = createQuizStore({ slug: props.slug, anonId: "anon_iq_take_test", formCode: IQ_OWNER_ORIGINAL_30_BANK_ID });
+    store.getState().setAttemptMeta("saved-iq-original", "IQ_RAVEN", IQ_OWNER_ORIGINAL_30_BANK_ID);
+    store.getState().setAnswer("IQ_ITEM_01", "A");
+    store.getState().jump(1, 2);
+    const container = document.createElement("div");
+    container.innerHTML = html;
+    document.body.append(container);
+    const root = hydrateRoot(container, <QuizTakeClient {...props} />);
+    try {
+      await screen.findByText("Choose the best continuation.");
+      expect(hoisted.startIqAttempt).not.toHaveBeenCalled();
+      expect(hoisted.getIqAttemptQuestion).toHaveBeenCalledWith(expect.objectContaining({ attemptId: "saved-iq-original", index: 1 }));
+    } finally {
+      await act(async () => root.unmount());
+      container.remove();
+    }
+  });
+
+  it("navigates as soon as a fast submission is received", async () => {
+    hoisted.realFlowController = true;
+    renderClient();
+    fireEvent.click(within(await screen.findByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option A" }));
+    await screen.findByText("Choose the best continuation.");
+    fireEvent.click(within(screen.getByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option B" }));
+    await waitFor(() => expect(hoisted.routerPush).toHaveBeenCalledWith("/en/result/iq-result-002"), { timeout: 1000 });
+    expect(hoisted.submitIqAttempt).toHaveBeenCalledTimes(1);
   });
 
   it("loads canonical IQ questions and renders the first stem plus options without exposing legacy alias text", async () => {
@@ -331,9 +397,10 @@ describe("IQ take lifecycle contract", () => {
   });
 
   it("starts the owner-original IQ attempt before fetching the current question", async () => {
-    renderClient({ formCode: IQ_OWNER_ORIGINAL_30_BANK_ID });
+    renderClient({ formCode: IQ_OWNER_ORIGINAL_30_BANK_ID, strict: true });
 
     await waitFor(() => {
+      expect(hoisted.startIqAttempt).toHaveBeenCalledTimes(1);
       expect(hoisted.startIqAttempt).toHaveBeenCalledWith(expect.objectContaining({
         scale_code: "IQ_INTELLIGENCE_QUOTIENT",
         anon_id: "anon_iq_take_test",
@@ -401,17 +468,18 @@ describe("IQ take lifecycle contract", () => {
     expect(hoisted.submitIqAttempt.mock.calls[0]?.[0]?.answers.map((answer: { option_code: string }) => answer.option_code)).toEqual(["C", "B"]);
   });
 
-  it("keeps the attempt and submission alive after StrictMode effect replay, but cancels navigation on unmount", async () => {
+  it("keeps StrictMode submission alive but ignores a response received after unmount", async () => {
     hoisted.realFlowController = true;
+    const pending = deferredPromise<{ ok: boolean; attempt_id: string }>();
+    hoisted.submitIqAttempt.mockReturnValueOnce(pending.promise);
     const client = renderClient({ strict: true });
     fireEvent.click(within(await screen.findByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option A" }));
     await waitFor(() => expect(hoisted.startIqAttempt).toHaveBeenCalledTimes(1));
     await screen.findByText("Choose the best continuation.");
     fireEvent.click(within(screen.getByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option B" }));
     await waitFor(() => expect(hoisted.submitIqAttempt).toHaveBeenCalledTimes(1));
-    expect(hoisted.submitIqAttempt.mock.calls[0]?.[0]?.answers.map((answer: { option_code: string }) => answer.option_code)).toEqual(["A", "B"]);
     client.unmount();
-    await act(async () => { await new Promise((resolve) => setTimeout(resolve, 2300)); });
+    await act(async () => { pending.resolve({ ok: true, attempt_id: "iq-result-002" }); });
     expect(hoisted.routerPush).not.toHaveBeenCalled();
     expect(hoisted.submitIqAttempt).toHaveBeenCalledTimes(1);
   });
