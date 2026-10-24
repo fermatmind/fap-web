@@ -2,6 +2,8 @@ import { readFile } from "node:fs/promises";
 import { expect, test, type Page } from "@playwright/test";
 import { buildEqRendererContractFixture } from "../fixtures/eq/v5/eq60RendererContractFixture";
 
+test.use({ hasTouch: true });
+
 // Fixed synthetic QA only. No answers, real-user reports or analytics writes.
 async function resultFixture(page: Page, product: "IQ" | "EQ", locale: "zh" | "en", low = false) {
   const id = `ux05-synthetic-${product}-${locale}`;
