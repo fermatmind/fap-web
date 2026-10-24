@@ -8,7 +8,7 @@ import { filterTrackingPayload } from "@/lib/tracking/events";
 import { trackEvent } from "@/lib/analytics";
 
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
-afterEach(() => { cleanup(); sessionStorage.clear(); vi.clearAllMocks(); });
+afterEach(() => { cleanup(); sessionStorage.clear(); vi.useRealTimers(); vi.clearAllMocks(); });
 
 describe("entertainment result onward burden and real completion", () => {
   it.each(["en", "zh"] as const)("shows the actual version burdens only after a complete %s result", async locale => {
@@ -36,5 +36,33 @@ describe("entertainment result onward burden and real completion", () => {
       expect(payload).toMatchObject({ scale_code: "ENTERTAINMENT", form_code: "fun_woodland-animal_v1" });
       expect(payload).not.toHaveProperty("answers"); expect(payload).not.toHaveProperty("result");
     }
+    const onward = screen.getByRole("link", { name: linkName });
+    onward.addEventListener("click", event => event.preventDefault());
+    fireEvent.click(onward);
+    const onwardCalls = vi.mocked(trackEvent).mock.calls.filter(([event]) => event === "article_to_test_click");
+    expect(onwardCalls).toHaveLength(1);
+    expect(onwardCalls[0][1]).toMatchObject({ scale_code: "MBTI", test_slug: "mbti-personality-test-16-personality-types", source_path: `/${locale}/tests/play/woodland-animal` });
+    expect(vi.mocked(trackEvent).mock.calls.filter(([event]) => event === "start_test")).toHaveLength(1);
+    expect(vi.mocked(trackEvent).mock.calls.filter(([event]) => event === "complete_test")).toHaveLength(1);
+  });
+});
+
+
+describe("entertainment draft expiry at the resume action", () => {
+  it.each(["en", "zh"] as const)("does not resume a draft that expired while the %s welcome screen stayed open", async locale => {
+    const quiz = (await loadFunQuiz("woodland-animal"))!;
+    const savedAt = Date.UTC(2026, 9, 24, 16, 30);
+    vi.useFakeTimers(); vi.setSystemTime(savedAt);
+    const key = `fm_fun_draft:${quiz.slug}`;
+    sessionStorage.setItem(key, JSON.stringify({ version: quiz.version, savedAt, answers: { q1: "o1" } }));
+    render(<FunQuizClient quiz={quiz} locale={locale} />);
+    const resume = screen.getByRole("button", { name: locale === "zh" ? "恢复本标签页进度" : "Resume this tab’s progress" });
+    vi.setSystemTime(savedAt + 86400000);
+    fireEvent.click(resume);
+    expect(screen.queryByRole("button", { name: locale === "zh" ? "下一题" : "Next" })).toBeNull();
+    expect(screen.getByRole("button", { name: locale === "zh" ? "开始测试" : "Start quiz" })).toBeVisible();
+    expect(sessionStorage.getItem(key)).toBeNull();
+    expect(vi.mocked(trackEvent).mock.calls.filter(([event]) => event === "start_test")).toHaveLength(0);
+    expect(screen.getByRole("status")).toHaveTextContent(locale === "zh" ? "已过期或无法读取" : "expired or is unavailable");
   });
 });

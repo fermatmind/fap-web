@@ -1,0 +1,348 @@
+{
+  "slug": "long-distance-postcard",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "relationships",
+  "title": {
+    "en": "Your Long-Distance Postcard Style",
+    "zh": "隔着一段距离：你会寄来怎样的明信片？"
+  },
+  "description": {
+    "en": "Six asynchronous contact choices about a little scene, an open question and a shared marker that does not demand an instant reply.",
+    "zh": "六次异步联系选择，寄一幕小场景、留一个开放问题，或约一个不要求即时回复的共同标记。"
+  },
+  "introduction": {
+    "en": "Imagine keeping in touch with a willing friend whose daily schedule differs from yours. The postcard may be paper, a short message or a drawing. This quiz explores a small contact format, not how often a friendship must communicate to count.",
+    "zh": "想象和日常安排不同、也愿意联系的朋友保持往来。明信片可以是纸、短消息或画。题目只探索小联系形式，不规定友情多久说话才算数。"
+  },
+  "focus": {
+    "en": "Maintaining a low-pressure contact thread through a scene to share, a question to return to or an optional common marker.",
+    "zh": "通过可分享场景、可回头回答的问题或可选共同标记，保留低压力联系线索。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "You have space for one postcard today. You send…",
+        "zh": "今天只够一张明信片的空间，你寄……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One ordinary scene from your day.",
+            "zh": "今天一个普通场景。"
+          },
+          "points": {
+            "scene": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "One easy question they can answer whenever they want.",
+            "zh": "一个什么时候愿意都可回的简单问题。"
+          },
+          "points": {
+            "question": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A small reminder of something you both chose to notice.",
+            "zh": "一点双方约好留意之物的提醒。"
+          },
+          "points": {
+            "marker": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "You know a reply may take a while. You prefer a message that…",
+        "zh": "知道回复可能隔一阵，你更愿消息……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Makes sense as a little gift even without an answer.",
+            "zh": "即使无回复，也像一份小赠予成立。"
+          },
+          "points": {
+            "scene": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Leaves a question open without an expiry date.",
+            "zh": "留一个不设到期日的问题。"
+          },
+          "points": {
+            "question": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Can join an occasional shared collection when convenient.",
+            "zh": "方便时可加入偶尔共同收集。"
+          },
+          "points": {
+            "marker": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "A planned call no longer fits both schedules. You…",
+        "zh": "原定通话不再合双方日程，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Offer a small asynchronous prompt instead of another immediate deadline.",
+            "zh": "改给一个异步小提示，不再添即时期限。"
+          },
+          "points": {
+            "question": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Share one short scene and let the call wait.",
+            "zh": "分享一幕短场景，让通话先等等。"
+          },
+          "points": {
+            "scene": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Return to a shared optional marker at another convenient time.",
+            "zh": "另在方便时回到共同可选标记。"
+          },
+          "points": {
+            "marker": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "You want to make the contact feel personal. You choose…",
+        "zh": "想让联系有个人意味，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A detail connected to the small collection you both enjoy.",
+            "zh": "连到双方喜欢小收集的一处细节。"
+          },
+          "points": {
+            "marker": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A specific image or sentence from where you are now.",
+            "zh": "来自此刻所在地方的一幅图或一句话。"
+          },
+          "points": {
+            "scene": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A question tied to an interest they have chosen to share.",
+            "zh": "连到对方主动分享过的兴趣的问题。"
+          },
+          "points": {
+            "question": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "A long gap appears between messages. You…",
+        "zh": "两条消息之间隔了很久，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Send a standalone small scene if another message is welcome.",
+            "zh": "若欢迎再联系，发一个独立小场景。"
+          },
+          "points": {
+            "scene": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Let the shared marker remain optional rather than tracking a missed turn.",
+            "zh": "让共同标记仍可选，不追踪错过轮次。"
+          },
+          "points": {
+            "marker": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Reopen one easy thread without asking for a report on the gap.",
+            "zh": "重开一个简单话头，不要求汇报空白。"
+          },
+          "points": {
+            "question": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What makes this long-distance exchange feel sustainable?",
+        "zh": "怎样会让隔距离交流容易维持？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A question can wait for a willing answer.",
+            "zh": "问题可以等一个自愿回答。"
+          },
+          "points": {
+            "question": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "We have a little common thread without a contact quota.",
+            "zh": "有一点共同线索，也没有联系配额。"
+          },
+          "points": {
+            "marker": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "An ordinary scene can be enough to share for today.",
+            "zh": "普通一幕就足够今天分享。"
+          },
+          "points": {
+            "scene": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "scene",
+      "title": {
+        "en": "The Little-Scene Postcard",
+        "zh": "小场景明信片"
+      },
+      "summary": {
+        "en": "Your postcard offers a piece of an ordinary day that can stand on its own. The recipient may enjoy it now or later without owing an equivalent story. The portrait values a small share, not a test of whether either person is giving enough.",
+        "zh": "你的明信片提供可独立成立的普通一天片段。接收者可现在或以后欣赏，不欠一则等值故事。画像珍惜小分享，不考任何一方是否给够。"
+      },
+      "example": {
+        "en": "You might send a drawing of the crooked plant on your windowsill with one sentence about why it made you smile.",
+        "zh": "你可能发一幅窗台歪植物的画，配一句它为什么让你笑。"
+      },
+      "strength": {
+        "en": "A specific scene can make distance feel more concrete and give the other person something to receive without needing to arrange matching free time.",
+        "zh": "具体场景让距离有形，也让对方无需安排共同空闲就有东西可接收。"
+      },
+      "tradeoff": {
+        "en": "Many small updates can still become a demand for attention. Checking what amount of contact is welcome helps the gift stay light.",
+        "zh": "许多小更新也会变注意力要求。问清欢迎多少联系，赠予才轻。"
+      },
+      "experiment": {
+        "en": "Share one ordinary detail with a willing friend and make clear that no prompt response is needed. Let the next message wait until there is something you want to share.",
+        "zh": "和愿意的朋友分享一个普通细节，说明不必快回。等真有想分享的东西再发下一条。"
+      }
+    },
+    {
+      "id": "question",
+      "title": {
+        "en": "The Open-Thread Postcard",
+        "zh": "开放话头明信片"
+      },
+      "summary": {
+        "en": "Your contact leaves a small question that can travel across different schedules. It invites an answer without requiring an immediate conversation. The ending follows the format you chose here rather than measuring curiosity or the closeness of the friendship.",
+        "zh": "你的联系留一个可跨不同日程的小问题。它邀请回答，不要求即时对话。结局只跟随所选形式，不测好奇程度或友情亲近。"
+      },
+      "example": {
+        "en": "You might ask which small book detail your friend is enjoying lately and leave the answer open until they feel like returning to it.",
+        "zh": "你可能问朋友近来喜欢书里哪个小细节，让答案留到对方愿回来时再说。"
+      },
+      "strength": {
+        "en": "An easy question can give the next exchange a starting point and let the other person choose how much of their current life to share.",
+        "zh": "简单问题给下次交流起点，也让对方选分享多少当下生活。"
+      },
+      "tradeoff": {
+        "en": "An open question can still feel like homework if several arrive together. One small thread may be kinder than a whole update questionnaire.",
+        "zh": "多个开放问题一起到，也会像作业。一个小话头可能比整份近况问卷更体贴。"
+      },
+      "experiment": {
+        "en": "Send one concrete optional question linked to an interest the person has shared. Avoid adding a second prompt before the first has had room to wait.",
+        "zh": "围绕对方分享过的兴趣发一个具体可选问题。第一问还没等一等，就不急着添第二问。"
+      }
+    },
+    {
+      "id": "marker",
+      "title": {
+        "en": "The Shared-Marker Postcard",
+        "zh": "共同标记明信片"
+      },
+      "summary": {
+        "en": "Your exchange has a tiny common object or theme that both people may return to. A collection of doors, clouds or handwritten words can hold a thread without a contact quota. The result does not turn maintaining the collection into proof of care.",
+        "zh": "你的交流有一个双方可回访的小共同物件或主题。门、云或手写词的小收集，能留线索，不必联系配额。结果不把维护收集变关心证明。"
+      },
+      "example": {
+        "en": "Two willing friends might occasionally send a sketch of an unusual doorway, adding only when one genuinely catches their attention.",
+        "zh": "两位愿意的朋友可以偶尔寄特别门口的草图，只有真吸引注意时才添。"
+      },
+      "strength": {
+        "en": "A shared marker can provide continuity while leaving the timing and size of each contribution flexible enough for different lives.",
+        "zh": "共同标记提供连续感，也让贡献时间与大小足够灵活，容纳不同生活。"
+      },
+      "tradeoff": {
+        "en": "A shared theme can become a streak to maintain if missed contributions are counted. Keeping gaps ordinary helps the thread remain voluntary.",
+        "zh": "若开始数漏了几次，共同主题会变连续打卡。让空白普通，线索才仍自愿。"
+      },
+      "experiment": {
+        "en": "Choose one tiny optional theme with a willing friend and agree there is no required frequency. Let the next contribution come from actual interest.",
+        "zh": "和愿意的朋友选一个小可选主题，约好不要求频率，让下次贡献来自实际兴趣。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "scene",
+    "question",
+    "marker"
+  ]
+}

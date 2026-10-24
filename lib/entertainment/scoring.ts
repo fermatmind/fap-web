@@ -40,7 +40,7 @@ export function readFunDraft(quiz: FunQuiz, raw: string | null, now = Date.now()
   if (!raw || raw.length > 20000) return null;
   try {
     const value = JSON.parse(raw);
-    if (value.version !== quiz.version || !Number.isFinite(value.savedAt) || now - value.savedAt > 86400000 || value.savedAt > now || !value.answers || typeof value.answers !== "object" || Array.isArray(value.answers)) return null;
+    if (value.version !== quiz.version || !Number.isFinite(value.savedAt) || now - value.savedAt >= 86400000 || value.savedAt > now || !value.answers || typeof value.answers !== "object" || Array.isArray(value.answers)) return null;
     const entries = Object.entries(value.answers);
     if (entries.some(([id, answer]) => !quiz.questions.some(question => question.id === id && question.options.some(option => option.id === answer)))) return null;
     resolveFunQuiz(quiz, value.answers);

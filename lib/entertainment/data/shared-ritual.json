@@ -1,0 +1,348 @@
+{
+  "slug": "shared-ritual",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "relationships",
+  "title": {
+    "en": "What Kind of Small Ritual Would You Share?",
+    "zh": "两人的小仪式：你会怎样约？"
+  },
+  "description": {
+    "en": "Six ordinary choices about a tiny shared cue, a flexible time window and the meaning you want to keep. Find the ritual shape you choose together.",
+    "zh": "六次日常选择，围绕小小共同提示、灵活时段与想保留的意义，发现你会约出怎样的仪式形状。"
+  },
+  "introduction": {
+    "en": "Imagine choosing a small recurring activity with someone who wants to join. It can be skipped, changed or stopped. The quiz explores the arrangement, not relationship strength, discipline or how often two people ought to be in contact.",
+    "zh": "想象和愿意的人选一项小型重复活动。它可以跳过、修改或停止。题目只探索安排，不测关系强弱、自律，也不规定两人该多久联系。"
+  },
+  "focus": {
+    "en": "Keeping a shared ritual workable through a small cue, a flexible window or a clear personal meaning.",
+    "zh": "通过小提示、灵活时段或清楚个人意义，让共同小仪式好用。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "You both want a small shared ritual. You begin with…",
+        "zh": "双方都想有个小仪式，你先从……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A tiny cue already present in an ordinary day.",
+            "zh": "普通一天里已有的小提示。"
+          },
+          "points": {
+            "cue": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A flexible window that can move when life changes.",
+            "zh": "生活变化时可移动的灵活时段。"
+          },
+          "points": {
+            "window": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The feeling or meaning you both want the activity to hold.",
+            "zh": "双方想让活动承载的感受或意义。"
+          },
+          "points": {
+            "meaning": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The activity feels too elaborate after one week. You…",
+        "zh": "一周后觉得活动太复杂，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Keep one small meaningful part and drop the rest.",
+            "zh": "留一个有意义小部分，其余去掉。"
+          },
+          "points": {
+            "meaning": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Make the action much smaller at the same familiar cue.",
+            "zh": "同一熟悉提示下，把动作缩小很多。"
+          },
+          "points": {
+            "cue": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Let it happen less predictably instead of requiring the whole routine.",
+            "zh": "允许不那么固定，不要求整套日程。"
+          },
+          "points": {
+            "window": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "One person misses the usual time. You…",
+        "zh": "一人错过常用时间，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Move or skip the window without creating a catch-up debt.",
+            "zh": "改时或跳过，不欠补做。"
+          },
+          "points": {
+            "window": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Return at the next ordinary cue if both still want it.",
+            "zh": "若都仍愿意，在下次普通提示再来。"
+          },
+          "points": {
+            "cue": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask whether the same meaning could be kept in another small form.",
+            "zh": "问同样意义能否换另一小形式保留。"
+          },
+          "points": {
+            "meaning": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "You choose something to mark the ritual. You prefer…",
+        "zh": "给仪式选一个标记，你更愿……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A simple action linked to an existing everyday moment.",
+            "zh": "连到已有日常时刻的简单动作。"
+          },
+          "points": {
+            "cue": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A small object or phrase that reminds you why you chose it.",
+            "zh": "提醒为什么选它的小物或短语。"
+          },
+          "points": {
+            "meaning": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "An invitation that is easy to reschedule or decline.",
+            "zh": "容易改期或拒绝的邀请。"
+          },
+          "points": {
+            "window": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "After a month, one person wants a change. You…",
+        "zh": "一个月后，一方想改变，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Revisit what the ritual was meant to give each person.",
+            "zh": "重看仪式本来想给双方什么。"
+          },
+          "points": {
+            "meaning": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Change the timing without treating the old rhythm as a promise.",
+            "zh": "改时间，不把旧节奏当永久承诺。"
+          },
+          "points": {
+            "window": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Try a smaller version at a cue that still fits.",
+            "zh": "在仍合适的提示下试更小版本。"
+          },
+          "points": {
+            "cue": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What would make the shared ritual feel good?",
+        "zh": "怎样会让共同仪式舒服？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "It could flex without either person proving commitment.",
+            "zh": "可灵活变化，不用证明投入。"
+          },
+          "points": {
+            "window": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "It was small enough to fit an ordinary day.",
+            "zh": "小到能放进普通一天。"
+          },
+          "points": {
+            "cue": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "We still knew what we personally wanted it to mean.",
+            "zh": "仍知道自己希望它有何意义。"
+          },
+          "points": {
+            "meaning": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "cue",
+      "title": {
+        "en": "The Tiny-Cue Ritual",
+        "zh": "小提示仪式"
+      },
+      "summary": {
+        "en": "Your shared ritual fits beside something already ordinary: a kettle, a closing notebook or a short evening pause. The cue makes beginning easy without demanding a major routine. This result is about your chosen arrangement, not a measure of habit strength.",
+        "zh": "你的共同仪式靠着已有日常：水壶、合上的笔记本或晚间短暂停顿。提示让开始容易，不要求大日程。结果只谈所选安排，不测习惯强度。"
+      },
+      "example": {
+        "en": "Two people might share one drawing after putting their own materials away, so the exchange has a familiar small beginning rather than a new elaborate appointment.",
+        "zh": "两人可以在各自收好材料后分享一幅小画，让交流有熟悉小开头，不新增复杂约会。"
+      },
+      "strength": {
+        "en": "A small cue can reduce the effort of starting and keep the ritual close enough to ordinary life that it remains manageable.",
+        "zh": "小提示能降低启动所需精力，让仪式贴近日常、容易掌握。"
+      },
+      "tradeoff": {
+        "en": "A familiar cue can quietly become a demand if missing it is treated as failure. Keeping a skip possible protects the activity’s voluntary purpose.",
+        "zh": "熟悉提示若错过就算失败，也会悄悄变要求。允许跳过，能照顾活动自愿的原意。"
+      },
+      "experiment": {
+        "en": "Choose one existing moment for a tiny shared action only if both people want it. Agree that missing the cue creates no debt.",
+        "zh": "双方都愿意时，选一个已有时刻放小共同行动。约好错过不欠补做。"
+      }
+    },
+    {
+      "id": "window",
+      "title": {
+        "en": "The Flexible-Window Ritual",
+        "zh": "灵活时段仪式"
+      },
+      "summary": {
+        "en": "Your ritual has a place in the week without becoming a fixed test of the relationship. Moving, skipping and returning can all belong to it. The ending values an adaptable agreement rather than less interest or weaker care.",
+        "zh": "你的仪式在一周有位置，却不变固定关系考试。移动、跳过与返回都可以属于它。结局珍惜可调整约定，不把灵活解释成少兴趣或少关心。"
+      },
+      "example": {
+        "en": "Friends might share a short voice note sometime during a chosen weekend window, with no assumption that a delayed reply needs a personal explanation.",
+        "zh": "朋友可约一个周末时段发短语音，不假定晚回就需私人解释。"
+      },
+      "strength": {
+        "en": "A flexible window can accommodate different schedules and keep a small recurring connection from competing with everything else each person is doing.",
+        "zh": "灵活时段能容纳不同日程，让重复小联系不必与各自所有事情竞争。"
+      },
+      "tradeoff": {
+        "en": "Too much vagueness can leave one person unsure whether the activity still exists. A clear optional invitation can give flexibility a usable shape.",
+        "zh": "过于模糊会让一人不知活动是否还在。清楚可选邀请，能让灵活有好用形状。"
+      },
+      "experiment": {
+        "en": "Name a small shared window and an easy way to say “not this time.” Check occasionally whether both people still want the arrangement.",
+        "zh": "说清一个小共同时段，也让“这次不参加”容易表达。偶尔确认双方是否仍想保持。"
+      }
+    },
+    {
+      "id": "meaning",
+      "title": {
+        "en": "The Meaning-Kept Ritual",
+        "zh": "意义留着的仪式"
+      },
+      "summary": {
+        "en": "Your shared ritual begins with what the activity is for, so its outer form can change. A memory, a pause or a little mutual attention may matter more than repeating the exact same action. The portrait does not decide what the ritual should mean for either person.",
+        "zh": "你的共同仪式从活动为了什么开始，外形因而可变。记忆、停顿或一点相互关注，也许比动作原样重复重要。画像不代替任何一方规定意义。"
+      },
+      "example": {
+        "en": "If a weekly sketch exchange stops fitting, you might keep the shared noticing by sending one ordinary detail instead, provided both people like the change.",
+        "zh": "每周交换画不再合适时，双方都愿意的话，可以改发一个普通细节，留下共同留意的意义。"
+      },
+      "strength": {
+        "en": "A clear purpose can make simplification easier because the activity does not have to preserve every original detail to remain recognizable.",
+        "zh": "目的清楚，让简化容易，因为活动不必保留原来每个细节才仍可辨认。"
+      },
+      "tradeoff": {
+        "en": "A stated meaning can still differ between two people. Asking separately what each enjoys avoids turning one interpretation into the official one.",
+        "zh": "两人赋予的意义仍可能不同。分别问喜欢什么，能避免一种解释成唯一官方版本。"
+      },
+      "experiment": {
+        "en": "Ask what one small shared activity gives each person. Keep the overlap you both want and allow the rest of the form to change.",
+        "zh": "问一项共同小活动分别给双方什么。留下都想要的交集，也让其余外形改变。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "cue",
+    "window",
+    "meaning"
+  ]
+}

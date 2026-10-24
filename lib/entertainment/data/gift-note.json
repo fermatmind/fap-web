@@ -1,0 +1,348 @@
+{
+  "slug": "gift-note",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "relationships",
+  "title": {
+    "en": "What Would Your Gift Note Say?",
+    "zh": "礼物旁的小纸条：你会写什么？"
+  },
+  "description": {
+    "en": "Six small-note choices about a shared memory, a specific thank-you and a gentle wish. Find the voice your choices give a simple gift note.",
+    "zh": "六次小纸条选择，写一段共同记忆、一声具体感谢或一个轻轻祝愿，看看你会给简单礼物配上怎样的声音。"
+  },
+  "introduction": {
+    "en": "Imagine writing a note beside an ordinary gift, something handmade or a small thing you already have. Nothing needs to be bought for this quiz. Choose what you want the note to carry; the result does not measure love, generosity or relationship quality.",
+    "zh": "想象给普通礼物、手作或已有小物写张便条。做测试不需要购买东西。选你想让纸条带着什么；结果不衡量爱、慷慨或关系质量。"
+  },
+  "focus": {
+    "en": "Expressing attention through one shared memory, one concrete acknowledgment or one wish that leaves the recipient free.",
+    "zh": "通过一段共同记忆、一项具体致谢，或不替对方规定的祝愿，表达关注。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "The blank card has room for just two lines. You begin with…",
+        "zh": "空卡只够两行，你先写……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A small moment the two of you still remember.",
+            "zh": "两人仍记得的一个小瞬间。"
+          },
+          "points": {
+            "memory": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Something specific they did that you appreciated.",
+            "zh": "对方做过而你欣赏的一件具体事。"
+          },
+          "points": {
+            "thanks": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A simple wish for something they themselves want.",
+            "zh": "为对方自己想要的事送一句简单祝愿。"
+          },
+          "points": {
+            "wish": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The gift is very ordinary. Your note makes it personal by…",
+        "zh": "礼物很普通，你用纸条让它有个人联系的方式是……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Linking it to a shared little story.",
+            "zh": "连到一则共同小故事。"
+          },
+          "points": {
+            "memory": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Naming why you thought they might enjoy it now.",
+            "zh": "说清为什么想到对方此刻也许会喜欢。"
+          },
+          "points": {
+            "wish": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Saying what you are grateful for without assigning a debt.",
+            "zh": "说清感谢什么，不附回报债务。"
+          },
+          "points": {
+            "thanks": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "You remove one sentence that feels too grand. You replace it with…",
+        "zh": "删去一句觉得太宏大的话，你换成……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A plain thank-you for one real action.",
+            "zh": "对一个真实行动的朴素感谢。"
+          },
+          "points": {
+            "thanks": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "One detail from an ordinary day together.",
+            "zh": "共同普通一天里的一个细节。"
+          },
+          "points": {
+            "memory": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A short hope that does not tell them how life should go.",
+            "zh": "一句不规定人生该怎样的短祝愿。"
+          },
+          "points": {
+            "wish": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "You do not know exactly what the recipient will do next. You…",
+        "zh": "不知道对方接下来具体怎样安排，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Wish them room to choose their own next step.",
+            "zh": "祝愿对方有空间选择自己的下一步。"
+          },
+          "points": {
+            "wish": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Stay with something already shared rather than predicting the future.",
+            "zh": "写已经共享的事，不预测未来。"
+          },
+          "points": {
+            "memory": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Thank them for what they have already chosen to contribute.",
+            "zh": "感谢对方已经主动做过的贡献。"
+          },
+          "points": {
+            "thanks": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The note needs a closing line. You choose…",
+        "zh": "便条需要最后一句，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "I still smile when I remember that tiny moment.",
+            "zh": "想起那个小瞬间，我仍会笑。"
+          },
+          "points": {
+            "memory": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Thank you for that particular kindness; no reply needed.",
+            "zh": "谢谢那一份具体善意，不用专门回复。"
+          },
+          "points": {
+            "thanks": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "I hope you find a version of the next chapter you enjoy.",
+            "zh": "愿你找到自己喜欢的下一段版本。"
+          },
+          "points": {
+            "wish": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What would you most like the reader to feel from this little card?",
+        "zh": "最希望读者从小卡里感到什么？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A simple act they chose was noticed.",
+            "zh": "自己主动做的一件小事被看见。"
+          },
+          "points": {
+            "thanks": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "There is room for the future to be theirs.",
+            "zh": "未来有空间由自己决定。"
+          },
+          "points": {
+            "wish": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "One small part of our shared history still matters.",
+            "zh": "共同历史里的一小部分仍有意义。"
+          },
+          "points": {
+            "memory": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "memory",
+      "title": {
+        "en": "The Shared-Moment Note",
+        "zh": "共同瞬间便条"
+      },
+      "summary": {
+        "en": "Your note keeps a little piece of time the two of you already share. A small detail can make an ordinary object feel connected without a grand declaration. This is the voice you chose for this card, not the only way you express care.",
+        "zh": "你的纸条留下一小块两人已经共享的时间。一个小细节，就能让普通物件有联系，不必宏大宣言。这是本卡所选声音，不是你表达关心的唯一方式。"
+      },
+      "example": {
+        "en": "A handmade bookmark might carry a line about the rainy afternoon when you both kept rereading the same funny paragraph.",
+        "zh": "一枚手作书签，可以配一句：记得雨天下午，两人反复读同一段有趣文字。"
+      },
+      "strength": {
+        "en": "A specific memory can feel personal because it belongs to a recognizable moment rather than a phrase that could be sent unchanged to anyone.",
+        "zh": "具体记忆有个人意味，因为它属于可辨认瞬间，不是一句可原封不动发给所有人的话。"
+      },
+      "tradeoff": {
+        "en": "The same event may mean different things to each person. Keeping the note modest leaves room for their version of the memory too.",
+        "zh": "同一件事对双方可能意义不同。便条写得适度，也给对方记忆版本留空间。"
+      },
+      "experiment": {
+        "en": "Write two plain lines about a harmless shared moment. Keep one concrete detail and leave out any claim about what the other person must remember or feel.",
+        "zh": "为一个无害共同瞬间写两句普通话。留一个具体细节，不替对方规定一定记得或感到什么。"
+      }
+    },
+    {
+      "id": "thanks",
+      "title": {
+        "en": "The Specific-Thanks Note",
+        "zh": "具体感谢便条"
+      },
+      "summary": {
+        "en": "Your card names something the recipient actually did. The thanks can stand on its own rather than becoming a request for more of the same. This ending values a concrete acknowledgment without measuring either person’s generosity.",
+        "zh": "你的卡片说出对方实际做过什么。感谢本身成立，不变成继续这样做的请求。结局珍惜具体致意，不衡量任何一方慷慨多少。"
+      },
+      "example": {
+        "en": "You might thank a friend for sending the map that made your small outing easier, instead of telling them they must always be the organized one.",
+        "zh": "你可能感谢朋友发来让小外出更方便的地图，不说对方以后必须一直当有条理的人。"
+      },
+      "strength": {
+        "en": "Naming the act makes appreciation understandable and lets the recipient know what reached you without assigning them a permanent helping role.",
+        "zh": "说清行动让欣赏易懂，也让对方知道什么被接收，而不被分配永久帮忙角色。"
+      },
+      "tradeoff": {
+        "en": "A thank-you can become heavy if it carries expectations of a particular response. A brief note can leave the receiver free to accept it quietly.",
+        "zh": "若带着必须怎样回应的期待，感谢也会重。短便条可以让接收者安静收下。"
+      },
+      "experiment": {
+        "en": "Thank someone for one specific voluntary act and stop there. Leave out a request, a repayment promise or a prediction of what they will do next.",
+        "zh": "为一个具体自愿行动向人道谢，就停在那里。不附请求、偿还承诺或对之后行动的预测。"
+      }
+    },
+    {
+      "id": "wish",
+      "title": {
+        "en": "The Open-Future Note",
+        "zh": "未来留白便条"
+      },
+      "summary": {
+        "en": "Your note offers a wish without writing the recipient’s future for them. You can hope something goes well while leaving the form of that good outcome open. The portrait describes a small message, not your ability to predict what another person needs.",
+        "zh": "你的便条送祝愿，不代写对方未来。可以希望事情顺利，也让怎样算好结果保持开放。画像描述小信息，不证明你能预测别人需要什么。"
+      },
+      "example": {
+        "en": "For a friend starting a hobby, you might wish them enjoyable time with it rather than promising that it will become their new passion.",
+        "zh": "朋友开始一项爱好，你可能祝有愉快相处时间，不许诺它会成为对方新的热爱。"
+      },
+      "strength": {
+        "en": "An open wish can feel supportive without making a particular achievement or emotional response a condition of receiving the gift.",
+        "zh": "开放祝愿可以支持人，不把特定成就或情绪反应设成收下礼物的条件。"
+      },
+      "tradeoff": {
+        "en": "A very broad wish can sound distant. Linking it to something the person has actually said they want gives the note a more particular shape.",
+        "zh": "祝愿太宽也会显远。连到对方实际表达过想要的东西，便条会更具体。"
+      },
+      "experiment": {
+        "en": "Write one short wish tied to a preference the person has expressed. Keep their freedom to change that preference visible in the wording.",
+        "zh": "为对方说过的一个偏好写短祝愿，也在措辞里保留以后改变偏好的自由。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "memory",
+    "thanks",
+    "wish"
+  ]
+}

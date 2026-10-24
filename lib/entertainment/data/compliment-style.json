@@ -1,0 +1,348 @@
+{
+  "slug": "compliment-style",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "relationships",
+  "title": {
+    "en": "What Do Your Compliments Notice?",
+    "zh": "一句欣赏：你会先看见什么？"
+  },
+  "description": {
+    "en": "Six everyday choices about a visible detail, a process someone wants recognized and the difference their contribution made. Find your appreciation voice.",
+    "zh": "六次日常选择，留意可见细节、对方愿被看见的过程，以及贡献带来的实际不同，发现你的欣赏声音。"
+  },
+  "introduction": {
+    "en": "Imagine offering a small, welcome compliment about something a person chose to do or make. You do not need to rate their appearance or assign a permanent talent. Choose what you would notice in this scene; it does not measure kindness or social skill.",
+    "zh": "想象对一个人主动做或制作的东西，表达一份受欢迎的小欣赏。无需评外貌，也不分配永久天赋。选本场景会留意什么，不测善良或社交技能。"
+  },
+  "focus": {
+    "en": "Making appreciation specific through a visible detail, an invited process acknowledgment or an effect you personally experienced.",
+    "zh": "通过可见细节、对方愿意谈的过程，或自己实际体验的影响，让欣赏具体。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "A friend shows a small handmade piece. You first mention…",
+        "zh": "朋友给你看一件小手作，你先说……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One specific detail you genuinely enjoy.",
+            "zh": "自己确实喜欢的一处具体细节。"
+          },
+          "points": {
+            "detail": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A step in the making they chose to tell you about.",
+            "zh": "对方主动讲过的一个制作步骤。"
+          },
+          "points": {
+            "process": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "What the piece helped you notice or enjoy.",
+            "zh": "作品让你留意或享受到什么。"
+          },
+          "points": {
+            "effect": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "You want to avoid a vague “amazing.” You say…",
+        "zh": "不想只说泛泛“太棒了”，你会说……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "That color edge makes this small shape stand out to me.",
+            "zh": "这条色边让我一下看见小形状。"
+          },
+          "points": {
+            "detail": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "I remember you wanted to try that fold; I can see it in this version.",
+            "zh": "记得你想试那个折法，这版里能看见了。"
+          },
+          "points": {
+            "process": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Your note made it much easier for me to join the activity.",
+            "zh": "你的便条让我更容易加入活动。"
+          },
+          "points": {
+            "effect": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "You do not know how much effort the person used. You…",
+        "zh": "不知道对方究竟花了多少力气，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Stay with the detail you can actually see.",
+            "zh": "只说自己实际能看见的细节。"
+          },
+          "points": {
+            "detail": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask whether they want to share anything about making it.",
+            "zh": "问是否愿分享一点制作过程。"
+          },
+          "points": {
+            "process": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Describe the small effect it had on your own experience.",
+            "zh": "描述它对自己体验产生的小影响。"
+          },
+          "points": {
+            "effect": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A group result includes less visible work. You appreciate…",
+        "zh": "群体成果里有不显眼的工作，你欣赏……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The part that made participation easier for you.",
+            "zh": "让自己参与更方便的部分。"
+          },
+          "points": {
+            "effect": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The specific repeated step someone has already described doing.",
+            "zh": "某人已讲过自己反复做的具体一步。"
+          },
+          "points": {
+            "process": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A small finished feature you can point to clearly.",
+            "zh": "可清楚指出的一个成品小特征。"
+          },
+          "points": {
+            "detail": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The recipient seems ready to move on after your compliment. You…",
+        "zh": "收下欣赏后，对方似乎想继续别的话题，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Leave the specific observation there without asking them to agree.",
+            "zh": "把具体观察留在那里，不要求认同。"
+          },
+          "points": {
+            "detail": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Let any further making story remain optional.",
+            "zh": "让更多制作故事继续可选。"
+          },
+          "points": {
+            "process": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Keep the thanks brief rather than requiring a response about its impact.",
+            "zh": "简短感谢，不要求对影响再回应。"
+          },
+          "points": {
+            "effect": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What makes appreciation feel sincere to you?",
+        "zh": "怎样让欣赏对你来说真切？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "It names a real difference I personally experienced.",
+            "zh": "说出自己实际体验的一点不同。"
+          },
+          "points": {
+            "effect": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "It recognizes a process without inventing hidden struggle.",
+            "zh": "看见过程，也不编造隐藏辛苦。"
+          },
+          "points": {
+            "process": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "It points to something particular rather than giving a total person rating.",
+            "zh": "指具体东西，不给整个人打总分。"
+          },
+          "points": {
+            "detail": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "detail",
+      "title": {
+        "en": "The Specific-Detail Spotlight",
+        "zh": "具体细节聚光"
+      },
+      "summary": {
+        "en": "Your compliment points to something the recipient can recognize in their work. The praise is small enough to be understood without turning into a verdict on the whole person. This voice describes what you selected here, not the limit of your appreciation.",
+        "zh": "你的欣赏指向对方能在作品里认出的东西。赞美小到可理解，不变成对整个人的判定。这种声音只描述本次所选，不限定你的欣赏范围。"
+      },
+      "example": {
+        "en": "You might mention the tiny off-center window in a drawing that made the whole imagined house feel more lively to you.",
+        "zh": "你可能指出画里偏一点的小窗，让整座想象房子在你看来更活。"
+      },
+      "strength": {
+        "en": "A concrete detail can make appreciation feel particular and show that your response came from looking rather than reaching for a standard praise phrase.",
+        "zh": "具体细节让欣赏有特指，也让回应像认真看过，而非顺手套赞美话。"
+      },
+      "tradeoff": {
+        "en": "Listing too many details can make a casual compliment feel like a critique session. One honest observation may be enough.",
+        "zh": "细节列太多，会让随口欣赏像点评会。一条诚实观察，也许已够。"
+      },
+      "experiment": {
+        "en": "Offer one welcome compliment about a detail you actually noticed. Stop before adding a rating, comparison or request for the person to explain it.",
+        "zh": "对实际留意的细节给一句受欢迎欣赏。在加评分、比较或要求解释前停下。"
+      }
+    },
+    {
+      "id": "process",
+      "title": {
+        "en": "The Chosen-Process Acknowledgment",
+        "zh": "主动过程致意"
+      },
+      "summary": {
+        "en": "Your appreciation notices a part of the making that the person has chosen to show or explain. You do not need to invent effort you could not see. The result values a bounded acknowledgment rather than treating struggle as a requirement for praise.",
+        "zh": "你的欣赏看见对方主动展示或解释的一部分制作。不必编造未看见的努力。结果珍惜有边界致意，不把辛苦当获得赞美的必要条件。"
+      },
+      "example": {
+        "en": "If a friend mentioned practicing a paper joint, you might acknowledge that specific experiment when they show how it works in the finished model.",
+        "zh": "朋友讲过在练一个纸接头，展示成品运作时，你可以致意那次具体尝试。"
+      },
+      "strength": {
+        "en": "Recognizing a chosen process can make the person’s own account of their work visible instead of replacing it with a story you assumed about them.",
+        "zh": "看见主动过程，让对方自己的工作讲述可见，不被你假定的故事替代。"
+      },
+      "tradeoff": {
+        "en": "Focusing on process can accidentally turn every hobby into an improvement project. Enjoying the finished piece can also be enough.",
+        "zh": "只盯过程，也可能把每个爱好变改进项目。欣赏成品本身同样可以足够。"
+      },
+      "experiment": {
+        "en": "If someone voluntarily tells you how they made something, acknowledge one specific part of that account. Leave further questions optional rather than asking for proof of effort.",
+        "zh": "对方自愿讲制作经过时，回应其中一处具体内容。更多问题可选，不要求证明付出。"
+      }
+    },
+    {
+      "id": "effect",
+      "title": {
+        "en": "The Real-Effect Thank-You",
+        "zh": "实际影响的感谢"
+      },
+      "summary": {
+        "en": "Your compliment names a difference the person’s contribution made to your own experience. You can say what reached you without claiming to know how everyone else felt. The ending describes an appreciation voice, not a measure of the recipient’s usefulness or worth.",
+        "zh": "你的欣赏说出对方贡献给自己体验带来的不同。你能讲自己接到什么，不代替所有人说感受。结局描述欣赏声音，不测接收者有用程度或价值。"
+      },
+      "example": {
+        "en": "You might tell someone that their clear meeting note helped you find the room easily, rather than announcing that they are responsible for organizing every future visit.",
+        "zh": "你可能说对方清楚的见面说明让自己容易找到房间，不宣布以后所有到访都归对方组织。"
+      },
+      "strength": {
+        "en": "A personally grounded thank-you can make a small contribution understandable and show its effect without turning the person into a permanent service role.",
+        "zh": "以自身体验为依据的感谢让小贡献可理解，也显示影响，不把人变永久服务角色。"
+      },
+      "tradeoff": {
+        "en": "Thanks can feel transactional if the contribution is treated as the person’s main value. A brief acknowledgment should leave their future help freely chosen.",
+        "zh": "若贡献被当成对方主要价值，感谢会像交易。简短致意应让今后帮助仍自由选择。"
+      },
+      "experiment": {
+        "en": "Name one small way a voluntary contribution helped you and thank the person for that act. Leave their next contribution entirely open.",
+        "zh": "说出一次自愿贡献怎样小小帮到自己，为这个行动道谢。让下一次贡献完全开放。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "detail",
+    "process",
+    "effect"
+  ]
+}

@@ -1,0 +1,348 @@
+{
+  "slug": "comfort-offer",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "relationships",
+  "title": {
+    "en": "What Kind of Company Would You Offer After a Tiring Day?",
+    "zh": "普通累了一天：你会怎样提供陪伴？"
+  },
+  "description": {
+    "en": "Six ordinary friend scenarios about a practical offer, room to talk and quiet company. Find the kind of invitation your choices tend to make.",
+    "zh": "六个普通朋友场景，提供实际小帮助、说话空间或安静作伴，看看你的选择常会发出哪种邀请。"
+  },
+  "introduction": {
+    "en": "Think of a friend who says an ordinary day was tiring, not a crisis. You can ask what company they want and accept that they may want none. This quiz does not read emotions, diagnose distress or replace asking the actual person.",
+    "zh": "想象朋友说普通一天有点累，并非危机。你可以问想要怎样作伴，也接受可能不想要。测试不读情绪、不诊断困扰，也不能代替询问本人。"
+  },
+  "focus": {
+    "en": "Offering support as a choice between one practical action, a listening invitation and an undemanding shared presence.",
+    "zh": "把支持作为可选的一件实际小事、倾听邀请或无要求的共同在场。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "A friend says the day was tiring. You first offer…",
+        "zh": "朋友说这天有点累，你先提供……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One small practical thing, with room to say no.",
+            "zh": "一件可拒绝的实际小事。"
+          },
+          "points": {
+            "practical": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "An invitation to talk if they want someone to listen.",
+            "zh": "如果想说，可以听的邀请。"
+          },
+          "points": {
+            "listen": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Quiet company without needing a conversation.",
+            "zh": "不必对话的安静作伴。"
+          },
+          "points": {
+            "quiet": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "They are unsure what they want. You…",
+        "zh": "对方暂时不清楚想要什么，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Offer two simple company options and leave time to choose.",
+            "zh": "给两个简单作伴选项，再留时间选。"
+          },
+          "points": {
+            "listen": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Name one available small action without starting it automatically.",
+            "zh": "说一件可做小事，不自动开做。"
+          },
+          "points": {
+            "practical": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Make doing nothing together or separately equally acceptable.",
+            "zh": "一起不做什么，或各自待着，都可接受。"
+          },
+          "points": {
+            "quiet": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "They begin describing the day. You…",
+        "zh": "对方开始讲这一天，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask whether they want listening or help thinking through one detail.",
+            "zh": "问想要倾听，还是一起想一个细节。"
+          },
+          "points": {
+            "listen": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Notice whether a concrete small task has been explicitly requested.",
+            "zh": "留意是否明确请求了一件具体小事。"
+          },
+          "points": {
+            "practical": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Stay present without requiring the story to continue.",
+            "zh": "在场，也不要求故事继续讲。"
+          },
+          "points": {
+            "quiet": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "They say they do not want to talk much. You…",
+        "zh": "对方说不太想讲话，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Offer a low-demand shared activity or some separate space.",
+            "zh": "提供低要求共同活动，或各自空间。"
+          },
+          "points": {
+            "quiet": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask whether a specific small practical offer would help instead.",
+            "zh": "问某一件实际小帮助是否更有用。"
+          },
+          "points": {
+            "practical": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Keep the invitation open without asking another question immediately.",
+            "zh": "让邀请仍在，不立刻再问。"
+          },
+          "points": {
+            "listen": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Your first offer is declined. You…",
+        "zh": "第一份提供被拒绝，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Accept the no rather than making the help a task to receive.",
+            "zh": "接受拒绝，不让接收帮助变成任务。"
+          },
+          "points": {
+            "quiet": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Say they can ask later if a practical need appears.",
+            "zh": "说明之后有实际小需要可再问。"
+          },
+          "points": {
+            "practical": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Thank them for saying what they do not want and let the topic rest.",
+            "zh": "感谢说清不想要什么，让话题歇下。"
+          },
+          "points": {
+            "listen": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What makes your company offer feel successful?",
+        "zh": "怎样会让这份作伴提供合适？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One wanted small burden became easier without taking over.",
+            "zh": "一件对方愿意减轻的小负担轻了，也没被接管。"
+          },
+          "points": {
+            "practical": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "They could say as much or as little as they chose.",
+            "zh": "对方能选说多少或不说。"
+          },
+          "points": {
+            "listen": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Being near did not require them to entertain or reassure me.",
+            "zh": "靠近不要求对方招待或安慰我。"
+          },
+          "points": {
+            "quiet": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "practical",
+      "title": {
+        "en": "The One-Small-Thing Offer",
+        "zh": "一件小事的提供"
+      },
+      "summary": {
+        "en": "Your company often takes the form of one concrete offer that the other person can choose. The action stays small enough not to take over their evening. The result does not mean practical help is always wanted or that you should know the need without asking.",
+        "zh": "你的作伴常是一件对方可选择的具体提供。行动保持小，不接管夜晚。结果不说实际帮助总被需要，也不要求你无需问就知道需求。"
+      },
+      "example": {
+        "en": "You might offer to return a shared item on your way past, rather than reorganizing the friend’s whole plan because they said they were tired.",
+        "zh": "你可能提议顺路归还一件共用物，不因朋友说累，就重排对方整套计划。"
+      },
+      "strength": {
+        "en": "A specific offer is easier to accept or decline than an unlimited promise and can remove one small burden without creating another decision pile.",
+        "zh": "具体提供比无限承诺容易接受或拒绝，也能减一件小负担，不添一堆决定。"
+      },
+      "tradeoff": {
+        "en": "Helping before agreement can create extra work or feel intrusive. A clear offer can remain useful even when the answer is no.",
+        "zh": "未约好就帮助，会添活或显得闯入。即使被拒，一份清楚提供仍可以合适。"
+      },
+      "experiment": {
+        "en": "Offer one ordinary small action with an easy decline. Wait for the answer before doing it, and let that answer be enough.",
+        "zh": "提供一件普通小行动，也方便拒绝。等回答再做，并让这份回答已足够。"
+      }
+    },
+    {
+      "id": "listen",
+      "title": {
+        "en": "The Room-to-Talk Offer",
+        "zh": "可以说的空间"
+      },
+      "summary": {
+        "en": "Your invitation leaves room for the person’s own account of the day. You ask what kind of response they want before turning their story into a problem to solve. This is a chosen conversational offer, not a score for listening skill or emotional intelligence.",
+        "zh": "你的邀请给对方自己讲这一天留位置。先问想要怎样回应，不急着把故事变成待解问题。这是所选对话提供，不给倾听能力或情商打分。"
+      },
+      "example": {
+        "en": "You might ask “Would you like me to listen, or think about one part with you?” and then follow the answer without requesting the full story.",
+        "zh": "你可能问“想让我听，还是一起想其中一部分？”，再按回答来，不要求讲完整经过。"
+      },
+      "strength": {
+        "en": "A clear listening invitation can reduce guessing and let the person control how much they share and whether they want suggestions.",
+        "zh": "清楚倾听邀请减少猜测，也让对方掌握分享多少、是否想听建议。"
+      },
+      "tradeoff": {
+        "en": "Repeated questions can feel like pressure to produce a story. Leaving a pause or changing the subject can also respect the invitation.",
+        "zh": "反复提问会像催人交故事。留停顿或换话题，同样可尊重这份邀请。"
+      },
+      "experiment": {
+        "en": "When a willing friend shares an ordinary difficulty, ask once what response would help. Listen within that request rather than extending the conversation automatically.",
+        "zh": "愿意的朋友分享普通困难时，问一次哪种回应有用。按请求倾听，不自动延长对话。"
+      }
+    },
+    {
+      "id": "quiet",
+      "title": {
+        "en": "The Undemanding-Company Offer",
+        "zh": "不索求表现的作伴"
+      },
+      "summary": {
+        "en": "Your offer lets company exist without a required conversation or activity. A quiet shared moment can be complete on its own. The ending does not assume silence means comfort; it keeps the other person’s choice central.",
+        "zh": "你的提供允许不附带必需对话或活动的作伴。安静共同一刻，本身可以完整。结局不假定沉默就舒服，仍以对方选择为中心。"
+      },
+      "example": {
+        "en": "You might offer to sit nearby with your own book, while making it equally easy for the friend to choose some time alone instead.",
+        "zh": "你可能提出拿自己的书坐附近，也同样方便朋友改选独处。"
+      },
+      "strength": {
+        "en": "Low-demand presence can make a small visit feel easier when the other person does not want to host a conversation or explain their whole day.",
+        "zh": "对方不想主持对话、解释整天时，低要求在场能让短探访容易些。"
+      },
+      "tradeoff": {
+        "en": "Quiet presence is still a form of company that someone may not want. Asking rather than assuming keeps it from becoming another obligation.",
+        "zh": "安静在场仍是对方可能不想要的作伴。先问不假定，才不易成为另一义务。"
+      },
+      "experiment": {
+        "en": "Offer one low-demand way to spend time together and a clear option for separate space. Let either choice remain ordinary.",
+        "zh": "提供一种低要求共处方式，也清楚允许各自空间。让两种选择都普通成立。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "practical",
+    "listen",
+    "quiet"
+  ]
+}

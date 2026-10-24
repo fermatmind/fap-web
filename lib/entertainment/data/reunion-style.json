@@ -1,0 +1,348 @@
+{
+  "slug": "reunion-style",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "relationships",
+  "title": {
+    "en": "How Would You Reconnect After a Long Gap?",
+    "zh": "隔了一段时间再见：你会怎样重新接上？"
+  },
+  "description": {
+    "en": "Six fictional reunion choices about an old shared thread, a present-day update and a gentle new start. Find the reconnection route you choose today.",
+    "zh": "六次虚构重逢选择，接旧日共同线索、聊当下近况，或轻轻重新开始，发现今天愿选的重连路线。"
+  },
+  "introduction": {
+    "en": "Imagine meeting someone you once enjoyed knowing after an ordinary gap in contact. Neither person owes an instant return to old closeness. Choose a way to reconnect for this scene; the result does not infer attachment patterns or predict the relationship’s future.",
+    "zh": "想象一段普通联络间隔后，重遇曾相处愉快的人。谁都不欠立刻恢复旧亲近。选本场景的重新接法；结果不推断依恋模式，也不预测关系未来。"
+  },
+  "focus": {
+    "en": "Reopening contact through a shared past detail, curiosity about the present or a small meeting that can begin fresh.",
+    "zh": "通过共同过去细节、对当下的好奇，或一次可重新开始的小见面来重开联系。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "You have a chance to send the first message. You choose…",
+        "zh": "有机会发第一条消息，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A small shared memory with no demand to relive it.",
+            "zh": "一个不要求重演的小共同记忆。"
+          },
+          "points": {
+            "thread": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A simple question about something they are interested in now.",
+            "zh": "问一件对方现在关心的事。"
+          },
+          "points": {
+            "present": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A low-pressure invitation to a short new meeting.",
+            "zh": "邀请一次轻松短新见面。"
+          },
+          "points": {
+            "fresh": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "You meet and notice both of you have changed. You…",
+        "zh": "见面发现双方都变了，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask about the version of their life they want to share today.",
+            "zh": "问对方今天愿分享的生活版本。"
+          },
+          "points": {
+            "present": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Let one familiar detail open the conversation, then leave room for change.",
+            "zh": "用熟悉细节开场，再给变化留空间。"
+          },
+          "points": {
+            "thread": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Treat the meeting as a small first visit rather than a test of old closeness.",
+            "zh": "把见面当小小初访，不考旧亲近。"
+          },
+          "points": {
+            "fresh": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "An old favorite activity no longer appeals to one of you. You…",
+        "zh": "旧爱好有一方不再喜欢，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Choose a different short activity if both want to meet again.",
+            "zh": "若都想再见，选个不同短活动。"
+          },
+          "points": {
+            "fresh": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Enjoy the memory without making it the next plan.",
+            "zh": "欣赏记忆，不把它当下一计划。"
+          },
+          "points": {
+            "thread": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask what now feels enjoyable to each of you.",
+            "zh": "问现在各自喜欢什么。"
+          },
+          "points": {
+            "present": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "There is a quiet moment in the conversation. You…",
+        "zh": "对话安静下来，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Mention one ordinary detail from the time you knew each other.",
+            "zh": "提一个认识时的普通细节。"
+          },
+          "points": {
+            "thread": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask one easy current question without requiring a full life update.",
+            "zh": "问一个容易的近况问题，不要求完整人生汇报。"
+          },
+          "points": {
+            "present": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Let the small meeting be enough without filling every gap.",
+            "zh": "让小见面已足够，不填满每个空隙。"
+          },
+          "points": {
+            "fresh": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The meeting ends pleasantly, but future contact is uncertain. You…",
+        "zh": "见面愉快结束，以后联系仍未定，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Offer one optional next meeting rather than promising a new routine.",
+            "zh": "提供一次可选下次见面，不承诺新日程。"
+          },
+          "points": {
+            "fresh": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Say you enjoyed hearing what matters to them now.",
+            "zh": "说明喜欢听到对方现在在乎的事。"
+          },
+          "points": {
+            "present": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Thank them for revisiting a small shared thread with you.",
+            "zh": "感谢一起重访一小段共同线索。"
+          },
+          "points": {
+            "thread": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What would make the reunion meaningful?",
+        "zh": "怎样会让重逢有意义？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "We could recognize the past without being required to stay in it.",
+            "zh": "能认出过去，也不被要求留在那里。"
+          },
+          "points": {
+            "thread": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "There was room to meet who each of us is now.",
+            "zh": "有空间认识彼此现在的样子。"
+          },
+          "points": {
+            "present": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A modest new encounter could stand on its own.",
+            "zh": "一次适度新相遇，本身就成立。"
+          },
+          "points": {
+            "fresh": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "thread",
+      "title": {
+        "en": "The Old-Thread Reconnector",
+        "zh": "旧线索重连者"
+      },
+      "summary": {
+        "en": "Your reunion starts with something small the two of you already recognize. The thread opens a door without requiring the old room to remain unchanged. This ending values a shared past detail rather than measuring nostalgia or the strength of the bond.",
+        "zh": "你的重逢从两人都认得的小东西开始。线索开门，却不要求旧房间原样不动。结局珍惜共同过去细节，不测怀旧程度或关系强弱。"
+      },
+      "example": {
+        "en": "A song mentioned years ago might become one light opening line, followed by a genuine question about what the person enjoys listening to now.",
+        "zh": "多年前提过的一首歌，可以成为轻轻开场，再接一个真诚问题：对方现在喜欢听什么。"
+      },
+      "strength": {
+        "en": "A recognizable thread can reduce the effort of beginning and give both people a concrete memory they may choose to revisit.",
+        "zh": "可认出的线索能降低开场所需精力，也给双方一份可自主重访的具体记忆。"
+      },
+      "tradeoff": {
+        "en": "The past can become a script that leaves no space for change. A memory works best as an opening, not a test of whether the other person is still the same.",
+        "zh": "过去也会变剧本，让变化没空间。记忆适合作开头，不考对方是否仍与从前一样。"
+      },
+      "experiment": {
+        "en": "Use one harmless shared detail to open an optional reconnection, then leave a question that welcomes the person’s current interests.",
+        "zh": "用一个无害共同细节打开可选重连，再留一个欢迎对方当下兴趣的问题。"
+      }
+    },
+    {
+      "id": "present",
+      "title": {
+        "en": "The Present-Day Reconnector",
+        "zh": "当下近况重连者"
+      },
+      "summary": {
+        "en": "Your reunion makes space for what matters to each person now. You do not need a complete explanation of the years between meetings to begin. The portrait follows your chosen conversational route rather than claiming you can assess how someone has changed.",
+        "zh": "你的重逢给各自现在在乎的东西留空间。不必完整解释见面之间几年，也能开始。画像跟随所选对话路线，不宣称你能评估他人怎样改变。"
+      },
+      "example": {
+        "en": "You might ask about a current small hobby and let the person decide how much of their recent life they want to bring into the answer.",
+        "zh": "你可能问一个当前小爱好，让对方决定回答里带入多少近来生活。"
+      },
+      "strength": {
+        "en": "An easy current question can invite a fresh exchange without making the gap in contact something either person has to justify.",
+        "zh": "容易的当下问题能邀请新交流，不把联络空白变成任何人必须辩解的东西。"
+      },
+      "tradeoff": {
+        "en": "Too many update questions can feel like an interview. Sharing a little of your own present can keep the exchange mutual.",
+        "zh": "近况问题过多会像采访。也分享一点自己的当下，交流更能双向。"
+      },
+      "experiment": {
+        "en": "Ask one current question and offer one small update of your own. Let the other person choose whether to deepen the conversation or keep it light.",
+        "zh": "问一个近况问题，也给一条自己的小更新。让对方选聊深还是轻轻就好。"
+      }
+    },
+    {
+      "id": "fresh",
+      "title": {
+        "en": "The Small-New-Start Reconnector",
+        "zh": "小小重新开始者"
+      },
+      "summary": {
+        "en": "Your reunion can be a new encounter without erasing the old connection. A short invitation offers a shape both people may freely choose. The ending leaves future closeness undecided rather than treating one pleasant meeting as a promise.",
+        "zh": "你的重逢可以是新相遇，也不抹去旧联系。短邀请给双方可自由选择的形状。结局让未来亲近保持未定，不把一次愉快见面当承诺。"
+      },
+      "example": {
+        "en": "You might suggest a brief visit to a public exhibition rather than trying to recreate the entire routine you once shared years ago.",
+        "zh": "你可能约短看一场公共展览，不试着重建多年前整套共同日程。"
+      },
+      "strength": {
+        "en": "A modest new start can reduce pressure and make it easier to discover what kind of contact fits the people who are actually meeting now.",
+        "zh": "适度新开始能减少压力，也方便发现什么联系适合此刻实际见面的人。"
+      },
+      "tradeoff": {
+        "en": "Keeping everything tentative can make genuine interest hard to read. A specific optional invitation can be clear without demanding a lasting commitment.",
+        "zh": "凡事暂定也会让真实兴趣难读。具体可选邀请可以清楚，也不要求长期承诺。"
+      },
+      "experiment": {
+        "en": "If you want to reconnect, offer one specific small meeting with an easy decline. Let its outcome inform the next choice rather than deciding the whole relationship in advance.",
+        "zh": "想重连时，给一次具体小见面与方便拒绝的余地。由这次结果帮助下一选择，不预定整段关系。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "thread",
+    "present",
+    "fresh"
+  ]
+}

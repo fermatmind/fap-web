@@ -34,6 +34,42 @@ afterEach(() => {
 });
 
 describe("SEO-CONV-RUNTIME-03 runtime funnel contract", () => {
+  it.each(["en", "zh"] as const)("tags an entertainment %s landing with its actual quiz identity instead of the core funnel default", async locale => {
+    grantAnalyticsConsent();
+    window.history.pushState({}, "", `/${locale}/tests/play/woodland-animal`);
+    const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({ ok: true })));
+    vi.stubGlobal("fetch", fetchMock);
+    const { initAnalytics } = await importAnalyticsRuntime();
+    initAnalytics(); initAnalytics();
+    await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
+    const [, init] = fetchMock.mock.calls[0];
+    const body = JSON.parse(String(init?.body ?? "{}"));
+    expect(body.eventName).toBe(TRACKING_EVENTS.LANDING_PV);
+    expect(body.path).toBe(`/${locale}/tests/play/woodland-animal`);
+    expect(body.payload).toMatchObject({
+      page_type: "entertainment", target_test: "woodland-animal",
+      scale_id: "ENTERTAINMENT", form_id: "fun_woodland-animal_v1",
+    });
+  });
+
+  it.each([
+    "mbti-personality-test-16-personality-types", "big-five-personality-test-ocean-model",
+    "enneagram-personality-test-nine-types", "holland-career-interest-test-riasec",
+    "iq-test-intelligence-quotient-assessment", "eq-test-emotional-intelligence-assessment",
+  ])("preserves the core landing identity for %s", async slug => {
+    grantAnalyticsConsent();
+    window.history.pushState({}, "", `/en/tests/${slug}`);
+    const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({ ok: true })));
+    vi.stubGlobal("fetch", fetchMock);
+    const { initAnalytics } = await importAnalyticsRuntime(); initAnalytics();
+    await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
+    const [, init] = fetchMock.mock.calls[0];
+    const body = JSON.parse(String(init?.body ?? "{}"));
+    expect(body.payload).toMatchObject({ page_type: "test_detail", target_test: slug });
+    expect(body.payload.scale_id).not.toBe("ENTERTAINMENT");
+    expect(String(body.payload.form_id ?? "")).not.toMatch(/^fun_/);
+  });
+
   it("sends one public landing_pv with safe SEO conversion dimensions", async () => {
     grantAnalyticsConsent();
     window.history.pushState({}, "", "/zh/articles/mbti-career-path?utm_source=google&email=person%40example.com");

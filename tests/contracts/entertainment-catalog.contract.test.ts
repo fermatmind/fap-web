@@ -159,6 +159,7 @@ describe("original entertainment catalog", () => {
     const draft = { version: quiz.version, savedAt: 100000000, answers: { q1: "o1" } };
     expect(readFunDraft(quiz, JSON.stringify(draft), 100000001)).toEqual(draft.answers);
     expect(readFunDraft(quiz, JSON.stringify(draft), 200000000)).toBeNull();
+    expect(readFunDraft(quiz, JSON.stringify(draft), draft.savedAt + 86400000)).toBeNull();
     expect(readFunDraft(quiz, JSON.stringify({ ...draft, version: "old" }), 100000001)).toBeNull();
     expect(readFunDraft(quiz, JSON.stringify({ ...draft, answers: { q1: "bad" } }), 100000001)).toBeNull();
   });

@@ -136,6 +136,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "comfort-offer",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "relationships",
+    "title": {
+      "en": "What Kind of Company Would You Offer After a Tiring Day?",
+      "zh": "普通累了一天：你会怎样提供陪伴？"
+    },
+    "description": {
+      "en": "Six ordinary friend scenarios about a practical offer, room to talk and quiet company. Find the kind of invitation your choices tend to make.",
+      "zh": "六个普通朋友场景，提供实际小帮助、说话空间或安静作伴，看看你的选择常会发出哪种邀请。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "community-fair",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -147,6 +164,40 @@
     "description": {
       "en": "Six fictional fair choices about a short shift, a clearly bounded task and leaving useful information for the next helper. Find your contribution style.",
       "zh": "六次虚构市集选择，安排短时段、边界清楚的小任务，也给下一位帮手留有用信息，发现你的贡献方式。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "compliment-style",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "relationships",
+    "title": {
+      "en": "What Do Your Compliments Notice?",
+      "zh": "一句欣赏：你会先看见什么？"
+    },
+    "description": {
+      "en": "Six everyday choices about a visible detail, a process someone wants recognized and the difference their contribution made. Find your appreciation voice.",
+      "zh": "六次日常选择，留意可见细节、对方愿被看见的过程，以及贡献带来的实际不同，发现你的欣赏声音。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "date-plan-detour",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "relationships",
+    "title": {
+      "en": "Your Shared-Outing Detour Style",
+      "zh": "约好的一程变了：你会怎样一起转弯？"
+    },
+    "description": {
+      "en": "Six low-stakes date or shared-outing choices about keeping a favorite part, asking about current preferences and making a different small plan.",
+      "zh": "六次低风险约会或共同外出选择，保留最想要的部分、询问当下偏好，或另做一个小计划，发现你会怎样一起转弯。"
     },
     "minutes": 2,
     "questionCount": 6,
@@ -391,6 +442,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "gift-note",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "relationships",
+    "title": {
+      "en": "What Would Your Gift Note Say?",
+      "zh": "礼物旁的小纸条：你会写什么？"
+    },
+    "description": {
+      "en": "Six small-note choices about a shared memory, a specific thank-you and a gentle wish. Find the voice your choices give a simple gift note.",
+      "zh": "六次小纸条选择，写一段共同记忆、一声具体感谢或一个轻轻祝愿，看看你会给简单礼物配上怎样的声音。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "group-chat-role",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -487,6 +555,23 @@
     "description": {
       "en": "Six fictional dinner decisions explore how you adapt when ingredients, time, and tastes do not line up. Find your improvising style, not a cooking skill grade.",
       "zh": "6道虚构晚餐选择题，看看食材、时间和口味对不上时，你怎样调整。不评价厨艺，完整结果免费。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "long-distance-postcard",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "relationships",
+    "title": {
+      "en": "Your Long-Distance Postcard Style",
+      "zh": "隔着一段距离：你会寄来怎样的明信片？"
+    },
+    "description": {
+      "en": "Six asynchronous contact choices about a little scene, an open question and a shared marker that does not demand an instant reply.",
+      "zh": "六次异步联系选择，寄一幕小场景、留一个开放问题，或约一个不要求即时回复的共同标记。"
     },
     "minutes": 2,
     "questionCount": 6,
@@ -816,6 +901,23 @@
     "minQuestionCount": 24
   },
   {
+    "slug": "reunion-style",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "relationships",
+    "title": {
+      "en": "How Would You Reconnect After a Long Gap?",
+      "zh": "隔了一段时间再见：你会怎样重新接上？"
+    },
+    "description": {
+      "en": "Six fictional reunion choices about an old shared thread, a present-day update and a gentle new start. Find the reconnection route you choose today.",
+      "zh": "六次虚构重逢选择，接旧日共同线索、聊当下近况，或轻轻重新开始，发现今天愿选的重连路线。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "river-crossing",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -867,6 +969,40 @@
     "minQuestionCount": 3
   },
   {
+    "slug": "shared-hobby",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "relationships",
+    "title": {
+      "en": "How Would You Share a Hobby Hour?",
+      "zh": "一起玩一小时：你会怎样分享爱好？"
+    },
+    "description": {
+      "en": "Six ordinary choices about being a guest in another person’s interest, making alongside each other and exchanging short turns. Find your shared-hobby arrangement.",
+      "zh": "六次日常选择，做对方爱好里的小客人、并排各自创作，或交换短回合，发现你会怎样分享爱好时间。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "shared-ritual",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "relationships",
+    "title": {
+      "en": "What Kind of Small Ritual Would You Share?",
+      "zh": "两人的小仪式：你会怎样约？"
+    },
+    "description": {
+      "en": "Six ordinary choices about a tiny shared cue, a flexible time window and the meaning you want to keep. Find the ritual shape you choose together.",
+      "zh": "六次日常选择，围绕小小共同提示、灵活时段与想保留的意义，发现你会约出怎样的仪式形状。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "shared-workspace",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -878,6 +1014,23 @@
     "description": {
       "en": "Six fictional workshop choices about work-in-progress labels, shared tools and asking what kind of feedback is wanted. Find your creative-table role.",
       "zh": "六次虚构工作坊选择，标清进行中作品、共用工具、问明希望哪种反馈，发现你的共创桌角色。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "small-apology",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "relationships",
+    "title": {
+      "en": "Your First Step After a Small Mix-Up",
+      "zh": "一件小误会之后：你会先怎样补上？"
+    },
+    "description": {
+      "en": "Six minor everyday mix-up choices about naming your part, offering a concrete repair and leaving room for the other person’s response.",
+      "zh": "六次轻微日常失误选择，说清自己的部分、提供具体补救、给对方回应空间，发现你会优先做哪步。"
     },
     "minutes": 2,
     "questionCount": 6,

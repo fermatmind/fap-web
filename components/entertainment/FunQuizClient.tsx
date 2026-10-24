@@ -42,7 +42,7 @@ export function FunQuizClient({ quiz, locale }: { quiz: FunQuiz; locale: Locale 
   const draft: Answers | null = savedRaw ? JSON.parse(savedRaw).answers : null;
   const mbtiVersions = listMbtiFormMetas().map(form => zh ? `${form.questionCount} 题（约 ${form.estimatedMinutes} 分钟）` : `${form.questionCount} questions (about ${form.estimatedMinutes} min)`).join(zh ? "、" : " or ");
   const mbtiBaseHref = `/${locale}/tests/mbti-personality-test-16-personality-types`;
-  const recommendation = { locale, sourceRouteFamily: "test_detail" as const, sourceSlug: quiz.slug, sourcePath: `/${locale}/tests/play/${quiz.slug}`, href: mbtiBaseHref, ctaId: "entertainment_result_mbti", targetAction: "entertainment_result_mbti", targetTestSlug: "mbti-personality-test-16-personality-types" };
+  const recommendation = { locale, sourceRouteFamily: "test_detail" as const, sourceSlug: quiz.slug, sourcePath: `/${locale}/tests/play/${quiz.slug}`, href: mbtiBaseHref, ctaId: "entertainment_result_mbti", targetAction: "entertainment_result_mbti", targetTestSlug: "mbti-personality-test-16-personality-types", scaleCode: "MBTI" };
   const mbtiHref = appendSeoCtaContextParamsToHref(mbtiBaseHref, buildSeoCtaContextParams(recommendation));
   const resolved = resolveFunQuiz(quiz, answers);
   const questionId = resolved.path[position];
@@ -80,9 +80,20 @@ export function FunQuizClient({ quiz, locale }: { quiz: FunQuiz; locale: Locale 
     }
   }
   function start(resume = false) {
+    let restored: Answers = {};
+    if (resume) {
+      // A welcome screen can stay open beyond the draft's lifetime.
+      let current: Answers | null = null;
+      try { current = readFunDraft(quiz, sessionStorage.getItem(storageKey)); } catch { /* Optional storage. */ }
+      if (!current) {
+        clearDraft();
+        setMessage(zh ? "已存进度已过期或无法读取，请开始新测试。" : "Saved progress expired or is unavailable. Start a new quiz.");
+        return;
+      }
+      restored = current;
+    }
     submitted.current = false;
     viewed.current = false;
-    const restored = resume && draft ? draft : {};
     setAnswers(restored);
     setPosition(Math.max(0, resolveFunQuiz(quiz, restored).path.length - 1));
     setSaving(resume);

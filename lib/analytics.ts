@@ -196,6 +196,20 @@ export function trackLandingPageView(properties: AnalyticsProperties = {}): void
   const currentPath = currentBrowserPath();
   if (shouldHardStopPublicAnalyticsForUrl(currentPath)) return;
 
+  const [routeLocale, family, collection, quizSlug, ...remaining] = routeSegments(currentPath);
+  const isEntertainmentEntry = (routeLocale === "en" || routeLocale === "zh")
+    && family === "tests" && collection === "play" && remaining.length === 0
+    && typeof quizSlug === "string" && /^[a-z]+(?:-[a-z]+)*$/.test(quizSlug);
+  const landingProperties = isEntertainmentEntry ? {
+    ...properties,
+    slug: quizSlug,
+    test_slug: quizSlug,
+    scale_code: "ENTERTAINMENT",
+    form_code: `fun_${quizSlug}_v1`,
+    entry_surface: properties.entry_surface ?? "entertainment",
+    page_type: "entertainment",
+  } : properties;
+
   captureAttributionFromLocation({
     pathname: window.location.pathname,
     search: window.location.search,
@@ -211,9 +225,9 @@ export function trackLandingPageView(properties: AnalyticsProperties = {}): void
   }
 
   trackEvent(TRACKING_EVENTS.LANDING_PV, {
-    ...properties,
+    ...landingProperties,
     url: currentPath,
-    page_type: inferPageType(currentPath, properties),
+    page_type: inferPageType(currentPath, landingProperties),
   });
 }
 

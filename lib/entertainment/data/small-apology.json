@@ -1,0 +1,348 @@
+{
+  "slug": "small-apology",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "relationships",
+  "title": {
+    "en": "Your First Step After a Small Mix-Up",
+    "zh": "一件小误会之后：你会先怎样补上？"
+  },
+  "description": {
+    "en": "Six minor everyday mix-up choices about naming your part, offering a concrete repair and leaving room for the other person’s response.",
+    "zh": "六次轻微日常失误选择，说清自己的部分、提供具体补救、给对方回应空间，发现你会优先做哪步。"
+  },
+  "introduction": {
+    "en": "Imagine a small ordinary mistake such as sending the wrong meeting detail or returning a borrowed item late. The three result emphases can be combined. This is not a maturity score, a relationship diagnosis or a promise that an apology will be accepted.",
+    "zh": "想象发错见面信息、晚还借物等普通小失误。三种结果重点可以组合使用。题目不打成熟度分、不诊断关系，也不保证道歉一定被接受。"
+  },
+  "focus": {
+    "en": "Approaching a minor repair through a clear acknowledgment, a specific corrective offer or space for an unpressured response.",
+    "zh": "通过清楚承认、具体纠正提供，或不催促的回应空间，处理一件小补救。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "You sent the wrong time for a casual meeting. You first…",
+        "zh": "给轻松见面发错了时间，你先……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Say plainly which detail you got wrong.",
+            "zh": "直接说清错的是哪项细节。"
+          },
+          "points": {
+            "name": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Offer the correct detail and one practical way to adjust.",
+            "zh": "提供正确信息与一个实际调整办法。"
+          },
+          "points": {
+            "repair": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask what the other person now prefers without requiring reassurance.",
+            "zh": "问对方现在希望怎样，不要求安慰自己。"
+          },
+          "points": {
+            "space": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The other person says the mix-up inconvenienced them. You…",
+        "zh": "对方说失误带来不方便，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Acknowledge that effect without adding a defense immediately.",
+            "zh": "承认影响，不立刻加辩解。"
+          },
+          "points": {
+            "name": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Offer one feasible corrective step and ask if it would help.",
+            "zh": "提供一个可行纠正步骤，问是否有用。"
+          },
+          "points": {
+            "repair": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Let them finish their response before asking to move on.",
+            "zh": "让对方说完，再谈往前走。"
+          },
+          "points": {
+            "space": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "You can explain why the mistake happened. You…",
+        "zh": "可以解释为什么出错，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Keep the explanation separate from owning the actual error.",
+            "zh": "把解释与承认实际错误分开。"
+          },
+          "points": {
+            "name": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Focus first on what can now be corrected.",
+            "zh": "先关注现在可纠正什么。"
+          },
+          "points": {
+            "repair": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Check whether the person wants an explanation at all.",
+            "zh": "问对方是否想听解释。"
+          },
+          "points": {
+            "space": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "Your proposed repair is not what the other person wants. You…",
+        "zh": "提出的补救不是对方想要的，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Accept that and ask whether another small option would be useful.",
+            "zh": "接受，再问另一小选项是否有用。"
+          },
+          "points": {
+            "repair": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Restate the part that remains yours without insisting they accept the offer.",
+            "zh": "重说自己该认的部分，不坚持对方收下提供。"
+          },
+          "points": {
+            "name": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Leave room for them to decide later or decline further discussion.",
+            "zh": "留空间，让对方稍后决定或不再讨论。"
+          },
+          "points": {
+            "space": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "You want to avoid making the apology about your own discomfort. You…",
+        "zh": "不想把道歉变成处理自己的难受，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Keep the acknowledgment short and specific.",
+            "zh": "承认简短、具体。"
+          },
+          "points": {
+            "name": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Do the agreed corrective action rather than adding another long message.",
+            "zh": "做已约纠正行动，不再添长消息。"
+          },
+          "points": {
+            "repair": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Avoid asking for immediate forgiveness or a comforting reply.",
+            "zh": "不要求立刻原谅或回话安慰。"
+          },
+          "points": {
+            "space": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What would make this small repair feel complete enough?",
+        "zh": "怎样会让这次小补救足够完整？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The agreed practical correction has actually happened.",
+            "zh": "已约实际纠正确实完成。"
+          },
+          "points": {
+            "repair": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "My part and its ordinary effect were clearly acknowledged.",
+            "zh": "自己的部分与普通影响已清楚承认。"
+          },
+          "points": {
+            "name": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The other person could choose their response without pressure.",
+            "zh": "对方可不受催促地选择回应。"
+          },
+          "points": {
+            "space": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "name",
+      "title": {
+        "en": "The Clear-Acknowledgment First Step",
+        "zh": "先把事情说清"
+      },
+      "summary": {
+        "en": "Your first move names the specific part that was yours. A short acknowledgment can stand without a long account of your intentions. This ending emphasizes one part of a minor repair; it does not make words a substitute for any correction you agreed to do.",
+        "zh": "你的第一步说出具体哪部分属于自己。简短承认可以成立，不必长讲意图。结局只强调小补救的一部分，不让言语代替已约实际纠正。"
+      },
+      "example": {
+        "en": "You might say you wrote the wrong start time and recognize that it changed the other person’s plan, before discussing what can now be adjusted.",
+        "zh": "你可能说自己写错开始时间，承认它改变对方计划，再谈现在可怎样调整。"
+      },
+      "strength": {
+        "en": "A clear acknowledgment can reduce the burden on the other person to prove what happened and keep a small error from being hidden behind general wording.",
+        "zh": "清楚承认能减少对方证明发生什么的负担，也让小错误不藏在泛泛措辞后。"
+      },
+      "tradeoff": {
+        "en": "An acknowledgment can become repetitive if the practical issue stays untouched. Pairing it with a wanted correction can help the conversation move.",
+        "zh": "实际问题不动，承认也会变重复。配上对方愿意的纠正，交流更能向前。"
+      },
+      "experiment": {
+        "en": "For one minor mistake, write one sentence naming your action and its effect. Add a practical next step only after checking what is actually useful.",
+        "zh": "为一件小失误，写一句自己的行动与影响。问清实际有用什么后，再添下一步。"
+      }
+    },
+    {
+      "id": "repair",
+      "title": {
+        "en": "The Concrete-Correction First Step",
+        "zh": "先给具体补救"
+      },
+      "summary": {
+        "en": "Your first emphasis is a small action that can change the current situation. The offer remains something the other person may accept or decline. The portrait does not suggest that fixing a detail automatically removes its inconvenience or earns a particular response.",
+        "zh": "你的第一重点是能改变现状的小行动。提供仍可被接受或拒绝。画像不说修好细节就自动抹去不便，或换来某种回应。"
+      },
+      "example": {
+        "en": "If you returned the wrong notebook, you might offer a feasible exchange time and ask whether it works instead of promising to do absolutely anything.",
+        "zh": "还错笔记本时，你可能提供可行交换时间并问是否合适，不承诺“什么都愿做”。"
+      },
+      "strength": {
+        "en": "A specific correction can make an apology usable and give both people a concrete next choice rather than leaving the practical problem undefined.",
+        "zh": "具体纠正让道歉可用，也给双方一个下一选择，不把实际问题留成未定义。"
+      },
+      "tradeoff": {
+        "en": "An action offered too quickly can bypass the acknowledgment the other person wanted. A correction and a clear admission can sit together.",
+        "zh": "行动提得太快，会绕过对方想要的承认。纠正与清楚认下可以并存。"
+      },
+      "experiment": {
+        "en": "Offer one feasible correction for a small mix-up and ask whether it helps. Do the agreed version, rather than expanding the offer into a grand gesture.",
+        "zh": "给小失误提供一个可行纠正，问是否有用。做已约版本，不扩成宏大表示。"
+      }
+    },
+    {
+      "id": "space",
+      "title": {
+        "en": "The Unpressured-Response First Step",
+        "zh": "先留回应空间"
+      },
+      "summary": {
+        "en": "Your repair leaves the other person free to respond in their own time and terms. An apology need not ask them to make you feel better immediately. The ending emphasizes room for a response while keeping your own acknowledgment and practical responsibilities intact.",
+        "zh": "你的补救让对方可按自己时间与方式回应。道歉不必要求对方立刻让自己好受。结局强调回应空间，也保留自己的承认与实际责任。"
+      },
+      "example": {
+        "en": "After acknowledging a minor late return, you might offer the item’s handover and stop asking whether the person is definitely no longer annoyed.",
+        "zh": "承认一件小借物晚还后，你可能提出交接，不反复问对方是否肯定不再不快。"
+      },
+      "strength": {
+        "en": "An unpressured response can keep the apology from becoming another task the recipient must complete before their own preference is heard.",
+        "zh": "不催促回应，能让道歉不成为接收者必须先完成、自己的偏好才能被听见的新任务。"
+      },
+      "tradeoff": {
+        "en": "Giving space without stating your part can look like leaving the issue untouched. A brief acknowledgment helps the pause have a clear basis.",
+        "zh": "没说自己的部分就留空间，也会像问题未处理。简短承认能让停顿有清楚基础。"
+      },
+      "experiment": {
+        "en": "For a minor repair, make your acknowledgment and wanted next step clear, then leave the response open. Do not ask the recipient to certify your intentions.",
+        "zh": "小补救中，说清承认与对方愿意的下一步，再留回应开放。不要求接收者认证你的意图。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "name",
+    "repair",
+    "space"
+  ]
+}

@@ -1,0 +1,348 @@
+{
+  "slug": "shared-hobby",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "relationships",
+  "title": {
+    "en": "How Would You Share a Hobby Hour?",
+    "zh": "一起玩一小时：你会怎样分享爱好？"
+  },
+  "description": {
+    "en": "Six ordinary choices about being a guest in another person’s interest, making alongside each other and exchanging short turns. Find your shared-hobby arrangement.",
+    "zh": "六次日常选择，做对方爱好里的小客人、并排各自创作，或交换短回合，发现你会怎样分享爱好时间。"
+  },
+  "introduction": {
+    "en": "Imagine spending a little time with someone whose hobby differs from yours. Neither person must adopt the other’s interest to show care. Choose an arrangement both might freely try; this is not a compatibility score or a fixed learning-style label.",
+    "zh": "想象与爱好不同的人相处一小段时间。谁都不必认领对方兴趣来证明关心。选一种双方可自由试的安排，不给匹配打分，也不贴固定学习风格标签。"
+  },
+  "focus": {
+    "en": "Sharing an interest through a small guest experience, parallel activities or a reciprocal short exchange.",
+    "zh": "通过小小来宾体验、并行活动或双向短交换来分享兴趣。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Someone invites you into a hobby you do not know. You prefer…",
+        "zh": "有人邀你加入不熟悉的爱好，你更愿……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One small beginner-friendly version of what they enjoy.",
+            "zh": "对方喜欢活动里一个新手可试的小版本。"
+          },
+          "points": {
+            "guest": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Doing your own activity nearby while they do theirs.",
+            "zh": "对方做自己的，你在旁边做自己的。"
+          },
+          "points": {
+            "parallel": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Taking a short turn with each person’s interest.",
+            "zh": "双方兴趣各来一小轮。"
+          },
+          "points": {
+            "swap": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The activity is more involved than you expected. You…",
+        "zh": "活动比预想复杂，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask for one small piece you can enjoy without mastering it.",
+            "zh": "问有没有不用熟练也能享受的一小部分。"
+          },
+          "points": {
+            "guest": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Move to parallel making if both people like that better.",
+            "zh": "若双方更喜欢，就改成并行各做。"
+          },
+          "points": {
+            "parallel": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Reduce both shared turns rather than letting one fill all the time.",
+            "zh": "双方共玩回合都缩短，不让一方占满。"
+          },
+          "points": {
+            "swap": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "You want to include your own interest too. You suggest…",
+        "zh": "也想让自己的兴趣出现，你提议……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A simple two-turn exchange where either person can pass.",
+            "zh": "简单双回合交换，任何一方可跳过。"
+          },
+          "points": {
+            "swap": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A little time together in the same place with different materials.",
+            "zh": "同一地方待一小段，用不同材料各做。"
+          },
+          "points": {
+            "parallel": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Finishing the small guest experience first, then offering a separate invitation.",
+            "zh": "先完成小客人体验，再另发邀请。"
+          },
+          "points": {
+            "guest": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "One person is much more experienced. You…",
+        "zh": "一方经验多很多，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Let each work at their own level without making the hour a lesson.",
+            "zh": "各按自己程度做，不把整小时变课堂。"
+          },
+          "points": {
+            "parallel": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Keep the invited trial modest and ask for only the help you want.",
+            "zh": "受邀小试保持适度，只请求想要的帮助。"
+          },
+          "points": {
+            "guest": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Give both interests a brief turn rather than comparing skill.",
+            "zh": "给双方兴趣各一短轮，不比熟练。"
+          },
+          "points": {
+            "swap": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The shared hour is nearly over. You prefer…",
+        "zh": "共享时间快结束，你更愿……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A brief look at what each person independently enjoyed.",
+            "zh": "简短看看各自独立享受了什么。"
+          },
+          "points": {
+            "parallel": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A simple check of whether either wants another exchange later.",
+            "zh": "简单问双方以后是否还想交换。"
+          },
+          "points": {
+            "swap": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Thanking the person for one particular part you got to try.",
+            "zh": "感谢让自己试到的一个具体部分。"
+          },
+          "points": {
+            "guest": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What makes sharing hobbies feel right?",
+        "zh": "怎样会让分享爱好恰好？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "We could each keep our own interest while enjoying nearby company.",
+            "zh": "各有自己的兴趣，也享受邻近作伴。"
+          },
+          "points": {
+            "parallel": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A short exchange felt mutual without becoming a repayment schedule.",
+            "zh": "短交换双向，却不变偿还日程。"
+          },
+          "points": {
+            "swap": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "I could visit their interest without promising it would become mine.",
+            "zh": "能做对方兴趣的客人，不必许诺也变成自己的。"
+          },
+          "points": {
+            "guest": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "guest",
+      "title": {
+        "en": "The One-Round Guest",
+        "zh": "来玩一小轮的客人"
+      },
+      "summary": {
+        "en": "Your shared hour includes a visit to the other person’s interest without requiring you to move in permanently. One enjoyable small trial can count. The portrait values a guest experience rather than measuring how devoted you are to someone else.",
+        "zh": "你的共玩时间像到对方兴趣里做客，不要求永久入住。一次愉快小试就算数。画像珍惜来宾体验，不测你对别人多投入。"
+      },
+      "example": {
+        "en": "You might try one paper fold your friend enjoys, ask for the help you want and leave learning the full craft as a separate choice.",
+        "zh": "你可能试朋友喜欢的一种折纸，按需问帮助，把是否学整门手艺留作另一次选择。"
+      },
+      "strength": {
+        "en": "A bounded guest role can make curiosity comfortable and let another person share a favorite activity without needing to recruit a permanent partner.",
+        "zh": "有边界来宾角色让好奇舒服，也让人分享喜爱活动，不必招募永久伙伴。"
+      },
+      "tradeoff": {
+        "en": "Always being the guest can leave your own interests outside the time together. A separate invitation can keep the exchange from becoming one-sided.",
+        "zh": "总当客人也会让自己兴趣留在共同时间外。另一次邀请能让交流不单向。"
+      },
+      "experiment": {
+        "en": "Try one small part of a willing person’s hobby and name one thing you enjoyed. Leave a future invitation open rather than promising a new shared identity.",
+        "zh": "试愿意者爱好里一小部分，说一个喜欢之处。未来邀请开放，不许诺全新共同身份。"
+      }
+    },
+    {
+      "id": "parallel",
+      "title": {
+        "en": "The Side-by-Side Maker",
+        "zh": "并排各做的伙伴"
+      },
+      "summary": {
+        "en": "Your shared hobby time does not require a single shared task. Different materials can occupy the same hour, and a little conversation can come and go. The ending values parallel company rather than treating different interests as distance between people.",
+        "zh": "你的共玩时间不要求单一共同任务。不同材料可在同一小时，聊天也可来去。结局珍惜并行作伴，不把不同兴趣当成人与人疏远。"
+      },
+      "example": {
+        "en": "One person might sketch while another repairs a small model, occasionally showing a detail without turning either activity into a joint assignment.",
+        "zh": "一人速写，另一人修小模型，偶尔展示细节，不把任何一项变共同作业。"
+      },
+      "strength": {
+        "en": "Parallel making can preserve both interests and reduce the pressure to match skill, pace or enthusiasm throughout a shared visit.",
+        "zh": "并行创作能保留双方兴趣，减少整段到访必须同步熟练、节奏与热情的压力。"
+      },
+      "tradeoff": {
+        "en": "Parallel time can feel separate if no shared expectation is named. A brief check about company and quiet can make the arrangement easier to enjoy.",
+        "zh": "共同预期没说明时，并行也会像分开。简短问作伴与安静需求，安排更自在。"
+      },
+      "experiment": {
+        "en": "Offer one short side-by-side session with a willing person and agree on how much conversation each wants. Let both activities keep their own pace.",
+        "zh": "和愿意的人约一次短并排时间，说清各想聊多少，让两项活动保持自己节奏。"
+      }
+    },
+    {
+      "id": "swap",
+      "title": {
+        "en": "The Short-Turn Exchange Partner",
+        "zh": "短回合交换伙伴"
+      },
+      "summary": {
+        "en": "Your hobby hour gives each person a small turn to invite the other in. The exchange can be mutual without matching minutes or effort exactly. The portrait does not make attention to an interest something that must always be repaid.",
+        "zh": "你的爱好时间给每人一个邀请对方进入的小回合。交换可双向，不必精确匹配分钟精力。画像不把关注兴趣变成必须偿还的东西。"
+      },
+      "example": {
+        "en": "You might spend a short round trying a friend’s puzzle and another making a tiny drawing together, with either person free to skip a turn.",
+        "zh": "你可能短试朋友谜题，再一起画小画，任何一方都可跳过一轮。"
+      },
+      "strength": {
+        "en": "A short exchange can make different interests visible and give both people a concrete way to share something they chose.",
+        "zh": "短交换让不同兴趣可见，也给双方一个具体分享自己所选之物的方式。"
+      },
+      "tradeoff": {
+        "en": "Keeping an exact balance can make a playful exchange feel like accounting. Mutual interest can stay clear without tracking every minute.",
+        "zh": "追求精确平衡，会让趣味交换像算账。不追踪每分钟，也可有清楚双向兴趣。"
+      },
+      "experiment": {
+        "en": "Invite a two-part hobby exchange with small optional turns. Ask afterward what each person actually enjoyed before deciding whether to repeat it.",
+        "zh": "邀一次双部分爱好交换，每轮小且可选。之后问各自真喜欢什么，再决定是否重复。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "guest",
+    "parallel",
+    "swap"
+  ]
+}

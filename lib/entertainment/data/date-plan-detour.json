@@ -1,0 +1,348 @@
+{
+  "slug": "date-plan-detour",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "relationships",
+  "title": {
+    "en": "Your Shared-Outing Detour Style",
+    "zh": "约好的一程变了：你会怎样一起转弯？"
+  },
+  "description": {
+    "en": "Six low-stakes date or shared-outing choices about keeping a favorite part, asking about current preferences and making a different small plan.",
+    "zh": "六次低风险约会或共同外出选择，保留最想要的部分、询问当下偏好，或另做一个小计划，发现你会怎样一起转弯。"
+  },
+  "introduction": {
+    "en": "Imagine an ordinary shared outing whose original activity becomes unavailable. Both people can change their mind or finish the visit. This quiz is about coordinating a small plan, not predicting romantic compatibility or diagnosing conflict patterns.",
+    "zh": "想象普通共同外出里，原定活动临时无法进行。双方都可改主意或结束到访。题目只谈小计划协调，不预测恋爱匹配，也不诊断冲突模式。"
+  },
+  "focus": {
+    "en": "Adjusting a shared outing by preserving its valued part, checking preferences again or trying a bounded alternative.",
+    "zh": "通过保留珍惜部分、重新确认偏好，或尝试有边界替代活动来调整共同外出。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "The place you planned to visit is closed. You first…",
+        "zh": "计划去的地方关门了，你先……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask which part of the original plan each person most wanted.",
+            "zh": "问原计划各自最想要哪部分。"
+          },
+          "points": {
+            "core": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Check how both people feel about continuing now.",
+            "zh": "确认双方现在是否仍想继续。"
+          },
+          "points": {
+            "check": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Offer one nearby alternative as an option, not a decision.",
+            "zh": "把附近一种替代当选项提出，不直接决定。"
+          },
+          "points": {
+            "try": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "One person wanted quiet and the other wanted novelty. You…",
+        "zh": "一人想安静，一人想新鲜，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Name both preferences before choosing anything else.",
+            "zh": "先说清两种偏好，再选。"
+          },
+          "points": {
+            "check": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Look for a small alternative that includes one part of each.",
+            "zh": "找能包含双方各一部分的小替代。"
+          },
+          "points": {
+            "try": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask what made the original activity appealing to both.",
+            "zh": "问原活动为什么对双方都有吸引力。"
+          },
+          "points": {
+            "core": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "You have less time than the original plan needed. You…",
+        "zh": "时间比原计划所需少了，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Keep the one shared part that still feels worth doing.",
+            "zh": "留仍值得共同做的一部分。"
+          },
+          "points": {
+            "core": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Suggest a short trial with a clear finish.",
+            "zh": "提一个有清楚结束的短试。"
+          },
+          "points": {
+            "try": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask whether a different day would suit both better.",
+            "zh": "问换一天是否更适合双方。"
+          },
+          "points": {
+            "check": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "Your first alternative does not appeal to the other person. You…",
+        "zh": "第一个替代方案对方不喜欢，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Accept that answer and ask what they would prefer.",
+            "zh": "接受回答，问更希望怎样。"
+          },
+          "points": {
+            "check": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Return to the part of the original outing you both valued.",
+            "zh": "回到原外出里双方珍惜的部分。"
+          },
+          "points": {
+            "core": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Offer one substantially different option only if they want another suggestion.",
+            "zh": "只有对方想听时，再提一个确实不同的选项。"
+          },
+          "points": {
+            "try": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "A small new plan works well. You prefer to…",
+        "zh": "一个小新安排很合适，你更愿……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Enjoy it without expanding it into the whole original schedule.",
+            "zh": "就享受它，不扩成原先整套日程。"
+          },
+          "points": {
+            "try": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Notice what it preserved from the first plan.",
+            "zh": "留意它保留了原计划什么。"
+          },
+          "points": {
+            "core": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Check once whether the current pace still suits both people.",
+            "zh": "问一次当前节奏是否仍适合双方。"
+          },
+          "points": {
+            "check": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What makes this detour feel successful?",
+        "zh": "怎样会让这次转弯成功？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "We could choose again without someone’s first no becoming a problem.",
+            "zh": "能重新选，不让第一次拒绝变问题。"
+          },
+          "points": {
+            "check": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Something we both cared about survived the change.",
+            "zh": "双方在乎的某部分在变化后仍留下。"
+          },
+          "points": {
+            "core": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "We tried one small alternative without owing a perfect replacement.",
+            "zh": "试一个小替代，不欠完美替身。"
+          },
+          "points": {
+            "try": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "core",
+      "title": {
+        "en": "The Keep-the-Good-Part Planner",
+        "zh": "留住喜欢部分的安排者"
+      },
+      "summary": {
+        "en": "Your detour asks what the original outing was for before replacing its whole shape. The shared part may survive in a simpler form. The portrait concerns this small planning choice rather than your general flexibility or ability to save a date.",
+        "zh": "你的转弯先问原外出为了什么，再决定是否换整套形状。共同喜欢部分，也许能以简单形式留下。画像只谈小安排，不评普遍灵活或挽救约会能力。"
+      },
+      "example": {
+        "en": "If a small exhibition is unavailable, you might realize that both of you mainly wanted an unhurried hour together and choose a simpler place for that.",
+        "zh": "小展览去不了时，你可能发现双方主要想悠闲相处一小时，于是换更简单地点实现。"
+      },
+      "strength": {
+        "en": "Finding the valued part can reduce unnecessary replanning and prevent the original venue from becoming the only imagined way to enjoy the time.",
+        "zh": "找到珍惜部分，能减少无谓重排，也让原场地不变成享受时间的唯一想象。"
+      },
+      "tradeoff": {
+        "en": "The original purpose may not remain shared after the change. Asking again keeps a useful core from becoming something one person must preserve.",
+        "zh": "变化后，原目的也可能不再共同。再问一次，能让核心不变成某一人必须维护的东西。"
+      },
+      "experiment": {
+        "en": "For one small changed plan, name the part each person still wants. Keep only the overlap that both freely choose, and let the rest change.",
+        "zh": "一个小计划变动时，说出各自仍想要的部分。只留双方自由选择的交集，其余允许改变。"
+      }
+    },
+    {
+      "id": "check",
+      "title": {
+        "en": "The Choose-Again Partner",
+        "zh": "重新选择的伙伴"
+      },
+      "summary": {
+        "en": "Your shared outing makes room for an updated answer. A change in the plan can also change how much time, energy or interest each person wants to offer. The ending values asking directly rather than interpreting a preference as a verdict on the relationship.",
+        "zh": "你的共同外出给更新后的答案留位置。计划变了，双方愿给的时间、精力与兴趣也会变。结局珍惜直接问，不把偏好解读成关系判决。"
+      },
+      "example": {
+        "en": "You might ask whether the other person wants a shorter visit, another day or a finish now, and say your own preference as well.",
+        "zh": "你可能问对方想缩短、改天还是现在结束，也说自己的偏好。"
+      },
+      "strength": {
+        "en": "A fresh check-in can prevent an old agreement from silently carrying more commitment than either person intended after circumstances changed.",
+        "zh": "重新询问能避免情境变了以后，旧约定默默带上超出双方原意的承诺。"
+      },
+      "tradeoff": {
+        "en": "Checking without offering your own view can leave all the planning work to the other person. A mutual choice needs both preferences visible.",
+        "zh": "只问不说自己想法，会把安排工作都留给对方。共同选择需要双方偏好可见。"
+      },
+      "experiment": {
+        "en": "When a low-stakes shared plan changes, ask one clear preference question and answer it yourself too. Let either person choose a smaller commitment.",
+        "zh": "低风险共同计划变化时，问一个清楚偏好问题，也自己回答。让任何一方都可选更小承诺。"
+      }
+    },
+    {
+      "id": "try",
+      "title": {
+        "en": "The Small-Alternative Partner",
+        "zh": "小替代尝试伙伴"
+      },
+      "summary": {
+        "en": "Your detour offers a different small experience without promising to replace the original perfectly. A bounded trial gives both people something real to respond to. The portrait describes this outing strategy, not a rule that novelty fixes every disappointment.",
+        "zh": "你的转弯提供不同的小体验，不承诺完美替代原计划。有边界尝试给双方可实际回应的东西。画像只谈本次外出办法，不说新鲜能解决所有失落。"
+      },
+      "example": {
+        "en": "You might suggest a ten-minute look at an open public display, with a clear option to leave afterward rather than turning it into another full itinerary.",
+        "zh": "你可能提议花十分钟看开放公共展陈，看后可明确离开，不另做一整份行程。"
+      },
+      "strength": {
+        "en": "One concrete alternative can make replanning easier while keeping the choice small enough for both people to evaluate without pressure.",
+        "zh": "一个具体替代能让重排容易，也把选择保持小到双方可没压力地判断。"
+      },
+      "tradeoff": {
+        "en": "Repeated alternatives can feel like arguing with a no. A new suggestion helps only when both people still want to keep choosing.",
+        "zh": "不断提替代，也会像在和拒绝争辩。双方仍愿继续选时，新建议才有帮助。"
+      },
+      "experiment": {
+        "en": "Offer one small alternative only after checking that another suggestion is welcome. Give it a clear end and accept the answer without selling it harder.",
+        "zh": "确认欢迎再听一个建议后，只提一个小替代。说明结束，也接受回答，不再加力推销。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "core",
+    "check",
+    "try"
+  ]
+}
