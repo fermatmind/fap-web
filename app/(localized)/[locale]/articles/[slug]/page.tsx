@@ -387,7 +387,7 @@ export default async function ArticleDetailPage({
 
   const articleRuntimeContract = resolveArticleRuntimeContract(article);
   const headings = !article.contentHtml.trim()
-    ? getSimpleMarkdownHeadings(article.contentMd, { minimumHeadingLevel: 2, headingIdPrefix: "article-body" })
+    ? getSimpleMarkdownHeadings(article.contentMd, { locale, minimumHeadingLevel: 2, headingIdPrefix: "article-body" })
     : [];
 
   const relatedArticles: RelatedContentItem[] = [];

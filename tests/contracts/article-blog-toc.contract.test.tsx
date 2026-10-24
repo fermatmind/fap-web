@@ -28,6 +28,15 @@ describe("Article TOC uses the same safe markdown tokenizer as the body", () => 
     expect(body.querySelector('a[href^="javascript:"]')).toBeNull();
   });
 
+  it("uses the body locale and label map for internal-link heading text", () => {
+    const markdown = '## [/topics](/topics) and /help';
+    const options = { locale: "en" as const, headingIdPrefix: "article-body", internalLinkLabels: { "/help": "Support" } };
+    const [heading] = getSimpleMarkdownHeadings(markdown, options);
+    const body = new DOMParser().parseFromString(renderToStaticMarkup(<>{renderSimpleMarkdown(markdown, options)}</>), "text/html");
+    expect(heading.text).toBe("Topics and Support");
+    expect(heading.text).toBe(body.querySelector("h2")?.textContent);
+  });
+
   it("does not add anchors to other CMS consumers unless explicitly requested", () => {
     expect(renderToStaticMarkup(<>{renderSimpleMarkdown("## Existing heading")}</>)).not.toContain('id="');
     expect(getSimpleMarkdownHeadings("## Existing heading")).toEqual([]);
