@@ -1,0 +1,348 @@
+{
+  "slug": "woodland-animal",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "nature",
+  "title": {
+    "en": "What Woodland Animal Is Your Trail Style?",
+    "zh": "你的林间同行动物是什么？"
+  },
+  "description": {
+    "en": "A free six-question woodland animal quiz about exploring, making a base, and protecting your pace. Read your complete animal portrait immediately.",
+    "zh": "6道林间情境题，看看你更像开路、搭窝还是留意节奏的同行动物。免费查看完整画像。"
+  },
+  "introduction": {
+    "en": "Imagine a friendly woodland outing with no survival contest. Your choices about paths, supplies, and quiet moments build one of three original animal portraits. The animals are story metaphors, not claims about animal behavior or your permanent personality.",
+    "zh": "想象一次轻松的林间出游，没有生存竞赛。你对路线、物资和安静时刻的选择，会组成三种原创动物画像之一。动物只是故事比喻，不代表真实动物行为或你的固定人格。"
+  },
+  "focus": {
+    "en": "How you balance discovery, a dependable base, and personal space on a shared outing.",
+    "zh": "共同出游时，你怎样平衡新发现、可靠据点与个人空间。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "At the trail entrance, your group has an extra hour. You would rather…",
+        "zh": "在林道入口，大家多出一小时，你更想……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Follow the small side path marked on the map.",
+            "zh": "沿地图上标出的小岔路看看。"
+          },
+          "points": {
+            "jay": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Find a good picnic spot before walking further.",
+            "zh": "先找个合适的野餐据点。"
+          },
+          "points": {
+            "beaver": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Choose a quiet loop with places to pause.",
+            "zh": "选一条安静、方便停下来的环线。"
+          },
+          "points": {
+            "hedgehog": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "Everyone can bring one shared item. Your contribution is…",
+        "zh": "每人带一件公用物品，你会选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A mat that makes any clearing comfortable.",
+            "zh": "让空地变舒服的野餐垫。"
+          },
+          "points": {
+            "beaver": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A pocket notebook for unexpected discoveries.",
+            "zh": "记录沿路新发现的小本子。"
+          },
+          "points": {
+            "jay": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Earplugs and a small sign for a quiet break.",
+            "zh": "耳塞和一张安静休息提示牌。"
+          },
+          "points": {
+            "hedgehog": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "You reach a busy viewpoint. What would improve this stop?",
+        "zh": "到了热闹的观景点，你希望怎样调整？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A less crowded seat a short walk away.",
+            "zh": "走近一点，找个没那么拥挤的座位。"
+          },
+          "points": {
+            "hedgehog": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A clear place to leave bags and meet again.",
+            "zh": "定好放包和再次集合的地方。"
+          },
+          "points": {
+            "beaver": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A different viewing angle beyond the main platform.",
+            "zh": "找找主平台之外的另一个观察角度。"
+          },
+          "points": {
+            "jay": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A friend wants to extend the outing. You first ask…",
+        "zh": "朋友想延长行程，你会先问……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Which new part would we get to see?",
+            "zh": "能多看到哪一段新风景？"
+          },
+          "points": {
+            "jay": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Do we still have enough water and a way home?",
+            "zh": "水够不够，回程怎么安排？"
+          },
+          "points": {
+            "beaver": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Can anyone opt out and rest without pressure?",
+            "zh": "有人想休息时，能否轻松退出？"
+          },
+          "points": {
+            "hedgehog": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Your favorite souvenir from the day would be…",
+        "zh": "这一天最想留下的纪念是……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A little map of the comfortable spots we found.",
+            "zh": "一张标着舒服落脚点的小地图。"
+          },
+          "points": {
+            "beaver": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A sketch of an unfamiliar leaf shape.",
+            "zh": "一幅陌生叶片形状的速写。"
+          },
+          "points": {
+            "jay": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The memory of sitting silently without being hurried.",
+            "zh": "一段没人催促、静静坐着的记忆。"
+          },
+          "points": {
+            "hedgehog": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "Next time, what would you change in the group plan?",
+        "zh": "下次出游，你最想改进什么？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Leave a clear stretch with no scheduled conversation.",
+            "zh": "留一段不安排聊天的时间。"
+          },
+          "points": {
+            "hedgehog": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Reserve time for one unplanned but safe detour.",
+            "zh": "留出一次安全、临时起意的绕行。"
+          },
+          "points": {
+            "jay": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Prepare a simple shared packing list.",
+            "zh": "准备一张简单的公用物品清单。"
+          },
+          "points": {
+            "beaver": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "jay",
+      "title": {
+        "en": "Jay — The Curious Route Finder",
+        "zh": "松鸦：好奇的探路者"
+      },
+      "summary": {
+        "en": "You make an outing feel bigger by noticing the path nobody has discussed yet. In this story, discovery matters more than ticking off the official highlights. You can enjoy company while still wanting room to follow an interesting detail.",
+        "zh": "你总能留意到大家还没讨论的小路，让一次出游多一点可能。在这个故事里，新发现比打卡规定景点更有趣。你享受同行，也希望有空间追随一个有意思的细节。"
+      },
+      "example": {
+        "en": "At a familiar park, you might suggest taking a mapped side trail because its old bridge looks intriguing. The successful version includes telling the group where you are going and when you will return.",
+        "zh": "在熟悉的公园，你可能因为一座旧桥，提议走地图上的支线。更顺畅的做法是先说明去向和返回时间，让同行者不用猜。"
+      },
+      "strength": {
+        "en": "You bring fresh observations and make ordinary places worth revisiting. A small discovery can give everyone a story to tell on the way home.",
+        "zh": "你带来新的观察，让普通地方也值得再来。一个小发现，就可能成为大家回程时共同聊起的故事。"
+      },
+      "tradeoff": {
+        "en": "A detour can cost someone else energy. Wanting to explore does not mean the group has spare time, so excitement needs a quick check on pace and consent.",
+        "zh": "绕行也会消耗别人的体力。你想探索，不代表全队都有余裕；兴奋之外，还需要确认大家的节奏和意愿。"
+      },
+      "experiment": {
+        "en": "Before the next outing, propose one optional detour with a time limit and an easy meeting point. Ask whether people want to join, then let either answer be comfortable.",
+        "zh": "下次出游前，提出一条有时间上限、集合点清楚的可选支线。问问谁想一起去，也让不参加的人自在。"
+      }
+    },
+    {
+      "id": "beaver",
+      "title": {
+        "en": "Beaver — The Base Builder",
+        "zh": "河狸：舒服据点的搭建者"
+      },
+      "summary": {
+        "en": "You make shared adventures easier by creating somewhere dependable to land. In this woodland story, your attention goes to practical comfort: a dry place to sit, supplies people can find, and a plan that still works when someone gets tired.",
+        "zh": "你会先打造一个可靠的落脚处，让共同冒险更轻松。在这段林间故事里，你在意实际的舒服：干燥座位、找得到的物资，以及有人累了也能继续运作的安排。"
+      },
+      "example": {
+        "en": "While others photograph the view, you may spread the mat and point out where the water is. That small base lets the group relax without turning the whole day into a logistics exercise.",
+        "zh": "别人拍风景时，你可能铺好垫子，告诉大家水放在哪里。一个小据点就足以让人放松，不必把整天变成后勤任务。"
+      },
+      "strength": {
+        "en": "You turn vague plans into usable shared resources. People can spend less energy wondering what happens next and more energy enjoying being there.",
+        "zh": "你能把模糊的计划变成大家真正用得上的资源，让人少一点猜测后续安排的负担，多一点当下的享受。"
+      },
+      "tradeoff": {
+        "en": "Comfort can become a job you never volunteered to do alone. If every bag and decision ends up with you, the dependable base may stop feeling restful.",
+        "zh": "照顾舒服可能变成一份你从未答应独自承担的工作。如果每个包和每个决定都落到你这里，据点就不再让你休息了。"
+      },
+      "experiment": {
+        "en": "Choose one thing you are happy to organize next time and ask someone else to own another. Leave one part of the outing deliberately unplanned.",
+        "zh": "下次选一件你愿意负责的事，请别人承担另一件；再有意留一小段不做安排，让你也有出游的感觉。"
+      }
+    },
+    {
+      "id": "hedgehog",
+      "title": {
+        "en": "Hedgehog — The Gentle Pace Keeper",
+        "zh": "刺猬：温和的节奏守护者"
+      },
+      "summary": {
+        "en": "Your woodland portrait makes space part of the plan. You notice when a pleasant outing gets too loud, too crowded, or too continuous. A pause is not a failure to participate; in this story, it is what makes participation enjoyable.",
+        "zh": "你的林间画像把留白也算进行程。你会留意原本愉快的出游，何时变得太吵、太挤、太连续。在这个故事里，停下来并不是没参与，而是让参与继续舒服的方式。"
+      },
+      "example": {
+        "en": "You might move to a quieter bench and tell friends you will meet them after the lookout. A clear return point helps your break feel ordinary rather than like an unexplained disappearance.",
+        "zh": "你可能换到安静的长椅，告诉朋友观景结束后再会合。说明返回节点，可以让休息成为自然安排，而不是让人猜测的突然消失。"
+      },
+      "strength": {
+        "en": "You protect attention and make it easier for people with different energy levels to stay included. A slower option can improve the whole group plan.",
+        "zh": "你在保护注意力，也让精力不同的人更容易一起参与。一条慢一点的备选路线，可能让全队都更自在。"
+      },
+      "tradeoff": {
+        "en": "Others cannot always infer your limits from silence. Waiting until you are overwhelmed can make a small request feel much harder to voice.",
+        "zh": "别人未必能从沉默里猜到你的限度。等到已经撑不住再开口，一个小小的休息请求也会变得很难说。"
+      },
+      "experiment": {
+        "en": "Name one preference before the next plan is fixed: a quieter stop, an early exit, or a short solo loop. Make it a concrete request instead of a verdict on the outing.",
+        "zh": "下次定计划前，具体说出一个偏好：安静的停靠点、提前离开的选择，或一小段独行。把它说成安排请求，不必评价整场出游。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "jay",
+    "beaver",
+    "hedgehog"
+  ]
+}

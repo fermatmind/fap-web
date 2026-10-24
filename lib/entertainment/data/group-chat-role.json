@@ -1,0 +1,348 @@
+{
+  "slug": "group-chat-role",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "social",
+  "title": {
+    "en": "What Is Your Group Chat Role?",
+    "zh": "你在群聊里是什么角色？"
+  },
+  "description": {
+    "en": "Six everyday messaging choices reveal your chat contribution: signal keeper, spark starter, or quiet connector. Free full results without an account.",
+    "zh": "6道日常聊天题，看看你更像信息整理员、话题点火者还是安静的连接者。无需账户，完整结果免费。"
+  },
+  "introduction": {
+    "en": "Think of one casual group chat you actually enjoy. Answer for that group, not for work emergencies or every conversation in your life. This quiz explores what you contribute to a chat; response speed does not measure how much you care.",
+    "zh": "请想一个你平时喜欢的轻松群聊。按这个群来回答，不必代入工作紧急沟通，也不用代表你所有聊天。这里看的是你给群聊带来什么，回复快慢不代表在意程度。"
+  },
+  "focus": {
+    "en": "How you keep shared messages useful, lively, or personally welcoming.",
+    "zh": "你怎样让群消息更有用、更活跃，或更照顾到具体的人。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "A dinner plan is buried beneath forty messages. You…",
+        "zh": "聚餐安排被四十条消息淹没，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Post one summary with the time and booking link.",
+            "zh": "发一条时间与订位链接的汇总。"
+          },
+          "points": {
+            "signal": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Make a playful poll to restart the decision.",
+            "zh": "做一个好玩的投票，让大家重新选。"
+          },
+          "points": {
+            "spark": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Check whether the person who has not replied can make it.",
+            "zh": "问问一直没回复的朋友是否方便。"
+          },
+          "points": {
+            "connector": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "Someone shares a very niche hobby photo. Your instinct is…",
+        "zh": "有人分享了很小众的爱好照片，你首先想……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask what got them interested in it.",
+            "zh": "问问对方怎么开始喜欢它的。"
+          },
+          "points": {
+            "connector": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Offer a funny caption they can join in with.",
+            "zh": "接一个对方也能参与的有趣配文。"
+          },
+          "points": {
+            "spark": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Save the resource link so people can find it later.",
+            "zh": "把相关资料链接整理出来，方便回找。"
+          },
+          "points": {
+            "signal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "The chat has gone quiet for a week. You would post…",
+        "zh": "群里安静了一周，你可能会发……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A small question everyone can answer in one line.",
+            "zh": "一个每人用一句话就能回答的小问题。"
+          },
+          "points": {
+            "spark": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A reminder about the event people already agreed to.",
+            "zh": "大家已经约好活动的提醒。"
+          },
+          "points": {
+            "signal": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A warm follow-up about someone’s earlier news.",
+            "zh": "接着某位朋友之前的近况关心一句。"
+          },
+          "points": {
+            "connector": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A new person joins mid-conversation. You help by…",
+        "zh": "新人加入时，大家正聊到一半，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Giving a short explanation of the current plan.",
+            "zh": "简短解释一下现在聊的安排。"
+          },
+          "points": {
+            "signal": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Inviting their take without demanding an introduction.",
+            "zh": "请对方说说看法，不强求自我介绍。"
+          },
+          "points": {
+            "connector": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Starting a light prompt that old and new members can answer.",
+            "zh": "起一个新老成员都能接的话题。"
+          },
+          "points": {
+            "spark": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "A joke lands awkwardly. You are most likely to…",
+        "zh": "一个玩笑有点冷场，你更可能……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Shift to a lighter topic people can easily join.",
+            "zh": "换个轻松、大家容易加入的话题。"
+          },
+          "points": {
+            "spark": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Privately ask the person affected if they are okay.",
+            "zh": "私下问问可能受影响的人是否还好。"
+          },
+          "points": {
+            "connector": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Clarify the practical message that got lost in the joke.",
+            "zh": "把玩笑中被打岔的正事讲清楚。"
+          },
+          "points": {
+            "signal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "Which reaction to your messages would please you most?",
+        "zh": "别人怎样回应你的消息，你会最开心？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "“I finally found what I needed.”",
+            "zh": "“终于找到我要的信息了。”"
+          },
+          "points": {
+            "signal": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "“I felt included even though I was quiet.”",
+            "zh": "“我虽然没怎么说话，但感觉被记得了。”"
+          },
+          "points": {
+            "connector": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "“That turned my boring afternoon around.”",
+            "zh": "“无聊的下午被你点亮了。”"
+          },
+          "points": {
+            "spark": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "signal",
+      "title": {
+        "en": "Signal Keeper",
+        "zh": "信息整理员"
+      },
+      "summary": {
+        "en": "You reduce the effort of being in the group. Your chat portrait favors usable summaries, clear links, and decisions people can find again. You do not need to send the most messages to make the conversation work better.",
+        "zh": "你在降低参与群聊的成本。你的画像偏向好用的汇总、清楚的链接和回头找得到的决定。发言不必最多，也能让沟通更顺畅。"
+      },
+      "example": {
+        "en": "After a long dinner debate, your three-line message might list the place, the time, and who will book. Someone reading on a short break can join without reviewing the whole thread.",
+        "zh": "聚餐讨论很久之后，你可能用三行写清地点、时间和订位人。朋友在短暂休息时看一眼，就能接上安排，不必翻完整串聊天。"
+      },
+      "strength": {
+        "en": "You create a shared memory for the group and prevent avoidable confusion. Your contribution is especially useful when people check messages at different times.",
+        "zh": "你给群聊建立了共同记忆，减少本可避免的混乱。大家看消息的时间不同时，这份整理尤其有用。"
+      },
+      "tradeoff": {
+        "en": "Being organized does not make you the permanent secretary. Summarizing too early can also close down a conversation that people were enjoying for its own sake.",
+        "zh": "会整理不等于默认当永久秘书。太早总结，也可能把大家原本享受的闲聊变成待办会议。"
+      },
+      "experiment": {
+        "en": "Try asking “Want a quick summary?” before the next long thread. If you take charge of one booking, hand the next one to someone else explicitly.",
+        "zh": "下次消息很多时，先问一句“需要我汇总一下吗？”如果这次你负责订位，下一次可以明确请别人接手。"
+      }
+    },
+    {
+      "id": "spark",
+      "title": {
+        "en": "Spark Starter",
+        "zh": "话题点火者"
+      },
+      "summary": {
+        "en": "You help a chat feel alive by giving people something easy to respond to. A playful question, a timely image, or a small shared joke can create an opening. In this quiz, liveliness is an invitation, not an obligation to entertain.",
+        "zh": "你会给大家一个容易接的话头，让群聊活起来。一个轻松问题、一张应景图片或共同的小笑点，都能打开交流。这里的热闹是一种邀请，不是你必须持续表演。"
+      },
+      "example": {
+        "en": "When nobody has spoken all week, you might ask everyone to describe their lunch in three words. The prompt works because a busy person can join briefly and a quiet person can simply read.",
+        "zh": "群里一周没动静时，你可能问大家用三个词形容午餐。这个话题轻巧的地方，是忙的人可以短暂加入，安静的人也可以只看看。"
+      },
+      "strength": {
+        "en": "You lower the threshold for participation and make shared rituals possible. People may associate the group with a few enjoyable moments you helped start.",
+        "zh": "你降低了参与门槛，也让群聊形成小小的共同习惯。大家对这个群的好印象，可能就包含你发起的几次愉快片刻。"
+      },
+      "tradeoff": {
+        "en": "A silent chat is not necessarily a broken chat. Chasing a response can turn play into pressure, especially when someone is tired or does not share the joke.",
+        "zh": "安静的群不一定有问题。太想得到回应时，玩乐也可能变成压力，尤其是别人疲惫或接不上笑点的时候。"
+      },
+      "experiment": {
+        "en": "Offer one low-pressure prompt, then leave room for silence. If the topic involves a person, make sure they can enjoy the joke too.",
+        "zh": "发一个没有回应压力的小话题，然后允许群里继续安静。如果笑点涉及某个人，也确认对方能一起觉得有趣。"
+      }
+    },
+    {
+      "id": "connector",
+      "title": {
+        "en": "Quiet Connector",
+        "zh": "安静的连接者"
+      },
+      "summary": {
+        "en": "You notice the people between the messages. Your portrait emphasizes following up, welcoming someone in, and remembering a detail that matters to them. A short thoughtful reply can do more for connection than a constantly active thread.",
+        "zh": "你会看见消息之间的具体的人。这份画像强调跟进近况、欢迎加入，以及记住对方在意的小细节。简短而用心的回应，有时比一直刷新的消息更有连接感。"
+      },
+      "example": {
+        "en": "A friend mentioned a pottery class last month. Asking how the first bowl turned out can reopen a conversation without making them deliver a big life update.",
+        "zh": "朋友上个月提过陶艺课，你可能问第一只碗做得怎样。一个具体的小问题就能重新接上话，不必让对方汇报整个人生。"
+      },
+      "strength": {
+        "en": "You make a group feel less anonymous. People who rarely compete for attention may find it easier to speak when their earlier contribution was remembered.",
+        "zh": "你让群聊少一点匿名感。平时不太争取注意力的人，发现自己的话被记得时，可能更愿意再次开口。"
+      },
+      "tradeoff": {
+        "en": "You are not responsible for everyone’s mood or for interpreting every delayed reply. Private follow-ups still need space for someone to decline or stay quiet.",
+        "zh": "你不负责照顾所有人的情绪，也不用解释每一次迟回。私下关心时，同样需要给对方拒绝或暂时安静的空间。"
+      },
+      "experiment": {
+        "en": "Follow up on one concrete detail and add an easy exit: “No need to reply now.” Notice whether you enjoy the contact yourself, rather than only managing others’ comfort.",
+        "zh": "跟进一个具体细节，再加一句“现在不方便回也没关系”。也留意你自己是否享受交流，不必只顾大家舒不舒服。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "signal",
+    "spark",
+    "connector"
+  ]
+}

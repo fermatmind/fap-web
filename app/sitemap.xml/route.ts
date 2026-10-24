@@ -1,3 +1,4 @@
+import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
 import {
   buildPublicSitemapEntries,
   buildPublicSitemapXml,
@@ -17,7 +18,7 @@ export async function GET(): Promise<Response> {
       throw new Error("Backend sitemap source returned no public sitemap entries.");
     }
 
-    return new Response(buildPublicSitemapXml(entries), {
+    return new Response(buildPublicSitemapXml(appendFunSitemapEntries(entries)), {
       status: 200,
       headers: {
         "Content-Type": "application/xml; charset=utf-8",

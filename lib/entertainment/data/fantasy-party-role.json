@@ -1,0 +1,348 @@
+{
+  "slug": "fantasy-party-role",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "fantasy",
+  "title": {
+    "en": "What Is Your Fantasy Adventure Party Role?",
+    "zh": "奇幻冒险队里，你负责什么？"
+  },
+  "description": {
+    "en": "Choose through six original fantasy expedition scenes to find your party role: route scout, ward keeper, or spell tinkerer. All story results are free.",
+    "zh": "走过6个原创奇幻远行情境，看看你是探路斥候、结界守护者还是咒语修补师。所有故事结果免费。"
+  },
+  "introduction": {
+    "en": "A floating library has asked your party to retrieve a missing page. There is no battle and no right answer: the story asks how you make an uncertain expedition work. These are original roles, with no franchise characters or real-world career matching.",
+    "zh": "一座漂浮图书馆请你的小队找回失落书页。故事没有战斗，也没有标准答案；重点是你怎样让充满未知的远行顺利进行。角色均为原创，不对应影视角色或现实职业匹配。"
+  },
+  "focus": {
+    "en": "Your preferred contribution when a fictional team must navigate, protect its resources, and improvise.",
+    "zh": "虚构团队需要认路、保护资源与临场改造时，你更愿意贡献哪一部分。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "The library offers three tools. You choose…",
+        "zh": "图书馆给出三样工具，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A map that shows paths only after you ask a good question.",
+            "zh": "问对问题才会显路的地图。"
+          },
+          "points": {
+            "scout": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A lantern that marks a safe place to rest.",
+            "zh": "能标出安全休息点的灯。"
+          },
+          "points": {
+            "keeper": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A box of spell fragments that can be recombined.",
+            "zh": "可以重新拼装的咒语碎片盒。"
+          },
+          "points": {
+            "tinkerer": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "Two bridges lead to the archive. Your first move is…",
+        "zh": "两座桥通向档案馆，你先……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Inspect where each bridge ends before choosing.",
+            "zh": "看清两座桥分别通到哪里。"
+          },
+          "points": {
+            "scout": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Agree on a signal to stop if anyone feels uncertain.",
+            "zh": "约好有人不放心时就停下的信号。"
+          },
+          "points": {
+            "keeper": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Test whether the spare boards could make a third crossing.",
+            "zh": "试试备用木板能否搭出第三种过法。"
+          },
+          "points": {
+            "tinkerer": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "A door responds to tunes, but your key is silent. You…",
+        "zh": "门会回应曲调，可你们的钥匙没有声音，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Try turning the key into a tiny wind instrument.",
+            "zh": "试着把钥匙改成一件小小的吹奏乐器。"
+          },
+          "points": {
+            "tinkerer": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Look for marks that reveal how visitors entered before.",
+            "zh": "找找前人留下的进门线索。"
+          },
+          "points": {
+            "scout": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Set a short attempt limit so nobody exhausts their magic.",
+            "zh": "先定尝试时限，别耗尽大家的魔力。"
+          },
+          "points": {
+            "keeper": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "The party can carry only one extra bundle. You favor…",
+        "zh": "队伍只能多带一包东西，你倾向……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Spare lamp crystals and warm wraps.",
+            "zh": "备用灯晶与保暖披布。"
+          },
+          "points": {
+            "keeper": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A measuring ribbon and blank route cards.",
+            "zh": "测量丝带和空白路线卡。"
+          },
+          "points": {
+            "scout": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Loose gears and reusable charms.",
+            "zh": "零散齿轮与可重复使用的小咒符。"
+          },
+          "points": {
+            "tinkerer": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "An enchanted stair repeats the same floor. You suggest…",
+        "zh": "魔法楼梯总回到同一层，你会提议……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Mark each turn to find what changes between loops.",
+            "zh": "给每个转角做记号，找循环中的变化。"
+          },
+          "points": {
+            "scout": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Pause together and check everyone still has what they need.",
+            "zh": "一起停下来，确认大家的物资与状态。"
+          },
+          "points": {
+            "keeper": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Change one part of the stair’s rhythm with a small charm.",
+            "zh": "用小咒符改变楼梯节奏中的一个环节。"
+          },
+          "points": {
+            "tinkerer": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "The page is home. Which note belongs in your expedition log?",
+        "zh": "书页已归还，你最想在远行日志里记下……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The repair that made an impossible door usable.",
+            "zh": "那次让不可能的门重新可用的改造。"
+          },
+          "points": {
+            "tinkerer": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The resting places that kept the party together.",
+            "zh": "让全队能一直同行的几个休息点。"
+          },
+          "points": {
+            "keeper": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The landmarks that will help the next visitors.",
+            "zh": "能帮助下一批来访者认路的地标。"
+          },
+          "points": {
+            "scout": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "scout",
+      "title": {
+        "en": "Route Scout",
+        "zh": "探路斥候"
+      },
+      "summary": {
+        "en": "Your party contribution is orientation. You want to learn what lies ahead, distinguish a promising route from a distracting one, and leave signs others can use. The scout is curious with a purpose: helping the team know where it is going.",
+        "zh": "你给队伍带来方向感。你想弄清前面有什么，分辨值得走的路与分神的岔口，也愿意留下别人用得上的标记。斥候的好奇有一个目的：让队伍知道自己正往哪里走。"
+      },
+      "example": {
+        "en": "At the repeating stair, you would mark turns before making another attempt. Outside the story, the same playful preference might look like checking entrances and meeting points before a group museum visit.",
+        "zh": "遇到循环楼梯，你会先标记转角再尝试。放到日常的小场景里，这种偏好可能表现为集体逛博物馆前，先看入口和集合点。"
+      },
+      "strength": {
+        "en": "You make uncertainty visible and turn it into a question the party can investigate. A clear landmark can be more useful than a confident guess.",
+        "zh": "你能让未知变得可见，再把它变成队伍可以调查的问题。一个清楚的地标，可能比自信的猜测更有用。"
+      },
+      "tradeoff": {
+        "en": "Reconnaissance can become endless preparation. You may miss the moment when the party has enough information to take a small, reversible step.",
+        "zh": "侦察也可能变成无休止的准备。你可能错过一个节点：信息已经足够，可以先迈出可撤回的一小步。"
+      },
+      "experiment": {
+        "en": "In your next shared activity, identify one thing worth checking and one decision that can safely wait. Let another person choose a minor route detail.",
+        "zh": "下次共同活动时，区分一件值得先查的事和一个可以稍后再定的决定。也让别人选一次小路线。"
+      }
+    },
+    {
+      "id": "keeper",
+      "title": {
+        "en": "Ward Keeper",
+        "zh": "结界守护者"
+      },
+      "summary": {
+        "en": "You keep the expedition possible by caring for its limits. In this story, protection means shared signals, rest, and resources people can rely on. You are not the party’s parent; you help it agree on conditions that let everyone participate.",
+        "zh": "你通过照顾边界，让远行能够继续。在这个故事里，守护意味着共同信号、休息和可靠物资。你不是全队的家长，而是在帮助大家约定能自在参与的条件。"
+      },
+      "example": {
+        "en": "Before a difficult crossing, you might agree on a stop signal and check the lamp. At a real game night, a similar contribution is agreeing on breaks and making sure the quiet player understands the rules.",
+        "zh": "过桥之前，你可能先约好暂停信号，再检查灯。现实中的桌游夜，类似贡献可能是安排休息，并确认安静的玩家也弄懂规则。"
+      },
+      "strength": {
+        "en": "You make care practical. A team can be more adventurous when its members know they can ask to stop without being blamed.",
+        "zh": "你让照顾变得具体可用。当每个人都知道可以提出暂停而不被责备时，队伍反而更容易尝试新东西。"
+      },
+      "tradeoff": {
+        "en": "Trying to prevent every discomfort can leave you carrying too much and give others too little room to choose their own limits. Protection works best when responsibility is shared.",
+        "zh": "想替大家避免每一种不舒服，可能让你负担过重，也挤掉别人选择自己限度的空间。责任能共同承担时，守护才更轻松。"
+      },
+      "experiment": {
+        "en": "At the next group activity, ask each person to name one need and own one small task. Include your own need instead of volunteering to absorb every gap.",
+        "zh": "下次集体活动时，请每个人说一个需要，再承担一件小事。把你自己的需要也放进去，不必默默填补所有空缺。"
+      }
+    },
+    {
+      "id": "tinkerer",
+      "title": {
+        "en": "Spell Tinkerer",
+        "zh": "咒语修补师"
+      },
+      "summary": {
+        "en": "You see tools as starting points rather than finished answers. Your party role is to combine, test, and adapt when the standard method does not fit. This portrait celebrates playful experimentation, without claiming that improvising makes every idea safe or effective.",
+        "zh": "你把工具看成起点，而不是已经完成的答案。标准方法用不上时，你愿意组合、试验与改造。这份画像欣赏轻巧的尝试，并不声称临场创意一定安全或有效。"
+      },
+      "example": {
+        "en": "A silent key becomes something to investigate rather than throw away. In ordinary life, you might rearrange the rules of a party game so that a smaller group can still enjoy it.",
+        "zh": "没有声音的钥匙，会让你想研究，而不是直接扔掉。日常里，你可能调整聚会游戏的规则，让人数较少的一桌也能玩起来。"
+      },
+      "strength": {
+        "en": "You bring alternatives when a plan stalls. A small prototype can show the group what is possible more clearly than a long argument about the perfect solution.",
+        "zh": "计划卡住时，你会带来替代方案。一个小试样，有时比围绕完美方案长时间争论，更能让大家看见可能性。"
+      },
+      "tradeoff": {
+        "en": "Not every situation needs a modification. Constantly changing the method can make it harder for the rest of the party to learn or trust the plan.",
+        "zh": "并不是每个场景都需要改造。方法一直变，队友可能更难熟悉规则，也不容易信任已经商定的安排。"
+      },
+      "experiment": {
+        "en": "Try one small change with an agreed stop point. Explain what you are testing and preserve an easy way back to the original plan.",
+        "zh": "试一次范围很小、停止节点明确的改变。说清楚想验证什么，也保留方便回到原安排的方法。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "scout",
+    "keeper",
+    "tinkerer"
+  ]
+}

@@ -97,9 +97,9 @@ const HUB_FEATURES = [
   {
     icon: ShieldCheck,
     titleZh: "科学方法，可靠专业",
-    bodyZh: "基于心理学与测量学的科学模型。",
+    bodyZh: "本区六类测评各有心理学与测量学框架；下方娱乐测试另有明确边界。",
     titleEn: "Scientific methods, reliable expertise",
-    bodyEn: "Based on scientific models from psychology and psychometrics.",
+    bodyEn: "The six assessments use their respective psychology and measurement frameworks. Fun quizzes below have separate boundaries.",
   },
   {
     icon: UserRound,

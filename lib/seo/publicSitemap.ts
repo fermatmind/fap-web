@@ -1,3 +1,4 @@
+import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
 import { buildApiUrl } from "@/lib/api-base";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { CANONICAL_SITE_URL } from "@/lib/site";
@@ -237,7 +238,8 @@ export async function buildPublicSitemapResponse(family?: PublicSitemapFamily): 
       throw new Error("empty_backend_sitemap_source");
     }
 
-    const entries = family ? buildPublicSitemapFamilyMap(rootEntries)[family] : rootEntries;
+    const allEntries = appendFunSitemapEntries(rootEntries);
+    const entries = family ? buildPublicSitemapFamilyMap(allEntries)[family] : allEntries;
 
     return new Response(buildPublicSitemapXml(entries), {
       status: 200,

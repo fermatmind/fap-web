@@ -1,0 +1,222 @@
+{
+  "slug": "lost-letter-adventure",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "fantasy",
+  "title": {
+    "en": "The Lost Letter: Which Story Ending Will You Choose?",
+    "zh": "失落的信：你会走向哪种故事结局？"
+  },
+  "description": {
+    "en": "A free two-to-three-choice branching adventure at a floating post office. Follow your own route to an original ending, with no random outcome.",
+    "zh": "在漂浮邮局完成2至3次选择，沿真正的故事分支走向原创结局。无随机抽取，完整结局免费。"
+  },
+  "introduction": {
+    "en": "You find a letter addressed to “the place that needs these words.” A floating post office lends you a route book. Each choice changes the next scene or the ending, so this is a tiny choose-your-own-adventure rather than a personality scale.",
+    "zh": "你捡到一封收件地址写着“需要这些话的地方”的信。漂浮邮局借给你一本路线簿。每次选择都会改变后续场景或结局；这是一段可选择路线的小冒险，不是人格量尺。"
+  },
+  "focus": {
+    "en": "A story about whether a message needs a destination, an invitation, or a little more time. Your ending reflects narrative choices, not a judgment of your character.",
+    "zh": "一段关于“话语需要目的地、邀请，还是再等一等”的故事。结局回应的是你的叙事选择，不评价你的人品。"
+  },
+  "minutes": 2,
+  "mechanism": "branch",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "The route book offers two first stops. Where do you go?",
+        "zh": "路线簿给出两个起点，你去哪里？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The town square, where an empty noticeboard waits.",
+            "zh": "小镇广场，那里有一块空白布告板。"
+          },
+          "next": "q2"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The quiet station, where no train is scheduled yet.",
+            "zh": "安静车站，那里还没有列车时刻。"
+          },
+          "next": "q3"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "A resident says the letter may belong to anyone here. You…",
+        "zh": "居民说，这封信可能属于这里的任何人。你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask the post office to invite people to claim a message.",
+            "zh": "请邮局发出邀请，让需要信的人自己来认领。"
+          },
+          "next": "q4"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Return with a list of possible addresses to check.",
+            "zh": "带着可能的地址清单回去核对。"
+          },
+          "result": "lantern"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "The station clock runs only when someone waits willingly. You…",
+        "zh": "车站的钟，只有人自愿等待时才会走。你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Sit for a while and listen for an announcement.",
+            "zh": "坐一会儿，听听是否有广播。"
+          },
+          "result": "shelf"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask the station keeper to place a public invitation.",
+            "zh": "请站长放一张公开邀请。"
+          },
+          "next": "q4"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "Back at the post office, three final services are available. You choose…",
+        "zh": "回到邮局，最后有三种投递服务，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A lantern delivery: leave the letter at a verified welcome desk.",
+            "zh": "灯笼投递：把信留在已核实的接待处。"
+          },
+          "result": "lantern"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "An open envelope service: invite the recipient to choose a meeting.",
+            "zh": "开放信封：邀请收信人自己选择相见方式。"
+          },
+          "result": "invitation"
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A patient shelf: keep the letter safely until an address is ready.",
+            "zh": "耐心书架：等地址确定，再把信安稳送出。"
+          },
+          "result": "shelf"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "lantern",
+      "title": {
+        "en": "The Lantern at the Welcome Desk",
+        "zh": "接待处的一盏灯"
+      },
+      "summary": {
+        "en": "The post office checks the address, lights a small lantern, and leaves the letter where the next visitor can ask for it. Your ending gives the message a dependable place to land. The story closes with a practical act rather than a grand revelation.",
+        "zh": "邮局核对地址，点起一盏小灯，把信放到下一位来访者可以询问的地方。你的结局给话语一个可靠的落脚处；故事以一件具体的小事收束，而不是宏大的顿悟。"
+      },
+      "example": {
+        "en": "In everyday life, this could resemble putting a helpful note beside a shared tool: clear enough to use, without asking anyone to perform gratitude. It is an analogy to the ending, not evidence that you always behave this way.",
+        "zh": "放进日常，这有点像在共用工具旁留一张清楚的说明：别人用得上，也不用特意表演感谢。这只是结局的类比，不证明你一贯这样做。"
+      },
+      "strength": {
+        "en": "This ending values reliability. It makes the next step visible and gives another person something usable when they arrive.",
+        "zh": "这个结局看重可靠性：让下一步看得见，也让后来的人到达时，有一件真正用得上的东西。"
+      },
+      "tradeoff": {
+        "en": "A well-placed message can still miss its reader. Practical delivery helps, but it cannot decide when someone is ready to receive the words.",
+        "zh": "放对地方的信，也可能暂时遇不到读者。具体安排能帮忙，却不能决定对方何时准备好接收这些话。"
+      },
+      "experiment": {
+        "en": "Try leaving one clear, optional instruction for a shared activity. Notice whether it helps someone act independently. Retake the story if you want to explore the other endings.",
+        "zh": "试着给一次共同活动留一条清楚、可选的说明，看看它是否帮助别人独立行动。也可以重玩故事，探索另外两个结局。"
+      }
+    },
+    {
+      "id": "invitation",
+      "title": {
+        "en": "The Door That Opens from Both Sides",
+        "zh": "两边都能推开的门"
+      },
+      "summary": {
+        "en": "The post office sends a small invitation instead of assigning a recipient. Someone may choose a meeting, send a reply, or leave the envelope unopened. Your ending lets connection begin with permission rather than an assumed need.",
+        "zh": "邮局没有直接指定收信人，而是送出一份小邀请。对方可以选时间相见、回一封信，或暂时不拆信。你的结局让连接从允许开始，而不是先假定对方需要什么。"
+      },
+      "example": {
+        "en": "A real-world parallel is asking a friend whether they want company or quiet time before arriving at their door. The question creates a choice; it does not require them to choose company.",
+        "zh": "现实里的类似场景，是去朋友家之前，先问对方想有人陪，还是想安静一会儿。这个问题创造选择，不要求对方一定选陪伴。"
+      },
+      "strength": {
+        "en": "This ending gives the recipient a voice in what happens next. A smaller invitation can feel easier to accept than a large unsolicited gesture.",
+        "zh": "这个结局把下一步的发言权也交给收信人。一份小邀请，有时比未经询问的大动作更容易让人自在接受。"
+      },
+      "tradeoff": {
+        "en": "Invitations can stay unanswered, and that uncertainty belongs in the story too. Respecting choice includes accepting a delay or a no.",
+        "zh": "邀请也可能没有回音，这份不确定同样属于故事。尊重选择，也包括接受晚一点或不接受。"
+      },
+      "experiment": {
+        "en": "Offer one specific, low-pressure invitation this week, with an easy way to decline. The aim is a comfortable choice, not a guaranteed response.",
+        "zh": "这周可以发出一个具体、压力很小的邀请，同时给对方轻松拒绝的空间。目标是让选择自在，不是保证得到回应。"
+      }
+    },
+    {
+      "id": "shelf",
+      "title": {
+        "en": "A Place on the Patient Shelf",
+        "zh": "耐心书架上的位置"
+      },
+      "summary": {
+        "en": "The letter receives a dry shelf, a date tag, and a promise to check the address later. Nobody forces a dramatic delivery. Your ending treats waiting as a deliberate arrangement with care and a next checkpoint, rather than simply forgetting the message.",
+        "zh": "信被放到干燥的书架上，贴好日期，并约定稍后再核地址。没有人强行安排戏剧性的投递。你的结局把等待变成有照顾、有下次查看节点的安排，而不是忘记这封信。"
+      },
+      "example": {
+        "en": "Outside the tale, this might look like saving a difficult conversation for a time both people can give it attention. Naming when to return makes the pause different from disappearing.",
+        "zh": "走出故事，这可能像把一场不容易的谈话，留到双方都能专心的时候。说清何时回来继续，能让暂停与突然消失区别开来。"
+      },
+      "strength": {
+        "en": "This ending preserves possibility without demanding immediate action. It recognizes that timing can matter as much as having the right words.",
+        "zh": "这个结局没有逼迫立刻行动，也没有关掉可能性。它提醒我们，有时说话的时机与话本身一样重要。"
+      },
+      "tradeoff": {
+        "en": "A pause without a return point can become avoidance. The shelf helps only if someone remembers why the letter is there and when it will be checked.",
+        "zh": "没有返回节点的暂停，也可能变成回避。只有记得这封信为什么在这里、何时再看，书架才真正有帮助。"
+      },
+      "experiment": {
+        "en": "If you postpone a small task, give it a clear next check rather than an indefinite “later.” Then let yourself rest until that point. You can replay to choose a different ending.",
+        "zh": "推迟一件小事时，可以写下下一次查看的节点，不只说“以后再说”。然后允许自己在那之前安心休息。也可以重玩，走向另一个结局。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "lantern",
+    "invitation",
+    "shelf"
+  ]
+}

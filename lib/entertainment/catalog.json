@@ -1,0 +1,70 @@
+[
+  {
+    "slug": "fantasy-party-role",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "fantasy",
+    "title": {
+      "en": "What Is Your Fantasy Adventure Party Role?",
+      "zh": "奇幻冒险队里，你负责什么？"
+    },
+    "description": {
+      "en": "Choose through six original fantasy expedition scenes to find your party role: route scout, ward keeper, or spell tinkerer. All story results are free.",
+      "zh": "走过6个原创奇幻远行情境，看看你是探路斥候、结界守护者还是咒语修补师。所有故事结果免费。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "group-chat-role",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "social",
+    "title": {
+      "en": "What Is Your Group Chat Role?",
+      "zh": "你在群聊里是什么角色？"
+    },
+    "description": {
+      "en": "Six everyday messaging choices reveal your chat contribution: signal keeper, spark starter, or quiet connector. Free full results without an account.",
+      "zh": "6道日常聊天题，看看你更像信息整理员、话题点火者还是安静的连接者。无需账户，完整结果免费。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "lost-letter-adventure",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "fantasy",
+    "title": {
+      "en": "The Lost Letter: Which Story Ending Will You Choose?",
+      "zh": "失落的信：你会走向哪种故事结局？"
+    },
+    "description": {
+      "en": "A free two-to-three-choice branching adventure at a floating post office. Follow your own route to an original ending, with no random outcome.",
+      "zh": "在漂浮邮局完成2至3次选择，沿真正的故事分支走向原创结局。无随机抽取，完整结局免费。"
+    },
+    "minutes": 2,
+    "questionCount": 3,
+    "minQuestionCount": 2
+  },
+  {
+    "slug": "woodland-animal",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "nature",
+    "title": {
+      "en": "What Woodland Animal Is Your Trail Style?",
+      "zh": "你的林间同行动物是什么？"
+    },
+    "description": {
+      "en": "A free six-question woodland animal quiz about exploring, making a base, and protecting your pace. Read your complete animal portrait immediately.",
+      "zh": "6道林间情境题，看看你更像开路、搭窝还是留意节奏的同行动物。免费查看完整画像。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  }
+]

@@ -1,3 +1,4 @@
+import { isMissingFunRoute } from "@/lib/entertainment/routing";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { buildApiUrl } from "@/lib/api-base";
@@ -398,6 +399,7 @@ function isResultPageSnapshotPrintRequest(pathname: string, surface: string | nu
 function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextResponse | Promise<NextResponse> {
   const pathname = request.nextUrl.pathname;
   const strippedPath = stripLocalePrefix(pathname);
+  if (isPublicReadMethod(request.method) && isMissingFunRoute(pathname)) return createPublicAbsenceResponse(404);
   const isStagingHost = isStagingRequestHost(request.headers.get("host") ?? request.nextUrl.host);
 
   if (isDailyGivingPublicApiRequest(pathname) && !isDailyGivingPublicApiMethodAllowed(request.method)) {

@@ -1,3 +1,4 @@
+import { MoreTests } from "@/components/entertainment/MoreTests";
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { TestsHubExperience } from "@/components/marketing/tests/TestsHubExperience";
@@ -101,7 +102,7 @@ export default async function TestsPage({
   const content = await getTestsHubContent(locale).catch(() => null);
 
   if (!content) {
-    return <TestsHubMinimalShell locale={locale} />;
+    return <><TestsHubMinimalShell locale={locale} /><MoreTests locale={locale} /></>;
   }
 
   const jsonLd = buildTestsHubJsonLd(locale, content);
@@ -113,6 +114,7 @@ export default async function TestsPage({
       <JsonLd id={`tests-hub-quickstart-${locale}`} data={jsonLd.quickStart} />
       <JsonLd id={`tests-hub-families-${locale}`} data={jsonLd.families} />
       <TestsHubExperience content={content} locale={locale} />
+      <MoreTests locale={locale} />
     </main>
   );
 }
