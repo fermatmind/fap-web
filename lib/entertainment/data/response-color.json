@@ -1,0 +1,846 @@
+{
+  "slug": "response-color",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "metaphor",
+  "title": {
+    "en": "Which Response Color Leads Your Choices?",
+    "zh": "回应颜色：哪种方式在你的选择里更常出现？"
+  },
+  "description": {
+    "en": "24 paired choices about everyday responses. Compare four original color directions with raw counts and complete tied results; no norms, diagnosis or commercial color system.",
+    "zh": "24组成对日常回应选择，以原始计数比较四个原创颜色方向，完整呈现并列结果；无常模、不诊断，也不对应商业四色体系。"
+  },
+  "introduction": {
+    "en": "This web edition adapts FermatMind’s original mini-program color preview: all 24 Chinese items and the one-win-per-choice rule are retained. English wording and the four concise result portraits are new for the website; this is not the full mini-program report. Each direction appears in 12 comparisons. Counts are relative to these pairs, ties remain visible, and no thresholds or population norms apply. The preview has not undergone psychometric validation; the color names are original mnemonics, not definitions from a commercial four-color course.",
+    "zh": "网页版改编自费马小程序原创颜色公开预览：保留全部24道中文题与每次选择计1次的规则。英文及四种简版画像为网站新增，不等同于小程序完整报告。每个方向参与12次比较；计数只相对于这些配对，并列完整保留，不设阈值或人群常模。预览未经心理测量验证，颜色是原创助记符，不是商业四色课程定义。"
+  },
+  "focus": {
+    "en": "Relative choices among action response, open association, careful organization and steady coordination.",
+    "zh": "行动回应、开放联想、审慎整理与稳定协调之间的相对选择。"
+  },
+  "minutes": 5,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "In this situation, which response usually comes more naturally or comes first?",
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When unexpected free time opens up at the weekend, I quickly choose something and get started.",
+            "zh": "周末临时多出一段空闲，我会很快选一件事开始做。"
+          },
+          "points": {
+            "red": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When unexpected free time opens up at the weekend, I imagine several interesting ways to spend it.",
+            "zh": "周末临时多出一段空闲，我会想出几种有趣的过法。"
+          },
+          "points": {
+            "yellow": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "In this situation, which response usually comes more naturally or comes first?",
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When I hear a new idea, I first explore what else it could lead to.",
+            "zh": "听到一个新点子时，我会先顺着它联想还有哪些可能。"
+          },
+          "points": {
+            "yellow": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When I hear a new idea, I first find a way to try it out.",
+            "zh": "听到一个新点子时，我会先找一个方式试起来。"
+          },
+          "points": {
+            "red": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "In this situation, which response usually comes more naturally or comes first?",
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When a friend suggests changing venues at the last minute, I tend to respond quickly and set off.",
+            "zh": "朋友临时提议换地方时，我倾向很快回应并出发。"
+          },
+          "points": {
+            "red": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When a friend suggests changing venues at the last minute, I tend to keep discussing the other options.",
+            "zh": "朋友临时提议换地方时，我倾向继续聊聊还有哪些选择。"
+          },
+          "points": {
+            "yellow": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "In this situation, which response usually comes more naturally or comes first?",
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When discussing future plans, I usually begin by sharing several possibilities I can picture.",
+            "zh": "聊到未来计划时，我通常先分享脑中浮现的多种画面。"
+          },
+          "points": {
+            "yellow": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When discussing future plans, I usually begin by choosing one near-term action.",
+            "zh": "聊到未来计划时，我通常先选一个近期动作。"
+          },
+          "points": {
+            "red": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "In this situation, which response usually comes more naturally or comes first?",
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When buying something I use regularly, I first set the main requirements and make a quick choice.",
+            "zh": "要买一件常用物品时，我会先设定主要条件快速选定。"
+          },
+          "points": {
+            "red": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When buying something I use regularly, I first compare specifications and differences in use.",
+            "zh": "要买一件常用物品时，我会先比较规格和使用差异。"
+          },
+          "points": {
+            "blue": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "In this situation, which response usually comes more naturally or comes first?",
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When a claim seems questionable, I first look for its source and context.",
+            "zh": "看到一段说法有些可疑时，我会先找来源和上下文。"
+          },
+          "points": {
+            "blue": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When a claim seems questionable, I first form a judgment from what I already know.",
+            "zh": "看到一段说法有些可疑时，我会先根据已知信息做个判断。"
+          },
+          "points": {
+            "red": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "prompt": {
+        "en": "In this situation, which response usually comes more naturally or comes first?",
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When a small task has been waiting a long time, I tend to get it done first.",
+            "zh": "一件小事迟迟没处理时，我倾向先把它做掉再说。"
+          },
+          "points": {
+            "red": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When a small task has been waiting a long time, I tend to clarify what is holding it up first.",
+            "zh": "一件小事迟迟没处理时，我倾向先理清它卡在哪里。"
+          },
+          "points": {
+            "blue": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "prompt": {
+        "en": "In this situation, which response usually comes more naturally or comes first?",
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "After receiving a message, I usually sort out its conditions before replying.",
+            "zh": "收到一条信息后，我通常先整理里面的条件再回复。"
+          },
+          "points": {
+            "blue": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "After receiving a message, I usually give a short, clear response first.",
+            "zh": "收到一条信息后，我通常先给出简短明确的回应。"
+          },
+          "points": {
+            "red": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "prompt": {
+        "en": "In this situation, which response usually comes more naturally or comes first?",
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When my day’s plan is disrupted, I first pick the nearest task and start again.",
+            "zh": "一天安排被打乱时，我会先挑最近的事重新开始。"
+          },
+          "points": {
+            "red": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When my day’s plan is disrupted, I first find a comfortable new rhythm.",
+            "zh": "一天安排被打乱时，我会先找回一个舒服的新节奏。"
+          },
+          "points": {
+            "green": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "prompt": {
+        "en": "In this situation, which response usually comes more naturally or comes first?",
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When an arrangement with someone needs changing, I first check what would be convenient for them.",
+            "zh": "与人约定需要调整时，我会先确认对方怎样更方便。"
+          },
+          "points": {
+            "green": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When an arrangement with someone needs changing, I first suggest a new time.",
+            "zh": "与人约定需要调整时，我会先给出一个新时间。"
+          },
+          "points": {
+            "red": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "prompt": {
+        "en": "In this situation, which response usually comes more naturally or comes first?",
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "If I notice I have forgotten something just before leaving, I tend to think of a substitute immediately.",
+            "zh": "临出门才发现忘了东西，我倾向立即想个替代办法。"
+          },
+          "points": {
+            "red": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "If I notice I have forgotten something just before leaving, I tend to adjust the outing so it does not become more chaotic.",
+            "zh": "临出门才发现忘了东西，我倾向先调整行程避免更乱。"
+          },
+          "points": {
+            "green": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "prompt": {
+        "en": "In this situation, which response usually comes more naturally or comes first?",
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When someone near me seems tense, I usually first help them settle into a steadier pace.",
+            "zh": "身边人显得有些紧张时，我通常先陪他把节奏放稳。"
+          },
+          "points": {
+            "green": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When someone near me seems tense, I usually first help them find one action they can take.",
+            "zh": "身边人显得有些紧张时，我通常先帮他找一个能做的动作。"
+          },
+          "points": {
+            "red": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "prompt": {
+        "en": "In this situation, which response usually comes more naturally or comes first?",
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When reading an unfamiliar concept, I first think about experiences it could connect with.",
+            "zh": "读到一个陌生概念时，我会先想它能与哪些经历连起来。"
+          },
+          "points": {
+            "yellow": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When reading an unfamiliar concept, I first clarify its definition and conditions.",
+            "zh": "读到一个陌生概念时，我会先拆清它的定义和条件。"
+          },
+          "points": {
+            "blue": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "prompt": {
+        "en": "In this situation, which response usually comes more naturally or comes first?",
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When preparing to explain something complex, I first organize the sequence and key details.",
+            "zh": "准备讲一件复杂的事时，我会先整理顺序和关键细节。"
+          },
+          "points": {
+            "blue": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When preparing to explain something complex, I first think of an accessible metaphor.",
+            "zh": "准备讲一件复杂的事时，我会先想一个好理解的比喻。"
+          },
+          "points": {
+            "yellow": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "prompt": {
+        "en": "In this situation, which response usually comes more naturally or comes first?",
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When reading travel guides before a trip, I tend to collect different people’s fresh experiences first.",
+            "zh": "旅行前看攻略时，我倾向先收集不同人的新鲜体验。"
+          },
+          "points": {
+            "yellow": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When reading travel guides before a trip, I tend to organize routes and practical information first.",
+            "zh": "旅行前看攻略时，我倾向先整理路线和实用信息。"
+          },
+          "points": {
+            "blue": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "prompt": {
+        "en": "In this situation, which response usually comes more naturally or comes first?",
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "In a casual conversation, I usually first ask about the specific evidence behind a claim.",
+            "zh": "大家随意聊天时，我通常先追问一个说法的具体依据。"
+          },
+          "points": {
+            "blue": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "In a casual conversation, I usually first pick up the topic and extend it in a new direction.",
+            "zh": "大家随意聊天时，我通常先接住话题延伸新方向。"
+          },
+          "points": {
+            "yellow": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "prompt": {
+        "en": "In this situation, which response usually comes more naturally or comes first?",
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When meeting someone I know, I first open the conversation with a fresh experience.",
+            "zh": "与熟人见面时，我会先从一件新鲜经历打开话题。"
+          },
+          "points": {
+            "yellow": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When meeting someone I know, I first reconnect through familiar updates from our lives.",
+            "zh": "与熟人见面时，我会先从彼此熟悉的近况接回原有话题。"
+          },
+          "points": {
+            "green": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "prompt": {
+        "en": "In this situation, which response usually comes more naturally or comes first?",
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When a conversation falls quiet, I first leave a little silence so everyone can feel at ease.",
+            "zh": "聊天中出现冷场时，我会先留一点安静让大家自在。"
+          },
+          "points": {
+            "green": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When a conversation falls quiet, I first introduce a light new topic.",
+            "zh": "聊天中出现冷场时，我会先抛出一个轻松的新话题。"
+          },
+          "points": {
+            "yellow": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "prompt": {
+        "en": "In this situation, which response usually comes more naturally or comes first?",
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When several people gather spontaneously, I tend to suggest a new activity first.",
+            "zh": "几个人临时聚在一起时，我倾向先提出一个新的活动选择。"
+          },
+          "points": {
+            "yellow": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When several people gather spontaneously, I tend to begin with an arrangement everyone already knows.",
+            "zh": "几个人临时聚在一起时，我倾向先沿用大家熟悉的安排方式。"
+          },
+          "points": {
+            "green": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "prompt": {
+        "en": "In this situation, which response usually comes more naturally or comes first?",
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When a friend is feeling low, I usually first spend a little time with them.",
+            "zh": "朋友的情绪不高时，我通常先陪他待一会儿。"
+          },
+          "points": {
+            "green": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When a friend is feeling low, I usually first offer a new angle to help shift the mood.",
+            "zh": "朋友的情绪不高时，我通常先用新角度帮他换换心情。"
+          },
+          "points": {
+            "yellow": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "prompt": {
+        "en": "In this situation, which response usually comes more naturally or comes first?",
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When a room is untidy, I first put things back by category.",
+            "zh": "房间有些乱时，我会先按类别把东西放回去。"
+          },
+          "points": {
+            "blue": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When a room is untidy, I first restore a comfortable feel to a few frequently used areas.",
+            "zh": "房间有些乱时，我会先恢复几个常用区域的舒服感。"
+          },
+          "points": {
+            "green": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "prompt": {
+        "en": "In this situation, which response usually comes more naturally or comes first?",
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When two people disagree about an arrangement, I first check what matters most to each person.",
+            "zh": "两个人对安排有分歧时，我会先确认各自最在意的部分。"
+          },
+          "points": {
+            "green": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When two people disagree about an arrangement, I first list specific conditions that can be compared.",
+            "zh": "两个人对安排有分歧时，我会先列出可比较的具体条件。"
+          },
+          "points": {
+            "blue": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "prompt": {
+        "en": "In this situation, which response usually comes more naturally or comes first?",
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When learning a new tool, I tend to work through its parts step by step first.",
+            "zh": "学一个新工具时，我倾向先按步骤熟悉每个环节。"
+          },
+          "points": {
+            "blue": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When learning a new tool, I tend to build familiarity gradually through steady practice first.",
+            "zh": "学一个新工具时，我倾向先用稳定的练习慢慢上手。"
+          },
+          "points": {
+            "green": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "prompt": {
+        "en": "In this situation, which response usually comes more naturally or comes first?",
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When preparing for the next day, I usually first leave myself a rhythm that will not be easily disrupted.",
+            "zh": "准备第二天的事情时，我通常先给自己留出不被打乱的节奏。"
+          },
+          "points": {
+            "green": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When preparing for the next day, I usually first check the items and information I need to bring.",
+            "zh": "准备第二天的事情时，我通常先检查需要带的物品和信息。"
+          },
+          "points": {
+            "blue": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "red",
+      "title": {
+        "en": "Red · Action Response",
+        "zh": "红·行动回应"
+      },
+      "summary": {
+        "en": "Across these 24 paired choices, action responses received one of your highest raw counts. You more often chose a next move, a quick reply or a way to begin when that response was paired with another direction. This is a comparison within this questionnaire, not a fixed color identity.",
+        "zh": "在这24组成对选择里，行动回应获得了你的最高原始计数之一。与另一方向并列时，你较常选下一步、简短回应或先开始的办法。这是本题本内部的比较，不是固定颜色身份。"
+      },
+      "example": {
+        "en": "A plan changes and you suggest one new meeting time so the conversation has something concrete to respond to. In another situation, checking details first may suit you better.",
+        "zh": "安排变动时，你先给一个新见面时间，让讨论有具体可回应的东西。换个情境，先核细节也可能更适合你。"
+      },
+      "strength": {
+        "en": "A concrete first move can break a small impasse and make feedback possible. Its value depends on whether the action fits the situation and the people involved.",
+        "zh": "一个具体起步能打破小停顿，也让反馈成为可能。它是否有用，仍要看行动是否适合情境与相关的人。"
+      },
+      "tradeoff": {
+        "en": "Starting quickly can leave conditions or other people’s preferences unexamined. A high raw count does not mean that acting first is always the best response.",
+        "zh": "起步快也可能漏掉条件或他人偏好。原始计数高，不代表先行动在任何情境都最好。"
+      },
+      "experiment": {
+        "en": "Before one ordinary next move, name the action and one condition worth checking. Keep both available rather than trying to act like a particular color.",
+        "zh": "一次普通行动前，说出下一步，也说出一个值得核对的条件。让两者都可用，不必努力表现得像某种颜色。"
+      }
+    },
+    {
+      "id": "yellow",
+      "title": {
+        "en": "Yellow · Open Association",
+        "zh": "黄·开放联想"
+      },
+      "summary": {
+        "en": "Open-association responses received one of your highest counts in this set of pairs. You more often selected possibilities, fresh angles or connections when those choices were compared with another direction. The count describes these answers; it does not measure creativity or say how you always behave.",
+        "zh": "在这组成对题里，开放联想获得了你的最高计数之一。与另一方向比较时，你较常选可能性、新角度或联系。计数描述本次答案，不测创造力，也不说明你总怎样行动。"
+      },
+      "example": {
+        "en": "When someone mentions a new recreational idea, you may imagine several ways it could develop before choosing one version to try. That does not prevent you from using a detailed plan later.",
+        "zh": "别人提出休闲新点子时，你也许先想到几种发展方式，再选一个版本试。这不妨碍你之后使用详细计划。"
+      },
+      "strength": {
+        "en": "Offering another angle can widen a narrow discussion and reveal an option that was not visible in the first proposal. The option still needs to fit actual constraints.",
+        "zh": "提供另一角度，能拓宽偏窄讨论，显出首个提议里没看见的选项。选项仍需符合实际条件。"
+      },
+      "tradeoff": {
+        "en": "Generating possibilities can postpone a choice or make an already crowded conversation harder to follow. More options are not automatically more helpful to every person.",
+        "zh": "增加可能性也会推迟选择，或让本已拥挤的对话更难跟上。选项更多，不自动对每个人都有帮助。"
+      },
+      "experiment": {
+        "en": "For one playful idea, write two possible directions and choose a small way to test one. Let the unused direction stay optional rather than becoming another commitment.",
+        "zh": "面对一个趣味想法，写两个可能方向，选一个小办法试其中之一。另一方向仍可选，不必变成新的承诺。"
+      }
+    },
+    {
+      "id": "blue",
+      "title": {
+        "en": "Blue · Careful Organization",
+        "zh": "蓝·审慎整理"
+      },
+      "summary": {
+        "en": "Careful-organization responses received one of your highest raw counts across these paired items. You more often chose conditions, sources, categories or a sequence when compared with another direction. This is a relative response count, not an intelligence, accuracy or conscientiousness score.",
+        "zh": "在这些成对题里，审慎整理获得了你的最高原始计数之一。与另一方向比较时，你较常选条件、来源、分类或顺序。这是相对回应计数，不是智力、准确性或尽责性分数。"
+      },
+      "example": {
+        "en": "Before replying to a message with several arrangements, you might list the dates and requirements so you can see which detail actually needs an answer.",
+        "zh": "回复一条有多项安排的消息前，你可能先列日期与要求，看清哪项细节真正需要回答。"
+      },
+      "strength": {
+        "en": "Sorting the relevant conditions can make a tangled small task easier to inspect and help others understand what a decision is based on.",
+        "zh": "整理相关条件，能让缠绕的小任务容易查看，也让他人理解决定依据。"
+      },
+      "tradeoff": {
+        "en": "Checking can expand beyond what the decision needs. A high count does not require exhaustive preparation for every ordinary choice or guarantee that the final conclusion is correct.",
+        "zh": "核对也可能超出决定所需。计数高不要求每个日常选择都准备穷尽，也不保证最后结论必然正确。"
+      },
+      "experiment": {
+        "en": "For one small decision, list the two conditions that would change your choice. Check those first and decide what level of remaining uncertainty is acceptable.",
+        "zh": "为一个小决定列两项会改变选择的条件。先核它们，再决定剩余不确定到什么程度可接受。"
+      }
+    },
+    {
+      "id": "green",
+      "title": {
+        "en": "Green · Steady Coordination",
+        "zh": "绿·稳定协调"
+      },
+      "summary": {
+        "en": "Steady-coordination responses received one of your highest counts in this paired questionnaire. You more often selected a familiar rhythm, room for another person or a manageable adjustment when compared with another direction. The result does not measure kindness, emotional health or your value in a relationship.",
+        "zh": "在这份成对题里，稳定协调获得了你的最高计数之一。与另一方向比较时，你较常选熟悉节奏、照顾他人空间或容易维持的调整。结果不测善良、心理健康或关系中的价值。"
+      },
+      "example": {
+        "en": "When a shared arrangement changes, you may first ask what would be convenient for the other person before settling on a new time. Your own preferences can remain part of that conversation.",
+        "zh": "共同安排变化时，你也许先问对方怎样方便，再定新时间。自己的偏好也可以继续留在商量里。"
+      },
+      "strength": {
+        "en": "A steadier rhythm and a clear check-in can make a small shared adjustment easier to live with, especially when the people involved need different things.",
+        "zh": "较稳定的节奏与清楚询问，让小共同调整更容易维持，尤其当相关人的需求不同。"
+      },
+      "tradeoff": {
+        "en": "Keeping things comfortable can leave your own preference unspoken or preserve an arrangement that no longer works. Coordination does not require permanent agreement or avoiding every change.",
+        "zh": "维持舒服也可能让自己的偏好没说出口，或保留已不合用的安排。协调不要求永远同意，也不要求躲开所有变化。"
+      },
+      "experiment": {
+        "en": "In one ordinary shared plan, ask for the other person’s preference and name your own. Look for a workable adjustment rather than treating either need as automatically more important.",
+        "zh": "一次普通共同计划里，问对方偏好，也说出自己的。寻找可行调整，不自动把任何一方的需要放得更高。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "red",
+    "yellow",
+    "blue",
+    "green"
+  ],
+  "source": {
+    "kind": "FermatMind original mini-program public preview adaptation",
+    "sourceForm": "personality_color_forced_choice_24",
+    "itemBankVersion": "0.1.1-preview",
+    "scoringVersion": "0.1.1-preview",
+    "itemBankSha256": "c63bf210ef8a755868212f20d77af0f14389041f3effa4cab77ffdee34a911e0",
+    "webResultEdition": "four concise original website portraits; not the full mini-program report"
+  }
+}

@@ -1,0 +1,348 @@
+{
+  "slug": "paper-creature-language",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "fantasy",
+  "title": {
+    "en": "How Would You Talk with a Paper Creature?",
+    "zh": "纸小兽不会说话，你会怎样交流？"
+  },
+  "description": {
+    "en": "Six original fantasy encounters about learning gestures, mirroring a movement and taking turns with a wordless paper creature. No real animal training involved.",
+    "zh": "六次原创幻想相遇，和不会说话的纸小兽学手势、照着动作试一试、轮流回应，不涉及真实动物训练。"
+  },
+  "introduction": {
+    "en": "A folded creature named Piplet communicates only through made-up paper gestures. You cannot read its mind, but you can ask, observe and leave room for a response. Choose how to build a tiny shared language in this fictional game.",
+    "zh": "名叫纸点的折纸小兽，只用虚构纸手势交流。你不能读心，但可以询问、观察并留回应空间。选择怎样在这个虚构游戏里建立一套微型共同语言。"
+  },
+  "focus": {
+    "en": "Building an invented wordless exchange through clear signals, gentle mirroring or an agreed turn structure.",
+    "zh": "通过清楚信号、温和模仿或约定轮次，建立虚构的无言交流。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Piplet folds one corner and waits. You…",
+        "zh": "纸点折起一个角，等着你，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Offer one simple gesture and see whether it responds.",
+            "zh": "给一个简单手势，看看它是否回应。"
+          },
+          "points": {
+            "signal": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Copy the fold in your own scrap of paper.",
+            "zh": "在自己的小纸片上照着折一下。"
+          },
+          "points": {
+            "mirror": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Pause, then mark whose turn comes next.",
+            "zh": "停一停，再标出接下来轮到谁。"
+          },
+          "points": {
+            "turn": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "Two gestures look almost the same. You prefer to…",
+        "zh": "两个手势看起来几乎一样，你更愿意……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Try each slowly and observe what changes.",
+            "zh": "各慢慢试一次，观察什么变化。"
+          },
+          "points": {
+            "mirror": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Agree on one distinct sign for each message.",
+            "zh": "为每条消息约一个明显不同的符号。"
+          },
+          "points": {
+            "signal": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Take one exchange at a time rather than stacking both.",
+            "zh": "一次只交换一个，不把两种叠在一起。"
+          },
+          "points": {
+            "turn": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "You think you understand a gesture, but Piplet does not follow. You…",
+        "zh": "你以为懂了手势，纸点却没接上，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Leave a response space before trying again.",
+            "zh": "留一段回应空隙，再试。"
+          },
+          "points": {
+            "turn": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Check the sign with a simple yes-or-no paper choice.",
+            "zh": "用简单二选一纸片核对信号。"
+          },
+          "points": {
+            "signal": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Repeat its last movement without adding a meaning yet.",
+            "zh": "先重复它上个动作，暂不添含义。"
+          },
+          "points": {
+            "mirror": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A shared game needs a way to start. You choose…",
+        "zh": "共同小游戏需要一种开场方式，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One clear signal that both can use.",
+            "zh": "双方都可用的一个清楚信号。"
+          },
+          "points": {
+            "signal": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A brief matching movement before each round.",
+            "zh": "每轮前做一个短短的相同动作。"
+          },
+          "points": {
+            "mirror": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A visible token that passes to the next participant.",
+            "zh": "一枚传给下一参与者的可见标记。"
+          },
+          "points": {
+            "turn": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Piplet adds a new fold to the exchange. You…",
+        "zh": "纸点在交流里添一个新折法，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Try it alongside the old movement and compare them.",
+            "zh": "把它与旧动作并着试，看看差别。"
+          },
+          "points": {
+            "mirror": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Let it have a full turn before you answer.",
+            "zh": "先让它完成一轮，再回应。"
+          },
+          "points": {
+            "turn": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask it to show which existing sign it connects with.",
+            "zh": "请它指出与哪个已有信号相连。"
+          },
+          "points": {
+            "signal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "Which page goes into your paper-language notebook?",
+        "zh": "纸语言笔记本里，你最想留下哪页？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A simple turn diagram with room for silence.",
+            "zh": "有安静空隙的简单轮次图。"
+          },
+          "points": {
+            "turn": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A few distinct signs with meanings both have checked.",
+            "zh": "双方核对过含义的几个分明信号。"
+          },
+          "points": {
+            "signal": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Paired drawings of movements you tried together.",
+            "zh": "一起试过动作的并排画。"
+          },
+          "points": {
+            "mirror": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "signal",
+      "title": {
+        "en": "The Shared-Sign Maker",
+        "zh": "共同信号制作者"
+      },
+      "summary": {
+        "en": "Your paper-language game develops a few clear signs that both participants can check. You do not assume a gesture has a universal meaning. The ending values a usable agreement inside the fiction, not a claim that you can decode real people without asking.",
+        "zh": "你的纸语言游戏长出几个双方可核对的清楚信号。你不假定手势有普遍含义。结局珍惜虚构中的可用约定，不宣称你无需询问就能解读真人。"
+      },
+      "example": {
+        "en": "In a noisy craft session, you might agree on a simple raised card for a pause instead of expecting everyone to infer the same thing from a glance.",
+        "zh": "有点吵的手作活动里，你可能约好举一张卡代表暂停，不期待大家从眼神猜出同一含义。"
+      },
+      "strength": {
+        "en": "A checked signal can make a shared activity easier to coordinate and reduce the burden of guessing what the other participant intended.",
+        "zh": "核对过的信号能让活动容易配合，也减少猜测对方意图的负担。"
+      },
+      "tradeoff": {
+        "en": "A signal can stop fitting when the activity changes. Treating its meaning as revisable helps avoid confusing a previous agreement with a permanent rule.",
+        "zh": "活动变化后，信号可能不再适用。允许改含义，就不易把旧约定误当永久规则。"
+      },
+      "experiment": {
+        "en": "For one shared game, agree on a simple pause signal and check that everybody understands it. Invite changes if the signal is awkward to use.",
+        "zh": "为一个共同游戏约简单暂停信号，核对大家是否明白。若用着别扭，也欢迎调整。"
+      }
+    },
+    {
+      "id": "mirror",
+      "title": {
+        "en": "The Curious-Movement Partner",
+        "zh": "好奇动作伙伴"
+      },
+      "summary": {
+        "en": "Your exchange starts by trying a movement beside another movement. You observe differences before fixing a meaning. The portrait is about playful imitation in a paper story, not a recommendation to copy a real person’s body language to influence them.",
+        "zh": "你的交流从把一个动作放在另一个旁边试开始。你先观察差别，再固定含义。画像只谈纸故事里的趣味模仿，不建议复制真人肢体语言去影响对方。"
+      },
+      "example": {
+        "en": "In a voluntary drawing game, you might copy a partner’s line on your own page and compare how the two versions change when each person adds a curve.",
+        "zh": "自愿绘画游戏里，你可能在自己纸上照着画伙伴的线，再比较双方各添弧线后如何变化。"
+      },
+      "strength": {
+        "en": "Trying a shared form can reveal details that a quick explanation misses and provide a concrete point from which both people can experiment.",
+        "zh": "一起试一个形式，能显出快速说明遗漏的细节，也给双方一个具体实验起点。"
+      },
+      "tradeoff": {
+        "en": "Mirroring can feel uncomfortable if it is unexpected. An invitation to a copying game works best when the other participant can freely opt out.",
+        "zh": "未经预期的模仿也可能让人不舒服。对方可自由不参加时，邀请模仿游戏才更合适。"
+      },
+      "experiment": {
+        "en": "Invite a willing partner to exchange one simple doodle and each make a variation. Compare the drawings without making claims about what either person must feel.",
+        "zh": "邀请愿意的伙伴交换一个简单涂鸦，各做一种变化。比较画面，不推断任何人必然有什么感受。"
+      }
+    },
+    {
+      "id": "turn",
+      "title": {
+        "en": "The Room-for-a-Reply Partner",
+        "zh": "留回应空间的伙伴"
+      },
+      "summary": {
+        "en": "Your paper exchange has a visible turn and an unhurried gap before the reply. Communication does not need every space filled immediately. The ending values the shape of this shared game without implying that silence always has one clear meaning.",
+        "zh": "你的纸交流有可见轮次，也给回应留不催促的空隙。交流不必立刻填满每处空间。结局珍惜游戏结构，不暗示沉默总有某个明确含义。"
+      },
+      "example": {
+        "en": "When teaching a casual game, you might demonstrate one move and wait for the other person’s turn rather than explaining the next three while they are still trying it.",
+        "zh": "教休闲游戏时，你可能演示一步就等对方一轮，不在对方还在试时继续讲后三步。"
+      },
+      "strength": {
+        "en": "An agreed turn structure can make participation easier to follow and give different response speeds a place within the same activity.",
+        "zh": "约定轮次让参与更容易跟随，也给不同回应速度在同一活动里留位置。"
+      },
+      "tradeoff": {
+        "en": "Rigid turns can interrupt a flowing exchange. A visible structure is useful when it helps the participants, and can loosen when everybody wants that.",
+        "zh": "僵硬轮次也会打断顺畅交流。结构对参与者有帮助才有用，大家愿意时也可放松。"
+      },
+      "experiment": {
+        "en": "In one shared activity, leave a complete response gap after asking a question. Check whether the other person wants more time or a different way to take part.",
+        "zh": "一次共同活动里，问完留出完整回应空隙，再问对方是否想多点时间或换种参与方式。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "signal",
+    "mirror",
+    "turn"
+  ]
+}

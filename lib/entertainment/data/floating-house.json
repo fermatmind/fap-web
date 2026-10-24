@@ -1,0 +1,348 @@
+{
+  "slug": "floating-house",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "fantasy",
+  "title": {
+    "en": "Where Would Your Floating House Belong?",
+    "zh": "漂浮小屋：你会怎样与地面相连？"
+  },
+  "description": {
+    "en": "Six original fantasy choices about a house that can drift, stay tethered or make short visits. Explore how this imaginary home connects with places.",
+    "zh": "六次原创幻想选择，让能漂浮的小屋漫游、系泊或短暂靠访，探索它会怎样与地方保持联系。"
+  },
+  "introduction": {
+    "en": "The house floats by story magic, with no real construction or travel involved. Its rooms are already comfortable. You decide how often it moves, how people find it and what makes a place feel like an address.",
+    "zh": "小屋靠故事魔法漂浮，不涉及真实建造或旅行。屋内已足够舒服。你决定它多久移动、人们怎样找到它，以及什么让一个地方像地址。"
+  },
+  "focus": {
+    "en": "Choosing a fictional home’s relationship to a familiar anchor, an open route or a series of planned visits.",
+    "zh": "为虚构小屋选择与熟悉锚点、开放路线或一连串约定到访的关系。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Your house rises a little above the ground. You first add…",
+        "zh": "小屋轻轻升离地面，你先添……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A tether to the familiar garden below.",
+            "zh": "连向下方熟悉花园的系绳。"
+          },
+          "points": {
+            "anchor": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A chart with several possible drifting routes.",
+            "zh": "标着几条可选漂流线的图。"
+          },
+          "points": {
+            "roam": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A small landing step for invited short visits.",
+            "zh": "方便受邀短访的小停靠阶。"
+          },
+          "points": {
+            "visit": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "Someone asks where to send a story postcard. You give…",
+        "zh": "有人问故事明信片寄哪，你给……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One return address that stays available.",
+            "zh": "一个一直可用的回邮地址。"
+          },
+          "points": {
+            "anchor": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The next stop on a route you can update.",
+            "zh": "可更新路线里的下一站。"
+          },
+          "points": {
+            "roam": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The place where you have agreed to meet next.",
+            "zh": "下次已约好见面的地方。"
+          },
+          "points": {
+            "visit": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "A new painted landscape appears beyond the window. You…",
+        "zh": "窗外出现一片新画景，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Arrange a brief stop with a clear departure time.",
+            "zh": "约一次短停，说明离开时间。"
+          },
+          "points": {
+            "visit": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Let the house follow the view for a while.",
+            "zh": "让小屋沿景象走一段。"
+          },
+          "points": {
+            "roam": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Keep the view in a sketch and return to your usual anchor.",
+            "zh": "把景象画下，再回常用锚点。"
+          },
+          "points": {
+            "anchor": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "Your house needs a nameplate. You choose one that shows…",
+        "zh": "小屋需要门牌，你选显示……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Its current route and the next place it may pause.",
+            "zh": "当前路线与下一处可能停点。"
+          },
+          "points": {
+            "roam": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The familiar place it returns to between journeys.",
+            "zh": "每次路途之间会返回的熟悉地方。"
+          },
+          "points": {
+            "anchor": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "An invitation schedule people can choose to use.",
+            "zh": "大家可自愿使用的邀请时段。"
+          },
+          "points": {
+            "visit": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Two places invite the house on the same afternoon. You…",
+        "zh": "两处地方在同一下午邀请小屋，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Choose one manageable visit and propose another date for the other.",
+            "zh": "选一次好安排的到访，为另一处另约日期。"
+          },
+          "points": {
+            "visit": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Stay at the anchor this time and keep both invitations optional.",
+            "zh": "这次留在锚点，让两份邀请继续可选。"
+          },
+          "points": {
+            "anchor": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "See whether one continuous route can pass both without a full stay.",
+            "zh": "看看能否用一条连续路线经过两处，不都久留。"
+          },
+          "points": {
+            "roam": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "The final illustration of your floating house shows…",
+        "zh": "最后一幅漂浮小屋插画是……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A window opening onto a route still unfolding.",
+            "zh": "一扇朝向仍在展开路线的窗。"
+          },
+          "points": {
+            "roam": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A light above one familiar tethering place.",
+            "zh": "一处熟悉系泊点上方的灯。"
+          },
+          "points": {
+            "anchor": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A welcoming step lowered for a visit with a chosen end.",
+            "zh": "放下欢迎阶梯，迎接有约定结尾的到访。"
+          },
+          "points": {
+            "visit": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "anchor",
+      "title": {
+        "en": "The Tethered Garden House",
+        "zh": "系着花园的小屋"
+      },
+      "summary": {
+        "en": "Your floating home keeps one recognizable place to return to. Movement remains possible, but an address does not need to change with every new view. This is a fantasy-home choice, not a judgment about how adventurous or settled you are.",
+        "zh": "你的漂浮家保留一处可辨认的返回点。移动仍可能，但地址不必随每幅新景变化。这是幻想小屋选择，不评判你多爱冒险或安定。"
+      },
+      "example": {
+        "en": "In a recreational project, you might keep one familiar workspace while trying new ideas, so each experiment has an easy place to return to.",
+        "zh": "休闲项目里，你可能保留一个熟悉工作处，同时尝试新点子，让每次试验都有容易返回的位置。"
+      },
+      "strength": {
+        "en": "A recognizable anchor can make change feel manageable because not every part of the arrangement needs to be reinvented at once.",
+        "zh": "可辨认锚点能让变化容易承受，因为安排的每一部分不必同时重新发明。"
+      },
+      "tradeoff": {
+        "en": "Returning automatically can make an old arrangement persist after it stops fitting. A familiar anchor can still be reviewed and adjusted.",
+        "zh": "自动返回也可能让旧安排在不合用后继续。熟悉锚点同样可以重看、调整。"
+      },
+      "experiment": {
+        "en": "Name one familiar starting point that supports an enjoyable activity. Keep it if it still helps, and change one detail that no longer does.",
+        "zh": "说出一个支持愉快活动的熟悉起点。仍有帮助就保留，也调整一处已不再有用的细节。"
+      }
+    },
+    {
+      "id": "roam",
+      "title": {
+        "en": "The Open-Route House",
+        "zh": "开放路线的小屋"
+      },
+      "summary": {
+        "en": "Your house belongs to a route that can keep unfolding. The next view matters without needing every stop to become a permanent home. The ending follows this invented journey and does not predict whether travel or change would suit your real circumstances.",
+        "zh": "你的小屋属于一条可继续展开的路线。下一幅景象有意义，却不必让每一站都成为永久家。结局跟随虚构旅程，不预测旅行变化是否适合你的真实处境。"
+      },
+      "example": {
+        "en": "In a sketchbook, you might let one drawing suggest the next subject instead of deciding the whole series before opening the first page.",
+        "zh": "速写本里，你可能让一幅画提示下个对象，不在打开首页前就定完整套系列。"
+      },
+      "strength": {
+        "en": "An open route can make a small discovery useful as a starting point and keep a creative activity responsive to what appears along the way.",
+        "zh": "开放路线让小发现成为起点，也让创作能回应途中出现的东西。"
+      },
+      "tradeoff": {
+        "en": "An unfolding route can become hard to share if other people cannot tell where to find you. A simple update can preserve flexibility and consideration together.",
+        "zh": "若别人不知道去哪找你，展开中的路线也会难共享。简单更新能同时保留灵活与体贴。"
+      },
+      "experiment": {
+        "en": "Let one optional creative session choose its next step as it goes. Keep a clear stopping point so exploration does not quietly expand into a commitment.",
+        "zh": "让一次可选创作边做边选下一步。也留清楚停止点，不让探索悄悄扩大成承诺。"
+      }
+    },
+    {
+      "id": "visit",
+      "title": {
+        "en": "The Visiting-Step House",
+        "zh": "会放下阶梯的小屋"
+      },
+      "summary": {
+        "en": "Your house connects through visits with a clear invitation and a chosen end. It can lower a step without making every arrival a permanent stay. The portrait values a workable form of contact rather than assigning a social personality type.",
+        "zh": "你的小屋通过有清楚邀请与约定结尾的到访来相连。它能放下阶梯，不必让每次抵达都成永久停留。画像珍惜可行联系形式，不分配社交人格类型。"
+      },
+      "example": {
+        "en": "For a casual creative exchange, you might offer one short afternoon together rather than a broad promise that anyone can drop in at any time.",
+        "zh": "轻松创作交流时，你可能约一个短下午，不泛泛承诺任何人任何时间都可来。"
+      },
+      "strength": {
+        "en": "A specific visit can be easier to accept or decline and may leave both people enough room to enjoy the time they actually chose.",
+        "zh": "具体到访更容易接受或拒绝，也能给双方空间享受真正选中的那段时间。"
+      },
+      "tradeoff": {
+        "en": "Planning every meeting too tightly can crowd out a pleasant spontaneous moment. A clear invitation can include a little flexible space when both people want it.",
+        "zh": "每次见面排得过紧，也会挤掉愉快偶然。双方愿意时，清楚邀请仍可留一点灵活。"
+      },
+      "experiment": {
+        "en": "Make one small invitation with a clear beginning and an approximate end. Ask whether that shape works for the other person before adding anything else.",
+        "zh": "发一次小邀请，说明开始与大致结束。添其他内容前，先问这种安排对对方是否合适。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "anchor",
+    "roam",
+    "visit"
+  ]
+}

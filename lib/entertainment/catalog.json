@@ -136,6 +136,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "dream-train",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "fantasy",
+    "title": {
+      "en": "The Dream Train’s Changing Ticket",
+      "zh": "梦境列车：会改字的车票"
+    },
+    "description": {
+      "en": "Follow three to four choices through an original train tale. A ticket that changes one word can become a keepsake, a shared letter or the name of a new station.",
+      "zh": "用3至4次选择走进原创列车短篇。一张会改一个字的票，可能成为纪念、共同信件，或新站的名字。完整结局免费。"
+    },
+    "minutes": 2,
+    "questionCount": 4,
+    "minQuestionCount": 3
+  },
+  {
     "slug": "enchanted-library",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -185,6 +202,23 @@
     "minutes": 2,
     "questionCount": 3,
     "minQuestionCount": 3
+  },
+  {
+    "slug": "floating-house",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "fantasy",
+    "title": {
+      "en": "Where Would Your Floating House Belong?",
+      "zh": "漂浮小屋：你会怎样与地面相连？"
+    },
+    "description": {
+      "en": "Six original fantasy choices about a house that can drift, stay tethered or make short visits. Explore how this imaginary home connects with places.",
+      "zh": "六次原创幻想选择，让能漂浮的小屋漫游、系泊或短暂靠访，探索它会怎样与地方保持联系。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
   },
   {
     "slug": "forest-soundtrack",
@@ -357,6 +391,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "museum-of-tomorrow",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "fantasy",
+    "title": {
+      "en": "What Would You Label in the Museum of Tomorrow?",
+      "zh": "明日博物馆：你会怎样写展签？"
+    },
+    "description": {
+      "en": "Six choices about explaining invented future objects through their purpose, their possible users and their limits. Build an original exhibition-label portrait.",
+      "zh": "六次选择，围绕虚构未来物件的用途、可能使用者与限制，写出你的原创展签画像。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "museum-visitor",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -385,6 +436,23 @@
     "description": {
       "en": "Six illustrated night-garden scenes follow quiet sounds, changing shadows and tiny details. Discover your style of attention inside this fictional walk.",
       "zh": "六幅夜间花园插画，跟随细小声音、变化影子和微小细节。发现你在这段虚构漫步里选择的注意方向。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "paper-creature-language",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "fantasy",
+    "title": {
+      "en": "How Would You Talk with a Paper Creature?",
+      "zh": "纸小兽不会说话，你会怎样交流？"
+    },
+    "description": {
+      "en": "Six original fantasy encounters about learning gestures, mirroring a movement and taking turns with a wordless paper creature. No real animal training involved.",
+      "zh": "六次原创幻想相遇，和不会说话的纸小兽学手势、照着动作试一试、轮流回应，不涉及真实动物训练。"
     },
     "minutes": 2,
     "questionCount": 6,
@@ -474,6 +542,23 @@
     "minutes": 2,
     "questionCount": 6,
     "minQuestionCount": 6
+  },
+  {
+    "slug": "response-color",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "metaphor",
+    "title": {
+      "en": "Which Response Color Leads Your Choices?",
+      "zh": "回应颜色：哪种方式在你的选择里更常出现？"
+    },
+    "description": {
+      "en": "24 paired choices about everyday responses. Compare four original color directions with raw counts and complete tied results; no norms, diagnosis or commercial color system.",
+      "zh": "24组成对日常回应选择，以原始计数比较四个原创颜色方向，完整呈现并列结果；无常模、不诊断，也不对应商业四色体系。"
+    },
+    "minutes": 5,
+    "questionCount": 24,
+    "minQuestionCount": 24
   },
   {
     "slug": "river-crossing",

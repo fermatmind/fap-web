@@ -17,6 +17,40 @@ function enumerate(quiz: FunQuiz, answer: Answers = {}, seen = new Set<string>()
   return next.options.reduce((count, option) => count + enumerate(quiz, { ...answer, [next.id]: option.id }, seen, questions, soloResults), 0);
 }
 
+// For long additive questionnaires, equivalent score vectors are merged at
+// each question. Multiplicity still accounts for every answer combination;
+// the production resolver executes one complete witness per reachable vector.
+function coverAdditiveStates(quiz: FunQuiz, seen: Set<string>, questions: Set<string>, soloResults: Set<string>) {
+  type State = { scores: number[]; answers: Answers; combinations: number };
+  let layer = new Map<string, State>([[quiz.tieOrder.map(() => 0).join(","), { scores: quiz.tieOrder.map(() => 0), answers: {}, combinations: 1 }]]);
+  for (const question of quiz.questions) {
+    questions.add(question.id);
+    const next = new Map<string, State>();
+    for (const state of layer.values()) for (const option of question.options) {
+      const scores = state.scores.map((score, index) => score + (option.points?.[quiz.tieOrder[index]] ?? 0));
+      const key = scores.join(",");
+      const existing = next.get(key);
+      if (existing) existing.combinations += state.combinations;
+      else next.set(key, { scores, answers: { ...state.answers, [question.id]: option.id }, combinations: state.combinations });
+    }
+    layer = next;
+  }
+  let combinations = 0;
+  for (const state of layer.values()) {
+    combinations += state.combinations;
+    const actual = resolveFunQuiz(quiz, state.answers);
+    expect(actual.complete, quiz.slug).toBe(true);
+    expect(actual.scores, quiz.slug).toEqual(Object.fromEntries(quiz.tieOrder.map((id, index) => [id, state.scores[index]])));
+    const maximum = Math.max(...state.scores);
+    const expected = quiz.tieOrder.filter((_, index) => state.scores[index] === maximum);
+    expect(actual.resultIds, quiz.slug).toEqual(expected);
+    for (const id of actual.resultIds) seen.add(id);
+    if (actual.resultIds.length === 1) soloResults.add(actual.resultIds[0]);
+  }
+  console.info(`${quiz.slug}: ${combinations} combinations represented by ${layer.size} reachable score vectors; ${layer.size} complete production-resolver witnesses executed.`);
+  return combinations;
+}
+
 describe("original entertainment catalog", () => {
   it("keeps independent bilingual identities and substantive copy, without duplicate questionnaires", async () => {
     const fingerprints = new Set<string>();
@@ -71,12 +105,15 @@ describe("original entertainment catalog", () => {
     }
   });
 
-  it("exhausts every answer path and reaches every authored result and question", async () => {
+  it("covers all answer combinations and reaches every authored result and question", async () => {
     let total = 0;
     for (const card of catalog) {
       const quiz = (await loadFunQuiz(card.slug))!;
       const results = new Set<string>(), questions = new Set<string>(), soloResults = new Set<string>();
-      const paths = enumerate(quiz, {}, results, questions, soloResults);
+      const combinations = quiz.questions.reduce((n, q) => n * q.options.length, 1);
+      const paths = quiz.mechanism === "tally" && combinations > 100_000
+        ? coverAdditiveStates(quiz, results, questions, soloResults)
+        : enumerate(quiz, {}, results, questions, soloResults);
       total += paths;
       expect([...results].sort(), quiz.slug).toEqual(quiz.tieOrder.slice().sort());
       expect([...soloResults].sort(), `${quiz.slug}: every portrait must also have an unambiguous witness`).toEqual(quiz.tieOrder.slice().sort());
@@ -84,7 +121,24 @@ describe("original entertainment catalog", () => {
       if (quiz.mechanism === "tally") expect(paths).toBe(quiz.questions.reduce((n, q) => n * q.options.length, 1));
     }
     expect(total).toBeGreaterThan(0);
-    console.info(`Exhausted ${total} paths across ${catalog.length} products (${catalog.length * 2} locale entries).`);
+    console.info(`Covered ${total} answer combinations across ${catalog.length} products (${catalog.length * 2} locale entries); small quizzes enumerate paths, long additive quizzes use the score-state coverage reported above.`);
+  });
+
+  it("retains the original mini-preview color pair schedule, raw wins and ties without norms", async () => {
+    const quiz = (await loadFunQuiz("response-color"))!;
+    expect(quiz.questions).toHaveLength(24);
+    const pairs = ["red|yellow", "yellow|red", "red|yellow", "yellow|red", "red|blue", "blue|red", "red|blue", "blue|red", "red|green", "green|red", "red|green", "green|red", "yellow|blue", "blue|yellow", "yellow|blue", "blue|yellow", "yellow|green", "green|yellow", "yellow|green", "green|yellow", "blue|green", "green|blue", "blue|green", "green|blue"];
+    expect(quiz.questions.map(q => q.options.map(o => Object.keys(o.points!)[0]).join("|"))).toEqual(pairs);
+    for (const direction of quiz.tieOrder) {
+      expect(quiz.questions.flatMap(q => q.options).filter(o => Object.hasOwn(o.points!, direction))).toHaveLength(12);
+    }
+    expect(quiz.questions.flatMap(q => q.options).every(o => Object.values(o.points!).length === 1 && Object.values(o.points!)[0] === 1)).toBe(true);
+    const allFirst = Object.fromEntries(quiz.questions.map(q => [q.id, q.options[0].id]));
+    expect(resolveFunQuiz(quiz, allFirst)).toMatchObject({ scores: { red: 6, yellow: 6, blue: 6, green: 6 }, resultIds: quiz.tieOrder });
+    expect(quiz.introduction.en).toContain("not the full mini-program report");
+    expect(quiz.introduction.en).toContain("no thresholds or population norms");
+    expect(quiz.introduction.en).toContain("has not undergone psychometric validation");
+    expect(quiz.introduction.zh).toContain("保留全部24道中文题");
   });
 
   it("recomputes known outcomes, preserves ties, and rejects abnormal answers and identities", async () => {

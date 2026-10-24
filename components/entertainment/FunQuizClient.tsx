@@ -112,7 +112,7 @@ export function FunQuizClient({ quiz, locale }: { quiz: FunQuiz; locale: Locale 
     if (!result) return;
     const url = `https://fermatmind.com/${locale}/tests/play/${quiz.slug}`;
     const sharedTitle = resolved.resultIds.length > 1 ? `${zh ? "并列画像：" : "Tied portraits: "}${resolved.resultIds.map(id => quiz.results.find(portrait => portrait.id === id)!.title[locale]).join(zh ? "、" : "; ")}` : result.title[locale];
-    const text = `${quiz.title[locale]}\n${sharedTitle}\n${zh ? "趣味故事结果，仅供娱乐。" : "A playful story result, for entertainment."}\n${url}`;
+    const text = `${quiz.title[locale]}\n${sharedTitle}\n${zh ? "趣味测试结果，仅供娱乐。" : "A playful quiz result, for entertainment."}\n${url}`;
     try { await navigator.clipboard.writeText(text); setMessage(zh ? "已复制结果名称与测试链接。" : "Copied the result name and quiz link."); }
     catch { setCopyFallback(text); setMessage(zh ? "无法自动复制，请选中下方文字手动复制。" : "Automatic copying is unavailable. Select and copy the text below."); }
   }
@@ -143,9 +143,9 @@ export function FunQuizClient({ quiz, locale }: { quiz: FunQuiz; locale: Locale 
       <button className="mt-3 min-h-11 text-sm underline" onClick={() => { clearDraft(); setAnswers({}); setPosition(0); setSaving(false); setStage("welcome"); }}>{zh ? "退出并清除本次进度" : "Exit and clear this attempt"}</button>
     </>}
     {stage === "result" && result && <>
-      <p className="text-sm font-medium text-violet-800">{zh ? "你的趣味故事画像" : "Your playful story portrait"}</p>
+      <p className="text-sm font-medium text-violet-800">{zh ? "你的趣味测试结果" : "Your playful quiz result"}</p>
       <h2 ref={heading} tabIndex={-1} className="mt-2 text-3xl font-semibold leading-snug outline-none [overflow-wrap:anywhere]">{result.title[locale]}</h2>
-      {quiz.mechanism === "tally" && <div className="mt-5 rounded-lg bg-slate-50 p-4"><p className="text-sm font-medium">{zh ? "本故事的累计分（不是心理量尺）" : "Story point totals (not a psychological scale)"}</p><dl className="mt-2 space-y-2">{quiz.results.map(portrait => <div className="flex flex-wrap justify-between gap-3 text-sm" key={portrait.id}><dt>{portrait.title[locale]}</dt><dd>{resolved.scores[portrait.id]}</dd></div>)}</dl></div>}
+      {quiz.mechanism === "tally" && <div className="mt-5 rounded-lg bg-slate-50 p-4"><p className="text-sm font-medium">{zh ? "本次选项的累计分（不是心理量尺）" : "Choice point totals (not a psychological scale)"}</p><dl className="mt-2 space-y-2">{quiz.results.map(portrait => <div className="flex flex-wrap justify-between gap-3 text-sm" key={portrait.id}><dt>{portrait.title[locale]}</dt><dd>{resolved.scores[portrait.id]}</dd></div>)}</dl></div>}
       {resolved.resultIds.length > 1 && <p className="mt-4 rounded-lg bg-amber-50 p-4">{zh ? "本次并列：" : "A tie this time: "}{resolved.resultIds.map(id => quiz.results.find(r => r.id === id)!.title[locale]).join(zh ? "、" : "; ")}{zh ? "。下方按事先设定的展示顺序展开，并列不代表你只能属于一类。" : ". The portraits below follow the declared display order. You do not have to fit just one."}</p>}
       {resolved.resultIds.map(id => {
         const portrait = quiz.results.find(r => r.id === id)!;

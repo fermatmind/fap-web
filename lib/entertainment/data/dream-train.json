@@ -1,0 +1,239 @@
+{
+  "slug": "dream-train",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "fantasy",
+  "title": {
+    "en": "The Dream Train’s Changing Ticket",
+    "zh": "梦境列车：会改字的车票"
+  },
+  "description": {
+    "en": "Follow three to four choices through an original train tale. A ticket that changes one word can become a keepsake, a shared letter or the name of a new station.",
+    "zh": "用3至4次选择走进原创列车短篇。一张会改一个字的票，可能成为纪念、共同信件，或新站的名字。完整结局免费。"
+  },
+  "introduction": {
+    "en": "On a fictional train, the ticket printer replaces one word whenever a passenger tells a story. Your return is already arranged; the question is what to do with the changing ticket. This tale does not interpret dreams or predict events.",
+    "zh": "虚构列车上，每有乘客讲故事，印票机就会换掉票上一个字。返程已安排好，问题是如何使用这张会变的票。短篇不解梦，也不预测事件。"
+  },
+  "focus": {
+    "en": "Choosing whether a changing fictional record should be kept, passed between voices or used to name something new.",
+    "zh": "面对不断变化的虚构记录，选择保留、在不同声音间传递，或用它命名新东西。"
+  },
+  "minutes": 2,
+  "mechanism": "branch",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Your ticket changes from “arrival” to “almost.” You…",
+        "zh": "车票上的“抵达”变成“快到了”，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Keep a copy of the earlier word beside the new one.",
+            "zh": "把较早的词也抄在新词旁。"
+          },
+          "next": "q2"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask another passenger what word their ticket now carries.",
+            "zh": "问另一位乘客的票现在写什么。"
+          },
+          "next": "q3"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The conductor offers a blank margin where changes can be saved. You…",
+        "zh": "列车员提供一处可保存变化的空白边栏，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Write the short sequence of words you have actually seen.",
+            "zh": "写下自己实际见过的几个词。"
+          },
+          "next": "q4"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Leave room for another passenger to add a line.",
+            "zh": "留空间让另一位乘客添一行。"
+          },
+          "next": "q3"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "Another passenger’s ticket says “beside.” They offer to exchange stories. You…",
+        "zh": "另一位乘客的票写着“身旁”，对方愿交换故事，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Put the two short stories in one traveling envelope.",
+            "zh": "把两则短故事放进同一个旅行信封。"
+          },
+          "next": "q5"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask whether the new words could become a station name together.",
+            "zh": "问这些新词能否一起成为一个站名。"
+          },
+          "next": "q4"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "The printer gives one last blank ticket. You choose…",
+        "zh": "印票机吐出最后一张空票，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A keepsake listing the changes without deciding what they mean.",
+            "zh": "一张列着变化、不替它们定含义的纪念票。"
+          },
+          "result": "keepsake"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A new station called “Almost Beside,” open to future storytellers.",
+            "zh": "一座叫“快到身旁”的新站，欢迎未来讲述者。"
+          },
+          "result": "station"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The envelope needs an ending before it travels on. You…",
+        "zh": "信封继续旅行前，需要一句结尾，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Invite the next willing reader to add their own line.",
+            "zh": "邀请下位愿意的读者添自己的一行。"
+          },
+          "result": "envelope"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Name a new story station where the envelope can wait.",
+            "zh": "命名一座故事新站，让信封在那里等。"
+          },
+          "result": "station"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "keepsake",
+      "title": {
+        "en": "The Unfixed Ticket Keepsake",
+        "zh": "不定含义的纪念票"
+      },
+      "summary": {
+        "en": "You keep the words that changed without forcing them into a single hidden message. The ticket can remind you of the journey as it unfolded. Your ending preserves a trace while leaving interpretation optional.",
+        "zh": "你保存变过的词，不强迫它们拼成唯一隐藏消息。车票可以提醒旅程怎样展开。结局留下痕迹，也让解释保持可选。"
+      },
+      "example": {
+        "en": "A page of small dated sketches can show what you noticed across a week without needing each drawing to symbolize a major personal transformation.",
+        "zh": "一页带日期的小速写，能记录一周留意过什么，不必让每幅都象征重大个人转变。"
+      },
+      "strength": {
+        "en": "A plain record can be satisfying because it stays close to what happened and can be revisited without a ready-made lesson attached.",
+        "zh": "朴素记录也能让人满足，因为它贴近发生过的事，回看时不必附带现成教训。"
+      },
+      "tradeoff": {
+        "en": "Saving every change can make a small keepsake hard to enjoy. Choosing a few meaningful traces does not erase the parts you leave out.",
+        "zh": "保存每次变化，也会让小纪念难享受。选几笔有意义痕迹，不等于抹掉没留下的部分。"
+      },
+      "experiment": {
+        "en": "Keep three small details from a recreational experience and allow them to remain details. Add an interpretation later only if it interests you.",
+        "zh": "从一次休闲体验留三个小细节，也允许它们只是细节。以后有兴趣，再添自己的解释。"
+      }
+    },
+    {
+      "id": "envelope",
+      "title": {
+        "en": "The Traveling Story Envelope",
+        "zh": "继续旅行的故事信封"
+      },
+      "summary": {
+        "en": "Your ticket joins another voice in an envelope that can travel on. The shared story is not complete before the next reader arrives. Your ending makes room for a contribution without assuming everyone must disclose something personal.",
+        "zh": "你的车票与另一声音一起装进可继续旅行的信封。下位读者到来前，共同故事不必已经完整。结局为贡献留位置，也不假定人人必须讲私事。"
+      },
+      "example": {
+        "en": "In a voluntary creative exchange, you might pass along a fictional opening and invite someone else to add a made-up sentence rather than a personal confession.",
+        "zh": "自愿创作交换里，你可能传一个虚构开头，邀请别人添编造的一句，不要求个人坦白。"
+      },
+      "strength": {
+        "en": "A shared fictional object can give people an easy way to connect while letting them choose how much of themselves to bring into the exchange.",
+        "zh": "一件共同虚构物能让人容易相连，也让各自选择带多少个人内容进入交流。"
+      },
+      "tradeoff": {
+        "en": "An invitation can become pressure if a reply is treated as owed. The envelope remains a gift when silence or a different contribution is acceptable.",
+        "zh": "若回信被视为欠下的义务，邀请也会变压力。允许不回或换种贡献，信封才仍是礼物。"
+      },
+      "experiment": {
+        "en": "Offer a tiny fictional prompt to a willing friend with no deadline to reply. Enjoy a response if it arrives, without turning the exchange into a duty.",
+        "zh": "给愿意的朋友一个微型虚构提示，不设必须回复期限。有回应就欣赏，也不把交换变成义务。"
+      }
+    },
+    {
+      "id": "station",
+      "title": {
+        "en": "The Newly Named Station",
+        "zh": "新命名的故事站"
+      },
+      "summary": {
+        "en": "You use the changing words to make a new place in the train’s story. A station name becomes a starting point rather than a final explanation of the journey. The ending lets an accidental phrase grow into a small invention.",
+        "zh": "你用变化的词给列车故事添一个新地方。站名成了起点，不是旅程的最终解释。结局让偶然短语长成一件小发明。"
+      },
+      "example": {
+        "en": "Two unrelated words in a notebook might become the title of a drawing, and the title may suggest a scene you would not otherwise have imagined.",
+        "zh": "笔记里两个不相关的词，也许成了画的标题，标题又提示原本想不到的场景。"
+      },
+      "strength": {
+        "en": "A playful name can give a loose idea somewhere to begin and make it easier to share before the whole fictional world is built.",
+        "zh": "趣味名字能给松散想法一个起步处，也让世界尚未建全时就容易分享。"
+      },
+      "tradeoff": {
+        "en": "A name can sound more complete than the idea beneath it. Keeping the first version small helps you enjoy the invention without promising a whole project.",
+        "zh": "名字可能听起来比背后想法更完整。让首版小一点，就能享受发明，不必许诺整个项目。"
+      },
+      "experiment": {
+        "en": "Combine two ordinary words into the name of an imaginary place. Describe just one thing someone could find there, and let that be enough.",
+        "zh": "把两个普通词合成想象地点的名字。只描述在那里能找到的一件东西，让这样就足够。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "keepsake",
+    "envelope",
+    "station"
+  ]
+}

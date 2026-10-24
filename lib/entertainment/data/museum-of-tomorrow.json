@@ -1,0 +1,348 @@
+{
+  "slug": "museum-of-tomorrow",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "fantasy",
+  "title": {
+    "en": "What Would You Label in the Museum of Tomorrow?",
+    "zh": "明日博物馆：你会怎样写展签？"
+  },
+  "description": {
+    "en": "Six choices about explaining invented future objects through their purpose, their possible users and their limits. Build an original exhibition-label portrait.",
+    "zh": "六次选择，围绕虚构未来物件的用途、可能使用者与限制，写出你的原创展签画像。"
+  },
+  "introduction": {
+    "en": "The exhibits are made up: a pocket shade, a translating teacup and a door that remembers invitations. None is a real product claim. You decide what a visitor should understand from the label before imagining how an object might be used.",
+    "zh": "展品全部虚构：口袋阴凉、会翻译的茶杯、记得邀请的门。它们不是现实产品主张。你决定观众想象用途之前，该先从展签理解什么。"
+  },
+  "focus": {
+    "en": "Explaining an invented object through a clear function, a person’s use story or an explicit limitation.",
+    "zh": "通过清楚功能、使用者故事或明确限制，解释一件虚构物品。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "A pocket shade is the first exhibit. Your opening label says…",
+        "zh": "第一件展品是口袋阴凉，你的展签开头写……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Open the fold to make a small patch of shade in this story.",
+            "zh": "在故事里，展开折页就有一小块阴凉。"
+          },
+          "points": {
+            "function": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Imagine a visitor who wants a brief place to read.",
+            "zh": "想象一位想找短暂阅读处的来客。"
+          },
+          "points": {
+            "user": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The shade lasts only while its paper frame remains open.",
+            "zh": "只有纸框打开时，阴凉才存在。"
+          },
+          "points": {
+            "limit": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "A translating teacup has a complicated fictional rule. You first show…",
+        "zh": "会翻译的茶杯有条复杂虚构规则，你先展示……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One brief scene of two people choosing to use it.",
+            "zh": "两人自愿使用它的一小幕。"
+          },
+          "points": {
+            "user": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A simple diagram of what goes in and comes out.",
+            "zh": "什么输入、什么输出的简图。"
+          },
+          "points": {
+            "function": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The kinds of meaning it cannot translate in this tale.",
+            "zh": "它在故事里不能翻译的含义。"
+          },
+          "points": {
+            "limit": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "A door remembers invitations, but visitors assume it reads minds. You…",
+        "zh": "门能记住邀请，观众却以为它会读心，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "State plainly that it remembers only what was explicitly entered.",
+            "zh": "直接说明它只记明确录入的内容。"
+          },
+          "points": {
+            "limit": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Show the three steps of recording an invitation.",
+            "zh": "展示记录邀请的三个步骤。"
+          },
+          "points": {
+            "function": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Tell a small use story in which someone asks before entering.",
+            "zh": "讲一个使用者先问再进的小故事。"
+          },
+          "points": {
+            "user": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "The label has room for one extra line. You add…",
+        "zh": "展签只多容得下一行，你添……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The exact fictional action that makes the object work.",
+            "zh": "让物件运行的那项具体虚构动作。"
+          },
+          "points": {
+            "function": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A situation where a person might choose not to use it.",
+            "zh": "一个人可能选择不用它的场景。"
+          },
+          "points": {
+            "user": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A condition under which the object stops working.",
+            "zh": "物件会停止工作的一个条件。"
+          },
+          "points": {
+            "limit": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "A child asks whether everyone in the future will need the object. You…",
+        "zh": "孩子问未来每个人是否都需要这件东西，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Describe two people whose needs could differ.",
+            "zh": "描述两个需求可能不同的人。"
+          },
+          "points": {
+            "user": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Explain one job the invented object can do, without claiming everybody needs it.",
+            "zh": "说明它能做的一件事，不宣称人人需要。"
+          },
+          "points": {
+            "function": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Clarify that the museum invents possibilities rather than predicting demand.",
+            "zh": "说明博物馆是在发明可能，不是预测需求。"
+          },
+          "points": {
+            "limit": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "Which label would you be happiest to leave for the next visitor?",
+        "zh": "最愿意留给下位观众的是哪种展签？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One that makes the object’s boundaries hard to miss.",
+            "zh": "让物件边界不容易被漏看的。"
+          },
+          "points": {
+            "limit": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "One that gives a clear picture of its basic operation.",
+            "zh": "让基本运行方式一看就明白的。"
+          },
+          "points": {
+            "function": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "One that leaves room for different people to use it differently.",
+            "zh": "给不同人不同用法留空间的。"
+          },
+          "points": {
+            "user": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "function",
+      "title": {
+        "en": "The Clear-Function Label Writer",
+        "zh": "清楚用途展签作者"
+      },
+      "summary": {
+        "en": "Your tomorrow museum begins with what the fictional object actually does in its own rules. A short action or diagram offers an entry into the invention. This result reflects your label choices, not a certification of technical communication skill.",
+        "zh": "你的明日博物馆从虚构物件在自身规则里做什么开始。短动作或简图，为发明提供入口。结果对应展签选择，不认证技术沟通能力。"
+      },
+      "example": {
+        "en": "When introducing a made-up board-game tool, you might demonstrate one input and one outcome before telling the whole story of its world.",
+        "zh": "介绍虚构桌游道具时，你可能先演示一个输入与一个结果，再讲完整世界故事。"
+      },
+      "strength": {
+        "en": "A clear basic function gives another person something concrete to understand and question, making an elaborate invention easier to enter.",
+        "zh": "清楚基本功能给别人具体可理解、可提问的对象，让复杂发明容易进入。"
+      },
+      "tradeoff": {
+        "en": "A function-only label can leave out whether the object fits anyone’s real needs. Adding one use context can keep the explanation grounded.",
+        "zh": "只讲功能的展签，也可能漏掉是否符合人的实际需求。加一个使用情境，解释更有落点。"
+      },
+      "experiment": {
+        "en": "Explain one harmless invented object in two sentences: what action it performs and one situation in which someone might choose to use it.",
+        "zh": "用两句解释一件无害虚构物：它执行什么动作，以及人可能在什么场景自愿使用。"
+      }
+    },
+    {
+      "id": "user",
+      "title": {
+        "en": "The Possible-User Story Writer",
+        "zh": "使用者故事作者"
+      },
+      "summary": {
+        "en": "Your exhibit label starts with a person who might choose the object, rather than an invention that everyone must want. Different circumstances can give the same fictional tool different meanings. The result does not infer empathy from a short quiz.",
+        "zh": "你的展签从可能自愿使用物件的人开始，不从人人都该想要的发明开始。不同处境能给同一虚构工具不同意义。结果不会从短测推断共情能力。"
+      },
+      "example": {
+        "en": "For a pretend device in a story, you might describe one person who enjoys it and another who would rather use a familiar alternative.",
+        "zh": "故事里的假想设备，你可能写一个喜欢它的人，也写另一个宁愿用熟悉替代物的人。"
+      },
+      "strength": {
+        "en": "A use story can make an unfamiliar object understandable while keeping choice and varied needs visible instead of treating one use as universal.",
+        "zh": "使用故事能让陌生物件易懂，也让选择与不同需求可见，不把单一用法当普遍。"
+      },
+      "tradeoff": {
+        "en": "One appealing character can still stand in for too many people. A second contrasting use story may reveal assumptions hidden in the first.",
+        "zh": "一个吸引人的角色，仍可能代替了太多人。第二个对照故事，也许能显出第一个里的隐含假设。"
+      },
+      "experiment": {
+        "en": "Write two short fictional use scenes for the same object, including one where someone declines it. Let both choices make sense in their own context.",
+        "zh": "为同一物件写两则虚构使用短景，其中一人选择不用。让两种选择在各自处境都说得通。"
+      }
+    },
+    {
+      "id": "limit",
+      "title": {
+        "en": "The Honest-Boundary Label Writer",
+        "zh": "边界清楚的展签作者"
+      },
+      "summary": {
+        "en": "Your museum makes the fictional object’s limits visible beside its promise. A condition, an exception or a clear distinction between invention and prediction helps the visitor understand the display. The ending values a bounded explanation rather than general skepticism as a trait.",
+        "zh": "你的博物馆把虚构物件限制与愿景并列。条件、例外，或发明与预测的清楚区别，帮助观众理解展览。结局珍惜有边界的说明，不把它评成普遍怀疑特质。"
+      },
+      "example": {
+        "en": "A label for a fantasy map might explain that it shows only paths already walked, so a blank patch is not mistaken for an empty world.",
+        "zh": "幻想地图的展签可以说明只显示走过的路，让空白不被误当成世界里什么都没有。"
+      },
+      "strength": {
+        "en": "A visible limit can prevent an imaginative promise from quietly becoming a claim the object’s own rules cannot support.",
+        "zh": "可见限制能避免想象愿景悄悄变成物件自身规则也支持不了的主张。"
+      },
+      "tradeoff": {
+        "en": "Listing every exception can overwhelm a short label. The most useful boundary is often the one that changes how a visitor would understand or use the object.",
+        "zh": "列尽例外也会淹没短展签。最有用边界，常是会改变观众理解或用法的那项。"
+      },
+      "experiment": {
+        "en": "For one small explanation, name the single limitation that would change someone’s next step. Put it beside the main promise rather than hiding it at the end.",
+        "zh": "写一则小说明时，指出会改变他人下一步的一项限制，把它放在主要承诺旁，不藏到末尾。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "function",
+    "user",
+    "limit"
+  ]
+}
