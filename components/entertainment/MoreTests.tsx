@@ -20,7 +20,7 @@ export function MoreTests({ locale }: { locale: Locale }) {
       <nav aria-label={locale === "zh" ? "娱乐测试分类" : "Fun quiz categories"} className="my-6 flex flex-wrap gap-3">
         {Object.keys(FUN_CATEGORIES).filter(key => catalog.some(q => q.category === key)).map(key => <a className="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm underline underline-offset-4" href={`#fun-${key}`} key={key}>{FUN_CATEGORIES[key][locale]}</a>)}
       </nav>
-      {Object.entries(FUN_CATEGORIES).filter(([key]) => catalog.some(q => q.category === key)).map(([key, label]) => <section key={key} id={`fun-${key}`} className="mt-9 scroll-mt-24" aria-labelledby={`fun-heading-${key}`}>
+      {Object.entries(FUN_CATEGORIES).filter(([key]) => catalog.some(q => q.category === key)).map(([key, label]) => <section key={key} id={`fun-${key}`} className="mt-8 scroll-mt-24" aria-labelledby={`fun-heading-${key}`}>
         <h3 id={`fun-heading-${key}`} className="mb-4 text-xl font-semibold">{label[locale]}</h3>
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {catalog.filter(q => q.category === key).map(q => <article key={q.slug} className="flex min-w-0 flex-col rounded-lg border border-slate-200 bg-white p-5">
