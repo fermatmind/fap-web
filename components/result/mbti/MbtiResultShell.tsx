@@ -1716,7 +1716,7 @@ export function MbtiResultShell({
         <nav
           aria-label={locale === "zh" ? "人格与观察练习" : "Personality and observation exercises"}
           data-testid="mbti-result-personality-next-step"
-          className="mx-auto w-full max-w-5xl space-y-4 px-6 print:hidden"
+          className="mx-auto w-full max-w-5xl space-y-4 px-6 [overflow-wrap:anywhere] print:hidden"
         >
           <h2 className="text-xl font-semibold text-[var(--fm-text)]">
             {locale === "zh" ? "继续了解与观察" : "Continue understanding and observing"}

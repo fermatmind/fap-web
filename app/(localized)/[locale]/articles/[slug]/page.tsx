@@ -427,7 +427,7 @@ export default async function ArticleDetailPage({
               <Badge>{dict.articles.kicker}</Badge>
             )}
           </div>
-          <h1 className="m-0 font-serif text-4xl font-semibold leading-tight text-[var(--fm-text)]">
+          <h1 className="m-0 font-serif text-4xl font-semibold leading-tight text-[var(--fm-text)] [overflow-wrap:anywhere]">
             {renderCjkPunctuationText(article.title, "article-title")}
           </h1>
           {heroSummary ? <p className="m-0 max-w-3xl text-lg leading-8 text-[var(--fm-text-muted)]">{heroSummary}</p> : null}
