@@ -24,6 +24,7 @@ import {
 import styles from "./RiasecReadingReport.module.css";
 import { RiasecExploration } from "./RiasecExploration";
 import { RiasecCareerNextSteps } from "./RiasecCareerNextSteps";
+import { RiasecTrialRecord } from "./RiasecTrialRecord";
 
 type Props = {
   viewModel: RiasecResultViewModel;
@@ -63,6 +64,7 @@ export function RiasecReadingReport({
   const [selected, setSelected] = useState(
     vm.primaryType || vm.dimensions[0]?.code || "",
   );
+  const [selectedActivities, setSelectedActivities] = useState<string[]>([]);
   const visibility = (key: string) => getRiasecModuleVisibility(vm, key);
   const mapState = visibility("six_dimension_map");
   // Validated slots have their own backend visibility contract. Older envelopes
@@ -308,6 +310,10 @@ export function RiasecReadingReport({
                         >
                           <h3>{clean(activity.activityLabel)}</h3>
                           <p>{clean(activity.activityUserCopy)}</p>
+                          <label className={styles.activityChoice}>
+                            <input type="checkbox" checked={selectedActivities.includes(activity.activityKey)} onChange={() => setSelectedActivities(previous => previous.includes(activity.activityKey) ? previous.filter(key => key !== activity.activityKey) : [...previous, activity.activityKey])} />
+                            <span>{t("我愿意反复做或试做：", "I would repeat or try: ")}{clean(activity.activityLabel)}</span>
+                          </label>
                           <h4>{t("任务例子", "Task examples")}</h4>
                           <ul>
                             {activity.taskExamples
@@ -332,6 +338,8 @@ export function RiasecReadingReport({
                                         <li key={item}>{item}</li>
                                       ))}
                                   </ul>
+                                  <p>{example.skillsToCheck.map(clean).filter(Boolean).join(" · ")}</p>
+                                  {[example.educationBoundary, example.skillBoundary, example.qualificationBoundary, example.localizationNote].map(clean).filter(Boolean).map(text => <p key={text}>{text}</p>)}
                                 </article>
                               ))}
                             </div>
@@ -358,6 +366,7 @@ export function RiasecReadingReport({
             <section id={ANCHORS.career} className={styles.chapter}>
               <h2>{t("从兴趣结果到职业探索", "From your interests to career exploration")}</h2>
               <RiasecCareerNextSteps locale={locale} />
+              <RiasecTrialRecord locale={locale} activities={hasActivities ? (vm.activityExplorer?.codeActivityPack.activities ?? []).filter(activity => selectedActivities.includes(activity.activityKey)).map(activity => clean(activity.activityLabel)) : []} />
             </section>
             {emailRecovery ? (
               <section id="riasec-email-recovery" className={styles.chapter}>
@@ -513,6 +522,9 @@ function ReportHeader({
           ) : null}
         </div>
       </div>
+      <p className={styles.description} data-testid="riasec-form-version">
+        {vm.formCode || t("题本未提供", "Form not provided")} · {vm.questionCount ?? t("题数未知", "Item count unknown")}{t("题", " items")} · {t("计分版本", "Score version")}: {vm.trustedResultCard?.scoreSpaceVersion || t("未提供", "not provided")}
+      </p>
       {heroState !== "hidden" ? (
         <SummaryContent state={heroState} locale={locale}>
           <div data-testid="riasec-result-summary">
@@ -548,7 +560,7 @@ function ReportHeader({
           </div>
         </SummaryContent>
       ) : null}
-      {caution && (summary?.qualitySummary || vm.qualityDisplay) ? (
+      {(summary?.qualitySummary || vm.qualityDisplay) ? (
         <div
           className={caution ? styles.caution : styles.quality}
           data-testid="riasec-quality-display"
@@ -658,6 +670,7 @@ function DimensionChart({
     >
       {tieNote ? <p className={styles.description}>{tieNote}</p> : null}
       <h2>{t("六维兴趣地图", "Your broad interests")}</h2>
+      <p>{vm.scoreKind === "dimension_scores_0_100" ? t("单位：0–100兴趣维度分，不是人群百分位、能力或职业适配百分比；60与140题不作数值差比较。", "Units: 0–100 interest dimension scores, not population percentiles, ability or career-fit percentages. Do not compare numeric differences across the 60- and 140-item forms.") : t("分数单位未提供，不推断百分位或职业适配程度。", "Score units were not provided; do not infer percentiles or career fit.")}</p>
       <div className={styles.bars}>
         {vm.dimensions.map((item) => (
           <button
@@ -679,11 +692,11 @@ function DimensionChart({
             <span className={styles.track}>
               <span
                 style={{
-                  width: `${Math.max(0, Math.min(100, item.score))}%`,
+                  width: item.scoreAvailable === false ? "0%" : `${Math.max(0, Math.min(100, item.score))}%`,
                 }}
               />
             </span>
-            <span className={styles.number}>{Math.round(item.score)}</span>
+            <span className={styles.number}>{item.scoreAvailable === false ? t("未知", "Unknown") : item.score}</span>
           </button>
         ))}
       </div>
@@ -718,7 +731,7 @@ function DimensionInsight({
         {dimension.code} · {dimension.label}
       </h2>
       <div className={styles.insightScore}>
-        {Math.round(dimension.score)}
+        {dimension.scoreAvailable === false ? t("未知", "Unknown") : dimension.score}
         <span>{t("本次得分", "Your score")}</span>
       </div>
       {tieNote ? <p className={styles.tie}>{tieNote}</p> : null}

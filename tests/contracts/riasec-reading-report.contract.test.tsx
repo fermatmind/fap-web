@@ -326,7 +326,7 @@ describe("backend-generated Chinese reading samples", () => {
       expect(report).toHaveTextContent("定义一个问题");
       const hero = screen.getByTestId("riasec-trusted-result-card");
       expect(hero).not.toHaveTextContent("你的兴趣结果摘要");
-      expect(hero).not.toHaveTextContent("作答状态稳定");
+      expect(hero).toHaveTextContent("作答状态稳定");
       expect(hero).not.toHaveTextContent("RIASEC ·");
       expect(report).not.toHaveTextContent("当前结果没有可渲染的后端活动内容");
     },
@@ -415,7 +415,7 @@ it("keeps preference selection and removes the exercise form and navigation", ()
   expect(within(context).getByText("围绕一个问题，独立查资料、比较证据。")).toBeVisible();
   expect(screen.queryByRole("link", { name: "下一步行动" })).not.toBeInTheDocument();
   expect(screen.queryByRole("combobox")).not.toBeInTheDocument();
-  expect(screen.queryByRole("textbox")).not.toBeInTheDocument();
+  expect(within(context).queryByRole("textbox")).not.toBeInTheDocument();
   const focus = within(context).getByRole("button", { name: "独立钻研" });
   fireEvent.click(focus);
   expect(focus).toHaveAttribute("aria-pressed", "true");

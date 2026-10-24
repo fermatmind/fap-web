@@ -568,3 +568,10 @@
 .preferenceDescription { font-size: 12px; line-height: 1.75; color: #708078; }
 .preferenceOptions button { align-items: flex-start; padding: 12px 8px; }
 .preferenceSelected { margin-top: 9px; }
+.activityChoice { display: flex; align-items: flex-start; gap: 12px; min-height: 44px; padding: 12px 0; cursor: pointer; }
+.activityChoice input { width: 20px; height: 20px; flex-shrink: 0; margin-top: 3px; accent-color: #398276; }
+.trialRecord { margin-top: 28px; border-top: 1px solid #dce5e4; padding-top: 24px; overflow-wrap: anywhere; }
+.trialRecord > p { margin-top: 16px; }
+.noteField { display: grid; gap: 8px; margin-top: 18px; font-weight: 600; }
+.noteField textarea { display: block; box-sizing: border-box; width: 100%; min-width: 0; padding: 12px; border: 1px solid #a5b8b4; border-radius: 8px; background: #fff; color: #243b37; font: inherit; font-weight: 400; line-height: 1.6; resize: vertical; }
+.noteField textarea:focus-visible, .activityChoice input:focus-visible { outline: 3px solid #398276; outline-offset: 3px; }

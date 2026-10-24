@@ -5,6 +5,7 @@ export type RiasecDimension = {
   code: string;
   label: string;
   score: number;
+  scoreAvailable?: boolean;
 };
 
 export type RiasecQualityDisplay = {
@@ -343,6 +344,8 @@ export type RiasecResultViewModel = {
   qualityDisplay: RiasecQualityDisplay | null;
   resultSummary: RiasecResultSummary | null;
   dimensions: RiasecDimension[];
+  scoreKind?: string | null;
+  resultLocale?: string | null;
   trustedResultCard: RiasecTrustedResultCard | null;
   interpretationState: RiasecInterpretationState | null;
   moduleVisibilityPolicy: RiasecModuleVisibilityPolicy | null;
@@ -784,12 +787,14 @@ export function assembleRiasecResultViewModel(
           code,
           label: normalizeText(dimension.label) || code,
           score: normalizeNumber(dimension.score),
+          scoreAvailable: typeof dimension.score === "number" && Number.isFinite(dimension.score),
         };
       }).filter((dimension) => dimension.code)
     : ["R", "I", "A", "S", "E", "C"].map((code) => ({
         code,
         label: normalizeText(labels[code]) || code,
         score: normalizeNumber(scores[code]),
+        scoreAvailable: typeof scores[code] === "number" && Number.isFinite(scores[code]),
       }));
   const formCode = normalizeText(v2Form?.form_code) || normalizeText(form?.form_code) || null;
   const deepContentFormCode = formCode && isRiasecFormCode(formCode) ? formCode : null;
@@ -826,6 +831,8 @@ export function assembleRiasecResultViewModel(
     qualityDisplay: buildQualityDisplay(v2QualityDisplay, requestedPageLocale, qualityState, qualityGrade),
     resultSummary: buildResultSummary(v2ResultSummary, requestedPageLocale),
     dimensions,
+    scoreKind: normalizeText(v2Scores?.score_kind) || (Object.keys(scores).length ? "dimension_scores_0_100" : null),
+    resultLocale: normalizeText(projectionV2?.locale) || null,
     trustedResultCard: projectionV2
       ? {
           schemaVersion: "riasec.trusted_result_card.v1",
