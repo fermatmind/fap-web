@@ -89,3 +89,17 @@ test("inventory synchronization preserves real mixed runtime deployment", () => 
 });
 
 test('named Python and Shell tests remain tests-only and require actual native execution',()=>{ const result=classifyPaths(['scripts/test_delivery.py','scripts/deploy/test_readback.sh']); assert.equal(result.tests_changed,true); assert.equal(result.deploy,false); });
+
+test('security scan selection covers extracted code and its configuration independently of deployment', () => {
+  for (const path of ['app/page.tsx', 'lib/tool.mts', '.github/trunk/runner.cjs', 'scripts/ops/check.mjs',
+    'tests/e2e/home.spec.ts', 'public/widget.js', 'view.html', 'view.vue', 'view.svelte',
+    'package.json', 'tsconfig.json', 'pnpm-lock.yaml', 'yarn.lock', '.github/codeql/config.yml', '.github/workflows/nightly.yml']) {
+    assert.equal(classifyPaths([path]).codeql_required, true, path);
+  }
+  for (const path of ['README.md', 'docs/security.md', 'AGENTS.md', 'public/logo.png']) {
+    assert.equal(classifyPaths([path]).codeql_required, false, path);
+  }
+  assert.equal(classifyPaths(['docs/guide.md', 'scripts/check.js']).codeql_required, true);
+  assert.equal(classifyPaths(['tests/e2e/home.spec.ts']).deploy, false);
+  assert.equal(classifyPaths(['.github/workflows/nightly.yml']).flags.deployment_infrastructure, true);
+});

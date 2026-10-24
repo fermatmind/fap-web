@@ -1,6 +1,8 @@
 name: Nightly
 
 on:
+  push:
+    branches: [main]
   schedule:
     - cron: "31 18 * * *"
 
@@ -9,12 +11,42 @@ permissions:
   security-events: write
 
 concurrency:
-  group: nightly-${{ github.repository }}
-  cancel-in-progress: true
+  group: nightly-${{ github.repository }}-${{ github.event_name }}-${{ github.sha }}
+  cancel-in-progress: false
 
 jobs:
+  classify:
+    name: Select push security scan
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      codeql: ${{ steps.paths.outputs.codeql }}
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+        with:
+          node-version: 24
+      - id: paths
+        env:
+          PUSH_BEFORE: ${{ github.event.before }}
+        run: |
+          node --input-type=module <<'JS'
+          import { execFileSync } from 'node:child_process';
+          import { appendFileSync } from 'node:fs';
+          import { classifyPaths } from './.github/trunk/classify-paths.mjs';
+          const base = process.env.PUSH_BEFORE, head = process.env.GITHUB_SHA;
+          if (![base, head].every(value => /^[a-f0-9]{40}$/.test(value ?? '') && value !== '0'.repeat(40))) throw new Error('Invalid scan baseline');
+          execFileSync('git', ['merge-base', '--is-ancestor', base, head]);
+          const paths = execFileSync('git', ['diff', '--no-renames', '--name-only', '-z', base, head], {encoding: 'utf8'}).split('\0').filter(Boolean);
+          appendFileSync(process.env.GITHUB_OUTPUT, `codeql=${classifyPaths(paths).codeql_required}\n`);
+          JS
+
   full-regression:
     name: Full contracts, accessibility, dependencies, and performance
+    if: github.event_name == 'schedule'
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
@@ -52,6 +84,8 @@ jobs:
 
   codeql:
     name: CodeQL security scan
+    needs: classify
+    if: ${{ !cancelled() && (github.event_name == 'schedule' || (needs.classify.result == 'success' && needs.classify.outputs.codeql == 'true')) }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -63,6 +97,7 @@ jobs:
 
   certificate-expiry:
     name: Public TLS certificate expiry
+    if: github.event_name == 'schedule'
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
@@ -77,7 +112,7 @@ jobs:
           --alert-days 21,14,7
 
   alert:
-    needs: [full-regression, codeql, certificate-expiry]
+    needs: [classify, full-regression, codeql, certificate-expiry]
     if: failure()
     runs-on: ubuntu-latest
     steps:

@@ -85,6 +85,11 @@ export function classifyPaths(inputPaths) {
     mixed: categories.length > 1,
     deploy: categories.some((category) => category !== "docs_rules_tests_only"),
     tests_changed: testsChanged,
+    // CodeQL extracts JS/TS (including tools/tests and embedded frontend code).
+    // Dependency and workflow/config changes can alter extraction or analysis.
+    codeql_required: paths.some((path) => /\.(?:[cm]?[jt]sx?|html?|vue|svelte|json)$/.test(path)
+      || /^\.github\/(?:workflows|codeql)\//.test(path)
+      || /^(?:pnpm-lock\.yaml|yarn\.lock)$/.test(path)),
     flags,
     reasons,
   };

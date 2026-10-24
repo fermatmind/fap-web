@@ -97,3 +97,72 @@ test("exact-SHA receipt rejects failed, cancelled or missing selected browser mo
     }
   }
 });
+
+test('push security scans do not launch scheduled regressions or cancel other event/SHA runs', () => {
+  const source = readFileSync(new URL('../workflows/nightly.yml', import.meta.url), 'utf8');
+  assert.match(source, /on:\n  push:\n    branches: \[main\]\n  schedule:\n    - cron: "31 18 \* \* \*"/);
+  assert.doesNotMatch(source, /workflow_dispatch:|paths-ignore:|continue-on-error:/);
+  assert.match(source, /group: nightly-\$\{\{ github.repository \}\}-\$\{\{ github.event_name \}\}-\$\{\{ github.sha \}\}\n  cancel-in-progress: false/);
+  const job = name => source.split(`\n  ${name}:\n`)[1].split(/\n  [a-z][\w-]*:\n/)[0];
+  const condition = name => job(name).match(/^    if: (.+)$/m)[1].replace(/^\$\{\{ (.*) \}\}$/, '$1');
+  const evaluate = (name, event, result = 'success', selected = 'true', cancelled = false) => new Function('github', 'needs', 'cancelled', `return ${condition(name)}`)(
+    { event_name: event }, { classify: { result, outputs: { codeql: selected } } }, () => cancelled,
+  );
+  assert.equal(evaluate('classify', 'push'), true);
+  assert.equal(evaluate('classify', 'schedule'), false);
+  for (const name of ['full-regression', 'certificate-expiry']) {
+    assert.equal(evaluate(name, 'push'), false);
+    assert.equal(evaluate(name, 'schedule'), true);
+  }
+  assert.match(job('codeql'), /needs: classify/);
+  assert.equal(evaluate('codeql', 'push'), true);
+  assert.equal(evaluate('codeql', 'push', 'success', 'false'), false);
+  assert.equal(evaluate('codeql', 'schedule', 'skipped'), true);
+  assert.equal(evaluate('codeql', 'push', 'success', 'true', true), false);
+  for (const result of ['failure', 'cancelled', 'skipped']) assert.equal(evaluate('codeql', 'push', result), false);
+  const dependencies = job('alert').match(/needs: \[([^\]]+)\]/)[1].split(', ');
+  assert.deepEqual(dependencies, ['classify', 'full-regression', 'codeql', 'certificate-expiry']);
+  assert.equal(condition('alert'), 'failure()');
+  // GitHub failure() sees failed ancestors even when the other jobs were intentionally skipped.
+  const alert = new Function('failure', `return ${condition('alert')}`);
+  for (const failed of dependencies) {
+    const results = dependencies.map(name => name === failed ? 'failure' : 'skipped');
+    assert.equal(alert(() => results.includes('failure')), true, failed);
+  }
+  assert.equal(alert(() => false), false);
+  assert.match(job('full-regression'), /name: nightly-diagnostics-\$\{\{ github.sha \}\}/);
+  assert.match(job('codeql'), /languages: javascript-typescript/);
+});
+
+test('Nightly push classification executes the real exact-SHA diff and rejects an invalid baseline', async () => {
+  const { rmSync } = await import('node:fs');
+  const root = mkdtempSync(join(tmpdir(), 'nightly-paths-'));
+  try {
+    const dir = join(root, '.github/trunk'); mkdirSync(dir, {recursive: true});
+    writeFileSync(join(dir, 'classify-paths.mjs'), readFileSync(new URL('./classify-paths.mjs', import.meta.url)));
+    const git = (...args) => {
+      const result = spawnSync('git', args, {cwd: root, encoding: 'utf8'});
+      assert.equal(result.status, 0, result.stderr); return result.stdout.trim();
+    };
+    git('init', '-q'); git('add', '.');
+    const commit = () => { git('-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-qm', 'fixture'); return git('rev-parse', 'HEAD'); };
+    let base = commit();
+    const source = readFileSync(new URL('../workflows/nightly.yml', import.meta.url), 'utf8');
+    const script = source.match(/node --input-type=module <<'JS'\n([\s\S]*?)\n          JS/)[1].replace(/^          /gm, '');
+    const output = join(root, 'output');
+    for (const [path, expected] of [['guide.md', 'false'], ['probe.test.mjs', 'true']]) {
+      writeFileSync(join(root, path), 'fixture'); git('add', path); const head = commit();
+      writeFileSync(output, '');
+      const run = spawnSync(process.execPath, ['--input-type=module', '--eval', script], {
+        cwd: root, encoding: 'utf8', env: {...process.env, PUSH_BEFORE: base, GITHUB_SHA: head, GITHUB_OUTPUT: output},
+      });
+      assert.equal(run.status, 0, run.stderr);
+      assert.equal(readFileSync(output, 'utf8'), `codeql=${expected}\n`);
+      base = head;
+    }
+    const invalid = spawnSync(process.execPath, ['--input-type=module', '--eval', script], {
+      cwd: root, encoding: 'utf8', env: {...process.env, PUSH_BEFORE: '0'.repeat(40), GITHUB_SHA: base, GITHUB_OUTPUT: output},
+    });
+    assert.notEqual(invalid.status, 0); assert.match(invalid.stderr, /Invalid scan baseline/);
+  } finally { rmSync(root, {recursive: true, force: true}); }
+});
