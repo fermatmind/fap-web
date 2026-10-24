@@ -125,8 +125,8 @@ describe("original entertainment catalog", () => {
   it("keeps questions out of the hub and uses existing consent-filtered tracking with a stable public product key", () => {
     const source = readFileSync("components/entertainment/MoreTests.tsx", "utf8");
     expect(source).not.toContain("/data/"); expect(source).not.toContain("use client");
-    const event = filterTrackingPayload("view_result", { form_code: "fun_woodland-animal_v1", test_type: "entertainment", answers: ["o1"], result: "jay", private_text: "secret" });
-    expect(event).toMatchObject({ form_code: "fun_woodland-animal_v1", test_type: "entertainment" });
+    const event = filterTrackingPayload("view_result", { scale_code: "ENTERTAINMENT", form_code: "fun_woodland-animal_v1", test_type: "entertainment", answers: ["o1"], result: "jay", private_text: "secret" });
+    expect(event).toMatchObject({ scale_code: "ENTERTAINMENT", form_code: "fun_woodland-animal_v1", test_type: "entertainment" });
     expect(event).not.toHaveProperty("answers"); expect(event).not.toHaveProperty("result"); expect(event).not.toHaveProperty("private_text");
   });
 });

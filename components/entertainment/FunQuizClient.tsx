@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { Answers, FunQuiz } from "@/lib/entertainment/types";
 import { readFunDraft, resolveFunQuiz } from "@/lib/entertainment/scoring";
 import type { Locale } from "@/lib/i18n/locales";
+import { listMbtiFormMetas } from "@/lib/mbti/forms";
 import { trackEvent } from "@/lib/analytics";
 import { appendSeoCtaContextParamsToHref, buildSeoCtaContextParams, buildSeoCtaTrackingPayload } from "@/lib/tracking/seoCtaAttribution";
 import catalog from "@/lib/entertainment/catalog.json";
@@ -39,6 +40,7 @@ export function FunQuizClient({ quiz, locale }: { quiz: FunQuiz; locale: Locale 
     try { const raw = sessionStorage.getItem(storageKey); return readFunDraft(quiz, raw) ? raw : null; } catch { return null; }
   }, () => null);
   const draft: Answers | null = savedRaw ? JSON.parse(savedRaw).answers : null;
+  const mbtiVersions = listMbtiFormMetas().map(form => zh ? `${form.questionCount} 题（约 ${form.estimatedMinutes} 分钟）` : `${form.questionCount} questions (about ${form.estimatedMinutes} min)`).join(zh ? "、" : " or ");
   const mbtiBaseHref = `/${locale}/tests/mbti-personality-test-16-personality-types`;
   const recommendation = { locale, sourceRouteFamily: "test_detail" as const, sourceSlug: quiz.slug, sourcePath: `/${locale}/tests/play/${quiz.slug}`, href: mbtiBaseHref, ctaId: "entertainment_result_mbti", targetAction: "entertainment_result_mbti", targetTestSlug: "mbti-personality-test-16-personality-types" };
   const mbtiHref = appendSeoCtaContextParamsToHref(mbtiBaseHref, buildSeoCtaContextParams(recommendation));
@@ -46,12 +48,12 @@ export function FunQuizClient({ quiz, locale }: { quiz: FunQuiz; locale: Locale 
   const questionId = resolved.path[position];
   const question = quiz.questions.find(q => q.id === questionId);
   const result = quiz.results.find(r => r.id === resolved.resultIds[0]);
-  const emit = (event: string) => trackEvent(event, { slug: quiz.slug, locale, entry_surface: "entertainment", test_type: "entertainment", page_type: "entertainment", form_code: `fun_${quiz.slug}_v1` });
+  const emit = (event: string) => trackEvent(event, { slug: quiz.slug, locale, entry_surface: "entertainment", scale_code: "ENTERTAINMENT", test_type: "entertainment", page_type: "entertainment", form_code: `fun_${quiz.slug}_v1` });
 
   useEffect(() => {
     if (!entered.current) {
       entered.current = true;
-      trackEvent("landing_view", { slug: quiz.slug, locale, entry_surface: "entertainment", form_code: `fun_${quiz.slug}_v1` });
+      trackEvent("landing_view", { slug: quiz.slug, locale, entry_surface: "entertainment", scale_code: "ENTERTAINMENT", form_code: `fun_${quiz.slug}_v1` });
     }
   }, [quiz, locale, storageKey]);
 
@@ -62,7 +64,7 @@ export function FunQuizClient({ quiz, locale }: { quiz: FunQuiz; locale: Locale 
   useEffect(() => {
     if (stage !== "result" || viewed.current) return;
     viewed.current = true;
-    trackEvent("view_result", { slug: quiz.slug, locale, entry_surface: "entertainment", test_type: "entertainment", page_type: "entertainment", form_code: `fun_${quiz.slug}_v1` });
+    trackEvent("view_result", { slug: quiz.slug, locale, entry_surface: "entertainment", scale_code: "ENTERTAINMENT", test_type: "entertainment", page_type: "entertainment", form_code: `fun_${quiz.slug}_v1` });
   }, [stage, quiz.slug, quiz.version, locale]);
 
   function clearDraft() {
@@ -158,7 +160,7 @@ export function FunQuizClient({ quiz, locale }: { quiz: FunQuiz; locale: Locale 
       {copyFallback && <textarea aria-label={zh ? "手动复制结果" : "Result text for manual copying"} readOnly value={copyFallback} className="mt-4 min-h-40 w-full rounded border p-3" onFocus={event => event.target.select()} />}
       <section className="mt-10 border-t pt-7" aria-label={zh ? "可选下一步" : "Optional next steps"}>
         <h3 className="text-xl font-semibold">{zh ? "完整结果已呈现，下一步由你选择" : "That is your complete result. What next?"}</h3>
-        <p className="my-3 leading-7 text-slate-600">{zh ? "想用另一套框架继续认识自己？MBTI 探索偏好，与你刚才的故事独立计分。默认短版 93 题，需另行完整作答；也可以直接继续玩或离开。" : "If you want a different framework, MBTI explores preferences through its own questionnaire. The default shorter version has 93 questions and needs a separate full attempt. You can also keep playing or stop here."}</p>
+        <p className="my-3 leading-7 text-slate-600">{zh ? `想用另一套框架继续认识自己？MBTI 探索偏好，与你刚才的故事独立计分。可选题本为 ${mbtiVersions}，需另行完整作答；也可以直接继续玩或离开。` : `If you want a different framework, MBTI explores preferences through its own questionnaire. The versions are ${mbtiVersions}; each needs a separate full attempt. You can also keep playing or stop here.`}</p>
         <Link prefetch={false} className="inline-block min-h-11 py-2 font-medium underline" onClick={() => trackEvent("article_to_test_click", buildSeoCtaTrackingPayload(recommendation))} href={mbtiHref}>{zh ? "了解 MBTI 与题本选择" : "Explore MBTI and its versions"}</Link>
         <ul className="mt-4 space-y-3">{catalog.filter(q => q.slug !== quiz.slug).slice(0, 3).map(q => <li key={q.slug}><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests/play/${q.slug}`}>{q.title[locale]}</Link></li>)}</ul>
         <Link className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "浏览所有更多测试" : "Browse all More Tests"}</Link>
