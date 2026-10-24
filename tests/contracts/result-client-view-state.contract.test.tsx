@@ -1144,7 +1144,8 @@ describe("ResultClient view-state contract", () => {
       expect(screen.getByTestId("result-processing-wait")).toBeInTheDocument();
     });
 
-    expect(screen.getByText("phase-1")).toBeInTheDocument();
+    expect(screen.getByRole("progressbar")).not.toHaveAttribute("aria-valuenow");
+    expect(screen.queryByText("phase-1")).not.toBeInTheDocument();
     expect(screen.getByText("Your result page will appear once the backend has assembled the full page. Minimum wait: 10 seconds.")).toBeInTheDocument();
     expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
     expect(screen.queryByTestId("rich-result-report")).not.toBeInTheDocument();
@@ -1374,7 +1375,25 @@ describe("ResultClient view-state contract", () => {
       })
     );
     expect(hoisted.fetchAttemptReport).not.toHaveBeenCalled();
-    expect(screen.getByText("phase-1")).toBeInTheDocument();
+    expect(screen.getByRole("progressbar")).not.toHaveAttribute("aria-valuenow");
+    expect(screen.queryByText("phase-1")).not.toBeInTheDocument();
+  });
+
+  it("shows a ready MBTI report immediately after a real pending response resolves", async () => {
+    vi.useFakeTimers();
+    try {
+      hoisted.fetchAttemptReport.mockResolvedValue(cloneFixture(reportReadyMbtiProjectionFixture));
+      hoisted.fetchAttemptReportAccess.mockResolvedValueOnce(createAccessProjection({
+        report_state: "pending", retry_after_seconds: 1,
+        mbti_form_v1: { form_code: "mbti_93", scale_code: "MBTI" },
+      })).mockResolvedValue(createAccessProjection({ report_state: "ready" }));
+      render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+      await act(async () => { await vi.advanceTimersByTimeAsync(0); });
+      expect(screen.getByTestId("result-processing-wait")).toBeInTheDocument();
+      await act(async () => { await vi.advanceTimersByTimeAsync(1000); });
+      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+      expect(screen.queryByTestId("result-processing-wait")).not.toBeInTheDocument();
+    } finally { vi.useRealTimers(); }
   });
 
   it("shows an actionable failure state instead of MBTI loading shell when submission ended with different answers conflict", async () => {
@@ -1453,7 +1472,8 @@ describe("ResultClient view-state contract", () => {
       expect(screen.getByTestId("result-processing-wait")).toBeInTheDocument();
     });
 
-    expect(screen.getByText("phase-1")).toBeInTheDocument();
+    expect(screen.getByRole("progressbar")).not.toHaveAttribute("aria-valuenow");
+    expect(screen.queryByText("phase-1")).not.toBeInTheDocument();
     expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledTimes(2);
     expect(hoisted.fetchAttemptSubmission).toHaveBeenCalledWith({
       attemptId: "attempt-123",

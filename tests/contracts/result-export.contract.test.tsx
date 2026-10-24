@@ -91,6 +91,20 @@ describe("shared result export", () => {
     fireEvent.click(screen.getByRole("button", { name: "Copy prompt and selected results" }));
     await waitFor(() => expect(screen.getByText(/Copy was not available/)).toBeTruthy());
   });
+  it("preserves preview and user choices when an authorized PDF request fails", async () => {
+    let rejectPdf!: (reason: Error) => void;
+    const onDownloadPdf = vi.fn(() => new Promise<void>((_resolve, reject) => { rejectPdf = reject; }));
+    render(<ResultExportPanel projection={buildMbtiResultExport(report(), "en")!} locale="en" pdfState="ready" onDownloadPdf={onDownloadPdf} />);
+    fireEvent.click(screen.getByText("Choose, preview and take your results"));
+    fireEvent.change(screen.getByLabelText("Goal and experience (your own words, optional)"), { target: { value: "Keep this QA goal" } });
+    fireEvent.click(screen.getByRole("button", { name: "Download existing report PDF" }));
+    expect(screen.getByRole("button", { name: "Copy prompt and selected results" })).toBeEnabled();
+    expect(screen.getByRole("button", { name: "TXT" })).toBeEnabled();
+    rejectPdf(new Error("PDF unavailable"));
+    await waitFor(() => expect(screen.getByText("PDF is unavailable. Keep the preview or download TXT, then retry PDF later.")).toBeInTheDocument());
+    expect((screen.getByLabelText("Full export preview") as HTMLTextAreaElement).value).toContain("Keep this QA goal");
+    expect(screen.getByRole("button", { name: "Copy prompt and selected results" })).toBeEnabled();
+  });
   it("rejects JSON or HTML disguised as a PDF", async () => {
     await expect(downloadResultPdf(new Blob(['{"error":"pending"}'], { type: "application/json" }))).rejects.toThrow("PDF unavailable");
     await expect(downloadResultPdf(new Blob(["<html>error"], { type: "application/pdf" }))).rejects.toThrow();

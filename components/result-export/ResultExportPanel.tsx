@@ -17,6 +17,7 @@ export function ResultExportPanel({ projection, locale, onDownloadPdf, pdfState 
   const [draft, setDraft] = useState(() => defaultResultExportDraft(projection, locale));
   const [hydrated, setHydrated] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [pdfBusy, setPdfBusy] = useState(false);
   const [status, setStatus] = useState("");
   const preview = useRef<HTMLTextAreaElement>(null);
   useEffect(() => setHydrated(true), []);
@@ -44,11 +45,11 @@ export function ResultExportPanel({ projection, locale, onDownloadPdf, pdfState 
     } catch { setStatus(zh ? "下载未能开始。请选择预览文本手动复制。" : "Download could not start. Select the preview text to copy manually."); }
   }
   async function pdf() {
-    if (!onDownloadPdf || pdfState !== "ready") return;
-    setBusy(true); setStatus("");
+    if (!onDownloadPdf || pdfState !== "ready" || pdfBusy) return;
+    setPdfBusy(true); setStatus("");
     try { await onDownloadPdf(); setStatus(zh ? "已请求 PDF 下载，请检查浏览器下载列表。" : "PDF download requested. Check your browser's downloads."); }
     catch { setStatus(zh ? "PDF 暂时不可用。可以保留预览、下载 TXT，稍后重试 PDF。" : "PDF is unavailable. Keep the preview or download TXT, then retry PDF later."); }
-    finally { setBusy(false); }
+    finally { setPdfBusy(false); }
   }
   return <section className="min-w-0 [overflow-wrap:anywhere] space-y-4 rounded-2xl border border-sky-200 bg-sky-50 p-4 text-slate-900 sm:p-6 print:hidden" data-testid="result-export-panel" aria-labelledby={`${id}-title`}>
     <h2 id={`${id}-title`} className="text-xl font-semibold">{zh ? "带着结果，与 AI 继续聊" : "Explore your results with AI"}</h2>
@@ -71,7 +72,7 @@ export function ResultExportPanel({ projection, locale, onDownloadPdf, pdfState 
         <div className="flex flex-wrap gap-3">
           <button type="button" className="min-h-11 rounded-xl bg-slate-950 px-4 py-3 font-semibold text-white disabled:opacity-50" disabled={disabled} onClick={() => void copy()}>{zh ? "复制提示词和所选结果" : "Copy prompt and selected results"}</button>
           {(["text", "markdown"] as const).map(format => <button type="button" key={format} className="min-h-11 rounded-xl border border-slate-400 bg-white px-4 py-3 disabled:opacity-50" disabled={disabled} onClick={() => download(format)}>{format === "text" ? "TXT" : "Markdown"}</button>)}
-          {onDownloadPdf && pdfState === "ready" ? <button type="button" className="min-h-11 rounded-xl border border-slate-400 bg-white px-4 py-3 disabled:opacity-50" disabled={!hydrated || busy} onClick={() => void pdf()}>{zh ? "下载现有报告 PDF" : "Download existing report PDF"}</button> : null}
+          {onDownloadPdf && pdfState === "ready" ? <button type="button" className="min-h-11 rounded-xl border border-slate-400 bg-white px-4 py-3 disabled:opacity-50" disabled={!hydrated || pdfBusy} onClick={() => void pdf()}>{pdfBusy ? (zh ? "正在请求 PDF…" : "Requesting PDF…") : (zh ? "下载现有报告 PDF" : "Download existing report PDF")}</button> : null}
         </div>
         <p role="status" aria-live="polite">{status}</p>
         {pdfState !== "ready" ? <p className="text-sm">{pdfState === "pending" ? (zh ? "PDF 仍在准备。你可以先复制结果摘要，稍后再试。" : "PDF is still being prepared. Copy the result summary first and try again later.") : (zh ? "此处未提供可用 PDF；TXT 和 Markdown 是所选结果摘要，不是完整报告。可沿报告原有合法打印或下载入口继续。" : "A PDF is not available here. TXT and Markdown contain selected result summaries, not the full report. Use the report's existing authorized print or download entry when available.")}</p> : null}

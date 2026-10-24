@@ -41,6 +41,7 @@ import { useResultVisibilityObservation } from "@/hooks/useResultVisibilityObser
 import {
   bindAttemptEmail,
   fetchAttemptReport,
+  fetchAttemptReportPdfWithMeta,
   fetchAttemptResultPagePdfWithMeta,
   fetchAttemptReportAccess,
   fetchAttemptInviteUnlockProgress,
@@ -81,8 +82,6 @@ import { Button } from "@/components/ui/button";
 
 const RESULT_POLL_FALLBACK_MS = 3000;
 const RESULT_GENERATION_TIMEOUT_MS = 90_000;
-const RESULT_PROCESSING_MIN_MS = 10_000;
-const RESULT_PROCESSING_PROGRESS_CAP = 92;
 const INVITE_PROGRESS_POLL_MS = 15000;
 const MBTI_PDF_REQUIRED_SELECTORS = [
   '[data-pdf-section="personality-traits"]',
@@ -615,57 +614,15 @@ function resolveResultProcessingHeadline(locale: Locale): string {
   return locale === "zh" ? "正在生成你的测评结果..." : "Generating your assessment result...";
 }
 
-function ResultProcessingGate({
-  backendReady,
-  helperText,
-  locale,
-  minDurationMs,
-  phases,
-  startedAt,
-}: {
-  backendReady: boolean;
-  helperText: string;
-  locale: Locale;
-  minDurationMs: number;
-  phases: string[];
-  startedAt: number | null;
-}) {
-  const [now, setNow] = useState(() => Date.now());
-
-  useEffect(() => {
-    const timer = window.setInterval(() => setNow(Date.now()), 250);
-    return () => window.clearInterval(timer);
-  }, []);
-
-  const elapsedMs = startedAt === null ? 0 : Math.max(0, now - startedAt);
-  const rawProgress = Math.round((elapsedMs / minDurationMs) * 100);
-  const progress = Math.max(8, Math.min(backendReady ? 100 : RESULT_PROCESSING_PROGRESS_CAP, rawProgress));
-  const safePhases = phases.length > 0 ? phases : [helperText];
-  const phaseIndex = Math.min(safePhases.length - 1, Math.floor(elapsedMs / Math.max(1, minDurationMs / safePhases.length)));
-  const phaseText = safePhases[phaseIndex] ?? helperText;
-
+function ResultProcessingGate({ helperText, locale }: { helperText: string; locale: Locale }) {
   return (
     <div className="flex min-h-[52vh] items-center justify-center px-4 py-16" data-testid="result-processing-wait">
-      <section
-        className="w-full max-w-xl rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 shadow-[var(--fm-shadow-lg)] sm:p-8"
-        role="status"
-        aria-live="polite"
-      >
+      <section className="w-full max-w-xl space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 shadow-[var(--fm-shadow-lg)] sm:p-8" role="status" aria-live="polite">
         <p className="text-xl font-semibold text-[var(--fm-text)]">{resolveResultProcessingHeadline(locale)}</p>
-        <div
-          className="mt-4 h-2 overflow-hidden rounded-full bg-[var(--fm-muted)]"
-          role="progressbar"
-          aria-valuemin={0}
-          aria-valuemax={100}
-          aria-valuenow={progress}
-        >
-          <div
-            className="h-full rounded-full bg-gradient-to-r from-[var(--fm-trust-blue)] to-emerald-500 transition-[width] duration-300 ease-out"
-            style={{ width: `${progress}%` }}
-          />
+        <div className="h-2 overflow-hidden rounded-full bg-[var(--fm-muted)]" role="progressbar" aria-label={locale === "zh" ? "等待报告就绪" : "Waiting for the report"}>
+          <div className="h-full w-1/3 animate-pulse rounded-full bg-[var(--fm-trust-blue)] motion-reduce:animate-none" />
         </div>
-        <p className="mt-3 text-sm text-[var(--fm-muted-foreground)]">{phaseText}</p>
-        <p className="mt-2 text-xs text-[var(--fm-muted-foreground)]">{helperText}</p>
+        <p className="text-sm text-[var(--fm-muted-foreground)]">{helperText}</p>
       </section>
     </div>
   );
@@ -919,28 +876,8 @@ export default function ResultClient({
   const routeScaleCodeRef = useRef(initialReportReady ? resolveScaleCodeForTelemetry(initialReportData ?? null, null) : "UNKNOWN");
   const inviteProgressSnapshotRef = useRef<InviteProgressSnapshot | null>(null);
   const mbtiBootstrapPhaseTrackedRef = useRef(false);
-  const processingGateStartedAtRef = useRef<number | null>(null);
   const manualRecoveryPendingRef = useRef(false);
   const manualRecheckInFlightRef = useRef(false);
-  const [processingGateStartedAt, setProcessingGateStartedAt] = useState<number | null>(null);
-  const [readyHoldElapsed, setReadyHoldElapsed] = useState(true);
-
-  const beginMinimumProcessingGate = useCallback(() => {
-    if (printMode || processingGateStartedAtRef.current !== null) {
-      return;
-    }
-
-    const startedAt = Date.now();
-    processingGateStartedAtRef.current = startedAt;
-    setProcessingGateStartedAt(startedAt);
-    setReadyHoldElapsed(false);
-  }, [printMode]);
-
-  const resetMinimumProcessingGate = useCallback(() => {
-    processingGateStartedAtRef.current = null;
-    setProcessingGateStartedAt(null);
-    setReadyHoldElapsed(true);
-  }, []);
 
   useEffect(() => {
     if (printMode) {
@@ -1271,7 +1208,6 @@ export default function ResultClient({
 
     const markGenerating = () => {
       if (generationTimedOut) return;
-      beginMinimumProcessingGate();
       setStatus("generating");
       beginGenerationTimeout();
     };
@@ -1550,7 +1486,6 @@ export default function ResultClient({
         setEmailGateError(null);
         setEmailBindFeedback(null);
         setEnneagramContractInvalid(false);
-        resetMinimumProcessingGate();
         inviteProgressSnapshotRef.current = null;
         mbtiBootstrapPhaseTrackedRef.current = false;
 
@@ -1787,7 +1722,6 @@ export default function ResultClient({
   }, [
     anonId,
     attemptId,
-    beginMinimumProcessingGate,
     canLoadRichReport,
     dict.result.reportUnavailable,
     fetchInviteUnlockProgressWithAuthMismatchRetry,
@@ -1802,27 +1736,12 @@ export default function ResultClient({
     locale,
     printMode,
     reloadNonce,
-    resetMinimumProcessingGate,
     resultAccessToken,
     runWithAuthRetry,
     showEmailGateForError,
     usePrintAccessTokenOnly,
   ]);
 
-  useEffect(() => {
-    if (printMode || status !== "ready" || processingGateStartedAt === null) {
-      return;
-    }
-
-    const elapsedMs = Date.now() - processingGateStartedAt;
-    if (elapsedMs >= RESULT_PROCESSING_MIN_MS) {
-      setReadyHoldElapsed(true);
-      return;
-    }
-
-    const timer = window.setTimeout(() => setReadyHoldElapsed(true), RESULT_PROCESSING_MIN_MS - elapsedMs);
-    return () => window.clearTimeout(timer);
-  }, [printMode, processingGateStartedAt, status]);
 
   useEffect(() => {
     if (status === "failed") {
@@ -1917,19 +1836,16 @@ export default function ResultClient({
     setReloadNonce((value) => value + 1);
   };
 
-  const rawViewState: "processing" | "ready" | "failed" =
+  const viewState: "processing" | "ready" | "failed" =
     status === "loading" || status === "generating"
       ? "processing"
       : status === "ready" && (hasEqV5Report || hasRichReport || hasIqReport || hasReadyResultPayload(resultData))
         ? "ready"
         : "failed";
-  const viewState: "processing" | "ready" | "failed" =
-    rawViewState === "ready" && processingGateStartedAt !== null && !readyHoldElapsed ? "processing" : rawViewState;
   useResultVisibilityObservation({
     attemptId, anonId, receipt: reportData?.result_visibility_receipt ?? resultData?.result_visibility_receipt,
     enabled: viewState === "ready" && !printMode && !usePrintAccessTokenOnly,
   });
-  const processingBackendReady = rawViewState === "ready";
   const mbtiPdfReadyCandidate = printSnapshotContractValid && resolvedScaleCode === "MBTI" && viewState === "ready" && hasRichReport && Boolean(reportData);
   const mbtiPdfContentReadyCandidate =
     !mbtiPdfReadyCandidate
@@ -2132,12 +2048,8 @@ export default function ResultClient({
   if (viewState === "processing") {
     return (
       <ResultProcessingGate
-        backendReady={processingBackendReady}
         helperText={resolveReportGeneratingMessage(locale, resolvedScaleCode)}
         locale={locale}
-        minDurationMs={RESULT_PROCESSING_MIN_MS}
-        phases={dict.loading.phases}
-        startedAt={processingGateStartedAt}
       />
     );
   }
@@ -2224,11 +2136,20 @@ export default function ResultClient({
     );
   }
 
+  const exportPdfProps = {
+    exportPdfState: (canDownloadReportPdf(accessView) ? "ready" : accessView?.pdfState === "pending" ? "pending" : "unavailable") as "ready" | "pending" | "unavailable",
+    onDownloadPdf: canDownloadReportPdf(accessView) ? async () => {
+      const response = await fetchAttemptReportPdfWithMeta({ attemptId, anonId, accessToken: resultAccessToken });
+      await downloadResultPdf(response.blob, `FermatMind-${resolvedScaleCode}-report.pdf`);
+    } : undefined,
+  };
+
   if (isIqScaleCode(resolvedScaleCode)) {
     return (
       <div data-result-visible-root className="space-y-[var(--fm-gap-md)]">
         {renderOptionalEmailRecoveryCard()}
         <IqResultShell
+          {...exportPdfProps}
           locale={locale}
           reportData={reportData}
           resultData={hasReadyResultPayload(resultData) ? resultData : null}
@@ -2243,6 +2164,7 @@ export default function ResultClient({
       <div data-result-visible-root className="space-y-[var(--fm-gap-md)]">
         {renderOptionalEmailRecoveryCard()}
         <EQResultV5
+          {...exportPdfProps}
           locale={locale}
           reportData={reportData}
           attemptId={attemptId}

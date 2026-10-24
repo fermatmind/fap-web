@@ -3722,13 +3722,15 @@ export async function fetchAttemptReportPdfWithMeta({
   attemptId,
   anonId,
   inline,
+  accessToken,
 }: {
   attemptId: string;
   anonId?: string;
   inline?: boolean;
+  accessToken?: string | null;
 }): Promise<AttemptReportPdfResponse> {
-  const resolvedAnonId = resolveAnonId(anonId);
-  const authToken = getFmToken();
+  const resolvedAnonId = accessToken ? undefined : resolveAnonId(anonId);
+  const authToken = accessToken ? null : getFmToken();
 
   const headers = new Headers({
     Accept: "application/pdf",
@@ -3741,12 +3743,16 @@ export async function fetchAttemptReportPdfWithMeta({
     headers.set("Authorization", `Bearer ${authToken}`);
   }
 
+  if (accessToken) headers.set("X-Result-Access-Token", accessToken);
+
   const response = await fetch(getAttemptReportPdfUrl({ attemptId, inline }), {
     method: "GET",
     headers,
+    cache: "no-store",
+    signal: AbortSignal.timeout(90_000),
   });
 
-  if (!response.ok) {
+  if (!response.ok || response.headers.get("content-type")?.toLowerCase().split(";")[0].trim() !== "application/pdf") {
     throw new Error(`Failed to fetch report pdf: ${response.status}`);
   }
 
