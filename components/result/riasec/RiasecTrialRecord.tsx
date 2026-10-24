@@ -16,7 +16,7 @@ export function RiasecTrialRecord({ locale, activities }: { locale: Locale; acti
     ["trial", t("下一次试做：做什么、何时做、留下什么作品／反馈、何时复盘", "Next trial: task, date, work sample or feedback, and review date")],
   ];
   const record = [
-    t("本人探索记录（不是测评分数或职业推荐）", "My exploration record (not measured scores or a career recommendation)"),
+    t("本人探索记录（由本人填写，与测量事实分开）", "My exploration record (my own notes, separate from measured results)"),
     `${t("我选择的活动", "Activities I selected")}:\n${activities.join("\n")}`,
     ...fields.map(([id, label]) => `${label}:\n${notes[id] ?? ""}`),
   ].join("\n\n");

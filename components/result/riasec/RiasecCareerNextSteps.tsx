@@ -13,7 +13,7 @@ export function RiasecCareerNextSteps({ locale }: { locale: Locale }) {
       <li><Link className="underline underline-offset-4" href={localizedPath("/career/guides", locale)}>{zh ? "查看职业指南，规划一次低成本尝试" : "Use career guides to plan a small, low-cost trial"}</Link></li>
       <li><Link className="underline underline-offset-4" href={localizedPath("/career/tests", locale)}>{zh ? "选型Hub：选择适合当前问题的探索工具" : "Assessment hub: choose a tool for your current question"}</Link></li>
     </ol>
-    <p>{zh ? "阅读职业档案时，核对日常任务、工作环境、技能证据和资格要求，并查看来源的地区、年份与限制。以下是资料阅读示例，由你判断是否值得探索，不根据结果替你推荐职业：" : "In a career profile, check daily tasks, work setting, skill evidence and qualifications, including each source’s region, year and limitations. These are profile-reading examples for you to consider, not careers recommended from your scores:"}</p>
+    <p>{zh ? "阅读职业档案时，核对日常任务、工作环境、技能证据和资格要求，并查看来源的地区、年份与限制。以下三个职业用于示范如何阅读资料，由你判断是否值得探索；三字代码不能判定你是否胜任某个职业。" : "In a career profile, check daily tasks, work setting, skill evidence and qualifications, including each source’s region, year and limitations. These three roles illustrate how to read profiles. Decide which are worth exploring; a three-letter code cannot establish whether you can do a job."}</p>
     <ul className="list-disc space-y-2 pl-5">
       <li><Link className="underline underline-offset-4" href={localizedPath("/career/jobs/industrial-designers", locale)}>{zh ? "工业设计师职业档案" : "Industrial designer profile"}</Link></li>
       <li><Link className="underline underline-offset-4" href={localizedPath("/career/jobs/graphic-designers", locale)}>{zh ? "平面设计师职业档案" : "Graphic designer profile"}</Link></li>
