@@ -1,6 +1,6 @@
 {
   "slug": "museum-visitor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "everyday",
   "title": {
@@ -344,5 +344,29 @@
     "close",
     "thread",
     "together"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Museum Visitor Style Quiz",
+      "zh": "博物馆参观方式测试"
+    },
+    "title": {
+      "en": "Museum Visitor Style Quiz",
+      "zh": "博物馆参观方式测试"
+    },
+    "description": {
+      "en": "Choose where to look when a collection offers more than one visit can hold. Six scenes compare a close look, a connecting theme and shared viewing, with full portrait guides.",
+      "zh": "展品多得一次看不完，你先看哪里？六个场景，比较细看、连主题与共同观看，并读完整画像指南。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does seeing fewer objects mean making less of a museum visit?",
+        "zh": "少看几件展品，就等于没好好利用参观吗？"
+      },
+      "answer": {
+        "en": "A close look can make one object richer, a theme can connect selected objects, and shared viewing can support an exchange. The quiz considers how you use attention rather than counting exhibits or rating cultural knowledge.",
+        "zh": "细看可让一物更丰富，主题可连接选定展品，共看可支持交流。测试看怎样用注意，不统计看了多少，也不评文化知识。"
+      }
+    }
+  }
 }

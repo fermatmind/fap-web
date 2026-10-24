@@ -1,6 +1,6 @@
 {
   "slug": "long-distance-postcard",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "relationships",
   "title": {
@@ -344,5 +344,29 @@
     "scene",
     "question",
     "marker"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Long-Distance Postcard Quiz",
+      "zh": "远方明信片联络测试"
+    },
+    "title": {
+      "en": "Long-Distance Postcard Quiz",
+      "zh": "远方明信片联络测试"
+    },
+    "description": {
+      "en": "Share a scene, leave a question or mark a common moment across distance. Six fictional postcard choices reveal three low-pressure ways to keep a contact thread available.",
+      "zh": "跨距离分享一景、留个问题或标记共同片刻。六次虚构明信片选择，探索保留轻松联络线的三种方式。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does a meaningful postcard need an immediate reply?",
+        "zh": "有意义的明信片，需要立即得到回复吗？"
+      },
+      "answer": {
+        "en": "A shared scene can stand on its own, a question can wait, and a common marker can remain optional. The portraits concern possible invitations to contact, not a schedule or a test of another person's affection.",
+        "zh": "分享的景可以独立存在，问题可以等，共同标记也可自愿。画像谈可能的联络邀请，不是回复时间表，更不测试别人的感情。"
+      }
+    }
+  }
 }

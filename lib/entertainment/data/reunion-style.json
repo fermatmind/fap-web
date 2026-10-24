@@ -1,6 +1,6 @@
 {
   "slug": "reunion-style",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "relationships",
   "title": {
@@ -344,5 +344,29 @@
     "thread",
     "present",
     "fresh"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Reunion Style Quiz",
+      "zh": "久别重联络方式测试"
+    },
+    "title": {
+      "en": "Reunion Style Quiz",
+      "zh": "久别重联络方式测试"
+    },
+    "description": {
+      "en": "Reconnect in six imagined scenes through an old thread, curiosity about today or a fresh small meeting. Read three complete reunion portraits, with examples and tradeoffs.",
+      "zh": "在六个想象场景里，用旧话头、今日好奇或新小会面重联络。阅读三种完整画像、例子与取舍。"
+    },
+    "faq": {
+      "question": {
+        "en": "Must reconnecting begin by catching up on everything that happened?",
+        "zh": "重新联系，必须先补完分开后的所有经历吗？"
+      },
+      "answer": {
+        "en": "An old thread can reopen a connection, present curiosity can meet the person now, and a fresh meeting can begin with something small. The scenes do not require a complete history before two people can choose to talk.",
+        "zh": "旧话头可重开联络，当下好奇可接住今天的人，新会面可从小事起。不要求补全历史，两个人才有资格选聊天。"
+      }
+    }
+  }
 }

@@ -1,6 +1,6 @@
 {
   "slug": "night-garden",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "nature",
   "title": {
@@ -344,5 +344,29 @@
     "listener",
     "shadow",
     "detail"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Night Garden Attention Quiz",
+      "zh": "夜间花园观察测试"
+    },
+    "title": {
+      "en": "Night Garden Attention Quiz",
+      "zh": "夜间花园观察测试"
+    },
+    "description": {
+      "en": "Explore an illustrated night garden through sound, shadow or close detail. Six choices reveal three ways to notice a scene that cannot be taken in all at once.",
+      "zh": "通过声音、影子或近看细节，探索插画夜园。六次选择，看你怎样留意无法一眼全览的场景。"
+    },
+    "faq": {
+      "question": {
+        "en": "Are sound, shadow and detail different observation abilities?",
+        "zh": "声音、影子和细节，是不同观察能力吗？"
+      },
+      "answer": {
+        "en": "Here they are chosen points of attention, not measured abilities. Listening follows sound cues, shadows emphasize light patterns, and close detail narrows the view. A different scene can invite a different choice from the same person.",
+        "zh": "这里是自选注意点，不是被测能力。聆听跟声音线索，影子突出光线排列，细节缩小视野。同一个人在别种景里也可选不同方式。"
+      }
+    }
+  }
 }

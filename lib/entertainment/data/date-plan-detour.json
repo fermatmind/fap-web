@@ -1,6 +1,6 @@
 {
   "slug": "date-plan-detour",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "relationships",
   "title": {
@@ -344,5 +344,29 @@
     "core",
     "check",
     "try"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Shared Outing Detour Quiz",
+      "zh": "共同出游改计划测试"
+    },
+    "title": {
+      "en": "Shared Outing Detour Quiz",
+      "zh": "共同出游改计划测试"
+    },
+    "description": {
+      "en": "When a fictional outing changes, what do you preserve, recheck or try? Six choices explore keeping its valued part, asking preferences again and a bounded alternative.",
+      "zh": "虚构出游临时变化，你会保留、重问还是小试什么？六次选择，探索原先在意部分、重新询问偏好与有限替代。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does preserving the outing's core mean refusing to change the plan?",
+        "zh": "保留出游核心，是否就是拒绝改计划？"
+      },
+      "answer": {
+        "en": "It means identifying what made the outing worthwhile, not preserving every detail. Checking preferences can reveal a different priority, while a bounded trial tests an alternative. The portraits do not predict relationship compatibility.",
+        "zh": "它指认出这次出游原本为何值得，而非每个细节不动。重问偏好可发现不同重点，有限小试则检验替代。画像不预测关系适配。"
+      }
+    }
+  }
 }

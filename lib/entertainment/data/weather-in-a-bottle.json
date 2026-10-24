@@ -1,6 +1,6 @@
 {
   "slug": "weather-in-a-bottle",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "metaphor",
   "title": {
@@ -344,5 +344,29 @@
     "mist",
     "breeze",
     "sun"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Weather in a Bottle Quiz",
+      "zh": "瓶中天气想象测试"
+    },
+    "title": {
+      "en": "Weather in a Bottle Quiz",
+      "zh": "瓶中天气想象测试"
+    },
+    "description": {
+      "en": "Shape a fictional scene with gradual mist, a moving breeze or one clear sunbeam. Six choices reveal three story-weather portraits, each with a complete creative guide.",
+      "zh": "用渐显薄雾、移动微风或清楚日光，塑造虚构场景。六次选择，阅读三种故事天气画像及完整创作指南。"
+    },
+    "faq": {
+      "question": {
+        "en": "Is the bottle's weather a description of my mental state?",
+        "zh": "瓶中天气，是在描述我的心理状态吗？"
+      },
+      "answer": {
+        "en": "The weather controls pacing and visibility inside an original scene. Mist reveals a shape gradually, a breeze moves a small prop, and sunlight selects a detail. It is neither a mood diagnosis nor a real forecast.",
+        "zh": "天气控制原创场景里的节奏与可见度。雾让形渐显，风移小道具，日光选细节。它既不是情绪诊断，也不是真实天气预报。"
+      }
+    }
+  }
 }

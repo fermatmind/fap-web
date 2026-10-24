@@ -1,6 +1,6 @@
 {
   "slug": "quest-reward",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "fantasy",
   "title": {
@@ -344,5 +344,29 @@
     "map",
     "feast",
     "token"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Tiny Quest Reward Quiz",
+      "zh": "小任务奖励选择测试"
+    },
+    "title": {
+      "en": "Tiny Quest Reward Quiz",
+      "zh": "小任务奖励选择测试"
+    },
+    "description": {
+      "en": "Choose what makes a fictional quest ending satisfying: a new map, a shared feast or a small token. Six choices reveal three original reward portraits without a real prize.",
+      "zh": "新地图、共同小宴或纪念物，什么让虚构小任务收尾满足？六次选择，阅读三种原创奖励画像，不发真实奖品。"
+    },
+    "faq": {
+      "question": {
+        "en": "Are the map, feast and token different sizes of reward?",
+        "zh": "地图、小宴与纪念物，是不同档次的奖励吗？"
+      },
+      "answer": {
+        "en": "They offer different endings: another possibility, a shared celebration and a concrete reminder. The portraits compare those appeals rather than ranking generosity, ambition or worth. No real payment or prize is involved.",
+        "zh": "它们提供不同收尾：另一个可能、共同庆祝和具体提醒。画像比较吸引点，不排慷慨、野心或价值，也不涉及真实支付或奖品。"
+      }
+    }
+  }
 }

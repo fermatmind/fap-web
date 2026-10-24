@@ -1,6 +1,6 @@
 {
   "slug": "mountain-cabin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "nature",
   "title": {
@@ -344,5 +344,29 @@
     "keeper",
     "nest",
     "boundary"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Shared Mountain Cabin Quiz",
+      "zh": "山间小屋同行测试"
+    },
+    "title": {
+      "en": "Shared Mountain Cabin Quiz",
+      "zh": "山间小屋同行测试"
+    },
+    "description": {
+      "en": "Plan a fictional cabin stay through practical handover, a shared atmosphere and personal space. Six choices reveal three contributions to making a short visit together workable.",
+      "zh": "用实际交接、共同氛围与个人空间，安排虚构小屋停留。六次选择，探索让短暂共住可行的三种贡献。"
+    },
+    "faq": {
+      "question": {
+        "en": "Can a shared cabin feel welcoming while allowing time apart?",
+        "zh": "小屋既能欢迎大家，又能允许各自待着吗？"
+      },
+      "answer": {
+        "en": "The portraits separate practical care, a comfortable shared scene and explicit space agreements. A stay can include all three. Choosing one contribution more often does not require everybody to use the cabin in the same way.",
+        "zh": "画像区分实际照顾、舒适共享场景与明确空间约定。一次停留可兼有三者，常选某贡献，不要求大家以同一种方式使用小屋。"
+      }
+    }
+  }
 }

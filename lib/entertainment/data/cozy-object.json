@@ -1,6 +1,6 @@
 {
   "slug": "cozy-object",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "metaphor",
   "title": {
@@ -344,5 +344,29 @@
     "cup",
     "blanket",
     "notebook"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Cozy Object Quiz",
+      "zh": "温暖小物场景测试"
+    },
+    "title": {
+      "en": "Cozy Object Quiz",
+      "zh": "温暖小物场景测试"
+    },
+    "description": {
+      "en": "Build a cozy imaginary scene around a cup, a blanket or an unfinished notebook. Six choices explore a familiar ritual, a gentle edge and room for wandering thoughts.",
+      "zh": "以杯子、毯子或未写完的本子，搭一个想象温暖场景。六次选择，探索熟悉仪式、柔和边界和游走念头的位置。"
+    },
+    "faq": {
+      "question": {
+        "en": "Are the cup, blanket and notebook symbols of hidden needs?",
+        "zh": "杯子、毯子和本子，代表隐藏需要吗？"
+      },
+      "answer": {
+        "en": "They are authored story props. The cup offers a small ritual, the blanket marks a gentle place to settle, and the notebook welcomes unfinished thoughts. The quiz does not interpret objects as psychological evidence.",
+        "zh": "它们是写好的故事道具：杯子承接小仪式，毯子划出柔和停留处，本子接纳未完念头。测试不把物件解释为心理证据。"
+      }
+    }
+  }
 }

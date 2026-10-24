@@ -1,6 +1,6 @@
 {
   "slug": "seasonal-table",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "metaphor",
   "title": {
@@ -344,5 +344,29 @@
     "trace",
     "space",
     "shared"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Seasonal Table Scene Quiz",
+      "zh": "换季桌面场景测试"
+    },
+    "title": {
+      "en": "Seasonal Table Scene Quiz",
+      "zh": "换季桌面场景测试"
+    },
+    "description": {
+      "en": "Mark an imaginary season with one trace, an available place or a shared addition. Six choices lead to three ways a fictional tabletop can welcome a small change.",
+      "zh": "用一处痕迹、一个空位或共享添加，标记想象季节。六次选择，探索虚构桌面迎接小变化的三种方式。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does a new season require replacing everything on the table?",
+        "zh": "换新季节，就要换掉桌面全部东西吗？"
+      },
+      "answer": {
+        "en": "One changed trace can show a transition, an empty place can remain unassigned, and an invited contribution can add another view. The scenes explore a modest change, not a shopping list or a prescribed seasonal tradition.",
+        "zh": "一处变化痕迹可显转换，空位可仍未指定，受邀贡献可添另一视角。场景探索适度变化，不是购物单或规定的季节传统。"
+      }
+    }
+  }
 }

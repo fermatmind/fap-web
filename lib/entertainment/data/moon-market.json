@@ -1,6 +1,6 @@
 {
   "slug": "moon-market",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "fantasy",
   "title": {
@@ -243,5 +243,29 @@
     "stars",
     "garden",
     "ticket"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Moon Market Branching Story",
+      "zh": "月亮集市分支故事"
+    },
+    "title": {
+      "en": "Moon Market Branching Story",
+      "zh": "月亮集市分支故事"
+    },
+    "description": {
+      "en": "Make an original fictional trade at the Moon Market. Follow real branches toward pocket stars, a small garden or a ticket home, with a full guide to each ending.",
+      "zh": "在月亮集市做原创虚构交换。沿真分支到口袋星、小花园或回程票，分别阅读完整结局指南。"
+    },
+    "faq": {
+      "question": {
+        "en": "Is choosing the ticket home a less imaginative ending?",
+        "zh": "选回程票，是比较缺乏想象力的结局吗？"
+      },
+      "answer": {
+        "en": "The ticket gives the evening a chosen finish, while the stars and garden continue different possibilities. They serve different narrative purposes. The game does not rank a reader's imagination by which authored ending they reach.",
+        "zh": "回程票给夜晚一个自选结束，星与花园延续不同可能。它们服务不同叙事目的；游戏不按读者抵达的结局排名想象力。"
+      }
+    }
+  }
 }

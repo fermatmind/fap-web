@@ -1,6 +1,6 @@
 {
   "slug": "desk-reset",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "everyday",
   "title": {
@@ -344,5 +344,29 @@
     "stations",
     "kit",
     "stage"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Desk Reset Style Quiz",
+      "zh": "桌面小整理测试"
+    },
+    "title": {
+      "en": "Desk Reset Style Quiz",
+      "zh": "桌面小整理测试"
+    },
+    "description": {
+      "en": "Arrange tools, active materials and open space for your next small activity. Six desk-reset choices lead to three portraits without grading tidiness or productivity.",
+      "zh": "为下一件小事安排工具、进行中的材料与空白位置。六次桌面整理选择，读三种画像，不给整洁或效率打分。"
+    },
+    "faq": {
+      "question": {
+        "en": "Must a useful desk be completely clear?",
+        "zh": "有用的桌面，是否必须完全清空？"
+      },
+      "answer": {
+        "en": "Not in these scenes. Stations support repeated activities, a kit keeps selected tools together, and a temporary stage makes one task available. The useful arrangement depends on the activity you chose, not a universal tidy-desk rule.",
+        "zh": "这些场景不要求如此。分区支持重复活动，工具包把选定工具放一起，临时舞台则承接一件事。合用布置取决于所选活动，不是通用清桌规则。"
+      }
+    }
+  }
 }

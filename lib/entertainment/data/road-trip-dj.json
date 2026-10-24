@@ -1,6 +1,6 @@
 {
   "slug": "road-trip-dj",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "social",
   "title": {
@@ -344,5 +344,29 @@
     "turns",
     "bridge",
     "quiet"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Road Trip DJ Quiz",
+      "zh": "同行歌单共享测试"
+    },
+    "title": {
+      "en": "Road Trip DJ Quiz",
+      "zh": "同行歌单共享测试"
+    },
+    "description": {
+      "en": "Share an imaginary music queue through turns, transitions or room for quiet. Six choices reveal three road-trip DJ styles without rating music taste or real driving.",
+      "zh": "用轮流、过渡或安静位置，分享想象歌单队列。六次选择，阅读三种同行DJ方式，不评音乐品味或真实驾驶。"
+    },
+    "faq": {
+      "question": {
+        "en": "Can quiet time belong in a shared road-trip playlist?",
+        "zh": "共享旅途歌单里，可以有安静时间吗？"
+      },
+      "answer": {
+        "en": "The quiet option makes less sound a clear choice rather than an awkward absence. Turns distribute selection, and bridges connect different preferences. All three concern a fictional listening agreement, not real driving behavior or musical ability.",
+        "zh": "安静选项让少些声音成为清楚选择，不当尴尬空缺。轮流分配选择，桥梁连接不同偏好。三者谈虚构聆听约定，不谈真实驾驶行为或音乐能力。"
+      }
+    }
+  }
 }

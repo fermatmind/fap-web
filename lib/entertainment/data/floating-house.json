@@ -1,6 +1,6 @@
 {
   "slug": "floating-house",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "fantasy",
   "title": {
@@ -344,5 +344,29 @@
     "anchor",
     "roam",
     "visit"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Floating House Quiz",
+      "zh": "漂浮小屋归处测试"
+    },
+    "title": {
+      "en": "Floating House Quiz",
+      "zh": "漂浮小屋归处测试"
+    },
+    "description": {
+      "en": "Give an imaginary floating home an anchor, an open route or a plan for visits. Six choices reveal three ways your fictional house relates to the places around it.",
+      "zh": "给想象漂浮住处一个锚点、开放路线或拜访计划。六次选择，阅读小屋与周围地方相连的三种方式。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does choosing a roaming house mean I dislike a familiar home?",
+        "zh": "选漂游小屋，就表示不喜欢熟悉住处吗？"
+      },
+      "answer": {
+        "en": "The scenes compare the imagined house's relationship to places: returning to an anchor, following an open route or arranging visits. A chosen story arrangement does not decide your real housing preference or commitment to people.",
+        "zh": "场景比较想象住处与地方的关系：回锚点、走开放路线或安排拜访。故事布置不判定现实居住偏好，也不衡量对人的承诺。"
+      }
+    }
+  }
 }

@@ -1,6 +1,6 @@
 {
   "slug": "note-taking-doodles",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "everyday",
   "title": {
@@ -344,5 +344,29 @@
     "line",
     "sketch",
     "links"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Notes and Doodles Quiz",
+      "zh": "笔记与涂鸦方式测试"
+    },
+    "title": {
+      "en": "Notes and Doodles Quiz",
+      "zh": "笔记与涂鸦方式测试"
+    },
+    "description": {
+      "en": "Catch a small idea with a plain line, a rough sketch or links between fragments. Six note-play choices lead to three portraits without labeling a fixed learning style.",
+      "zh": "用一句普通话、粗草图或碎片连线，接住小想法。六次纸上记录选择，读三种画像，不贴固定学习风格标签。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does choosing sketches mean I am a visual learner?",
+        "zh": "偏选草图，就表示我是视觉学习者吗？"
+      },
+      "answer": {
+        "en": "No fixed learning style is inferred. A sketch can show an arrangement, a line can preserve a reason, and links can preserve a relationship. The quiz concerns the format you chose for this small note.",
+        "zh": "不据此认定固定学习风格。草图可显排列，文字可留理由，连线可留关系。测试只谈为这条小笔记所选的记录形式。"
+      }
+    }
+  }
 }

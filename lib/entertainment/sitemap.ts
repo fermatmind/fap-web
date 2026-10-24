@@ -10,6 +10,9 @@ export function appendFunSitemapEntries(entries: PublicSitemapEntry[]): PublicSi
     for (const locale of ["en", "zh"]) {
       const loc = `${CANONICAL_SITE_URL}/${locale}/tests/play/${quiz.slug}`;
       result.set(loc, { loc, lastmod: `${quiz.updated}T00:00:00.000Z` });
+      for (const portrait of quiz.resultSlugs) {
+        result.set(`${loc}/results/${portrait}`, { loc: `${loc}/results/${portrait}`, lastmod: `${quiz.updated}T00:00:00.000Z` });
+      }
     }
   }
   return [...result.values()].sort((a, b) => a.loc.localeCompare(b.loc));

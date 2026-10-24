@@ -1,6 +1,6 @@
 {
   "slug": "reading-ritual",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "everyday",
   "title": {
@@ -344,5 +344,29 @@
     "immerse",
     "trail",
     "appointment"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Reading Ritual Quiz",
+      "zh": "休闲阅读仪式测试"
+    },
+    "title": {
+      "en": "Reading Ritual Quiz",
+      "zh": "休闲阅读仪式测试"
+    },
+    "description": {
+      "en": "Explore immersion, trails between books and a familiar reading occasion. Six leisure-reading choices reveal three ritual portraits without testing reading speed or comprehension.",
+      "zh": "用沉浸、书间线索与熟悉阅读时刻，探索休闲读书方式。六次选择，阅读三种仪式画像，不测速度或理解力。"
+    },
+    "faq": {
+      "question": {
+        "en": "Can following references be a reading ritual of its own?",
+        "zh": "顺着引用去找别的书，也算一种阅读仪式吗？"
+      },
+      "answer": {
+        "en": "The trail portrait values connections between books rather than one uninterrupted reading session. Immersion protects continuity, and an appointment gives reading a familiar occasion. These are different arrangements for leisure, not measures of reading quality.",
+        "zh": "线索画像珍惜书间连接，而非一次不间断阅读；沉浸保护连续性，约定时刻给熟悉场合。这是休闲安排差别，不是阅读质量测量。"
+      }
+    }
+  }
 }

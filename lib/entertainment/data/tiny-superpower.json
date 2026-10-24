@@ -1,6 +1,6 @@
 {
   "slug": "tiny-superpower",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "metaphor",
   "title": {
@@ -344,5 +344,29 @@
     "word",
     "pause",
     "edge"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Tiny Original Superpower Quiz",
+      "zh": "原创微能力选择测试"
+    },
+    "title": {
+      "en": "Tiny Original Superpower Quiz",
+      "zh": "原创微能力选择测试"
+    },
+    "description": {
+      "en": "Choose a low-stakes fictional power: one plain word, an optional pause or a visible edge. Six scenes lead to three original power portraits with clearly stated limits.",
+      "zh": "选一种轻松虚构能力：一个普通词、可选停顿或可见边缘。六个场景，阅读三种有明确边界的原创微能力画像。"
+    },
+    "faq": {
+      "question": {
+        "en": "Can these tiny powers control another fictional character?",
+        "zh": "这些微能力，能控制另一个虚构角色吗？"
+      },
+      "answer": {
+        "en": "Their limits deliberately leave another character free to decline. A word can be unused, a pause can be skipped and an outline can be removed. The portraits concern small creative possibilities, not real abilities or control over people.",
+        "zh": "它们的限制刻意让另一角色可拒绝。词可不用，停顿可跳过，勾边可撤回。画像只谈小创意可能，不是真能力或控制他人。"
+      }
+    }
+  }
 }

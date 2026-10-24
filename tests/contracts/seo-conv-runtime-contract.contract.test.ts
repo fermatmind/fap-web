@@ -34,6 +34,20 @@ afterEach(() => {
 });
 
 describe("SEO-CONV-RUNTIME-03 runtime funnel contract", () => {
+  it.each(["en", "zh"] as const)("counts a public entertainment guide %s visit as a landing, not a personal result or core test", async locale => {
+    grantAnalyticsConsent();
+    window.history.pushState({}, "", `/${locale}/tests/play/woodland-animal/results/jay`);
+    const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({ ok: true })));
+    vi.stubGlobal("fetch", fetchMock);
+    const { initAnalytics } = await importAnalyticsRuntime();
+    initAnalytics(); initAnalytics();
+    await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
+    const body = JSON.parse(String(fetchMock.mock.calls[0][1]?.body ?? "{}"));
+    expect(body.eventName).toBe(TRACKING_EVENTS.LANDING_PV);
+    expect(body.payload).toMatchObject({ page_type: "entertainment", target_test: "woodland-animal", scale_id: "ENTERTAINMENT", form_id: "fun_woodland-animal_v1" });
+    expect(body.payload).not.toHaveProperty("result");
+    expect(body.payload).not.toHaveProperty("answers");
+  });
   it.each(["en", "zh"] as const)("tags an entertainment %s landing with its actual quiz identity instead of the core funnel default", async locale => {
     grantAnalyticsConsent();
     window.history.pushState({}, "", `/${locale}/tests/play/woodland-animal`);

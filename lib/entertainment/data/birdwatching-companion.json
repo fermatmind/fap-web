@@ -1,6 +1,6 @@
 {
   "slug": "birdwatching-companion",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "nature",
   "title": {
@@ -344,5 +344,29 @@
     "waiter",
     "recorder",
     "guide"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Birdwatching Companion Quiz",
+      "zh": "观鸟同行方式测试"
+    },
+    "title": {
+      "en": "Birdwatching Companion Quiz",
+      "zh": "观鸟同行方式测试"
+    },
+    "description": {
+      "en": "Choose how you share an imaginary bird sighting: wait for a view, make a useful record or help someone else see it. Read all three companion guides.",
+      "zh": "选择怎样分享想象中的观鸟一刻：等待、留下可用记录，或帮助同伴看见。三种同行画像均有完整指南。"
+    },
+    "faq": {
+      "question": {
+        "en": "Is a patient watcher a better birdwatcher than a recorder or guide?",
+        "zh": "耐心等待者，会比记录者或引导者更会观鸟吗？"
+      },
+      "answer": {
+        "en": "The portraits concern different contributions to a shared sighting. Waiting creates an opportunity to observe, recording preserves a detail, and guiding helps another viewer. The quiz does not assess identification knowledge or field skill.",
+        "zh": "三种画像谈同一次观赏中的不同贡献：等待创造观察机会，记录保留细节，引导帮助别人看见。本测试不考物种辨识知识或野外技能。"
+      }
+    }
+  }
 }

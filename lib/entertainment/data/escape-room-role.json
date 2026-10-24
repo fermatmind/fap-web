@@ -1,6 +1,6 @@
 {
   "slug": "escape-room-role",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "social",
   "title": {
@@ -344,5 +344,29 @@
     "connector",
     "tester",
     "keeper"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Escape Room Team Role Quiz",
+      "zh": "密室游戏团队角色测试"
+    },
+    "title": {
+      "en": "Escape Room Team Role Quiz",
+      "zh": "密室游戏团队角色测试"
+    },
+    "description": {
+      "en": "Connect clues, test an explanation or help the group use its game time. Six fictional escape-room choices reveal three team-role portraits without measuring intelligence.",
+      "zh": "连线索、试解释，或帮大家分配游戏时间？六个虚构密室选择，阅读三种团队角色，不测智力。"
+    },
+    "faq": {
+      "question": {
+        "en": "Is testing an idea the same as solving the escape room fastest?",
+        "zh": "愿意试一个解释，就等于最快解开密室吗？"
+      },
+      "answer": {
+        "en": "Testing concerns checking one specific explanation. Connecting concerns relationships between clues, and keeping concerns how the group uses time. These contributions can work together; the quiz does not measure puzzle-solving speed or ability.",
+        "zh": "小试关注检验一个具体解释；连接关注线索关系；协调关注团队用时。这些贡献可共存，测试不衡量解谜速度或能力。"
+      }
+    }
+  }
 }

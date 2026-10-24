@@ -1,6 +1,6 @@
 {
   "slug": "celebrating-a-friend",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "relationships",
   "title": {
@@ -344,5 +344,29 @@
     "listen",
     "note",
     "join"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Friend's Good News Quiz",
+      "zh": "回应朋友好消息测试"
+    },
+    "title": {
+      "en": "Friend's Good News Quiz",
+      "zh": "回应朋友好消息测试"
+    },
+    "description": {
+      "en": "Choose how to meet a friend's chosen good news: hear their account, write a personal note or join an invited acknowledgment. Six choices lead to three complete portraits.",
+      "zh": "朋友愿意分享好消息时，听其讲述、写个人小笺或参加受邀庆祝。六次选择，阅读三种完整回应画像。"
+    },
+    "faq": {
+      "question": {
+        "en": "What if my friend wants a quiet response to good news?",
+        "zh": "朋友报喜时只想安静回应，怎么办？"
+      },
+      "answer": {
+        "en": "A visible celebration is only one option, and joining it depends on an invitation. Listening to their account or sending a personal note can also acknowledge the news. The recipient's stated preference matters more than the portrait label.",
+        "zh": "公开庆祝只是选项，参与需有邀请。听对方讲述或写个人小笺，也能承接好消息。对方说出的偏好，比画像名称更重要。"
+      }
+    }
+  }
 }

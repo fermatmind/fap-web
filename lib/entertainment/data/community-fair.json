@@ -1,6 +1,6 @@
 {
   "slug": "community-fair",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "social",
   "title": {
@@ -344,5 +344,29 @@
     "shift",
     "task",
     "handover"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Community Fair Helper Quiz",
+      "zh": "社区小市集帮忙角色测试"
+    },
+    "title": {
+      "en": "Community Fair Helper Quiz",
+      "zh": "社区小市集帮忙角色测试"
+    },
+    "description": {
+      "en": "Choose a manageable way to help at a fictional fair: a time slot, a defined task or a clear handover. Six choices create three volunteer-contribution portraits.",
+      "zh": "在虚构小市集中，选一段时长、一件明确任务或一次清楚交接。六次选择，看看你怎样让自愿帮忙可承担。"
+    },
+    "faq": {
+      "question": {
+        "en": "What makes a contribution manageable in this quiz?",
+        "zh": "本测试里，什么让一份帮忙变得可承担？"
+      },
+      "answer": {
+        "en": "A time slot limits when you help, a task boundary limits what you take on, and a handover clarifies what happens next. None requires taking responsibility for the whole fair or always being available.",
+        "zh": "时间段限制何时帮忙，任务边界限制接什么，交接说明接下来怎样。都不要求承担整个市集，也不要求一直有空。"
+      }
+    }
+  }
 }

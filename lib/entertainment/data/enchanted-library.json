@@ -1,6 +1,6 @@
 {
   "slug": "enchanted-library",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "fantasy",
   "title": {
@@ -235,5 +235,29 @@
     "record",
     "witness",
     "open"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Enchanted Library Branching Story",
+      "zh": "魔法图书馆分支故事"
+    },
+    "title": {
+      "en": "Enchanted Library Branching Story",
+      "zh": "魔法图书馆分支故事"
+    },
+    "description": {
+      "en": "A written record, a witness and an unfinished tale disagree. Follow your choices through an original enchanted library and read every authored ending without a random draw.",
+      "zh": "书面记录、见证者与未完故事意见不同。沿选择走过原创魔法图书馆，阅读所有写好的结局，不随机抽取。"
+    },
+    "faq": {
+      "question": {
+        "en": "Is choosing the written record the correct library ending?",
+        "zh": "选择书面记录，是图书馆的标准正确结局吗？"
+      },
+      "answer": {
+        "en": "The routes explore what to do with different kinds of information inside a fiction. Record, witness and open continuation each lead to an authored outcome. None is an exam answer or a judgment of your real reasoning ability.",
+        "zh": "路线探索虚构中怎样处理不同信息。记录、见证与开放延续各通向写好的结果，都不是考试答案，也不判断你的真实推理能力。"
+      }
+    }
+  }
 }

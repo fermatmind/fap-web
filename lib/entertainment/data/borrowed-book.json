@@ -1,6 +1,6 @@
 {
   "slug": "borrowed-book",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "relationships",
   "title": {
@@ -344,5 +344,29 @@
     "return",
     "thread",
     "care"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Borrowed Book Quiz",
+      "zh": "借书约定方式测试"
+    },
+    "title": {
+      "en": "Borrowed Book Quiz",
+      "zh": "借书约定方式测试"
+    },
+    "description": {
+      "en": "Six everyday book-sharing choices explore return plans, reading exchanges and the owner's care preferences. Discover a borrowing portrait with clear examples and room for agreement.",
+      "zh": "用六次日常借书选择，探索归还安排、阅读交流与书主的照顾偏好，看看你怎样把借阅约定说清楚。"
+    },
+    "faq": {
+      "question": {
+        "en": "Are careful handling and a clear return plan the same thing?",
+        "zh": "照顾好书和约好归还，是同一件事吗？"
+      },
+      "answer": {
+        "en": "They address different parts of borrowing. Handling concerns what the owner wants done with the object; a return plan concerns timing and contact. A reading exchange is another optional part, not payment for borrowing.",
+        "zh": "它们处理借阅的不同部分：照顾方式由书主偏好决定，归还计划涉及时间与联络。阅读交流则是另一项可选内容，不是借书的交换义务。"
+      }
+    }
+  }
 }

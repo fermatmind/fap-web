@@ -1,6 +1,6 @@
 {
   "slug": "relationship-values",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "relationships",
   "title": {
@@ -843,5 +843,29 @@
     "itemBankSha256": "5eb3ba5e9bee03414eecc948fb5812367424a121db94a3fbb69d9f3ab47f54b8",
     "reviewProvenance": "role_based_model_review; human_expert_review_completed=false",
     "webResultEdition": "four concise original website portraits; not the full mini-program report"
+  },
+  "seo": {
+    "topic": {
+      "en": "Relationship Values Quiz",
+      "zh": "关系价值侧重趣味测试"
+    },
+    "title": {
+      "en": "Relationship Values Quiz",
+      "zh": "关系价值侧重趣味测试"
+    },
+    "description": {
+      "en": "Compare four relationship-value directions through 24 paired choices. Read raw counts and all tied portraits for expression, partnership, companionship and autonomy, without compatibility predictions.",
+      "zh": "用24组成对选择，比较浪漫表达、务实协作、情感陪伴与成长自主。查看原始计数及全部并列，不预测伴侣适配。"
+    },
+    "faq": {
+      "question": {
+        "en": "Can a higher relationship-value count tell me how much someone loves me?",
+        "zh": "关系价值计数更高，能说明对方有多爱我吗？"
+      },
+      "answer": {
+        "en": "No. Each count records a relative choice within these specific pairs; each direction appears in twelve comparisons. It neither measures another person's love nor rates relationship quality. The original public preview has no population norms or psychometric validation.",
+        "zh": "不能。每个计数只记录这些具体配对中的相对选择，每方向参与12次比较；既不测别人的爱，也不评关系质量。原创公开预览没有人群常模或心理测量验证。"
+      }
+    }
   }
 }

@@ -1,6 +1,6 @@
 {
   "slug": "saying-goodbye",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "relationships",
   "title": {
@@ -344,5 +344,29 @@
     "clear",
     "detail",
     "future"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Gentle Goodbye Style Quiz",
+      "zh": "轻柔告别方式测试"
+    },
+    "title": {
+      "en": "Gentle Goodbye Style Quiz",
+      "zh": "轻柔告别方式测试"
+    },
+    "description": {
+      "en": "End an imagined visit through clarity, a concrete appreciation or an optional future meeting. Six choices reveal three ways to close a shared moment without making another plan obligatory.",
+      "zh": "用清楚结束、具体欣赏或可选再会，收尾想象到访。六次选择，探索结束共享片刻的三种方式，不让下次变义务。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does a warm goodbye need a promise to meet again?",
+        "zh": "温暖告别，必须许诺下次再见吗？"
+      },
+      "answer": {
+        "en": "A future possibility is one option rather than a requirement. A clear ending can respect the visit's boundary, and a concrete appreciation can acknowledge what happened. None needs a promise that either person cannot freely choose later.",
+        "zh": "未来可能只是一个选项。清楚结束可尊重到访边界，具体欣赏可承认刚才发生的事；都不需许诺一项以后不能自由选择的安排。"
+      }
+    }
+  }
 }

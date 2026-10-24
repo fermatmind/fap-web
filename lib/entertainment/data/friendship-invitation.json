@@ -1,6 +1,6 @@
 {
   "slug": "friendship-invitation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "relationships",
   "title": {
@@ -344,5 +344,29 @@
     "plan",
     "interest",
     "choice"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Friendship Invitation Quiz",
+      "zh": "朋友相约邀请测试"
+    },
+    "title": {
+      "en": "Friendship Invitation Quiz",
+      "zh": "朋友相约邀请测试"
+    },
+    "description": {
+      "en": "Make a low-pressure invitation through a clear plan, a shared interest or an easy choice. Six everyday scenes reveal three ways to invite a friend without assuming an answer.",
+      "zh": "用清楚计划、共同兴趣或轻松选择，发出无压力邀请。六个日常场景，看你怎样相约而不预设朋友答复。"
+    },
+    "faq": {
+      "question": {
+        "en": "What is the difference between a clear invitation and a demanding one?",
+        "zh": "清楚邀请与带压力的要求，有什么不同？"
+      },
+      "answer": {
+        "en": "A clear invitation gives enough information to decide while leaving acceptance optional. Naming the activity, explaining the shared interest and making a comfortable choice boundary are different ways these scenes support that decision.",
+        "zh": "清楚邀请给足决定所需信息，也让接受自愿。说清活动、解释共同兴趣或留舒适选择边界，是场景中支持决定的不同方式。"
+      }
+    }
+  }
 }

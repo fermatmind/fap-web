@@ -1,6 +1,6 @@
 {
   "slug": "inside-joke",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "social",
   "title": {
@@ -344,5 +344,29 @@
     "context",
     "twist",
     "light"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Welcoming Inside Joke Quiz",
+      "zh": "群体玩笑欢迎感测试"
+    },
+    "title": {
+      "en": "Welcoming Inside Joke Quiz",
+      "zh": "群体玩笑欢迎感测试"
+    },
+    "description": {
+      "en": "Keep an imagined group joke welcoming through a context bridge, situational wordplay or a light touch. Six choices lead to three portraits of sharing a small laugh.",
+      "zh": "用补一点背景、场景文字游戏或适度重复，让想象群体玩笑保持欢迎感。六次选择，阅读分享小笑点的三种画像。"
+    },
+    "faq": {
+      "question": {
+        "en": "Can explaining a joke help someone join without making them perform?",
+        "zh": "解释一个玩笑，能让新人加入而不必表演吗？"
+      },
+      "answer": {
+        "en": "A short context bridge can make the reference understandable while leaving any response optional. A situational twist creates a new shared joke; a light touch knows when repetition has done enough. None makes another person's reaction obligatory.",
+        "zh": "短背景桥让典故好懂，也让回应自愿。场景转折可造新共笑，轻一点则知道重复何时已够。都不要求别人必须作反应。"
+      }
+    }
+  }
 }

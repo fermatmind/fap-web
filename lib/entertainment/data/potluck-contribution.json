@@ -1,6 +1,6 @@
 {
   "slug": "potluck-contribution",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "social",
   "title": {
@@ -344,5 +344,29 @@
     "menu",
     "handover",
     "note"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Potluck Contribution Quiz",
+      "zh": "共同聚餐贡献方式测试"
+    },
+    "title": {
+      "en": "Potluck Contribution Quiz",
+      "zh": "共同聚餐贡献方式测试"
+    },
+    "description": {
+      "en": "Bring something to a fictional shared meal through menu coordination, practical handover or clear notes. Six choices lead to three contribution portraits and concrete examples.",
+      "zh": "通过菜单协调、实际交接或清楚说明，为虚构共同聚餐带一份东西。六次选择，阅读三种贡献画像与例子。"
+    },
+    "faq": {
+      "question": {
+        "en": "Is bringing an item enough to make a potluck handover clear?",
+        "zh": "带到现场，就算完成清楚的聚餐交接吗？"
+      },
+      "answer": {
+        "en": "The handover portrait considers the practical next step, while menu coordination checks how the contribution fits and a note makes relevant information available. Their focus is a shared arrangement, not judging the food or its maker.",
+        "zh": "交接画像考虑实际下一步；菜单协调看贡献怎样配合；说明让相关信息可见。重点是共同安排，不评食物或制作者。"
+      }
+    }
+  }
 }

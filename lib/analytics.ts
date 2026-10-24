@@ -197,8 +197,9 @@ export function trackLandingPageView(properties: AnalyticsProperties = {}): void
   if (shouldHardStopPublicAnalyticsForUrl(currentPath)) return;
 
   const [routeLocale, family, collection, quizSlug, ...remaining] = routeSegments(currentPath);
+  const isEntertainmentGuide = remaining.length === 2 && remaining[0] === "results" && /^[a-z]+(?:-[a-z]+)*$/.test(remaining[1]);
   const isEntertainmentEntry = (routeLocale === "en" || routeLocale === "zh")
-    && family === "tests" && collection === "play" && remaining.length === 0
+    && family === "tests" && collection === "play" && (remaining.length === 0 || isEntertainmentGuide)
     && typeof quizSlug === "string" && /^[a-z]+(?:-[a-z]+)*$/.test(quizSlug);
   const landingProperties = isEntertainmentEntry ? {
     ...properties,
@@ -206,7 +207,7 @@ export function trackLandingPageView(properties: AnalyticsProperties = {}): void
     test_slug: quizSlug,
     scale_code: "ENTERTAINMENT",
     form_code: `fun_${quizSlug}_v1`,
-    entry_surface: properties.entry_surface ?? "entertainment",
+    entry_surface: properties.entry_surface ?? (isEntertainmentGuide ? "entertainment_guide" : "entertainment"),
     page_type: "entertainment",
   } : properties;
 

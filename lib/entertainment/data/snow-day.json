@@ -1,6 +1,6 @@
 {
   "slug": "snow-day",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "nature",
   "title": {
@@ -344,5 +344,29 @@
     "builder",
     "character",
     "player"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Snow Day Sculpture Quiz",
+      "zh": "雪日雕塑想象测试"
+    },
+    "title": {
+      "en": "Snow Day Sculpture Quiz",
+      "zh": "雪日雕塑想象测试"
+    },
+    "description": {
+      "en": "Build a fictional snow sculpture through structure, character or changeable play. Six choices reveal three ways to shape an imaginary snow day, with examples and creative prompts.",
+      "zh": "用结构、角色或可变化玩法，造虚构雪雕。六次选择，探索三种想象雪日方式，并读例子和创作提示。"
+    },
+    "faq": {
+      "question": {
+        "en": "Is the strongest sculpture automatically the best snow-day result?",
+        "zh": "最结实的雕塑，自动就是最好的雪日结果吗？"
+      },
+      "answer": {
+        "en": "Structure supports one purpose, while character expression and changeable play support others. The scenes invite an imagined design rather than testing engineering or outdoor skill. A temporary playful form can be a complete result.",
+        "zh": "结构服务一种目的，角色表达和可变玩法服务其他目的。场景邀请想象设计，不考工程或户外技能。临时趣味形也可构成完整结果。"
+      }
+    }
+  }
 }

@@ -1,6 +1,6 @@
 {
   "slug": "browser-tabs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "everyday",
   "title": {
@@ -344,5 +344,29 @@
     "question",
     "action",
     "shelf"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Browser Tab Style Quiz",
+      "zh": "休闲浏览标签页测试"
+    },
+    "title": {
+      "en": "Browser Tab Style Quiz",
+      "zh": "休闲浏览标签页测试"
+    },
+    "description": {
+      "en": "What keeps a casual browser tab open: a question, a small trial or an optional interest shelf? Explore six choices and three portraits without a productivity score.",
+      "zh": "一个休闲标签页为何留着：问题、小试，还是可选兴趣架？用六次选择读三种画像，不给效率打分。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does keeping many casual tabs mean I am disorganized?",
+        "zh": "留很多休闲标签页，是否说明我不够有条理？"
+      },
+      "answer": {
+        "en": "This quiz does not count tabs or grade organization. It asks what a selected casual link is doing for you: keeping a question available, supporting a small trial, or waiting without becoming a commitment.",
+        "zh": "本测试不统计标签页数量，也不评条理。它只看某个休闲链接在做什么：留住问题、支持小试，或暂存而不变成承诺。"
+      }
+    }
+  }
 }

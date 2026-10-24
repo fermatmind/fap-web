@@ -1,6 +1,6 @@
 {
   "slug": "portal-choice",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "fantasy",
   "title": {
@@ -293,5 +293,29 @@
     "harbor",
     "gallery",
     "postcard"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Pocket Portal Branching Story",
+      "zh": "口袋传送门分支故事"
+    },
+    "title": {
+      "en": "Pocket Portal Branching Story",
+      "zh": "口袋传送门分支故事"
+    },
+    "description": {
+      "en": "Follow an original pocket portal through real branching choices. Reach a harbor, a gallery or a postcard ending, with space to pause, return and read every guide.",
+      "zh": "跟原创口袋传送门走真实分支，抵达港口、画廊或明信片结局。可以停、返回，也可读所有指南。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does returning through the portal mean the adventure failed?",
+        "zh": "从传送门返回，意味着冒险失败吗？"
+      },
+      "answer": {
+        "en": "Pausing and returning are part of this authored exploration. Different branches reach different places while keeping a way to leave something unfinished. The game does not judge courage or require the longest route to count as an adventure.",
+        "zh": "暂停和返回本就是写好的探索一部分。不同分支到不同地方，也留未完退路。游戏不评勇气，不要求走最长路线才算冒险。"
+      }
+    }
+  }
 }

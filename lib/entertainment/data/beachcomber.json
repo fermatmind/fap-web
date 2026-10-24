@@ -1,6 +1,6 @@
 {
   "slug": "beachcomber",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "nature",
   "title": {
@@ -344,5 +344,29 @@
     "pattern",
     "story",
     "place"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Beachcomber Quiz",
+      "zh": "海边拾趣测试"
+    },
+    "title": {
+      "en": "Beachcomber Quiz",
+      "zh": "海边拾趣测试"
+    },
+    "description": {
+      "en": "Explore a fictional shoreline through patterns, imagined stories and the wider scene. Six choices lead to three beachcomber portraits with examples and small creative prompts.",
+      "zh": "用六个虚构海岸选择，探索纹样、想象故事与整体风景。阅读三种海边拾趣画像的例子与小创作提示。"
+    },
+    "faq": {
+      "question": {
+        "en": "What can an ordinary shoreline object tell me in this quiz?",
+        "zh": "普通海边小物，在本测试里能说明什么？"
+      },
+      "answer": {
+        "en": "It offers three ways to look: notice its repeating form, invent a clearly fictional story, or place it in the surrounding scene. None identifies an object's real history or its owner's personality.",
+        "zh": "它提供三种观看方式：留意重复形状、编明确虚构的故事，或把它放回周围风景。都不能鉴定真实来历或原主人性格。"
+      }
+    }
+  }
 }

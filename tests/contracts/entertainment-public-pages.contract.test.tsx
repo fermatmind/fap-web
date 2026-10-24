@@ -18,6 +18,11 @@ describe("complete bilingual entertainment entry rendering", () => {
         expect(dom.querySelector("h1")?.textContent).toBe(quiz.title[locale]);
         expect(dom.querySelectorAll("main")).toHaveLength(1);
         const authored = (await loadFunQuiz(quiz.slug))!;
+        expect(metadata.description).toBe(authored.seo.description[locale]);
+        expect(metadata.title).toBe(authored.seo.title[locale]);
+        expect(metadata.openGraph?.images).toEqual([`https://fermatmind.com/og/fun/${quiz.slug}?locale=${locale}&v=${authored.version}`]);
+        expect(dom.textContent).toContain(authored.seo.faq.question[locale]);
+        expect(dom.textContent).toContain(authored.seo.faq.answer[locale]);
         const publicPortraits = dom.querySelector("#possible-results")!.parentElement!;
         expect([...publicPortraits.querySelectorAll("article h3")].map(node => node.textContent)).toEqual(authored.results.map(result => result.title[locale]));
         for (const result of authored.results) expect(publicPortraits.textContent).toContain(result.summary[locale]);

@@ -1,6 +1,6 @@
 {
   "slug": "shared-workspace",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "social",
   "title": {
@@ -344,5 +344,29 @@
     "label",
     "tool",
     "feedback"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Shared Creative Table Quiz",
+      "zh": "共享创作桌角色测试"
+    },
+    "title": {
+      "en": "Shared Creative Table Quiz",
+      "zh": "共享创作桌角色测试"
+    },
+    "description": {
+      "en": "Make a fictional creative table easier to share through labels, tool arrangements or requested feedback. Six choices reveal three roles in a clear, manageable handover.",
+      "zh": "用标签、工具安排或受邀反馈，让虚构创作桌更好共享。六次选择，阅读清楚、可承担交接中的三种角色。"
+    },
+    "faq": {
+      "question": {
+        "en": "Is giving feedback always the most useful way to help a maker?",
+        "zh": "给反馈，总是帮创作者最有用的方法吗？"
+      },
+      "answer": {
+        "en": "Requested feedback can answer one question, but a clear label or workable tool arrangement may be what the scene needs. The portraits distinguish forms of contribution without assuming that a maker wants comments on unfinished work.",
+        "zh": "受邀反馈可答一问题，但场景也许更需清楚标签或可行工具安排。画像区分贡献方式，不假定创作者想听对未完作品的评论。"
+      }
+    }
+  }
 }

@@ -1,6 +1,6 @@
 {
   "slug": "paper-creature-language",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "fantasy",
   "title": {
@@ -344,5 +344,29 @@
     "signal",
     "mirror",
     "turn"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Paper Creature Communication Quiz",
+      "zh": "纸片小生物交流测试"
+    },
+    "title": {
+      "en": "Paper Creature Communication Quiz",
+      "zh": "纸片小生物交流测试"
+    },
+    "description": {
+      "en": "Create a fictional wordless exchange through signals, gentle mirroring or agreed turns. Six choices reveal three ways to make communication between original paper creatures understandable.",
+      "zh": "用信号、温和模仿或约定轮次，创造虚构无言交流。六次选择，探索让原创纸片小生物互相明白的三种方式。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does mirroring prove that a paper creature understood the message?",
+        "zh": "做相同动作，就证明纸片小生物理解了信息吗？"
+      },
+      "answer": {
+        "en": "Within the fiction, mirroring is one possible invitation to exchange, not proof of understanding. A clear signal or agreed turn can provide another structure. The story leaves room to check rather than assuming a movement has one meaning.",
+        "zh": "虚构中的模仿是交流邀请，不是理解证据。清楚信号和约定轮次可提供别种结构。故事允许核对，而不假定一个动作只有一种意思。"
+      }
+    }
+  }
 }

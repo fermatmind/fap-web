@@ -1,6 +1,6 @@
 {
   "slug": "comfort-offer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "relationships",
   "title": {
@@ -344,5 +344,29 @@
     "practical",
     "listen",
     "quiet"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Comfort and Company Quiz",
+      "zh": "疲惫后陪伴方式测试"
+    },
+    "title": {
+      "en": "Comfort and Company Quiz",
+      "zh": "疲惫后陪伴方式测试"
+    },
+    "description": {
+      "en": "Explore a practical offer, a listening invitation and quiet company in six ordinary support scenes. Read three portraits without assuming you know what another person needs.",
+      "zh": "用六个普通支持场景，探索实际帮忙、邀请倾听与安静陪伴；不先替对方认定需要，就能读三种回应画像。"
+    },
+    "faq": {
+      "question": {
+        "en": "Should I guess which kind of support someone wants?",
+        "zh": "是否应该猜对方最需要哪种支持？"
+      },
+      "answer": {
+        "en": "These scenes make the offer a choice the other person can accept or decline. Practical help, listening and quiet presence can each be welcome in different moments. The portrait is not a rule for another person's needs.",
+        "zh": "场景把支持写成对方可接可拒的选择。实际帮助、倾听或安静相伴，都可能在不同当下合适。画像不是替别人规定需要的规则。"
+      }
+    }
+  }
 }

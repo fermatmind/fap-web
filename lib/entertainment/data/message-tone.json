@@ -1,6 +1,6 @@
 {
   "slug": "message-tone",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "relationships",
   "title": {
@@ -344,5 +344,29 @@
     "ask",
     "context",
     "pause"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Ambiguous Message Quiz",
+      "zh": "含糊消息回应测试"
+    },
+    "title": {
+      "en": "Ambiguous Message Quiz",
+      "zh": "含糊消息回应测试"
+    },
+    "description": {
+      "en": "Face six mildly ambiguous text messages by asking, checking context or pausing. Read three response portraits without treating an unclear tone as proof of someone's intention.",
+      "zh": "用询问、看上下文或暂停，回应六个轻微含糊文字场景。阅读三种画像，不把语气不明当成对方意图证据。"
+    },
+    "faq": {
+      "question": {
+        "en": "Can this quiz tell me what another person's message really means?",
+        "zh": "本测试能告诉我，别人消息到底什么意思吗？"
+      },
+      "answer": {
+        "en": "No. It compares your possible response to uncertainty. Asking can request missing information, context can suggest alternatives, and pausing can leave the issue unresolved for a while. None reads the sender's thoughts.",
+        "zh": "不能。它比较你怎样回应不确定。询问可求缺失信息，上下文可提供替代解释，暂停可让问题暂未解决。都不能读出发信者思想。"
+      }
+    }
+  }
 }

@@ -1,6 +1,6 @@
 {
   "slug": "rainy-window",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "nature",
   "title": {
@@ -344,5 +344,29 @@
     "near",
     "reflection",
     "distance"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Rainy Window Sketch Quiz",
+      "zh": "雨窗取景趣味测试"
+    },
+    "title": {
+      "en": "Rainy Window Sketch Quiz",
+      "zh": "雨窗取景趣味测试"
+    },
+    "description": {
+      "en": "Frame an imagined rainy window through nearby objects, reflections or distance. Six choices reveal three ways to compose a layered little picture and a creative prompt to try.",
+      "zh": "从近处物件、倒影或远景，为想象雨窗取景。六次选择，看怎样构一张层层小画，并带走可试的创作提示。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does choosing a reflection reveal what I feel inside?",
+        "zh": "选择倒影，就透露了内心感受吗？"
+      },
+      "answer": {
+        "en": "The reflection is a visual layer in an authored drawing prompt. Near objects and the distant view offer other focal points. The choices concern framing a scene rather than interpreting hidden feelings from an image.",
+        "zh": "倒影是写好画面提示里的一层视觉。近物与远景给另外焦点。选择关注怎样取景，不从图像解释隐藏感受。"
+      }
+    }
+  }
 }

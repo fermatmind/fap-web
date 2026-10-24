@@ -1,6 +1,6 @@
 {
   "slug": "souvenir-story",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "everyday",
   "title": {
@@ -344,5 +344,29 @@
     "use",
     "moment",
     "shared"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Souvenir Story Quiz",
+      "zh": "纪念小物故事测试"
+    },
+    "title": {
+      "en": "Souvenir Story Quiz",
+      "zh": "纪念小物故事测试"
+    },
+    "description": {
+      "en": "Choose why a fictional keepsake earns its place: everyday use, one remembered moment or a shared story. Six choices lead to three souvenir portraits with optional experiments.",
+      "zh": "选一件虚构留念为何值得留下：日常使用、记得的片刻或共同故事。六次选择，阅读三种小物画像与可选小试。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does keeping a useful souvenir make it less meaningful?",
+        "zh": "留一件有用途的纪念物，会少一份意义吗？"
+      },
+      "answer": {
+        "en": "A useful reminder can connect an outing with ordinary life. A remembered moment and a shared story offer other reasons to keep something. The quiz compares those reasons without requiring a purchase or ranking sentimental value.",
+        "zh": "有用的提醒可把出游连回日常。记得的片刻和共享故事提供另外留物理由。测试比较理由，不要求购买，也不排名情感价值。"
+      }
+    }
+  }
 }

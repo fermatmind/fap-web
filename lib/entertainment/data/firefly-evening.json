@@ -1,6 +1,6 @@
 {
   "slug": "firefly-evening",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "nature",
   "title": {
@@ -235,5 +235,29 @@
     "shared",
     "signal",
     "quiet"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Paper Firefly Branching Story",
+      "zh": "纸萤之夜分支故事"
+    },
+    "title": {
+      "en": "Paper Firefly Branching Story",
+      "zh": "纸萤之夜分支故事"
+    },
+    "description": {
+      "en": "Choose how an original paper-firefly display comes to an end. Follow a real story branch toward a shared scene, a signal or a quiet keepsake, then explore each ending.",
+      "zh": "选择原创纸萤展示如何结束。沿真正故事分支，到共同场景、小信号或安静留念，再阅读各结局。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does keeping a memento mean everyone must join the display?",
+        "zh": "想留纪念，就得每个人都参加展示吗？"
+      },
+      "answer": {
+        "en": "Participation and keeping a trace are separate choices in the story. A shared display can end while individuals decide what, if anything, to keep. The ending follows your route rather than ranking the group's closeness.",
+        "zh": "故事把参与与留痕分开选择。共同展示可结束，每个人仍决定要不要、留什么。结局随路线走，不给亲密程度排名。"
+      }
+    }
+  }
 }

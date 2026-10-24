@@ -1,6 +1,6 @@
 {
   "slug": "city-wanderer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "everyday",
   "title": {
@@ -344,5 +344,29 @@
     "map",
     "rhythm",
     "layers"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "City Wanderer Quiz",
+      "zh": "城市漫游方式测试"
+    },
+    "title": {
+      "en": "City Wanderer Quiz",
+      "zh": "城市漫游方式测试"
+    },
+    "description": {
+      "en": "Build an imaginary city walk around layout, everyday rhythms or traces of the past. Six choices reveal how you choose what to notice along a fictional route.",
+      "zh": "围绕布局、日常节奏或过往痕迹，安排一段想象城市漫游。六次选择，看看你沿虚构路线会留意什么。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does this quiz recommend a real walking route?",
+        "zh": "本测试会推荐真实城市步行路线吗？"
+      },
+      "answer": {
+        "en": "No. The city is imagined so you can compare how layout, current activity and historical traces shape a route. The portraits describe attention choices, not local travel advice, navigation ability or verified history.",
+        "zh": "不会。想象城市让你比较布局、当前活动和历史痕迹怎样塑造路线。画像描述注意选择，不提供当地旅行建议，也不测导航能力或鉴定历史。"
+      }
+    }
+  }
 }

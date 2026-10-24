@@ -1,6 +1,6 @@
 {
   "slug": "spell-school-elective",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "fantasy",
   "title": {
@@ -432,5 +432,29 @@
     "architecture",
     "echo",
     "floating"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Original Spell School Quiz",
+      "zh": "原创魔法选修课测试"
+    },
+    "title": {
+      "en": "Original Spell School Quiz",
+      "zh": "原创魔法选修课测试"
+    },
+    "description": {
+      "en": "Choose an imaginary elective in weather, tiny architecture, echoes or floating arrangements. Six choices reveal four original creative-play portraits, with every tied result shown.",
+      "zh": "在天气、微型建筑、回声与漂浮排列中，选想象魔法课。六次选择，阅读四种原创创意玩法画像，并完整保留并列。"
+    },
+    "faq": {
+      "question": {
+        "en": "Do the four spell electives represent levels of magical talent?",
+        "zh": "四门魔法选修课，是魔法天赋等级吗？"
+      },
+      "answer": {
+        "en": "They are different forms of invented creative play: atmosphere, usable spaces, words and voices, or movement. Their points count choices in this questionnaire only; they do not rank talent or borrow a commercial fantasy school's houses.",
+        "zh": "它们是不同原创玩法：氛围、可用空间、文字声音或移动。计数只记本题本选择，不排天赋，也不借商业幻想学校的学院设定。"
+      }
+    }
+  }
 }

@@ -1,6 +1,6 @@
 {
   "slug": "personal-museum",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "metaphor",
   "title": {
@@ -344,5 +344,29 @@
     "sequence",
     "detail",
     "connection"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Ordinary Moments Museum Quiz",
+      "zh": "普通时刻博物馆测试"
+    },
+    "title": {
+      "en": "Ordinary Moments Museum Quiz",
+      "zh": "普通时刻博物馆测试"
+    },
+    "description": {
+      "en": "Curate a fictional day through a sequence, one close detail or a shared contribution. Six choices reveal what your museum would preserve, with three complete curator portraits.",
+      "zh": "用事件顺序、近看细节或共享贡献，策展虚构一天。六次选择，看你的馆保留什么，读三种完整策展画像。"
+    },
+    "faq": {
+      "question": {
+        "en": "Must a moment be important to belong in this museum?",
+        "zh": "片刻必须重大，才值得进这间博物馆吗？"
+      },
+      "answer": {
+        "en": "The museum is about selection, not importance. A sequence shows a small change, a close detail offers something to notice, and a shared moment shows how contributions met. Invented ordinary events can support all three.",
+        "zh": "博物馆谈选择，不评重大程度。顺序展小变化，细节给可看之处，共享片刻显贡献怎样相遇。虚构普通事件也能支持三者。"
+      }
+    }
+  }
 }

@@ -1,6 +1,6 @@
 {
   "slug": "hosting-a-guest",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "relationships",
   "title": {
@@ -344,5 +344,29 @@
     "note",
     "tour",
     "ask"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Overnight Guest Welcome Quiz",
+      "zh": "留宿客人欢迎方式测试"
+    },
+    "title": {
+      "en": "Overnight Guest Welcome Quiz",
+      "zh": "留宿客人欢迎方式测试"
+    },
+    "description": {
+      "en": "Welcome an imagined overnight guest with a short note, a walkthrough or responsive questions. Six choices explore making a visit easier without guessing every preference.",
+      "zh": "用简短说明、共同走一遍或随需询问，欢迎想象中的留宿客人。六次选择，让到访好适应，不必猜全所有偏好。"
+    },
+    "faq": {
+      "question": {
+        "en": "Is a written guest note a substitute for asking what someone wants?",
+        "zh": "写好住宿说明，就不必再问客人需要什么吗？"
+      },
+      "answer": {
+        "en": "A note can explain practical information, a walkthrough makes spaces familiar, and questions handle needs that arise later. They can complement one another; a prepared welcome does not require predicting everything about a guest.",
+        "zh": "说明能交代实用信息，走一遍让空间熟悉，询问处理后来出现的需要。三者可互补；准备欢迎不等于预知客人的一切。"
+      }
+    }
+  }
 }

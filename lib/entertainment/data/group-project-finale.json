@@ -1,6 +1,6 @@
 {
   "slug": "group-project-finale",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "social",
   "title": {
@@ -344,5 +344,29 @@
     "credit",
     "handover",
     "moment"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Shared Hobby Project Finale Quiz",
+      "zh": "共同爱好项目收尾测试"
+    },
+    "title": {
+      "en": "Shared Hobby Project Finale Quiz",
+      "zh": "共同爱好项目收尾测试"
+    },
+    "description": {
+      "en": "Close a fictional hobby collaboration through accurate credit, a usable handover or a shared final moment. Six choices reveal three ways to give voluntary work a clear ending.",
+      "zh": "用准确认可、可用交接或共同收尾片刻，结束虚构爱好合作。六次选择，探索给自愿共作清楚结束的三种方式。"
+    },
+    "faq": {
+      "question": {
+        "en": "Can practical handover and celebration belong in the same ending?",
+        "zh": "实际交接和庆祝，能属于同一个收尾吗？"
+      },
+      "answer": {
+        "en": "Yes. Handover makes the project's final state understandable; acknowledgment names contributions, and a chosen moment marks completion. A leading portrait emphasizes one part of the ending rather than excluding the others.",
+        "zh": "可以。交接让最终状态好懂，认可说清各份贡献，选定片刻标记完成。领先画像突出收尾的一部分，不排除其余。"
+      }
+    }
+  }
 }

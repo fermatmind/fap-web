@@ -1,6 +1,6 @@
 {
   "slug": "desert-oasis",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "nature",
   "title": {
@@ -344,5 +344,29 @@
     "sign",
     "mosaic",
     "shade"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Imaginary Oasis Design Quiz",
+      "zh": "想象绿洲歇脚站测试"
+    },
+    "title": {
+      "en": "Imaginary Oasis Design Quiz",
+      "zh": "想象绿洲歇脚站测试"
+    },
+    "description": {
+      "en": "Design a fictional rest stop with clear signs, a shared mosaic or unhurried shade. Six choices reveal three ways to make a short visit understandable and welcoming.",
+      "zh": "用清楚标识、共同拼图或不催促的荫凉，设计虚构歇脚站。六次选择，探索让短到访好懂、好停留的三种方式。"
+    },
+    "faq": {
+      "question": {
+        "en": "Is this an oasis survival or travel quiz?",
+        "zh": "这是绿洲生存或沙漠旅行测试吗？"
+      },
+      "answer": {
+        "en": "The travelers in this illustrated story have already arrived safely with what they need. Your choices concern legibility, shared memory and room to rest, not water planning, survival decisions or real desert navigation.",
+        "zh": "插画故事中，旅客已安全抵达，也有需要的物品。选择关注清晰度、共同记忆与休息空间，不涉及水源规划、生存决定或真实沙漠导航。"
+      }
+    }
+  }
 }

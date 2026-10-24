@@ -1,6 +1,6 @@
 {
   "slug": "time-capsule",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "metaphor",
   "title": {
@@ -344,5 +344,29 @@
     "scene",
     "question",
     "instruction"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Ordinary Day Time Capsule Quiz",
+      "zh": "普通一天时间胶囊测试"
+    },
+    "title": {
+      "en": "Ordinary Day Time Capsule Quiz",
+      "zh": "普通一天时间胶囊测试"
+    },
+    "description": {
+      "en": "Fill an imaginary capsule with a present scene, an open question or a usable little method. Six choices reveal what you would send to a fictional future reader.",
+      "zh": "用当下场景、开放问题或可用小方法，装想象胶囊。六次选择，看看你想给虚构未来读者留什么。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does making this capsule create a future reminder or obligation?",
+        "zh": "做这个胶囊，会创建未来提醒或义务吗？"
+      },
+      "answer": {
+        "en": "The capsule exists only in the creative scenes. A future reader can notice a scene, leave a question unanswered or change an offered method. The game neither schedules a reminder nor makes a promise about your future self.",
+        "zh": "胶囊只在创意场景里存在。未来读者可看一景、让问题未答或改所给方法。游戏不安排提醒，也不替未来自己许诺。"
+      }
+    }
+  }
 }

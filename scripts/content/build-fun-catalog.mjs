@@ -14,7 +14,9 @@ for (const name of names) {
   }
   const questionCount = q.mechanism === 'branch' ? depth(q.questions[0].id) : q.questions.length;
   const minQuestionCount = q.mechanism === 'branch' ? depth(q.questions[0].id, [], true) : questionCount;
-  catalog.push({ slug, version, updated, category, title, description, minutes, questionCount, minQuestionCount });
+  const resultSlugs = q.results.map(result => result.id.replaceAll('_', '-'));
+  if (new Set(resultSlugs).size !== resultSlugs.length || resultSlugs.some(value => !/^[a-z]+(?:-[a-z]+)*$/.test(value))) throw new Error(`Invalid result identities in ${slug}`);
+  catalog.push({ slug, version, updated, category, title, description, minutes, questionCount, minQuestionCount, resultSlugs });
 }
 const outputs = {
   'catalog.json': `${JSON.stringify(catalog, null, 2)}\n`,

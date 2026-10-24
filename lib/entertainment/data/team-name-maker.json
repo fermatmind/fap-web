@@ -1,6 +1,6 @@
 {
   "slug": "team-name-maker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "social",
   "title": {
@@ -344,5 +344,29 @@
     "wordplay",
     "reference",
     "process"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Team Name Maker Quiz",
+      "zh": "团队起名方式测试"
+    },
+    "title": {
+      "en": "Team Name Maker Quiz",
+      "zh": "团队起名方式测试"
+    },
+    "description": {
+      "en": "Invent a shared hobby-team name through wordplay, an inclusive reference or a simple selection process. Six choices reveal three original naming portraits without generating a real brand.",
+      "zh": "用文字游戏、可理解典故或简单选择流程，为共享爱好小队起名。六次选择，读三种原创画像，不生成真实商业品牌。"
+    },
+    "faq": {
+      "question": {
+        "en": "Is choosing a name together only about finding the cleverest words?",
+        "zh": "一起起名字，只看谁的词最机灵吗？"
+      },
+      "answer": {
+        "en": "Wordplay offers one route, a shared reference gives a name context, and a manageable process helps people choose. These scenes concern a recreational name, not trademark availability or a guarantee that everyone will like the same suggestion.",
+        "zh": "文字游戏是一条路，共同典故给名字背景，可承担流程帮人选。场景谈休闲名称，不检商标可用性，也不保证人人喜欢同一提案。"
+      }
+    }
+  }
 }

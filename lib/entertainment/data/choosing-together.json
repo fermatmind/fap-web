@@ -1,6 +1,6 @@
 {
   "slug": "choosing-together",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "relationships",
   "title": {
@@ -432,5 +432,29 @@
     "turns",
     "trial",
     "parts"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Choosing Together Quiz",
+      "zh": "一起做小决定测试"
+    },
+    "title": {
+      "en": "Choosing Together Quiz",
+      "zh": "一起做小决定测试"
+    },
+    "description": {
+      "en": "Six shared-choice scenarios compare criteria, taking turns, a bounded trial and dividing the plan. Read all four portraits, including every tied leader, before choosing a next step.",
+      "zh": "六个共同选择场景，比较准则、轮流、小试与拆分计划。先看四种完整画像及所有并列，再决定下一步。"
+    },
+    "faq": {
+      "question": {
+        "en": "When is splitting a plan different from compromising on one choice?",
+        "zh": "拆开计划，和在同一选项上折中有什么不同？"
+      },
+      "answer": {
+        "en": "Splitting works when the activity has parts people can choose separately. Criteria, turns and a bounded trial offer different ways to settle a shared part. The game does not prescribe one method for every disagreement.",
+        "zh": "拆分适合活动中有可分别选择的部分；准则、轮流与有限小试，则以不同方式处理共同部分。游戏不为所有分歧规定同一种方法。"
+      }
+    }
+  }
 }

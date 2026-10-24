@@ -1,6 +1,6 @@
 {
   "slug": "playlist-maker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "everyday",
   "title": {
@@ -344,5 +344,29 @@
     "arc",
     "room",
     "discovery"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Playlist Maker Style Quiz",
+      "zh": "歌单编排方式测试"
+    },
+    "title": {
+      "en": "Playlist Maker Style Quiz",
+      "zh": "歌单编排方式测试"
+    },
+    "description": {
+      "en": "Build an imaginary playlist around an arc, the listening room or a new discovery. Six choices reveal three ways to shape a small shared listening experience.",
+      "zh": "围绕曲线、听歌环境或新发现，编一份想象歌单。六次选择，阅读塑造小型共享聆听体验的三种方式。"
+    },
+    "faq": {
+      "question": {
+        "en": "Is a playlist's order different from choosing good tracks?",
+        "zh": "歌单顺序，和挑好听的歌有什么不同？"
+      },
+      "answer": {
+        "en": "An arc changes how tracks follow one another. Attention to the room concerns listeners' current needs, while discovery introduces something less familiar. These purposes can overlap without making one list objectively better than another.",
+        "zh": "曲线改变歌曲前后相接方式；关注环境回应听者当前需要；发现引入较陌生东西。目的可重叠，不让一份歌单客观优于另一份。"
+      }
+    }
+  }
 }

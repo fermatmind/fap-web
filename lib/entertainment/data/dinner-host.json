@@ -1,6 +1,6 @@
 {
   "slug": "dinner-host",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "social",
   "title": {
@@ -344,5 +344,29 @@
     "flow",
     "choice",
     "simple"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Casual Dinner Host Quiz",
+      "zh": "轻松聚餐主人测试"
+    },
+    "title": {
+      "en": "Casual Dinner Host Quiz",
+      "zh": "轻松聚餐主人测试"
+    },
+    "description": {
+      "en": "Host an imaginary casual dinner through a clear flow, guest choices or a deliberately simple plan. Six decisions reveal three hosting portraits, with examples and tradeoffs.",
+      "zh": "用清楚流程、客人选择或刻意简单的准备，安排想象中的轻松聚餐。六次决定，阅读三种主人画像及例子、取舍。"
+    },
+    "faq": {
+      "question": {
+        "en": "Is a simple dinner less welcoming than offering many choices?",
+        "zh": "简单聚餐，会比提供许多选项少些欢迎吗？"
+      },
+      "answer": {
+        "en": "Simplicity can leave the host more room to be present, while a clear flow or a choice-based table serves other needs. The portraits describe arrangements rather than measuring hospitality, cooking skill or the amount spent.",
+        "zh": "简单可给主人更多在场余地，清楚流程和可选餐桌则回应别种需要。画像描述安排，不衡量好客、厨艺或花费多少。"
+      }
+    }
+  }
 }

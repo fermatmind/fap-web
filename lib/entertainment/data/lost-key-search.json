@@ -1,6 +1,6 @@
 {
   "slug": "lost-key-search",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "everyday",
   "title": {
@@ -344,5 +344,29 @@
     "sequence",
     "space",
     "perspective"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Missing Keys Search Style Quiz",
+      "zh": "找钥匙思路趣味测试"
+    },
+    "title": {
+      "en": "Missing Keys Search Style Quiz",
+      "zh": "找钥匙思路趣味测试"
+    },
+    "description": {
+      "en": "Compare retracing a sequence, covering a physical space and checking outside information. Six imagined missing-key choices reveal your selected search approach, not a memory score.",
+      "zh": "比较回溯顺序、覆盖空间与借外部信息。六次想象找钥匙选择，看看所选找法，不给记忆打分。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does a sequence-based search mean I have a better memory?",
+        "zh": "喜欢按顺序回溯，就代表记忆更好吗？"
+      },
+      "answer": {
+        "en": "The quiz asks which step you would try first, not whether you can recall events accurately. A spatial sweep and another person's information can provide useful alternatives in the fictional search, without establishing real cognitive ability.",
+        "zh": "测试问先试哪步，不问能否准确回忆。空间扫描与别人信息可在虚构找寻中提供替代，不据此判断真实认知能力。"
+      }
+    }
+  }
 }

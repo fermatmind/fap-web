@@ -174,17 +174,20 @@ describe("original entertainment catalog", () => {
     expect(readFunDraft(quiz, JSON.stringify({ ...draft, answers: { q1: "bad" } }), 100000001)).toBeNull();
   });
 
-  it("publishes only bilingual entry URLs with real update dates, and retains backend families", () => {
+  it("publishes bilingual entries and explicit public portrait guides, and retains backend families", () => {
     const base = [{ loc: "https://fermatmind.com/en/career", lastmod: "2026-10-01" }];
     const entries = appendFunSitemapEntries(base);
-    expect(entries).toHaveLength(1 + catalog.length * 2);
+    const publicCount = catalog.reduce((total, card) => total + 2 * (1 + card.resultSlugs.length), 0);
+    expect(entries).toHaveLength(1 + publicCount);
     expect(entries).toContainEqual(base[0]);
     expect(appendFunSitemapEntries(entries)).toEqual(entries);
     for (const card of catalog) for (const locale of ["en", "zh"]) {
       expect(entries).toContainEqual({ loc: `https://fermatmind.com/${locale}/tests/play/${card.slug}`, lastmod: `${card.updated}T00:00:00.000Z` });
+      for (const slug of card.resultSlugs) expect(entries).toContainEqual({ loc: `https://fermatmind.com/${locale}/tests/play/${card.slug}/results/${slug}`, lastmod: `${card.updated}T00:00:00.000Z` });
     }
-    expect(buildPublicSitemapFamilyMap(entries).tests).toHaveLength(catalog.length * 2);
-    expect(entries.every(entry => !/[?#]|\/results?\//.test(entry.loc))).toBe(true);
+    expect(buildPublicSitemapFamilyMap(entries).tests).toHaveLength(publicCount);
+    expect(entries.every(entry => !/[?#]|\/result\//.test(entry.loc))).toBe(true);
+    expect(entries.filter(entry => entry.loc.includes("/results/")).every(entry => /^https:\/\/fermatmind\.com\/(?:en|zh)\/tests\/play\/[^/]+\/results\/[^/]+$/.test(entry.loc))).toBe(true);
   });
 
   it("keeps questions out of the hub and uses existing consent-filtered tracking with a stable public product key", () => {

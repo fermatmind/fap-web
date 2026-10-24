@@ -1,6 +1,6 @@
 {
   "slug": "campfire-storyteller",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "social",
   "title": {
@@ -344,5 +344,29 @@
     "suspense",
     "humor",
     "circle"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Campfire Storyteller Quiz",
+      "zh": "围坐讲故事角色测试"
+    },
+    "title": {
+      "en": "Campfire Storyteller Quiz",
+      "zh": "围坐讲故事角色测试"
+    },
+    "description": {
+      "en": "Explore suspense, comic timing and shared storytelling in six imaginary campfire moments. Find your storyteller portrait, its tradeoff and an optional little experiment.",
+      "zh": "用六个虚构围坐时刻，探索悬念、幽默节奏与共同讲述，看看你的讲故事画像、取舍和可选小练习。"
+    },
+    "faq": {
+      "question": {
+        "en": "Must a good storyteller hold everyone's attention alone?",
+        "zh": "会讲故事，是否就要独自抓住所有人的注意？"
+      },
+      "answer": {
+        "en": "A shared circle can also enjoy a timely joke or a contribution passed to someone else. These portraits describe different ways to shape one fictional moment, without measuring public-speaking skill or requiring anyone to perform.",
+        "zh": "共同围坐也可以享受适时笑点或传给别人的一份讲述。画像只描述塑造虚构片刻的不同方式，不测演讲能力，也不要求谁必须表演。"
+      }
+    }
+  }
 }

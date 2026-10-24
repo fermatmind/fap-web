@@ -1,6 +1,6 @@
 {
   "slug": "river-crossing",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "nature",
   "title": {
@@ -344,5 +344,29 @@
     "tester",
     "partner",
     "pacer"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Paper River Crossing Quiz",
+      "zh": "纸上过河方式测试"
+    },
+    "title": {
+      "en": "Paper River Crossing Quiz",
+      "zh": "纸上过河方式测试"
+    },
+    "description": {
+      "en": "Cross a tabletop river in imagination through a reversible trial, agreed help or a chosen pace. Six choices reveal three playful approaches, not real water-safety advice.",
+      "zh": "想象以可撤回小试、约好帮助或自选节奏，越过桌面纸河。六次选择，探索三种趣味方式，不作真实涉水建议。"
+    },
+    "faq": {
+      "question": {
+        "en": "Is this a test of courage or outdoor survival?",
+        "zh": "这是勇气或户外生存测试吗？"
+      },
+      "answer": {
+        "en": "The river is a tabletop fiction. Trying a route, arranging assistance and keeping a pace describe how you approach that small game. No result establishes readiness for real water, a rescue task or an outdoor hazard.",
+        "zh": "河流是桌面虚构。试路线、约帮助与定节奏，描述怎样玩这个小游戏。任何结果都不代表有真实涉水、救援或应对户外危险的准备。"
+      }
+    }
+  }
 }

@@ -1,6 +1,6 @@
 {
   "slug": "house-of-doors",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "metaphor",
   "title": {
@@ -260,5 +260,29 @@
     "workshop",
     "listening",
     "garden"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "House of Doors Branching Story",
+      "zh": "门中小屋分支故事"
+    },
+    "title": {
+      "en": "House of Doors Branching Story",
+      "zh": "门中小屋分支故事"
+    },
+    "description": {
+      "en": "Follow sounds, light and unfinished objects through an original house with real branching routes. Discover a workshop, a listening room or a window garden and read every ending.",
+      "zh": "跟声音、光与未完小物，走过有真实分支的原创小屋。发现工作间、聆听室或窗园，阅读所有结局。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does one door lead to the best or correct room?",
+        "zh": "有没有一扇门，通往最好或正确的房间？"
+      },
+      "answer": {
+        "en": "The workshop, listening room and garden offer different stopping points for the same exploration. Their routes are authored choices, not traps or courage tests. You can read another guide without changing your own completed route.",
+        "zh": "工作间、聆听室与小园，为同一探索给不同停点。路线是写好的选择，不是陷阱或勇气考验。读另一指南也不会改掉已完成路线。"
+      }
+    }
+  }
 }

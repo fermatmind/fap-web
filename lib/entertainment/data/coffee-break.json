@@ -1,6 +1,6 @@
 {
   "slug": "coffee-break",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "everyday",
   "title": {
@@ -344,5 +344,29 @@
     "scene",
     "ritual",
     "company"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Coffee Break Style Quiz",
+      "zh": "咖啡休息方式测试"
+    },
+    "title": {
+      "en": "Coffee Break Style Quiz",
+      "zh": "咖啡休息方式测试"
+    },
+    "description": {
+      "en": "Choose the break you want through a change of scene, a small ritual or easy company. Six everyday choices lead to three complete break portraits, with no coffee expertise required.",
+      "zh": "换个环境、享受小仪式，或找轻松陪伴？六次日常选择，看看你想要怎样的休息，不需咖啡知识。"
+    },
+    "faq": {
+      "question": {
+        "en": "Can I take this coffee-break quiz if I do not drink coffee?",
+        "zh": "不喝咖啡，也能做这个休息方式测试吗？"
+      },
+      "answer": {
+        "en": "The cup is only a setting for a short pause. You can imagine another familiar drink or no drink at all; the choices concern a different scene, attention to a small detail, and undemanding contact.",
+        "zh": "杯子只是短暂休息的场景道具。可以想象别的熟悉饮品，或完全不喝；选择关注换环境、留意小细节与不费力的联络。"
+      }
+    }
+  }
 }

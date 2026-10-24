@@ -1,6 +1,6 @@
 {
   "slug": "festival-companion",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "social",
   "title": {
@@ -344,5 +344,29 @@
     "anchor",
     "free",
     "try"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Festival Companion Quiz",
+      "zh": "节庆同行方式测试"
+    },
+    "title": {
+      "en": "Festival Companion Quiz",
+      "zh": "节庆同行方式测试"
+    },
+    "description": {
+      "en": "Share an imaginary festival through one common highlight, time to split up or a small new experience. Six choices lead to three complete companion portraits.",
+      "zh": "用共同亮点、分头时间或一次新小体验，分享想象节庆。六次选择，阅读三种完整同行画像。"
+    },
+    "faq": {
+      "question": {
+        "en": "Can splitting up still be part of a shared festival visit?",
+        "zh": "分头逛，也能算一起过节庆吗？"
+      },
+      "answer": {
+        "en": "The free-route portrait leaves people room to choose different parts of a visit while agreeing how to reconnect. A shared anchor and a bounded new experience offer other ways to coordinate; staying together every minute is not the only option.",
+        "zh": "自由路线给人选不同部分的空间，并约好怎样重会。共同锚点和有限新体验，是另两种协调方式；不必每分钟同行。"
+      }
+    }
+  }
 }

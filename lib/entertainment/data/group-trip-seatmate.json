@@ -1,6 +1,6 @@
 {
   "slug": "group-trip-seatmate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "social",
   "title": {
@@ -344,5 +344,29 @@
     "talk",
     "parallel",
     "practical"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Group Trip Seatmate Quiz",
+      "zh": "同行邻座相处测试"
+    },
+    "title": {
+      "en": "Group Trip Seatmate Quiz",
+      "zh": "同行邻座相处测试"
+    },
+    "description": {
+      "en": "Imagine sharing a seat through gentle conversation, parallel activities or practical space agreements. Six choices lead to three portraits of making a short trip together workable.",
+      "zh": "想象用轻松对话、各做各事或实际空间约定，分享邻座。六次选择，阅读让短途同行可行的三种画像。"
+    },
+    "faq": {
+      "question": {
+        "en": "Is quiet parallel company less friendly than conversation?",
+        "zh": "安静各做各事，会比聊天不友好吗？"
+      },
+      "answer": {
+        "en": "Parallel company offers presence without a continuing conversation. Talking and practical agreements offer different forms of contact. These scenes focus on what both travelers can comfortably choose, not a score for sociability.",
+        "zh": "平行陪伴提供无需持续对话的在场，聊天和实际约定则提供不同接触。场景关注双方能舒服选择什么，不给社交程度打分。"
+      }
+    }
+  }
 }

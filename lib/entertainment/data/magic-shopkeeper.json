@@ -1,6 +1,6 @@
 {
   "slug": "magic-shopkeeper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "fantasy",
   "title": {
@@ -344,5 +344,29 @@
     "label",
     "loan",
     "wonder"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Magic Shopkeeper Quiz",
+      "zh": "魔法小店店主测试"
+    },
+    "title": {
+      "en": "Magic Shopkeeper Quiz",
+      "zh": "魔法小店店主测试"
+    },
+    "description": {
+      "en": "Run an original imaginary shop through clear labels, lending agreements or discovery. Six choices lead to three shopkeeper portraits with examples and creative experiments.",
+      "zh": "用清楚标签、借用约定或探索发现，经营原创想象小店。六次选择，阅读三种店主画像、例子与创作小试。"
+    },
+    "faq": {
+      "question": {
+        "en": "How is lending a magical object different from simply labeling it?",
+        "zh": "借出魔法物件，和只写好标签有什么不同？"
+      },
+      "answer": {
+        "en": "A label helps a visitor understand an object, while a loan needs a temporary agreement about using and returning it. Discovery leaves room to explore. These are different invitations inside the shop's original fiction.",
+        "zh": "标签帮访客理解物件，借用需临时约好使用与归还；探索则留发现空间。三者是原创小店虚构中的不同邀请。"
+      }
+    }
+  }
 }

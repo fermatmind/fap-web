@@ -1,6 +1,6 @@
 {
   "slug": "dream-train",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "fantasy",
   "title": {
@@ -235,5 +235,29 @@
     "keepsake",
     "envelope",
     "station"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Dream Train Branching Story",
+      "zh": "梦境列车分支故事"
+    },
+    "title": {
+      "en": "Dream Train Branching Story",
+      "zh": "梦境列车分支故事"
+    },
+    "description": {
+      "en": "Follow a changing fictional ticket through a short branching train story. Your choices reach a keepsake, an exchange between voices or a newly named station, with complete ending guides.",
+      "zh": "跟着会变化的虚构车票，走一段真正分支列车故事。选择会到纪念物、声音间的传递或新命名车站，均有完整结局指南。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does the dream train interpret an actual dream?",
+        "zh": "梦境列车会解读真实梦境吗？"
+      },
+      "answer": {
+        "en": "The ticket, voices and stations belong to an authored story. You decide what to keep, pass on or name within that fiction. The ending comes from the route, not dream analysis or a prediction about your life.",
+        "zh": "车票、声音与车站都属于写好的故事。你在虚构中决定保存、传递或命名什么。结局来自路线，不是解梦，也不预测人生。"
+      }
+    }
+  }
 }

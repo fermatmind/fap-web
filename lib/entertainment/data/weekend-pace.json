@@ -1,6 +1,6 @@
 {
   "slug": "weekend-pace",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "everyday",
   "title": {
@@ -344,5 +344,29 @@
     "anchor",
     "open",
     "space"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Weekend Pace Quiz",
+      "zh": "周末节奏趣味测试"
+    },
+    "title": {
+      "en": "Weekend Pace Quiz",
+      "zh": "周末节奏趣味测试"
+    },
+    "description": {
+      "en": "Choose a small weekend plan, a response to the moment or time left unclaimed. Six scenes reveal three pace portraits without ranking how well you use free time.",
+      "zh": "选小周末计划、回应当下，或留未安排时间。六个场景，阅读三种节奏画像，不排名空闲利用得好不好。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does leaving time unplanned mean wasting a weekend?",
+        "zh": "留些时间不安排，就等于浪费周末吗？"
+      },
+      "answer": {
+        "en": "Unclaimed time is one deliberate option in these scenes. An anchor gives the day a chosen point, while openness responds to what appears. The portraits describe how you arrange leisure, not how much activity you ought to complete.",
+        "zh": "未安排时间是场景里的刻意选项。锚点给一天选定点，开放回应后来出现之事。画像只描述休闲怎样安排，不规定应完成多少活动。"
+      }
+    }
+  }
 }

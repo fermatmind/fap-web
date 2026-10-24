@@ -1,6 +1,6 @@
 {
   "slug": "tiny-treat",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "everyday",
   "title": {
@@ -344,5 +344,29 @@
     "moment",
     "token",
     "time"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Tiny Finish Line Treat Quiz",
+      "zh": "小完成庆祝方式测试"
+    },
+    "title": {
+      "en": "Tiny Finish Line Treat Quiz",
+      "zh": "小完成庆祝方式测试"
+    },
+    "description": {
+      "en": "Mark an ordinary finish with a pleasant minute, a little symbol or unassigned time. Six choices reveal three tiny treats without spending money or having to earn rest.",
+      "zh": "用愉快一分钟、小符号或不安排时间，标记普通完成。六次选择，读三种小庆祝，不需花钱，也不需先赚得休息。"
+    },
+    "faq": {
+      "question": {
+        "en": "Do I have to finish something before I am allowed a rest?",
+        "zh": "必须完成事情以后，才有资格休息吗？"
+      },
+      "answer": {
+        "en": "Rest and ordinary enjoyment do not need to be earned. This quiz only explores a chosen way to mark one small finish: notice a pleasant moment, keep a little trace or leave the next interval open.",
+        "zh": "休息与普通享受不需赚取。本测试只探索自选标记一个小完成的方式：留意愉快片刻、留小痕迹，或让下一间隙开放。"
+      }
+    }
+  }
 }

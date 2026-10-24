@@ -1,6 +1,6 @@
 {
   "slug": "lost-letter-adventure",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "fantasy",
   "title": {
@@ -218,5 +218,29 @@
     "lantern",
     "invitation",
     "shelf"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Lost Letter Branching Story",
+      "zh": "遗失信件分支故事"
+    },
+    "title": {
+      "en": "Lost Letter Branching Story",
+      "zh": "遗失信件分支故事"
+    },
+    "description": {
+      "en": "Follow an original lost letter through choices about a destination, an invitation and waiting. Reach one of three authored endings and explore its complete public guide.",
+      "zh": "让一封原创遗失信，沿目的地、邀请与等待的选择前进。抵达三种写好的结局之一，再阅读完整公开指南。"
+    },
+    "faq": {
+      "question": {
+        "en": "Is finding a destination the only way to finish the letter story?",
+        "zh": "找到目的地，是信件故事唯一的完成方式吗？"
+      },
+      "answer": {
+        "en": "The story can also turn toward an invitation or give the message more time. Each route has a defined ending. Its meaning comes from those narrative choices, not a moral judgment about how you handle real correspondence.",
+        "zh": "故事也可转向邀请，或给信息更多时间。各路线都有明确结局。意义来自叙事选择，不是对处理真实信件方式的道德判断。"
+      }
+    }
+  }
 }

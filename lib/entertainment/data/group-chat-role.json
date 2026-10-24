@@ -1,6 +1,6 @@
 {
   "slug": "group-chat-role",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "social",
   "title": {
@@ -344,5 +344,29 @@
     "signal",
     "spark",
     "connector"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Group Chat Role Quiz",
+      "zh": "群聊角色趣味测试"
+    },
+    "title": {
+      "en": "Group Chat Role Quiz",
+      "zh": "群聊角色趣味测试"
+    },
+    "description": {
+      "en": "Keep a fictional group chat clear, lively or welcoming. Six message scenarios reveal three original roles, with their strengths, tradeoffs and a small optional experiment.",
+      "zh": "让虚构群聊清楚、活跃或欢迎新人。六个消息场景，阅读三种原创角色的优势、取舍与可选小尝试。"
+    },
+    "faq": {
+      "question": {
+        "en": "Is a useful group-chat role always the most talkative one?",
+        "zh": "有用的群聊角色，总是说话最多的吗？"
+      },
+      "answer": {
+        "en": "The portraits concern what a contribution does, not message volume. A signal can clarify information, a spark can bring a playful possibility, and a connector can help someone feel included with only a few words.",
+        "zh": "画像关注贡献起什么作用，不看发言量。信号可理清信息，火花可带趣味可能，连接者也可只用几句话让人被接住。"
+      }
+    }
+  }
 }

@@ -1,6 +1,6 @@
 {
   "slug": "forest-soundtrack",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "nature",
   "title": {
@@ -235,5 +235,29 @@
     "echo",
     "chorus",
     "pause"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Forest Soundtrack Branching Story",
+      "zh": "森林末音分支故事"
+    },
+    "title": {
+      "en": "Forest Soundtrack Branching Story",
+      "zh": "森林末音分支故事"
+    },
+    "description": {
+      "en": "An original forest tune is missing its last note. Choose repetition, a shared contribution or an intentional pause through actual branches, with complete guides to every ending.",
+      "zh": "原创森林曲少了末音。沿真正分支，选择重复、共同贡献或刻意停顿，并阅读所有结局指南。"
+    },
+    "faq": {
+      "question": {
+        "en": "Can silence be a complete ending to the forest tune?",
+        "zh": "安静，也能算森林曲的完整结尾吗？"
+      },
+      "answer": {
+        "en": "In this authored story, a chosen pause is one possible resolution, alongside an echo or a chorus. It is not an unanswered quiz item: the branch reaches an explicit ending with its own explanation and example.",
+        "zh": "在写好的故事里，选定停顿和回声、合声一样，是一种解决。它不是漏答题，而是有明确解释与例子的分支结局。"
+      }
+    }
+  }
 }

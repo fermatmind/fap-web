@@ -1,6 +1,6 @@
 {
   "slug": "stargazing-role",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "nature",
   "title": {
@@ -344,5 +344,29 @@
     "pattern",
     "tale",
     "host"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Imaginary Stargazing Role Quiz",
+      "zh": "想象观星角色测试"
+    },
+    "title": {
+      "en": "Imaginary Stargazing Role Quiz",
+      "zh": "想象观星角色测试"
+    },
+    "description": {
+      "en": "Share a fictional sky-chart evening through a pattern, an invented tale or a practical welcome. Six choices reveal three roles without testing astronomy knowledge.",
+      "zh": "用图样、虚构故事或实际欢迎，分享一次想象星图夜。六次选择，阅读三种角色，不考天文知识。"
+    },
+    "faq": {
+      "question": {
+        "en": "Are the stories in this quiz astronomical facts?",
+        "zh": "本测试里的星空故事，是天文事实吗？"
+      },
+      "answer": {
+        "en": "The narrative portrait concerns an invented tale attached to an imaginary chart. Pattern-finding and hosting offer other contributions to the evening. These scenes do not identify real constellations, predict events or certify observation skills.",
+        "zh": "叙事画像谈附在想象星图上的虚构故事。找图样与招呼同伴提供另种贡献。场景不辨真实星座、不预测事件，也不认证观测技能。"
+      }
+    }
+  }
 }

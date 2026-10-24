@@ -1,6 +1,6 @@
 {
   "slug": "quiet-company",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "relationships",
   "title": {
@@ -344,5 +344,29 @@
     "pages",
     "view",
     "task"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Quiet Company Quiz",
+      "zh": "安静相伴场景测试"
+    },
+    "title": {
+      "en": "Quiet Company Quiz",
+      "zh": "安静相伴场景测试"
+    },
+    "description": {
+      "en": "Choose an agreed quiet hour with separate pages, a shared view or a small task. Six scenes reveal three ways to be together without requiring continuous conversation.",
+      "zh": "选一段约好的安静时间：各看各页、共享一景或做件小事。六个场景，探索不必持续说话的三种相伴方式。"
+    },
+    "faq": {
+      "question": {
+        "en": "Is sharing quiet time the same as avoiding contact?",
+        "zh": "安静待在一起，就是回避交流吗？"
+      },
+      "answer": {
+        "en": "The scenes begin with an agreed quiet interval. Separate activities offer parallel presence, a view gives shared attention, and a small task adds coordination. Each can be a chosen form of contact without a requirement to keep talking.",
+        "zh": "场景从约好的安静时段开始。各自活动给平行在场，共景给共同注意，小任务添配合。都可成为自选接触，不要求持续讲话。"
+      }
+    }
+  }
 }

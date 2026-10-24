@@ -1,6 +1,6 @@
 {
   "slug": "small-apology",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "relationships",
   "title": {
@@ -344,5 +344,29 @@
     "name",
     "repair",
     "space"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Small Mix-Up Apology Quiz",
+      "zh": "小误会致歉方式测试"
+    },
+    "title": {
+      "en": "Small Mix-Up Apology Quiz",
+      "zh": "小误会致歉方式测试"
+    },
+    "description": {
+      "en": "Respond to a minor fictional mix-up by naming it, offering a specific repair or leaving response space. Six choices lead to three apology portraits without scoring forgiveness.",
+      "zh": "在轻微虚构误会后，说明事情、给具体补救或留回应空间。六次选择，阅读三种致歉画像，不给原谅打分。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does offering a repair mean the other person must accept it?",
+        "zh": "提出补救，就表示对方必须接受吗？"
+      },
+      "answer": {
+        "en": "A corrective offer is something the other person can consider, not an entitlement to forgiveness. Acknowledgment and response space concern other parts of a minor repair. The game does not cover serious harm or settle real disputes.",
+        "zh": "具体补救供对方考虑，不等于有权被原谅。承认事情和留回应空间关注小修复的另部分。游戏不涵盖严重伤害，也不裁决真实纠纷。"
+      }
+    }
+  }
 }

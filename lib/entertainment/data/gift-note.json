@@ -1,6 +1,6 @@
 {
   "slug": "gift-note",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "relationships",
   "title": {
@@ -344,5 +344,29 @@
     "memory",
     "thanks",
     "wish"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Gift Note Style Quiz",
+      "zh": "礼物小笺表达测试"
+    },
+    "title": {
+      "en": "Gift Note Style Quiz",
+      "zh": "礼物小笺表达测试"
+    },
+    "description": {
+      "en": "Write an imaginary gift note around a shared memory, concrete thanks or an open-ended wish. Six choices reveal what your note makes visible, with complete portraits and examples.",
+      "zh": "围绕共同记忆、具体感谢或开放祝愿，写想象礼物小笺。六次选择，看小笺让什么可见，并读完整画像与例子。"
+    },
+    "faq": {
+      "question": {
+        "en": "What makes a wish different from thanking someone in a gift note?",
+        "zh": "小笺里的祝愿，与感谢有什么不同？"
+      },
+      "answer": {
+        "en": "A wish leaves a possibility open for the recipient; thanks names something you appreciated. A shared memory brings a particular past moment into view. Each can be personal without promising a future outcome or requiring a response.",
+        "zh": "祝愿给收礼者留开放可能，感谢说清你欣赏什么，共同记忆则带来一个过去片刻。都可有心意，不需承诺未来或要求答复。"
+      }
+    }
+  }
 }

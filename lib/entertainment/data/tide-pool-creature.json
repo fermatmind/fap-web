@@ -1,6 +1,6 @@
 {
   "slug": "tide-pool-creature",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "nature",
   "title": {
@@ -344,5 +344,29 @@
     "crab",
     "shrimp",
     "anemone"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Tide Pool Creature Quiz",
+      "zh": "潮池邻居趣味测试"
+    },
+    "title": {
+      "en": "Tide Pool Creature Quiz",
+      "zh": "潮池邻居趣味测试"
+    },
+    "description": {
+      "en": "Share an imagined tide pool through a common base, flexible movement or a protected nook. Six choices lead to three original creature portraits, with full examples and tradeoffs.",
+      "zh": "通过公用据点、灵活移动或有边界的小角落，分享想象潮池。六次选择，读三种原创小生物画像及例子、取舍。"
+    },
+    "faq": {
+      "question": {
+        "en": "Are the creature portraits explanations of real marine behavior?",
+        "zh": "小生物画像，是在解释真实海洋行为吗？"
+      },
+      "answer": {
+        "en": "The crab, shrimp and anemone are story metaphors for choices about shared shelter and movement. Their portraits follow authored options, not biological evidence. A protected nook and a common base can both have a place in the imagined pool.",
+        "zh": "蟹、虾与海葵是共享庇护和移动选择的故事比喻。画像来自写好的选项，不是生物学证据。受保护角落和公用据点，在想象潮池都可有位置。"
+      }
+    }
+  }
 }

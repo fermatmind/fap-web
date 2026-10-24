@@ -1,6 +1,6 @@
 {
   "slug": "response-color",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "metaphor",
   "title": {
@@ -842,5 +842,29 @@
     "scoringVersion": "0.1.1-preview",
     "itemBankSha256": "c63bf210ef8a755868212f20d77af0f14389041f3effa4cab77ffdee34a911e0",
     "webResultEdition": "four concise original website portraits; not the full mini-program report"
+  },
+  "seo": {
+    "topic": {
+      "en": "Response Color Quiz",
+      "zh": "回应颜色趣味测试"
+    },
+    "title": {
+      "en": "Response Color Quiz",
+      "zh": "回应颜色趣味测试"
+    },
+    "description": {
+      "en": "Make 24 paired response choices across four original color directions. Read raw counts, every tied leader and complete guides without norms or a commercial four-color system.",
+      "zh": "在四个原创颜色方向间做24组成对回应选择。查看原始计数、所有并列及完整指南，不设常模，也不套商业四色体系。"
+    },
+    "faq": {
+      "question": {
+        "en": "Is a response color a fixed personality category?",
+        "zh": "回应颜色，是固定的人格类别吗？"
+      },
+      "answer": {
+        "en": "The colors are original mnemonics for four response directions in this preview. Their counts are relative to the paired choices, with ties preserved. They do not establish a permanent category or inherit validation from another color system.",
+        "zh": "颜色是本预览四种回应方向的原创助记符。计数相对于配对选择，并保留并列；不确立永久类别，也不继承其他颜色体系的效度。"
+      }
+    }
   }
 }

@@ -132,6 +132,9 @@ test("@release denied clipboard offers a clean public result summary", async ({ 
   const text = await fallback.inputValue();
   expect(text).toContain("https://fermatmind.com/en/tests/play/woodland-animal");
   expect(text).toContain("Tied portraits:");
+  expect(text).toContain("/woodland-animal/results/jay");
+  expect(text).toContain("/woodland-animal/results/beaver");
+  expect(text).toContain("/woodland-animal/results/hedgehog");
   expect(text).toContain("Jay"); expect(text).toContain("Beaver"); expect(text).toContain("Hedgehog");
   expect(text).not.toMatch(/\bq[1-9]\b|\bo[1-9]\b|answers?/);
   const sharedUrl = new URL(text.split("\n").at(-1)!);

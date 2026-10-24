@@ -1,6 +1,6 @@
 {
   "slug": "fictional-cafe",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "metaphor",
   "title": {
@@ -344,5 +344,29 @@
     "stage",
     "words",
     "colors"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Impossible Cafe Design Quiz",
+      "zh": "不可能咖啡馆设计测试"
+    },
+    "title": {
+      "en": "Impossible Cafe Design Quiz",
+      "zh": "不可能咖啡馆设计测试"
+    },
+    "description": {
+      "en": "Invent a cafe with saucer stages, borrowed sentences or unnamed colors. Six creative choices reveal the experience your imaginary place offers its visitors.",
+      "zh": "发明有碟子舞台、可借句子或无名颜色的咖啡馆。六次创作选择，看看想象场所给访客怎样的体验。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does this cafe quiz test whether I should open a business?",
+        "zh": "咖啡馆测试，会判断我是否该开店吗？"
+      },
+      "answer": {
+        "en": "You are choosing one playful rule for a fictional place, not preparing a business plan. A tiny stage, a language exchange and color-making invite different activities without implying commercial demand or entrepreneurial skill.",
+        "zh": "你在给虚构场所选趣味规则，不做商业计划。小舞台、文字交换和调色邀请不同活动，不意味着市场需求或创业技能。"
+      }
+    }
+  }
 }

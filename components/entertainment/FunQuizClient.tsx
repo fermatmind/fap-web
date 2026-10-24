@@ -9,6 +9,7 @@ import { listMbtiFormMetas } from "@/lib/mbti/forms";
 import { trackEvent } from "@/lib/analytics";
 import { appendSeoCtaContextParamsToHref, buildSeoCtaContextParams, buildSeoCtaTrackingPayload } from "@/lib/tracking/seoCtaAttribution";
 import catalog from "@/lib/entertainment/catalog.json";
+import { relatedFunQuizzes, resultPath } from "@/lib/entertainment/guides";
 
 function subscribeDraft(listener: () => void) {
   window.addEventListener("fm-fun-draft", listener);
@@ -123,7 +124,8 @@ export function FunQuizClient({ quiz, locale }: { quiz: FunQuiz; locale: Locale 
     if (!result) return;
     const url = `https://fermatmind.com/${locale}/tests/play/${quiz.slug}`;
     const sharedTitle = resolved.resultIds.length > 1 ? `${zh ? "并列画像：" : "Tied portraits: "}${resolved.resultIds.map(id => quiz.results.find(portrait => portrait.id === id)!.title[locale]).join(zh ? "、" : "; ")}` : result.title[locale];
-    const text = `${quiz.title[locale]}\n${sharedTitle}\n${zh ? "趣味测试结果，仅供娱乐。" : "A playful quiz result, for entertainment."}\n${url}`;
+    const guides = resolved.resultIds.map(id => `https://fermatmind.com${resultPath(locale, quiz.slug, id)}`).join("\n");
+    const text = `${quiz.title[locale]}\n${sharedTitle}\n${zh ? "趣味测试结果，仅供娱乐。公开画像指南：" : "A playful quiz result, for entertainment. Public portrait guides:"}\n${guides}\n${url}`;
     try { await navigator.clipboard.writeText(text); setMessage(zh ? "已复制结果名称与测试链接。" : "Copied the result name and quiz link."); }
     catch { setCopyFallback(text); setMessage(zh ? "无法自动复制，请选中下方文字手动复制。" : "Automatic copying is unavailable. Select and copy the text below."); }
   }
@@ -164,6 +166,7 @@ export function FunQuizClient({ quiz, locale }: { quiz: FunQuiz; locale: Locale 
           {resolved.resultIds.length > 1 && <h3 className="text-xl font-semibold">{portrait.title[locale]}</h3>}
           <p className="leading-8">{portrait.summary[locale]}</p>
           {([ ["example", zh ? "生活里的一个例子" : "A small everyday example"], ["strength", zh ? "你带来的好处" : "What you bring"], ["tradeoff", zh ? "也有这样的取舍" : "The tradeoff"], ["experiment", zh ? "可以尝试的小行动" : "One thing to try"] ] as const).map(([key, label]) => <section key={key}><h3 className="font-semibold">{label}</h3><p className="mt-2 leading-8 text-slate-700">{portrait[key][locale]}</p></section>)}
+          <Link prefetch={false} className="inline-block min-h-11 py-2 font-medium underline" href={resultPath(locale, quiz.slug, portrait.id)}>{zh ? `阅读「${portrait.title.zh}」公开指南` : `Read the public guide to ${portrait.title.en}`}</Link>
         </article>;
       })}
       <p className="mt-6 border-t pt-5 text-sm leading-6 text-slate-600">{zh ? "结果来自本测试的选项规则，不是人格诊断、能力分数或职业建议，也不能换算为 MBTI 类型。今天的情境与偏好可能影响选择。" : "This result follows this quiz’s choice rules. It is not a diagnosis, ability score, career recommendation, or MBTI equivalent. Your current mood and context can change your choices."}</p>
@@ -173,7 +176,7 @@ export function FunQuizClient({ quiz, locale }: { quiz: FunQuiz; locale: Locale 
         <h3 className="text-xl font-semibold">{zh ? "完整结果已呈现，下一步由你选择" : "That is your complete result. What next?"}</h3>
         <p className="my-3 leading-7 text-slate-600">{zh ? `想用另一套框架继续认识自己？MBTI 探索偏好，与你刚才的故事独立计分。可选题本为 ${mbtiVersions}，需另行完整作答；也可以直接继续玩或离开。` : `If you want a different framework, MBTI explores preferences through its own questionnaire. The versions are ${mbtiVersions}; each needs a separate full attempt. You can also keep playing or stop here.`}</p>
         <Link prefetch={false} className="inline-block min-h-11 py-2 font-medium underline" onClick={() => trackEvent("article_to_test_click", buildSeoCtaTrackingPayload(recommendation))} href={mbtiHref}>{zh ? "了解 MBTI 与题本选择" : "Explore MBTI and its versions"}</Link>
-        <ul className="mt-4 space-y-3">{catalog.filter(q => q.slug !== quiz.slug).slice(0, 3).map(q => <li key={q.slug}><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests/play/${q.slug}`}>{q.title[locale]}</Link></li>)}</ul>
+        <ul className="mt-4 space-y-3">{relatedFunQuizzes(catalog, quiz).map(q => <li key={q.slug}><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests/play/${q.slug}`}>{q.title[locale]}</Link></li>)}</ul>
         <Link className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "浏览所有更多测试" : "Browse all More Tests"}</Link>
       </section>
     </>}

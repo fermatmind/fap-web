@@ -1,7 +1,7 @@
 [
   {
     "slug": "beachcomber",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "nature",
     "title": {
@@ -14,11 +14,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "pattern",
+      "story",
+      "place"
+    ]
   },
   {
     "slug": "birdwatching-companion",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "nature",
     "title": {
@@ -31,11 +36,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "waiter",
+      "recorder",
+      "guide"
+    ]
   },
   {
     "slug": "board-game-table",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "social",
     "title": {
@@ -48,11 +58,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "explainer",
+      "challenger",
+      "welcomer"
+    ]
   },
   {
     "slug": "borrowed-book",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "relationships",
     "title": {
@@ -65,11 +80,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "return",
+      "thread",
+      "care"
+    ]
   },
   {
     "slug": "browser-tabs",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "everyday",
     "title": {
@@ -82,11 +102,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "question",
+      "action",
+      "shelf"
+    ]
   },
   {
     "slug": "camera-roll",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "everyday",
     "title": {
@@ -99,11 +124,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "find",
+      "favorites",
+      "sequence"
+    ]
   },
   {
     "slug": "campfire-storyteller",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "social",
     "title": {
@@ -116,11 +146,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "suspense",
+      "humor",
+      "circle"
+    ]
   },
   {
     "slug": "celebrating-a-friend",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "relationships",
     "title": {
@@ -133,11 +168,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "listen",
+      "note",
+      "join"
+    ]
   },
   {
     "slug": "celebration-planner",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "social",
     "title": {
@@ -150,11 +190,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "asker",
+      "moment",
+      "contribution"
+    ]
   },
   {
     "slug": "choosing-together",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "relationships",
     "title": {
@@ -167,11 +212,17 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "criteria",
+      "turns",
+      "trial",
+      "parts"
+    ]
   },
   {
     "slug": "city-wanderer",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "everyday",
     "title": {
@@ -184,11 +235,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "map",
+      "rhythm",
+      "layers"
+    ]
   },
   {
     "slug": "cloud-drift",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "nature",
     "title": {
@@ -201,11 +257,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "outline",
+      "scene",
+      "open"
+    ]
   },
   {
     "slug": "coffee-break",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "everyday",
     "title": {
@@ -218,11 +279,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "scene",
+      "ritual",
+      "company"
+    ]
   },
   {
     "slug": "comfort-offer",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "relationships",
     "title": {
@@ -235,11 +301,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "practical",
+      "listen",
+      "quiet"
+    ]
   },
   {
     "slug": "community-fair",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "social",
     "title": {
@@ -252,11 +323,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "shift",
+      "task",
+      "handover"
+    ]
   },
   {
     "slug": "compliment-style",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "relationships",
     "title": {
@@ -269,11 +345,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "detail",
+      "process",
+      "effect"
+    ]
   },
   {
     "slug": "cozy-object",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "metaphor",
     "title": {
@@ -286,11 +367,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "cup",
+      "blanket",
+      "notebook"
+    ]
   },
   {
     "slug": "creative-spark",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "metaphor",
     "title": {
@@ -303,11 +389,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "prompt",
+      "prototype",
+      "listener"
+    ]
   },
   {
     "slug": "date-plan-detour",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "relationships",
     "title": {
@@ -320,11 +411,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "core",
+      "check",
+      "try"
+    ]
   },
   {
     "slug": "desert-oasis",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "nature",
     "title": {
@@ -337,11 +433,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "sign",
+      "mosaic",
+      "shade"
+    ]
   },
   {
     "slug": "desk-reset",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "everyday",
     "title": {
@@ -354,11 +455,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "stations",
+      "kit",
+      "stage"
+    ]
   },
   {
     "slug": "dinner-host",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "social",
     "title": {
@@ -371,11 +477,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "flow",
+      "choice",
+      "simple"
+    ]
   },
   {
     "slug": "dragon-housemate",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "fantasy",
     "title": {
@@ -388,11 +499,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "zones",
+      "ritual",
+      "make"
+    ]
   },
   {
     "slug": "dream-train",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "fantasy",
     "title": {
@@ -405,11 +521,16 @@
     },
     "minutes": 2,
     "questionCount": 4,
-    "minQuestionCount": 3
+    "minQuestionCount": 3,
+    "resultSlugs": [
+      "keepsake",
+      "envelope",
+      "station"
+    ]
   },
   {
     "slug": "enchanted-library",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "fantasy",
     "title": {
@@ -422,11 +543,16 @@
     },
     "minutes": 2,
     "questionCount": 4,
-    "minQuestionCount": 3
+    "minQuestionCount": 3,
+    "resultSlugs": [
+      "record",
+      "witness",
+      "open"
+    ]
   },
   {
     "slug": "escape-room-role",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "social",
     "title": {
@@ -439,11 +565,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "connector",
+      "tester",
+      "keeper"
+    ]
   },
   {
     "slug": "fantasy-party-role",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "fantasy",
     "title": {
@@ -456,11 +587,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "scout",
+      "keeper",
+      "tinkerer"
+    ]
   },
   {
     "slug": "festival-companion",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "social",
     "title": {
@@ -473,11 +609,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "anchor",
+      "free",
+      "try"
+    ]
   },
   {
     "slug": "festival-mask",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "metaphor",
     "title": {
@@ -490,11 +631,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "bells",
+      "window",
+      "ribbons"
+    ]
   },
   {
     "slug": "fictional-cafe",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "metaphor",
     "title": {
@@ -507,11 +653,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "stage",
+      "words",
+      "colors"
+    ]
   },
   {
     "slug": "firefly-evening",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "nature",
     "title": {
@@ -524,11 +675,16 @@
     },
     "minutes": 2,
     "questionCount": 3,
-    "minQuestionCount": 3
+    "minQuestionCount": 3,
+    "resultSlugs": [
+      "shared",
+      "signal",
+      "quiet"
+    ]
   },
   {
     "slug": "floating-house",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "fantasy",
     "title": {
@@ -541,11 +697,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "anchor",
+      "roam",
+      "visit"
+    ]
   },
   {
     "slug": "forest-soundtrack",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "nature",
     "title": {
@@ -558,11 +719,16 @@
     },
     "minutes": 2,
     "questionCount": 4,
-    "minQuestionCount": 3
+    "minQuestionCount": 3,
+    "resultSlugs": [
+      "echo",
+      "chorus",
+      "pause"
+    ]
   },
   {
     "slug": "friendship-invitation",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "relationships",
     "title": {
@@ -575,11 +741,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "plan",
+      "interest",
+      "choice"
+    ]
   },
   {
     "slug": "game-night-reset",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "social",
     "title": {
@@ -592,11 +763,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "check",
+      "change",
+      "finish"
+    ]
   },
   {
     "slug": "garden-season",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "nature",
     "title": {
@@ -609,11 +785,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "spring",
+      "summer",
+      "winter"
+    ]
   },
   {
     "slug": "gift-note",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "relationships",
     "title": {
@@ -626,11 +807,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "memory",
+      "thanks",
+      "wish"
+    ]
   },
   {
     "slug": "group-chat-role",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "social",
     "title": {
@@ -643,11 +829,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "signal",
+      "spark",
+      "connector"
+    ]
   },
   {
     "slug": "group-project-finale",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "social",
     "title": {
@@ -660,11 +851,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "credit",
+      "handover",
+      "moment"
+    ]
   },
   {
     "slug": "group-trip-seatmate",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "social",
     "title": {
@@ -677,11 +873,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "talk",
+      "parallel",
+      "practical"
+    ]
   },
   {
     "slug": "harbor-light",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "metaphor",
     "title": {
@@ -694,11 +895,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "pulse",
+      "key",
+      "legend"
+    ]
   },
   {
     "slug": "hosting-a-guest",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "relationships",
     "title": {
@@ -711,11 +917,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "note",
+      "tour",
+      "ask"
+    ]
   },
   {
     "slug": "house-of-doors",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "metaphor",
     "title": {
@@ -728,11 +939,16 @@
     },
     "minutes": 2,
     "questionCount": 4,
-    "minQuestionCount": 3
+    "minQuestionCount": 3,
+    "resultSlugs": [
+      "workshop",
+      "listening",
+      "garden"
+    ]
   },
   {
     "slug": "inside-joke",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "social",
     "title": {
@@ -745,11 +961,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "context",
+      "twist",
+      "light"
+    ]
   },
   {
     "slug": "island-day",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "nature",
     "title": {
@@ -762,11 +983,16 @@
     },
     "minutes": 2,
     "questionCount": 3,
-    "minQuestionCount": 3
+    "minQuestionCount": 3,
+    "resultSlugs": [
+      "bell",
+      "mural",
+      "ledger"
+    ]
   },
   {
     "slug": "kitchen-improviser",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "everyday",
     "title": {
@@ -779,11 +1005,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "bridge",
+      "test",
+      "table"
+    ]
   },
   {
     "slug": "long-distance-postcard",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "relationships",
     "title": {
@@ -796,11 +1027,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "scene",
+      "question",
+      "marker"
+    ]
   },
   {
     "slug": "lost-key-search",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "everyday",
     "title": {
@@ -813,11 +1049,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "sequence",
+      "space",
+      "perspective"
+    ]
   },
   {
     "slug": "lost-letter-adventure",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "fantasy",
     "title": {
@@ -830,11 +1071,16 @@
     },
     "minutes": 2,
     "questionCount": 3,
-    "minQuestionCount": 2
+    "minQuestionCount": 2,
+    "resultSlugs": [
+      "lantern",
+      "invitation",
+      "shelf"
+    ]
   },
   {
     "slug": "magic-shopkeeper",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "fantasy",
     "title": {
@@ -847,11 +1093,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "label",
+      "loan",
+      "wonder"
+    ]
   },
   {
     "slug": "message-tone",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "relationships",
     "title": {
@@ -864,11 +1115,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "ask",
+      "context",
+      "pause"
+    ]
   },
   {
     "slug": "moon-market",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "fantasy",
     "title": {
@@ -881,11 +1137,16 @@
     },
     "minutes": 2,
     "questionCount": 4,
-    "minQuestionCount": 2
+    "minQuestionCount": 2,
+    "resultSlugs": [
+      "stars",
+      "garden",
+      "ticket"
+    ]
   },
   {
     "slug": "mountain-cabin",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "nature",
     "title": {
@@ -898,11 +1159,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "keeper",
+      "nest",
+      "boundary"
+    ]
   },
   {
     "slug": "museum-of-tomorrow",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "fantasy",
     "title": {
@@ -915,11 +1181,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "function",
+      "user",
+      "limit"
+    ]
   },
   {
     "slug": "museum-visitor",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "everyday",
     "title": {
@@ -932,11 +1203,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "close",
+      "thread",
+      "together"
+    ]
   },
   {
     "slug": "new-club-member",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "social",
     "title": {
@@ -949,11 +1225,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "glossary",
+      "process",
+      "exchange"
+    ]
   },
   {
     "slug": "night-garden",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "nature",
     "title": {
@@ -966,11 +1247,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "listener",
+      "shadow",
+      "detail"
+    ]
   },
   {
     "slug": "note-taking-doodles",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "everyday",
     "title": {
@@ -983,11 +1269,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "line",
+      "sketch",
+      "links"
+    ]
   },
   {
     "slug": "paper-creature-language",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "fantasy",
     "title": {
@@ -1000,11 +1291,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "signal",
+      "mirror",
+      "turn"
+    ]
   },
   {
     "slug": "paper-world",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "metaphor",
     "title": {
@@ -1017,11 +1313,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "fold",
+      "cast",
+      "layers"
+    ]
   },
   {
     "slug": "party-arrival",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "social",
     "title": {
@@ -1034,11 +1335,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "conversation",
+      "activity",
+      "landing"
+    ]
   },
   {
     "slug": "personal-museum",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "metaphor",
     "title": {
@@ -1051,11 +1357,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "sequence",
+      "detail",
+      "connection"
+    ]
   },
   {
     "slug": "photo-group-role",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "social",
     "title": {
@@ -1068,11 +1379,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "frame",
+      "choice",
+      "moment"
+    ]
   },
   {
     "slug": "playlist-maker",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "everyday",
     "title": {
@@ -1085,11 +1401,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "arc",
+      "room",
+      "discovery"
+    ]
   },
   {
     "slug": "pocket-map",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "metaphor",
     "title": {
@@ -1102,11 +1423,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "landmarks",
+      "stops",
+      "gaps"
+    ]
   },
   {
     "slug": "portal-choice",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "fantasy",
     "title": {
@@ -1119,11 +1445,16 @@
     },
     "minutes": 2,
     "questionCount": 4,
-    "minQuestionCount": 3
+    "minQuestionCount": 3,
+    "resultSlugs": [
+      "harbor",
+      "gallery",
+      "postcard"
+    ]
   },
   {
     "slug": "potluck-contribution",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "social",
     "title": {
@@ -1136,11 +1467,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "menu",
+      "handover",
+      "note"
+    ]
   },
   {
     "slug": "quest-reward",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "fantasy",
     "title": {
@@ -1153,11 +1489,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "map",
+      "feast",
+      "token"
+    ]
   },
   {
     "slug": "quiet-company",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "relationships",
     "title": {
@@ -1170,11 +1511,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "pages",
+      "view",
+      "task"
+    ]
   },
   {
     "slug": "rainy-window",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "nature",
     "title": {
@@ -1187,11 +1533,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "near",
+      "reflection",
+      "distance"
+    ]
   },
   {
     "slug": "reading-ritual",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "everyday",
     "title": {
@@ -1204,11 +1555,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "immerse",
+      "trail",
+      "appointment"
+    ]
   },
   {
     "slug": "relationship-values",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "relationships",
     "title": {
@@ -1221,11 +1577,17 @@
     },
     "minutes": 5,
     "questionCount": 24,
-    "minQuestionCount": 24
+    "minQuestionCount": 24,
+    "resultSlugs": [
+      "romantic-expression",
+      "practical-partnership",
+      "emotional-companionship",
+      "growth-autonomy"
+    ]
   },
   {
     "slug": "response-color",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "metaphor",
     "title": {
@@ -1238,11 +1600,17 @@
     },
     "minutes": 5,
     "questionCount": 24,
-    "minQuestionCount": 24
+    "minQuestionCount": 24,
+    "resultSlugs": [
+      "red",
+      "yellow",
+      "blue",
+      "green"
+    ]
   },
   {
     "slug": "reunion-style",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "relationships",
     "title": {
@@ -1255,11 +1623,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "thread",
+      "present",
+      "fresh"
+    ]
   },
   {
     "slug": "river-crossing",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "nature",
     "title": {
@@ -1272,11 +1645,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "tester",
+      "partner",
+      "pacer"
+    ]
   },
   {
     "slug": "road-trip-dj",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "social",
     "title": {
@@ -1289,11 +1667,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "turns",
+      "bridge",
+      "quiet"
+    ]
   },
   {
     "slug": "room-atmosphere",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "everyday",
     "title": {
@@ -1306,11 +1689,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "glow",
+      "space",
+      "layers"
+    ]
   },
   {
     "slug": "saying-goodbye",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "relationships",
     "title": {
@@ -1323,11 +1711,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "clear",
+      "detail",
+      "future"
+    ]
   },
   {
     "slug": "seasonal-table",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "metaphor",
     "title": {
@@ -1340,11 +1733,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "trace",
+      "space",
+      "shared"
+    ]
   },
   {
     "slug": "secret-door",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "fantasy",
     "title": {
@@ -1357,11 +1755,16 @@
     },
     "minutes": 2,
     "questionCount": 3,
-    "minQuestionCount": 3
+    "minQuestionCount": 3,
+    "resultSlugs": [
+      "guest",
+      "return",
+      "bridge"
+    ]
   },
   {
     "slug": "secret-garden-gate",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "metaphor",
     "title": {
@@ -1374,11 +1777,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "glimpse",
+      "process",
+      "contribute"
+    ]
   },
   {
     "slug": "shared-hobby",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "relationships",
     "title": {
@@ -1391,11 +1799,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "guest",
+      "parallel",
+      "swap"
+    ]
   },
   {
     "slug": "shared-ritual",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "relationships",
     "title": {
@@ -1408,11 +1821,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "cue",
+      "window",
+      "meaning"
+    ]
   },
   {
     "slug": "shared-workspace",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "social",
     "title": {
@@ -1425,11 +1843,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "label",
+      "tool",
+      "feedback"
+    ]
   },
   {
     "slug": "small-apology",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "relationships",
     "title": {
@@ -1442,11 +1865,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "name",
+      "repair",
+      "space"
+    ]
   },
   {
     "slug": "snow-day",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "nature",
     "title": {
@@ -1459,11 +1887,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "builder",
+      "character",
+      "player"
+    ]
   },
   {
     "slug": "souvenir-story",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "everyday",
     "title": {
@@ -1476,11 +1909,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "use",
+      "moment",
+      "shared"
+    ]
   },
   {
     "slug": "spell-school-elective",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "fantasy",
     "title": {
@@ -1493,11 +1931,17 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "weather",
+      "architecture",
+      "echo",
+      "floating"
+    ]
   },
   {
     "slug": "stargazing-role",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "nature",
     "title": {
@@ -1510,11 +1954,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "pattern",
+      "tale",
+      "host"
+    ]
   },
   {
     "slug": "story-ending",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "metaphor",
     "title": {
@@ -1527,11 +1976,16 @@
     },
     "minutes": 2,
     "questionCount": 4,
-    "minQuestionCount": 3
+    "minQuestionCount": 3,
+    "resultSlugs": [
+      "return",
+      "together",
+      "open"
+    ]
   },
   {
     "slug": "storybook-narrator",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "fantasy",
     "title": {
@@ -1544,11 +1998,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "lens",
+      "chorus",
+      "wink"
+    ]
   },
   {
     "slug": "team-name-maker",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "social",
     "title": {
@@ -1561,11 +2020,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "wordplay",
+      "reference",
+      "process"
+    ]
   },
   {
     "slug": "thrift-shop-find",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "everyday",
     "title": {
@@ -1578,11 +2042,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "use",
+      "remake",
+      "trace"
+    ]
   },
   {
     "slug": "tide-pool-creature",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "nature",
     "title": {
@@ -1595,11 +2064,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "crab",
+      "shrimp",
+      "anemone"
+    ]
   },
   {
     "slug": "time-capsule",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "metaphor",
     "title": {
@@ -1612,11 +2086,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "scene",
+      "question",
+      "instruction"
+    ]
   },
   {
     "slug": "tiny-kingdom",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "fantasy",
     "title": {
@@ -1629,11 +2108,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "exchange",
+      "experiment",
+      "promise"
+    ]
   },
   {
     "slug": "tiny-superpower",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "metaphor",
     "title": {
@@ -1646,11 +2130,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "word",
+      "pause",
+      "edge"
+    ]
   },
   {
     "slug": "tiny-treat",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "everyday",
     "title": {
@@ -1663,11 +2152,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "moment",
+      "token",
+      "time"
+    ]
   },
   {
     "slug": "weather-in-a-bottle",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "metaphor",
     "title": {
@@ -1680,11 +2174,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "mist",
+      "breeze",
+      "sun"
+    ]
   },
   {
     "slug": "weekend-pace",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "updated": "2026-10-24",
     "category": "everyday",
     "title": {
@@ -1697,11 +2196,16 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "anchor",
+      "open",
+      "space"
+    ]
   },
   {
     "slug": "woodland-animal",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "updated": "2026-10-24",
     "category": "nature",
     "title": {
@@ -1714,6 +2218,11 @@
     },
     "minutes": 2,
     "questionCount": 6,
-    "minQuestionCount": 6
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "jay",
+      "beaver",
+      "hedgehog"
+    ]
   }
 ]

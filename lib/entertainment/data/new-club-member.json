@@ -1,6 +1,6 @@
 {
   "slug": "new-club-member",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "social",
   "title": {
@@ -344,5 +344,29 @@
     "glossary",
     "process",
     "exchange"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "New Hobby Club Member Quiz",
+      "zh": "爱好社团新人方式测试"
+    },
+    "title": {
+      "en": "New Hobby Club Member Quiz",
+      "zh": "爱好社团新人方式测试"
+    },
+    "description": {
+      "en": "Join a fictional hobby group through its vocabulary, one shared process or a small skill exchange. Six choices reveal three ways to make a first visit understandable.",
+      "zh": "从词汇、一次共做过程或小技能交换，加入虚构爱好社团。六次选择，看看怎样让第一次到访好懂、可参与。"
+    },
+    "faq": {
+      "question": {
+        "en": "Must I learn all the club's vocabulary before joining in?",
+        "zh": "加入活动前，必须懂社团全部术语吗？"
+      },
+      "answer": {
+        "en": "Vocabulary can remove one barrier, but following a small shared process or arranging a limited exchange can provide other starting points. The scenes ask what makes one first visit workable, not whether you qualify to belong.",
+        "zh": "词汇可移开一种障碍，跟一次小共做过程或安排有限交换，也可成为起点。场景看怎样让首次到访可行，不判定有没有加入资格。"
+      }
+    }
+  }
 }

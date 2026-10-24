@@ -1,6 +1,6 @@
 {
   "slug": "woodland-animal",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "updated": "2026-10-24",
   "category": "nature",
   "title": {
@@ -344,5 +344,29 @@
     "jay",
     "beaver",
     "hedgehog"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Woodland Animal Quiz",
+      "zh": "林间同行动物测试"
+    },
+    "title": {
+      "en": "Woodland Animal Quiz",
+      "zh": "林间同行动物测试"
+    },
+    "description": {
+      "en": "Discover a jay, beaver or hedgehog portrait through six woodland choices. Explore discovery, a dependable base and personal space, with full result guides and a small experiment.",
+      "zh": "用六个林间选择，探索松鸦、河狸或刺猬画像。比较发现、可靠据点与个人空间，阅读完整结果指南和小尝试。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does choosing the hedgehog mean I dislike a shared outing?",
+        "zh": "选择刺猬，就表示不喜欢一起出游吗？"
+      },
+      "answer": {
+        "en": "The hedgehog portrait emphasizes personal space within an outing. The jay follows discoveries, and the beaver supports a dependable base. These are authored contributions to the same friendly scene, not fixed animal identities or a sociability ranking.",
+        "zh": "刺猬画像强调出游中的个人空间，松鸦跟新发现，河狸支持可靠据点。它们是同一友好场景中的写好贡献，不是固定动物身份或社交排名。"
+      }
+    }
+  }
 }

@@ -1,6 +1,6 @@
 {
   "slug": "board-game-table",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "social",
   "title": {
@@ -344,5 +344,29 @@
     "explainer",
     "challenger",
     "welcomer"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Board Game Role Quiz",
+      "zh": "桌游同桌角色测试"
+    },
+    "title": {
+      "en": "Board Game Role Quiz",
+      "zh": "桌游同桌角色测试"
+    },
+    "description": {
+      "en": "Find your board-game table role through six choices about explaining rules, enjoying a challenge and welcoming mixed experience. Get a complete portrait and practical examples.",
+      "zh": "从讲清规则、享受挑战和接纳不同熟练度的六次选择，找到桌游同桌角色，阅读完整画像与具体例子。"
+    },
+    "faq": {
+      "question": {
+        "en": "Can I enjoy competition and still be a welcoming player?",
+        "zh": "喜欢挑战，也能成为照顾同桌体验的玩家吗？"
+      },
+      "answer": {
+        "en": "Yes. The three portraits separate explaining, challenging and welcoming so you can recognize each contribution. A leading total in one direction does not erase your other choices or decide how considerate you are.",
+        "zh": "可以。三种画像分别呈现解释、挑战与欢迎的贡献，方便辨认。某方向领先不会抹去其他选择，也不判定你是否体贴。"
+      }
+    }
+  }
 }

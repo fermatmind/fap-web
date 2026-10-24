@@ -1,6 +1,6 @@
 {
   "slug": "festival-mask",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "metaphor",
   "title": {
@@ -344,5 +344,29 @@
     "bells",
     "window",
     "ribbons"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Original Festival Mask Quiz",
+      "zh": "原创节庆面具设计测试"
+    },
+    "title": {
+      "en": "Original Festival Mask Quiz",
+      "zh": "原创节庆面具设计测试"
+    },
+    "description": {
+      "en": "Design a fictional costume through a tiny signal, a changing frame or paper-ribbon movement. Six choices create three original festival characters, each with its own guide.",
+      "zh": "用小信号、变化视框或纸带移动，设计虚构装扮。六次选择，组成三种原创节庆角色，各有完整指南。"
+    },
+    "faq": {
+      "question": {
+        "en": "Is this mask quiz about hiding my true self?",
+        "zh": "这里的面具，是在测怎样隐藏真实自己吗？"
+      },
+      "answer": {
+        "en": "It concerns an optional costume for one invented evening. Bells give a bounded signal, a window frames a view, and ribbons trace movement. Social masking and hidden identity are not what these choices assess.",
+        "zh": "这里谈一个虚构夜晚的自愿装扮。铃声给有限信号，小窗框出视角，纸带描移动轨迹；选择不评社交伪装或隐藏身份。"
+      }
+    }
+  }
 }

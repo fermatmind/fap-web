@@ -1,6 +1,6 @@
 {
   "slug": "thrift-shop-find",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "everyday",
   "title": {
@@ -344,5 +344,29 @@
     "use",
     "remake",
     "trace"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Imaginary Secondhand Find Quiz",
+      "zh": "想象二手拾物测试"
+    },
+    "title": {
+      "en": "Imaginary Secondhand Find Quiz",
+      "zh": "想象二手拾物测试"
+    },
+    "description": {
+      "en": "Browse a fictional shelf for current use, a possible remake or an interesting visible trace. Six choices reveal three find portraits without a purchase or antique-value claim.",
+      "zh": "为当前用途、可能改造或可见小痕迹，逛虚构货架。六次选择，阅读三种拾物画像，不需购买，也不鉴古物价值。"
+    },
+    "faq": {
+      "question": {
+        "en": "Can a visible old mark tell the true story of an object?",
+        "zh": "看见旧痕迹，就能知道物件真实故事吗？"
+      },
+      "answer": {
+        "en": "You can notice a mark without inventing a factual history. The trace portrait values that visible detail, while use and remake consider different possibilities. The quiz does not authenticate objects, estimate value or recommend a purchase.",
+        "zh": "可以留意痕迹，不把想象当真实历史。痕迹画像珍惜可见细节，用途和改造看其他可能。测试不鉴物、不估值，也不推荐购买。"
+      }
+    }
+  }
 }

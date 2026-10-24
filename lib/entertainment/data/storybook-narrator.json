@@ -1,6 +1,6 @@
 {
   "slug": "storybook-narrator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "fantasy",
   "title": {
@@ -344,5 +344,29 @@
     "lens",
     "chorus",
     "wink"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Storybook Narrator Quiz",
+      "zh": "原创故事叙述者测试"
+    },
+    "title": {
+      "en": "Storybook Narrator Quiz",
+      "zh": "原创故事叙述者测试"
+    },
+    "description": {
+      "en": "Tell the same fictional event through close detail, several voices or a playful aside. Six choices lead to three narrator portraits, with concrete examples and room to experiment.",
+      "zh": "用近看细节、多种声音或趣味旁白，讲同一虚构事件。六次选择，阅读三种叙述者画像、具体例子与可试空间。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does using several voices mean the story has no main point?",
+        "zh": "用多种声音讲，就会没有重点吗？"
+      },
+      "answer": {
+        "en": "Several voices can show different experiences of one event. A close lens selects particular details, while a playful aside changes the reader's distance. The portraits compare narrative choices rather than measuring literary quality or intelligence.",
+        "zh": "多种声音可展同一事件的不同体验。近镜选特定细节，趣味旁白改变读者距离。画像比较叙述选择，不衡量文学质量或智力。"
+      }
+    }
+  }
 }

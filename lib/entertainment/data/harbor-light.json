@@ -1,6 +1,6 @@
 {
   "slug": "harbor-light",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "metaphor",
   "title": {
@@ -344,5 +344,29 @@
     "pulse",
     "key",
     "legend"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Fictional Harbor Light Quiz",
+      "zh": "虚构港灯灯语测试"
+    },
+    "title": {
+      "en": "Fictional Harbor Light Quiz",
+      "zh": "虚构港灯灯语测试"
+    },
+    "description": {
+      "en": "Design a story signal through a repeated pulse, a clear visual key or a local legend. Six choices reveal three harbor-light portraits, with readable examples and limits.",
+      "zh": "用重复节奏、清楚图例或本地传说，设计故事信号。六次选择，阅读三种港灯画像及可读示例、边界。"
+    },
+    "faq": {
+      "question": {
+        "en": "Can I use this harbor-light pattern as a real navigation signal?",
+        "zh": "这里的港灯模式，可以用于真实航行吗？"
+      },
+      "answer": {
+        "en": "No. The harbor and its code are invented illustrations. A pulse, visual key and original legend compare ways to make a story message recognizable; they are not maritime standards, weather guidance or emergency instructions.",
+        "zh": "不可以。港口与灯语是虚构插画。节奏、图例和原创传说比较怎样让故事信息可认，不是航行标准、天气指引或应急指令。"
+      }
+    }
+  }
 }

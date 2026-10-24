@@ -1,6 +1,6 @@
 {
   "slug": "kitchen-improviser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "everyday",
   "title": {
@@ -344,5 +344,29 @@
     "bridge",
     "test",
     "table"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Kitchen Improviser Quiz",
+      "zh": "厨房临时调整测试"
+    },
+    "title": {
+      "en": "Kitchen Improviser Quiz",
+      "zh": "厨房临时调整测试"
+    },
+    "description": {
+      "en": "When an imagined meal changes, do you preserve its structure, test a small flavor or offer choices? Six scenarios reveal three kitchen-improvising portraits without a cooking-skill score.",
+      "zh": "想象饭菜需调整时，保留结构、试一点味道或给选项？六个场景，阅读三种厨房应变画像，不评厨艺。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does experimenting with flavor mean changing the whole meal?",
+        "zh": "试一点新味道，就要改掉整餐吗？"
+      },
+      "answer": {
+        "en": "The trial portrait concerns a small test before a wider change. Preserving a basic structure and arranging options for different people offer other responses. These are recreational decisions, not instructions about food safety or dietary needs.",
+        "zh": "小试画像先做有限试验，再考虑更大改动。保留基本结构、给不同人安排选择，是另外回应。这是休闲决定，不是食品安全或饮食需要指引。"
+      }
+    }
+  }
 }

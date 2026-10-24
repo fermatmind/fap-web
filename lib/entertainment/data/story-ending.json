@@ -1,6 +1,6 @@
 {
   "slug": "story-ending",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "metaphor",
   "title": {
@@ -260,5 +260,29 @@
     "return",
     "together",
     "open"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Paper Parade Branching Ending",
+      "zh": "纸游行末页分支故事"
+    },
+    "title": {
+      "en": "Paper Parade Branching Ending",
+      "zh": "纸游行末页分支故事"
+    },
+    "description": {
+      "en": "Finish an original paper-parade tale through actual branches. Return one small thing, reveal a shared scene or leave a path beyond the page, with full guides to every ending.",
+      "zh": "沿真正分支写完原创纸游行：归还小物、显出共作景，或留纸页外的路。所有结局都有完整指南。"
+    },
+    "faq": {
+      "question": {
+        "en": "Can an open ending still finish the paper parade's story?",
+        "zh": "开放结局，也能完成纸游行故事吗？"
+      },
+      "answer": {
+        "en": "The parade has reached the square, so the current action can finish while a possible next path remains open. Returning an object and showing a shared scene close different parts of the tale; none requires resolving every character's future.",
+        "zh": "游行已到广场，因此当下动作可完成，同时留下一条可能新路。归还物件和展示共作景收不同部分，都不需解决每个角色的未来。"
+      }
+    }
+  }
 }

@@ -1,6 +1,6 @@
 {
   "slug": "celebration-planner",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "social",
   "title": {
@@ -344,5 +344,29 @@
     "asker",
     "moment",
     "contribution"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Small Celebration Planning Quiz",
+      "zh": "小型庆祝策划测试"
+    },
+    "title": {
+      "en": "Small Celebration Planning Quiz",
+      "zh": "小型庆祝策划测试"
+    },
+    "description": {
+      "en": "Plan a fictional small celebration through preference checks, one bounded event moment and shared contributions. Find the planning approach your six choices create.",
+      "zh": "通过询问偏好、安排有限片刻和共同贡献，设计一场虚构小庆祝，看看六次选择组成哪种策划方式。"
+    },
+    "faq": {
+      "question": {
+        "en": "Is asking preferences less thoughtful than arranging a surprise?",
+        "zh": "先问偏好，会比安排惊喜少一份心意吗？"
+      },
+      "answer": {
+        "en": "Asking can make the occasion more closely fit its recipient. A bounded event moment and shared contributions offer other ways to shape it. These are planning choices, not a ranking of affection or generosity.",
+        "zh": "询问能让场合更贴近被庆祝者。安排有限片刻和共同贡献，是另外的塑造方式。这些是策划选择，不是心意或慷慨程度的排名。"
+      }
+    }
+  }
 }

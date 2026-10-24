@@ -1,6 +1,6 @@
 {
   "slug": "compliment-style",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "relationships",
   "title": {
@@ -344,5 +344,29 @@
     "detail",
     "process",
     "effect"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Compliment Style Quiz",
+      "zh": "具体夸奖方式测试"
+    },
+    "title": {
+      "en": "Compliment Style Quiz",
+      "zh": "具体夸奖方式测试"
+    },
+    "description": {
+      "en": "What do your compliments notice: a visible detail, a chosen process or an effect you experienced? Six everyday choices lead to three specific appreciation portraits.",
+      "zh": "你的夸奖留意什么：可见细节、对方愿谈的过程，还是自己感受到的影响？六次日常选择，阅读三种具体欣赏画像。"
+    },
+    "faq": {
+      "question": {
+        "en": "How can a compliment about effort avoid making assumptions?",
+        "zh": "夸奖过程时，怎样少一点替人推测？"
+      },
+      "answer": {
+        "en": "The process portrait concerns an acknowledgment the other person welcomes, not a claim to know how hard they worked. A visible detail or an effect you experienced provides a different concrete basis for appreciation.",
+        "zh": "过程画像谈对方愿意接受的认可，不声称你知道其付出多少。可见细节和你实际感受到的影响，则提供另外两种具体欣赏依据。"
+      }
+    }
+  }
 }

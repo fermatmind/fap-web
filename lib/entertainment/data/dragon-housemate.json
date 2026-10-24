@@ -1,6 +1,6 @@
 {
   "slug": "dragon-housemate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "fantasy",
   "title": {
@@ -344,5 +344,29 @@
     "zones",
     "ritual",
     "make"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Dragon Housemate Quiz",
+      "zh": "龙室友相处趣味测试"
+    },
+    "title": {
+      "en": "Dragon Housemate Quiz",
+      "zh": "龙室友相处趣味测试"
+    },
+    "description": {
+      "en": "Share an original fantasy home through clear zones, recurring rituals or making something together. Six dragon-housemate choices lead to three playful shared-space portraits.",
+      "zh": "用明确分区、固定小仪式或共同制作，分享原创幻想住处。六次龙室友选择，阅读三种趣味共享空间画像。"
+    },
+    "faq": {
+      "question": {
+        "en": "What do the dragon's zones, rituals and projects stand for?",
+        "zh": "龙室友的分区、仪式和项目分别在说什么？"
+      },
+      "answer": {
+        "en": "They distinguish agreements about shared space, a recurring chance to connect and a solution made together. The dragon is an original fictional housemate; its portrait does not diagnose a real roommate or determine compatibility.",
+        "zh": "它们区分共享空间约定、重复联络机会与共造方案。龙是原创虚构室友；画像不诊断真实室友，也不判定是否合拍。"
+      }
+    }
+  }
 }

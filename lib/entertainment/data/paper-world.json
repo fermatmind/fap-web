@@ -1,6 +1,6 @@
 {
   "slug": "paper-world",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "metaphor",
   "title": {
@@ -344,5 +344,29 @@
     "fold",
     "cast",
     "layers"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Paper World Building Quiz",
+      "zh": "一张纸造世界测试"
+    },
+    "title": {
+      "en": "Paper World Building Quiz",
+      "zh": "一张纸造世界测试"
+    },
+    "description": {
+      "en": "Build an imagined world through folded paths, small character actions or shifting layers. Six creative choices reveal what visitors can do in your original paper scene.",
+      "zh": "用折叠路径、角色小动作或移动层次，搭想象世界。六次创作选择，看看访客能在原创纸景里做什么。"
+    },
+    "faq": {
+      "question": {
+        "en": "Is a layered paper world more complex or advanced than a simple path?",
+        "zh": "分层纸世界，会比简单路径更高级吗？"
+      },
+      "answer": {
+        "en": "Layers change what can be seen, paths create a route, and characters give a scene an action. They are different design purposes. A few clear pieces can serve any of them without testing craft skill or spatial intelligence.",
+        "zh": "层次改变能看什么，路径创造经过路线，角色给场景动作。三者是不同设计目的。少量清楚纸片也能完成，不考手艺或空间智力。"
+      }
+    }
+  }
 }

@@ -1,6 +1,6 @@
 {
   "slug": "tiny-kingdom",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "fantasy",
   "title": {
@@ -344,5 +344,29 @@
     "exchange",
     "experiment",
     "promise"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Tiny Kingdom Building Quiz",
+      "zh": "微小王国共建测试"
+    },
+    "title": {
+      "en": "Tiny Kingdom Building Quiz",
+      "zh": "微小王国共建测试"
+    },
+    "description": {
+      "en": "Build an original imaginary community through exchange, a small experiment or remembered agreements. Six choices reveal three ways a tiny kingdom coordinates ordinary needs.",
+      "zh": "通过交换、小试或记住约定，搭原创想象社群。六次选择，探索微小王国怎样协调普通需要的三种方式。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does the kingdom portrait decide what kind of leader I am?",
+        "zh": "王国画像，会判定我是怎样的领导者吗？"
+      },
+      "answer": {
+        "en": "It describes how a fictional community coordinates materials, tries an idea or remembers an agreement. The choices do not measure leadership, political beliefs or capacity to govern real people; the kingdom is a small original story setting.",
+        "zh": "它描述虚构社群怎样协调材料、试想法或记约定。选择不测领导力、政治观点或管理真实人的能力；王国只是原创小故事场景。"
+      }
+    }
+  }
 }

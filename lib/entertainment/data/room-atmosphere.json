@@ -1,6 +1,6 @@
 {
   "slug": "room-atmosphere",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "everyday",
   "title": {
@@ -344,5 +344,29 @@
     "glow",
     "space",
     "layers"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Room Atmosphere Quiz",
+      "zh": "想象房间氛围测试"
+    },
+    "title": {
+      "en": "Room Atmosphere Quiz",
+      "zh": "想象房间氛围测试"
+    },
+    "description": {
+      "en": "Arrange a fictional room around a pool of light, breathing space or a small collection. Six choices reveal the atmosphere your imagined details create, with three full guides.",
+      "zh": "用一圈光、留白或小收藏，布置虚构房间。六次选择，看看所选细节造出什么氛围，阅读三种完整指南。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does a room with open space have to look unfinished?",
+        "zh": "留白的房间，是否一定像没布置完？"
+      },
+      "answer": {
+        "en": "The space portrait gives an area an intentionally open use. A light focus and a small collection give other forms of character. The scenes let a room feel complete without requiring every corner to be assigned or filled.",
+        "zh": "空间画像给某处刻意开放用途；光点和小收藏提供别种特点。场景允许房间完整，不要求每角指定或填满。"
+      }
+    }
+  }
 }

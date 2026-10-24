@@ -1,6 +1,6 @@
 {
   "slug": "game-night-reset",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "social",
   "title": {
@@ -344,5 +344,29 @@
     "check",
     "change",
     "finish"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Game Night Reset Quiz",
+      "zh": "游戏夜调整方式测试"
+    },
+    "title": {
+      "en": "Game Night Reset Quiz",
+      "zh": "游戏夜调整方式测试"
+    },
+    "description": {
+      "en": "When someone says game night is no longer fun, do you check in, change one part or finish clearly? Six scenarios lead to three reset portraits with practical examples.",
+      "zh": "有人明确说游戏不好玩了，你会询问、改一部分或清楚结束？六个场景，阅读三种调整画像及实际例子。"
+    },
+    "faq": {
+      "question": {
+        "en": "Is ending a game night the same as giving up on the group?",
+        "zh": "结束游戏夜，就等于放弃这群人吗？"
+      },
+      "answer": {
+        "en": "The finish portrait concerns giving an explicitly unfun activity a clear stopping point. A check-in or bounded change can serve other situations. None requires continuing a recreational activity just to prove commitment to a group.",
+        "zh": "结束画像给明确不好玩的活动一个清楚停点。询问或有限改动可服务别种情境；都不要求靠继续休闲活动来证明对团体的投入。"
+      }
+    }
+  }
 }

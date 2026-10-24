@@ -1,6 +1,6 @@
 {
   "slug": "pocket-map",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "metaphor",
   "title": {
@@ -344,5 +344,29 @@
     "landmarks",
     "stops",
     "gaps"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Pocket Map Quiz",
+      "zh": "口袋小地图测试"
+    },
+    "title": {
+      "en": "Pocket Map Quiz",
+      "zh": "口袋小地图测试"
+    },
+    "description": {
+      "en": "Sketch an invented place with landmarks, personal stops or a space for discovery. Six choices reveal what your little map remembers and what it leaves open for another reader.",
+      "zh": "用地标、个人停点或发现空白，画虚构地点。六次选择，看小地图记什么，也给后来读者留什么。"
+    },
+    "faq": {
+      "question": {
+        "en": "Why leave an intentional gap in a fictional map?",
+        "zh": "为什么要在虚构地图里刻意留空？"
+      },
+      "answer": {
+        "en": "A gap can invite a later contribution when enough of the place is already clear. Landmarks make the layout readable, while personal stops record one visit. This is a creative map, not incomplete directions for a real journey.",
+        "zh": "已有足够清楚结构时，空白可邀请后来贡献。地标让布局可读，个人停点记录一次到访。这是创意地图，不是缺指引的真实出行路线。"
+      }
+    }
+  }
 }

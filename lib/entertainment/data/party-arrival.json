@@ -1,6 +1,6 @@
 {
   "slug": "party-arrival",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "social",
   "title": {
@@ -344,5 +344,29 @@
     "conversation",
     "activity",
     "landing"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Party Arrival Style Quiz",
+      "zh": "聚会入场方式测试"
+    },
+    "title": {
+      "en": "Party Arrival Style Quiz",
+      "zh": "聚会入场方式测试"
+    },
+    "description": {
+      "en": "Find a place in an imaginary gathering through a conversation, a visible activity or a gentle landing interval. Six choices reveal three entry styles without a sociability ranking.",
+      "zh": "用一段对话、一项可见活动或轻松适应时间，进入想象聚会。六次选择，阅读三种入场方式，不排社交高低。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does taking time to settle mean I do not want company?",
+        "zh": "先花时间适应，就表示不想和别人相处吗？"
+      },
+      "answer": {
+        "en": "A landing interval simply gives the fictional arrival a pace. A small conversation and an activity with visible rules are other entry points. None determines how much you like people or whether you belong at the gathering.",
+        "zh": "适应时间只给虚构入场一个节奏。小对话和规则可见的活动，是另外入口。都不判定多喜欢人，也不决定是否属于这场聚会。"
+      }
+    }
+  }
 }

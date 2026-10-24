@@ -1,6 +1,6 @@
 {
   "slug": "garden-season",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "nature",
   "title": {
@@ -344,5 +344,29 @@
     "spring",
     "summer",
     "winter"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Imaginary Garden Season Quiz",
+      "zh": "想象花园季节测试"
+    },
+    "title": {
+      "en": "Imaginary Garden Season Quiz",
+      "zh": "想象花园季节测试"
+    },
+    "description": {
+      "en": "Build a fictional growing cycle through a first trial, ongoing care or a deliberate pause. Six choices lead to spring, summer and winter garden portraits without a life-stage prediction.",
+      "zh": "用首个尝试、持续照顾或刻意暂停，构建虚构生长循环。六次选择读春、夏、冬画像，不预测人生阶段。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does the winter garden mean I am falling behind?",
+        "zh": "冬日花园，意味着我落后了吗？"
+      },
+      "answer": {
+        "en": "Winter is the story's way to represent a chosen pause. Spring gives room to a first trial, and summer concerns repeated care. These are different scenes in an imagined cycle, not rankings of energy, age or personal progress.",
+        "zh": "冬日是故事表示自选暂停的方式。春日留给首试，夏日关注重复照顾。它们是想象循环中的不同景，不排精力、年龄或个人进度。"
+      }
+    }
+  }
 }

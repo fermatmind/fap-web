@@ -1,6 +1,6 @@
 {
   "slug": "fantasy-party-role",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "fantasy",
   "title": {
@@ -344,5 +344,29 @@
     "scout",
     "keeper",
     "tinkerer"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Fantasy Adventure Party Quiz",
+      "zh": "幻想冒险小队角色测试"
+    },
+    "title": {
+      "en": "Fantasy Adventure Party Quiz",
+      "zh": "幻想冒险小队角色测试"
+    },
+    "description": {
+      "en": "Choose your role in an original low-stakes fantasy party: scout, resource keeper or tinkerer. Six scenarios lead to full portraits, everyday examples and optional experiments.",
+      "zh": "在原创轻松幻想小队里，选探路、照看物资或临时巧作的贡献。六个场景，读完整画像、日常例子与可选小试。"
+    },
+    "faq": {
+      "question": {
+        "en": "Can a fantasy party need more than one kind of contribution?",
+        "zh": "幻想小队能同时需要不止一种贡献吗？"
+      },
+      "answer": {
+        "en": "A route may need scouting, a shared supply may need care, and an obstacle may invite an improvised tool. The leading portrait emphasizes your selected contribution; it does not make the other roles unnecessary.",
+        "zh": "一段路可需探看，一份公用物资可需照顾，一个障碍也可邀临时工具。领先画像突出你所选贡献，不让其他角色变得多余。"
+      }
+    }
+  }
 }

@@ -1,6 +1,6 @@
 {
   "slug": "museum-of-tomorrow",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "fantasy",
   "title": {
@@ -344,5 +344,29 @@
     "function",
     "user",
     "limit"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Museum of Tomorrow Label Quiz",
+      "zh": "未来博物馆标签测试"
+    },
+    "title": {
+      "en": "Museum of Tomorrow Label Quiz",
+      "zh": "未来博物馆标签测试"
+    },
+    "description": {
+      "en": "Label an invented object through its function, a user's story or a clear limitation. Six fictional museum choices reveal three ways to explain something unfamiliar responsibly.",
+      "zh": "用功能、使用者故事或明确限制，为虚构物件写展签。六次未来博物馆选择，探索怎样清楚解释陌生东西。"
+    },
+    "faq": {
+      "question": {
+        "en": "Why would a museum label include what an invention cannot do?",
+        "zh": "介绍发明的展签，为何还写它不能做什么？"
+      },
+      "answer": {
+        "en": "A limitation helps a visitor understand the claim's boundary. Function explains what the fictional object does, and a use story shows one situated experience. Together they can prevent a memorable story from sounding like an unlimited promise.",
+        "zh": "限制让访客懂主张边界；功能讲物件做什么，使用故事展一个具体体验。三者可避免让难忘故事听成无限承诺。"
+      }
+    }
+  }
 }

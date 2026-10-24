@@ -1,6 +1,6 @@
 {
   "slug": "photo-group-role",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "social",
   "title": {
@@ -344,5 +344,29 @@
     "frame",
     "choice",
     "moment"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Group Photo Role Quiz",
+      "zh": "合照协调角色测试"
+    },
+    "title": {
+      "en": "Group Photo Role Quiz",
+      "zh": "合照协调角色测试"
+    },
+    "description": {
+      "en": "Frame a fictional group photo through composition, participation choices or a bounded shared moment. Six choices reveal three photo roles without rating appearance or popularity.",
+      "zh": "从构图、参与选择或有限共享片刻，协调虚构合照。六次选择，阅读三种角色，不评外貌或受欢迎程度。"
+    },
+    "faq": {
+      "question": {
+        "en": "Can someone choose not to appear in a group photo?",
+        "zh": "有人可以选择不出现在合照里吗？"
+      },
+      "answer": {
+        "en": "The choice portrait makes participation explicit rather than assumed. Framing and marking a moment concern other parts of the scene. An enjoyable shared photograph does not require every fictional participant to be in the image.",
+        "zh": "选择画像把参与说清，不当作默认。构图与标记片刻关注场景其他部分。一张好玩的共享照片，不要求每位虚构参与者入镜。"
+      }
+    }
+  }
 }

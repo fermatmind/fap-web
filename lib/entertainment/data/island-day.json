@@ -1,6 +1,6 @@
 {
   "slug": "island-day",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "nature",
   "title": {
@@ -235,5 +235,29 @@
     "bell",
     "mural",
     "ledger"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Postcard Island Branching Story",
+      "zh": "明信片小岛分支故事"
+    },
+    "title": {
+      "en": "Postcard Island Branching Story",
+      "zh": "明信片小岛分支故事"
+    },
+    "description": {
+      "en": "Spend one fictional day on Postcard Island. Branching choices lead to a bell, a shared mural or an unfinished ledger, each with a full ending guide and a return to the story.",
+      "zh": "在明信片岛过虚构一天。分支选择通向铃、共作壁画或未完记录；各有完整结局指南，也能返回故事。"
+    },
+    "faq": {
+      "question": {
+        "en": "What do the bell, mural and ledger preserve on the island?",
+        "zh": "岛上的铃、壁画与记录，分别保留什么？"
+      },
+      "answer": {
+        "en": "Within the original story, they offer a sound to share, a picture made together and a record that can remain unfinished. The route chooses what to preserve; it does not rank the island's possible endings.",
+        "zh": "在原创故事中，它们提供可共享声音、一起做的图与可保持未完的记录。路线选择保留什么，不给岛上结局排名。"
+      }
+    }
+  }
 }

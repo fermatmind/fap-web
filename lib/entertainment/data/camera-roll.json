@@ -1,6 +1,6 @@
 {
   "slug": "camera-roll",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "everyday",
   "title": {
@@ -344,5 +344,29 @@
     "find",
     "favorites",
     "sequence"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Camera Roll Curation Quiz",
+      "zh": "相册整理趣味测试"
+    },
+    "title": {
+      "en": "Camera Roll Curation Quiz",
+      "zh": "相册整理趣味测试"
+    },
+    "description": {
+      "en": "Curate an imagined photo collection through finding, favorites and sequence. Six choices reveal three ways to make a small set of pictures enjoyable to revisit.",
+      "zh": "用检索、精选与顺序，整理一组想象照片。六次选择，看看你怎样让一小组图片值得重看。"
+    },
+    "faq": {
+      "question": {
+        "en": "How are a favorites collection and a photo sequence different?",
+        "zh": "精选相册与按顺序讲故事，有什么不同？"
+      },
+      "answer": {
+        "en": "A favorites collection gives a few chosen images a place together; a sequence changes the viewing experience through order. Retrieval is a third purpose. The quiz uses imagined photos and never reads your real camera roll.",
+        "zh": "精选把少量选定图片放在一起，顺序则通过先后改变观看体验；方便找回是第三种用途。本测试只用想象照片，不读取你的真实相册。"
+      }
+    }
+  }
 }

@@ -1,6 +1,6 @@
 {
   "slug": "shared-hobby",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "relationships",
   "title": {
@@ -344,5 +344,29 @@
     "guest",
     "parallel",
     "swap"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Shared Hobby Hour Quiz",
+      "zh": "一起玩爱好一小时测试"
+    },
+    "title": {
+      "en": "Shared Hobby Hour Quiz",
+      "zh": "一起玩爱好一小时测试"
+    },
+    "description": {
+      "en": "Offer a small guest experience, parallel activities or a reciprocal exchange. Six fictional hobby-hour choices reveal three ways to share an interest while leaving room for different tastes.",
+      "zh": "提供小型做客体验、平行活动或互换。六次虚构爱好时间选择，探索一起玩，也容不同兴趣的三种方式。"
+    },
+    "faq": {
+      "question": {
+        "en": "Must my friend become interested in my hobby for us to share it?",
+        "zh": "朋友必须爱上我的爱好，才算成功分享吗？"
+      },
+      "answer": {
+        "en": "A guest can try one small part without adopting the whole hobby. Parallel activities and a reciprocal exchange offer other ways to spend the hour. The portraits do not make conversion to the same interest a measure of friendship.",
+        "zh": "做客者可只试一小部分，不必接下整个爱好。平行活动和互换也可共度一小时。画像不把让人改成同样兴趣当作友情指标。"
+      }
+    }
+  }
 }

@@ -1,6 +1,6 @@
 {
   "slug": "shared-ritual",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "relationships",
   "title": {
@@ -344,5 +344,29 @@
     "cue",
     "window",
     "meaning"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Small Shared Ritual Quiz",
+      "zh": "共同小仪式测试"
+    },
+    "title": {
+      "en": "Small Shared Ritual Quiz",
+      "zh": "共同小仪式测试"
+    },
+    "description": {
+      "en": "Keep an imagined ritual workable through a small cue, a flexible window or personal meaning. Six choices reveal three ways to repeat something together without making it a duty.",
+      "zh": "用小提示、弹性时间窗或个人意义，维持想象中的小仪式。六次选择，探索共同重复一件事，而不把它变义务。"
+    },
+    "faq": {
+      "question": {
+        "en": "Must a shared ritual happen at exactly the same time?",
+        "zh": "共同小仪式，必须每次同一时刻发生吗？"
+      },
+      "answer": {
+        "en": "A flexible window can preserve the ritual without a fixed minute. A small cue makes beginning easier, while explicit meaning keeps its purpose recognizable. The scenes do not turn repetition into a duty or a measure of closeness.",
+        "zh": "弹性时间窗让仪式不固定到分钟也可保留。小提示便于开始，明确意义让用途可认。场景不把重复变义务，也不拿它测亲近。"
+      }
+    }
+  }
 }

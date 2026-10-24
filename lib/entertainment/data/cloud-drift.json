@@ -1,6 +1,6 @@
 {
   "slug": "cloud-drift",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-10-24",
   "category": "nature",
   "title": {
@@ -344,5 +344,29 @@
     "outline",
     "scene",
     "open"
-  ]
+  ],
+  "seo": {
+    "topic": {
+      "en": "Cloud Shape Quiz",
+      "zh": "漂云想象测试"
+    },
+    "title": {
+      "en": "Cloud Shape Quiz",
+      "zh": "漂云想象测试"
+    },
+    "description": {
+      "en": "Give drifting clouds an outline, a story sequence or room to stay unnamed. Six illustrated choices lead to three original portraits of looking and imagining.",
+      "zh": "给漂浮云形一个轮廓、一段情节，或允许暂不起名。六次插画选择，阅读三种观看与想象的原创画像。"
+    },
+    "faq": {
+      "question": {
+        "en": "Does seeing a shape in a cloud reveal a hidden personality?",
+        "zh": "云里看见的形状，会透露隐藏人格吗？"
+      },
+      "answer": {
+        "en": "The cloud shapes are creative prompts rather than projective evidence. The choices distinguish naming a form, building a scene and leaving ambiguity open. They do not decode hidden motives or measure imagination.",
+        "zh": "云形是创作提示，不是投射证据。选择区分命名形状、构建场景与保留含糊，不解码隐藏动机，也不衡量想象力。"
+      }
+    }
+  }
 }
