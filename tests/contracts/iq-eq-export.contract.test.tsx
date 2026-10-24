@@ -2,6 +2,7 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { buildIqResultExport } from "@/lib/iq/export";
 import { buildEqResultExport } from "@/lib/eq/export";
+import { EQResultV5 } from "@/components/result/eq/EQResultV5";
 import { ResultExportPanel } from "@/components/result-export/ResultExportPanel";
 import { defaultResultExportDraft, serializeResultExport } from "@/lib/result-export/contract";
 import { buildEqRendererContractFixture } from "../fixtures/eq/v5/eq60RendererContractFixture";
@@ -61,6 +62,16 @@ for (const locale of ["zh", "en"] as const) describe(`IQ/EQ actual export projec
     report.scores.dimensions.SA.raw_score = 43;
     const projection = buildEqResultExport(report as unknown as ReportResponse, locale)!;
     expect(projection.sections[1].fields[0].value).toBe(43);
+  });
+  it("does not offer the metadata-only EQ PDF as a complete result when the generic parent says ready", () => {
+    const onDownloadPdf = vi.fn().mockResolvedValue(undefined);
+    render(<EQResultV5 locale={locale} reportData={eq(locale)} exportPdfState="ready" onDownloadPdf={onDownloadPdf} />);
+    fireEvent.click(screen.getByText(locale === "zh" ? "选择、预览并带走结果" : "Choose, preview and take your results"));
+    expect(screen.queryByRole("button", { name: /下载现有报告 PDF|Download existing report PDF/ })).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /^TXT$/ })).toBeEnabled();
+    expect(screen.getByRole("button", { name: /^Markdown$/ })).toBeEnabled();
+    expect(screen.getByText(locale === "zh" ? /此处未提供可用 PDF/ : /A PDF is not available here/)).toBeInTheDocument();
+    expect(onDownloadPdf).not.toHaveBeenCalled();
   });
   it.each(["IQ", "EQ"])("offers %s real data, copy rejection recovery, optional sections and pending PDF fallback", async product => {
     Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: vi.fn().mockRejectedValue(new Error("Denied")) } });

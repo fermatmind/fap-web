@@ -27,7 +27,6 @@ export function EQResultV5({
   loadAgentContext,
   sendAgentRuntimeMessage,
   exportPdfState = "unavailable",
-  onDownloadPdf,
 }: {
   locale: Locale;
   reportData: ReportResponse;
@@ -54,11 +53,15 @@ export function EQResultV5({
 
   const lowConfidence = isLowConfidenceEqResult(viewModel);
   const exportProjection = buildEqResultExport(reportData, locale);
+  // Current EQ /report.pdf contains report metadata only, even when the
+  // generic access projection says ready. Do not offer it as the user's
+  // result report. Keep preparing/unavailable text and TXT/MD alternatives.
+  const resultPdfState = exportPdfState === "pending" ? "pending" : "unavailable";
 
   return (
     <main data-testid="eq-result-v5" className="mx-auto w-full min-w-0 max-w-6xl space-y-6 [overflow-wrap:anywhere]">
       <EQResultHero viewModel={viewModel} />
-      {exportProjection ? <ResultExportPanel projection={exportProjection} locale={locale} pdfState={exportPdfState} onDownloadPdf={onDownloadPdf} /> : null}
+      {exportProjection ? <ResultExportPanel projection={exportProjection} locale={locale} pdfState={resultPdfState} /> : null}
       {lowConfidence ? (
         <>
           <EQQualityBanner viewModel={viewModel} />
