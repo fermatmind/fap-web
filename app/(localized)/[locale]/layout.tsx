@@ -41,6 +41,7 @@ const fmMono = localFont({
   ],
   variable: "--font-fm-mono",
   display: "swap",
+  preload: false,
   fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
 });
 
