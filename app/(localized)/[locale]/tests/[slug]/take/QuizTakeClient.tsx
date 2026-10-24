@@ -58,7 +58,7 @@ import {
   buildRiasecSubmitAttemptTrackingPayload,
 } from "@/lib/riasec/tracking";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
-import { recoverAcceptedSubmission } from "@/lib/attempt/submissionRecovery";
+import { isAmbiguousSubmissionError, recoverAcceptedSubmission, unconfirmedSubmissionMessage } from "@/lib/attempt/submissionRecovery";
 import {
   buildTrackingAttributionPayload,
   extractAttributionParamsFromSearchParams,
@@ -1456,7 +1456,7 @@ function QuizTakeInner({
       }
 
       const uiError = toUiError(error, "Submit failed.", locale);
-      setSubmitError(uiError.message);
+      setSubmitError(isAmbiguousSubmissionError(error) ? unconfirmedSubmissionMessage(locale) : uiError.message);
       setRetryAfterSeconds(uiError.retryAfterSeconds);
       const classified = classifyApiError(error);
       trackEvent("submit_failure", buildTestKpiTrackingPayload(testKpiMetadata, {

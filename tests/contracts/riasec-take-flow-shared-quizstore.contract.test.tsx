@@ -414,7 +414,7 @@ describe("RIASEC shared QuizStore take flow contract", () => {
     await answerCurrent("riasec-q1");
     await answerCurrent("riasec-q2");
 
-    expect(await screen.findByText("Request timed out.")).toBeInTheDocument();
+    expect(await screen.findByText("暂未确认提交成功。答案仍保留在当前页面，请重新提交。")).toBeInTheDocument();
     expect(hoisted.fetchAttemptSubmission).toHaveBeenCalledTimes(1);
     expect(hoisted.routerPush).not.toHaveBeenCalled();
     expect(hoisted.submitAttempt).toHaveBeenCalledTimes(1);
@@ -465,7 +465,7 @@ describe("RIASEC shared QuizStore take flow contract", () => {
     await answerCurrent("riasec-q1");
     await answerCurrent("riasec-q2");
 
-    expect(await screen.findByText("submission durability gate failed.")).toBeInTheDocument();
+    expect(await screen.findByText("暂未确认提交成功。答案仍保留在当前页面，请重新提交。")).toBeInTheDocument();
     expect(hoisted.fetchAttemptSubmission).toHaveBeenCalledTimes(1);
     expect(hoisted.routerPush).not.toHaveBeenCalled();
     expect(hoisted.submitAttempt).toHaveBeenCalledTimes(1);

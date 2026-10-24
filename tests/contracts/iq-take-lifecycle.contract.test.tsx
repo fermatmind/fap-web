@@ -103,7 +103,10 @@ vi.mock("@/lib/api/v0_3", async () => {
   };
 });
 
-vi.mock("@/lib/attempt/submissionRecovery", () => ({ recoverAcceptedSubmission: hoisted.recoverAcceptedSubmission }));
+vi.mock("@/lib/attempt/submissionRecovery", async () => ({
+  ...await vi.importActual<typeof import("@/lib/attempt/submissionRecovery")>("@/lib/attempt/submissionRecovery"),
+  recoverAcceptedSubmission: hoisted.recoverAcceptedSubmission,
+}));
 
 vi.mock("@/lib/iq/api", async () => {
   const actual = await vi.importActual<typeof import("@/lib/iq/api")>("@/lib/iq/api");
@@ -485,12 +488,12 @@ describe("IQ take lifecycle contract", () => {
   });
 
   it("keeps a failed automatic submission retryable without losing the final answer", async () => {
-    hoisted.submitIqAttempt.mockRejectedValueOnce(new Error("Service unavailable"));
+    hoisted.submitIqAttempt.mockRejectedValueOnce(new TypeError("Failed to fetch"));
     renderClient();
     fireEvent.click(within(await screen.findByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option A" }));
     await screen.findByText("Choose the best continuation.");
     fireEvent.click(within(screen.getByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option B" }));
-    await screen.findByTestId("iq-submit-error");
+    expect(await screen.findByTestId("iq-submit-error")).toHaveTextContent("Your answers are still on this page");
     const retryButton = await screen.findByRole("button", { name: "Retry submit" });
     await waitFor(() => expect(retryButton).toBeEnabled());
     fireEvent.click(retryButton);

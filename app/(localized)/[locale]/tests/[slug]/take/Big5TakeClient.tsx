@@ -49,7 +49,7 @@ import { classifyApiError } from "@/lib/observability/httpError";
 import { useConstrainQuizUrlTokens } from "@/lib/quiz/urlTokenGuard";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
-import { recoverAcceptedSubmission } from "@/lib/attempt/submissionRecovery";
+import { isAmbiguousSubmissionError, recoverAcceptedSubmission, unconfirmedSubmissionMessage } from "@/lib/attempt/submissionRecovery";
 import { buildTestKpiMetadata, buildTestKpiTrackingPayload } from "@/lib/tracking/testKpiMetadata";
 import { buildPublicArticleStartMeta } from "@/lib/tracking/publicArticleStartMeta";
 import {
@@ -226,6 +226,7 @@ export default function Big5TakeClient({
     if (scope === "submit") {
       setSubmitError(mapped.message);
       setSubmitErrorAction(mapped.action ?? null);
+      setSubmitCanRetry(mapped.action === "retry");
       return;
     }
 
@@ -973,6 +974,7 @@ export default function Big5TakeClient({
         fallbackFormCode: resolvedFormCode,
         copy: big5RetakeCopy,
       });
+      if (isAmbiguousSubmissionError(error)) mapped.message = unconfirmedSubmissionMessage(locale);
       const classified = classifyApiError(error);
       trackEvent("submit_failure", buildTestKpiTrackingPayload(testKpiMetadata, {
         stage: "submit_attempt",

@@ -36,7 +36,7 @@ import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
-import { recoverAcceptedSubmission } from "@/lib/attempt/submissionRecovery";
+import { isAmbiguousSubmissionError, recoverAcceptedSubmission, unconfirmedSubmissionMessage } from "@/lib/attempt/submissionRecovery";
 import { readStoredTrackingAttributionPayload } from "@/lib/tracking/attribution";
 import { buildSeoAttemptStartAttributionFromSearchParams } from "@/lib/tracking/seoCtaAttribution";
 import { buildTestKpiMetadata, buildTestKpiTrackingPayload } from "@/lib/tracking/testKpiMetadata";
@@ -608,7 +608,7 @@ function EnneagramTakeInner({
       if (!isFlowActive(activeRunId)) return null;
       if (accepted) return activeAttemptId;
       setSubmitError(
-        error instanceof Error && error.message
+        isAmbiguousSubmissionError(error) ? unconfirmedSubmissionMessage(locale) : error instanceof Error && error.message
           ? error.message
           : locale === "zh"
             ? "提交失败，请稍后重试。"
@@ -842,7 +842,7 @@ function EnneagramTakeInner({
               <div className="flex items-center gap-[var(--fm-gap-sm)]">
                 {isLastQuestion ? (
                   <Button type="button" onClick={() => void handleSubmitWithOverlay()} disabled={!canSubmit}>
-                    {submitting ? "Submitting..." : locale === "zh" ? "提交" : "Submit"}
+                    {submitting ? (locale === "zh" ? "提交中..." : "Submitting...") : submitError ? dict.quiz.immersive.submitRetry : locale === "zh" ? "提交" : "Submit"}
                   </Button>
                 ) : (
                   <Button type="button" onClick={goNext} disabled={!canContinue}>
@@ -909,7 +909,7 @@ function EnneagramTakeInner({
         {forcedChoice ? (
           isLastQuestion ? (
             <Button type="button" onClick={() => void handleSubmitWithOverlay()} disabled={!canSubmit}>
-              {submitting ? "Submitting..." : locale === "zh" ? "提交" : "Submit"}
+              {submitting ? (locale === "zh" ? "提交中..." : "Submitting...") : submitError ? dict.quiz.immersive.submitRetry : locale === "zh" ? "提交" : "Submit"}
             </Button>
           ) : (
             <Button type="button" onClick={goNext} disabled={!canContinue}>

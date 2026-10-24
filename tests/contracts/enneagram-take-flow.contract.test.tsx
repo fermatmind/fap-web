@@ -114,7 +114,10 @@ vi.mock("@/lib/auth/fmToken", () => ({
   setFmToken: () => undefined,
 }));
 
-vi.mock("@/lib/attempt/submissionRecovery", () => ({ recoverAcceptedSubmission: hoisted.recoverAcceptedSubmission }));
+vi.mock("@/lib/attempt/submissionRecovery", async () => ({
+  ...await vi.importActual<typeof import("@/lib/attempt/submissionRecovery")>("@/lib/attempt/submissionRecovery"),
+  recoverAcceptedSubmission: hoisted.recoverAcceptedSubmission,
+}));
 
 vi.mock("@/lib/enneagram/api", async () => {
   const actual = await vi.importActual<typeof import("@/lib/enneagram/api")>("@/lib/enneagram/api");
@@ -281,6 +284,21 @@ describe("enneagram take flow contract", () => {
     expect(hoisted.startEnneagramAttempt).toHaveBeenCalledTimes(1);
     expect(hoisted.startEnneagramAttempt).toHaveBeenCalledWith(expect.objectContaining({ formCode: form, locale: locale === "zh" ? "zh-CN" : "en" }));
     expect(hoisted.submitEnneagramAttempt).toHaveBeenCalledTimes(1);
+  });
+
+  it.each(["en", "zh"])("offers a clear %s forced-choice retry while retaining answers", async (locale) => {
+    hoisted.pathname = `/${locale}/tests/enneagram-personality-test-nine-types/take`;
+    hoisted.fetchEnneagramQuestions.mockResolvedValue(forcedChoiceResponse());
+    hoisted.submitEnneagramAttempt.mockRejectedValueOnce(new TypeError("Failed to fetch"));
+    render(<EnneagramTakeClient slug="enneagram-personality-test-nine-types" formCode="enneagram_forced_choice_144" estimatedMinutes={18} />);
+    fireEvent.click(await screen.findByRole("radio", { name: "I notice what can be improved." }));
+    expect(await screen.findByText(locale === "zh"
+      ? "暂未确认提交成功。答案仍保留在当前页面，请重新提交。"
+      : "Submission could not be confirmed. Your answers are still on this page. Retry submission.")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Retry submit" }));
+    await waitFor(() => expect(hoisted.routerPush).toHaveBeenCalledWith(`/${locale}/result/attempt_enneagram_take`));
+    expect(hoisted.startEnneagramAttempt).toHaveBeenCalledTimes(1);
+    expect(hoisted.submitEnneagramAttempt.mock.calls[0][0].answers).toEqual(hoisted.submitEnneagramAttempt.mock.calls[1][0].answers);
   });
 
   it("keeps a final selection and pending attempt through StrictMode replay", async () => {

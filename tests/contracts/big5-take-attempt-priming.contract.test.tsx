@@ -180,7 +180,10 @@ vi.mock("@/lib/auth/fmToken", () => ({
   setFmToken: () => undefined,
 }));
 
-vi.mock("@/lib/attempt/submissionRecovery", () => ({ recoverAcceptedSubmission: hoisted.recoverAcceptedSubmission }));
+vi.mock("@/lib/attempt/submissionRecovery", async () => ({
+  ...await vi.importActual<typeof import("@/lib/attempt/submissionRecovery")>("@/lib/attempt/submissionRecovery"),
+  recoverAcceptedSubmission: hoisted.recoverAcceptedSubmission,
+}));
 
 vi.mock("@/lib/big5/api", () => ({
   fetchBig5Lookup: hoisted.fetchBig5Lookup,
@@ -364,6 +367,23 @@ describe("Big Five take attempt priming", () => {
     expect(hoisted.startBig5Attempt).toHaveBeenCalledTimes(1);
     expect(hoisted.startBig5Attempt).toHaveBeenCalledWith(expect.objectContaining({ formCode: form, locale: locale === "zh" ? "zh-CN" : "en" }));
     expect(hoisted.submitBig5Attempt).toHaveBeenCalledTimes(1);
+  });
+
+  it.each(["en", "zh"])("explains an unconfirmed %s submission and retries the saved answer", async (locale) => {
+    hoisted.pathname = `/${locale}/tests/big-five-personality-test-ocean-model/take`;
+    hoisted.fetchBig5Questions.mockResolvedValue(buildQuestionResponse(1));
+    hoisted.submitBig5Attempt.mockRejectedValueOnce(new TypeError("Failed to fetch"));
+    renderClient("big5_90");
+    await waitForFirstQuestion();
+    fireEvent.click(screen.getByRole("button", { name: "Answer current" }));
+    fireEvent.click(await screen.findByRole("button", { name: locale === "zh" ? "提交" : "Submit" }));
+    expect(await screen.findByText(locale === "zh"
+      ? "暂未确认提交成功。答案仍保留在当前页面，请重新提交。"
+      : "Submission could not be confirmed. Your answers are still on this page. Retry submission.")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Retry submit" }));
+    await waitFor(() => expect(hoisted.routerPush).toHaveBeenCalledWith(`/${locale}/result/attempt-big5-start-001`));
+    expect(hoisted.startBig5Attempt).toHaveBeenCalledTimes(1);
+    expect(hoisted.submitBig5Attempt.mock.calls[0][0].answers).toEqual(hoisted.submitBig5Attempt.mock.calls[1][0].answers);
   });
 
   it("passes validated public article source metadata only on the first real answer", async () => {
