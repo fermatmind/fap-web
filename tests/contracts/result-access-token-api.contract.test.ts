@@ -87,3 +87,21 @@ describe("result access token API contract", () => {
     );
   });
 });
+
+// PDF is another consumer of the same read-only result access grant.
+describe("result page PDF access token", () => {
+  it("keeps token-only reads in a header without attaching owner identity or accepting JSON", async () => {
+    const { fetchAttemptResultPagePdfWithMeta } = await import("@/lib/api/v0_3");
+    const fetch = vi.fn().mockResolvedValue(new Response('{"error":"pending"}', { headers: { "content-type": "application/json" } }));
+    vi.stubGlobal("fetch", fetch);
+    try {
+      await expect(fetchAttemptResultPagePdfWithMeta({ attemptId: "qa-pdf-token", anonId: "must-not-attach-owner", accessToken: "readonly-qa-token" })).rejects.toThrow();
+      const [url, init] = fetch.mock.calls[0];
+      expect(url).not.toContain("readonly-qa-token");
+      expect(init.headers.get("X-Result-Access-Token")).toBe("readonly-qa-token");
+      expect(init.headers.has("Authorization")).toBe(false);
+      expect(init.headers.has("X-Anon-Id")).toBe(false);
+      expect(init.cache).toBe("no-store");
+    } finally { vi.unstubAllGlobals(); }
+  });
+});

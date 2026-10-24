@@ -1558,6 +1558,7 @@ export function RichResultReport({
         formSummaryLabel={assembled.formSummaryLabel}
         normsStatus={assembled.normsStatus}
         qualityLevel={assembled.qualityLevel}
+        readingContext={assembled.readingContext}
         showPrecisePercentiles={assembled.normEvidence?.show_precise_percentiles !== false}
         visibleSections={assembled.visibleSections}
         lockedSections={assembled.lockedSections}

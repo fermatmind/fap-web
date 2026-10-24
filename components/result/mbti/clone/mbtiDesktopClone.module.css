@@ -2301,3 +2301,23 @@
   .scenarioItem { break-inside: avoid; }
   .scenarioExplanation, .scenarioPractice p { font-size: 10pt; }
 }
+
+/* Keep enlarged report text readable within narrow screens; print layout is unchanged. */
+@media screen {
+  .cloneRoot {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .anchorList {
+    flex-wrap: wrap;
+  }
+
+  .anchorLink {
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
+    flex-shrink: 1;
+  }
+}

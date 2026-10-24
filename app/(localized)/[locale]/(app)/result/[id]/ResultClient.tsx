@@ -13,6 +13,13 @@ import {
   resolveReportScaleCode,
   RichResultReport,
 } from "@/components/result/RichResultReport";
+import { ResultExportPanel } from "@/components/result-export/ResultExportPanel";
+import { MbtiResultReader } from "@/components/result-export/MbtiResultReader";
+import { buildBig5ResultExport } from "@/lib/big5/aiExport";
+import { buildEnneagramResultExport } from "@/lib/enneagram/aiExport";
+import { buildRiasecResultExport } from "@/lib/riasec/exportAdapter";
+import { buildMbtiResultExport } from "@/lib/result-export/mbti";
+import { downloadResultPdf } from "@/lib/result-export/download";
 import { DimensionBars } from "@/components/result/DimensionBars";
 import { ResultSummary } from "@/components/result/ResultSummary";
 import { Alert } from "@/components/ui/alert";
@@ -21,6 +28,7 @@ import {
   type AttemptInviteUnlockProgressView,
 } from "@/lib/access/inviteUnlock";
 import {
+  canDownloadReportPdf,
   isProjectionLocked,
   isProjectionProcessing,
   isProjectionUnavailable,
@@ -33,6 +41,7 @@ import { useResultVisibilityObservation } from "@/hooks/useResultVisibilityObser
 import {
   bindAttemptEmail,
   fetchAttemptReport,
+  fetchAttemptResultPagePdfWithMeta,
   fetchAttemptReportAccess,
   fetchAttemptInviteUnlockProgress,
   fetchAttemptResult,
@@ -1836,7 +1845,7 @@ export default function ResultClient({
     || resolveScaleCodeForTelemetry(reportData, resultData) === "MBTI";
   const renderEmailRecoveryCard = () => (
     <section
-      className="rounded-[8px] border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] sm:p-6"
+      className="min-w-0 [overflow-wrap:anywhere] rounded-[8px] border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] sm:p-6"
       data-testid="result-email-recovery-card"
     >
       <div className="space-y-2">
@@ -1845,7 +1854,7 @@ export default function ResultClient({
         </h2>
       </div>
 
-      <form className="mt-4 grid gap-3 sm:grid-cols-[1fr_auto]" onSubmit={handleEmailRecoverySubmit}>
+      <form className="mt-4 grid min-w-0 grid-cols-[minmax(0,1fr)] gap-3 sm:grid-cols-[minmax(0,1fr)_auto]" onSubmit={handleEmailRecoverySubmit}>
         <label className="sr-only" htmlFor="result-email-recovery-input">
           {locale === "zh" ? "邮箱" : "Email"}
         </label>
@@ -1859,10 +1868,11 @@ export default function ResultClient({
           required
           disabled={emailRecoverySaved}
           onChange={(event) => setEmail(event.target.value)}
-          className="h-12 w-full rounded-[8px] border border-[var(--fm-border)] bg-white px-4 text-base text-[var(--fm-text)] outline-none transition focus:border-[var(--fm-trust-blue)] focus:ring-2 focus:ring-[var(--fm-focus)] disabled:bg-slate-50 disabled:text-slate-500"
+          className="h-12 w-full min-w-0 rounded-[8px] border border-[var(--fm-border)] bg-white px-4 text-base text-[var(--fm-text)] outline-none transition focus:border-[var(--fm-trust-blue)] focus:ring-2 focus:ring-[var(--fm-focus)] disabled:bg-slate-50 disabled:text-slate-500"
           placeholder="you@example.com"
         />
         <Button
+          className="h-auto min-w-0 whitespace-normal py-3"
           type="submit"
           disabled={emailSubmitting || emailRecoverySaved}
           data-testid="result-email-recovery-submit"
@@ -2243,9 +2253,28 @@ export default function ResultClient({
   }
 
   if (hasRichReport && reportData) {
+    // The export consumes only the projection already authorized and rendered here.
+    // It never reads a public share, raw answers, hidden sections or another endpoint.
+    const exportAllowed = !printMode && (!accessView || (accessView.reportState === "ready" && ["ready", "locked"].includes(accessView.accessState)));
+    const mbtiExport = exportAllowed && resolvedScaleCode === "MBTI" ? buildMbtiResultExport(reportData, locale) : null;
+    const riasecExport = exportAllowed && resolvedScaleCode === "RIASEC" ? buildRiasecResultExport(reportData, locale) : null;
+    const domainExport = exportAllowed && accessView
+      ? resolvedScaleCode === "BIG5_OCEAN" ? buildBig5ResultExport(reportData, locale, accessView)
+        : resolvedScaleCode === "ENNEAGRAM" ? buildEnneagramResultExport(reportData, locale, accessView) : null
+      : null;
     return (
       <div data-result-visible-root className="space-y-[var(--fm-gap-md)]">
-        {resolvedScaleCode !== "RIASEC" || !hasRiasecProjection(reportData) ? renderOptionalEmailRecoveryCard() : null}
+        {resolvedScaleCode !== "MBTI" && (resolvedScaleCode !== "RIASEC" || !hasRiasecProjection(reportData)) ? renderOptionalEmailRecoveryCard() : null}
+        {mbtiExport ? <>
+          <MbtiResultReader projection={mbtiExport} locale={locale} />
+          <ResultExportPanel projection={mbtiExport} locale={locale}
+            pdfState={canDownloadReportPdf(accessView) ? "ready" : accessView?.pdfState === "pending" ? "pending" : "unavailable"}
+            onDownloadPdf={canDownloadReportPdf(accessView) ? async () => {
+              const response = await fetchAttemptResultPagePdfWithMeta({ attemptId, anonId, accessToken: resultAccessToken });
+              await downloadResultPdf(response.blob);
+            } : undefined}
+          />
+        </> : null}
         <RichResultReport
           locale={locale}
           reportData={reportData}
@@ -2256,6 +2285,9 @@ export default function ResultClient({
           snapshotDesktopCloneContent={snapshotDesktopCloneContent}
           snapshotContentStatus={snapshotContentStatus}
         />
+        {riasecExport ? <ResultExportPanel projection={riasecExport} locale={locale} /> : null}
+        {domainExport ? <ResultExportPanel projection={domainExport} locale={locale} /> : null}
+        {resolvedScaleCode === "MBTI" && !printMode ? renderOptionalEmailRecoveryCard() : null}
         {renderPdfReadyMarker()}
       </div>
     );
@@ -2266,6 +2298,8 @@ export default function ResultClient({
   }
 
   if (hasRiasecProjection(resultData)) {
+    const riasecExport = !printMode && (!accessView || (accessView.reportState === "ready" && ["ready", "locked"].includes(accessView.accessState)))
+      ? buildRiasecResultExport(resultData, locale) : null;
     return (
       <div data-result-visible-root className="space-y-[var(--fm-gap-md)]">
         <RiasecResultShell
@@ -2275,6 +2309,7 @@ export default function ResultClient({
           emailRecovery={!printSnapshotContractValid ? renderOptionalEmailRecoveryCard() : null}
           attemptId={attemptId}
         />
+        {riasecExport ? <ResultExportPanel projection={riasecExport} locale={locale} /> : null}
       </div>
     );
   }
