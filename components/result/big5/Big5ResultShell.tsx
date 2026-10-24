@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { Big5ReadingGuide } from "./Big5ReadingGuide";
+import { buildBig5ReadingContext, type Big5ReadingContext } from "@/lib/big5/reportReading";
 import { OfferCard } from "@/components/big5/paywall/OfferCard";
 import { PdfDownloadButton } from "@/components/big5/pdf/PdfDownloadButton";
 import { SectionRenderer } from "@/components/big5/report/SectionRenderer";
@@ -53,6 +55,7 @@ export function Big5ResultShell({
   authority,
   normsStatus,
   qualityLevel,
+  readingContext,
   showPrecisePercentiles = true,
   visibleSections,
   lockedSections,
@@ -68,6 +71,7 @@ export function Big5ResultShell({
   dimensions: Array<Record<string, unknown>>;
   projection: Big5PublicProjection | null;
   authority?: Big5PrivateResultAuthority | null;
+  readingContext?: Big5ReadingContext;
   normsStatus: string;
   qualityLevel: string;
   showPrecisePercentiles?: boolean;
@@ -104,6 +108,8 @@ export function Big5ResultShell({
           {dimensions.length > 0 && showPrecisePercentiles ? <div data-testid="big5-dimensions"><DimensionBars dimensions={dimensions} /></div> : null}
         </CardContent>
       </Card>
+
+      <Big5ReadingGuide locale={locale} context={readingContext ?? buildBig5ReadingContext({ projection, normEvidence: { status_label: normsStatus, show_precise_percentiles: false }, quality: { level: qualityLevel }, includeDomains: visibleSections.some((section) => section.key === "domains_overview" && Boolean(section.blocks?.length)), includeFacets: visibleSections.some((section) => section.key === "facet_details" && Boolean(section.blocks?.length)) })} />
 
       {visibleSections.length > 0 ? (
         <nav aria-label={isZh ? "报告章节" : "Report sections"} className="flex flex-wrap gap-2 rounded-2xl border border-slate-200 bg-white p-4">

@@ -119,10 +119,21 @@ function DistributionChart({
           </g>
         </svg>
       </div>
+      <div className="mx-auto max-w-full overflow-x-auto">
+        <table className="w-full text-left text-sm" aria-label={locale === "zh" ? "九型分布数值" : "Nine-type distribution values"}>
+          <thead><tr><th scope="col">{locale === "zh" ? "类型" : "Type"}</th><th scope="col">{locale === "zh" ? "本次排序" : "Rank in this result"}</th><th scope="col">{locale === "zh" ? "本题本分数" : "Form-specific score"}</th></tr></thead>
+          <tbody>{viewModel.distribution.map((row) => <tr key={row.typeId}><th scope="row">{row.typeId}</th><td>{row.rank}</td><td>{row.scoreDisplay}</td></tr>)}</tbody>
+        </table>
+      </div>
       <figcaption className={styles.chartCaption}>
         {locale === "zh"
           ? "仅用于同一题型内的相对比较。"
           : "For relative comparison within this form only."}
+        {viewModel.formCode === "enneagram_likert_105"
+          ? (locale === "zh" ? " 105题：Likert强度，0–100标准化展示，不是人群百分位。" : " 105 items: Likert intensity, displayed on a normalized 0–100 scale, not a population percentile.")
+          : viewModel.formCode === "enneagram_forced_choice_144"
+            ? (locale === "zh" ? " 144题：迫选选择率，0–100展示；不代表绝对强度，不与105题直接换算。" : " 144 items: forced-choice selection rate on a 0–100 display; not absolute intensity and not convertible to the 105-item score.")
+            : (locale === "zh" ? " 本次题本单位未提供。" : " The unit for this form was not provided.")}
       </figcaption>
     </figure>
   );
@@ -530,6 +541,7 @@ export function EnneagramResultShell({
         {isZh
           ? "结果内容暂不可用，请稍后重试。"
           : "Result content is temporarily unavailable. Please try again later."}
+        <button type="button" className="ml-3 min-h-11 rounded-lg border px-4 py-2" onClick={() => window.location.reload()}>{isZh ? "重新载入结果" : "Reload result"}</button>
       </Alert>
     );
   }
@@ -592,7 +604,7 @@ export function EnneagramResultShell({
           </nav>
         </aside>
         <article className={styles.report}>
-          <section id="chapter-1" className={styles.chapter}>
+          <section id="chapter-1" tabIndex={-1} className={styles.chapter}>
             <header className={styles.resultOverview}>
               <div className={styles.resultOverviewHeader}>
                 <span>01</span>
@@ -692,11 +704,18 @@ export function EnneagramResultShell({
                 </button>
               ))}
             </div>
+            <div className={styles.resultMethodNote} role="note">
+              <p>{isZh ? "候选与近分状态来自本次报告。切换只改变阅读视角，不改变计分或确定唯一人格。第二高分不自动是翼型；翼型只讨论相邻类型，未测的健康层级、本能与临床结论不属于本次成绩。" : "Candidates and close-score status come from this report. Switching changes the reading perspective, not scores or a fixed identity. The second-highest score is not automatically a wing; wings concern adjacent types. Unmeasured health levels, instincts and clinical conclusions are not test results."}</p>
+              <p>{isZh ? `本次解释状态：${({ clear: "候选较清晰", close_call: "候选接近", diffuse: "分布分散", low_quality: "作答质量受限", unavailable: "不可用", unknown: "未提供" })[viewModel.interpretationScope]}；信心说明：${report.classification.confidenceLevel || "未提供"}。` : `Interpretation status: ${viewModel.interpretationScope}; confidence note: ${report.classification.confidenceLevel || "not provided"}.`}</p>
+              <label className="block">{isZh ? "一次近期冲突：发生了什么、想保护什么、担心失去什么？再记一个不符合候选动机的经历。（本人自述）" : "A recent conflict: what happened, what did you want to protect and what did you fear losing? Add one experience that does not fit a candidate motivation. (Your account)"}<textarea rows={4} className="mt-2 block w-full rounded-lg border p-3" /></label>
+              <p>{isZh ? "同一行为可能有不同动机；对照候选正文与反例再选一个回应练习。自述只在本页，刷新会清空，不自动发送。" : "The same behavior can have different motivations. Compare candidate descriptions and counterexamples, then choose one response practice. Notes stay on this page, clear on refresh and are not sent automatically."}</p>
+            </div>
             {report.pairComparison ? <PairComparisonCard comparison={report.pairComparison} locale={locale} /> : null}
           </section>
           {chapters.slice(1, 6).map((chapter) => (
             <section
               id={chapter.id}
+              tabIndex={-1}
               className={styles.chapter}
               key={`${candidate.typeId}-${chapter.id}`}
             >
@@ -711,7 +730,7 @@ export function EnneagramResultShell({
               </div>
             </section>
           ))}
-          <section id="chapter-7" className={styles.chapter}>
+          <section id="chapter-7" tabIndex={-1} className={styles.chapter}>
             <header className={styles.chapterHeader}>
               <span>07</span>
               <h2>{chapters[6].title}</h2>

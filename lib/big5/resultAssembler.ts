@@ -17,6 +17,7 @@ import {
   type Big5V1SectionKey,
 } from "@/lib/big5/sectionBlueprint";
 import { BIG5_DOMAIN_LABELS, BIG5_DOMAIN_ORDER, type Big5DomainCode } from "@/lib/big5/taxonomy";
+import { buildBig5ReadingContext, type Big5ReadingContext } from "@/lib/big5/reportReading";
 import type { Locale } from "@/lib/i18n/locales";
 
 type ReportBlock = {
@@ -61,6 +62,7 @@ export type Big5ResultViewModel = {
   qualityLevel: string;
   quality: Record<string, unknown> | null;
   normEvidence: Record<string, unknown> | null;
+  readingContext: Big5ReadingContext;
   dimensions: Array<Record<string, unknown>>;
   plannedSections: Big5AssembledSection[];
   visibleSections: Big5AssembledSection[];
@@ -360,6 +362,7 @@ export function assembleBig5ResultViewModel({
     qualityLevel: text(quality?.grade) || text(quality?.level),
     quality,
     normEvidence,
+    readingContext: buildBig5ReadingContext({ projection, normEvidence, quality, engine, includeDomains: visibleSections.some((section) => section.key === "domains_overview" && Boolean(section.blocks?.length)), includeFacets: visibleSections.some((section) => section.key === "facet_details" && Boolean(section.blocks?.length)) }),
     dimensions: dimensions(projection, locale),
     plannedSections,
     visibleSections,
