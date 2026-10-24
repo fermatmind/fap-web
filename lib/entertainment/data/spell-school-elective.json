@@ -1,0 +1,436 @@
+{
+  "slug": "spell-school-elective",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "fantasy",
+  "title": {
+    "en": "Which Original Spell-School Elective Would You Choose?",
+    "zh": "原创魔法学校里，你会选哪门课？"
+  },
+  "description": {
+    "en": "Six playful class decisions place you closest to one of four original electives: teacup weather, pocket architecture, echo letters, or floating shapes. Full results free.",
+    "zh": "6道轻松选课题，看看你更靠近杯中天气、口袋建筑、回声书信，还是漂浮形状。四门课均为原创，完整结果免费。"
+  },
+  "introduction": {
+    "en": "The school offers small, harmless imaginary projects rather than exams. Choose what you would enjoy trying, even if you have never done anything similar. Your elective is a fictional interest portrait, not a learning-style diagnosis, talent rating, or career recommendation.",
+    "zh": "这所学校只有小而无害的想象项目，不组织考试。请选择你愿意尝试的内容，不需要先有类似经验。选修课是一份虚构兴趣画像，不诊断学习风格、不评价天赋，也不推荐职业。"
+  },
+  "focus": {
+    "en": "Which kind of creative play catches you: atmosphere, tiny usable spaces, words and voices, or movement and arrangement.",
+    "zh": "哪种创作游戏会吸引你：氛围、微型可用空间、文字与声音，或运动与排列。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "At the elective fair, which demonstration keeps you watching?",
+        "zh": "选修课展会上，哪个演示让你停下来看？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A tiny cloud changes the light above a teacup.",
+            "zh": "一小朵云改变着茶杯上方的光。"
+          },
+          "points": {
+            "weather": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A paper room folds into a pocket and opens with its furniture intact.",
+            "zh": "纸房间折进口袋，打开时家具仍在原位。"
+          },
+          "points": {
+            "architecture": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A letter reads one sentence in the voice of a friendly mountain echo.",
+            "zh": "书信用友好山谷回声的语气读出一句话。"
+          },
+          "points": {
+            "echo": 1
+          }
+        },
+        {
+          "id": "o4",
+          "label": {
+            "en": "Colored shapes float into a slowly changing mobile.",
+            "zh": "彩色形状漂浮成一组慢慢变化的悬挂装置。"
+          },
+          "points": {
+            "floating": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "Your first project can be very small. You pick…",
+        "zh": "第一份项目可以做得很小，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A room no bigger than a matchbox, with a clever little entrance.",
+            "zh": "一间火柴盒大的房间，有个巧妙的小入口。"
+          },
+          "points": {
+            "architecture": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A sound postcard that gives the same sentence two different moods.",
+            "zh": "同一句话能呈现两种语气的声音明信片。"
+          },
+          "points": {
+            "echo": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A three-shape balance that changes when one piece moves.",
+            "zh": "移动一块就会变化的三形平衡装置。"
+          },
+          "points": {
+            "floating": 1
+          }
+        },
+        {
+          "id": "o4",
+          "label": {
+            "en": "A desk-sized patch of fictional afternoon light.",
+            "zh": "桌面大小的一片虚构午后光线。"
+          },
+          "points": {
+            "weather": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "A classmate asks what you are experimenting with. You answer…",
+        "zh": "同学问你在试什么，你会更想回答……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "How a pause changes the meaning of the same words.",
+            "zh": "停顿怎样改变同一段话的意味。"
+          },
+          "points": {
+            "echo": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "How the pieces can move while the whole arrangement still feels balanced.",
+            "zh": "局部怎样移动，整体仍然显得平衡。"
+          },
+          "points": {
+            "floating": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "How a slight change of light makes the scene feel different.",
+            "zh": "光线稍微变化，怎样让场景感觉不同。"
+          },
+          "points": {
+            "weather": 1
+          }
+        },
+        {
+          "id": "o4",
+          "label": {
+            "en": "How to fit an inviting space into a surprising small outline.",
+            "zh": "怎样把可亲近的空间装进意外的小轮廓。"
+          },
+          "points": {
+            "architecture": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "You are allowed one extra workshop hour. You would use it to…",
+        "zh": "多出一小时工作坊时间，你会用来……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Adjust the motion and spacing of my floating pieces.",
+            "zh": "调整漂浮零件的运动与间距。"
+          },
+          "points": {
+            "floating": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Try two different atmospheres over the same tiny scene.",
+            "zh": "在同一个小场景上试两种氛围。"
+          },
+          "points": {
+            "weather": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Make one miniature room easier to enter and use.",
+            "zh": "让微型房间更容易进入和使用。"
+          },
+          "points": {
+            "architecture": 1
+          }
+        },
+        {
+          "id": "o4",
+          "label": {
+            "en": "Record a gentle reply that changes with the listener’s question.",
+            "zh": "录一段会随听者提问而变化的温和回复。"
+          },
+          "points": {
+            "echo": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Which unfinished question would you happily bring home?",
+        "zh": "哪一个还没解完的问题，你愿意带回家继续想？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "What would a restful little scene look like under unfamiliar weather?",
+            "zh": "陌生天气下，一个舒服的小场景会是什么样？"
+          },
+          "points": {
+            "weather": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "How much can one sentence express when its rhythm changes?",
+            "zh": "节奏变化时，同一句话还能表达多少不同意味？"
+          },
+          "points": {
+            "echo": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Can a miniature space be simple without feeling empty?",
+            "zh": "微型空间能不能既简单，又不显得空洞？"
+          },
+          "points": {
+            "architecture": 1
+          }
+        },
+        {
+          "id": "o4",
+          "label": {
+            "en": "What happens if a stable arrangement is given one playful wobble?",
+            "zh": "给稳定排列加一点轻轻摇晃，会发生什么？"
+          },
+          "points": {
+            "floating": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "At the end-of-term showcase, you hope visitors will…",
+        "zh": "学期展示时，你最希望来客……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Notice how a tiny doorway changes their view of the whole room.",
+            "zh": "注意到一扇小门怎样改变对整间房的感受。"
+          },
+          "points": {
+            "architecture": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Stay for the little movement they cannot quite predict.",
+            "zh": "为一小段不完全可预测的运动多待一会儿。"
+          },
+          "points": {
+            "floating": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Hear an ordinary sentence in a way they had not considered.",
+            "zh": "用从没想过的方式听见一句普通的话。"
+          },
+          "points": {
+            "echo": 1
+          }
+        },
+        {
+          "id": "o4",
+          "label": {
+            "en": "Feel the atmosphere of one carefully composed imaginary afternoon.",
+            "zh": "感受到一个认真营造的虚构午后。"
+          },
+          "points": {
+            "weather": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "weather",
+      "title": {
+        "en": "Teacup Weather Studio",
+        "zh": "杯中天气工作室"
+      },
+      "summary": {
+        "en": "Your elective fills a small scene with atmosphere. You are drawn to the difference a cloud, a patch of light, or an imagined breeze makes to the whole picture. The project is less about controlling a world than choosing how one little moment feels.",
+        "zh": "你的选修课会给小场景装上氛围。云、光斑或想象中的微风，怎样改变整幅画面，很容易吸引你。项目不需要控制整个世界，只是选择一个小片刻呈现什么感觉。"
+      },
+      "example": {
+        "en": "Your showcase might contain the same paper house under two invented skies. In everyday creative play, the parallel could be photographing one ordinary corner in different light and noticing what changes.",
+        "zh": "你的展品可能是同一座纸房子配上两片虚构天空。日常创作里的相似玩法，可以是在不同光线下拍一个普通角落，看看感觉怎样变化。"
+      },
+      "strength": {
+        "en": "You give attention to atmosphere and can make a modest scene feel specific rather than generic. Small choices in setting become part of the story.",
+        "zh": "你会认真对待氛围，让小场景拥有具体感觉，而不只是一张通用背景。环境里的小选择，也成为故事的一部分。"
+      },
+      "tradeoff": {
+        "en": "Atmosphere is not the same as a promise about how another person will feel. The scene that seems restful to you may feel quite different to someone else.",
+        "zh": "氛围不等于能够保证别人产生什么感受。你觉得舒服的场景，在另一个人那里可能有完全不同的感觉。"
+      },
+      "experiment": {
+        "en": "Make two simple versions of the same scene with materials you already have. Name the difference you notice, then invite another interpretation without correcting it.",
+        "zh": "可以用现成材料做同一场景的两个简单版本。说出自己注意到的差异，也邀请别的解释，不急着纠正它。"
+      }
+    },
+    {
+      "id": "architecture",
+      "title": {
+        "en": "Pocket Architecture Workshop",
+        "zh": "口袋建筑工坊"
+      },
+      "summary": {
+        "en": "Your elective turns a tiny outline into a place with possibilities. You enjoy entrances, hidden compartments, and arrangements that make a small space usable. The delight is in how the parts fit together, not in proving that bigger or more complicated must be better.",
+        "zh": "你的选修课把小轮廓变成有可能性的地方。入口、暗格，以及让小空间真正用起来的安排，都会让你感兴趣。乐趣在于各部分怎样配合，不在于证明越大、越复杂就越好。"
+      },
+      "example": {
+        "en": "You might create a paper reading nook whose doorway unfolds into a seat. A real-life playful parallel is arranging a small tray so that each object has room without adding another container.",
+        "zh": "你可能做一处纸质阅读角，门打开后变成座椅。日常中的小类比，是在一个托盘里安排好物件，而不先增加另一个收纳盒。"
+      },
+      "strength": {
+        "en": "You notice relationships between form and use and can find an enjoyable puzzle in limited space. Constraints give the project a shape to work with.",
+        "zh": "你会注意形式与用途的关系，也能从有限空间里找到有趣的小难题。限制为项目提供了可着手的形状。"
+      },
+      "tradeoff": {
+        "en": "A clever design can become difficult for someone else to understand or access. Tiny details matter only if the intended user can actually enjoy them.",
+        "zh": "巧妙设计也可能让别人难理解或难使用。只有预定使用者真的能享受时，微小细节才实现了它的作用。"
+      },
+      "experiment": {
+        "en": "Sketch one small imaginary room with one clear purpose. Ask someone how they would enter and use it before adding another secret compartment.",
+        "zh": "画一间只有一个明确用途的想象小房间。加下一个暗格之前，先问问别人会怎样进入与使用它。"
+      }
+    },
+    {
+      "id": "echo",
+      "title": {
+        "en": "Echo Letter Atelier",
+        "zh": "回声书信教室"
+      },
+      "summary": {
+        "en": "Your elective listens for the many versions inside an ordinary sentence. A pause, a reply, or a change of voice can reshape the story around the words. You enjoy expression as something people encounter together, rather than a hidden code that reveals their true nature.",
+        "zh": "你的选修课会听见普通句子里的许多版本。停顿、回应或声音的变化，都能重新塑造话语周围的故事。你享受人们共同接触表达的过程，不把它当成揭露本性的隐藏密码。"
+      },
+      "example": {
+        "en": "A fictional letter might read “come and see” first as a delighted invitation and then as a whisper of curiosity. In ordinary play, you might enjoy reading a short passage aloud in contrasting ways.",
+        "zh": "一封虚构来信，可能先把“来看看”读成开心邀请，再读成好奇的轻声提醒。日常游戏里，你可能喜欢用不同方式朗读一小段文字。"
+      },
+      "strength": {
+        "en": "You notice rhythm and interpretation and can make familiar words feel newly available. Listening to another reading may open a useful conversation about meaning.",
+        "zh": "你会留意节奏与解释，也能让熟悉的话语呈现新的可能。听见另一种读法，可能打开一次关于含义的有趣交流。"
+      },
+      "tradeoff": {
+        "en": "Tone is not reliable evidence of what someone secretly meant. A playful interpretation should remain distinct from a claim about a real person’s intentions.",
+        "zh": "语气不是判断别人隐藏意图的可靠证据。好玩的解读，需要与对真实人物动机的结论分开。"
+      },
+      "experiment": {
+        "en": "Read one short, non-private line in two different ways. Describe what changed in your hearing, while leaving the writer’s actual intention open unless it is known.",
+        "zh": "找一句不涉及隐私的短话，用两种方式读出来。描述你听到的变化；作者真实意图若未知，就把它留作开放问题。"
+      }
+    },
+    {
+      "id": "floating",
+      "title": {
+        "en": "Floating Shapes Lab",
+        "zh": "漂浮形状实验课"
+      },
+      "summary": {
+        "en": "Your elective gives a scene movement. You enjoy the moment when a tiny shift in one part changes the relation of the whole arrangement. The project can be as simple as three imaginary shapes that sway, settle, and surprise you again.",
+        "zh": "你的选修课会让场景动起来。一个局部轻轻变化，怎样改变整体关系，很能引起你的兴趣。项目可以很简单：三个想象形状，摇晃、安定，再带来一点惊喜。"
+      },
+      "example": {
+        "en": "Your display might suspend three paper-like moons that trade places in a slow loop. Outside the story, a small collage with movable pieces could offer a similar playful question.",
+        "zh": "你的展品可能挂着三枚纸一样的月亮，沿缓慢循环交换位置。走出故事，一张可以移动零件的小拼贴，也能提供类似的游戏问题。"
+      },
+      "strength": {
+        "en": "You can find interest in balance, timing, and relationships between parts. A change becomes something to observe rather than immediately tidy away.",
+        "zh": "你会从平衡、时机与局部关系里找到乐趣。变化成为值得观察的东西，不必立刻被整理回原样。"
+      },
+      "tradeoff": {
+        "en": "A moving display can ask more attention than a viewer wants to give. Stillness and a simple pause may be useful parts of the experience too.",
+        "zh": "一直运动的展示，也可能索取超过观众愿意给出的注意力。静止与一次简单暂停，同样可以是体验里有用的部分。"
+      },
+      "experiment": {
+        "en": "Arrange three light objects on a flat surface and change only one position. Notice how the composition feels before deciding whether the change improves it.",
+        "zh": "把三个轻巧物件摆在平面上，只改其中一个位置。先留意构图给你的感觉，再判断这次变化是否让它更好。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "weather",
+    "architecture",
+    "echo",
+    "floating"
+  ]
+}

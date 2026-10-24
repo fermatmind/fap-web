@@ -1,0 +1,348 @@
+{
+  "slug": "quest-reward",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "fantasy",
+  "title": {
+    "en": "Which Reward Would You Choose After a Tiny Quest?",
+    "zh": "完成一场小冒险后，你最想带走什么奖励？"
+  },
+  "description": {
+    "en": "Six original quest-reward choices lead to a map for tomorrow, a sunset feast, or a token worth keeping. A free fantasy preference game with full portraits.",
+    "zh": "6道原创冒险奖励选择题，看看你会带走明日地图、落日宴席，还是值得留着的小信物。免费奇幻偏好游戏，完整画像直接可读。"
+  },
+  "introduction": {
+    "en": "You have helped a village recover the bell that tells teapots when to sing. The grateful villagers offer several harmless, imaginary rewards. Choose what would make this particular story feel satisfying; it does not measure ambition, generosity, or personal worth.",
+    "zh": "你帮村庄找回了那只提醒茶壶唱歌的铃。村民们准备了几种无害的想象奖励。请选择什么会让这一段故事更满足；它不衡量野心、慷慨程度或个人价值。"
+  },
+  "focus": {
+    "en": "What gives an ending its appeal: a new possibility, a shared celebration, or a concrete reminder of the experience.",
+    "zh": "一次结尾的吸引力来自哪里：新的可能、共同庆祝，还是一份具体的经历提醒。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "The villagers offer you the first reward. You choose…",
+        "zh": "村民拿出第一份奖励，你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A map with one promising route still blank.",
+            "zh": "一张还留着一条有趣空白路线的地图。"
+          },
+          "points": {
+            "map": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A seat at the long table when the teapots begin their song.",
+            "zh": "茶壶唱起歌时，长桌旁的一个座位。"
+          },
+          "points": {
+            "feast": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A tiny bell-shaped token with the day’s date.",
+            "zh": "一枚刻着当天日期的小铃信物。"
+          },
+          "points": {
+            "token": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "A companion asks how you would like the quest to be remembered. You say…",
+        "zh": "同伴问，你希望怎样记住这场冒险，你会说……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Through a little gathering where everyone can tell their part.",
+            "zh": "通过一次小聚，让每个人都能讲自己的那一段。"
+          },
+          "points": {
+            "feast": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Through one object that brings the scene back to mind.",
+            "zh": "留一件能让画面重新回来的小东西。"
+          },
+          "points": {
+            "token": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Through the next question it makes us want to explore.",
+            "zh": "通过它让我们想继续探索的下一个问题。"
+          },
+          "points": {
+            "map": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "There is one extra gift, hidden in a paper box. You hope it is…",
+        "zh": "纸盒里还藏着一份额外礼物，你希望是……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A note explaining the strange landmark we passed on the way.",
+            "zh": "一张说明路上奇怪地标的便条。"
+          },
+          "points": {
+            "map": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A small keepsake made from a familiar part of the village.",
+            "zh": "用村里熟悉材料做成的一件小纪念。"
+          },
+          "points": {
+            "token": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "An invitation to a future evening with the people we met.",
+            "zh": "一份以后再与遇见的人共度夜晚的邀请。"
+          },
+          "points": {
+            "feast": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "The village can hold only a short closing ceremony. You prefer…",
+        "zh": "村庄只能办一个很短的结束仪式，你更想……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One small object handed over with a specific story behind it.",
+            "zh": "交到手里一件小物，并讲明它背后的具体故事。"
+          },
+          "points": {
+            "token": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A final look at the route and a hint of what lies beyond it.",
+            "zh": "最后看看路线，再留一点远方的线索。"
+          },
+          "points": {
+            "map": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A brief shared meal with no speeches required.",
+            "zh": "简单一起吃一点东西，不要求谁发言。"
+          },
+          "points": {
+            "feast": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "A reward becomes more appealing when…",
+        "zh": "一份奖励在什么情况下，会更吸引你？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "It gives me a real next curiosity rather than a bigger trophy.",
+            "zh": "它带来真正想追的好奇，而不只是更大的奖杯。"
+          },
+          "points": {
+            "map": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "It marks a moment with the people who made the quest enjoyable.",
+            "zh": "它记下与同伴共享的、让冒险有趣的片刻。"
+          },
+          "points": {
+            "feast": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "It is small enough to keep close and specific enough to remember.",
+            "zh": "它足够小，能留在身边；也足够具体，能够记住。"
+          },
+          "points": {
+            "token": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "As you leave the village, you would most like to carry…",
+        "zh": "离开村庄时，你最想带着……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The taste of the feast and a few shared stories.",
+            "zh": "宴席的味道和几段共同故事。"
+          },
+          "points": {
+            "feast": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A token whose meaning I can explain in one particular memory.",
+            "zh": "一枚能用一段具体记忆说明意义的信物。"
+          },
+          "points": {
+            "token": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A new route I may choose to follow another day.",
+            "zh": "一条改天愿意时可以去走的新路线。"
+          },
+          "points": {
+            "map": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "map",
+      "title": {
+        "en": "A Map for Tomorrow",
+        "zh": "明日地图"
+      },
+      "summary": {
+        "en": "Your chosen reward opens another door rather than building a taller trophy shelf. The bell is home, the tea is warm, and one new question is waiting at the edge of the map. In this story, an ending can be satisfying while still leaving you curious.",
+        "zh": "你选的奖励会打开另一扇门，而不是把奖杯架堆高。铃已经回家，茶也温热，地图边缘还有一个新问题。在这个故事里，结尾可以让人满足，同时仍然保留好奇。"
+      },
+      "example": {
+        "en": "After finishing a small hobby project, you might enjoy discovering one related technique you could try later. The possibility can stay optional rather than becoming an immediate assignment.",
+        "zh": "完成一个小爱好项目后，你可能喜欢发现一种之后可以试的相关做法。这个可能性可以只是可选项，不必立刻变成新作业。"
+      },
+      "strength": {
+        "en": "This reward keeps interest moving and lets a completed experience give rise to a specific next question. Curiosity does not have to depend on a large prize.",
+        "zh": "这份奖励让兴趣继续流动，也让一次完成自然生出具体的下一个问题。好奇不一定需要大奖来推动。"
+      },
+      "tradeoff": {
+        "en": "A next route can crowd out the pleasure of having finished. The village deserves a goodbye before the new map becomes the only thing you can see.",
+        "zh": "下一条路线也可能挤掉已经完成的快乐。新的地图占满视野之前，村庄仍然值得好好告别。"
+      },
+      "experiment": {
+        "en": "When you finish one small activity, name what is complete before saving a single optional next question. Let the question wait until you actually want to return.",
+        "zh": "做完一项小活动时，先说清什么已经完成，再只留一个可选的后续问题。可以等到真的愿意回来时，再接着走。"
+      }
+    },
+    {
+      "id": "feast",
+      "title": {
+        "en": "The Sunset Feast",
+        "zh": "落日宴席"
+      },
+      "summary": {
+        "en": "Your reward belongs around a table rather than on a pedestal. You want the quest to close with the people who gave it texture: the nervous bell keeper, the traveling map seller, and the companion who remembered the tea. Celebration can be small and still feel shared.",
+        "zh": "你的奖励更像围坐一桌，而不是摆上高台。你想让这次冒险与那些让它具体的人一起收尾：紧张的看铃人、路过的地图摊主，还有记得茶的同伴。庆祝可以很小，却仍然共同拥有。"
+      },
+      "example": {
+        "en": "The everyday version might be sharing a simple snack after finishing a group activity, with room for anyone to leave early or skip the gathering without having to explain.",
+        "zh": "日常里的版本，也许是共同完成活动后简单分一点零食；有人提前离开或不参加小聚，也不必交代一大段理由。"
+      },
+      "strength": {
+        "en": "This reward notices the experience between people and makes room to acknowledge it. A low-pressure gathering can hold memories that no individual prize could summarize.",
+        "zh": "这份奖励会注意人与人之间的经历，也给它一个被承认的位置。轻松的小聚，可以装下个人奖品不容易概括的记忆。"
+      },
+      "tradeoff": {
+        "en": "A shared celebration can ask more time or energy than others have. Appreciation is more welcoming when participation is an invitation rather than the final compulsory task.",
+        "zh": "共同庆祝也可能索取别人眼下没有的时间与精力。参与是一份邀请，而不是最后一项必做任务时，感谢会更容易被接受。"
+      },
+      "experiment": {
+        "en": "Offer one simple way to mark a shared achievement and make opting out comfortable. You can also acknowledge a specific contribution without organizing another event.",
+        "zh": "可以提出一个简单纪念共同完成的方式，也让不参加的人自在。并不一定要再办一场活动，具体说一句感谢也可以。"
+      }
+    },
+    {
+      "id": "token",
+      "title": {
+        "en": "The Little Bell Token",
+        "zh": "小铃信物"
+      },
+      "summary": {
+        "en": "Your chosen reward gives the quest a small, tangible ending. It is not the size or rarity of the bell-shaped token that matters, but the particular day it can call back. The village continues its life, while one manageable reminder travels with you.",
+        "zh": "你选的奖励给冒险一个小而具体的结尾。重要的不是铃形信物有多大、多稀少，而是它能叫回哪一天。村庄继续自己的生活，一份轻巧提醒则随你同行。"
+      },
+      "example": {
+        "en": "A handwritten note or an ordinary object connected to a completed project might serve the same role in daily life. It can matter even if another person would not recognize its significance.",
+        "zh": "日常里，一张手写便条或与完成项目有关的普通物件，也可以有类似作用。哪怕别人看不出特别，它也仍然可以重要。"
+      },
+      "strength": {
+        "en": "This reward makes an experience easy to revisit through one specific reminder. A modest object can carry meaning without turning the occasion into a competition.",
+        "zh": "这份奖励通过一个具体提醒，让经历容易被再次想起。普通物件也能承载意义，不必把场合变成奖品的比赛。"
+      },
+      "tradeoff": {
+        "en": "The object cannot preserve every version of the day, and it does not need to. Collecting more reminders may eventually make the memorable ones harder to find.",
+        "zh": "物件不能保存那一天的所有版本，也不必做到。提醒收得太多，反而可能让真正想记住的那几个更难找到。"
+      },
+      "experiment": {
+        "en": "Choose one existing reminder and write the single scene it brings back. Let its value remain personal rather than asking whether it looks impressive enough to keep.",
+        "zh": "可以选一份已有的小纪念，写下它带回的一个场景。让价值保留在个人联系里，不必先判断它看起来够不够值得收藏。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "map",
+    "feast",
+    "token"
+  ]
+}

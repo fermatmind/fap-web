@@ -1,0 +1,348 @@
+{
+  "slug": "tiny-kingdom",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "fantasy",
+  "title": {
+    "en": "Which Tiny Kingdom Would You Build?",
+    "zh": "如果王国只有一个鞋盒大，你会建成什么样？"
+  },
+  "description": {
+    "en": "Six miniature-world choices lead to an original kingdom of exchanges, experiments, or well-kept promises. A playful design portrait, with every result free.",
+    "zh": "6道微型世界选择题，看看你的原创小王国更像交换集市、试验工坊，还是承诺档案馆。趣味设计画像，完整结果免费。"
+  },
+  "introduction": {
+    "en": "Your fictional kingdom fits inside a shoebox. Its citizens are paper figures, and their problems involve buttons, bridges, and festival decorations. You are choosing a miniature design story, not answering a political survey or receiving a leadership rating.",
+    "zh": "你的虚构王国只有一个鞋盒大，居民都是纸片人物，难题涉及纽扣、小桥与节庆装饰。你在选择一个微型设计故事，不是在填写政治问卷，也不会获得领导力评分。"
+  },
+  "focus": {
+    "en": "How an imagined community coordinates scarce materials, tries ideas, and remembers what it agreed to do.",
+    "zh": "想象中的小社群怎样协调有限材料、尝试想法，并记住答应过的事。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "The kingdom’s first public building will be…",
+        "zh": "王国的第一座公共建筑，你会选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A little exchange hall where citizens can trade useful spare pieces.",
+            "zh": "一间能交换有用零件的小集市。"
+          },
+          "points": {
+            "exchange": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A workshop with one table for trying unfinished ideas.",
+            "zh": "一间有张桌子、专门试未完成想法的工坊。"
+          },
+          "points": {
+            "experiment": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A small archive that records shared plans in plain words.",
+            "zh": "一间把共同安排用明白话记下的小档案馆。"
+          },
+          "points": {
+            "promise": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "There are too few ribbons for every festival stall. You suggest…",
+        "zh": "节庆摊位需要的丝带不太够，你会建议……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Try a different decoration made from the available scraps.",
+            "zh": "用现有边角料试一种新装饰。"
+          },
+          "points": {
+            "experiment": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Let stalls exchange what they have and agree on the useful combinations.",
+            "zh": "让摊位交换手头材料，商量有用的组合。"
+          },
+          "points": {
+            "exchange": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Check the earlier allocation and make any change clear to everyone.",
+            "zh": "先看原来的分配安排，再把改动说清楚。"
+          },
+          "points": {
+            "promise": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "A paper citizen proposes a moving bridge. Your first question is…",
+        "zh": "一位纸片居民想造会移动的桥，你先问……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Who would need to coordinate their materials to make it possible?",
+            "zh": "需要哪些人协调材料，才能让它成形？"
+          },
+          "points": {
+            "exchange": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "What is the smallest model we could try before deciding?",
+            "zh": "做决定前，最小可以先试一个什么模型？"
+          },
+          "points": {
+            "experiment": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "What would we promise users, and how would they know if that changes?",
+            "zh": "会向使用者承诺什么，变化时又怎样让人知道？"
+          },
+          "points": {
+            "promise": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "The festival plan has changed three times. You favor…",
+        "zh": "节庆安排已经改了三次，你更想……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "One current note that clearly replaces the older versions.",
+            "zh": "留一份明确替代旧版的当前说明。"
+          },
+          "points": {
+            "promise": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A short gathering where stalls can swap responsibilities directly.",
+            "zh": "让摊位短暂见面，直接交换各自承担的事。"
+          },
+          "points": {
+            "exchange": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A quick trial of the new layout before fixing the final arrangement.",
+            "zh": "先试一遍新布局，再定最终安排。"
+          },
+          "points": {
+            "experiment": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Which kingdom tradition would you enjoy most?",
+        "zh": "哪一种王国惯例最让你期待？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A day when unfinished inventions are welcomed for a short demonstration.",
+            "zh": "留一天，让未完成的小发明也能短暂展示。"
+          },
+          "points": {
+            "experiment": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A small ceremony for keeping or honestly revising a shared promise.",
+            "zh": "用一个小仪式，确认共同承诺已兑现或需要诚实调整。"
+          },
+          "points": {
+            "promise": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A cheerful swap table where yesterday’s leftover becomes someone’s resource.",
+            "zh": "一张热闹交换桌，让昨天的剩余成为别人的材料。"
+          },
+          "points": {
+            "exchange": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "Visitors would remember your tiny kingdom for…",
+        "zh": "来客会因为什么记住你的小王国？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The way its little records make everyday cooperation easier.",
+            "zh": "那些让日常合作更容易的小记录。"
+          },
+          "points": {
+            "promise": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The surprising second lives that objects find through exchange.",
+            "zh": "东西在交换里获得的意外新用途。"
+          },
+          "points": {
+            "exchange": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The small experiments that citizens can actually join.",
+            "zh": "居民真的能够加入的一个个小试验。"
+          },
+          "points": {
+            "experiment": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "exchange",
+      "title": {
+        "en": "The Button Exchange Kingdom",
+        "zh": "纽扣交换王国"
+      },
+      "summary": {
+        "en": "Your miniature kingdom turns spare pieces into invitations. A button that does not fit one project may complete another, and citizens learn to ask what they can offer as well as what they need. The kingdom’s charm is in visible, voluntary connections between resources.",
+        "zh": "你的微型王国把多余零件变成邀请。一枚不适合这个项目的纽扣，可能刚好补上另一个项目；居民会问自己能提供什么，也会说需要什么。王国的魅力在看得见、出于自愿的资源连接里。"
+      },
+      "example": {
+        "en": "A paper baker might swap unused ribbon for a small signboard. In ordinary life, the playful parallel is exchanging a puzzle or hobby material with someone who actually wants it.",
+        "zh": "纸片面包师可能用没用上的丝带，换一块小招牌。日常里类似的玩法，是和真正需要的人交换一副拼图或一点爱好材料。"
+      },
+      "strength": {
+        "en": "You can notice overlooked usefulness and help people coordinate without assuming everyone needs the same thing. An exchange can create a small shared story.",
+        "zh": "你会发现被忽略的用途，也会帮助协调，而不先假定每个人都需要相同东西。一次交换，还能带来一个小小的共同故事。"
+      },
+      "tradeoff": {
+        "en": "Not every useful thing has an easy match, and an exchange is not fair merely because it is called a swap. People need room to say no.",
+        "zh": "有用的东西也未必立刻找得到匹配；叫作交换，也不代表天然公平。参与者仍然需要说“不”的空间。"
+      },
+      "experiment": {
+        "en": "Offer one ordinary item you are happy to share or exchange, without expecting a particular return. Let the other person decide whether it is useful to them.",
+        "zh": "可以提出分享或交换一件你愿意拿出的普通物品，不预设一定要换回什么。让对方自己判断，它是否有用。"
+      }
+    },
+    {
+      "id": "experiment",
+      "title": {
+        "en": "The Unfinished Workshop Kingdom",
+        "zh": "未完成工坊王国"
+      },
+      "summary": {
+        "en": "Your tiny kingdom has sawdust made of paper confetti and a proud shelf of imperfect models. Ideas do not have to arrive fully formed before citizens can explore them. The story favors small trials with a purpose, rather than permanent novelty for its own sake.",
+        "zh": "你的微型王国里，木屑像纸屑，架子上大方摆着不完美模型。想法不必完全成形，居民就可以开始探索。这个故事偏向有目的的小尝试，不是为了新鲜而不停求新。"
+      },
+      "example": {
+        "en": "The moving bridge might begin as three folded cards tested on the workshop table. A comparable everyday activity is trying a small arrangement before committing everyone to a larger hobby project.",
+        "zh": "会动的桥可以先是工坊桌上三张折过的卡片。日常里的类似活动，是先试一个小安排，再决定是否让大家投入更大的爱好项目。"
+      },
+      "strength": {
+        "en": "You can make an idea concrete enough to discuss and leave room for learning before a large commitment. Imperfect attempts become useful material.",
+        "zh": "你能让想法具体到足以讨论，也在大量投入之前留下学习的空间。不完美的尝试，同样可以成为有用材料。"
+      },
+      "tradeoff": {
+        "en": "Citizens may tire of experiments that never finish or explain what was learned. A trial needs a stopping point as well as permission to begin.",
+        "zh": "居民也可能厌倦永远不结束、也不说明发现了什么的试验。一次尝试除了能开始，也需要停止节点。"
+      },
+      "experiment": {
+        "en": "For a small shared idea, name one question and one point at which you will stop to review it. Keep the materials simple enough to change course easily.",
+        "zh": "面对一个小小的共同想法，可以说清一个问题，以及何时停下回看。材料保持简单，方便需要时改变方向。"
+      }
+    },
+    {
+      "id": "promise",
+      "title": {
+        "en": "The Lantern Archive Kingdom",
+        "zh": "灯下承诺档案王国"
+      },
+      "summary": {
+        "en": "Your kingdom keeps a little lamp beside its current plans. Citizens can tell what was agreed, what changed, and who is handling the next step. The archive is not a pile of impressive paperwork; it is a memory that ordinary people can actually use.",
+        "zh": "你的王国会在当前安排旁点一盏小灯。居民知道答应了什么、改过什么，以及下一步由谁处理。档案不靠厚重文书显得重要，而是一份普通人真的用得上的共同记忆。"
+      },
+      "example": {
+        "en": "A festival note might replace three confusing older signs with one clear meeting time. In real life, this resembles a short shared note after planning an informal event.",
+        "zh": "一份节庆小记，可能用一个清楚的集合时间，替代三张互相矛盾的旧告示。日常里，这类似于非正式活动商量好后留的一条简短共识。"
+      },
+      "strength": {
+        "en": "You make cooperation easier to follow and can reduce confusion caused by different people remembering different versions of the same arrangement.",
+        "zh": "你会让协作更容易跟上，也能减少不同人各自记得一个版本所带来的混乱。"
+      },
+      "tradeoff": {
+        "en": "A written promise can still be unrealistic or outdated. Keeping records useful means allowing honest revision, not treating the note as more important than the situation.",
+        "zh": "写下来的承诺也可能不现实或过时。记录要好用，就需要允许诚实调整，不把纸上的话看得比实际情况更重要。"
+      },
+      "experiment": {
+        "en": "After one casual shared plan, record only the current decision and next step. Ask whether the people involved recognize it as the agreement they actually made.",
+        "zh": "一次日常共同安排结束后，只记下当前决定和下一步。也问问参与者，这是否确实是刚才一起商定的内容。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "exchange",
+    "experiment",
+    "promise"
+  ]
+}

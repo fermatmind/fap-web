@@ -1,0 +1,348 @@
+{
+  "slug": "magic-shopkeeper",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "fantasy",
+  "title": {
+    "en": "What Kind of Magic Shopkeeper Would You Be?",
+    "zh": "如果开一家魔法小店，你是哪种店主？"
+  },
+  "description": {
+    "en": "Six original magical-shop scenes find your shopkeeper portrait: the careful labeler, the lending librarian, or the small-wonder demonstrator. Every result is free.",
+    "zh": "6个原创魔法小店情境，看看你是认真贴标签的店主、愿意借出魔法的馆员，还是演示小奇迹的人。完整结果免费。"
+  },
+  "introduction": {
+    "en": "Your shop sells harmless imaginary things: umbrellas that remember sunshine and jars that hold an echo. There is no business score. Choose the kind of welcome and explanation you would enjoy offering, within a completely fictional setting.",
+    "zh": "你的小店只有无害的想象物品：记得阳光的伞、装得下一声回响的瓶子。这里没有经营评分，请在完全虚构的场景里，选择你愿意提供的欢迎与说明方式。"
+  },
+  "focus": {
+    "en": "How you make an unfamiliar magical object understandable, borrowable, or enjoyable to discover.",
+    "zh": "你怎样让一件陌生的魔法物品变得好理解、方便借用，或值得发现。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "A visitor asks what a “yesterday jar” does. You…",
+        "zh": "客人问“昨日瓶”是做什么的，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Point to a clear label showing what it can and cannot hold.",
+            "zh": "指给对方看清楚的标签：能装什么，不能装什么。"
+          },
+          "points": {
+            "label": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Offer a short loan so they can see whether it suits their story.",
+            "zh": "借出一小段时间，让对方看看是否适合自己的故事。"
+          },
+          "points": {
+            "loan": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Demonstrate one tiny echo, then let them ask questions.",
+            "zh": "演示一声小小的回响，再让对方提问。"
+          },
+          "points": {
+            "wonder": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "Someone needs a sunshine umbrella for just one evening. You prefer to…",
+        "zh": "有人只想在一个晚上用一下阳光伞，你更愿意……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Arrange a simple return time and lend it.",
+            "zh": "约好简单的归还时间，再借出去。"
+          },
+          "points": {
+            "loan": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Show its effect before they decide what to do.",
+            "zh": "先展示效果，再让对方决定。"
+          },
+          "points": {
+            "wonder": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Explain exactly how long its stored sunshine lasts.",
+            "zh": "说明它储存的阳光究竟能持续多久。"
+          },
+          "points": {
+            "label": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "A new item arrives with an unclear instruction card. You…",
+        "zh": "新到的小物件，说明卡却写得含糊，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Keep it off display until its limits are clear enough to describe.",
+            "zh": "先不摆出来，等能说明它的边界。"
+          },
+          "points": {
+            "label": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Try a small harmless demonstration in the shop’s test corner.",
+            "zh": "在店里的试用角做一次无害的小演示。"
+          },
+          "points": {
+            "wonder": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask whether it belongs in the supervised borrowing collection first.",
+            "zh": "看看能否先放进有陪同说明的借用区。"
+          },
+          "points": {
+            "loan": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A customer returns an item because it was not what they imagined. You…",
+        "zh": "客人还回物品，说它和想象的不一样，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask what a short trial could help them understand next time.",
+            "zh": "问问下次怎样的短期试用会更有帮助。"
+          },
+          "points": {
+            "loan": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Look at which part of the label set the wrong expectation.",
+            "zh": "看看标签哪一处让人产生了不同预期。"
+          },
+          "points": {
+            "label": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Invite them to a brief demonstration of another small wonder, if they want.",
+            "zh": "如果对方愿意，邀请再看一个小奇迹的演示。"
+          },
+          "points": {
+            "wonder": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Your favorite display would feature…",
+        "zh": "你最喜欢的小店陈列会是……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A little demonstration that changes when a visitor asks a question.",
+            "zh": "一个会随着客人提问而变化的小演示。"
+          },
+          "points": {
+            "wonder": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A shelf of clearly marked objects, each with one honest promise.",
+            "zh": "一架标示清楚、每件只有一项诚实承诺的物品。"
+          },
+          "points": {
+            "label": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A traveling collection with notes from previous borrowers.",
+            "zh": "一组可以流转、留着借用者小记的收藏。"
+          },
+          "points": {
+            "loan": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "What would make closing time feel satisfying?",
+        "zh": "打烊时，什么会让你满意？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Someone understood a strange object without being oversold a miracle.",
+            "zh": "有人理解了陌生物件，没有被夸大的奇迹吸引。"
+          },
+          "points": {
+            "label": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "An object began another temporary journey and has a way home.",
+            "zh": "一件物品又踏上短暂旅程，也约好了回家的方式。"
+          },
+          "points": {
+            "loan": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A visitor left delighted by one small unexpected thing.",
+            "zh": "有位客人因为一个小意外，开心地离开。"
+          },
+          "points": {
+            "wonder": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "label",
+      "title": {
+        "en": "The Keeper of Honest Labels",
+        "zh": "诚实标签的守护者"
+      },
+      "summary": {
+        "en": "Your imaginary shop makes wonder easier to approach through clear expectations. You want visitors to know what an object actually does before they build a story around it. In this portrait, a limit is part of the object’s charm rather than something to hide.",
+        "zh": "你的想象小店通过清楚的预期，让奇妙更容易靠近。你希望客人先知道物品实际能做什么，再围绕它展开想象。在这份画像里，边界也是魅力的一部分，不需要藏起来。"
+      },
+      "example": {
+        "en": "Your sunshine umbrella might carry a note saying it remembers one afternoon, not an entire summer. In everyday life, the playful parallel is explaining what a shared tool is good for before lending it.",
+        "zh": "你的阳光伞上可能写着：能记住一个下午，不是一整个夏天。放在日常，类似的小做法是先说明共用工具擅长什么，再借给别人。"
+      },
+      "strength": {
+        "en": "You can turn unfamiliar possibilities into understandable choices and leave less room for disappointment caused by a vague or oversized promise.",
+        "zh": "你能把陌生的可能性变成容易理解的选择，也减少因为承诺模糊或过大而产生的失望。"
+      },
+      "tradeoff": {
+        "en": "Too much explanation can bury the enjoyable first encounter. A visitor may need one clear sentence now and the rest only when they ask.",
+        "zh": "解释太多，也可能盖住第一次接触的乐趣。客人现在也许只需要一句清楚的话，其余部分可以等提问时再说。"
+      },
+      "experiment": {
+        "en": "For one ordinary thing you share this week, try stating its most useful feature and one real limit. Then leave room for the other person’s curiosity.",
+        "zh": "这周分享一件普通东西时，可以试着说清最有用的一点，以及一个真实边界。然后给对方自己的好奇留空间。"
+      }
+    },
+    {
+      "id": "loan",
+      "title": {
+        "en": "The Traveling-Wonder Librarian",
+        "zh": "流动奇迹的借阅员"
+      },
+      "summary": {
+        "en": "You imagine a shop where an object does not have to belong to someone forever to matter. A small loan lets a visitor explore and lets the collection keep moving. Your portrait values access, return, and stories that accumulate through shared use.",
+        "zh": "你想象的小店里，物品不必永远属于一个人，才有意义。一段小借期让客人探索，也让收藏继续流动。你的画像重视能够接触、方便归还，以及在共同使用里积累的故事。"
+      },
+      "example": {
+        "en": "A jar of echoes might spend an evening at a quiet gathering, then return with a short note about its journey. The everyday analogy is sharing a hobby kit with clear expectations.",
+        "zh": "回响瓶可以在一场安静聚会里待一晚，再带着一小段旅程记录回来。日常里的类似做法，是在预期清楚的前提下分享一组爱好工具。"
+      },
+      "strength": {
+        "en": "You can create a low-pressure way to try something without turning curiosity into permanent ownership. A return path helps sharing feel manageable.",
+        "zh": "你能让尝试新东西不必立刻变成长期拥有。归还方式清楚，也让分享更容易管理。"
+      },
+      "tradeoff": {
+        "en": "Generosity still needs boundaries around time, care, and availability. An imaginary endless lending shelf would eventually ask too much of its keeper.",
+        "zh": "慷慨同样需要时间、照顾与可用性的边界。哪怕是想象中的无限借阅架，也会逐渐让管理者负担过多。"
+      },
+      "experiment": {
+        "en": "If you choose to lend an ordinary item, agree on one clear return arrangement and what care it needs. Let yourself decline a loan that would feel uncomfortable.",
+        "zh": "如果决定借出一件普通物品，可以约好一个明确的归还安排，并说明需要怎样照顾。让自己也能够拒绝不舒服的借用请求。"
+      }
+    },
+    {
+      "id": "wonder",
+      "title": {
+        "en": "The Small-Wonder Demonstrator",
+        "zh": "小奇迹的演示者"
+      },
+      "summary": {
+        "en": "Your magical shop invites curiosity through a concrete little experience. Rather than explain everything first, you offer one harmless surprise that people can see and ask about. The delight is in opening a question, not claiming a spectacle can solve every problem.",
+        "zh": "你的魔法小店通过一个具体的小体验邀请好奇。不急着先解释全部，而是提供一个无害、看得见、问得着的小惊喜。乐趣在于打开问题，不声称一场奇观能解决所有问题。"
+      },
+      "example": {
+        "en": "You might let an echo jar repeat a visitor’s laugh once, then explain its modest limits. Outside the story, you may enjoy showing a tiny prototype before describing an entire idea.",
+        "zh": "你可能让回响瓶只重复一次客人的笑声，再说明它有限的能力。走出故事，你也许会喜欢先展示一个小试样，再讲完整想法。"
+      },
+      "strength": {
+        "en": "You make unfamiliar ideas approachable and can give people a memorable place to begin. A small demonstration may invite questions that a long description would not.",
+        "zh": "你让陌生想法更容易接近，也给人一个记得住的起点。小演示可能引出长篇说明不容易带来的问题。"
+      },
+      "tradeoff": {
+        "en": "A charming demonstration can make an object seem more useful than it is. Visitors still need a chance to understand its limits and decide against it.",
+        "zh": "有魅力的演示，也可能让物品显得比实际更有用。客人仍然需要理解边界，并保留不选择它的机会。"
+      },
+      "experiment": {
+        "en": "Show one small example when sharing a hobby idea, then name what the example does not establish. Invite someone to try it only if they are interested.",
+        "zh": "分享一个爱好想法时，可以演示一个小例子，再说清它不能证明什么。只有对方感兴趣时，再邀请一起试试。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "label",
+    "loan",
+    "wonder"
+  ]
+}

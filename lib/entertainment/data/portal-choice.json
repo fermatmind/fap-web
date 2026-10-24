@@ -1,0 +1,297 @@
+{
+  "slug": "portal-choice",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "fantasy",
+  "title": {
+    "en": "The Pocket Portal: Where Will Your Choices Lead?",
+    "zh": "口袋传送门：你的选择会通往哪里？"
+  },
+  "description": {
+    "en": "A free branching adventure with three to four choices per route. Explore an original portal story and reach a lantern harbor, unfinished gallery, or postcard home.",
+    "zh": "每条路线3至4次选择的原创分支冒险。走进口袋传送门，抵达灯笼港、未完成画廊，或寄回家的明信片。完整结局免费。"
+  },
+  "introduction": {
+    "en": "A visitor leaves two impossible doorways on your table. You may follow one, ask questions along the way, and decide when the journey has given you enough. Choices change the scene or ending; the result is a fictional destination, not a personality diagnosis.",
+    "zh": "来客在你的桌上留下两道不可能存在的门。你可以选一道进入，沿途提问，也可以决定旅程何时已经足够。选择会改变场景或结局；结果是虚构目的地，不诊断人格。"
+  },
+  "focus": {
+    "en": "A small story about exploring unfamiliar places while keeping a way to pause, return, or leave something unfinished.",
+    "zh": "一段关于探索陌生地方、同时保留暂停、返回与未完成空间的小故事。"
+  },
+  "minutes": 2,
+  "mechanism": "branch",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Which doorway do you open first?",
+        "zh": "你先打开哪道门？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The doorway drawn in the steam above an empty cup.",
+            "zh": "空杯上方，由蒸汽画出来的门。"
+          },
+          "next": "q2"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The paper frame with a small map on its folded edge.",
+            "zh": "折边藏着小地图的纸框。"
+          },
+          "next": "q3"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "Beyond the steam is a path of warm lanterns. You…",
+        "zh": "蒸汽后面，是一条暖灯小路。你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask the nearest lantern where travelers usually pause.",
+            "zh": "问最近的灯笼，旅人通常在哪里停一停。"
+          },
+          "next": "q4"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Wait until the steam forms a scene you can examine.",
+            "zh": "等蒸汽凝成一个能仔细看的场景。"
+          },
+          "next": "q5"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "The map has one written margin and one blank corner. You…",
+        "zh": "地图有一条写过字的边，也有一个空白角。你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Read the margin before drawing anything new.",
+            "zh": "先读读边上的字，再决定添什么。"
+          },
+          "next": "q5"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Fold the blank corner into a little compass.",
+            "zh": "把空白角折成一枚小指南针。"
+          },
+          "next": "q6"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "A lantern keeper offers a harbor with a clear path back. You…",
+        "zh": "守灯人给你看一处能清楚返回的港口。你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Stay long enough to learn one harbor story, then end the journey there.",
+            "zh": "听完一个港口故事，就在这里为旅程收尾。"
+          },
+          "result": "harbor"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Thank the keeper and follow a sign toward the portal station.",
+            "zh": "谢谢守灯人，顺着指示去传送门车站。"
+          },
+          "next": "q7"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "A gallery wall shows an unfinished picture of your route. You…",
+        "zh": "画廊墙上挂着一幅未完成的路线图。你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Leave a small open frame for a future visitor and stop here.",
+            "zh": "留一个小空框给未来来客，先在这里停下。"
+          },
+          "result": "gallery"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Take a copy of the margin note to the portal station.",
+            "zh": "带着边注的副本，前往传送门车站。"
+          },
+          "next": "q7"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "Your paper compass points to a postcard desk. You…",
+        "zh": "纸指南针指向一张明信片书桌。你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Send one detail home and choose this as the end of today’s trip.",
+            "zh": "寄一个细节回家，把这里当作今天的终点。"
+          },
+          "result": "postcard"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Keep the blank card and continue to the portal station.",
+            "zh": "带上空白卡，继续去传送门车站。"
+          },
+          "next": "q7"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "prompt": {
+        "en": "At the portal station, the final ticket lets you choose one destination. You pick…",
+        "zh": "到了传送门车站，最后一张票可以选一个目的地。你选……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "The lantern harbor, where a little landing place is waiting.",
+            "zh": "灯笼港：有一小块可以靠岸的地方。"
+          },
+          "result": "harbor"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "The unfinished gallery, where a space remains for another version.",
+            "zh": "未完成画廊：为另一个版本留着空位。"
+          },
+          "result": "gallery"
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The postcard desk, where one small detail can travel home.",
+            "zh": "明信片书桌：让一个小细节能够回家。"
+          },
+          "result": "postcard"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "harbor",
+      "title": {
+        "en": "The Lantern Harbor",
+        "zh": "灯笼港"
+      },
+      "summary": {
+        "en": "Your route ends beside a small harbor whose lights mark a way to land and a way back. The keeper asks for no grand explanation of your voyage. You have enough of a story for today, and the rest of the coastline can remain unexplored.",
+        "zh": "你的路线停在一座小港口旁，灯光标出靠岸与返回的方向。守灯人不要求你为旅程作宏大解释。今天已经有了足够的一段故事，余下海岸也可以暂时没有探索。"
+      },
+      "example": {
+        "en": "An everyday parallel might be ending an enjoyable outing after one memorable stop, rather than adding another destination because the day could technically hold it. The ending describes a choice, not a fixed trait.",
+        "zh": "日常里的类似场景，是在一个值得记住的停靠点之后结束外出，不因为时间勉强还够，就再加一个目的地。结局描述一次选择，不定义固定特质。"
+      },
+      "strength": {
+        "en": "This ending gives exploration a landing place. It makes room for satisfaction with a bounded experience instead of requiring the whole map to be completed.",
+        "zh": "这个结局给探索一个落脚处。它容许你对一段有边界的体验感到满足，而不要求先走完整张地图。"
+      },
+      "tradeoff": {
+        "en": "A comfortable harbor can become the only place you visit if you never ask whether you still want a new route. Rest and curiosity can take turns.",
+        "zh": "舒服的港口也可能变成唯一停靠处，如果从不再问自己是否想走新路。休息与好奇，可以轮流上场。"
+      },
+      "experiment": {
+        "en": "For one small activity, decide what would make it enough for today. Stop there if you want, and keep a separate note of anything you would enjoy exploring another time.",
+        "zh": "为一项小活动想想，今天做到什么就已经足够。愿意时可以在那里停下，再另外记住以后还想探索的部分。"
+      }
+    },
+    {
+      "id": "gallery",
+      "title": {
+        "en": "The Unfinished Gallery",
+        "zh": "未完成画廊"
+      },
+      "summary": {
+        "en": "Your portal opens onto a gallery that leaves space around every picture. A visitor can add a frame without deciding the whole exhibition. Your ending keeps another version possible: the story has reached a resting point, while its edges remain open.",
+        "zh": "你的传送门通向一间给每幅画留白的画廊。来客可以添一个框，而不用决定整场展览。这个结局为另一个版本保留可能：故事到了休息点，边缘却仍然开放。"
+      },
+      "example": {
+        "en": "Outside the adventure, this could resemble keeping one unfinished sketch that you may return to, without calling it a failure or promising to complete every abandoned idea.",
+        "zh": "走出冒险，这可能像留下一张以后也许会回来的未完成速写，不把它叫作失败，也不承诺补完所有搁下的想法。"
+      },
+      "strength": {
+        "en": "This ending makes room for curiosity and revision. A partial version can be meaningful without pretending to be a complete answer to everything.",
+        "zh": "这个结局为好奇与修改留空间。一个局部版本已经可以有意义，不需要装作回答了所有问题。"
+      },
+      "tradeoff": {
+        "en": "Leaving every edge open can make it difficult to know what is ready to use or share. An unfinished picture still benefits from knowing which part is intentionally unfinished.",
+        "zh": "如果每条边都开放，也会难以知道什么已经能用、能分享。未完成的画，同样可以说清哪一部分是有意留白。"
+      },
+      "experiment": {
+        "en": "Pick a small creative piece and name one part that is ready plus one part you are deliberately leaving open. You do not need to reopen the whole project.",
+        "zh": "挑一个小创作，说清一部分已经可以，以及一部分是有意留下的。并不需要把整个项目重新打开。"
+      }
+    },
+    {
+      "id": "postcard",
+      "title": {
+        "en": "The Postcard Home",
+        "zh": "寄回家的明信片"
+      },
+      "summary": {
+        "en": "Your journey closes at a desk with one blank card and a generous view. You choose a detail that can travel beyond the portal: a color, a sound, or a sentence. The destination becomes a bridge between an unusual experience and ordinary life.",
+        "zh": "你的旅程在一张有空白卡、也有开阔视野的书桌边收尾。你选一个可以穿过传送门的细节：颜色、声音，或一句话。目的地因此成了不寻常经历与普通生活之间的桥。"
+      },
+      "example": {
+        "en": "A real-world version might be telling someone one specific thing you noticed on a walk, rather than trying to present a complete account of the day. A small detail can carry its own story.",
+        "zh": "现实里的类似做法，是向人讲散步时注意到的一件具体小事，而不急着交出整天的完整报告。小细节也能带着自己的故事。"
+      },
+      "strength": {
+        "en": "This ending gives an experience a portable form and keeps attention on something specific enough to remember. Sharing can remain small and voluntary.",
+        "zh": "这个结局给经历一个带得走的形式，也让注意力落在足够具体、能够记住的事上。分享可以很小，也可以出于自愿。"
+      },
+      "tradeoff": {
+        "en": "A postcard is a selection, not the whole place. Choosing what to carry home also means accepting that other parts of the journey remain outside the frame.",
+        "zh": "明信片是一种选择，不是整个地方。决定把什么带回家，也意味着接受其他部分暂时留在画面之外。"
+      },
+      "experiment": {
+        "en": "After your next enjoyable small outing, save or share one non-private detail if you want to. Let it stand as a detail rather than proof that the whole day had one meaning.",
+        "zh": "下次愉快的小外出后，如果愿意，可以保存或分享一个不涉及隐私的细节。让它只是细节，不必证明整天只有一种意义。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "harbor",
+    "gallery",
+    "postcard"
+  ]
+}

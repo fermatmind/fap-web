@@ -1,0 +1,247 @@
+{
+  "slug": "moon-market",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "fantasy",
+  "title": {
+    "en": "The Moon Market: What Will You Bring Home?",
+    "zh": "月亮集市：你会带什么回家？"
+  },
+  "description": {
+    "en": "Follow two to four choices through an original moonlit market. Your route ends with a borrowed star map, a garden of possibilities, or a ticket back to now.",
+    "zh": "用2至4次选择走过原创月光集市。你的路线会带回借来的星图、可能性花园，或一张回到此刻的车票。完整结局免费。"
+  },
+  "introduction": {
+    "en": "The moon market accepts imaginary paper tokens, and nothing you choose costs real money. Vendors offer stories, seeds that grow into sketches, and return tickets. Follow the branch you enjoy; this is a tiny adventure, not a financial or personality assessment.",
+    "zh": "月亮集市只收想象中的纸代币，选择不会花费真实金钱。摊主提供故事、能长成速写的种子，以及返程车票。请沿喜欢的分支走，这是一段小冒险，不评价财务或人格。"
+  },
+  "focus": {
+    "en": "A fictional trade between curiosity, something left to grow, and the choice to finish the evening.",
+    "zh": "一次虚构的交换：好奇、留待生长的可能，以及为今晚收尾的选择。"
+  },
+  "minutes": 2,
+  "mechanism": "branch",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "At the market entrance, which stall draws you in?",
+        "zh": "走进集市，哪个摊位先吸引你？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A stall lending maps of constellations that have not been named.",
+            "zh": "借出尚未命名星座图的摊位。"
+          },
+          "next": "q2"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A stall selling paper seeds that grow into unfinished drawings.",
+            "zh": "售卖会长成未完成画稿的纸种子。"
+          },
+          "next": "q3"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The map seller offers a short loan and one question to follow. You…",
+        "zh": "星图摊主愿意短借一张地图，并附一个可追的问题。你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Take the map and make this one curiosity tonight’s treasure.",
+            "zh": "带上星图，让这一份好奇成为今晚的收获。"
+          },
+          "result": "stars"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask what other endings the market offers before deciding.",
+            "zh": "先问问集市还有哪些结尾，再做决定。"
+          },
+          "next": "q4"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "A seed unfolds into the first line of a garden sketch. You…",
+        "zh": "一颗纸种子展开，变成花园速写的第一条线。你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Keep the unfinished sketch and leave space to return to it.",
+            "zh": "带走未完成的速写，留一点以后再来的空间。"
+          },
+          "result": "garden"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Carry the sketch to the market’s last crossing.",
+            "zh": "带着速写，走到集市最后的路口。"
+          },
+          "next": "q4"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "The last crossing has a return desk and a final lantern. You…",
+        "zh": "最后的路口，有返程柜台和一盏终点灯。你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Choose a return ticket and let tonight’s visit be complete.",
+            "zh": "选一张返程票，让今晚的到访在这里完整。"
+          },
+          "result": "ticket"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask the lantern to show the three keepsakes one final time.",
+            "zh": "请灯笼最后再展示一次三种纪念。"
+          },
+          "next": "q5"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The lantern opens three small boxes. Which do you choose?",
+        "zh": "灯笼打开三个小盒子，你选哪一个？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A borrowed star map with a clear date to return it.",
+            "zh": "一张约好归还日期的借阅星图。"
+          },
+          "result": "stars"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A paper garden that is allowed to stay unfinished.",
+            "zh": "一座被允许暂时未完成的纸花园。"
+          },
+          "result": "garden"
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A ticket that brings you back to the ordinary evening you left.",
+            "zh": "一张带你回到出发时普通夜晚的车票。"
+          },
+          "result": "ticket"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "stars",
+      "title": {
+        "en": "The Borrowed Star Map",
+        "zh": "借来的星图"
+      },
+      "summary": {
+        "en": "You leave the moon market with a map that belongs to the next visitor after you. One unnamed constellation gives you enough to explore tonight. The ending keeps curiosity light: a good question can be worth carrying even when you do not get to own the whole sky.",
+        "zh": "你离开月亮集市时，带着一张之后还会属于下一位来客的星图。一组未命名星座，已足够今晚探索。这个结局让好奇轻一点：一个好问题值得带着走，不必先拥有整片天空。"
+      },
+      "example": {
+        "en": "An everyday parallel might be borrowing a book for one question you genuinely want to follow, rather than collecting every related title before reading the first page.",
+        "zh": "日常里的相似场景，也许是为了一个真想追的问题借一本书，而不是第一页还没读，就先收齐所有相关书目。"
+      },
+      "strength": {
+        "en": "This ending gives curiosity a manageable shape and a return arrangement. Exploration can be meaningful without turning every interesting thing into a permanent possession.",
+        "zh": "这个结局给好奇一个可操作的形状，也留好归还安排。探索可以有意义，不需要把每件有趣东西都变成永久拥有。"
+      },
+      "tradeoff": {
+        "en": "A map can suggest more routes than you have time to follow. Letting the loan end does not mean the unanswered questions have become worthless.",
+        "zh": "地图给出的路线，可能比你的时间更多。借期结束，并不意味着尚未回答的问题就失去了价值。"
+      },
+      "experiment": {
+        "en": "Choose one small question for a resource you already have access to. Give it a little attention, then decide whether you want to continue instead of automatically adding more.",
+        "zh": "为一个已有机会接触的资源选一个小问题。给它一点注意，再决定是否想继续，不必自动增加更多任务。"
+      }
+    },
+    {
+      "id": "garden",
+      "title": {
+        "en": "The Garden of Possibilities",
+        "zh": "可能性花园"
+      },
+      "summary": {
+        "en": "Your market treasure is a garden whose paths have not all been drawn. A seed has become a first line, and the remaining page is part of the gift. The ending lets an idea remain promising without making you sign a contract to finish it.",
+        "zh": "你从集市带走的，是一座路线尚未全画好的花园。种子变成第一条线，剩下纸面也是礼物的一部分。这个结局允许想法保留可能，不要求你签下必须完成的契约。"
+      },
+      "example": {
+        "en": "In ordinary creative play, you might keep a few loose sketches in one folder and return only to the one that still interests you. The rest can stay as traces of an earlier curiosity.",
+        "zh": "日常创作里，你可能把几张松散草图放在一个文件夹，只回来接着画那张仍然有兴趣的。其他草图，也可以只是较早好奇的痕迹。"
+      },
+      "strength": {
+        "en": "This ending makes room for possibility before a fixed plan. It can preserve playfulness when an idea is too young to know what its final form should be.",
+        "zh": "这个结局在固定计划之前，为可能性留位置。想法还很年轻、不知道最后该成为什么时，它能保留一点游戏感。"
+      },
+      "tradeoff": {
+        "en": "An unlimited garden can become a field of obligations if every seed is treated as a promise. You are allowed to choose which possibilities deserve further attention.",
+        "zh": "如果每颗种子都被当成承诺，无限花园也会变成一片义务。你可以选择哪些可能值得继续照顾。"
+      },
+      "experiment": {
+        "en": "Keep one unfinished idea with a note about why it interests you. Release another that now feels like a duty, without needing to call the earlier curiosity a mistake.",
+        "zh": "可以留一个未完成想法，写下它为什么仍然有趣。也可以放掉另一个已经像义务的，不必因此判定从前的好奇是错误。"
+      }
+    },
+    {
+      "id": "ticket",
+      "title": {
+        "en": "The Ticket Back to Now",
+        "zh": "回到此刻的车票"
+      },
+      "summary": {
+        "en": "You return from the moon market to the ordinary evening that was waiting outside it. The ticket is not a consolation prize. It gives the visit an ending and lets the familiar street feel a little more noticeable after the strange stalls and lanterns.",
+        "zh": "你从月亮集市回到外面等着的普通夜晚。车票并不是安慰奖，它给这次到访一个结尾，也让熟悉街道在奇怪摊位与灯笼之后，显得更值得留意。"
+      },
+      "example": {
+        "en": "A real-life version might be enjoying a short exhibition and then going home without adding a shop, another event, and a second plan just because they are nearby.",
+        "zh": "现实里的类似场景，是看完一场短展览就回家，不因为附近还有店、还有活动，就继续加上第二份计划。"
+      },
+      "strength": {
+        "en": "This ending values a chosen stopping point and the possibility of enjoying what is already present. A bounded outing can leave a clear, satisfying memory.",
+        "zh": "这个结局看重主动选择的停止点，也看重享受眼前已有之物的可能。一段有边界的外出，可以留下清楚而满足的记忆。"
+      },
+      "tradeoff": {
+        "en": "Familiarity can become automatic if you never ask whether you want a new experience. Returning is most satisfying when it is a choice rather than the only route you allow.",
+        "zh": "如果从不再问是否想尝试新体验，熟悉也可能变成自动动作。返回是一种选择，而不是唯一被允许的路线时，它更容易让人满足。"
+      },
+      "experiment": {
+        "en": "At the end of a small enjoyable activity, name one thing you are glad you experienced. Let that be enough for today if you want, while leaving another visit possible.",
+        "zh": "一项愉快小活动结束时，说出一件庆幸体验过的事。愿意的话，让今天这样就足够，也为下次到访留着可能。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "stars",
+    "garden",
+    "ticket"
+  ]
+}

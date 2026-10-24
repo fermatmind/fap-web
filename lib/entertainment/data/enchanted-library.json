@@ -1,0 +1,239 @@
+{
+  "slug": "enchanted-library",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "fantasy",
+  "title": {
+    "en": "The Enchanted Library: Which Clue Will You Trust?",
+    "zh": "会改写的图书馆：你会相信哪条线索？"
+  },
+  "description": {
+    "en": "Follow three to four choices through a library with conflicting catalogues. Find an original ending about checking evidence, asking its keeper, or leaving uncertainty open.",
+    "zh": "在目录互相矛盾的图书馆做3至4次选择。你会核对证据、询问保管者，或把不确定留在原处？完整原创结局免费。"
+  },
+  "introduction": {
+    "en": "A fictional library changes the labels on its shelves after sunset. You are looking for one missing story, and the clues disagree. Follow the clues you choose without treating the ending as a measure of intelligence or a test of real research skill.",
+    "zh": "虚构图书馆在日落后会改换书架标签。你在找一则遗失故事，但线索彼此冲突。请按愿意的方式追下去；结局不衡量智力，也不评估真实研究能力。"
+  },
+  "focus": {
+    "en": "Choosing what to do when a written record, a witness and an unfinished story disagree.",
+    "zh": "当文字记录、见证者与未完成故事互相矛盾时，选择下一步如何行动。"
+  },
+  "minutes": 2,
+  "mechanism": "branch",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Two catalogues give different shelves for the same story. Where do you begin?",
+        "zh": "两份目录把同一故事指向不同书架，你先从哪里找？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Compare their dates and the notes in their margins.",
+            "zh": "比较日期和页边批注。"
+          },
+          "next": "q2"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask the person who put the catalogues here.",
+            "zh": "询问把目录放在这里的人。"
+          },
+          "next": "q3"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The older catalogue contains a correction in another hand. You…",
+        "zh": "旧目录里有一笔不同字迹的更正，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Look for the page that the correction quotes.",
+            "zh": "寻找更正引用的原始书页。"
+          },
+          "next": "q4"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Take the correction to the keeper and ask about its history.",
+            "zh": "拿着更正去问保管者它的来历。"
+          },
+          "next": "q3"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "The keeper remembers the move but says memory may be wrong. You…",
+        "zh": "保管者记得搬书经过，也说记忆可能有误，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask which part they saw and which part they heard later.",
+            "zh": "问清哪些是亲见、哪些是后来听说。"
+          },
+          "next": "q5"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Return to the documents with that uncertainty written down.",
+            "zh": "记下这份不确定，回到记录里。"
+          },
+          "next": "q4"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "An original page explains the move but its last sentence is torn away. You…",
+        "zh": "原始书页解释了搬书经过，但最后一句被撕去。你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Keep the supported shelf location and mark the missing sentence.",
+            "zh": "保留有依据的书架位置，注明缺失的句子。"
+          },
+          "result": "record"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Leave a note inviting the next reader to add a supported clue.",
+            "zh": "留张便条，邀请下一位读者补充有依据的线索。"
+          },
+          "result": "open"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The keeper separates their own sighting from a later rumor. Your last choice is…",
+        "zh": "保管者分清了亲见与传闻，你最后选择……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask permission to preserve their account beside the catalogue.",
+            "zh": "征得同意，把这份见闻放在目录旁。"
+          },
+          "result": "witness"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Keep both leads visible without choosing a final shelf yet.",
+            "zh": "暂不指定最终书架，让两条线索都可见。"
+          },
+          "result": "open"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "record",
+      "title": {
+        "en": "The Annotated Record",
+        "zh": "带注释的记录"
+      },
+      "summary": {
+        "en": "You find a shelf supported by the surviving page and leave the torn sentence visibly unresolved. Your ending values an answer with a boundary: what the document supports can be useful without pretending the missing piece has been recovered.",
+        "zh": "你找到了残页支持的书架，也让被撕去的句子继续保持未解。这个结局珍惜有边界的答案：记录已支持的部分可以有用，不必假装缺失的一块已经找回。"
+      },
+      "example": {
+        "en": "In an everyday project, you might save the dated message that confirms a meeting change and separately note the part nobody has confirmed yet.",
+        "zh": "日常小项目里，你也许会保存确认改期的带日期消息，并单独标出尚无人确认的部分。"
+      },
+      "strength": {
+        "en": "This route makes the basis for a choice inspectable. A later visitor can follow your clue and understand which step remains provisional.",
+        "zh": "这条路线让选择的依据可查看。后来者能沿线索走，也能看懂哪一步仍是暂定。"
+      },
+      "tradeoff": {
+        "en": "Written records can be incomplete or mistaken too. Finding one useful page does not make every label in the library automatically trustworthy.",
+        "zh": "文字记录也可能不全或出错。找到一张有用书页，并不让图书馆里每张标签都自动可信。"
+      },
+      "experiment": {
+        "en": "For one small uncertain plan, write down what is confirmed and what is still a guess. Check the item that would actually change your next step.",
+        "zh": "为一件尚不确定的小计划，写下已确认与仍是猜测的部分。优先核对真正会改变下一步的那项。"
+      }
+    },
+    {
+      "id": "witness",
+      "title": {
+        "en": "The Keeper’s Account",
+        "zh": "保管者的见闻"
+      },
+      "summary": {
+        "en": "You preserve a person’s account with permission and with its limits attached. The ending does not turn memory into unquestionable proof. It lets a named perspective sit beside the written record so the next visitor can see where each part came from.",
+        "zh": "你在征得同意后保存了一份见闻，也带上它的边界。结局没有把记忆变成不可质疑的证明，而是让一份有来源的视角与文字记录并列，使后来者知道每部分从哪里来。"
+      },
+      "example": {
+        "en": "When friends remember an outing differently, you might ask what each person actually noticed before combining their accounts into one shared note.",
+        "zh": "朋友对一次出游记得不同时，你可能先问各自实际看到了什么，再把见闻放进同一份记录。"
+      },
+      "strength": {
+        "en": "This route keeps the person and the source of the story visible. It can recover context that a short catalogue entry leaves out.",
+        "zh": "这条路线让讲述者与来源可见，也可能补回简短目录条目遗漏的情境。"
+      },
+      "tradeoff": {
+        "en": "A warm or confident storyteller can still misremember. Respecting someone’s account includes leaving room for correction and for other perspectives.",
+        "zh": "亲切或笃定的讲述者同样可能记错。尊重一份见闻，也包括允许更正和其他视角存在。"
+      },
+      "experiment": {
+        "en": "When retelling a harmless shared memory, distinguish what you saw from what someone told you. Ask before sharing another person’s personal account.",
+        "zh": "下次重述一件无害的共同回忆时，分清亲见与听闻。分享他人的个人经历前，先问对方是否愿意。"
+      }
+    },
+    {
+      "id": "open",
+      "title": {
+        "en": "The Unfinished Catalogue",
+        "zh": "未完成的目录"
+      },
+      "summary": {
+        "en": "You leave the conflicting leads visible and invite a future reader to continue with evidence. The library keeps its mystery, but it does not lose the work already done. Your ending treats an honest open question as a possible stopping point rather than a failure to invent an answer.",
+        "zh": "你让相互冲突的线索保持可见，邀请未来读者带着依据继续。图书馆仍有谜团，却没有丢掉已经完成的寻找。这个结局把诚实的开放问题当作可停下的位置，不把没编出答案视为失败。"
+      },
+      "example": {
+        "en": "For a casual local-history question, you might keep two dated references in a note and stop when neither settles the detail you were curious about.",
+        "zh": "查一个闲暇时感兴趣的地方小历史问题时，你可能留下两份带日期资料，在它们都不能定论时暂时停下。"
+      },
+      "strength": {
+        "en": "This ending preserves uncertainty in a usable form. Someone else can add to the trail without first undoing a confident but unsupported conclusion.",
+        "zh": "这个结局把不确定保存成可接着使用的形状。别人补充线索时，不必先拆掉一个笃定却没有依据的结论。"
+      },
+      "tradeoff": {
+        "en": "Keeping everything open can delay choices that are already supported well enough. Some small decisions can proceed with an explicit provisional assumption.",
+        "zh": "凡事开放也可能拖住已有足够支持的选择。一些小决定可以在说明暂定依据后先行。"
+      },
+      "experiment": {
+        "en": "Save one unresolved low-stakes question with the two best leads and a stopping point. Revisit it only if a new clue would matter to you.",
+        "zh": "给一个低风险的未解问题留下两条最好线索与停止点。只有新线索确实值得你关心时，再回来接着找。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "record",
+    "witness",
+    "open"
+  ]
+}

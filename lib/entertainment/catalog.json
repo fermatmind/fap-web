@@ -51,6 +51,40 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "dragon-housemate",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "fantasy",
+    "title": {
+      "en": "What Kind of Dragon Housemate Would You Be?",
+      "zh": "和一条龙合住，你会怎么相处？"
+    },
+    "description": {
+      "en": "Six original scenes about a friendly dragon roommate reveal how you share a home: clear zones, small rituals, or collaborative inventions. All portraits free.",
+      "zh": "6个与友好龙室友合住的原创情境，看看你会划清空间、建立小仪式，还是一起做发明。完整画像免费。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "enchanted-library",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "fantasy",
+    "title": {
+      "en": "The Enchanted Library: Which Clue Will You Trust?",
+      "zh": "会改写的图书馆：你会相信哪条线索？"
+    },
+    "description": {
+      "en": "Follow three to four choices through a library with conflicting catalogues. Find an original ending about checking evidence, asking its keeper, or leaving uncertainty open.",
+      "zh": "在目录互相矛盾的图书馆做3至4次选择。你会核对证据、询问保管者，或把不确定留在原处？完整原创结局免费。"
+    },
+    "minutes": 2,
+    "questionCount": 4,
+    "minQuestionCount": 3
+  },
+  {
     "slug": "fantasy-party-role",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -136,6 +170,40 @@
     "minQuestionCount": 2
   },
   {
+    "slug": "magic-shopkeeper",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "fantasy",
+    "title": {
+      "en": "What Kind of Magic Shopkeeper Would You Be?",
+      "zh": "如果开一家魔法小店，你是哪种店主？"
+    },
+    "description": {
+      "en": "Six original magical-shop scenes find your shopkeeper portrait: the careful labeler, the lending librarian, or the small-wonder demonstrator. Every result is free.",
+      "zh": "6个原创魔法小店情境，看看你是认真贴标签的店主、愿意借出魔法的馆员，还是演示小奇迹的人。完整结果免费。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "moon-market",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "fantasy",
+    "title": {
+      "en": "The Moon Market: What Will You Bring Home?",
+      "zh": "月亮集市：你会带什么回家？"
+    },
+    "description": {
+      "en": "Follow two to four choices through an original moonlit market. Your route ends with a borrowed star map, a garden of possibilities, or a ticket back to now.",
+      "zh": "用2至4次选择走过原创月光集市。你的路线会带回借来的星图、可能性花园，或一张回到此刻的车票。完整结局免费。"
+    },
+    "minutes": 2,
+    "questionCount": 4,
+    "minQuestionCount": 2
+  },
+  {
     "slug": "museum-visitor",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -170,6 +238,40 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "portal-choice",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "fantasy",
+    "title": {
+      "en": "The Pocket Portal: Where Will Your Choices Lead?",
+      "zh": "口袋传送门：你的选择会通往哪里？"
+    },
+    "description": {
+      "en": "A free branching adventure with three to four choices per route. Explore an original portal story and reach a lantern harbor, unfinished gallery, or postcard home.",
+      "zh": "每条路线3至4次选择的原创分支冒险。走进口袋传送门，抵达灯笼港、未完成画廊，或寄回家的明信片。完整结局免费。"
+    },
+    "minutes": 2,
+    "questionCount": 4,
+    "minQuestionCount": 3
+  },
+  {
+    "slug": "quest-reward",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "fantasy",
+    "title": {
+      "en": "Which Reward Would You Choose After a Tiny Quest?",
+      "zh": "完成一场小冒险后，你最想带走什么奖励？"
+    },
+    "description": {
+      "en": "Six original quest-reward choices lead to a map for tomorrow, a sunset feast, or a token worth keeping. A free fantasy preference game with full portraits.",
+      "zh": "6道原创冒险奖励选择题，看看你会带走明日地图、落日宴席，还是值得留着的小信物。免费奇幻偏好游戏，完整画像直接可读。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
     "slug": "reading-ritual",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -187,6 +289,23 @@
     "minQuestionCount": 6
   },
   {
+    "slug": "secret-door",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "fantasy",
+    "title": {
+      "en": "The Secret Door: What Will You Do with the Key?",
+      "zh": "秘密门：你会怎么使用这把钥匙？"
+    },
+    "description": {
+      "en": "Make three choices about an unexpected key, an invitation and a room that belongs to someone else. Discover one of three original story endings.",
+      "zh": "围绕意外得到的钥匙、一份邀请和他人的房间，做3次选择。发现三个原创故事结局之一，完整结果直接呈现。"
+    },
+    "minutes": 2,
+    "questionCount": 3,
+    "minQuestionCount": 3
+  },
+  {
     "slug": "souvenir-story",
     "version": "1.0.0",
     "updated": "2026-10-24",
@@ -198,6 +317,57 @@
     "description": {
       "en": "Six keepsake choices explore what makes a reminder meaningful: continued use, a specific memory, or a story shared with someone. No purchase required.",
       "zh": "6道纪念物选择题，看看什么让提醒变得有意义：继续使用、一段具体记忆，还是与人共享的故事。不必购物，完整结果免费。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "spell-school-elective",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "fantasy",
+    "title": {
+      "en": "Which Original Spell-School Elective Would You Choose?",
+      "zh": "原创魔法学校里，你会选哪门课？"
+    },
+    "description": {
+      "en": "Six playful class decisions place you closest to one of four original electives: teacup weather, pocket architecture, echo letters, or floating shapes. Full results free.",
+      "zh": "6道轻松选课题，看看你更靠近杯中天气、口袋建筑、回声书信，还是漂浮形状。四门课均为原创，完整结果免费。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "storybook-narrator",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "fantasy",
+    "title": {
+      "en": "Which Original Storybook Narrator Is Yours?",
+      "zh": "你的原创故事书，会由谁来讲？"
+    },
+    "description": {
+      "en": "Six storytelling choices find your narrator: the close-up lens, the village chorus, or the sideways wink. A free style game, not a writing ability test.",
+      "zh": "6道讲故事选择题，看看你的叙述者更像近景镜头、村庄合唱，还是侧着眨眼的旁白。免费风格游戏，不评价写作能力。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6
+  },
+  {
+    "slug": "tiny-kingdom",
+    "version": "1.0.0",
+    "updated": "2026-10-24",
+    "category": "fantasy",
+    "title": {
+      "en": "Which Tiny Kingdom Would You Build?",
+      "zh": "如果王国只有一个鞋盒大，你会建成什么样？"
+    },
+    "description": {
+      "en": "Six miniature-world choices lead to an original kingdom of exchanges, experiments, or well-kept promises. A playful design portrait, with every result free.",
+      "zh": "6道微型世界选择题，看看你的原创小王国更像交换集市、试验工坊，还是承诺档案馆。趣味设计画像，完整结果免费。"
     },
     "minutes": 2,
     "questionCount": 6,

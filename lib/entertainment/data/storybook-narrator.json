@@ -1,0 +1,348 @@
+{
+  "slug": "storybook-narrator",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "fantasy",
+  "title": {
+    "en": "Which Original Storybook Narrator Is Yours?",
+    "zh": "你的原创故事书，会由谁来讲？"
+  },
+  "description": {
+    "en": "Six storytelling choices find your narrator: the close-up lens, the village chorus, or the sideways wink. A free style game, not a writing ability test.",
+    "zh": "6道讲故事选择题，看看你的叙述者更像近景镜头、村庄合唱，还是侧着眨眼的旁白。免费风格游戏，不评价写作能力。"
+  },
+  "introduction": {
+    "en": "A tiny town is preparing a parade for lost umbrellas. You choose how the tale should sound, not what a reader is supposed to prefer. The three narrators are original playful devices, and you can enjoy more than one.",
+    "zh": "一座小镇正准备为走失的雨伞举行游行。你选择故事怎么讲，不需要猜读者应该喜欢什么。三位叙述者都是原创的趣味设定，你也可以同时喜欢不止一位。"
+  },
+  "focus": {
+    "en": "How detail, multiple perspectives, and a playful aside shape the telling of the same fictional event.",
+    "zh": "同一件虚构小事，在细节、多种视角与轻巧插话之间，会被讲成什么样。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Which opening would you choose for the umbrella parade?",
+        "zh": "雨伞游行的开头，你会选哪一句？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A blue drop trembled on the smallest umbrella’s handle.",
+            "zh": "最小的雨伞把手上，一滴蓝色的水轻轻发颤。"
+          },
+          "points": {
+            "lens": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Nobody in town agreed on when the umbrellas had first gone missing.",
+            "zh": "镇上没有人能对雨伞最早何时走失达成一致。"
+          },
+          "points": {
+            "chorus": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The umbrellas arrived late, which was generous of them, considering the forecast.",
+            "zh": "雨伞们迟到了；考虑到天气预报，它们肯来已很给面子。"
+          },
+          "points": {
+            "wink": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "The mayor drops the parade map. You want the next paragraph to…",
+        "zh": "镇长把游行地图掉了，你希望下一段……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Show three townspeople interpreting the mishap in different ways.",
+            "zh": "写三位镇民分别怎样理解这次小意外。"
+          },
+          "points": {
+            "chorus": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Follow the map’s wet corner as it catches on a shoe.",
+            "zh": "跟着地图湿掉的角，看看它怎样挂住鞋边。"
+          },
+          "points": {
+            "lens": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Offer a small remark about maps being terrible at following their own directions.",
+            "zh": "顺便评论一句：地图总不擅长走自己画的路。"
+          },
+          "points": {
+            "wink": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "A quiet umbrella remains at the edge of the square. You…",
+        "zh": "一把安静的伞留在广场边缘，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Let the narrator notice a tiny, amusing mismatch in the scene.",
+            "zh": "让旁白留意场景里一个小小的有趣错位。"
+          },
+          "points": {
+            "wink": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Stay with the details that can actually be seen or heard.",
+            "zh": "停在实际看得到、听得到的细节上。"
+          },
+          "points": {
+            "lens": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Move among the different guesses the townspeople make about it.",
+            "zh": "在镇民对它不同的猜想之间移动。"
+          },
+          "points": {
+            "chorus": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "You can give the storyteller one special notebook. It contains…",
+        "zh": "可以送给叙述者一本特别笔记，它里面记着……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Small sensory details that make the town feel inhabited.",
+            "zh": "让小镇像真正有人生活的感官细节。"
+          },
+          "points": {
+            "lens": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A collection of good-natured observations from the edge of events.",
+            "zh": "从事件边缘冒出的温和趣味观察。"
+          },
+          "points": {
+            "wink": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Several accounts of the same day, with disagreements left visible.",
+            "zh": "同一天的几种讲法，分歧也保留着。"
+          },
+          "points": {
+            "chorus": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "The parade has a short pause. You would use it to…",
+        "zh": "游行短暂停下，你会用这段空隙……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Hear a voice that the main scene has not followed yet.",
+            "zh": "听见主要场景尚未跟过的一种声音。"
+          },
+          "points": {
+            "chorus": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Let one ordinary detail hold the scene for a moment.",
+            "zh": "让一个普通细节暂时撑住画面。"
+          },
+          "points": {
+            "lens": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Let the narrator make one sideways joke, then get back to the umbrellas.",
+            "zh": "让旁白侧着讲一句玩笑，再回到雨伞们身上。"
+          },
+          "points": {
+            "wink": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "Which ending sounds most like the book you want to read?",
+        "zh": "哪种结尾更像你想读的这本书？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "By evening, the smallest handle was dry again.",
+            "zh": "傍晚时，最小的那只把手又干了。"
+          },
+          "points": {
+            "lens": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Everyone remembered a different parade, and all the umbrellas went home.",
+            "zh": "大家记得不同的游行，而所有雨伞都回了家。"
+          },
+          "points": {
+            "chorus": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "The umbrellas went home. The forecast, wisely, had nothing further to add.",
+            "zh": "雨伞们回家了。天气预报很明智，没再补充什么。"
+          },
+          "points": {
+            "wink": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "lens",
+      "title": {
+        "en": "The Close-Up Lens",
+        "zh": "近景镜头"
+      },
+      "summary": {
+        "en": "Your chosen narrator makes a large event feel real through a small visible detail. A handle, a wet corner, or a moment of quiet can hold the reader close to the scene. This is a preference in the game, not proof of superior observation or literary skill.",
+        "zh": "你选出的叙述者，会通过一个看得见的小细节，让大一点的事件变得具体。把手、湿角或片刻安静，都能把读者带近画面。这是游戏中的偏好，不证明观察力或文学能力更强。"
+      },
+      "example": {
+        "en": "When retelling a pleasant outing, you might begin with the crooked paper sign outside a cafe rather than a summary of the whole afternoon. One precise detail gives the listener somewhere to stand.",
+        "zh": "讲一次愉快外出时，你可能先说咖啡馆门外歪着的纸招牌，而不先总结整个下午。一个具体细节，给听者一个站得住的地方。"
+      },
+      "strength": {
+        "en": "This narrator gives ordinary things attention and lets a scene unfold at a human scale. A small image can carry feeling without a long explanation.",
+        "zh": "这位叙述者愿意注意普通东西，让场景以贴近人的尺度展开。一个小画面，也能承载感受，不必先讲很长的解释。"
+      },
+      "tradeoff": {
+        "en": "A close view leaves other parts outside the frame. Following one vivid detail too long can make it harder to understand the wider event or another person’s perspective.",
+        "zh": "近景也会把其他部分留在画面外。跟着一个鲜明细节太久，可能不容易看清整件事，或另一个人的视角。"
+      },
+      "experiment": {
+        "en": "Tell a small, non-private story using one concrete detail, then add one sentence of context. Notice how the two parts help each other rather than competing for space.",
+        "zh": "用一个具体细节讲一件不涉及隐私的小事，再补一句背景。看看两部分怎样相互帮助，而不是争着占满篇幅。"
+      }
+    },
+    {
+      "id": "chorus",
+      "title": {
+        "en": "The Village Chorus",
+        "zh": "村庄合唱"
+      },
+      "summary": {
+        "en": "Your narrator lets the story sound different depending on who is telling it. The parade can be an inconvenience to one paper citizen and a marvelous surprise to another. You enjoy a tale with room for several accounts, without having to merge them into one tidy voice.",
+        "zh": "你的叙述者允许故事随着讲述者而改变。游行对一位纸片居民也许是麻烦，对另一位却是精彩惊喜。你喜欢为几种讲法都留位置，不必把它们硬合成一个整齐的声音。"
+      },
+      "example": {
+        "en": "After a shared day out, you might enjoy hearing what each person noticed first. Their accounts can add texture without turning the conversation into a contest over whose afternoon was the real one.",
+        "zh": "共同外出后，你可能喜欢听听每个人最先注意到了什么。不同讲法能增加质地，不必把交流变成谁的下午才是真的的比赛。"
+      },
+      "strength": {
+        "en": "This narrator makes room for contrast and can keep a familiar event from becoming a single person’s official version. Differences become part of the story.",
+        "zh": "这位叙述者给对照留位置，不轻易让熟悉的事件变成某一个人的唯一版本。差异本身，也进入故事。"
+      },
+      "tradeoff": {
+        "en": "Different perspectives do not make every factual claim equally supported. A chorus still needs to distinguish remembered impressions, guesses, and things that can be checked.",
+        "zh": "视角不同，不意味着每个事实说法都有同样的依据。合唱仍然需要分清记得的印象、猜测，以及可以核对的事情。"
+      },
+      "experiment": {
+        "en": "Invite another account of an ordinary shared event. Keep one difference visible, and ask a factual question separately if it would change your understanding.",
+        "zh": "可以邀请对方讲一次普通共同经历的另一个版本。保留一个差异；如果某个事实会改变理解，就另外提出核对问题。"
+      }
+    },
+    {
+      "id": "wink",
+      "title": {
+        "en": "The Sideways Wink",
+        "zh": "侧着眨眼的旁白"
+      },
+      "summary": {
+        "en": "Your storybook narrator likes a small gap between what is happening and the way it is described. A gentle aside can make an umbrella seem to have opinions about the forecast. The play comes from the telling, without requiring a person in the story to be the joke.",
+        "zh": "你的故事书旁白喜欢在正在发生的事与讲法之间，留一点小错位。一句温和插话，就能让雨伞像对天气预报有自己的意见。乐趣来自叙述，不一定要拿故事里的人当笑点。"
+      },
+      "example": {
+        "en": "You might describe an overflowing bag as having “ambitions beyond its carrying capacity.” In everyday conversation, the same style can make a mundane mishap feel lighter when everyone involved is comfortable with it.",
+        "zh": "你可能说一只鼓鼓的包“志向超过了承载能力”。日常聊天中，如果相关的人都自在，这种讲法能让普通小意外变得轻一点。"
+      },
+      "strength": {
+        "en": "This narrator creates surprise through framing and can give an ordinary scene a memorable little turn. A brief aside may invite a smile without taking over the story.",
+        "zh": "这位旁白通过角度带来意外，也能给普通场景一个记得住的小转弯。短短插话可以邀请微笑，不必接管整段故事。"
+      },
+      "tradeoff": {
+        "en": "A clever aside can interrupt a moment that needs a direct telling. Humor also depends on context, and another person does not have to enjoy the framing you chose.",
+        "zh": "机灵插话也可能打断本来需要直接讲清的片刻。幽默依赖情境，别人也不必喜欢你选的角度。"
+      },
+      "experiment": {
+        "en": "Try one gentle aside about an object or a harmless situation, then return to the actual story. Leave it out if it distracts from what someone needs to understand.",
+        "zh": "可以对一个物件或无害场景加一句温和插话，然后回到事情本身。如果它妨碍对方理解需要的信息，就把它放下。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "lens",
+    "chorus",
+    "wink"
+  ]
+}

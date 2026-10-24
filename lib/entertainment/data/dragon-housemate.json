@@ -1,0 +1,348 @@
+{
+  "slug": "dragon-housemate",
+  "version": "1.0.0",
+  "updated": "2026-10-24",
+  "category": "fantasy",
+  "title": {
+    "en": "What Kind of Dragon Housemate Would You Be?",
+    "zh": "和一条龙合住，你会怎么相处？"
+  },
+  "description": {
+    "en": "Six original scenes about a friendly dragon roommate reveal how you share a home: clear zones, small rituals, or collaborative inventions. All portraits free.",
+    "zh": "6个与友好龙室友合住的原创情境，看看你会划清空间、建立小仪式，还是一起做发明。完整画像免费。"
+  },
+  "introduction": {
+    "en": "A small, polite dragon has moved into an imaginary flat with you. Its odd habits are fictional and low-stakes. Choose how you would negotiate daily life; the result is a story portrait, not a relationship compatibility score or a judgment about real roommates.",
+    "zh": "一条个头不大、很有礼貌的龙，搬进了你虚构的公寓。它的古怪习惯都是轻松的想象。请选择你会怎样商量日常生活；结果是故事画像，不是关系匹配分，也不评价真实室友。"
+  },
+  "focus": {
+    "en": "How you make shared space work through explicit agreements, recurring connection, or jointly created solutions.",
+    "zh": "你怎样通过明确约定、重复的小联系，或共同创造的办法，让合住空间运作起来。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "The dragon’s collection of shiny buttons is spreading across the table. You…",
+        "zh": "龙收藏的亮纽扣快铺满桌面了，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Agree on a display zone and keep the rest of the table shared.",
+            "zh": "约定一块展示区域，其他桌面保持共用。"
+          },
+          "points": {
+            "zones": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Set a regular little sorting time you can enjoy together.",
+            "zh": "约一个两人都能享受的小小整理时段。"
+          },
+          "points": {
+            "ritual": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Suggest designing a new display that folds away.",
+            "zh": "提议一起设计能折叠收起的展示架。"
+          },
+          "points": {
+            "make": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "Your schedules rarely overlap. You want to…",
+        "zh": "你们的作息很少碰在一起，你想……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Create a brief shared greeting at a time that suits both.",
+            "zh": "找一个双方都合适的时刻，保留简短问候。"
+          },
+          "points": {
+            "ritual": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Use a simple shared sign to show quiet hours and availability.",
+            "zh": "用简单标示说明安静时段与是否方便。"
+          },
+          "points": {
+            "zones": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Invent an amusing message board that fits your different routines.",
+            "zh": "一起做一个适合不同时段使用的有趣留言板。"
+          },
+          "points": {
+            "make": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "The dragon asks whether your reading chair is also a nap spot. You…",
+        "zh": "龙问你的阅读椅能不能也当它的小睡点，你会……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Explain when the chair is yours and when it can be shared.",
+            "zh": "说明哪些时候归你，哪些时候可以共用。"
+          },
+          "points": {
+            "zones": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Try making a second cozy perch together from suitable imaginary materials.",
+            "zh": "用合适的虚构材料，一起做第二个舒服小窝。"
+          },
+          "points": {
+            "make": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Build a small handover ritual so sharing does not feel abrupt.",
+            "zh": "约一个小小的交接方式，让轮换不那么突然。"
+          },
+          "points": {
+            "ritual": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "An old household rule no longer fits. You first…",
+        "zh": "以前的合住约定不太合适了，你会先……"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Discuss a small experiment you can both review afterward.",
+            "zh": "商量一个之后能共同回看的小试验。"
+          },
+          "points": {
+            "make": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Name exactly which use of the space needs a new agreement.",
+            "zh": "说清哪一部分空间使用需要新约定。"
+          },
+          "points": {
+            "zones": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Choose a familiar check-in time to talk without rushing.",
+            "zh": "选一个熟悉的确认时段，不赶着聊完。"
+          },
+          "points": {
+            "ritual": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Which dragon gift would you most appreciate?",
+        "zh": "龙送你哪种小礼物，你最开心？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "A simple “shared / private” marker it made after listening to you.",
+            "zh": "听过你的想法后做的“共用／个人”小标牌。"
+          },
+          "points": {
+            "zones": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "A tiny gadget you designed and assembled as a team.",
+            "zh": "你们一起设计、一起拼好的小装置。"
+          },
+          "points": {
+            "make": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "A note remembering one of your ordinary shared moments.",
+            "zh": "一张记着你们平常共同片刻的便条。"
+          },
+          "points": {
+            "ritual": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "The flat feels like home when…",
+        "zh": "怎样会让这间公寓有“住在一起”的感觉？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "There is a small recurring moment we both look forward to.",
+            "zh": "有一段双方都期待、会再发生的小片刻。"
+          },
+          "points": {
+            "ritual": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "We can say what space we need without making it a personal rejection.",
+            "zh": "能说出需要什么空间，不把它变成拒绝对方。"
+          },
+          "points": {
+            "zones": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Our shared solutions have a little of each of us in them.",
+            "zh": "共同的办法里，都留着彼此的一点想法。"
+          },
+          "points": {
+            "make": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "zones",
+      "title": {
+        "en": "The Friendly Boundary Keeper",
+        "zh": "友好的空间约定者"
+      },
+      "summary": {
+        "en": "Your dragon-housemate choices make clarity part of welcome. You want shared things to be genuinely shared and personal space to remain easy to name. In this story, a clear agreement makes the odd household feel more relaxed rather than less affectionate.",
+        "zh": "你的龙室友选择，把清楚也当作欢迎的一部分。你希望共用的东西真的能够共用，也希望个人空间容易说出来。在这个故事里，明确约定让古怪的家更放松，而不是更冷淡。"
+      },
+      "example": {
+        "en": "You might happily admire the dragon’s button collection while asking it to stay within one agreed shelf. The request concerns where objects go, not whether the dragon itself belongs.",
+        "zh": "你可以很喜欢龙的纽扣收藏，同时请它把收藏放在约好的一个架子内。请求说的是物品去哪里，不是在判断龙是否属于这个家。"
+      },
+      "strength": {
+        "en": "You can make expectations discussable and reduce the guesswork around ordinary shared resources. People have a clearer chance to choose and coordinate.",
+        "zh": "你会让预期变得能讨论，减少普通共用资源周围的猜测。大家也更有机会清楚地选择与协调。"
+      },
+      "tradeoff": {
+        "en": "A rule can become too rigid if it never responds to changed needs. Boundaries work better as real agreements than as a list only one housemate designed.",
+        "zh": "如果完全不回应需要的变化，约定也可能变得僵硬。边界更适合成为真实共识，而不是只有一个人制定的清单。"
+      },
+      "experiment": {
+        "en": "For a small shared-space issue, describe the practical need and invite one workable alternative. Agree on when to revisit it rather than treating the first arrangement as permanent.",
+        "zh": "面对一件小小的共用空间问题，可以说清实际需要，也邀请一个可行替代。约好何时再看看，不必把第一次安排当成永久方案。"
+      }
+    },
+    {
+      "id": "ritual",
+      "title": {
+        "en": "The Keeper of Small Home Rituals",
+        "zh": "家中小仪式的保管者"
+      },
+      "summary": {
+        "en": "Your imaginary home grows familiar through recurring little moments. A greeting, a brief check-in, or a shared sorting session can make coexisting feel more personal. The ritual matters when both housemates enjoy it, not because a routine proves how close you are.",
+        "zh": "你的想象之家通过重复的小片刻慢慢熟悉。一次问候、短暂确认或一起整理，都能让同住不只是共享地址。仪式在双方都享受时才有意义，不用靠习惯证明关系有多近。"
+      },
+      "example": {
+        "en": "You and the dragon might trade a short note by the kettle when schedules differ. Some days the note can be absent without making the whole household feel wrong.",
+        "zh": "作息不同时，你和龙可能在水壶旁交换一句短便条。某一天没有便条，也不必觉得整个家出了问题。"
+      },
+      "strength": {
+        "en": "You notice the small points of contact that help a home feel recognizable and can create room for connection without requiring a long conversation.",
+        "zh": "你会留意让家变得熟悉的小接触点，也能给联系留位置，而不必每次都安排长谈。"
+      },
+      "tradeoff": {
+        "en": "An enjoyable ritual can become an obligation when someone has no room to skip it. Repetition should not replace asking whether the arrangement still feels good.",
+        "zh": "如果不能缺席，愉快的仪式也会变成义务。反复发生，并不能替代一句“现在这样还舒服吗”的询问。"
+      },
+      "experiment": {
+        "en": "Offer one small repeatable moment and explicitly allow a missed day. Check whether both people look forward to it before adding another household routine.",
+        "zh": "可以提出一个容易重复的小片刻，也明确允许某天不做。在增加下一个家庭惯例之前，先看看双方是否都期待这个安排。"
+      }
+    },
+    {
+      "id": "make",
+      "title": {
+        "en": "The Co-Inventor of Home",
+        "zh": "一起发明家的方式"
+      },
+      "summary": {
+        "en": "Your portrait meets the dragon’s unusual habits with a collaborative project. You enjoy finding a small solution that neither housemate would have made alone. The home becomes a place you can keep adapting together, without assuming every difference needs an invention.",
+        "zh": "你的画像把龙的不寻常习惯变成共同的小项目。你喜欢找一个双方独自都未必会想到的办法。家因此成为能一起调整的地方，但不代表每一种差异都需要发明来解决。"
+      },
+      "example": {
+        "en": "A folding button display might preserve the dragon’s delight and return the dinner table when needed. Both housemates get a voice in what the object is supposed to do.",
+        "zh": "折叠的纽扣展示架，可以保留龙的快乐，也在需要时还出餐桌。物件该做什么，由两个室友都参与决定。"
+      },
+      "strength": {
+        "en": "You can turn a stuck disagreement into a concrete experiment and make shared ownership visible through the way a solution is created.",
+        "zh": "你能把卡住的分歧变成一个具体试验，也让共同拥有感在解决办法的形成过程中看得见。"
+      },
+      "tradeoff": {
+        "en": "Projects can demand time that someone never offered. A simple request or existing tool may solve the issue more comfortably than a new shared invention.",
+        "zh": "项目也会占用别人从未答应投入的时间。有时一个简单请求或现成工具，就比新发明更舒服地解决了问题。"
+      },
+      "experiment": {
+        "en": "Try one reversible change with a clear stop point, and ask whether the other person wants to participate. Keep a simpler fallback that does not require a joint project.",
+        "zh": "可以试一个可撤回、有停止节点的小改变，也问问对方是否愿意参与。保留一个不需要共同项目的更简单备选。"
+      }
+    }
+  ],
+  "tieOrder": [
+    "zones",
+    "ritual",
+    "make"
+  ]
+}
