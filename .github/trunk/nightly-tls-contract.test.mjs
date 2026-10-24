@@ -17,6 +17,6 @@ test("nightly checks all public TLS certificates at documented thresholds", () =
   assert.match(workflow, /--alert-days 21,14,7/);
   assert.match(
     workflow,
-    /needs: \[full-regression, codeql, certificate-expiry\]/,
+    /needs: \[classify, full-regression, codeql, certificate-expiry\]/,
   );
 });
