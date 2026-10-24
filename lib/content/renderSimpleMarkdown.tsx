@@ -8,6 +8,7 @@ type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 type MarkdownRenderOptions = {
   allowImages?: boolean;
   scrollableTables?: boolean;
+  wrapPlainTextFences?: boolean;
   compactMatrixHeaders?: readonly [string, string, string, string];
   minimumHeadingLevel?: HeadingLevel;
   headingIdPrefix?: string;
@@ -571,7 +572,7 @@ export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOp
           <pre
             key={key}
             data-language={block.language || undefined}
-            className="m-0 overflow-x-auto rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 text-sm text-[var(--fm-text)]"
+            className={`m-0 overflow-x-auto rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 text-sm text-[var(--fm-text)]${options.wrapPlainTextFences && block.language.toLowerCase() === "text" ? " whitespace-pre-wrap [overflow-wrap:anywhere]" : ""}`}
           >
             <code>{block.code}</code>
           </pre>
