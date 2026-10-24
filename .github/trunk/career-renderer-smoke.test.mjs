@@ -23,7 +23,7 @@ const page = {
 const body = {bundle_kind: 'career_job_detail', bundle_version: 'career.detail.page.v1', locale_policy: {requested_locale: 'zh-CN'}, identity: { canonical_slug: 'accountants-and-auditors' }, career_page: page, seo_contract: {canonical_path: '/zh/career/jobs/accountants-and-auditors', canonical_target: '/zh/career/jobs/accountants-and-auditors', metadata_fingerprint: 'b'.repeat(64), index_eligible: true, index_state: 'indexable', robots_policy: 'index,follow', reason_codes: ['runtime_publish_projection', 'release_gate_pass']} };
 const markers = ['career-production-ai-gauge', 'career-production-hero-badges', 'career-dossier-toc', 'career-display-faq'];
 const validHtml = `<link rel="canonical" href="https://fermatmind.com/zh/career/jobs/accountants-and-auditors"><meta name="robots" content="index, follow"><main data-career-production-template="career-production-v1" data-career-renderer-release="${sha}">${markers.map(marker => `<section data-testid="${marker}"></section>`).join('')}职业示例 7/10 标签甲 标签乙 标签丙 $123 示例概述 正文 &amp; 说明 示例问题？</main>`;
-for (const mode of ['success', 'download-failure', 'revision-mismatch', 'page-404', 'page-redirect', 'api-404', 'api-locale', 'missing-display', 'missing-score', 'wrong-template', 'props-only', 'production-success', 'stale-noindex', 'googlebot-noindex', 'duplicate-noindex', 'header-noindex', 'noindex-success', 'noindex-overridden', 'fingerprint-mismatch', 'wrong-canonical', 'staging-noindex-missing', 'stream-success', 'hidden-content', 'missing-stream-source', 'stream-noindex', 'missing-version', 'content-locale', 'content-subject']) {
+for (const mode of ['success', 'download-failure', 'revision-mismatch', 'page-404', 'page-redirect', 'api-404', 'api-locale', 'missing-display', 'missing-score', 'wrong-template', 'props-only', 'production-success', 'stale-noindex', 'googlebot-noindex', 'duplicate-noindex', 'header-noindex', 'noindex-success', 'noindex-overridden', 'fingerprint-mismatch', 'wrong-canonical', 'staging-noindex-missing', 'stream-success', 'hidden-content', 'missing-stream-source', 'stream-noindex', 'missing-version', 'content-locale', 'content-subject', 'hidden-props-only', 'style-props-only', 'script-props-only', 'literal-angle-text', 'attribute-props-only', 'stream-segment-success', 'stream-boundary-missing']) {
   test(`career renderer smoke distinguishes ${mode}`, () => {
     const root = mkdtempSync(path.join(tmpdir(), 'career-renderer-smoke-'));
     try {
@@ -44,6 +44,18 @@ for (const mode of ['success', 'download-failure', 'revision-mismatch', 'page-40
         html = `<!--$?--><template id="B:0"></template>加载中<!--/$--><div hidden="" id="S:0">${html}</div><script>$RC("B:0","S:0")</script>`;
         if (mode === 'stream-noindex') html = html.replace('index, follow', 'noindex, follow');
       }
+      if (['hidden-props-only', 'style-props-only', 'script-props-only'].includes(mode)) {
+        html = html.replace('示例概述', '');
+        const tag = mode === 'style-props-only' ? 'style' : mode === 'script-props-only' ? 'script' : 'div hidden=""';
+        html += `<${tag}>示例概述</${tag.split(' ')[0]}>`;
+      }
+      if (mode === 'literal-angle-text') {
+        api.career_page.display.components.definition_block = '正文 <b> & 说明';
+        html = html.replace('正文 &amp; 说明', '正文 &lt;b&gt; &amp; 说明');
+      }
+      if (mode === 'attribute-props-only') html = html.replace('示例概述', '') + '<div title="quoted > 示例概述"></div>';
+      if (mode === 'stream-segment-success') html = `<span id="P:0"></span><div hidden="" id="S:0">${html}</div><script>$RS("S:0","P:0")</script>`;
+      if (mode === 'stream-boundary-missing') html = `<template id="B:0"></template><div hidden="" id="S:0">${html}</div><script>$RC("B:0","S:0")</script>`;
       if (mode === 'hidden-content') html = `<div hidden="">${html}</div>`;
       if (mode === 'missing-stream-source') html += '<script>$RS("S:missing","P:0")</script>';
       if (mode === 'missing-version') delete api.bundle_version;
@@ -83,11 +95,11 @@ printf 200
         encoding: 'utf8', timeout: 5000,
       });
       assert.equal(result.error, undefined);
-      assert.equal(result.status, ['success', 'production-success', 'noindex-success', 'stream-success'].includes(mode) ? 0 : 1, `${result.stdout}\n${result.stderr}`);
+      assert.equal(result.status, ['success', 'production-success', 'noindex-success', 'stream-success', 'literal-angle-text', 'stream-segment-success'].includes(mode) ? 0 : 1, `${result.stdout}\n${result.stderr}`);
       const category = {'api-locale': 'api_contract', 'missing-display': 'api_contract', 'missing-version': 'api_contract',
         'fingerprint-mismatch': 'seo_authority', 'content-locale': 'seo_authority', 'content-subject': 'seo_authority',
         'stale-noindex': 'robots', 'stream-noindex': 'robots', 'googlebot-noindex': 'robots', 'duplicate-noindex': 'robots', 'header-noindex': 'robots', 'noindex-overridden': 'robots', 'staging-noindex-missing': 'robots',
-        'wrong-canonical': 'canonical', 'wrong-template': 'renderer', 'props-only': 'robots', 'hidden-content': 'robots', 'missing-stream-source': 'stream', 'missing-score': 'visible_content'}[mode];
+        'wrong-canonical': 'canonical', 'wrong-template': 'renderer', 'props-only': 'robots', 'hidden-content': 'robots', 'missing-stream-source': 'stream', 'attribute-props-only': 'visible_content', 'stream-boundary-missing': 'stream', 'hidden-props-only': 'visible_content', 'style-props-only': 'visible_content', 'script-props-only': 'visible_content', 'missing-score': 'visible_content'}[mode];
       if (category) assert.match(result.stderr, new RegExp(`category=${category}(?:\\s|$)`));
       const args = readFileSync(trace, 'utf8').trim().split('\n');
       assert.ok(args.includes('--compressed'));

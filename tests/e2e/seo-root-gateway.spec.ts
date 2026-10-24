@@ -1,7 +1,7 @@
 import { startPublicContentApiFixture } from "./helpers/public-content-api-fixture";
 import { expect, test } from "@playwright/test";
 
-test("root path serves the chinese home without a locale redirect", async ({ request }) => {
+test("root path serves the chinese home without a locale redirect", async ({ request, page }) => {
   const zhResponse = await request.get("/", {
     headers: {
       "accept-language": "zh-CN,zh;q=0.9,en;q=0.8",
@@ -10,7 +10,11 @@ test("root path serves the chinese home without a locale redirect", async ({ req
   });
   expect(zhResponse.status()).toBe(200);
   expect(zhResponse.headers().location).toBeFalsy();
-  expect((await zhResponse.text()).match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)?.[1].replace(/<[^>]+>/g, "")).toBe("看清自己，走好每一步");
+  const zhResponseHeadings = await page.evaluate((html) => {
+    const document = new DOMParser().parseFromString(html, "text/html");
+    return Array.from(document.querySelectorAll("h1"), (heading) => heading.textContent);
+  }, await zhResponse.text());
+  expect(zhResponseHeadings).toEqual(["看清自己，走好每一步"]);
 
   const enResponse = await request.get("/", {
     headers: {
@@ -20,7 +24,11 @@ test("root path serves the chinese home without a locale redirect", async ({ req
   });
   expect(enResponse.status()).toBe(200);
   expect(enResponse.headers().location).toBeFalsy();
-  expect((await enResponse.text()).match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)?.[1].replace(/<[^>]+>/g, "")).toBe("看清自己，走好每一步");
+  const enResponseHeadings = await page.evaluate((html) => {
+    const document = new DOMParser().parseFromString(html, "text/html");
+    return Array.from(document.querySelectorAll("h1"), (heading) => heading.textContent);
+  }, await enResponse.text());
+  expect(enResponseHeadings).toEqual(["看清自己，走好每一步"]);
 });
 
 test("root canonical and hreflang keep chinese home on the bare domain", async ({ request }) => {

@@ -6,7 +6,7 @@ function completeStream(html) {
   const stack = [root], ids = new Map(), commands = [];
   const voids = new Set(['area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr']);
   const append = node => {node.parent = stack.at(-1); node.parent.children.push(node);};
-  for (const match of html.matchAll(/<script\b[^>]*>[\s\S]*?<\/script>|<!--[\s\S]*?-->|<\/?[a-z][^>]*>|[^<]+|</gi)) {
+  for (const match of html.matchAll(/<script\b(?:[^>"']|"[^"]*"|'[^']*')*>[\s\S]*?<\/script>|<!--[\s\S]*?-->|<\/?[a-z](?:[^>"']|"[^"]*"|'[^']*')*>|[^<]+|</gi)) {
     const token = match[0];
     if (/^<script\b/i.test(token)) {
       for (const [,kind,first,second] of token.matchAll(/\$(RS|RC)\("([BSP]:[a-z0-9]+)","([BSP]:[a-z0-9]+)"\)/g)) commands.push([kind,first,second]);
@@ -61,7 +61,11 @@ function completeStream(html) {
     const content = node.children.map(render).join('');
     return node.tag === 'root' ? content : node.token + content + (voids.has(node.tag) ? '' : `</${node.tag}>`);
   };
-  return render(root);
+  // Collect text nodes directly, without serializing and reparsing markup.
+  // Transport scripts were excluded above; hidden/style descendants remain excluded.
+  const text = node => node.hidden || node.tag === 'style' || node.tag === 'comment' ? '' :
+    node.tag === 'text' ? node.text : node.children.map(text).join('');
+  return {html: render(root), text: text(root)};
 }
 
 let category = 'environment';
@@ -81,7 +85,8 @@ try {
       typeof ai.fact?.display_value !== 'string' || !ai.fact.display_value.trim()) throw new Error('AI availability');
   // Exclude React transport scripts so cached props cannot masquerade as rendered content.
   category = 'stream';
-  const rendered = completeStream(html);
+  const completed = completeStream(html);
+  const rendered = completed.html;
   category = 'seo_authority';
   const seo = response.seo_contract;
   const canonical = '/zh/career/jobs/accountants-and-auditors';
@@ -126,7 +131,7 @@ try {
   const decode = value => value.replace(/&#(x[0-9a-f]+|[0-9]+);/gi, (_, code) => String.fromCodePoint(code[0].toLowerCase() === 'x' ? parseInt(code.slice(1), 16) : Number(code)))
     .replace(/&(amp|lt|gt|quot|apos|nbsp);/g, (_, name) => ({ amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ' })[name]);
   const normalize = value => decode(value).replace(/\s+/g, '');
-  const visible = normalize(rendered.replace(/<[^>]*>/g, ''));
+  const visible = normalize(completed.text);
   const components = page.display.components;
   if (ai.availability === 'missing' && (!rendered.includes('data-career-ai-unavailable="true"') ||
       !visible.includes(normalize('暂无数据')))) throw new Error('AI missing state');

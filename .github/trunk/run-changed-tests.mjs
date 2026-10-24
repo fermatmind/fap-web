@@ -52,7 +52,7 @@ export function changedTestPlan(changes, {vitest=false,root=process.cwd()}={}) {
 export function runChangedTests(plan,{mode='legacy',root='.',run=(cmd,args,options)=>spawnSync(cmd,args,options)}={}){
  const calls=[];const execute=(cmd,args,cwd)=>{
   const env={...process.env}; delete env.NODE_TEST_CONTEXT;
-  const result=run(cmd,args,{cwd:root==='.'?cwd:`${root}/${cwd}`,env,stdio:'inherit'});calls.push({command:cmd,args,status:result.status});
+  const result=run(cmd,args,{cwd:root==='.'?cwd:`${root}/${cwd}`,env,stdio:'inherit',shell:false});calls.push({command:cmd,args,status:result.status});
   if(result.status!==0)throw new Error(`Changed test execution failed: ${cmd}`);
  };
  // Mode-independent language checks run once; PHP inherits the matrix FEATURE environment.

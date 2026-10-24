@@ -431,7 +431,8 @@ function renderHeading(level: HeadingLevel, text: string, key: string, options: 
 export function getSimpleMarkdownHeadings(markdown: string, options: MarkdownRenderOptions = {}) {
   return tokenizeMarkdown(normalizeLineBreaks(markdown).trim()).flatMap((block, index) => {
     if (block.type !== "heading" || !options.headingIdPrefix) return [];
-    const text = block.text.replace(/!?\[([^\]]+)\]\([^)]*\)/g, "$1").replace(/<[^>]+>/g, "").replace(/[*_`]/g, "").trim();
+    // Read the same React text children as the body; this is not an HTML sanitizer.
+    const text = renderedText(renderInlineMarkdown(block.text, `toc-${index}`, options)).trim();
     return text ? [{ id: `${options.headingIdPrefix}-markdown-block-${index}`, text, level: Math.max(block.level, options.minimumHeadingLevel ?? 1) }] : [];
   });
 }

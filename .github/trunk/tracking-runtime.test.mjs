@@ -16,7 +16,7 @@ test('runtime input is private, bounded, immutable, and confined to the two nati
   assert.equal(statSync(file).mode & 0o777, 0o600); assert.deepEqual(readConfig(file), values);
   writeConfig(file, values);
   assert.throws(() => writeConfig(file, { ...values, TRACK_INGEST_TOKEN: values.TRACK_INGEST_TOKEN + 'different' }), /DRIFT/);
-  for (const origin of ['http://api.fermatmind.com', 'https://api.fermatmind.com@evil.test', 'https://api.fermatmind.com/path', 'https://evil.test']) assert.throws(() => validate({ ...values, TRACK_INGEST_API_ORIGIN: origin }));
+  for (const origin of ['http://api.fermatmind.com', 'https://api.fermatmind.com@evil.test', 'https://api.fermatmind.com/path', 'https://evil.test', 'https://api.fermatmind.com.evil.test', 'https://sub.api.fermatmind.com', 'https://api.fermatmind.com?x=1', 'https://api.fermatmind.com/']) assert.throws(() => validate({ ...values, TRACK_INGEST_API_ORIGIN: origin }));
   assert.throws(() => validate({ ...values, TRACK_INGEST_TOKEN: 'short' }));
   assert.throws(() => validate({ ...values, OTHER: 'extra' }));
   chmodSync(file, 0o644); assert.throws(() => readConfig(file), /UNSAFE/);
@@ -66,9 +66,11 @@ test('only environment-bound activation handles tracking secrets; existing runti
   assert.equal((workflow.match(/secrets\.TRACK_INGEST_TOKEN/g) || []).length, 2);
   assert.equal((workflow.match(/vars\.TRACK_INGEST_ENABLED == '1'/g) || []).length, 4);
   const staging = workflow.split('\n  staging:')[1].split('\n  production:')[0];
-  assert.ok(staging.includes('https://staging-api.fermatmind.com')); assert.ok(staging.includes('environment: staging'));
-  const production = workflow.split('\n  production:')[1];
-  assert.ok(production.includes('environment: production-web-auto')); assert.ok(production.includes('https://api.fermatmind.com'));
+  assert.deepEqual([...staging.matchAll(/^    environment: (.+)$/gm)].map(match => match[1]), ['staging']);
+  assert.deepEqual([...staging.matchAll(/^          TRACK_INGEST_API_ORIGIN: (.+)$/gm)].map(match => match[1]), ['https://staging-api.fermatmind.com']);
+  const production = workflow.split('\n  production:')[1].split(/\n  [a-z][\w-]*:/)[0];
+  assert.deepEqual([...production.matchAll(/^    environment: (.+)$/gm)].map(match => match[1]), ['production-web-auto']);
+  assert.deepEqual([...production.matchAll(/^          TRACK_INGEST_API_ORIGIN: (.+)$/gm)].map(match => match[1]), ['https://api.fermatmind.com']);
   const transport = readFileSync('.github/trunk/deploy-web-release.sh', 'utf8');
   assert.ok(transport.includes('unset TRACK_INGEST_TOKEN')); assert.equal(transport.includes("TRACK_INGEST_TOKEN='$"), false);
   assert.ok(transport.includes('REQUIRE_TRACKING_INGEST_RUNTIME="${REQUIRE_TRACKING_INGEST_RUNTIME:-0}"'));

@@ -15,6 +15,19 @@ describe("Article TOC uses the same safe markdown tokenizer as the body", () => 
     expect(headings[3].level).toBe(3);
   });
 
+  it("matches body text for literal HTML, entities, inline code, and safe or rejected links", () => {
+    const markdown = '## <script>alert(1)</script> &lt;b&gt; `a_b` **bold** [label](/en/topics) [bad](javascript:evil)';
+    const options = { headingIdPrefix: "article-body", minimumHeadingLevel: 2 as const };
+    const [heading] = getSimpleMarkdownHeadings(markdown, options);
+    const body = new DOMParser().parseFromString(renderToStaticMarkup(<>{renderSimpleMarkdown(markdown, options)}</>), "text/html");
+    expect(heading.text).toBe(body.querySelector("h2")?.textContent);
+    expect(heading.text).toBe('<script>alert(1)</script> &lt;b&gt; a_b bold label bad');
+    const toc = new DOMParser().parseFromString(renderToStaticMarkup(<a href={`#${heading.id}`}>{heading.text}</a>), "text/html");
+    expect(toc.querySelector("script")).toBeNull();
+    expect(toc.querySelector("a")?.textContent).toBe(heading.text);
+    expect(body.querySelector('a[href^="javascript:"]')).toBeNull();
+  });
+
   it("does not add anchors to other CMS consumers unless explicitly requested", () => {
     expect(renderToStaticMarkup(<>{renderSimpleMarkdown("## Existing heading")}</>)).not.toContain('id="');
     expect(getSimpleMarkdownHeadings("## Existing heading")).toEqual([]);

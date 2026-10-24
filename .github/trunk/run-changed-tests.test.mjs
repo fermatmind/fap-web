@@ -99,3 +99,21 @@ printf executed > tests/shell-executed
   assert.throws(()=>runChangedTests({...plan,node:[],python:[]},{root}),/execution failed/);
  }finally{rmSync(root,{recursive:true,force:true});}
 });
+
+test('filenames stay individual argv and never execute shell metacharacters',()=>{
+ const root=mkdtempSync(tmpdir()+'/changed-argv-');
+ try {
+  mkdirSync(root+'/tests');
+  const file=`tests/space ' " ; $(touch INJECTED) &.test.mjs`;
+  writeFileSync(root+'/'+file,`import test from 'node:test';test('literal path',()=>{});`);
+  const plan=changedTestPlan([{path:file,status:'A'}]);
+  runChangedTests(plan,{root,run:(cmd,args,options)=>{
+   assert.equal(options.shell,false);assert.deepEqual(args,['--test',file]);
+   return {status:0};
+  }});
+  assert.equal(runChangedTests(plan,{root})[0].status,0);
+  assert.throws(()=>readFileSync(root+'/INJECTED'),/ENOENT/);
+  writeFileSync(root+'/'+file,'process.exitCode=7;');
+  assert.throws(()=>runChangedTests(plan,{root}),/execution failed/);
+ }finally{rmSync(root,{recursive:true,force:true});}
+});
