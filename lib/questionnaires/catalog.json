@@ -526,5 +526,34 @@
       "goblincore",
       "cyberpunk"
     ]
+  },
+  {
+    "slug": "music-taste-test",
+    "code": "MUSIC_PREFERENCES",
+    "version": "1.0.0",
+    "updated": "2026-10-25",
+    "category": "social",
+    "title": {
+      "zh": "音乐品味测试",
+      "en": "Music Taste Test"
+    },
+    "description": {
+      "zh": "用24条原创喜欢程度题探索流行、摇滚、嘻哈、电子、爵士、西方古典器乐、原声民谣与乡村声音。八项均分与完整结果免费，无需注册；另讲听歌场景，不以曲风推断智力或阶层。",
+      "en": "Explore eight music preferences with 24 original liking ratings. Full free guides and separate listening-context ideas, no signup, audio quiz or status verdict."
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_music_preferences_liking_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "pop",
+      "rock",
+      "hip-hop",
+      "electronic",
+      "jazz",
+      "western-classical",
+      "acoustic-folk",
+      "country"
+    ]
   }
 ]

@@ -1,0 +1,1779 @@
+{
+  "formCode": "fm_music_preferences_liking_24",
+  "itemBankVersion": "1.0.0",
+  "origin": "FermatMind original bilingual word-described sound-liking items;notMUSIC/STOMP/IDR artist-status task/JC listening-habit model",
+  "directions": [
+    {
+      "id": "pop",
+      "title": {
+        "zh": "流行音乐",
+        "en": "Pop"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "rock",
+      "title": {
+        "zh": "摇滚音乐",
+        "en": "Rock"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "hip-hop",
+      "title": {
+        "zh": "嘻哈音乐",
+        "en": "Hip-hop"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "electronic",
+      "title": {
+        "zh": "电子音乐",
+        "en": "Electronic"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "jazz",
+      "title": {
+        "zh": "爵士音乐",
+        "en": "Jazz"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "western-classical",
+      "title": {
+        "zh": "西方古典器乐",
+        "en": "Western classical instrumental"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "acoustic-folk",
+      "title": {
+        "zh": "原声民谣",
+        "en": "Acoustic folk"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "country",
+      "title": {
+        "zh": "乡村音乐",
+        "en": "Country"
+      },
+      "itemCount": 3
+    }
+  ],
+  "questions": [
+    {
+      "id": "MUSIC_01",
+      "prompt": {
+        "zh": "我喜欢流行歌曲里容易辨认、会再次回来的副歌旋律。",
+        "en": "I enjoy a recognisable chorus melody returning in a pop song."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不喜欢",
+            "en": "Strongly dislike"
+          },
+          "directionId": "pop",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太喜欢",
+            "en": "Dislike"
+          },
+          "directionId": "pop",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不喜欢也不讨厌",
+            "en": "Neither like nor dislike"
+          },
+          "directionId": "pop",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较喜欢",
+            "en": "Like"
+          },
+          "directionId": "pop",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很喜欢",
+            "en": "Strongly like"
+          },
+          "directionId": "pop",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不熟悉这种声音、无法判断或不愿回答",
+            "en": "Unfamiliar with this sound, unsure or prefer not to answer"
+          },
+          "directionId": "pop",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MUSIC_02",
+      "prompt": {
+        "zh": "我喜欢摇滚音乐里电吉他与贝斯叠在一起的声音质感。",
+        "en": "I enjoy the combined sound of electric guitar and bass in rock music."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不喜欢",
+            "en": "Strongly dislike"
+          },
+          "directionId": "rock",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太喜欢",
+            "en": "Dislike"
+          },
+          "directionId": "rock",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不喜欢也不讨厌",
+            "en": "Neither like nor dislike"
+          },
+          "directionId": "rock",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较喜欢",
+            "en": "Like"
+          },
+          "directionId": "rock",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很喜欢",
+            "en": "Strongly like"
+          },
+          "directionId": "rock",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不熟悉这种声音、无法判断或不愿回答",
+            "en": "Unfamiliar with this sound, unsure or prefer not to answer"
+          },
+          "directionId": "rock",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MUSIC_03",
+      "prompt": {
+        "zh": "我喜欢嘻哈歌曲里说唱的字句与节拍交错配合的听感。",
+        "en": "I enjoy hearing a rap vocal weave its phrasing around a hip-hop beat."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不喜欢",
+            "en": "Strongly dislike"
+          },
+          "directionId": "hip-hop",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太喜欢",
+            "en": "Dislike"
+          },
+          "directionId": "hip-hop",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不喜欢也不讨厌",
+            "en": "Neither like nor dislike"
+          },
+          "directionId": "hip-hop",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较喜欢",
+            "en": "Like"
+          },
+          "directionId": "hip-hop",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很喜欢",
+            "en": "Strongly like"
+          },
+          "directionId": "hip-hop",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不熟悉这种声音、无法判断或不愿回答",
+            "en": "Unfamiliar with this sound, unsure or prefer not to answer"
+          },
+          "directionId": "hip-hop",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MUSIC_04",
+      "prompt": {
+        "zh": "我喜欢电子音乐里由合成器塑造的音色。",
+        "en": "I enjoy synthesiser-shaped sounds in electronic music."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不喜欢",
+            "en": "Strongly dislike"
+          },
+          "directionId": "electronic",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太喜欢",
+            "en": "Dislike"
+          },
+          "directionId": "electronic",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不喜欢也不讨厌",
+            "en": "Neither like nor dislike"
+          },
+          "directionId": "electronic",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较喜欢",
+            "en": "Like"
+          },
+          "directionId": "electronic",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很喜欢",
+            "en": "Strongly like"
+          },
+          "directionId": "electronic",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不熟悉这种声音、无法判断或不愿回答",
+            "en": "Unfamiliar with this sound, unsure or prefer not to answer"
+          },
+          "directionId": "electronic",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MUSIC_05",
+      "prompt": {
+        "zh": "我喜欢爵士演奏中独奏乐句在一个主题上展开变化的听感。",
+        "en": "I enjoy a jazz solo developing changing phrases around a theme."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不喜欢",
+            "en": "Strongly dislike"
+          },
+          "directionId": "jazz",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太喜欢",
+            "en": "Dislike"
+          },
+          "directionId": "jazz",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不喜欢也不讨厌",
+            "en": "Neither like nor dislike"
+          },
+          "directionId": "jazz",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较喜欢",
+            "en": "Like"
+          },
+          "directionId": "jazz",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很喜欢",
+            "en": "Strongly like"
+          },
+          "directionId": "jazz",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不熟悉这种声音、无法判断或不愿回答",
+            "en": "Unfamiliar with this sound, unsure or prefer not to answer"
+          },
+          "directionId": "jazz",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MUSIC_06",
+      "prompt": {
+        "zh": "我喜欢西方古典器乐中一个旋律主题经过变化再次出现的安排。",
+        "en": "I enjoy a musical theme returning in changed forms in Western classical instrumental music."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不喜欢",
+            "en": "Strongly dislike"
+          },
+          "directionId": "western-classical",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太喜欢",
+            "en": "Dislike"
+          },
+          "directionId": "western-classical",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不喜欢也不讨厌",
+            "en": "Neither like nor dislike"
+          },
+          "directionId": "western-classical",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较喜欢",
+            "en": "Like"
+          },
+          "directionId": "western-classical",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很喜欢",
+            "en": "Strongly like"
+          },
+          "directionId": "western-classical",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不熟悉这种声音、无法判断或不愿回答",
+            "en": "Unfamiliar with this sound, unsure or prefer not to answer"
+          },
+          "directionId": "western-classical",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MUSIC_07",
+      "prompt": {
+        "zh": "我喜欢原声民谣中拨弦或扫弦乐器与歌声靠近的声音安排。",
+        "en": "I enjoy acoustic folk arrangements that bring plucked or strummed strings close to the singing."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不喜欢",
+            "en": "Strongly dislike"
+          },
+          "directionId": "acoustic-folk",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太喜欢",
+            "en": "Dislike"
+          },
+          "directionId": "acoustic-folk",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不喜欢也不讨厌",
+            "en": "Neither like nor dislike"
+          },
+          "directionId": "acoustic-folk",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较喜欢",
+            "en": "Like"
+          },
+          "directionId": "acoustic-folk",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很喜欢",
+            "en": "Strongly like"
+          },
+          "directionId": "acoustic-folk",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不熟悉这种声音、无法判断或不愿回答",
+            "en": "Unfamiliar with this sound, unsure or prefer not to answer"
+          },
+          "directionId": "acoustic-folk",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MUSIC_08",
+      "prompt": {
+        "zh": "我喜欢乡村歌曲把歌声与吉他或其他弦乐器配在一起的听感。",
+        "en": "I enjoy the combination of singing with guitar or other string instruments in country songs."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不喜欢",
+            "en": "Strongly dislike"
+          },
+          "directionId": "country",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太喜欢",
+            "en": "Dislike"
+          },
+          "directionId": "country",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不喜欢也不讨厌",
+            "en": "Neither like nor dislike"
+          },
+          "directionId": "country",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较喜欢",
+            "en": "Like"
+          },
+          "directionId": "country",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很喜欢",
+            "en": "Strongly like"
+          },
+          "directionId": "country",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不熟悉这种声音、无法判断或不愿回答",
+            "en": "Unfamiliar with this sound, unsure or prefer not to answer"
+          },
+          "directionId": "country",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MUSIC_09",
+      "prompt": {
+        "zh": "我喜欢流行音乐中人声位于前景、伴奏围绕歌声展开的声音安排。",
+        "en": "I enjoy pop arrangements that place the singing in front of the accompaniment."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不喜欢",
+            "en": "Strongly dislike"
+          },
+          "directionId": "pop",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太喜欢",
+            "en": "Dislike"
+          },
+          "directionId": "pop",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不喜欢也不讨厌",
+            "en": "Neither like nor dislike"
+          },
+          "directionId": "pop",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较喜欢",
+            "en": "Like"
+          },
+          "directionId": "pop",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很喜欢",
+            "en": "Strongly like"
+          },
+          "directionId": "pop",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不熟悉这种声音、无法判断或不愿回答",
+            "en": "Unfamiliar with this sound, unsure or prefer not to answer"
+          },
+          "directionId": "pop",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MUSIC_10",
+      "prompt": {
+        "zh": "我喜欢摇滚乐队中鼓点与乐器反复乐句相互配合的推进感。",
+        "en": "I enjoy the drive of drums working with repeated instrumental figures in a rock band."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不喜欢",
+            "en": "Strongly dislike"
+          },
+          "directionId": "rock",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太喜欢",
+            "en": "Dislike"
+          },
+          "directionId": "rock",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不喜欢也不讨厌",
+            "en": "Neither like nor dislike"
+          },
+          "directionId": "rock",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较喜欢",
+            "en": "Like"
+          },
+          "directionId": "rock",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很喜欢",
+            "en": "Strongly like"
+          },
+          "directionId": "rock",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不熟悉这种声音、无法判断或不愿回答",
+            "en": "Unfamiliar with this sound, unsure or prefer not to answer"
+          },
+          "directionId": "rock",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MUSIC_11",
+      "prompt": {
+        "zh": "我喜欢嘻哈音乐中鼓组节奏与低音线形成的律动。",
+        "en": "I enjoy the groove formed by drums and bass in hip-hop music."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不喜欢",
+            "en": "Strongly dislike"
+          },
+          "directionId": "hip-hop",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太喜欢",
+            "en": "Dislike"
+          },
+          "directionId": "hip-hop",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不喜欢也不讨厌",
+            "en": "Neither like nor dislike"
+          },
+          "directionId": "hip-hop",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较喜欢",
+            "en": "Like"
+          },
+          "directionId": "hip-hop",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很喜欢",
+            "en": "Strongly like"
+          },
+          "directionId": "hip-hop",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不熟悉这种声音、无法判断或不愿回答",
+            "en": "Unfamiliar with this sound, unsure or prefer not to answer"
+          },
+          "directionId": "hip-hop",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MUSIC_12",
+      "prompt": {
+        "zh": "我喜欢电子音乐中重复节拍上逐渐加入或移去声音层次的变化。",
+        "en": "I enjoy layers entering or leaving over a repeating beat in electronic music."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不喜欢",
+            "en": "Strongly dislike"
+          },
+          "directionId": "electronic",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太喜欢",
+            "en": "Dislike"
+          },
+          "directionId": "electronic",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不喜欢也不讨厌",
+            "en": "Neither like nor dislike"
+          },
+          "directionId": "electronic",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较喜欢",
+            "en": "Like"
+          },
+          "directionId": "electronic",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很喜欢",
+            "en": "Strongly like"
+          },
+          "directionId": "electronic",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不熟悉这种声音、无法判断或不愿回答",
+            "en": "Unfamiliar with this sound, unsure or prefer not to answer"
+          },
+          "directionId": "electronic",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MUSIC_13",
+      "prompt": {
+        "zh": "我喜欢爵士音乐中重音与基本拍点并不总是重合的节奏。",
+        "en": "I enjoy jazz rhythms whose accents do not always fall on the main beats."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不喜欢",
+            "en": "Strongly dislike"
+          },
+          "directionId": "jazz",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太喜欢",
+            "en": "Dislike"
+          },
+          "directionId": "jazz",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不喜欢也不讨厌",
+            "en": "Neither like nor dislike"
+          },
+          "directionId": "jazz",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较喜欢",
+            "en": "Like"
+          },
+          "directionId": "jazz",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很喜欢",
+            "en": "Strongly like"
+          },
+          "directionId": "jazz",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不熟悉这种声音、无法判断或不愿回答",
+            "en": "Unfamiliar with this sound, unsure or prefer not to answer"
+          },
+          "directionId": "jazz",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MUSIC_14",
+      "prompt": {
+        "zh": "我喜欢西方古典器乐中弦乐、管乐或钢琴本身的声音质感。",
+        "en": "I enjoy the sound of strings, wind instruments or piano in Western classical instrumental music."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不喜欢",
+            "en": "Strongly dislike"
+          },
+          "directionId": "western-classical",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太喜欢",
+            "en": "Dislike"
+          },
+          "directionId": "western-classical",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不喜欢也不讨厌",
+            "en": "Neither like nor dislike"
+          },
+          "directionId": "western-classical",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较喜欢",
+            "en": "Like"
+          },
+          "directionId": "western-classical",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很喜欢",
+            "en": "Strongly like"
+          },
+          "directionId": "western-classical",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不熟悉这种声音、无法判断或不愿回答",
+            "en": "Unfamiliar with this sound, unsure or prefer not to answer"
+          },
+          "directionId": "western-classical",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MUSIC_15",
+      "prompt": {
+        "zh": "我喜欢原声民谣以较少乐器保留人声和演奏细节的声音质感。",
+        "en": "I enjoy the exposed vocal and playing details in sparsely arranged acoustic folk."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不喜欢",
+            "en": "Strongly dislike"
+          },
+          "directionId": "acoustic-folk",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太喜欢",
+            "en": "Dislike"
+          },
+          "directionId": "acoustic-folk",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不喜欢也不讨厌",
+            "en": "Neither like nor dislike"
+          },
+          "directionId": "acoustic-folk",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较喜欢",
+            "en": "Like"
+          },
+          "directionId": "acoustic-folk",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很喜欢",
+            "en": "Strongly like"
+          },
+          "directionId": "acoustic-folk",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不熟悉这种声音、无法判断或不愿回答",
+            "en": "Unfamiliar with this sound, unsure or prefer not to answer"
+          },
+          "directionId": "acoustic-folk",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MUSIC_16",
+      "prompt": {
+        "zh": "我喜欢乡村歌曲中跟随旋律讲述一段事情的演唱方式。",
+        "en": "I enjoy country vocals that follow a melody while telling a story."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不喜欢",
+            "en": "Strongly dislike"
+          },
+          "directionId": "country",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太喜欢",
+            "en": "Dislike"
+          },
+          "directionId": "country",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不喜欢也不讨厌",
+            "en": "Neither like nor dislike"
+          },
+          "directionId": "country",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较喜欢",
+            "en": "Like"
+          },
+          "directionId": "country",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很喜欢",
+            "en": "Strongly like"
+          },
+          "directionId": "country",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不熟悉这种声音、无法判断或不愿回答",
+            "en": "Unfamiliar with this sound, unsure or prefer not to answer"
+          },
+          "directionId": "country",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MUSIC_17",
+      "prompt": {
+        "zh": "我喜欢流行歌曲在主歌与副歌之间形成清晰变化的结构。",
+        "en": "I enjoy a clear change between verses and choruses in pop songs."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不喜欢",
+            "en": "Strongly dislike"
+          },
+          "directionId": "pop",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太喜欢",
+            "en": "Dislike"
+          },
+          "directionId": "pop",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不喜欢也不讨厌",
+            "en": "Neither like nor dislike"
+          },
+          "directionId": "pop",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较喜欢",
+            "en": "Like"
+          },
+          "directionId": "pop",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很喜欢",
+            "en": "Strongly like"
+          },
+          "directionId": "pop",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不熟悉这种声音、无法判断或不愿回答",
+            "en": "Unfamiliar with this sound, unsure or prefer not to answer"
+          },
+          "directionId": "pop",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MUSIC_18",
+      "prompt": {
+        "zh": "我喜欢摇滚歌曲从较收敛段落切换到整支乐队一起展开的声音变化。",
+        "en": "I enjoy a rock song changing from a restrained passage to the sound of the whole band opening up."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不喜欢",
+            "en": "Strongly dislike"
+          },
+          "directionId": "rock",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太喜欢",
+            "en": "Dislike"
+          },
+          "directionId": "rock",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不喜欢也不讨厌",
+            "en": "Neither like nor dislike"
+          },
+          "directionId": "rock",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较喜欢",
+            "en": "Like"
+          },
+          "directionId": "rock",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很喜欢",
+            "en": "Strongly like"
+          },
+          "directionId": "rock",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不熟悉这种声音、无法判断或不愿回答",
+            "en": "Unfamiliar with this sound, unsure or prefer not to answer"
+          },
+          "directionId": "rock",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MUSIC_19",
+      "prompt": {
+        "zh": "我喜欢听嘻哈作品中人声的语速、停顿和重音怎样变化。",
+        "en": "I enjoy changes of pace, pauses and emphasis in hip-hop vocal delivery."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不喜欢",
+            "en": "Strongly dislike"
+          },
+          "directionId": "hip-hop",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太喜欢",
+            "en": "Dislike"
+          },
+          "directionId": "hip-hop",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不喜欢也不讨厌",
+            "en": "Neither like nor dislike"
+          },
+          "directionId": "hip-hop",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较喜欢",
+            "en": "Like"
+          },
+          "directionId": "hip-hop",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很喜欢",
+            "en": "Strongly like"
+          },
+          "directionId": "hip-hop",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不熟悉这种声音、无法判断或不愿回答",
+            "en": "Unfamiliar with this sound, unsure or prefer not to answer"
+          },
+          "directionId": "hip-hop",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MUSIC_20",
+      "prompt": {
+        "zh": "我喜欢电子作品通过处理声音形成的延伸、回响或空间感。",
+        "en": "I enjoy the stretched, echoing or spacious textures created through electronic sound processing."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不喜欢",
+            "en": "Strongly dislike"
+          },
+          "directionId": "electronic",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太喜欢",
+            "en": "Dislike"
+          },
+          "directionId": "electronic",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不喜欢也不讨厌",
+            "en": "Neither like nor dislike"
+          },
+          "directionId": "electronic",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较喜欢",
+            "en": "Like"
+          },
+          "directionId": "electronic",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很喜欢",
+            "en": "Strongly like"
+          },
+          "directionId": "electronic",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不熟悉这种声音、无法判断或不愿回答",
+            "en": "Unfamiliar with this sound, unsure or prefer not to answer"
+          },
+          "directionId": "electronic",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MUSIC_21",
+      "prompt": {
+        "zh": "我喜欢爵士合奏中不同乐器交替回应的声音安排。",
+        "en": "I enjoy hearing instruments take turns responding to one another in a jazz ensemble."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不喜欢",
+            "en": "Strongly dislike"
+          },
+          "directionId": "jazz",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太喜欢",
+            "en": "Dislike"
+          },
+          "directionId": "jazz",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不喜欢也不讨厌",
+            "en": "Neither like nor dislike"
+          },
+          "directionId": "jazz",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较喜欢",
+            "en": "Like"
+          },
+          "directionId": "jazz",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很喜欢",
+            "en": "Strongly like"
+          },
+          "directionId": "jazz",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不熟悉这种声音、无法判断或不愿回答",
+            "en": "Unfamiliar with this sound, unsure or prefer not to answer"
+          },
+          "directionId": "jazz",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MUSIC_22",
+      "prompt": {
+        "zh": "我喜欢西方古典器乐在不同段落之间展开的音量、速度或乐器层次变化。",
+        "en": "I enjoy changes in loudness, pace or instrumentation across sections of Western classical instrumental music."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不喜欢",
+            "en": "Strongly dislike"
+          },
+          "directionId": "western-classical",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太喜欢",
+            "en": "Dislike"
+          },
+          "directionId": "western-classical",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不喜欢也不讨厌",
+            "en": "Neither like nor dislike"
+          },
+          "directionId": "western-classical",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较喜欢",
+            "en": "Like"
+          },
+          "directionId": "western-classical",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很喜欢",
+            "en": "Strongly like"
+          },
+          "directionId": "western-classical",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不熟悉这种声音、无法判断或不愿回答",
+            "en": "Unfamiliar with this sound, unsure or prefer not to answer"
+          },
+          "directionId": "western-classical",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MUSIC_23",
+      "prompt": {
+        "zh": "我喜欢原声民谣中围绕简单旋律展开、带有讲述感的演唱。",
+        "en": "I enjoy the storytelling feel of acoustic folk singing built around a simple melody."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不喜欢",
+            "en": "Strongly dislike"
+          },
+          "directionId": "acoustic-folk",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太喜欢",
+            "en": "Dislike"
+          },
+          "directionId": "acoustic-folk",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不喜欢也不讨厌",
+            "en": "Neither like nor dislike"
+          },
+          "directionId": "acoustic-folk",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较喜欢",
+            "en": "Like"
+          },
+          "directionId": "acoustic-folk",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很喜欢",
+            "en": "Strongly like"
+          },
+          "directionId": "acoustic-folk",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不熟悉这种声音、无法判断或不愿回答",
+            "en": "Unfamiliar with this sound, unsure or prefer not to answer"
+          },
+          "directionId": "acoustic-folk",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MUSIC_24",
+      "prompt": {
+        "zh": "我喜欢乡村音乐中拨弦、滑音或拉弦形成的乐器细节。",
+        "en": "I enjoy plucked, sliding or bowed string details in country music."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不喜欢",
+            "en": "Strongly dislike"
+          },
+          "directionId": "country",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太喜欢",
+            "en": "Dislike"
+          },
+          "directionId": "country",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不喜欢也不讨厌",
+            "en": "Neither like nor dislike"
+          },
+          "directionId": "country",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较喜欢",
+            "en": "Like"
+          },
+          "directionId": "country",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很喜欢",
+            "en": "Strongly like"
+          },
+          "directionId": "country",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不熟悉这种声音、无法判断或不愿回答",
+            "en": "Unfamiliar with this sound, unsure or prefer not to answer"
+          },
+          "directionId": "country",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "MUSIC_01": {
+      "preferencePart": "pop",
+      "aspectIndex": 1,
+      "questionPurpose": "liking of a described familiar sound; not listening frequency/context/personality/status"
+    },
+    "MUSIC_02": {
+      "preferencePart": "rock",
+      "aspectIndex": 1,
+      "questionPurpose": "liking of a described familiar sound; not listening frequency/context/personality/status"
+    },
+    "MUSIC_03": {
+      "preferencePart": "hip-hop",
+      "aspectIndex": 1,
+      "questionPurpose": "liking of a described familiar sound; not listening frequency/context/personality/status"
+    },
+    "MUSIC_04": {
+      "preferencePart": "electronic",
+      "aspectIndex": 1,
+      "questionPurpose": "liking of a described familiar sound; not listening frequency/context/personality/status"
+    },
+    "MUSIC_05": {
+      "preferencePart": "jazz",
+      "aspectIndex": 1,
+      "questionPurpose": "liking of a described familiar sound; not listening frequency/context/personality/status"
+    },
+    "MUSIC_06": {
+      "preferencePart": "western-classical",
+      "aspectIndex": 1,
+      "questionPurpose": "liking of a described familiar sound; not listening frequency/context/personality/status"
+    },
+    "MUSIC_07": {
+      "preferencePart": "acoustic-folk",
+      "aspectIndex": 1,
+      "questionPurpose": "liking of a described familiar sound; not listening frequency/context/personality/status"
+    },
+    "MUSIC_08": {
+      "preferencePart": "country",
+      "aspectIndex": 1,
+      "questionPurpose": "liking of a described familiar sound; not listening frequency/context/personality/status"
+    },
+    "MUSIC_09": {
+      "preferencePart": "pop",
+      "aspectIndex": 2,
+      "questionPurpose": "liking of a described familiar sound; not listening frequency/context/personality/status"
+    },
+    "MUSIC_10": {
+      "preferencePart": "rock",
+      "aspectIndex": 2,
+      "questionPurpose": "liking of a described familiar sound; not listening frequency/context/personality/status"
+    },
+    "MUSIC_11": {
+      "preferencePart": "hip-hop",
+      "aspectIndex": 2,
+      "questionPurpose": "liking of a described familiar sound; not listening frequency/context/personality/status"
+    },
+    "MUSIC_12": {
+      "preferencePart": "electronic",
+      "aspectIndex": 2,
+      "questionPurpose": "liking of a described familiar sound; not listening frequency/context/personality/status"
+    },
+    "MUSIC_13": {
+      "preferencePart": "jazz",
+      "aspectIndex": 2,
+      "questionPurpose": "liking of a described familiar sound; not listening frequency/context/personality/status"
+    },
+    "MUSIC_14": {
+      "preferencePart": "western-classical",
+      "aspectIndex": 2,
+      "questionPurpose": "liking of a described familiar sound; not listening frequency/context/personality/status"
+    },
+    "MUSIC_15": {
+      "preferencePart": "acoustic-folk",
+      "aspectIndex": 2,
+      "questionPurpose": "liking of a described familiar sound; not listening frequency/context/personality/status"
+    },
+    "MUSIC_16": {
+      "preferencePart": "country",
+      "aspectIndex": 2,
+      "questionPurpose": "liking of a described familiar sound; not listening frequency/context/personality/status"
+    },
+    "MUSIC_17": {
+      "preferencePart": "pop",
+      "aspectIndex": 3,
+      "questionPurpose": "liking of a described familiar sound; not listening frequency/context/personality/status"
+    },
+    "MUSIC_18": {
+      "preferencePart": "rock",
+      "aspectIndex": 3,
+      "questionPurpose": "liking of a described familiar sound; not listening frequency/context/personality/status"
+    },
+    "MUSIC_19": {
+      "preferencePart": "hip-hop",
+      "aspectIndex": 3,
+      "questionPurpose": "liking of a described familiar sound; not listening frequency/context/personality/status"
+    },
+    "MUSIC_20": {
+      "preferencePart": "electronic",
+      "aspectIndex": 3,
+      "questionPurpose": "liking of a described familiar sound; not listening frequency/context/personality/status"
+    },
+    "MUSIC_21": {
+      "preferencePart": "jazz",
+      "aspectIndex": 3,
+      "questionPurpose": "liking of a described familiar sound; not listening frequency/context/personality/status"
+    },
+    "MUSIC_22": {
+      "preferencePart": "western-classical",
+      "aspectIndex": 3,
+      "questionPurpose": "liking of a described familiar sound; not listening frequency/context/personality/status"
+    },
+    "MUSIC_23": {
+      "preferencePart": "acoustic-folk",
+      "aspectIndex": 3,
+      "questionPurpose": "liking of a described familiar sound; not listening frequency/context/personality/status"
+    },
+    "MUSIC_24": {
+      "preferencePart": "country",
+      "aspectIndex": 3,
+      "questionPurpose": "liking of a described familiar sound; not listening frequency/context/personality/status"
+    }
+  },
+  "scoring": {
+    "scoringVersion": "1.0.0",
+    "kind": "likert",
+    "minimumValidPerDirection": 2,
+    "allSelectionsRequired": 24,
+    "validRatingRange": [
+      1,
+      5
+    ],
+    "na": "excluded/notzero/notneutral/notimputed",
+    "reverseItems": [],
+    "rounding": "mean1decimal",
+    "reading": "8separatepreferencepartmeansorinsufficientstates;ALL8fullguidesalways;nooverallquality/winner/rank/status/IQ/personality/norm/compatibility/career. Selectedoverlappingbroadfamiliesnotallworldmusic/notorthogonal8factorvalidatedmodel. Minimum2of3originalcompletenessrulenotpsychcutoff. Contextseparateeducationalguidenotscoredfromgenre."
+  },
+  "references": [
+    {
+      "url": "https://www.oxfordlearnersdictionaries.com/definition/english/pop_1",
+      "scope": "Musicdefinition106-115read,ordinarytermnotpopularityranking"
+    },
+    {
+      "url": "https://www.merriam-webster.com/dictionary/rock-and-roll",
+      "scope": "Noundefinition31-49read,amplifiedinstruments/rhythmiccontextnotclaimallrocksame"
+    },
+    {
+      "url": "https://www.merriam-webster.com/dictionary/hip-hop",
+      "scope": "Musicdefinition31-44andculturalcontext73-81read,nopersonidentityinference"
+    },
+    {
+      "url": "https://www.merriam-webster.com/dictionary/electronic%20music",
+      "scope": "Definition31-40read,soundproductionnotallEDM"
+    },
+    {
+      "url": "https://www.merriam-webster.com/dictionary/jazz",
+      "scope": "Definition31-42read,improvisation/rhythmnotstatusorIQ"
+    },
+    {
+      "url": "https://www.oxfordlearnersdictionaries.com/definition/english/classical-music",
+      "scope": "105-106readWesterntraditiononly;serious/lastingvaluehierarchyNOTadopted"
+    },
+    {
+      "url": "https://www.merriam-webster.com/dictionary/folk%20music",
+      "scope": "31-38readtraditionalandcontemporaryinspiredmeanings;ournarrowacousticfolknotthewholeworldtraditionalmusic"
+    },
+    {
+      "url": "https://www.merriam-webster.com/dictionary/country%20music",
+      "scope": "31-40readordinarytermrootsandnarrative/stringcontext;nostereotypeorlyricscopy"
+    }
+  ]
+}
