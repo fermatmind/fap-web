@@ -1,0 +1,805 @@
+{
+  "formCode": "fm_mythical_creative_choices_18",
+  "itemBankVersion": "1.0.0",
+  "scoringVersion": "1.0.0",
+  "kind": "archetype",
+  "directions": [
+    {
+      "id": "dragon",
+      "title": {
+        "zh": "龙",
+        "en": "Dragon"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "phoenix",
+      "title": {
+        "zh": "凤凰",
+        "en": "Phoenix"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "unicorn",
+      "title": {
+        "zh": "独角兽",
+        "en": "Unicorn"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "griffin",
+      "title": {
+        "zh": "狮鹫",
+        "en": "Griffin"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "mermaid",
+      "title": {
+        "zh": "美人鱼",
+        "en": "Mermaid"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "kraken",
+      "title": {
+        "zh": "克拉肯",
+        "en": "Kraken"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "MYTH_01",
+      "prompt": {
+        "zh": "想做一个属于自己的小创作，你更想怎样迈出第一步？",
+        "en": "You want to make a small creative piece of your own. How would you prefer to begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先决定一个自己在意的方向，做出第一个具体版本。",
+            "en": "Choose a direction that matters to me and make a first concrete version."
+          },
+          "directionId": "dragon"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "翻出以前没做完的尝试，挑一部分换个方法再做。",
+            "en": "Return to an unfinished attempt and try one part in a different way."
+          },
+          "directionId": "phoenix"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先想几个出人意料的设定，看看哪一个让我好奇。",
+            "en": "Imagine a few unexpected possibilities and follow the one that makes me curious."
+          },
+          "directionId": "unicorn"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "如果要和别人一起做，先确认彼此愿意投入什么。",
+            "en": "If others are involved, first check what each person is willing to contribute."
+          },
+          "directionId": "griffin"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_02",
+      "prompt": {
+        "zh": "你原本喜欢的一个点子不太行得通，此时更愿意？",
+        "en": "An idea you liked is proving impractical. What would you prefer to do next?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "保留学到的部分，换一个更小的版本重新试。",
+            "en": "Keep what I learned and try again with a smaller version."
+          },
+          "directionId": "phoenix"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "暂时不急着收束，再设想一种不同的可能。",
+            "en": "Avoid closing it down immediately and imagine a different possibility."
+          },
+          "directionId": "unicorn"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先和一起参与的人确认，哪些约定需要调整。",
+            "en": "Check with anyone involved about which agreements need adjusting."
+          },
+          "directionId": "griffin"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "留意自己和同伴现在的感受，问问各自最在意什么。",
+            "en": "Notice how people feel about it and ask what matters most to each of us."
+          },
+          "directionId": "mermaid"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_03",
+      "prompt": {
+        "zh": "你给一个普通物件写一小段虚构故事，更想突出什么？",
+        "en": "You are writing a short fictional story about an ordinary object. What would you most like to emphasise?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "赋予它一个不寻常的规则，让故事有新的可能。",
+            "en": "Give it an unusual rule that opens up new possibilities."
+          },
+          "directionId": "unicorn"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "写它怎样承载人物之间的一项约定。",
+            "en": "Show how it carries an agreement between characters."
+          },
+          "directionId": "griffin"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "写人物看到它时那种难以一下说清的心情。",
+            "en": "Explore a feeling a character cannot immediately put into words."
+          },
+          "directionId": "mermaid"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "保留一些未说破的细节，让读者慢慢理解。",
+            "en": "Leave some details unspoken for the reader to understand gradually."
+          },
+          "directionId": "kraken"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_04",
+      "prompt": {
+        "zh": "与朋友合作一个小活动，你希望先留下哪种空间？",
+        "en": "When planning a small activity with friends, which kind of space would you most want to preserve?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "每个人都能说清自己愿意承诺和不便承担的部分。",
+            "en": "Everyone can state what they will commit to and what they cannot take on."
+          },
+          "directionId": "griffin"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "大家可以说出对活动的期待或不安，不急着定论。",
+            "en": "People can share hopes or unease without an immediate verdict."
+          },
+          "directionId": "mermaid"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "允许先各自想一会儿，不必当场解释所有想法。",
+            "en": "People can think privately first without explaining every thought on the spot."
+          },
+          "directionId": "kraken"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有人可以提出一个明确起点，让想法开始落地。",
+            "en": "Someone can offer a clear starting point that turns an idea into action."
+          },
+          "directionId": "dragon"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_05",
+      "prompt": {
+        "zh": "看到一段触动自己的文字，你更想先做什么？",
+        "en": "You read a passage that stays with you. What would you first like to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "找一找具体是哪句话触动了自己，给心情起个名字。",
+            "en": "Locate the line that moved me and find words for the feeling."
+          },
+          "directionId": "mermaid"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先留在自己的笔记里，等想清楚再决定是否分享。",
+            "en": "Keep a private note and decide whether to share after thinking it through."
+          },
+          "directionId": "kraken"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把触动转成一个自己愿意开始的小行动。",
+            "en": "Turn the response into one small action I want to initiate."
+          },
+          "directionId": "dragon"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "想到一件可以重新拾起、用新方法尝试的事。",
+            "en": "Consider something I could return to with a different approach."
+          },
+          "directionId": "phoenix"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_06",
+      "prompt": {
+        "zh": "别人临时请你谈谈一个尚未成形的想法，你更倾向？",
+        "en": "Someone unexpectedly asks about an idea you have not yet developed. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说明还在整理，约个合适时间再讲。",
+            "en": "Say I am still gathering it and arrange a better time to talk."
+          },
+          "directionId": "kraken"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先把现在最确定的方向讲清楚，再边做边调整。",
+            "en": "State the direction I am clearest about and adjust as I begin."
+          },
+          "directionId": "dragon"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "讲讲之前哪里不顺，以及这次想换哪一种做法。",
+            "en": "Explain what did not work before and what I would try differently now."
+          },
+          "directionId": "phoenix"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把几个未定的可能一起抛出来，看看能接出什么。",
+            "en": "Offer several open possibilities and see what grows from them."
+          },
+          "directionId": "unicorn"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_07",
+      "prompt": {
+        "zh": "在一个自己可以决定的小项目里，你最想保留哪种做法？",
+        "en": "In a small project you can shape yourself, which approach would you most want to keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "为自己选的方向作一个决定，并承担下一步。",
+            "en": "Make a decision about my chosen direction and take on the next step."
+          },
+          "directionId": "dragon"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "允许不合适的旧版本结束，再从可行的一点重来。",
+            "en": "Let an unsuitable old version end and restart from one workable part."
+          },
+          "directionId": "phoenix"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给看起来暂时没用的想象也留一个角落。",
+            "en": "Leave a corner for an idea that does not yet seem useful."
+          },
+          "directionId": "unicorn"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把影响他人的决定拿出来确认，而不替对方答应。",
+            "en": "Check decisions affecting others instead of committing on their behalf."
+          },
+          "directionId": "griffin"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_08",
+      "prompt": {
+        "zh": "准备重新开始一项搁置的爱好，什么最吸引你？",
+        "en": "You are considering returning to a hobby you set aside. What most appeals to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "这次可以不照旧标准，从一个更合适的小步骤开始。",
+            "en": "Starting with a more suitable small step instead of the old standard."
+          },
+          "directionId": "phoenix"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "能把旧素材用在完全不同的设定里。",
+            "en": "Using old material in an entirely different imagined setting."
+          },
+          "directionId": "unicorn"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "若有人一起参与，能重新谈妥彼此的投入。",
+            "en": "Renegotiating participation if someone else joins me."
+          },
+          "directionId": "griffin"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "可以慢慢辨认自己现在对它还有什么感受。",
+            "en": "Having time to notice how I feel about it now."
+          },
+          "directionId": "mermaid"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_09",
+      "prompt": {
+        "zh": "为一件普通日常事设计不同玩法，你更偏好？",
+        "en": "You are finding a different way to approach an ordinary routine. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先放开实际限制，想一种有趣但还没试过的形式。",
+            "en": "Set practical limits aside briefly and imagine an untried form."
+          },
+          "directionId": "unicorn"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "保留大家依赖的部分，变化前先问问受影响的人。",
+            "en": "Preserve what others rely on and ask those affected before changing it."
+          },
+          "directionId": "griffin"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "让玩法更贴合自己和同伴此刻的感受。",
+            "en": "Adapt it to how my companions and I feel at the moment."
+          },
+          "directionId": "mermaid"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先自己观察一阵，找到一个不必立刻展示的小变化。",
+            "en": "Observe privately for a while and find a small change I need not show immediately."
+          },
+          "directionId": "kraken"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_10",
+      "prompt": {
+        "zh": "一个共同决定让某位同伴有些犹豫，你更想怎样参与？",
+        "en": "A companion seems hesitant about a shared decision. How would you prefer to contribute?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "确认对方是否真的同意，哪些部分还没有答应。",
+            "en": "Check whether they actually agree and what they have not committed to."
+          },
+          "directionId": "griffin"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "问问是什么让他们不舒服，先听完而不替他们判断。",
+            "en": "Ask what feels uncomfortable and listen without deciding for them."
+          },
+          "directionId": "mermaid"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给对方一点私下想的时间，不要求当众说明。",
+            "en": "Offer time to think privately without requiring a public explanation."
+          },
+          "directionId": "kraken"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提出一个具体可改的方案，让讨论有落点。",
+            "en": "Offer one concrete adjustment to give the discussion somewhere to go."
+          },
+          "directionId": "dragon"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_11",
+      "prompt": {
+        "zh": "一张图片带给你复杂的感觉，你更可能怎样回应？",
+        "en": "An image brings up a complicated response. What would you most likely do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用几个词区分其中不同的感受，不急着说好或坏。",
+            "en": "Find words for the different feelings instead of immediately calling it good or bad."
+          },
+          "directionId": "mermaid"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先自己留意那些细节，暂时不把全部想法发出去。",
+            "en": "Notice the details privately without immediately posting everything I think."
+          },
+          "directionId": "kraken"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "选出最想表达的一点，做一段回应或一个小作品。",
+            "en": "Choose one point I want to express and make a response or small piece."
+          },
+          "directionId": "dragon"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "想到某个旧想法，看看能不能换一种形式继续。",
+            "en": "Return to an old idea and consider continuing it in another form."
+          },
+          "directionId": "phoenix"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_12",
+      "prompt": {
+        "zh": "写下了一页还不想公开的想法，你更想怎样处理？",
+        "en": "You have written a page of thoughts you do not yet want to make public. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "保留在私人的地方，等自己决定何时和谁说。",
+            "en": "Keep it somewhere private and decide when and with whom to share."
+          },
+          "directionId": "kraken"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "从中选一项已经明确的行动，不必先公开全部内容。",
+            "en": "Choose one action I am clear about without first publishing the whole page."
+          },
+          "directionId": "dragon"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "找出可以改写的一段，让它不受旧版本限制。",
+            "en": "Find a part to rewrite without being tied to the old version."
+          },
+          "directionId": "phoenix"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把其中一个意象发展成新的虚构可能。",
+            "en": "Develop one image into a new fictional possibility."
+          },
+          "directionId": "unicorn"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_13",
+      "prompt": {
+        "zh": "想把一个一直放在心里的点子变成现实，你更愿意先？",
+        "en": "You want to make a long-held idea real. Which first step would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "选定一个有边界的小目标，开始做可见的第一步。",
+            "en": "Choose a bounded goal and take a visible first step."
+          },
+          "directionId": "dragon"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "回看过去试过的部分，决定这次要改变什么。",
+            "en": "Review previous attempts and choose what to change this time."
+          },
+          "directionId": "phoenix"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "画出几种可能的样子，再选一个最想探索的。",
+            "en": "Sketch several possible forms and choose one I want to explore."
+          },
+          "directionId": "unicorn"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "如果会占用别人的时间，先确认对方是否愿意。",
+            "en": "Check willingness if the idea would use someone else’s time."
+          },
+          "directionId": "griffin"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_14",
+      "prompt": {
+        "zh": "某项尝试结束了，没有达到原本的期待。你更想先做哪一步？",
+        "en": "An attempt has ended short of your hopes. Which next step would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "分清想保留和想放下的部分，再决定是否另起一版。",
+            "en": "Separate what to keep from what to leave, then decide whether to try another version."
+          },
+          "directionId": "phoenix"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "暂时不沿原路线找答案，设想一个新方向。",
+            "en": "Imagine a new direction instead of continuing along the same route for now."
+          },
+          "directionId": "unicorn"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "和相关的人确认是否还有未完成的约定需要收尾。",
+            "en": "Check whether any agreements with others still need finishing."
+          },
+          "directionId": "griffin"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先承认自己对此的感受，不催着自己马上振作。",
+            "en": "Acknowledge how I feel without demanding an immediate rebound."
+          },
+          "directionId": "mermaid"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_15",
+      "prompt": {
+        "zh": "如果要给一段熟悉的故事续写，你最想加入？",
+        "en": "If you were continuing a familiar story, what would you most want to add?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个改变原有规则的“如果”，看看故事怎样发展。",
+            "en": "A what-if that changes an existing rule and opens a different path."
+          },
+          "directionId": "unicorn"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "人物怎样面对一项彼此都认真看待的承诺。",
+            "en": "A situation in which characters respond to a commitment they both take seriously."
+          },
+          "directionId": "griffin"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "人物没有直接说出口的心情，以及一次认真倾听。",
+            "en": "An unspoken feeling and an occasion for careful listening."
+          },
+          "directionId": "mermaid"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一些先留白、之后再慢慢浮现的线索。",
+            "en": "Clues left open at first and revealed gradually."
+          },
+          "directionId": "kraken"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_16",
+      "prompt": {
+        "zh": "参加一次临时组起来的创作活动，你希望大家怎样合作？",
+        "en": "You join an informal creative activity. How would you most like people to work together?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "同意的事才算约定，谁都可以说明自己的承担范围。",
+            "en": "Treat only agreed tasks as commitments and let people state their limits."
+          },
+          "directionId": "griffin"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "允许说出喜欢、失落或不确定，也认真听别人的表达。",
+            "en": "Allow enjoyment, disappointment and uncertainty to be voiced and heard."
+          },
+          "directionId": "mermaid"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "不把现场发言多少当作参与程度，留出独自构思的时间。",
+            "en": "Leave time for private thinking without judging engagement by how much someone speaks."
+          },
+          "directionId": "kraken"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "尽快确定一项可以试做的内容，让讨论接到行动。",
+            "en": "Choose something to try making so the discussion connects to action."
+          },
+          "directionId": "dragon"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_17",
+      "prompt": {
+        "zh": "朋友说自己对一件事的心情很矛盾，你更愿意怎样回应？",
+        "en": "A friend says they have mixed feelings about something. How would you prefer to respond?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "请对方说说相互拉扯的感受，并确认我是否听明白。",
+            "en": "Invite them to describe the conflicting feelings and check my understanding."
+          },
+          "directionId": "mermaid"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "不要求他们马上说透，允许之后再继续聊。",
+            "en": "Avoid requiring a complete explanation now and leave room to return later."
+          },
+          "directionId": "kraken"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问他们是否想一起确定一件现在可以做的小事。",
+            "en": "Ask whether they want help choosing one small action available now."
+          },
+          "directionId": "dragon"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问他们是否想重新考虑旧做法，而不是必须照原样继续。",
+            "en": "Ask whether they want to reconsider an old approach instead of continuing unchanged."
+          },
+          "directionId": "phoenix"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_18",
+      "prompt": {
+        "zh": "准备把一部分个人创作给别人看，你最想怎样安排？",
+        "en": "You are preparing to show someone a personal creative piece. What arrangement would you most prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先挑愿意分享的一小部分，并说明暂时不谈的内容。",
+            "en": "Choose a small part I want to share and state what I am not discussing yet."
+          },
+          "directionId": "kraken"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "讲清作品现在想做成什么，并主动提出想听的反馈。",
+            "en": "State what I want the piece to become and ask for the feedback I want."
+          },
+          "directionId": "dragon"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "展示新旧两个版本，谈谈我为什么改了方向。",
+            "en": "Show an earlier and a new version and explain why I changed direction."
+          },
+          "directionId": "phoenix"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "邀请对方一起想象一个还没确定的后续可能。",
+            "en": "Invite the other person to imagine a possible continuation that is still open."
+          },
+          "directionId": "unicorn"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "option_rule": "Eachselectedoptionadds1rawchoicetoitsexplicitcreaturemetaphor",
+    "completion": "All18responsesbeforepersonalcounts/interpretation",
+    "tie_rule": "Keepallhighest-countcreaturesandeachfullreport,noorder/randomtiebreaker",
+    "denominator": 12,
+    "positions": "Eachcreature3ineachposition",
+    "construct": "Original human creative-action preferences: initiative,revising/restarting,imagination,mutual agreements,noticing feelings,private reflection. Not resilience/EQ/IQ/trauma recovery/culture-universal archetypes or spiritual identity.",
+    "scope": "Not mythology knowledge, magical abilities, clinical instrument, career fit, hidden power or human worth. Noitem/report/artcopy."
+  }
+}

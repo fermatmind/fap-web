@@ -178,5 +178,32 @@
       "pug",
       "chihuahua"
     ]
+  },
+  {
+    "slug": "mythical-creature",
+    "code": "MYTHICAL_CREATURE",
+    "version": "1.0.0",
+    "updated": "2026-10-25",
+    "category": "fantasy",
+    "title": {
+      "zh": "神话生物测试",
+      "en": "What Mythical Creature Are You?"
+    },
+    "description": {
+      "zh": "免费完成18道原创创作与交流偏好题，比较龙、凤凰、独角兽、狮鹫、美人鱼和克拉肯。显示全部计数与完整并列报告，附具体例子、结果比较和计分；无需注册。",
+      "en": "What mythical creature are you? Answer 18 original questions about creative choices and communication. See every tied match and all six full guides, free with no signup."
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "fm_mythical_creative_choices_18",
+    "questionCount": 18,
+    "resultSlugs": [
+      "dragon",
+      "phoenix",
+      "unicorn",
+      "griffin",
+      "mermaid",
+      "kraken"
+    ]
   }
 ]

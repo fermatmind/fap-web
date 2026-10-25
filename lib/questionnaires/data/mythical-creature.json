@@ -1,0 +1,1857 @@
+{
+  "slug": "mythical-creature",
+  "code": "MYTHICAL_CREATURE",
+  "version": "1.0.0",
+  "updated": "2026-10-25",
+  "category": "fantasy",
+  "kind": "archetype",
+  "minutes": 5,
+  "title": {
+    "zh": "神话生物测试",
+    "en": "What Mythical Creature Are You?"
+  },
+  "resultHeading": {
+    "zh": "你的完整神话生物结果",
+    "en": "Your complete mythical creature result"
+  },
+  "seoTitle": {
+    "zh": "我是什么神话生物？18题测试与完整结果",
+    "en": "What Mythical Creature Are You? Free Quiz & Full Results"
+  },
+  "description": {
+    "zh": "免费完成18道原创创作与交流偏好题，比较龙、凤凰、独角兽、狮鹫、美人鱼和克拉肯。显示全部计数与完整并列报告，附具体例子、结果比较和计分；无需注册。",
+    "en": "What mythical creature are you? Answer 18 original questions about creative choices and communication. See every tied match and all six full guides, free with no signup."
+  },
+  "introduction": {
+    "zh": "面对一个新点子，你想先做出第一版、想象另一种可能，还是留点时间自己整理？这份神话生物测试从具体创作与交流情境出发，用龙、凤凰、独角兽、狮鹫、美人鱼和克拉肯作本版的偏好比喻。它不是神话知识考试，也不寻找真实的灵魂身份。六份完整报告可以先读，再决定是否开始。",
+    "en": "With a new idea, would you make a first version, imagine another possibility or take time to think privately? This mythical creature quiz starts with creative and conversational situations, using Dragon, Phoenix, Unicorn, Griffin, Mermaid and Kraken as preference metaphors in this edition. It is neither a mythology knowledge test nor a search for literal spiritual identity. Read all six complete guides before deciding whether to start."
+  },
+  "instructions": {
+    "zh": "每题四种做法都可能合理，选择近期真实的自己更自然的一项；几项都贴合时，想一个相似的具体情境。无需根据喜欢的生物答题。完成18题后显示全部原始计数，以及所有最高并列生物的完整解释，没有正确答案。",
+    "en": "All four responses may be reasonable. Choose what comes more naturally in your recent life; if several fit, think of a specific similar situation. You need not answer according to a favourite creature. After eighteen questions, see every raw count and the full explanation for every highest-count match. There are no right answers."
+  },
+  "source": {
+    "kind": "FermatMind original creative preference quiz with imagined creature metaphors",
+    "formCode": "fm_mythical_creative_choices_18",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "abccddce3fa4b36059e21acc6fa77fe94fd6f8ea6a3732274fcb9b1c7ae8c2be",
+    "resultContentSha256": "341a826c9d45951c7df8860318240d785963b63bacf7da2fd73771009e95ebd7",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "dragon",
+      "title": {
+        "zh": "龙",
+        "en": "Dragon"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "phoenix",
+      "title": {
+        "zh": "凤凰",
+        "en": "Phoenix"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "unicorn",
+      "title": {
+        "zh": "独角兽",
+        "en": "Unicorn"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "griffin",
+      "title": {
+        "zh": "狮鹫",
+        "en": "Griffin"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "mermaid",
+      "title": {
+        "zh": "美人鱼",
+        "en": "Mermaid"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "kraken",
+      "title": {
+        "zh": "克拉肯",
+        "en": "Kraken"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "MYTH_01",
+      "prompt": {
+        "zh": "想做一个属于自己的小创作，你更想怎样迈出第一步？",
+        "en": "You want to make a small creative piece of your own. How would you prefer to begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先决定一个自己在意的方向，做出第一个具体版本。",
+            "en": "Choose a direction that matters to me and make a first concrete version."
+          },
+          "directionId": "dragon"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "翻出以前没做完的尝试，挑一部分换个方法再做。",
+            "en": "Return to an unfinished attempt and try one part in a different way."
+          },
+          "directionId": "phoenix"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先想几个出人意料的设定，看看哪一个让我好奇。",
+            "en": "Imagine a few unexpected possibilities and follow the one that makes me curious."
+          },
+          "directionId": "unicorn"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "如果要和别人一起做，先确认彼此愿意投入什么。",
+            "en": "If others are involved, first check what each person is willing to contribute."
+          },
+          "directionId": "griffin"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_02",
+      "prompt": {
+        "zh": "你原本喜欢的一个点子不太行得通，此时更愿意？",
+        "en": "An idea you liked is proving impractical. What would you prefer to do next?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "保留学到的部分，换一个更小的版本重新试。",
+            "en": "Keep what I learned and try again with a smaller version."
+          },
+          "directionId": "phoenix"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "暂时不急着收束，再设想一种不同的可能。",
+            "en": "Avoid closing it down immediately and imagine a different possibility."
+          },
+          "directionId": "unicorn"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先和一起参与的人确认，哪些约定需要调整。",
+            "en": "Check with anyone involved about which agreements need adjusting."
+          },
+          "directionId": "griffin"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "留意自己和同伴现在的感受，问问各自最在意什么。",
+            "en": "Notice how people feel about it and ask what matters most to each of us."
+          },
+          "directionId": "mermaid"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_03",
+      "prompt": {
+        "zh": "你给一个普通物件写一小段虚构故事，更想突出什么？",
+        "en": "You are writing a short fictional story about an ordinary object. What would you most like to emphasise?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "赋予它一个不寻常的规则，让故事有新的可能。",
+            "en": "Give it an unusual rule that opens up new possibilities."
+          },
+          "directionId": "unicorn"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "写它怎样承载人物之间的一项约定。",
+            "en": "Show how it carries an agreement between characters."
+          },
+          "directionId": "griffin"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "写人物看到它时那种难以一下说清的心情。",
+            "en": "Explore a feeling a character cannot immediately put into words."
+          },
+          "directionId": "mermaid"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "保留一些未说破的细节，让读者慢慢理解。",
+            "en": "Leave some details unspoken for the reader to understand gradually."
+          },
+          "directionId": "kraken"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_04",
+      "prompt": {
+        "zh": "与朋友合作一个小活动，你希望先留下哪种空间？",
+        "en": "When planning a small activity with friends, which kind of space would you most want to preserve?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "每个人都能说清自己愿意承诺和不便承担的部分。",
+            "en": "Everyone can state what they will commit to and what they cannot take on."
+          },
+          "directionId": "griffin"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "大家可以说出对活动的期待或不安，不急着定论。",
+            "en": "People can share hopes or unease without an immediate verdict."
+          },
+          "directionId": "mermaid"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "允许先各自想一会儿，不必当场解释所有想法。",
+            "en": "People can think privately first without explaining every thought on the spot."
+          },
+          "directionId": "kraken"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有人可以提出一个明确起点，让想法开始落地。",
+            "en": "Someone can offer a clear starting point that turns an idea into action."
+          },
+          "directionId": "dragon"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_05",
+      "prompt": {
+        "zh": "看到一段触动自己的文字，你更想先做什么？",
+        "en": "You read a passage that stays with you. What would you first like to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "找一找具体是哪句话触动了自己，给心情起个名字。",
+            "en": "Locate the line that moved me and find words for the feeling."
+          },
+          "directionId": "mermaid"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先留在自己的笔记里，等想清楚再决定是否分享。",
+            "en": "Keep a private note and decide whether to share after thinking it through."
+          },
+          "directionId": "kraken"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把触动转成一个自己愿意开始的小行动。",
+            "en": "Turn the response into one small action I want to initiate."
+          },
+          "directionId": "dragon"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "想到一件可以重新拾起、用新方法尝试的事。",
+            "en": "Consider something I could return to with a different approach."
+          },
+          "directionId": "phoenix"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_06",
+      "prompt": {
+        "zh": "别人临时请你谈谈一个尚未成形的想法，你更倾向？",
+        "en": "Someone unexpectedly asks about an idea you have not yet developed. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说明还在整理，约个合适时间再讲。",
+            "en": "Say I am still gathering it and arrange a better time to talk."
+          },
+          "directionId": "kraken"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先把现在最确定的方向讲清楚，再边做边调整。",
+            "en": "State the direction I am clearest about and adjust as I begin."
+          },
+          "directionId": "dragon"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "讲讲之前哪里不顺，以及这次想换哪一种做法。",
+            "en": "Explain what did not work before and what I would try differently now."
+          },
+          "directionId": "phoenix"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把几个未定的可能一起抛出来，看看能接出什么。",
+            "en": "Offer several open possibilities and see what grows from them."
+          },
+          "directionId": "unicorn"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_07",
+      "prompt": {
+        "zh": "在一个自己可以决定的小项目里，你最想保留哪种做法？",
+        "en": "In a small project you can shape yourself, which approach would you most want to keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "为自己选的方向作一个决定，并承担下一步。",
+            "en": "Make a decision about my chosen direction and take on the next step."
+          },
+          "directionId": "dragon"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "允许不合适的旧版本结束，再从可行的一点重来。",
+            "en": "Let an unsuitable old version end and restart from one workable part."
+          },
+          "directionId": "phoenix"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给看起来暂时没用的想象也留一个角落。",
+            "en": "Leave a corner for an idea that does not yet seem useful."
+          },
+          "directionId": "unicorn"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把影响他人的决定拿出来确认，而不替对方答应。",
+            "en": "Check decisions affecting others instead of committing on their behalf."
+          },
+          "directionId": "griffin"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_08",
+      "prompt": {
+        "zh": "准备重新开始一项搁置的爱好，什么最吸引你？",
+        "en": "You are considering returning to a hobby you set aside. What most appeals to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "这次可以不照旧标准，从一个更合适的小步骤开始。",
+            "en": "Starting with a more suitable small step instead of the old standard."
+          },
+          "directionId": "phoenix"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "能把旧素材用在完全不同的设定里。",
+            "en": "Using old material in an entirely different imagined setting."
+          },
+          "directionId": "unicorn"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "若有人一起参与，能重新谈妥彼此的投入。",
+            "en": "Renegotiating participation if someone else joins me."
+          },
+          "directionId": "griffin"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "可以慢慢辨认自己现在对它还有什么感受。",
+            "en": "Having time to notice how I feel about it now."
+          },
+          "directionId": "mermaid"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_09",
+      "prompt": {
+        "zh": "为一件普通日常事设计不同玩法，你更偏好？",
+        "en": "You are finding a different way to approach an ordinary routine. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先放开实际限制，想一种有趣但还没试过的形式。",
+            "en": "Set practical limits aside briefly and imagine an untried form."
+          },
+          "directionId": "unicorn"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "保留大家依赖的部分，变化前先问问受影响的人。",
+            "en": "Preserve what others rely on and ask those affected before changing it."
+          },
+          "directionId": "griffin"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "让玩法更贴合自己和同伴此刻的感受。",
+            "en": "Adapt it to how my companions and I feel at the moment."
+          },
+          "directionId": "mermaid"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先自己观察一阵，找到一个不必立刻展示的小变化。",
+            "en": "Observe privately for a while and find a small change I need not show immediately."
+          },
+          "directionId": "kraken"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_10",
+      "prompt": {
+        "zh": "一个共同决定让某位同伴有些犹豫，你更想怎样参与？",
+        "en": "A companion seems hesitant about a shared decision. How would you prefer to contribute?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "确认对方是否真的同意，哪些部分还没有答应。",
+            "en": "Check whether they actually agree and what they have not committed to."
+          },
+          "directionId": "griffin"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "问问是什么让他们不舒服，先听完而不替他们判断。",
+            "en": "Ask what feels uncomfortable and listen without deciding for them."
+          },
+          "directionId": "mermaid"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给对方一点私下想的时间，不要求当众说明。",
+            "en": "Offer time to think privately without requiring a public explanation."
+          },
+          "directionId": "kraken"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提出一个具体可改的方案，让讨论有落点。",
+            "en": "Offer one concrete adjustment to give the discussion somewhere to go."
+          },
+          "directionId": "dragon"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_11",
+      "prompt": {
+        "zh": "一张图片带给你复杂的感觉，你更可能怎样回应？",
+        "en": "An image brings up a complicated response. What would you most likely do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用几个词区分其中不同的感受，不急着说好或坏。",
+            "en": "Find words for the different feelings instead of immediately calling it good or bad."
+          },
+          "directionId": "mermaid"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先自己留意那些细节，暂时不把全部想法发出去。",
+            "en": "Notice the details privately without immediately posting everything I think."
+          },
+          "directionId": "kraken"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "选出最想表达的一点，做一段回应或一个小作品。",
+            "en": "Choose one point I want to express and make a response or small piece."
+          },
+          "directionId": "dragon"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "想到某个旧想法，看看能不能换一种形式继续。",
+            "en": "Return to an old idea and consider continuing it in another form."
+          },
+          "directionId": "phoenix"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_12",
+      "prompt": {
+        "zh": "写下了一页还不想公开的想法，你更想怎样处理？",
+        "en": "You have written a page of thoughts you do not yet want to make public. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "保留在私人的地方，等自己决定何时和谁说。",
+            "en": "Keep it somewhere private and decide when and with whom to share."
+          },
+          "directionId": "kraken"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "从中选一项已经明确的行动，不必先公开全部内容。",
+            "en": "Choose one action I am clear about without first publishing the whole page."
+          },
+          "directionId": "dragon"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "找出可以改写的一段，让它不受旧版本限制。",
+            "en": "Find a part to rewrite without being tied to the old version."
+          },
+          "directionId": "phoenix"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把其中一个意象发展成新的虚构可能。",
+            "en": "Develop one image into a new fictional possibility."
+          },
+          "directionId": "unicorn"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_13",
+      "prompt": {
+        "zh": "想把一个一直放在心里的点子变成现实，你更愿意先？",
+        "en": "You want to make a long-held idea real. Which first step would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "选定一个有边界的小目标，开始做可见的第一步。",
+            "en": "Choose a bounded goal and take a visible first step."
+          },
+          "directionId": "dragon"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "回看过去试过的部分，决定这次要改变什么。",
+            "en": "Review previous attempts and choose what to change this time."
+          },
+          "directionId": "phoenix"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "画出几种可能的样子，再选一个最想探索的。",
+            "en": "Sketch several possible forms and choose one I want to explore."
+          },
+          "directionId": "unicorn"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "如果会占用别人的时间，先确认对方是否愿意。",
+            "en": "Check willingness if the idea would use someone else’s time."
+          },
+          "directionId": "griffin"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_14",
+      "prompt": {
+        "zh": "某项尝试结束了，没有达到原本的期待。你更想先做哪一步？",
+        "en": "An attempt has ended short of your hopes. Which next step would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "分清想保留和想放下的部分，再决定是否另起一版。",
+            "en": "Separate what to keep from what to leave, then decide whether to try another version."
+          },
+          "directionId": "phoenix"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "暂时不沿原路线找答案，设想一个新方向。",
+            "en": "Imagine a new direction instead of continuing along the same route for now."
+          },
+          "directionId": "unicorn"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "和相关的人确认是否还有未完成的约定需要收尾。",
+            "en": "Check whether any agreements with others still need finishing."
+          },
+          "directionId": "griffin"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先承认自己对此的感受，不催着自己马上振作。",
+            "en": "Acknowledge how I feel without demanding an immediate rebound."
+          },
+          "directionId": "mermaid"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_15",
+      "prompt": {
+        "zh": "如果要给一段熟悉的故事续写，你最想加入？",
+        "en": "If you were continuing a familiar story, what would you most want to add?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个改变原有规则的“如果”，看看故事怎样发展。",
+            "en": "A what-if that changes an existing rule and opens a different path."
+          },
+          "directionId": "unicorn"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "人物怎样面对一项彼此都认真看待的承诺。",
+            "en": "A situation in which characters respond to a commitment they both take seriously."
+          },
+          "directionId": "griffin"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "人物没有直接说出口的心情，以及一次认真倾听。",
+            "en": "An unspoken feeling and an occasion for careful listening."
+          },
+          "directionId": "mermaid"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一些先留白、之后再慢慢浮现的线索。",
+            "en": "Clues left open at first and revealed gradually."
+          },
+          "directionId": "kraken"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_16",
+      "prompt": {
+        "zh": "参加一次临时组起来的创作活动，你希望大家怎样合作？",
+        "en": "You join an informal creative activity. How would you most like people to work together?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "同意的事才算约定，谁都可以说明自己的承担范围。",
+            "en": "Treat only agreed tasks as commitments and let people state their limits."
+          },
+          "directionId": "griffin"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "允许说出喜欢、失落或不确定，也认真听别人的表达。",
+            "en": "Allow enjoyment, disappointment and uncertainty to be voiced and heard."
+          },
+          "directionId": "mermaid"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "不把现场发言多少当作参与程度，留出独自构思的时间。",
+            "en": "Leave time for private thinking without judging engagement by how much someone speaks."
+          },
+          "directionId": "kraken"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "尽快确定一项可以试做的内容，让讨论接到行动。",
+            "en": "Choose something to try making so the discussion connects to action."
+          },
+          "directionId": "dragon"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_17",
+      "prompt": {
+        "zh": "朋友说自己对一件事的心情很矛盾，你更愿意怎样回应？",
+        "en": "A friend says they have mixed feelings about something. How would you prefer to respond?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "请对方说说相互拉扯的感受，并确认我是否听明白。",
+            "en": "Invite them to describe the conflicting feelings and check my understanding."
+          },
+          "directionId": "mermaid"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "不要求他们马上说透，允许之后再继续聊。",
+            "en": "Avoid requiring a complete explanation now and leave room to return later."
+          },
+          "directionId": "kraken"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问他们是否想一起确定一件现在可以做的小事。",
+            "en": "Ask whether they want help choosing one small action available now."
+          },
+          "directionId": "dragon"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问他们是否想重新考虑旧做法，而不是必须照原样继续。",
+            "en": "Ask whether they want to reconsider an old approach instead of continuing unchanged."
+          },
+          "directionId": "phoenix"
+        }
+      ]
+    },
+    {
+      "id": "MYTH_18",
+      "prompt": {
+        "zh": "准备把一部分个人创作给别人看，你最想怎样安排？",
+        "en": "You are preparing to show someone a personal creative piece. What arrangement would you most prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先挑愿意分享的一小部分，并说明暂时不谈的内容。",
+            "en": "Choose a small part I want to share and state what I am not discussing yet."
+          },
+          "directionId": "kraken"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "讲清作品现在想做成什么，并主动提出想听的反馈。",
+            "en": "State what I want the piece to become and ask for the feedback I want."
+          },
+          "directionId": "dragon"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "展示新旧两个版本，谈谈我为什么改了方向。",
+            "en": "Show an earlier and a new version and explain why I changed direction."
+          },
+          "directionId": "phoenix"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "邀请对方一起想象一个还没确定的后续可能。",
+            "en": "Invite the other person to imagine a possible continuation that is still open."
+          },
+          "directionId": "unicorn"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "dragon",
+      "directionIds": [
+        "dragon"
+      ],
+      "title": {
+        "zh": "龙",
+        "en": "Dragon"
+      },
+      "headline": {
+        "zh": "选定一个方向，让想法有开始的地方",
+        "en": "Choose a direction and give an idea a beginning"
+      },
+      "summary": {
+        "zh": "本版龙结果关注主动选方向、提出具体方案和开始行动。它不表示支配别人、比别人强或天生有领导力；一个很小、只影响自己的开始也符合这个比喻。",
+        "en": "In this edition, Dragon concerns choosing a direction, offering a concrete proposal and initiating action. It does not imply dominance, greater strength or natural leadership. A small beginning affecting only your own work can fit the metaphor."
+      },
+      "seo": {
+        "title": {
+          "zh": "龙结果解读：神话生物测试",
+          "en": "Dragon Result — Mythical Creature Quiz"
+        },
+        "description": {
+          "zh": "龙在本版神话生物测试中比喻主动选方向与开始行动，不评价权力或领导力。阅读创作例子、合作取舍、与凤凰及克拉肯的比较和小尝试；完整说明免费。",
+          "en": "Read the Dragon mythical-creature result: initiating a direction, creative examples, collaboration and comparisons with Phoenix and Kraken. Complete free guide."
+        }
+      },
+      "scoreReading": {
+        "zh": "龙选项在18题中出现12次，四个位置各3次。每选中一次加1次；完成后展示六种计数，所有同样最高的生物均保留并显示完整报告。计数不是相似度百分比，近分不是经过验证的人格距离或稳定主次型。",
+        "en": "Dragon options appear twelve times across eighteen questions, three times in each position. Each selection adds one raw choice. Completion reveals all six counts and the full report for every highest-count creature. Counts are not similarity percentages; nearby counts are not validated personality distances or stable primary and secondary types."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本次选择指向什么",
+            "en": "What these choices point to"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能在几个创作与讨论情境里更愿意先明确要做什么，再让过程逐步成形。主动可以是一页草稿、一段留言或一个决定，不需要大声发言、获得关注或替大家掌舵。看看你想开始的究竟是什么，而不是给自己增加必须很强势的要求。",
+              "en": "Across several creative and discussion situations, you may prefer choosing what to do and letting the process develop through action. Initiative can be a page of notes, a message or a decision. It need not involve speaking loudly, seeking attention or directing everyone. Identify what you want to begin without requiring yourself to become forceful."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能有帮助的地方",
+            "en": "Where the approach may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "当一个点子停留在“以后再说”，给它一个很小的第一版可以让讨论变具体。例如先写三句话说明意图，而不是一次把所有细节定完。别人能回应一个看得见的尝试，你也可以据此修改，而不必先证明整条路线一定正确。",
+              "en": "When an idea remains something to consider later, a small first version can make it discussable. Write three sentences about the intention instead of settling every detail. Others can respond to something visible, and you can revise from there without first proving that the entire route is correct."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "开始得快，也可能让尚未表达的人觉得决定已经做完。影响别人的部分先问是否同意，把“我想试试”与“大家必须这样做”分开。你可以对自己的行动负责，同时允许别人提出不同方向，或选择不参与这一次。",
+              "en": "Moving quickly can leave someone feeling a decision is already settled before they have spoken. Seek agreement on parts affecting others and distinguish your wish to try from a requirement that everyone follow. You can own your action while allowing a different direction or someone’s choice not to participate."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个创作情境",
+            "en": "A creative situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "想做一份小刊物时，你可以先给出一个主题和一页样稿，再问同伴想不想一起。如果没有人加入，这一页仍可作为个人作品；如果有人提出别的点子，就共同讨论哪些部分需要重定，而不是把样稿当成不可改的命令。",
+              "en": "For a small zine, suggest a theme and make one sample page before inviting collaborators. If nobody joins, the page can remain your own piece. If someone brings another idea, discuss what should change instead of turning an initial sample into an instruction that cannot be questioned."
+            }
+          ]
+        },
+        {
+          "id": "collaboration",
+          "title": {
+            "zh": "放在共同决定里",
+            "en": "In a shared decision"
+          },
+          "paragraphs": [
+            {
+              "zh": "提出一个有边界的方案，例如只试一周、只做一个版本，并说明哪些决定还开放。把自己的偏好写清楚，也请别人说出条件。这里的选择没有检验组织能力、决策质量或职业表现，不能据此把你推到所有活动的负责人位置。",
+              "en": "Offer a bounded proposal, such as a one-week trial or a single version, and say which decisions remain open. State your preference and invite others’ conditions. These choices do not test organisation, decision quality or professional performance, and do not make you the appropriate organiser for every occasion."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与凤凰、克拉肯怎样比较",
+            "en": "Comparing Phoenix and Kraken"
+          },
+          "paragraphs": [
+            {
+              "zh": "龙选项更强调确定一个可开始的方向；凤凰更强调调整旧做法再试；克拉肯更强调保留私下整理与分享边界。你可以先独自整理，再作决定，也可以开始后改版。近分提示的是本题组里的多种选择，不是哪个生物更成熟。",
+              "en": "Dragon options emphasise a direction you can begin; Phoenix emphasises revising an earlier approach; Kraken emphasises private processing and sharing boundaries. You can reflect before deciding and revise after starting. Nearby counts concern several choices within this set, not which creature represents greater maturity."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一个只有自己承担后果的小点子，用二十分钟做出最小版本。写下它想表达什么、还不确定什么。到时停下来，决定保留、修改还是结束；让开始服务于兴趣，不把按时做出成果变成对个人价值的考试。",
+              "en": "Choose a small idea whose consequences are yours to handle and give a minimal version twenty minutes. Note its intention and what is still uncertain. Then stop and decide whether to keep, revise or end it. Let beginning serve the interest rather than turning a timed output into a test of your worth."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "龙结果代表权力欲或领导者吗",
+            "en": "Does Dragon imply a desire for power or leadership?"
+          },
+          "paragraphs": [
+            {
+              "zh": "没有这种换算。本版题目没有测权力动机、领导力、胆量或胜任力，也不要求你认同某一文化中龙的含义。结果只是在本版选项里，主动确定方向的次数较高；它不能替代别人对具体合作行为的反馈。",
+              "en": "No such conversion is available. The items do not measure power motives, leadership, courage or competence, or require agreement with a cultural meaning of dragons. The result only reflects more selections for initiating direction in this edition. It cannot replace feedback about actual collaboration."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、对应方式与报告均为费马原创象征娱乐内容，尚未完成信度、效度或人群常模研究。本版借六种幻想生物谈具体创作与交流偏好，不宣称通用神话原型、真实灵魂身份、超能力、心理诊断或职业适配，也不推断你的经历、品格和能力。保留符合实际的部分，不必按生物标签生活。",
+              "en": "The items, assignments and reports are FermatMind’s original symbolic entertainment content, without established reliability, validity or population norms. This edition uses six imagined creatures to discuss creative and conversational preferences. It makes no claims about universal mythological archetypes, literal spiritual identity, supernatural powers, diagnosis or career fit, and does not infer experiences, character or ability. Keep what fits actual life without living by a creature label."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phoenix",
+      "directionIds": [
+        "phoenix"
+      ],
+      "title": {
+        "zh": "凤凰",
+        "en": "Phoenix"
+      },
+      "headline": {
+        "zh": "旧版本可以结束，下一步可以换一种做法",
+        "en": "Let an old version end and try the next step differently"
+      },
+      "summary": {
+        "zh": "本版凤凰比喻回看尝试、改变条件与重新开始的偏好。它不测心理韧性、创伤恢复或承受压力的能力，也不要求把困难解释成成长机会。",
+        "en": "Phoenix is a metaphor for reviewing an attempt, changing conditions and beginning again. It does not measure psychological resilience, trauma recovery or capacity under pressure, and does not require difficulties to be reframed as opportunities for growth."
+      },
+      "seo": {
+        "title": {
+          "zh": "凤凰结果解读：神话生物测试",
+          "en": "Phoenix Result — Mythical Creature Quiz"
+        },
+        "description": {
+          "zh": "凤凰结果关注调整旧版本与重新尝试，不测心理韧性或创伤恢复。查看具体创作情境、停止与重来的取舍及相近结果比较；完整神话生物说明免费可读。",
+          "en": "Explore the Phoenix quiz result: revising an earlier attempt, choosing whether to restart and allowing rest. Full examples and comparisons, without resilience scores."
+        }
+      },
+      "scoreReading": {
+        "zh": "凤凰选项在18题中出现12次，四个位置各3次。每选中一次加1次；完成后展示六种计数，所有同样最高的生物均保留并显示完整报告。计数不是相似度百分比，近分不是经过验证的人格距离或稳定主次型。",
+        "en": "Phoenix options appear twelve times across eighteen questions, three times in each position. Each selection adds one raw choice. Completion reveals all six counts and the full report for every highest-count creature. Counts are not similarity percentages; nearby counts are not validated personality distances or stable primary and secondary types."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本次选择指向什么",
+            "en": "What these choices point to"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能更愿意把旧做法看成可调整的版本，而不是必须原样坚持的承诺。重新开始也可以很小：删掉一个要求、换一种材料，或决定这件事暂时到此为止。这个结果不说明你经历过什么，更不能评价你从困难中恢复得够不够快。",
+              "en": "You may prefer treating an earlier approach as a version that can change rather than something you must preserve unchanged. Restarting can mean dropping one demand, changing material or deciding to stop for now. The result does not establish what you have experienced or judge how quickly you should recover from difficulty."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能有帮助的地方",
+            "en": "Where the approach may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "把“我失败了”改成“这个版本哪里不适合”，有时能让下一步更具体。例如一项爱好因准备太复杂而搁置，可以先改成十分钟、不需要额外设备的版本。调整关注实际条件，不需要用积极口号盖过失望，也不用马上再投入。",
+              "en": "Asking what did not suit this version can make a next step more concrete than a general judgment of failure. If a hobby stalled because preparation was complicated, try a ten-minute version without extra equipment. Focus on conditions without covering disappointment with positive slogans or requiring immediate renewed effort."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "太快进入“再来一次”，可能跳过休息、遗憾或必要的收尾。先问自己还想不想做、现在有多少余力，再决定是否改版。别人也可能还不愿意继续；新的开始需要重新获得同意，而不是把上一次的参与自动延长。",
+              "en": "Moving straight to another attempt can skip rest, disappointment or necessary closure. Check whether you still want the activity and what capacity is available. Others may not want to continue yet. A new beginning needs renewed agreement rather than automatically extending participation from the previous attempt."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个创作情境",
+            "en": "A creative situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "拍了一段不满意的视频，可以先选出一个仍想保留的镜头，再决定是否重剪。也可以保存素材，过几天再看。无需把整次尝试都定义为浪费，更不需要为了证明“能重生”而逼自己当晚完成第二版。",
+              "en": "After making a video you dislike, choose one shot you still want to keep before deciding whether to edit again. Saving the material for another day is also possible. The whole attempt need not be called wasted, and you need not finish a second version that night to prove an ability to bounce back."
+            }
+          ]
+        },
+        {
+          "id": "collaboration",
+          "title": {
+            "zh": "放在共同调整里",
+            "en": "In a shared adjustment"
+          },
+          "paragraphs": [
+            {
+              "zh": "回顾时可以分三项谈：保留什么、改变什么、结束什么。让每位参与者说明自己的意愿，再讨论时间与分工。修改方案不自动抹掉上次的影响；如果有人承担了额外负担，也需要把它说清，而不是只庆祝新起点。",
+              "en": "In a review, discuss what to keep, change and end. Let each person state their willingness before settling timing and responsibilities. Revising a plan does not automatically erase its earlier effects. If someone carried an extra burden, acknowledge it rather than celebrating only the fresh start."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与龙、独角兽怎样比较",
+            "en": "Comparing Dragon and Unicorn"
+          },
+          "paragraphs": [
+            {
+              "zh": "凤凰选项更关注从已有尝试里换一种做法；龙更关注确定方向并开始；独角兽更关注尚未尝试的可能。一次创作可以包含三者，不必把“重来”看成比“开始”更高或更低的阶段，也不把近分解释成人格距离。",
+              "en": "Phoenix options emphasise changing an existing attempt, Dragon choosing a direction and initiating, and Unicorn imagining an untried possibility. One creative process can include all three. Restarting is not a higher or lower stage than starting, and nearby counts are not personality distances."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "挑一件仍想继续、但已搁置的小爱好，先写下当时卡住的一个具体条件。只改变这一项，试十分钟后再决定是否继续。如果现在不想重来，就把“暂时结束”也当作清楚的选择，不额外给自己加任务。",
+              "en": "Choose a paused hobby you still want and identify one condition that got in the way. Change only that condition, try for ten minutes and decide what follows. If you do not want another attempt now, make a clear choice to stop for the time being instead of adding another obligation."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "凤凰结果证明韧性很高吗",
+            "en": "Does Phoenix establish high resilience?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不证明。题目没有追踪真实逆境、恢复过程或心理健康，也没有建立常模。一个娱乐比喻不能评价痛苦是否有意义、恢复是否正常或是否需要支持。面对持续困扰时，请按实际情况寻找合适帮助，不用结果名称要求自己坚强。",
+              "en": "It does not. These items track neither actual adversity nor recovery or mental health, and have no established norms. An entertainment metaphor cannot judge whether suffering has meaning, recovery is typical or support is needed. Respond to ongoing difficulties on their actual circumstances instead of requiring strength from a result name."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、对应方式与报告均为费马原创象征娱乐内容，尚未完成信度、效度或人群常模研究。本版借六种幻想生物谈具体创作与交流偏好，不宣称通用神话原型、真实灵魂身份、超能力、心理诊断或职业适配，也不推断你的经历、品格和能力。保留符合实际的部分，不必按生物标签生活。",
+              "en": "The items, assignments and reports are FermatMind’s original symbolic entertainment content, without established reliability, validity or population norms. This edition uses six imagined creatures to discuss creative and conversational preferences. It makes no claims about universal mythological archetypes, literal spiritual identity, supernatural powers, diagnosis or career fit, and does not infer experiences, character or ability. Keep what fits actual life without living by a creature label."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unicorn",
+      "directionIds": [
+        "unicorn"
+      ],
+      "title": {
+        "zh": "独角兽",
+        "en": "Unicorn"
+      },
+      "headline": {
+        "zh": "让一个“如果”先有被想象的空间",
+        "en": "Give a what-if some room to be imagined"
+      },
+      "summary": {
+        "zh": "本版独角兽关注新设定、替代可能和不急着收束的想象。它不证明你罕见、天才、比别人有创意或不适合现实，也不把想象与实际能力等同。",
+        "en": "Unicorn concerns new premises, alternatives and imagination that is not immediately closed down. It does not establish rarity, genius, greater creativity or being unsuited to reality, and does not equate imagining with demonstrated ability."
+      },
+      "seo": {
+        "title": {
+          "zh": "独角兽结果解读：神话生物测试",
+          "en": "Unicorn Result — Mythical Creature Quiz"
+        },
+        "description": {
+          "zh": "独角兽在本版神话生物测试中比喻想象与另一种可能，不判断天才或稀有度。阅读故事创作例子、发散的取舍、相近结果比较和小尝试；完整说明免费。",
+          "en": "Read the Unicorn mythical-creature result: what-ifs, alternative possibilities, creative examples and tradeoffs. A full free guide without claims of genius or rarity."
+        }
+      },
+      "scoreReading": {
+        "zh": "独角兽选项在18题中出现12次，四个位置各3次。每选中一次加1次；完成后展示六种计数，所有同样最高的生物均保留并显示完整报告。计数不是相似度百分比，近分不是经过验证的人格距离或稳定主次型。",
+        "en": "Unicorn options appear twelve times across eighteen questions, three times in each position. Each selection adds one raw choice. Completion reveals all six counts and the full report for every highest-count creature. Counts are not similarity percentages; nearby counts are not validated personality distances or stable primary and secondary types."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本次选择指向什么",
+            "en": "What these choices point to"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能在几个情境里更愿意先保留不同可能，再决定哪一个值得尝试。想象可以是改写故事的一条规则，也可以是日常物件的另一种用法。它不需要宏大、独一无二或马上有用，更不是用“特别”给自己排出一个位置。",
+              "en": "Across several situations, you may prefer preserving alternatives before deciding which to try. Imagination can change a rule in a story or suggest another use for an ordinary object. It need not be grand, unique or immediately useful, and does not award a special rank to the person imagining it."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能有帮助的地方",
+            "en": "Where the approach may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "当讨论被第一种方案占满时，提出另一种“如果”可以让选择多一点。例如给一个故事换个叙述者，先看它会带来什么变化。把设想称为暂时的可能，能让别人更容易一起补充，不必先争论它是否足够原创。",
+              "en": "When an initial proposal occupies a discussion, another what-if can create more room to choose. Change a story’s narrator and explore what follows. Calling an idea a provisional possibility can invite contributions without first turning the conversation into a debate about whether it is original enough."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "不断增加新方向，可能让已经准备动手的人不知从哪里开始。可以为发散留一个时间，再选一个足够小的版本测试。没有被选的点子可以先放在旁边，不必马上删除，也不用让每个设想都变成需要完成的新任务。",
+              "en": "Continually adding directions can leave someone ready to begin unsure where to start. Set some time for exploration, then choose one small version to try. Ideas not selected can wait nearby without being erased or becoming additional tasks that now have to be completed."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个创作情境",
+            "en": "A creative situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "给熟悉故事续写时，试着只改变一条规则，例如让一个配角知道别人不知道的事。先写一小段看它怎样影响情节，再决定是否发展。这里练的是探索一个可能，不是考查写作水平，也不要求别人必须喜欢这个设定。",
+              "en": "For a familiar story, change just one rule, such as giving a minor character information others lack. Write a short passage to see its effect before developing it further. Explore a possibility rather than treating the exercise as a writing examination or requiring everyone to enjoy the premise."
+            }
+          ]
+        },
+        {
+          "id": "collaboration",
+          "title": {
+            "zh": "放在共同创作里",
+            "en": "In shared creative work"
+          },
+          "paragraphs": [
+            {
+              "zh": "说清自己现在是在提设想，还是建议大家立即采用。前者可以先收集不同方向；后者则需要讨论时间、材料与参与意愿。想象力不替代共同约定，别人的现实条件也不一定是在否定你的点子。",
+              "en": "Clarify whether you are offering a possibility or proposing immediate adoption. Possibilities can be collected; adoption needs discussion of time, materials and willingness. Imagination does not replace shared agreement, and another person’s practical conditions are not necessarily a rejection of the idea."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与凤凰、美人鱼怎样比较",
+            "en": "Comparing Phoenix and Mermaid"
+          },
+          "paragraphs": [
+            {
+              "zh": "独角兽选项更强调另一种设定和可能；凤凰更强调改写已有尝试；美人鱼更强调辨认与交流感受。一个新想法也可能从情绪或旧经历出发。结果没有把逻辑与感性分成对立阵营，更不测脑型或创意天赋。",
+              "en": "Unicorn options emphasise another premise or possibility, Phoenix revising an earlier attempt, and Mermaid noticing and discussing feelings. An idea can begin with emotion or experience. The results do not divide logic and feeling into opposing camps or measure brain types or creative talent."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "给一件普通物品写三个“如果”，再选一个只写五句话。完成后问自己哪个细节最让你想继续。如果没有，就把这次当作短暂游戏；不把产量、受欢迎程度或是否有人想到过，当成想象是否值得的标准。",
+              "en": "Write three what-ifs for an ordinary object, then choose one for five sentences. Afterwards, notice which detail makes you want to continue. If none does, let it remain a brief game. Output, popularity and whether someone has thought of it before need not determine whether imagining was worthwhile."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "独角兽结果说明我很罕见吗",
+            "en": "Does Unicorn mean I am rare?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不能据此判断。这里没有真实人群分布，也不把结果名称换算成天才、纯洁、特殊身份或精神特征。即使某种结果在题目组合中出现较少，也不是人群中的稀有比例。本页不发布这类未经测量的稀有度。",
+              "en": "Rarity cannot be established here. There is no population distribution, and the name cannot be converted into genius, purity, a special identity or spiritual traits. Even a less common outcome among answer combinations would not be a population prevalence. This page does not publish unmeasured rarity claims."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、对应方式与报告均为费马原创象征娱乐内容，尚未完成信度、效度或人群常模研究。本版借六种幻想生物谈具体创作与交流偏好，不宣称通用神话原型、真实灵魂身份、超能力、心理诊断或职业适配，也不推断你的经历、品格和能力。保留符合实际的部分，不必按生物标签生活。",
+              "en": "The items, assignments and reports are FermatMind’s original symbolic entertainment content, without established reliability, validity or population norms. This edition uses six imagined creatures to discuss creative and conversational preferences. It makes no claims about universal mythological archetypes, literal spiritual identity, supernatural powers, diagnosis or career fit, and does not infer experiences, character or ability. Keep what fits actual life without living by a creature label."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "griffin",
+      "directionIds": [
+        "griffin"
+      ],
+      "title": {
+        "zh": "狮鹫",
+        "en": "Griffin"
+      },
+      "headline": {
+        "zh": "把关心变成双方都同意的约定",
+        "en": "Turn care into agreements people actually share"
+      },
+      "summary": {
+        "zh": "本版狮鹫关注确认同意、照顾共同约定和说清承担范围。它不评价忠诚、道德高低或保护别人的能力，也不要求你成为所有人的守护者。",
+        "en": "Griffin concerns checking consent, attending to shared agreements and stating the scope of responsibility. It does not judge loyalty, moral worth or protective ability, or require you to become everyone’s guardian."
+      },
+      "seo": {
+        "title": {
+          "zh": "狮鹫结果解读：神话生物测试",
+          "en": "Griffin Result — Mythical Creature Quiz"
+        },
+        "description": {
+          "zh": "狮鹫结果关注共同同意、约定和承担范围，不给忠诚或道德排名。查看合作情境、关心与界限的取舍及与龙和美人鱼的比较；完整神话生物说明免费。",
+          "en": "Explore the Griffin quiz result: shared agreements, consent, responsibility and boundaries. Read complete examples and comparisons without moral or loyalty rankings."
+        }
+      },
+      "scoreReading": {
+        "zh": "狮鹫选项在18题中出现12次，四个位置各3次。每选中一次加1次；完成后展示六种计数，所有同样最高的生物均保留并显示完整报告。计数不是相似度百分比，近分不是经过验证的人格距离或稳定主次型。",
+        "en": "Griffin options appear twelve times across eighteen questions, three times in each position. Each selection adds one raw choice. Completion reveals all six counts and the full report for every highest-count creature. Counts are not similarity percentages; nearby counts are not validated personality distances or stable primary and secondary types."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本次选择指向什么",
+            "en": "What these choices point to"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能在几道合作情境里更愿意先确认彼此是否真的答应，再讨论下一步。关心可以表现为不替别人承诺，也可以是及时说出自己做不到的部分。这个比喻记录对约定的注意，不证明你总能守约，更不能用来判断别人值不值得信任。",
+              "en": "In several collaborative situations, you may prefer checking whether people actually agreed before considering the next step. Care can mean not promising on someone’s behalf or promptly stating what you cannot do. The metaphor records attention to agreements. It does not establish that you always keep them or determine whether another person deserves trust."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能有帮助的地方",
+            "en": "Where the approach may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "活动开始前问清“这件事是已经同意，还是还在考虑”，可以避免把沉默当答应。也可以让每个人挑一项愿意做的部分，并留出修改空间。具体约定比笼统要求大家重视彼此更容易回应，不必把每个安排都上升为关系考验。",
+              "en": "Before an activity, distinguish something agreed from something still being considered. This can prevent silence from being treated as consent. Let each person choose one contribution and leave room to revise it. A concrete agreement is easier to respond to than a general demand to care, without turning every arrangement into a relationship test."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果把照顾关系理解成不能让任何人失望，就可能替大家承担太多。请把自己的意愿也放进约定里；别人提出改变时，先问实际影响，不立刻判断是否忠诚。关心与界限可以一起清楚，不需要靠过量承担来证明重要性。",
+              "en": "Treating care as never disappointing anyone can lead to taking on too much. Include your own willingness in the agreement. When someone proposes a change, ask about its practical effect rather than immediately judging loyalty. Care and limits can be clear together without proving importance through excessive responsibility."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个共同创作情境",
+            "en": "A shared creative situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "朋友说“有空可以帮你看看”，你可以确认对方想给哪种反馈、何时方便，而不是默认对方负责校对整个作品。如果对方只能看一页，就按这一页安排。这不是把善意变得冷冰冰，而是让双方知道这次合作具体包含什么。",
+              "en": "If a friend offers to look at a piece when free, ask what feedback they want to give and when it suits them. Do not assume they will proofread the whole work. If one page is manageable, plan around that. Specificity can preserve goodwill by making the scope of the collaboration clear to both people."
+            }
+          ]
+        },
+        {
+          "id": "collaboration",
+          "title": {
+            "zh": "放在不同意见里",
+            "en": "When preferences differ"
+          },
+          "paragraphs": [
+            {
+              "zh": "一方不愿意继续，不代表共同经历都失去了意义。可以一起确认哪些还需收尾、哪些以后不再承担，以及如何保留已有贡献。无需用狮鹫标签要求自己或别人永远坚持；真实的合作需要可讨论、可退出和可调整的条件。",
+              "en": "Someone not wanting to continue does not erase the value of a shared experience. Discuss what still needs closing, what will not be taken on again and how existing contributions will be acknowledged. A Griffin label should not require permanent commitment. Actual collaboration needs conditions people can discuss, adjust or leave."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与龙、美人鱼怎样比较",
+            "en": "Comparing Dragon and Mermaid"
+          },
+          "paragraphs": [
+            {
+              "zh": "狮鹫选项更强调同意与共同约定；龙更强调提出可开始的方向；美人鱼更强调听清感受。一个安排可以同时需要这三种关注。高低计数不是责任感、善良或情商的排名，也不能决定谁应该在关系里付出更多。",
+              "en": "Griffin options emphasise consent and shared agreements, Dragon a direction that can begin, and Mermaid hearing feelings clearly. One arrangement can benefit from all three kinds of attention. Counts do not rank responsibility, kindness or emotional intelligence, or decide who should give more in a relationship."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "下一次合作只确认三件事：各自愿意做什么、什么时候再沟通、需要改变时怎样提出。也写下自己不承担的部分。结束后看是否减少了猜测，而不是用有没有让所有人满意来评价这次练习。",
+              "en": "For the next collaboration, confirm three things: what each person willingly offers, when to check in and how to raise a change. State what you are not taking on too. Afterwards, ask whether guessing decreased rather than judging the exercise by whether everybody was satisfied."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "狮鹫结果说明我更忠诚或更善良吗",
+            "en": "Does Griffin mean more loyal or kinder?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不说明。娱乐题目不能替代真实行为、长期相处或具体伦理判断。确认约定只是一种题目中的选择，不是道德证书；别的结果也不意味着不关心别人。请用具体事例讨论需要，而不是让一个生物名称给人贴好坏标签。",
+              "en": "It does not. Entertainment items cannot replace actual behaviour, long-term experience or specific ethical judgments. Checking an agreement is one response in the questions, not a moral certificate. Other results do not imply a lack of care. Discuss needs through examples rather than using a creature to label people good or bad."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、对应方式与报告均为费马原创象征娱乐内容，尚未完成信度、效度或人群常模研究。本版借六种幻想生物谈具体创作与交流偏好，不宣称通用神话原型、真实灵魂身份、超能力、心理诊断或职业适配，也不推断你的经历、品格和能力。保留符合实际的部分，不必按生物标签生活。",
+              "en": "The items, assignments and reports are FermatMind’s original symbolic entertainment content, without established reliability, validity or population norms. This edition uses six imagined creatures to discuss creative and conversational preferences. It makes no claims about universal mythological archetypes, literal spiritual identity, supernatural powers, diagnosis or career fit, and does not infer experiences, character or ability. Keep what fits actual life without living by a creature label."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mermaid",
+      "directionIds": [
+        "mermaid"
+      ],
+      "title": {
+        "zh": "美人鱼",
+        "en": "Mermaid"
+      },
+      "headline": {
+        "zh": "给感受找到词，也问清自己是否听懂",
+        "en": "Find words for feelings and check what you have heard"
+      },
+      "summary": {
+        "zh": "本版美人鱼关注辨认感受、认真倾听与允许矛盾心情。它不测情商、共情能力或直觉准确率，也不意味着你能知道别人没说出口的想法。",
+        "en": "Mermaid concerns noticing feelings, listening and allowing mixed emotions. It does not measure emotional intelligence, empathy or intuitive accuracy, or imply that you know what someone has not said."
+      },
+      "seo": {
+        "title": {
+          "zh": "美人鱼结果解读：神话生物测试",
+          "en": "Mermaid Result — Mythical Creature Quiz"
+        },
+        "description": {
+          "zh": "美人鱼在本版神话生物测试中关注辨认感受与认真倾听，不测情商或读心能力。阅读日常情境、交流取舍及与狮鹫和克拉肯的比较；完整说明免费。",
+          "en": "Read the Mermaid quiz result: noticing feelings, listening, creative feedback and comparisons with Griffin and Kraken. Full guide without EQ or mind-reading claims."
+        }
+      },
+      "scoreReading": {
+        "zh": "美人鱼选项在18题中出现12次，四个位置各3次。每选中一次加1次；完成后展示六种计数，所有同样最高的生物均保留并显示完整报告。计数不是相似度百分比，近分不是经过验证的人格距离或稳定主次型。",
+        "en": "Mermaid options appear twelve times across eighteen questions, three times in each position. Each selection adds one raw choice. Completion reveals all six counts and the full report for every highest-count creature. Counts are not similarity percentages; nearby counts are not validated personality distances or stable primary and secondary types."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本次选择指向什么",
+            "en": "What these choices point to"
+          },
+          "paragraphs": [
+            {
+              "zh": "在几个创作和交流情境里，你可能更愿意先找到感受的具体样子，而不是马上总结或给方案。感受可以同时有几种，也可能暂时说不清。选择这样回应不证明你比别人敏感或更懂人，更不要求你时刻接住他人的情绪。",
+              "en": "Across several creative and conversational situations, you may prefer noticing the particular feeling before summarising or suggesting a solution. Several feelings can coexist or remain difficult to name. Choosing this response does not establish greater sensitivity or understanding, or require you to receive other people’s emotions all the time."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能有帮助的地方",
+            "en": "Where the approach may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "把“有点不对劲”分成失落、担心或舍不得，可以让下一步更清楚。听别人表达时，也可以问自己的理解是否贴合，而不是靠猜。这种注意可以让交流慢一点、具体一点，但对方仍有权不同意你的描述或暂时不谈。",
+              "en": "Distinguishing disappointment, worry or reluctance within a vague discomfort can clarify a next step. When listening, ask whether your understanding fits instead of relying on a guess. Attention can make a conversation slower and more specific, while the other person retains the right to reject your description or not discuss it yet."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "一直围绕心情讨论，可能让想谈实际安排的人觉得没有落点。可以先问对方更想被听见、一起找办法，还是暂时独处。你也可以说明自己现在能听多久；关注感受不等于必须分析到底，也不等于每种情绪都需要立刻解决。",
+              "en": "A conversation focused only on feelings can leave someone seeking practical arrangements without a next step. Ask whether they want listening, help with options or time alone. State how long you can listen too. Attending to feelings does not require exhaustive analysis or an immediate solution to every emotion."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常情境",
+            "en": "An everyday situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "同伴说活动结束后既开心又失落，你可以先听这两种感受各来自哪里，再问是否想聊以后怎样继续。无需替对方选出一个“真正”的心情。也不把表达得多或少，当作关系亲近程度或情绪健康的证据。",
+              "en": "A companion feels both pleased and disappointed after an activity. Hear what each feeling concerns, then ask whether they want to discuss what follows. You need not identify one supposedly real emotion. How much someone expresses is not evidence of closeness or emotional health."
+            }
+          ]
+        },
+        {
+          "id": "collaboration",
+          "title": {
+            "zh": "放在创作反馈里",
+            "en": "In creative feedback"
+          },
+          "paragraphs": [
+            {
+              "zh": "谈作品时，试着区分自己的感受与对作者意图的推测。例如说哪一段让你不安，再问作者想呈现什么。你的体验值得表达，但不自动成为作品或作者的事实。这样的反馈不评判你是否具有某种天赋或艺术鉴赏资格。",
+              "en": "In feedback, separate your response from an inference about the maker’s intention. Name a passage that unsettles you and ask what they wanted to present. Your experience is worth expressing without becoming a fact about the work or its maker. This does not assess talent or qualifications for artistic judgment."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与狮鹫、克拉肯怎样比较",
+            "en": "Comparing Griffin and Kraken"
+          },
+          "paragraphs": [
+            {
+              "zh": "美人鱼选项更强调辨认和交流感受；狮鹫更强调确认同意与约定；克拉肯更强调私下整理及分享边界。你可能先需要独处，之后才愿意表达，也可能听清感受后再定安排。这些选择不是感性与理性的对立分类。",
+              "en": "Mermaid options emphasise noticing and discussing feelings, Griffin consent and agreements, and Kraken private processing and sharing boundaries. You might want solitude before expression or hear feelings before making a plan. These choices do not create opposing emotional and rational categories."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "用两分钟记录一件小事带来的两种感受，并各写一个具体原因。如果想与别人聊，先问现在是否方便，再确认对方想听哪一部分。记录可以留在自己手里；不需要上传私人文字，或为了完成练习公开不愿分享的事。",
+              "en": "Take two minutes to note two feelings about a small event and one specific reason for each. If you want to talk, first ask whether the time suits the other person and which part they want to hear. Keep the note private if you prefer. No private writing needs to be uploaded or disclosed for the exercise."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "美人鱼结果等于情商高或直觉准吗",
+            "en": "Does Mermaid mean high EQ or accurate intuition?"
+          },
+          "paragraphs": [
+            {
+              "zh": "没有这样的证据。题目只记录偏好，未检验识别情绪、理解他人或解决问题的表现。直觉需要向当事人确认，不能把自己的感受当成对方的事实。若需要了解情绪相关能力，应使用适合该问题的方法，而不是从娱乐画像换算。",
+              "en": "There is no evidence for that conclusion. The items record preferences without testing emotional recognition, understanding of others or problem solving. Check an impression with the person involved rather than treating your feeling as their fact. Questions about emotional ability need a suitable method, not conversion from an entertainment profile."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、对应方式与报告均为费马原创象征娱乐内容，尚未完成信度、效度或人群常模研究。本版借六种幻想生物谈具体创作与交流偏好，不宣称通用神话原型、真实灵魂身份、超能力、心理诊断或职业适配，也不推断你的经历、品格和能力。保留符合实际的部分，不必按生物标签生活。",
+              "en": "The items, assignments and reports are FermatMind’s original symbolic entertainment content, without established reliability, validity or population norms. This edition uses six imagined creatures to discuss creative and conversational preferences. It makes no claims about universal mythological archetypes, literal spiritual identity, supernatural powers, diagnosis or career fit, and does not infer experiences, character or ability. Keep what fits actual life without living by a creature label."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kraken",
+      "directionIds": [
+        "kraken"
+      ],
+      "title": {
+        "zh": "克拉肯",
+        "en": "Kraken"
+      },
+      "headline": {
+        "zh": "保留自己的思考空间，选择何时分享",
+        "en": "Keep thinking space and choose when to share"
+      },
+      "summary": {
+        "zh": "本版克拉肯关注私下整理想法、保留未定内容和选择分享范围。它不表示隐藏的天才、神秘力量、冷漠或社交障碍，也不把少说话解释成更有深度。",
+        "en": "Kraken concerns processing thoughts privately, retaining unfinished ideas and choosing what to share. It does not imply hidden genius, mysterious power, indifference or a social difficulty, and does not equate speaking less with greater depth."
+      },
+      "seo": {
+        "title": {
+          "zh": "克拉肯结果解读：神话生物测试",
+          "en": "Kraken Result — Mythical Creature Quiz"
+        },
+        "description": {
+          "zh": "克拉肯结果关注私下整理与分享边界，不表示隐藏天才或冷漠。查看草稿交流例子、具体边界表达及与美人鱼和龙的比较；完整神话生物测试说明免费。",
+          "en": "Explore the Kraken mythical-creature result: private processing, sharing boundaries and creative examples. Full comparisons without hidden-genius or introversion claims."
+        }
+      },
+      "scoreReading": {
+        "zh": "克拉肯选项在18题中出现12次，四个位置各3次。每选中一次加1次；完成后展示六种计数，所有同样最高的生物均保留并显示完整报告。计数不是相似度百分比，近分不是经过验证的人格距离或稳定主次型。",
+        "en": "Kraken options appear twelve times across eighteen questions, three times in each position. Each selection adds one raw choice. Completion reveals all six counts and the full report for every highest-count creature. Counts are not similarity percentages; nearby counts are not validated personality distances or stable primary and secondary types."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本次选择指向什么",
+            "en": "What these choices point to"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能更愿意先让想法在自己这里停留一会儿，再决定怎样表达。保留可以是笔记、散步时的整理，或暂不发表意见。它不需要带着神秘感，也不是必须独自处理一切；愿意求助与选择隐私可以同时成立。",
+              "en": "You may prefer letting a thought remain with you for a while before deciding how to express it. This can mean a note, thinking during a walk or withholding an opinion for now. It need not involve mystery or managing everything alone. Asking for help and choosing privacy can coexist."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能有帮助的地方",
+            "en": "Where the approach may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "给未成形的想法一些时间，有时能让之后的表达更贴近自己的意思。例如先写下两个还没想清的问题，再带着问题讨论。沉默本身不证明内容更好；真正有用的是你是否获得了适合整理、询问和决定的空间。",
+              "en": "Time with an unfinished thought can help later expression reflect what you mean. Write two unresolved questions before bringing them into a discussion. Silence itself does not establish better content. What matters is whether you have suitable room to process, ask and decide."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果只说“之后再说”却没有后续安排，别人可能不知道该等多久。可以说明现在不想谈的范围，并给出一个愿意再确认的时间；如果不想分享，也可以直接这样说。隐私不要求把所有交流关掉，界限越具体越容易被理解。",
+              "en": "If later is never followed by an arrangement, others may not know how long to wait. State what you do not want to discuss now and when you are willing to check again. You can also say you do not want to share it. Privacy need not close every conversation; specific limits are easier to understand."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个创作情境",
+            "en": "A creative situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "别人想看你的草稿，你可以挑一段已经愿意交流的内容，说明其余部分仍想自己整理。也可以约一次只讨论某个问题的反馈。作品未公开不等于没有价值，公开得多也不代表浅薄；每次都按内容和自己的意愿决定。",
+              "en": "When someone asks to see a draft, choose a passage you want to discuss and say the rest still needs private work. Arrange feedback on one question if useful. Unpublished work is not thereby worthless, nor is frequent sharing shallow. Decide from the particular content and your willingness each time."
+            }
+          ]
+        },
+        {
+          "id": "collaboration",
+          "title": {
+            "zh": "放在共同活动里",
+            "en": "In a shared activity"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以提前告诉同伴自己更适合先看材料、之后再回应。若已有共同截止时间，也确认怎样让私下整理与活动进度并存。不需要用克拉肯标签免除已经同意的沟通，也不需要为了证明参与而公开所有个人想法。",
+              "en": "Tell companions if reviewing material before responding suits you better. With an agreed deadline, discuss how private processing can fit the schedule. A Kraken label does not remove communication you have agreed to, and proving participation does not require disclosing every personal thought."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与美人鱼、龙怎样比较",
+            "en": "Comparing Mermaid and Dragon"
+          },
+          "paragraphs": [
+            {
+              "zh": "克拉肯选项更强调何时、向谁分享；美人鱼更强调感受的辨认与交流；龙更强调确定方向并开始。你可以在私下认真感受，也可以整理后主动行动。结果不把内向、外向或思考深度排成一条高低轴。",
+              "en": "Kraken options emphasise when and with whom to share, Mermaid noticing and discussing feelings, and Dragon choosing a direction and beginning. You can attend to feelings privately or act after processing. These results do not rank introversion, extraversion or depth of thought on a higher-to-lower scale."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "下一次被问到还没想好的事，试着给一个明确回应：现在想先整理哪一部分、何时可以再确认，或哪些内容不打算分享。之后看这样是否减少了猜测。练习的是表达边界，而不是把自己变得更开放或更神秘。",
+              "en": "When asked about something unfinished, give a clear response: what needs thought, when you can check again or what you do not plan to share. Afterwards, notice whether guessing decreased. Practise expressing a boundary rather than making yourself more open or more mysterious."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "克拉肯结果说明内向、冷漠或天才吗",
+            "en": "Does Kraken imply introversion, indifference or genius?"
+          },
+          "paragraphs": [
+            {
+              "zh": "都不能由此推断。私下整理是本题本里的偏好，不是内外向计分、情绪诊断或智力测量。别人不愿分享某件事，也不自动说明不信任你。请尊重具体界限，需要理解时直接询问，不用结果名称补出未知动机。",
+              "en": "None of those conclusions follows. Private processing is a preference in this set, not an introversion score, emotional diagnosis or intelligence measure. Someone declining to share something does not automatically indicate mistrust. Respect specific boundaries and ask when clarification is needed instead of inventing motives from a result name."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、对应方式与报告均为费马原创象征娱乐内容，尚未完成信度、效度或人群常模研究。本版借六种幻想生物谈具体创作与交流偏好，不宣称通用神话原型、真实灵魂身份、超能力、心理诊断或职业适配，也不推断你的经历、品格和能力。保留符合实际的部分，不必按生物标签生活。",
+              "en": "The items, assignments and reports are FermatMind’s original symbolic entertainment content, without established reliability, validity or population norms. This edition uses six imagined creatures to discuss creative and conversational preferences. It makes no claims about universal mythological archetypes, literal spiritual identity, supernatural powers, diagnosis or career fit, and does not infer experiences, character or ability. Keep what fits actual life without living by a creature label."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "计数如何产生结果",
+        "en": "How choices produce a result"
+      },
+      "paragraphs": [
+        {
+          "zh": "18题各有4个选项，每项明确对应一种生物，选中加1次。六种生物各出现12次，四个位置各3次。全部回答后显示所有原始计数与所有最高者；不使用生日、MBTI、抽签或隐藏加分。",
+          "en": "Each of eighteen questions has four options, each worth one raw choice for its assigned creature. Every creature appears twelve times, three times in each position. Completion reveals every count and all highest-count matches. There is no birthday, MBTI conversion, random draw or hidden bonus."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "并列与相近结果",
+        "en": "Ties and nearby results"
+      },
+      "paragraphs": [
+        {
+          "zh": "最高计数相同就全部显示，每份报告都完整保留，不按名单顺序挑一个。差一次只是本题组多选了一次，不能证明稳定主次型、显著人格差异或人群排名。可以比较其他说明，再回到真实情境。",
+          "en": "Every result sharing the highest count receives its full report, without a winner selected by list order. One extra choice here does not establish a stable primary and secondary type, a significant personality difference or population rank. Compare other guides and return to actual situations."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "本版的六种比喻",
+        "en": "Six metaphors in this edition"
+      },
+      "paragraphs": [
+        {
+          "zh": "龙关注开始行动，凤凰关注调整旧尝试，独角兽关注另一种可能，狮鹫关注共同约定，美人鱼关注感受交流，克拉肯关注私下整理与分享边界。这些是本版原创对应，不声称各文化的唯一含义，也不把生物名称变成人的本质。",
+          "en": "Dragon concerns initiating action, Phoenix revising an earlier attempt, Unicorn another possibility, Griffin shared agreements, Mermaid discussing feelings, and Kraken private processing and sharing boundaries. These are original assignments in this edition, not the sole meanings across cultures or statements of a person’s essential nature."
+        }
+      ]
+    },
+    {
+      "id": "source-scope",
+      "title": {
+        "zh": "原创内容与免费范围",
+        "en": "Original content and free access"
+      },
+      "paragraphs": [
+        {
+          "zh": "题目与六份报告为费马独立创作，尚无信效度或常模研究，没有复制竞品题库、解释或插图。18题、全部计数、完整并列报告与公开说明均免费，不以职业匹配、名人同型或未经测量的稀有度引导付费。",
+          "en": "FermatMind independently authored the items and six reports without established psychometric validation or norms. No competitor items, explanations or illustrations are reproduced. All eighteen questions, counts, complete tied reports and public guides are free, without paid promises about career matches, celebrity types or unmeasured rarity."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "我是什么神话生物？这份测试怎样回答？",
+        "en": "What mythical creature am I, and how does this quiz decide?"
+      },
+      "answer": {
+        "zh": "根据18道创作与交流情境题的实际选择，累计六种生物的次数，保留所有最高计数。结果是本版的偏好比喻，不是神话知识分数、灵魂鉴定或经过验证的人格分类。",
+        "en": "Your choices across eighteen creative and conversational situations add raw counts for six creatures, retaining every highest count. A result is a preference metaphor in this edition, not a mythology knowledge score, spiritual identification or validated personality classification."
+      }
+    },
+    {
+      "question": {
+        "zh": "有哪些完整结果可以阅读？",
+        "en": "Which complete results can I read?"
+      },
+      "answer": {
+        "zh": "龙、凤凰、独角兽、狮鹫、美人鱼和克拉肯。每份报告都有具体情境、可能的帮助、取舍、相近结果比较与一次小尝试。作答前也能直接阅读全部六份公开说明。",
+        "en": "Dragon, Phoenix, Unicorn, Griffin, Mermaid and Kraken. Every report includes situations, possible contributions, tradeoffs, comparisons and one small experiment. All six public guides can be read before taking the quiz."
+      }
+    },
+    {
+      "question": {
+        "zh": "龙与凤凰有什么区别？",
+        "en": "How do Dragon and Phoenix differ here?"
+      },
+      "answer": {
+        "zh": "本版龙选项更关注确定方向并开始，凤凰更关注改变已有尝试的条件。两者可以在同一件事里先后出现，不是权力或韧性的等级。请比较具体题目与报告，不把这种对应当成通用神话结论。",
+        "en": "In this edition, Dragon options emphasise choosing a direction and beginning; Phoenix options emphasise changing an earlier attempt’s conditions. Both can occur in one activity. They are not levels of power or resilience, and these assignments are not universal conclusions about mythology."
+      }
+    },
+    {
+      "question": {
+        "zh": "这能测韧性、情商或想象力吗？",
+        "en": "Does this measure resilience, EQ or imagination as an ability?"
+      },
+      "answer": {
+        "zh": "不能。本页记录对具体做法的偏好，没有能力表现、长期追踪或常模，不换算心理量表分数。需要理解能力、持续困扰或专业问题时，应选择对应的方法与支持，而不是从生物名称推断。",
+        "en": "No. The quiz records preferences without performance tasks, longitudinal evidence or norms. It cannot be converted into a psychological scale score. Questions about ability, ongoing difficulties or professional needs require a suitable method or support rather than an inference from a creature name."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果免费吗？并列怎样处理？",
+        "en": "Are full results free, and how are ties handled?"
+      },
+      "answer": {
+        "zh": "18题、全部计数、六份报告与所有最高并列结果均免费，无需注册、邮箱或先做其他测试。并列全部显示，不靠付费、随机数或额外题目打破。完成后其他框架只作为自选下一步。",
+        "en": "All eighteen questions, counts, six reports and highest ties are free, without signup, email or prerequisite tests. Every highest tie is shown without payment, chance or extra questions to break it. Other frameworks are optional after the complete result."
+      }
+    },
+    {
+      "question": {
+        "zh": "草稿、重测与分享包含什么？",
+        "en": "What do drafts, retaking and sharing contain?"
+      },
+      "answer": {
+        "zh": "在浏览器计算，主动开启时只保存本标签页24小时草稿，可在刷新或换语言后主动恢复；完成、退出清除或重测时删除。分享只有生物名称与公开链接，不含答案、计数或内部ID。禁止存储时仍能完成本次作答。",
+        "en": "Scoring runs in your browser. An optional draft lasts 24 hours in this tab and can be resumed after refreshing or changing language; completion, exit-and-clear or retaking removes it. Sharing contains creature names and public links, never answers, counts or internal IDs. You can finish with storage blocked."
+      }
+    }
+  ]
+}
