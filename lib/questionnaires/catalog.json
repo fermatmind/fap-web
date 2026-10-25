@@ -499,5 +499,32 @@
       "rest",
       "food"
     ]
+  },
+  {
+    "slug": "aesthetic-core-test",
+    "code": "AESTHETIC_VISUAL_PREFERENCES",
+    "version": "1.0.0",
+    "updated": "2026-10-25",
+    "category": "metaphor",
+    "title": {
+      "zh": "美学核心测试",
+      "en": "What Is My Aesthetic?"
+    },
+    "description": {
+      "zh": "用18道原创文字视觉偏好题，比较田园、暗色学院、清爽极简、海岸休闲、林野奇趣与赛博朋克。全部最高并列完整报告免费，无需注册；附配色、材质和不购物小尝试，不判断人格或外貌。",
+      "en": "Explore six aesthetics with 18 original word-based visual choices. Get every tied full guide, palettes, textures and no-purchase ideas free. No signup or personality verdict."
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "fm_aesthetic_visual_choices_18",
+    "questionCount": 18,
+    "resultSlugs": [
+      "cottagecore",
+      "dark-academia",
+      "clean-girl",
+      "coastal-grandmother",
+      "goblincore",
+      "cyberpunk"
+    ]
   }
 ]

@@ -1,0 +1,983 @@
+{
+  "formCode": "fm_aesthetic_visual_choices_18",
+  "itemBankVersion": "1.0.0",
+  "origin": "FermatMind independentlyauthoredword-basedvisualstylepreferences,notphoto/skin/age/gender/hygiene/personality/value/clinical/careerassessment. Commonstylelabelsnot6universalclosedcanonorofficialinstrument. Noartistphotos/gamecharacters/competitoritembank/art/reportcopied.",
+  "directions": [
+    {
+      "id": "cottagecore",
+      "title": {
+        "zh": "田园风（Cottagecore）",
+        "en": "Cottagecore"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "dark-academia",
+      "title": {
+        "zh": "暗色学院风（Dark Academia）",
+        "en": "Dark Academia"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "clean-girl",
+      "title": {
+        "zh": "清爽极简风（Clean Girl）",
+        "en": "Clean Girl"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "coastal-grandmother",
+      "title": {
+        "zh": "海岸休闲风（Coastal Grandmother）",
+        "en": "Coastal Grandmother"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "goblincore",
+      "title": {
+        "zh": "林野奇趣风（Goblincore）",
+        "en": "Goblincore"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "cyberpunk",
+      "title": {
+        "zh": "赛博朋克风（Cyberpunk）",
+        "en": "Cyberpunk"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "AESTHETIC_01",
+      "prompt": {
+        "zh": "只看视觉描述，你更想把哪一种用于笔记封面？",
+        "en": "From the visual descriptions alone, which would you prefer for a notebook cover?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "暖米色纸面上点缀小花与织纹。",
+            "en": "Warm cream paper with small flowers and a woven texture."
+          },
+          "directionId": "cottagecore"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "深棕底色配旧书页与细线边框。",
+            "en": "Deep brown with old-paper motifs and a fine border."
+          },
+          "directionId": "dark-academia"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "浅灰底色、一条直线和大片留白。",
+            "en": "Light grey with one straight line and generous empty space."
+          },
+          "directionId": "clean-girl"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "雾蓝与乳白条纹，边缘像轻薄布料。",
+            "en": "Misty blue and cream stripes with a light fabric-like edge."
+          },
+          "directionId": "coastal-grandmother"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_02",
+      "prompt": {
+        "zh": "为一个小角落选视觉基调，你更喜欢？",
+        "en": "Which visual direction would you prefer for a small corner?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "暗木色、书脊排列与低饱和深绿。",
+            "en": "Dark wood tones, rows of book spines and muted deep green."
+          },
+          "directionId": "dark-academia"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "少量同色物件与清楚的几何轮廓。",
+            "en": "A few tonal objects with clear geometric outlines."
+          },
+          "directionId": "clean-girl"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "浅木色、宽松布面与柔和蓝白。",
+            "en": "Pale wood, relaxed fabric and soft blue-white tones."
+          },
+          "directionId": "coastal-grandmother"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "苔色、小斑点和不规则的自然纹样。",
+            "en": "Moss tones, small speckles and irregular natural motifs."
+          },
+          "directionId": "goblincore"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_03",
+      "prompt": {
+        "zh": "假设这些只是纸面配色，不涉及购买，你更喜欢哪组？",
+        "en": "If these are only colours on paper, with no purchase involved, which set appeals most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "乳白、石灰与少量黑色直线。",
+            "en": "Cream, stone grey and a few black lines."
+          },
+          "directionId": "clean-girl"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "沙米、浅蓝与温和的白。",
+            "en": "Sand beige, pale blue and a soft white."
+          },
+          "directionId": "coastal-grandmother"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "苔绿、土褐与零星锈色。",
+            "en": "Moss green, earth brown and scattered rust tones."
+          },
+          "directionId": "goblincore"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "深炭色、亮青与局部紫光。",
+            "en": "Dark charcoal, bright cyan and a localised violet glow."
+          },
+          "directionId": "cyberpunk"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_04",
+      "prompt": {
+        "zh": "一张完全自编的图案纸，你更愿意用哪种描述？",
+        "en": "Which description would you choose for an independently designed pattern sheet?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "疏朗条纹与舒展的浅色布纹。",
+            "en": "Open stripes and relaxed light fabric textures."
+          },
+          "directionId": "coastal-grandmother"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "叶脉、蘑菇轮廓与零散的小圆点。",
+            "en": "Leaf veins, mushroom outlines and scattered small dots."
+          },
+          "directionId": "goblincore"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "交错网格、发光细线与机械接口形状。",
+            "en": "Crossing grids, luminous lines and mechanical connector shapes."
+          },
+          "directionId": "cyberpunk"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "细小花枝、格纹与柔和手作边缘。",
+            "en": "Small flowering sprigs, checks and soft handmade edges."
+          },
+          "directionId": "cottagecore"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_05",
+      "prompt": {
+        "zh": "在文字描绘的画面里，你更想多看哪一个？",
+        "en": "Which word-described scene would you most want to look at longer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "近距离观察带斑点的叶面和粗糙树皮。",
+            "en": "A close view of speckled leaves and rough bark."
+          },
+          "directionId": "goblincore"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "暗色城市立面里嵌着明亮线条和屏幕形状。",
+            "en": "A dark urban surface inset with bright lines and screen-like forms."
+          },
+          "directionId": "cyberpunk"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "暖色小窗、花纹布料和圆润陶器。",
+            "en": "A warm small window, patterned fabric and rounded pottery."
+          },
+          "directionId": "cottagecore"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "深色书架、旧纸边与对称拱形。",
+            "en": "Dark shelves, aged paper edges and symmetrical arches."
+          },
+          "directionId": "dark-academia"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_06",
+      "prompt": {
+        "zh": "给一张自己写的短卡片选边框，你偏向？",
+        "en": "Which border would you prefer around a short card you wrote?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "带局部亮色的断线与技术网格。",
+            "en": "Broken lines and technical grids with a bright accent."
+          },
+          "directionId": "cyberpunk"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "细花枝与略带手工感的重复图案。",
+            "en": "Small flowering branches and slightly handmade repeats."
+          },
+          "directionId": "cottagecore"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "深色细框、窄边和旧纸般底色。",
+            "en": "A dark fine frame, narrow margins and old-paper tones."
+          },
+          "directionId": "dark-academia"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "简洁直线与均匀的空白边缘。",
+            "en": "Simple straight lines and even blank margins."
+          },
+          "directionId": "clean-girl"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_07",
+      "prompt": {
+        "zh": "不改变空间功能，只换一张自己做的桌面图，你更想选？",
+        "en": "Without changing a space’s function, which self-made desktop image would you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "暖木纹与少量花草图形。",
+            "en": "Warm wood grain with a few flower and plant shapes."
+          },
+          "directionId": "cottagecore"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "暗色纸张叠层与书本几何。",
+            "en": "Layers of dark-toned paper and book-like geometry."
+          },
+          "directionId": "dark-academia"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "浅蓝灰、舒展条纹与轻柔织纹。",
+            "en": "Pale blue-grey, open stripes and light woven texture."
+          },
+          "directionId": "coastal-grandmother"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "土色底上的叶片、斑点和不规则小形状。",
+            "en": "Leaves, speckles and irregular small shapes on earth tones."
+          },
+          "directionId": "goblincore"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_08",
+      "prompt": {
+        "zh": "想象几块现有布料放在一起，你更喜欢哪种视觉组合？",
+        "en": "Imagine arranging pieces of fabric you already have. Which visual combination appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "深棕、暗绿和细密格纹。",
+            "en": "Deep brown, dark green and fine checks."
+          },
+          "directionId": "dark-academia"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "接近的浅中性色与平整线条。",
+            "en": "Similar pale neutrals with smooth lines."
+          },
+          "directionId": "clean-girl"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "苔绿、粗糙织纹与不完全相同的边缘。",
+            "en": "Moss green, coarse weave and uneven edges."
+          },
+          "directionId": "goblincore"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "暗底、反光质感和一条亮色分割。",
+            "en": "A dark base, reflective texture and one bright division."
+          },
+          "directionId": "cyberpunk"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_09",
+      "prompt": {
+        "zh": "给一页文字安排背景，你更想要哪种氛围？",
+        "en": "What atmosphere would you prefer behind a page of writing?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "色差很小、边界清楚而留白充足。",
+            "en": "Low colour contrast, clear boundaries and ample empty space."
+          },
+          "directionId": "clean-girl"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "轻淡蓝白与宽松、透气的布纹感。",
+            "en": "Light blue-white with an open, airy fabric impression."
+          },
+          "directionId": "coastal-grandmother"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "深色平面上有少量发光线条。",
+            "en": "A dark plane with a few luminous lines."
+          },
+          "directionId": "cyberpunk"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "暖浅色、细小植物纹样与柔软边缘。",
+            "en": "Warm pale tones, small plant motifs and soft edges."
+          },
+          "directionId": "cottagecore"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_10",
+      "prompt": {
+        "zh": "在一组图形描述里，你更愿意保留哪个主题？",
+        "en": "Which theme would you retain from these graphic descriptions?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "风感条纹、浅色木面与开阔空白。",
+            "en": "Breezy stripes, pale wood and open space."
+          },
+          "directionId": "coastal-grandmother"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "不规则植物细节和像旧纽扣的小圆形。",
+            "en": "Irregular plant details and small old-button-like circles."
+          },
+          "directionId": "goblincore"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "小花、格布与温暖的圆弧。",
+            "en": "Small flowers, checked fabric and warm curves."
+          },
+          "directionId": "cottagecore"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "书页、深木色和正式对称边线。",
+            "en": "Pages, dark wood tones and formal symmetrical borders."
+          },
+          "directionId": "dark-academia"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_11",
+      "prompt": {
+        "zh": "如果只选一种明暗关系，你更喜欢？",
+        "en": "If choosing only a light-and-dark relationship, which appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "阴影里的自然土色与细碎亮点。",
+            "en": "Earth tones in shade with scattered light details."
+          },
+          "directionId": "goblincore"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "暗面与局部高对比的人工亮光。",
+            "en": "Dark surfaces with localised high-contrast artificial light."
+          },
+          "directionId": "cyberpunk"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "低饱和深色与一块暖纸色。",
+            "en": "Muted deep colours beside one warm paper tone."
+          },
+          "directionId": "dark-academia"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "大面积相近浅色与少量细深线。",
+            "en": "Large similar pale areas with a few fine dark lines."
+          },
+          "directionId": "clean-girl"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_12",
+      "prompt": {
+        "zh": "在自己已有的装饰材料中，你更想怎样组合一个小画面？",
+        "en": "How would you arrange a small composition from materials you already have?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用暗纸和亮色细条做出界面般层次。",
+            "en": "Use dark paper and bright strips for an interface-like layering."
+          },
+          "directionId": "cyberpunk"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把布纹、植物图案和暖色纸片放在一起。",
+            "en": "Combine fabric texture, plant motifs and warm paper."
+          },
+          "directionId": "cottagecore"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "减少元素，只保留整齐的形状与空白。",
+            "en": "Reduce the elements to orderly shapes and blank space."
+          },
+          "directionId": "clean-girl"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用浅蓝、米白和宽条纹形成轻松层次。",
+            "en": "Layer pale blue, cream and broad stripes in an open arrangement."
+          },
+          "directionId": "coastal-grandmother"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_13",
+      "prompt": {
+        "zh": "为一张风格灵感卡选开头，你更偏向哪组线索？",
+        "en": "Which clues would you put first on a style-inspiration card?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "暖色花纹、手作痕迹与圆润物件。",
+            "en": "Warm floral patterns, handmade traces and rounded objects."
+          },
+          "directionId": "cottagecore"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "中性色、简明边线与少量元素。",
+            "en": "Neutrals, simple outlines and a small number of elements."
+          },
+          "directionId": "clean-girl"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "苔色、斑驳纹理与不规则自然图形。",
+            "en": "Moss colours, mottled textures and irregular natural shapes."
+          },
+          "directionId": "goblincore"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "金属感、技术形状与暗底亮线。",
+            "en": "Metallic impressions, technical shapes and bright lines on dark."
+          },
+          "directionId": "cyberpunk"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_14",
+      "prompt": {
+        "zh": "只比较图案密度和排列，你更喜欢？",
+        "en": "Comparing only pattern density and arrangement, which appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "细格纹与正式、有层次的深色排列。",
+            "en": "Fine checks and formal layered dark arrangements."
+          },
+          "directionId": "dark-academia"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "间距较开的浅色条纹。",
+            "en": "Widely spaced stripes in pale colours."
+          },
+          "directionId": "coastal-grandmother"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "密集网格中穿过一条发光轨迹。",
+            "en": "A luminous track crossing a dense grid."
+          },
+          "directionId": "cyberpunk"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "温和重复的小花和手工边线。",
+            "en": "Gently repeated small flowers and handmade borders."
+          },
+          "directionId": "cottagecore"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_15",
+      "prompt": {
+        "zh": "给一组物件拍自己的照片时，你更想突出哪种视觉关系？",
+        "en": "When photographing your own objects, which visual relationship would you emphasise?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "元素减少后留下的轮廓、间隔与浅色。",
+            "en": "Outlines, spacing and pale colours after reducing elements."
+          },
+          "directionId": "clean-girl"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "旧物表面的细节、斑点与自然的不一致。",
+            "en": "Details, speckles and natural irregularity on older objects."
+          },
+          "directionId": "goblincore"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "柔和布纹、花样与温暖光感。",
+            "en": "Soft fabric texture, floral patterns and a warm light impression."
+          },
+          "directionId": "cottagecore"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "纸页层次、深色背景与对称构图。",
+            "en": "Layers of paper, a dark background and a symmetrical composition."
+          },
+          "directionId": "dark-academia"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_16",
+      "prompt": {
+        "zh": "在一张想象中的房间局部图里，你更留意？",
+        "en": "In a word-described corner of a room, what would draw your attention?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "浅木色、蓝白布面与敞开的空间感。",
+            "en": "Pale wood, blue-white fabric and an open spatial impression."
+          },
+          "directionId": "coastal-grandmother"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "技术接口形状、暗色硬面和局部亮色。",
+            "en": "Technical connector shapes, dark hard surfaces and a bright accent."
+          },
+          "directionId": "cyberpunk"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "书脊、旧纸与深色框线。",
+            "en": "Book spines, aged paper and dark frames."
+          },
+          "directionId": "dark-academia"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "几何形状、相近色与规整留白。",
+            "en": "Geometric forms, close colours and orderly blank space."
+          },
+          "directionId": "clean-girl"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_17",
+      "prompt": {
+        "zh": "如果把常见形状做成一小张拼贴，你更喜欢哪种变化？",
+        "en": "For a small collage of ordinary shapes, which variation appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让边缘不完全相同，加入自然斑点。",
+            "en": "Keep edges uneven and add natural speckles."
+          },
+          "directionId": "goblincore"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "加入细花样和柔和的织纹边缘。",
+            "en": "Add small floral patterns and soft woven edges."
+          },
+          "directionId": "cottagecore"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "减少颜色，保留边界清楚的几何轮廓。",
+            "en": "Reduce colours and keep clearly bounded geometric outlines."
+          },
+          "directionId": "clean-girl"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把条纹拉疏，留出浅色与轻松间隔。",
+            "en": "Space stripes out with pale colours and open intervals."
+          },
+          "directionId": "coastal-grandmother"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_18",
+      "prompt": {
+        "zh": "回看这些文字风格描述，你更想带走哪一种组合？",
+        "en": "Looking back at these word-described styles, which combination would you keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "暗色、人工亮光、机械与界面形状。",
+            "en": "Dark colours, artificial light, mechanical and interface forms."
+          },
+          "directionId": "cyberpunk"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "深色、旧纸、书本与正式线条。",
+            "en": "Deep colours, aged paper, books and formal lines."
+          },
+          "directionId": "dark-academia"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "浅蓝米白、宽松布纹与开阔感。",
+            "en": "Pale blue and cream, relaxed fabric and openness."
+          },
+          "directionId": "coastal-grandmother"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "土色苔绿、旧物细节与自然不规则。",
+            "en": "Earth and moss tones, old-object details and natural irregularity."
+          },
+          "directionId": "goblincore"
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "AESTHETIC_01": [
+      "cottagecore",
+      "dark-academia",
+      "clean-girl",
+      "coastal-grandmother"
+    ],
+    "AESTHETIC_02": [
+      "dark-academia",
+      "clean-girl",
+      "coastal-grandmother",
+      "goblincore"
+    ],
+    "AESTHETIC_03": [
+      "clean-girl",
+      "coastal-grandmother",
+      "goblincore",
+      "cyberpunk"
+    ],
+    "AESTHETIC_04": [
+      "coastal-grandmother",
+      "goblincore",
+      "cyberpunk",
+      "cottagecore"
+    ],
+    "AESTHETIC_05": [
+      "goblincore",
+      "cyberpunk",
+      "cottagecore",
+      "dark-academia"
+    ],
+    "AESTHETIC_06": [
+      "cyberpunk",
+      "cottagecore",
+      "dark-academia",
+      "clean-girl"
+    ],
+    "AESTHETIC_07": [
+      "cottagecore",
+      "dark-academia",
+      "coastal-grandmother",
+      "goblincore"
+    ],
+    "AESTHETIC_08": [
+      "dark-academia",
+      "clean-girl",
+      "goblincore",
+      "cyberpunk"
+    ],
+    "AESTHETIC_09": [
+      "clean-girl",
+      "coastal-grandmother",
+      "cyberpunk",
+      "cottagecore"
+    ],
+    "AESTHETIC_10": [
+      "coastal-grandmother",
+      "goblincore",
+      "cottagecore",
+      "dark-academia"
+    ],
+    "AESTHETIC_11": [
+      "goblincore",
+      "cyberpunk",
+      "dark-academia",
+      "clean-girl"
+    ],
+    "AESTHETIC_12": [
+      "cyberpunk",
+      "cottagecore",
+      "clean-girl",
+      "coastal-grandmother"
+    ],
+    "AESTHETIC_13": [
+      "cottagecore",
+      "clean-girl",
+      "goblincore",
+      "cyberpunk"
+    ],
+    "AESTHETIC_14": [
+      "dark-academia",
+      "coastal-grandmother",
+      "cyberpunk",
+      "cottagecore"
+    ],
+    "AESTHETIC_15": [
+      "clean-girl",
+      "goblincore",
+      "cottagecore",
+      "dark-academia"
+    ],
+    "AESTHETIC_16": [
+      "coastal-grandmother",
+      "cyberpunk",
+      "dark-academia",
+      "clean-girl"
+    ],
+    "AESTHETIC_17": [
+      "goblincore",
+      "cottagecore",
+      "clean-girl",
+      "coastal-grandmother"
+    ],
+    "AESTHETIC_18": [
+      "cyberpunk",
+      "dark-academia",
+      "coastal-grandmother",
+      "goblincore"
+    ]
+  },
+  "balance": {
+    "exposure": {
+      "cottagecore": 12,
+      "dark-academia": 12,
+      "clean-girl": 12,
+      "coastal-grandmother": 12,
+      "goblincore": 12,
+      "cyberpunk": 12
+    },
+    "option_positions": {
+      "cottagecore": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "dark-academia": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "clean-girl": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "coastal-grandmother": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "goblincore": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "cyberpunk": [
+        3,
+        3,
+        3,
+        3
+      ]
+    }
+  },
+  "scoring": {
+    "scoringVersion": "1.0.0",
+    "method": "All18required,raw+1perchosenstyle,showall6countsandEVERYhighestfullreport;noorder/randomtiebreak/forcedsecondary/validatedclose-threshold/%norm/personality/mentalhealth/hygiene/gender/age/intellect/discipline/careerfit."
+  },
+  "references": [
+    {
+      "url": "https://dictionaryblog.cambridge.org/2020/07/13/new-words-13-july-2020/",
+      "scope": "11-15publishercottagecoreordinarymeaningonly,noexamplecopy"
+    },
+    {
+      "url": "https://www.penguin.co.uk/discover/articles/the-ultimate-guide-to-dark-academia",
+      "scope": "32-44publishervisual/literarycontextonly,notbooksreadorintellecttest"
+    },
+    {
+      "url": "https://www.merriam-webster.com/dictionary/cyberpunk",
+      "scope": "31-51genredefinition/contextread,notgamebrand/personpolitics/techability"
+    },
+    {
+      "url": "https://www.dictionary.com/culture/slang/clean-girl-aesthetic",
+      "scope": "17-31ordinarytrendandcriticismsread,nothygiene/gender/skinflawlessness/healthorincomemeasure"
+    },
+    {
+      "url": "https://www.dictionary.com/articles/core-words-cottagecore",
+      "scope": "15-21suffix,28-30cottage,49-51goblincoremeaning/debateread,notgoblinmode/clinicalhoarding/identitycaricatures"
+    },
+    {
+      "url": "https://www.vogue.com/article/anne-hathaway-coastal-grandma-trend",
+      "scope": "DirectpublicHTTPS200rawmainintroreadafterwebbodytimeout;stylecolourandmood,notgrandmotherprerequisite,noprices/celebrityphotosadopted"
+    }
+  ]
+}

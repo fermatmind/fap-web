@@ -1,0 +1,1914 @@
+{
+  "slug": "aesthetic-core-test",
+  "code": "AESTHETIC_VISUAL_PREFERENCES",
+  "version": "1.0.0",
+  "updated": "2026-10-25",
+  "category": "metaphor",
+  "kind": "archetype",
+  "minutes": 5,
+  "title": {
+    "zh": "美学核心测试",
+    "en": "What Is My Aesthetic?"
+  },
+  "resultHeading": {
+    "zh": "你的视觉风格偏好结果",
+    "en": "Your visual-style preferences"
+  },
+  "seoTitle": {
+    "zh": "美学核心测试：18道文字偏好题与六种完整风格",
+    "en": "What Is My Aesthetic? 18 Questions, Six Full Style Guides"
+  },
+  "description": {
+    "zh": "用18道原创文字视觉偏好题，比较田园、暗色学院、清爽极简、海岸休闲、林野奇趣与赛博朋克。全部最高并列完整报告免费，无需注册；附配色、材质和不购物小尝试，不判断人格或外貌。",
+    "en": "Explore six aesthetics with 18 original word-based visual choices. Get every tied full guide, palettes, textures and no-purchase ideas free. No signup or personality verdict."
+  },
+  "introduction": {
+    "zh": "What is my aesthetic——你更喜欢怎样的颜色、材质、图案与布局？本美学核心测试用18道文字描述的视觉偏好题，比较Cottagecore田园风、Dark Academia暗色学院风、Clean Girl清爽极简风、Coastal Grandmother海岸休闲风、Goblincore林野奇趣风与Cyberpunk赛博朋克风。它不是照片分析，也不把风格当作真实身份或人格。六份完整解释都可先读，作答后呈现原始计数与全部最高并列报告；配色与利用现有物品的小尝试免费，无需注册、购物或前置测评。",
+    "en": "What is my aesthetic: which colours, textures, motifs and arrangements appeal to you? This test uses 18 original word-described visual choices to compare Cottagecore, Dark Academia, Clean Girl, Coastal Grandmother, Goblincore and Cyberpunk. It analyses no photo and treats style as neither a real identity nor personality. Read all six full guides first, then receive raw counts and every highest-count report. Original palettes and experiments with existing things are free without signup, purchases or a preceding assessment."
+  },
+  "instructions": {
+    "zh": "每题比较四段文字视觉描述，选择此刻更喜欢的一种，不按自己拥有多少物品、能否买到或某种人应该怎样回答。没有图片作答或照片上传；文字只帮助想象，不要求猜中标准风格。全部18题完成才显示结果，最高并列全部保留。你可以只喜欢某个颜色或材质，不必接受整个标签关联的生活方式。",
+    "en": "Compare four word-described visual arrangements and choose the one you prefer now, without considering possessions, purchasing power or how a certain person should answer. There are no image choices or photo uploads. Descriptions support imagination rather than guessing a correct style. Complete all 18 for the result, keeping every highest-count tie. Liking one colour or texture does not require adopting a label’s associated lifestyle."
+  },
+  "source": {
+    "kind": "FermatMind original word-based visual style reflection;notphoto/personality/clinical/identity/abilityassessment",
+    "formCode": "fm_aesthetic_visual_choices_18",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "7f9a76c48b0650a1206740ddbcf9025b7ec9cd779acadec5e87c45c4587f9405",
+    "resultContentSha256": "c9df5af91ace41dccfe7b6955df48947fd9f8b05fb3f13341f21595deb51ca4e",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "cottagecore",
+      "title": {
+        "zh": "田园风（Cottagecore）",
+        "en": "Cottagecore"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "dark-academia",
+      "title": {
+        "zh": "暗色学院风（Dark Academia）",
+        "en": "Dark Academia"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "clean-girl",
+      "title": {
+        "zh": "清爽极简风（Clean Girl）",
+        "en": "Clean Girl"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "coastal-grandmother",
+      "title": {
+        "zh": "海岸休闲风（Coastal Grandmother）",
+        "en": "Coastal Grandmother"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "goblincore",
+      "title": {
+        "zh": "林野奇趣风（Goblincore）",
+        "en": "Goblincore"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "cyberpunk",
+      "title": {
+        "zh": "赛博朋克风（Cyberpunk）",
+        "en": "Cyberpunk"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "AESTHETIC_01",
+      "prompt": {
+        "zh": "只看视觉描述，你更想把哪一种用于笔记封面？",
+        "en": "From the visual descriptions alone, which would you prefer for a notebook cover?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "暖米色纸面上点缀小花与织纹。",
+            "en": "Warm cream paper with small flowers and a woven texture."
+          },
+          "directionId": "cottagecore"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "深棕底色配旧书页与细线边框。",
+            "en": "Deep brown with old-paper motifs and a fine border."
+          },
+          "directionId": "dark-academia"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "浅灰底色、一条直线和大片留白。",
+            "en": "Light grey with one straight line and generous empty space."
+          },
+          "directionId": "clean-girl"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "雾蓝与乳白条纹，边缘像轻薄布料。",
+            "en": "Misty blue and cream stripes with a light fabric-like edge."
+          },
+          "directionId": "coastal-grandmother"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_02",
+      "prompt": {
+        "zh": "为一个小角落选视觉基调，你更喜欢？",
+        "en": "Which visual direction would you prefer for a small corner?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "暗木色、书脊排列与低饱和深绿。",
+            "en": "Dark wood tones, rows of book spines and muted deep green."
+          },
+          "directionId": "dark-academia"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "少量同色物件与清楚的几何轮廓。",
+            "en": "A few tonal objects with clear geometric outlines."
+          },
+          "directionId": "clean-girl"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "浅木色、宽松布面与柔和蓝白。",
+            "en": "Pale wood, relaxed fabric and soft blue-white tones."
+          },
+          "directionId": "coastal-grandmother"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "苔色、小斑点和不规则的自然纹样。",
+            "en": "Moss tones, small speckles and irregular natural motifs."
+          },
+          "directionId": "goblincore"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_03",
+      "prompt": {
+        "zh": "假设这些只是纸面配色，不涉及购买，你更喜欢哪组？",
+        "en": "If these are only colours on paper, with no purchase involved, which set appeals most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "乳白、石灰与少量黑色直线。",
+            "en": "Cream, stone grey and a few black lines."
+          },
+          "directionId": "clean-girl"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "沙米、浅蓝与温和的白。",
+            "en": "Sand beige, pale blue and a soft white."
+          },
+          "directionId": "coastal-grandmother"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "苔绿、土褐与零星锈色。",
+            "en": "Moss green, earth brown and scattered rust tones."
+          },
+          "directionId": "goblincore"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "深炭色、亮青与局部紫光。",
+            "en": "Dark charcoal, bright cyan and a localised violet glow."
+          },
+          "directionId": "cyberpunk"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_04",
+      "prompt": {
+        "zh": "一张完全自编的图案纸，你更愿意用哪种描述？",
+        "en": "Which description would you choose for an independently designed pattern sheet?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "疏朗条纹与舒展的浅色布纹。",
+            "en": "Open stripes and relaxed light fabric textures."
+          },
+          "directionId": "coastal-grandmother"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "叶脉、蘑菇轮廓与零散的小圆点。",
+            "en": "Leaf veins, mushroom outlines and scattered small dots."
+          },
+          "directionId": "goblincore"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "交错网格、发光细线与机械接口形状。",
+            "en": "Crossing grids, luminous lines and mechanical connector shapes."
+          },
+          "directionId": "cyberpunk"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "细小花枝、格纹与柔和手作边缘。",
+            "en": "Small flowering sprigs, checks and soft handmade edges."
+          },
+          "directionId": "cottagecore"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_05",
+      "prompt": {
+        "zh": "在文字描绘的画面里，你更想多看哪一个？",
+        "en": "Which word-described scene would you most want to look at longer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "近距离观察带斑点的叶面和粗糙树皮。",
+            "en": "A close view of speckled leaves and rough bark."
+          },
+          "directionId": "goblincore"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "暗色城市立面里嵌着明亮线条和屏幕形状。",
+            "en": "A dark urban surface inset with bright lines and screen-like forms."
+          },
+          "directionId": "cyberpunk"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "暖色小窗、花纹布料和圆润陶器。",
+            "en": "A warm small window, patterned fabric and rounded pottery."
+          },
+          "directionId": "cottagecore"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "深色书架、旧纸边与对称拱形。",
+            "en": "Dark shelves, aged paper edges and symmetrical arches."
+          },
+          "directionId": "dark-academia"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_06",
+      "prompt": {
+        "zh": "给一张自己写的短卡片选边框，你偏向？",
+        "en": "Which border would you prefer around a short card you wrote?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "带局部亮色的断线与技术网格。",
+            "en": "Broken lines and technical grids with a bright accent."
+          },
+          "directionId": "cyberpunk"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "细花枝与略带手工感的重复图案。",
+            "en": "Small flowering branches and slightly handmade repeats."
+          },
+          "directionId": "cottagecore"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "深色细框、窄边和旧纸般底色。",
+            "en": "A dark fine frame, narrow margins and old-paper tones."
+          },
+          "directionId": "dark-academia"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "简洁直线与均匀的空白边缘。",
+            "en": "Simple straight lines and even blank margins."
+          },
+          "directionId": "clean-girl"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_07",
+      "prompt": {
+        "zh": "不改变空间功能，只换一张自己做的桌面图，你更想选？",
+        "en": "Without changing a space’s function, which self-made desktop image would you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "暖木纹与少量花草图形。",
+            "en": "Warm wood grain with a few flower and plant shapes."
+          },
+          "directionId": "cottagecore"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "暗色纸张叠层与书本几何。",
+            "en": "Layers of dark-toned paper and book-like geometry."
+          },
+          "directionId": "dark-academia"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "浅蓝灰、舒展条纹与轻柔织纹。",
+            "en": "Pale blue-grey, open stripes and light woven texture."
+          },
+          "directionId": "coastal-grandmother"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "土色底上的叶片、斑点和不规则小形状。",
+            "en": "Leaves, speckles and irregular small shapes on earth tones."
+          },
+          "directionId": "goblincore"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_08",
+      "prompt": {
+        "zh": "想象几块现有布料放在一起，你更喜欢哪种视觉组合？",
+        "en": "Imagine arranging pieces of fabric you already have. Which visual combination appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "深棕、暗绿和细密格纹。",
+            "en": "Deep brown, dark green and fine checks."
+          },
+          "directionId": "dark-academia"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "接近的浅中性色与平整线条。",
+            "en": "Similar pale neutrals with smooth lines."
+          },
+          "directionId": "clean-girl"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "苔绿、粗糙织纹与不完全相同的边缘。",
+            "en": "Moss green, coarse weave and uneven edges."
+          },
+          "directionId": "goblincore"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "暗底、反光质感和一条亮色分割。",
+            "en": "A dark base, reflective texture and one bright division."
+          },
+          "directionId": "cyberpunk"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_09",
+      "prompt": {
+        "zh": "给一页文字安排背景，你更想要哪种氛围？",
+        "en": "What atmosphere would you prefer behind a page of writing?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "色差很小、边界清楚而留白充足。",
+            "en": "Low colour contrast, clear boundaries and ample empty space."
+          },
+          "directionId": "clean-girl"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "轻淡蓝白与宽松、透气的布纹感。",
+            "en": "Light blue-white with an open, airy fabric impression."
+          },
+          "directionId": "coastal-grandmother"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "深色平面上有少量发光线条。",
+            "en": "A dark plane with a few luminous lines."
+          },
+          "directionId": "cyberpunk"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "暖浅色、细小植物纹样与柔软边缘。",
+            "en": "Warm pale tones, small plant motifs and soft edges."
+          },
+          "directionId": "cottagecore"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_10",
+      "prompt": {
+        "zh": "在一组图形描述里，你更愿意保留哪个主题？",
+        "en": "Which theme would you retain from these graphic descriptions?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "风感条纹、浅色木面与开阔空白。",
+            "en": "Breezy stripes, pale wood and open space."
+          },
+          "directionId": "coastal-grandmother"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "不规则植物细节和像旧纽扣的小圆形。",
+            "en": "Irregular plant details and small old-button-like circles."
+          },
+          "directionId": "goblincore"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "小花、格布与温暖的圆弧。",
+            "en": "Small flowers, checked fabric and warm curves."
+          },
+          "directionId": "cottagecore"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "书页、深木色和正式对称边线。",
+            "en": "Pages, dark wood tones and formal symmetrical borders."
+          },
+          "directionId": "dark-academia"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_11",
+      "prompt": {
+        "zh": "如果只选一种明暗关系，你更喜欢？",
+        "en": "If choosing only a light-and-dark relationship, which appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "阴影里的自然土色与细碎亮点。",
+            "en": "Earth tones in shade with scattered light details."
+          },
+          "directionId": "goblincore"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "暗面与局部高对比的人工亮光。",
+            "en": "Dark surfaces with localised high-contrast artificial light."
+          },
+          "directionId": "cyberpunk"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "低饱和深色与一块暖纸色。",
+            "en": "Muted deep colours beside one warm paper tone."
+          },
+          "directionId": "dark-academia"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "大面积相近浅色与少量细深线。",
+            "en": "Large similar pale areas with a few fine dark lines."
+          },
+          "directionId": "clean-girl"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_12",
+      "prompt": {
+        "zh": "在自己已有的装饰材料中，你更想怎样组合一个小画面？",
+        "en": "How would you arrange a small composition from materials you already have?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用暗纸和亮色细条做出界面般层次。",
+            "en": "Use dark paper and bright strips for an interface-like layering."
+          },
+          "directionId": "cyberpunk"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把布纹、植物图案和暖色纸片放在一起。",
+            "en": "Combine fabric texture, plant motifs and warm paper."
+          },
+          "directionId": "cottagecore"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "减少元素，只保留整齐的形状与空白。",
+            "en": "Reduce the elements to orderly shapes and blank space."
+          },
+          "directionId": "clean-girl"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用浅蓝、米白和宽条纹形成轻松层次。",
+            "en": "Layer pale blue, cream and broad stripes in an open arrangement."
+          },
+          "directionId": "coastal-grandmother"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_13",
+      "prompt": {
+        "zh": "为一张风格灵感卡选开头，你更偏向哪组线索？",
+        "en": "Which clues would you put first on a style-inspiration card?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "暖色花纹、手作痕迹与圆润物件。",
+            "en": "Warm floral patterns, handmade traces and rounded objects."
+          },
+          "directionId": "cottagecore"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "中性色、简明边线与少量元素。",
+            "en": "Neutrals, simple outlines and a small number of elements."
+          },
+          "directionId": "clean-girl"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "苔色、斑驳纹理与不规则自然图形。",
+            "en": "Moss colours, mottled textures and irregular natural shapes."
+          },
+          "directionId": "goblincore"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "金属感、技术形状与暗底亮线。",
+            "en": "Metallic impressions, technical shapes and bright lines on dark."
+          },
+          "directionId": "cyberpunk"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_14",
+      "prompt": {
+        "zh": "只比较图案密度和排列，你更喜欢？",
+        "en": "Comparing only pattern density and arrangement, which appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "细格纹与正式、有层次的深色排列。",
+            "en": "Fine checks and formal layered dark arrangements."
+          },
+          "directionId": "dark-academia"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "间距较开的浅色条纹。",
+            "en": "Widely spaced stripes in pale colours."
+          },
+          "directionId": "coastal-grandmother"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "密集网格中穿过一条发光轨迹。",
+            "en": "A luminous track crossing a dense grid."
+          },
+          "directionId": "cyberpunk"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "温和重复的小花和手工边线。",
+            "en": "Gently repeated small flowers and handmade borders."
+          },
+          "directionId": "cottagecore"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_15",
+      "prompt": {
+        "zh": "给一组物件拍自己的照片时，你更想突出哪种视觉关系？",
+        "en": "When photographing your own objects, which visual relationship would you emphasise?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "元素减少后留下的轮廓、间隔与浅色。",
+            "en": "Outlines, spacing and pale colours after reducing elements."
+          },
+          "directionId": "clean-girl"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "旧物表面的细节、斑点与自然的不一致。",
+            "en": "Details, speckles and natural irregularity on older objects."
+          },
+          "directionId": "goblincore"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "柔和布纹、花样与温暖光感。",
+            "en": "Soft fabric texture, floral patterns and a warm light impression."
+          },
+          "directionId": "cottagecore"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "纸页层次、深色背景与对称构图。",
+            "en": "Layers of paper, a dark background and a symmetrical composition."
+          },
+          "directionId": "dark-academia"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_16",
+      "prompt": {
+        "zh": "在一张想象中的房间局部图里，你更留意？",
+        "en": "In a word-described corner of a room, what would draw your attention?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "浅木色、蓝白布面与敞开的空间感。",
+            "en": "Pale wood, blue-white fabric and an open spatial impression."
+          },
+          "directionId": "coastal-grandmother"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "技术接口形状、暗色硬面和局部亮色。",
+            "en": "Technical connector shapes, dark hard surfaces and a bright accent."
+          },
+          "directionId": "cyberpunk"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "书脊、旧纸与深色框线。",
+            "en": "Book spines, aged paper and dark frames."
+          },
+          "directionId": "dark-academia"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "几何形状、相近色与规整留白。",
+            "en": "Geometric forms, close colours and orderly blank space."
+          },
+          "directionId": "clean-girl"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_17",
+      "prompt": {
+        "zh": "如果把常见形状做成一小张拼贴，你更喜欢哪种变化？",
+        "en": "For a small collage of ordinary shapes, which variation appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让边缘不完全相同，加入自然斑点。",
+            "en": "Keep edges uneven and add natural speckles."
+          },
+          "directionId": "goblincore"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "加入细花样和柔和的织纹边缘。",
+            "en": "Add small floral patterns and soft woven edges."
+          },
+          "directionId": "cottagecore"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "减少颜色，保留边界清楚的几何轮廓。",
+            "en": "Reduce colours and keep clearly bounded geometric outlines."
+          },
+          "directionId": "clean-girl"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把条纹拉疏，留出浅色与轻松间隔。",
+            "en": "Space stripes out with pale colours and open intervals."
+          },
+          "directionId": "coastal-grandmother"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC_18",
+      "prompt": {
+        "zh": "回看这些文字风格描述，你更想带走哪一种组合？",
+        "en": "Looking back at these word-described styles, which combination would you keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "暗色、人工亮光、机械与界面形状。",
+            "en": "Dark colours, artificial light, mechanical and interface forms."
+          },
+          "directionId": "cyberpunk"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "深色、旧纸、书本与正式线条。",
+            "en": "Deep colours, aged paper, books and formal lines."
+          },
+          "directionId": "dark-academia"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "浅蓝米白、宽松布纹与开阔感。",
+            "en": "Pale blue and cream, relaxed fabric and openness."
+          },
+          "directionId": "coastal-grandmother"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "土色苔绿、旧物细节与自然不规则。",
+            "en": "Earth and moss tones, old-object details and natural irregularity."
+          },
+          "directionId": "goblincore"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "cottagecore",
+      "directionIds": [
+        "cottagecore"
+      ],
+      "title": {
+        "zh": "田园风结果（Cottagecore）",
+        "en": "Cottagecore Aesthetic Result"
+      },
+      "headline": {
+        "zh": "温暖、花纹与手作感的组合",
+        "en": "Warmth, small patterns and handmade texture"
+      },
+      "summary": {
+        "zh": "本题组中，你更常选择暖浅色、细小植物纹样、织纹与柔和轮廓。田园风在这里描述视觉偏好，不判断是否住在乡村、会种植烘焙、做事耐心或认同某种生活价值。",
+        "en": "Your choices more often favour warm pale colours, small plant motifs, woven textures and soft outlines. Cottagecore describes visual preferences here, without establishing rural residence, practical craft skills, patience or a particular set of values."
+      },
+      "seo": {
+        "title": {
+          "zh": "田园风Cottagecore结果：配色、材质与小尝试",
+          "en": "Cottagecore Aesthetic: Colours, Textures and Full Guide"
+        },
+        "description": {
+          "zh": "阅读田园风完整结果：暖浅配色、花纹、手作感与其他风格的区别，附利用现有物品的小尝试。免费说明，不把视觉偏好当乡村生活、技能、价值观或职业判断。",
+          "en": "Explore Cottagecore with an original palette, floral motifs, textures and no-purchase experiments. Full free guide without turning visual taste into skills, values or career fit."
+        }
+      },
+      "scoreReading": {
+        "zh": "18道文字视觉偏好题，每题所选风格加1；六种风格各出现12次、每个选项位置3次。全部18题完成后显示六项原始次数和所有最高并列完整报告。没有随机定型、隐藏权重、强派副型或匹配百分比；接近次数没有经过验证的近分阈值。计数只描述本题组选择，不测美貌、品味高低、身份、心理特质或能力。",
+        "en": "Each of 18 word-based visual choices adds one to its style. Every style appears 12 times and three times in each position. Complete all items for six raw tallies and every highest-count full report. There is no random assignment, hidden weighting, forced secondary type or match percentage; nearby counts have no validated close-score threshold. Counts describe these choices without measuring beauty, taste rankings, identity, psychological traits or ability."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这份结果在描述什么",
+            "en": "What this result describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版田园风围绕柔和、温暖和带手作痕迹的画面组织选项。先看自己喜欢的是小花图案、暖木色，还是布面与纸张的触感想象；同样计数可以来自不同细节。它没有观察你怎样居住、吃饭或工作，也不要求把视觉兴趣变成一整套慢生活身份。",
+              "en": "This edition groups softly warm scenes and handmade-looking details under Cottagecore. Revisit whether small floral patterns, warm wood tones or an imagined fabric-and-paper texture appealed to you. Similar tallies can come from different details. The items do not observe how you live, eat or work, and a visual interest need not become a complete slow-living identity."
+            }
+          ]
+        },
+        {
+          "id": "palette",
+          "title": {
+            "zh": "一组可调整的配色例子",
+            "en": "An adjustable palette example"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以把暖米白 #F4E7D3、灰叶绿 #809671、柔土棕 #B38A67 和少量灰玫瑰 #C99693 当作本站的一组示例，而不是风格标准答案。先选一个作为大面积底色，其余只作小点缀；如果某个颜色不喜欢，直接替换。屏幕颜色与真实材料不同，不由这组代码决定购买或装修。",
+              "en": "Try warm cream #F4E7D3, muted leaf green #809671, soft earth brown #B38A67 and a little dusty rose #C99693 as one original example, not a canonical answer. One can form the base and others small accents. Replace any colour you dislike. Screen colours differ from physical materials; these codes are not purchasing or renovation specifications."
+            }
+          ]
+        },
+        {
+          "id": "textures",
+          "title": {
+            "zh": "材质、图案与形状",
+            "en": "Textures, motifs and shapes"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以留意细织纹、轻微不均匀边缘、小尺度花枝、格纹和圆润形状怎样放在一起。不是每个元素都需要出现，也不必真的使用古董、天然纤维或手工器物。现有物品的照片、自己的线条图与纸面纹理都能帮助比较；视觉上的手作感不能证明一个物品的生产方式、品质或环保属性。",
+              "en": "Notice how fine weave, slightly uneven edges, small flowering motifs, checks and rounded shapes work together. None is compulsory, and the look needs neither antiques, natural fibres nor handmade objects. Photos of existing possessions, your own drawings and paper textures can support comparison. A handmade appearance establishes neither production method, quality nor environmental credentials."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一个利用现有物品的例子",
+            "en": "An example using existing things"
+          },
+          "paragraphs": [
+            {
+              "zh": "把已经有的一块花纹纸、一张暖色便签和一个普通圆形物件放在一起，先看小花密度和背景空白是否合意，再拍一张只供自己比较的照片。你可以只保留一种纹样，不需要为了“够田园”增加装饰。例子不要求采花、种植、购置器皿或改变居住空间，体验可以停在纸面。",
+              "en": "Place patterned paper you already own beside a warm-toned note and an ordinary rounded object. Compare pattern density and empty background, then take a photo for your own reference. Keeping one motif is enough; more decoration is not proof of Cottagecore. The example requires no picking flowers, gardening, buying tableware or changing your home, and can remain on paper."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "值得留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "温暖花纹和层叠纹理可能让你喜欢，也可能在小画面里显得拥挤；可以先减少图案数量，而不是把不适感理解成不适合这种风格。照片里的乡村感也不等于实际乡村生活。这里讨论构图，不推断你逃避现实、做事缓慢、收入受限或缺少现代能力，更不把审美解释成性格缺点。",
+              "en": "Warm patterns and layered texture may appeal or feel crowded in a small composition. Reduce the number of motifs before concluding the style cannot fit you. A rural-looking photograph is not rural life itself. These are visual tradeoffs, not evidence of escapism, slowness, limited income or difficulty with modern work, and no aesthetic choice establishes a personality flaw."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他风格比较",
+            "en": "Comparing the other styles"
+          },
+          "paragraphs": [
+            {
+              "zh": "田园风与林野奇趣都可能用自然元素，本版前者更偏暖浅、细花与柔和手作感，后者更多苔色、斑点与自然不规则。海岸休闲更疏朗蓝白，暗色学院更深色书纸，清爽极简减少元素，赛博朋克突出人工亮光与技术形状。这只是选项分法，可以组合，不穷尽所有审美。",
+              "en": "Cottagecore and Goblincore can both use natural motifs. Here Cottagecore favours pale warmth, small flowers and softly handmade texture, while Goblincore adds moss tones, speckles and irregularity. Coastal styles use more open blue-white arrangements, Dark Academia deeper paper-and-book motifs, Clean Girl fewer elements, and Cyberpunk artificial light and technical forms. These distinctions organise options rather than exhaust aesthetics."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "视觉兴趣与生活分开",
+            "en": "Keeping taste separate from lifestyle"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以喜欢花纹布料却不想做家务，也可以住在城市、使用新技术或喜欢节奏快的工作。它们都不需要被田园标签纠正。审美不是性别、道德、政治、婚育或职业身份，本题没有测耐心、自律、实际工艺技能或幸福感；喜欢一个画面也不等于认可它关联的全部文化想象。",
+              "en": "You can like floral fabric without enjoying domestic work, live in a city, use new technology or enjoy fast-paced work. None needs correcting to fit a label. Aesthetic preference is not gender, morality, politics, family role or occupation. Items assess neither patience, discipline, craft skill nor well-being, and liking an image need not endorse every cultural association around it."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个不购物的小尝试",
+            "en": "A no-purchase experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "用已有纸张或自己画的几个形状，做两张小构图：一张保留暖色与小花，另一张只保留暖色而减少花纹。比较真正吸引你的是色温、纹样还是柔和边缘，允许只取一部分。目标是找到喜欢的视觉条件，不是证明生活得够自然，也不需要让田园风计数变高。",
+              "en": "Make two small arrangements from existing paper or your own shapes: one with warmth and floral detail, another retaining warmth but reducing pattern. Compare whether colour temperature, motifs or soft edges matter most, and keep only what you want. Explore visual conditions rather than proving a natural lifestyle or trying to raise a Cottagecore tally."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创文字偏好题与来源范围",
+            "en": "Original word-based preferences and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "费马独立编写本版18道文字视觉偏好题、计数和全部解释，配色为本站可调整示例。六种通行名称不构成封闭审美规范或经验证人格模型，未分析照片、皮肤、身体或真实生活。背景只用于词义和文化范围，不验证本站题目；未复制竞品题库、报告、艺术图、影视游戏画面或辞典例句。没有本站信效度或常模，不用于心理健康、卫生、年龄、性别、政治、智力、自律或职业判断，也不要求购物。",
+              "en": "FermatMind independently authored these 18 word-based visual preference items, counts and explanations, with adjustable original palette examples. Six common names form neither a closed aesthetic canon nor a validated personality model. No photos, skin, bodies or actual lifestyles are analysed. Background sources explain terms and cultural scope without validating items. No competitor bank, report, artwork, film or game image, or dictionary example is copied. There are no established website psychometrics or norms, and results judge neither mental health, hygiene, age, gender, politics, intelligence, discipline nor careers. No purchase is required."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dark-academia",
+      "directionIds": [
+        "dark-academia"
+      ],
+      "title": {
+        "zh": "暗色学院风结果（Dark Academia）",
+        "en": "Dark Academia Aesthetic Result"
+      },
+      "headline": {
+        "zh": "深色、纸面与正式线条的层次",
+        "en": "Layers of deep colour, paper and formal lines"
+      },
+      "summary": {
+        "zh": "本题组中，你更常选择低饱和深色、书纸意象、细格纹与正式构图。暗色学院风不是智力、学历、阅读深度、情绪状态或学术职业判断，也不要求浪漫化痛苦或精英身份。",
+        "en": "Your choices more often favour muted deep colours, paper-and-book motifs, fine checks and formal composition. Dark Academia establishes neither intelligence, education, reading depth, mood nor academic career fit, and requires no romanticising of distress or elite identity."
+      },
+      "seo": {
+        "title": {
+          "zh": "暗色学院风结果：深色书纸、配色与完整解释",
+          "en": "Dark Academia Aesthetic: Palette, Motifs and Meaning"
+        },
+        "description": {
+          "zh": "暗色学院风不等于智力或学历。阅读深色、书纸意象、材质和构图的完整结果，比较其他风格。免费附配色与小尝试，不要求忧郁、名校身份或购买书籍皮具。",
+          "en": "Read the Dark Academia guide to deep colours, paper motifs and formal composition. Full free palette and examples without judging intelligence, education, mood or career fit."
+        }
+      },
+      "scoreReading": {
+        "zh": "18道文字视觉偏好题，每题所选风格加1；六种风格各出现12次、每个选项位置3次。全部18题完成后显示六项原始次数和所有最高并列完整报告。没有随机定型、隐藏权重、强派副型或匹配百分比；接近次数没有经过验证的近分阈值。计数只描述本题组选择，不测美貌、品味高低、身份、心理特质或能力。",
+        "en": "Each of 18 word-based visual choices adds one to its style. Every style appears 12 times and three times in each position. Complete all items for six raw tallies and every highest-count full report. There is no random assignment, hidden weighting, forced secondary type or match percentage; nearby counts have no validated close-score threshold. Counts describe these choices without measuring beauty, taste rankings, identity, psychological traits or ability."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这份结果在描述什么",
+            "en": "What this result describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版把深色书纸、正式边线与略带哥特感的视觉线索组织为暗色学院风。回看你真正偏爱的是深绿棕色、纸张层次，还是拱形与对称；它们未必同时存在。题目没有考文学知识、读过哪些书或能否长时间学习，也不把看起来像书房等同思想更深。",
+              "en": "This edition groups deep paper-and-book colours, formal borders and slightly Gothic visual cues under Dark Academia. Revisit whether green-brown tones, paper layers, arches or symmetry drew you in; they need not occur together. Questions test neither literature knowledge, books read nor sustained study, and a study-like appearance is not evidence of deeper thought."
+            }
+          ]
+        },
+        {
+          "id": "palette",
+          "title": {
+            "zh": "一组可调整的配色例子",
+            "en": "An adjustable palette example"
+          },
+          "paragraphs": [
+            {
+              "zh": "本站示例可以用深墨绿 #33453C、纸棕 #6B5142、暖旧纸 #D8C7A5 与少量暗金 #9B875B。它们只是帮助比较的原创建议，没有规定必须用多暗或多旧。先确定文字与背景是否清楚，不能为了氛围牺牲可读性；也可以只保留一个深色点缀，不需真的布置昏暗环境。",
+              "en": "One original example combines deep ink green #33453C, paper brown #6B5142, warm aged-paper cream #D8C7A5 and a little muted gold #9B875B. These are comparison suggestions, not requirements for darkness or age. Preserve readable text and background contrast rather than sacrificing clarity for atmosphere. A single deep accent can work without making an actual room dim."
+            }
+          ]
+        },
+        {
+          "id": "textures",
+          "title": {
+            "zh": "材质、图案与形状",
+            "en": "Textures, motifs and shapes"
+          },
+          "paragraphs": [
+            {
+              "zh": "细格纹、纸页边缘、书脊般的重复竖线与对称框形可以成为视觉材料。你可以用自己的绘图表达它们，不需要昂贵皮具、旧书收藏或真实学院场景。选择纸面与深色也不表示必须用明火；安全、舒适、实际功能始终是另外的条件，风格结果不改变物品使用要求。",
+              "en": "Fine checks, paper edges, repeated book-spine-like lines and symmetrical frames can supply visual material. Your own drawings can represent them without expensive leather goods, a book collection or a real academic setting. Paper motifs and deep colours require no open flame. Safety, comfort and function remain separate conditions that a style result does not alter."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一个利用现有物品的例子",
+            "en": "An example using existing things"
+          },
+          "paragraphs": [
+            {
+              "zh": "用一张自己写的便签、一册已拥有的普通笔记本与深色背景纸做一个小构图，比较竖线、叠层和空白的关系。内容可以是日常待办，不必借名人句子证明品味，也不翻拍受保护书页来公开使用。这个例子只用于看线条与色彩，既不评价知识水平，也不要求把生活布置成舞台。",
+              "en": "Arrange a note you wrote, an ordinary notebook you own and dark background paper. Compare vertical lines, layers and blank space. Everyday tasks can supply the writing without borrowed quotations proving taste or reproducing protected pages for publication. The exercise concerns line and colour, not knowledge or a requirement to stage your life as an academic scene."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "值得留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "深色叠层可能带来你喜欢的厚重感，也可能让细节难以辨认；正式对称可能清楚，也可能限制想要的松动。可以增加浅色纸面或减少边框，看看更喜欢哪种关系。审美取舍不需要升级为心理解释，喜欢暗色不意味着忧郁、难亲近、保守或缺少现实参与，本题没有测这些特质。",
+              "en": "Deep layers may create a visual weight you enjoy or make detail hard to distinguish; formal symmetry may feel clear or too restrictive. Add a pale paper area or remove a frame to compare. These visual tradeoffs require no psychological explanation. Liking deep colours establishes neither sadness, distance, conservatism nor disengagement from everyday life."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他风格比较",
+            "en": "Comparing the other styles"
+          },
+          "paragraphs": [
+            {
+              "zh": "暗色学院与田园都可能出现纸和手作感，前者在本版更突出深色、书本与正式线条；赛博朋克也用暗底，但强调人工亮线与技术形状。清爽极简减少图案，海岸休闲偏浅蓝白与开阔，林野奇趣偏自然斑点与不规则。你可以组合它们，不用接受“某两种罕见或紧张”的说法。",
+              "en": "Dark Academia and Cottagecore can share paper and handmade textures, while this edition emphasises deeper colours, books and formal lines for the former. Cyberpunk can share dark backgrounds but adds luminous technical forms. Clean Girl reduces motifs, Coastal styles favour open pale blue-white arrangements, and Goblincore natural speckles and irregularity. Combining them requires no claim that a pairing is rare or tense."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "视觉兴趣与生活分开",
+            "en": "Keeping taste separate from lifestyle"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以喜欢书本图形而平时很少读小说，也可以喜爱浅色穿着、从事销售或技术工作。视觉偏好不认证学术身份，也不限制职业选择。相关文学可能有阴暗题材，但本版不把痛苦、睡眠不足、抑郁或过度学习当作风格要求，更不能用一次审美选择诊断情绪或判断智力。",
+              "en": "You can like book motifs while rarely reading novels, wear pale colours or work in sales or technology. Taste certifies no academic identity and limits no occupation. Some associated literature has dark themes, but distress, lost sleep, depression and excessive study are not style requirements here. An aesthetic choice diagnoses no mood and supplies no intelligence judgment."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个不购物的小尝试",
+            "en": "A no-purchase experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "用相同的现有纸张做两张构图，一张深色背景加正式边框，另一张增加浅色与不对称空白。比较你喜欢的是色彩深度、书纸质感还是几何秩序，保留其中一项也可以。目的在于看清偏好，而不是证明有文化、读得够多或必须把现实生活变得忧郁。",
+              "en": "Using the same paper you already have, compare a dark background with a formal border against a version with more pale space and asymmetry. Identify colour depth, paper texture or geometric order as possible attractions, keeping just one if you wish. Clarify taste rather than proving cultural knowledge, extensive reading or a need to make everyday life melancholy."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创文字偏好题与来源范围",
+            "en": "Original word-based preferences and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "费马独立编写本版18道文字视觉偏好题、计数和全部解释，配色为本站可调整示例。六种通行名称不构成封闭审美规范或经验证人格模型，未分析照片、皮肤、身体或真实生活。背景只用于词义和文化范围，不验证本站题目；未复制竞品题库、报告、艺术图、影视游戏画面或辞典例句。没有本站信效度或常模，不用于心理健康、卫生、年龄、性别、政治、智力、自律或职业判断，也不要求购物。",
+              "en": "FermatMind independently authored these 18 word-based visual preference items, counts and explanations, with adjustable original palette examples. Six common names form neither a closed aesthetic canon nor a validated personality model. No photos, skin, bodies or actual lifestyles are analysed. Background sources explain terms and cultural scope without validating items. No competitor bank, report, artwork, film or game image, or dictionary example is copied. There are no established website psychometrics or norms, and results judge neither mental health, hygiene, age, gender, politics, intelligence, discipline nor careers. No purchase is required."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clean-girl",
+      "directionIds": [
+        "clean-girl"
+      ],
+      "title": {
+        "zh": "清爽极简风结果（Clean Girl）",
+        "en": "Clean Girl Aesthetic Result"
+      },
+      "headline": {
+        "zh": "相近浅色、简明轮廓与留白",
+        "en": "Close pale tones, simple outlines and open space"
+      },
+      "summary": {
+        "zh": "本题组中，你更常选择浅中性色、规整留白、较少元素与清楚几何。Clean Girl在这里是常用风格标签，不判断性别、卫生、皮肤、健康、自律、财富或人格价值，任何人都可选择这种视觉语言。",
+        "en": "Your choices more often favour pale neutrals, orderly open space, fewer elements and clear geometry. Clean Girl is a common style label here, not a judgment of gender, hygiene, skin, health, discipline, wealth or personal worth."
+      },
+      "seo": {
+        "title": {
+          "zh": "清爽极简风Clean Girl结果：留白、配色与边界",
+          "en": "Clean Girl Aesthetic: Minimalism, Palette and Full Guide"
+        },
+        "description": {
+          "zh": "阅读清爽极简风完整结果，了解浅中性色、几何轮廓、留白与配色示例。免费比较风格和现有物品小尝试；Clean Girl不判断性别、卫生、皮肤、自律、财富或价值。",
+          "en": "Explore the Clean Girl aesthetic through pale neutrals, geometry and open space. Full free guide without judgments of gender, hygiene, skin, discipline, wealth or worth."
+        }
+      },
+      "scoreReading": {
+        "zh": "18道文字视觉偏好题，每题所选风格加1；六种风格各出现12次、每个选项位置3次。全部18题完成后显示六项原始次数和所有最高并列完整报告。没有随机定型、隐藏权重、强派副型或匹配百分比；接近次数没有经过验证的近分阈值。计数只描述本题组选择，不测美貌、品味高低、身份、心理特质或能力。",
+        "en": "Each of 18 word-based visual choices adds one to its style. Every style appears 12 times and three times in each position. Complete all items for six raw tallies and every highest-count full report. There is no random assignment, hidden weighting, forced secondary type or match percentage; nearby counts have no validated close-score threshold. Counts describe these choices without measuring beauty, taste rankings, identity, psychological traits or ability."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这份结果在描述什么",
+            "en": "What this result describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版清爽极简风只围绕视觉简化组织选项：相近颜色、清楚边界、少量元素和间隔。回看真正喜欢的是留白、整齐轮廓还是低饱和度，不必把它们全部接受。题目没有评估护肤、身体、饮食或作息，也不能从喜欢浅色补出“生活管理得很好”的结论。",
+              "en": "This edition groups visual simplification under Clean Girl: close colours, clear boundaries, fewer elements and deliberate spacing. Revisit whether open space, orderly outlines or muted colour appeals without accepting every cue. Items assess neither skincare, bodies, eating nor routines, and liking pale tones cannot establish that someone manages life particularly well."
+            }
+          ]
+        },
+        {
+          "id": "palette",
+          "title": {
+            "zh": "一组可调整的配色例子",
+            "en": "An adjustable palette example"
+          },
+          "paragraphs": [
+            {
+              "zh": "本站一组示例是柔白 #F5F3EE、浅石灰 #C9C7C1、暖灰褐 #A79C90 与少量炭黑 #343638。可先用两种，再决定是否需要深色轮廓；这不是要求把一切变成米白。文字和背景仍应容易分辨，视觉简化也不要求删掉有实际用途或个人意义的物件，更不作为护肤和外貌标准。",
+              "en": "One original example uses soft white #F5F3EE, pale stone #C9C7C1, warm taupe #A79C90 and a little charcoal #343638. Start with two and decide whether a dark outline helps, without making everything beige. Keep text distinguishable from its background. Visual reduction requires neither removing useful or meaningful possessions nor adopting a skincare or appearance standard."
+            }
+          ]
+        },
+        {
+          "id": "textures",
+          "title": {
+            "zh": "材质、图案与形状",
+            "en": "Textures, motifs and shapes"
+          },
+          "paragraphs": [
+            {
+              "zh": "平整纸面、连续轮廓、几何边界和低密度图案可以成为比较线索，但不等于物品必须昂贵、无瑕或没有使用痕迹。可以用普通便签、旧文件夹的背面或自己的线条图来探索这种关系。清楚的构图也能容纳一块粗糙纹理，材料外观不能证明品质、阶层、专业能力或自我约束。",
+              "en": "Smooth paper, continuous outlines, geometric boundaries and sparse pattern can supply comparison cues without requiring expensive, flawless or unused objects. Ordinary notes, the back of an existing folder or your own line drawings can explore the relationship. A clear composition can include rough texture too. Appearance establishes neither quality, social class, professional competence nor self-restraint."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一个利用现有物品的例子",
+            "en": "An example using existing things"
+          },
+          "paragraphs": [
+            {
+              "zh": "在已有纸面上放三个自己常用的小物件，先拍一张，再只改变间隔或拿走一个并不影响用途的元素，比较哪种构图更合意。不是把日常桌面变成必须保持的展台，也不需要让别人按你的偏好整理共享空间。例子用于观察间隔与形状，不给生活整洁程度打分。",
+              "en": "Arrange three small objects you use on paper you already have. Take a photo, then change only the spacing or remove a nonessential element and compare compositions. This does not turn an everyday desk into a display that must be maintained or require others to organise shared space to your taste. Observe spacing and form rather than rating tidiness."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "值得留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "减少元素可能让你喜欢整体关系，也可能删掉自己其实在意的细节；相近颜色可能柔和，也可能让边界不够清楚。可以逐项试，而不是追求空到没有个人痕迹。风格是否适合某个小画面，与人的自律、焦虑、承受混乱能力和道德无关，本问卷没有测这些，也不把其他审美叫作不干净。",
+              "en": "Reducing elements may clarify a relationship you enjoy or remove a detail you value; close colours may feel gentle or make boundaries hard to read. Compare one change at a time without erasing personal traces. A composition establishes nothing about discipline, anxiety, tolerance of disorder or morality. Other aesthetic choices are not thereby unclean."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他风格比较",
+            "en": "Comparing the other styles"
+          },
+          "paragraphs": [
+            {
+              "zh": "清爽极简与海岸休闲都可偏浅色，本版前者更强调少元素和几何，后者更多蓝白、条纹与宽松布面。田园加入暖花纹，暗色学院加入深色书纸，林野奇趣关注自然斑点，赛博朋克加入人工亮线。你可以保留极简布局并加入任一线索，均分或计数不规定纯粹程度，也不认证配对。",
+              "en": "Clean Girl and Coastal styles can share pale colours. Here the former emphasises fewer elements and geometry, while the latter adds blue-white stripes and relaxed fabric. Cottagecore adds warm florals, Dark Academia deeper paper motifs, Goblincore natural speckles and Cyberpunk luminous technical lines. A simple layout can include any cue without a tally deciding purity or compatible pairings."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "名称、外貌与价值分开",
+            "en": "Separating the name from appearance and worth"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个网络标签有与外貌、性别和资源相关的文化争议；本站只借它识别视觉线索，不把“clean”翻成某种人更干净、清纯或优越。任何年龄和性别都可喜欢，也不要求皮肤光滑、化妆、特定体型或收入。结果不衡量真实人，也不能据此判断是否适合营养、品牌、美容或其他职业。",
+              "en": "The internet label has cultural disputes involving appearance, gender and resources. Here it identifies visual cues without making clean a claim of purity or superiority. Anyone can like the style without smooth skin, makeup, a particular body or income. The result evaluates no person and establishes no suitability for nutrition, branding, beauty or another occupation."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个不购物的小尝试",
+            "en": "A no-purchase experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "用同一组已有形状做两个小画面，只改变间隔和颜色数量，再比较自己偏好的部分。可以保留一个有纪念意义的复杂物件，不必为了极简把它移除或丢弃。目标是看清留白和层次怎样配合，不是证明足够自律、改善健康或把真实生活变成没有杂物的图片。",
+              "en": "Make two small compositions from the same existing shapes, changing only spacing and the number of colours. Keep a complex meaningful object if you want rather than discarding it for minimalism. Explore how open space and layers work together, without proving discipline, improving health or making real life resemble an object-free image."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创文字偏好题与来源范围",
+            "en": "Original word-based preferences and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "费马独立编写本版18道文字视觉偏好题、计数和全部解释，配色为本站可调整示例。六种通行名称不构成封闭审美规范或经验证人格模型，未分析照片、皮肤、身体或真实生活。背景只用于词义和文化范围，不验证本站题目；未复制竞品题库、报告、艺术图、影视游戏画面或辞典例句。没有本站信效度或常模，不用于心理健康、卫生、年龄、性别、政治、智力、自律或职业判断，也不要求购物。",
+              "en": "FermatMind independently authored these 18 word-based visual preference items, counts and explanations, with adjustable original palette examples. Six common names form neither a closed aesthetic canon nor a validated personality model. No photos, skin, bodies or actual lifestyles are analysed. Background sources explain terms and cultural scope without validating items. No competitor bank, report, artwork, film or game image, or dictionary example is copied. There are no established website psychometrics or norms, and results judge neither mental health, hygiene, age, gender, politics, intelligence, discipline nor careers. No purchase is required."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "coastal-grandmother",
+      "directionIds": [
+        "coastal-grandmother"
+      ],
+      "title": {
+        "zh": "海岸休闲风结果（Coastal Grandmother）",
+        "en": "Coastal Grandmother Aesthetic Result"
+      },
+      "headline": {
+        "zh": "浅蓝白、疏朗条纹与轻松布面",
+        "en": "Pale blue-white, open stripes and relaxed fabric"
+      },
+      "summary": {
+        "zh": "本题组中，你更常选择沙米、浅蓝白、浅木色与宽松织纹。Coastal Grandmother是常见风格名称，不判断年龄、性别、家庭角色、财富、招待能力，也不需要住在海边或拥有度假房。",
+        "en": "Your choices more often favour sand beige, pale blue-white, light wood tones and relaxed weave. Coastal Grandmother is a common style name, without establishing age, gender, family role, wealth or hosting skill, and requires no coastal home."
+      },
+      "seo": {
+        "title": {
+          "zh": "海岸休闲风结果：浅蓝白、织纹与完整配色指南",
+          "en": "Coastal Grandmother Aesthetic: Colours and Full Guide"
+        },
+        "description": {
+          "zh": "海岸休闲风不要求年龄、海景房或招待客人。阅读浅蓝白、疏朗条纹和舒展布纹的完整结果，附配色、比较和不购物小尝试；免费说明不认证生活方式或职业。",
+          "en": "Read the Coastal Grandmother guide to pale blue-white, open stripes and relaxed textures. Full free examples without age, coastal-home or hosting requirements."
+        }
+      },
+      "scoreReading": {
+        "zh": "18道文字视觉偏好题，每题所选风格加1；六种风格各出现12次、每个选项位置3次。全部18题完成后显示六项原始次数和所有最高并列完整报告。没有随机定型、隐藏权重、强派副型或匹配百分比；接近次数没有经过验证的近分阈值。计数只描述本题组选择，不测美貌、品味高低、身份、心理特质或能力。",
+        "en": "Each of 18 word-based visual choices adds one to its style. Every style appears 12 times and three times in each position. Complete all items for six raw tallies and every highest-count full report. There is no random assignment, hidden weighting, forced secondary type or match percentage; nearby counts have no validated close-score threshold. Counts describe these choices without measuring beauty, taste rankings, identity, psychological traits or ability."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这份结果在描述什么",
+            "en": "What this result describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版海岸休闲风把浅色、宽条纹、开阔间隔和舒展布纹放在一起，形成一种可用文字讨论的视觉方向。回看你喜欢的是蓝白关系、浅木色还是疏朗排列，不需要由名称接受某种社交或家庭生活。题目没有观察是否会招待客人、喜欢做饭，或是否真的生活得悠闲。",
+              "en": "This edition combines pale colours, broad stripes, open intervals and relaxed fabric texture into a visual direction described in words. Revisit whether blue-white contrast, pale wood tones or open arrangement appeals. The name need not bring a social or domestic role with it. Items do not observe hosting, cooking or whether someone actually lives an unhurried life."
+            }
+          ]
+        },
+        {
+          "id": "palette",
+          "title": {
+            "zh": "一组可调整的配色例子",
+            "en": "An adjustable palette example"
+          },
+          "paragraphs": [
+            {
+              "zh": "本站示例可以用雾白 #F0F1EC、浅海蓝 #A9C2CC、沙米 #D6C6AD 与少量灰蓝 #647F8D。可以减少蓝色、增加留白，或只借用宽松的配色关系。这不是海岸风格的固定规范，也不推荐购买衣物或装修；屏幕上的颜色仅帮助比较，不替代真实材料、用途和舒适条件。",
+              "en": "One original example combines mist white #F0F1EC, pale sea blue #A9C2CC, sand beige #D6C6AD and a little blue-grey #647F8D. Reduce blue, add empty space or borrow only the relaxed relationship. These are neither fixed rules nor clothing or renovation recommendations. Screen colour supports comparison without replacing the properties, use and comfort of actual materials."
+            }
+          ]
+        },
+        {
+          "id": "textures",
+          "title": {
+            "zh": "材质、图案与形状",
+            "en": "Textures, motifs and shapes"
+          },
+          "paragraphs": [
+            {
+              "zh": "宽条纹、轻薄织纹、浅色木面与舒展轮廓是本版可比较的线索，不要求真的采用亚麻、海景或昂贵家具。用已有布料的照片、纸面画出的条纹与简单形状也能表达。视觉上的通透不保证真实空间温度、空气或居住体验，风格描述不能替代这些实际条件，也不证明物品天然或优质。",
+              "en": "Broad stripes, light weave, pale wood and open outlines are comparison cues without requiring linen, an ocean view or expensive furniture. Photos of existing fabric, drawn stripes and simple shapes can represent them. A visually airy composition guarantees neither temperature, air quality nor comfort in a real space, and appearance establishes neither natural materials nor quality."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一个利用现有物品的例子",
+            "en": "An example using existing things"
+          },
+          "paragraphs": [
+            {
+              "zh": "拿已有的浅色纸张画几条疏朗蓝线，把它与一张普通物件照片放在一起，试着增加或减少周围空白。也可以完全不用蓝色，只比较舒展间隔与布纹。例子不要求布置餐桌、招待朋友或到海边拍照，任何生活条件下都可以停留在一个小小的纸面构图，不必扮演某种角色。",
+              "en": "Draw a few widely spaced blue lines on pale paper you already have and place them beside a photo of an ordinary object. Vary the surrounding space, or omit blue and compare only intervals and fabric texture. No table setting, entertaining or beach photography is required. The exercise can remain a small paper composition without adopting a role."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "值得留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "浅色疏朗可能让你喜欢，也可能缺少想要的焦点；可以加入一条较深的线或一种已有纹理，而不是直接添很多物件。舒适的视觉感受是个人偏好，不表示生活更健康、关系更好或节奏更成熟。报告不把某个画面当财富标准，也不由喜欢它推断你逃避压力、不适合快节奏工作或特别会照顾人。",
+              "en": "A pale open arrangement may appeal or lack a focal point you want. Add a darker line or an existing texture instead of many new objects. A visual preference establishes neither healthier living, better relationships nor mature pacing. It supplies no wealth standard or inference about avoiding pressure, disliking fast work or being especially capable of caring for others."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他风格比较",
+            "en": "Comparing the other styles"
+          },
+          "paragraphs": [
+            {
+              "zh": "海岸休闲与清爽极简都可能疏朗，本版前者多用蓝白条纹和宽松布面，后者多用规整几何与少量元素。田园更偏暖花纹，暗色学院更偏深色书纸，林野奇趣关注自然不规则，赛博朋克突出亮线与技术形状。你可以组合这些线索，不需要接受某个组合罕见、紧张或代表固定生活方式。",
+              "en": "Coastal styles and Clean Girl can both feel open; here Coastal adds blue-white stripes and relaxed fabric, while Clean Girl emphasises orderly geometry and fewer elements. Cottagecore favours warm florals, Dark Academia deep paper motifs, Goblincore natural irregularity and Cyberpunk bright technical lines. Combining cues requires no claim that a pairing is rare, tense or a fixed lifestyle."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "名称、年龄与生活分开",
+            "en": "Separating the name, age and lifestyle"
+          },
+          "paragraphs": [
+            {
+              "zh": "Grandmother在这个标签里不要求你是祖母、女性或某个年龄，也不能把喜欢浅色转成照护义务。你可以住在城市、没有花园、不招待客人或喜欢繁忙工作。问卷没有测慷慨、社交技巧、长期关系、烹饪或室内设计能力，不由结果推荐或排除职业，审美偏好也不认证阶层和生活条件。",
+              "en": "Grandmother in this label requires neither being a grandmother, a woman nor a particular age, and pale colours create no caring obligation. You can live in a city, have no garden, avoid entertaining or enjoy busy work. Items assess neither generosity, social skill, relationships, cooking nor interior-design ability, and include no occupational or class judgment."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个不购物的小尝试",
+            "en": "A no-purchase experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "用相同已有纸面做两种版本，一种保留浅蓝白条纹，另一种保留浅色而换成更整齐几何。比较自己真正想要的是颜色、织纹还是开阔间隔，不必为贴近名字增加物品。这个尝试帮助辨认视觉线索，不要求变得悠闲、热情好客或拥有某种住宅，也不把别人是否喜欢作为能力评分。",
+              "en": "Compare two versions on existing paper: pale blue-white stripes and the same pale tones with more orderly geometry. Identify colour, weave or open intervals as possible attractions without adding possessions to fit a name. Clarify visual cues rather than becoming relaxed, hospitable or a particular homeowner, and do not rate ability by whether someone else likes the result."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创文字偏好题与来源范围",
+            "en": "Original word-based preferences and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "费马独立编写本版18道文字视觉偏好题、计数和全部解释，配色为本站可调整示例。六种通行名称不构成封闭审美规范或经验证人格模型，未分析照片、皮肤、身体或真实生活。背景只用于词义和文化范围，不验证本站题目；未复制竞品题库、报告、艺术图、影视游戏画面或辞典例句。没有本站信效度或常模，不用于心理健康、卫生、年龄、性别、政治、智力、自律或职业判断，也不要求购物。",
+              "en": "FermatMind independently authored these 18 word-based visual preference items, counts and explanations, with adjustable original palette examples. Six common names form neither a closed aesthetic canon nor a validated personality model. No photos, skin, bodies or actual lifestyles are analysed. Background sources explain terms and cultural scope without validating items. No competitor bank, report, artwork, film or game image, or dictionary example is copied. There are no established website psychometrics or norms, and results judge neither mental health, hygiene, age, gender, politics, intelligence, discipline nor careers. No purchase is required."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "goblincore",
+      "directionIds": [
+        "goblincore"
+      ],
+      "title": {
+        "zh": "林野奇趣风结果（Goblincore）",
+        "en": "Goblincore Aesthetic Result"
+      },
+      "headline": {
+        "zh": "苔色、自然细节与不规则的小形状",
+        "en": "Moss tones, natural detail and small irregular forms"
+      },
+      "summary": {
+        "zh": "本题组中，你更常选择苔绿土色、斑点、自然不规则与旧物细节。Goblincore在这里描述视觉趣味，不判断卫生、收藏行为、心理健康、成熟度、社会适应或自然观察技能。",
+        "en": "Your choices more often favour moss and earth tones, speckles, natural irregularity and details of older objects. Goblincore describes visual interest here, without establishing hygiene, collecting behaviour, mental health, maturity, social adjustment or observational skill."
+      },
+      "seo": {
+        "title": {
+          "zh": "林野奇趣风Goblincore结果：自然纹理与配色",
+          "en": "Goblincore Aesthetic: Natural Detail, Palette and Meaning"
+        },
+        "description": {
+          "zh": "阅读Goblincore林野奇趣风完整解释：苔色土色、斑点、旧物细节和不规则形状，附配色与现有材料小尝试。免费说明，不把审美当卫生、收藏、成熟度或心理健康判断。",
+          "en": "Explore Goblincore with moss tones, natural textures, small forms and an original palette. Full free guide without inferring hygiene, collecting behaviour or mental health."
+        }
+      },
+      "scoreReading": {
+        "zh": "18道文字视觉偏好题，每题所选风格加1；六种风格各出现12次、每个选项位置3次。全部18题完成后显示六项原始次数和所有最高并列完整报告。没有随机定型、隐藏权重、强派副型或匹配百分比；接近次数没有经过验证的近分阈值。计数只描述本题组选择，不测美貌、品味高低、身份、心理特质或能力。",
+        "en": "Each of 18 word-based visual choices adds one to its style. Every style appears 12 times and three times in each position. Complete all items for six raw tallies and every highest-count full report. There is no random assignment, hidden weighting, forced secondary type or match percentage; nearby counts have no validated close-score threshold. Counts describe these choices without measuring beauty, taste rankings, identity, psychological traits or ability."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这份结果在描述什么",
+            "en": "What this result describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版林野奇趣风关注通常不会被排得十分规整的自然细节：斑点、叶脉、粗糙表面与小形状。回看你喜欢的是苔色、旧物痕迹，还是不完全一致的边缘，它们不必同时出现。题目没有观察真实收藏，也不把喜欢纹理等同某种反社会、幼稚或反审美立场，只比较文字描述中的选择。",
+              "en": "This edition focuses on natural details that need not appear perfectly orderly: speckles, leaf veins, rough surfaces and small forms. Revisit whether moss colours, traces on older objects or uneven edges attracted you. They need not occur together. Items observe no actual collection and establish no antisocial, childish or anti-aesthetic position; they compare choices among word-described scenes."
+            }
+          ]
+        },
+        {
+          "id": "palette",
+          "title": {
+            "zh": "一组可调整的配色例子",
+            "en": "An adjustable palette example"
+          },
+          "paragraphs": [
+            {
+              "zh": "本站示例可以用苔绿 #6D7850、土褐 #7B6047、暗橄榄 #4E553B 与一小块锈橙 #AE754E。可以加入自己喜欢的浅色，让细节更清楚；这些是原创比较材料，不是风格的固定色卡。喜欢自然色也不要求使用真实植物或野外采集物，纸上调色、照片和自己画的纹样足以试验。",
+              "en": "One original example uses moss green #6D7850, earth brown #7B6047, dark olive #4E553B and a small rust-orange accent #AE754E. Add a pale tone if it helps reveal detail. This is comparison material rather than an official palette. Natural colours require no live plants or collected wildlife; colour on paper, photos and your own motifs can support an experiment."
+            }
+          ]
+        },
+        {
+          "id": "textures",
+          "title": {
+            "zh": "材质、图案与形状",
+            "en": "Textures, motifs and shapes"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以比较不规则圆点、叶脉式线条、旧纽扣般小形状与粗糙纸纹的组合。它们是视觉线索，不需要真实骨骼、蘑菇、泥土或动物，也不要求把居住空间变乱。照片或手绘可以保留喜欢的纹理，同时让物品用途、清洁与收纳按自己的真实条件安排，风格名称不规定必须保留多少东西。",
+              "en": "Compare irregular dots, vein-like lines, small button-like forms and coarse paper texture. These are visual cues without requiring actual bones, fungi, soil or animals, and without making a living space disorderly. Photos or drawings can retain textures while use, cleaning and storage follow your own circumstances. A style name prescribes no number of possessions to keep."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一个利用现有物品的例子",
+            "en": "An example using existing things"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一张自己已有的物件照片，留意磨损边缘或细小斑点，再在纸上画几种不完全相同的轮廓。比较整齐重复与自然变化哪种更合意，不需要带走自然环境里的任何东西。这个例子只用于看表面关系，也不要求把所有有痕迹的旧物当作宝物或为风格不断增加收藏。",
+              "en": "Choose a photo of an object you already own, notice a worn edge or small speckles and draw several uneven outlines on paper. Compare orderly repetition with natural variation without taking anything from a habitat. The exercise concerns surface relationships, not treating every worn object as treasure or continually acquiring more things for a style."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "值得留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "细节很多时，可能需要一个比较平静的底色；不规则太密时，也可以留出间隔，让自己真正喜欢的形状更清楚。这里是在调整构图，不把“乱”美化成人人都应接受的生活安排。喜欢这种图案既不证明观察力更强，也不能用来判断是否存在临床问题，更不让个人审美替共享空间的协商作主。",
+              "en": "Many details may benefit from a quieter base, and dense irregularity can be spaced out to clarify the forms you enjoy. This adjusts composition rather than requiring everyone to accept a disorderly arrangement. Liking such motifs proves neither stronger observation nor any clinical condition, and personal taste cannot decide how a shared space should work."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他风格比较",
+            "en": "Comparing the other styles"
+          },
+          "paragraphs": [
+            {
+              "zh": "林野奇趣和田园都可能用自然线索，本版前者更偏苔色、斑点和不规则，后者更偏暖浅、小花与柔和织纹。暗色学院多书纸与正式线条，清爽极简减少元素，海岸休闲偏浅蓝白，赛博朋克多人工亮线。这些分法不评价谁更自然、更成熟或更真实，所有最高并列都保留完整说明。",
+              "en": "Goblincore and Cottagecore can share natural cues; here the former emphasises moss, speckles and irregularity, while the latter favours pale warmth, small florals and soft weave. Dark Academia adds formal paper motifs, Clean Girl reduces elements, Coastal styles favour pale blue-white and Cyberpunk artificial luminous lines. These distinctions rank neither naturalness, maturity nor authenticity, and all highest-count ties retain full guides."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "视觉兴趣与行为分开",
+            "en": "Keeping taste separate from behaviour"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以喜欢旧物纹理却不收藏东西，也可以工作时使用正式、平整的视觉风格。一次选择不证明卫生、生活秩序、价值观或社交能力，更不把自然奇趣和某个群体身份绑定。本题没有测囤积、情绪状况、人格或自然科学知识，不能凭喜欢一张图判断适合保育、野外工作或其他职业。",
+              "en": "You can enjoy worn textures without collecting objects, or use a formal smooth style at work. One choice establishes neither hygiene, life organisation, values nor social skill, and natural motifs define no group identity. Items assess neither hoarding, mood, personality nor natural-science knowledge, and a preferred image establishes no suitability for conservation, fieldwork or another occupation."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个不购物的小尝试",
+            "en": "A no-purchase experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "用同一张已有物件照片画两种简化纹样：一张保留不规则斑点，一张改成均匀重复。比较吸引你的是颜色、细节还是变化节奏，不需要真的添置小物件。结束时可以只保存一张自己的草图，其余不必保留；目标是辨认视觉趣味，不是证明收藏更多、看得比别人细或必须拒绝规整。",
+              "en": "From the same existing-object photo, draw two simplified motifs: one with irregular speckles, another with even repetition. Compare colour, detail and rhythm without acquiring objects. Keep one sketch if you want and leave the others. Clarify visual interest rather than proving a larger collection, finer observation than others or a need to reject order."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创文字偏好题与来源范围",
+            "en": "Original word-based preferences and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "费马独立编写本版18道文字视觉偏好题、计数和全部解释，配色为本站可调整示例。六种通行名称不构成封闭审美规范或经验证人格模型，未分析照片、皮肤、身体或真实生活。背景只用于词义和文化范围，不验证本站题目；未复制竞品题库、报告、艺术图、影视游戏画面或辞典例句。没有本站信效度或常模，不用于心理健康、卫生、年龄、性别、政治、智力、自律或职业判断，也不要求购物。",
+              "en": "FermatMind independently authored these 18 word-based visual preference items, counts and explanations, with adjustable original palette examples. Six common names form neither a closed aesthetic canon nor a validated personality model. No photos, skin, bodies or actual lifestyles are analysed. Background sources explain terms and cultural scope without validating items. No competitor bank, report, artwork, film or game image, or dictionary example is copied. There are no established website psychometrics or norms, and results judge neither mental health, hygiene, age, gender, politics, intelligence, discipline nor careers. No purchase is required."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cyberpunk",
+      "directionIds": [
+        "cyberpunk"
+      ],
+      "title": {
+        "zh": "赛博朋克风结果（Cyberpunk）",
+        "en": "Cyberpunk Aesthetic Result"
+      },
+      "headline": {
+        "zh": "暗面、人工亮线与技术形状",
+        "en": "Dark surfaces, artificial light and technical forms"
+      },
+      "summary": {
+        "zh": "本题组中，你更常选择暗色背景、局部高对比亮光、机械接口与界面般几何。赛博朋克在这里是视觉取向，不判断编程能力、技术素养、政治态度、悲观程度或职业适配，也不隶属某款游戏。",
+        "en": "Your choices more often favour dark backgrounds, local high-contrast light, connectors and interface-like geometry. Cyberpunk describes a visual direction here, without establishing coding, technical literacy, politics, pessimism or career fit, and is not affiliation with a game."
+      },
+      "seo": {
+        "title": {
+          "zh": "赛博朋克风结果：暗底亮线、技术形状与配色",
+          "en": "Cyberpunk Aesthetic: Contrast, Palette and Full Guide"
+        },
+        "description": {
+          "zh": "阅读赛博朋克视觉风格完整结果，比较暗底亮光、技术形状和叠层，附原创建议配色与不购物小尝试。免费解释，不由审美推断政治、编程、AI技能或职业适配。",
+          "en": "Read the Cyberpunk aesthetic guide to dark surfaces, artificial light and technical forms. Full free palette and examples without inferring politics, coding skill or career fit."
+        }
+      },
+      "scoreReading": {
+        "zh": "18道文字视觉偏好题，每题所选风格加1；六种风格各出现12次、每个选项位置3次。全部18题完成后显示六项原始次数和所有最高并列完整报告。没有随机定型、隐藏权重、强派副型或匹配百分比；接近次数没有经过验证的近分阈值。计数只描述本题组选择，不测美貌、品味高低、身份、心理特质或能力。",
+        "en": "Each of 18 word-based visual choices adds one to its style. Every style appears 12 times and three times in each position. Complete all items for six raw tallies and every highest-count full report. There is no random assignment, hidden weighting, forced secondary type or match percentage; nearby counts have no validated close-score threshold. Counts describe these choices without measuring beauty, taste rankings, identity, psychological traits or ability."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这份结果在描述什么",
+            "en": "What this result describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版赛博朋克围绕暗底亮线、人工光感与技术形状组织选项，借用常见科幻视觉语汇。回看你喜欢的是颜色反差、机械结构还是界面叠层；不需要把所有元素都搬进生活。词语本身也有更广的文学类型背景，本问卷没有考相关作品，更不从一个画面判断你如何理解社会或技术。",
+              "en": "This edition uses familiar science-fiction visual cues: dark surfaces, bright artificial lines and technical forms. Revisit whether contrast, mechanical structure or interface-like layers drew you in without importing every element into life. The word has a broader literary-genre context, but the questions test no works and infer no view of society or technology from a preferred image."
+            }
+          ]
+        },
+        {
+          "id": "palette",
+          "title": {
+            "zh": "一组可调整的配色例子",
+            "en": "An adjustable palette example"
+          },
+          "paragraphs": [
+            {
+              "zh": "本站一组示例是深炭 #17232B、亮青 #58D5DE、紫灰 #8975B8 与少量暖橙 #D59A62。可以只在纸面用一处亮色，不需购买发光设备；也可以降低反差或改变比例，让自己看得舒服。这不是官方视觉标准，屏幕颜色不规定实际灯光、空间使用或设备设置，风格兴趣不能替代这些条件。",
+              "en": "One original example combines deep charcoal #17232B, bright cyan #58D5DE, grey-violet #8975B8 and a little warm orange #D59A62. A bright patch on paper requires no lighting equipment. Reduce contrast or change proportions for comfort. These are not official design rules, and screen colours prescribe neither real lighting, use of space nor device settings."
+            }
+          ]
+        },
+        {
+          "id": "textures",
+          "title": {
+            "zh": "材质、图案与形状",
+            "en": "Textures, motifs and shapes"
+          },
+          "paragraphs": [
+            {
+              "zh": "网格、断线、接口般小几何、反光感与叠层可以成为比较材料，不必用真实电子零件或改装设备。自己画的抽象线条就能表达，也不需要复制游戏界面、电影画面、艺术家图稿或品牌标志。技术形状只是一种视觉主题，不能证明结构真实、代码可运行或物品具有技术功能。",
+              "en": "Grids, broken lines, small connector-like forms, reflective impressions and layers can supply comparison material without real components or modified devices. Your own abstract lines can express them, without copying a game interface, film frame, artwork or logo. Technical-looking shapes establish neither a real structure, functioning code nor an object’s actual technological capabilities."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一个利用现有物品的例子",
+            "en": "An example using existing things"
+          },
+          "paragraphs": [
+            {
+              "zh": "在一张已有深色纸上画几条交错线，用一小块亮色纸标出交点，再比较对称与错位的版本。画面可以是抽象的，不必让它看起来像任何现成游戏。这个例子帮助观察暗亮关系和叠层，不需要购置装备、使用真实电路或表现“会黑客技术”，也没有把视觉效果当专业能力。",
+              "en": "Draw crossing lines on dark paper you already have and use a bright scrap at an intersection. Compare aligned and offset versions. The composition can remain abstract without resembling a particular game. Observe contrast and layering without buying equipment, using circuitry or performing an identity as a hacker. A visual effect supplies no professional-ability evidence."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "值得留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "局部亮色可能形成焦点，太多亮线也可能让重点混在一起；叠层可能有趣，也可能影响文字清晰。可以先删一层或减少色数，不必把“越复杂越赛博”当标准。喜欢这种画面不证明悲观、冷漠或善于复杂系统，本题也没有测情绪、政治、同理心或技术技能，取舍限于这个视觉安排。",
+              "en": "A bright accent can form a focal point, while many luminous lines can compete. Layers may interest you or obscure text. Remove a layer or reduce colours without making complexity a test of authenticity. Preference establishes neither pessimism, coldness nor skill with systems. These items assess no mood, politics, empathy or technical ability; the tradeoff concerns this composition."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他风格比较",
+            "en": "Comparing the other styles"
+          },
+          "paragraphs": [
+            {
+              "zh": "赛博朋克与暗色学院都可能用深色，本版前者更突出人工亮光与技术形状，后者更突出书纸和正式边线。清爽极简可以提供简化布局，林野奇趣可借不规则纹理，田园与海岸也能提供不同浅色。组合并不要求认同反乌托邦或反技术立场，也不按名称判断哪些配在一起罕见、紧张或更先进。",
+              "en": "Cyberpunk and Dark Academia can share dark colours; here Cyberpunk adds artificial light and technical forms, while Dark Academia adds paper and formal borders. Clean Girl can supply a simpler layout, Goblincore irregular texture, and Cottagecore or Coastal cues different pale tones. Combining them requires no dystopian or anti-technology position and proves no rare, tense or more advanced pairing."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "视觉兴趣与身份分开",
+            "en": "Keeping taste separate from identity"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以喜欢人工亮线而不擅长软件，也可以从事技术工作却更偏爱田园图案。文学类型、视觉风格与真实个人不能互相替代；对技术的政治和伦理看法需直接讨论。本问卷不评定AI、编程、音乐制作、游戏设计或艺术职业，也不由穿着、房间颜色或结果名称判断你的价值观。",
+              "en": "You can like luminous lines without software skills, or work in technology and prefer Cottagecore motifs. A literary genre, visual style and real person are different things; political or ethical views need direct discussion. This questionnaire rates neither AI, coding, music production, game design nor artistic careers, and infers no values from clothing, room colour or a result name."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个不购物的小尝试",
+            "en": "A no-purchase experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "用已有纸面做两张抽象构图，一张暗底多亮线，另一张只保留一个交点与较多空白。比较自己喜欢的是光感、结构还是复杂度，再尝试换一种颜色。目标是找到具体视觉关系，不是证明技术身份、购买设备或把一次偏好当职业方向；不喜欢某个元素时可以直接拿掉，不必忠于标签。",
+              "en": "Compare two abstract paper compositions: dark with many bright lines, and one intersection with more open space. Identify light, structure or complexity as possible attractions, then change a colour. Find a visual relationship without proving technical identity, buying equipment or selecting a career. Drop any element you dislike without owing loyalty to a label."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创文字偏好题与来源范围",
+            "en": "Original word-based preferences and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "费马独立编写本版18道文字视觉偏好题、计数和全部解释，配色为本站可调整示例。六种通行名称不构成封闭审美规范或经验证人格模型，未分析照片、皮肤、身体或真实生活。背景只用于词义和文化范围，不验证本站题目；未复制竞品题库、报告、艺术图、影视游戏画面或辞典例句。没有本站信效度或常模，不用于心理健康、卫生、年龄、性别、政治、智力、自律或职业判断，也不要求购物。",
+              "en": "FermatMind independently authored these 18 word-based visual preference items, counts and explanations, with adjustable original palette examples. Six common names form neither a closed aesthetic canon nor a validated personality model. No photos, skin, bodies or actual lifestyles are analysed. Background sources explain terms and cultural scope without validating items. No competitor bank, report, artwork, film or game image, or dictionary example is copied. There are no established website psychometrics or norms, and results judge neither mental health, hygiene, age, gender, politics, intelligence, discipline nor careers. No purchase is required."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "Cambridge Dictionary博客：Cottagecore词义背景",
+        "en": "Cambridge Dictionary blog: Cottagecore term background"
+      },
+      "url": "https://dictionaryblog.cambridge.org/2020/07/13/new-words-13-july-2020/"
+    },
+    {
+      "title": {
+        "zh": "Penguin：Dark Academia文学与视觉背景",
+        "en": "Penguin: Dark Academia literary and visual context"
+      },
+      "url": "https://www.penguin.co.uk/discover/articles/the-ultimate-guide-to-dark-academia"
+    },
+    {
+      "title": {
+        "zh": "Merriam-Webster：Cyberpunk词义与类型背景",
+        "en": "Merriam-Webster: Cyberpunk definition and genre context"
+      },
+      "url": "https://www.merriam-webster.com/dictionary/cyberpunk"
+    },
+    {
+      "title": {
+        "zh": "Dictionary.com：Clean Girl名称、视觉线索与争议",
+        "en": "Dictionary.com: Clean Girl name, visual cues and debate"
+      },
+      "url": "https://www.dictionary.com/culture/slang/clean-girl-aesthetic"
+    },
+    {
+      "title": {
+        "zh": "Dictionary.com：-core风格名称与Goblincore背景",
+        "en": "Dictionary.com: -core style labels and Goblincore context"
+      },
+      "url": "https://www.dictionary.com/articles/core-words-cottagecore"
+    },
+    {
+      "title": {
+        "zh": "Vogue：Coastal Grandmother视觉风格背景",
+        "en": "Vogue: Coastal Grandmother style background"
+      },
+      "url": "https://www.vogue.com/article/anne-hathaway-coastal-grandma-trend"
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "文字选择怎样成为次数",
+        "en": "How word-based choices become counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "18道文字视觉偏好题，每题所选风格加1；六种风格各出现12次、每个选项位置3次。全部18题完成后显示六项原始次数和所有最高并列完整报告。没有随机定型、隐藏权重、强派副型或匹配百分比；接近次数没有经过验证的近分阈值。计数只描述本题组选择，不测美貌、品味高低、身份、心理特质或能力。",
+          "en": "Each of 18 word-based visual choices adds one to its style. Every style appears 12 times and three times in each position. Complete all items for six raw tallies and every highest-count full report. There is no random assignment, hidden weighting, forced secondary type or match percentage; nearby counts have no validated close-score threshold. Counts describe these choices without measuring beauty, taste rankings, identity, psychological traits or ability."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "最高并列全部保留",
+        "en": "Keep every highest-count tie"
+      },
+      "paragraphs": [
+        {
+          "zh": "六种都为3次时保留六份完整报告；任何其他最高并列也全部保留，不按页面顺序、随机或加权选一个主型。未并列时不强派副型，接近次数不对应经过验证的近分类型、误差带或统计显著。六份公开指南始终可读，不需要付费才能比较。",
+          "en": "Six counts of three retain all six full reports, as does any other highest-count tie. Page order, randomness and weighting never select a primary. An untied tally supplies no forced secondary, and nearby counts establish no validated close-score type, error band or significance. All six public guides remain readable without payment for comparison."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "风格名称不等于你是谁",
+        "en": "Style names do not determine who you are"
+      },
+      "paragraphs": [
+        {
+          "zh": "六种只是本版比较的常见视觉方向，不穷尽网络审美，也不规定你必须生活、工作或穿着成什么样。Clean Girl不判断性别或卫生，Coastal Grandmother不要求年龄与住房，Dark Academia不判断智力，Goblincore不判断临床或收藏，Cyberpunk不判断政治或技术能力，Cottagecore不要求乡村生活。",
+          "en": "These are six familiar visual directions selected for this edition, not all internet aesthetics or rules for living, working or dressing. Clean Girl judges neither gender nor hygiene; Coastal Grandmother requires no age or home. Dark Academia measures no intelligence, Goblincore no clinical or collecting state, Cyberpunk no politics or technical ability, and Cottagecore requires no rural lifestyle."
+        }
+      ]
+    },
+    {
+      "id": "palettes-and-examples",
+      "title": {
+        "zh": "配色和例子如何使用",
+        "en": "How to use palettes and examples"
+      },
+      "paragraphs": [
+        {
+          "zh": "六份报告都有本站原创、可调整的配色例子、材质与图案说明，以及利用已有纸张、物件照片或自己绘图的小尝试。它们不是固定规范、购物清单、护肤建议或装修指令。题目没有调用艺术图片或影视游戏画面，公开分享图为本站文字设计，不暗示任何品牌合作。",
+          "en": "Each guide includes an original adjustable palette, textures and motifs, plus experiments with existing paper, photos of your possessions or your own drawings. These are not fixed standards, shopping lists, skincare advice or renovation instructions. Items use no artist images or film or game frames. Public share images use the website’s text design without implying brand affiliation."
+        }
+      ]
+    },
+    {
+      "id": "free-and-private",
+      "title": {
+        "zh": "免费范围与可选草稿分享",
+        "en": "Free access and optional drafts or sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "全部18题、六项计数、所有最高并列报告与六份完整公开指南免费，无需邮箱、注册或前置测试。浏览器本地计分，主动保存才保留本标签页24小时草稿，完成、清除或重测即删除。分享只有风格名称与公开链接，不带答案、计数、照片或内部ID；公开指南不关联个人答卷。",
+          "en": "All 18 items, six counts, every highest-count report and six full public guides are free without email, signup or another test. Scoring happens in the browser. Only opting in saves a 24-hour tab draft, deleted on completion, clearing or retake. Sharing includes style names and public links without answers, counts, photos or internal IDs. Public guides contain no private attempts."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "本美学核心测试比较哪六种风格？",
+        "en": "Which six aesthetics does this test compare?"
+      },
+      "answer": {
+        "zh": "田园Cottagecore、暗色学院Dark Academia、清爽极简Clean Girl、海岸休闲Coastal Grandmother、林野奇趣Goblincore与赛博朋克Cyberpunk。它们是六种常见视觉方向，不穷尽审美或规定固定身份。全部完整解释都有配色、材质、具体例子、比较与小尝试。",
+        "en": "Cottagecore, Dark Academia, Clean Girl, Coastal Grandmother, Goblincore and Cyberpunk. These are six familiar visual directions rather than all aesthetics or fixed identities. Every full guide includes an original palette, textures, examples, comparisons and a small experiment."
+      }
+    },
+    {
+      "question": {
+        "zh": "需要图片作答、上传照片或买东西吗？",
+        "en": "Are there image choices, photo uploads or purchases?"
+      },
+      "answer": {
+        "zh": "没有。18题是文字描述的视觉偏好比较，不分析照片、皮肤或身体。报告示例可用已有纸张、物件照片或自己的图形尝试，不需要购物、护肤、装修或为风格添装备。",
+        "en": "No. The 18 items compare word-described visual preferences without analysing photos, skin or bodies. Guide examples can use existing paper, photos of your own objects or your drawings, without purchases, skincare, renovation or equipment for a style."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样计分和保留并列？",
+        "en": "How are choices counted and ties preserved?"
+      },
+      "answer": {
+        "zh": "每题为所选风格加1，各方向出现12次、每位置3次。完成18题后显示六项原始次数与每份最高并列完整报告，不随机取型、不强派副型或给匹配百分比；接近次数没有经过验证的近分阈值。",
+        "en": "Each choice adds one to its style. Every style appears 12 times and three times in each position. Complete 18 items for six raw tallies and every highest-count full report, without random assignment, forced secondary types or match percentages. Nearby counts have no validated close-score threshold."
+      }
+    },
+    {
+      "question": {
+        "zh": "结果能说明人格、智力或职业吗？",
+        "en": "Can this establish personality, intelligence or careers?"
+      },
+      "answer": {
+        "zh": "不能。本版为独立编写的视觉偏好自评，没有本站信效度或常模验证；词义和文化来源不验证题本。结果不判断智力、自律、卫生、性别、年龄、心理健康、政治或职业适配，也不由审美补出MBTI或大五分数。",
+        "en": "No. This independently authored visual reflection has no established website psychometrics or local norms; term and cultural sources do not validate items. Results assess neither intelligence, discipline, hygiene, gender, age, mental health, politics nor career fit, and do not supply MBTI or Big Five scores."
+      }
+    },
+    {
+      "question": {
+        "zh": "喜欢两种风格、或者不喜欢整个标签怎么办？",
+        "en": "What if I like several styles or only part of a label?"
+      },
+      "answer": {
+        "zh": "可以只保留某个颜色、材质或布局。最高次数相同的报告全部呈现，其他六份公开指南也都可先比较；不宣称某些组合罕见、冲突或更成熟。名字是讨论工具，不要求忠于一种生活方式或购买相应物件。",
+        "en": "Keep one colour, texture or arrangement if that is what you like. Every highest-count report appears and all six public guides can be compared first, without claims that blends are rare, conflicting or more mature. Names help discussion without loyalty to a lifestyle or associated possessions."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整报告免费吗，保存与分享包含什么？",
+        "en": "Are full reports free, and what do saving and sharing include?"
+      },
+      "answer": {
+        "zh": "全部题目、计数、并列报告及六份完整公开指南免费，无需注册或前置测试。草稿是可选本标签页24小时保存，完成、重测或清除即删。分享只有名称与公开链接，不含答卷、计数、照片或内部ID；存储或复制受限仍能继续与手动分享。",
+        "en": "All items, counts, tied reports and six full public guides are free without signup or a preceding test. Drafts are optional 24-hour tab storage, deleted on completion, retake or clearing. Sharing contains names and public links without answers, counts, photos or internal IDs. Restricted storage or copying still permits completion and manual sharing."
+      }
+    }
+  ]
+}
