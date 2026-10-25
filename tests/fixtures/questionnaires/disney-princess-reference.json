@@ -1,0 +1,1193 @@
+{
+  "formCode": "fm_disney_princess_fan_choices_26",
+  "origin": "FermatMindoriginal26ENZH4choice/unofficialtextonlyfaninterpretation/13officialrosterfictionalcharacters/notclinicalassessmentorofficialDisneytest",
+  "directions": [
+    {
+      "id": "snow-white",
+      "title": {
+        "zh": "白雪公主：给自愿参与留位置",
+        "en": "Snow White: Room for Willing Participation"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "cinderella",
+      "title": {
+        "zh": "灰姑娘：保留个人的小盼望",
+        "en": "Cinderella: Keeping a Small Personal Hope"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "aurora",
+      "title": {
+        "zh": "爱洛：安静想象普通场景",
+        "en": "Aurora: Quietly Imagining Ordinary Scenes"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "ariel",
+      "title": {
+        "zh": "爱丽儿：了解熟悉范围外的小事",
+        "en": "Ariel: Curiosity Beyond the Familiar"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "belle",
+      "title": {
+        "zh": "贝儿：阅读与追问具体意思",
+        "en": "Belle: Reading and Asking about Meaning"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "jasmine",
+      "title": {
+        "zh": "茉莉：把自己的选择说清",
+        "en": "Jasmine: Expressing Personal Choices"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "pocahontas",
+      "title": {
+        "zh": "宝嘉康蒂：留意周围的具体联系",
+        "en": "Pocahontas: Noticing Local Connections"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "mulan",
+      "title": {
+        "zh": "花木兰：按实际需要灵活回应",
+        "en": "Mulan: Adapting to Actual Needs"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "tiana",
+      "title": {
+        "zh": "蒂安娜：为自选目标安排一步",
+        "en": "Tiana: One Step for a Chosen Aim"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "rapunzel",
+      "title": {
+        "zh": "乐佩：尝试不同表达形式",
+        "en": "Rapunzel: Trying Different Forms of Expression"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "merida",
+      "title": {
+        "zh": "梅莉达：保留自选做法",
+        "en": "Merida: Keeping a Chosen Approach"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "moana",
+      "title": {
+        "zh": "莫阿娜：连接路径与在意之处",
+        "en": "Moana: Connecting Routes and What Matters"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "raya",
+      "title": {
+        "zh": "拉雅：用具体约定建立合作",
+        "en": "Raya: Cooperation through Concrete Agreements"
+      },
+      "comparisons": 8
+    }
+  ],
+  "questions": [
+    {
+      "id": "PRINCESS_01",
+      "prompt": {
+        "zh": "你和几位熟人自愿布置一个小角落，更愿意从哪里开始？",
+        "en": "You and a few acquaintances voluntarily arrange a small corner. Where would you rather begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "给愿意参与的人留一个轻松加入的位置",
+            "en": "Leave an easy way for willing people to join"
+          },
+          "directionId": "snow-white"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "保留一件自己一直想放进来的普通小物件",
+            "en": "Include an ordinary little object you have long wanted there"
+          },
+          "directionId": "cinderella"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看看一个自己还不熟悉的小物件，有什么可发现",
+            "en": "Explore what an unfamiliar little object might offer"
+          },
+          "directionId": "ariel"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "明确说出自己喜欢的摆法，允许别人不同",
+            "en": "State your preferred arrangement while allowing different views"
+          },
+          "directionId": "jasmine"
+        }
+      ]
+    },
+    {
+      "id": "PRINCESS_02",
+      "prompt": {
+        "zh": "为一件属于自己的小东西写说明时，你更想突出？",
+        "en": "Writing about a small object you own, what would you rather emphasise?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "它承载着自己哪一个小小的个人盼望",
+            "en": "The small personal hope you associate with it"
+          },
+          "directionId": "cinderella"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看着它时，自己会想象出怎样的普通画面",
+            "en": "The ordinary scene you imagine while looking at it"
+          },
+          "directionId": "aurora"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "它的来历或意思还有哪一点想读懂",
+            "en": "The origin or meaning you would like to understand"
+          },
+          "directionId": "belle"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "它和身边环境的哪一个具体细节相连",
+            "en": "A specific detail connecting it with its surroundings"
+          },
+          "directionId": "pocahontas"
+        }
+      ]
+    },
+    {
+      "id": "PRINCESS_03",
+      "prompt": {
+        "zh": "有一段没有必须完成事项的空闲，你更愿意怎样用？",
+        "en": "You have some time without a required task. How would you prefer to use it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "安静想象一个自己喜欢的小场景，不急着成形",
+            "en": "Quietly imagine a scene you like without forming it fully"
+          },
+          "directionId": "aurora"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "接触一个熟悉范围外的普通新东西",
+            "en": "Look at an ordinary new thing beyond your familiar interests"
+          },
+          "directionId": "ariel"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "做一个自己选定的小决定，保留改变余地",
+            "en": "Make a small choice of your own with room to revise"
+          },
+          "directionId": "jasmine"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "根据眼前实际条件，换一种可行的小做法",
+            "en": "Adapt an ordinary approach to the conditions actually present"
+          },
+          "directionId": "mulan"
+        }
+      ]
+    },
+    {
+      "id": "PRINCESS_04",
+      "prompt": {
+        "zh": "朋友愿意和你看一本普通小册子，你比较想先？",
+        "en": "A friend wants to look at an ordinary booklet with you. What would you rather do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "翻到一个自己从没注意过的题目看看",
+            "en": "Explore a topic you have never noticed before"
+          },
+          "directionId": "ariel"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "读一小段，弄清它为什么这样说",
+            "en": "Read a passage and understand why it says that"
+          },
+          "directionId": "belle"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "观察纸张、光线和摆放与周围的关系",
+            "en": "Notice how the paper, light and placement relate to the setting"
+          },
+          "directionId": "pocahontas"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "为自己想做的一小部分定一个可调整的步骤",
+            "en": "Choose an adjustable step for a small part you want to do"
+          },
+          "directionId": "tiana"
+        }
+      ]
+    },
+    {
+      "id": "PRINCESS_05",
+      "prompt": {
+        "zh": "你想让一件小作品更接近自己的意思，先愿意做？",
+        "en": "You want a small creation closer to your intention. What would you rather do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "找一段材料或问一个问题，先理解不清楚之处",
+            "en": "Read a source or ask a question about what is unclear"
+          },
+          "directionId": "belle"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把自己真正想保留的选择说出来",
+            "en": "State the choice you actually want to keep"
+          },
+          "directionId": "jasmine"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看看现有条件有没有需要灵活改动的地方",
+            "en": "Check whether present conditions call for a flexible adjustment"
+          },
+          "directionId": "mulan"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "换一种自选形式表达，比如线条、排列或短句",
+            "en": "Use a chosen form such as lines, arrangement or a short sentence"
+          },
+          "directionId": "rapunzel"
+        }
+      ]
+    },
+    {
+      "id": "PRINCESS_06",
+      "prompt": {
+        "zh": "别人为你的自选小活动提出惯常做法，你更可能？",
+        "en": "Someone suggests a conventional approach to your chosen small activity. What feels closer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说清自己愿意和不愿意的部分，再谈可行安排",
+            "en": "Clarify what you do and do not want before discussing arrangements"
+          },
+          "directionId": "jasmine"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先观察这做法和眼前环境是否合适",
+            "en": "Observe how the approach fits its immediate surroundings"
+          },
+          "directionId": "pocahontas"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "选一个自己愿意的小目标，安排有限的一步",
+            "en": "Choose a small aim you want and one limited step"
+          },
+          "directionId": "tiana"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "在许可范围内改成自己选择的办法",
+            "en": "Use an approach you choose within permitted limits"
+          },
+          "directionId": "merida"
+        }
+      ]
+    },
+    {
+      "id": "PRINCESS_07",
+      "prompt": {
+        "zh": "散步时看到一处普通且允许停留的景物，你会更想？",
+        "en": "On a walk you notice an ordinary place where stopping is allowed. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "看看它和光线、路径或周围植物怎样相处",
+            "en": "Notice its relation to light, paths or nearby plants"
+          },
+          "directionId": "pocahontas"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "按现场条件调整停留方式，不勉强原计划",
+            "en": "Adapt the stop to actual conditions instead of forcing the plan"
+          },
+          "directionId": "mulan"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用一种自选的简单形式记录眼前感受",
+            "en": "Record an impression in a simple form you choose"
+          },
+          "directionId": "rapunzel"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "想想这段路与自己想去的地方如何相连",
+            "en": "Consider how this part of the route connects with where you want to go"
+          },
+          "directionId": "moana"
+        }
+      ]
+    },
+    {
+      "id": "PRINCESS_08",
+      "prompt": {
+        "zh": "参与一个可以自由退出的小合作，你通常先愿意？",
+        "en": "In a small collaboration you may freely leave, what would you rather do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "看眼前实际需要，灵活选择自己能做的一小段",
+            "en": "Respond flexibly to present needs with one small part you can do"
+          },
+          "directionId": "mulan"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给自己愿意做的部分安排具体而有限的步骤",
+            "en": "Set concrete limited steps for the part you want to do"
+          },
+          "directionId": "tiana"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "确认自己的做法是自选，而非只为符合惯例",
+            "en": "Check that your approach is chosen rather than only conventional"
+          },
+          "directionId": "merida"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用明确的小约定确认彼此愿意怎样合作",
+            "en": "Use a specific agreement to confirm how each wants to collaborate"
+          },
+          "directionId": "raya"
+        }
+      ]
+    },
+    {
+      "id": "PRINCESS_09",
+      "prompt": {
+        "zh": "你本来就想做一张自用小卡，比较愿意先？",
+        "en": "You already want to make a small card for yourself. What would you prefer first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "给这个小目标选一个实际可做的步骤",
+            "en": "Choose a feasible step towards this little aim"
+          },
+          "directionId": "tiana"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "试一种线条、色块或短句的自选表达",
+            "en": "Try an expression using chosen lines, colours or a short sentence"
+          },
+          "directionId": "rapunzel"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看看要走哪几步，怎样和自己在意的事情相连",
+            "en": "Consider the route of steps and its connection to what matters"
+          },
+          "directionId": "moana"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "想一想能否也给愿意的人留一个参与空间",
+            "en": "Consider room for other willing people to join too"
+          },
+          "directionId": "snow-white"
+        }
+      ]
+    },
+    {
+      "id": "PRINCESS_10",
+      "prompt": {
+        "zh": "给一份私人小笔记加一页内容，你更想尝试？",
+        "en": "Adding a page to personal notes, what would you rather try?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用不同形式表达同一个普通感受",
+            "en": "Express one ordinary impression in different forms"
+          },
+          "directionId": "rapunzel"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "采用自己选的方式，不必照常见样式",
+            "en": "Use your chosen approach without following the usual format"
+          },
+          "directionId": "merida"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "通过一项具体约定明确别人愿不愿意一起参与",
+            "en": "Clarify willing participation through one specific agreement"
+          },
+          "directionId": "raya"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "写下自己仍想保留的一个小盼望",
+            "en": "Write down a small personal hope you want to keep"
+          },
+          "directionId": "cinderella"
+        }
+      ]
+    },
+    {
+      "id": "PRINCESS_11",
+      "prompt": {
+        "zh": "同一个自选小目标有两种普通做法，你更愿意先？",
+        "en": "A small aim you chose has two ordinary approaches. What would you prefer first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "确认自己更愿意哪一种，再听取具体反馈",
+            "en": "Identify your own preference before hearing specific feedback"
+          },
+          "directionId": "merida"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看看哪条路径更连着自己在意的人或事",
+            "en": "Consider which route connects with people or matters you care about"
+          },
+          "directionId": "moana"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给愿意一起做的人留一个不被催促的入口",
+            "en": "Leave an unhurried opening for people who want to join"
+          },
+          "directionId": "snow-white"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "在脑中想象两种做法带来的普通小场景",
+            "en": "Imagine the ordinary scenes each approach might create"
+          },
+          "directionId": "aurora"
+        }
+      ]
+    },
+    {
+      "id": "PRINCESS_12",
+      "prompt": {
+        "zh": "准备一次自己愿意的短途出门，你会更想先？",
+        "en": "Preparing for a short outing you want to take, what would you rather consider first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把路径和自己在意的目的连起来，保留调整",
+            "en": "Connect the route with a purpose you care about and allow changes"
+          },
+          "directionId": "moana"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "用具体信息与约定确认同行者的实际意愿",
+            "en": "Use concrete information and agreements to confirm companions’ wishes"
+          },
+          "directionId": "raya"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "保留自己一直想看的一个小地方",
+            "en": "Keep a small place you have been hoping to see in mind"
+          },
+          "directionId": "cinderella"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "留一点看看陌生普通事物的空间",
+            "en": "Leave some room to discover unfamiliar ordinary things"
+          },
+          "directionId": "ariel"
+        }
+      ]
+    },
+    {
+      "id": "PRINCESS_13",
+      "prompt": {
+        "zh": "一件小事情需要和别人配合时，你更想从哪里谈起？",
+        "en": "When an ordinary small matter needs cooperation, where would you rather begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "谈清彼此同意哪一小段，而不是默认信任",
+            "en": "Clarify the small part each agrees to rather than assuming trust"
+          },
+          "directionId": "raya"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让愿意的人能舒服加入，也能选择不参加",
+            "en": "Make willing participation comfortable and declining possible"
+          },
+          "directionId": "snow-white"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "说说自己脑中希望出现的普通小画面",
+            "en": "Describe an ordinary scene you imagine for it"
+          },
+          "directionId": "aurora"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "读懂一处不清楚的信息，再讨论下一步",
+            "en": "Understand an unclear piece of information before the next step"
+          },
+          "directionId": "belle"
+        }
+      ]
+    },
+    {
+      "id": "PRINCESS_14",
+      "prompt": {
+        "zh": "一个自选的小组活动刚开始，你比较愿意先留意？",
+        "en": "A voluntary small-group activity is starting. What would you prefer to notice first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "谁愿意加入，怎样让入口轻松而不强求",
+            "en": "Who wants to join and how to make entry easy without pressure"
+          },
+          "directionId": "snow-white"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "自己本来期待的小事情能否留一点位置",
+            "en": "Whether there is room for a small thing you had hoped for"
+          },
+          "directionId": "cinderella"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "有没有一种不熟悉但允许了解的小材料",
+            "en": "Whether there is an unfamiliar material you may explore"
+          },
+          "directionId": "ariel"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "自己确实愿意怎样参与，哪些不想答应",
+            "en": "How you actually want to participate and what you do not want to promise"
+          },
+          "directionId": "jasmine"
+        }
+      ]
+    },
+    {
+      "id": "PRINCESS_15",
+      "prompt": {
+        "zh": "为一个属于自己的小收藏留一页空白，你更想写？",
+        "en": "You leave a blank page for a small collection of your own. What would you rather write?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "以后仍然希望保留的一种小可能",
+            "en": "A small possibility you still hope to keep open"
+          },
+          "directionId": "cinderella"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "脑中浮现的一个不必实现的普通场景",
+            "en": "An ordinary imagined scene that need not be realised"
+          },
+          "directionId": "aurora"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "自己想进一步读懂的一个来历问题",
+            "en": "A question about its origins you would like to understand"
+          },
+          "directionId": "belle"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "它与所在位置、光线或季节的一点联系",
+            "en": "A connection with its place, light or season"
+          },
+          "directionId": "pocahontas"
+        }
+      ]
+    },
+    {
+      "id": "PRINCESS_16",
+      "prompt": {
+        "zh": "你有机会改变一件可随时改回的小摆设，会倾向？",
+        "en": "You may change a small arrangement that is easy to restore. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先想象几种安静的小场景，不急着动手",
+            "en": "Imagine several quiet scenes without immediately changing it"
+          },
+          "directionId": "aurora"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看看一个没用过的普通部件会带来什么",
+            "en": "Explore what an unfamiliar ordinary component might add"
+          },
+          "directionId": "ariel"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "选择自己喜欢的方式，不只照别人的偏好",
+            "en": "Choose an approach you like rather than only others’ preferences"
+          },
+          "directionId": "jasmine"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "按空间、材料和实际需要调整一个细节",
+            "en": "Adapt a detail to space, materials and actual needs"
+          },
+          "directionId": "mulan"
+        }
+      ]
+    },
+    {
+      "id": "PRINCESS_17",
+      "prompt": {
+        "zh": "一份普通说明里提到新东西，你比较愿意怎样接近？",
+        "en": "An ordinary description mentions something new. How would you prefer to approach it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先看看这个陌生东西，找一个自己好奇的细节",
+            "en": "Explore the unfamiliar thing through a detail that interests you"
+          },
+          "directionId": "ariel"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "查明这句话的意思、依据和语境",
+            "en": "Understand the statement’s meaning, support and context"
+          },
+          "directionId": "belle"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "观察它与周围材料或环境的具体关系",
+            "en": "Observe its specific relation to surrounding materials or setting"
+          },
+          "directionId": "pocahontas"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "为自己想做的一小处定一个有限步骤",
+            "en": "Choose a limited step for a small part you want to do"
+          },
+          "directionId": "tiana"
+        }
+      ]
+    },
+    {
+      "id": "PRINCESS_18",
+      "prompt": {
+        "zh": "朋友愿意听你介绍一个个人小点子，你更容易先谈？",
+        "en": "A friend wants to hear about a small personal idea. What would you rather discuss first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己还想读懂的一个问题，而非假装全都明白",
+            "en": "A question you still want to understand instead of claiming certainty"
+          },
+          "directionId": "belle"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "哪些选择确实是自己的，不想被别人代为决定",
+            "en": "Which choices are yours and should not be decided on your behalf"
+          },
+          "directionId": "jasmine"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "现实条件改变时，哪一小段可以换做法",
+            "en": "Which small part could adapt if actual conditions change"
+          },
+          "directionId": "mulan"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "想用哪几种不同形式表达同一个意思",
+            "en": "The different forms you might choose for one meaning"
+          },
+          "directionId": "rapunzel"
+        }
+      ]
+    },
+    {
+      "id": "PRINCESS_19",
+      "prompt": {
+        "zh": "一次自选的兴趣体验有惯常流程，你比较想先确认？",
+        "en": "A chosen hobby experience has a customary sequence. What would you prefer to confirm first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "哪些步骤自己愿意，是否可以提出不同选择",
+            "en": "Which steps you want and whether different choices are possible"
+          },
+          "directionId": "jasmine"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "流程和现场空间、材料的关系是否合适",
+            "en": "How the sequence fits the actual space and materials"
+          },
+          "directionId": "pocahontas"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "自己选的一个小目标，怎样拆成可行一步",
+            "en": "How to make one chosen small aim into a feasible step"
+          },
+          "directionId": "tiana"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "能否采用自己选的方式，而不只是复制惯例",
+            "en": "Whether you can use a chosen approach instead of simply repeating convention"
+          },
+          "directionId": "merida"
+        }
+      ]
+    },
+    {
+      "id": "PRINCESS_20",
+      "prompt": {
+        "zh": "你想记录一段普通日常，比较愿意关注哪一层？",
+        "en": "You want to record an ordinary daily moment. Which layer interests you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "眼前人、物和周围环境怎样相连",
+            "en": "How people, objects and their surroundings relate"
+          },
+          "directionId": "pocahontas"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "实际情况和原来想象不同，自己怎样调整",
+            "en": "How you adjusted when conditions differed from expectations"
+          },
+          "directionId": "mulan"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用自选的颜色、文字或排列表达感受",
+            "en": "An expression through colours, words or arrangement you choose"
+          },
+          "directionId": "rapunzel"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "这段经历与自己在意的地方或共同事项有什么联系",
+            "en": "Its connection with a place or shared matter you care about"
+          },
+          "directionId": "moana"
+        }
+      ]
+    },
+    {
+      "id": "PRINCESS_21",
+      "prompt": {
+        "zh": "一件小合作遇到可以商量的变化，你会先愿意？",
+        "en": "A small collaboration faces a change that can be discussed. What would you prefer first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "根据实际需要换一种普通做法，不硬套原步骤",
+            "en": "Adapt an ordinary approach to actual needs instead of forcing old steps"
+          },
+          "directionId": "mulan"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给仍然愿意做的部分选一个具体小步骤",
+            "en": "Choose a concrete small step for the part you still want to do"
+          },
+          "directionId": "tiana"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "确认新的做法仍然出于自选，不只是为了符合期待",
+            "en": "Check that the new approach is chosen rather than merely expected"
+          },
+          "directionId": "merida"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把双方还愿意答应的范围重新讲清楚",
+            "en": "Clarify the scope each person still wants to agree to"
+          },
+          "directionId": "raya"
+        }
+      ]
+    },
+    {
+      "id": "PRINCESS_22",
+      "prompt": {
+        "zh": "整理一个自己想做的小项目时，你更容易先注意？",
+        "en": "Arranging a small project you want to do, what do you tend to notice first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "当前能实际完成的一小段，不把范围无限加大",
+            "en": "A feasible small part without endlessly expanding the scope"
+          },
+          "directionId": "tiana"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一种自己愿意尝试的表达形式",
+            "en": "A form of expression you want to try"
+          },
+          "directionId": "rapunzel"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "下一段路径和自己在意的共同事项如何相连",
+            "en": "How the next part connects with a shared matter you care about"
+          },
+          "directionId": "moana"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "能否给愿意参加的人留一个友好的位置",
+            "en": "Whether willing participants have a welcoming place"
+          },
+          "directionId": "snow-white"
+        }
+      ]
+    },
+    {
+      "id": "PRINCESS_23",
+      "prompt": {
+        "zh": "为一张私人小海报选择做法，你更愿意保留？",
+        "en": "Choosing an approach for a small personal poster, what would you rather preserve?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己在图形、短句或排列上的多种尝试",
+            "en": "Your varied experiments with shapes, short text or arrangement"
+          },
+          "directionId": "rapunzel"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "不必符合常见样式的个人选择空间",
+            "en": "Room for your choice without matching a conventional format"
+          },
+          "directionId": "merida"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "别人参与时可以明确同意或拒绝的约定",
+            "en": "Agreements allowing others to accept or decline participation"
+          },
+          "directionId": "raya"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "自己最初仍然喜欢的一个小盼望",
+            "en": "A little hope you still like from the beginning"
+          },
+          "directionId": "cinderella"
+        }
+      ]
+    },
+    {
+      "id": "PRINCESS_24",
+      "prompt": {
+        "zh": "一种别人习惯的做法与你的偏好不同，你更愿意？",
+        "en": "Someone else’s usual approach differs from your preference. What would you rather do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把自己选择的方式说清，同时尊重实际限制",
+            "en": "State your chosen approach while respecting actual limits"
+          },
+          "directionId": "merida"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "想想哪条做法更连着自己在意的人和地方",
+            "en": "Consider which approach connects with people and places you care about"
+          },
+          "directionId": "moana"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "让愿意参与的人各自舒服加入，不强求统一",
+            "en": "Let willing people join comfortably without forced uniformity"
+          },
+          "directionId": "snow-white"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "保留脑中另一种普通场景，不必立即实现",
+            "en": "Keep another imagined ordinary scene without immediately realising it"
+          },
+          "directionId": "aurora"
+        }
+      ]
+    },
+    {
+      "id": "PRINCESS_25",
+      "prompt": {
+        "zh": "一个小计划要走到下一步，你更想先问？",
+        "en": "A small plan could take another step. What would you rather ask first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "这条路径还连着自己真正关心的事情吗",
+            "en": "Does this route still connect with what I actually care about"
+          },
+          "directionId": "moana"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "哪些信息和约定足以让双方自愿继续",
+            "en": "What information and agreements support willing continuation"
+          },
+          "directionId": "raya"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "原本那个小盼望还想不想留着",
+            "en": "Do I still want to keep that little hope open"
+          },
+          "directionId": "cinderella"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有没有一个不熟悉但可低风险了解的小细节",
+            "en": "Is there an unfamiliar detail I may explore at low stakes"
+          },
+          "directionId": "ariel"
+        }
+      ]
+    },
+    {
+      "id": "PRINCESS_26",
+      "prompt": {
+        "zh": "回看一次自愿参加的普通小活动，你比较愿意记下？",
+        "en": "Looking back on an ordinary activity you willingly joined, what would you rather note?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "哪条具体约定让合作有依据，哪些仍需再谈",
+            "en": "Which agreement supported cooperation and what needs discussion"
+          },
+          "directionId": "raya"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "愿意参加的人怎样被欢迎，而不是被拉进来",
+            "en": "How willing participants were welcomed rather than pulled in"
+          },
+          "directionId": "snow-white"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "自己想象过哪些普通场景，不必全都实现",
+            "en": "The ordinary scenes you imagined without needing all of them realised"
+          },
+          "directionId": "aurora"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "自己通过阅读和问题真正理解了哪一小处",
+            "en": "The small detail you understood through reading and questions"
+          },
+          "directionId": "belle"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "required": 26,
+    "choice": "one option adds1 to offered editorial character angle",
+    "total": 26,
+    "exposureEach": 8,
+    "perPosition": 2,
+    "highest": "allhighestretainfullguides/noautomaticsecondary",
+    "allA": "13characters2each/all13fullguides",
+    "verificationPlan": "13uniquehighest+4all13ties+4096deterministiccompleteanswersplanned4113boundedsourceoraclecasesNOTexecuted/not4^26/globalDP/allhighestsets/psychvalidation"
+  },
+  "scope": "Independentunofficialfanreadings/ordinarychosenapproachesonly/official13rosterdoesNOTmakeofficialtest. Disneyfictionnotcompletepersonality/actualhistoricalbiography/ethnicity/religion/skinbeauty/genderroles/virtue/ability/romance/relationshiporcareer. PocahontasanimatedcharacterNOTactualMatoakabiographyorIndigenouspersonality;nohistoricalromanticisationofcaptivity/colonialism. Noimitationofwar/unsafevoyages/magic/abuseacceptance/rescuerromance. Noart/screenshots/dialogue/lyrics/protectedtranslations/competitorbank/body/scorerused. NoMBTI/othercharacterconversion.",
+  "instructions": {
+    "zh": "本版26题原创非官方同人问卷，选用当前迪士尼公主官方目录的13位虚构角色，比较你在普通小事里目前愿意采用的做法。角色集合有官方出处，题目、映射和解释由费马独立创作，并非迪士尼官方测验。每题从四种做法选一个较接近自己的，均以自选、许可、可改与可停止为前提。每选加1，每位全卷出现8次，全部最高并列完整显示。结果不判断外貌、肤色、性别、族群、宗教、善良程度、勇气、天赋、婚恋或职业，不要求模仿忍受伤害、战斗、航海或魔法；宝嘉康蒂只指动画角色，不代表历史人物与原住民。无需剧情知识，也不换算MBTI。",
+    "en": "This original 26-question unofficial fan quiz uses the 13 fictional characters in Disney’s current official Princess directory to compare ordinary approaches you currently prefer. The roster has an official source; items, mappings and interpretations are independently authored by FermatMind rather than an official Disney test. Choose the closer of four approaches in voluntary, permitted, revisable and stoppable situations. Each choice adds one, each character appears eight times and every highest tie receives its full guide. Results judge no appearance, skin colour, gender, ethnicity, religion, goodness, bravery, talent, romance or career and invite no imitation of accepting harm, combat, navigation or magic. Pocahontas means the animated character, not the historical person or Indigenous peoples. Episode knowledge is unnecessary and there is no MBTI conversion."
+  }
+}

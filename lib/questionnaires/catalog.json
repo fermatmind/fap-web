@@ -1040,5 +1040,39 @@
       "kurimanju",
       "rakko"
     ]
+  },
+  {
+    "slug": "disney-princess",
+    "code": "DISNEY_PRINCESS_FAN_ORDINARY_CHOICES",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "metaphor",
+    "title": {
+      "zh": "迪士尼公主测试",
+      "en": "Disney Princess Test"
+    },
+    "description": {
+      "zh": "免费完成26道原创普通选择，比较13位迪士尼动画公主角色。最高并列全部完整显示，含例子、十二角色对照与计分；非官方同人测试，不做外貌或能力评分。",
+      "en": "Take 26 original everyday questions and compare 13 Disney Princess characters. Full tied results, examples and scoring are free in this unofficial fan quiz."
+    },
+    "minutes": 8,
+    "collection": "explore",
+    "formCode": "fm_disney_princess_fan_choices_26",
+    "questionCount": 26,
+    "resultSlugs": [
+      "snow-white",
+      "cinderella",
+      "aurora",
+      "ariel",
+      "belle",
+      "jasmine",
+      "pocahontas",
+      "mulan",
+      "tiana",
+      "rapunzel",
+      "merida",
+      "moana",
+      "raya"
+    ]
   }
 ]
