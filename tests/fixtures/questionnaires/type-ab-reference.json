@@ -1,0 +1,1335 @@
+{
+  "formCode": "fm_type_ab_four_behaviours_20",
+  "origin": "FermatMindoriginal20ENZHfrequencyitems/fourindependenteditorialfacets/notJenkinsBortnerMMPIorclinicalTypeAinstrument",
+  "directions": [
+    {
+      "id": "time-urgency",
+      "title": {
+        "zh": "时间催促感",
+        "en": "Felt time urgency"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "competitive-comparison",
+      "title": {
+        "zh": "竞争式比较",
+        "en": "Competitive comparison"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "waiting-irritation",
+      "title": {
+        "zh": "普通等待中的烦躁",
+        "en": "Irritation during ordinary waits"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "difficulty-stopping",
+      "title": {
+        "zh": "自选活动难停下",
+        "en": "Difficulty stopping chosen activities"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "TYPE_AB_01",
+      "prompt": {
+        "zh": "近四周，做没有临近期限的自选小事时，我仍觉得应当赶快做完。",
+        "en": "Over the past four weeks, I felt I should hurry through a chosen small activity even without an approaching deadline."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "time-urgency",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "time-urgency",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "time-urgency",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "time-urgency",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "time-urgency",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "time-urgency",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_02",
+      "prompt": {
+        "zh": "近四周，在没有名次要求的普通活动里，我会留意自己是否比别人做得更快。",
+        "en": "Over the past four weeks, I watched whether I was quicker than others in ordinary activities with no ranking requirement."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competitive-comparison",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competitive-comparison",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competitive-comparison",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competitive-comparison",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competitive-comparison",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "competitive-comparison",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_03",
+      "prompt": {
+        "zh": "近四周，遇到不影响必要安排的短暂等候时，我仍会感到烦躁。",
+        "en": "Over the past four weeks, a brief wait irritated me even when it did not affect necessary arrangements."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "waiting-irritation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "waiting-irritation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "waiting-irritation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "waiting-irritation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "waiting-irritation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "waiting-irritation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_04",
+      "prompt": {
+        "zh": "近四周，一件自选小事已经达到我原先定的结束点，我仍会继续加内容。",
+        "en": "Over the past four weeks, I kept adding to a chosen activity after reaching the endpoint I had set."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "difficulty-stopping",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_05",
+      "prompt": {
+        "zh": "近四周，时间允许时，我能按自己选定的步调做普通小事，而不额外催促自己。",
+        "en": "Over the past four weeks, when time allowed, I kept my chosen pace for an ordinary activity without adding pressure to hurry."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "time-urgency",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "time-urgency",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "time-urgency",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "time-urgency",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "time-urgency",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "time-urgency",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_06",
+      "prompt": {
+        "zh": "近四周，普通活动没有比赛时，我能只按自己的目标判断是否足够。",
+        "en": "Over the past four weeks, when an ordinary activity was not a contest, I judged adequacy by my own goal."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competitive-comparison",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competitive-comparison",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competitive-comparison",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competitive-comparison",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competitive-comparison",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "competitive-comparison",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_07",
+      "prompt": {
+        "zh": "近四周，普通安排稍微延后而没有实际损失时，我能让这段等候平常地过去。",
+        "en": "Over the past four weeks, I let an ordinary delay pass uneventfully when it caused no actual loss."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "waiting-irritation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "waiting-irritation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "waiting-irritation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "waiting-irritation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "waiting-irritation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "waiting-irritation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_08",
+      "prompt": {
+        "zh": "近四周，没有必须继续的事时，我能在自选活动原定的结束点停下。",
+        "en": "Over the past four weeks, I stopped a chosen activity at its planned endpoint when nothing required continuing."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "difficulty-stopping",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_09",
+      "prompt": {
+        "zh": "近四周，即使给一件自选小事留足时间，我做的时候还是会不断想着加快。",
+        "en": "Over the past four weeks, I kept thinking about speeding up a chosen activity despite allowing enough time for it."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "time-urgency",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "time-urgency",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "time-urgency",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "time-urgency",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "time-urgency",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "time-urgency",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_10",
+      "prompt": {
+        "zh": "近四周，本来只是自己愿意做的小事，我也会想找一个可以超过别人的比较点。",
+        "en": "Over the past four weeks, I looked for a way to outperform someone in a small activity I had chosen for myself."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competitive-comparison",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competitive-comparison",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competitive-comparison",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competitive-comparison",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competitive-comparison",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "competitive-comparison",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_11",
+      "prompt": {
+        "zh": "近四周，等待自己愿意参加的普通活动开始时，我会因几分钟的空当而心烦。",
+        "en": "Over the past four weeks, a few spare minutes before a voluntary ordinary activity bothered me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "waiting-irritation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "waiting-irritation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "waiting-irritation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "waiting-irritation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "waiting-irritation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "waiting-irritation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_12",
+      "prompt": {
+        "zh": "近四周，已经可以结束的自选活动，我会因为觉得还能再多做一点而拖后结束。",
+        "en": "Over the past four weeks, I postponed ending a chosen activity that could already finish because I felt I could add a little more."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "difficulty-stopping",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_13",
+      "prompt": {
+        "zh": "近四周，没有赶时间的实际需要时，我能把普通小事的速度放在自己觉得合适的位置。",
+        "en": "Over the past four weeks, without a real need to rush, I used a pace that suited me for an ordinary activity."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "time-urgency",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "time-urgency",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "time-urgency",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "time-urgency",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "time-urgency",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "time-urgency",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_14",
+      "prompt": {
+        "zh": "近四周，看到别人把普通自选活动做得不同，我能不把它变成谁胜谁负。",
+        "en": "Over the past four weeks, I let differences in ordinary chosen activities remain differences rather than a question of winning."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competitive-comparison",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competitive-comparison",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competitive-comparison",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competitive-comparison",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competitive-comparison",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "competitive-comparison",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_15",
+      "prompt": {
+        "zh": "近四周，必要信息已经清楚的普通短等候里，我能不因为等候本身而烦躁。",
+        "en": "Over the past four weeks, a brief ordinary wait did not irritate me merely for being a wait when the necessary information was clear."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "waiting-irritation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "waiting-irritation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "waiting-irritation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "waiting-irritation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "waiting-irritation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "waiting-irritation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_16",
+      "prompt": {
+        "zh": "近四周，自己愿意且条件允许时，我能结束一件普通小事，即使它还有可添加之处。",
+        "en": "Over the past four weeks, when I wanted to and conditions allowed, I ended an ordinary activity even if more could be added."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "difficulty-stopping",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_17",
+      "prompt": {
+        "zh": "近四周，安排宽松的自选活动进行中，我仍会在心里给自己设更紧的时间。",
+        "en": "Over the past four weeks, during a loosely scheduled chosen activity, I gave myself a tighter time limit in my mind."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "time-urgency",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "time-urgency",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "time-urgency",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "time-urgency",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "time-urgency",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "time-urgency",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_18",
+      "prompt": {
+        "zh": "近四周，普通小事已经达到自己的目标后，我仍会因别人做得更多而想继续比较。",
+        "en": "Over the past four weeks, after meeting my own goal in an ordinary activity, I still compared because somebody else did more."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competitive-comparison",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competitive-comparison",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competitive-comparison",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competitive-comparison",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competitive-comparison",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "competitive-comparison",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_19",
+      "prompt": {
+        "zh": "近四周，已经知道大概何时能继续的普通等候里，我仍会因为不能马上开始而烦闷。",
+        "en": "Over the past four weeks, I felt bothered about not starting immediately during an ordinary wait with a known approximate endpoint."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "waiting-irritation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "waiting-irritation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "waiting-irritation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "waiting-irritation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "waiting-irritation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "waiting-irritation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_20",
+      "prompt": {
+        "zh": "近四周，结束自选活动的条件已经具备时，我仍会把停下留到又多做一项之后。",
+        "en": "Over the past four weeks, with the conditions for ending a chosen activity already met, I deferred stopping until after one more addition."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "difficulty-stopping",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "questions": 20,
+    "facets": 4,
+    "itemsEach": 5,
+    "minimumRatedEach": 3,
+    "reverseItems": 8,
+    "reverseRule": "6-r on valid1..5only;NAexcludednotzero",
+    "mean": "sum/ratedrounded1decimal/independent1..5means/nooverallA/Btype,total,norm,percentile,healthorcareerprediction",
+    "verificationPlan": "5item6responseNAperfacet planned66reachable(rated,sum)sourceDPstatesx4=264individualfacetstates;NOTexecuted/not6^20jointenumeration/normorpsychvalidation"
+  },
+  "scope": "Selectedfourordinaryselfreportedbehaviourswithactualchoice/timeconditions;TypeA/BhistoricalframeworkcontextNOTonevalidatedaxisorABassignment.4independentmeans+insufficientstates/all4FULLguides;nohealth/disease/angerdiagnosis/ability/morality/genetics/productivity/hiring/careerclaims. No protectedstandardbankorcompetitoritemsbodyalgorithmadopted.",
+  "instructions": {
+    "zh": "回想近四周自己有一定选择余地的普通小事，按每句话实际出现的频率选择，从1从不到5几乎总是；没有相关情境、没有选择余地或不愿回答时可选NA。20条原创题分别观察时间催促、竞争式比较、普通等待烦躁和自选活动难停下，每部分5题、2条相反表述按6减有效评分；至少3条有效才显示一位小数均分。NA不补零，不足明确保留。四部分各自解释，不相加、不评最高人格、不分固定A/B类型；A/B概念及混合表现会在正文说明。它不是Jenkins、Bortner、临床筛查或心脏风险工具，不评健康、能力、善恶或工作适配。",
+    "en": "Recall ordinary activities over the past four weeks where you had some choice. Rate how often each statement applied from 1 Never to 5 Almost always. Choose NA when context or choice was absent, information is insufficient or you prefer not to answer. Twenty original items separately explore felt time urgency, competitive comparison, irritation during ordinary waits and difficulty stopping chosen activities. Each part has five items, two oppositely worded as six minus a valid response; at least three ratings permit a one-decimal mean. NA is excluded without zero-filling and insufficient information stays explicit. Parts remain separate without a total, highest-score personality or fixed A/B assignment; the body explains the framework and mixed patterns. This is no Jenkins, Bortner, clinical screening or cardiac-risk instrument and assesses no health, ability, morality or job fit."
+  }
+}

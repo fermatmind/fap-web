@@ -1,0 +1,2105 @@
+{
+  "slug": "type-ab",
+  "code": "TYPE_AB_ORIGINAL_BEHAVIOUR_REFLECTION",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "everyday",
+  "kind": "likert",
+  "minimumRatedItems": 3,
+  "title": {
+    "zh": "A型/B型人格测试",
+    "en": "Type A / Type B Personality Test"
+  },
+  "resultHeading": {
+    "zh": "本次四项行为观察与完整解释",
+    "en": "Your four behaviour reflections and full guides"
+  },
+  "description": {
+    "zh": "用20条原创题分别观察时间催促、竞争比较、普通等待烦躁与自选活动难停下。四项均分及完整解释免费，保留资料不足；不派固定A/B类型，不评健康或职业。",
+    "en": "Use 20 original ratings for four separate A/B-related behaviour reflections. Full guides free; no fixed type, overall score, health or career verdict."
+  },
+  "seoTitle": {
+    "zh": "A型/B型人格测试：20题、四项行为自评与完整解释",
+    "en": "Type A / Type B Personality Test: Four-Part Reflection"
+  },
+  "minutes": 5,
+  "introduction": {
+    "zh": "时间紧迫、想与人比较、等候时烦躁、到了结束点仍想加内容，可以是不同经验。20条原创题分别记录你近四周在有一定选择余地的普通情境里多常遇到它们。A/B概念与混合表现会在完整说明中解释；本版呈现四项均分或资料不足及全部正文，不合成总分，也不派固定A型、B型或平衡型。真实职责、资源与健康状况另按事实理解。",
+    "en": "Added hurry, comparison, irritation during a wait and continuing beyond an endpoint can be different experiences. Twenty original items separately record how often you encountered them over four weeks in ordinary situations with some choice. Full guides explain the A/B framework and mixed patterns. This edition presents four means or insufficient-information states and all full text, without a total or fixed A, B or Balanced assignment. Actual duties, resources and health require their own facts."
+  },
+  "instructions": {
+    "zh": "回想近四周自己有一定选择余地的普通小事，按每句话实际出现的频率选择，从1从不到5几乎总是；没有相关情境、没有选择余地或不愿回答时可选NA。20条原创题分别观察时间催促、竞争式比较、普通等待烦躁和自选活动难停下，每部分5题、2条相反表述按6减有效评分；至少3条有效才显示一位小数均分。NA不补零，不足明确保留。四部分各自解释，不相加、不评最高人格、不分固定A/B类型；A/B概念及混合表现会在正文说明。它不是Jenkins、Bortner、临床筛查或心脏风险工具，不评健康、能力、善恶或工作适配。",
+    "en": "Recall ordinary activities over the past four weeks where you had some choice. Rate how often each statement applied from 1 Never to 5 Almost always. Choose NA when context or choice was absent, information is insufficient or you prefer not to answer. Twenty original items separately explore felt time urgency, competitive comparison, irritation during ordinary waits and difficulty stopping chosen activities. Each part has five items, two oppositely worded as six minus a valid response; at least three ratings permit a one-decimal mean. NA is excluded without zero-filling and insufficient information stays explicit. Parts remain separate without a total, highest-score personality or fixed A/B assignment; the body explains the framework and mixed patterns. This is no Jenkins, Bortner, clinical screening or cardiac-risk instrument and assesses no health, ability, morality or job fit."
+  },
+  "source": {
+    "kind": "FermatMindoriginal20ENZHfrequencyitems/fourindependenteditorialfacets/notJenkinsBortnerMMPIorclinicalTypeAinstrument",
+    "formCode": "fm_type_ab_four_behaviours_20",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "b94b72f41e530bf22991787f11939cff3d06d5262bc7d7cd38353f22a0e7e060",
+    "resultContentSha256": "1419eb5a61a504dea11e859b6440938e93fd1cbd20509429f6e64059abebde44",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "time-urgency",
+      "title": {
+        "zh": "时间催促感",
+        "en": "Felt time urgency"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "competitive-comparison",
+      "title": {
+        "zh": "竞争式比较",
+        "en": "Competitive comparison"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "waiting-irritation",
+      "title": {
+        "zh": "普通等待中的烦躁",
+        "en": "Irritation during ordinary waits"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "difficulty-stopping",
+      "title": {
+        "zh": "自选活动难停下",
+        "en": "Difficulty stopping chosen activities"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "TYPE_AB_01",
+      "prompt": {
+        "zh": "近四周，做没有临近期限的自选小事时，我仍觉得应当赶快做完。",
+        "en": "Over the past four weeks, I felt I should hurry through a chosen small activity even without an approaching deadline."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "time-urgency",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "time-urgency",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "time-urgency",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "time-urgency",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "time-urgency",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "time-urgency",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_02",
+      "prompt": {
+        "zh": "近四周，在没有名次要求的普通活动里，我会留意自己是否比别人做得更快。",
+        "en": "Over the past four weeks, I watched whether I was quicker than others in ordinary activities with no ranking requirement."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competitive-comparison",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competitive-comparison",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competitive-comparison",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competitive-comparison",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competitive-comparison",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "competitive-comparison",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_03",
+      "prompt": {
+        "zh": "近四周，遇到不影响必要安排的短暂等候时，我仍会感到烦躁。",
+        "en": "Over the past four weeks, a brief wait irritated me even when it did not affect necessary arrangements."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "waiting-irritation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "waiting-irritation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "waiting-irritation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "waiting-irritation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "waiting-irritation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "waiting-irritation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_04",
+      "prompt": {
+        "zh": "近四周，一件自选小事已经达到我原先定的结束点，我仍会继续加内容。",
+        "en": "Over the past four weeks, I kept adding to a chosen activity after reaching the endpoint I had set."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "difficulty-stopping",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_05",
+      "prompt": {
+        "zh": "近四周，时间允许时，我能按自己选定的步调做普通小事，而不额外催促自己。",
+        "en": "Over the past four weeks, when time allowed, I kept my chosen pace for an ordinary activity without adding pressure to hurry."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "time-urgency",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "time-urgency",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "time-urgency",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "time-urgency",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "time-urgency",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "time-urgency",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_06",
+      "prompt": {
+        "zh": "近四周，普通活动没有比赛时，我能只按自己的目标判断是否足够。",
+        "en": "Over the past four weeks, when an ordinary activity was not a contest, I judged adequacy by my own goal."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competitive-comparison",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competitive-comparison",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competitive-comparison",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competitive-comparison",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competitive-comparison",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "competitive-comparison",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_07",
+      "prompt": {
+        "zh": "近四周，普通安排稍微延后而没有实际损失时，我能让这段等候平常地过去。",
+        "en": "Over the past four weeks, I let an ordinary delay pass uneventfully when it caused no actual loss."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "waiting-irritation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "waiting-irritation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "waiting-irritation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "waiting-irritation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "waiting-irritation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "waiting-irritation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_08",
+      "prompt": {
+        "zh": "近四周，没有必须继续的事时，我能在自选活动原定的结束点停下。",
+        "en": "Over the past four weeks, I stopped a chosen activity at its planned endpoint when nothing required continuing."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "difficulty-stopping",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_09",
+      "prompt": {
+        "zh": "近四周，即使给一件自选小事留足时间，我做的时候还是会不断想着加快。",
+        "en": "Over the past four weeks, I kept thinking about speeding up a chosen activity despite allowing enough time for it."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "time-urgency",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "time-urgency",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "time-urgency",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "time-urgency",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "time-urgency",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "time-urgency",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_10",
+      "prompt": {
+        "zh": "近四周，本来只是自己愿意做的小事，我也会想找一个可以超过别人的比较点。",
+        "en": "Over the past four weeks, I looked for a way to outperform someone in a small activity I had chosen for myself."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competitive-comparison",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competitive-comparison",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competitive-comparison",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competitive-comparison",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competitive-comparison",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "competitive-comparison",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_11",
+      "prompt": {
+        "zh": "近四周，等待自己愿意参加的普通活动开始时，我会因几分钟的空当而心烦。",
+        "en": "Over the past four weeks, a few spare minutes before a voluntary ordinary activity bothered me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "waiting-irritation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "waiting-irritation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "waiting-irritation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "waiting-irritation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "waiting-irritation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "waiting-irritation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_12",
+      "prompt": {
+        "zh": "近四周，已经可以结束的自选活动，我会因为觉得还能再多做一点而拖后结束。",
+        "en": "Over the past four weeks, I postponed ending a chosen activity that could already finish because I felt I could add a little more."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "difficulty-stopping",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_13",
+      "prompt": {
+        "zh": "近四周，没有赶时间的实际需要时，我能把普通小事的速度放在自己觉得合适的位置。",
+        "en": "Over the past four weeks, without a real need to rush, I used a pace that suited me for an ordinary activity."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "time-urgency",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "time-urgency",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "time-urgency",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "time-urgency",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "time-urgency",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "time-urgency",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_14",
+      "prompt": {
+        "zh": "近四周，看到别人把普通自选活动做得不同，我能不把它变成谁胜谁负。",
+        "en": "Over the past four weeks, I let differences in ordinary chosen activities remain differences rather than a question of winning."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competitive-comparison",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competitive-comparison",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competitive-comparison",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competitive-comparison",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competitive-comparison",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "competitive-comparison",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_15",
+      "prompt": {
+        "zh": "近四周，必要信息已经清楚的普通短等候里，我能不因为等候本身而烦躁。",
+        "en": "Over the past four weeks, a brief ordinary wait did not irritate me merely for being a wait when the necessary information was clear."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "waiting-irritation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "waiting-irritation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "waiting-irritation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "waiting-irritation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "waiting-irritation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "waiting-irritation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_16",
+      "prompt": {
+        "zh": "近四周，自己愿意且条件允许时，我能结束一件普通小事，即使它还有可添加之处。",
+        "en": "Over the past four weeks, when I wanted to and conditions allowed, I ended an ordinary activity even if more could be added."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "difficulty-stopping",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_17",
+      "prompt": {
+        "zh": "近四周，安排宽松的自选活动进行中，我仍会在心里给自己设更紧的时间。",
+        "en": "Over the past four weeks, during a loosely scheduled chosen activity, I gave myself a tighter time limit in my mind."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "time-urgency",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "time-urgency",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "time-urgency",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "time-urgency",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "time-urgency",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "time-urgency",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_18",
+      "prompt": {
+        "zh": "近四周，普通小事已经达到自己的目标后，我仍会因别人做得更多而想继续比较。",
+        "en": "Over the past four weeks, after meeting my own goal in an ordinary activity, I still compared because somebody else did more."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competitive-comparison",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competitive-comparison",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competitive-comparison",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competitive-comparison",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competitive-comparison",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "competitive-comparison",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_19",
+      "prompt": {
+        "zh": "近四周，已经知道大概何时能继续的普通等候里，我仍会因为不能马上开始而烦闷。",
+        "en": "Over the past four weeks, I felt bothered about not starting immediately during an ordinary wait with a known approximate endpoint."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "waiting-irritation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "waiting-irritation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "waiting-irritation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "waiting-irritation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "waiting-irritation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "waiting-irritation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TYPE_AB_20",
+      "prompt": {
+        "zh": "近四周，结束自选活动的条件已经具备时，我仍会把停下留到又多做一项之后。",
+        "en": "Over the past four weeks, with the conditions for ending a chosen activity already met, I deferred stopping until after one more addition."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "difficulty-stopping",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／没有足够情境",
+            "en": "Not applicable / insufficient context"
+          },
+          "directionId": "difficulty-stopping",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "time-urgency",
+      "directionIds": [
+        "time-urgency"
+      ],
+      "title": {
+        "zh": "时间催促感：分清期限与自己的加速",
+        "en": "Felt Time Urgency: Deadlines and Added Hurry"
+      },
+      "headline": {
+        "zh": "时间催促感：分清期限与自己的加速",
+        "en": "Felt Time Urgency: Deadlines and Added Hurry"
+      },
+      "summary": {
+        "zh": "用自选整理小事看时间充足时仍想加速的频率，含高低、混合、反例和表达；不以赶不赶评A/B身份、能力或健康。",
+        "en": "Explore added hurry in a chosen organising activity, with higher, lower and mixed readings, examples and limits; no fixed A/B, ability or health verdict."
+      },
+      "scoreReading": {
+        "zh": "20题都选择后，四部分分别计算。每部分5条，1从不、2很少、3有时、4经常、5几乎总是，2条相反表述按6减有效回答；共8条反向。NA是不适用、情境不足或不愿回答，排除，不补零或中性。每部分至少3条有效评分，才按计分和除有效条数取一位小数均分1—5；不足保留资料不足，不按其他部分补分。四项不相加、不派最高型、不产生A/B总分、百分位或固定标签。相同均分保留，小数差异不证明显著或改变，中间值不证明灵活、最适度或健康。最低条数只是本站完整度规则，未提供常模、科学阈值、信度或效度。",
+        "en": "After all 20 selections, calculate four parts separately. Each has five items rated 1 Never, 2 Rarely, 3 Sometimes, 4 Often or 5 Almost always. Two opposite statements per part, eight overall, use six minus a valid response. NA means absent context, insufficient information or declining to answer; exclude it without zero or midpoint substitution. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items. Otherwise retain insufficient information without borrowing another part’s score. Parts produce no total, highest-score type, A/B score, percentile or fixed label. Equal means stay equal; decimals establish no significance or change. A middle mean proves no flexibility, ideal moderation or health. The minimum is a website completeness convention, without norms, scientific cutoffs, reliability or validity evidence."
+      },
+      "seo": {
+        "title": {
+          "zh": "A/B测试时间催促结果：期限、加速与完整解释",
+          "en": "Type A/B Test: Time Urgency Result & Full Guide"
+        },
+        "description": {
+          "zh": "A/B自评时间催促完整解释：区分真实期限与额外加速，含高低、混合、资料不足、三项对照、反例与计分；不评固定人格或健康。",
+          "en": "Read felt time urgency separately from actual deadlines, with higher, lower and mixed examples, three comparisons and scoring. No fixed A/B or health verdict."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这项在观察什么",
+            "en": "What this part observes"
+          },
+          "paragraphs": [
+            {
+              "zh": "传统A/B行为模式常提到时间催促，但有真实期限的赶时间与时间宽松时仍想加速并不相同。本版只用五条原创题观察近四周在有一定选择余地的普通小事里，自我催促出现多频繁。它不是客观速度，也不是固定人格。必要工作、照护、赶车和无法改变的安排，不能仅凭这个分数解释为内在习惯。",
+              "en": "Time urgency appears in traditional A/B descriptions, but hurrying for an actual deadline differs from adding hurry when time is available. Five original items ask how often the latter appeared in ordinary chosen activities over four weeks. This is neither measured speed nor a fixed personality. Necessary work, care, transport and arrangements outside your control need their actual context rather than an explanation inferred from a mean."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "较高、较低、混合与资料不足",
+            "en": "Higher, lower, mixed and insufficient readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "按反向规则后的均分较高，表示本组情境里较常报告额外催促；较低表示较少这样报告，不保证平时从容。中间均分可能来自每题都选“有时”，也可能由不同题目的高低抵消，不能直接叫灵活或最平衡。至少三条有效才有个人均分；没有足够情境时保留资料不足，不把它当低催促或B型。",
+              "en": "A higher scored mean describes more reported added hurry in these selected situations; a lower mean describes less without certifying an unhurried life. A middle mean may reflect Sometimes throughout or contrasting answers cancelling numerically. It establishes no flexibility or ideal balance. At least three ratings are needed, and insufficient context remains insufficient rather than becoming low urgency or a Type B assignment by default."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通情境",
+            "en": "A concrete ordinary situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你给整理自己十张普通纸卡留了宽松时间，却不断在心里把结束点往前挪。先分开记“原本需要何时结束”“我临时又催了什么”“有没有真实新情况”。如果确实要赶下一项必要安排，就把它当条件变化，而不是责怪自己太A型。问卷记录不判断整理是否高效，也不知道为什么这次催促出现。",
+              "en": "Imagine allowing ample time to sort ten personal cards, then repeatedly moving the endpoint earlier in your mind. Separate the original deadline, pressure you added and any actual new constraint. A necessary next appointment changes the conditions rather than proving that you are too Type A. The questionnaire observes no efficiency and cannot determine why added hurry appeared in that particular activity or whether it helped at all."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express it"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以对自己或愿意讨论的同伴说：“真正要结束的时间是这个，我现在另外加了一点催促，想先看清两者。”这句话不要求立刻变慢；若实际条件需要快，就按条件处理。共同任务还要确认彼此知道的时间是否一致，不能因你的内部时钟更紧，就默认别人落后，也不需要把别人的节奏当成自己的标准。",
+              "en": "You might say, “This is the actual endpoint, and I have added some hurry; I want to distinguish the two.” Slowing down immediately is unnecessary, especially when real conditions require speed. For a shared task, check that timing information agrees. A tighter internal clock does not make somebody else late, and their pace need not become your standard. The purpose is clearer information, without judging either person’s character."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他三项及A/B标签比较",
+            "en": "Other parts and the A/B labels"
+          },
+          "paragraphs": [
+            {
+              "zh": "时间催促偏“应当更快”的感觉，竞争比较偏“是否超过别人”；想快不一定在比赛。等待烦躁偏短等候里的感受，难停下偏已经可以结束时仍加内容。四项可以不同，不合成A/B总分。催促低而竞争高并不矛盾，催促高而容易停下也不矛盾；相同均分不表示成因、需要或现实表现一样，更不是四种互斥人格。",
+              "en": "Time urgency concerns added hurry, competitive comparison outperforming someone, waiting irritation a feeling during a pause, and difficulty stopping continuing beyond an available endpoint. They can differ and produce no A/B total. Low hurry with strong comparison, or high hurry with easy stopping, is possible. Equal means establish no shared cause, need or performance and do not create four mutually exclusive personality types from separate experiences."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and conclusions not established"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，你可能因时间估计不准而加速，也可能因为小事无聊想早点结束；少催促也可能只是近四周安排宽松。均分不测野心、产出、责任、拖延、焦虑、心脏风险或身体状态。它也不证明你“能放松”或“不会累”。若现实里没有选择余地，先看外部限制，不能用A/B故事把负担改写成个人性格问题。",
+              "en": "Added speed can follow a poor time estimate or an uninteresting activity; little hurry can follow an unusually open month. Means assess no ambition, output, responsibility, procrastination, anxiety, cardiac risk or bodily state. They certify neither relaxation nor freedom from fatigue. When there is little actual choice, examine external constraints rather than turning workload into a personal character problem through an A/B story that the questionnaire did not establish."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：为一件本来愿意做、时间确实宽松的小事写下真实结束条件，以及是否临时给自己加了更紧时间，可以只回想不执行。再记录有无现实原因，不要求延长活动或压住催促。一次观察不算干预或训练，也不需要追求更低均分；你要辨认的是当时发生了什么，而不是证明自己已经变成另一种人格。",
+              "en": "For an optional observation, recall a chosen activity with genuinely available time. Note its actual endpoint, any tighter limit you added and any real reason. No new activity, longer duration or suppression of hurry is needed. One observation is no intervention or training and offers no target of a lower mean. Describe what happened in context without proving that you have changed into another personality or achieved an ideal pace."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "五条题的均分与NA规则",
+            "en": "Five-item means and NA rules"
+          },
+          "paragraphs": [
+            {
+              "zh": "20题都选择后，四部分分别计算。每部分5条，1从不、2很少、3有时、4经常、5几乎总是，2条相反表述按6减有效回答；共8条反向。NA是不适用、情境不足或不愿回答，排除，不补零或中性。每部分至少3条有效评分，才按计分和除有效条数取一位小数均分1—5；不足保留资料不足，不按其他部分补分。四项不相加、不派最高型、不产生A/B总分、百分位或固定标签。相同均分保留，小数差异不证明显著或改变，中间值不证明灵活、最适度或健康。最低条数只是本站完整度规则，未提供常模、科学阈值、信度或效度。",
+              "en": "After all 20 selections, calculate four parts separately. Each has five items rated 1 Never, 2 Rarely, 3 Sometimes, 4 Often or 5 Almost always. Two opposite statements per part, eight overall, use six minus a valid response. NA means absent context, insufficient information or declining to answer; exclude it without zero or midpoint substitution. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items. Otherwise retain insufficient information without borrowing another part’s score. Parts produce no total, highest-score type, A/B score, percentile or fixed label. Equal means stay equal; decimals establish no significance or change. A middle mean proves no flexibility, ideal moderation or health. The minimum is a website completeness convention, without norms, scientific cutoffs, reliability or validity evidence."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、文献与使用范围",
+            "en": "Original edition, sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马原创20题四项行为观察，借A/B行为模式讨论的背景，分别整理近四周有一定选择余地的普通情境；四项是本版编辑观察框架，不是研究已验证了本站四维。它不是Jenkins Activity Survey、Bortner、结构访谈、MMPI或其他标准题本的替代版，不采用其条目、计分键、常模或竞品12题与结果正文。中英文题目、例子、映射和解释独立创作，尚无本站心理测量验证或跨语言等价证据。A/B历史名称帮助理解讨论，不把你分成固定A型、B型或平衡型；也不由总频率推断多维度相同。文献用于说明概念与测量边界，不为本站量表背书：1990年Bortner研究只针对特定量表与样本，2012年六面向研究也不验证这四项。结果不诊断疾病、敌意、焦虑、工作成瘾或其他心理状态，不估计心脏或其他健康风险，也不评能力、智商、基因、道德、产出、关系、聘用或职业适配；真实必要职责与外部限制另看事实。",
+              "en": "This original FermatMind 20-item reflection draws on A/B behaviour discussions to organise four weeks of ordinary experiences with some actual choice. Its four parts are editorial observation categories, not four website dimensions validated by the cited research. It replaces no Jenkins Activity Survey, Bortner scale, structured interview, MMPI or other standard instrument and adopts none of their items, keys or norms, nor a competitor’s twelve items or result text. English and Chinese questions, examples, mappings and explanations are independently authored, without local psychometric validation or established language equivalence. Historical A/B names explain a discussion rather than assigning a fixed A, B or Balanced type or assuming several dimensions are identical. Sources explain concepts and measurement limits without validating this questionnaire: the 1990 Bortner findings concern a particular measure and sample, and the 2012 six-facet study does not validate these four parts. Results diagnose no illness, hostility, anxiety, work addiction or other psychological state, estimate no cardiac or other health risk and assess no ability, IQ, genetics, morality, output, relationship, hiring or career fit. Actual duties and external constraints require their own facts."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "competitive-comparison",
+      "directionIds": [
+        "competitive-comparison"
+      ],
+      "title": {
+        "zh": "竞争式比较：自己的目标与他人的名次",
+        "en": "Competitive Comparison: Own Goals and Other People"
+      },
+      "headline": {
+        "zh": "竞争式比较：自己的目标与他人的名次",
+        "en": "Competitive Comparison: Own Goals and Other People"
+      },
+      "summary": {
+        "zh": "从没有比赛的普通小事看自发比较，含高低、混合和具体例子；不把竞争与野心、优秀、自私或A型身份画等号。",
+        "en": "Explore comparison in an ordinary activity without a contest, with higher, lower and mixed readings; no equation with ambition, excellence, selfishness or a fixed A type."
+      },
+      "scoreReading": {
+        "zh": "20题都选择后，四部分分别计算。每部分5条，1从不、2很少、3有时、4经常、5几乎总是，2条相反表述按6减有效回答；共8条反向。NA是不适用、情境不足或不愿回答，排除，不补零或中性。每部分至少3条有效评分，才按计分和除有效条数取一位小数均分1—5；不足保留资料不足，不按其他部分补分。四项不相加、不派最高型、不产生A/B总分、百分位或固定标签。相同均分保留，小数差异不证明显著或改变，中间值不证明灵活、最适度或健康。最低条数只是本站完整度规则，未提供常模、科学阈值、信度或效度。",
+        "en": "After all 20 selections, calculate four parts separately. Each has five items rated 1 Never, 2 Rarely, 3 Sometimes, 4 Often or 5 Almost always. Two opposite statements per part, eight overall, use six minus a valid response. NA means absent context, insufficient information or declining to answer; exclude it without zero or midpoint substitution. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items. Otherwise retain insufficient information without borrowing another part’s score. Parts produce no total, highest-score type, A/B score, percentile or fixed label. Equal means stay equal; decimals establish no significance or change. A middle mean proves no flexibility, ideal moderation or health. The minimum is a website completeness convention, without norms, scientific cutoffs, reliability or validity evidence."
+      },
+      "seo": {
+        "title": {
+          "zh": "A/B测试竞争比较结果：自己的目标与完整解释",
+          "en": "Type A/B Test: Competitive Comparison & Full Guide"
+        },
+        "description": {
+          "zh": "A/B自评竞争比较完整解释：区分个人目标与非比赛中的自发比较，含高低、混合、反例、三项对照与计分；不评野心、优秀或职业。",
+          "en": "Explore comparison beyond a contest, personal goals, mixed readings, three comparisons and scoring, without verdicts of ambition, excellence or career fit."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这项在观察什么",
+            "en": "What this part observes"
+          },
+          "paragraphs": [
+            {
+              "zh": "A/B传统描述常把竞争与催促放在一起，测量研究也提醒两者不必是同一维度。本版五条原创题只观察：近四周本来没有排名要求的普通自选活动里，你多常自行引入与别人快慢、多少或胜负的比较。它不评正式比赛、真实绩效或目标大小；遵守工作、考试或竞技规则不能自动当成额外比较。",
+              "en": "Competition and hurry often appear together in A/B descriptions, while measurement research cautions against assuming one dimension. Five original items ask how often you introduced comparisons into ordinary chosen activities without a ranking requirement over four weeks. Formal contests, actual performance and the size of your goals are not assessed. Following work, examination or sporting requirements does not automatically count as adding a comparison of your own."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "较高、较低、混合与资料不足",
+            "en": "Higher, lower, mixed and insufficient readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "均分较高表示本组题里较常报告自发比较，较低表示较少，不代表野心、努力或成就更少。中间值可能是不同场景的反应不同，也可能每项都“有时”，不证明你最适度。有效题数不足时没有个人均分，更不能据此派B型。你可以一边有很高的个人目标，一边不把它转成超过别人；两者在本版分开理解。",
+              "en": "A higher mean describes more reported self-initiated comparison; a lower mean establishes no lesser ambition, effort or achievement. A middle value may reflect different settings or Sometimes on every item, rather than ideal moderation. Insufficient ratings produce no personal mean or Type B assignment. A demanding personal goal can exist without outperforming someone else. The guide keeps those possibilities separate rather than explaining either one from a single number."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通情境",
+            "en": "A concrete ordinary situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你为自己的阅读小记录设定了“记三点就够”，完成后看到别人记了更多，又想把自己加到更多。先看是对新内容真的感兴趣，还是因为数量被比过。两者都可能有，不由问卷裁定。若这是一项正式要求，就先按实际要求核对；例子只讨论自选小事，不让你忽略学业、工作或共同约定。",
+              "en": "Suppose your own reading note needs three points. After finishing, you see somebody recorded more and want to add more too. New material may genuinely interest you, comparison may matter, or both may occur. The questionnaire cannot decide. Check actual requirements for formal tasks. This example concerns a chosen small activity and offers no reason to ignore study, work or shared agreements in order to obtain a lower comparison score."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express it"
+          },
+          "paragraphs": [
+            {
+              "zh": "一句表达可以是：“我原来的目标是这几项；现在想多做，是因为内容需要，还是因为看到了别人的数量？”不需要立刻停止比较或证明自己不在乎。共同活动中，可以说明自己只是在确认目标，而不是替别人排名。对方也不必因你的目标更高就跟着做，彼此愿意投入多少要另行商量，不由A/B标签决定。",
+              "en": "You might ask, “Was my original goal enough, and am I adding this for the content or because I saw another person’s quantity?” There is no immediate requirement to stop comparing or demonstrate indifference. In a shared activity, clarify that you are checking your own goal rather than ranking others. A larger goal gives nobody an obligation to match it; actual willingness and agreements remain separate from any A/B label."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他三项及A/B标签比较",
+            "en": "Other parts and the A/B labels"
+          },
+          "paragraphs": [
+            {
+              "zh": "竞争比较偏人与人的参照，时间催促偏额外加快，两者可以各自出现；没有比较也可以追求速度。等待烦躁偏不能马上继续时的感受，难停下偏可以结束却仍延后。四项不选最高型、不合成总分，更不把均分高低排成优秀或自私。竞争低、目标高不是矛盾；竞争高也不证明一定取得优势，真实表现需要独立证据。",
+              "en": "Competitive comparison concerns a reference to other people; time urgency concerns added speed, which can occur without comparison. Waiting irritation concerns a pause and difficulty stopping an available endpoint. No highest facet, total, excellence or selfishness is assigned. Little comparison with demanding goals is possible, while frequent comparison guarantees no advantage. Actual performance needs independent evidence rather than an inference from reported frequency in a short original questionnaire."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and conclusions not established"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，比较可能帮助你了解题目要求，也可能只是眼前公开了数量；不比较也可能因为没有可比较的人。均分不评价值观、合作、嫉妒、野心、成功、道德、智商或就业适配，也不认证你不会受别人影响。实际场景是否有明确排名与资源竞争需要看事实，不能把真实制度压力都归到个人“好胜”上。",
+              "en": "Comparison may clarify a requirement or follow visible quantities; its absence may simply reflect no available comparison. Means assess no values, cooperation, envy, ambition, success, morality, IQ or job fit and certify no immunity to influence. Actual ranking systems and resource competition need their own facts. Institutional pressure should not become a verdict of personal competitiveness merely because an A/B framework is familiar or one response mentioned another person."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：回想一次没有正式比赛的自选小事，写下原目标、看到他人后是否改变，以及改变有没有内容上的理由，可以什么都不改。重点是看清参照从哪里来，不是放弃竞争、压低目标或训练无所谓。结果没有理想位置，也不要求你与朋友比谁更A型；个人选择可以随需要保留、调整或重新商量。",
+              "en": "For an optional observation, recall one chosen activity without a formal contest. Note the original goal, any change after seeing others and a content-related reason, without altering the activity. Notice where the reference came from rather than abandoning competition, lowering goals or practising indifference. There is no ideal position and no need to compare who is more Type A. Keep or revise choices according to actual needs and agreements."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "五条题的均分与NA规则",
+            "en": "Five-item means and NA rules"
+          },
+          "paragraphs": [
+            {
+              "zh": "20题都选择后，四部分分别计算。每部分5条，1从不、2很少、3有时、4经常、5几乎总是，2条相反表述按6减有效回答；共8条反向。NA是不适用、情境不足或不愿回答，排除，不补零或中性。每部分至少3条有效评分，才按计分和除有效条数取一位小数均分1—5；不足保留资料不足，不按其他部分补分。四项不相加、不派最高型、不产生A/B总分、百分位或固定标签。相同均分保留，小数差异不证明显著或改变，中间值不证明灵活、最适度或健康。最低条数只是本站完整度规则，未提供常模、科学阈值、信度或效度。",
+              "en": "After all 20 selections, calculate four parts separately. Each has five items rated 1 Never, 2 Rarely, 3 Sometimes, 4 Often or 5 Almost always. Two opposite statements per part, eight overall, use six minus a valid response. NA means absent context, insufficient information or declining to answer; exclude it without zero or midpoint substitution. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items. Otherwise retain insufficient information without borrowing another part’s score. Parts produce no total, highest-score type, A/B score, percentile or fixed label. Equal means stay equal; decimals establish no significance or change. A middle mean proves no flexibility, ideal moderation or health. The minimum is a website completeness convention, without norms, scientific cutoffs, reliability or validity evidence."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、文献与使用范围",
+            "en": "Original edition, sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马原创20题四项行为观察，借A/B行为模式讨论的背景，分别整理近四周有一定选择余地的普通情境；四项是本版编辑观察框架，不是研究已验证了本站四维。它不是Jenkins Activity Survey、Bortner、结构访谈、MMPI或其他标准题本的替代版，不采用其条目、计分键、常模或竞品12题与结果正文。中英文题目、例子、映射和解释独立创作，尚无本站心理测量验证或跨语言等价证据。A/B历史名称帮助理解讨论，不把你分成固定A型、B型或平衡型；也不由总频率推断多维度相同。文献用于说明概念与测量边界，不为本站量表背书：1990年Bortner研究只针对特定量表与样本，2012年六面向研究也不验证这四项。结果不诊断疾病、敌意、焦虑、工作成瘾或其他心理状态，不估计心脏或其他健康风险，也不评能力、智商、基因、道德、产出、关系、聘用或职业适配；真实必要职责与外部限制另看事实。",
+              "en": "This original FermatMind 20-item reflection draws on A/B behaviour discussions to organise four weeks of ordinary experiences with some actual choice. Its four parts are editorial observation categories, not four website dimensions validated by the cited research. It replaces no Jenkins Activity Survey, Bortner scale, structured interview, MMPI or other standard instrument and adopts none of their items, keys or norms, nor a competitor’s twelve items or result text. English and Chinese questions, examples, mappings and explanations are independently authored, without local psychometric validation or established language equivalence. Historical A/B names explain a discussion rather than assigning a fixed A, B or Balanced type or assuming several dimensions are identical. Sources explain concepts and measurement limits without validating this questionnaire: the 1990 Bortner findings concern a particular measure and sample, and the 2012 six-facet study does not validate these four parts. Results diagnose no illness, hostility, anxiety, work addiction or other psychological state, estimate no cardiac or other health risk and assess no ability, IQ, genetics, morality, output, relationship, hiring or career fit. Actual duties and external constraints require their own facts."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "waiting-irritation",
+      "directionIds": [
+        "waiting-irritation"
+      ],
+      "title": {
+        "zh": "普通等待中的烦躁：感受与实际条件分开看",
+        "en": "Waiting Irritation: Feelings and Actual Conditions"
+      },
+      "headline": {
+        "zh": "普通等待中的烦躁：感受与实际条件分开看",
+        "en": "Waiting Irritation: Feelings and Actual Conditions"
+      },
+      "summary": {
+        "zh": "用没有实际损失的短等候理解自报烦躁，含混合、反例与具体表达；不把感受判成敌意、疾病、道德或固定A/B类型。",
+        "en": "Explore irritation in an ordinary brief wait, with mixed readings, examples and limits, without labels of hostility, illness, morality or fixed A/B type."
+      },
+      "scoreReading": {
+        "zh": "20题都选择后，四部分分别计算。每部分5条，1从不、2很少、3有时、4经常、5几乎总是，2条相反表述按6减有效回答；共8条反向。NA是不适用、情境不足或不愿回答，排除，不补零或中性。每部分至少3条有效评分，才按计分和除有效条数取一位小数均分1—5；不足保留资料不足，不按其他部分补分。四项不相加、不派最高型、不产生A/B总分、百分位或固定标签。相同均分保留，小数差异不证明显著或改变，中间值不证明灵活、最适度或健康。最低条数只是本站完整度规则，未提供常模、科学阈值、信度或效度。",
+        "en": "After all 20 selections, calculate four parts separately. Each has five items rated 1 Never, 2 Rarely, 3 Sometimes, 4 Often or 5 Almost always. Two opposite statements per part, eight overall, use six minus a valid response. NA means absent context, insufficient information or declining to answer; exclude it without zero or midpoint substitution. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items. Otherwise retain insufficient information without borrowing another part’s score. Parts produce no total, highest-score type, A/B score, percentile or fixed label. Equal means stay equal; decimals establish no significance or change. A middle mean proves no flexibility, ideal moderation or health. The minimum is a website completeness convention, without norms, scientific cutoffs, reliability or validity evidence."
+      },
+      "seo": {
+        "title": {
+          "zh": "A/B测试等待烦躁结果：感受、情境与完整解释",
+          "en": "Type A/B Test: Waiting Irritation Result & Full Guide"
+        },
+        "description": {
+          "zh": "A/B自评等待烦躁完整解释：分开感受、行动与等候条件，含高低、混合、反例、三项对照与计分；不诊断敌意或健康风险。",
+          "en": "Read irritation during ordinary waits, feelings and actual conditions, with mixed examples, three comparisons and scoring. No hostility or health diagnosis."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这项在观察什么",
+            "en": "What this part observes"
+          },
+          "paragraphs": [
+            {
+              "zh": "A/B讨论里常出现不耐烦，但对一次等待的烦躁、实际表达和长期敌意并不是同一件事。本版五条原创题只看近四周普通短等候中的自报感受，情境假设必要信息清楚、没有已知实际损失。真实排队、失约、危险、照护或被不合理耽误，要按实际情况理解，不由这个均分判定感受应不应该。",
+              "en": "A/B discussions often mention impatience, but feeling irritated during a wait differs from expressing it or having enduring hostility. Five original items concern reported feelings during ordinary brief waits over four weeks, with necessary information and no known actual loss. Real queues, broken agreements, danger, care and unreasonable delays need their own context. A mean decides neither whether the feeling is justified nor how somebody actually behaved."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "较高、较低、混合与资料不足",
+            "en": "Higher, lower, mixed and insufficient readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "均分较高表示本组情境中较常报告烦躁，较低表示较少，不认证情绪稳定、温和或B型。中间值可能来自不同等候条件，不一定“刚刚好”；不足三条有效时保留资料不足。问卷没有测感受强度、持续时间或行为后果，也不能从“有时烦躁”推成会打断别人、伤害关系或出现健康问题。",
+              "en": "A higher mean describes more reported irritation in these situations; a lower mean certifies no emotional stability, gentleness or Type B identity. A middle value may reflect different waiting conditions rather than an ideal amount. Fewer than three ratings remain insufficient. Intensity, duration and consequences were not measured, so Sometimes feeling irritated establishes no interruption, relationship harm or health problem in the person reporting it."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通情境",
+            "en": "A concrete ordinary situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，一个自愿小活动还有几分钟开始，你知道大概时间，也没有因此错过必要安排，却发现自己有点烦。可以分别记下“现在知道什么”“我感觉怎样”“我实际做了什么”，不要求马上改变感受。如果后来得知活动取消、信息不实或会影响必要事务，那是条件变化，不应继续套用这个普通等候例子。",
+              "en": "An optional activity starts in a few minutes. You know the approximate time and are missing no necessary arrangement, yet notice irritation. Separate available information, the feeling and what you actually did, without immediately changing the feeling. Cancellation, misleading information or an effect on necessary commitments changes the situation. Those facts should not be squeezed into this ordinary-wait example merely because it appeared in the questionnaire."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express it"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我知道大概还要等一会，现在有点烦，想确认一下有没有新信息。”也可以只给自己记一句，不必向别人解释。感受不自动要求采取行动，更不赋予催促、责怪或替别人定性。若确有实际问题，可以清楚提出需要；讨论事实和意愿，比用“我A型、你B型”解释双方更具体。",
+              "en": "You might say, “I know roughly how long the wait is and feel a little irritated; is there any new information?” A private note can be enough. A feeling requires no immediate action and grants no right to hurry, blame or label someone else. If an actual problem exists, state the need clearly. Facts and wishes describe a disagreement more specifically than assigning A and B identities to the participants."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他三项及A/B标签比较",
+            "en": "Other parts and the A/B labels"
+          },
+          "paragraphs": [
+            {
+              "zh": "等待烦躁偏感受，时间催促偏想加快，竞争比较偏与别人比，难停下偏已有结束条件却继续加内容。你可以觉得烦但不催促，也可以想快却不烦；四项不合成一个敌意分或A/B总类型。相同均分可能来自不同事件和回答，不能证明你与别人感受相同，更不能判断谁更有耐心、更成熟或更健康。",
+              "en": "Waiting irritation concerns a feeling, time urgency added hurry, competitive comparison a reference to others and difficulty stopping an available endpoint. Irritation can occur without hurrying, and wanting speed without irritation. The four produce no hostility score or A/B type. Equal means can arise from different events and responses, establishing no identical experience and no ranking of patience, maturity or health between people with the same rounded result."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and conclusions not established"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，烦躁可能与信息不确定、环境不舒服或别的事情叠在一起；低分也可能因为近四周很少等候。均分不诊断愤怒、焦虑、情绪障碍、敌意、心脏病或其他健康状态，不估计危险性、道德、情商或就业适配。实际经历需要具体了解，不能只把外部条件视作个人“不耐烦”，也不能据此给家人、同事或伴侣定性。",
+              "en": "Irritation may coexist with uncertain information, an uncomfortable setting or unrelated events. Low ratings may follow few recent waits. Means diagnose no anger, anxiety, emotional disorder, hostility, cardiac condition or other health state and estimate no dangerousness, morality, emotional intelligence or job fit. Actual experiences need context rather than reducing external conditions to personal impatience or using your score to label a relative, colleague or partner who did not answer these items."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：回想一次普通短等候，只写当时已知信息、实际影响、感受和行动四件事，允许它们不一致，也可以不选任何事件。不要为了测试而故意等候或制造延迟，更不要求压住感受。这个观察不属于治疗或情绪训练，没有理想均分；它只是让你把“发生了什么”与“我怎样解释”分开一点。",
+              "en": "For an optional observation, recall an ordinary short wait and separate information, actual impact, feeling and action. They may differ, and you can choose no event. Create no delay or deliberate wait for the exercise and suppress no feeling. This is neither therapy nor emotional training and offers no ideal mean. It simply distinguishes what happened from how you interpreted it, with no requirement to change either account immediately."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "五条题的均分与NA规则",
+            "en": "Five-item means and NA rules"
+          },
+          "paragraphs": [
+            {
+              "zh": "20题都选择后，四部分分别计算。每部分5条，1从不、2很少、3有时、4经常、5几乎总是，2条相反表述按6减有效回答；共8条反向。NA是不适用、情境不足或不愿回答，排除，不补零或中性。每部分至少3条有效评分，才按计分和除有效条数取一位小数均分1—5；不足保留资料不足，不按其他部分补分。四项不相加、不派最高型、不产生A/B总分、百分位或固定标签。相同均分保留，小数差异不证明显著或改变，中间值不证明灵活、最适度或健康。最低条数只是本站完整度规则，未提供常模、科学阈值、信度或效度。",
+              "en": "After all 20 selections, calculate four parts separately. Each has five items rated 1 Never, 2 Rarely, 3 Sometimes, 4 Often or 5 Almost always. Two opposite statements per part, eight overall, use six minus a valid response. NA means absent context, insufficient information or declining to answer; exclude it without zero or midpoint substitution. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items. Otherwise retain insufficient information without borrowing another part’s score. Parts produce no total, highest-score type, A/B score, percentile or fixed label. Equal means stay equal; decimals establish no significance or change. A middle mean proves no flexibility, ideal moderation or health. The minimum is a website completeness convention, without norms, scientific cutoffs, reliability or validity evidence."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、文献与使用范围",
+            "en": "Original edition, sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马原创20题四项行为观察，借A/B行为模式讨论的背景，分别整理近四周有一定选择余地的普通情境；四项是本版编辑观察框架，不是研究已验证了本站四维。它不是Jenkins Activity Survey、Bortner、结构访谈、MMPI或其他标准题本的替代版，不采用其条目、计分键、常模或竞品12题与结果正文。中英文题目、例子、映射和解释独立创作，尚无本站心理测量验证或跨语言等价证据。A/B历史名称帮助理解讨论，不把你分成固定A型、B型或平衡型；也不由总频率推断多维度相同。文献用于说明概念与测量边界，不为本站量表背书：1990年Bortner研究只针对特定量表与样本，2012年六面向研究也不验证这四项。结果不诊断疾病、敌意、焦虑、工作成瘾或其他心理状态，不估计心脏或其他健康风险，也不评能力、智商、基因、道德、产出、关系、聘用或职业适配；真实必要职责与外部限制另看事实。",
+              "en": "This original FermatMind 20-item reflection draws on A/B behaviour discussions to organise four weeks of ordinary experiences with some actual choice. Its four parts are editorial observation categories, not four website dimensions validated by the cited research. It replaces no Jenkins Activity Survey, Bortner scale, structured interview, MMPI or other standard instrument and adopts none of their items, keys or norms, nor a competitor’s twelve items or result text. English and Chinese questions, examples, mappings and explanations are independently authored, without local psychometric validation or established language equivalence. Historical A/B names explain a discussion rather than assigning a fixed A, B or Balanced type or assuming several dimensions are identical. Sources explain concepts and measurement limits without validating this questionnaire: the 1990 Bortner findings concern a particular measure and sample, and the 2012 six-facet study does not validate these four parts. Results diagnose no illness, hostility, anxiety, work addiction or other psychological state, estimate no cardiac or other health risk and assess no ability, IQ, genetics, morality, output, relationship, hiring or career fit. Actual duties and external constraints require their own facts."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "difficulty-stopping",
+      "directionIds": [
+        "difficulty-stopping"
+      ],
+      "title": {
+        "zh": "自选活动难停下：结束点与继续添加",
+        "en": "Stopping Chosen Activities: Endpoints and Additions"
+      },
+      "headline": {
+        "zh": "自选活动难停下：结束点与继续添加",
+        "en": "Stopping Chosen Activities: Endpoints and Additions"
+      },
+      "summary": {
+        "zh": "从已达到目标的私人小记录看继续添加与结束，含混合、反例和表达；不评敬业、拖延、成瘾、懒惰或固定A/B身份。",
+        "en": "Explore additions beyond a chosen activity’s endpoint, with mixed readings, examples and limits; no verdict of diligence, procrastination, addiction or a fixed A/B type."
+      },
+      "scoreReading": {
+        "zh": "20题都选择后，四部分分别计算。每部分5条，1从不、2很少、3有时、4经常、5几乎总是，2条相反表述按6减有效回答；共8条反向。NA是不适用、情境不足或不愿回答，排除，不补零或中性。每部分至少3条有效评分，才按计分和除有效条数取一位小数均分1—5；不足保留资料不足，不按其他部分补分。四项不相加、不派最高型、不产生A/B总分、百分位或固定标签。相同均分保留，小数差异不证明显著或改变，中间值不证明灵活、最适度或健康。最低条数只是本站完整度规则，未提供常模、科学阈值、信度或效度。",
+        "en": "After all 20 selections, calculate four parts separately. Each has five items rated 1 Never, 2 Rarely, 3 Sometimes, 4 Often or 5 Almost always. Two opposite statements per part, eight overall, use six minus a valid response. NA means absent context, insufficient information or declining to answer; exclude it without zero or midpoint substitution. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items. Otherwise retain insufficient information without borrowing another part’s score. Parts produce no total, highest-score type, A/B score, percentile or fixed label. Equal means stay equal; decimals establish no significance or change. A middle mean proves no flexibility, ideal moderation or health. The minimum is a website completeness convention, without norms, scientific cutoffs, reliability or validity evidence."
+      },
+      "seo": {
+        "title": {
+          "zh": "A/B测试难停下结果：结束点、继续与完整解释",
+          "en": "Type A/B Test: Stopping Activities Result & Full Guide"
+        },
+        "description": {
+          "zh": "A/B自评难停下完整解释：分开结束条件、改目标与继续添加，含高低、混合、反例、三项对照与计分；不诊断成瘾或工作能力。",
+          "en": "Explore stopping chosen activities, endpoints and additions, with mixed examples, three comparisons and scoring. No addiction diagnosis or ability verdict."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这项在观察什么",
+            "en": "What this part observes"
+          },
+          "paragraphs": [
+            {
+              "zh": "A/B日常说法常把难停下与忙碌连在一起，本版只观察一个更小的范围：近四周自己有一定选择余地、结束条件已具备的普通小事里，继续添加多常出现。它不评工作投入，也不要求停止必要事务。现实职责、未解决的要求、照护或外部催促可能让结束不由你决定，这些情况不能简单视为个人习惯。",
+              "en": "Everyday A/B descriptions sometimes connect difficulty stopping with busyness. This edition selects a narrower experience: adding to ordinary chosen activities over four weeks when conditions for ending were already available. Work involvement is not assessed and necessary tasks need not stop. Actual duties, unresolved requirements, care and external pressure may remove the choice to end. Those situations should not become a personal habit inferred from a short original self-report."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "较高、较低、混合与资料不足",
+            "en": "Higher, lower, mixed and insufficient readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "均分较高表示本组题里较常报告推后自选活动的结束，较低表示较少，不代表投入不足、懒惰或更会休息。中间值可能由喜欢的活动与其他活动差别形成，不能认证灵活或适度。资料不足不记成“能停下”。这组题没有区分兴趣、担忧、目标变化与其他原因，也不从频率推断失控、痛苦或实际后果。",
+              "en": "A higher mean describes more reported postponement of an available endpoint. A lower one establishes no lack of commitment, laziness or better rest. A middle value may reflect differences between activities rather than ideal flexibility. Insufficient information is not easy stopping. Interest, concern, changing goals and other reasons were not separated, and frequency alone establishes no loss of control, distress or actual consequence of continuing beyond the original endpoint."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通情境",
+            "en": "A concrete ordinary situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你给私人阅读小记录定了“三点就够”，三点完成后没有必须补充的要求，却又想等多写一点再结束。先确认原目标是否真的完成、是否发现值得保留的新内容，以及继续是不是自己愿意。若目标确实改变，明确改写即可；若只是原本还没完成，也不要套用这个例子。问卷不裁定哪次继续值得或不值得。",
+              "en": "A private reading note needs three points. With three finished and no required addition, you defer ending until after one more detail. Check whether the goal is met, new content matters and continuing is wanted. Rewrite a genuinely changed goal explicitly. An unfinished goal is a different case. The questionnaire cannot decide which extension was worthwhile or whether that particular activity should have ended at the first available moment."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express it"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“原来的结束条件已经到了，我现在想再加这一点；这是新选择，不是原先必须完成的部分。”也可以选择停下，不用证明自己不够认真。共同活动中，增加内容还要问清别人愿不愿意继续；你的兴趣不等于共同任务自动延长。把结束、改目标与继续的意愿说清，比用A型或B型解释更容易讨论。",
+              "en": "You might say, “The original endpoint is here, and I want to add this as a new choice rather than an original requirement.” Stopping also needs no proof of seriousness. For shared activities, check others’ willingness before extending them; your interest does not automatically lengthen a joint task. Distinguishing completion, a changed goal and willingness gives people something more concrete to discuss than an A or B personality explanation."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他三项及A/B标签比较",
+            "en": "Other parts and the A/B labels"
+          },
+          "paragraphs": [
+            {
+              "zh": "难停下偏结束以后继续加内容，时间催促偏过程中额外加快，竞争比较偏他人参照，等待烦躁偏暂停感受。催促少但难停下多可以并存，例如慢慢做喜欢的小事；竞争多却容易结束也可能。四项不挑主型、不相加，也不能把“中间”写成最佳生活方式。小数相同不表示原因、兴趣或现实安排一样。",
+              "en": "Difficulty stopping concerns additions after an available endpoint, time urgency added speed, competitive comparison other people and waiting irritation a pause. Low hurry and frequent continuation can coexist during an enjoyable slow activity, while comparison can coexist with easy stopping. The parts produce no primary type or total and identify no best lifestyle in the middle. Equal decimals establish no identical cause, interest or arrangement, either within one person’s profile or between people."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and conclusions not established"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，继续可能只是兴趣很浓，或者原目标需要合理修改；停止也可能只是另有安排，不代表特别自律。均分不诊断工作成瘾、强迫、焦虑、完美主义、拖延、健康问题或职业适配，也不估计产出、责任或恢复能力。真实的不适与无法控制的条件需按实际情况理解，不能从一项自报频率给人贴标签或要求立刻改变必要安排。",
+              "en": "Continuing may reflect interest or a reasonable revised goal; stopping may follow another commitment rather than exceptional discipline. Means diagnose no work addiction, compulsion, anxiety, perfectionism, procrastination, health condition or job fit and estimate no output, responsibility or recovery ability. Actual discomfort and uncontrollable conditions need their own context. One reported frequency labels nobody and supplies no reason to change necessary arrangements immediately in order to resemble a preferred personality description."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：回想一件有明确自选结束点的小事，写下“原目标”“后来是否增加”“实际能否停下”和“自己愿意怎样”，可以不实施新的安排。若没有这样的情境，就保留没有资料。观察不是戒除、治疗或效率训练，也不要求把所有活动切成固定时段；你要看清这一次的选择条件，不是追求更低分或另一种人格。",
+              "en": "For an optional observation, recall an activity with a chosen endpoint. Separate its original goal, any addition, whether stopping was actually possible and what you wanted, without introducing a new arrangement. Keep missing context explicit. This is no cessation programme, treatment or efficiency training and requires no fixed time blocks for every activity. Notice the conditions for that particular choice rather than pursuing a lower score or trying to acquire another personality."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "五条题的均分与NA规则",
+            "en": "Five-item means and NA rules"
+          },
+          "paragraphs": [
+            {
+              "zh": "20题都选择后，四部分分别计算。每部分5条，1从不、2很少、3有时、4经常、5几乎总是，2条相反表述按6减有效回答；共8条反向。NA是不适用、情境不足或不愿回答，排除，不补零或中性。每部分至少3条有效评分，才按计分和除有效条数取一位小数均分1—5；不足保留资料不足，不按其他部分补分。四项不相加、不派最高型、不产生A/B总分、百分位或固定标签。相同均分保留，小数差异不证明显著或改变，中间值不证明灵活、最适度或健康。最低条数只是本站完整度规则，未提供常模、科学阈值、信度或效度。",
+              "en": "After all 20 selections, calculate four parts separately. Each has five items rated 1 Never, 2 Rarely, 3 Sometimes, 4 Often or 5 Almost always. Two opposite statements per part, eight overall, use six minus a valid response. NA means absent context, insufficient information or declining to answer; exclude it without zero or midpoint substitution. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items. Otherwise retain insufficient information without borrowing another part’s score. Parts produce no total, highest-score type, A/B score, percentile or fixed label. Equal means stay equal; decimals establish no significance or change. A middle mean proves no flexibility, ideal moderation or health. The minimum is a website completeness convention, without norms, scientific cutoffs, reliability or validity evidence."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、文献与使用范围",
+            "en": "Original edition, sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马原创20题四项行为观察，借A/B行为模式讨论的背景，分别整理近四周有一定选择余地的普通情境；四项是本版编辑观察框架，不是研究已验证了本站四维。它不是Jenkins Activity Survey、Bortner、结构访谈、MMPI或其他标准题本的替代版，不采用其条目、计分键、常模或竞品12题与结果正文。中英文题目、例子、映射和解释独立创作，尚无本站心理测量验证或跨语言等价证据。A/B历史名称帮助理解讨论，不把你分成固定A型、B型或平衡型；也不由总频率推断多维度相同。文献用于说明概念与测量边界，不为本站量表背书：1990年Bortner研究只针对特定量表与样本，2012年六面向研究也不验证这四项。结果不诊断疾病、敌意、焦虑、工作成瘾或其他心理状态，不估计心脏或其他健康风险，也不评能力、智商、基因、道德、产出、关系、聘用或职业适配；真实必要职责与外部限制另看事实。",
+              "en": "This original FermatMind 20-item reflection draws on A/B behaviour discussions to organise four weeks of ordinary experiences with some actual choice. Its four parts are editorial observation categories, not four website dimensions validated by the cited research. It replaces no Jenkins Activity Survey, Bortner scale, structured interview, MMPI or other standard instrument and adopts none of their items, keys or norms, nor a competitor’s twelve items or result text. English and Chinese questions, examples, mappings and explanations are independently authored, without local psychometric validation or established language equivalence. Historical A/B names explain a discussion rather than assigning a fixed A, B or Balanced type or assuming several dimensions are identical. Sources explain concepts and measurement limits without validating this questionnaire: the 1990 Bortner findings concern a particular measure and sample, and the 2012 six-facet study does not validate these four parts. Results diagnose no illness, hostility, anxiety, work addiction or other psychological state, estimate no cardiac or other health risk and assess no ability, IQ, genetics, morality, output, relationship, hiring or career fit. Actual duties and external constraints require their own facts."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "zh": "四项分别计算，不合成A/B总分",
+        "en": "Four separate calculations without an A/B total"
+      },
+      "paragraphs": [
+        {
+          "zh": "20题都选择后，四部分分别计算。每部分5条，1从不、2很少、3有时、4经常、5几乎总是，2条相反表述按6减有效回答；共8条反向。NA是不适用、情境不足或不愿回答，排除，不补零或中性。每部分至少3条有效评分，才按计分和除有效条数取一位小数均分1—5；不足保留资料不足，不按其他部分补分。四项不相加、不派最高型、不产生A/B总分、百分位或固定标签。相同均分保留，小数差异不证明显著或改变，中间值不证明灵活、最适度或健康。最低条数只是本站完整度规则，未提供常模、科学阈值、信度或效度。",
+          "en": "After all 20 selections, calculate four parts separately. Each has five items rated 1 Never, 2 Rarely, 3 Sometimes, 4 Often or 5 Almost always. Two opposite statements per part, eight overall, use six minus a valid response. NA means absent context, insufficient information or declining to answer; exclude it without zero or midpoint substitution. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items. Otherwise retain insufficient information without borrowing another part’s score. Parts produce no total, highest-score type, A/B score, percentile or fixed label. Equal means stay equal; decimals establish no significance or change. A middle mean proves no flexibility, ideal moderation or health. The minimum is a website completeness convention, without norms, scientific cutoffs, reliability or validity evidence."
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "zh": "A型、B型与混合表现怎样理解",
+        "en": "Understanding A, B and mixed patterns"
+      },
+      "paragraphs": [
+        {
+          "zh": "A型与B型是历史行为模式讨论中的名称，常围绕时间催促、竞争与不耐烦等现象，并非本站测得的两个固定人格。不同研究工具的结构可能不同，不能把概念熟悉度当成量表效度。本版提供四项独立频率观察与全部完整说明，不按均分最高、总和或阈值给你派A型、B型或平衡型。“混合”可以指场景不同、四项不同或单项回答不同，并不证明最灵活、最好或多数人都如此；资料不足也不是B型。",
+          "en": "Type A and Type B are historical names in discussions of behaviours such as urgency, competition and impatience, rather than two fixed personalities measured here. Research instruments can differ in structure; a familiar concept establishes no questionnaire validity. This edition offers four separate frequency reflections and all full guides, without an A, B or Balanced assignment from a highest mean, total or cutoff. Mixed can mean different settings, different parts or contrasting answers within a part; it proves neither ideal flexibility, superiority nor a population majority. Insufficient information is not Type B."
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "zh": "四项可以不同，真实情境另看",
+        "en": "Separate parts and actual context"
+      },
+      "paragraphs": [
+        {
+          "zh": "时间催促看额外想快，竞争比较看他人参照，等待烦躁看普通暂停中的感受，难停下看可以结束时继续添加。四项可以较高、较低或资料不足，彼此不必一致；小数差异不证明某项是真正原因。全部四份完整解释同时呈现，包含高低混合、具体例子、表达、反例和小观察，不因分数、NA、注册或另一测试而隐藏正文。",
+          "en": "Time urgency concerns added hurry, competitive comparison other people, waiting irritation a feeling during an ordinary pause, and difficulty stopping an available endpoint. Parts can differ and can each be higher, lower or insufficient; decimals establish no true cause. All four full guides appear together with higher, lower and mixed readings, examples, wording, counterexamples and optional observations. Scores, NA, signup and other tests never hide the body."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "草稿、分享与可选下一步",
+        "en": "Drafts, sharing and optional next steps"
+      },
+      "paragraphs": [
+        {
+          "zh": "答案在浏览器内计分，不上传、不进网址或分析。草稿需主动开启，只在本标签页恢复，24小时失效，完成、重测、退出清除即删除。分享自选，只含公开测试说明与链接，不含答案或均分。完整结果免费，无需注册或邮箱；后续测评可以不做，若选择继续，需要独立重新作答，不从本版换算。",
+          "en": "Answers are scored in your browser without uploading them or placing them in URLs or analytics. Drafts require opt-in, restore only in this tab, expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public test information and a link without answers or means. Full results are free without signup or email. Further assessments are optional and require separate answers rather than conversion from this edition."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "我会得到A型、B型还是平衡型标签吗？",
+        "en": "Will I receive an A, B or Balanced label?"
+      },
+      "answer": {
+        "zh": "A型与B型是历史行为模式讨论中的名称，常围绕时间催促、竞争与不耐烦等现象，并非本站测得的两个固定人格。不同研究工具的结构可能不同，不能把概念熟悉度当成量表效度。本版提供四项独立频率观察与全部完整说明，不按均分最高、总和或阈值给你派A型、B型或平衡型。“混合”可以指场景不同、四项不同或单项回答不同，并不证明最灵活、最好或多数人都如此；资料不足也不是B型。",
+        "en": "Type A and Type B are historical names in discussions of behaviours such as urgency, competition and impatience, rather than two fixed personalities measured here. Research instruments can differ in structure; a familiar concept establishes no questionnaire validity. This edition offers four separate frequency reflections and all full guides, without an A, B or Balanced assignment from a highest mean, total or cutoff. Mixed can mean different settings, different parts or contrasting answers within a part; it proves neither ideal flexibility, superiority nor a population majority. Insufficient information is not Type B."
+      }
+    },
+    {
+      "question": {
+        "zh": "本版测哪四项？",
+        "en": "Which four parts does this edition explore?"
+      },
+      "answer": {
+        "zh": "四项为本版编辑观察框架：时间催促、竞争式比较、普通等待中的烦躁、自选活动难停下，各5条原创频率题。它们独立显示，不是互斥类型，也不等于标准工具中的正式因子。四份完整解释均可先读，完成后仍全部呈现。",
+        "en": "The editorial observation categories are felt time urgency, competitive comparison, irritation during ordinary waits and difficulty stopping chosen activities, each with five original frequency items. They are separate rather than exclusive types or established factors from a standard instrument. All four full guides are available before and after answering."
+      }
+    },
+    {
+      "question": {
+        "zh": "反向题、NA与资料不足怎样处理？",
+        "en": "How are opposite items, NA and insufficient information handled?"
+      },
+      "answer": {
+        "zh": "20题都选择后，四部分分别计算。每部分5条，1从不、2很少、3有时、4经常、5几乎总是，2条相反表述按6减有效回答；共8条反向。NA是不适用、情境不足或不愿回答，排除，不补零或中性。每部分至少3条有效评分，才按计分和除有效条数取一位小数均分1—5；不足保留资料不足，不按其他部分补分。四项不相加、不派最高型、不产生A/B总分、百分位或固定标签。相同均分保留，小数差异不证明显著或改变，中间值不证明灵活、最适度或健康。最低条数只是本站完整度规则，未提供常模、科学阈值、信度或效度。",
+        "en": "After all 20 selections, calculate four parts separately. Each has five items rated 1 Never, 2 Rarely, 3 Sometimes, 4 Often or 5 Almost always. Two opposite statements per part, eight overall, use six minus a valid response. NA means absent context, insufficient information or declining to answer; exclude it without zero or midpoint substitution. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items. Otherwise retain insufficient information without borrowing another part’s score. Parts produce no total, highest-score type, A/B score, percentile or fixed label. Equal means stay equal; decimals establish no significance or change. A middle mean proves no flexibility, ideal moderation or health. The minimum is a website completeness convention, without norms, scientific cutoffs, reliability or validity evidence."
+      }
+    },
+    {
+      "question": {
+        "zh": "均分在中间说明最平衡、健康或灵活吗？",
+        "en": "Does a middle mean establish ideal balance, health or flexibility?"
+      },
+      "answer": {
+        "zh": "不说明。中间均分可能由不同答案组合产生，四项也可能各不相同；它没有常模、理想位置或健康含义。本版不测能力、产出、情商或疾病，也不根据一个人的均分推断他人的感受、真实任务要求或外部压力。",
+        "en": "No. Different answer combinations can produce the same middle mean, and parts can differ. There is no norm, ideal position or health interpretation. This edition assesses no ability, output, emotional intelligence or illness and infers no other person’s feelings, actual task requirement or external pressure from your mean."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是Jenkins、Bortner或医学筛查吗？",
+        "en": "Is this Jenkins, Bortner or medical screening?"
+      },
+      "answer": {
+        "zh": "这是费马原创20题四项行为观察，借A/B行为模式讨论的背景，分别整理近四周有一定选择余地的普通情境；四项是本版编辑观察框架，不是研究已验证了本站四维。它不是Jenkins Activity Survey、Bortner、结构访谈、MMPI或其他标准题本的替代版，不采用其条目、计分键、常模或竞品12题与结果正文。中英文题目、例子、映射和解释独立创作，尚无本站心理测量验证或跨语言等价证据。A/B历史名称帮助理解讨论，不把你分成固定A型、B型或平衡型；也不由总频率推断多维度相同。文献用于说明概念与测量边界，不为本站量表背书：1990年Bortner研究只针对特定量表与样本，2012年六面向研究也不验证这四项。结果不诊断疾病、敌意、焦虑、工作成瘾或其他心理状态，不估计心脏或其他健康风险，也不评能力、智商、基因、道德、产出、关系、聘用或职业适配；真实必要职责与外部限制另看事实。",
+        "en": "This original FermatMind 20-item reflection draws on A/B behaviour discussions to organise four weeks of ordinary experiences with some actual choice. Its four parts are editorial observation categories, not four website dimensions validated by the cited research. It replaces no Jenkins Activity Survey, Bortner scale, structured interview, MMPI or other standard instrument and adopts none of their items, keys or norms, nor a competitor’s twelve items or result text. English and Chinese questions, examples, mappings and explanations are independently authored, without local psychometric validation or established language equivalence. Historical A/B names explain a discussion rather than assigning a fixed A, B or Balanced type or assuming several dimensions are identical. Sources explain concepts and measurement limits without validating this questionnaire: the 1990 Bortner findings concern a particular measure and sample, and the 2012 six-facet study does not validate these four parts. Results diagnose no illness, hostility, anxiety, work addiction or other psychological state, estimate no cardiac or other health risk and assess no ability, IQ, genetics, morality, output, relationship, hiring or career fit. Actual duties and external constraints require their own facts."
+      }
+    },
+    {
+      "question": {
+        "zh": "全部解释、重测与分享免费吗？",
+        "en": "Are all explanations, retaking and sharing free?"
+      },
+      "answer": {
+        "zh": "免费，无需注册、邮箱或另一测试解锁。四份完整说明可先读，20题全部选择后呈现四项均分或资料不足状态。重测清除本次选择，可选分享不含答案或均分；后续测评需要独立重新作答。",
+        "en": "Yes, without signup, email or another test to unlock anything. Read all four full guides first; all 20 selections produce four means or explicit insufficient-information states. Retaking clears this attempt. Optional sharing contains no answers or means; further assessments require separate answers."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "Edwards等，1990：Bortner量表测量性质（摘要）",
+        "en": "Edwards et al., 1990: Bortner measurement properties (abstract)"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2224394/"
+    },
+    {
+      "title": {
+        "zh": "Thoresen与Powell，1992：A型行为模式的理论与评估讨论（摘要）",
+        "en": "Thoresen and Powell, 1992: Type A theory and assessment discussion (abstract)"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/1506507/"
+    },
+    {
+      "title": {
+        "zh": "Johnson等，2012：A型行为多个面向的研究背景（摘要）",
+        "en": "Johnson et al., 2012: multiple Type A facets as research context (abstract)"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22854190/"
+    }
+  ]
+}
