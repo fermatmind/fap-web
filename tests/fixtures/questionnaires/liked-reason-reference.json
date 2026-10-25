@@ -1,0 +1,1521 @@
+{
+  "itemBank": {
+    "test_id": "LIKED_REASON",
+    "form_code": "liked_reason_forced_choice_20",
+    "renderer": "forced_choice",
+    "construct_version": "0.1.0-preview",
+    "item_bank_version": "0.1.0-preview",
+    "status": "content_reviewed_candidate_not_validated",
+    "public_preview": true,
+    "psychometric_validation_completed": false,
+    "copyright_origin": "original",
+    "review_provenance": "role_based_model_review",
+    "items": [
+      {
+        "question_id": "LIKED_FC_001",
+        "test_id": "LIKED_REASON",
+        "form_code": "liked_reason_forced_choice_20",
+        "renderer": "forced_choice",
+        "pair_code": "RELIABILITY_FOLLOW_THROUGH__WARMTH_ATTUNEMENT",
+        "instruction_zh": "以下哪一种更接近你近期自然的选择？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "direction_code": "WARMTH_ATTUNEMENT",
+            "text": "朋友分享近况时，我更自然地留意其中的情绪变化。"
+          },
+          {
+            "code": "B",
+            "direction_code": "RELIABILITY_FOLLOW_THROUGH",
+            "text": "朋友分享安排时，我更自然地记住自己答应的部分。"
+          }
+        ]
+      },
+      {
+        "question_id": "LIKED_FC_002",
+        "test_id": "LIKED_REASON",
+        "form_code": "liked_reason_forced_choice_20",
+        "renderer": "forced_choice",
+        "pair_code": "RELIABILITY_FOLLOW_THROUGH__WARMTH_ATTUNEMENT",
+        "instruction_zh": "以下哪一种更接近你近期自然的选择？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "direction_code": "RELIABILITY_FOLLOW_THROUGH",
+            "text": "参与共同活动时，我更常确认自己负责的事情按时完成。"
+          },
+          {
+            "code": "B",
+            "direction_code": "WARMTH_ATTUNEMENT",
+            "text": "参与共同活动时，我更常照顾当下是否有人没被听见。"
+          }
+        ]
+      },
+      {
+        "question_id": "LIKED_FC_003",
+        "test_id": "LIKED_REASON",
+        "form_code": "liked_reason_forced_choice_20",
+        "renderer": "forced_choice",
+        "pair_code": "ENERGY_HUMOR__WARMTH_ATTUNEMENT",
+        "instruction_zh": "以下哪一种更接近你近期自然的选择？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "direction_code": "WARMTH_ATTUNEMENT",
+            "text": "气氛有些拘谨时，我更自然地给人留出适应时间。"
+          },
+          {
+            "code": "B",
+            "direction_code": "ENERGY_HUMOR",
+            "text": "气氛有些拘谨时，我更自然地加入一点轻松的表达。"
+          }
+        ]
+      },
+      {
+        "question_id": "LIKED_FC_004",
+        "test_id": "LIKED_REASON",
+        "form_code": "liked_reason_forced_choice_20",
+        "renderer": "forced_choice",
+        "pair_code": "ENERGY_HUMOR__WARMTH_ATTUNEMENT",
+        "instruction_zh": "以下哪一种更接近你近期自然的选择？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "direction_code": "ENERGY_HUMOR",
+            "text": "朋友遇到小挫折时，我更常帮助对话恢复一点活力。"
+          },
+          {
+            "code": "B",
+            "direction_code": "WARMTH_ATTUNEMENT",
+            "text": "朋友遇到小挫折时，我更常回应对方当下的感受。"
+          }
+        ]
+      },
+      {
+        "question_id": "LIKED_FC_005",
+        "test_id": "LIKED_REASON",
+        "form_code": "liked_reason_forced_choice_20",
+        "renderer": "forced_choice",
+        "pair_code": "CURIOSITY_CONVERSATION__WARMTH_ATTUNEMENT",
+        "instruction_zh": "以下哪一种更接近你近期自然的选择？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "direction_code": "WARMTH_ATTUNEMENT",
+            "text": "认识新朋友时，我更自然地留意对方是否感到自在。"
+          },
+          {
+            "code": "B",
+            "direction_code": "CURIOSITY_CONVERSATION",
+            "text": "认识新朋友时，我更自然地询问对方正在关注的事情。"
+          }
+        ]
+      },
+      {
+        "question_id": "LIKED_FC_006",
+        "test_id": "LIKED_REASON",
+        "form_code": "liked_reason_forced_choice_20",
+        "renderer": "forced_choice",
+        "pair_code": "CURIOSITY_CONVERSATION__WARMTH_ATTUNEMENT",
+        "instruction_zh": "以下哪一种更接近你近期自然的选择？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "direction_code": "CURIOSITY_CONVERSATION",
+            "text": "听到不同经历时，我更常追问自己还没理解的细节。"
+          },
+          {
+            "code": "B",
+            "direction_code": "WARMTH_ATTUNEMENT",
+            "text": "听到不同经历时，我更常回应其中可能不容易的部分。"
+          }
+        ]
+      },
+      {
+        "question_id": "LIKED_FC_007",
+        "test_id": "LIKED_REASON",
+        "form_code": "liked_reason_forced_choice_20",
+        "renderer": "forced_choice",
+        "pair_code": "RESPECTFUL_AUTHENTICITY__WARMTH_ATTUNEMENT",
+        "instruction_zh": "以下哪一种更接近你近期自然的选择？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "direction_code": "WARMTH_ATTUNEMENT",
+            "text": "对方沉默时，我更自然地确认是否希望有人陪着。"
+          },
+          {
+            "code": "B",
+            "direction_code": "RESPECTFUL_AUTHENTICITY",
+            "text": "对方沉默时，我更自然地尊重暂时不说的选择。"
+          }
+        ]
+      },
+      {
+        "question_id": "LIKED_FC_008",
+        "test_id": "LIKED_REASON",
+        "form_code": "liked_reason_forced_choice_20",
+        "renderer": "forced_choice",
+        "pair_code": "RESPECTFUL_AUTHENTICITY__WARMTH_ATTUNEMENT",
+        "instruction_zh": "以下哪一种更接近你近期自然的选择？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "direction_code": "RESPECTFUL_AUTHENTICITY",
+            "text": "出现不同意见时，我更常清楚表达看法并保留对方边界。"
+          },
+          {
+            "code": "B",
+            "direction_code": "WARMTH_ATTUNEMENT",
+            "text": "出现不同意见时，我更常先照顾对话能否继续。"
+          }
+        ]
+      },
+      {
+        "question_id": "LIKED_FC_009",
+        "test_id": "LIKED_REASON",
+        "form_code": "liked_reason_forced_choice_20",
+        "renderer": "forced_choice",
+        "pair_code": "ENERGY_HUMOR__RELIABILITY_FOLLOW_THROUGH",
+        "instruction_zh": "以下哪一种更接近你近期自然的选择？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "direction_code": "RELIABILITY_FOLLOW_THROUGH",
+            "text": "共同计划开始后，我更常确保答应的事项有进展。"
+          },
+          {
+            "code": "B",
+            "direction_code": "ENERGY_HUMOR",
+            "text": "共同计划开始后，我更常为过程加入一些轻松感。"
+          }
+        ]
+      },
+      {
+        "question_id": "LIKED_FC_010",
+        "test_id": "LIKED_REASON",
+        "form_code": "liked_reason_forced_choice_20",
+        "renderer": "forced_choice",
+        "pair_code": "ENERGY_HUMOR__RELIABILITY_FOLLOW_THROUGH",
+        "instruction_zh": "以下哪一种更接近你近期自然的选择？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "direction_code": "ENERGY_HUMOR",
+            "text": "临时情况出现时，我更自然地帮助大家从紧张中缓一缓。"
+          },
+          {
+            "code": "B",
+            "direction_code": "RELIABILITY_FOLLOW_THROUGH",
+            "text": "临时情况出现时，我更自然地及时说明安排变化。"
+          }
+        ]
+      },
+      {
+        "question_id": "LIKED_FC_011",
+        "test_id": "LIKED_REASON",
+        "form_code": "liked_reason_forced_choice_20",
+        "renderer": "forced_choice",
+        "pair_code": "CURIOSITY_CONVERSATION__RELIABILITY_FOLLOW_THROUGH",
+        "instruction_zh": "以下哪一种更接近你近期自然的选择？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "direction_code": "RELIABILITY_FOLLOW_THROUGH",
+            "text": "朋友托付一件事时，我更常先确认范围和完成时间。"
+          },
+          {
+            "code": "B",
+            "direction_code": "CURIOSITY_CONVERSATION",
+            "text": "朋友谈到一件事时，我更常主动了解它为什么重要。"
+          }
+        ]
+      },
+      {
+        "question_id": "LIKED_FC_012",
+        "test_id": "LIKED_REASON",
+        "form_code": "liked_reason_forced_choice_20",
+        "renderer": "forced_choice",
+        "pair_code": "CURIOSITY_CONVERSATION__RELIABILITY_FOLLOW_THROUGH",
+        "instruction_zh": "以下哪一种更接近你近期自然的选择？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "direction_code": "CURIOSITY_CONVERSATION",
+            "text": "团队讨论进行中，我更常提出能继续展开的问题。"
+          },
+          {
+            "code": "B",
+            "direction_code": "RELIABILITY_FOLLOW_THROUGH",
+            "text": "团队讨论结束后，我更常落实自己已经确认的下一步。"
+          }
+        ]
+      },
+      {
+        "question_id": "LIKED_FC_013",
+        "test_id": "LIKED_REASON",
+        "form_code": "liked_reason_forced_choice_20",
+        "renderer": "forced_choice",
+        "pair_code": "RELIABILITY_FOLLOW_THROUGH__RESPECTFUL_AUTHENTICITY",
+        "instruction_zh": "以下哪一种更接近你近期自然的选择？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "direction_code": "RELIABILITY_FOLLOW_THROUGH",
+            "text": "需要拒绝请求时，我更常尽早说明能否做到。"
+          },
+          {
+            "code": "B",
+            "direction_code": "RESPECTFUL_AUTHENTICITY",
+            "text": "需要拒绝请求时，我更常诚实表达边界并尊重对方反应。"
+          }
+        ]
+      },
+      {
+        "question_id": "LIKED_FC_014",
+        "test_id": "LIKED_REASON",
+        "form_code": "liked_reason_forced_choice_20",
+        "renderer": "forced_choice",
+        "pair_code": "RELIABILITY_FOLLOW_THROUGH__RESPECTFUL_AUTHENTICITY",
+        "instruction_zh": "以下哪一种更接近你近期自然的选择？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "direction_code": "RESPECTFUL_AUTHENTICITY",
+            "text": "承诺可能受影响时，我更常直说限制而不维持表面配合。"
+          },
+          {
+            "code": "B",
+            "direction_code": "RELIABILITY_FOLLOW_THROUGH",
+            "text": "承诺可能受影响时，我更常主动更新真实进度。"
+          }
+        ]
+      },
+      {
+        "question_id": "LIKED_FC_015",
+        "test_id": "LIKED_REASON",
+        "form_code": "liked_reason_forced_choice_20",
+        "renderer": "forced_choice",
+        "pair_code": "CURIOSITY_CONVERSATION__ENERGY_HUMOR",
+        "instruction_zh": "以下哪一种更接近你近期自然的选择？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "direction_code": "ENERGY_HUMOR",
+            "text": "聚会出现空档时，我更自然地带来一点轻松话题。"
+          },
+          {
+            "code": "B",
+            "direction_code": "CURIOSITY_CONVERSATION",
+            "text": "聚会出现空档时，我更自然地邀请别人分享感兴趣的事。"
+          }
+        ]
+      },
+      {
+        "question_id": "LIKED_FC_016",
+        "test_id": "LIKED_REASON",
+        "form_code": "liked_reason_forced_choice_20",
+        "renderer": "forced_choice",
+        "pair_code": "CURIOSITY_CONVERSATION__ENERGY_HUMOR",
+        "instruction_zh": "以下哪一种更接近你近期自然的选择？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "direction_code": "CURIOSITY_CONVERSATION",
+            "text": "共同任务较单调时，我更常寻找能让大家继续讨论的新角度。"
+          },
+          {
+            "code": "B",
+            "direction_code": "ENERGY_HUMOR",
+            "text": "共同任务较单调时，我更常加入让过程不那么紧绷的元素。"
+          }
+        ]
+      },
+      {
+        "question_id": "LIKED_FC_017",
+        "test_id": "LIKED_REASON",
+        "form_code": "liked_reason_forced_choice_20",
+        "renderer": "forced_choice",
+        "pair_code": "ENERGY_HUMOR__RESPECTFUL_AUTHENTICITY",
+        "instruction_zh": "以下哪一种更接近你近期自然的选择？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "direction_code": "ENERGY_HUMOR",
+            "text": "面对小尴尬时，我更自然地用不过界的幽默缓和气氛。"
+          },
+          {
+            "code": "B",
+            "direction_code": "RESPECTFUL_AUTHENTICITY",
+            "text": "面对小尴尬时，我更自然地坦然说明并尊重彼此感受。"
+          }
+        ]
+      },
+      {
+        "question_id": "LIKED_FC_018",
+        "test_id": "LIKED_REASON",
+        "form_code": "liked_reason_forced_choice_20",
+        "renderer": "forced_choice",
+        "pair_code": "ENERGY_HUMOR__RESPECTFUL_AUTHENTICITY",
+        "instruction_zh": "以下哪一种更接近你近期自然的选择？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "direction_code": "RESPECTFUL_AUTHENTICITY",
+            "text": "交流有些疲惫时，我更常真实说明状态并允许暂停。"
+          },
+          {
+            "code": "B",
+            "direction_code": "ENERGY_HUMOR",
+            "text": "交流有些疲惫时，我更常给互动增加一点活力。"
+          }
+        ]
+      },
+      {
+        "question_id": "LIKED_FC_019",
+        "test_id": "LIKED_REASON",
+        "form_code": "liked_reason_forced_choice_20",
+        "renderer": "forced_choice",
+        "pair_code": "CURIOSITY_CONVERSATION__RESPECTFUL_AUTHENTICITY",
+        "instruction_zh": "以下哪一种更接近你近期自然的选择？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "direction_code": "CURIOSITY_CONVERSATION",
+            "text": "遇到不同观点时，我更自然地继续了解对方的依据。"
+          },
+          {
+            "code": "B",
+            "direction_code": "RESPECTFUL_AUTHENTICITY",
+            "text": "遇到不同观点时，我更自然地说清自己的立场并尊重差异。"
+          }
+        ]
+      },
+      {
+        "question_id": "LIKED_FC_020",
+        "test_id": "LIKED_REASON",
+        "form_code": "liked_reason_forced_choice_20",
+        "renderer": "forced_choice",
+        "pair_code": "CURIOSITY_CONVERSATION__RESPECTFUL_AUTHENTICITY",
+        "instruction_zh": "以下哪一种更接近你近期自然的选择？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "direction_code": "RESPECTFUL_AUTHENTICITY",
+            "text": "谈到私人经历时，我更常表达真实回应而不越过对方边界。"
+          },
+          {
+            "code": "B",
+            "direction_code": "CURIOSITY_CONVERSATION",
+            "text": "谈到私人经历时，我更常询问对方愿意分享的范围。"
+          }
+        ]
+      }
+    ]
+  },
+  "scoringSpec": {
+    "test_id": "LIKED_REASON",
+    "scoring_version": "0.1.0-preview",
+    "compatible_construct_version": "0.1.0-preview",
+    "compatible_item_bank_version": "0.1.0-preview",
+    "compatible_form_code": "liked_reason_forced_choice_20",
+    "status": "product_construct_candidate_not_validated",
+    "public_preview": true,
+    "psychometric_validation_completed": false,
+    "directions": [
+      {
+        "direction_code": "WARMTH_ATTUNEMENT",
+        "display_name": "温暖与留意他人",
+        "scheduled_comparisons": 8
+      },
+      {
+        "direction_code": "RELIABILITY_FOLLOW_THROUGH",
+        "display_name": "可靠与兑现约定",
+        "scheduled_comparisons": 8
+      },
+      {
+        "direction_code": "ENERGY_HUMOR",
+        "display_name": "活力与轻松感",
+        "scheduled_comparisons": 8
+      },
+      {
+        "direction_code": "CURIOSITY_CONVERSATION",
+        "display_name": "好奇与交流参与",
+        "scheduled_comparisons": 8
+      },
+      {
+        "direction_code": "RESPECTFUL_AUTHENTICITY",
+        "display_name": "真诚表达与尊重边界",
+        "scheduled_comparisons": 8
+      }
+    ],
+    "scoring_model": {
+      "name": "forced_choice_raw_wins",
+      "formula": "wins(direction) = Σ(selected option mapped to direction)",
+      "one_win_per_selected_option": true,
+      "ranking_requires_complete": true,
+      "preserve_all_ties": true,
+      "thresholds_enabled": false,
+      "norming_enabled": false
+    }
+  },
+  "content": {
+    "schema_version": "2.0",
+    "assembled_version": "0.2.0-editorial-candidate",
+    "test_id": "LIKED_REASON",
+    "form_code": "liked_reason_forced_choice_20",
+    "construct_version": "0.1.0-preview",
+    "compatible_item_bank_version": "0.1.0-preview",
+    "compatible_scoring_version": "0.1.0-preview",
+    "result_content_version": "0.2.0-editorial-candidate",
+    "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+    "public_preview": true,
+    "psychometric_validation_completed": false,
+    "runtime_integration": true,
+    "presenter_mode": "direction_ranking",
+    "profiles": [
+      {
+        "profile_code": "SINGLE_WARMTH_ATTUNEMENT",
+        "top_direction_codes": [
+          "WARMTH_ATTUNEMENT"
+        ],
+        "display_name": "温暖与留意他人相对更多",
+        "result_headline": "本次题组中，温暖与留意他人对应选项被选择较多",
+        "one_sentence_summary": "在 20 道二选一里，涉及留意、回应和给人适应空间的情境，你相对更常选择。",
+        "score_reading": "这个次数只表示本次题组中的相对选择，不表示共情能力或善良程度。",
+        "direction_definition": "本方向题目描述留意他人情绪、回应感受和给人适应空间的互动方式。",
+        "item_scope": "题目覆盖：留意朋友情绪变化、照顾有人没被听见、给人留适应时间、回应当下感受、留意对方是否自在、回应不容易的部分。",
+        "what_the_items_compare": "题目把温暖留意放进与其他互动方式的情境比较中，因此结果只能说明相对侧重，不能说明你更善良或更会照顾人。",
+        "self_report_boundary": "这些选项来自你的自我描述，没有他人观察或评价；结果不能说明别人真的观察到这些行为。",
+        "review_angles": "可以回看：你更常留意别人情绪，还是更常表达自己的感受；这两种倾向是否在不同关系中变化。",
+        "facts_to_check": "最近一次你留意到朋友情绪变化的情境；那次对方的感受是否与你的判断一致。",
+        "context_questions": "你留意他人情绪，是因为在意对方，还是担心气氛出问题？这个区别只能由你自己确认。",
+        "low_risk_actions": "想回应时先问对方现在是否需要；不需要为了获得好感承担他人情绪。",
+        "no_people_pleasing_boundary": "留意他人不应以自我牺牲为代价；你不需要用照顾别人来换取被喜欢。",
+        "what_this_result_cannot_support": "它不能说明共情能力、善良程度、情绪照顾能力、别人会感到被理解、你应承担他人情绪或你更容易被喜欢。",
+        "does_not_mean": [
+          "顶部方向不代表共情能力",
+          "留意他人不等于承担他人情绪",
+          "也不等于更容易被喜欢"
+        ],
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated"
+      },
+      {
+        "profile_code": "SINGLE_RELIABILITY_FOLLOW_THROUGH",
+        "top_direction_codes": [
+          "RELIABILITY_FOLLOW_THROUGH"
+        ],
+        "display_name": "可靠与兑现约定相对更多",
+        "result_headline": "本次题组中，可靠与兑现约定对应选项被选择较多",
+        "one_sentence_summary": "在 20 道二选一里，涉及说明范围、更新进度和兑现约定的情境，你相对更常选择。",
+        "score_reading": "这个次数只表示本次题组中的相对选择，不表示责任感或值得信赖。",
+        "direction_definition": "本方向题目描述说明范围、确认时间、更新进度和兑现约定的互动方式。",
+        "item_scope": "题目覆盖：记住答应的部分、确认负责的事按时完成、确保答应事项有进展、及时说明安排变化、先确认范围和完成时间、落实确认的下一步。",
+        "what_the_items_compare": "题目把可靠兑现放进与其他互动方式的情境比较中，因此结果只能说明相对侧重，不能说明你更负责或更可信。",
+        "self_report_boundary": "这些选项来自你的自我描述，没有他人观察或评价；结果不能证明别人信任你。",
+        "review_angles": "可以回看：你更常主动确认约定，还是更常等别人提醒；兑现压力来自哪里。",
+        "facts_to_check": "最近一次你兑现或更新进度的约定；那次是否超出你的实际能力。",
+        "context_questions": "你确认约定是因为想负责，还是怕让人失望？这个区别只能由你自己分辨。",
+        "low_risk_actions": "承诺前先核对真实能力与时间；兑现不了的约定尽早说明，不需要维持表面配合。",
+        "no_people_pleasing_boundary": "不需要为了维持可靠形象而过度承诺；超出能力的约定最终更难兑现。",
+        "what_this_result_cannot_support": "它不能说明你值得信赖、责任感、职业表现、道德品质、你从不失约或别人一定信任你。",
+        "does_not_mean": [
+          "顶部方向不代表责任感",
+          "可靠不等于道德品质",
+          "也不等于从不失约"
+        ],
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated"
+      },
+      {
+        "profile_code": "SINGLE_ENERGY_HUMOR",
+        "top_direction_codes": [
+          "ENERGY_HUMOR"
+        ],
+        "display_name": "活力与轻松感相对更多",
+        "result_headline": "本次题组中，活力与轻松感对应选项被选择较多",
+        "one_sentence_summary": "在 20 道二选一里，涉及轻松表达、活力和幽默的情境，你相对更常选择。",
+        "score_reading": "这个次数只表示本次题组中的相对选择，不表示你有幽默天赋或外向。",
+        "direction_definition": "本方向题目描述轻松表达、活跃气氛和使用不过界的幽默的互动方式。",
+        "item_scope": "题目覆盖：拘谨时加入轻松表达、帮对话恢复活力、为过程加入轻松感、帮大家从紧张缓一缓、空档时带来轻松话题、加入不紧绷元素。",
+        "what_the_items_compare": "题目把活力轻松放进与其他互动方式的情境比较中，因此结果只能说明相对侧重，不能说明你更有趣。",
+        "self_report_boundary": "这些选项来自你的自我描述，没有他人观察或评价；结果不能说明别人是否觉得有趣。",
+        "review_angles": "可以回看：你更常主动活跃气氛，还是更常等待别人开口；幽默是否尊重场景和边界。",
+        "facts_to_check": "最近一次你加入轻松表达的情境；那次其他人是否都愿意参与。",
+        "context_questions": "你活跃气氛是因为自在，还是担心冷场？这个区别只能由你自己判断。",
+        "low_risk_actions": "轻松表达前先留意场景是否合适；幽默必须尊重边界，其他人可以不参与。",
+        "no_people_pleasing_boundary": "不需要靠逗笑别人维持关系；安静或不幽默也完全正常。",
+        "what_this_result_cannot_support": "它不能说明你有趣、外向、有幽默天赋、是气氛担当、所有人都喜欢这种表达或你能让别人放松。",
+        "does_not_mean": [
+          "顶部方向不代表幽默天赋",
+          "活跃不等于外向",
+          "也不等于所有人都喜欢"
+        ],
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated"
+      },
+      {
+        "profile_code": "SINGLE_CURIOSITY_CONVERSATION",
+        "top_direction_codes": [
+          "CURIOSITY_CONVERSATION"
+        ],
+        "display_name": "好奇与交流参与相对更多",
+        "result_headline": "本次题组中，好奇与交流参与对应选项被选择较多",
+        "one_sentence_summary": "在 20 道二选一里，涉及提问、继续了解和参与交流的情境，你相对更常选择。",
+        "score_reading": "这个次数只表示本次题组中的相对选择，不表示你会聊天或社交能力强。",
+        "direction_definition": "本方向题目描述提问、追问、继续了解和参与讨论的互动方式。",
+        "item_scope": "题目覆盖：询问对方关注的事、追问没理解的细节、了解一件事为什么重要、提出能展开的问题、继续了解对方依据、询问愿意分享的范围。",
+        "what_the_items_compare": "题目把好奇参与放进与其他互动方式的情境比较中，因此结果只能说明相对侧重，不能说明你更聪明或更会聊天。",
+        "self_report_boundary": "这些选项来自你的自我描述，没有他人观察或评价；结果不能说明别人愿意继续分享。",
+        "review_angles": "可以回看：你更常主动提问，还是更常回应；提问是否给对方保留不回答的空间。",
+        "facts_to_check": "最近一次你追问细节的情境；那次对方是否愿意继续。",
+        "context_questions": "你继续追问是因为真的好奇，还是为了不让对话冷场？这个区别只能由你结合具体情况核对。",
+        "low_risk_actions": "提问前先留意对方是否愿意分享；好奇必须给对方保留不回答的空间。",
+        "no_people_pleasing_boundary": "不需要为了维持对话而追问；对方有权不回答。",
+        "what_this_result_cannot_support": "它不能说明你会聊天、聪明、社交能力强、你真的对所有人感兴趣、别人愿意继续分享或你有权追问隐私。",
+        "does_not_mean": [
+          "顶部方向不代表会聊天",
+          "提问不等于对所有人感兴趣",
+          "好奇不赋予追问隐私的权利"
+        ],
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated"
+      },
+      {
+        "profile_code": "SINGLE_RESPECTFUL_AUTHENTICITY",
+        "top_direction_codes": [
+          "RESPECTFUL_AUTHENTICITY"
+        ],
+        "display_name": "真诚表达与尊重边界相对更多",
+        "result_headline": "本次题组中，真诚表达与尊重边界对应选项被选择较多",
+        "one_sentence_summary": "在 20 道二选一里，涉及立场表达、拒绝、边界和允许暂停的情境，你相对更常选择。",
+        "score_reading": "这个次数只表示本次题组中的相对选择，不表示你更真诚或道德更好。",
+        "direction_definition": "本方向题目描述清楚表达看法、诚实说明边界、允许暂停和尊重差异的互动方式。",
+        "item_scope": "题目覆盖：尊重暂时不说的选择、表达看法并保留边界、诚实表达边界、直说限制不维持表面配合、允许暂停、说清立场并尊重差异。",
+        "what_the_items_compare": "题目把真诚边界放进与其他互动方式的情境比较中，因此结果只能说明相对侧重，不能说明你更会尊重人。",
+        "self_report_boundary": "这些选项来自你的自我描述，没有他人观察或评价；结果不能说明别人因此更信任或喜欢你。",
+        "review_angles": "可以回看：你更常直接表达立场，还是更常照顾气氛；边界是否得到双方尊重。",
+        "facts_to_check": "最近一次你表达边界的情境；那次对方是否尊重你的选择。",
+        "context_questions": "你直接表达是为了真实，还是为了显得有立场？真实表达不能成为伤害或无视边界的理由。",
+        "low_risk_actions": "表达立场前先核对对方是否愿意继续对话；拒绝和暂停不需要额外理由。",
+        "no_people_pleasing_boundary": "真诚不等于迎合，也不等于可以冒犯；守边界不需要讨好任何人。",
+        "what_this_result_cannot_support": "它不能说明你更真诚、更尊重别人、道德更好、从不迎合、总能守住边界或别人因此更信任喜欢你。",
+        "does_not_mean": [
+          "顶部方向不代表更真诚",
+          "真实表达不等于伤害或冒犯",
+          "守边界不保证别人喜欢"
+        ],
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated"
+      },
+      {
+        "profile_code": "TIED_WARMTH_ATTUNEMENT_RELIABILITY_FOLLOW_THROUGH",
+        "top_direction_codes": [
+          "WARMTH_ATTUNEMENT",
+          "RELIABILITY_FOLLOW_THROUGH"
+        ],
+        "result_headline": "温暖留意与可靠兑现的选项次数相同",
+        "tie_explanation": "在 20 道二选一里，温暖留意、可靠兑现的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或社交魅力类型。",
+        "score_reading": "两个方向次数相同，不表示你同时擅长两者，也不表示哪一边更优秀或更受欢迎。",
+        "direction_readings": [
+          "温暖留意：留意情绪、回应感受和给人适应空间。",
+          "可靠兑现：说明范围、更新进度和兑现约定。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：留意他人情绪、照顾气氛、回应感受，确认范围、更新进度、兑现约定等不同情境。",
+        "interaction_tradeoff_questions": "你更常先留意情绪还是先确认约定？这个先后只能由你自己核对。",
+        "facts_to_check": "最近一次你同时面对朋友情绪与约定安排时，你先处理了哪个。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "下次同时面对情绪与约定时，先确认对方此刻更需要哪个。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不表示你同时具备这两种互动能力",
+          "不预测真实互动中哪个方向先出现"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：这些题里你更常选温暖留意还是可靠兑现；选择是否随对象变化。"
+      },
+      {
+        "profile_code": "TIED_WARMTH_ATTUNEMENT_ENERGY_HUMOR",
+        "top_direction_codes": [
+          "WARMTH_ATTUNEMENT",
+          "ENERGY_HUMOR"
+        ],
+        "result_headline": "温暖留意与活力轻松的选项次数相同",
+        "tie_explanation": "在 20 道二选一里，温暖留意、活力轻松的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或社交魅力类型。",
+        "score_reading": "两个方向次数相同，不表示你同时擅长两者，也不表示哪一边更优秀或更受欢迎。",
+        "direction_readings": [
+          "温暖留意：留意情绪、回应感受和给人适应空间。",
+          "活力轻松：轻松表达、活跃气氛和不过界幽默。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：留意他人情绪、照顾气氛、回应感受，轻松表达、活跃气氛、不过界幽默等不同情境。",
+        "interaction_tradeoff_questions": "你更常用留意回应，还是更常用轻松表达？这个区别只能由你自己核对。",
+        "facts_to_check": "最近一次气氛拘谨时，你选择了留时间还是加入表达。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "下次气氛拘谨时，先问自己更愿意留时间还是加入表达。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不表示你同时具备这两种互动能力",
+          "不预测真实互动中哪个方向先出现"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：你更常用留意回应还是轻松表达；选择是否随气氛变化。"
+      },
+      {
+        "profile_code": "TIED_WARMTH_ATTUNEMENT_CURIOSITY_CONVERSATION",
+        "top_direction_codes": [
+          "WARMTH_ATTUNEMENT",
+          "CURIOSITY_CONVERSATION"
+        ],
+        "result_headline": "温暖留意与好奇参与的选项次数相同",
+        "tie_explanation": "在 20 道二选一里，温暖留意、好奇参与的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或社交魅力类型。",
+        "score_reading": "两个方向次数相同，不表示你同时擅长两者，也不表示哪一边更优秀或更受欢迎。",
+        "direction_readings": [
+          "温暖留意：留意情绪、回应感受和给人适应空间。",
+          "好奇参与：提问、继续了解和参与讨论。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：留意他人情绪、照顾气氛、回应感受，主动提问、继续了解、参与讨论等不同情境。",
+        "interaction_tradeoff_questions": "你更常留意对方是否自在，还是更常提问了解对方？这个侧重只能由你自己核对。",
+        "facts_to_check": "最近一次认识新人时，你先留意自在还是先提问。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "下次认识新人时，按对方状态决定先留意还是先提问。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不表示你同时具备这两种互动能力",
+          "不预测真实互动中哪个方向先出现"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：你更常留意对方还是提问对方；选择是否随熟悉度变化。"
+      },
+      {
+        "profile_code": "TIED_WARMTH_ATTUNEMENT_RESPECTFUL_AUTHENTICITY",
+        "top_direction_codes": [
+          "WARMTH_ATTUNEMENT",
+          "RESPECTFUL_AUTHENTICITY"
+        ],
+        "result_headline": "温暖留意与真诚边界的选项次数相同",
+        "tie_explanation": "在 20 道二选一里，温暖留意、真诚边界的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或社交魅力类型。",
+        "score_reading": "两个方向次数相同，不表示你同时擅长两者，也不表示哪一边更优秀或更受欢迎。",
+        "direction_readings": [
+          "温暖留意：留意情绪、回应感受和给人适应空间。",
+          "真诚边界：表达立场、诚实边界和允许暂停。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：留意他人情绪、照顾气氛、回应感受，表达立场、诚实边界、允许暂停等不同情境。",
+        "interaction_tradeoff_questions": "对方沉默时，你更想陪伴确认还是尊重不说？这个选择只能由你自己核对。",
+        "facts_to_check": "最近一次对方沉默时，你选择了陪伴确认还是尊重不说。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "下次对方沉默时，把选择权交给对方，不预设答案。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不表示你同时具备这两种互动能力",
+          "不预测真实互动中哪个方向先出现"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：对方沉默时你更想做什么；选择是否随关系阶段变化。"
+      },
+      {
+        "profile_code": "TIED_RELIABILITY_FOLLOW_THROUGH_ENERGY_HUMOR",
+        "top_direction_codes": [
+          "RELIABILITY_FOLLOW_THROUGH",
+          "ENERGY_HUMOR"
+        ],
+        "result_headline": "可靠兑现与活力轻松的选项次数相同",
+        "tie_explanation": "在 20 道二选一里，可靠兑现、活力轻松的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或社交魅力类型。",
+        "score_reading": "两个方向次数相同，不表示你同时擅长两者，也不表示哪一边更优秀或更受欢迎。",
+        "direction_readings": [
+          "可靠兑现：说明范围、更新进度和兑现约定。",
+          "活力轻松：轻松表达、活跃气氛和不过界幽默。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：确认范围、更新进度、兑现约定，轻松表达、活跃气氛、不过界幽默等不同情境。",
+        "interaction_tradeoff_questions": "共同计划中，你更看重兑现进度还是过程轻松？这个取舍只能由你自己核对。",
+        "facts_to_check": "最近一次共同计划中，你更常确认进度还是调节气氛。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "下次共同计划中，先核对进度再决定是否调节气氛。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不表示你同时具备这两种互动能力",
+          "不预测真实互动中哪个方向先出现"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：共同计划中你更常顾进度还是气氛；选择是否随任务压力变化。"
+      },
+      {
+        "profile_code": "TIED_RELIABILITY_FOLLOW_THROUGH_CURIOSITY_CONVERSATION",
+        "top_direction_codes": [
+          "RELIABILITY_FOLLOW_THROUGH",
+          "CURIOSITY_CONVERSATION"
+        ],
+        "result_headline": "可靠兑现与好奇参与的选项次数相同",
+        "tie_explanation": "在 20 道二选一里，可靠兑现、好奇参与的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或社交魅力类型。",
+        "score_reading": "两个方向次数相同，不表示你同时擅长两者，也不表示哪一边更优秀或更受欢迎。",
+        "direction_readings": [
+          "可靠兑现：说明范围、更新进度和兑现约定。",
+          "好奇参与：提问、继续了解和参与讨论。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：确认范围、更新进度、兑现约定，主动提问、继续了解、参与讨论等不同情境。",
+        "interaction_tradeoff_questions": "朋友谈事时，你更想先确认范围还是先了解原因？这个顺序只能由你自己核对。",
+        "facts_to_check": "最近一次朋友托付时，你先确认范围还是先问原因。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "下次朋友谈事时，先问对方更想被了解还是被确认。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不表示你同时具备这两种互动能力",
+          "不预测真实互动中哪个方向先出现"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：朋友谈事时你更常确认还是了解；选择是否随事项重要性变化。"
+      },
+      {
+        "profile_code": "TIED_RELIABILITY_FOLLOW_THROUGH_RESPECTFUL_AUTHENTICITY",
+        "top_direction_codes": [
+          "RELIABILITY_FOLLOW_THROUGH",
+          "RESPECTFUL_AUTHENTICITY"
+        ],
+        "result_headline": "可靠兑现与真诚边界的选项次数相同",
+        "tie_explanation": "在 20 道二选一里，可靠兑现、真诚边界的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或社交魅力类型。",
+        "score_reading": "两个方向次数相同，不表示你同时擅长两者，也不表示哪一边更优秀或更受欢迎。",
+        "direction_readings": [
+          "可靠兑现：说明范围、更新进度和兑现约定。",
+          "真诚边界：表达立场、诚实边界和允许暂停。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：确认范围、更新进度、兑现约定，表达立场、诚实边界、允许暂停等不同情境。",
+        "interaction_tradeoff_questions": "拒绝请求时，你更想尽早说清还是诚实表达边界？这个侧重只能由你自己分辨。",
+        "facts_to_check": "最近一次拒绝请求时，你更常尽早说清还是诚实表达。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "下次拒绝时，尽早说明并尊重对方反应。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不表示你同时具备这两种互动能力",
+          "不预测真实互动中哪个方向先出现"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：拒绝时你更常说清还是表达边界；选择是否随对方关系变化。"
+      },
+      {
+        "profile_code": "TIED_ENERGY_HUMOR_CURIOSITY_CONVERSATION",
+        "top_direction_codes": [
+          "ENERGY_HUMOR",
+          "CURIOSITY_CONVERSATION"
+        ],
+        "result_headline": "活力轻松与好奇参与的选项次数相同",
+        "tie_explanation": "在 20 道二选一里，活力轻松、好奇参与的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或社交魅力类型。",
+        "score_reading": "两个方向次数相同，不表示你同时擅长两者，也不表示哪一边更优秀或更受欢迎。",
+        "direction_readings": [
+          "活力轻松：轻松表达、活跃气氛和不过界幽默。",
+          "好奇参与：提问、继续了解和参与讨论。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：轻松表达、活跃气氛、不过界幽默，主动提问、继续了解、参与讨论等不同情境。",
+        "interaction_tradeoff_questions": "聚会空档时，你更想带来轻松话题还是邀请分享？这个倾向只能由你自己核对。",
+        "facts_to_check": "最近一次聚会空档时，你带来话题还是邀请分享。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "下次聚会空档时，留意他人是否愿意参与再决定。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不表示你同时具备这两种互动能力",
+          "不预测真实互动中哪个方向先出现"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：空档时你更常带来话题还是邀请分享；选择是否随人群变化。"
+      },
+      {
+        "profile_code": "TIED_ENERGY_HUMOR_RESPECTFUL_AUTHENTICITY",
+        "top_direction_codes": [
+          "ENERGY_HUMOR",
+          "RESPECTFUL_AUTHENTICITY"
+        ],
+        "result_headline": "活力轻松与真诚边界的选项次数相同",
+        "tie_explanation": "在 20 道二选一里，活力轻松、真诚边界的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或社交魅力类型。",
+        "score_reading": "两个方向次数相同，不表示你同时擅长两者，也不表示哪一边更优秀或更受欢迎。",
+        "direction_readings": [
+          "活力轻松：轻松表达、活跃气氛和不过界幽默。",
+          "真诚边界：表达立场、诚实边界和允许暂停。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：轻松表达、活跃气氛、不过界幽默，表达立场、诚实边界、允许暂停等不同情境。",
+        "interaction_tradeoff_questions": "小尴尬时，你更想用幽默缓和还是坦然说明？这个选择只能由你自己判断。",
+        "facts_to_check": "最近一次小尴尬时，你用了幽默还是坦然说明。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "下次小尴尬时，先核对双方感受再选择回应方式。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不表示你同时具备这两种互动能力",
+          "不预测真实互动中哪个方向先出现"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：小尴尬时你更常幽默还是坦然；选择是否随场景变化。"
+      },
+      {
+        "profile_code": "TIED_CURIOSITY_CONVERSATION_RESPECTFUL_AUTHENTICITY",
+        "top_direction_codes": [
+          "CURIOSITY_CONVERSATION",
+          "RESPECTFUL_AUTHENTICITY"
+        ],
+        "result_headline": "好奇参与与真诚边界的选项次数相同",
+        "tie_explanation": "在 20 道二选一里，好奇参与、真诚边界的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或社交魅力类型。",
+        "score_reading": "两个方向次数相同，不表示你同时擅长两者，也不表示哪一边更优秀或更受欢迎。",
+        "direction_readings": [
+          "好奇参与：提问、继续了解和参与讨论。",
+          "真诚边界：表达立场、诚实边界和允许暂停。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：主动提问、继续了解、参与讨论，表达立场、诚实边界、允许暂停等不同情境。",
+        "interaction_tradeoff_questions": "遇到不同观点时，你更想继续了解还是说清立场？这个倾向只能由你自己分辨。",
+        "facts_to_check": "最近一次不同观点时，你继续了解还是说清立场。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "下次不同观点时，先确认对方是否愿意继续讨论。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不表示你同时具备这两种互动能力",
+          "不预测真实互动中哪个方向先出现"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：不同观点时你更常了解还是说清；选择是否随话题敏感度变化。"
+      },
+      {
+        "profile_code": "TIED_WARMTH_ATTUNEMENT_RELIABILITY_FOLLOW_THROUGH_ENERGY_HUMOR",
+        "top_direction_codes": [
+          "WARMTH_ATTUNEMENT",
+          "RELIABILITY_FOLLOW_THROUGH",
+          "ENERGY_HUMOR"
+        ],
+        "result_headline": "温暖留意、可靠兑现、活力轻松的选项次数相同",
+        "tie_explanation": "在 20 道二选一里，温暖留意、可靠兑现、活力轻松的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或社交魅力类型。",
+        "score_reading": "三方向次数相同，不表示你三方面都擅长，也不表示哪一种更受欢迎。",
+        "direction_readings": [
+          "温暖留意：留意情绪、回应感受和给人适应空间。",
+          "可靠兑现：说明范围、更新进度和兑现约定。",
+          "活力轻松：轻松表达、活跃气氛和不过界幽默。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：留意他人情绪、照顾气氛、回应感受，确认范围、更新进度、兑现约定，轻松表达、活跃气氛、不过界幽默等不同情境。",
+        "interaction_tradeoff_questions": "留意、兑现和轻松在不同情境里的先后，只能由你自己核对。",
+        "facts_to_check": "最近一次同时面对留意、兑现与气氛时，你先顾了哪个。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "下次三种选择并存时，先确认对方此刻更需要哪个。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不表示你同时具备这些互动能力",
+          "不预测真实互动中哪个方向先出现"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：留意、兑现、轻松三种方式在不同情境里的侧重。"
+      },
+      {
+        "profile_code": "TIED_WARMTH_ATTUNEMENT_RELIABILITY_FOLLOW_THROUGH_CURIOSITY_CONVERSATION",
+        "top_direction_codes": [
+          "WARMTH_ATTUNEMENT",
+          "RELIABILITY_FOLLOW_THROUGH",
+          "CURIOSITY_CONVERSATION"
+        ],
+        "result_headline": "温暖留意、可靠兑现、好奇参与的选项次数相同",
+        "tie_explanation": "在 20 道二选一里，温暖留意、可靠兑现、好奇参与的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或社交魅力类型。",
+        "score_reading": "三方向次数相同，不表示你三方面都擅长，也不表示哪一种更受欢迎。",
+        "direction_readings": [
+          "温暖留意：留意情绪、回应感受和给人适应空间。",
+          "可靠兑现：说明范围、更新进度和兑现约定。",
+          "好奇参与：提问、继续了解和参与讨论。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：留意他人情绪、照顾气氛、回应感受，确认范围、更新进度、兑现约定，主动提问、继续了解、参与讨论等不同情境。",
+        "interaction_tradeoff_questions": "留意、兑现和提问在不同情境里的先后，只能由你自己核对。",
+        "facts_to_check": "最近一次朋友既有情绪又托付事情时，你先处理了哪个。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "下次朋友同时需要情绪与托付时，先问对方更想要哪个。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不表示你同时具备这些互动能力",
+          "不预测真实互动中哪个方向先出现"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：留意、兑现、提问三种方式在不同情境里的侧重。"
+      },
+      {
+        "profile_code": "TIED_WARMTH_ATTUNEMENT_RELIABILITY_FOLLOW_THROUGH_RESPECTFUL_AUTHENTICITY",
+        "top_direction_codes": [
+          "WARMTH_ATTUNEMENT",
+          "RELIABILITY_FOLLOW_THROUGH",
+          "RESPECTFUL_AUTHENTICITY"
+        ],
+        "result_headline": "温暖留意、可靠兑现、真诚边界的选项次数相同",
+        "tie_explanation": "在 20 道二选一里，温暖留意、可靠兑现、真诚边界的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或社交魅力类型。",
+        "score_reading": "三方向次数相同，不表示你三方面都擅长，也不表示哪一种更受欢迎。",
+        "direction_readings": [
+          "温暖留意：留意情绪、回应感受和给人适应空间。",
+          "可靠兑现：说明范围、更新进度和兑现约定。",
+          "真诚边界：表达立场、诚实边界和允许暂停。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：留意他人情绪、照顾气氛、回应感受，确认范围、更新进度、兑现约定，表达立场、诚实边界、允许暂停等不同情境。",
+        "interaction_tradeoff_questions": "留意、兑现和边界在不同情境里的先后，只能由你自己核对。",
+        "facts_to_check": "最近一次需要留意、兑现又守边界时，你优先了哪个。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "下次需要同时照顾情绪与守边界时，先核对自己的余量。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不表示你同时具备这些互动能力",
+          "不预测真实互动中哪个方向先出现"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：留意、兑现、边界三种方式在不同情境里的侧重。"
+      },
+      {
+        "profile_code": "TIED_WARMTH_ATTUNEMENT_ENERGY_HUMOR_CURIOSITY_CONVERSATION",
+        "top_direction_codes": [
+          "WARMTH_ATTUNEMENT",
+          "ENERGY_HUMOR",
+          "CURIOSITY_CONVERSATION"
+        ],
+        "result_headline": "温暖留意、活力轻松、好奇参与的选项次数相同",
+        "tie_explanation": "在 20 道二选一里，温暖留意、活力轻松、好奇参与的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或社交魅力类型。",
+        "score_reading": "三方向次数相同，不表示你三方面都擅长，也不表示哪一种更受欢迎。",
+        "direction_readings": [
+          "温暖留意：留意情绪、回应感受和给人适应空间。",
+          "活力轻松：轻松表达、活跃气氛和不过界幽默。",
+          "好奇参与：提问、继续了解和参与讨论。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：留意他人情绪、照顾气氛、回应感受，轻松表达、活跃气氛、不过界幽默，主动提问、继续了解、参与讨论等不同情境。",
+        "interaction_tradeoff_questions": "留意、轻松和提问在不同情境里的先后，只能由你自己核对。",
+        "facts_to_check": "最近一次气氛拘谨又想提问时，你更先做了哪个。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "下次气氛拘谨又想提问时，按对方状态决定顺序。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不表示你同时具备这些互动能力",
+          "不预测真实互动中哪个方向先出现"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：留意、轻松、提问三种方式在不同情境里的侧重。"
+      },
+      {
+        "profile_code": "TIED_WARMTH_ATTUNEMENT_ENERGY_HUMOR_RESPECTFUL_AUTHENTICITY",
+        "top_direction_codes": [
+          "WARMTH_ATTUNEMENT",
+          "ENERGY_HUMOR",
+          "RESPECTFUL_AUTHENTICITY"
+        ],
+        "result_headline": "温暖留意、活力轻松、真诚边界的选项次数相同",
+        "tie_explanation": "在 20 道二选一里，温暖留意、活力轻松、真诚边界的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或社交魅力类型。",
+        "score_reading": "三方向次数相同，不表示你三方面都擅长，也不表示哪一种更受欢迎。",
+        "direction_readings": [
+          "温暖留意：留意情绪、回应感受和给人适应空间。",
+          "活力轻松：轻松表达、活跃气氛和不过界幽默。",
+          "真诚边界：表达立场、诚实边界和允许暂停。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：留意他人情绪、照顾气氛、回应感受，轻松表达、活跃气氛、不过界幽默，表达立场、诚实边界、允许暂停等不同情境。",
+        "interaction_tradeoff_questions": "留意、轻松和边界在不同情境里的先后，只能由你自己核对。",
+        "facts_to_check": "最近一次对方沉默时，你选了留意、轻松还是尊重。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "下次对方沉默时，把选择权交给对方。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不表示你同时具备这些互动能力",
+          "不预测真实互动中哪个方向先出现"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：留意、轻松、边界三种方式在不同情境里的侧重。"
+      },
+      {
+        "profile_code": "TIED_WARMTH_ATTUNEMENT_CURIOSITY_CONVERSATION_RESPECTFUL_AUTHENTICITY",
+        "top_direction_codes": [
+          "WARMTH_ATTUNEMENT",
+          "CURIOSITY_CONVERSATION",
+          "RESPECTFUL_AUTHENTICITY"
+        ],
+        "result_headline": "温暖留意、好奇参与、真诚边界的选项次数相同",
+        "tie_explanation": "在 20 道二选一里，温暖留意、好奇参与、真诚边界的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或社交魅力类型。",
+        "score_reading": "三方向次数相同，不表示你三方面都擅长，也不表示哪一种更受欢迎。",
+        "direction_readings": [
+          "温暖留意：留意情绪、回应感受和给人适应空间。",
+          "好奇参与：提问、继续了解和参与讨论。",
+          "真诚边界：表达立场、诚实边界和允许暂停。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：留意他人情绪、照顾气氛、回应感受，主动提问、继续了解、参与讨论，表达立场、诚实边界、允许暂停等不同情境。",
+        "interaction_tradeoff_questions": "留意、提问和边界在不同情境里的先后，只能由你自己核对。",
+        "facts_to_check": "最近一次认识新人时，你更留意、提问还是守边界。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "下次认识新人时，同时留意自在与边界。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不表示你同时具备这些互动能力",
+          "不预测真实互动中哪个方向先出现"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：留意、提问、边界三种方式在不同情境里的侧重。"
+      },
+      {
+        "profile_code": "TIED_RELIABILITY_FOLLOW_THROUGH_ENERGY_HUMOR_CURIOSITY_CONVERSATION",
+        "top_direction_codes": [
+          "RELIABILITY_FOLLOW_THROUGH",
+          "ENERGY_HUMOR",
+          "CURIOSITY_CONVERSATION"
+        ],
+        "result_headline": "可靠兑现、活力轻松、好奇参与的选项次数相同",
+        "tie_explanation": "在 20 道二选一里，可靠兑现、活力轻松、好奇参与的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或社交魅力类型。",
+        "score_reading": "三方向次数相同，不表示你三方面都擅长，也不表示哪一种更受欢迎。",
+        "direction_readings": [
+          "可靠兑现：说明范围、更新进度和兑现约定。",
+          "活力轻松：轻松表达、活跃气氛和不过界幽默。",
+          "好奇参与：提问、继续了解和参与讨论。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：确认范围、更新进度、兑现约定，轻松表达、活跃气氛、不过界幽默，主动提问、继续了解、参与讨论等不同情境。",
+        "interaction_tradeoff_questions": "兑现、轻松和提问在不同情境里的先后，只能由你自己核对。",
+        "facts_to_check": "最近一次共同任务中，你更顾兑现、气氛还是提问。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "下次共同任务中，先确认进度再决定其他。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不表示你同时具备这些互动能力",
+          "不预测真实互动中哪个方向先出现"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：兑现、轻松、提问三种方式在不同情境里的侧重。"
+      },
+      {
+        "profile_code": "TIED_RELIABILITY_FOLLOW_THROUGH_ENERGY_HUMOR_RESPECTFUL_AUTHENTICITY",
+        "top_direction_codes": [
+          "RELIABILITY_FOLLOW_THROUGH",
+          "ENERGY_HUMOR",
+          "RESPECTFUL_AUTHENTICITY"
+        ],
+        "result_headline": "可靠兑现、活力轻松、真诚边界的选项次数相同",
+        "tie_explanation": "在 20 道二选一里，可靠兑现、活力轻松、真诚边界的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或社交魅力类型。",
+        "score_reading": "三方向次数相同，不表示你三方面都擅长，也不表示哪一种更受欢迎。",
+        "direction_readings": [
+          "可靠兑现：说明范围、更新进度和兑现约定。",
+          "活力轻松：轻松表达、活跃气氛和不过界幽默。",
+          "真诚边界：表达立场、诚实边界和允许暂停。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：确认范围、更新进度、兑现约定，轻松表达、活跃气氛、不过界幽默，表达立场、诚实边界、允许暂停等不同情境。",
+        "interaction_tradeoff_questions": "兑现、轻松和边界在不同情境里的先后，只能由你自己核对。",
+        "facts_to_check": "最近一次拒绝时，你更常兑现、缓和还是说清边界。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "下次拒绝时，尽早说清并尊重对方反应。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不表示你同时具备这些互动能力",
+          "不预测真实互动中哪个方向先出现"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：兑现、轻松、边界三种方式在不同情境里的侧重。"
+      },
+      {
+        "profile_code": "TIED_RELIABILITY_FOLLOW_THROUGH_CURIOSITY_CONVERSATION_RESPECTFUL_AUTHENTICITY",
+        "top_direction_codes": [
+          "RELIABILITY_FOLLOW_THROUGH",
+          "CURIOSITY_CONVERSATION",
+          "RESPECTFUL_AUTHENTICITY"
+        ],
+        "result_headline": "可靠兑现、好奇参与、真诚边界的选项次数相同",
+        "tie_explanation": "在 20 道二选一里，可靠兑现、好奇参与、真诚边界的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或社交魅力类型。",
+        "score_reading": "三方向次数相同，不表示你三方面都擅长，也不表示哪一种更受欢迎。",
+        "direction_readings": [
+          "可靠兑现：说明范围、更新进度和兑现约定。",
+          "好奇参与：提问、继续了解和参与讨论。",
+          "真诚边界：表达立场、诚实边界和允许暂停。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：确认范围、更新进度、兑现约定，主动提问、继续了解、参与讨论，表达立场、诚实边界、允许暂停等不同情境。",
+        "interaction_tradeoff_questions": "兑现、提问和边界在不同情境里的先后，只能由你自己核对。",
+        "facts_to_check": "最近一次朋友谈事时，你更确认、了解还是表达边界。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "下次朋友谈事时，先确认对方更想被了解、被确认还是保留边界。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不表示你同时具备这些互动能力",
+          "不预测真实互动中哪个方向先出现"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：兑现、提问、边界三种方式在不同情境里的侧重。"
+      },
+      {
+        "profile_code": "TIED_ENERGY_HUMOR_CURIOSITY_CONVERSATION_RESPECTFUL_AUTHENTICITY",
+        "top_direction_codes": [
+          "ENERGY_HUMOR",
+          "CURIOSITY_CONVERSATION",
+          "RESPECTFUL_AUTHENTICITY"
+        ],
+        "result_headline": "活力轻松、好奇参与、真诚边界的选项次数相同",
+        "tie_explanation": "在 20 道二选一里，活力轻松、好奇参与、真诚边界的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或社交魅力类型。",
+        "score_reading": "三方向次数相同，不表示你三方面都擅长，也不表示哪一种更受欢迎。",
+        "direction_readings": [
+          "活力轻松：轻松表达、活跃气氛和不过界幽默。",
+          "好奇参与：提问、继续了解和参与讨论。",
+          "真诚边界：表达立场、诚实边界和允许暂停。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：轻松表达、活跃气氛、不过界幽默，主动提问、继续了解、参与讨论，表达立场、诚实边界、允许暂停等不同情境。",
+        "interaction_tradeoff_questions": "轻松、提问和边界在不同情境里的先后，只能由你自己核对。",
+        "facts_to_check": "最近一次聚会中，你更轻松、提问还是守边界。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "下次聚会时，先核对他人是否愿意参与再选择方式。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不表示你同时具备这些互动能力",
+          "不预测真实互动中哪个方向先出现"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：轻松、提问、边界三种方式在不同情境里的侧重。"
+      },
+      {
+        "profile_code": "TIED_RELIABILITY_FOLLOW_THROUGH_ENERGY_HUMOR_CURIOSITY_CONVERSATION_RESPECTFUL_AUTHENTICITY",
+        "top_direction_codes": [
+          "RELIABILITY_FOLLOW_THROUGH",
+          "ENERGY_HUMOR",
+          "CURIOSITY_CONVERSATION",
+          "RESPECTFUL_AUTHENTICITY"
+        ],
+        "result_headline": "可靠兑现、活力轻松、好奇参与与真诚边界的选项次数相同",
+        "tie_explanation": "在 20 道二选一里，可靠兑现、活力轻松、好奇参与、真诚边界的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或社交魅力类型。",
+        "score_reading": "四方向次数相同，不表示你四方面都擅长，也不表示哪一种更优秀。",
+        "direction_readings": [
+          "可靠兑现：说明范围、更新进度和兑现约定。",
+          "活力轻松：轻松表达、活跃气氛和不过界幽默。",
+          "好奇参与：提问、继续了解和参与讨论。",
+          "真诚边界：表达立场、诚实边界和允许暂停。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：确认范围、更新进度、兑现约定，轻松表达、活跃气氛、不过界幽默，主动提问、继续了解、参与讨论，表达立场、诚实边界、允许暂停等不同情境。",
+        "interaction_tradeoff_questions": "兑现、轻松、提问与边界四种方式在不同情境里的先后，不能从并列结果自动得出。",
+        "facts_to_check": "最近一次需要兑现、轻松、提问或守边界时，你优先了哪个。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "下次四种选择并存时，不预设固定顺序。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不表示你同时具备这些互动能力",
+          "不预测真实互动中哪个方向先出现",
+          "不表示更全面或更优秀"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：兑现、轻松、提问、边界四种方式在不同情境里的侧重。"
+      },
+      {
+        "profile_code": "TIED_WARMTH_ATTUNEMENT_ENERGY_HUMOR_CURIOSITY_CONVERSATION_RESPECTFUL_AUTHENTICITY",
+        "top_direction_codes": [
+          "WARMTH_ATTUNEMENT",
+          "ENERGY_HUMOR",
+          "CURIOSITY_CONVERSATION",
+          "RESPECTFUL_AUTHENTICITY"
+        ],
+        "result_headline": "温暖留意、活力轻松、好奇参与与真诚边界的选项次数相同",
+        "tie_explanation": "在 20 道二选一里，温暖留意、活力轻松、好奇参与、真诚边界的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或社交魅力类型。",
+        "score_reading": "四方向次数相同，不表示你四方面都擅长，也不表示哪一种更优秀。",
+        "direction_readings": [
+          "温暖留意：留意情绪、回应感受和给人适应空间。",
+          "活力轻松：轻松表达、活跃气氛和不过界幽默。",
+          "好奇参与：提问、继续了解和参与讨论。",
+          "真诚边界：表达立场、诚实边界和允许暂停。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：留意他人情绪、照顾气氛、回应感受，轻松表达、活跃气氛、不过界幽默，主动提问、继续了解、参与讨论，表达立场、诚实边界、允许暂停等不同情境。",
+        "interaction_tradeoff_questions": "留意、轻松、提问与边界四种方式在不同情境里的先后，不能从并列结果自动得出。",
+        "facts_to_check": "最近一次需要留意、轻松、提问或守边界时，你优先了哪个。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "下次四种选择并存时，按情境分别记录优先方式。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不表示你同时具备这些互动能力",
+          "不预测真实互动中哪个方向先出现",
+          "不表示更全面或更优秀"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：留意、轻松、提问、边界四种方式在不同情境里的侧重。"
+      },
+      {
+        "profile_code": "TIED_WARMTH_ATTUNEMENT_RELIABILITY_FOLLOW_THROUGH_CURIOSITY_CONVERSATION_RESPECTFUL_AUTHENTICITY",
+        "top_direction_codes": [
+          "WARMTH_ATTUNEMENT",
+          "RELIABILITY_FOLLOW_THROUGH",
+          "CURIOSITY_CONVERSATION",
+          "RESPECTFUL_AUTHENTICITY"
+        ],
+        "result_headline": "温暖留意、可靠兑现、好奇参与与真诚边界的选项次数相同",
+        "tie_explanation": "在 20 道二选一里，温暖留意、可靠兑现、好奇参与、真诚边界的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或社交魅力类型。",
+        "score_reading": "四方向次数相同，不表示你四方面都擅长，也不表示哪一种更优秀。",
+        "direction_readings": [
+          "温暖留意：留意情绪、回应感受和给人适应空间。",
+          "可靠兑现：说明范围、更新进度和兑现约定。",
+          "好奇参与：提问、继续了解和参与讨论。",
+          "真诚边界：表达立场、诚实边界和允许暂停。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：留意他人情绪、照顾气氛、回应感受，确认范围、更新进度、兑现约定，主动提问、继续了解、参与讨论，表达立场、诚实边界、允许暂停等不同情境。",
+        "interaction_tradeoff_questions": "留意、兑现、提问与边界四种方式在不同情境里的先后，不能从并列结果自动得出。",
+        "facts_to_check": "最近一次需要留意、兑现、提问或守边界时，你优先了哪个。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "下次四种选择并存时，先问自己此刻更愿意做哪个。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不表示你同时具备这些互动能力",
+          "不预测真实互动中哪个方向先出现",
+          "不表示更全面或更优秀"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：留意、兑现、提问、边界四种方式在不同情境里的侧重。"
+      },
+      {
+        "profile_code": "TIED_WARMTH_ATTUNEMENT_RELIABILITY_FOLLOW_THROUGH_ENERGY_HUMOR_RESPECTFUL_AUTHENTICITY",
+        "top_direction_codes": [
+          "WARMTH_ATTUNEMENT",
+          "RELIABILITY_FOLLOW_THROUGH",
+          "ENERGY_HUMOR",
+          "RESPECTFUL_AUTHENTICITY"
+        ],
+        "result_headline": "温暖留意、可靠兑现、活力轻松与真诚边界的选项次数相同",
+        "tie_explanation": "在 20 道二选一里，温暖留意、可靠兑现、活力轻松、真诚边界的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或社交魅力类型。",
+        "score_reading": "四方向次数相同，不表示你四方面都擅长，也不表示哪一种更优秀。",
+        "direction_readings": [
+          "温暖留意：留意情绪、回应感受和给人适应空间。",
+          "可靠兑现：说明范围、更新进度和兑现约定。",
+          "活力轻松：轻松表达、活跃气氛和不过界幽默。",
+          "真诚边界：表达立场、诚实边界和允许暂停。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：留意他人情绪、照顾气氛、回应感受，确认范围、更新进度、兑现约定，轻松表达、活跃气氛、不过界幽默，表达立场、诚实边界、允许暂停等不同情境。",
+        "interaction_tradeoff_questions": "留意、兑现、轻松与边界四种方式在不同情境里的先后，不能从并列结果自动得出。",
+        "facts_to_check": "最近一次需要留意、兑现、轻松或守边界时，你优先了哪个。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "下次四种选择并存时，先核对彼此余量再决定。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不表示你同时具备这些互动能力",
+          "不预测真实互动中哪个方向先出现",
+          "不表示更全面或更优秀"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：留意、兑现、轻松、边界四种方式在不同情境里的侧重。"
+      },
+      {
+        "profile_code": "TIED_WARMTH_ATTUNEMENT_RELIABILITY_FOLLOW_THROUGH_ENERGY_HUMOR_CURIOSITY_CONVERSATION",
+        "top_direction_codes": [
+          "WARMTH_ATTUNEMENT",
+          "RELIABILITY_FOLLOW_THROUGH",
+          "ENERGY_HUMOR",
+          "CURIOSITY_CONVERSATION"
+        ],
+        "result_headline": "温暖留意、可靠兑现、活力轻松与好奇参与的选项次数相同",
+        "tie_explanation": "在 20 道二选一里，温暖留意、可靠兑现、活力轻松、好奇参与的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或社交魅力类型。",
+        "score_reading": "四方向次数相同，不表示你四方面都擅长，也不表示哪一种更优秀。",
+        "direction_readings": [
+          "温暖留意：留意情绪、回应感受和给人适应空间。",
+          "可靠兑现：说明范围、更新进度和兑现约定。",
+          "活力轻松：轻松表达、活跃气氛和不过界幽默。",
+          "好奇参与：提问、继续了解和参与讨论。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：留意他人情绪、照顾气氛、回应感受，确认范围、更新进度、兑现约定，轻松表达、活跃气氛、不过界幽默，主动提问、继续了解、参与讨论等不同情境。",
+        "interaction_tradeoff_questions": "留意、兑现、轻松与提问四种方式在不同情境里的先后，不能从并列结果自动得出。",
+        "facts_to_check": "最近一次需要留意、兑现、轻松或提问时，你优先了哪个。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "下次四种选择并存时，按对方当下需要决定优先。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不表示你同时具备这些互动能力",
+          "不预测真实互动中哪个方向先出现",
+          "不表示更全面或更优秀"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：留意、兑现、轻松、提问四种方式在不同情境里的侧重。"
+      },
+      {
+        "profile_code": "TIED_WARMTH_ATTUNEMENT_RELIABILITY_FOLLOW_THROUGH_ENERGY_HUMOR_CURIOSITY_CONVERSATION_RESPECTFUL_AUTHENTICITY",
+        "top_direction_codes": [
+          "WARMTH_ATTUNEMENT",
+          "RELIABILITY_FOLLOW_THROUGH",
+          "ENERGY_HUMOR",
+          "CURIOSITY_CONVERSATION",
+          "RESPECTFUL_AUTHENTICITY"
+        ],
+        "result_headline": "五个方向的选项次数全部相同",
+        "tie_explanation": "在 20 道二选一里，五个方向的选项被选择的次数相同，都是 4 次。结果没有识别出唯一顶部方向。",
+        "score_reading": "五方向次数相同，不等于完美平衡或万人迷，也不表示测试失效。",
+        "direction_readings": [
+          "温暖留意：留意情绪、回应感受和给人适应空间。",
+          "可靠兑现：说明范围、更新进度和兑现约定。",
+          "活力轻松：轻松表达、活跃气氛和不过界幽默。",
+          "好奇参与：提问、继续了解和参与讨论。",
+          "真诚边界：表达立场、诚实边界和允许暂停。"
+        ],
+        "item_scope": "并列的方向对应选项覆盖：留意他人情绪、照顾气氛、回应感受，确认范围、更新进度、兑现约定，轻松表达、活跃气氛、不过界幽默，主动提问、继续了解、参与讨论，表达立场、诚实边界、允许暂停等不同情境。",
+        "interaction_tradeoff_questions": "如果只能在五种方式里暂时选一种最优先，你会选哪个？这个顺序不能从并列结果自动得出。",
+        "facts_to_check": "最近五种情境里你实际优先的方式；是否存在明显的情境差异。",
+        "privacy_and_boundary_checks": "结果来自你的自评，不涉及他人隐私；互动边界需要双方尊重，结果不能要求别人配合。",
+        "low_risk_actions": "如果愿意，可以按不同情境分别写下最优先的一种互动方式；也可以不做，不需要仅因本结果改变任何社交决定。",
+        "no_people_pleasing_boundary": "不需要为获得好感而迎合或过度承诺；保持边界是被尊重的正当方式。",
+        "does_not_mean": [
+          "不形成混合人格或社交魅力类型",
+          "不等于完美平衡",
+          "不等于万人迷",
+          "不表示所有人都喜欢",
+          "不表示你没有特点",
+          "不预测真实互动中哪个方向先出现"
+        ],
+        "interpretation_boundary": "并列被原样保留，不强行指定唯一方向。",
+        "science_boundary": "这是自建互动选择观察框架的方向，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+        "contexts_to_review": "可以回看：不同情境下你更在意哪种互动方式；把情境去掉后，选择还会一样吗。"
+      }
+    ],
+    "states": [
+      {
+        "state_code": "TIED_TOP",
+        "title": "顶部方向并列",
+        "summary": "顶部并列会被保留，不产生综合人格，不指定唯一方向。",
+        "what_happened": "本次作答后，两个或更多方向的原始选择次数相同，都处于顶部。",
+        "what_user_can_do": "可以按原样分别阅读每个方向的说明，不需要为它们排出先后。",
+        "interpretation_suppression": "不强行打破并列，不指定唯一方向，不生成综合魅力人格，也不表示测试失效或完美平衡。",
+        "no_third_party_inference": "并列不产生他人评价、受欢迎程度或社交魅力结论。",
+        "science_boundary": "并列不构成任何他人看法或人际能力结论。"
+      },
+      {
+        "state_code": "INSUFFICIENT_DATA",
+        "title": "这次没有足够的作答",
+        "summary": "未完整作答时不产生方向排名。",
+        "what_happened": "本次提交缺少部分题目的答案，因此不计算方向选择次数。",
+        "what_user_can_do": "可以继续作答补全，也可以直接退出。退出前，当前设备上已有的逐题选择仍会保存在本地草稿中并支持恢复；未完整提交不会生成最终结果缓存。",
+        "interpretation_suppression": "不猜测未回答的题目，不推测未答选项，也不根据已有答案先给判断。",
+        "no_third_party_inference": "没有结果不产生任何他人看法结论；未完成作答不暗示你缺乏自我了解。",
+        "science_boundary": "没有结果不构成任何社交或人际结论。"
+      },
+      {
+        "state_code": "RESULT_UNAVAILABLE",
+        "title": "结果暂不可用",
+        "summary": "题库、评分或内容版本不匹配时停止解释。",
+        "what_happened": "本题库、评分或内容版本之间存在不匹配，无法按当前规则生成结果。",
+        "what_user_can_do": "这是版本层面的问题，不是你的作答问题。无需重做或反复尝试，可以在版本更新后重新查看。",
+        "interpretation_suppression": "不显示旧版本结果，不做部分解释，不把工程错误解释成用户问题。",
+        "no_third_party_inference": "该状态不涉及任何他人看法或社交判断。",
+        "science_boundary": "该状态不影响任何现实中的社交判断。"
+      }
+    ],
+    "common": {
+      "result_title": "本次互动选择侧重",
+      "first_screen_boundary": "请先了解五件事：互动贡献线索测试只记录自我报告，本测试没有询问任何其他人；结果只反映你本次更常选择的互动描述；结果不能证明别人喜欢你的真实原因；结果不能判断受欢迎程度、社交价值或人际能力；不建议为了获得喜欢而迎合、过度承诺或放弃边界。",
+      "product_name_boundary": "互动贡献线索测试观察本次题组中更常选择的回应方式。正式结果使用本次互动选择侧重、自我报告的互动贡献线索、值得结合真实反馈继续核对的互动线索等表述。",
+      "measurement_theme": "本次结果记录五组互动方式在 20 道强制选择中的相对侧重：温暖与留意他人、可靠与兑现约定、活力与轻松感、好奇与交流参与、真诚表达与尊重边界。",
+      "forced_choice_explanation": "每题从两个选项中选择更接近自己近期自然选择的一项，被选中的选项对应方向记 1 次原始次数。",
+      "raw_wins_explanation": "每个方向参与 8 次比较，wins 是该方向对应选项被选择的次数。",
+      "total_wins_explanation": "五个方向的 wins 总和固定为 20；由于总和固定，一个方向增多必然伴随其他方向减少。",
+      "tied_result_boundary": "顶部并列会被原样保留，不强行打破，不指定唯一方向，不产生综合魅力人格。",
+      "aggregate_not_item_level_boundary": "结果只提供五个方向的 wins，不能确认你在任何一道具体题目中的选择；具体侧重需要结合对象、情境和真实反馈核对。",
+      "self_report_only_boundary": "本测试只有用户自评，没有同伴报告、伴侣报告、朋友评价、行为观察或社交结果数据。",
+      "no_observer_data_boundary": "结果最多只能说明用户在本次强制选择中更常选择了哪些自我描述的互动方式；不能说明别人真的观察到这些行为。",
+      "no_real_liking_reason": "本测试没有询问任何其他人，不能确定任何人喜欢用户的真实原因；如果要确定他人真实看法，需要独立的他人反馈或行为证据，当前测试没有这些数据。",
+      "no_popularity_score": "不计算受欢迎指数、好感度或受欢迎程度。",
+      "no_social_value": "不判断社会价值、讨喜程度或人际吸引力。",
+      "no_fixed_identity": "顶部方向只是本次 raw wins 相对较多，不产生被喜欢人格、社交魅力类型或固定身份。",
+      "no_ability_judgment": "顶部方向不代表现实能力、稳定习惯或他人评价；较少被选方向不表示缺陷或社交不足。",
+      "no_people_pleasing": "不建议通过强化某些行为来获得更多喜欢，也不需要迎合、过度承诺、情绪劳动或压抑真实边界。",
+      "no_partner_or_friend_prediction": "结果不预测他人喜欢、信任或靠近，也不预测朋友或伴侣的反应。",
+      "privacy_and_boundary": "答题过程中，包含逐题选择的本地草稿会保存在当前设备并支持恢复。完成后的最终结果缓存保存方向次数等结果；最终结果缓存不包含原始逐题答案。本地测评流程不会上传这些内容；可以在结果页清除本次草稿和最终结果缓存。不需要向任何人公开结果。",
+      "no_high_stakes_use": "所有页面行动建议都可选择不做。不要把结果用于医疗、司法、招聘、学校或升学、安保、伴侣或关系筛选、关系去留等高风险事项；行动建议也不用于酒精、药物、赌博、自伤、进食障碍、危险行为或戒断管理。",
+      "public_preview_notice": "本测试仅供娱乐与自我探索；尚未完成信度、效度、常模、公平性、百分位或准确率验证。",
+      "psychometric_boundary": "本测试未完成心理测量验证，不能当作诊断、评估或社交建议依据；现有题目本身不能作为效度证据。",
+      "retest_boundary": "如果以后重新作答，应按当时能确认的状态选择；两次结果不同可能与对象、情境或自我理解变化有关，不能自动解释为你的社交方式已经改变。"
+    }
+  },
+  "sources": [
+    {
+      "path": "/Users/rainie/Desktop/费马/miniprogram/assessment/liked_reason/item_bank.js",
+      "sha256": "3bcad47571af552a5a0d58fe3616282baee830faf59fc82e4e61ca4c49c54dd0"
+    },
+    {
+      "path": "/Users/rainie/Desktop/费马/miniprogram/assessment/liked_reason/scoring_spec.js",
+      "sha256": "05208aa0589e4accec1be1a3dffc855183352bcf7085413b73147b24ee8fd4b8"
+    },
+    {
+      "path": "/Users/rainie/Desktop/费马/miniprogram/assessment/liked_reason/result_content.js",
+      "sha256": "586f14b74e649bf0e2e78db163257804fbc7a929e713e8c6c48fdc8f0c8b08a1"
+    },
+    {
+      "path": "/Users/rainie/Desktop/费马/miniprogram/assessment/liked_reason/product.js",
+      "sha256": "693b46bc2027146094f5e14e6213194472625fd2b7520d43018b75a9d67f1e90"
+    },
+    {
+      "path": "/Users/rainie/Desktop/费马/miniprogram/assessment/local/multidirection_scorer.js",
+      "sha256": "bf4ca103dc81686a54457ac338d84224986469b162ec56d5553788f77efcb28f"
+    }
+  ]
+}

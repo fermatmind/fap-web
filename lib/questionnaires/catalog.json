@@ -607,5 +607,57 @@
       "aggression",
       "risk-taking"
     ]
+  },
+  {
+    "slug": "likable-person-test",
+    "code": "LIKED_REASON",
+    "version": "1.0.0",
+    "updated": "2026-10-25",
+    "category": "social",
+    "title": {
+      "zh": "讨人喜欢测试：互动贡献线索",
+      "en": "Likable Person Test: Interaction Choices"
+    },
+    "description": {
+      "zh": "用20道自有情境二选一观察温暖、兑现、轻松、好奇与边界的相对侧重。免费阅读31种完整单项或并列结果，含对话、反例和取舍；无需注册，不测真实好感或社交能力。",
+      "en": "Explore five interaction approaches with 20 paired choices and all 31 full result guides. Free, no signup, with examples and ties; no popularity or ability score."
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "liked_reason_forced_choice_20",
+    "questionCount": 20,
+    "resultSlugs": [
+      "warmth",
+      "follow-through",
+      "lightness",
+      "curiosity",
+      "boundaries",
+      "warmth-follow-through",
+      "warmth-lightness",
+      "warmth-curiosity",
+      "warmth-boundaries",
+      "follow-through-lightness",
+      "follow-through-curiosity",
+      "follow-through-boundaries",
+      "lightness-curiosity",
+      "lightness-boundaries",
+      "curiosity-boundaries",
+      "warmth-follow-through-lightness",
+      "warmth-follow-through-curiosity",
+      "warmth-follow-through-boundaries",
+      "warmth-lightness-curiosity",
+      "warmth-lightness-boundaries",
+      "warmth-curiosity-boundaries",
+      "follow-through-lightness-curiosity",
+      "follow-through-lightness-boundaries",
+      "follow-through-curiosity-boundaries",
+      "lightness-curiosity-boundaries",
+      "follow-through-lightness-curiosity-boundaries",
+      "warmth-lightness-curiosity-boundaries",
+      "warmth-follow-through-curiosity-boundaries",
+      "warmth-follow-through-lightness-boundaries",
+      "warmth-follow-through-lightness-curiosity",
+      "all-five-tied"
+    ]
   }
 ]
