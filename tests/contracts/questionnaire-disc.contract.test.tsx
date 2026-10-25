@@ -87,7 +87,7 @@ describe("T001 DISC complete source questionnaire", () => {
     const first = quiz.questions[0], partial = { [first.id]: first.options[0].id };
     expect(scoreDirectionalQuestionnaire(quiz, partial)).toEqual({ status: "incomplete", answered: 1 });
     for (const answers of [null, [], new Date(), { unknown: "A" }, { [first.id]: "invalid" }]) expect(scoreDirectionalQuestionnaire(quiz, answers).status).toBe("invalid");
-    const broken = structuredClone(quiz); broken.directions[0].comparisons++;
+    const broken = structuredClone(quiz); broken.directions[0].comparisons = 13;
     expect(scoreDirectionalQuestionnaire(broken, {})).toEqual({ status: "unavailable", answered: 0 });
     const draft = { version: quiz.version, savedAt: 100000000, answers: partial };
     expect(readQuestionnaireDraft(quiz, JSON.stringify(draft), draft.savedAt + 1)).toEqual(partial);

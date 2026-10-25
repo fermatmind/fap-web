@@ -21,9 +21,12 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   if (portrait && !result) return new Response("Image unavailable", { status: 404 });
   const topic = quiz?.seo.topic[locale] ?? questionnaire!.title[locale];
   const title = result?.title[locale] ?? topic, zh = locale === "zh";
-  const color = colors[quiz?.category ?? "framework"] ?? colors.metaphor;
+  const color = colors[quiz?.category ?? questionnaire?.category ?? "framework"] ?? colors.metaphor;
+  const questionnaireLabel = result ? (zh ? "公开结果说明" : "Public result guide")
+    : questionnaire?.kind === "likert" ? (zh ? "原创自我观察" : "Original self-reflection")
+    : (zh ? "自编风格问卷" : "Original style questionnaire");
   return new ImageResponse(<div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: 60, background: "#f8fafc", color: "#0f172a", fontFamily: "FunNoto" }}>
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", color, fontSize: 28 }}><span>FermatMind</span><span>{questionnaire ? (zh ? (result ? "公开结果说明" : "自编风格问卷") : (result ? "Public result guide" : "Original style questionnaire")) : (zh ? (result ? "公开画像指南" : "原创趣味测试") : (result ? "Public result guide" : "Original quiz"))}</span></div>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", color, fontSize: 28 }}><span>FermatMind</span><span>{questionnaire ? questionnaireLabel : (zh ? (result ? "公开画像指南" : "原创趣味测试") : (result ? "Public result guide" : "Original quiz"))}</span></div>
     <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
       {result && <div style={{ display: "flex", fontSize: 27, color }}>{topic}</div>}
       <div style={{ display: "flex", fontSize: title.length > 65 ? 48 : 60, lineHeight: 1.25 }}>{title}</div>

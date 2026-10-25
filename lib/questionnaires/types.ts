@@ -15,7 +15,10 @@ export type Questionnaire = {
   version: string;
   updated: string;
   category: string;
-  kind: "directional";
+  kind: "directional" | "likert";
+  references?: { title: Text; url: string }[];
+  minimumRatedItems?: number;
+  instructions?: Text;
   title: Text;
   description: Text;
   seoTitle: Text;
@@ -31,8 +34,8 @@ export type Questionnaire = {
     resultContentSha256: string;
     psychometricValidationCompleted: false;
   };
-  directions: { id: string; title: Text; comparisons: number }[];
-  questions: { id: string; prompt: Text; options: { id: string; label: Text; directionId: string }[] }[];
+  directions: { id: string; title: Text; comparisons?: number; itemCount?: number }[];
+  questions: { id: string; prompt: Text; reverse?: boolean; options: { id: string; label: Text; directionId: string; score?: number | null }[] }[];
   profiles: QuestionnaireProfile[];
   guide: QuestionnaireSection[];
   faq: { question: Text; answer: Text }[];

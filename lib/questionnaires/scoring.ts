@@ -53,6 +53,64 @@ export function scoreDirectionalQuestionnaire(quiz: Questionnaire, answers: unkn
   return profile ? { status: "complete", answered, counts, leaders, profileId: profile.id } : { status: "unavailable", answered };
 }
 
+export type FacetScore = { sum: number; rated: number; total: number; mean: number | null };
+export type FacetResult = { status: "incomplete" | "invalid" | "unavailable"; answered: number } | {
+  status: "complete"; answered: number; facets: Record<string, FacetScore>;
+};
+
+export function isLikertConfigurationValid(quiz: Questionnaire): boolean {
+  if (quiz.kind !== "likert" || !quiz.instructions || !quiz.questions.length || !quiz.directions.length
+    || !Number.isInteger(quiz.minimumRatedItems) || quiz.minimumRatedItems! < 1) return false;
+  const ids = new Set(quiz.directions.map(d => d.id));
+  if (ids.size !== quiz.directions.length || new Set(quiz.questions.map(q => q.id)).size !== quiz.questions.length) return false;
+  const exposure = Object.fromEntries(quiz.directions.map(d => [d.id, 0]));
+  for (const question of quiz.questions) {
+    if (typeof question.reverse !== "boolean" || question.options.length !== 6
+      || new Set(question.options.map(o => o.id)).size !== 6
+      || new Set(question.options.map(o => o.directionId)).size !== 1) return false;
+    const id = question.options[0].directionId;
+    if (!ids.has(id)) return false;
+    for (const option of question.options) {
+      if (option.id === "na" ? option.score !== null
+        : !/^[1-5]$/.test(option.id) || option.score !== Number(option.id)) return false;
+    }
+    exposure[id]++;
+  }
+  return quiz.directions.every(d => Number.isInteger(d.itemCount) && d.itemCount! >= quiz.minimumRatedItems! && exposure[d.id] === d.itemCount)
+    && quiz.profiles.length === quiz.directions.length
+    && new Set(quiz.profiles.map(p => p.id)).size === quiz.profiles.length
+    && quiz.directions.every(d => quiz.profiles.filter(p => p.directionIds.length === 1 && p.directionIds[0] === d.id).length === 1);
+}
+
+export function scoreLikertQuestionnaire(quiz: Questionnaire, answers: unknown): FacetResult {
+  if (!isLikertConfigurationValid(quiz)) return { status: "unavailable", answered: 0 };
+  if (!object(answers)) return { status: "invalid", answered: 0 };
+  const questions = new Map(quiz.questions.map(q => [q.id, q]));
+  const facets: Record<string, FacetScore> = Object.fromEntries(quiz.directions.map(d => [d.id, { sum: 0, rated: 0, total: d.itemCount!, mean: null }]));
+  let answered = 0;
+  for (const [id, value] of Object.entries(answers)) {
+    const question = questions.get(id), option = question?.options.find(o => o.id === value);
+    if (!question || !option) return { status: "invalid", answered };
+    const score = option.score;
+    if (typeof score === "number") {
+      const facet = facets[option.directionId];
+      facet.sum += question.reverse ? 6 - score : score;
+      facet.rated++;
+    }
+    answered++;
+  }
+  if (answered !== quiz.questions.length) return { status: "incomplete", answered };
+  for (const facet of Object.values(facets)) {
+    if (facet.rated >= quiz.minimumRatedItems!) facet.mean = Math.round(facet.sum / facet.rated * 10) / 10;
+  }
+  return { status: "complete", answered, facets };
+}
+
+export const isQuestionnaireConfigurationValid = (quiz: Questionnaire) => quiz.kind === "likert"
+  ? isLikertConfigurationValid(quiz) : isDirectionalConfigurationValid(quiz);
+export const scoreQuestionnaire = (quiz: Questionnaire, answers: unknown) => quiz.kind === "likert"
+  ? scoreLikertQuestionnaire(quiz, answers) : scoreDirectionalQuestionnaire(quiz, answers);
+
 export function readQuestionnaireDraft(quiz: Questionnaire, raw: string | null, now = Date.now()): QuestionnaireAnswers | null {
   if (!raw) return null;
   try {
@@ -60,7 +118,7 @@ export function readQuestionnaireDraft(quiz: Questionnaire, raw: string | null, 
     if (!object(draft) || draft.version !== quiz.version || typeof draft.savedAt !== "number" || !Number.isFinite(draft.savedAt)) return null;
     const age = now - draft.savedAt;
     if (age < 0 || age >= 24 * 60 * 60 * 1000 || !object(draft.answers)) return null;
-    const result = scoreDirectionalQuestionnaire(quiz, draft.answers);
+    const result = scoreQuestionnaire(quiz, draft.answers);
     return result.status === "complete" || result.status === "incomplete" ? draft.answers as QuestionnaireAnswers : null;
   } catch { return null; }
 }

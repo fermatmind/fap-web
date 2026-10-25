@@ -1,0 +1,2089 @@
+{
+  "slug": "social-battery-test",
+  "code": "SOCIAL_BATTERY",
+  "version": "1.0.0",
+  "updated": "2026-10-25",
+  "category": "social",
+  "kind": "likert",
+  "minimumRatedItems": 3,
+  "title": {
+    "zh": "社交电量测试",
+    "en": "Social Battery Test"
+  },
+  "seoTitle": {
+    "zh": "社交电量测试：20题看负担与恢复方式",
+    "en": "Social Battery Test: Free 20-Question Energy Reflection"
+  },
+  "description": {
+    "zh": "完成20道原创情境频率题，分别阅读交流负担、协调负担、安静独处与轻松陪伴的恢复感。完整结果免费，无需注册；查看实际计分与具体边界表达。",
+    "en": "Take a free 20-question social battery test. Explore interaction and coordination demands, quiet recovery and easy company with full results, clear scoring and no signup."
+  },
+  "minutes": 5,
+  "introduction": {
+    "zh": "为什么聚会时很开心，结束后却不想再接电话？是交谈本身费力，还是组织安排让你消耗？这份测试把负担来源和恢复感分开，帮助你为下一次相处选择更合适的时长、形式和边界。结果是四部分观察，不把你压成一个内向或外向标签。",
+    "en": "You enjoyed seeing everyone, so why do you want a pause afterward? Was it the conversation, or all the arranging around it? This test separates reported demands from ways of recovering, helping you consider the timing, format and boundaries of your next interaction. You receive four separate reflections, rather than one introvert or extrovert label."
+  },
+  "instructions": {
+    "zh": "请回想最近两周实际经历过的情境，选择每种描述出现的频率。如果没有经历或无法判断，选“未经历／无法判断”，不要用“几乎没有”代替。20题全部回应后显示四部分完整结果；没有正确答案。",
+    "en": "Think about situations you actually experienced during the past two weeks and choose how often each description fitted. If you did not experience it or cannot judge, choose that option instead of “Almost never.” Respond to all 20 items to see the complete four-part result. There are no right answers."
+  },
+  "source": {
+    "kind": "FermatMind original website self-reflection questionnaire",
+    "formCode": "fm_social_battery_context_20",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "b98106fd6e3c5983b8f722c2f8692c41b89f7ba6ac1353170ef50b6bf6f44a23",
+    "resultContentSha256": "a29dd9ad412ffe8b979d64cbb86ad25d6e9f5532a66f351b7476ca0937a9e3c1",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "interaction-load",
+      "title": {
+        "zh": "交流后的负担",
+        "en": "Interaction load"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "coordination-load",
+      "title": {
+        "zh": "协调带来的负担",
+        "en": "Coordination load"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "quiet-recovery",
+      "title": {
+        "zh": "安静独处的恢复感",
+        "en": "Recovery through quiet"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "easy-company",
+      "title": {
+        "zh": "轻松陪伴的恢复感",
+        "en": "Recovery through easy company"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "SB_01",
+      "prompt": {
+        "zh": "即使相处很愉快，聚会结束后我仍想留一段不用继续交谈的时间。",
+        "en": "Even after an enjoyable gathering, I wanted some time without having to keep talking."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "interaction-load",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "interaction-load",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "interaction-load",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "interaction-load",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "interaction-load",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "interaction-load",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_02",
+      "prompt": {
+        "zh": "替多人协调时间、地点和安排，让我在真正见面前就觉得费力。",
+        "en": "Coordinating times, places and plans for several people felt effortful before we even met."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "coordination-load",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "coordination-load",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "coordination-load",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "coordination-load",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "coordination-load",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "coordination-load",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_03",
+      "prompt": {
+        "zh": "交流之后，独自安静待一会儿让我更愿意再次与人联系。",
+        "en": "After social contact, a quiet period alone helped me feel ready to reconnect."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "quiet-recovery",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "quiet-recovery",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "quiet-recovery",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "quiet-recovery",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "quiet-recovery",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "quiet-recovery",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_04",
+      "prompt": {
+        "zh": "和熟悉的人轻松相处、不必负责带动气氛时，我感到恢复了一些精神。",
+        "en": "Easy time with someone familiar helped me feel refreshed when I did not have to keep the atmosphere going."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "easy-company",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "easy-company",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "easy-company",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "easy-company",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "easy-company",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "easy-company",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_05",
+      "prompt": {
+        "zh": "接连几段交谈之后，继续集中注意听别人说话需要额外用力。",
+        "en": "After several conversations in a row, paying attention to another person took extra effort."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "interaction-load",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "interaction-load",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "interaction-load",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "interaction-load",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "interaction-load",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "interaction-load",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_06",
+      "prompt": {
+        "zh": "在不同群体之间来回切换、适应不同的交谈期待，让我感到消耗。",
+        "en": "Switching between groups and adapting to different conversational expectations felt draining."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "coordination-load",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "coordination-load",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "coordination-load",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "coordination-load",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "coordination-load",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "coordination-load",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_07",
+      "prompt": {
+        "zh": "一段不需要回复消息的独处时间，让我觉得缓过来了。",
+        "en": "Time alone without needing to reply to messages helped me recover."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "quiet-recovery",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "quiet-recovery",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "quiet-recovery",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "quiet-recovery",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "quiet-recovery",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "quiet-recovery",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_08",
+      "prompt": {
+        "zh": "和信任的人各做各的事、偶尔聊几句，比继续独自撑着更让我放松。",
+        "en": "Doing our own things alongside someone I trust, with occasional conversation, helped me relax more than carrying on alone."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "easy-company",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "easy-company",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "easy-company",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "easy-company",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "easy-company",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "easy-company",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_09",
+      "prompt": {
+        "zh": "一场聚会结束后，我还有精神继续另一段交谈。",
+        "en": "After a gathering, I still had energy for another conversation."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "interaction-load",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "interaction-load",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "interaction-load",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "interaction-load",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "interaction-load",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "interaction-load",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_10",
+      "prompt": {
+        "zh": "我想休息一下时，可以直接说出来，不必费力构思一个能被接受的理由。",
+        "en": "When I wanted a break, I could say so without working hard to find an acceptable explanation."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "coordination-load",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "coordination-load",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "coordination-load",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "coordination-load",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "coordination-load",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "coordination-load",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_11",
+      "prompt": {
+        "zh": "独自安静待一段时间后，我仍和之前一样不想再应付交流。",
+        "en": "After quiet time alone, I felt just as unready for more interaction as before."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "quiet-recovery",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "quiet-recovery",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "quiet-recovery",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "quiet-recovery",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "quiet-recovery",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "quiet-recovery",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_12",
+      "prompt": {
+        "zh": "即使和信任的人轻松相处，我也觉得这更像另一件需要应付的事。",
+        "en": "Even relaxed time with someone I trust felt like another demand to manage."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "easy-company",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "easy-company",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "easy-company",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "easy-company",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "easy-company",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "easy-company",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_13",
+      "prompt": {
+        "zh": "一天里接连安排社交活动时，我会希望其中一次能早些结束。",
+        "en": "When social plans followed one another in a day, I wished one of them would finish earlier."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "interaction-load",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "interaction-load",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "interaction-load",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "interaction-load",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "interaction-load",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "interaction-load",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_14",
+      "prompt": {
+        "zh": "同时跟进几个人的消息、约定和需要，让我难以松下来。",
+        "en": "Keeping up with several people’s messages, arrangements and needs made it hard to switch off."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "coordination-load",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "coordination-load",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "coordination-load",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "coordination-load",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "coordination-load",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "coordination-load",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_15",
+      "prompt": {
+        "zh": "一个人安静散步或做不赶进度的小事后，我觉得更容易重新进入交流。",
+        "en": "After a quiet walk alone or an unhurried solo activity, it felt easier to return to conversation."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "quiet-recovery",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "quiet-recovery",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "quiet-recovery",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "quiet-recovery",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "quiet-recovery",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "quiet-recovery",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_16",
+      "prompt": {
+        "zh": "一次不要求我表现活跃的简短问候，让我感觉比交谈前更轻松。",
+        "en": "A brief check-in that did not require me to be lively left me feeling more at ease than before."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "easy-company",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "easy-company",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "easy-company",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "easy-company",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "easy-company",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "easy-company",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_17",
+      "prompt": {
+        "zh": "社交活动较多的一天结束后，我仍能按平常节奏做自己的事，不需要额外缓冲。",
+        "en": "After a socially busy day, I could do my usual things without needing extra downtime."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "interaction-load",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "interaction-load",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "interaction-load",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "interaction-load",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "interaction-load",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "interaction-load",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_18",
+      "prompt": {
+        "zh": "与人商量安排对我来说比较省力，不需要反复揣摩大家会怎样反应。",
+        "en": "Making arrangements with others felt straightforward, without repeatedly working out how everyone might react."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "coordination-load",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "coordination-load",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "coordination-load",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "coordination-load",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "coordination-load",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "coordination-load",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_19",
+      "prompt": {
+        "zh": "独处一段时间，并没有改变我是否准备好再次与人联系的感觉。",
+        "en": "Spending time alone made little difference to whether I felt ready to reconnect."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "quiet-recovery",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "quiet-recovery",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "quiet-recovery",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "quiet-recovery",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "quiet-recovery",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "quiet-recovery",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_20",
+      "prompt": {
+        "zh": "一次本来很轻松的陪伴结束后，我反而觉得比开始前更没精神。",
+        "en": "After an otherwise easy time with someone, I felt less refreshed than when it began."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "easy-company",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "easy-company",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "easy-company",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "easy-company",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "easy-company",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "easy-company",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "interaction-load",
+      "directionIds": [
+        "interaction-load"
+      ],
+      "title": {
+        "zh": "交流后的负担",
+        "en": "Interaction load"
+      },
+      "headline": {
+        "zh": "交流可以令人开心，也可能在结束后需要缓冲。",
+        "en": "An enjoyable interaction can still leave you needing a pause."
+      },
+      "summary": {
+        "zh": "比较交流之后继续听、说或安排活动有多费力；这与是否喜欢对方、是否擅长社交是不同的问题。",
+        "en": "Notice how effortful it feels to keep listening, talking or making plans after social contact. This is separate from liking people or being socially skilled."
+      },
+      "scoreReading": {
+        "zh": "本部分有5道原创频率题。正向题使用1—5原值，反向题使用6减原值。排除明确的“未经历／无法判断”，至少3题有效才显示均分；这个最低资料规则是本版编辑选择，不代表心理测量验证。四部分独立阅读，不相加、不分人群等级。",
+        "en": "This part has five original frequency items. Forward items use values 1–5; reverse items use 6 minus the selected value. Explicit non-experienced responses are excluded. A mean is shown only with at least three rated items: an editorial minimum-data rule, not psychometric validation. Read all four parts separately, without a total or population categories."
+      },
+      "sections": [
+        {
+          "id": "reading",
+          "title": {
+            "zh": "均分怎样读",
+            "en": "Reading your mean"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高均分表示，你在这两周更常报告交流后的负担；较低均分表示，这类负担在本题涉及的情境里较少出现。它不是耐力、能力或人群排名。",
+              "en": "A higher mean means you more often reported effort after interaction during these two weeks. A lower mean means it appeared less often in the situations asked about. This is not stamina, ability or a population rank."
+            },
+            {
+              "zh": "第9、17题的表述方向相反，计分用6减原作答值；它们问的是交流后仍有余力，反向后才与“负担较常出现”保持同一方向。",
+              "en": "Items 9 and 17 describe having energy left after interaction. Their scored value is 6 minus the selected value so that higher scores consistently indicate more reported load."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "两种都说得通的情境",
+            "en": "Two plausible situations"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能很期待朋友聚餐，也聊得开心，但回家后不想继续接电话。喜欢这次相处与需要休息可以同时成立。",
+              "en": "You might look forward to dinner with friends and enjoy it, then not want another call afterward. Enjoying the company and needing rest can both be true."
+            },
+            {
+              "zh": "另一周，你可能和熟悉的人短聚后仍愿意做自己的事。这只说明那次相处与当天状态更合拍，不证明你永远不累。",
+              "en": "In another week, a short visit with familiar people might leave you ready for your own activities. That describes the fit between that event and that day, not proof that you never get tired."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "留意什么取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "为了赶上所有邀请而忽略结束后的缓冲，可能让后一个安排更难投入；但直接取消所有联系，也未必符合你想维持关系的需要。可以先调整时长和间隔。",
+              "en": "Accepting every invitation without allowing a pause may make the next event harder to engage with. Canceling all contact may also miss your wish to stay connected. Duration and spacing are useful things to examine first."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "先把原因分开",
+            "en": "Separate the circumstances"
+          },
+          "paragraphs": [
+            {
+              "zh": "回看人数、噪声、时长、熟悉程度，以及当天睡眠、工作和通勤。这个均分不能替你确定消耗来自哪一个原因，也不识别焦虑、抑郁或任何其他状况。",
+              "en": "Review group size, noise, duration, familiarity, sleep, work and travel that day. This mean cannot establish which factor caused the effort or identify anxiety, depression or any other condition."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次可撤回的小尝试",
+            "en": "One reversible experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一次低风险聚会，提前约定离开时间，并在之后留20分钟不再接新安排；这个时长只是一次尝试，不是恢复处方。比较前后是否更愿意继续做自己的事。",
+              "en": "For one low-stakes gathering, agree on an end time and leave 20 minutes afterward without another commitment. That duration is an experiment, not a prescribed recovery period. Notice whether it changes your readiness for your own activities."
+            }
+          ]
+        },
+        {
+          "id": "language",
+          "title": {
+            "zh": "可以怎么表达",
+            "en": "Words you can use"
+          },
+          "paragraphs": [
+            {
+              "zh": "“我很想见你，这次可以约到八点吗？之后我想留一点自己的时间。”把相处意愿和时长需要一起说清楚。",
+              "en": "“I would like to see you. Could we plan to finish at eight? I want a little time to myself afterward.” State both the wish to connect and the time you need."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与其他部分一起读",
+            "en": "Read it alongside the other parts"
+          },
+          "paragraphs": [
+            {
+              "zh": "交流负担高、轻松陪伴恢复感也高，并不矛盾：大型活动可能费力，低要求的一对一相处仍可能有帮助。四个均分不相加，也不要求只能有一项高。",
+              "en": "Higher interaction load and stronger recovery through easy company can coexist: a large event may cost effort while an undemanding one-to-one visit helps. The four means are not added together and need not produce just one high score."
+            }
+          ]
+        },
+        {
+          "id": "reflect",
+          "title": {
+            "zh": "带回真实经历",
+            "en": "Check an actual experience"
+          },
+          "paragraphs": [
+            {
+              "zh": "最近一次想早些结束交谈时，你最想减少的是人数、声音、持续时间，还是必须保持投入的要求？",
+              "en": "The last time you wanted a conversation to end sooner, what did you most want to reduce: people, noise, duration or the demand to stay engaged?"
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马原创自我观察题本，尚未完成信度、效度或常模验证。社交电量只是便于交流的比喻；本结果不是诊断、能力或身体剩余能量测量，不换算MBTI，也不预测关系或职业。",
+              "en": "This is FermatMind’s original self-reflection questionnaire, without established reliability, validity or population norms. Social battery is a conversational metaphor. The result is not a diagnosis, ability score or measurement of remaining bodily energy; it does not convert to MBTI or predict relationships or careers."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "coordination-load",
+      "directionIds": [
+        "coordination-load"
+      ],
+      "title": {
+        "zh": "协调带来的负担",
+        "en": "Coordination load"
+      },
+      "headline": {
+        "zh": "有时消耗来自组织和切换，而不只是见人。",
+        "en": "Sometimes the effort is in coordinating and switching, rather than the company itself."
+      },
+      "summary": {
+        "zh": "关注安排、切换、跟进和顾及他人期待本身需要多少精力，区别于真正坐下来相处的感受。",
+        "en": "Look at the effort of arranging, switching, following up and accounting for expectations, separately from the experience of actually spending time together."
+      },
+      "scoreReading": {
+        "zh": "本部分有5道原创频率题。正向题使用1—5原值，反向题使用6减原值。排除明确的“未经历／无法判断”，至少3题有效才显示均分；这个最低资料规则是本版编辑选择，不代表心理测量验证。四部分独立阅读，不相加、不分人群等级。",
+        "en": "This part has five original frequency items. Forward items use values 1–5; reverse items use 6 minus the selected value. Explicit non-experienced responses are excluded. A mean is shown only with at least three rated items: an editorial minimum-data rule, not psychometric validation. Read all four parts separately, without a total or population categories."
+      },
+      "sections": [
+        {
+          "id": "reading",
+          "title": {
+            "zh": "均分怎样读",
+            "en": "Reading your mean"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高均分表示，你更常报告协调与期待管理带来的负担；较低均分表示，这些环节在本题涉及的场景中相对省力。它不评价责任心、同理心或社交能力。",
+              "en": "A higher mean means you more often reported coordination and expectation-management effort. A lower mean means those parts felt easier in the situations asked about. It does not rate responsibility, empathy or social skill."
+            },
+            {
+              "zh": "第10、18题问的是表达休息需要、商量安排是否省力，按6减原值反向计分。低均分也可能与近期安排少有关，不能推定你处理复杂协调的能力。",
+              "en": "Items 10 and 18 ask about ease in requesting a break and making arrangements, so they are reverse scored as 6 minus the selected value. A lower mean may also reflect fewer recent demands; it does not establish skill at complex coordination."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "两种不同的负担",
+            "en": "Two different kinds of effort"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能喜欢和朋友一起吃饭，却觉得建群、统计忌口、反复换时间比聚餐本身更累。此时可以调整承担的角色，而不是直接判断自己不喜欢社交。",
+              "en": "You may enjoy dinner with friends while finding the group chat, dietary checks and repeated rescheduling more tiring than the meal. The role you take on may be worth adjusting before deciding you dislike social contact."
+            },
+            {
+              "zh": "也可能安排本身很顺畅，但到了多人聊天现场才觉得难以继续。那更接近交流负担，需要另看情境，不能用这一项概括。",
+              "en": "Arrangements may run smoothly while keeping up at the gathering feels effortful. That is closer to interaction load and needs its own context, rather than being explained by this score."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "留意什么取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "提前替大家想好每一步，可能让安排顺利，也可能让你一直处于跟进状态。分工时可以保留一个明确任务，同时让其他人承担自己的确认。",
+              "en": "Thinking through every step for others can help plans run smoothly while keeping you permanently on follow-up duty. You could retain one clear task and let others handle their own confirmations."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "谁在承担看不见的工作",
+            "en": "Who is doing the unseen work?"
+          },
+          "paragraphs": [
+            {
+              "zh": "分别记下谁发起、谁确认、谁提醒、谁负责冷场或改期。不同角色的负担不能直接拿来比较人是否更“合群”。这项也不能识别任何神经发育或心理状况。",
+              "en": "Note who initiates, confirms, reminds and handles lulls or changes. Different roles create different demands; they are not a fair basis for judging sociability. This part also cannot identify neurodevelopmental or mental-health conditions."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "把一次安排交还给参与者",
+            "en": "Share one arrangement"
+          },
+          "paragraphs": [
+            {
+              "zh": "下一次小聚，使用一个有截止时间的提议，让每位参与者自行确认一项需要；你只负责一个确定的环节。事后比较，负担是否在见面前就减少了。",
+              "en": "For a small gathering, offer a proposal with a reply deadline and let each person confirm one requirement. Take responsibility for one defined part. Afterward, notice whether the effort reduced before the meeting itself."
+            }
+          ]
+        },
+        {
+          "id": "language",
+          "title": {
+            "zh": "可以怎么表达",
+            "en": "Words you can use"
+          },
+          "paragraphs": [
+            {
+              "zh": "“我可以负责订位，改时间请大家在今晚前自己确认。其他安排我们分开承担。”让责任边界可见，不需要把自己解释成某种类型。",
+              "en": "“I can handle the booking. Please confirm any time changes by tonight; let’s split the remaining arrangements.” Make responsibility visible without explaining yourself through a type."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与其他部分一起读",
+            "en": "Read it alongside the other parts"
+          },
+          "paragraphs": [
+            {
+              "zh": "协调负担高、交流负担低时，你可能仍很享受真正相处，只是不想持续负责组织。两项都高时，也要分别核对时长、角色和近期其他负担。",
+              "en": "With higher coordination load and lower interaction load, you may still enjoy the company while not wanting to organize everything. If both are higher, examine duration, role and other recent demands separately."
+            }
+          ]
+        },
+        {
+          "id": "reflect",
+          "title": {
+            "zh": "带回真实经历",
+            "en": "Check an actual experience"
+          },
+          "paragraphs": [
+            {
+              "zh": "最近一次聚会前后，哪一项组织工作最耗心力？如果换个人负责，你对见面的感受会不会不同？",
+              "en": "Which organizing task took the most effort around a recent gathering? If someone else handled it, might you feel differently about meeting?"
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马原创自我观察题本，尚未完成信度、效度或常模验证。社交电量只是便于交流的比喻；本结果不是诊断、能力或身体剩余能量测量，不换算MBTI，也不预测关系或职业。",
+              "en": "This is FermatMind’s original self-reflection questionnaire, without established reliability, validity or population norms. Social battery is a conversational metaphor. The result is not a diagnosis, ability score or measurement of remaining bodily energy; it does not convert to MBTI or predict relationships or careers."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiet-recovery",
+      "directionIds": [
+        "quiet-recovery"
+      ],
+      "title": {
+        "zh": "安静独处的恢复感",
+        "en": "Recovery through quiet"
+      },
+      "headline": {
+        "zh": "安静有没有帮助，要看你的实际经历。",
+        "en": "Whether quiet helps is something to check in your own experience."
+      },
+      "summary": {
+        "zh": "观察少一点交谈、消息和回应要求的独处，是否让你觉得更容易重新进入交流；不把独处自动当作人人有效的充电方式。",
+        "en": "Observe whether time alone with fewer conversational and messaging demands helps you feel ready to reconnect. Solitude is not assumed to restore everyone."
+      },
+      "scoreReading": {
+        "zh": "本部分有5道原创频率题。正向题使用1—5原值，反向题使用6减原值。排除明确的“未经历／无法判断”，至少3题有效才显示均分；这个最低资料规则是本版编辑选择，不代表心理测量验证。四部分独立阅读，不相加、不分人群等级。",
+        "en": "This part has five original frequency items. Forward items use values 1–5; reverse items use 6 minus the selected value. Explicit non-experienced responses are excluded. A mean is shown only with at least three rated items: an editorial minimum-data rule, not psychometric validation. Read all four parts separately, without a total or population categories."
+      },
+      "sections": [
+        {
+          "id": "reading",
+          "title": {
+            "zh": "均分怎样读",
+            "en": "Reading your mean"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高均分表示，你更常报告安静独处后有恢复感；较低均分表示，本题所问的独处方式较少带来这种变化。它不是内向程度，也不是“需要隔离”的判断。",
+              "en": "A higher mean means you more often reported feeling restored by quiet time alone. A lower mean means these forms of solitude less often brought that change. It is not an introversion score or a judgment that you need isolation."
+            },
+            {
+              "zh": "第11、19题问独处后没有改善的情况，按6减原值计分。均分描述的是自报变化，不测恢复所需分钟数、身体能量或健康水平。",
+              "en": "Items 11 and 19 describe little or no improvement after time alone, so their score is 6 minus the selected value. The mean describes a reported change, not recovery time in minutes, bodily energy or health."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "独处也有不同形式",
+            "en": "Solitude comes in different forms"
+          },
+          "paragraphs": [
+            {
+              "zh": "回家后关掉群聊、安静洗碗半小时，可能让你重新愿意说话；独自刷着更多消息却未必产生同样感受。两者都是一个人，要求和活动却不同。",
+              "en": "Turning off a group chat and quietly doing the dishes may leave you ready to talk again; scrolling through more messages alone may not. Both happen alone, but the activities and demands differ."
+            },
+            {
+              "zh": "另一次，你可能独处很久仍没有恢复感，而和熟悉的人散步更轻松。这不是答错，也不证明你必须持续社交。",
+              "en": "On another occasion, a long time alone may not feel restoring while a walk with someone familiar feels easier. That is not a wrong answer or proof that you must keep socializing."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "留意什么取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "留出安静时间可以保护节奏，但不说明越长越好。若不断延后你原本想要的联系，可以尝试更短、有结束点的独处，再观察是否愿意重新连接。",
+              "en": "Quiet time can protect your pace without implying that longer is always better. If it keeps postponing contact you actually want, try a shorter period with an end point and notice your readiness to reconnect."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "先核对安静里发生了什么",
+            "en": "Check what happens during quiet time"
+          },
+          "paragraphs": [
+            {
+              "zh": "你是放下了回应要求，还是一边独处一边继续处理工作和消息？回看活动、环境和当时需要，不用这一均分解释所有疲惫或情绪。",
+              "en": "Were you free from response demands, or still processing work and messages alone? Review the activity, environment and what you needed then, rather than using this mean to explain every tired or difficult feeling."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "比较两种短休息",
+            "en": "Compare two short pauses"
+          },
+          "paragraphs": [
+            {
+              "zh": "选两次相近的小型社交：一次之后安静做自己的事，另一次之后轻松陪伴。用“更愿意继续交流／差不多／更不愿意”记录变化，不必打身体电量分。",
+              "en": "After two similar small social events, try a quiet solo pause once and easy company the other time. Record whether you feel more ready, about the same or less ready to reconnect, without assigning a physical battery score."
+            }
+          ]
+        },
+        {
+          "id": "language",
+          "title": {
+            "zh": "可以怎么表达",
+            "en": "Words you can use"
+          },
+          "paragraphs": [
+            {
+              "zh": "“我想先安静一会儿，晚点再和你聊。不是你做错了什么，我想留一点过渡时间。”把需要与对他人的评价分开。",
+              "en": "“I’d like a quiet pause, then we can talk later. You haven’t done anything wrong; I want a little transition time.” Separate a need from a judgment about the other person."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与其他部分一起读",
+            "en": "Read it alongside the other parts"
+          },
+          "paragraphs": [
+            {
+              "zh": "独处恢复感与轻松陪伴恢复感可以同时较高：你可能需要先独处，再和熟人轻松相处。两项都低时，也不能据此推断问题所在；先看你实际体验过什么。",
+              "en": "Quiet and easy company can both feel restoring: you might want solitude first and familiar company afterward. Lower values on both do not identify a cause; first check what you actually experienced."
+            }
+          ]
+        },
+        {
+          "id": "reflect",
+          "title": {
+            "zh": "带回真实经历",
+            "en": "Check an actual experience"
+          },
+          "paragraphs": [
+            {
+              "zh": "最近一次独处后感觉好一些，真正减少的是什么要求？哪一种“一个人待着”其实没有让你轻松？",
+              "en": "When solitude last helped, which demand had actually stopped? Which form of being alone did not help you feel more at ease?"
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马原创自我观察题本，尚未完成信度、效度或常模验证。社交电量只是便于交流的比喻；本结果不是诊断、能力或身体剩余能量测量，不换算MBTI，也不预测关系或职业。",
+              "en": "This is FermatMind’s original self-reflection questionnaire, without established reliability, validity or population norms. Social battery is a conversational metaphor. The result is not a diagnosis, ability score or measurement of remaining bodily energy; it does not convert to MBTI or predict relationships or careers."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "easy-company",
+      "directionIds": [
+        "easy-company"
+      ],
+      "title": {
+        "zh": "轻松陪伴的恢复感",
+        "en": "Recovery through easy company"
+      },
+      "headline": {
+        "zh": "有人在身边，也可以是一种低要求的休息。",
+        "en": "Company can sometimes be a low-demand form of rest."
+      },
+      "summary": {
+        "zh": "观察不必表现活跃、解释太多或负责全场的熟悉陪伴，是否让你感觉恢复；它与喜欢大型聚会、交友数量不同。",
+        "en": "Notice whether familiar company with little pressure to perform, explain or host helps you feel restored. This differs from enjoying large parties or having many friends."
+      },
+      "scoreReading": {
+        "zh": "本部分有5道原创频率题。正向题使用1—5原值，反向题使用6减原值。排除明确的“未经历／无法判断”，至少3题有效才显示均分；这个最低资料规则是本版编辑选择，不代表心理测量验证。四部分独立阅读，不相加、不分人群等级。",
+        "en": "This part has five original frequency items. Forward items use values 1–5; reverse items use 6 minus the selected value. Explicit non-experienced responses are excluded. A mean is shown only with at least three rated items: an editorial minimum-data rule, not psychometric validation. Read all four parts separately, without a total or population categories."
+      },
+      "sections": [
+        {
+          "id": "reading",
+          "title": {
+            "zh": "均分怎样读",
+            "en": "Reading your mean"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高均分表示，你更常报告轻松陪伴后的恢复感；较低均分表示，这类陪伴在本题场景里较少让你觉得缓过来。它不衡量人缘、外向程度或关系质量。",
+              "en": "A higher mean means you more often reported feeling restored by easy company. A lower mean means this kind of contact less often brought relief in the situations asked about. It does not measure popularity, extraversion or relationship quality."
+            },
+            {
+              "zh": "第12、20题描述轻松陪伴仍感到费力或更没精神，按6减原值反向计分。“未经历／无法判断”不计为零，也不会被解释成不需要别人。",
+              "en": "Items 12 and 20 describe easy company still feeling demanding or leaving you less refreshed, so they are reverse scored as 6 minus the selected value. “Not experienced / cannot judge” is not scored as zero or interpreted as not needing people."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "什么叫低要求的陪伴",
+            "en": "What low-demand company might look like"
+          },
+          "paragraphs": [
+            {
+              "zh": "你和熟人各自看书，偶尔说几句，不需要持续接话；或者散步时允许沉默。这些情境与必须活跃气氛的聚餐可以带来不同感受。",
+              "en": "You and someone familiar might read separately, exchange a few words and not keep a conversation going; a walk might allow silence. That can feel different from a dinner where you are expected to entertain everyone."
+            },
+            {
+              "zh": "如果即使是熟人陪伴也让你更想退出，这次记录同样有效。它只说明这两周的场景，不要求你用更多社交来证明自己。",
+              "en": "If even familiar company makes you want to step away, that observation still counts. It describes these recent situations and does not require more socializing to prove anything about yourself."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "留意什么取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "把恢复完全寄托在某个人随时回应，可能给双方增加压力；只靠独自消化，也可能错过你原本愿意接受的支持。可以先提出具体、短暂、允许拒绝的陪伴邀请。",
+              "en": "Depending on one person to be constantly available can add pressure for both of you; handling everything alone can also miss support you would welcome. Try a specific, brief invitation that the other person can decline."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "对方与形式都重要",
+            "en": "The person and format both matter"
+          },
+          "paragraphs": [
+            {
+              "zh": "记录是面对面、通话还是文字，是一对一还是多人，以及你是否能自然保持沉默。这个均分不能证明某个人“适合你”，也不评判任何人的付出。",
+              "en": "Note whether contact was in person, by call or text, one-to-one or in a group, and whether silence felt allowed. This mean does not establish that someone is compatible with you or judge what they contribute."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "提出一次明确的小邀请",
+            "en": "Make one clear, small invitation"
+          },
+          "paragraphs": [
+            {
+              "zh": "选择一位愿意的人，约一次短散步或各做各事，提前说清不需要持续聊天。结束后比较是否更轻松；不合适就调整形式，不用把结果归咎于对方。",
+              "en": "With someone willing, suggest a short walk or time doing separate activities together, making clear that constant conversation is unnecessary. Notice afterward whether it felt easier. If not, adjust the format without blaming the person."
+            }
+          ]
+        },
+        {
+          "id": "language",
+          "title": {
+            "zh": "可以怎么表达",
+            "en": "Words you can use"
+          },
+          "paragraphs": [
+            {
+              "zh": "“你有空陪我散步十几分钟吗？不用一直聊天，没有空也没关系。”把期待、时长和拒绝空间同时交代。",
+              "en": "“Would you have time for a short walk with me? We don’t need to talk the whole time, and it’s fine if you’re busy.” State the expectation, time and room to decline."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与其他部分一起读",
+            "en": "Read it alongside the other parts"
+          },
+          "paragraphs": [
+            {
+              "zh": "轻松陪伴恢复感高，不排除交流或协调负担也高。你可能从某种特定相处中恢复，却被持续组织、多群切换或长时间交谈消耗。请按具体情境看，不强归一类人。",
+              "en": "Finding easy company restoring does not rule out higher interaction or coordination load. One format may help while ongoing organizing, group switching or long conversations cost effort. Read the situations rather than forcing them into one type."
+            }
+          ]
+        },
+        {
+          "id": "reflect",
+          "title": {
+            "zh": "带回真实经历",
+            "en": "Check an actual experience"
+          },
+          "paragraphs": [
+            {
+              "zh": "最近一次有人陪伴后更轻松，关键在于谁、做了什么、允许不做什么？下次怎样把这个条件说清楚？",
+              "en": "When company last helped, what mattered about the person, activity and things you were free not to do? How could you state that condition next time?"
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马原创自我观察题本，尚未完成信度、效度或常模验证。社交电量只是便于交流的比喻；本结果不是诊断、能力或身体剩余能量测量，不换算MBTI，也不预测关系或职业。",
+              "en": "This is FermatMind’s original self-reflection questionnaire, without established reliability, validity or population norms. Social battery is a conversational metaphor. The result is not a diagnosis, ability score or measurement of remaining bodily energy; it does not convert to MBTI or predict relationships or careers."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "zh": "计分怎样计算",
+        "en": "How the scoring works"
+      },
+      "paragraphs": [
+        {
+          "zh": "每题选择频率1—5；反向题为第9、10、11、12、17、18、19、20题，使用6减原值。四部分各5题，各自求有效题的平均值，保留一位小数，范围1—5。完整答卷不会计算总分，也不换成电量百分比。",
+          "en": "Responses use frequency values 1–5. Items 9, 10, 11, 12, 17, 18, 19 and 20 are reverse scored as 6 minus the selected value. Each of the four parts has five items and reports its own mean to one decimal, from 1 to 5. No total or battery percentage is calculated."
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "zh": "没有经历与资料不足",
+        "en": "Non-experienced items and insufficient information"
+      },
+      "paragraphs": [
+        {
+          "zh": "“未经历／无法判断”会被排除，不当零分；一部分至少3题有频率回答才显示均分，否则明确显示资料不足，仍可阅读通用说明。答卷未全部回应时不生成任何个人均分。最低3题是本版的资料完整性规则，不是科学阈值。",
+          "en": "“Not experienced / cannot judge” is excluded rather than scored as zero. A part needs at least three frequency responses for a mean; otherwise it explicitly shows insufficient information while its general guide remains readable. No personal means appear before every item has a response. The three-item minimum is this edition’s completeness rule, not a scientific cutoff."
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "zh": "接近或看似矛盾的均分",
+        "en": "Close or apparently conflicting means"
+      },
+      "paragraphs": [
+        {
+          "zh": "四部分分别描述不同经验，不能按数值排出更好的类型，也不能把负担和恢复直接相减。相同均分原样保留；相差0.2只是一部分题目作答的差别，不是能力、临床显著性或人群差距。",
+          "en": "The four parts describe different experiences, not better or worse types. Do not subtract recovery from load or rank yourself across them. Equal means remain equal. A 0.2 difference reflects answers within this set, not ability, clinical significance or a population difference."
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": {
+        "zh": "把结果放回情境",
+        "en": "Put the result back in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "选一次真实活动，记下参加前、刚结束和过了一段时间的感受，同时留意睡眠、工作、人数、噪声和角色。这个题本不确定原因，也不测真实身体电量或任何心理状况。",
+          "en": "Choose a real event and note how you felt before, immediately afterward and later, alongside sleep, work, group size, noise and your role. This questionnaire cannot identify causes, measure bodily energy or assess a mental-health condition."
+        }
+      ]
+    },
+    {
+      "id": "original-method",
+      "title": {
+        "zh": "题本与研究的关系",
+        "en": "The questionnaire and research"
+      },
+      "paragraphs": [
+        {
+          "zh": "有研究使用经验取样观察交流行为与随后疲惫的关联，但这不能验证本站新编20题、四部分结构或个人推断。本站题目、解释与计分为独立原创，尚未完成信度、效度和常模工作，不是任何研究者的正式量表。",
+          "en": "Experience-sampling research has examined associations between sociable behavior and later tiredness. It does not validate these new 20 items, their four-part structure or individual inferences. Our items, explanations and scoring are original and have no established reliability, validity or population norms; this is not a research team’s official instrument."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这能测出我还剩多少社交电量吗？",
+        "en": "Does this measure how much social battery I have left?"
+      },
+      "answer": {
+        "zh": "不能。“电量”是比喻，网站不会检测生理能量，也不计算剩余百分比。这里显示最近两周四类自报经验的均分和完整读法，用来检查具体相处情境。",
+        "en": "No. Battery is a metaphor. The website does not detect physiological energy or calculate a remaining percentage. It reports means and full reading guides for four kinds of self-reported experience during the past two weeks."
+      }
+    },
+    {
+      "question": {
+        "zh": "社交累就说明内向或不喜欢别人吗？",
+        "en": "Does feeling tired after socializing mean I am introverted or dislike people?"
+      },
+      "answer": {
+        "zh": "这个测试不能作这种判断。喜欢相处、交流后的负担、组织责任、独处或陪伴的恢复感可以同时存在。要探索人格偏好，需要另做对应框架，并按其实际题目与方法阅读。",
+        "en": "This test cannot make that inference. Enjoying company, effort afterward, organizing responsibilities and recovery through solitude or company can coexist. Exploring personality preferences requires a separate framework and its own questions and method."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么有的部分显示资料不足？",
+        "en": "Why does a part show insufficient information?"
+      },
+      "answer": {
+        "zh": "你可能为其中3题或更多选择了“未经历／无法判断”，有效题不足3道。这些回答不会被记成零分，也不应解释为负担低、恢复差或没有需要。你仍可完整阅读公开说明，稍后有相关经历再作答。",
+        "en": "You may have chosen “Not experienced / cannot judge” for three or more items in that part, leaving fewer than three rated responses. Those choices are not zero scores or signs of low demands, poor recovery or having no needs. The full public guide remains available; you can answer again after relevant experiences."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果要付费或先做别的测试吗？",
+        "en": "Are full results free, and do I need to take another test first?"
+      },
+      "answer": {
+        "zh": "20题、四部分完整结果与公开说明全部免费，无需注册或先做MBTI。完成后可以自行选择其他框架，也可以直接结束。答案在浏览器计算；分享只含公开测试／说明链接，不含答卷或个人均分。",
+        "en": "All 20 items, four complete results and public guides are free, with no signup or prerequisite MBTI test. Afterward, another framework is optional. Answers are evaluated in your browser. Sharing includes only public test or guide links, never your answers or personal means."
+      }
+    },
+    {
+      "question": {
+        "zh": "刷新、换语言和重新测试会怎样？",
+        "en": "What happens if I refresh, change language or retake?"
+      },
+      "answer": {
+        "zh": "只有主动保存后，本标签页才提供恢复；24小时后失效。完成、退出清除或重测会删除草稿，已保存进度可在中英文页面间主动恢复。浏览器禁止存储时仍可完成，但刷新会丢失当前作答。",
+        "en": "Only an opted-in tab draft can be resumed after a refresh or language change. It expires after 24 hours and clears on completion, exit-and-clear or retake. If storage is blocked, you can still finish, but a refresh loses the current attempt."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "Leikas 与 Ilmarinen（2017）：交流行为、当时心情与之后的疲惫",
+        "en": "Leikas & Ilmarinen (2017): sociable behavior, mood and later fatigue"
+      },
+      "url": "https://onlinelibrary.wiley.com/doi/abs/10.1111/jopy.12264"
+    },
+    {
+      "title": {
+        "zh": "Leikas（2020）：交流行为与稍后疲惫的经验取样研究",
+        "en": "Leikas (2020): experience sampling of sociability and later tiredness"
+      },
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7260435/"
+    }
+  ]
+}

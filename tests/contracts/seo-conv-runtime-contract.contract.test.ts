@@ -58,6 +58,18 @@ describe("SEO-CONV-RUNTIME-03 runtime funnel contract", () => {
     expect(body.payload).toMatchObject({ page_type: "test_detail", target_test: "response-color", scale_id: "PERSONALITY_COLOR", form_id: "personality_color_forced_choice_24" });
     expect(body.payload).not.toHaveProperty("answers"); expect(body.payload).not.toHaveProperty("result");
   });
+  it.each(["/en/tests/explore/social-battery-test", "/zh/tests/explore/social-battery-test", "/en/tests/explore/social-battery-test/results/interaction-load", "/zh/tests/explore/social-battery-test/results/easy-company"])("keeps the original questionnaire identity and consent-safe landing at %s", async path => {
+    grantAnalyticsConsent();
+    window.history.pushState({}, "", path);
+    const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({ ok: true })));
+    vi.stubGlobal("fetch", fetchMock);
+    const { initAnalytics } = await importAnalyticsRuntime(); initAnalytics(); initAnalytics();
+    await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
+    const body = JSON.parse(String(fetchMock.mock.calls[0][1]?.body ?? "{}"));
+    expect(body.eventName).toBe(TRACKING_EVENTS.LANDING_PV);
+    expect(body.payload).toMatchObject({ page_type: "test_detail", target_test: "social-battery-test", scale_id: "SOCIAL_BATTERY", form_id: "fm_social_battery_context_20" });
+    expect(body.payload).not.toHaveProperty("answers"); expect(body.payload).not.toHaveProperty("result");
+  });
   it.each(["en", "zh"] as const)("counts a public entertainment guide %s visit as a landing, not a personal result or core test", async locale => {
     grantAnalyticsConsent();
     window.history.pushState({}, "", `/${locale}/tests/play/woodland-animal/results/jay`);

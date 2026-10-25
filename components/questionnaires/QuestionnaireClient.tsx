@@ -2,9 +2,10 @@
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
+import { QuestionnaireFacetReport } from "./QuestionnaireFacetReport";
 import { QuestionnaireReport } from "./QuestionnaireReport";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
-import { readQuestionnaireDraft, scoreDirectionalQuestionnaire } from "@/lib/questionnaires/scoring";
+import { readQuestionnaireDraft, scoreQuestionnaire } from "@/lib/questionnaires/scoring";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
 import type { Locale } from "@/lib/i18n/locales";
 import { trackEvent } from "@/lib/analytics";
@@ -30,8 +31,11 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
   const draft = useSyncExternalStore(subscribe, () => {
     try { const raw = sessionStorage.getItem(key); return readQuestionnaireDraft(quiz, raw) ? raw : null; } catch { return null; }
   }, () => null);
-  const result = scoreDirectionalQuestionnaire(quiz, answers);
-  const profile = result.status === "complete" ? quiz.profiles.find(p => p.id === result.profileId) : undefined;
+  const result = scoreQuestionnaire(quiz, answers);
+  const directional = result.status === "complete" && "profileId" in result ? result : undefined;
+  const facets = result.status === "complete" && "facets" in result ? result : undefined;
+  const hasCompleteResult = result.status === "complete";
+  const profile = directional ? quiz.profiles.find(p => p.id === directional.profileId) : undefined;
   const question = quiz.questions[position];
   const emit = (event: string) => trackEvent(event, { slug: quiz.slug, locale, entry_surface: "questionnaire", scale_code: quiz.code, form_code: quiz.source.formCode, test_type: "self_report", page_type: "test_detail" });
   const mbtiBase = `/${locale}/tests/mbti-personality-test-16-personality-types`;
@@ -41,11 +45,11 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
 
   useEffect(() => { if (stage !== "welcome") heading.current?.focus(); }, [position, stage]);
   useEffect(() => {
-    if (stage === "result" && profile && !viewed.current) {
+    if (stage === "result" && hasCompleteResult && !viewed.current) {
       viewed.current = true;
       trackEvent("view_result", { slug: quiz.slug, locale, entry_surface: "questionnaire", scale_code: quiz.code, form_code: quiz.source.formCode, test_type: "self_report", page_type: "test_detail" });
     }
-  }, [stage, profile, quiz, locale]);
+  }, [stage, hasCompleteResult, quiz, locale]);
 
   function clear() {
     try { sessionStorage.removeItem(key); } catch { /* Saving is optional. */ }
@@ -77,8 +81,8 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
     submitted.current = true; clear(); setStage("result"); setMessage(""); emit("complete_test");
   }
   async function copy() {
-    if (!profile) return;
-    const text = `${quiz.title[locale]}\n${profile.title[locale]}\nhttps://fermatmind.com${questionnaireGuidePath(locale, quiz.slug, profile.id)}`;
+    if (!hasCompleteResult) return;
+    const text = `${quiz.title[locale]}\n${profile ? profile.title[locale] : (zh ? "完整自我观察" : "Complete self-reflection")}\nhttps://fermatmind.com${profile ? questionnaireGuidePath(locale, quiz.slug, profile.id) : questionnairePath(locale, quiz.slug)}`;
     try { await navigator.clipboard.writeText(text); setMessage(zh ? "已复制结果名称与公开说明链接。" : "Copied the result name and public explanation link."); }
     catch { setManualCopy(text); setMessage(zh ? "请选中下方文字手动复制。" : "Select the text below to copy it manually."); }
   }
@@ -86,7 +90,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
   return <section id="take-test" className="my-8 rounded-xl border border-violet-200 bg-white p-5 sm:p-8" aria-label={zh ? "作答与完整结果" : "Questionnaire and full results"}>
     {stage === "welcome" && <>
       <h2 className="text-2xl font-semibold">{zh ? `开始${quiz.questions.length}题的自我观察` : `Start your ${quiz.questions.length}-question reflection`}</h2>
-      <p className="my-4 leading-7">{zh ? "每题比较两种做法，选择通常更自然或更先出现的一项。没有正确答案。答完全部题目后再生成计数和完整解释。" : "Each question compares two responses. Choose the one that comes more naturally or happens first. There are no correct answers. Counts and full explanations appear only after all questions are complete."}</p>
+      <p className="my-4 leading-7">{quiz.instructions?.[locale] ?? (zh ? "每题比较两种做法，选择通常更自然或更先出现的一项。没有正确答案。答完全部题目后再生成计数和完整解释。" : "Each question compares two responses. Choose the one that comes more naturally or happens first. There are no correct answers. Counts and full explanations appear only after all questions are complete.")}</p>
       {!ready && <p role="status" className="my-3 text-sm text-slate-600">{zh ? "正在准备测试…" : "Preparing the test…"}</p>}
       <div className="flex flex-wrap gap-3"><button disabled={!ready} className={`${button} bg-violet-700 text-white`} onClick={() => start()}>{zh ? "开始测试" : "Start test"}</button>{draft && <button disabled={!ready} className={button} onClick={() => start(true)}>{zh ? "恢复本标签页进度" : "Resume this tab's progress"}</button>}</div>
       <p className="mt-4 text-sm leading-7 text-slate-600">{zh ? "完整题目和结果免费，无需注册。只有主动保存才会在刷新或换语言后提供恢复；本标签页保存24小时后失效，完成或重测即清除。" : "All questions and full results are free, with no signup. Saving is optional; only saved attempts can be resumed after a refresh or language change. Tab drafts expire after 24 hours and clear on completion or retake."}</p>
@@ -102,11 +106,14 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
       <label className="mt-6 flex items-start gap-3 text-sm leading-7 text-slate-600"><input type="checkbox" className="mt-1 size-5 shrink-0" checked={saving} onChange={event => { setSaving(event.target.checked); if (event.target.checked) persist(answers, true); else clear(); }} /><span>{zh ? "在本标签页临时保存进度，刷新或换语言后可主动恢复；24小时后失效，完成、清除或重测即删除。" : "Save progress in this tab so I can resume after a refresh or language change. It expires after 24 hours and clears on completion, exit-and-clear or retake."}</span></label>
       <button className="mt-3 min-h-11 text-sm underline" onClick={() => { clear(); setAnswers({}); setSaving(false); setStage("welcome"); setMessage(""); }}>{zh ? "退出并清除本次进度" : "Exit and clear this attempt"}</button>
     </>}
-    {stage === "result" && profile && result.status === "complete" && <>
-      <h2 ref={heading} tabIndex={-1} className="text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere]">{profile.title[locale]}</h2>
-      <section className="my-6 rounded-lg bg-slate-50 p-4" aria-label={zh ? "本次原始选择次数" : "Raw choice counts for this attempt"}><h3 className="font-semibold">{zh ? "各方向的本次选择次数" : "Your counts across the directions"}</h3><dl className="mt-3 space-y-3">{quiz.directions.map(direction => <div className="flex flex-wrap justify-between gap-3" key={direction.id}><dt>{direction.title[locale]}</dt><dd>{result.counts[direction.id]} / {direction.comparisons}</dd></div>)}</dl><p className="mt-3 text-sm leading-7">{zh ? "分母为该方向参加比较的次数。原始次数只比较本题组内的选择，不是人群排名或能力分数。" : "The denominator is the number of comparisons for that direction. Raw counts compare choices within this question set, not population ranks or ability scores."}</p></section>
+    {stage === "result" && result.status === "complete" && <>
+      <h2 ref={heading} tabIndex={-1} className="text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere]">{profile?.title[locale] ?? (zh ? `${quiz.title.zh}：完整结果` : `${quiz.title.en}: your complete result`)}</h2>
+      {directional && profile && <>
+      <section className="my-6 rounded-lg bg-slate-50 p-4" aria-label={zh ? "本次原始选择次数" : "Raw choice counts for this attempt"}><h3 className="font-semibold">{zh ? "各方向的本次选择次数" : "Your counts across the directions"}</h3><dl className="mt-3 space-y-3">{quiz.directions.map(direction => <div className="flex flex-wrap justify-between gap-3" key={direction.id}><dt>{direction.title[locale]}</dt><dd>{directional.counts[direction.id]} / {direction.comparisons}</dd></div>)}</dl><p className="mt-3 text-sm leading-7">{zh ? "分母为该方向参加比较的次数。原始次数只比较本题组内的选择，不是人群排名或能力分数。" : "The denominator is the number of comparisons for that direction. Raw counts compare choices within this question set, not population ranks or ability scores."}</p></section>
       <QuestionnaireReport profile={profile} locale={locale} />
       <Link prefetch={false} className="my-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这项结果的公开说明" : "Read the public explanation of this result"}</Link>
+      </>}
+      {facets && <QuestionnaireFacetReport quiz={quiz} result={facets} locale={locale} />}
       <div className="flex flex-wrap gap-3"><button className={button} onClick={copy}>{zh ? "复制结果与链接" : "Copy result and link"}</button><button className={button} onClick={() => start()}>{zh ? "重新测试" : "Retake test"}</button></div>
       {manualCopy && <textarea readOnly aria-label={zh ? "手动复制结果" : "Result text for manual copying"} value={manualCopy} onFocus={e => e.target.select()} className="mt-4 min-h-40 w-full rounded border p-3" />}
       <section className="mt-10 border-t pt-7"><h3 className="text-xl font-semibold">{zh ? "完整结果已呈现，下一步由你选择" : "Your full result is ready. Choose what comes next."}</h3><p className="my-4 leading-7 text-slate-600">{zh ? `如果想用另一套框架探索偏好，可以另做MBTI：${versions}。需要重新完整作答，这项结果不会换算成MBTI类型。也可以在这里结束。` : `For another perspective on preferences, MBTI offers ${versions}. It needs a separate full attempt; this result is never converted into an MBTI type. You can also stop here.`}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={mbtiHref} onClick={() => trackEvent("click_test", buildSeoCtaTrackingPayload(recommendation))}>{zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions"}</Link><br /><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试" : "Back to all tests"}</Link></section>

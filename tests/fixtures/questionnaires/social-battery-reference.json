@@ -1,0 +1,1324 @@
+{
+  "formCode": "fm_social_battery_context_20",
+  "itemBankVersion": "1.0.0",
+  "scoringVersion": "1.0.0",
+  "resultContentVersion": "1.0.0",
+  "questions": [
+    {
+      "id": "SB_01",
+      "prompt": {
+        "zh": "即使相处很愉快，聚会结束后我仍想留一段不用继续交谈的时间。",
+        "en": "Even after an enjoyable gathering, I wanted some time without having to keep talking."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "interaction-load",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "interaction-load",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "interaction-load",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "interaction-load",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "interaction-load",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "interaction-load",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_02",
+      "prompt": {
+        "zh": "替多人协调时间、地点和安排，让我在真正见面前就觉得费力。",
+        "en": "Coordinating times, places and plans for several people felt effortful before we even met."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "coordination-load",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "coordination-load",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "coordination-load",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "coordination-load",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "coordination-load",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "coordination-load",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_03",
+      "prompt": {
+        "zh": "交流之后，独自安静待一会儿让我更愿意再次与人联系。",
+        "en": "After social contact, a quiet period alone helped me feel ready to reconnect."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "quiet-recovery",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "quiet-recovery",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "quiet-recovery",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "quiet-recovery",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "quiet-recovery",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "quiet-recovery",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_04",
+      "prompt": {
+        "zh": "和熟悉的人轻松相处、不必负责带动气氛时，我感到恢复了一些精神。",
+        "en": "Easy time with someone familiar helped me feel refreshed when I did not have to keep the atmosphere going."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "easy-company",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "easy-company",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "easy-company",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "easy-company",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "easy-company",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "easy-company",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_05",
+      "prompt": {
+        "zh": "接连几段交谈之后，继续集中注意听别人说话需要额外用力。",
+        "en": "After several conversations in a row, paying attention to another person took extra effort."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "interaction-load",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "interaction-load",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "interaction-load",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "interaction-load",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "interaction-load",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "interaction-load",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_06",
+      "prompt": {
+        "zh": "在不同群体之间来回切换、适应不同的交谈期待，让我感到消耗。",
+        "en": "Switching between groups and adapting to different conversational expectations felt draining."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "coordination-load",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "coordination-load",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "coordination-load",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "coordination-load",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "coordination-load",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "coordination-load",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_07",
+      "prompt": {
+        "zh": "一段不需要回复消息的独处时间，让我觉得缓过来了。",
+        "en": "Time alone without needing to reply to messages helped me recover."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "quiet-recovery",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "quiet-recovery",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "quiet-recovery",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "quiet-recovery",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "quiet-recovery",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "quiet-recovery",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_08",
+      "prompt": {
+        "zh": "和信任的人各做各的事、偶尔聊几句，比继续独自撑着更让我放松。",
+        "en": "Doing our own things alongside someone I trust, with occasional conversation, helped me relax more than carrying on alone."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "easy-company",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "easy-company",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "easy-company",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "easy-company",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "easy-company",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "easy-company",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_09",
+      "prompt": {
+        "zh": "一场聚会结束后，我还有精神继续另一段交谈。",
+        "en": "After a gathering, I still had energy for another conversation."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "interaction-load",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "interaction-load",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "interaction-load",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "interaction-load",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "interaction-load",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "interaction-load",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_10",
+      "prompt": {
+        "zh": "我想休息一下时，可以直接说出来，不必费力构思一个能被接受的理由。",
+        "en": "When I wanted a break, I could say so without working hard to find an acceptable explanation."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "coordination-load",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "coordination-load",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "coordination-load",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "coordination-load",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "coordination-load",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "coordination-load",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_11",
+      "prompt": {
+        "zh": "独自安静待一段时间后，我仍和之前一样不想再应付交流。",
+        "en": "After quiet time alone, I felt just as unready for more interaction as before."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "quiet-recovery",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "quiet-recovery",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "quiet-recovery",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "quiet-recovery",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "quiet-recovery",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "quiet-recovery",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_12",
+      "prompt": {
+        "zh": "即使和信任的人轻松相处，我也觉得这更像另一件需要应付的事。",
+        "en": "Even relaxed time with someone I trust felt like another demand to manage."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "easy-company",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "easy-company",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "easy-company",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "easy-company",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "easy-company",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "easy-company",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_13",
+      "prompt": {
+        "zh": "一天里接连安排社交活动时，我会希望其中一次能早些结束。",
+        "en": "When social plans followed one another in a day, I wished one of them would finish earlier."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "interaction-load",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "interaction-load",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "interaction-load",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "interaction-load",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "interaction-load",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "interaction-load",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_14",
+      "prompt": {
+        "zh": "同时跟进几个人的消息、约定和需要，让我难以松下来。",
+        "en": "Keeping up with several people’s messages, arrangements and needs made it hard to switch off."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "coordination-load",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "coordination-load",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "coordination-load",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "coordination-load",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "coordination-load",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "coordination-load",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_15",
+      "prompt": {
+        "zh": "一个人安静散步或做不赶进度的小事后，我觉得更容易重新进入交流。",
+        "en": "After a quiet walk alone or an unhurried solo activity, it felt easier to return to conversation."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "quiet-recovery",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "quiet-recovery",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "quiet-recovery",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "quiet-recovery",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "quiet-recovery",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "quiet-recovery",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_16",
+      "prompt": {
+        "zh": "一次不要求我表现活跃的简短问候，让我感觉比交谈前更轻松。",
+        "en": "A brief check-in that did not require me to be lively left me feeling more at ease than before."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "easy-company",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "easy-company",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "easy-company",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "easy-company",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "easy-company",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "easy-company",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_17",
+      "prompt": {
+        "zh": "社交活动较多的一天结束后，我仍能按平常节奏做自己的事，不需要额外缓冲。",
+        "en": "After a socially busy day, I could do my usual things without needing extra downtime."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "interaction-load",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "interaction-load",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "interaction-load",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "interaction-load",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "interaction-load",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "interaction-load",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_18",
+      "prompt": {
+        "zh": "与人商量安排对我来说比较省力，不需要反复揣摩大家会怎样反应。",
+        "en": "Making arrangements with others felt straightforward, without repeatedly working out how everyone might react."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "coordination-load",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "coordination-load",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "coordination-load",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "coordination-load",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "coordination-load",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "coordination-load",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_19",
+      "prompt": {
+        "zh": "独处一段时间，并没有改变我是否准备好再次与人联系的感觉。",
+        "en": "Spending time alone made little difference to whether I felt ready to reconnect."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "quiet-recovery",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "quiet-recovery",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "quiet-recovery",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "quiet-recovery",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "quiet-recovery",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "quiet-recovery",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SB_20",
+      "prompt": {
+        "zh": "一次本来很轻松的陪伴结束后，我反而觉得比开始前更没精神。",
+        "en": "After an otherwise easy time with someone, I felt less refreshed than when it began."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "easy-company",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "easy-company",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "easy-company",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "easy-company",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "easy-company",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "easy-company",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "directions": [
+    {
+      "id": "interaction-load",
+      "title": {
+        "zh": "交流后的负担",
+        "en": "Interaction load"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "coordination-load",
+      "title": {
+        "zh": "协调带来的负担",
+        "en": "Coordination load"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "quiet-recovery",
+      "title": {
+        "zh": "安静独处的恢复感",
+        "en": "Recovery through quiet"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "easy-company",
+      "title": {
+        "zh": "轻松陪伴的恢复感",
+        "en": "Recovery through easy company"
+      },
+      "itemCount": 5
+    }
+  ],
+  "minimumRatedItems": 3,
+  "scoring": "Forward response1–5; reverse6–response; excludeexplicitNA; per-facet sum divided by rateditemcount; mean only when at least3of5items are rated; no total, cutoff, diagnostic category or battery percentage."
+}

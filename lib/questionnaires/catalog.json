@@ -70,5 +70,30 @@
       "tied-yellow-blue-green",
       "tied-red-yellow-blue-green"
     ]
+  },
+  {
+    "slug": "social-battery-test",
+    "code": "SOCIAL_BATTERY",
+    "version": "1.0.0",
+    "updated": "2026-10-25",
+    "category": "social",
+    "title": {
+      "zh": "社交电量测试",
+      "en": "Social Battery Test"
+    },
+    "description": {
+      "zh": "完成20道原创情境频率题，分别阅读交流负担、协调负担、安静独处与轻松陪伴的恢复感。完整结果免费，无需注册；查看实际计分与具体边界表达。",
+      "en": "Take a free 20-question social battery test. Explore interaction and coordination demands, quiet recovery and easy company with full results, clear scoring and no signup."
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "fm_social_battery_context_20",
+    "questionCount": 20,
+    "resultSlugs": [
+      "interaction-load",
+      "coordination-load",
+      "quiet-recovery",
+      "easy-company"
+    ]
   }
 ]
