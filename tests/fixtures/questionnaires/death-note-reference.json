@@ -1,0 +1,1070 @@
+{
+  "formCode": "fm_death_note_fan_choices_24",
+  "origin": "FermatMindoriginal24ENZH4choice/unofficialtextonlyfanreading/eightselectedmainseriesandshortstorycharacters/notclinicalinstrument",
+  "directions": [
+    {
+      "id": "light-yagami",
+      "title": {
+        "zh": "夜神月：说明自己选择的目标",
+        "en": "Light Yagami: Naming a Chosen Aim"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "l",
+      "title": {
+        "zh": "L：提出区分解释的问题",
+        "en": "L: Questions That Separate Explanations"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "ryuk",
+      "title": {
+        "zh": "琉克：旁观一个不寻常细节",
+        "en": "Ryuk: Observing an Unusual Detail"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "misa-amane",
+      "title": {
+        "zh": "弥海砂：选择可见的个人表达",
+        "en": "Misa Amane: Choosing Visible Expression"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "near",
+      "title": {
+        "zh": "尼亚：排列手边已有的信息",
+        "en": "Near: Arranging Available Information"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "mello",
+      "title": {
+        "zh": "梅洛：另试一条可回头的路径",
+        "en": "Mello: Trying Another Reversible Route"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "teru-mikami",
+      "title": {
+        "zh": "魅上照：写明一致使用的条件",
+        "en": "Teru Mikami: Stating Consistent Criteria"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "minoru-tanaka",
+      "title": {
+        "zh": "田中实：重想一件资源的用途",
+        "en": "Minoru Tanaka: Reconsidering Resource Uses"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "DEATH_NOTE_01",
+      "prompt": {
+        "zh": "你准备为自己做一本很小的阅读摘记，首先更想？",
+        "en": "You want to make a small reading notebook for yourself. What comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说清今天想从这本摘记得到什么",
+            "en": "State what you want this notebook to offer today"
+          },
+          "directionId": "light-yagami"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "问什么信息能区分两种不同理解",
+            "en": "Ask what information would distinguish two interpretations"
+          },
+          "directionId": "l"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先看一处出乎意料的小细节，不急着参与讨论",
+            "en": "Observe an unexpected detail without entering the discussion yet"
+          },
+          "directionId": "ryuk"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "选择一种愿意让别人看到的呈现方式",
+            "en": "Choose a way of presenting it that you would want others to see"
+          },
+          "directionId": "misa-amane"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_02",
+      "prompt": {
+        "zh": "朋友对一张普通照片提出两种解释，你比较想？",
+        "en": "A friend offers two explanations of an ordinary photo. What interests you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "提出一个能让两种解释有不同答案的问题",
+            "en": "Ask a question whose answers would differ between the explanations"
+          },
+          "directionId": "l"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "停在一个奇怪的局部多看一会儿",
+            "en": "Spend a moment observing an unusual small part"
+          },
+          "directionId": "ryuk"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用自己喜欢的标题表达这张照片的感觉",
+            "en": "Give it a title that visibly expresses your preference"
+          },
+          "directionId": "misa-amane"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把已经知道的时间、地点和画面信息分开摆",
+            "en": "Arrange known time, place and image details separately"
+          },
+          "directionId": "near"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_03",
+      "prompt": {
+        "zh": "一件允许近看的普通展品吸引你停下，你更愿意？",
+        "en": "An ordinary exhibit you may examine draws your attention. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "看看不常见的一角，暂时不用给解释",
+            "en": "Look at an unusual corner without explaining it yet"
+          },
+          "directionId": "ryuk"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "想一个自己愿意展示的观感短句",
+            "en": "Think of a short visible expression of your own response"
+          },
+          "directionId": "misa-amane"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "将说明牌已经提供的线索整理在一起",
+            "en": "Arrange clues already supplied by the label"
+          },
+          "directionId": "near"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "换一个获准的观看角度，比较不同视野",
+            "en": "Try another permitted viewing position and compare the view"
+          },
+          "directionId": "mello"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_04",
+      "prompt": {
+        "zh": "你给私人手账做一页封面，更想怎样起笔？",
+        "en": "You make a cover page for a personal journal. How would you rather begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "挑一种自己喜欢、愿意被看见的表达风格",
+            "en": "Choose an expressive style you like and would want seen"
+          },
+          "directionId": "misa-amane"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把现有的几张素材先按内容排列",
+            "en": "Arrange the available materials by content first"
+          },
+          "directionId": "near"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "换一种可改回的布局试试看",
+            "en": "Try an alternative layout you can undo"
+          },
+          "directionId": "mello"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先写明哪些元素入选用同一个条件",
+            "en": "State a consistent criterion for which elements belong"
+          },
+          "directionId": "teru-mikami"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_05",
+      "prompt": {
+        "zh": "整理几张关于同一小物品的记录时，你比较想先？",
+        "en": "When organising several notes about one small object, what comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "按已经知道的类别把记录摆开",
+            "en": "Lay out the notes by categories already known"
+          },
+          "directionId": "near"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "另试一种可恢复的整理次序",
+            "en": "Try a different order that can be restored"
+          },
+          "directionId": "mello"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "定一个具体标准，先按同一标准分一次",
+            "en": "Choose a specific standard and apply it consistently once"
+          },
+          "directionId": "teru-mikami"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "看看这些记录还能服务什么别的自选用途",
+            "en": "Consider another chosen use these notes could serve"
+          },
+          "directionId": "minoru-tanaka"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_06",
+      "prompt": {
+        "zh": "一段自选的创作过程卡在一种布局上，你更愿意？",
+        "en": "A chosen creative activity stalls on one arrangement. What would you rather do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "另试一条可撤回的小路径，不急着押定原法",
+            "en": "Try another reversible approach rather than commit to the first"
+          },
+          "directionId": "mello"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "回到事先写出的选择条件，看看是否仍适用",
+            "en": "Return to the stated selection criteria and check whether they still apply"
+          },
+          "directionId": "teru-mikami"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "重想现有材料是否可以用于另一种小成果",
+            "en": "Reconsider whether existing materials could make another small result"
+          },
+          "directionId": "minoru-tanaka"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "重新说明自己这次真正想做成哪一小点",
+            "en": "Restate the small aim you actually want this time"
+          },
+          "directionId": "light-yagami"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_07",
+      "prompt": {
+        "zh": "你为个人收藏挑几项放进同一页，更接近哪种做法？",
+        "en": "You choose a few items from your collection for one page. Which approach feels closer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "写一个自己选定的入选条件，先一致用一次",
+            "en": "Write a chosen inclusion condition and use it consistently once"
+          },
+          "directionId": "teru-mikami"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "想想这一页能不能改作别的有趣用途",
+            "en": "Consider whether the page could serve another interesting purpose"
+          },
+          "directionId": "minoru-tanaka"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先说明这次选页的个人目标",
+            "en": "Name your personal aim for this page first"
+          },
+          "directionId": "light-yagami"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问哪项信息可以区分两个候选分组的理由",
+            "en": "Ask which information would distinguish two grouping explanations"
+          },
+          "directionId": "l"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_08",
+      "prompt": {
+        "zh": "手边多了一张属于自己的空白卡，你更想？",
+        "en": "You have an extra blank card of your own. What would you rather do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "重想它除了原计划之外还能用于什么",
+            "en": "Reconsider its uses beyond the original plan"
+          },
+          "directionId": "minoru-tanaka"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给它选一个明确、目前仍想要的小用途",
+            "en": "Choose one specific small use you still want now"
+          },
+          "directionId": "light-yagami"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "提一个能比较两种用途差别的问题",
+            "en": "Ask a question that compares the two possible uses"
+          },
+          "directionId": "l"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先留意纸边或纹理里一个意外细节",
+            "en": "Observe an unexpected detail in the edge or texture"
+          },
+          "directionId": "ryuk"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_09",
+      "prompt": {
+        "zh": "你想自选一段短文字作为本周阅读主题，比较在意？",
+        "en": "You choose a short passage as this week’s reading theme. What draws your attention?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "这次阅读要满足自己哪一点兴趣",
+            "en": "Which personal interest this reading is meant to serve"
+          },
+          "directionId": "light-yagami"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "哪个问题可以分清两种可能的意思",
+            "en": "Which question could distinguish two possible meanings"
+          },
+          "directionId": "l"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "哪一处不寻常的用词值得先旁观一下",
+            "en": "Which unusual wording is worth observing first"
+          },
+          "directionId": "ryuk"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "怎样用一个自己喜欢的可见标题呈现",
+            "en": "How to present it with a visible title you like"
+          },
+          "directionId": "misa-amane"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_10",
+      "prompt": {
+        "zh": "别人给同一件普通物品起了两个名字，你更愿意？",
+        "en": "Someone gives two names to the same ordinary object. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问在什么具体情况下两个名字会指不同东西",
+            "en": "Ask when the two names would refer to different things"
+          },
+          "directionId": "l"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先看看名字之外那一点有趣的样子",
+            "en": "Observe an interesting feature apart from the names"
+          },
+          "directionId": "ryuk"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "选一个自己想表达的名字并说明只是偏好",
+            "en": "Choose a name you want to express as a personal preference"
+          },
+          "directionId": "misa-amane"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把两种名称各自已有的说明并排放",
+            "en": "Place the existing explanations for the names side by side"
+          },
+          "directionId": "near"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_11",
+      "prompt": {
+        "zh": "你旁听一次可自由离开的普通兴趣交流，更想？",
+        "en": "You listen to an ordinary hobby conversation you may freely leave. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "留意一个少见细节，不必成为话题参与者",
+            "en": "Notice an uncommon detail without becoming a participant"
+          },
+          "directionId": "ryuk"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "用一句自己喜欢的说法表达听到的感觉",
+            "en": "Express your response in wording you like"
+          },
+          "directionId": "misa-amane"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把已经听到的几个信息点分别记下",
+            "en": "Record the information points you have already heard separately"
+          },
+          "directionId": "near"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "在许可范围内换一种参与方式再看看",
+            "en": "Try another permitted way of participating"
+          },
+          "directionId": "mello"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_12",
+      "prompt": {
+        "zh": "给一份自用小笔记挑标题时，你更愿意？",
+        "en": "When choosing a title for a small personal note, what would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让标题清楚地呈现自己喜欢的语气",
+            "en": "Let it visibly express the tone you like"
+          },
+          "directionId": "misa-amane"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先列出现有内容，再按内容组合",
+            "en": "List the existing content before combining it"
+          },
+          "directionId": "near"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "试一个和平常不同、随时能换回的版本",
+            "en": "Try a different version you can replace at any time"
+          },
+          "directionId": "mello"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "写清一个标题筛选条件，各候选都照它看",
+            "en": "State one selection criterion and consider every candidate against it"
+          },
+          "directionId": "teru-mikami"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_13",
+      "prompt": {
+        "zh": "你已有几条关于一个自选话题的资料，更想怎样继续？",
+        "en": "You have several notes on a chosen topic. How would you rather continue?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把已有的事实、疑问和来源分别放好",
+            "en": "Arrange existing facts, questions and sources separately"
+          },
+          "directionId": "near"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "另外试一个查阅顺序，允许回到原来",
+            "en": "Try a different reading order with room to return"
+          },
+          "directionId": "mello"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用一个明确条件决定哪些暂时保留",
+            "en": "Use an explicit condition to decide what to keep for now"
+          },
+          "directionId": "teru-mikami"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "重想这些资料还可以做成哪种不同的小东西",
+            "en": "Reconsider a different small thing these materials could become"
+          },
+          "directionId": "minoru-tanaka"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_14",
+      "prompt": {
+        "zh": "你愿意重排一个属于自己的小展示，先想做什么？",
+        "en": "You want to rearrange a small display of your own. What comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "试一种不同的次序，保留原布局可恢复",
+            "en": "Try another order while keeping the original restorable"
+          },
+          "directionId": "mello"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "写明自己这次选择位置的统一条件",
+            "en": "State a consistent condition for choosing positions this time"
+          },
+          "directionId": "teru-mikami"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看看现有展示能不能改成另一种用途",
+            "en": "Consider whether the display could serve a different purpose"
+          },
+          "directionId": "minoru-tanaka"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "确认自己这次想让展示突出哪一点",
+            "en": "Confirm what you want this display to emphasise"
+          },
+          "directionId": "light-yagami"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_15",
+      "prompt": {
+        "zh": "比较两种普通记录格式时，你更接近？",
+        "en": "When comparing two ordinary note formats, what feels closer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "按事先说清的一项条件分别比较",
+            "en": "Compare them using one condition stated in advance"
+          },
+          "directionId": "teru-mikami"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "考虑是否不必沿用记录格式，可以换一种成果",
+            "en": "Consider whether a different kind of result could replace a note format"
+          },
+          "directionId": "minoru-tanaka"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先说清这次记录对自己有什么用",
+            "en": "State what this record is meant to do for you"
+          },
+          "directionId": "light-yagami"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问什么具体例子会让两种格式得出不同内容",
+            "en": "Ask which example would make the formats produce different content"
+          },
+          "directionId": "l"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_16",
+      "prompt": {
+        "zh": "一次自选小活动剩下一点可自由使用的材料，你更愿意？",
+        "en": "A chosen small activity leaves material you may freely use. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "重新想一项与原计划不同的用法",
+            "en": "Reconsider a use different from the original plan"
+          },
+          "directionId": "minoru-tanaka"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "选一个自己当前最想满足的小目标",
+            "en": "Choose a small aim you currently want to meet"
+          },
+          "directionId": "light-yagami"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问哪一点信息可以比较两种新用法",
+            "en": "Ask which information could compare two new uses"
+          },
+          "directionId": "l"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先看看剩余材料上一个意外的小细节",
+            "en": "Observe an unexpected detail in the remaining material"
+          },
+          "directionId": "ryuk"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_17",
+      "prompt": {
+        "zh": "你准备给自己安排一次很短的普通观察，更想先？",
+        "en": "You plan a very short ordinary observation for yourself. What comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说明自己这次想留意的具体目标",
+            "en": "State the particular aim of this observation"
+          },
+          "directionId": "light-yagami"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "提出一个能区分两种猜想的问题",
+            "en": "Ask a question that distinguishes two guesses"
+          },
+          "directionId": "l"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留意一个有趣局部，暂不追求答案",
+            "en": "Notice an interesting detail without seeking an answer yet"
+          },
+          "directionId": "ryuk"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "选一种自己愿意公开展示的记录方式",
+            "en": "Choose a recording style you would want to show publicly"
+          },
+          "directionId": "misa-amane"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_18",
+      "prompt": {
+        "zh": "朋友对一段普通说明有两个不同理解，你更想？",
+        "en": "A friend has two interpretations of ordinary instructions. What interests you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "找一个小例子，看两种理解是否会产生不同结果",
+            "en": "Find an example where the interpretations would differ"
+          },
+          "directionId": "l"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先旁观一个有趣的说法，不急着加入判断",
+            "en": "Observe an interesting wording without joining the judgement yet"
+          },
+          "directionId": "ryuk"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "说出自己偏好的表达风格，不当作对错裁决",
+            "en": "Express a preferred wording style without making it a verdict"
+          },
+          "directionId": "misa-amane"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把当前已知条件分别排列，不先加新假设",
+            "en": "Arrange known conditions without adding a new assumption first"
+          },
+          "directionId": "near"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_19",
+      "prompt": {
+        "zh": "你在看一个可自行结束的普通物件展示，更愿意？",
+        "en": "You look at an ordinary object display you can leave whenever you choose. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "多看一个不寻常的局部，也可以什么都不做",
+            "en": "Observe an unusual detail without having to act"
+          },
+          "directionId": "ryuk"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "为自己的观感选一个可见的小表达",
+            "en": "Choose a visible little expression of your response"
+          },
+          "directionId": "misa-amane"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把说明中已经给出的几项信息按关系放好",
+            "en": "Arrange relationships among information already on the label"
+          },
+          "directionId": "near"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "换一种获准的观看顺序，再比较感受",
+            "en": "Try a different permitted viewing order and compare your response"
+          },
+          "directionId": "mello"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_20",
+      "prompt": {
+        "zh": "你想给一件属于自己的普通物品做标签，更想怎样写？",
+        "en": "You want to label an ordinary object of your own. How would you rather write it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "采用自己愿意被看见的语气和样式",
+            "en": "Use a tone and style you would want others to see"
+          },
+          "directionId": "misa-amane"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先把已有名字、日期和备注分清",
+            "en": "Separate the existing name, date and notes first"
+          },
+          "directionId": "near"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "试一个可替换的不同版式",
+            "en": "Try another layout that can be replaced"
+          },
+          "directionId": "mello"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先写出哪些信息必写的明确条件",
+            "en": "State explicit conditions for which information belongs"
+          },
+          "directionId": "teru-mikami"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_21",
+      "prompt": {
+        "zh": "一段自愿的小讨论留下若干零散笔记，你更愿意？",
+        "en": "A voluntary little discussion leaves scattered notes. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "只用已有记录排列已知、未知和待确认处",
+            "en": "Use existing notes to arrange knowns, unknowns and open points"
+          },
+          "directionId": "near"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "另外试一种能改回的归类办法",
+            "en": "Try another grouping you can undo"
+          },
+          "directionId": "mello"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "按一项说清的条件统一看每张笔记",
+            "en": "Apply one stated condition consistently to each note"
+          },
+          "directionId": "teru-mikami"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "重想这些笔记是否适合变成别的小用途",
+            "en": "Reconsider a different small use for the notes"
+          },
+          "directionId": "minoru-tanaka"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_22",
+      "prompt": {
+        "zh": "一个自选小作品的原方案不再吸引你，你更想？",
+        "en": "The original plan for a chosen small creation no longer appeals. What would you rather do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "换一条可回头的小路径试一次",
+            "en": "Try another small reversible route"
+          },
+          "directionId": "mello"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "查看原先条件是否仍合适，再统一调整",
+            "en": "Check whether the criteria still fit and revise them consistently"
+          },
+          "directionId": "teru-mikami"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "重想现有资源可以服务什么别的目的",
+            "en": "Reconsider what other purpose the available resources could serve"
+          },
+          "directionId": "minoru-tanaka"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "重新说清自己现在想做的那一小点",
+            "en": "Restate the small aim you choose now"
+          },
+          "directionId": "light-yagami"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_23",
+      "prompt": {
+        "zh": "结束一次个人整理前，你更愿意检查哪一点？",
+        "en": "Before ending a personal organising session, what would you rather check?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "是否按自己说清的条件处理了各候选",
+            "en": "Whether candidates were considered against your stated condition"
+          },
+          "directionId": "teru-mikami"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "这些材料今后还有什么不同的自选用途",
+            "en": "What different chosen uses the materials could have later"
+          },
+          "directionId": "minoru-tanaka"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "原先想做的目标是否仍然是自己想要的",
+            "en": "Whether the original aim is still something you choose"
+          },
+          "directionId": "light-yagami"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "还有哪个问题能帮助分清两种解释",
+            "en": "Which question could still distinguish two explanations"
+          },
+          "directionId": "l"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_24",
+      "prompt": {
+        "zh": "你决定暂时停下一件自选的小事，比较想保留？",
+        "en": "You decide to pause a chosen small activity. What would you rather keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "现有资源还可以换成哪种用途的一点想法",
+            "en": "An idea for a different use of the resources"
+          },
+          "directionId": "minoru-tanaka"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "自己原本和现在想要什么的简短说明",
+            "en": "A short statement of the aim you wanted and what you want now"
+          },
+          "directionId": "light-yagami"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一个以后能区分两种理解的小问题",
+            "en": "One question that could distinguish two interpretations later"
+          },
+          "directionId": "l"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个已经看到、暂时不必解释的意外细节",
+            "en": "An unusual detail already observed without needing an explanation"
+          },
+          "directionId": "ryuk"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "required": 24,
+    "total": 24,
+    "exposureEach": 12,
+    "perPosition": 3,
+    "highest": "allhighestretainfullguides/noautomaticsecondary",
+    "allA": "eightcharacters3each/all8fullguides",
+    "verificationPlan": "8uniquehighest+4all8ties+4096deterministiccompleteanswersplanned4108boundedsourceoraclecases/NOTexecuted/not4^24/globalDP/allhighestsets/psychvalidation"
+  },
+  "scope": "Originalunofficialfanreadingsofvoluntaryordinaryinformationandexpressionchoices/notwholecanonicalpersonalitiesormoraljudgements. EightselectedmainseriesplusMinoruTanakafroma-Kirashortstory/notall37episodeanimecastor2015liveactionversion. No copyrightedbank/body/dialogue/manga/animeart/scorercopied;noIQ/clinical/trauma/dangerousness/criminalprofiling/romance/career/conversionclaims. No harm,coercion,stalking,revenge,killing,manipulationorunqualifiedpowersglamorisation.",
+  "instructions": {
+    "zh": "24道原创非官方同人题，借夜神月、L、琉克、弥海砂、尼亚、梅洛、魅上照与田中实八位虚构角色，比较普通信息处理与自选表达。田中实来自a-Kira短篇，角色集合不是37集动画全集，也不混用2015真人剧设定。每题从四种做法选一个较接近自己的，均为自愿、许可、可改和可停止的普通情境。每选加1，每位全卷12次、每位置3次，总数24；全部最高并列完整显示。不测剧情知识，不推断智商、正义、危险性、疾病、爱情或职业，不要求模仿伤害、操控、追踪或惩罚，也不换算MBTI。",
+    "en": "Twenty-four original unofficial fan questions use Light, L, Ryuk, Misa, Near, Mello, Mikami and Minoru to compare ordinary information choices and chosen expression. Minoru comes from the a-Kira short story; this is neither the full 37-episode anime cast nor a mixture with the 2015 live-action version. Choose the closer of four approaches in voluntary, permitted, revisable and stoppable situations. Each choice adds one, each character appears twelve times and three times per position, and counts sum to twenty-four. Every highest tie appears in full. There is no trivia, IQ, justice, dangerousness, illness, romance or career verdict, imitation of harm, manipulation, stalking or punishment, or MBTI conversion."
+  }
+}

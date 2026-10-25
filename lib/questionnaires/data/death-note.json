@@ -1,0 +1,2454 @@
+{
+  "slug": "death-note",
+  "code": "DEATH_NOTE_FAN_ORDINARY_CHOICES",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "metaphor",
+  "kind": "archetype",
+  "title": {
+    "zh": "《死亡笔记》角色测试",
+    "en": "Death Note Test"
+  },
+  "resultHeading": {
+    "zh": "八位角色的本次选择与全部最高并列",
+    "en": "Your eight character choices and every highest tie"
+  },
+  "description": {
+    "zh": "免费完成24道原创普通选择，比较夜神月、L等八位角色，最高并列全部完整显示。含角色对照、例子与计分；非官方同人测试，不评智商、道德或危险性。",
+    "en": "Take 24 original everyday questions and compare eight Death Note characters. Full tied results, examples and scoring are free in this unofficial fan quiz."
+  },
+  "seoTitle": {
+    "zh": "死亡笔记角色测试：24题、八角色与完整结果",
+    "en": "Death Note Test: Free Quiz & Eight Full Results"
+  },
+  "minutes": 7,
+  "introduction": {
+    "zh": "面对普通信息与表达，你更愿意说明目标、区分解释、旁观细节、选择可见表达、排列已有信息、另试路径、一致比较，还是重想用途？24道原创题借主系列与a-Kira短篇八位角色作有限同人读法，不考剧情，不把虚构行为当道德或现实能力。八份完整结果可先读，全部最高并列完整显示。",
+    "en": "With ordinary information and expression, would you rather name an aim, distinguish explanations, observe a detail, choose visible expression, arrange information, try another route, apply criteria or reconsider a use? Twenty-four original questions select eight main-series and a-Kira characters as limited fan readings, without trivia or making fiction a verdict on morality or actual ability. Read all eight guides first and see every highest tie in full."
+  },
+  "instructions": {
+    "zh": "24道原创非官方同人题，借夜神月、L、琉克、弥海砂、尼亚、梅洛、魅上照与田中实八位虚构角色，比较普通信息处理与自选表达。田中实来自a-Kira短篇，角色集合不是37集动画全集，也不混用2015真人剧设定。每题从四种做法选一个较接近自己的，均为自愿、许可、可改和可停止的普通情境。每选加1，每位全卷12次、每位置3次，总数24；全部最高并列完整显示。不测剧情知识，不推断智商、正义、危险性、疾病、爱情或职业，不要求模仿伤害、操控、追踪或惩罚，也不换算MBTI。",
+    "en": "Twenty-four original unofficial fan questions use Light, L, Ryuk, Misa, Near, Mello, Mikami and Minoru to compare ordinary information choices and chosen expression. Minoru comes from the a-Kira short story; this is neither the full 37-episode anime cast nor a mixture with the 2015 live-action version. Choose the closer of four approaches in voluntary, permitted, revisable and stoppable situations. Each choice adds one, each character appears twelve times and three times per position, and counts sum to twenty-four. Every highest tie appears in full. There is no trivia, IQ, justice, dangerousness, illness, romance or career verdict, imitation of harm, manipulation, stalking or punishment, or MBTI conversion."
+  },
+  "source": {
+    "kind": "FermatMindoriginal24ENZH4choice/unofficialtextonlyfanreading/eightselectedmainseriesandshortstorycharacters/notclinicalinstrument",
+    "formCode": "fm_death_note_fan_choices_24",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "ca3f89537ac6e7aca82b2db7f1b7ad64005fb6a2959b45e5bffce81a5a2ea6b7",
+    "resultContentSha256": "dcef18fa12f442326602e24d7cf8cc0566f0722c82c66f3f752e2301a9875ff2",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "light-yagami",
+      "title": {
+        "zh": "夜神月：说明自己选择的目标",
+        "en": "Light Yagami: Naming a Chosen Aim"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "l",
+      "title": {
+        "zh": "L：提出区分解释的问题",
+        "en": "L: Questions That Separate Explanations"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "ryuk",
+      "title": {
+        "zh": "琉克：旁观一个不寻常细节",
+        "en": "Ryuk: Observing an Unusual Detail"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "misa-amane",
+      "title": {
+        "zh": "弥海砂：选择可见的个人表达",
+        "en": "Misa Amane: Choosing Visible Expression"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "near",
+      "title": {
+        "zh": "尼亚：排列手边已有的信息",
+        "en": "Near: Arranging Available Information"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "mello",
+      "title": {
+        "zh": "梅洛：另试一条可回头的路径",
+        "en": "Mello: Trying Another Reversible Route"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "teru-mikami",
+      "title": {
+        "zh": "魅上照：写明一致使用的条件",
+        "en": "Teru Mikami: Stating Consistent Criteria"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "minoru-tanaka",
+      "title": {
+        "zh": "田中实：重想一件资源的用途",
+        "en": "Minoru Tanaka: Reconsidering Resource Uses"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "DEATH_NOTE_01",
+      "prompt": {
+        "zh": "你准备为自己做一本很小的阅读摘记，首先更想？",
+        "en": "You want to make a small reading notebook for yourself. What comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说清今天想从这本摘记得到什么",
+            "en": "State what you want this notebook to offer today"
+          },
+          "directionId": "light-yagami"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "问什么信息能区分两种不同理解",
+            "en": "Ask what information would distinguish two interpretations"
+          },
+          "directionId": "l"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先看一处出乎意料的小细节，不急着参与讨论",
+            "en": "Observe an unexpected detail without entering the discussion yet"
+          },
+          "directionId": "ryuk"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "选择一种愿意让别人看到的呈现方式",
+            "en": "Choose a way of presenting it that you would want others to see"
+          },
+          "directionId": "misa-amane"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_02",
+      "prompt": {
+        "zh": "朋友对一张普通照片提出两种解释，你比较想？",
+        "en": "A friend offers two explanations of an ordinary photo. What interests you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "提出一个能让两种解释有不同答案的问题",
+            "en": "Ask a question whose answers would differ between the explanations"
+          },
+          "directionId": "l"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "停在一个奇怪的局部多看一会儿",
+            "en": "Spend a moment observing an unusual small part"
+          },
+          "directionId": "ryuk"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用自己喜欢的标题表达这张照片的感觉",
+            "en": "Give it a title that visibly expresses your preference"
+          },
+          "directionId": "misa-amane"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把已经知道的时间、地点和画面信息分开摆",
+            "en": "Arrange known time, place and image details separately"
+          },
+          "directionId": "near"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_03",
+      "prompt": {
+        "zh": "一件允许近看的普通展品吸引你停下，你更愿意？",
+        "en": "An ordinary exhibit you may examine draws your attention. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "看看不常见的一角，暂时不用给解释",
+            "en": "Look at an unusual corner without explaining it yet"
+          },
+          "directionId": "ryuk"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "想一个自己愿意展示的观感短句",
+            "en": "Think of a short visible expression of your own response"
+          },
+          "directionId": "misa-amane"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "将说明牌已经提供的线索整理在一起",
+            "en": "Arrange clues already supplied by the label"
+          },
+          "directionId": "near"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "换一个获准的观看角度，比较不同视野",
+            "en": "Try another permitted viewing position and compare the view"
+          },
+          "directionId": "mello"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_04",
+      "prompt": {
+        "zh": "你给私人手账做一页封面，更想怎样起笔？",
+        "en": "You make a cover page for a personal journal. How would you rather begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "挑一种自己喜欢、愿意被看见的表达风格",
+            "en": "Choose an expressive style you like and would want seen"
+          },
+          "directionId": "misa-amane"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把现有的几张素材先按内容排列",
+            "en": "Arrange the available materials by content first"
+          },
+          "directionId": "near"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "换一种可改回的布局试试看",
+            "en": "Try an alternative layout you can undo"
+          },
+          "directionId": "mello"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先写明哪些元素入选用同一个条件",
+            "en": "State a consistent criterion for which elements belong"
+          },
+          "directionId": "teru-mikami"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_05",
+      "prompt": {
+        "zh": "整理几张关于同一小物品的记录时，你比较想先？",
+        "en": "When organising several notes about one small object, what comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "按已经知道的类别把记录摆开",
+            "en": "Lay out the notes by categories already known"
+          },
+          "directionId": "near"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "另试一种可恢复的整理次序",
+            "en": "Try a different order that can be restored"
+          },
+          "directionId": "mello"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "定一个具体标准，先按同一标准分一次",
+            "en": "Choose a specific standard and apply it consistently once"
+          },
+          "directionId": "teru-mikami"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "看看这些记录还能服务什么别的自选用途",
+            "en": "Consider another chosen use these notes could serve"
+          },
+          "directionId": "minoru-tanaka"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_06",
+      "prompt": {
+        "zh": "一段自选的创作过程卡在一种布局上，你更愿意？",
+        "en": "A chosen creative activity stalls on one arrangement. What would you rather do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "另试一条可撤回的小路径，不急着押定原法",
+            "en": "Try another reversible approach rather than commit to the first"
+          },
+          "directionId": "mello"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "回到事先写出的选择条件，看看是否仍适用",
+            "en": "Return to the stated selection criteria and check whether they still apply"
+          },
+          "directionId": "teru-mikami"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "重想现有材料是否可以用于另一种小成果",
+            "en": "Reconsider whether existing materials could make another small result"
+          },
+          "directionId": "minoru-tanaka"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "重新说明自己这次真正想做成哪一小点",
+            "en": "Restate the small aim you actually want this time"
+          },
+          "directionId": "light-yagami"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_07",
+      "prompt": {
+        "zh": "你为个人收藏挑几项放进同一页，更接近哪种做法？",
+        "en": "You choose a few items from your collection for one page. Which approach feels closer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "写一个自己选定的入选条件，先一致用一次",
+            "en": "Write a chosen inclusion condition and use it consistently once"
+          },
+          "directionId": "teru-mikami"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "想想这一页能不能改作别的有趣用途",
+            "en": "Consider whether the page could serve another interesting purpose"
+          },
+          "directionId": "minoru-tanaka"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先说明这次选页的个人目标",
+            "en": "Name your personal aim for this page first"
+          },
+          "directionId": "light-yagami"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问哪项信息可以区分两个候选分组的理由",
+            "en": "Ask which information would distinguish two grouping explanations"
+          },
+          "directionId": "l"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_08",
+      "prompt": {
+        "zh": "手边多了一张属于自己的空白卡，你更想？",
+        "en": "You have an extra blank card of your own. What would you rather do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "重想它除了原计划之外还能用于什么",
+            "en": "Reconsider its uses beyond the original plan"
+          },
+          "directionId": "minoru-tanaka"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给它选一个明确、目前仍想要的小用途",
+            "en": "Choose one specific small use you still want now"
+          },
+          "directionId": "light-yagami"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "提一个能比较两种用途差别的问题",
+            "en": "Ask a question that compares the two possible uses"
+          },
+          "directionId": "l"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先留意纸边或纹理里一个意外细节",
+            "en": "Observe an unexpected detail in the edge or texture"
+          },
+          "directionId": "ryuk"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_09",
+      "prompt": {
+        "zh": "你想自选一段短文字作为本周阅读主题，比较在意？",
+        "en": "You choose a short passage as this week’s reading theme. What draws your attention?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "这次阅读要满足自己哪一点兴趣",
+            "en": "Which personal interest this reading is meant to serve"
+          },
+          "directionId": "light-yagami"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "哪个问题可以分清两种可能的意思",
+            "en": "Which question could distinguish two possible meanings"
+          },
+          "directionId": "l"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "哪一处不寻常的用词值得先旁观一下",
+            "en": "Which unusual wording is worth observing first"
+          },
+          "directionId": "ryuk"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "怎样用一个自己喜欢的可见标题呈现",
+            "en": "How to present it with a visible title you like"
+          },
+          "directionId": "misa-amane"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_10",
+      "prompt": {
+        "zh": "别人给同一件普通物品起了两个名字，你更愿意？",
+        "en": "Someone gives two names to the same ordinary object. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问在什么具体情况下两个名字会指不同东西",
+            "en": "Ask when the two names would refer to different things"
+          },
+          "directionId": "l"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先看看名字之外那一点有趣的样子",
+            "en": "Observe an interesting feature apart from the names"
+          },
+          "directionId": "ryuk"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "选一个自己想表达的名字并说明只是偏好",
+            "en": "Choose a name you want to express as a personal preference"
+          },
+          "directionId": "misa-amane"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把两种名称各自已有的说明并排放",
+            "en": "Place the existing explanations for the names side by side"
+          },
+          "directionId": "near"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_11",
+      "prompt": {
+        "zh": "你旁听一次可自由离开的普通兴趣交流，更想？",
+        "en": "You listen to an ordinary hobby conversation you may freely leave. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "留意一个少见细节，不必成为话题参与者",
+            "en": "Notice an uncommon detail without becoming a participant"
+          },
+          "directionId": "ryuk"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "用一句自己喜欢的说法表达听到的感觉",
+            "en": "Express your response in wording you like"
+          },
+          "directionId": "misa-amane"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把已经听到的几个信息点分别记下",
+            "en": "Record the information points you have already heard separately"
+          },
+          "directionId": "near"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "在许可范围内换一种参与方式再看看",
+            "en": "Try another permitted way of participating"
+          },
+          "directionId": "mello"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_12",
+      "prompt": {
+        "zh": "给一份自用小笔记挑标题时，你更愿意？",
+        "en": "When choosing a title for a small personal note, what would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让标题清楚地呈现自己喜欢的语气",
+            "en": "Let it visibly express the tone you like"
+          },
+          "directionId": "misa-amane"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先列出现有内容，再按内容组合",
+            "en": "List the existing content before combining it"
+          },
+          "directionId": "near"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "试一个和平常不同、随时能换回的版本",
+            "en": "Try a different version you can replace at any time"
+          },
+          "directionId": "mello"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "写清一个标题筛选条件，各候选都照它看",
+            "en": "State one selection criterion and consider every candidate against it"
+          },
+          "directionId": "teru-mikami"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_13",
+      "prompt": {
+        "zh": "你已有几条关于一个自选话题的资料，更想怎样继续？",
+        "en": "You have several notes on a chosen topic. How would you rather continue?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把已有的事实、疑问和来源分别放好",
+            "en": "Arrange existing facts, questions and sources separately"
+          },
+          "directionId": "near"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "另外试一个查阅顺序，允许回到原来",
+            "en": "Try a different reading order with room to return"
+          },
+          "directionId": "mello"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用一个明确条件决定哪些暂时保留",
+            "en": "Use an explicit condition to decide what to keep for now"
+          },
+          "directionId": "teru-mikami"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "重想这些资料还可以做成哪种不同的小东西",
+            "en": "Reconsider a different small thing these materials could become"
+          },
+          "directionId": "minoru-tanaka"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_14",
+      "prompt": {
+        "zh": "你愿意重排一个属于自己的小展示，先想做什么？",
+        "en": "You want to rearrange a small display of your own. What comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "试一种不同的次序，保留原布局可恢复",
+            "en": "Try another order while keeping the original restorable"
+          },
+          "directionId": "mello"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "写明自己这次选择位置的统一条件",
+            "en": "State a consistent condition for choosing positions this time"
+          },
+          "directionId": "teru-mikami"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看看现有展示能不能改成另一种用途",
+            "en": "Consider whether the display could serve a different purpose"
+          },
+          "directionId": "minoru-tanaka"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "确认自己这次想让展示突出哪一点",
+            "en": "Confirm what you want this display to emphasise"
+          },
+          "directionId": "light-yagami"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_15",
+      "prompt": {
+        "zh": "比较两种普通记录格式时，你更接近？",
+        "en": "When comparing two ordinary note formats, what feels closer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "按事先说清的一项条件分别比较",
+            "en": "Compare them using one condition stated in advance"
+          },
+          "directionId": "teru-mikami"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "考虑是否不必沿用记录格式，可以换一种成果",
+            "en": "Consider whether a different kind of result could replace a note format"
+          },
+          "directionId": "minoru-tanaka"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先说清这次记录对自己有什么用",
+            "en": "State what this record is meant to do for you"
+          },
+          "directionId": "light-yagami"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问什么具体例子会让两种格式得出不同内容",
+            "en": "Ask which example would make the formats produce different content"
+          },
+          "directionId": "l"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_16",
+      "prompt": {
+        "zh": "一次自选小活动剩下一点可自由使用的材料，你更愿意？",
+        "en": "A chosen small activity leaves material you may freely use. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "重新想一项与原计划不同的用法",
+            "en": "Reconsider a use different from the original plan"
+          },
+          "directionId": "minoru-tanaka"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "选一个自己当前最想满足的小目标",
+            "en": "Choose a small aim you currently want to meet"
+          },
+          "directionId": "light-yagami"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问哪一点信息可以比较两种新用法",
+            "en": "Ask which information could compare two new uses"
+          },
+          "directionId": "l"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先看看剩余材料上一个意外的小细节",
+            "en": "Observe an unexpected detail in the remaining material"
+          },
+          "directionId": "ryuk"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_17",
+      "prompt": {
+        "zh": "你准备给自己安排一次很短的普通观察，更想先？",
+        "en": "You plan a very short ordinary observation for yourself. What comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说明自己这次想留意的具体目标",
+            "en": "State the particular aim of this observation"
+          },
+          "directionId": "light-yagami"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "提出一个能区分两种猜想的问题",
+            "en": "Ask a question that distinguishes two guesses"
+          },
+          "directionId": "l"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留意一个有趣局部，暂不追求答案",
+            "en": "Notice an interesting detail without seeking an answer yet"
+          },
+          "directionId": "ryuk"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "选一种自己愿意公开展示的记录方式",
+            "en": "Choose a recording style you would want to show publicly"
+          },
+          "directionId": "misa-amane"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_18",
+      "prompt": {
+        "zh": "朋友对一段普通说明有两个不同理解，你更想？",
+        "en": "A friend has two interpretations of ordinary instructions. What interests you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "找一个小例子，看两种理解是否会产生不同结果",
+            "en": "Find an example where the interpretations would differ"
+          },
+          "directionId": "l"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先旁观一个有趣的说法，不急着加入判断",
+            "en": "Observe an interesting wording without joining the judgement yet"
+          },
+          "directionId": "ryuk"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "说出自己偏好的表达风格，不当作对错裁决",
+            "en": "Express a preferred wording style without making it a verdict"
+          },
+          "directionId": "misa-amane"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把当前已知条件分别排列，不先加新假设",
+            "en": "Arrange known conditions without adding a new assumption first"
+          },
+          "directionId": "near"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_19",
+      "prompt": {
+        "zh": "你在看一个可自行结束的普通物件展示，更愿意？",
+        "en": "You look at an ordinary object display you can leave whenever you choose. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "多看一个不寻常的局部，也可以什么都不做",
+            "en": "Observe an unusual detail without having to act"
+          },
+          "directionId": "ryuk"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "为自己的观感选一个可见的小表达",
+            "en": "Choose a visible little expression of your response"
+          },
+          "directionId": "misa-amane"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把说明中已经给出的几项信息按关系放好",
+            "en": "Arrange relationships among information already on the label"
+          },
+          "directionId": "near"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "换一种获准的观看顺序，再比较感受",
+            "en": "Try a different permitted viewing order and compare your response"
+          },
+          "directionId": "mello"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_20",
+      "prompt": {
+        "zh": "你想给一件属于自己的普通物品做标签，更想怎样写？",
+        "en": "You want to label an ordinary object of your own. How would you rather write it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "采用自己愿意被看见的语气和样式",
+            "en": "Use a tone and style you would want others to see"
+          },
+          "directionId": "misa-amane"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先把已有名字、日期和备注分清",
+            "en": "Separate the existing name, date and notes first"
+          },
+          "directionId": "near"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "试一个可替换的不同版式",
+            "en": "Try another layout that can be replaced"
+          },
+          "directionId": "mello"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先写出哪些信息必写的明确条件",
+            "en": "State explicit conditions for which information belongs"
+          },
+          "directionId": "teru-mikami"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_21",
+      "prompt": {
+        "zh": "一段自愿的小讨论留下若干零散笔记，你更愿意？",
+        "en": "A voluntary little discussion leaves scattered notes. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "只用已有记录排列已知、未知和待确认处",
+            "en": "Use existing notes to arrange knowns, unknowns and open points"
+          },
+          "directionId": "near"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "另外试一种能改回的归类办法",
+            "en": "Try another grouping you can undo"
+          },
+          "directionId": "mello"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "按一项说清的条件统一看每张笔记",
+            "en": "Apply one stated condition consistently to each note"
+          },
+          "directionId": "teru-mikami"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "重想这些笔记是否适合变成别的小用途",
+            "en": "Reconsider a different small use for the notes"
+          },
+          "directionId": "minoru-tanaka"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_22",
+      "prompt": {
+        "zh": "一个自选小作品的原方案不再吸引你，你更想？",
+        "en": "The original plan for a chosen small creation no longer appeals. What would you rather do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "换一条可回头的小路径试一次",
+            "en": "Try another small reversible route"
+          },
+          "directionId": "mello"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "查看原先条件是否仍合适，再统一调整",
+            "en": "Check whether the criteria still fit and revise them consistently"
+          },
+          "directionId": "teru-mikami"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "重想现有资源可以服务什么别的目的",
+            "en": "Reconsider what other purpose the available resources could serve"
+          },
+          "directionId": "minoru-tanaka"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "重新说清自己现在想做的那一小点",
+            "en": "Restate the small aim you choose now"
+          },
+          "directionId": "light-yagami"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_23",
+      "prompt": {
+        "zh": "结束一次个人整理前，你更愿意检查哪一点？",
+        "en": "Before ending a personal organising session, what would you rather check?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "是否按自己说清的条件处理了各候选",
+            "en": "Whether candidates were considered against your stated condition"
+          },
+          "directionId": "teru-mikami"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "这些材料今后还有什么不同的自选用途",
+            "en": "What different chosen uses the materials could have later"
+          },
+          "directionId": "minoru-tanaka"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "原先想做的目标是否仍然是自己想要的",
+            "en": "Whether the original aim is still something you choose"
+          },
+          "directionId": "light-yagami"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "还有哪个问题能帮助分清两种解释",
+            "en": "Which question could still distinguish two explanations"
+          },
+          "directionId": "l"
+        }
+      ]
+    },
+    {
+      "id": "DEATH_NOTE_24",
+      "prompt": {
+        "zh": "你决定暂时停下一件自选的小事，比较想保留？",
+        "en": "You decide to pause a chosen small activity. What would you rather keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "现有资源还可以换成哪种用途的一点想法",
+            "en": "An idea for a different use of the resources"
+          },
+          "directionId": "minoru-tanaka"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "自己原本和现在想要什么的简短说明",
+            "en": "A short statement of the aim you wanted and what you want now"
+          },
+          "directionId": "light-yagami"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一个以后能区分两种理解的小问题",
+            "en": "One question that could distinguish two interpretations later"
+          },
+          "directionId": "l"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个已经看到、暂时不必解释的意外细节",
+            "en": "An unusual detail already observed without needing an explanation"
+          },
+          "directionId": "ryuk"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "light-yagami",
+      "directionIds": [
+        "light-yagami"
+      ],
+      "title": {
+        "zh": "夜神月：说明自己选择的目标",
+        "en": "Light Yagami: Naming a Chosen Aim"
+      },
+      "headline": {
+        "zh": "夜神月：说明自己选择的目标",
+        "en": "Light Yagami: Naming a Chosen Aim"
+      },
+      "summary": {
+        "zh": "从一本私人阅读摘记看目标、范围和改变意愿，含七角色比较与具体表达；不把作品中的控制或伤害美化为雄心与正义。",
+        "en": "Explore Light through a personal reading-notebook aim, revisable scope and seven comparisons. Fictional control and harm are not recast as admirable ambition."
+      },
+      "scoreReading": {
+        "zh": "24题全部各选一项，对应的本版角色读法加1，总数固定24。每题只提供八位中的四位，全卷每位出现12次、每位置3次；未提供的四位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会八位各3次、八份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、虚构能力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型；近分可自行比较，不补造并列。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 24 items; each adds one to its editorial character reading and counts sum to 24. Four of eight characters are offered per item. Each appears twelve times and three times in each position; four absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all eight guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, fictional powers nor population ranks. One extra choice proves no significance, hidden identity or fixed type; compare close guides without inventing ties. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "夜神月测试结果：自选目标、例子与完整说明",
+          "en": "Light Yagami Quiz Result: Chosen Aim & Full Guide"
+        },
+        "description": {
+          "zh": "用私人阅读摘记理解夜神月的自选目标、范围和改变意愿，含七角色对照；不美化控制与伤害，不评道德、智商或危险性。",
+          "en": "Read Light through a personal reading-notebook aim and seven comparisons. Full examples without endorsing control or harm or judging morality and IQ."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "人物与作品版本的有限读法",
+            "en": "Limited character reading and story version"
+          },
+          "paragraphs": [
+            {
+              "zh": "官方作品简介中的夜神月持有超自然笔记，并以自己的目标行事，故事对权力与伤害提出问题。本站只抽取“说明自己选择的目标”这一普通阅读角度，不把整个角色化成值得赞赏的雄心，也不因为结果像他就判断你支持他的行为。自选目标只涉及自愿、低风险的小事，不能成为控制、欺骗、惩罚或决定他人价值的许可。",
+              "en": "Official context places Light with a supernatural notebook and a self-chosen aim within a story questioning power and harm. This edition selects naming a chosen aim for ordinary activities without recasting the whole character as admirable ambition or treating a match as support for his actions. A chosen aim concerns voluntary, low-stakes matters. It permits no control, deception, punishment or decision about another person’s worth in actual life."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择先说清自己想从一件事得到什么、突出哪一点，或在暂停前核对目标是否仍想要。可以问：目标属于自己，还是要求别人配合才能成立？这份问卷只计选项，不观察目的是否合适、计划是否可行或别人是否同意。清楚说明也可以得到“现在不做”的结论，而不是承诺一定达成。",
+              "en": "A highest count means you more often chose to state what an activity should offer you, what to emphasise or whether its aim remains wanted before pausing. Is the aim yours, or dependent on demanding someone else’s participation? Counts observe neither appropriateness, feasibility nor actual consent. Clarifying an aim can lead to leaving something for now rather than a promise to achieve it regardless of changing conditions or other people."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，做一本私人阅读摘记，你希望它只保留让自己想继续读的段落，不追求完整摘要。可以把这点写在首页，读到没有兴趣的部分就跳过；以后想改成词语收藏，也可以重新说明。这个例子让目标有可选择的用途，不把完成多少、比别人更有计划或坚持多久当作个人价值，也不要求别人按这本摘记来读书。",
+              "en": "A personal reading notebook may keep passages that make you want to read further rather than provide complete summaries. State that purpose and skip uninteresting passages. Change it to a word collection later if preferred. The example makes the use chosen without valuing you through completion, superiority to others’ plans or endurance. It imposes no requirement that another person read according to your notebook or share the reason you made it."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“这页我想用来记住自己愿意再看的片段，暂时不做完整介绍；如果用途变了，我会改。”若与人共用资料，再分别确认各自目标与可用范围，不把个人愿望当成共同命令。目标明确不等于必须赢得争论，也不需要隐藏真实用途。接受不同目的、拒绝或结束，都不破坏这份普通读法。",
+              "en": "You might say, “This page is for passages I want to revisit, not a complete introduction; I can change its use later.” Agree separate aims and access when materials are shared rather than turning your wish into a joint instruction. Clarity requires neither winning an argument nor hiding the actual purpose. Different aims, refusal and ending remain possible without contradicting this limited reading of an ordinary chosen activity."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他七位角色读法比较",
+            "en": "Comparisons with the other seven character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "夜神月读法先说明“想做什么”，L更关心什么问题能分开两种解释，尼亚先排列已有信息；目标不等于证据或结论。琉克偏旁观新奇细节，弥海砂偏自选可见表达，梅洛偏另一条可回头的路径，魅上照偏一致条件，田中实偏重新想用途。八种关注点可一起出现，没有智商、正义、成功或危险性排名，也不比较谁更值得拥有权力。",
+              "en": "This Light angle names an aim; L asks a distinguishing question; Near arranges available information. An aim is neither evidence nor a conclusion. Ryuk observes unusual details, Misa chooses visible expression, Mello another reversible route, Mikami consistent criteria and Minoru a reconsidered use. These concerns can coexist. The eight establish no intelligence, justice, success or dangerousness ranking and decide no person’s worthiness to hold power over others."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，明确目标可能因为活动很简单，暂不定目标可能因为你更想随意探索。计数不判断野心、自恋、操控、犯罪倾向、道德、智商或职业潜力，也不把虚构人物当现实风险画像。真有伤害、强制或他人权利问题，需要按实际行为和条件处理；不能用“我有目标”替越界辩护，也不能因一个角色结果怀疑真实的人。",
+              "en": "A clear aim may follow a simple activity; an open aim may reflect a wish to explore. Counts establish no ambition, narcissism, manipulation, criminal tendency, morality, IQ or career potential and create no real risk profile. Actual harm, coercion and rights concern actual conduct and conditions. Having an aim excuses no boundary crossing, while a fictional result supplies no basis for suspecting or judging an actual person’s intentions."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：为一件自己本来愿意做的私人小事，写一句“想得到什么”和一句“什么时候可以改或不做”。不用执行、衡量成败或请别人配合。看看目标是否仍由自己选择，是否给不同意愿留位置；若只是想随便看看，也可以。观察的是目标表达，不以坚定程度证明自己像夜神月，更不从角色借用权威。",
+              "en": "For an optional observation, write what you want from a small private activity and when you could change or leave it. No action, success measure or cooperation from others is required. Is it still chosen, with room for different wishes? Simply looking without a settled aim is available too. The observation concerns expressing an aim rather than proving resemblance through determination or borrowing authority from a fictional character."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题计数与全部最高并列",
+            "en": "24-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24题全部各选一项，对应的本版角色读法加1，总数固定24。每题只提供八位中的四位，全卷每位出现12次、每位置3次；未提供的四位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会八位各3次、八份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、虚构能力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型；近分可自行比较，不补造并列。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 24 items; each adds one to its editorial character reading and counts sum to 24. Four of eight characters are offered per item. Each appears twelve times and three times in each position; four absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all eight guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, fictional powers nor population ranks. One extra choice proves no significance, hidden identity or fixed type; compare close guides without inventing ties. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的24题非官方同人问卷，选择主系列七位角色与a-Kira短篇的田中实，共八个普通信息处理与表达的有限阅读角度，不是37集动画全阵容，也不混用2015真人剧设定。角色不代表完整人格、现实道德或官方类型系统。题目、选项、映射、计数、解释和例子原创，未采用IDR40题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材；不是官方测验，也无权利人合作、授权或认可，作品与角色权利归相应权利人。VIZ系列与短编辑简介、集英社短编辑资料和GoodSmile授权人物名单只核基础作品语境、短篇归属与名字，不验证本站题目、计分或心理解释。中文名为本版编辑采用的写法，英文身份保持不变，不因译名增加角色。结果不推断智商、能力、疾病、神经类型、创伤、道德、危险性、犯罪倾向、爱情、关系、职业或财富，不指导伤害、操控、跟踪、强制、惩罚或交易他人权利，也不换算MBTI或其他角色测试。",
+              "en": "This is an independently authored FermatMind 24-item unofficial fan quiz selecting seven main-series characters and Minoru from a-Kira as eight limited readings of ordinary information and expression choices. It is neither the complete 37-episode anime cast nor a mixture with the 2015 live-action version. Characters represent neither complete personalities, actual morality nor an official type system. Items, options, mappings, counts, explanations and examples are original. No IDR 40-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; respective owners retain series and character rights. VIZ series and collection blurbs, Shueisha’s collection information and GoodSmile’s licensed roster check basic context, short-story membership and names without validating these items, counts or psychology. Chinese names are editorial choices retaining English identities; variants add no characters. Results infer no IQ, ability, illness, neurotype, trauma, morality, dangerousness, criminal tendency, romance, relationship, career or wealth, instruct no harm, manipulation, stalking, coercion, punishment or exchange of others’ rights, and convert into no MBTI or other character test."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l",
+      "directionIds": [
+        "l"
+      ],
+      "title": {
+        "zh": "L：提出区分解释的问题",
+        "en": "L: Questions That Separate Explanations"
+      },
+      "headline": {
+        "zh": "L：提出区分解释的问题",
+        "en": "L: Questions That Separate Explanations"
+      },
+      "summary": {
+        "zh": "用普通照片的两种解释看区分问题、已知条件与暂不下结论，含七角色比较；不认证推理天赋、智商或识破谎言。",
+        "en": "Read L through two explanations of a photo, distinguishing questions and seven comparisons. No deductive gift, IQ or lie-detection ability is certified."
+      },
+      "scoreReading": {
+        "zh": "24题全部各选一项，对应的本版角色读法加1，总数固定24。每题只提供八位中的四位，全卷每位出现12次、每位置3次；未提供的四位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会八位各3次、八份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、虚构能力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型；近分可自行比较，不补造并列。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 24 items; each adds one to its editorial character reading and counts sum to 24. Four of eight characters are offered per item. Each appears twelve times and three times in each position; four absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all eight guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, fictional powers nor population ranks. One extra choice proves no significance, hidden identity or fixed type; compare close guides without inventing ties. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "L测试结果：区分问题、例子与完整说明",
+          "en": "L Quiz Result: Distinguishing Questions & Full Guide"
+        },
+        "description": {
+          "zh": "用普通照片的两种解释理解L的区分问题、资料与不确定，含七角色对照；不认证智商、识谎、侦探能力或窥探隐私。",
+          "en": "Explore L through a photo’s two explanations, distinguishing questions and seven comparisons. No IQ, lie detection, detective skill or privacy intrusion."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "人物与作品版本的有限读法",
+            "en": "Limited character reading and story version"
+          },
+          "paragraphs": [
+            {
+              "zh": "官方作品背景中的L是调查夜神月相关事件的侦探。本站只借“什么问题能让两种解释出现差别”理解普通信息，不采用剧情中的监视、试探或追查作为现实办法，也不从坐姿、食物、外表或说话方式判断人。提出问题是这里的自选做法，不等于已经有证据，更不赋予怀疑、盘问陌生人或侵犯隐私的权利。",
+              "en": "Official context introduces L as a detective investigating events involving Light. This edition selects asking what would distinguish two explanations in ordinary information. It adopts no fictional surveillance, testing or pursuit as an actual method and judges nobody through posture, food, appearance or speech. Asking a question is a chosen approach, not evidence already obtained or permission to suspect, interrogate strangers or intrude upon privacy in the real world."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择一个能比较不同理解的例子或问题。可以问：两种解释是否真的不同，现有资料能回答吗，是否允许暂时不知道？本版只计你更愿意怎样开始，不观察问题质量、推理过程或结论正确性。多个解释也可能同时适用；没有区别不意味着有人隐瞒，也不要求不断追问直到得到唯一答案。",
+              "en": "A highest count means you more often chose an example or question comparing interpretations. Are they actually different, can available material answer, and may uncertainty remain? Counts describe a preferred beginning rather than question quality, reasoning or correctness. Several explanations may fit together. Finding no distinction implies no concealment and creates no requirement to keep questioning until a single answer emerges from an ordinary situation that may simply remain ambiguous."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，朋友对一张普通照片的阴影有两种说法，可以问“如果光来自窗边，另一侧会有什么可见差别？”只查看大家愿意共享的照片和说明；看不清就保留不确定，不要求翻找对方私人相册。这个例子区分了可讨论问题与实际证据，不把猜对、问得尖锐或让别人答不上来当作推理能力的证明。",
+              "en": "If a friend offers two explanations of a photo’s shadow, ask what visible difference window light would make on the other side. Use only the photo and information people willingly share. Leave uncertainty when the image is unclear rather than searching a private album. The example separates a discussable question from evidence. Guessing correctly, sounding incisive or leaving someone unable to answer proves no deductive ability or superiority over them."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想到一个可能区分这两种说法的问题，现有资料若答不了，我们先留着。”对方可以不想继续；问题也可以只是写给自己。把猜测标作猜测，不把提问口气当作结论，不要求别人承担证明清白的义务。愿意接受更简单的解释、发现问题问错或停止讨论，都符合本版有限读法。",
+              "en": "You might say, “I have a question that might separate these explanations; if our material cannot answer, we can leave it open.” Others may decline discussion, and the question can remain private. Label guesses as guesses rather than using a questioning tone as a conclusion or demanding proof of innocence. Accepting a simpler explanation, finding the question mistaken and stopping are all compatible with this limited editorial reading."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他七位角色读法比较",
+            "en": "Comparisons with the other seven character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "L读法偏区分问题，尼亚偏先排列已有信息，魅上照偏一致使用条件：三者都不等于答案一定正确。夜神月偏先说明目标，琉克偏看不寻常细节，弥海砂偏可见表达，梅洛偏另试路径，田中实偏改想用途。一个问题可在任何环节出现，不把人物对抗改成人的智商比赛，也不将最高并列解释成隐藏天才。",
+              "en": "This L angle concerns a distinguishing question, Near available information and Mikami consistent criteria. None guarantees a correct answer. Light names an aim, Ryuk observes unusual details, Misa chooses visible expression, Mello another route and Minoru another use. A question can appear at any stage. Fictional rivalry becomes no IQ contest among respondents, and a highest tie identifies no hidden genius, detective aptitude or privileged access to somebody else’s intentions."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，提问可能因为术语不熟，少问可能因为说明已经足够，或你不想参与。计数不认证智商、分析能力、识破谎言、偏执、神经类型、情绪或社会能力，也不能鉴别人是否危险。现实的信息需要与权限同样重要；没有资料时可以不判断，不能为了证明像L而把别人当成要破解的谜题。",
+              "en": "Questions may follow unfamiliar terminology; fewer questions may reflect adequate explanation or no wish to participate. Counts certify no IQ, analytical skill, lie detection, paranoia, neurotype, emotion or social ability and identify no dangerous person. Actual information needs coexist with permissions. Withhold judgement when evidence is missing rather than treating someone as a puzzle to solve in order to demonstrate resemblance to L or a fictional level of perceptiveness."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：为一件不涉及他人私事的普通物品，写下两种可能解释和一个可能区分它们的问题，可以不去找答案。标出已知与不知道，允许结论暂时空白。不计正确率，不做智力训练，也不请别人接受盘问；如果两种说法本来可以同时成立，就把这一点记下，观察已经足够。",
+              "en": "For an optional observation about an ordinary object rather than someone’s private affairs, note two possible explanations and a question that might distinguish them. No search for an answer is required. Mark knowns and unknowns and leave the conclusion blank if needed. Do not score accuracy, train intelligence or interrogate anyone. If both explanations can hold, note that possibility; the observation needs no further performance or proof."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题计数与全部最高并列",
+            "en": "24-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24题全部各选一项，对应的本版角色读法加1，总数固定24。每题只提供八位中的四位，全卷每位出现12次、每位置3次；未提供的四位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会八位各3次、八份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、虚构能力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型；近分可自行比较，不补造并列。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 24 items; each adds one to its editorial character reading and counts sum to 24. Four of eight characters are offered per item. Each appears twelve times and three times in each position; four absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all eight guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, fictional powers nor population ranks. One extra choice proves no significance, hidden identity or fixed type; compare close guides without inventing ties. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的24题非官方同人问卷，选择主系列七位角色与a-Kira短篇的田中实，共八个普通信息处理与表达的有限阅读角度，不是37集动画全阵容，也不混用2015真人剧设定。角色不代表完整人格、现实道德或官方类型系统。题目、选项、映射、计数、解释和例子原创，未采用IDR40题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材；不是官方测验，也无权利人合作、授权或认可，作品与角色权利归相应权利人。VIZ系列与短编辑简介、集英社短编辑资料和GoodSmile授权人物名单只核基础作品语境、短篇归属与名字，不验证本站题目、计分或心理解释。中文名为本版编辑采用的写法，英文身份保持不变，不因译名增加角色。结果不推断智商、能力、疾病、神经类型、创伤、道德、危险性、犯罪倾向、爱情、关系、职业或财富，不指导伤害、操控、跟踪、强制、惩罚或交易他人权利，也不换算MBTI或其他角色测试。",
+              "en": "This is an independently authored FermatMind 24-item unofficial fan quiz selecting seven main-series characters and Minoru from a-Kira as eight limited readings of ordinary information and expression choices. It is neither the complete 37-episode anime cast nor a mixture with the 2015 live-action version. Characters represent neither complete personalities, actual morality nor an official type system. Items, options, mappings, counts, explanations and examples are original. No IDR 40-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; respective owners retain series and character rights. VIZ series and collection blurbs, Shueisha’s collection information and GoodSmile’s licensed roster check basic context, short-story membership and names without validating these items, counts or psychology. Chinese names are editorial choices retaining English identities; variants add no characters. Results infer no IQ, ability, illness, neurotype, trauma, morality, dangerousness, criminal tendency, romance, relationship, career or wealth, instruct no harm, manipulation, stalking, coercion, punishment or exchange of others’ rights, and convert into no MBTI or other character test."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ryuk",
+      "directionIds": [
+        "ryuk"
+      ],
+      "title": {
+        "zh": "琉克：旁观一个不寻常细节",
+        "en": "Ryuk: Observing an Unusual Detail"
+      },
+      "headline": {
+        "zh": "琉克：旁观一个不寻常细节",
+        "en": "Ryuk: Observing an Unusual Detail"
+      },
+      "summary": {
+        "zh": "从允许近看的展品理解旁观、新奇与不必行动，含七角色对照；不把对现实伤害冷眼旁观、美化混乱或不负责任当作建议。",
+        "en": "Explore Ryuk through observing an unusual exhibit detail and seven comparisons. The reading does not recommend indifference to actual harm or irresponsibility."
+      },
+      "scoreReading": {
+        "zh": "24题全部各选一项，对应的本版角色读法加1，总数固定24。每题只提供八位中的四位，全卷每位出现12次、每位置3次；未提供的四位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会八位各3次、八份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、虚构能力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型；近分可自行比较，不补造并列。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 24 items; each adds one to its editorial character reading and counts sum to 24. Four of eight characters are offered per item. Each appears twelve times and three times in each position; four absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all eight guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, fictional powers nor population ranks. One extra choice proves no significance, hidden identity or fixed type; compare close guides without inventing ties. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "琉克测试结果：细节旁观、例子与完整说明",
+          "en": "Ryuk Quiz Result: Observed Details & Full Guide"
+        },
+        "description": {
+          "zh": "从允许近看的展品理解琉克的细节旁观、不必行动与实际责任，含七角色对照；不把漠视现实伤害或操弄别人当作建议。",
+          "en": "Read Ryuk through an unusual exhibit detail and seven character comparisons. Full guidance without endorsing indifference to actual harm or manipulation."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "人物与作品版本的有限读法",
+            "en": "Limited character reading and story version"
+          },
+          "paragraphs": [
+            {
+              "zh": "琉克是作品中的死神，官方系列与短篇资料核到他与超自然笔记的联系。本站只选“旁观一个不寻常细节”的普通角度，不借他的剧情行为赞美制造混乱、漠视他人或拿人取乐。这里的对象是允许观看的物品与自愿分享的内容，不是别人的痛苦、隐私或安全问题；超自然身份也不转移为现实能力或特殊洞察。",
+              "en": "Ryuk is a fictional Shinigami associated with the notebook in official series and short-story context. This edition selects observing an unusual detail without celebrating fictional chaos, indifference or entertainment at someone else’s expense. Observation concerns objects you may view and content willingly shared, never another person’s pain, privacy or safety. A supernatural identity transfers into neither actual powers nor special insight about people or events in the real world."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择先看一处有趣细节，暂时不解释、不加入讨论或不立刻行动。可以问：你享受的是新奇、旁观的位置，还是还没有足够信息？计数不能分辨，也不把距离感当作更清醒。允许暂不参与的普通小事，与已经承担的真实责任不同；不必行动不等于所有场合都能置身事外。",
+              "en": "A highest count means you more often chose noticing a detail without immediate explanation, discussion or action. Do you enjoy novelty, the observer position or simply lack information? Counts cannot distinguish these reasons or make distance superior clarity. An optional ordinary activity differs from an actual responsibility already accepted. Room not to act in these questions creates no universal entitlement to stand aside regardless of actual agreements or effects on other people."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，看一件允许近看的普通展品时，你注意到边缘有一处不常见的纹路，可以只看一会儿再离开，不一定拍照、问来历或给朋友讲解。遵守展示要求，不触碰未获许可的部分；这份例子保留无任务的好奇，不以发现是否稀奇、知道多少或能否解释来评分，也不把真实风险当作值得观察的节目。",
+              "en": "At an ordinary exhibit you may examine, an unusual edge pattern can hold your attention briefly before you leave. No photo, provenance question or explanation to friends is necessary. Follow display conditions and leave unauthorised parts untouched. The example leaves room for curiosity without a task, grading neither rarity, knowledge nor explanation. It never turns actual danger or another person’s difficulty into a spectacle you should watch for amusement."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“这一小处我觉得有趣，想先看看，现在没有打算给它下结论。”如果别人想讨论，可以听，也可以说明这次不加入；若你已经同意负责某件事，需要另外说清调整，不能用旁观角色取消约定。安静看不需要表演冷淡，也不要求戏谑别人；不喜欢某个细节或想离开，都可以。",
+              "en": "You might say, “This little feature interests me; I want to look without drawing a conclusion.” Listen to discussion or decline joining it. If you already agreed to a responsibility, discuss any change separately rather than using an observer identity to cancel it. Looking quietly requires neither performed coldness nor mockery. Disliking the detail and leaving are available too, without needing to resemble a fictional character’s manner or attitude."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他七位角色读法比较",
+            "en": "Comparisons with the other seven character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "琉克读法偏先看新奇局部，L偏问什么能区分解释，尼亚偏整理已有信息；看见细节不等于有证据或必须调查。弥海砂偏可见表达，夜神月偏自选目标，梅洛偏另试路径，魅上照偏一致条件，田中实偏重想用途。这些关注点可在同一观察里变化，没有冷静、聪明、自由或道德排名，也不判断谁更需要在场外。",
+              "en": "This Ryuk angle concerns an unusual detail; L a distinguishing question; Near arranging information. Noticing proves no evidence and creates no investigation duty. Misa concerns visible expression, Light a chosen aim, Mello another route, Mikami consistent criteria and Minoru reconsidered use. These concerns may change within one observation. There is no ranking of calmness, intelligence, freedom or morality and no judgement that a particular person belongs outside an actual shared activity."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，暂时不参与可能因为规则不允许、需要休息或没有兴趣，而非爱旁观；投入讨论也可以仍留意细节。计数不判断冷漠、同理心、责任心、反社会倾向、情绪、危险性或神秘直觉。现实中是否需要回应，须看具体情况；一个琉克结果既不能为漠视伤害辩解，也不能作为指责别人不在乎的证据。",
+              "en": "Not participating may follow rules, rest or lack of interest rather than a preference for observing; discussion can still include attention to detail. Counts establish no coldness, empathy, conscientiousness, antisocial tendency, emotion, dangerousness or mystical intuition. Actual circumstances determine whether a response is needed. A Ryuk result neither excuses disregard of harm nor proves that another person does not care about what is happening around them in the real situation."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：想一件属于自己、可自由观看的普通物品，只描述一个意外细节，不急着解释原因，可以不写下来。不拍别人、不收集隐私，也不寻找更刺激的场面。看看单纯留意是否有趣，想转去提问或离开也可以；这不是训练冷眼旁观，更不要求把普通生活变成供自己取乐的剧情。",
+              "en": "For an optional observation, imagine an ordinary object of your own and describe one unexpected detail without explaining its cause. Writing is optional. Photograph nobody, collect no private information and seek no more dramatic scene. Notice whether simple attention appeals; ask a question or leave if preferred. This trains no detached indifference and requires no transformation of ordinary life or other people into a plot staged for your entertainment."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题计数与全部最高并列",
+            "en": "24-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24题全部各选一项，对应的本版角色读法加1，总数固定24。每题只提供八位中的四位，全卷每位出现12次、每位置3次；未提供的四位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会八位各3次、八份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、虚构能力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型；近分可自行比较，不补造并列。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 24 items; each adds one to its editorial character reading and counts sum to 24. Four of eight characters are offered per item. Each appears twelve times and three times in each position; four absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all eight guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, fictional powers nor population ranks. One extra choice proves no significance, hidden identity or fixed type; compare close guides without inventing ties. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的24题非官方同人问卷，选择主系列七位角色与a-Kira短篇的田中实，共八个普通信息处理与表达的有限阅读角度，不是37集动画全阵容，也不混用2015真人剧设定。角色不代表完整人格、现实道德或官方类型系统。题目、选项、映射、计数、解释和例子原创，未采用IDR40题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材；不是官方测验，也无权利人合作、授权或认可，作品与角色权利归相应权利人。VIZ系列与短编辑简介、集英社短编辑资料和GoodSmile授权人物名单只核基础作品语境、短篇归属与名字，不验证本站题目、计分或心理解释。中文名为本版编辑采用的写法，英文身份保持不变，不因译名增加角色。结果不推断智商、能力、疾病、神经类型、创伤、道德、危险性、犯罪倾向、爱情、关系、职业或财富，不指导伤害、操控、跟踪、强制、惩罚或交易他人权利，也不换算MBTI或其他角色测试。",
+              "en": "This is an independently authored FermatMind 24-item unofficial fan quiz selecting seven main-series characters and Minoru from a-Kira as eight limited readings of ordinary information and expression choices. It is neither the complete 37-episode anime cast nor a mixture with the 2015 live-action version. Characters represent neither complete personalities, actual morality nor an official type system. Items, options, mappings, counts, explanations and examples are original. No IDR 40-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; respective owners retain series and character rights. VIZ series and collection blurbs, Shueisha’s collection information and GoodSmile’s licensed roster check basic context, short-story membership and names without validating these items, counts or psychology. Chinese names are editorial choices retaining English identities; variants add no characters. Results infer no IQ, ability, illness, neurotype, trauma, morality, dangerousness, criminal tendency, romance, relationship, career or wealth, instruct no harm, manipulation, stalking, coercion, punishment or exchange of others’ rights, and convert into no MBTI or other character test."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "misa-amane",
+      "directionIds": [
+        "misa-amane"
+      ],
+      "title": {
+        "zh": "弥海砂：选择可见的个人表达",
+        "en": "Misa Amane: Choosing Visible Expression"
+      },
+      "headline": {
+        "zh": "弥海砂：选择可见的个人表达",
+        "en": "Misa Amane: Choosing Visible Expression"
+      },
+      "summary": {
+        "zh": "从私人手账封面看自选语气、展示范围与别人是否回应，含七角色比较；不评分美貌、忠诚、依恋、受欢迎或恋爱方式。",
+        "en": "Read Misa through a chosen journal-cover style, visibility and seven comparisons. No beauty, loyalty, attachment, popularity or romantic behaviour is scored."
+      },
+      "scoreReading": {
+        "zh": "24题全部各选一项，对应的本版角色读法加1，总数固定24。每题只提供八位中的四位，全卷每位出现12次、每位置3次；未提供的四位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会八位各3次、八份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、虚构能力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型；近分可自行比较，不补造并列。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 24 items; each adds one to its editorial character reading and counts sum to 24. Four of eight characters are offered per item. Each appears twelve times and three times in each position; four absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all eight guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, fictional powers nor population ranks. One extra choice proves no significance, hidden identity or fixed type; compare close guides without inventing ties. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "弥海砂测试结果：自选表达、例子与完整说明",
+          "en": "Misa Amane Quiz Result: Expression & Full Guide"
+        },
+        "description": {
+          "zh": "从手账封面理解弥海砂的自选表达、展示范围与回应，含七角色对照；不评分外貌、忠诚、依恋、魅力或恋爱方式。",
+          "en": "Explore Misa through a journal cover’s chosen expression, visibility and seven comparisons. No appearance, loyalty, attachment or romantic verdict."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "人物与作品版本的有限读法",
+            "en": "Limited character reading and story version"
+          },
+          "paragraphs": [
+            {
+              "zh": "弥海砂是系列角色，授权人物资料核到她的身份。本站只选“选择可见的个人表达”作有限同人角度，不把复杂剧情简化成可爱、忠诚或为爱付出的榜样，也不要求按外貌、性别、装扮与人物相似。表达在这里是自己愿意让什么被看到、如何呈现；它不包含操控、牺牲自主权或为了得到回应而接受伤害。",
+              "en": "Misa is a series character identified in licensed character context. This edition selects choosing visible personal expression without reducing a complex story to cuteness, loyalty or romantic sacrifice as a model. Resemblance requires no appearance, gender or clothing. Expression here concerns what you want seen and how to present it. It includes neither manipulation, surrendered autonomy nor accepting harm to obtain someone else’s response or approval in actual life."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择一个喜欢的标题、语气、样式或可见的观感表达。可以问：这是自己愿意展示，还是觉得必须得到某种回应？计数不能回答，也不从选项推断真正是否公开了什么。可见可以只对自己、对一个愿意看的人或对更大范围；范围由你另行选择，展示也不需要变成持续表现。",
+              "en": "A highest count means you more often chose a preferred title, tone, style or visible expression of a response. Is it something you want to show, or something you feel must obtain a particular reaction? Counts cannot answer or establish actual publication. Visibility can be private, shared with one willing person or wider. Choose that scope separately, without turning a chosen presentation into a demand for continual performance or constant attention."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，为自己的手账做一页封面，可以选一句喜欢的普通短语和一种排列，先只留给自己看。若想给朋友看，可以问对方是否愿意，不默认要收到夸奖，也不用为了更像角色而模仿作品装扮。这个例子把呈现方式与外界评价分开；没有发布、不够华丽或临时改成空白，都不说明表达失败。",
+              "en": "For a journal cover of your own, choose an ordinary phrase and arrangement you like and keep it private first. Ask a friend whether they want to look rather than expecting praise. No imitation of fictional clothing is required. The example separates presentation from outside evaluation. No publication, a plain style or changing the page back to blank proves neither failed expression nor insufficient resemblance to Misa in this limited reading."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“这版是我现在喜欢的表达，你愿意看一眼吗？不需要评价，也不用和我喜欢的一样。”若你想听具体意见，也可以单独说清；对方可以没空或没有想法。别人不回应不自动否定你的选择，回应热烈也不证明被爱或关系安全。表达后收回、改样式或不再分享，都可以按当下意愿决定。",
+              "en": "You might say, “This version expresses what I like now. Would you like a look? No review or matching preference is needed.” Ask separately for a specific opinion if wanted, accepting unavailability or uncertainty. No response automatically negates your choice; an enthusiastic response proves neither love nor relationship safety. Withdraw the display, change the style or stop sharing according to your wishes rather than a character’s expected performance."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他七位角色读法比较",
+            "en": "Comparisons with the other seven character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "弥海砂读法偏“怎样让自己的表达可见”，夜神月偏先说明目标，琉克偏旁观新奇细节；喜欢呈现不等于要带领或吸引所有人。L偏区分问题，尼亚偏排列信息，梅洛偏另一条路径，魅上照偏一致条件，田中实偏重想用途。八种不是外向、审美、忠诚或魅力等级，最高并列也不规定你在私人和公开场合必须一样。",
+              "en": "This Misa angle concerns how expression becomes visible, Light naming an aim and Ryuk observing a detail. Enjoying presentation means no wish to lead or attract everyone. L concerns questions, Near information, Mello another route, Mikami criteria and Minoru another use. The eight establish no extraversion, taste, loyalty or charisma grades. A highest tie imposes no requirement that private and public expression remain the same or that another person interpret either in a particular way."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，选可见样式可能因为资料需要识别，不一定想引人注意；不展示可能因为隐私、许可或不想花时间。计数不判断美貌、忠诚、依恋、情绪稳定、受欢迎程度、性别、创伤或恋爱行为。真实关系需要实际尊重与同意，不从角色匹配推出谁适合你，也不把明说的拒绝解释成等待更多付出。",
+              "en": "A visible style may help identify material rather than seek attention; privacy, permissions or limited time may explain no display. Counts establish no beauty, loyalty, attachment, emotional stability, popularity, gender, trauma or romantic behaviour. Actual relationships need actual respect and consent. A character match identifies no suitable partner and makes no stated refusal a request for greater sacrifice, persistence or efforts to obtain a different response from someone else."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：为一页属于自己的笔记想一种喜欢的表达，再写出希望谁能看到、是否需要回应，可以不实际制作。不计点赞、赞美或吸引力，也不用公开。若发现只想自己看，就保留这一点；如果根本不想做封面，停下也合理。观察的是个人表达的选择，不用外界反应证明角色匹配或自己的价值。",
+              "en": "For an optional observation, imagine an expression for a page of your own notes, who you want to see it and whether a response is wanted. No making or publishing is required. Count no likes, praise or attractiveness. Keep it private if preferred, or leave the cover entirely. The observation concerns choosing expression without using outside reactions to prove a character match, personal worth or a relationship’s meaning."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题计数与全部最高并列",
+            "en": "24-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24题全部各选一项，对应的本版角色读法加1，总数固定24。每题只提供八位中的四位，全卷每位出现12次、每位置3次；未提供的四位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会八位各3次、八份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、虚构能力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型；近分可自行比较，不补造并列。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 24 items; each adds one to its editorial character reading and counts sum to 24. Four of eight characters are offered per item. Each appears twelve times and three times in each position; four absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all eight guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, fictional powers nor population ranks. One extra choice proves no significance, hidden identity or fixed type; compare close guides without inventing ties. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的24题非官方同人问卷，选择主系列七位角色与a-Kira短篇的田中实，共八个普通信息处理与表达的有限阅读角度，不是37集动画全阵容，也不混用2015真人剧设定。角色不代表完整人格、现实道德或官方类型系统。题目、选项、映射、计数、解释和例子原创，未采用IDR40题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材；不是官方测验，也无权利人合作、授权或认可，作品与角色权利归相应权利人。VIZ系列与短编辑简介、集英社短编辑资料和GoodSmile授权人物名单只核基础作品语境、短篇归属与名字，不验证本站题目、计分或心理解释。中文名为本版编辑采用的写法，英文身份保持不变，不因译名增加角色。结果不推断智商、能力、疾病、神经类型、创伤、道德、危险性、犯罪倾向、爱情、关系、职业或财富，不指导伤害、操控、跟踪、强制、惩罚或交易他人权利，也不换算MBTI或其他角色测试。",
+              "en": "This is an independently authored FermatMind 24-item unofficial fan quiz selecting seven main-series characters and Minoru from a-Kira as eight limited readings of ordinary information and expression choices. It is neither the complete 37-episode anime cast nor a mixture with the 2015 live-action version. Characters represent neither complete personalities, actual morality nor an official type system. Items, options, mappings, counts, explanations and examples are original. No IDR 40-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; respective owners retain series and character rights. VIZ series and collection blurbs, Shueisha’s collection information and GoodSmile’s licensed roster check basic context, short-story membership and names without validating these items, counts or psychology. Chinese names are editorial choices retaining English identities; variants add no characters. Results infer no IQ, ability, illness, neurotype, trauma, morality, dangerousness, criminal tendency, romance, relationship, career or wealth, instruct no harm, manipulation, stalking, coercion, punishment or exchange of others’ rights, and convert into no MBTI or other character test."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "near",
+      "directionIds": [
+        "near"
+      ],
+      "title": {
+        "zh": "尼亚：排列手边已有的信息",
+        "en": "Near: Arranging Available Information"
+      },
+      "headline": {
+        "zh": "尼亚：排列手边已有的信息",
+        "en": "Near: Arranging Available Information"
+      },
+      "summary": {
+        "zh": "从零散阅读记录看已知、未知和来源的排列，含七角色比较与反例；不从整理、玩具或沉静推断智商、神经类型或成熟度。",
+        "en": "Explore Near through scattered reading notes, knowns, unknowns and seven comparisons. Organisation, toys and quietness establish no IQ or neurotype."
+      },
+      "scoreReading": {
+        "zh": "24题全部各选一项，对应的本版角色读法加1，总数固定24。每题只提供八位中的四位，全卷每位出现12次、每位置3次；未提供的四位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会八位各3次、八份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、虚构能力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型；近分可自行比较，不补造并列。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 24 items; each adds one to its editorial character reading and counts sum to 24. Four of eight characters are offered per item. Each appears twelve times and three times in each position; four absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all eight guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, fictional powers nor population ranks. One extra choice proves no significance, hidden identity or fixed type; compare close guides without inventing ties. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "尼亚测试结果：信息排列、例子与完整说明",
+          "en": "Near Quiz Result: Available Information & Full Guide"
+        },
+        "description": {
+          "zh": "用零散阅读记录理解尼亚的已有信息、未知与来源排列，含七角色对照；不从整理、沉静或玩具推断智商与神经类型。",
+          "en": "Read Near through scattered notes, sources, knowns and unknowns. Full comparisons without IQ, neurotype, maturity or hidden-motive claims."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "人物与作品版本的有限读法",
+            "en": "Limited character reading and story version"
+          },
+          "paragraphs": [
+            {
+              "zh": "尼亚是主系列后段人物，授权角色资料将他与L的后继者背景相连。本站只选“排列手边已有的信息”作普通阅读角度，不把虚构调查能力、玩具或沉静外表当成答题者智力和心理特征。这里的材料是自己可用的记录，不是别人的隐私；把信息摆整齐也不等于资料完整、事实已经核实或自己一定判断正确。",
+              "en": "Near appears in the later main series, with licensed character context identifying him among L’s successors. This edition selects arranging available information without turning fictional investigation, toys or a quiet appearance into respondents’ intelligence or psychological traits. Materials are notes you may use rather than private information about others. Order establishes neither completeness, verification nor correctness, and a tidy arrangement can still contain missing, uncertain or mistaken information in an ordinary situation."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择先把已有内容按类别、来源、已知或待确认处放开，不急着加新猜测。可以问：你在整理资料本身，还是试图让它看起来有一个确定答案？计数不能分辨，也不观察分类是否合适。同一条信息可能属于不止一类，留在“暂不确定”也可以；整理不是把复杂情况强行拼成一个唯一故事。",
+              "en": "A highest count means you more often chose to separate available content by category, source, knowns or open points before adding guesses. Are you arranging material or making it appear to have a definite answer? Counts cannot distinguish these reasons or judge the categories. Information may fit several places or remain uncertain. Arranging is no obligation to force a complicated situation into a single complete story that the existing material cannot support."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，读一个自选话题时留下几张笔记，可以分成“原文说了什么”“自己的疑问”“暂时没有来源”，只用手边实际内容。发现空白就留空，不补上听起来合理的话，也不用把没有来源的判断改写成事实。这个例子让材料与解释分开，不考整理速度、记忆力或能否发现别人漏掉的真相，更不要求把所有信息收集齐。",
+              "en": "After reading a chosen topic, separate notes into what the text says, your questions and statements without a source, using only what is actually available. Leave gaps rather than filling them with plausible wording or promoting unsupported judgements into facts. The example separates material and interpretation without testing organising speed, memory or discovery of a truth others missed. There is no requirement to collect everything before you can stop or leave the topic."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“这些是现在已经有的记录，这一块仍没有资料，我先不把它当结论。”与人讨论时，也说明记录中的谁说了什么，不把自己的排列当作对方必须接受的框架。别人可以指出分类不合适，你也可以调整或不继续。把“不知道”放在纸上不是失败；清楚排列并不需要同时显得镇定、聪明或经验丰富。",
+              "en": "You might say, “These are the notes we have; this part lacks material, so I will not make it a conclusion.” Distinguish who supplied what in discussion rather than requiring acceptance of your framework. Others may question the categories; revise or stop. Writing that something is unknown is no failure. Clear arrangement needs no simultaneous performance of calmness, intelligence or experience, and creates no authority over the people involved."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他七位角色读法比较",
+            "en": "Comparisons with the other seven character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "尼亚读法偏“已有信息怎样放开”，L偏什么问题能区分解释，魅上照偏各候选是否用同一条件；排列、提问与条件可以互相帮助，却不保证答案。夜神月偏目标，琉克偏新奇细节，弥海砂偏可见表达，梅洛偏另试路径，田中实偏重想用途。这里不评谁更像天才、谁更成熟，也不把人物之间的竞争当成人的排名。",
+              "en": "This Near angle concerns arranging available information, L a distinguishing question and Mikami consistent criteria across candidates. Arrangement, questions and criteria can support one another without guaranteeing an answer. Light names an aim, Ryuk observes a detail, Misa chooses expression, Mello another route and Minoru another use. The reading ranks neither genius resemblance nor maturity and turns fictional competition into no hierarchy of actual respondents or their worth in a discussion."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，整理可能因为资料本来零散，少整理可能因为只有一条信息或已经熟悉。计数不判断智商、分析、记忆、神经类型、强迫、情绪、幼稚或成熟，也不把玩具和姿势当题目。现实结论仍要看来源、条件和可核实内容，不能因为像尼亚就把自己的拼接当作证据，更不能据此解释别人的隐藏动机。",
+              "en": "Organisation may follow scattered material; less may reflect one item or familiarity. Counts establish no IQ, analysis, memory, neurotype, compulsion, emotion, childishness or maturity, and use neither toys nor posture as criteria. Actual conclusions depend on sources, conditions and verifiable information. Resembling this Near reading makes neither your arrangement evidence nor someone else’s hidden motives knowable simply because the pieces appear to form a convincing story."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：拿一条自己愿意处理的普通笔记，区分“实际写着什么”和“自己还想问什么”，可以只在心里做。没有资料的部分留空，不额外收集别人信息，也不检验是否更聪明。若觉得不需要分类，就维持原样；这个观察只帮助理解对现有材料的关注，不要求永远用同一种框架整理生活。",
+              "en": "For an optional observation, take one ordinary note you want to consider and distinguish its actual wording from what you still want to ask. Thinking alone is enough. Leave missing material blank, collect no information about others and test no increased intelligence. Keep the note as it is if categories are unnecessary. The observation explores attention to available material without requiring a permanent framework for organising every part of actual life."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题计数与全部最高并列",
+            "en": "24-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24题全部各选一项，对应的本版角色读法加1，总数固定24。每题只提供八位中的四位，全卷每位出现12次、每位置3次；未提供的四位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会八位各3次、八份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、虚构能力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型；近分可自行比较，不补造并列。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 24 items; each adds one to its editorial character reading and counts sum to 24. Four of eight characters are offered per item. Each appears twelve times and three times in each position; four absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all eight guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, fictional powers nor population ranks. One extra choice proves no significance, hidden identity or fixed type; compare close guides without inventing ties. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的24题非官方同人问卷，选择主系列七位角色与a-Kira短篇的田中实，共八个普通信息处理与表达的有限阅读角度，不是37集动画全阵容，也不混用2015真人剧设定。角色不代表完整人格、现实道德或官方类型系统。题目、选项、映射、计数、解释和例子原创，未采用IDR40题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材；不是官方测验，也无权利人合作、授权或认可，作品与角色权利归相应权利人。VIZ系列与短编辑简介、集英社短编辑资料和GoodSmile授权人物名单只核基础作品语境、短篇归属与名字，不验证本站题目、计分或心理解释。中文名为本版编辑采用的写法，英文身份保持不变，不因译名增加角色。结果不推断智商、能力、疾病、神经类型、创伤、道德、危险性、犯罪倾向、爱情、关系、职业或财富，不指导伤害、操控、跟踪、强制、惩罚或交易他人权利，也不换算MBTI或其他角色测试。",
+              "en": "This is an independently authored FermatMind 24-item unofficial fan quiz selecting seven main-series characters and Minoru from a-Kira as eight limited readings of ordinary information and expression choices. It is neither the complete 37-episode anime cast nor a mixture with the 2015 live-action version. Characters represent neither complete personalities, actual morality nor an official type system. Items, options, mappings, counts, explanations and examples are original. No IDR 40-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; respective owners retain series and character rights. VIZ series and collection blurbs, Shueisha’s collection information and GoodSmile’s licensed roster check basic context, short-story membership and names without validating these items, counts or psychology. Chinese names are editorial choices retaining English identities; variants add no characters. Results infer no IQ, ability, illness, neurotype, trauma, morality, dangerousness, criminal tendency, romance, relationship, career or wealth, instruct no harm, manipulation, stalking, coercion, punishment or exchange of others’ rights, and convert into no MBTI or other character test."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mello",
+      "directionIds": [
+        "mello"
+      ],
+      "title": {
+        "zh": "梅洛：另试一条可回头的路径",
+        "en": "Mello: Trying Another Reversible Route"
+      },
+      "headline": {
+        "zh": "梅洛：另试一条可回头的路径",
+        "en": "Mello: Trying Another Reversible Route"
+      },
+      "summary": {
+        "zh": "用自用小展示的布局看另一条路径、可恢复条件与停止空间，含七角色对照；不美化作品中的强制、冒险、竞争或伤害。",
+        "en": "Read Mello through a reversible display-layout change and seven comparisons. Fictional coercion, risk, rivalry and harm are not promoted as courage."
+      },
+      "scoreReading": {
+        "zh": "24题全部各选一项，对应的本版角色读法加1，总数固定24。每题只提供八位中的四位，全卷每位出现12次、每位置3次；未提供的四位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会八位各3次、八份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、虚构能力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型；近分可自行比较，不补造并列。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 24 items; each adds one to its editorial character reading and counts sum to 24. Four of eight characters are offered per item. Each appears twelve times and three times in each position; four absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all eight guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, fictional powers nor population ranks. One extra choice proves no significance, hidden identity or fixed type; compare close guides without inventing ties. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "梅洛测试结果：另一条路径、例子与完整说明",
+          "en": "Mello Quiz Result: Another Route & Full Guide"
+        },
+        "description": {
+          "zh": "从自用明信片展示理解梅洛的另一条可回头路径，含七角色对照；不美化竞争、强制或伤害，不测胆量与风险偏好。",
+          "en": "Explore Mello through a reversible postcard-layout change and seven comparisons. No glorified coercion, harm or rivalry and no courage or risk score."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "人物与作品版本的有限读法",
+            "en": "Limited character reading and story version"
+          },
+          "paragraphs": [
+            {
+              "zh": "梅洛是主系列后段人物，授权资料将他与L的后继者背景相连。本站只选“另试一条可回头的路径”的普通角度，不把复杂剧情美化成勇敢、果断或打破规则的榜样。题目中的变化限于自己可改、获准、低风险的小事，不采用威胁、强制、危险竞争或伤害；角色的做法不能为现实越界提供借口，也不意味着答题者有同样经历。",
+              "en": "Mello appears in the later main series, with licensed context identifying him among L’s successors. This edition selects another reversible route for ordinary activities without recasting a complex story as exemplary courage, decisiveness or rule breaking. Changes concern permitted, low-stakes matters you can undo. They adopt no threats, coercion, dangerous rivalry or harm. Fictional conduct excuses no actual boundary crossing and establishes no equivalent experiences for a respondent receiving this result."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择试另一种次序、布局、观看方式或小版本，并保留回到原法的空间。可以问：是另一条路径本身吸引你，还是原有条件确实不合适？计数无法回答，也不把变化当成更有行动力。可回头需要实际核对；涉及别人或共享物品时，不能仅因自己想试，就认定大家都能承担变化。",
+              "en": "A highest count means you more often chose another order, layout, viewing method or small version while leaving room to return. Does the alternative attract you, or do existing conditions not fit? Counts cannot answer or make change greater initiative. Actual reversibility needs checking. Where others or shared objects are involved, wanting a trial alone does not establish their willingness or capacity to bear changes in the real situation."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，重排一组自己的明信片小展示，可以先记住原位置，再换一次次序看看。如果纸张不能反复粘贴，就改成桌面上试摆，或者只画个草图，不为了试新法损坏原物。这个例子把不同路径与承担代价分开，不以变化多大、比谁更快或是否坚持新方案评分，回到原样也不是失败。",
+              "en": "To rearrange your own postcard display, note the original positions and try another order. If the paper cannot be repeatedly attached, lay it out on a table or sketch it instead of damaging originals for novelty. The example separates another route from imposed costs. Size of change, speed against someone else and commitment to the new plan are not scored. Returning to the original arrangement is not failure or insufficient resemblance to Mello."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想试这个能改回的小版本，先确认只动自己的部分；不合适就还原。”如果涉及共同安排，先问愿不愿意，不把别人保留原法解释成胆小或拖后腿。你也可以不试、等资料更齐或直接结束；选项里的另路不要求你总有新招，更不表示规则、许可和他人的选择都能被目标取代。",
+              "en": "You might say, “I want to try this reversible version after checking that it affects only my part; I can restore it if it does not fit.” Ask first about shared arrangements without calling someone’s preference for the original cowardice or obstruction. Leave the trial, wait for information or stop. Another route requires no constant novelty and lets no goal replace rules, permission or another person’s actual choice about participating."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他七位角色读法比较",
+            "en": "Comparisons with the other seven character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "梅洛读法偏“改走另一条可回头的路”，田中实偏重想资源可以做什么，夜神月偏说明目标；换路径不一定换用途，也不保证目标更合适。L偏区分问题，尼亚偏现有信息，琉克偏新奇细节，弥海砂偏可见表达，魅上照偏一致条件。八种不是冲动与冷静、勇敢与胆小的排名，也不把角色竞争变成你必须胜过谁。",
+              "en": "This Mello angle concerns another reversible route, Minoru another use for resources and Light naming an aim. A route need not change the use or improve the aim. L concerns questions, Near information, Ryuk unusual details, Misa expression and Mikami consistent criteria. The eight rank neither impulse against calmness nor courage against cowardice and turn no fictional rivalry into an obligation for you to surpass someone else in an actual activity."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，换路径可能因为原方法没材料，保留原法可能因为它已经合适。计数不判断冲动、风险偏好、攻击、竞争心、危险性、勇气、智商或执行能力，也不认证你适合危机处理。真实的安全、权利、成本与许可，需要按具体情况核实；不能用角色的极端情节合理化伤害，或把别人的不同选择当作需要突破的阻碍。",
+              "en": "A different route may follow missing materials; keeping the original may follow its suitability. Counts establish no impulsivity, risk preference, aggression, competitiveness, dangerousness, courage, IQ or execution skill and certify no crisis aptitude. Actual safety, rights, costs and permissions need specific checking. Extreme fictional events justify no harm and make no person’s different choice an obstacle you should overcome in pursuit of your own result, experiment or preferred direction."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：为一个属于自己的普通小摆放，想一条可改回的不同路径，再说明什么条件下不试。可以只画草图，不改变实物，也不比速度和胆量。如果找不到可恢复方式，就停在想法；观察的是自己是否喜欢另一条路，不要求证明敢行动，也不让任何人替测试承担实际风险。",
+              "en": "For an optional observation, imagine another reversible arrangement for ordinary objects you own and specify when you would not try it. Sketch without changing anything and compare neither speed nor daring. Leave it as an idea if restoration is unclear. Notice whether another route appeals without proving willingness to act or making anyone bear actual risk on behalf of a quiz or a fictional character resemblance."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题计数与全部最高并列",
+            "en": "24-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24题全部各选一项，对应的本版角色读法加1，总数固定24。每题只提供八位中的四位，全卷每位出现12次、每位置3次；未提供的四位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会八位各3次、八份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、虚构能力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型；近分可自行比较，不补造并列。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 24 items; each adds one to its editorial character reading and counts sum to 24. Four of eight characters are offered per item. Each appears twelve times and three times in each position; four absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all eight guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, fictional powers nor population ranks. One extra choice proves no significance, hidden identity or fixed type; compare close guides without inventing ties. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的24题非官方同人问卷，选择主系列七位角色与a-Kira短篇的田中实，共八个普通信息处理与表达的有限阅读角度，不是37集动画全阵容，也不混用2015真人剧设定。角色不代表完整人格、现实道德或官方类型系统。题目、选项、映射、计数、解释和例子原创，未采用IDR40题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材；不是官方测验，也无权利人合作、授权或认可，作品与角色权利归相应权利人。VIZ系列与短编辑简介、集英社短编辑资料和GoodSmile授权人物名单只核基础作品语境、短篇归属与名字，不验证本站题目、计分或心理解释。中文名为本版编辑采用的写法，英文身份保持不变，不因译名增加角色。结果不推断智商、能力、疾病、神经类型、创伤、道德、危险性、犯罪倾向、爱情、关系、职业或财富，不指导伤害、操控、跟踪、强制、惩罚或交易他人权利，也不换算MBTI或其他角色测试。",
+              "en": "This is an independently authored FermatMind 24-item unofficial fan quiz selecting seven main-series characters and Minoru from a-Kira as eight limited readings of ordinary information and expression choices. It is neither the complete 37-episode anime cast nor a mixture with the 2015 live-action version. Characters represent neither complete personalities, actual morality nor an official type system. Items, options, mappings, counts, explanations and examples are original. No IDR 40-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; respective owners retain series and character rights. VIZ series and collection blurbs, Shueisha’s collection information and GoodSmile’s licensed roster check basic context, short-story membership and names without validating these items, counts or psychology. Chinese names are editorial choices retaining English identities; variants add no characters. Results infer no IQ, ability, illness, neurotype, trauma, morality, dangerousness, criminal tendency, romance, relationship, career or wealth, instruct no harm, manipulation, stalking, coercion, punishment or exchange of others’ rights, and convert into no MBTI or other character test."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "teru-mikami",
+      "directionIds": [
+        "teru-mikami"
+      ],
+      "title": {
+        "zh": "魅上照：写明一致使用的条件",
+        "en": "Teru Mikami: Stating Consistent Criteria"
+      },
+      "headline": {
+        "zh": "魅上照：写明一致使用的条件",
+        "en": "Teru Mikami: Stating Consistent Criteria"
+      },
+      "summary": {
+        "zh": "从私人收藏的入选条件看一致比较、条件是否合适与可修改范围，含七角色对照；不美化狂热、惩罚或把人分成好坏。",
+        "en": "Explore Mikami through a collection’s stated criteria, revisability and seven comparisons. Fanaticism, punishment and judging human worth are not endorsed."
+      },
+      "scoreReading": {
+        "zh": "24题全部各选一项，对应的本版角色读法加1，总数固定24。每题只提供八位中的四位，全卷每位出现12次、每位置3次；未提供的四位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会八位各3次、八份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、虚构能力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型；近分可自行比较，不补造并列。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 24 items; each adds one to its editorial character reading and counts sum to 24. Four of eight characters are offered per item. Each appears twelve times and three times in each position; four absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all eight guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, fictional powers nor population ranks. One extra choice proves no significance, hidden identity or fixed type; compare close guides without inventing ties. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "魅上照测试结果：一致条件、例子与完整说明",
+          "en": "Teru Mikami Quiz Result: Stated Criteria & Full Guide"
+        },
+        "description": {
+          "zh": "用私人收藏选择理解魅上照的一致条件、适用范围与可修改处，含七角色对照；不美化狂热、惩罚或给人的价值排序。",
+          "en": "Read Mikami through stated collection criteria, revisability and seven comparisons. No endorsement of fanaticism, punishment or judging human worth."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "人物与作品版本的有限读法",
+            "en": "Limited character reading and story version"
+          },
+          "paragraphs": [
+            {
+              "zh": "魅上照是主系列角色，授权人物资料核到其与Kira的剧情关联。本站只选“为普通物品写明一致条件”这个有限角度，不把他的信念与伤害美化为责任、正义或应当模仿的自律。这里比较的是自选材料，不是人的价值；一致也不让条件自动正确，更不能为惩罚、排斥、歧视、盲从或替别人决定提供理由。",
+              "en": "Mikami is a main-series character linked to Kira in licensed character context. This edition selects stating consistent criteria for ordinary objects without recasting fictional beliefs and harm as responsibility, justice or exemplary discipline. The objects compared are chosen materials, never human worth. Consistency does not make a criterion correct and permits no punishment, exclusion, discrimination, blind obedience or decisions imposed upon someone else in an actual shared situation."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择先说清一个条件，再用它看各候选，或在条件不合适时统一调整。可以问：条件服务什么用途，是否真的适合这些材料，有没有遗漏重要差别？计数不检查这些答案，也不证明公平或准确。相同处理与适当处理需要区别；遇到不同需要时，可以重新看条件，而不是为了“一致”坚持原法。",
+              "en": "A highest count means you more often chose a stated condition applied across candidates or revised when unsuitable. What purpose does it serve, does it fit the material, and what differences might it miss? Counts check none of these answers or prove fairness or accuracy. Identical treatment differs from appropriate treatment. Reconsider criteria when different needs matter rather than defending the original solely because applying it seems consistent across an ordinary collection or set of options."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，为私人收藏选几张明信片做一页，可以先定“只选这次想重看的建筑图”，逐张看同一条件。发现自己其实更想看颜色，就改写条件、重新比较，不把前一版当必须遵守的承诺。这个例子只处理自有材料的偏好，不把某些卡片当高贵，也不把没选中的东西说成没有价值，更不将这种分类套在人身上。",
+              "en": "When selecting postcards for a personal page, choose only building images you want to revisit this time and consider each against that condition. If colour matters more, revise and compare again rather than treating the first version as a binding promise. This concerns preferences for your own material. It makes no cards superior or unselected ones worthless and supplies no model for classifying people or deciding what treatment they deserve in actual life."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我这次按这个自选条件看每张卡；若发现条件不合适，可以把它改掉。”如果与别人共选，再问对方是否同意这个用途和条件，不能仅因说得明确就当共同规则。也可以保留例外并说明原因；不同意不等于不守原则。你不需要把偏好变成绝对标准，才能理解本版这一读法。",
+              "en": "You might say, “This is my chosen condition for these cards, and I can change it if it does not fit.” Ask agreement on the purpose and criterion when choosing with others rather than making clarity itself a shared rule. Keep an explained exception if appropriate. Disagreement establishes no lack of principles. Understanding the reading requires no transformation of a preference into an absolute standard that everyone else must follow."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他七位角色读法比较",
+            "en": "Comparisons with the other seven character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "魅上照读法偏“一项条件怎样一致使用”，L偏用什么问题分开解释，尼亚偏把已有材料排清；这三个步骤都可能发现自己还不知道。夜神月偏目标，琉克偏细节旁观，弥海砂偏可见表达，梅洛偏另路，田中实偏重想用途。条件可以为目的服务，也可以随新信息改变，没有道德、自律、正确或尽责程度排名，更不比较谁有资格裁决他人。",
+              "en": "This Mikami angle concerns applying a criterion, L a distinguishing question and Near arranging information. Each may expose uncertainty rather than certainty. Light names an aim, Ryuk observes a detail, Misa chooses expression, Mello another route and Minoru another use. Criteria may serve a purpose and change with information. The eight rank neither morality, discipline, correctness nor diligence and grant no respondent entitlement to pass judgement on other people."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，一致比较可能因为材料相似，采用不同条件可能因为不同需要本来重要。计数不判断强迫、僵化、狂热、服从、自律、道德、危险性或职业适合度，也不认证法律与专业判断。现实里若涉及人的权利、无障碍需求或共同规则，需要看真实条件；不能把作品中的二元善恶作为理解人的方法，也不能用角色结果指责他人。",
+              "en": "Consistency may follow similar material; different criteria may reflect important different needs. Counts establish no compulsion, rigidity, fanaticism, obedience, discipline, morality, dangerousness or career fit and certify no legal or professional judgement. Actual rights, accessibility needs and shared rules depend on actual circumstances. Fictional good-versus-evil divisions supply no method for understanding people, and a character result is no basis for accusing someone else of harmful beliefs or behaviour."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：给几件属于自己的普通物品想一项仅用于这次的选择条件，再写一句“出现什么情况就改条件”。可以只想、不分类，不计一致率，也不用把它用于任何人。若发现不同物品本来需要分别看，就保留区别。观察的是自己怎样说明比较依据，不训练服从或绝对化，也不要求为了像魅上照而坚持不改。",
+              "en": "For an optional observation, imagine a condition used only this time for ordinary objects you own, then note when you would revise it. No sorting or consistency score is required, and apply it to no person. Preserve differences when objects need different consideration. The observation explores how you state a basis for comparison without training obedience or absolutism, or requiring unchanged criteria in order to resemble a fictional character."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题计数与全部最高并列",
+            "en": "24-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24题全部各选一项，对应的本版角色读法加1，总数固定24。每题只提供八位中的四位，全卷每位出现12次、每位置3次；未提供的四位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会八位各3次、八份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、虚构能力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型；近分可自行比较，不补造并列。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 24 items; each adds one to its editorial character reading and counts sum to 24. Four of eight characters are offered per item. Each appears twelve times and three times in each position; four absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all eight guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, fictional powers nor population ranks. One extra choice proves no significance, hidden identity or fixed type; compare close guides without inventing ties. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的24题非官方同人问卷，选择主系列七位角色与a-Kira短篇的田中实，共八个普通信息处理与表达的有限阅读角度，不是37集动画全阵容，也不混用2015真人剧设定。角色不代表完整人格、现实道德或官方类型系统。题目、选项、映射、计数、解释和例子原创，未采用IDR40题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材；不是官方测验，也无权利人合作、授权或认可，作品与角色权利归相应权利人。VIZ系列与短编辑简介、集英社短编辑资料和GoodSmile授权人物名单只核基础作品语境、短篇归属与名字，不验证本站题目、计分或心理解释。中文名为本版编辑采用的写法，英文身份保持不变，不因译名增加角色。结果不推断智商、能力、疾病、神经类型、创伤、道德、危险性、犯罪倾向、爱情、关系、职业或财富，不指导伤害、操控、跟踪、强制、惩罚或交易他人权利，也不换算MBTI或其他角色测试。",
+              "en": "This is an independently authored FermatMind 24-item unofficial fan quiz selecting seven main-series characters and Minoru from a-Kira as eight limited readings of ordinary information and expression choices. It is neither the complete 37-episode anime cast nor a mixture with the 2015 live-action version. Characters represent neither complete personalities, actual morality nor an official type system. Items, options, mappings, counts, explanations and examples are original. No IDR 40-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; respective owners retain series and character rights. VIZ series and collection blurbs, Shueisha’s collection information and GoodSmile’s licensed roster check basic context, short-story membership and names without validating these items, counts or psychology. Chinese names are editorial choices retaining English identities; variants add no characters. Results infer no IQ, ability, illness, neurotype, trauma, morality, dangerousness, criminal tendency, romance, relationship, career or wealth, instruct no harm, manipulation, stalking, coercion, punishment or exchange of others’ rights, and convert into no MBTI or other character test."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "minoru-tanaka",
+      "directionIds": [
+        "minoru-tanaka"
+      ],
+      "title": {
+        "zh": "田中实：重想一件资源的用途",
+        "en": "Minoru Tanaka: Reconsidering Resource Uses"
+      },
+      "headline": {
+        "zh": "田中实：重想一件资源的用途",
+        "en": "Minoru Tanaka: Reconsidering Resource Uses"
+      },
+      "summary": {
+        "zh": "从一张自有空白卡看原用途、另一种小成果与实际条件，含七角色比较；明确角色来自a-Kira短篇，不认证赚钱或投资能力。",
+        "en": "Read Minoru through a blank card’s reconsidered use and seven comparisons. He is from the a-Kira short story; no earning or investment skill is certified."
+      },
+      "scoreReading": {
+        "zh": "24题全部各选一项，对应的本版角色读法加1，总数固定24。每题只提供八位中的四位，全卷每位出现12次、每位置3次；未提供的四位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会八位各3次、八份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、虚构能力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型；近分可自行比较，不补造并列。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 24 items; each adds one to its editorial character reading and counts sum to 24. Four of eight characters are offered per item. Each appears twelve times and three times in each position; four absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all eight guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, fictional powers nor population ranks. One extra choice proves no significance, hidden identity or fixed type; compare close guides without inventing ties. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "田中实测试结果：重想用途、例子与完整说明",
+          "en": "Minoru Tanaka Quiz Result: New Uses & Full Guide"
+        },
+        "description": {
+          "zh": "用自有空白卡理解田中实的重想用途与实际许可，含七角色对照；明确来自a-Kira短篇，不认证赚钱、投资或创新能力。",
+          "en": "Explore Minoru through a blank card’s reconsidered use and seven comparisons. From a-Kira, without earning, investment, IQ or innovation certification."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "人物与作品版本的有限读法",
+            "en": "Limited character reading and story version"
+          },
+          "paragraphs": [
+            {
+              "zh": "集英社短编辑简介确认田中实在a-Kira篇与琉克相遇，他不是37集主系列动画中的同一阵容人物。本站只选“重想一件资源还能做什么”作普通同人角度，不把完整短篇说成财富成功学，也不采用超自然规则或竞品关于收益的说法。资源在这里是自己获准使用的普通材料，不是人的生命、隐私或可以拿来交易的他人权利。",
+              "en": "Shueisha’s collection blurb identifies Minoru meeting Ryuk in a-Kira. He is not part of the same cast within the 37-episode main anime. This edition selects reconsidering a resource’s use without turning the whole short story into wealth advice or adopting supernatural rules or competitor claims about gains. Resources here are ordinary materials you may use, never human lives, private information or another person’s rights treated as something available for exchange."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择跳出原用途，想现有卡片、笔记或材料还能做成什么。可以问：你在寻找另一种自己喜欢的用途，还是觉得资源必须用到最值？计数无法分辨，也不评价是否创新、实用或更有收益。重想可以得出“不用”“留着”或“交还”，不要求把所有东西转成成果，更不代表原用途不好。",
+              "en": "A highest count means you more often chose to reconsider what available cards, notes or materials could become beyond their first use. Are you looking for another appealing use or feeling that every resource must yield maximum value? Counts cannot distinguish these reasons or evaluate innovation, usefulness or gain. Reconsideration may lead to no use, keeping or returning something. It requires no conversion of everything into an output and devalues no original purpose."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，多出一张属于自己的空白卡，原本想写阅读摘记，现在也可以用作书页位置标记、颜色小样，或什么也不做。先确认纸张适合、没有他人内容和用途限制；不需要买更多材料或把想法拿去出售。这个例子把“还能用来做什么”与“怎样赚得更多”分开，不按节省的钱、成品价值或别人是否称赞来评分。",
+              "en": "An extra blank card of your own originally intended for reading notes could mark a page, hold a colour sample or remain unused. Check material suitability, absence of others’ content and any use restrictions. Buy nothing more and sell no idea. The example separates another use from greater earnings. Money saved, product value and praise are not scores of resemblance to Minoru or evidence of resourcefulness that the quiz can actually establish."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“这份材料原来用于那件事，我想到另一种小用途，先确认属于我可以改的范围；也可以暂时留着。”若材料共用，重新问许可，不把“更有用”当作替别人作决定的理由。资源的实际拥有者可以不愿意改变，你也可以发现原法更合适；说明一个想法不等于承诺把它实现或证明商业价值。",
+              "en": "You might say, “This material had that purpose; I have another small use in mind, after checking that changing it is within my permission. I can also keep it.” Seek new agreement for shared material rather than making usefulness permission to decide for someone else. An owner may decline; the original use may fit better. An idea promises neither execution nor proof of commercial value, profit or superior judgement about actual resources."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他七位角色读法比较",
+            "en": "Comparisons with the other seven character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "田中实读法偏“用途还能是什么”，梅洛偏换一条可回头的路径，夜神月偏说明当前目标；换用途、换方法和换目标可以分别发生。L偏区分问题，尼亚偏现有信息，琉克偏新奇细节，弥海砂偏可见表达，魅上照偏一致条件。八种没有赚钱、创新、谋略或智商等级，也不将短篇与主系列混成一个官方人物分类体系。",
+              "en": "This Minoru angle concerns another use, Mello another reversible route and Light a current aim. Uses, methods and aims can change separately. L concerns questions, Near available information, Ryuk details, Misa expression and Mikami criteria. The eight rank neither earning, innovation, strategy nor IQ and merge no short-story and main-series characters into an official personality taxonomy. Compare the selected approaches without treating their fictional settings as equivalent events or respondent experiences."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，改变用途可能因为原活动结束，不改变可能因为许可、材料性质或自己不想继续想。计数不认证智商、创造、经商、理财、风险承受或识别机会的能力，也不预测收入与成败。真实金钱、交易和权利有各自实际条件，不能由一份角色问卷替代判断；超自然故事也不是规避规则、利用别人或追逐收益的现实范本。",
+              "en": "A changed use may follow an ended activity; no change may follow permission, material properties or no wish to reconsider. Counts certify no IQ, creativity, business, financial, risk-bearing or opportunity-detection skill and predict no income or success. Actual money, exchanges and rights have actual conditions a character quiz cannot decide. A supernatural story supplies no real model for evading rules, exploiting someone else or pursuing gains regardless of the consequences for other people."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：为一件属于自己、无需花钱的普通材料想一个不同用途，再写清“不适用或不想做时怎样保留原样”。可以只想，不制作、不交易，也不计算收益。如果原用途已经很好，就保留它；观察的是对用途的重新理解，不要求变废为宝、证明聪明或从角色借用赚钱秘诀。",
+              "en": "For an optional observation, imagine another use for an ordinary material you own without spending money, then state how to leave it unchanged if unsuitable or unwanted. No making, exchange or return calculation is required. Keep a good original use. The observation explores reconsidered purpose without requiring transformation into something valuable, proof of intelligence or an earning secret borrowed from a fictional character and applied to actual decisions."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题计数与全部最高并列",
+            "en": "24-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24题全部各选一项，对应的本版角色读法加1，总数固定24。每题只提供八位中的四位，全卷每位出现12次、每位置3次；未提供的四位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会八位各3次、八份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、虚构能力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型；近分可自行比较，不补造并列。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 24 items; each adds one to its editorial character reading and counts sum to 24. Four of eight characters are offered per item. Each appears twelve times and three times in each position; four absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all eight guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, fictional powers nor population ranks. One extra choice proves no significance, hidden identity or fixed type; compare close guides without inventing ties. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的24题非官方同人问卷，选择主系列七位角色与a-Kira短篇的田中实，共八个普通信息处理与表达的有限阅读角度，不是37集动画全阵容，也不混用2015真人剧设定。角色不代表完整人格、现实道德或官方类型系统。题目、选项、映射、计数、解释和例子原创，未采用IDR40题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材；不是官方测验，也无权利人合作、授权或认可，作品与角色权利归相应权利人。VIZ系列与短编辑简介、集英社短编辑资料和GoodSmile授权人物名单只核基础作品语境、短篇归属与名字，不验证本站题目、计分或心理解释。中文名为本版编辑采用的写法，英文身份保持不变，不因译名增加角色。结果不推断智商、能力、疾病、神经类型、创伤、道德、危险性、犯罪倾向、爱情、关系、职业或财富，不指导伤害、操控、跟踪、强制、惩罚或交易他人权利，也不换算MBTI或其他角色测试。",
+              "en": "This is an independently authored FermatMind 24-item unofficial fan quiz selecting seven main-series characters and Minoru from a-Kira as eight limited readings of ordinary information and expression choices. It is neither the complete 37-episode anime cast nor a mixture with the 2015 live-action version. Characters represent neither complete personalities, actual morality nor an official type system. Items, options, mappings, counts, explanations and examples are original. No IDR 40-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; respective owners retain series and character rights. VIZ series and collection blurbs, Shueisha’s collection information and GoodSmile’s licensed roster check basic context, short-story membership and names without validating these items, counts or psychology. Chinese names are editorial choices retaining English identities; variants add no characters. Results infer no IQ, ability, illness, neurotype, trauma, morality, dangerousness, criminal tendency, romance, relationship, career or wealth, instruct no harm, manipulation, stalking, coercion, punishment or exchange of others’ rights, and convert into no MBTI or other character test."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "24题怎样形成八角色计数",
+        "en": "How 24 choices produce eight character counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "24题全部各选一项，对应的本版角色读法加1，总数固定24。每题只提供八位中的四位，全卷每位出现12次、每位置3次；未提供的四位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会八位各3次、八份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、虚构能力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型；近分可自行比较，不补造并列。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+          "en": "Choose one option for all 24 items; each adds one to its editorial character reading and counts sum to 24. Four of eight characters are offered per item. Each appears twelve times and three times in each position; four absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all eight guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, fictional powers nor population ranks. One extra choice proves no significance, hidden identity or fixed type; compare close guides without inventing ties. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "完整结果、最高并列与近分",
+        "en": "Full guides, highest ties and close choices"
+      },
+      "paragraphs": [
+        {
+          "zh": "八份完整说明各含人物版本与有限读法、具体例子、可用表达、七角色比较、反例、小观察、计分和来源。最高并列逐份显示，不设主角优先，不从名单顺序选主型，也不把第二名自动变成隐藏身份。近分可以自选读，不补造并列、百分比或群体排名；公开说明不显示私有答卷。",
+          "en": "Each of eight guides includes story version and the limited reading, an example, wording, seven-character comparisons, counterexamples, an observation, scoring and sources. Every highest tie appears in full without protagonist priority, list-order types or an automatic hidden runner-up identity. Read close guides without inventing ties, percentages or population ranks. Public pages reveal no private attempts."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "主系列、短篇与剧情问答的区别",
+        "en": "Main series, short stories and trivia"
+      },
+      "paragraphs": [
+        {
+          "zh": "七位来自主系列的选定人物，加田中实这位a-Kira短篇角色，不是37集动画全阵容，也不混入2015真人剧的不同设定。无需看完作品，题目都是普通自选情境。中文名为本版编辑采用写法，英文身份稳定；人物名不增加测试数量，也不代表你的现实道德、智商或危险性。",
+          "en": "Seven selected main-series characters join Minoru from a-Kira rather than forming the complete 37-episode anime cast or mixing in different 2015 live-action settings. Ordinary chosen situations require no complete-series knowledge. Chinese names are editorial choices retaining English identities. Names add no tests and establish no actual morality, IQ or dangerousness."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "zh": "原创同人与来源使用范围",
+        "en": "Original fan reading and source scope"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是费马独立创作的24题非官方同人问卷，选择主系列七位角色与a-Kira短篇的田中实，共八个普通信息处理与表达的有限阅读角度，不是37集动画全阵容，也不混用2015真人剧设定。角色不代表完整人格、现实道德或官方类型系统。题目、选项、映射、计数、解释和例子原创，未采用IDR40题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材；不是官方测验，也无权利人合作、授权或认可，作品与角色权利归相应权利人。VIZ系列与短编辑简介、集英社短编辑资料和GoodSmile授权人物名单只核基础作品语境、短篇归属与名字，不验证本站题目、计分或心理解释。中文名为本版编辑采用的写法，英文身份保持不变，不因译名增加角色。结果不推断智商、能力、疾病、神经类型、创伤、道德、危险性、犯罪倾向、爱情、关系、职业或财富，不指导伤害、操控、跟踪、强制、惩罚或交易他人权利，也不换算MBTI或其他角色测试。",
+          "en": "This is an independently authored FermatMind 24-item unofficial fan quiz selecting seven main-series characters and Minoru from a-Kira as eight limited readings of ordinary information and expression choices. It is neither the complete 37-episode anime cast nor a mixture with the 2015 live-action version. Characters represent neither complete personalities, actual morality nor an official type system. Items, options, mappings, counts, explanations and examples are original. No IDR 40-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; respective owners retain series and character rights. VIZ series and collection blurbs, Shueisha’s collection information and GoodSmile’s licensed roster check basic context, short-story membership and names without validating these items, counts or psychology. Chinese names are editorial choices retaining English identities; variants add no characters. Results infer no IQ, ability, illness, neurotype, trauma, morality, dangerousness, criminal tendency, romance, relationship, career or wealth, instruct no harm, manipulation, stalking, coercion, punishment or exchange of others’ rights, and convert into no MBTI or other character test."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "草稿、分享与可选下一步",
+        "en": "Drafts, sharing and optional next steps"
+      },
+      "paragraphs": [
+        {
+          "zh": "答案在浏览器内计分，不上传、不进网址或分析。草稿需主动开启，只在本标签页恢复，24小时失效，完成、重测、退出清除即删除。分享自选，只含公开角色说明和链接，不含答案或次数。完整结果免费，无需注册、邮箱或另一测试；后续测评可不做，选择继续需要另外作答。",
+          "en": "Answers are scored in your browser without uploading them or placing them in URLs or analytics. Drafts require opt-in, restore only in this tab, expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public guides and links without answers or counts. Full results are free without signup, email or another test; further assessments are optional and require new answers."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "死亡笔记角色测试包括哪八位？",
+        "en": "Which eight Death Note characters are included?"
+      },
+      "answer": {
+        "zh": "本版包括夜神月、L、琉克、弥海砂、尼亚、梅洛、魅上照与田中实。田中实来自a-Kira短篇，前七位为主系列选定人物；不是全作品阵容，也不把真人改编差异混成官方分类。译名不同不增加角色或测试。",
+        "en": "This edition includes Light Yagami, L, Ryuk, Misa Amane, Near, Mello, Teru Mikami and Minoru Tanaka. Minoru is from a-Kira; the other seven are selected main-series characters. This is no full cast or official classification mixing live-action differences. Name variants add neither characters nor tests."
+      }
+    },
+    {
+      "question": {
+        "zh": "需要剧情知识、生日或照片吗？",
+        "en": "Do I need episode knowledge, a birthday or a photo?"
+      },
+      "answer": {
+        "zh": "不需要，也不收生日或照片。24题是普通信息处理与自选表达，没有剧情答对、外貌输入或超自然能力评分。基础背景只帮助理解本站有限同人角度，不能代替作品或说明人的全部经历。",
+        "en": "No, and no birthday or photo is collected. Twenty-four items concern ordinary information and chosen expression without correct trivia answers, appearance input or supernatural ability scores. Basic context supports limited fan readings rather than replacing the work or explaining a person’s whole history."
+      }
+    },
+    {
+      "question": {
+        "zh": "计数、最高并列与近分怎样看？",
+        "en": "How do counts, highest ties and close choices work?"
+      },
+      "answer": {
+        "zh": "24题全部各选一项，对应的本版角色读法加1，总数固定24。每题只提供八位中的四位，全卷每位出现12次、每位置3次；未提供的四位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会八位各3次、八份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、虚构能力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型；近分可自行比较，不补造并列。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 24 items; each adds one to its editorial character reading and counts sum to 24. Four of eight characters are offered per item. Each appears twelve times and three times in each position; four absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all eight guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, fictional powers nor population ranks. One extra choice proves no significance, hidden identity or fixed type; compare close guides without inventing ties. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是官方、MBTI或道德心理测验吗？",
+        "en": "Is this official, MBTI or a moral or psychological assessment?"
+      },
+      "answer": {
+        "zh": "这是费马独立创作的24题非官方同人问卷，选择主系列七位角色与a-Kira短篇的田中实，共八个普通信息处理与表达的有限阅读角度，不是37集动画全阵容，也不混用2015真人剧设定。角色不代表完整人格、现实道德或官方类型系统。题目、选项、映射、计数、解释和例子原创，未采用IDR40题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材；不是官方测验，也无权利人合作、授权或认可，作品与角色权利归相应权利人。VIZ系列与短编辑简介、集英社短编辑资料和GoodSmile授权人物名单只核基础作品语境、短篇归属与名字，不验证本站题目、计分或心理解释。中文名为本版编辑采用的写法，英文身份保持不变，不因译名增加角色。结果不推断智商、能力、疾病、神经类型、创伤、道德、危险性、犯罪倾向、爱情、关系、职业或财富，不指导伤害、操控、跟踪、强制、惩罚或交易他人权利，也不换算MBTI或其他角色测试。",
+        "en": "This is an independently authored FermatMind 24-item unofficial fan quiz selecting seven main-series characters and Minoru from a-Kira as eight limited readings of ordinary information and expression choices. It is neither the complete 37-episode anime cast nor a mixture with the 2015 live-action version. Characters represent neither complete personalities, actual morality nor an official type system. Items, options, mappings, counts, explanations and examples are original. No IDR 40-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; respective owners retain series and character rights. VIZ series and collection blurbs, Shueisha’s collection information and GoodSmile’s licensed roster check basic context, short-story membership and names without validating these items, counts or psychology. Chinese names are editorial choices retaining English identities; variants add no characters. Results infer no IQ, ability, illness, neurotype, trauma, morality, dangerousness, criminal tendency, romance, relationship, career or wealth, instruct no harm, manipulation, stalking, coercion, punishment or exchange of others’ rights, and convert into no MBTI or other character test."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果、重测与分享免费吗？",
+        "en": "Are full results, retaking and sharing free?"
+      },
+      "answer": {
+        "zh": "免费，无需注册、邮箱或先做另一测试。可先读八份完整说明，完成24题后最高并列全部完整显示。重测清除本次选择，可选分享不含答案或次数。后续MBTI另行作答，不从角色换算，也不是解锁结果的条件。",
+        "en": "They are free without signup, email or another test first. Read eight full guides before answering; every highest tie appears after all 24 choices. Retaking clears this attempt. Optional sharing contains no answers or counts. Further MBTI questions require new responses rather than conversion and do not unlock these results."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "VIZ官方：主系列作品语境（非测验验证）",
+        "en": "Official VIZ main-series context, not quiz validation"
+      },
+      "url": "https://www.viz.com/death-note"
+    },
+    {
+      "title": {
+        "zh": "VIZ官方：Death Note Short Stories短编辑简介",
+        "en": "Official VIZ Death Note Short Stories collection blurb"
+      },
+      "url": "https://www.viz.com/manga-books/manga/death-note-short-stories/product/7069"
+    },
+    {
+      "title": {
+        "zh": "集英社官方：短编辑与a-Kira田中实归属",
+        "en": "Official Shueisha collection blurb: Minoru and a-Kira"
+      },
+      "url": "https://www.shueisha.co.jp/books/items/contents.html?isbn=978-4-08-882573-1"
+    },
+    {
+      "title": {
+        "zh": "GoodSmile授权人物名单：主系列名字语境",
+        "en": "GoodSmile licensed main-series character-name context"
+      },
+      "url": "https://www.goodsmile.com/en/product/580/Nendoroid%2BPetite%2BDeath%2BNote%2B-%2BCase%2BFile%2B02"
+    }
+  ]
+}

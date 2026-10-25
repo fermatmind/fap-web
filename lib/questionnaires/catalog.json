@@ -1102,5 +1102,34 @@
       "hinata",
       "gaara"
     ]
+  },
+  {
+    "slug": "death-note",
+    "code": "DEATH_NOTE_FAN_ORDINARY_CHOICES",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "metaphor",
+    "title": {
+      "zh": "《死亡笔记》角色测试",
+      "en": "Death Note Test"
+    },
+    "description": {
+      "zh": "免费完成24道原创普通选择，比较夜神月、L等八位角色，最高并列全部完整显示。含角色对照、例子与计分；非官方同人测试，不评智商、道德或危险性。",
+      "en": "Take 24 original everyday questions and compare eight Death Note characters. Full tied results, examples and scoring are free in this unofficial fan quiz."
+    },
+    "minutes": 7,
+    "collection": "explore",
+    "formCode": "fm_death_note_fan_choices_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "light-yagami",
+      "l",
+      "ryuk",
+      "misa-amane",
+      "near",
+      "mello",
+      "teru-mikami",
+      "minoru-tanaka"
+    ]
   }
 ]
