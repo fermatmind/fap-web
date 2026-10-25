@@ -958,5 +958,34 @@
       "chartmaker",
       "naturalist"
     ]
+  },
+  {
+    "slug": "moon-phase",
+    "code": "MOON_PHASE_ORDINARY_PACE_IMAGES",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "metaphor",
+    "title": {
+      "zh": "月相测试",
+      "en": "Moon Phase Personality Test"
+    },
+    "description": {
+      "zh": "免费月相测试：24道原创选择比较八种普通活动节奏意象，完整结果和全部最高并列直接读。无需注册或生日；不是月龄计算，也不判断健康、情绪、关系或命运。",
+      "en": "Take a free moon phase personality test with 24 original choices and eight full symbolic guides. No signup, birthday, moon-age or energy-cycle calculation."
+    },
+    "minutes": 7,
+    "collection": "explore",
+    "formCode": "fm_moon_phase_pace_choices_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "new-moon",
+      "waxing-crescent",
+      "first-quarter",
+      "waxing-gibbous",
+      "full-moon",
+      "waning-gibbous",
+      "last-quarter",
+      "waning-crescent"
+    ]
   }
 ]

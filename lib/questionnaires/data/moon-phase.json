@@ -1,0 +1,2433 @@
+{
+  "slug": "moon-phase",
+  "code": "MOON_PHASE_ORDINARY_PACE_IMAGES",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "metaphor",
+  "kind": "archetype",
+  "title": {
+    "zh": "月相测试",
+    "en": "Moon Phase Personality Test"
+  },
+  "resultHeading": {
+    "zh": "八种月相意象的本次选择与全部最高并列",
+    "en": "Your eight moon-phase image choices and every highest tie"
+  },
+  "description": {
+    "zh": "免费月相测试：24道原创选择比较八种普通活动节奏意象，完整结果和全部最高并列直接读。无需注册或生日；不是月龄计算，也不判断健康、情绪、关系或命运。",
+    "en": "Take a free moon phase personality test with 24 original choices and eight full symbolic guides. No signup, birthday, moon-age or energy-cycle calculation."
+  },
+  "seoTitle": {
+    "zh": "月相测试：24题、八种节奏意象与完整结果",
+    "en": "Moon Phase Personality Test: Free Quiz & Full Results"
+  },
+  "minutes": 7,
+  "introduction": {
+    "zh": "你现在更愿意留白、小试、明确取舍、调整一处、呈现收束、分享经验、减少负担，还是保留间隔？本版24道原创四选一，借八个月相名称作当代活动节奏意象。它按当前选择计数，不输入生日、不算真实月龄或月亮星座，也不测身体能量、情绪或固定人格。全部完成后，所有最高并列完整显示；八份完整说明也可以先读。没有更强、更好或稀有月相，不要求人生按八阶段循环，不从标签决定关系、健康或职业。",
+    "en": "Would you currently prefer space, a small trial, a tradeoff, one adjustment, presentation and closure, shared experience, reduced burden or an interval? This edition offers 24 original choices using eight phase names as contemporary activity-pace images. Counts use present choices without a birthday, actual moon age or astrological Moon sign, and measure no bodily energy, mood or fixed personality. Every highest tie appears in full after completion, and all eight guides can be read first. No phase is stronger, better or rarer, and no eight-stage life cycle, relationship, health or career decision is imposed."
+  },
+  "instructions": {
+    "zh": "本版月相测试是一份24题原创活动节奏意象问卷，比较当前愿意采用的普通做法：留白、微小尝试、取舍、局部调整、呈现收束、分享经验、减少可选负担或保留间隔。八个月相名称只作本版编辑意象，不代表你现在或出生时的真实月相，也不测情绪、睡眠、身体能量或人格能力。每题选一个目前更愿意的做法；情境以自选、可改、可停止为前提，没有高低或正确答案。全部24题选择后比较原始次数，所有最高并列完整显示；全选第一项会八种各3次。顺序不要求人生必须经历八阶段，不指导重大决定，也不换算拖延、气质、MBTI或职业。",
+    "en": "This Moon Phase Personality Test is an original 24-question activity-pace image quiz. It compares ordinary approaches you currently prefer: space, a small trial, a tradeoff, a local adjustment, presentation and closure, shared experience, reduced optional burden or an interval. Eight phase names serve as editorial images, not your actual current or birth Moon phase, mood, sleep, bodily energy or personality ability. Choose one currently preferred approach per question in voluntary, revisable and stoppable situations, without higher, lower or correct answers. Compare raw counts after all 24 choices and read every highest-tied guide in full; choosing the first option throughout gives three each. Order imposes no eight-stage life path or major decision and converts into no procrastination, Temperament, MBTI or career result."
+  },
+  "source": {
+    "kind": "FermatMindoriginalMoonPhaseOrdinaryPaceImages24/eighteditorialthemes/notastronomicalcalculationorpsychometricinstrument",
+    "formCode": "fm_moon_phase_pace_choices_24",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "7cd1176744d8aff2bcf25a85d3fdd1719c62a914b65928e891d22daf0b6d3df6",
+    "resultContentSha256": "f1853fe3680b4504aea308d3ea21d9fff70f0c45f1a135c5a24bb9c2b3459636",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "new-moon",
+      "title": {
+        "zh": "新月意象：留白与自选意图",
+        "en": "New Moon Image: Space and Chosen Intention"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "waxing-crescent",
+      "title": {
+        "zh": "渐盈月牙意象：微小可改尝试",
+        "en": "Waxing Crescent Image: A Small Revisable Trial"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "first-quarter",
+      "title": {
+        "zh": "上弦月意象：明确当前取舍",
+        "en": "First Quarter Image: A Present Tradeoff"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "waxing-gibbous",
+      "title": {
+        "zh": "盈凸月意象：让一处更合用",
+        "en": "Waxing Gibbous Image: One Adjustment for Fit"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "full-moon",
+      "title": {
+        "zh": "满月意象：自选呈现与收束",
+        "en": "Full Moon Image: Chosen Presentation and Closure"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "waning-gibbous",
+      "title": {
+        "zh": "亏凸月意象：分享可用经验",
+        "en": "Waning Gibbous Image: Willingly Shared Experience"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "last-quarter",
+      "title": {
+        "zh": "下弦月意象：减少可选负担",
+        "en": "Last Quarter Image: Reducing an Optional Burden"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "waning-crescent",
+      "title": {
+        "zh": "渐亏月牙意象：保留安静间隔",
+        "en": "Waning Crescent Image: A Quiet Interval"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "MOON_PHASE_01",
+      "prompt": {
+        "zh": "为自己选的一项普通小活动留时间，你更愿意先做什么？",
+        "en": "You make time for an ordinary small activity you chose. What would you prefer first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先留一点空白，写清这次自己愿意在意什么。",
+            "en": "Leave some space and state what I want to attend to this time."
+          },
+          "directionId": "new-moon"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "只试一个很小、随时可改的步骤，看看是否还想继续。",
+            "en": "Try one small revisable step and see whether I want to continue."
+          },
+          "directionId": "waxing-crescent"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "找一处让当前做法更合用的细节，只改这一处。",
+            "en": "Find one detail that could make the current approach fit better and change only that."
+          },
+          "directionId": "waxing-gibbous"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "留一条自己愿意分享的经验，先确认谁想听。",
+            "en": "Keep one experience I am willing to share and check who wants to hear it."
+          },
+          "directionId": "waning-gibbous"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_02",
+      "prompt": {
+        "zh": "一个自选的小制作有几种走法，你更想怎样接近？",
+        "en": "A small making activity you chose has several approaches. Which would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "选一处低风险的小尝试，不先承诺完成全部。",
+            "en": "Choose one low-stakes trial without committing to the whole activity."
+          },
+          "directionId": "waxing-crescent"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把眼前两种可行做法放在一起，明确这次愿意选哪一个。",
+            "en": "Compare two workable approaches and state which I want to choose now."
+          },
+          "directionId": "first-quarter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把已经愿意呈现的一小部分收好，决定展示到哪里。",
+            "en": "Gather the part I want to present and decide its scope of visibility."
+          },
+          "directionId": "full-moon"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "删去一项并不想承担的额外安排，让范围小一些。",
+            "en": "Remove one optional arrangement I do not want to carry and reduce the scope."
+          },
+          "directionId": "last-quarter"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_03",
+      "prompt": {
+        "zh": "自己的普通安排需要重新考虑，你更愿意关注什么？",
+        "en": "You reconsider an ordinary arrangement of your own. What would you prefer to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "现有条件下愿意接受哪种取舍，不追求同时保留全部。",
+            "en": "Which tradeoff I accept under present conditions without retaining everything."
+          },
+          "directionId": "first-quarter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一处具体细节是否还合用，愿意时做一个局部调整。",
+            "en": "Whether one detail still fits and whether I want a local adjustment."
+          },
+          "directionId": "waxing-gibbous"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "这次经历中哪一点愿意讲给确实有兴趣的人。",
+            "en": "Which part of this experience I want to tell an interested person."
+          },
+          "directionId": "waning-gibbous"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "在决定下一步之前，保留一个不用安排新任务的间隔。",
+            "en": "Keep an interval with no new task before deciding another step."
+          },
+          "directionId": "waning-crescent"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_04",
+      "prompt": {
+        "zh": "看一份自己已经有的普通草稿，你更想怎样使用？",
+        "en": "How would you prefer to use an ordinary draft you already have?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "选一处想改的地方，让它更符合这次需要，改完即可停。",
+            "en": "Revise one part to fit this occasion better, then allow the revision to end."
+          },
+          "directionId": "waxing-gibbous"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "确认愿意展示的范围，把这一小版收束为可读形式。",
+            "en": "Confirm the scope I want to show and gather this small version into readable form."
+          },
+          "directionId": "full-moon"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "去掉一项不再愿意承担的附加要求，保留较小范围。",
+            "en": "Drop an added requirement I no longer want and keep a smaller scope."
+          },
+          "directionId": "last-quarter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "暂不急着推进，重新写一句自己希望这份草稿服务什么。",
+            "en": "Pause advancing it and restate what I want the draft to serve."
+          },
+          "directionId": "new-moon"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_05",
+      "prompt": {
+        "zh": "一项普通小活动到了可以暂告一段落的时候，你更想做什么？",
+        "en": "An ordinary small activity can reach a stopping point. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把愿意让人看见的部分收好，允许只呈现这一次的范围。",
+            "en": "Gather the part I want others to see within this occasion’s scope."
+          },
+          "directionId": "full-moon"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "记录一条可以自愿分享的经验，不替别人规定做法。",
+            "en": "Note an experience I can share willingly without prescribing another person’s approach."
+          },
+          "directionId": "waning-gibbous"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "结束后留一点不需要立即开始别的事的安静间隔。",
+            "en": "Leave a quiet interval without immediately beginning something else."
+          },
+          "directionId": "waning-crescent"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "保留一个小而可改的后续试法，愿意时再试。",
+            "en": "Keep a small revisable follow-up to try only if I want."
+          },
+          "directionId": "waxing-crescent"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_06",
+      "prompt": {
+        "zh": "回顾自己选的一次普通尝试，你更愿意留下什么？",
+        "en": "Looking back at an ordinary attempt you chose, what would you prefer to retain?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一条对自己合用的经验，确认对方想听时再讲。",
+            "en": "One experience that fitted me, to share only when another person wants it."
+          },
+          "directionId": "waning-gibbous"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一项以后不必继续的可选负担，让安排更轻一点。",
+            "en": "One optional burden that need not continue, leaving a lighter arrangement."
+          },
+          "directionId": "last-quarter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一句这次真正愿意在意的事，不急着写下一步计划。",
+            "en": "A statement of what matters to me this time without rushing into another plan."
+          },
+          "directionId": "new-moon"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "面对两种后续可能时，自己当前愿意接受的取舍。",
+            "en": "The tradeoff I accept now between two possible next approaches."
+          },
+          "directionId": "first-quarter"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_07",
+      "prompt": {
+        "zh": "自由时间里的一项普通安排可以变小，你更想怎样处理？",
+        "en": "An ordinary arrangement in free time can become smaller. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先去掉一项非必需、也不愿意继续的承诺。",
+            "en": "Remove one nonessential commitment I do not want to keep."
+          },
+          "directionId": "last-quarter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给自己留一段没有新目标的空档，不要求产出。",
+            "en": "Leave an interval without a new goal or a required output."
+          },
+          "directionId": "waning-crescent"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把范围缩成一个可随时调整的小试法。",
+            "en": "Reduce the scope to one small trial that can change at any time."
+          },
+          "directionId": "waxing-crescent"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "只调整现有做法的一处细节，不重新扩张整个安排。",
+            "en": "Adjust one detail of the existing approach without expanding the arrangement."
+          },
+          "directionId": "waxing-gibbous"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_08",
+      "prompt": {
+        "zh": "一次自选活动结束之后，你更想给自己哪种余地？",
+        "en": "After an activity you chose ends, which room would you prefer to give yourself?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "暂时不解释、不评价，也不马上安排下一项。",
+            "en": "Do not explain, evaluate or schedule another activity immediately."
+          },
+          "directionId": "waning-crescent"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留一点空白，重新想想现在愿意关注什么。",
+            "en": "Leave some space to consider what I want to attend to now."
+          },
+          "directionId": "new-moon"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把新的两个选项和当前条件放在一起，明确一次取舍。",
+            "en": "Compare two new options with present conditions and state a tradeoff."
+          },
+          "directionId": "first-quarter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让这次愿意呈现的部分有个清楚结尾，不要求更多。",
+            "en": "Give the part I want to present a clear ending without requiring more."
+          },
+          "directionId": "full-moon"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_09",
+      "prompt": {
+        "zh": "准备一段普通创作时间，你更愿意用哪种开头？",
+        "en": "Which opening would you prefer for an ordinary creative period?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先写想在意的一个方向，允许暂时没有具体成果。",
+            "en": "State one direction I want to attend to, allowing no concrete output yet."
+          },
+          "directionId": "new-moon"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "只做一个可修改的小样，之后再决定要不要继续。",
+            "en": "Make one revisable sample and decide later whether to continue."
+          },
+          "directionId": "waxing-crescent"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看已有材料的一处细节，调整到更适合这次使用。",
+            "en": "Adjust one detail of existing material to fit this occasion better."
+          },
+          "directionId": "waxing-gibbous"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "想一条愿意分享的使用经验，也允许别人不采纳。",
+            "en": "Consider an experience I want to share while allowing others not to use it."
+          },
+          "directionId": "waning-gibbous"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_10",
+      "prompt": {
+        "zh": "自己的普通小计划有一点变化，你更愿意先选哪种回应？",
+        "en": "A small ordinary plan of your own changes. Which response would you prefer first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把变化做成一处低风险的小尝试，不承诺长期沿用。",
+            "en": "Turn the change into a low-stakes trial without a long-term commitment."
+          },
+          "directionId": "waxing-crescent"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "明确现在愿意保留和放弃的各一点，接受这个范围。",
+            "en": "State one part to retain and one to leave out, accepting that scope."
+          },
+          "directionId": "first-quarter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把已经够用的一小部分整理好，作为这次愿意呈现的版本。",
+            "en": "Gather a sufficient part as the version I want to present now."
+          },
+          "directionId": "full-moon"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "放下一项额外任务，不因为计划变化就不断补充。",
+            "en": "Drop one added task rather than continually add requirements after the change."
+          },
+          "directionId": "last-quarter"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_11",
+      "prompt": {
+        "zh": "在一个自己可决定的普通活动里，你更想关注哪种问题？",
+        "en": "In an ordinary activity you may choose, which question would you prefer to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "当前两种做法各要放下什么，我这次愿意怎样取舍？",
+            "en": "What does each approach leave out, and which tradeoff do I accept this time?"
+          },
+          "directionId": "first-quarter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "有没有一处可改的小细节，让现在的做法更合用？",
+            "en": "Could one small revised detail make the present approach fit better?"
+          },
+          "directionId": "waxing-gibbous"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "哪一条经验愿意分享，对方是否确实想听？",
+            "en": "Which experience do I want to share, and does the person actually want it?"
+          },
+          "directionId": "waning-gibbous"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "能否暂时留一个不用说明或产出的间隔？",
+            "en": "Can there be an interval without explaining or producing anything?"
+          },
+          "directionId": "waning-crescent"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_12",
+      "prompt": {
+        "zh": "一份自己写的普通说明快要够用，你更愿意怎样收尾？",
+        "en": "An ordinary explanation you wrote is nearly sufficient. How would you prefer to finish?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "改一处自己愿意调整的细节，之后就允许结束。",
+            "en": "Revise one detail I want to change and then allow it to end."
+          },
+          "directionId": "waxing-gibbous"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "确认愿意公开的范围，把这一版呈现出来即可。",
+            "en": "Confirm its public scope and present only this version."
+          },
+          "directionId": "full-moon"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "去掉一个不必回应的附加要求，让说明保留较小边界。",
+            "en": "Remove an unnecessary extra requirement and keep a smaller boundary."
+          },
+          "directionId": "last-quarter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "回到自己想说明的一点，允许先留空白再决定。",
+            "en": "Return to the point I want to express and allow space before another decision."
+          },
+          "directionId": "new-moon"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_13",
+      "prompt": {
+        "zh": "自己的普通小作品可以暂告一段落，你更想留下什么？",
+        "en": "A small ordinary piece of your own can reach a stopping point. What would you prefer to retain?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个愿意呈现的清楚版本，不要求所有细节都展示。",
+            "en": "A clear version I want to present without showing every detail."
+          },
+          "directionId": "full-moon"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一条可以自愿分享的经验，说明它只适合这次情况。",
+            "en": "An experience I can share willingly, noting its specific context."
+          },
+          "directionId": "waning-gibbous"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一段不用马上总结或开启下一项的安静空档。",
+            "en": "A quiet interval without immediately summarising or beginning another activity."
+          },
+          "directionId": "waning-crescent"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个足够小、可以随时停下的后续尝试。",
+            "en": "A small enough follow-up attempt that can stop at any time."
+          },
+          "directionId": "waxing-crescent"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_14",
+      "prompt": {
+        "zh": "想起一次自己选的普通活动，你更愿意怎样使用这段经历？",
+        "en": "How would you prefer to use an ordinary activity experience you chose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把对自己合用的一点写清，想听的人可以选择是否采用。",
+            "en": "Write a useful point clearly for an interested person to use or decline."
+          },
+          "directionId": "waning-gibbous"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看出一项以后不必再做的额外负担，愿意时放下。",
+            "en": "Identify an extra burden that need not recur and release it if I want."
+          },
+          "directionId": "last-quarter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先想想这段经历里真正愿意在意什么，允许暂不行动。",
+            "en": "Consider what matters in the experience, allowing no action for now."
+          },
+          "directionId": "new-moon"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "面对接下来的两个可能，说明当前愿意作出的取舍。",
+            "en": "State the tradeoff I accept between two possibilities ahead."
+          },
+          "directionId": "first-quarter"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_15",
+      "prompt": {
+        "zh": "可以重新安排一段普通自由时间，你更想优先保留什么？",
+        "en": "Which priority would you prefer when rearranging ordinary free time?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不继续一项自己并不愿意的可选承诺。",
+            "en": "Not continue an optional commitment I do not want."
+          },
+          "directionId": "last-quarter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一段没有新目标、也不需要说明成果的空档。",
+            "en": "An interval without a new goal or a result to explain."
+          },
+          "directionId": "waning-crescent"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一处低风险、小而可改的尝试，不把全天排满。",
+            "en": "A low-stakes revisable trial without filling the day."
+          },
+          "directionId": "waxing-crescent"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个让已有安排更合用的局部调整，不再添新项目。",
+            "en": "A local change making the existing arrangement fit without adding another project."
+          },
+          "directionId": "waxing-gibbous"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_16",
+      "prompt": {
+        "zh": "为一项已经结束的小活动画个句号，你更愿意怎样做？",
+        "en": "How would you prefer to close a small activity that has ended?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "允许一段没有评价和新安排的间隔。",
+            "en": "Allow an interval without evaluation or a new arrangement."
+          },
+          "directionId": "waning-crescent"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留一处空白，重新写下现在愿意关注的一点。",
+            "en": "Leave space to restate one thing I want to attend to now."
+          },
+          "directionId": "new-moon"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "明确接下来两种可能的取舍，不要求两边兼得。",
+            "en": "Clarify a tradeoff between two possible next approaches without keeping both."
+          },
+          "directionId": "first-quarter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把这次愿意展示的部分收束好，让它可以到此结束。",
+            "en": "Gather the part I want to show and allow this version to end here."
+          },
+          "directionId": "full-moon"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_17",
+      "prompt": {
+        "zh": "给自己选的一项普通尝试留一个入口，你更想怎么留？",
+        "en": "How would you prefer to leave an entry to an ordinary attempt you chose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一句尚可改变的意图，先不用安排完整路径。",
+            "en": "A revisable intention without setting out a complete route yet."
+          },
+          "directionId": "new-moon"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个小而能停下的试法，让下一步保持可改。",
+            "en": "A small stoppable trial that leaves a next step revisable."
+          },
+          "directionId": "waxing-crescent"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一处自己愿意调整的已有细节，让使用更合这次需要。",
+            "en": "An existing detail I want to change so use fits this occasion better."
+          },
+          "directionId": "waxing-gibbous"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一条愿意分享给感兴趣者的经验，不把它设成通用答案。",
+            "en": "An experience I want to share with interested people, without a universal answer."
+          },
+          "directionId": "waning-gibbous"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_18",
+      "prompt": {
+        "zh": "一项普通个人安排有几种后续可能，你更想先做什么？",
+        "en": "An ordinary personal arrangement has several next possibilities. What would you prefer first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先试一个低风险小段，不把尝试当成长期承诺。",
+            "en": "Try a low-stakes part without making it a lasting commitment."
+          },
+          "directionId": "waxing-crescent"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把两种当前可行做法的代价讲清，选一个愿意接受的范围。",
+            "en": "Clarify the costs of two workable approaches and choose an acceptable scope."
+          },
+          "directionId": "first-quarter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把已经愿意呈现的一小版整理好，不等到一切都完成。",
+            "en": "Gather a small version I want to present without waiting for everything."
+          },
+          "directionId": "full-moon"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "减少一项不愿继续的附加任务，让后续有更少负担。",
+            "en": "Reduce an added task I do not want so what follows has fewer burdens."
+          },
+          "directionId": "last-quarter"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_19",
+      "prompt": {
+        "zh": "看自己可决定的一段普通活动过程，你更想留意哪种部分？",
+        "en": "In an ordinary activity process you may choose, which part would you prefer to notice?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "哪一次取舍更符合当前条件，不把选择写成永远正确。",
+            "en": "Which tradeoff fits present conditions without making it permanently correct."
+          },
+          "directionId": "first-quarter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "哪一处局部改动让用法更合适，不追求全部重做。",
+            "en": "Which local change makes use fit without redoing everything."
+          },
+          "directionId": "waxing-gibbous"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "哪一条经验愿意分享，而且对方可以不听或不采纳。",
+            "en": "Which experience I want to share, with room for someone not to hear or use it."
+          },
+          "directionId": "waning-gibbous"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "哪段时间可以没有新产出，也不必马上解释。",
+            "en": "Which interval can have no new output or immediate explanation."
+          },
+          "directionId": "waning-crescent"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_20",
+      "prompt": {
+        "zh": "一份自选的小材料已经可用，你更愿意怎样接近结束？",
+        "en": "A small material you chose is already usable. How would you prefer to approach its ending?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "只改一处自己确实愿意改的细节，然后允许收尾。",
+            "en": "Change only a detail I actually want to revise, then allow an ending."
+          },
+          "directionId": "waxing-gibbous"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把愿意展示的范围说清，呈现这一版即可。",
+            "en": "State the scope I want to show and present this version."
+          },
+          "directionId": "full-moon"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "删掉一项非必需的额外要求，不再为它扩大材料。",
+            "en": "Drop a nonessential requirement rather than expand the material for it."
+          },
+          "directionId": "last-quarter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "给自己一点空白，想清这份材料此刻想服务什么。",
+            "en": "Leave space to consider what I want this material to serve now."
+          },
+          "directionId": "new-moon"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_21",
+      "prompt": {
+        "zh": "如果为一个普通小成果留一次自选动作，你更想做什么？",
+        "en": "Which chosen action would you prefer for an ordinary small outcome?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "按自己愿意的范围呈现它，也允许这就是结尾。",
+            "en": "Present it within my chosen scope and allow that to be its ending."
+          },
+          "directionId": "full-moon"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留一条愿意分享的经验，不要求自己成为指导者。",
+            "en": "Keep an experience to share willingly without becoming an adviser."
+          },
+          "directionId": "waning-gibbous"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "让下一段时间不必立即接新任务，暂时留空。",
+            "en": "Leave the next interval open without immediately taking on another task."
+          },
+          "directionId": "waning-crescent"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "只为自己愿意的小后续试一次，仍可随时改动。",
+            "en": "Try only a small follow-up I want, retaining room to change it."
+          },
+          "directionId": "waxing-crescent"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_22",
+      "prompt": {
+        "zh": "给一次普通尝试写下“以后可以怎样”，你更愿意写哪一项？",
+        "en": "Which note would you prefer about what could follow an ordinary attempt?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "这里有一条经验，愿意听的人再决定是否合用。",
+            "en": "Here is an experience for willing listeners to judge for themselves."
+          },
+          "directionId": "waning-gibbous"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "这里有一项可选负担，以后不必继续。",
+            "en": "Here is an optional burden that need not continue."
+          },
+          "directionId": "last-quarter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "这里有一处空白，可以重新想愿意在意什么。",
+            "en": "Here is some space to reconsider what I want to attend to."
+          },
+          "directionId": "new-moon"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "这里有两个可能，可以按当前条件明确取舍。",
+            "en": "Here are two possibilities for a tradeoff under present conditions."
+          },
+          "directionId": "first-quarter"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_23",
+      "prompt": {
+        "zh": "一段自己可安排的普通时间接近结束，你更想怎样保留边界？",
+        "en": "An ordinary period you may arrange is ending. How would you prefer to retain scope?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "减少一项不必承担的额外承诺，允许安排变小。",
+            "en": "Reduce an unnecessary extra commitment and allow a smaller arrangement."
+          },
+          "directionId": "last-quarter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "保留一个没有新目标或成果要求的安静间隔。",
+            "en": "Keep a quiet interval with no new goal or output requirement."
+          },
+          "directionId": "waning-crescent"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "若还想继续，只留一个小而可停止的尝试。",
+            "en": "If I want to continue, keep only one small stoppable attempt."
+          },
+          "directionId": "waxing-crescent"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "只调整当前用法的一点，不重开一整套安排。",
+            "en": "Adjust one part of current use without reopening a whole arrangement."
+          },
+          "directionId": "waxing-gibbous"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_24",
+      "prompt": {
+        "zh": "结束这组普通活动节奏选择，你更想给自己哪种余地？",
+        "en": "Ending these ordinary activity-pace choices, which room would you prefer to give yourself?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不急着解释自己或安排下一件事，保留一段间隔。",
+            "en": "Keep an interval without immediately explaining myself or scheduling another activity."
+          },
+          "directionId": "waning-crescent"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留空白重新考虑现在在意的一点，不要求立刻开始。",
+            "en": "Leave space to reconsider what matters now without an immediate start."
+          },
+          "directionId": "new-moon"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把两种可能放在当前条件里，作一次愿意接受的取舍。",
+            "en": "Place two possibilities in current conditions and accept one tradeoff."
+          },
+          "directionId": "first-quarter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把这次愿意呈现的部分收束好，允许到此结束。",
+            "en": "Gather the part I want to present and allow this occasion to end."
+          },
+          "directionId": "full-moon"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "new-moon",
+      "directionIds": [
+        "new-moon"
+      ],
+      "title": {
+        "zh": "新月意象：留白与自选意图",
+        "en": "New Moon Image: Space and Chosen Intention"
+      },
+      "headline": {
+        "zh": "一种当前活动节奏的编辑意象，不是真实月相、身体周期或能力结论。",
+        "en": "An editorial image for a current activity pace, not an actual phase, bodily cycle or ability verdict."
+      },
+      "summary": {
+        "zh": "以一张普通创作便条看留白与意图，含具体表达、相邻比较和反例；新月计数不证明出生月相、潜力、直觉或创业能力。",
+        "en": "Explore space and intention through an ordinary creative note, wording and comparisons. New Moon counts prove no birth phase, potential, intuition or entrepreneurial skill."
+      },
+      "scoreReading": {
+        "zh": "24题全部各选一项，对应节奏意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些普通做法中的相对选择，不是月球照明比例、能量、人格强弱、身体节律或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二月相或强造混合型。相差一次只是一项选择，不证明显著差异、某种品质消失或固定人生阶段。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有类型或科学分界。",
+        "en": "Choose one option for all 24 questions; each adds one to its pace image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative ordinary approaches, not lunar illumination, energy, personality levels, bodily rhythms or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second phase or mixed type. A one-choice gap proves neither significance, absent qualities nor a fixed life stage. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare types or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "新月测试结果：留白意图、例子与完整说明",
+          "en": "New Moon Quiz Result: Intention and Full Guide"
+        },
+        "description": {
+          "zh": "以一张普通创作便条看留白与意图，含具体表达、相邻比较和反例；新月计数不证明出生月相、潜力、直觉或创业能力。",
+          "en": "Explore New Moon as space and chosen intention through a personal-note example. Full comparisons without birth-phase, potential or intuition claims."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "天文背景与本版意象",
+            "en": "Astronomical context and this edition’s image"
+          },
+          "paragraphs": [
+            {
+              "zh": "天文学中的新月，是从地球看月球受光面主要背向我们时的月相。本版用“留白与自选意图”作新月的当代意象：先给自己一点空间，想想现在愿意在意什么。这个映射由本站选取，不是NASA人格分类，不证明月亮在影响你，也不测潜力、直觉或实际开始能力。",
+              "en": "At new Moon, the sunlit side largely faces away from us. This edition selects space and chosen intention as a contemporary image: allowing room to consider what matters now. The mapping is editorial rather than a NASA personality category, evidence that the Moon influences you or a measure of potential, intuition or an actual ability to begin something successfully."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "把计数放回当前条件",
+            "en": "Reading counts in current conditions"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择先留空白、重新写意图，或暂时不把想法变成完整计划。可以问：这件事确实是自己愿意的吗，现在想服务什么，什么暂不安排？较少选择可能因为方向已经清楚，不说明没想法、缺乏深度或不懂自己；题目没有评估真实反思效果。",
+              "en": "A highest count means you more often chose space, a restated intention or not immediately turning an idea into a complete plan. Is this actually something you want, what might it serve now and what can remain unplanned? Fewer choices may reflect an already clear direction rather than absent ideas, depth or self-understanding. Actual reflection outcomes are not evaluated."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你本来想给自己的阅读笔记做一个小封面，可以先留一张空白纸，只写“这次想方便以后找到喜欢的段落”。可以到此结束，也可以以后再选图案。不需要定目标、购买材料或做出作品；例子只给一项普通自选活动说明意图，不用来证明愿景、天命或任何心理变化。",
+              "en": "You already want a small cover for personal reading notes. Leave a blank sheet and write that this time you want to find favourite passages more easily. Stop there or choose a pattern later, without setting targets, buying materials or producing work. The example states an intention for an ordinary chosen activity rather than proving vision, destiny or any psychological change."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想先留一点空白，弄清这次愿意在意什么，现在还没有下一步安排。”如果涉及别人，另行确认实际需要和时间，不把自己的留白当作对方必须等待。自己也可以决定直接开始或结束；新月意象不要求始终内省、重新开局，或把所有事情都当新篇章。",
+              "en": "You might say, “I’d like some space to consider what matters this time; I have no next step arranged yet.” Separately confirm needs and timing with others rather than requiring them to wait. Begin directly or stop if preferred. The image demands neither perpetual introspection, repeated fresh starts nor treating everything as a new chapter in an obligatory personal journey."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他七种做法比较",
+            "en": "Comparisons with the other seven approaches"
+          },
+          "paragraphs": [
+            {
+              "zh": "新月偏留白与意图，渐盈月牙偏一个小尝试，上弦偏当前取舍，盈凸偏局部适配；这些做法可以同时出现。满月偏自选呈现、亏凸偏分享经验、下弦偏减少负担、渐亏月牙偏安静间隔。没有阶段高低或必须依次走完的路线，不把新月换成内向、荣格原型、MBTI或职业。",
+              "en": "New Moon concerns space and intention, Waxing Crescent a small trial, First Quarter a tradeoff and Waxing Gibbous a local adjustment; approaches may coexist. Full Moon concerns chosen presentation, Waning Gibbous shared experience, Last Quarter reduced burden and Waning Crescent an interval. There is no stage ranking or compulsory sequence, and New Moon converts into no introversion, Jungian, MBTI or career result."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与真实表现、身体情况",
+            "en": "Counterexamples, actual performance and bodily circumstances"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，尚未安排可能因为信息、许可或资源不足，而不是愿意留白；马上行动也可以很有思考。问卷不测拖延、决断、创造、能量、情绪或健康，不判断现在应该停还是开始。真实活动需要结合条件与权利，不由月相名称替代，更不能用计数解释睡眠、困难或人际经历。",
+              "en": "Having no arrangement may reflect missing information, permission or resources rather than a preference for space; immediate action can be considered too. Procrastination, decision making, creativity, energy, mood and health are not measured, nor is a verdict given on whether to pause or start. Actual conditions and rights still matter, with counts explaining no sleep, difficulty or interpersonal experience."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：为一件本来想做的低风险小事，写一句当前意图，再留一处暂不安排的空白。可以不写，也不必执行或分享。观察是否喜欢这种开头，不按是否完成给意志、潜力或光明程度打分，不等真实新月再做，也不把它变成人生改造任务。",
+              "en": "For an optional observation, give a low-stakes matter you already want one current intention and a space left unplanned. Skip writing, action or sharing if preferred. Notice whether this opening appeals without grading willpower, potential or brightness by completion, waiting for an actual new Moon or turning a small observation into a requirement to transform your life or identity."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题相对计数与全部最高并列",
+            "en": "24-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24题全部各选一项，对应节奏意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些普通做法中的相对选择，不是月球照明比例、能量、人格强弱、身体节律或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二月相或强造混合型。相差一次只是一项选择，不证明显著差异、某种品质消失或固定人生阶段。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有类型或科学分界。",
+              "en": "Choose one option for all 24 questions; each adds one to its pace image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative ordinary approaches, not lunar illumination, energy, personality levels, bodily rhythms or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second phase or mixed type. A one-choice gap proves neither significance, absent qualities nor a fixed life stage. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare types or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、来源与适用边界",
+            "en": "Original edition, sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的普通活动节奏偏好问卷，八个月相只作当代编辑意象，不是天文计算、真实出生或当前月相、月亮星座、配对、命运或统一人格分类。NASA资料只核对月相名称和受光背景，不为本站映射、计数或心理解释提供验证，也不表示NASA认可本测验。24题、选项、当代主题、解释、例子与规则均为原创，没有采用JobCannon8题、竞品结果正文／代码／算法、NASA图片、受保护原文或名人生月相指派。本版不测情绪、睡眠、健康、激素、体力或自然能量周期，不认证智力、创造力、韧性、道德、关系或职业，也不规定人生必须经历八阶段；不转换拖延频率、气质、DISC或MBTI，没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind ordinary activity-pace preference quiz. Eight phases serve as contemporary editorial images rather than astronomical calculations, actual birth or current phases, astrological Moon signs, compatibility, destiny or a unified personality taxonomy. NASA checks names and illumination context without validating this mapping, counts or psychology, or endorsing this quiz. All 24 items, options, contemporary themes, explanations, examples and rules are original. No JobCannon 8-item bank, competitor result text, code, algorithm, NASA image, protected wording or famous-person birth-phase assignment is used. This edition measures neither mood, sleep, health, hormones, stamina nor natural energy cycles. It certifies no intelligence, creativity, resilience, morality, relationship or career, imposes no eight-stage life path and converts into no procrastination frequency, Temperament, DISC or MBTI result. There is no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "waxing-crescent",
+      "directionIds": [
+        "waxing-crescent"
+      ],
+      "title": {
+        "zh": "渐盈月牙意象：微小可改尝试",
+        "en": "Waxing Crescent Image: A Small Revisable Trial"
+      },
+      "headline": {
+        "zh": "一种当前活动节奏的编辑意象，不是真实月相、身体周期或能力结论。",
+        "en": "An editorial image for a current activity pace, not an actual phase, bodily cycle or ability verdict."
+      },
+      "summary": {
+        "zh": "通过一张小卡的试做看可修改的尝试，含表达、比较和停止空间；不认证成长心态、毅力、生产力或真实月相能量。",
+        "en": "Explore a revisable trial through a small card, wording and room to stop. The guide certifies no growth mindset, persistence, productivity or lunar energy."
+      },
+      "scoreReading": {
+        "zh": "24题全部各选一项，对应节奏意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些普通做法中的相对选择，不是月球照明比例、能量、人格强弱、身体节律或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二月相或强造混合型。相差一次只是一项选择，不证明显著差异、某种品质消失或固定人生阶段。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有类型或科学分界。",
+        "en": "Choose one option for all 24 questions; each adds one to its pace image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative ordinary approaches, not lunar illumination, energy, personality levels, bodily rhythms or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second phase or mixed type. A one-choice gap proves neither significance, absent qualities nor a fixed life stage. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare types or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "渐盈月牙测试结果：微小尝试与完整说明",
+          "en": "Waxing Crescent Quiz Result: Trials and Full Guide"
+        },
+        "description": {
+          "zh": "通过一张小卡的试做看可修改的尝试，含表达、比较和停止空间；不认证成长心态、毅力、生产力或真实月相能量。",
+          "en": "Read Waxing Crescent as a small revisable trial, with a card example and comparisons. No growth mindset, persistence or lunar energy is certified."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "天文背景与本版意象",
+            "en": "Astronomical context and this edition’s image"
+          },
+          "paragraphs": [
+            {
+              "zh": "渐盈月牙是新月后从地球能看到逐渐增多的一小部分受光面。本版借其作“微小可改尝试”的当代意象：愿意只试一小段，再决定是否继续。它不测自然成长周期、毅力或成长心态，也不把天文背景当心理验证；能试、不能试或不想试都需要放回具体条件。",
+              "en": "A waxing crescent shows a growing small portion of the illuminated side after new Moon. This edition uses it for a small revisable trial: trying a little before deciding whether to continue. It measures neither a natural growth cycle, persistence nor growth mindset, and astronomy supplies no psychological validation. Whether an attempt is possible or wanted depends on actual conditions."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "把计数放回当前条件",
+            "en": "Reading counts in current conditions"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择一个低风险小样、有限步骤或保留退出余地的后续。可以问：多小才符合自己愿意的范围，哪些条件可改，怎样知道可以停？较少选择可能因为不需要试或不方便，不说明懒惰、缺少动力或不能成长；原始次数没有观察实际持续和完成。",
+              "en": "A highest count means you more often chose a low-stakes sample, limited step or follow-up with an exit. How small is within your willing scope, what can change and how can it stop? Fewer choices may reflect no need or opportunity rather than laziness, low motivation or inability to grow. Actual continuation and completion are not observed in the counts."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你已经想做一张普通小卡，可以先只在废纸上放一句自编短话和一个方框，看是否愿意继续。可以改字、换图或不再做，不需要把小样变成一整套卡片。它是一次具体可调整的尝试，不证明会坚持、产出更好，或与真实月球能量同步。",
+              "en": "You already want to make an ordinary small card. Put a sentence of your own and one square on scrap paper, then decide whether to continue. Change words, change the shape or stop without expanding it into a set. This is one adjustable attempt rather than proof of persistence, better output or synchronisation with energy from the actual Moon."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我只想先试这一小处，之后还可以改，也可以到此结束。”若是共同活动，先谈清试做不等于长期职责。别人不必按同样节奏，自己也不需要因为选中渐盈月牙就不断推进；尝试可以服务兴趣，不用成为保证成长、证明乐观或提升生产力的任务。",
+              "en": "You could say, “I only want to try this small part; it can change or end here.” In a joint activity, clarify that a trial is no continuing duty. Others may use another pace, and the image creates no obligation to keep progressing. An attempt may serve interest without becoming a task to guarantee growth, demonstrate optimism or increase productivity."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他七种做法比较",
+            "en": "Comparisons with the other seven approaches"
+          },
+          "paragraphs": [
+            {
+              "zh": "渐盈月牙偏小试法，新月偏留白，上弦偏取舍，盈凸偏已有做法的一处调整。满月呈现、亏凸分享、下弦减负、渐亏留间隔，也都可以在同一次活动中出现。它们不是成长等级、能力链或必经阶段，不把渐盈次数换成拖延频率、气质、DISC、MBTI或职业。",
+              "en": "Waxing Crescent concerns a small trial, New Moon space, First Quarter a tradeoff and Waxing Gibbous adjusting an existing approach. Presentation, sharing, reduced burden and an interval can all fit the same activity too. These are neither growth levels, a chain of abilities nor required stages. Counts convert into no procrastination frequency, Temperament, DISC, MBTI or occupational conclusion through a similar word."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与真实表现、身体情况",
+            "en": "Counterexamples, actual performance and bodily circumstances"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，小步尝试可能由时间、材料或权限限制，不一定是偏好；一次做完也可以保持灵活。问卷不测执行、学习速度、纪律、韧性或风险判断，不保证尝试有效。需要什么做法仍看实际条件，不能因月相标签催促自己或别人继续，更不能把停下解释成成长失败。",
+              "en": "A small trial may follow time, material or permission constraints rather than preference; doing something at once can still be flexible. Execution, learning speed, discipline, resilience and risk judgement are not tested, and effectiveness is not guaranteed. Actual conditions decide what fits rather than a phase label pressuring anyone to continue or making a decision to stop a failure of growth."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：对一件自己原本愿意试的低风险事，写一处最小可试部分、一项可改条件和一个停止点。可以只写不做，也可以跳过。观察是否喜欢这种试法，不记录成长分数、完成率或月亮影响；不需要等某个天象，也不把结果当作长期坚持的承诺。",
+              "en": "If useful, take a low-stakes matter you already want to try and note a minimal part, a revisable condition and a stopping point. Write without acting or skip it entirely. Notice whether the approach appeals without tracking growth scores, completion rates or lunar influence, waiting for an astronomical event or making the result a promise of persistence in future activities."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题相对计数与全部最高并列",
+            "en": "24-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24题全部各选一项，对应节奏意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些普通做法中的相对选择，不是月球照明比例、能量、人格强弱、身体节律或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二月相或强造混合型。相差一次只是一项选择，不证明显著差异、某种品质消失或固定人生阶段。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有类型或科学分界。",
+              "en": "Choose one option for all 24 questions; each adds one to its pace image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative ordinary approaches, not lunar illumination, energy, personality levels, bodily rhythms or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second phase or mixed type. A one-choice gap proves neither significance, absent qualities nor a fixed life stage. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare types or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、来源与适用边界",
+            "en": "Original edition, sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的普通活动节奏偏好问卷，八个月相只作当代编辑意象，不是天文计算、真实出生或当前月相、月亮星座、配对、命运或统一人格分类。NASA资料只核对月相名称和受光背景，不为本站映射、计数或心理解释提供验证，也不表示NASA认可本测验。24题、选项、当代主题、解释、例子与规则均为原创，没有采用JobCannon8题、竞品结果正文／代码／算法、NASA图片、受保护原文或名人生月相指派。本版不测情绪、睡眠、健康、激素、体力或自然能量周期，不认证智力、创造力、韧性、道德、关系或职业，也不规定人生必须经历八阶段；不转换拖延频率、气质、DISC或MBTI，没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind ordinary activity-pace preference quiz. Eight phases serve as contemporary editorial images rather than astronomical calculations, actual birth or current phases, astrological Moon signs, compatibility, destiny or a unified personality taxonomy. NASA checks names and illumination context without validating this mapping, counts or psychology, or endorsing this quiz. All 24 items, options, contemporary themes, explanations, examples and rules are original. No JobCannon 8-item bank, competitor result text, code, algorithm, NASA image, protected wording or famous-person birth-phase assignment is used. This edition measures neither mood, sleep, health, hormones, stamina nor natural energy cycles. It certifies no intelligence, creativity, resilience, morality, relationship or career, imposes no eight-stage life path and converts into no procrastination frequency, Temperament, DISC or MBTI result. There is no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "first-quarter",
+      "directionIds": [
+        "first-quarter"
+      ],
+      "title": {
+        "zh": "上弦月意象：明确当前取舍",
+        "en": "First Quarter Image: A Present Tradeoff"
+      },
+      "headline": {
+        "zh": "一种当前活动节奏的编辑意象，不是真实月相、身体周期或能力结论。",
+        "en": "An editorial image for a current activity pace, not an actual phase, bodily cycle or ability verdict."
+      },
+      "summary": {
+        "zh": "用普通小卡的两种做法比较当前取舍，含表达、相邻比较与反例；不认证勇气、决断、危机处理、人格或真实月相。",
+        "en": "Compare a present tradeoff between two ordinary card approaches, with wording and counterexamples. No courage, decisiveness, crisis skill or actual phase is certified."
+      },
+      "scoreReading": {
+        "zh": "24题全部各选一项，对应节奏意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些普通做法中的相对选择，不是月球照明比例、能量、人格强弱、身体节律或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二月相或强造混合型。相差一次只是一项选择，不证明显著差异、某种品质消失或固定人生阶段。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有类型或科学分界。",
+        "en": "Choose one option for all 24 questions; each adds one to its pace image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative ordinary approaches, not lunar illumination, energy, personality levels, bodily rhythms or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second phase or mixed type. A one-choice gap proves neither significance, absent qualities nor a fixed life stage. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare types or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "上弦月测试结果：当前取舍、例子与完整说明",
+          "en": "First Quarter Quiz Result: Tradeoffs and Full Guide"
+        },
+        "description": {
+          "zh": "用普通小卡的两种做法比较当前取舍，含表达、相邻比较与反例；不认证勇气、决断、危机处理、人格或真实月相。",
+          "en": "Explore First Quarter as a present tradeoff through two ordinary approaches. Full examples without courage, crisis-management or actual-phase claims."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "天文背景与本版意象",
+            "en": "Astronomical context and this edition’s image"
+          },
+          "paragraphs": [
+            {
+              "zh": "上弦是月相周期约四分之一处，从地球看呈半圆受光形状。本版选“明确当前取舍”作当代意象：把两种普通可能放进现有条件，说明这次愿意选什么。它不测勇气、领导或关键决策能力，也不是说你处于真实上弦或人生的某个位置；天文与本站映射分开。",
+              "en": "First quarter is about a quarter through the phase cycle and looks half lit. This edition selects a present tradeoff as its contemporary image: placing ordinary possibilities in current conditions and stating a willing choice. It tests neither courage, leadership nor critical decision skill, and locates you in no actual phase or life stage. Astronomy and this editorial mapping remain separate."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "把计数放回当前条件",
+            "en": "Reading counts in current conditions"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选把两种做法的代价讲清、接受有限范围，或不要求同时兼得。可以问：现在有哪些可行条件，哪项是自己愿意承担的，哪些仍可改？较少选择可能因为无需取舍或需要更多信息，不说明软弱、犹豫或不能判断；次数没有实际决策结果。",
+              "en": "A highest count means you more often chose stated costs, a limited scope or not retaining both approaches. What is workable now, what do you willingly accept and what remains revisable? Fewer choices may reflect no need to trade off or a need for information rather than weakness, indecision or poor judgement. Counts contain no observed outcome of an actual decision."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你已经想给自用笔记做一张小卡，只有一小段自由时间，可以选只写标题，或只画一个简单图形。写下这次愿意保留哪一项、暂时不做哪一项即可，不必证明选择最好。例子不涉及金钱、健康或重大生活决定，也不把取舍变成不可修改的承诺。",
+              "en": "You already want a small card for personal notes and have a little free time. Choose only a heading or only a simple shape, noting what you retain and leave out this time without proving it best. The example concerns neither money, health nor a major life decision, and a tradeoff does not become a commitment that cannot later change."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“按现在这些条件，我这次愿意先留这一项，另一项暂不做，之后还可以重谈。”若涉及别人，对方有不同需要时另行确认；清楚选择不等于有权替别人决定。自己也可以等信息或退出，不必因为上弦意象去挑战、争论、承担风险或成为领导者。",
+              "en": "You might say, “Under these conditions I want to keep this part and leave the other for now; we can reconsider later.” Confirm different needs when others are involved rather than deciding for them. Wait for information or withdraw if preferred. A First Quarter image demands neither challenge, argument, risk taking nor leadership as a way to prove the result."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他七种做法比较",
+            "en": "Comparisons with the other seven approaches"
+          },
+          "paragraphs": [
+            {
+              "zh": "上弦偏明确取舍，渐盈月牙偏小试法，盈凸偏局部适配，新月偏留白；可以先留白再取舍，也可以不试。满月呈现、亏凸分享、下弦减负、渐亏留间隔都各有位置。它们不是果断到犹豫的评分，不换算道德、气质、DISC、MBTI或某个职业，也不要求按月相顺序行动。",
+              "en": "First Quarter concerns a tradeoff, Waxing Crescent a trial, Waxing Gibbous a local adjustment and New Moon space; choose space before a tradeoff or make no trial. Presentation, sharing, reduced burden and an interval have their places too. These are no decisiveness scale, morality, Temperament, DISC, MBTI or career result and impose no requirement to act in lunar order."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与真实表现、身体情况",
+            "en": "Counterexamples, actual performance and bodily circumstances"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，快速作选择可能因为只有一个可行选项，而不是偏好；迟些决定也可能符合实际需要。问卷不检验风险评估、冲突处理、诚实、韧性或解决问题，不认证危机管理。真实高风险事情仍需合适证据与条件，不由上弦标签指导，也不把受到外部限制解释成个人不够果断。",
+              "en": "A quick choice may reflect only one workable option rather than preference; a later decision may fit actual needs. Risk assessment, conflict handling, honesty, resilience and problem solving are not tested, and crisis management is not certified. High-stakes matters still require appropriate evidence and conditions rather than a phase label, without external constraints becoming a personal failure of decisiveness."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：选一件原本愿意决定的普通低风险小事，写两个可行做法、当前条件与愿意暂时放下一项的理由。可以不作选择，或等信息再看。观察是否喜欢这样比较，不按速度和结果给判断力打分，不等真实上弦，也不借标签替他人作决定。",
+              "en": "If useful, take an ordinary low-stakes matter you already want to consider. Note two workable approaches, current conditions and a reason for temporarily leaving one out. Make no choice or wait for information if preferred. Notice interest in comparison without grading judgement by speed or outcome, waiting for an actual first quarter or using a label to decide for someone else."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题相对计数与全部最高并列",
+            "en": "24-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24题全部各选一项，对应节奏意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些普通做法中的相对选择，不是月球照明比例、能量、人格强弱、身体节律或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二月相或强造混合型。相差一次只是一项选择，不证明显著差异、某种品质消失或固定人生阶段。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有类型或科学分界。",
+              "en": "Choose one option for all 24 questions; each adds one to its pace image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative ordinary approaches, not lunar illumination, energy, personality levels, bodily rhythms or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second phase or mixed type. A one-choice gap proves neither significance, absent qualities nor a fixed life stage. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare types or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、来源与适用边界",
+            "en": "Original edition, sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的普通活动节奏偏好问卷，八个月相只作当代编辑意象，不是天文计算、真实出生或当前月相、月亮星座、配对、命运或统一人格分类。NASA资料只核对月相名称和受光背景，不为本站映射、计数或心理解释提供验证，也不表示NASA认可本测验。24题、选项、当代主题、解释、例子与规则均为原创，没有采用JobCannon8题、竞品结果正文／代码／算法、NASA图片、受保护原文或名人生月相指派。本版不测情绪、睡眠、健康、激素、体力或自然能量周期，不认证智力、创造力、韧性、道德、关系或职业，也不规定人生必须经历八阶段；不转换拖延频率、气质、DISC或MBTI，没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind ordinary activity-pace preference quiz. Eight phases serve as contemporary editorial images rather than astronomical calculations, actual birth or current phases, astrological Moon signs, compatibility, destiny or a unified personality taxonomy. NASA checks names and illumination context without validating this mapping, counts or psychology, or endorsing this quiz. All 24 items, options, contemporary themes, explanations, examples and rules are original. No JobCannon 8-item bank, competitor result text, code, algorithm, NASA image, protected wording or famous-person birth-phase assignment is used. This edition measures neither mood, sleep, health, hormones, stamina nor natural energy cycles. It certifies no intelligence, creativity, resilience, morality, relationship or career, imposes no eight-stage life path and converts into no procrastination frequency, Temperament, DISC or MBTI result. There is no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "waxing-gibbous",
+      "directionIds": [
+        "waxing-gibbous"
+      ],
+      "title": {
+        "zh": "盈凸月意象：让一处更合用",
+        "en": "Waxing Gibbous Image: One Adjustment for Fit"
+      },
+      "headline": {
+        "zh": "一种当前活动节奏的编辑意象，不是真实月相、身体周期或能力结论。",
+        "en": "An editorial image for a current activity pace, not an actual phase, bodily cycle or ability verdict."
+      },
+      "summary": {
+        "zh": "从一段普通说明的一处调整看当前适配，含表达、比较与停止点；不认证完美主义、精细能力、质量、准备程度或月亮影响。",
+        "en": "Explore fit through one adjustment to an ordinary explanation, wording and a stopping point. No perfectionism, precision, quality or lunar influence is certified."
+      },
+      "scoreReading": {
+        "zh": "24题全部各选一项，对应节奏意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些普通做法中的相对选择，不是月球照明比例、能量、人格强弱、身体节律或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二月相或强造混合型。相差一次只是一项选择，不证明显著差异、某种品质消失或固定人生阶段。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有类型或科学分界。",
+        "en": "Choose one option for all 24 questions; each adds one to its pace image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative ordinary approaches, not lunar illumination, energy, personality levels, bodily rhythms or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second phase or mixed type. A one-choice gap proves neither significance, absent qualities nor a fixed life stage. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare types or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "盈凸月测试结果：局部适配、例子与完整说明",
+          "en": "Waxing Gibbous Quiz Result: Fit and Full Guide"
+        },
+        "description": {
+          "zh": "从一段普通说明的一处调整看当前适配，含表达、比较与停止点；不认证完美主义、精细能力、质量、准备程度或月亮影响。",
+          "en": "Read Waxing Gibbous through one local adjustment, a practical example and a stopping point. No perfectionism, precision or quality skill is certified."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "天文背景与本版意象",
+            "en": "Astronomical context and this edition’s image"
+          },
+          "paragraphs": [
+            {
+              "zh": "盈凸月阶段，从地球能看到的月球受光部分多于半圆并继续增加。本版用“让一处更合用”作当代意象：对已有做法，愿意改一个具体细节以回应这次需要。它不说你天然追求完美、擅长质量检查或已经准备好，更不认证真实月相能量或心理阶段。",
+              "en": "A waxing gibbous shows more than half the visible face lit, still increasing. This edition selects one adjustment for fit: changing a concrete detail in an existing approach for this occasion’s need. It establishes neither innate perfectionism, quality-assurance skill nor readiness, and certifies no actual lunar energy or psychological stage through an astronomical name or the relative counts in this quiz."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "把计数放回当前条件",
+            "en": "Reading counts in current conditions"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择局部改动、让已有安排更合用，或改完这一处即可停下。可以问：实际想回应哪项需要，改多少合适，什么已经够用？较少选择可能因为现状就合适，不说明粗糙、不负责或看不见细节；问卷没有观察修改后的质量、效果和别人感受。",
+              "en": "A highest count means you more often chose a local revision, a better fit for an existing arrangement or stopping after one change. Which need are you addressing, how much change fits and what is already sufficient? Fewer choices may mean the present form works rather than carelessness, irresponsibility or poor attention. Revised quality, effects and others’ feelings are not observed."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你为一次自愿小聚写了几句普通说明，想把时间和地点分成两行，让读者更容易找到。可以只改这处，再确认是否清楚；也可以保留原样。不必重新设计活动、让所有人满意或把文案磨到完美；例子关注一次具体适配，不证明编辑天赋和实际理解效果。",
+              "en": "You wrote an ordinary note for a voluntary gathering and want time and place on separate lines so a reader can find them. Make only that change and check clarity, or keep the original. There is no need to redesign the gathering, satisfy everyone or perfect the wording. The example concerns one fit adjustment rather than editing talent or verified comprehension."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我只想把这一处改得更合这次需要，其他部分已经够用，改完就停。”如果涉及共同材料，先确认谁愿意改什么，避免把自己的标准强加给别人。自己可以不继续打磨，也不因盈凸意象成为无限校对者、准备者或负责保证全部质量的人。",
+              "en": "You could say, “I want to change only this part for the current need; the rest is sufficient, and then I’ll stop.” With shared material, confirm willing revisions rather than impose your standards. Leave further polishing if preferred. The image creates no role of unlimited proofreader, preparer or person responsible for guaranteeing quality across everything others do or understand."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他七种做法比较",
+            "en": "Comparisons with the other seven approaches"
+          },
+          "paragraphs": [
+            {
+              "zh": "盈凸偏已有做法的一处适配，渐盈月牙偏小试法，上弦偏取舍，新月偏意图；同一次修改也可能包含这几种做法。满月呈现、亏凸分享、下弦减负、渐亏留间隔都不比打磨低。八种不是能力分工或完美程度，不换算拖延完美型、MBTI、职业或真实月相周期。",
+              "en": "Waxing Gibbous concerns fitting an existing approach, Waxing Crescent a trial, First Quarter a tradeoff and New Moon an intention; one revision may involve several. Presentation, sharing, reduced burden and an interval rank no lower than polishing. These are neither divisions of ability nor levels of perfection, and convert into no perfectionist-delay pattern, MBTI, occupation or actual lunar cycle."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与真实表现、身体情况",
+            "en": "Counterexamples, actual performance and bodily circumstances"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，反复修改可能因为要求变化、资源不足或外界审查，而不是个人愿意；不修改也可以是负责任选择。问卷不测精细、审美、准备、指导别人或完成能力，不保证一处调整有效。是否继续仍看具体条件，不能因盈凸标签扩大工作、延迟结束，或让他人承担自己的标准。",
+              "en": "Repeated revisions may follow changing requirements, limited resources or external review rather than preference; no revision can be responsible too. Precision, aesthetics, readiness, coaching and completion are not tested, and effectiveness is not guaranteed. Decide whether to continue through actual conditions rather than a phase label expanding work, delaying an ending or requiring others to meet a personal standard."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：对一份自己原本愿意调整的普通材料，写一项实际需要、一处局部变化与一个停止点。可以只比较，不真正改动。观察是否喜欢这次适配，不按改得多、评价高或反复次数给质量能力打分，不等特定月相，也不把修改当改善人格的义务。",
+              "en": "For an optional observation, take ordinary material you already want to reconsider and note a need, a local change and a stopping point. Compare without revising if preferred. Notice interest in this adjustment without grading quality ability by revision quantity, praise or repetitions, waiting for a particular phase or turning a small change into an obligation to improve your personality."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题相对计数与全部最高并列",
+            "en": "24-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24题全部各选一项，对应节奏意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些普通做法中的相对选择，不是月球照明比例、能量、人格强弱、身体节律或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二月相或强造混合型。相差一次只是一项选择，不证明显著差异、某种品质消失或固定人生阶段。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有类型或科学分界。",
+              "en": "Choose one option for all 24 questions; each adds one to its pace image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative ordinary approaches, not lunar illumination, energy, personality levels, bodily rhythms or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second phase or mixed type. A one-choice gap proves neither significance, absent qualities nor a fixed life stage. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare types or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、来源与适用边界",
+            "en": "Original edition, sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的普通活动节奏偏好问卷，八个月相只作当代编辑意象，不是天文计算、真实出生或当前月相、月亮星座、配对、命运或统一人格分类。NASA资料只核对月相名称和受光背景，不为本站映射、计数或心理解释提供验证，也不表示NASA认可本测验。24题、选项、当代主题、解释、例子与规则均为原创，没有采用JobCannon8题、竞品结果正文／代码／算法、NASA图片、受保护原文或名人生月相指派。本版不测情绪、睡眠、健康、激素、体力或自然能量周期，不认证智力、创造力、韧性、道德、关系或职业，也不规定人生必须经历八阶段；不转换拖延频率、气质、DISC或MBTI，没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind ordinary activity-pace preference quiz. Eight phases serve as contemporary editorial images rather than astronomical calculations, actual birth or current phases, astrological Moon signs, compatibility, destiny or a unified personality taxonomy. NASA checks names and illumination context without validating this mapping, counts or psychology, or endorsing this quiz. All 24 items, options, contemporary themes, explanations, examples and rules are original. No JobCannon 8-item bank, competitor result text, code, algorithm, NASA image, protected wording or famous-person birth-phase assignment is used. This edition measures neither mood, sleep, health, hormones, stamina nor natural energy cycles. It certifies no intelligence, creativity, resilience, morality, relationship or career, imposes no eight-stage life path and converts into no procrastination frequency, Temperament, DISC or MBTI result. There is no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "full-moon",
+      "directionIds": [
+        "full-moon"
+      ],
+      "title": {
+        "zh": "满月意象：自选呈现与收束",
+        "en": "Full Moon Image: Chosen Presentation and Closure"
+      },
+      "headline": {
+        "zh": "一种当前活动节奏的编辑意象，不是真实月相、身体周期或能力结论。",
+        "en": "An editorial image for a current activity pace, not an actual phase, bodily cycle or ability verdict."
+      },
+      "summary": {
+        "zh": "用一份自用笔记的小版本看呈现与收束，含表达、比较和反例；不认证能量峰值、影响力、完成能力、外向或真实满月。",
+        "en": "Explore presentation and closure through a small personal-note version, wording and comparisons. No peak energy, influence, completion skill or actual full Moon is certified."
+      },
+      "scoreReading": {
+        "zh": "24题全部各选一项，对应节奏意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些普通做法中的相对选择，不是月球照明比例、能量、人格强弱、身体节律或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二月相或强造混合型。相差一次只是一项选择，不证明显著差异、某种品质消失或固定人生阶段。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有类型或科学分界。",
+        "en": "Choose one option for all 24 questions; each adds one to its pace image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative ordinary approaches, not lunar illumination, energy, personality levels, bodily rhythms or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second phase or mixed type. A one-choice gap proves neither significance, absent qualities nor a fixed life stage. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare types or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "满月测试结果：呈现收束、例子与完整说明",
+          "en": "Full Moon Quiz Result: Closure and Full Guide"
+        },
+        "description": {
+          "zh": "用一份自用笔记的小版本看呈现与收束，含表达、比较和反例；不认证能量峰值、影响力、完成能力、外向或真实满月。",
+          "en": "Explore Full Moon as chosen presentation and closure through a small notes version. Full comparisons without peak energy, influence or completion claims."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "天文背景与本版意象",
+            "en": "Astronomical context and this edition’s image"
+          },
+          "paragraphs": [
+            {
+              "zh": "满月时，从地球看能见到月球面向我们的受光部分接近完整呈现。本版选“自选呈现与收束”作当代意象：把愿意展示的一小部分整理好，允许这就是这次结尾。它不说你能量达到峰值、更有影响力或擅长完成，也不要求公开私人内容；名称不确定真实满月或心理状态。",
+              "en": "At full Moon, the illuminated Earth-facing side appears nearly complete. This edition selects chosen presentation and closure: gathering a part you want to show and allowing it to be this occasion’s ending. It establishes neither peak energy, influence nor completion skill, and requires no private disclosure. The name determines no actual full Moon or mental state through your questionnaire choices."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "把计数放回当前条件",
+            "en": "Reading counts in current conditions"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择清楚呈现一个足够的小版本、说明范围，或让活动告一段落。可以问：愿意让谁看见哪一部分，什么不展示，怎样知道这次可以结束？较少选择可能因为需要隐私或尚不合时，不说明没能力完成、没有价值或不自信；问卷没有观察真实成品。",
+              "en": "A highest count means you more often chose a sufficient small version, a stated scope or an ending. Who may see which part, what remains unshared and when can this occasion end? Fewer choices may reflect privacy or unsuitable timing rather than poor completion, little worth or low confidence. No finished work or audience response is observed by this questionnaire."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你给自己的阅读笔记整理一张能看懂的目录页，决定这次只保留五个条目，愿意时给朋友看。其他笔记不必一起公开，目录也不必完善成系统。这个小版本可以到此结束；示例关注自选呈现的范围，不证明别人会欣赏、理解，或你擅长收尾。",
+              "en": "You arrange a readable contents page for personal reading notes, keeping five entries and showing a friend only if you want. Other notes can remain private, and the page need not become a complete system. This small version may end here. The example concerns chosen scope rather than proving that others will appreciate or understand it, or that you finish well."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我这次愿意呈现的就是这一小版，其余不公开，也先不继续扩展。”别人可以不感兴趣，自己也可以撤回或改用私人留存。满月意象不要求站上舞台、获得认可、替所有人讲清事实，或为了维持光亮形象不断展示和产出。",
+              "en": "You might say, “This small version is what I want to present now; the rest stays private and I am not expanding it.” Others may have no interest, and you may withdraw it or retain it privately. The image requires neither a stage, approval, explaining truth for everyone nor continued display and output to sustain an image of brightness or success."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他七种做法比较",
+            "en": "Comparisons with the other seven approaches"
+          },
+          "paragraphs": [
+            {
+              "zh": "满月偏呈现收束，盈凸偏局部适配，亏凸偏自愿分享经验，三者可以相接但不必按顺序。新月留白、渐盈小试、上弦取舍、下弦减负、渐亏留间隔也都可采用。没有光亮或价值高低，不把呈现次数换成外向、领导、MBTI、职业或所谓最强阶段。",
+              "en": "Full Moon concerns presentation and closure, Waxing Gibbous a local adjustment and Waning Gibbous sharing an experience; they may connect without a required order. Space, a trial, a tradeoff, reduced burden and an interval remain available too. There is no brightness or worth ranking, and counts convert into no extraversion, leadership, MBTI, career or supposedly most powerful life stage."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与真实表现、身体情况",
+            "en": "Counterexamples, actual performance and bodily circumstances"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，公开版本可能来自课程或职责要求，而不是偏好；选择隐藏也可能是合适边界。问卷不测表现、沟通、洞察、情绪或完成质量，不保证展示带来认可，也不解释之后是否疲惫。真实需求与身体情况要另行考虑，不能用满月标签要求高峰表现，或把休息当作光亮下降。",
+              "en": "A public version may follow a course or duty rather than preference, while keeping it hidden can be appropriate. Performance, communication, insight, mood and completion quality are not tested; recognition is not guaranteed and later tiredness is not explained. Consider actual needs and bodily circumstances separately rather than a Full Moon label demanding peak performance or making rest a decline in brightness."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：为一份本来愿意整理的普通材料，写一个足够的小版本、一项愿意展示的范围和一句结束语。可以不分享，也可以只写想法。观察是否喜欢这次收束，不按点赞、完成量或他人反应验证能量、价值和能力，不等真实满月再行动。",
+              "en": "For an optional observation, take ordinary material you already want to organise and note a sufficient small version, a scope of visibility and an ending sentence. Share nothing or only consider it if preferred. Notice whether closure appeals without using likes, quantities completed or reactions to verify energy, worth or ability, and without waiting for the actual Moon to become full."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题相对计数与全部最高并列",
+            "en": "24-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24题全部各选一项，对应节奏意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些普通做法中的相对选择，不是月球照明比例、能量、人格强弱、身体节律或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二月相或强造混合型。相差一次只是一项选择，不证明显著差异、某种品质消失或固定人生阶段。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有类型或科学分界。",
+              "en": "Choose one option for all 24 questions; each adds one to its pace image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative ordinary approaches, not lunar illumination, energy, personality levels, bodily rhythms or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second phase or mixed type. A one-choice gap proves neither significance, absent qualities nor a fixed life stage. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare types or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、来源与适用边界",
+            "en": "Original edition, sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的普通活动节奏偏好问卷，八个月相只作当代编辑意象，不是天文计算、真实出生或当前月相、月亮星座、配对、命运或统一人格分类。NASA资料只核对月相名称和受光背景，不为本站映射、计数或心理解释提供验证，也不表示NASA认可本测验。24题、选项、当代主题、解释、例子与规则均为原创，没有采用JobCannon8题、竞品结果正文／代码／算法、NASA图片、受保护原文或名人生月相指派。本版不测情绪、睡眠、健康、激素、体力或自然能量周期，不认证智力、创造力、韧性、道德、关系或职业，也不规定人生必须经历八阶段；不转换拖延频率、气质、DISC或MBTI，没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind ordinary activity-pace preference quiz. Eight phases serve as contemporary editorial images rather than astronomical calculations, actual birth or current phases, astrological Moon signs, compatibility, destiny or a unified personality taxonomy. NASA checks names and illumination context without validating this mapping, counts or psychology, or endorsing this quiz. All 24 items, options, contemporary themes, explanations, examples and rules are original. No JobCannon 8-item bank, competitor result text, code, algorithm, NASA image, protected wording or famous-person birth-phase assignment is used. This edition measures neither mood, sleep, health, hormones, stamina nor natural energy cycles. It certifies no intelligence, creativity, resilience, morality, relationship or career, imposes no eight-stage life path and converts into no procrastination frequency, Temperament, DISC or MBTI result. There is no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "waning-gibbous",
+      "directionIds": [
+        "waning-gibbous"
+      ],
+      "title": {
+        "zh": "亏凸月意象：分享可用经验",
+        "en": "Waning Gibbous Image: Willingly Shared Experience"
+      },
+      "headline": {
+        "zh": "一种当前活动节奏的编辑意象，不是真实月相、身体周期或能力结论。",
+        "en": "An editorial image for a current activity pace, not an actual phase, bodily cycle or ability verdict."
+      },
+      "summary": {
+        "zh": "从一条普通使用经验看自愿分享，保留对方不听或不采用的空间；完整比较不认证智慧、感恩、指导能力或人生传承。",
+        "en": "Explore voluntary sharing through an ordinary use experience, with room for others to decline. Full comparisons establish no wisdom, gratitude or mentoring skill."
+      },
+      "scoreReading": {
+        "zh": "24题全部各选一项，对应节奏意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些普通做法中的相对选择，不是月球照明比例、能量、人格强弱、身体节律或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二月相或强造混合型。相差一次只是一项选择，不证明显著差异、某种品质消失或固定人生阶段。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有类型或科学分界。",
+        "en": "Choose one option for all 24 questions; each adds one to its pace image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative ordinary approaches, not lunar illumination, energy, personality levels, bodily rhythms or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second phase or mixed type. A one-choice gap proves neither significance, absent qualities nor a fixed life stage. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare types or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "亏凸月测试结果：分享经验、例子与完整说明",
+          "en": "Waning Gibbous Quiz Result: Sharing and Full Guide"
+        },
+        "description": {
+          "zh": "从一条普通使用经验看自愿分享，保留对方不听或不采用的空间；完整比较不认证智慧、感恩、指导能力或人生传承。",
+          "en": "Read Waning Gibbous through willingly shared experience and room for others to decline. Full guidance without wisdom, gratitude or mentoring credentials."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "天文背景与本版意象",
+            "en": "Astronomical context and this edition’s image"
+          },
+          "paragraphs": [
+            {
+              "zh": "亏凸月是满月后，从地球看受光部分仍大于半圆而逐渐减少的月相。本版用“分享可用经验”作当代意象：愿意讲一条自己的经历，同时让对方判断是否合用。它不认证智慧、耐心、感恩或导师身份，也不要求分享、不停帮助或承担传承；天文背景不验证这些心理解释。",
+              "en": "A waning gibbous follows full Moon with more than half appearing lit, decreasing. This edition uses willingly shared experience as its contemporary image: offering an experience while another person judges its fit. It certifies neither wisdom, patience, gratitude nor a mentor identity, and requires no sharing, continual help or legacy duty. Astronomical context validates no psychological interpretation of these choices."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "把计数放回当前条件",
+            "en": "Reading counts in current conditions"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择写下一条合用经验、确认别人想听，或说明它只适合这次条件。可以问：这是经验还是通用事实，对方是否愿意听，哪些局限要说清？较少选择可能因为需要隐私或无人需要，不说明自私、没有智慧或不关心别人；问卷没有评估实际帮助效果。",
+              "en": "A highest count means you more often chose a useful experience, a willing listener or a stated context. Is this experience or a general fact, does the person want it and which limits matter? Fewer choices may reflect privacy or no recipient rather than selfishness, absent wisdom or lack of care. The actual helpfulness of anything shared is not evaluated."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你已经找到一种方便自己寻找书签的摆放方式，朋友明确表示想听，可以说“我把书签放在这个小盒里，这次对我方便”。对方可以不采用，你也不用继续指导。例子只是普通使用经验，不推广成适合所有人的方法，不认证教学能力、成就或比别人更懂。",
+              "en": "You found a bookmark arrangement convenient and a friend explicitly wants to hear it. Explain that keeping bookmarks in this small box worked for you on this occasion. They may decline it, and you need not keep advising. This is an ordinary use experience rather than a universal method, teaching credential, achievement or claim to know better than another person."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我愿意分享这一次的经验，你看是否合用，不采用也没关系。”如果涉及共同经历，先确认哪些内容可以讲，不带出别人隐私。也可以改变主意不分享；亏凸意象不要求自己做导师、持续输出建议、承担别人结果，或用过去经验替代对方当下需要。",
+              "en": "You could say, “I’d like to share this occasion’s experience; see whether it fits, and it is fine not to use it.” Confirm what may be shared about a joint occasion without disclosing others’ privacy. Change your mind if preferred. The image creates no mentoring role, constant advice duty, responsibility for outcomes or permission to replace current needs with past experience."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他七种做法比较",
+            "en": "Comparisons with the other seven approaches"
+          },
+          "paragraphs": [
+            {
+              "zh": "亏凸偏自愿分享经验，满月偏呈现一小版，渐亏月牙偏不用说明的间隔；分享、呈现和保留私密都可合适。新月留白、渐盈小试、上弦取舍、盈凸调整、下弦减负也可以并存。它们不排资历、智慧或奉献程度，不把亏凸换成依恋、荣格照顾者、MBTI或职业。",
+              "en": "Waning Gibbous concerns shared experience, Full Moon a small presentation and Waning Crescent an interval without explanation. Sharing, showing and privacy may each fit. Space, a trial, a tradeoff, an adjustment and reduced burden may coexist. These rank neither seniority, wisdom nor devotion, and convert into no attachment, Jungian Caregiver, MBTI or occupation through an association with helping other people."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与真实表现、身体情况",
+            "en": "Counterexamples, actual performance and bodily circumstances"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，分享可能由工作职责或社交要求产生，不一定是偏好；沉默也可能是在尊重边界。问卷不测经验准确、指导、沟通、善良或关系质量，不授予建议权威。别人真正需要什么仍要确认，重要事实仍要另核，不能因为亏凸次数高就让对方听从、把建议受拒当个人失败。",
+              "en": "Sharing may follow a work duty or social request rather than preference, while silence can respect a boundary. Accuracy, guidance, communication, goodness and relationship quality are not tested, and no advisory authority is awarded. Confirm actual needs and verify important facts separately rather than high counts requiring compliance or making declined advice a personal failure that needs to be repaired."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：对一条自己原本愿意分享的普通经验，写明发生条件、一项局限和是否有人想听。可以只留私人笔记，不真正分享。观察是否喜欢这次表达，不以对方采纳、感谢或受益证明智慧、能量和价值，不按月相时间安排帮助，也不把分享变成责任。",
+              "en": "If useful, take an ordinary experience you already want to share and note its conditions, one limit and whether anyone wants it. Keep private notes without sharing if preferred. Notice interest in this expression without using adoption, thanks or benefit to prove wisdom, energy or worth, scheduling help by the lunar calendar or turning an optional exchange into a responsibility."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题相对计数与全部最高并列",
+            "en": "24-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24题全部各选一项，对应节奏意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些普通做法中的相对选择，不是月球照明比例、能量、人格强弱、身体节律或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二月相或强造混合型。相差一次只是一项选择，不证明显著差异、某种品质消失或固定人生阶段。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有类型或科学分界。",
+              "en": "Choose one option for all 24 questions; each adds one to its pace image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative ordinary approaches, not lunar illumination, energy, personality levels, bodily rhythms or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second phase or mixed type. A one-choice gap proves neither significance, absent qualities nor a fixed life stage. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare types or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、来源与适用边界",
+            "en": "Original edition, sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的普通活动节奏偏好问卷，八个月相只作当代编辑意象，不是天文计算、真实出生或当前月相、月亮星座、配对、命运或统一人格分类。NASA资料只核对月相名称和受光背景，不为本站映射、计数或心理解释提供验证，也不表示NASA认可本测验。24题、选项、当代主题、解释、例子与规则均为原创，没有采用JobCannon8题、竞品结果正文／代码／算法、NASA图片、受保护原文或名人生月相指派。本版不测情绪、睡眠、健康、激素、体力或自然能量周期，不认证智力、创造力、韧性、道德、关系或职业，也不规定人生必须经历八阶段；不转换拖延频率、气质、DISC或MBTI，没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind ordinary activity-pace preference quiz. Eight phases serve as contemporary editorial images rather than astronomical calculations, actual birth or current phases, astrological Moon signs, compatibility, destiny or a unified personality taxonomy. NASA checks names and illumination context without validating this mapping, counts or psychology, or endorsing this quiz. All 24 items, options, contemporary themes, explanations, examples and rules are original. No JobCannon 8-item bank, competitor result text, code, algorithm, NASA image, protected wording or famous-person birth-phase assignment is used. This edition measures neither mood, sleep, health, hormones, stamina nor natural energy cycles. It certifies no intelligence, creativity, resilience, morality, relationship or career, imposes no eight-stage life path and converts into no procrastination frequency, Temperament, DISC or MBTI result. There is no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "last-quarter",
+      "directionIds": [
+        "last-quarter"
+      ],
+      "title": {
+        "zh": "下弦月意象：减少可选负担",
+        "en": "Last Quarter Image: Reducing an Optional Burden"
+      },
+      "headline": {
+        "zh": "一种当前活动节奏的编辑意象，不是真实月相、身体周期或能力结论。",
+        "en": "An editorial image for a current activity pace, not an actual phase, bodily cycle or ability verdict."
+      },
+      "summary": {
+        "zh": "用一项自选附加要求说明如何缩小范围，保留真实责任与权利；完整例子不认证放下能力、心理健康、道德或人生转型。",
+        "en": "Explore reducing an optional requirement while respecting actual duties and rights. Full examples certify no letting-go ability, mental health, morality or transformation."
+      },
+      "scoreReading": {
+        "zh": "24题全部各选一项，对应节奏意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些普通做法中的相对选择，不是月球照明比例、能量、人格强弱、身体节律或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二月相或强造混合型。相差一次只是一项选择，不证明显著差异、某种品质消失或固定人生阶段。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有类型或科学分界。",
+        "en": "Choose one option for all 24 questions; each adds one to its pace image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative ordinary approaches, not lunar illumination, energy, personality levels, bodily rhythms or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second phase or mixed type. A one-choice gap proves neither significance, absent qualities nor a fixed life stage. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare types or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "下弦月测试结果：减少可选负担与完整说明",
+          "en": "Last Quarter Quiz Result: Less Burden and Full Guide"
+        },
+        "description": {
+          "zh": "用一项自选附加要求说明如何缩小范围，保留真实责任与权利；完整例子不认证放下能力、心理健康、道德或人生转型。",
+          "en": "Explore Last Quarter through reducing an optional requirement while respecting actual duties. Full examples without health, morality or transformation claims."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "天文背景与本版意象",
+            "en": "Astronomical context and this edition’s image"
+          },
+          "paragraphs": [
+            {
+              "zh": "下弦位于月相周期约四分之三处，从地球看呈半圆受光形状。本版选“减少可选负担”作当代意象：辨认一项自己并不愿继续、而且确实可选的附加安排。它不要求结束关系、放弃职责或作重大改变，不测心理状态，也不把月相当人生该结束什么的信号。",
+              "en": "Last quarter, or third quarter, looks half lit late in the phase cycle. This edition selects reducing an optional burden: identifying an added arrangement you do not want and can actually decline. It demands neither ending relationships, abandoning duties nor major change, tests no mental state and makes no phase a signal of what should end in someone’s actual life."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "把计数放回当前条件",
+            "en": "Reading counts in current conditions"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择让范围小一点、不继续非必需任务，或为已有活动减去一项额外标准。可以问：这件事确实可选吗，涉及谁的权利，怎样说清新的范围？较少选择可能是安排本来合适，不说明不会放下、缺少智慧或注定负担重；问卷没有核查实际责任。",
+              "en": "A highest count means you more often chose a smaller scope, no continuation of a nonessential task or one fewer added standard. Is it actually optional, whose rights are involved and how can scope be stated? Fewer choices may mean an arrangement already fits rather than poor letting go, absent wisdom or inevitable burden. Actual responsibilities are not checked by the questionnaire."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你原本自选整理一页私人阅读笔记，后来又给自己加上“每条都画插图”的非必需要求。若愿意，可以只留下文字，说明这次不画图；不影响已经对别人作出的真实约定。例子只减一项普通可选工作，不推断该离开谁、改变生活或放弃重要事情。",
+              "en": "You voluntarily organise a page of private reading notes and add a nonessential requirement to illustrate every entry. Keep only text if preferred, stating that drawings are not part of this occasion, without affecting an actual agreement with others. This reduces one ordinary optional task rather than inferring whom to leave, how to change a life or which important matter to abandon."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“这项是我后来加的可选内容，这次不继续，保留原来较小的范围。”若涉及别人，另行确认约定、权利与实际影响，不用标签替代沟通。自己也可以决定保留；下弦意象不要求果断切断、牺牲、清空东西或证明自己擅长结束，更不授权替别人减少其需要。",
+              "en": "You might say, “I added this optional part later and will not continue it now; I’m keeping the original smaller scope.” Confirm agreements, rights and actual effects with others rather than using a label as communication. Retain it if preferred. The image demands neither severing ties, sacrifice, clearing possessions nor proof of ending skill, and permits no reducing another person’s needs for them."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他七种做法比较",
+            "en": "Comparisons with the other seven approaches"
+          },
+          "paragraphs": [
+            {
+              "zh": "下弦偏减少可选负担，渐亏月牙偏安静间隔，上弦偏当前取舍，满月偏呈现收束；减少、暂停和完成不是同一件事。新月留白、渐盈小试、盈凸调整、亏凸分享也能并存。八种不分积极消极，不换算依恋、拖延、气质、MBTI或职业，也不确定实际月亮或人生阶段。",
+              "en": "Last Quarter concerns reduced optional burden, Waning Crescent an interval, First Quarter a tradeoff and Full Moon closure. Reducing, pausing and completing are not the same activity. Space, a trial, adjustment and sharing may coexist. Images rank neither positivity nor negativity, convert into no attachment, procrastination, Temperament, MBTI or career result and determine no actual Moon phase or life stage."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与真实表现、身体情况",
+            "en": "Counterexamples, actual performance and bodily circumstances"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，减少任务可能由于资源、健康、权限或外界变动，不一定是偏好；继续原安排也可以有边界。问卷不测抑郁、冷漠、自私、韧性或处理失去的能力，不提供咨询或治疗。现实中什么可改、什么不可由自己决定，需要具体确认，不能因下弦次数高就把困难归成需要放下。",
+              "en": "Reducing tasks may follow resources, health, permission or outside changes rather than preference; continuing can respect boundaries too. Depression, detachment, selfishness, resilience and coping with loss are not assessed, and no counselling or treatment is offered. Confirm what can change and what is not yours to decide rather than higher counts making a difficulty something that supposedly needs to be released."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：对一件自己原本可决定的普通小事，区分必需约定与自加可选要求，标一项是否愿意继续。可以不改变任何安排，也不丢弃物品或影响别人。观察当前对范围的兴趣，不把减少量当心理进步、道德或能量分数，不等下弦才处理现实事情。",
+              "en": "If useful, take an ordinary small matter you may decide and distinguish an actual agreement from an optional requirement you added, noting whether you want it. Change nothing, discard nothing and affect nobody if preferred. Notice interest in scope without grading psychological progress, morality or energy by the amount reduced, or waiting for a last quarter to handle a real situation."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题相对计数与全部最高并列",
+            "en": "24-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24题全部各选一项，对应节奏意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些普通做法中的相对选择，不是月球照明比例、能量、人格强弱、身体节律或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二月相或强造混合型。相差一次只是一项选择，不证明显著差异、某种品质消失或固定人生阶段。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有类型或科学分界。",
+              "en": "Choose one option for all 24 questions; each adds one to its pace image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative ordinary approaches, not lunar illumination, energy, personality levels, bodily rhythms or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second phase or mixed type. A one-choice gap proves neither significance, absent qualities nor a fixed life stage. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare types or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、来源与适用边界",
+            "en": "Original edition, sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的普通活动节奏偏好问卷，八个月相只作当代编辑意象，不是天文计算、真实出生或当前月相、月亮星座、配对、命运或统一人格分类。NASA资料只核对月相名称和受光背景，不为本站映射、计数或心理解释提供验证，也不表示NASA认可本测验。24题、选项、当代主题、解释、例子与规则均为原创，没有采用JobCannon8题、竞品结果正文／代码／算法、NASA图片、受保护原文或名人生月相指派。本版不测情绪、睡眠、健康、激素、体力或自然能量周期，不认证智力、创造力、韧性、道德、关系或职业，也不规定人生必须经历八阶段；不转换拖延频率、气质、DISC或MBTI，没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind ordinary activity-pace preference quiz. Eight phases serve as contemporary editorial images rather than astronomical calculations, actual birth or current phases, astrological Moon signs, compatibility, destiny or a unified personality taxonomy. NASA checks names and illumination context without validating this mapping, counts or psychology, or endorsing this quiz. All 24 items, options, contemporary themes, explanations, examples and rules are original. No JobCannon 8-item bank, competitor result text, code, algorithm, NASA image, protected wording or famous-person birth-phase assignment is used. This edition measures neither mood, sleep, health, hormones, stamina nor natural energy cycles. It certifies no intelligence, creativity, resilience, morality, relationship or career, imposes no eight-stage life path and converts into no procrastination frequency, Temperament, DISC or MBTI result. There is no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "waning-crescent",
+      "directionIds": [
+        "waning-crescent"
+      ],
+      "title": {
+        "zh": "渐亏月牙意象：保留安静间隔",
+        "en": "Waning Crescent Image: A Quiet Interval"
+      },
+      "headline": {
+        "zh": "一种当前活动节奏的编辑意象，不是真实月相、身体周期或能力结论。",
+        "en": "An editorial image for a current activity pace, not an actual phase, bodily cycle or ability verdict."
+      },
+      "summary": {
+        "zh": "通过一次普通活动后的空档理解间隔，允许不评价、不解释和不加新任务；不认证灵性、智慧、内向、恢复或健康状况。",
+        "en": "Explore an interval after an ordinary activity without evaluation, explanation or a new task. The guide certifies no spirituality, wisdom, introversion, recovery or health."
+      },
+      "scoreReading": {
+        "zh": "24题全部各选一项，对应节奏意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些普通做法中的相对选择，不是月球照明比例、能量、人格强弱、身体节律或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二月相或强造混合型。相差一次只是一项选择，不证明显著差异、某种品质消失或固定人生阶段。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有类型或科学分界。",
+        "en": "Choose one option for all 24 questions; each adds one to its pace image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative ordinary approaches, not lunar illumination, energy, personality levels, bodily rhythms or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second phase or mixed type. A one-choice gap proves neither significance, absent qualities nor a fixed life stage. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare types or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "渐亏月牙测试结果：安静间隔与完整说明",
+          "en": "Waning Crescent Quiz Result: An Interval and Full Guide"
+        },
+        "description": {
+          "zh": "通过一次普通活动后的空档理解间隔，允许不评价、不解释和不加新任务；不认证灵性、智慧、内向、恢复或健康状况。",
+          "en": "Read Waning Crescent as a quiet interval after an ordinary activity. A full guide without spirituality, wisdom, introversion or recovery certification."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "天文背景与本版意象",
+            "en": "Astronomical context and this edition’s image"
+          },
+          "paragraphs": [
+            {
+              "zh": "渐亏月牙接近下一次新月，从地球看只见一弯逐渐减少的受光部分。本版用“保留安静间隔”作当代意象：允许一小段时间不新增任务、评价或说明。它不测内向、灵性、智慧或身体恢复，也不要求独处、冥想或按月亮休息；安静由自己决定，不是能量诊断。",
+              "en": "A waning crescent approaches new Moon with a decreasing thin illuminated portion visible. This edition uses a quiet interval: allowing a little time without another task, evaluation or explanation. It measures neither introversion, spirituality, wisdom nor bodily recovery, and requires no solitude, meditation or moon-timed rest. You choose what quiet means; the image is no energy diagnosis or measure of an actual condition."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "把计数放回当前条件",
+            "en": "Reading counts in current conditions"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择不马上开始下一项、不急着总结，或留一段没有产出要求的空档。可以问：自己愿意怎样度过，是否真的可选，什么不用解释？较少选择可能因为想继续或条件不便，不说明浮躁、缺少深度或不懂休息；次数没有记录真实休息、压力或健康。",
+              "en": "A highest count means you more often chose no immediate next activity, no hurried summary or an interval without required output. How do you want to spend it, is it actually optional and what needs no explanation? Fewer choices may reflect wanting to continue or limited conditions rather than restlessness, absent depth or poor rest. Actual rest, stress and health are not recorded."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你结束一次自选的普通笔记整理，把纸合上后，愿意先留一小段不继续写、不评价成果的时间。可以看看熟悉房间，也可以只不安排下一项；不必让头脑空白、获得顿悟或确保放松。这个例子不是睡眠或治疗练习，也不保证会恢复精力或改变感受。",
+              "en": "After an ordinary note-organising activity you chose, close the paper and leave a short interval without more writing or evaluation. Look at a familiar room or simply arrange no next task. You need neither an empty mind, an insight nor guaranteed relaxation. This is no sleep or treatment exercise and promises neither restored energy nor a change in how you feel."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我现在想留一点没有新安排的间隔，也先不解释刚才做得怎样。”如果有共同约定，另外说明实际范围与时间；不把安静要求成别人必须理解的义务。自己也可以继续活动，或不独处；渐亏意象不要求远离他人、寻求内在答案、证明灵性或隐藏情绪。",
+              "en": "You might say, “I want an interval without a new arrangement, and I’m not evaluating what I just did yet.” State actual scope and timing for joint agreements rather than requiring understanding as an obligation. Continue activity or remain with others if preferred. The image demands no withdrawal, inner revelation, spiritual proof or concealment of feelings to fit a label."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他七种做法比较",
+            "en": "Comparisons with the other seven approaches"
+          },
+          "paragraphs": [
+            {
+              "zh": "渐亏月牙偏没有新要求的间隔，新月偏留白与意图，下弦偏减少可选负担，亏凸偏自愿分享；间隔不必服务下一次开始。渐盈小试、上弦取舍、盈凸调整、满月呈现也可在别时采用。没有深度或灵性等级，不转换内向、依恋、MBTI、健康或职业，也不规定人生必须按八阶段循环。",
+              "en": "Waning Crescent concerns an interval without new demands, New Moon space and intention, Last Quarter reduced burden and Waning Gibbous shared experience. An interval need not serve another beginning. Trials, tradeoffs, adjustments and presentation may fit another moment. Images rank neither depth nor spirituality, convert into no introversion, attachment, MBTI, health or occupation and impose no eight-stage cycle on a life."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与真实表现、身体情况",
+            "en": "Counterexamples, actual performance and bodily circumstances"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，没有新任务可能来自时间限制、等待别人或实际需要，而不是偏好；想继续做事也可以尊重边界。问卷不判断孤独、回避、抑郁、疲劳或智慧，不解释内在声音、梦境或人际问题。现实中的休息和支持应看实际条件，不由月相标签代替，也不因不能留间隔责怪自己。",
+              "en": "No new task may follow time limits, waiting for others or an actual need rather than preference; continuing activity can respect boundaries. Loneliness, avoidance, depression, fatigue and wisdom are not assessed, nor are inner voices, dreams or relationships explained. Actual conditions shape rest and support rather than a phase label, without inability to keep an interval becoming grounds for self-blame."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：为一次原本可自选的普通活动结束，留一个可以不新增要求的出口，写“到这里也可以”。可以不记录、不实行，或直接继续。观察是否喜欢这种间隔，不检验灵性、疗愈或恢复效果，不按感受好坏评分，也不等真实残月或把安静当修复人格的任务。",
+              "en": "For an optional observation, give the end of an ordinary activity you may choose an exit without a new demand, perhaps noting that stopping here is possible. Record nothing, do nothing or continue directly if preferred. Notice whether an interval appeals without testing spirituality, healing or recovery, grading feelings, waiting for an actual waning crescent or treating quiet as a personality-repair task."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题相对计数与全部最高并列",
+            "en": "24-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24题全部各选一项，对应节奏意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些普通做法中的相对选择，不是月球照明比例、能量、人格强弱、身体节律或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二月相或强造混合型。相差一次只是一项选择，不证明显著差异、某种品质消失或固定人生阶段。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有类型或科学分界。",
+              "en": "Choose one option for all 24 questions; each adds one to its pace image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative ordinary approaches, not lunar illumination, energy, personality levels, bodily rhythms or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second phase or mixed type. A one-choice gap proves neither significance, absent qualities nor a fixed life stage. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare types or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、来源与适用边界",
+            "en": "Original edition, sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的普通活动节奏偏好问卷，八个月相只作当代编辑意象，不是天文计算、真实出生或当前月相、月亮星座、配对、命运或统一人格分类。NASA资料只核对月相名称和受光背景，不为本站映射、计数或心理解释提供验证，也不表示NASA认可本测验。24题、选项、当代主题、解释、例子与规则均为原创，没有采用JobCannon8题、竞品结果正文／代码／算法、NASA图片、受保护原文或名人生月相指派。本版不测情绪、睡眠、健康、激素、体力或自然能量周期，不认证智力、创造力、韧性、道德、关系或职业，也不规定人生必须经历八阶段；不转换拖延频率、气质、DISC或MBTI，没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind ordinary activity-pace preference quiz. Eight phases serve as contemporary editorial images rather than astronomical calculations, actual birth or current phases, astrological Moon signs, compatibility, destiny or a unified personality taxonomy. NASA checks names and illumination context without validating this mapping, counts or psychology, or endorsing this quiz. All 24 items, options, contemporary themes, explanations, examples and rules are original. No JobCannon 8-item bank, competitor result text, code, algorithm, NASA image, protected wording or famous-person birth-phase assignment is used. This edition measures neither mood, sleep, health, hormones, stamina nor natural energy cycles. It certifies no intelligence, creativity, resilience, morality, relationship or career, imposes no eight-stage life path and converts into no procrastination frequency, Temperament, DISC or MBTI result. There is no psychometric validation."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "24题怎样形成八主题计数",
+        "en": "How 24 choices produce eight-theme counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "24题全部各选一项，对应节奏意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些普通做法中的相对选择，不是月球照明比例、能量、人格强弱、身体节律或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二月相或强造混合型。相差一次只是一项选择，不证明显著差异、某种品质消失或固定人生阶段。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有类型或科学分界。",
+          "en": "Choose one option for all 24 questions; each adds one to its pace image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative ordinary approaches, not lunar illumination, energy, personality levels, bodily rhythms or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second phase or mixed type. A one-choice gap proves neither significance, absent qualities nor a fixed life stage. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare types or scientific cutoffs."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "完整结果、并列与近分",
+        "en": "Full guides, ties and close counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "八份完整说明各有天文名称背景、本站读法、普通例子、可用表达、七主题比较、反例、小观察、计分和来源。所有最高并列完整显示，不把名单第一位当主型，不自动指定第二月相。近分可以一起读，但不构成混合人格、误差区间或生命阶段。重测反映当前选择，不证明真实月相或身体周期发生变化。",
+          "en": "Each full guide includes astronomical name context, this edition’s reading, an example, wording, seven-theme comparisons, counterexamples, an optional observation, scoring and sources. Every highest tie appears in full without treating the first as primary or assigning an automatic second phase. Read close guides without creating mixed personality, error intervals or life stages. Retaking reflects current choices, not a changed actual Moon phase or bodily cycle."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "问卷与真实月相计算的区别",
+        "en": "This questionnaire and actual phase calculation"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版没有出生日期、时刻、地点、月龄或照明比例输入，不计算真实月相、月亮星座、生日配对或灵魂伴侣。八名称借自天文背景，当前偏好映射由本站创作；自然月相顺序不等于人生或身体必须同步的八阶段，也不把上弦说成周期的一半。",
+          "en": "There is no birth date, time, place, moon age or illumination input, and no actual phase, astrological Moon sign, birthday compatibility or soulmate calculation. Names have astronomical context; this preference mapping is independently authored. Phase order imposes no eight-stage life or bodily synchronisation, and first quarter is not described as halfway through the cycle."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "zh": "原创内容与天文资料的分工",
+        "en": "Original content and astronomical sources"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是费马独立创作的普通活动节奏偏好问卷，八个月相只作当代编辑意象，不是天文计算、真实出生或当前月相、月亮星座、配对、命运或统一人格分类。NASA资料只核对月相名称和受光背景，不为本站映射、计数或心理解释提供验证，也不表示NASA认可本测验。24题、选项、当代主题、解释、例子与规则均为原创，没有采用JobCannon8题、竞品结果正文／代码／算法、NASA图片、受保护原文或名人生月相指派。本版不测情绪、睡眠、健康、激素、体力或自然能量周期，不认证智力、创造力、韧性、道德、关系或职业，也不规定人生必须经历八阶段；不转换拖延频率、气质、DISC或MBTI，没有本站心理测量验证。",
+          "en": "This is an independently authored FermatMind ordinary activity-pace preference quiz. Eight phases serve as contemporary editorial images rather than astronomical calculations, actual birth or current phases, astrological Moon signs, compatibility, destiny or a unified personality taxonomy. NASA checks names and illumination context without validating this mapping, counts or psychology, or endorsing this quiz. All 24 items, options, contemporary themes, explanations, examples and rules are original. No JobCannon 8-item bank, competitor result text, code, algorithm, NASA image, protected wording or famous-person birth-phase assignment is used. This edition measures neither mood, sleep, health, hormones, stamina nor natural energy cycles. It certifies no intelligence, creativity, resilience, morality, relationship or career, imposes no eight-stage life path and converts into no procrastination frequency, Temperament, DISC or MBTI result. There is no psychometric validation."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "草稿、分享与可选下一步",
+        "en": "Drafts, sharing and optional next steps"
+      },
+      "paragraphs": [
+        {
+          "zh": "答案在浏览器内计分，不上传、不进网址或分析。草稿需主动开启，只在本标签页恢复，24小时失效，完成、重测、退出清除即删除。可选分享只含公开意象说明和链接，不含答案或次数。完整结果免费，不收邮箱、不先做其他测试；后续测评另行作答，也可以到此结束。",
+          "en": "Answers are scored in your browser without uploading them or placing them in URLs or analytics. Drafts require opt-in, restore only in this tab, expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public image guides and links without answers or counts. Full results are free without email or another test first. Further assessments require separate responses; you can stop here."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "月相测试包括哪八种？",
+        "en": "Which eight moon phases are included?"
+      },
+      "answer": {
+        "zh": "本版采用新月、渐盈月牙、上弦月、盈凸月、满月、亏凸月、下弦月与渐亏月牙，分别作留白、小试、取舍、局部适配、呈现收束、经验分享、减少负担与间隔的编辑意象。名称是天文背景，意象与题目是本站原创，不是NASA人格分类。",
+        "en": "This edition uses New Moon, Waxing Crescent, First Quarter, Waxing Gibbous, Full Moon, Waning Gibbous, Last Quarter and Waning Crescent as editorial images for space, a trial, a tradeoff, adjustment, presentation, sharing, reduced burden and an interval. Names supply astronomical context; images and items are original rather than a NASA personality taxonomy."
+      }
+    },
+    {
+      "question": {
+        "zh": "需要生日吗？能查真实月相或月亮星座吗？",
+        "en": "Do I need a birthday? Does this calculate a phase or Moon sign?"
+      },
+      "answer": {
+        "zh": "不需要，也不能。本版只按24道当前选择计数，不计算出生或当前月相、月龄、照明比例、星座或配对。寻找天文日期计算的人需要相应历算工具；问卷次数不能当作这些数据。",
+        "en": "No birthday is needed or collected. This edition counts 24 current choices without calculating birth or current phases, moon age, illumination, signs or compatibility. Astronomical date calculations require an appropriate calculation tool; questionnaire counts cannot stand in for those data."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样计分、处理并列和近分？",
+        "en": "How are counts, ties and close results handled?"
+      },
+      "answer": {
+        "zh": "24题全部各选一项，对应节奏意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些普通做法中的相对选择，不是月球照明比例、能量、人格强弱、身体节律或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二月相或强造混合型。相差一次只是一项选择，不证明显著差异、某种品质消失或固定人生阶段。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有类型或科学分界。",
+        "en": "Choose one option for all 24 questions; each adds one to its pace image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative ordinary approaches, not lunar illumination, energy, personality levels, bodily rhythms or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second phase or mixed type. A one-choice gap proves neither significance, absent qualities nor a fixed life stage. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare types or scientific cutoffs."
+      }
+    },
+    {
+      "question": {
+        "zh": "结果能判断能量、情绪、健康或职业吗？",
+        "en": "Can a result establish energy, mood, health or careers?"
+      },
+      "answer": {
+        "zh": "这是费马独立创作的普通活动节奏偏好问卷，八个月相只作当代编辑意象，不是天文计算、真实出生或当前月相、月亮星座、配对、命运或统一人格分类。NASA资料只核对月相名称和受光背景，不为本站映射、计数或心理解释提供验证，也不表示NASA认可本测验。24题、选项、当代主题、解释、例子与规则均为原创，没有采用JobCannon8题、竞品结果正文／代码／算法、NASA图片、受保护原文或名人生月相指派。本版不测情绪、睡眠、健康、激素、体力或自然能量周期，不认证智力、创造力、韧性、道德、关系或职业，也不规定人生必须经历八阶段；不转换拖延频率、气质、DISC或MBTI，没有本站心理测量验证。",
+        "en": "This is an independently authored FermatMind ordinary activity-pace preference quiz. Eight phases serve as contemporary editorial images rather than astronomical calculations, actual birth or current phases, astrological Moon signs, compatibility, destiny or a unified personality taxonomy. NASA checks names and illumination context without validating this mapping, counts or psychology, or endorsing this quiz. All 24 items, options, contemporary themes, explanations, examples and rules are original. No JobCannon 8-item bank, competitor result text, code, algorithm, NASA image, protected wording or famous-person birth-phase assignment is used. This edition measures neither mood, sleep, health, hormones, stamina nor natural energy cycles. It certifies no intelligence, creativity, resilience, morality, relationship or career, imposes no eight-stage life path and converts into no procrastination frequency, Temperament, DISC or MBTI result. There is no psychometric validation."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果、重测和分享免费吗？",
+        "en": "Are full results, retaking and sharing free?"
+      },
+      "answer": {
+        "zh": "可以先读八份完整说明，完成24题后所有最高并列完整显示，无需注册或邮箱。重测清除本次答案，可选分享只含公开说明与链接，不含答卷或次数。后续测评自选，另行作答。",
+        "en": "All eight full guides can be read first, and every highest tie appears after all 24 choices without signup or email. Retaking clears this attempt. Optional sharing contains public guides and links without responses or counts. Further assessments are optional and require new answers."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "NASA Science：月相名称与天文背景（非人格验证）",
+        "en": "NASA Science: Moon phases (astronomical context, not personality validation)"
+      },
+      "url": "https://science.nasa.gov/moon/moon-phases/"
+    }
+  ]
+}

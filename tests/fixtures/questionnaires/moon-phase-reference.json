@@ -1,0 +1,1071 @@
+{
+  "formCode": "fm_moon_phase_pace_choices_24",
+  "origin": "FermatMindoriginal24ENZH4choice/eighteditorialmoonphaseimages/currentordinaryactivitypacepreferences/notastronomicalcalculationorpsychometricinstrument",
+  "directions": [
+    {
+      "id": "new-moon",
+      "title": {
+        "zh": "新月意象：留白与自选意图",
+        "en": "New Moon Image: Space and Chosen Intention"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "waxing-crescent",
+      "title": {
+        "zh": "渐盈月牙意象：微小可改尝试",
+        "en": "Waxing Crescent Image: A Small Revisable Trial"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "first-quarter",
+      "title": {
+        "zh": "上弦月意象：明确当前取舍",
+        "en": "First Quarter Image: A Present Tradeoff"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "waxing-gibbous",
+      "title": {
+        "zh": "盈凸月意象：让一处更合用",
+        "en": "Waxing Gibbous Image: One Adjustment for Fit"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "full-moon",
+      "title": {
+        "zh": "满月意象：自选呈现与收束",
+        "en": "Full Moon Image: Chosen Presentation and Closure"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "waning-gibbous",
+      "title": {
+        "zh": "亏凸月意象：分享可用经验",
+        "en": "Waning Gibbous Image: Willingly Shared Experience"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "last-quarter",
+      "title": {
+        "zh": "下弦月意象：减少可选负担",
+        "en": "Last Quarter Image: Reducing an Optional Burden"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "waning-crescent",
+      "title": {
+        "zh": "渐亏月牙意象：保留安静间隔",
+        "en": "Waning Crescent Image: A Quiet Interval"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "MOON_PHASE_01",
+      "prompt": {
+        "zh": "为自己选的一项普通小活动留时间，你更愿意先做什么？",
+        "en": "You make time for an ordinary small activity you chose. What would you prefer first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先留一点空白，写清这次自己愿意在意什么。",
+            "en": "Leave some space and state what I want to attend to this time."
+          },
+          "directionId": "new-moon"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "只试一个很小、随时可改的步骤，看看是否还想继续。",
+            "en": "Try one small revisable step and see whether I want to continue."
+          },
+          "directionId": "waxing-crescent"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "找一处让当前做法更合用的细节，只改这一处。",
+            "en": "Find one detail that could make the current approach fit better and change only that."
+          },
+          "directionId": "waxing-gibbous"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "留一条自己愿意分享的经验，先确认谁想听。",
+            "en": "Keep one experience I am willing to share and check who wants to hear it."
+          },
+          "directionId": "waning-gibbous"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_02",
+      "prompt": {
+        "zh": "一个自选的小制作有几种走法，你更想怎样接近？",
+        "en": "A small making activity you chose has several approaches. Which would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "选一处低风险的小尝试，不先承诺完成全部。",
+            "en": "Choose one low-stakes trial without committing to the whole activity."
+          },
+          "directionId": "waxing-crescent"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把眼前两种可行做法放在一起，明确这次愿意选哪一个。",
+            "en": "Compare two workable approaches and state which I want to choose now."
+          },
+          "directionId": "first-quarter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把已经愿意呈现的一小部分收好，决定展示到哪里。",
+            "en": "Gather the part I want to present and decide its scope of visibility."
+          },
+          "directionId": "full-moon"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "删去一项并不想承担的额外安排，让范围小一些。",
+            "en": "Remove one optional arrangement I do not want to carry and reduce the scope."
+          },
+          "directionId": "last-quarter"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_03",
+      "prompt": {
+        "zh": "自己的普通安排需要重新考虑，你更愿意关注什么？",
+        "en": "You reconsider an ordinary arrangement of your own. What would you prefer to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "现有条件下愿意接受哪种取舍，不追求同时保留全部。",
+            "en": "Which tradeoff I accept under present conditions without retaining everything."
+          },
+          "directionId": "first-quarter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一处具体细节是否还合用，愿意时做一个局部调整。",
+            "en": "Whether one detail still fits and whether I want a local adjustment."
+          },
+          "directionId": "waxing-gibbous"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "这次经历中哪一点愿意讲给确实有兴趣的人。",
+            "en": "Which part of this experience I want to tell an interested person."
+          },
+          "directionId": "waning-gibbous"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "在决定下一步之前，保留一个不用安排新任务的间隔。",
+            "en": "Keep an interval with no new task before deciding another step."
+          },
+          "directionId": "waning-crescent"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_04",
+      "prompt": {
+        "zh": "看一份自己已经有的普通草稿，你更想怎样使用？",
+        "en": "How would you prefer to use an ordinary draft you already have?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "选一处想改的地方，让它更符合这次需要，改完即可停。",
+            "en": "Revise one part to fit this occasion better, then allow the revision to end."
+          },
+          "directionId": "waxing-gibbous"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "确认愿意展示的范围，把这一小版收束为可读形式。",
+            "en": "Confirm the scope I want to show and gather this small version into readable form."
+          },
+          "directionId": "full-moon"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "去掉一项不再愿意承担的附加要求，保留较小范围。",
+            "en": "Drop an added requirement I no longer want and keep a smaller scope."
+          },
+          "directionId": "last-quarter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "暂不急着推进，重新写一句自己希望这份草稿服务什么。",
+            "en": "Pause advancing it and restate what I want the draft to serve."
+          },
+          "directionId": "new-moon"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_05",
+      "prompt": {
+        "zh": "一项普通小活动到了可以暂告一段落的时候，你更想做什么？",
+        "en": "An ordinary small activity can reach a stopping point. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把愿意让人看见的部分收好，允许只呈现这一次的范围。",
+            "en": "Gather the part I want others to see within this occasion’s scope."
+          },
+          "directionId": "full-moon"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "记录一条可以自愿分享的经验，不替别人规定做法。",
+            "en": "Note an experience I can share willingly without prescribing another person’s approach."
+          },
+          "directionId": "waning-gibbous"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "结束后留一点不需要立即开始别的事的安静间隔。",
+            "en": "Leave a quiet interval without immediately beginning something else."
+          },
+          "directionId": "waning-crescent"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "保留一个小而可改的后续试法，愿意时再试。",
+            "en": "Keep a small revisable follow-up to try only if I want."
+          },
+          "directionId": "waxing-crescent"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_06",
+      "prompt": {
+        "zh": "回顾自己选的一次普通尝试，你更愿意留下什么？",
+        "en": "Looking back at an ordinary attempt you chose, what would you prefer to retain?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一条对自己合用的经验，确认对方想听时再讲。",
+            "en": "One experience that fitted me, to share only when another person wants it."
+          },
+          "directionId": "waning-gibbous"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一项以后不必继续的可选负担，让安排更轻一点。",
+            "en": "One optional burden that need not continue, leaving a lighter arrangement."
+          },
+          "directionId": "last-quarter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一句这次真正愿意在意的事，不急着写下一步计划。",
+            "en": "A statement of what matters to me this time without rushing into another plan."
+          },
+          "directionId": "new-moon"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "面对两种后续可能时，自己当前愿意接受的取舍。",
+            "en": "The tradeoff I accept now between two possible next approaches."
+          },
+          "directionId": "first-quarter"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_07",
+      "prompt": {
+        "zh": "自由时间里的一项普通安排可以变小，你更想怎样处理？",
+        "en": "An ordinary arrangement in free time can become smaller. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先去掉一项非必需、也不愿意继续的承诺。",
+            "en": "Remove one nonessential commitment I do not want to keep."
+          },
+          "directionId": "last-quarter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给自己留一段没有新目标的空档，不要求产出。",
+            "en": "Leave an interval without a new goal or a required output."
+          },
+          "directionId": "waning-crescent"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把范围缩成一个可随时调整的小试法。",
+            "en": "Reduce the scope to one small trial that can change at any time."
+          },
+          "directionId": "waxing-crescent"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "只调整现有做法的一处细节，不重新扩张整个安排。",
+            "en": "Adjust one detail of the existing approach without expanding the arrangement."
+          },
+          "directionId": "waxing-gibbous"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_08",
+      "prompt": {
+        "zh": "一次自选活动结束之后，你更想给自己哪种余地？",
+        "en": "After an activity you chose ends, which room would you prefer to give yourself?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "暂时不解释、不评价，也不马上安排下一项。",
+            "en": "Do not explain, evaluate or schedule another activity immediately."
+          },
+          "directionId": "waning-crescent"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留一点空白，重新想想现在愿意关注什么。",
+            "en": "Leave some space to consider what I want to attend to now."
+          },
+          "directionId": "new-moon"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把新的两个选项和当前条件放在一起，明确一次取舍。",
+            "en": "Compare two new options with present conditions and state a tradeoff."
+          },
+          "directionId": "first-quarter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让这次愿意呈现的部分有个清楚结尾，不要求更多。",
+            "en": "Give the part I want to present a clear ending without requiring more."
+          },
+          "directionId": "full-moon"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_09",
+      "prompt": {
+        "zh": "准备一段普通创作时间，你更愿意用哪种开头？",
+        "en": "Which opening would you prefer for an ordinary creative period?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先写想在意的一个方向，允许暂时没有具体成果。",
+            "en": "State one direction I want to attend to, allowing no concrete output yet."
+          },
+          "directionId": "new-moon"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "只做一个可修改的小样，之后再决定要不要继续。",
+            "en": "Make one revisable sample and decide later whether to continue."
+          },
+          "directionId": "waxing-crescent"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看已有材料的一处细节，调整到更适合这次使用。",
+            "en": "Adjust one detail of existing material to fit this occasion better."
+          },
+          "directionId": "waxing-gibbous"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "想一条愿意分享的使用经验，也允许别人不采纳。",
+            "en": "Consider an experience I want to share while allowing others not to use it."
+          },
+          "directionId": "waning-gibbous"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_10",
+      "prompt": {
+        "zh": "自己的普通小计划有一点变化，你更愿意先选哪种回应？",
+        "en": "A small ordinary plan of your own changes. Which response would you prefer first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把变化做成一处低风险的小尝试，不承诺长期沿用。",
+            "en": "Turn the change into a low-stakes trial without a long-term commitment."
+          },
+          "directionId": "waxing-crescent"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "明确现在愿意保留和放弃的各一点，接受这个范围。",
+            "en": "State one part to retain and one to leave out, accepting that scope."
+          },
+          "directionId": "first-quarter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把已经够用的一小部分整理好，作为这次愿意呈现的版本。",
+            "en": "Gather a sufficient part as the version I want to present now."
+          },
+          "directionId": "full-moon"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "放下一项额外任务，不因为计划变化就不断补充。",
+            "en": "Drop one added task rather than continually add requirements after the change."
+          },
+          "directionId": "last-quarter"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_11",
+      "prompt": {
+        "zh": "在一个自己可决定的普通活动里，你更想关注哪种问题？",
+        "en": "In an ordinary activity you may choose, which question would you prefer to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "当前两种做法各要放下什么，我这次愿意怎样取舍？",
+            "en": "What does each approach leave out, and which tradeoff do I accept this time?"
+          },
+          "directionId": "first-quarter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "有没有一处可改的小细节，让现在的做法更合用？",
+            "en": "Could one small revised detail make the present approach fit better?"
+          },
+          "directionId": "waxing-gibbous"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "哪一条经验愿意分享，对方是否确实想听？",
+            "en": "Which experience do I want to share, and does the person actually want it?"
+          },
+          "directionId": "waning-gibbous"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "能否暂时留一个不用说明或产出的间隔？",
+            "en": "Can there be an interval without explaining or producing anything?"
+          },
+          "directionId": "waning-crescent"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_12",
+      "prompt": {
+        "zh": "一份自己写的普通说明快要够用，你更愿意怎样收尾？",
+        "en": "An ordinary explanation you wrote is nearly sufficient. How would you prefer to finish?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "改一处自己愿意调整的细节，之后就允许结束。",
+            "en": "Revise one detail I want to change and then allow it to end."
+          },
+          "directionId": "waxing-gibbous"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "确认愿意公开的范围，把这一版呈现出来即可。",
+            "en": "Confirm its public scope and present only this version."
+          },
+          "directionId": "full-moon"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "去掉一个不必回应的附加要求，让说明保留较小边界。",
+            "en": "Remove an unnecessary extra requirement and keep a smaller boundary."
+          },
+          "directionId": "last-quarter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "回到自己想说明的一点，允许先留空白再决定。",
+            "en": "Return to the point I want to express and allow space before another decision."
+          },
+          "directionId": "new-moon"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_13",
+      "prompt": {
+        "zh": "自己的普通小作品可以暂告一段落，你更想留下什么？",
+        "en": "A small ordinary piece of your own can reach a stopping point. What would you prefer to retain?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个愿意呈现的清楚版本，不要求所有细节都展示。",
+            "en": "A clear version I want to present without showing every detail."
+          },
+          "directionId": "full-moon"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一条可以自愿分享的经验，说明它只适合这次情况。",
+            "en": "An experience I can share willingly, noting its specific context."
+          },
+          "directionId": "waning-gibbous"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一段不用马上总结或开启下一项的安静空档。",
+            "en": "A quiet interval without immediately summarising or beginning another activity."
+          },
+          "directionId": "waning-crescent"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个足够小、可以随时停下的后续尝试。",
+            "en": "A small enough follow-up attempt that can stop at any time."
+          },
+          "directionId": "waxing-crescent"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_14",
+      "prompt": {
+        "zh": "想起一次自己选的普通活动，你更愿意怎样使用这段经历？",
+        "en": "How would you prefer to use an ordinary activity experience you chose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把对自己合用的一点写清，想听的人可以选择是否采用。",
+            "en": "Write a useful point clearly for an interested person to use or decline."
+          },
+          "directionId": "waning-gibbous"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看出一项以后不必再做的额外负担，愿意时放下。",
+            "en": "Identify an extra burden that need not recur and release it if I want."
+          },
+          "directionId": "last-quarter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先想想这段经历里真正愿意在意什么，允许暂不行动。",
+            "en": "Consider what matters in the experience, allowing no action for now."
+          },
+          "directionId": "new-moon"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "面对接下来的两个可能，说明当前愿意作出的取舍。",
+            "en": "State the tradeoff I accept between two possibilities ahead."
+          },
+          "directionId": "first-quarter"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_15",
+      "prompt": {
+        "zh": "可以重新安排一段普通自由时间，你更想优先保留什么？",
+        "en": "Which priority would you prefer when rearranging ordinary free time?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不继续一项自己并不愿意的可选承诺。",
+            "en": "Not continue an optional commitment I do not want."
+          },
+          "directionId": "last-quarter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一段没有新目标、也不需要说明成果的空档。",
+            "en": "An interval without a new goal or a result to explain."
+          },
+          "directionId": "waning-crescent"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一处低风险、小而可改的尝试，不把全天排满。",
+            "en": "A low-stakes revisable trial without filling the day."
+          },
+          "directionId": "waxing-crescent"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个让已有安排更合用的局部调整，不再添新项目。",
+            "en": "A local change making the existing arrangement fit without adding another project."
+          },
+          "directionId": "waxing-gibbous"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_16",
+      "prompt": {
+        "zh": "为一项已经结束的小活动画个句号，你更愿意怎样做？",
+        "en": "How would you prefer to close a small activity that has ended?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "允许一段没有评价和新安排的间隔。",
+            "en": "Allow an interval without evaluation or a new arrangement."
+          },
+          "directionId": "waning-crescent"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留一处空白，重新写下现在愿意关注的一点。",
+            "en": "Leave space to restate one thing I want to attend to now."
+          },
+          "directionId": "new-moon"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "明确接下来两种可能的取舍，不要求两边兼得。",
+            "en": "Clarify a tradeoff between two possible next approaches without keeping both."
+          },
+          "directionId": "first-quarter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把这次愿意展示的部分收束好，让它可以到此结束。",
+            "en": "Gather the part I want to show and allow this version to end here."
+          },
+          "directionId": "full-moon"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_17",
+      "prompt": {
+        "zh": "给自己选的一项普通尝试留一个入口，你更想怎么留？",
+        "en": "How would you prefer to leave an entry to an ordinary attempt you chose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一句尚可改变的意图，先不用安排完整路径。",
+            "en": "A revisable intention without setting out a complete route yet."
+          },
+          "directionId": "new-moon"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个小而能停下的试法，让下一步保持可改。",
+            "en": "A small stoppable trial that leaves a next step revisable."
+          },
+          "directionId": "waxing-crescent"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一处自己愿意调整的已有细节，让使用更合这次需要。",
+            "en": "An existing detail I want to change so use fits this occasion better."
+          },
+          "directionId": "waxing-gibbous"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一条愿意分享给感兴趣者的经验，不把它设成通用答案。",
+            "en": "An experience I want to share with interested people, without a universal answer."
+          },
+          "directionId": "waning-gibbous"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_18",
+      "prompt": {
+        "zh": "一项普通个人安排有几种后续可能，你更想先做什么？",
+        "en": "An ordinary personal arrangement has several next possibilities. What would you prefer first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先试一个低风险小段，不把尝试当成长期承诺。",
+            "en": "Try a low-stakes part without making it a lasting commitment."
+          },
+          "directionId": "waxing-crescent"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把两种当前可行做法的代价讲清，选一个愿意接受的范围。",
+            "en": "Clarify the costs of two workable approaches and choose an acceptable scope."
+          },
+          "directionId": "first-quarter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把已经愿意呈现的一小版整理好，不等到一切都完成。",
+            "en": "Gather a small version I want to present without waiting for everything."
+          },
+          "directionId": "full-moon"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "减少一项不愿继续的附加任务，让后续有更少负担。",
+            "en": "Reduce an added task I do not want so what follows has fewer burdens."
+          },
+          "directionId": "last-quarter"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_19",
+      "prompt": {
+        "zh": "看自己可决定的一段普通活动过程，你更想留意哪种部分？",
+        "en": "In an ordinary activity process you may choose, which part would you prefer to notice?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "哪一次取舍更符合当前条件，不把选择写成永远正确。",
+            "en": "Which tradeoff fits present conditions without making it permanently correct."
+          },
+          "directionId": "first-quarter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "哪一处局部改动让用法更合适，不追求全部重做。",
+            "en": "Which local change makes use fit without redoing everything."
+          },
+          "directionId": "waxing-gibbous"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "哪一条经验愿意分享，而且对方可以不听或不采纳。",
+            "en": "Which experience I want to share, with room for someone not to hear or use it."
+          },
+          "directionId": "waning-gibbous"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "哪段时间可以没有新产出，也不必马上解释。",
+            "en": "Which interval can have no new output or immediate explanation."
+          },
+          "directionId": "waning-crescent"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_20",
+      "prompt": {
+        "zh": "一份自选的小材料已经可用，你更愿意怎样接近结束？",
+        "en": "A small material you chose is already usable. How would you prefer to approach its ending?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "只改一处自己确实愿意改的细节，然后允许收尾。",
+            "en": "Change only a detail I actually want to revise, then allow an ending."
+          },
+          "directionId": "waxing-gibbous"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把愿意展示的范围说清，呈现这一版即可。",
+            "en": "State the scope I want to show and present this version."
+          },
+          "directionId": "full-moon"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "删掉一项非必需的额外要求，不再为它扩大材料。",
+            "en": "Drop a nonessential requirement rather than expand the material for it."
+          },
+          "directionId": "last-quarter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "给自己一点空白，想清这份材料此刻想服务什么。",
+            "en": "Leave space to consider what I want this material to serve now."
+          },
+          "directionId": "new-moon"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_21",
+      "prompt": {
+        "zh": "如果为一个普通小成果留一次自选动作，你更想做什么？",
+        "en": "Which chosen action would you prefer for an ordinary small outcome?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "按自己愿意的范围呈现它，也允许这就是结尾。",
+            "en": "Present it within my chosen scope and allow that to be its ending."
+          },
+          "directionId": "full-moon"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留一条愿意分享的经验，不要求自己成为指导者。",
+            "en": "Keep an experience to share willingly without becoming an adviser."
+          },
+          "directionId": "waning-gibbous"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "让下一段时间不必立即接新任务，暂时留空。",
+            "en": "Leave the next interval open without immediately taking on another task."
+          },
+          "directionId": "waning-crescent"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "只为自己愿意的小后续试一次，仍可随时改动。",
+            "en": "Try only a small follow-up I want, retaining room to change it."
+          },
+          "directionId": "waxing-crescent"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_22",
+      "prompt": {
+        "zh": "给一次普通尝试写下“以后可以怎样”，你更愿意写哪一项？",
+        "en": "Which note would you prefer about what could follow an ordinary attempt?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "这里有一条经验，愿意听的人再决定是否合用。",
+            "en": "Here is an experience for willing listeners to judge for themselves."
+          },
+          "directionId": "waning-gibbous"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "这里有一项可选负担，以后不必继续。",
+            "en": "Here is an optional burden that need not continue."
+          },
+          "directionId": "last-quarter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "这里有一处空白，可以重新想愿意在意什么。",
+            "en": "Here is some space to reconsider what I want to attend to."
+          },
+          "directionId": "new-moon"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "这里有两个可能，可以按当前条件明确取舍。",
+            "en": "Here are two possibilities for a tradeoff under present conditions."
+          },
+          "directionId": "first-quarter"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_23",
+      "prompt": {
+        "zh": "一段自己可安排的普通时间接近结束，你更想怎样保留边界？",
+        "en": "An ordinary period you may arrange is ending. How would you prefer to retain scope?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "减少一项不必承担的额外承诺，允许安排变小。",
+            "en": "Reduce an unnecessary extra commitment and allow a smaller arrangement."
+          },
+          "directionId": "last-quarter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "保留一个没有新目标或成果要求的安静间隔。",
+            "en": "Keep a quiet interval with no new goal or output requirement."
+          },
+          "directionId": "waning-crescent"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "若还想继续，只留一个小而可停止的尝试。",
+            "en": "If I want to continue, keep only one small stoppable attempt."
+          },
+          "directionId": "waxing-crescent"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "只调整当前用法的一点，不重开一整套安排。",
+            "en": "Adjust one part of current use without reopening a whole arrangement."
+          },
+          "directionId": "waxing-gibbous"
+        }
+      ]
+    },
+    {
+      "id": "MOON_PHASE_24",
+      "prompt": {
+        "zh": "结束这组普通活动节奏选择，你更想给自己哪种余地？",
+        "en": "Ending these ordinary activity-pace choices, which room would you prefer to give yourself?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不急着解释自己或安排下一件事，保留一段间隔。",
+            "en": "Keep an interval without immediately explaining myself or scheduling another activity."
+          },
+          "directionId": "waning-crescent"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留空白重新考虑现在在意的一点，不要求立刻开始。",
+            "en": "Leave space to reconsider what matters now without an immediate start."
+          },
+          "directionId": "new-moon"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把两种可能放在当前条件里，作一次愿意接受的取舍。",
+            "en": "Place two possibilities in current conditions and accept one tradeoff."
+          },
+          "directionId": "first-quarter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把这次愿意呈现的部分收束好，允许到此结束。",
+            "en": "Gather the part I want to present and allow this occasion to end."
+          },
+          "directionId": "full-moon"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "required": 24,
+    "choice": "one option adds1 to offered contemporary pace image",
+    "total": 24,
+    "exposureEach": 12,
+    "perPosition": 3,
+    "highest": "allhighestcountsretainfullguides/noautomaticsecondary",
+    "allA": "eightimages3each/all8fullguides",
+    "verificationPlan": "bounded8uniquehighest+fourall8ties+4096deterministiccompleteanswersindependentsourceoracle/plannednotexecuted/not4^24orallcountvectors/psychvalidation"
+  },
+  "scope": "Currentordinarychosenactivitypacepreferences/editorialmoonphaseimagesonly. NASAastronomicalnamesandgeometrycontextonly/notpersonalitymappingorvalidation. NoDOB/currentmoonage/illumination/ephemeris/astrologymoonposition/soulmate/mood/sleep/health/hormones/energyorbiologicalrhythm/ability/career/fortune. Notprocrastinationfrequency/temperament/MBTIconversion;noobligatorysequence/recoverylifeplan.",
+  "instructions": {
+    "zh": "本版月相测试是一份24题原创活动节奏意象问卷，比较当前愿意采用的普通做法：留白、微小尝试、取舍、局部调整、呈现收束、分享经验、减少可选负担或保留间隔。八个月相名称只作本版编辑意象，不代表你现在或出生时的真实月相，也不测情绪、睡眠、身体能量或人格能力。每题选一个目前更愿意的做法；情境以自选、可改、可停止为前提，没有高低或正确答案。全部24题选择后比较原始次数，所有最高并列完整显示；全选第一项会八种各3次。顺序不要求人生必须经历八阶段，不指导重大决定，也不换算拖延、气质、MBTI或职业。",
+    "en": "This Moon Phase Personality Test is an original 24-question activity-pace image quiz. It compares ordinary approaches you currently prefer: space, a small trial, a tradeoff, a local adjustment, presentation and closure, shared experience, reduced optional burden or an interval. Eight phase names serve as editorial images, not your actual current or birth Moon phase, mood, sleep, bodily energy or personality ability. Choose one currently preferred approach per question in voluntary, revisable and stoppable situations, without higher, lower or correct answers. Compare raw counts after all 24 choices and read every highest-tied guide in full; choosing the first option throughout gives three each. Order imposes no eight-stage life path or major decision and converts into no procrastination, Temperament, MBTI or career result."
+  }
+}
