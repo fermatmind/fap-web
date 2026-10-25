@@ -1,0 +1,2713 @@
+{
+  "slug": "humor-style-test",
+  "code": "HUMOR_EXPRESSIONS",
+  "version": "1.0.0",
+  "updated": "2026-10-25",
+  "category": "social",
+  "kind": "likert",
+  "minimumRatedItems": 3,
+  "minutes": 6,
+  "title": {
+    "zh": "幽默风格测试",
+    "en": "Humor Style Test"
+  },
+  "resultHeading": {
+    "zh": "你的六种幽默表达自评",
+    "en": "Your six humor-expression reflections"
+  },
+  "seoTitle": {
+    "zh": "幽默风格测试：24条自评与六种完整解释",
+    "en": "Humor Style Test: 24 Ratings and Six Full Result Guides"
+  },
+  "description": {
+    "zh": "用24条原创频率题，分别探索冷面、文字巧思、荒诞、共同趣味、自嘲和机锋表达。六项均分与完整解释免费，无需注册；含原创例子与边界，不测智力、受欢迎程度或幽默能力。",
+    "en": "Explore deadpan, wordplay, absurdist, shared, self-deprecating and banter humor with 24 original ratings. Six separate means and full free guides, no signup or ability verdict."
+  },
+  "introduction": {
+    "zh": "你怎样在聊天、消息、趣事和小意外里表达笑点？本幽默风格测试用24条原创频率题，分别观察六种可以共存的日常表达。冷面侧重口吻，文字巧思和荒诞侧重机制，共同趣味、自嘲与机锋涉及话题或互动；它们不是互斥人格分类。六份完整解释都能先读，作答后同时显示均分或资料不足，没有注册、付费或前置测评。它不是HSQ，不评定你有多好笑、聪明或受欢迎。",
+    "en": "How do you use humor in conversation, messages, stories and small surprises? This Humor Style Test uses 24 original frequency items to explore six expressions that can coexist. Deadpan concerns delivery, wordplay and absurdist play mechanisms, and shared humor, self-deprecation and banter topics or interaction. They are not mutually exclusive personalities. Read all six full guides before answering and receive separate means or insufficient-information states without signup, payment or a preceding assessment. This is not the HSQ and does not rate how funny, intelligent or popular you are."
+  },
+  "instructions": {
+    "zh": "回想最近四周自己的实际表达，每条按从不、很少、有时、经常、几乎总是作答。没有适用经历、记不清或不愿回答可选NA，不会补成低分；不要按听众笑了多少或自己喜欢看什么喜剧回答。全部24条先选完，每部分至少3条有效评分才显示均分。不是猜笑话题，中英文用各自自然表达，不要求理解另一语言的双关。",
+    "en": "Think about your own actual expressions during the past four weeks. Rate Never, Rarely, Sometimes, Often or Almost always. Choose NA for no applicable experience, uncertainty or a preference not to answer; it is not a low score. Do not rate audience laughter or the comedy you enjoy watching. All 24 items need a selection and each part needs three ratings for a mean. This is not a joke-comprehension test; each language uses its own natural expression without requiring puns in the other language."
+  },
+  "source": {
+    "kind": "FermatMind original six-expression frequency reflection;notHSQ/JC FourLaughs/published validated instrument",
+    "formCode": "fm_humor_expressions_frequency_24",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "84857efeeca52f8dd33c79237147b363a957ee6c7e8873eba71d8e1ecd13d51c",
+    "resultContentSha256": "f68cb6854c55308d6fe2b6724f94c670574d6d0bc369c53ce976f2d3b482225f",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "deadpan",
+      "title": {
+        "zh": "冷面表达",
+        "en": "Deadpan delivery"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "wordplay",
+      "title": {
+        "zh": "文字巧思",
+        "en": "Wordplay"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "absurdist",
+      "title": {
+        "zh": "荒诞联想",
+        "en": "Absurdist play"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "shared-humor",
+      "title": {
+        "zh": "共同趣味",
+        "en": "Shared humor"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "self-deprecating",
+      "title": {
+        "zh": "自嘲表达",
+        "en": "Self-deprecating humor"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "banter",
+      "title": {
+        "zh": "机锋打趣",
+        "en": "Banter"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "HUMOR_01",
+      "prompt": {
+        "zh": "面对一件明显有点离谱的小事，我用很平静的语气说一句与它形成反差的话。",
+        "en": "When something mildly ridiculous happens, I make a contrasting remark in a very matter-of-fact voice."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "deadpan",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "deadpan",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "deadpan",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "deadpan",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "deadpan",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "deadpan",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_02",
+      "prompt": {
+        "zh": "聊天时，我利用一个词的两种意思接出玩笑。",
+        "en": "In conversation, I make a joke from two meanings of a word."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "wordplay",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "wordplay",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "wordplay",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "wordplay",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "wordplay",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "wordplay",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_03",
+      "prompt": {
+        "zh": "聊天时，我把两个毫不相干的东西想象成一起做事来开玩笑。",
+        "en": "In conversation, I imagine two unrelated things doing something together as a joke."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "absurdist",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "absurdist",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "absurdist",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "absurdist",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "absurdist",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "absurdist",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_04",
+      "prompt": {
+        "zh": "和别人聊天时，我用大家都经历过的小事引出一起笑的机会。",
+        "en": "In conversation, I bring up a small experience we share as an opportunity to laugh together."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "shared-humor",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "shared-humor",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "shared-humor",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "shared-humor",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "shared-humor",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "shared-humor",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_05",
+      "prompt": {
+        "zh": "聊天时，我拿自己一个无关紧要的小失误开玩笑。",
+        "en": "In conversation, I make a joke about a minor mistake of my own."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "self-deprecating",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "self-deprecating",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "self-deprecating",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "self-deprecating",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "self-deprecating",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "self-deprecating",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_06",
+      "prompt": {
+        "zh": "聊天时，我顺着对方一句话，接一句针对其中细节的俏皮回应。",
+        "en": "In conversation, I pick up a detail in what someone says and answer with a teasing line."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "banter",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "banter",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "banter",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "banter",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "banter",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "banter",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_07",
+      "prompt": {
+        "zh": "在文字聊天里，我用一本正经的说法描述好笑的事，而不另外加上笑脸或夸张语气。",
+        "en": "In messages, I describe something amusing in a straight-faced way without adding a smiley or an exaggerated tone."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "deadpan",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "deadpan",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "deadpan",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "deadpan",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "deadpan",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "deadpan",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_08",
+      "prompt": {
+        "zh": "发消息时，我把读音相近的词换进原句，让它变得好笑。",
+        "en": "When messaging, I swap in a similar-sounding word to make a sentence amusing."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "wordplay",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "wordplay",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "wordplay",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "wordplay",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "wordplay",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "wordplay",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_09",
+      "prompt": {
+        "zh": "在文字聊天里，我为一件普通物品编一个明显不可能的身份。",
+        "en": "In messages, I give an ordinary object an obviously impossible identity."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "absurdist",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "absurdist",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "absurdist",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "absurdist",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "absurdist",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "absurdist",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_10",
+      "prompt": {
+        "zh": "在群聊里，我接着大家正在聊的普通话题补一个轻松的笑点。",
+        "en": "In a group chat, I add a light comic detail to an ordinary topic others are already discussing."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "shared-humor",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "shared-humor",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "shared-humor",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "shared-humor",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "shared-humor",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "shared-humor",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_11",
+      "prompt": {
+        "zh": "发消息时，我把自己刚刚搞混的小事写成笑话。",
+        "en": "When messaging, I turn something I have just mixed up into a joke about myself."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "self-deprecating",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "self-deprecating",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "self-deprecating",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "self-deprecating",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "self-deprecating",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "self-deprecating",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_12",
+      "prompt": {
+        "zh": "在文字聊天里，我和别人来回接互相打趣的短句。",
+        "en": "In messages, I exchange short teasing replies with another person."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "banter",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "banter",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "banter",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "banter",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "banter",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "banter",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_13",
+      "prompt": {
+        "zh": "讲一件有趣经历时，我刻意把反应说得比事情本身平淡。",
+        "en": "When recounting an amusing experience, I deliberately understate my reaction to it."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "deadpan",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "deadpan",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "deadpan",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "deadpan",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "deadpan",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "deadpan",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_14",
+      "prompt": {
+        "zh": "讲一件事时，我临时改动一个熟悉说法中的字词来制造笑点。",
+        "en": "When telling a story, I change the wording of a familiar expression to create a joke."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "wordplay",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "wordplay",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "wordplay",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "wordplay",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "wordplay",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "wordplay",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_15",
+      "prompt": {
+        "zh": "讲趣事时，我把一个小细节延伸成不合现实逻辑的假想情节。",
+        "en": "When telling an amusing story, I extend a small detail into an unrealistic imaginary sequence."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "absurdist",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "absurdist",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "absurdist",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "absurdist",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "absurdist",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "absurdist",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_16",
+      "prompt": {
+        "zh": "讲趣事时，我先补上听众需要的前情，再说自己觉得好笑的部分。",
+        "en": "When telling an amusing story, I give listeners the context before the part I find funny."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "shared-humor",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "shared-humor",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "shared-humor",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "shared-humor",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "shared-humor",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "shared-humor",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_17",
+      "prompt": {
+        "zh": "讲趣事时，我把自己当时的笨拙反应作为笑点。",
+        "en": "When telling an amusing story, I make my own awkward reaction part of the joke."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "self-deprecating",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "self-deprecating",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "self-deprecating",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "self-deprecating",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "self-deprecating",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "self-deprecating",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_18",
+      "prompt": {
+        "zh": "别人讲趣事时，我插一句调侃其夸张说法的回应。",
+        "en": "When someone tells an amusing story, I add a playful remark about their exaggerated wording."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "banter",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "banter",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "banter",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "banter",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "banter",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "banter",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_19",
+      "prompt": {
+        "zh": "出现出乎意料的小变化时，我不改表情地补上一句玩笑。",
+        "en": "When a small unexpected change occurs, I add a joke without changing my expression."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "deadpan",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "deadpan",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "deadpan",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "deadpan",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "deadpan",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "deadpan",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_20",
+      "prompt": {
+        "zh": "遇到一个有趣名称或标语，我围绕它的用词另接一句玩笑。",
+        "en": "When I notice an interesting name or slogan, I build another joke around its wording."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "wordplay",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "wordplay",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "wordplay",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "wordplay",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "wordplay",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "wordplay",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_21",
+      "prompt": {
+        "zh": "出现计划外的小事时，我把它想象成一条荒唐的新规则来逗趣。",
+        "en": "When a small unplanned event happens, I imagine it as an absurd new rule for comic effect."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "absurdist",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "absurdist",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "absurdist",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "absurdist",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "absurdist",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "absurdist",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_22",
+      "prompt": {
+        "zh": "共同安排出了小岔子时，我把大家眼前的处境说成一段轻松的共同经历。",
+        "en": "When a shared arrangement has a small hiccup, I frame the situation as a light shared experience."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "shared-humor",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "shared-humor",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "shared-humor",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "shared-humor",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "shared-humor",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "shared-humor",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_23",
+      "prompt": {
+        "zh": "出现一个小意外时，我先打趣自己先前不合实际的预计。",
+        "en": "When a small surprise occurs, I joke about my own earlier unrealistic expectation."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "self-deprecating",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "self-deprecating",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "self-deprecating",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "self-deprecating",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "self-deprecating",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "self-deprecating",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_24",
+      "prompt": {
+        "zh": "遇到对方一个无关紧要的小疏漏，我用一句打趣回应。",
+        "en": "When someone makes a minor slip, I respond with a teasing comment."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "banter",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "banter",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "banter",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "banter",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "banter",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "banter",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "deadpan",
+      "directionIds": [
+        "deadpan"
+      ],
+      "title": {
+        "zh": "冷面幽默：平静语气里的反差",
+        "en": "Deadpan Humor: Matter-of-Fact Delivery"
+      },
+      "headline": {
+        "zh": "语气不动，意思轻轻转弯",
+        "en": "A change of meaning in an unchanged tone"
+      },
+      "summary": {
+        "zh": "这一部分观察用平静表情、平淡语气或低调文字表达玩笑的自报频率。它不测幽默时机、冷漠、外向程度，也不说明别人一定听懂或喜欢。",
+        "en": "This part explores how often you report jokes delivered through a matter-of-fact expression, voice or message. It measures neither comic timing, coldness nor extraversion, and cannot establish whether others understand or enjoy the joke."
+      },
+      "seo": {
+        "title": {
+          "zh": "冷面幽默结果：平静语气、反差与具体例子",
+          "en": "Deadpan Humor: Meaning, Examples and Full Guide"
+        },
+        "description": {
+          "zh": "阅读冷面幽默完整解释，了解平静语气、轻描淡写和文字反差，比较其他表达方式。免费查看具体例子、取舍与小尝试，不把频率当冷漠、外向程度或幽默时机能力。",
+          "en": "Explore deadpan humor with original examples, understated delivery, context and tradeoffs. Full free guide without treating frequency as timing skill or coldness."
+        }
+      },
+      "scoreReading": {
+        "zh": "四条题目分别问最近四周在不同场景这样表达的频率，1为从不、5为几乎总是，NA不计分。本部分至少3条有效评分才取一位小数均分，否则明确显示资料不足；所有24题先完成选择。最低条数是本站信息完整度规则，不是心理学阈值。六部分可共存，不按最高值派类型，不合成幽默总分或百分比，小数差异不等于统计显著。",
+        "en": "Four items ask reported use across situations in the past four weeks, from 1 Never to 5 Almost always; NA is unscored. A part needs at least three ratings for a mean rounded to one decimal, otherwise information is insufficient. All 24 selections come first. This minimum is an original completeness rule, not a psychological cutoff. Six parts can coexist without a highest-score type, overall humor score or percentage; decimal differences establish no statistical significance."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这一部分在观察什么",
+            "en": "What this part explores"
+          },
+          "paragraphs": [
+            {
+              "zh": "冷面表达的重点是说法和事情之间的反差：内容有笑点，语气却像在报告一件普通事实。回看你更常用的是平静表情、轻描淡写还是文字里的认真口吻，它们可以出现在不同场景。同样的均分并不意味着你和别人讲相同的笑话，更不能判断笑点是否成功。",
+              "en": "Deadpan here concerns a contrast between an amusing meaning and a matter-of-fact delivery. Revisit whether you use an unchanged expression, understatement or a deliberately serious written tone. These can occur in different settings. The same mean does not imply the same jokes, and the items cannot establish whether a delivery actually succeeds with its audience."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一个原创例子",
+            "en": "An original example"
+          },
+          "paragraphs": [
+            {
+              "zh": "你为一个小活动摆好六把椅子，发现最后只有两个人到场，可以平静地说：“今天的空位安排得很充裕。”笑点来自明显事实与认真语气的距离。这个例子只是解释表达机制，不是题目的标准答案，也不要求在真实活动里评价缺席者或靠一句话改变现场气氛。",
+              "en": "You arrange six chairs for a small activity and only two people arrive. In a level voice, you might say, “We have been generous with seating space.” The joke uses the distance between the obvious situation and the serious delivery. This original example illustrates a mechanism rather than a model answer, a judgment of absent people or a guaranteed mood change."
+            }
+          ]
+        },
+        {
+          "id": "conditions",
+          "title": {
+            "zh": "什么时候需要更多线索",
+            "en": "When more context may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "听众不熟悉你的口吻、文字缺少表情，或话题需要明确处理时，可以先判断对方是否知道你在开玩笑。若有人按字面理解，直接解释意思往往比要求对方“懂幽默”更清楚。这里不是要求每句话都加提示，而是把是否理解当作需要确认的信息，不由冷面标签预设。",
+              "en": "If someone does not know your delivery, a message lacks facial cues or the topic needs a clear response, consider whether the playful meaning is recognisable. Explain a misunderstanding directly rather than requiring someone to understand your humor. Not every line needs a signal; the point is to check understanding instead of assuming a deadpan label supplies it."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "平淡的说法可能让反差更明显，也可能让真实意见不清楚。例如你确实不满意某个安排，却只用一句冷面玩笑回应，对方未必知道需要改变什么。先把实际请求说清，再决定是否保留玩笑。问卷没有证明你会压抑感受或缺少同理心，这些不能从表达频率反推。",
+              "en": "A flat delivery can emphasise contrast but may also obscure a real opinion. If an arrangement bothers you and you respond only with a deadpan line, another person may not know what needs changing. State the practical request before deciding whether humor helps. The frequency mean cannot establish emotional suppression or a lack of empathy."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "在工作与日常中使用",
+            "en": "Using it at work and day to day"
+          },
+          "paragraphs": [
+            {
+              "zh": "需要别人据此行动的通知，先给出准确事实、责任和时间。轻松交流中，熟悉的伙伴也可能喜欢简短反差，但他们没有必须笑的义务。如果对方正在认真说一件事，可以先回应事情本身。本结果不推荐喜剧、写作或任何职业，也没有观察你的真实工作沟通效果。",
+              "en": "For a message someone must act on, give the facts, responsibility and timing first. Familiar companions may enjoy understated contrast in casual conversation without owing you a laugh. If someone is discussing a serious concern, respond to the concern itself. This result selects no occupation and includes no observation of your actual workplace communication."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他表达方式比较",
+            "en": "Comparing other expressions"
+          },
+          "paragraphs": [
+            {
+              "zh": "冷面描述表达口吻，文字巧思描述字词机制，荒诞联想描述不合现实的组合；共同趣味、自嘲和机锋则涉及话题或互动方式。一句玩笑可以同时属于几种，例如用平静语气讲一个双关。因此六项分别看，不合成比例、总分或固定类型，也不按最高均分指定主风格。",
+              "en": "Deadpan concerns delivery, wordplay concerns wording, and absurdist play concerns unlikely combinations. Shared humor, self-deprecation and banter concern topics or interaction. One joke can use several, such as a calmly delivered pun. Read six parts separately, without turning them into proportions, an overall score or a highest-mean primary identity."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个反例",
+            "en": "A counterexample"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能表情平静却完全没有开玩笑，也可能平时热情，在某次讲故事时故意冷面。沉默、语调平或文字简短不能直接算冷面幽默；题目都要求有玩笑意图。本版没有测孤独、自闭特征、冷漠或情绪状态，不能由这一项均分判断这些情况，也不评价哪种表达更高级。",
+              "en": "A neutral expression can be entirely sincere, and an animated person can deliberately use deadpan in a story. Silence, flat intonation or short messages do not automatically count as humor; the items concern a playful intention. The mean assesses neither loneliness, autistic traits, coldness nor emotional condition, and ranks no delivery as more sophisticated."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "在一段双方都愿意轻松交流的对话里，留意自己一句低调玩笑怎样被理解。若没有被接住，可以说明原意或自然换话题，不必重复到对方笑出来。之后记下起作用的是语气、共同背景还是句子内容；目标是看清表达条件，不是练成更高均分或证明自己有幽默天赋。",
+              "en": "During a conversation both people want to keep light, notice how one understated remark is understood. If it misses, explain or move on without repeating it until someone laughs. Afterwards, distinguish delivery, shared background and wording. The aim is to understand the conditions, not raise a mean or prove an innate gift for comedy."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创表达自评与使用范围",
+            "en": "Original expression reflection and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24条频率题和全部解释由费马独立编写，以六种可共存的日常表达组织自我观察。它混合口吻、语言机制与互动方式，不是一套互斥或经过验证的六因素人格模型，也不等同HSQ或其他公开量表，未复制竞品题库、模型名或结果正文。词典只核常用词义，不验证本站题目；没有本站信效度、常模或跨语言等价验证。不用于诊断、录用、关系匹配或评定幽默能力。",
+              "en": "FermatMind independently authored these 24 frequency items and explanations around six coexisting everyday expressions. They mix delivery, language mechanisms and interaction rather than forming mutually exclusive types or a validated six-factor personality model. This is not the HSQ or another published scale; no competitor bank, model name or result text is adopted. Dictionaries establish ordinary meanings, not item validity. There are no established website psychometrics, norms or cross-language equivalence, and results support neither diagnosis, hiring, relationship matching nor humor-ability judgments."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wordplay",
+      "directionIds": [
+        "wordplay"
+      ],
+      "title": {
+        "zh": "文字巧思：双关与语言变化",
+        "en": "Wordplay: Puns and Playful Wording"
+      },
+      "headline": {
+        "zh": "让字词的另一种可能冒出来",
+        "en": "Finding another possibility in the wording"
+      },
+      "summary": {
+        "zh": "这一部分观察用词义、近音或熟悉说法的变化制造笑点的自报频率。它不测词汇量、智力、语言水平或创意能力；中英文例子各自成立，不按能否理解双关评分。",
+        "en": "This part explores reported use of meanings, similar sounds and altered expressions for humor. It assesses neither vocabulary, intelligence, language proficiency nor creativity. English and Chinese examples work independently; understanding a pun is not scored."
+      },
+      "seo": {
+        "title": {
+          "zh": "文字巧思幽默结果：双关、近音与语言变化",
+          "en": "Wordplay Humor: Puns, Context and Full Interpretation"
+        },
+        "description": {
+          "zh": "双关、近音和改写怎样形成笑点？阅读文字巧思完整结果，中英文例子分别成立。免费比较表达方式与取舍，不考词汇、智力或语言水平，也不按猜懂笑话计分。",
+          "en": "Read the wordplay humor guide: puns, altered expressions and independent English examples. Full free interpretation without testing vocabulary, intelligence or language skill."
+        }
+      },
+      "scoreReading": {
+        "zh": "四条题目分别问最近四周在不同场景这样表达的频率，1为从不、5为几乎总是，NA不计分。本部分至少3条有效评分才取一位小数均分，否则明确显示资料不足；所有24题先完成选择。最低条数是本站信息完整度规则，不是心理学阈值。六部分可共存，不按最高值派类型，不合成幽默总分或百分比，小数差异不等于统计显著。",
+        "en": "Four items ask reported use across situations in the past four weeks, from 1 Never to 5 Almost always; NA is unscored. A part needs at least three ratings for a mean rounded to one decimal, otherwise information is insufficient. All 24 selections come first. This minimum is an original completeness rule, not a psychological cutoff. Six parts can coexist without a highest-score type, overall humor score or percentage; decimal differences establish no statistical significance."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这一部分在观察什么",
+            "en": "What this part explores"
+          },
+          "paragraphs": [
+            {
+              "zh": "文字巧思把注意力放在语言怎样产生另一种读法，可以是双关、近音、改写或一句熟悉表达的转弯。题目问最近是否这样开玩笑，并不出题考你猜谜或解释笑点。四条评分只概括这组自报行为，不代表你认识多少词，也不要求每个人在两种语言里用同样的方式。",
+              "en": "Wordplay shifts attention to another reading of language through a pun, a similar sound, a variation or a changed familiar expression. The items ask whether you use such humor, rather than testing riddles or explanations. Four ratings summarise reported behaviours in this set, not vocabulary size or an expectation that someone jokes identically across languages."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "中英文独立的原创例子",
+            "en": "Independent original examples in each language"
+          },
+          "paragraphs": [
+            {
+              "zh": "整理卡片时，你可以把“分门别类”改成“分门别累”，打趣这项整理需要休息。笑点依赖中文的近音和改字，不要求英语读者理解。题目本身不把这个例子当标准答案；它只是展示语言材料怎样参与幽默，不证明说这句话的人更聪明，也不评价实际效果。",
+              "en": "While packing books into cartons, you might label one “A moving story” and point to the packing itself. The line plays on a phrase with more than one reading. This English example is independently written rather than a translation test. It illustrates how wording can carry humor, without establishing that the speaker is cleverer or that the joke lands."
+            }
+          ]
+        },
+        {
+          "id": "conditions",
+          "title": {
+            "zh": "共享语言背景的条件",
+            "en": "The role of shared language context"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个双关是否好接，可能取决于听众是否熟悉词义、发音和前情。对方没有反应时，不需要据此评价其语言能力；可以换更直接的说法，也可以简单解释自己玩了哪个词。翻成另一种语言后失去笑点很正常，不意味着那种语言的人不幽默，更不是跨语言分数等价已经得到验证。",
+              "en": "A pun may depend on a listener knowing a meaning, sound or context. No reaction establishes nothing about their language ability; use a clearer expression or briefly explain the word you played with. Losing a joke in translation does not imply a less humorous language community, and these bilingual ratings have no established cross-language equivalence."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "当对话原本需要解决具体问题，连续改词可能让意思难以辨认。先把实际信息说完整，再决定语言游戏是否适合这次交流。有些人只是没有兴趣接双关，并非不懂；允许话题继续。问卷也没有验证你会过度卖弄或打断别人，取舍需要回到真实例子核对。",
+              "en": "Repeated word alterations can obscure a conversation meant to solve a concrete problem. Supply the actual information first and decide whether language play fits. Someone may understand a pun without wanting to continue it; let the topic move on. The questionnaire does not establish that you show off or interrupt others, so examine an actual example."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "在工作与日常中使用",
+            "en": "Using it at work and day to day"
+          },
+          "paragraphs": [
+            {
+              "zh": "说明、日期、金额和需要执行的要求应保持准确，不依赖玩笑传达关键含义。轻松聊天时，可以分享一个自己发现的说法，让对方自由选择接不接。不要把姓名、口音或语言学习中的错误变成未经对方同意的取笑材料。本结果不证明写作、广告、翻译或语言工作的适配。",
+              "en": "Instructions, dates, amounts and requirements need precise wording without relying on a joke for their essential meaning. In casual exchanges, offer a wording you noticed and let someone choose whether to join. Names, accents and language-learning mistakes are not automatic permission for ridicule. This mean establishes no suitability for writing, advertising, translation or language work."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他表达方式比较",
+            "en": "Comparing other expressions"
+          },
+          "paragraphs": [
+            {
+              "zh": "文字巧思着重词本身，荒诞联想着重想象内容，冷面着重表达口吻。共同趣味也可能用双关，自嘲也可以通过改写完成，机锋来回应答时更可能依赖前一句话。它们并不互斥，六项均分独立呈现；较低文字巧思频率不等于幽默少，较高也不等于更有创意。",
+              "en": "Wordplay concerns the words, absurdist play the imagined content, and deadpan the delivery. Shared humor and self-deprecation can use puns, while banter may play on the preceding line. The parts can coexist and their means stay separate. Less frequent wordplay does not mean less humor, and more frequent wordplay does not prove greater creativity."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个反例",
+            "en": "A counterexample"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能很懂双关却不常主动说，也可能在熟悉方言中常开这种玩笑、换到另一语言便少用。欣赏与使用不是同一件事，题本只问后者。阅读障碍、词汇能力、智力和幽默理解都没有在本版被测量；不要把记不清或不适用的题补成从不来得到一个分数。",
+              "en": "You might understand puns without making them, or use them often in a familiar dialect and rarely in another language. Appreciation and use are different; the items ask about use. This edition measures neither reading difficulty, vocabulary, intelligence nor humor comprehension. Do not turn an unclear or inapplicable item into never simply to obtain a number."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "找一段无需承担重要信息的轻松交流，留意自己是围绕词义、声音还是改写在开玩笑。不必硬造笑话；若刚好出现一个例子，看看双方是否共享必要前情。回看时关注是哪一层语言让它成立，不给听众打分，也不把一次顺利接梗当作语言能力进步的证据。",
+              "en": "In a casual exchange carrying no essential instruction, notice whether your humor uses meaning, sound or altered wording. There is no need to force a joke. If an example appears, check what context you both share. Review the language mechanism without rating the audience or treating one successful exchange as evidence of improved language ability."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创表达自评与使用范围",
+            "en": "Original expression reflection and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24条频率题和全部解释由费马独立编写，以六种可共存的日常表达组织自我观察。它混合口吻、语言机制与互动方式，不是一套互斥或经过验证的六因素人格模型，也不等同HSQ或其他公开量表，未复制竞品题库、模型名或结果正文。词典只核常用词义，不验证本站题目；没有本站信效度、常模或跨语言等价验证。不用于诊断、录用、关系匹配或评定幽默能力。",
+              "en": "FermatMind independently authored these 24 frequency items and explanations around six coexisting everyday expressions. They mix delivery, language mechanisms and interaction rather than forming mutually exclusive types or a validated six-factor personality model. This is not the HSQ or another published scale; no competitor bank, model name or result text is adopted. Dictionaries establish ordinary meanings, not item validity. There are no established website psychometrics, norms or cross-language equivalence, and results support neither diagnosis, hiring, relationship matching nor humor-ability judgments."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "absurdist",
+      "directionIds": [
+        "absurdist"
+      ],
+      "title": {
+        "zh": "荒诞幽默：把日常轻轻带离现实",
+        "en": "Absurdist Humor: Playful Impossibilities"
+      },
+      "headline": {
+        "zh": "让不相干的事暂时住在一起",
+        "en": "Letting unrelated things share an imaginary moment"
+      },
+      "summary": {
+        "zh": "这一部分观察把普通事情变成不可能身份、离奇组合或想象情节的自报频率。它不测创造力、现实判断、心理状态或文学流派归属，也不要求别人接受这个想象。",
+        "en": "This part explores how often you report impossible identities, unlikely combinations or imaginary sequences in ordinary humor. It measures neither creativity, reality judgment, mental condition nor membership in a literary movement."
+      },
+      "seo": {
+        "title": {
+          "zh": "荒诞幽默结果：不可能想象、例子与边界",
+          "en": "Absurdist Humor: Playful Examples and Full Guide"
+        },
+        "description": {
+          "zh": "阅读荒诞幽默完整说明，了解不相干组合、不可能身份与虚构延伸，附原创例子和小尝试。免费解释频率读法，不测创造力、现实判断或心理状态。",
+          "en": "Explore absurdist humor through original examples, playful impossibilities and everyday context. Full free guide without inferring creativity or mental condition."
+        }
+      },
+      "scoreReading": {
+        "zh": "四条题目分别问最近四周在不同场景这样表达的频率，1为从不、5为几乎总是，NA不计分。本部分至少3条有效评分才取一位小数均分，否则明确显示资料不足；所有24题先完成选择。最低条数是本站信息完整度规则，不是心理学阈值。六部分可共存，不按最高值派类型，不合成幽默总分或百分比，小数差异不等于统计显著。",
+        "en": "Four items ask reported use across situations in the past four weeks, from 1 Never to 5 Almost always; NA is unscored. A part needs at least three ratings for a mean rounded to one decimal, otherwise information is insufficient. All 24 selections come first. This minimum is an original completeness rule, not a psychological cutoff. Six parts can coexist without a highest-score type, overall humor score or percentage; decimal differences establish no statistical significance."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这一部分在观察什么",
+            "en": "What this part explores"
+          },
+          "paragraphs": [
+            {
+              "zh": "荒诞联想让现实规则暂时松开：物品可以有职位，小事可以变成虚构制度，不相干的东西可以一起行动。题目问你是否这样开玩笑，并不考想象力或要求辨认真伪。回看自己更常延伸细节还是另造情节；一个均分不能说明内容新颖、听众觉得好笑或你平时怎样判断事实。",
+              "en": "Absurdist play briefly loosens ordinary rules: an object can have an invented job, a small incident an imaginary system, or unrelated things a shared activity. The items ask whether you use such humor, without testing imagination or distinguishing truth from fiction. A mean cannot establish novelty, audience enjoyment or how you judge facts outside a joke."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一个原创例子",
+            "en": "An original example"
+          },
+          "paragraphs": [
+            {
+              "zh": "一只袜子洗完后找不到搭档，你可以想象它已经申请“单袜独立办公室”，正在等另一只办转岗手续。例子的笑点在于把家务小事套进不可能的制度，并非真的相信物品会办理手续。它展示一种自编表达机制，不是必须觉得好笑的题目，也没有标准笑声或反应速度。",
+              "en": "A sock comes out of the wash without its partner. You imagine it opening a “single-sock independence office” while the other files for a transfer. The mechanism gives a household event an impossible bureaucracy, without suggesting that objects actually submit paperwork. This independently written example is not an item with a correct laugh or a required reaction time."
+            }
+          ]
+        },
+        {
+          "id": "conditions",
+          "title": {
+            "zh": "让想象有共同入口",
+            "en": "Giving the imagination a shared entry"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果听众知道你从哪件日常小事出发，虚构延伸可能比较容易跟上；也有人只想讲清眼前问题，不想继续想象。可以先让对方选择是否加入，不必把不接话解释成缺少想象力。涉及准确消息时，把虚构与事实说明白，尤其不要让别人据此作出需要真实依据的决定。",
+              "en": "An everyday starting point can help someone follow an imaginary extension, but they may prefer discussing the practical issue. Leave room not to join without judging their imagination. When accurate information matters, make the invented part clear, particularly if someone might otherwise act on a message that needs a factual basis."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "虚构越走越远，可能让交流更有趣，也可能让原本要解决的事项消失。例如谈到共同安排，大家接了很多离奇情节，却还没确定地点。可以先把现实决定落下，再继续玩故事。报告没有证明你逃避责任或容易分心，取舍只提醒回到当次交流，看笑话有没有盖住真实需要。",
+              "en": "An extended imaginary sequence may be enjoyable or may displace the task at hand. A group can build increasingly unlikely stories while still failing to choose a meeting place. Settle the practical decision before continuing. This report does not establish avoidance or distractibility; it invites checking whether a particular joke obscures a real need."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "在工作与日常中使用",
+            "en": "Using it at work and day to day"
+          },
+          "paragraphs": [
+            {
+              "zh": "轻松的空档里，可以把一个无关紧要的细节变成短暂想象，也允许它只停留一句。不要借虚构故事传播关于真人的无根据指控，或把别人的重要经历变成玩笑。实际工作中的创新、设计或问题解决需要另看成果和条件，本部分频率不能替代那些观察，也不推荐职业。",
+              "en": "In a casual pause, a minor detail can become a short imaginary moment without needing a long performance. Do not use fiction to circulate unfounded claims about real people or turn an important personal experience into a joke. Innovation, design and practical problem solving require evidence of their own; this frequency mean assesses no such performance or occupational fit."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他表达方式比较",
+            "en": "Comparing other expressions"
+          },
+          "paragraphs": [
+            {
+              "zh": "荒诞着重内容偏离现实，冷面着重说话口吻，文字巧思着重字词多重读法。一个荒唐场景也能平静地讲，或者包含双关；共同趣味和自嘲还可以决定笑话围绕谁展开。六部分因此可以同时较高或相近，不按均分相加画比例，也不把荒诞多解释成其他方式少。",
+              "en": "Absurdist play concerns content departing from ordinary reality, deadpan its delivery, and wordplay alternative readings of words. An unlikely scene can be delivered calmly or contain a pun, while shared humor or self-deprecation supplies its focus. All six means can be frequent or similar; they are not proportions and one expression does not displace another."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个反例",
+            "en": "A counterexample"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能很喜欢看离奇喜剧，却不常自己编这种玩笑；也可能在孩子的想象游戏里参与很多，在成年朋友面前很少使用。欣赏、创作和具体场景需要区分。本题没有评估精神病性症状、现实检验、认知障碍或创造力，不能把荒诞题的答案拿去推断这些情况。",
+              "en": "You might enjoy improbable comedy without making it, or join children’s imaginary play while rarely using it with adult friends. Appreciation, creation and setting are different observations. These items assess neither psychotic symptoms, reality testing, cognitive difficulty nor creativity. Responses about deliberate playful invention cannot establish any of those conditions."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果双方愿意，可以从一个普通物品出发，各补一句不可能的用途，随时停下而不要求故事完整。结束后留意是哪条共同规则让想象容易理解，也允许结论是自己更喜欢听而不是说。这个尝试用于观察表达条件，不用给创造力打分，更不为了提高荒诞频率勉强制造玩笑。",
+              "en": "If both people want to, start with an ordinary object and each add one impossible use. Stop whenever you wish without completing a story. Notice which shared premise made it understandable, and allow a preference for listening over contributing. This explores expression conditions rather than rating creativity or forcing jokes to increase an absurdist-play mean."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创表达自评与使用范围",
+            "en": "Original expression reflection and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24条频率题和全部解释由费马独立编写，以六种可共存的日常表达组织自我观察。它混合口吻、语言机制与互动方式，不是一套互斥或经过验证的六因素人格模型，也不等同HSQ或其他公开量表，未复制竞品题库、模型名或结果正文。词典只核常用词义，不验证本站题目；没有本站信效度、常模或跨语言等价验证。不用于诊断、录用、关系匹配或评定幽默能力。",
+              "en": "FermatMind independently authored these 24 frequency items and explanations around six coexisting everyday expressions. They mix delivery, language mechanisms and interaction rather than forming mutually exclusive types or a validated six-factor personality model. This is not the HSQ or another published scale; no competitor bank, model name or result text is adopted. Dictionaries establish ordinary meanings, not item validity. There are no established website psychometrics, norms or cross-language equivalence, and results support neither diagnosis, hiring, relationship matching nor humor-ability judgments."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shared-humor",
+      "directionIds": [
+        "shared-humor"
+      ],
+      "title": {
+        "zh": "共同趣味：让背景和笑点能被一起接住",
+        "en": "Shared Humor: Context and Common Moments"
+      },
+      "headline": {
+        "zh": "从彼此都知道的事开始",
+        "en": "Beginning with something people share"
+      },
+      "summary": {
+        "zh": "这一部分观察围绕共同经历、当前话题和必要前情分享笑点的自报频率。它不等同HSQ亲和分量表，也不证明别人感到安全、关系亲密或你有义务负责气氛。",
+        "en": "This part explores reported humor around shared experiences, current topics and useful context. It is not an HSQ affiliative score and establishes neither felt safety, closeness nor an obligation to manage everyone’s mood."
+      },
+      "seo": {
+        "title": {
+          "zh": "共同趣味幽默结果：共享背景、参与与取舍",
+          "en": "Shared Humor: Common Context, Examples and Full Guide"
+        },
+        "description": {
+          "zh": "共同背景怎样帮助分享笑点？阅读共同趣味完整结果，包含补充前情、可选参与、边界和具体例子。免费说明，不把自报频率当亲和力量表、受欢迎程度或关系质量。",
+          "en": "Read the shared humor guide to common experiences, context and optional participation. Full free examples without inferring popularity, closeness or an HSQ affiliative score."
+        }
+      },
+      "scoreReading": {
+        "zh": "四条题目分别问最近四周在不同场景这样表达的频率，1为从不、5为几乎总是，NA不计分。本部分至少3条有效评分才取一位小数均分，否则明确显示资料不足；所有24题先完成选择。最低条数是本站信息完整度规则，不是心理学阈值。六部分可共存，不按最高值派类型，不合成幽默总分或百分比，小数差异不等于统计显著。",
+        "en": "Four items ask reported use across situations in the past four weeks, from 1 Never to 5 Almost always; NA is unscored. A part needs at least three ratings for a mean rounded to one decimal, otherwise information is insufficient. All 24 selections come first. This minimum is an original completeness rule, not a psychological cutoff. Six parts can coexist without a highest-score type, overall humor score or percentage; decimal differences establish no statistical significance."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这一部分在观察什么",
+            "en": "What this part explores"
+          },
+          "paragraphs": [
+            {
+              "zh": "共同趣味把笑点放在彼此都能了解的背景里：一起经历过的小事、正在聊的话题，或先说明的前情。题目问的是你怎样分享，不是别人实际被逗笑多少次。即使频率较高，也不能推断每个人都感觉被接纳、你擅长社交或关系已经变得更好；这些需要听众自己的回应。",
+              "en": "Shared humor here begins with a background others can access: a small common experience, the current topic or an explained context. Items ask how you share humor, not how often someone actually laughs. Frequent use establishes neither inclusion, social skill nor improved relationships. Those observations need responses from the people involved rather than your ratings alone."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一个原创例子",
+            "en": "An original example"
+          },
+          "paragraphs": [
+            {
+              "zh": "几个人一起收拾活动用品，发现总有一卷胶带换位置，你可以把寻找它叫作“今日固定节目”。新加入的人不清楚时，先讲清刚才发生的小插曲。笑点在共同经历，不需要把任何人指定为笑柄；这个例子也不保证每个人都想继续聊，允许有人专心做事。",
+              "en": "While several people pack activity supplies, a roll of tape keeps appearing somewhere new. You jokingly call finding it “today’s scheduled feature.” Give a newcomer the short background if needed. The example uses a shared event without making a person its target, while leaving room for someone who simply wants to carry on with the task."
+            }
+          ]
+        },
+        {
+          "id": "conditions",
+          "title": {
+            "zh": "让参与保持可选",
+            "en": "Keeping participation optional"
+          },
+          "paragraphs": [
+            {
+              "zh": "共同背景不自动代表大家愿意被公开提及，也不保证旧梗对新人友好。先确认故事里的人愿意分享，不把私人经历当集体素材；听众不接话时可以自然继续原来的事情。轻松交流的空间来自具体约定和当时反馈，不能单靠“我是暖场的人”来判断，也不要求你一直维持气氛。",
+              "en": "A shared background does not automatically permit public retelling or make an old reference welcoming to a newcomer. Check before sharing someone’s personal experience, and let the original activity continue if people do not join. A label such as the person who lightens the mood cannot establish consent or make maintaining everyone’s mood your responsibility."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "笑话可以和认真话题并存，但如果有人提出需要处理的事，先回应具体需要，再决定是否继续轻松表达。若一个共同梗已经不再让某位成员舒服，可以停用，不要求其证明理由。问卷没有证明你会回避冲突或讨好别人，均分只是提醒观察自己实际怎样安排笑点与正事。",
+              "en": "Humor and serious conversation can coexist. When someone raises something needing a response, address that need before choosing whether to continue joking. An old shared reference can be dropped if someone no longer wants it, without demanding a justification. The mean does not establish conflict avoidance or people-pleasing; examine how you handle the actual conversation."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "在工作与日常中使用",
+            "en": "Using it at work and day to day"
+          },
+          "paragraphs": [
+            {
+              "zh": "在新小组中，公共的小经历可能比只有少数人懂的旧梗更容易解释；但重要通知仍应独立清楚。家庭和朋友间也可以问对方想不想听一段趣事，而不是默认关系熟就能讲任何内容。本报告不评定领导力、团队凝聚力、受欢迎程度或亲密关系质量，也不指定适合的职业。",
+              "en": "In a new group, an ordinary common experience may require less explanation than an old private reference, while important instructions still need clarity. With family and friends, ask whether someone wants to hear a story instead of assuming closeness permits any material. This guide rates neither leadership, group cohesion, popularity nor relationship quality, and selects no occupation."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他表达方式比较",
+            "en": "Comparing other expressions"
+          },
+          "paragraphs": [
+            {
+              "zh": "共同趣味侧重话题是否有共享背景，冷面、文字巧思和荒诞可以成为它的具体表现；自嘲让自己进入笑点，机锋更强调来回的调侃。同一次交流可以有好几种，因此六项独立呈现。这里的“共同”不是HSQ亲和型分数，不从一个名称补出健康、幸福感或心理韧性结论。",
+              "en": "Shared humor concerns accessible context, while deadpan, wordplay or absurdist play can supply its form. Self-deprecation places the speaker in the joke; banter emphasises teasing exchange. Several may occur together and are reported separately. Shared is not an HSQ affiliative score and supports no conclusions about health, well-being or psychological resilience."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个反例",
+            "en": "A counterexample"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能不常主动讲笑话，却很愿意听别人说；也可能在某个群体里背景熟悉，在另一个群体里少开玩笑。这不代表你缺乏亲和力或不关心别人。题目没有测关怀动机、社交焦虑、外向性或他人的感受，不能由较低均分把一个安静的人归为不合群。",
+              "en": "You might rarely initiate a joke while enjoying others’ stories, or know the context well in one group and joke little in another. Neither establishes a lack of warmth or concern. These items assess neither caring motives, social anxiety, extraversion nor other people’s feelings. A lower mean cannot classify a quiet person as excluded or unsociable."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "下一次恰好有共同小趣事时，看看需要补上哪段前情，才能让后来加入的人理解。可以只分享一句，也可以选择不讲；若涉及别人，先确认其意愿。回看参与是否自愿、正事有没有说清，而不是统计笑声或要求每个人回应，目标是让交流条件更清楚。",
+              "en": "When a small shared incident naturally arises, notice what context a later arrival would need. Share one line or choose not to tell it; check with anyone whose experience it involves. Review whether participation was optional and practical matters stayed clear, rather than counting laughs or requiring a response from everyone."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创表达自评与使用范围",
+            "en": "Original expression reflection and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24条频率题和全部解释由费马独立编写，以六种可共存的日常表达组织自我观察。它混合口吻、语言机制与互动方式，不是一套互斥或经过验证的六因素人格模型，也不等同HSQ或其他公开量表，未复制竞品题库、模型名或结果正文。词典只核常用词义，不验证本站题目；没有本站信效度、常模或跨语言等价验证。不用于诊断、录用、关系匹配或评定幽默能力。",
+              "en": "FermatMind independently authored these 24 frequency items and explanations around six coexisting everyday expressions. They mix delivery, language mechanisms and interaction rather than forming mutually exclusive types or a validated six-factor personality model. This is not the HSQ or another published scale; no competitor bank, model name or result text is adopted. Dictionaries establish ordinary meanings, not item validity. There are no established website psychometrics, norms or cross-language equivalence, and results support neither diagnosis, hiring, relationship matching nor humor-ability judgments."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "self-deprecating",
+      "directionIds": [
+        "self-deprecating"
+      ],
+      "title": {
+        "zh": "自嘲幽默：以自己的小插曲为笑点",
+        "en": "Self-Deprecating Humor: Joking About Your Own Mishaps"
+      },
+      "headline": {
+        "zh": "让自己经历中的小转折进入玩笑",
+        "en": "Making a small turn in your own experience part of the joke"
+      },
+      "summary": {
+        "zh": "这一部分观察拿自己无关紧要的失误、混淆或反应开玩笑的自报频率。自嘲不自动等于低自尊、讨好、脆弱或HSQ自我挫败功能；它也不授权别人继续取笑你。",
+        "en": "This part explores reported jokes about your own minor mistakes, mix-ups or reactions. Self-deprecation does not automatically establish low self-esteem, ingratiation, vulnerability or the HSQ self-defeating function, and grants nobody permission to keep teasing you."
+      },
+      "seo": {
+        "title": {
+          "zh": "自嘲幽默结果：小失误、分享边界与完整解释",
+          "en": "Self-Deprecating Humor: Examples, Boundaries and Meaning"
+        },
+        "description": {
+          "zh": "自嘲不自动等于低自尊。阅读以自己小插曲为笑点的完整说明，比较表达机制、分享边界与取舍。免费结果，不等同HSQ自我挫败分数，也不推断讨好或心理健康。",
+          "en": "Explore self-deprecating humor with original examples, sharing boundaries and tradeoffs. Full free guide without equating self-jokes with low self-esteem or an HSQ score."
+        }
+      },
+      "scoreReading": {
+        "zh": "四条题目分别问最近四周在不同场景这样表达的频率，1为从不、5为几乎总是，NA不计分。本部分至少3条有效评分才取一位小数均分，否则明确显示资料不足；所有24题先完成选择。最低条数是本站信息完整度规则，不是心理学阈值。六部分可共存，不按最高值派类型，不合成幽默总分或百分比，小数差异不等于统计显著。",
+        "en": "Four items ask reported use across situations in the past four weeks, from 1 Never to 5 Almost always; NA is unscored. A part needs at least three ratings for a mean rounded to one decimal, otherwise information is insufficient. All 24 selections come first. This minimum is an original completeness rule, not a psychological cutoff. Six parts can coexist without a highest-score type, overall humor score or percentage; decimal differences establish no statistical significance."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这一部分在观察什么",
+            "en": "What this part explores"
+          },
+          "paragraphs": [
+            {
+              "zh": "自嘲把说话者自己的小插曲放进笑点，而不是由别人替你指定一个缺点。四条题目分别涉及聊天、文字、讲趣事和小意外里的做法，问最近频率，不问内心价值。相同均分可能来自完全不同的背景，不能确认你是自在、尴尬还是想取悦，也不能确定听众怎样理解。",
+              "en": "Self-deprecation places a small episode involving the speaker in the joke, rather than letting someone else designate a flaw. Four items cover conversation, messages, stories and small surprises. They ask recent frequency rather than self-worth. The same mean can arise in different contexts and cannot establish comfort, embarrassment, ingratiation or how a listener understands the remark."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一个原创例子",
+            "en": "An original example"
+          },
+          "paragraphs": [
+            {
+              "zh": "出门前你认真规划路线，到了门口才发现手里拿的是量尺，可以打趣自己“导航准备好了，工具部门走错了”。笑点落在一次轻微混淆，不需要把自己说成什么都做不好。这个例子独立编写，只说明怎样围绕自己的经历开玩笑，不推断自信或别人是否放松。",
+              "en": "You carefully plan a route, then reach the door holding a ruler. You might joke, “Navigation is ready; the equipment department took a wrong turn.” The line concerns a minor mix-up without claiming you do everything badly. This independently written example illustrates a joke about your experience, without establishing confidence or whether anyone else relaxes."
+            }
+          ]
+        },
+        {
+          "id": "conditions",
+          "title": {
+            "zh": "自己决定分享范围",
+            "en": "Choosing your own sharing boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "由自己开口并不意味着别人可以重复、放大或公开传播。可以明确说：“这件小事我愿意自己讲，但不想继续被拿来打趣。”对方是否尊重这个边界，要看实际回应。个人经历涉及别人时，也要确认其意愿；自嘲标签不能代替双方同意，更不要求你不断提供自己的失误来维持气氛。",
+              "en": "Starting a joke yourself does not authorise others to repeat, enlarge or circulate it. You can say, “I was happy telling that small story, but I do not want it to become a running joke about me.” Respect depends on the response. Check anyone else involved, and retain the choice not to supply personal mishaps for entertainment."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果一句自嘲其实带着希望被认真回应的担心，可以另用直接语言说明需要。笑话是否会遮住重点，应看这次对话，而不是先认定自嘲的人都缺少自尊。也可以分享一个真实做好的部分，不必用贬低来平衡。报告没有测应对机制、抑郁或自我价值，不从频率诊断这些情况。",
+              "en": "If a self-directed joke contains a concern you want taken seriously, state that need directly too. Examine whether this conversation loses the point instead of assuming self-deprecating speakers have low self-esteem. A genuine success can be shared without balancing it with a put-down. These frequency ratings measure neither coping mechanisms, depression nor self-worth."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "在工作与日常中使用",
+            "en": "Using it at work and day to day"
+          },
+          "paragraphs": [
+            {
+              "zh": "介绍一项成果时，可以先准确说明自己做了什么、限制在哪里，再决定是否讲一个轻微插曲。真实失误需要说明事实和修正，不让玩笑替代责任。在朋友间也可以保留不愿分享的部分。本报告不认定你容易相处、不怕冒犯或适合某职业，别人怎样看你需要另问。",
+              "en": "When presenting work, state the contribution and limits accurately before deciding whether to add a small anecdote. A real error needs facts and correction without humor replacing responsibility. Friends do not need access to every personal story either. This guide establishes neither ease of company, immunity to offence nor occupational fit; ask others about their experience rather than inferring it."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他表达方式比较",
+            "en": "Comparing other expressions"
+          },
+          "paragraphs": [
+            {
+              "zh": "自嘲侧重笑点涉及自己，冷面侧重口吻，文字巧思与荒诞侧重机制，共同趣味和机锋侧重共享话题或互动。同一句自嘲可以同时用几种表达。它不等于HSQ中的自我挫败型：后者涉及不同的功能性描述，本版没有采用其题库或计分，不能把名称相近当作同一量表。",
+              "en": "Self-deprecation concerns the speaker as the focus; deadpan concerns delivery, wordplay and absurdist play mechanisms, and shared humor or banter context and interaction. One line can combine them. It is not the HSQ self-defeating style, which concerns a different functional description. Similar names do not make these independently authored items equivalent to that questionnaire."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个反例",
+            "en": "A counterexample"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能很认可自己的能力，同时乐于讲一次小乌龙；也可能最近没有类似经历，自嘲频率很低，却不是特别严肃。别人习惯替你开玩笑也不能算你主动自嘲。本题没有测自信、脆弱、社交需要或心理健康，不把资料不足补成低频，也不把高均分排为更谦逊。",
+              "en": "You can value your abilities and still enjoy recounting a mix-up. A low recent frequency may simply reflect few suitable experiences, rather than seriousness. Other people joking about you is not your own use of self-deprecation. These items assess neither confidence, vulnerability, social needs nor mental health, and a higher mean is no measure of humility."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "下次想分享自己的小插曲时，先问自己愿意讲到哪里，讲完后是否还有实际需要补充。可以决定不讲，或让故事停在一个具体失误，不上升为整体评价。回看的是选择权和信息是否清楚，而不是让别人夸奖你或证明自嘲一定有益，也不需要追求更高或更低的频率。",
+              "en": "Before sharing a personal mishap, decide what you want to reveal and whether a practical need also deserves a direct statement. You can decline to tell it or keep the story about one incident rather than a global judgment. Review choice and clarity without seeking reassurance, proving benefits or trying to change the frequency mean."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创表达自评与使用范围",
+            "en": "Original expression reflection and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24条频率题和全部解释由费马独立编写，以六种可共存的日常表达组织自我观察。它混合口吻、语言机制与互动方式，不是一套互斥或经过验证的六因素人格模型，也不等同HSQ或其他公开量表，未复制竞品题库、模型名或结果正文。词典只核常用词义，不验证本站题目；没有本站信效度、常模或跨语言等价验证。不用于诊断、录用、关系匹配或评定幽默能力。",
+              "en": "FermatMind independently authored these 24 frequency items and explanations around six coexisting everyday expressions. They mix delivery, language mechanisms and interaction rather than forming mutually exclusive types or a validated six-factor personality model. This is not the HSQ or another published scale; no competitor bank, model name or result text is adopted. Dictionaries establish ordinary meanings, not item validity. There are no established website psychometrics, norms or cross-language equivalence, and results support neither diagnosis, hiring, relationship matching nor humor-ability judgments."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banter",
+      "directionIds": [
+        "banter"
+      ],
+      "title": {
+        "zh": "机锋打趣：来回应答与玩笑边界",
+        "en": "Banter: Teasing Exchanges and Boundaries"
+      },
+      "headline": {
+        "zh": "在对话中接住一句，再轻轻转一下",
+        "en": "Picking up a line and giving it a playful turn"
+      },
+      "summary": {
+        "zh": "这一部分观察针对对话细节、夸张说法或小疏漏作俏皮回应的自报频率。它不测反应速度、智力、强势程度或魅力；打趣是否受欢迎和能否继续，要看对方实际意愿。",
+        "en": "This part explores reported teasing replies to conversational details, exaggerations or minor slips. It measures neither response speed, intelligence, dominance nor charm. Whether teasing is welcome or should continue depends on the other person’s actual wishes."
+      },
+      "seo": {
+        "title": {
+          "zh": "机锋打趣幽默结果：来回应答、意愿与边界",
+          "en": "Banter Humor: Teasing Exchanges, Examples and Boundaries"
+        },
+        "description": {
+          "zh": "阅读机锋打趣完整解释，了解来回应答、共享意愿、停止玩笑与普通交流的区别。免费查看例子和小尝试，不以频率评定智力、速度、魅力或攻击型量表。",
+          "en": "Explore banter through original teasing exchanges, consent, context and tradeoffs. Full free guide without treating frequency as wit, speed, charm or an aggressive-humor score."
+        }
+      },
+      "scoreReading": {
+        "zh": "四条题目分别问最近四周在不同场景这样表达的频率，1为从不、5为几乎总是，NA不计分。本部分至少3条有效评分才取一位小数均分，否则明确显示资料不足；所有24题先完成选择。最低条数是本站信息完整度规则，不是心理学阈值。六部分可共存，不按最高值派类型，不合成幽默总分或百分比，小数差异不等于统计显著。",
+        "en": "Four items ask reported use across situations in the past four weeks, from 1 Never to 5 Almost always; NA is unscored. A part needs at least three ratings for a mean rounded to one decimal, otherwise information is insufficient. All 24 selections come first. This minimum is an original completeness rule, not a psychological cutoff. Six parts can coexist without a highest-score type, overall humor score or percentage; decimal differences establish no statistical significance."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这一部分在观察什么",
+            "en": "What this part explores"
+          },
+          "paragraphs": [
+            {
+              "zh": "机锋打趣围绕刚发生的对话来回应答，可能借一句话的细节轻轻调侃，也可能是双方短句往来。题目问你是否这样说，不计时、不考机智，也不观察听众反应。较高频率不能证明你每次都善意、别人接得住或双方地位对等；这些条件需要分别确认，不能由名称保证。",
+              "en": "Banter builds on an exchange already happening, perhaps teasing a detail or trading short replies. Items ask whether you do this without timing answers, testing wit or observing reactions. A higher frequency establishes neither good intentions, a welcome response nor equal standing. Those conditions need separate attention rather than being guaranteed by a name."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一个原创例子",
+            "en": "An original example"
+          },
+          "paragraphs": [
+            {
+              "zh": "朋友说自己给一次野餐列了三份备用清单，你可以俏皮地问：“第四份是清单的备用清单吗？”这句接住对方刚说的细节，不评价其整个人。即使你觉得很轻，对方也可以不喜欢；例子没有证明对话双方已经同意互相调侃，更不把能否迅速接话当成高低。",
+              "en": "A friend says they made three backup lists for a picnic. You might ask playfully, “Is the fourth one a backup list for the lists?” The reply uses the preceding detail without evaluating the person as a whole. Someone can still dislike it; the example establishes no agreement to tease and no ranking by speed of response."
+            }
+          ]
+        },
+        {
+          "id": "conditions",
+          "title": {
+            "zh": "继续之前看实际意愿",
+            "en": "Checking whether the exchange is wanted"
+          },
+          "paragraphs": [
+            {
+              "zh": "一起笑过不等于以后所有话题都能打趣，沉默或勉强笑也不能当作愿意。对方说不舒服时可以直接停下，不用“只是开玩笑”取消其感受。权责不对等、涉及私人弱点或重要事件时，更需要选择合适表达；这不是要让被打趣的人负责证明自己能不能承受。",
+              "en": "A previous shared laugh permits neither every future topic nor an assumption that silence or a strained smile means agreement. Stop if someone says it is unwelcome rather than dismissing the response as failing to take a joke. Unequal authority, private vulnerabilities and important events require particular care without making the target responsible for demonstrating how much they can withstand."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "来回应答可能让双方享受互动，也可能让真实分歧被当成比赛。如果你确实不同意一个方案，可以先直接谈理由，不用调侃代替讨论；别人不继续接话时也可以换回普通交流。报告没有证明你尖刻、害怕亲近或擅长结束争执，任何动机和效果都不能从这四条频率补出来。",
+              "en": "A teasing exchange may be enjoyable or may turn a real disagreement into a contest. If you oppose a proposal, discuss the reasons rather than using a joke instead. Return to ordinary conversation when someone does not continue. These four ratings establish neither hostility, fear of closeness nor an ability to end conflict; motives and effects remain separate questions."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "在工作与日常中使用",
+            "en": "Using it at work and day to day"
+          },
+          "paragraphs": [
+            {
+              "zh": "不要把别人的身份、身体、口音、私人经历或求助当作默认可用的材料。在工作中尤其要让对方能拒绝，而不担心影响任务或评价；需要处理的反馈用清楚语言说。机锋次数不等于领导力、沟通能力或录用标准，也不说明某人容易被冒犯，报告不为任何冒犯行为开脱。",
+              "en": "Identity, bodies, accents, personal experiences and requests for help are not automatically material for teasing. At work, someone needs room to decline without worrying about tasks or evaluation; necessary feedback deserves plain language. A banter mean assesses neither leadership, communication skill nor suitability for hiring, and cannot classify someone as easily offended or excuse harmful conduct."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他表达方式比较",
+            "en": "Comparing other expressions"
+          },
+          "paragraphs": [
+            {
+              "zh": "机锋强调来回应答，文字巧思可能只依靠一个词，冷面可能只改变语气，共同趣味可能无需调侃任何人。你也可以自嘲来接话，或用荒诞想象替换针对个人的笑点。六项不是互斥人格分类，不把机锋自动换算成研究中的攻击型分数，也不由较低频率判断没有幽默感。",
+              "en": "Banter emphasises a teasing exchange; wordplay may depend on one word, deadpan on delivery, and shared humor need target nobody. A reply can use self-deprecation or an absurd image instead. The six parts are not mutually exclusive personalities. Banter is not automatically an aggressive-humor research score, and less frequent teasing does not establish a lack of humor."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个反例",
+            "en": "A counterexample"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能只和一位有共同约定的朋友打趣，在其他场合选择普通表达；也可能很快想到回应，却决定不说。频率看不到这些未说出口的想法，也没有测思维速度。别人觉得冒犯时，无需拿你的低均分证明“我不是那种人”；处理具体言行比争论标签更有信息。",
+              "en": "You may tease one friend under a shared understanding and use ordinary language elsewhere, or think of a reply quickly and choose not to say it. Frequency cannot capture unspoken thoughts or measure mental speed. If someone objects to a remark, a low mean does not prove you are not that kind of person; address the actual conduct."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "留意下一段自然发生的玩笑往来，确认双方都能停下或换话题。没有合适机会就不必制造；若出现误会，可以先解释并承认对方不想继续，而不是证明原意善良。回看材料来自哪里、回应是否自愿、正事有没有被盖住，目标是更清楚地观察互动，不是赢下打趣或提高次数。",
+              "en": "Notice the next naturally occurring playful exchange and whether both people can stop or change topics. No opportunity needs manufacturing. If a misunderstanding occurs, explain and accept a wish not to continue rather than proving your intentions. Review the material, voluntary participation and any obscured practical point, without aiming to win or raise the mean."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创表达自评与使用范围",
+            "en": "Original expression reflection and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24条频率题和全部解释由费马独立编写，以六种可共存的日常表达组织自我观察。它混合口吻、语言机制与互动方式，不是一套互斥或经过验证的六因素人格模型，也不等同HSQ或其他公开量表，未复制竞品题库、模型名或结果正文。词典只核常用词义，不验证本站题目；没有本站信效度、常模或跨语言等价验证。不用于诊断、录用、关系匹配或评定幽默能力。",
+              "en": "FermatMind independently authored these 24 frequency items and explanations around six coexisting everyday expressions. They mix delivery, language mechanisms and interaction rather than forming mutually exclusive types or a validated six-factor personality model. This is not the HSQ or another published scale; no competitor bank, model name or result text is adopted. Dictionaries establish ordinary meanings, not item validity. There are no established website psychometrics, norms or cross-language equivalence, and results support neither diagnosis, hiring, relationship matching nor humor-ability judgments."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "Merriam-Webster：冷面表达词义",
+        "en": "Merriam-Webster: deadpan definition"
+      },
+      "url": "https://www.merriam-webster.com/dictionary/deadpan"
+    },
+    {
+      "title": {
+        "zh": "Merriam-Webster：文字游戏词义",
+        "en": "Merriam-Webster: wordplay definition"
+      },
+      "url": "https://www.merriam-webster.com/dictionary/wordplay"
+    },
+    {
+      "title": {
+        "zh": "Merriam-Webster：自嘲词义",
+        "en": "Merriam-Webster: self-deprecating definition"
+      },
+      "url": "https://www.merriam-webster.com/dictionary/self-deprecating"
+    },
+    {
+      "title": {
+        "zh": "Merriam-Webster：打趣交流词义",
+        "en": "Merriam-Webster: banter definition"
+      },
+      "url": "https://www.merriam-webster.com/dictionary/banter"
+    },
+    {
+      "title": {
+        "zh": "Merriam-Webster：荒诞词义",
+        "en": "Merriam-Webster: absurd definition"
+      },
+      "url": "https://www.merriam-webster.com/dictionary/absurd"
+    },
+    {
+      "title": {
+        "zh": "国际幽默研究学会：HSQ版本与范围目录（本版未采用）",
+        "en": "International Society for Humor Studies: HSQ version and scope catalogue, not adopted here"
+      },
+      "url": "https://www.humorstudies.org/ISHS%20Test%20Bank/TestCat_HSQ.htm"
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "zh": "有效评分与均分",
+        "en": "Rated items and means"
+      },
+      "paragraphs": [
+        {
+          "zh": "四条题目分别问最近四周在不同场景这样表达的频率，1为从不、5为几乎总是，NA不计分。本部分至少3条有效评分才取一位小数均分，否则明确显示资料不足；所有24题先完成选择。最低条数是本站信息完整度规则，不是心理学阈值。六部分可共存，不按最高值派类型，不合成幽默总分或百分比，小数差异不等于统计显著。",
+          "en": "Four items ask reported use across situations in the past four weeks, from 1 Never to 5 Almost always; NA is unscored. A part needs at least three ratings for a mean rounded to one decimal, otherwise information is insufficient. All 24 selections come first. This minimum is an original completeness rule, not a psychological cutoff. Six parts can coexist without a highest-score type, overall humor score or percentage; decimal differences establish no statistical significance."
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "zh": "分别阅读六种表达",
+        "en": "Read six expressions separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "每部分4条题目，全部没有反向计分。六项均分或资料不足状态同时显示，六份完整报告不会因高低隐藏。均分反映自报使用频率，不是质量或别人笑了多少；不能把小数差异当显著，也不从最高值派主型、从第二高派副型或计算人格比例。",
+          "en": "Each part has four items with no reverse scoring. All six means or insufficient states appear together, and none of the six full reports is hidden by its mean. Means describe reported use, not quality or audience laughter. Decimal differences establish no significance, and no primary, secondary or personality proportion is assigned."
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "zh": "本版与研究量表的区别",
+        "en": "This edition and research questionnaires"
+      },
+      "paragraphs": [
+        {
+          "zh": "六种表达混合口吻、机制、话题与互动，可能同时出现，不是一套独立互斥的六因素模型。HSQ另有32题、1—7评分和四种功能性分量表，本版没有采用它的条目或计分；自嘲不自动等于自我挫败、机锋不自动等于攻击型，名称相近不能转换分数。",
+          "en": "These expressions mix delivery, mechanisms, topics and interaction and can occur together; they are not six independent mutually exclusive factors. The HSQ separately uses 32 items, 1–7 ratings and four functional subscales. Its items and scoring are not adopted. Self-deprecation is not automatically self-defeating, nor banter an aggressive score; similar words do not convert results."
+        }
+      ]
+    },
+    {
+      "id": "examples-and-language",
+      "title": {
+        "zh": "例子、语言与意愿",
+        "en": "Examples, language and willingness"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版例子全部独立编写，不复制受保护段子、竞品情境或辞典例句。中英文各自组织笑点，尤其双关不做逐字翻译，也不因此宣称跨语言等价。表达是否受欢迎应看实际听众的意愿，停止或不接话都允许；本测试不为冒犯开脱，也不让人负责让全场开心。",
+          "en": "All examples are independently authored without copying protected jokes, competitor situations or dictionary examples. Each language organises its own humor, especially wordplay, without claiming cross-language equivalence. Whether expression is welcome depends on the actual audience; stopping or not joining remains valid. The test neither excuses harm nor makes anyone responsible for everyone’s enjoyment."
+        }
+      ]
+    },
+    {
+      "id": "free-and-private",
+      "title": {
+        "zh": "完整免费与可选保存分享",
+        "en": "Full free access and optional saving or sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "全部24题、六项均分或资料不足、六份完整解释都免费，无需邮箱、注册或前置测试。浏览器本地计分，主动保存才保留本标签页24小时草稿，完成、重测或清除即删除。分享只有公开入口与自评说明，不带答案、均分或内部ID；存储或复制受限仍可继续。",
+          "en": "All 24 items, six means or insufficient states and six full interpretations are free without email, signup or another test. Scoring happens in the browser. Only opting in stores a 24-hour tab draft, deleted on completion, retake or clearing. Sharing uses a public entry and reflection description without answers, means or internal IDs. Blocked storage or copying does not prevent completion."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "本幽默风格测试比较哪六种表达？",
+        "en": "Which six expressions does this humor style test explore?"
+      },
+      "answer": {
+        "zh": "冷面、文字巧思、荒诞联想、共同趣味、自嘲与机锋打趣。它们关注不同层面，可以同时出现，不是六种互斥人格。全部六份解释都免费直接阅读，作答后分别看频率均分，不按最高值强派一个主风格。",
+        "en": "Deadpan, wordplay, absurdist play, shared humor, self-deprecating humor and banter. They concern different aspects and can coexist, rather than six mutually exclusive personalities. All six full guides are freely readable. A complete attempt shows separate frequency means without assigning a highest-score primary style."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是幽默风格量表HSQ吗？",
+        "en": "Is this the Humor Styles Questionnaire, or HSQ?"
+      },
+      "answer": {
+        "zh": "不是。HSQ有自己的32题、1—7评分和四种功能性分量表。本版24题、六种表达与解释独立编写，没有采用HSQ题本或计分，也没有本站信效度、常模或跨语言等价验证。",
+        "en": "No. The HSQ has its own 32 items, 1–7 ratings and four functional subscales. These 24 items, six expressions and interpretations are independently authored, without HSQ items or scoring. There are no established website psychometrics, norms or cross-language equivalence."
+      }
+    },
+    {
+      "question": {
+        "zh": "NA和资料不足怎样处理？",
+        "en": "How are NA and insufficient information handled?"
+      },
+      "answer": {
+        "zh": "NA排除，不补零或估算。每部分4题至少3条有效评分才显示一位小数均分，否则明确资料不足；全部24条先做选择。这个最低条数是本站完整度规则，不是心理阈值。即使六部分都不足，作答也会结束，全部解释仍可阅读与重测。",
+        "en": "NA is excluded without zero-filling or estimation. A four-item part needs three ratings for a one-decimal mean; otherwise information is insufficient. All 24 selections come first. This minimum is a website completeness rule, not a psychological cutoff. Even six insufficient parts finish the attempt with all guides and retake available."
+      }
+    },
+    {
+      "question": {
+        "zh": "能测我有多好笑、聪明或受欢迎吗？",
+        "en": "Does this measure how funny, clever or popular I am?"
+      },
+      "answer": {
+        "zh": "不能。题目只问最近四周自己的表达频率，不测听众笑声、反应速度、智力、词汇、社交技能或关系质量。没有笑话的标准答案，也不由均分推荐职业、录用或搭配对象。",
+        "en": "No. Items ask your own reported expression frequency in the past four weeks, not audience laughter, response speed, intelligence, vocabulary, social skill or relationship quality. There are no correct joke answers, and means supply neither career recommendations, hiring decisions nor relationship matches."
+      }
+    },
+    {
+      "question": {
+        "zh": "自嘲表示低自尊，机锋表示攻击性吗？",
+        "en": "Does self-deprecation mean low self-esteem, or banter aggression?"
+      },
+      "answer": {
+        "zh": "不能由本版这样推断。自嘲题围绕自己小失误，机锋题围绕对话打趣；它们不是HSQ功能分数，也未测动机或心理健康。别人是否愿意接玩笑要看实际回应，任何标签都不能取消其停止或拒绝的选择。",
+        "en": "Those inferences are unsupported here. Self-deprecation items concern small personal mishaps and banter items teasing exchanges; neither is an HSQ functional score or a measure of motive or mental health. Whether someone welcomes a joke requires their actual response, and no label overrides a choice to stop or decline."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整解释、草稿与分享包含什么？",
+        "en": "What do full access, drafts and sharing include?"
+      },
+      "answer": {
+        "zh": "全部题目与六份完整解释免费，无需注册或先做其他测评。草稿是可选本标签页24小时保存，完成、重测或清除即删。分享不含答案、均分或内部ID；需要进一步探索MBTI时，可在完整结果之后另行选择并完成其题本，不从幽默频率换算。",
+        "en": "Every item and six full guides are free without signup or another assessment. Drafts are optional 24-hour tab storage, deleted on completion, retake or clearing. Sharing excludes answers, means and internal IDs. Optional MBTI exploration follows the full result and requires its own questionnaire, without conversion from humor frequency."
+      }
+    }
+  ]
+}

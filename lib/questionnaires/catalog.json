@@ -445,5 +445,32 @@
       "laissez-faire",
       "transformational"
     ]
+  },
+  {
+    "slug": "humor-style-test",
+    "code": "HUMOR_EXPRESSIONS",
+    "version": "1.0.0",
+    "updated": "2026-10-25",
+    "category": "social",
+    "title": {
+      "zh": "幽默风格测试",
+      "en": "Humor Style Test"
+    },
+    "description": {
+      "zh": "用24条原创频率题，分别探索冷面、文字巧思、荒诞、共同趣味、自嘲和机锋表达。六项均分与完整解释免费，无需注册；含原创例子与边界，不测智力、受欢迎程度或幽默能力。",
+      "en": "Explore deadpan, wordplay, absurdist, shared, self-deprecating and banter humor with 24 original ratings. Six separate means and full free guides, no signup or ability verdict."
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_humor_expressions_frequency_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "deadpan",
+      "wordplay",
+      "absurdist",
+      "shared-humor",
+      "self-deprecating",
+      "banter"
+    ]
   }
 ]

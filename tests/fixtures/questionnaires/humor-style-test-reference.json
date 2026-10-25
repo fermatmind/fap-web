@@ -1,0 +1,1731 @@
+{
+  "formCode": "fm_humor_expressions_frequency_24",
+  "itemBankVersion": "1.0.0",
+  "origin": "FermatMind original bilingual ordinary-expression frequency items; notHSQ/JC FourLaughs/published instrument or joke-performance measure",
+  "directions": [
+    {
+      "id": "deadpan",
+      "title": {
+        "zh": "冷面表达",
+        "en": "Deadpan delivery"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "wordplay",
+      "title": {
+        "zh": "文字巧思",
+        "en": "Wordplay"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "absurdist",
+      "title": {
+        "zh": "荒诞联想",
+        "en": "Absurdist play"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "shared-humor",
+      "title": {
+        "zh": "共同趣味",
+        "en": "Shared humor"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "self-deprecating",
+      "title": {
+        "zh": "自嘲表达",
+        "en": "Self-deprecating humor"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "banter",
+      "title": {
+        "zh": "机锋打趣",
+        "en": "Banter"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "HUMOR_01",
+      "prompt": {
+        "zh": "面对一件明显有点离谱的小事，我用很平静的语气说一句与它形成反差的话。",
+        "en": "When something mildly ridiculous happens, I make a contrasting remark in a very matter-of-fact voice."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "deadpan",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "deadpan",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "deadpan",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "deadpan",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "deadpan",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "deadpan",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_02",
+      "prompt": {
+        "zh": "聊天时，我利用一个词的两种意思接出玩笑。",
+        "en": "In conversation, I make a joke from two meanings of a word."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "wordplay",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "wordplay",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "wordplay",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "wordplay",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "wordplay",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "wordplay",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_03",
+      "prompt": {
+        "zh": "聊天时，我把两个毫不相干的东西想象成一起做事来开玩笑。",
+        "en": "In conversation, I imagine two unrelated things doing something together as a joke."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "absurdist",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "absurdist",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "absurdist",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "absurdist",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "absurdist",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "absurdist",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_04",
+      "prompt": {
+        "zh": "和别人聊天时，我用大家都经历过的小事引出一起笑的机会。",
+        "en": "In conversation, I bring up a small experience we share as an opportunity to laugh together."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "shared-humor",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "shared-humor",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "shared-humor",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "shared-humor",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "shared-humor",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "shared-humor",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_05",
+      "prompt": {
+        "zh": "聊天时，我拿自己一个无关紧要的小失误开玩笑。",
+        "en": "In conversation, I make a joke about a minor mistake of my own."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "self-deprecating",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "self-deprecating",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "self-deprecating",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "self-deprecating",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "self-deprecating",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "self-deprecating",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_06",
+      "prompt": {
+        "zh": "聊天时，我顺着对方一句话，接一句针对其中细节的俏皮回应。",
+        "en": "In conversation, I pick up a detail in what someone says and answer with a teasing line."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "banter",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "banter",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "banter",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "banter",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "banter",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "banter",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_07",
+      "prompt": {
+        "zh": "在文字聊天里，我用一本正经的说法描述好笑的事，而不另外加上笑脸或夸张语气。",
+        "en": "In messages, I describe something amusing in a straight-faced way without adding a smiley or an exaggerated tone."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "deadpan",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "deadpan",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "deadpan",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "deadpan",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "deadpan",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "deadpan",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_08",
+      "prompt": {
+        "zh": "发消息时，我把读音相近的词换进原句，让它变得好笑。",
+        "en": "When messaging, I swap in a similar-sounding word to make a sentence amusing."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "wordplay",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "wordplay",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "wordplay",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "wordplay",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "wordplay",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "wordplay",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_09",
+      "prompt": {
+        "zh": "在文字聊天里，我为一件普通物品编一个明显不可能的身份。",
+        "en": "In messages, I give an ordinary object an obviously impossible identity."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "absurdist",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "absurdist",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "absurdist",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "absurdist",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "absurdist",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "absurdist",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_10",
+      "prompt": {
+        "zh": "在群聊里，我接着大家正在聊的普通话题补一个轻松的笑点。",
+        "en": "In a group chat, I add a light comic detail to an ordinary topic others are already discussing."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "shared-humor",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "shared-humor",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "shared-humor",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "shared-humor",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "shared-humor",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "shared-humor",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_11",
+      "prompt": {
+        "zh": "发消息时，我把自己刚刚搞混的小事写成笑话。",
+        "en": "When messaging, I turn something I have just mixed up into a joke about myself."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "self-deprecating",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "self-deprecating",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "self-deprecating",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "self-deprecating",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "self-deprecating",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "self-deprecating",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_12",
+      "prompt": {
+        "zh": "在文字聊天里，我和别人来回接互相打趣的短句。",
+        "en": "In messages, I exchange short teasing replies with another person."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "banter",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "banter",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "banter",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "banter",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "banter",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "banter",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_13",
+      "prompt": {
+        "zh": "讲一件有趣经历时，我刻意把反应说得比事情本身平淡。",
+        "en": "When recounting an amusing experience, I deliberately understate my reaction to it."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "deadpan",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "deadpan",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "deadpan",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "deadpan",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "deadpan",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "deadpan",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_14",
+      "prompt": {
+        "zh": "讲一件事时，我临时改动一个熟悉说法中的字词来制造笑点。",
+        "en": "When telling a story, I change the wording of a familiar expression to create a joke."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "wordplay",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "wordplay",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "wordplay",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "wordplay",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "wordplay",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "wordplay",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_15",
+      "prompt": {
+        "zh": "讲趣事时，我把一个小细节延伸成不合现实逻辑的假想情节。",
+        "en": "When telling an amusing story, I extend a small detail into an unrealistic imaginary sequence."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "absurdist",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "absurdist",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "absurdist",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "absurdist",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "absurdist",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "absurdist",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_16",
+      "prompt": {
+        "zh": "讲趣事时，我先补上听众需要的前情，再说自己觉得好笑的部分。",
+        "en": "When telling an amusing story, I give listeners the context before the part I find funny."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "shared-humor",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "shared-humor",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "shared-humor",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "shared-humor",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "shared-humor",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "shared-humor",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_17",
+      "prompt": {
+        "zh": "讲趣事时，我把自己当时的笨拙反应作为笑点。",
+        "en": "When telling an amusing story, I make my own awkward reaction part of the joke."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "self-deprecating",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "self-deprecating",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "self-deprecating",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "self-deprecating",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "self-deprecating",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "self-deprecating",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_18",
+      "prompt": {
+        "zh": "别人讲趣事时，我插一句调侃其夸张说法的回应。",
+        "en": "When someone tells an amusing story, I add a playful remark about their exaggerated wording."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "banter",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "banter",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "banter",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "banter",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "banter",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "banter",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_19",
+      "prompt": {
+        "zh": "出现出乎意料的小变化时，我不改表情地补上一句玩笑。",
+        "en": "When a small unexpected change occurs, I add a joke without changing my expression."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "deadpan",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "deadpan",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "deadpan",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "deadpan",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "deadpan",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "deadpan",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_20",
+      "prompt": {
+        "zh": "遇到一个有趣名称或标语，我围绕它的用词另接一句玩笑。",
+        "en": "When I notice an interesting name or slogan, I build another joke around its wording."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "wordplay",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "wordplay",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "wordplay",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "wordplay",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "wordplay",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "wordplay",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_21",
+      "prompt": {
+        "zh": "出现计划外的小事时，我把它想象成一条荒唐的新规则来逗趣。",
+        "en": "When a small unplanned event happens, I imagine it as an absurd new rule for comic effect."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "absurdist",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "absurdist",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "absurdist",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "absurdist",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "absurdist",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "absurdist",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_22",
+      "prompt": {
+        "zh": "共同安排出了小岔子时，我把大家眼前的处境说成一段轻松的共同经历。",
+        "en": "When a shared arrangement has a small hiccup, I frame the situation as a light shared experience."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "shared-humor",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "shared-humor",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "shared-humor",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "shared-humor",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "shared-humor",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "shared-humor",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_23",
+      "prompt": {
+        "zh": "出现一个小意外时，我先打趣自己先前不合实际的预计。",
+        "en": "When a small surprise occurs, I joke about my own earlier unrealistic expectation."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "self-deprecating",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "self-deprecating",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "self-deprecating",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "self-deprecating",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "self-deprecating",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "self-deprecating",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HUMOR_24",
+      "prompt": {
+        "zh": "遇到对方一个无关紧要的小疏漏，我用一句打趣回应。",
+        "en": "When someone makes a minor slip, I respond with a teasing comment."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "banter",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "banter",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "banter",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "banter",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "banter",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "banter",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "HUMOR_01": {
+      "facet": "deadpan",
+      "context": "conversation"
+    },
+    "HUMOR_02": {
+      "facet": "wordplay",
+      "context": "conversation"
+    },
+    "HUMOR_03": {
+      "facet": "absurdist",
+      "context": "conversation"
+    },
+    "HUMOR_04": {
+      "facet": "shared-humor",
+      "context": "conversation"
+    },
+    "HUMOR_05": {
+      "facet": "self-deprecating",
+      "context": "conversation"
+    },
+    "HUMOR_06": {
+      "facet": "banter",
+      "context": "conversation"
+    },
+    "HUMOR_07": {
+      "facet": "deadpan",
+      "context": "messaging"
+    },
+    "HUMOR_08": {
+      "facet": "wordplay",
+      "context": "messaging"
+    },
+    "HUMOR_09": {
+      "facet": "absurdist",
+      "context": "messaging"
+    },
+    "HUMOR_10": {
+      "facet": "shared-humor",
+      "context": "messaging"
+    },
+    "HUMOR_11": {
+      "facet": "self-deprecating",
+      "context": "messaging"
+    },
+    "HUMOR_12": {
+      "facet": "banter",
+      "context": "messaging"
+    },
+    "HUMOR_13": {
+      "facet": "deadpan",
+      "context": "story"
+    },
+    "HUMOR_14": {
+      "facet": "wordplay",
+      "context": "story"
+    },
+    "HUMOR_15": {
+      "facet": "absurdist",
+      "context": "story"
+    },
+    "HUMOR_16": {
+      "facet": "shared-humor",
+      "context": "story"
+    },
+    "HUMOR_17": {
+      "facet": "self-deprecating",
+      "context": "story"
+    },
+    "HUMOR_18": {
+      "facet": "banter",
+      "context": "story"
+    },
+    "HUMOR_19": {
+      "facet": "deadpan",
+      "context": "unexpected-moment"
+    },
+    "HUMOR_20": {
+      "facet": "wordplay",
+      "context": "unexpected-moment"
+    },
+    "HUMOR_21": {
+      "facet": "absurdist",
+      "context": "unexpected-moment"
+    },
+    "HUMOR_22": {
+      "facet": "shared-humor",
+      "context": "unexpected-moment"
+    },
+    "HUMOR_23": {
+      "facet": "self-deprecating",
+      "context": "unexpected-moment"
+    },
+    "HUMOR_24": {
+      "facet": "banter",
+      "context": "unexpected-moment"
+    }
+  },
+  "scoring": {
+    "scoringVersion": "1.0.0",
+    "kind": "likert",
+    "minimumValidPerDirection": 3,
+    "allSelectionsRequired": 24,
+    "validRatingRange": [
+      1,
+      5
+    ],
+    "na": "excluded;notzero/imputed",
+    "reverseItems": [],
+    "rounding": "mean1decimal",
+    "reading": "All6independentmeansorinsufficientstatesandALL6fullreports;nooveralltotal/winner/rank/norm/percentile/psychdiagnosis/likeability/careerfit/validatedskill. Minimum3of4originalinformationrule,notpsychcutoff;facetsmaycooccurandaremixeddescriptivemodes,notorthogonalsixfactormodel."
+  },
+  "references": [
+    {
+      "url": "https://www.merriam-webster.com/dictionary/deadpan",
+      "scope": "Definition34-80read;ordinarydeliverymeaningonly,noexamplecopy"
+    },
+    {
+      "url": "https://www.merriam-webster.com/dictionary/wordplay",
+      "scope": "Definition32-38read;ordinarywordmechanismonly"
+    },
+    {
+      "url": "https://www.merriam-webster.com/dictionary/self-deprecating",
+      "scope": "Definition32-42read;notautomaticHSQselfdefeatingfunction/lowselfworth"
+    },
+    {
+      "url": "https://www.merriam-webster.com/dictionary/banter",
+      "scope": "Definitions34-84read,ordinaryteasingexchange;notpermissiontoharm"
+    },
+    {
+      "url": "https://www.merriam-webster.com/dictionary/absurd",
+      "scope": "Adjective34-50read,ordinaryincongruitynotliterarytheory"
+    },
+    {
+      "url": "https://www.humorstudies.org/ISHS%20Test%20Bank/TestCat_HSQ.htm",
+      "scope": "Full13lineHSQcataloguereadforversiondifferenceonly;32items/1-7/4functionsNOTadopted;nocommercialpermissionclaimed"
+    }
+  ]
+}
