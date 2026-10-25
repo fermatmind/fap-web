@@ -1,0 +1,3093 @@
+{
+  "slug": "difficult-person-test",
+  "code": "INTERPERSONAL_FRICTION",
+  "version": "1.0.0",
+  "updated": "2026-10-25",
+  "category": "social",
+  "kind": "likert",
+  "minimumRatedItems": 3,
+  "minutes": 7,
+  "title": {
+    "zh": "难相处人格测试",
+    "en": "Difficult Person Test"
+  },
+  "resultHeading": {
+    "zh": "你的七部分互动行为自评",
+    "en": "Your seven interpersonal-behaviour reflections"
+  },
+  "seoTitle": {
+    "zh": "难相处人格测试：28条互动自评与七份完整结果",
+    "en": "Difficult Person Test: 28 Ratings and Seven Full Guides"
+  },
+  "description": {
+    "zh": "用28条原创题分别观察忽略感受、自我抬高、强行主导、隐瞒施压、猜疑、攻击回应与忽略风险。七项均分与完整解释免费，无需注册；含对话、反例和反向题，不给人贴坏人标签。",
+    "en": "Explore seven interpersonal behaviours with 28 original ratings, reverse items and full free guides. No signup, difficulty percentage, personality verdict or diagnosis."
+  },
+  "introduction": {
+    "zh": "“我是否难相处”很难靠一个标签回答。本难相处人格测试采用28条原创中英文日常行为题，分别观察忽略他人感受、自我抬高、强行主导、隐瞒与施压、依据不足的猜疑、攻击回应和忽略行动风险。它们受七类研究概念启发，选定范围不等同原临床构念，也不是原研究或竞品量表。七份完整解释都能先读，作答后同时看七项均分或资料不足，不挑最高人格、不合成难相处百分比、不把自报当成别人真实评价。",
+    "en": "Whether someone is difficult to deal with cannot be settled by one label. This Difficult Person Test uses 28 original bilingual everyday-behaviour items for disregarding feelings, self-importance, overriding others, concealment and pressure, suspicion without enough evidence, aggressive responses and disregarding risks. Seven research concepts provide background, without equating the selected scope with clinical constructs or adopting a study or competitor instrument. Read all seven full guides first, then receive separate means or insufficient-information states without a highest-score personality or difficulty percentage. Self-report is not an observer’s actual judgment."
+  },
+  "instructions": {
+    "zh": "回想最近四周自己的普通互动，按题目所说做法出现的频率选择从不、很少、有时、经常或几乎总是。没有适用经历、无法判断或不愿回答请选择NA，不算从不、零分或中性。只回答自己，不按某个伴侣或同事的印象代其作答。七条相反方向的行为题会反向计分，请逐条按原句回答，不要为了显得好或坏调整答案。全部28条先选择，每部分4条至少3条有效才显示均分。",
+    "en": "Think about your own ordinary interactions during the past four weeks. Rate the frequency of the described action: Never, Rarely, Sometimes, Often or Almost always. Choose NA for no applicable experience, uncertainty or a preference not to answer; it is neither Never, zero nor neutrality. Answer for yourself, not a partner or colleague. Seven opposite-direction behaviour items are reverse-keyed, so answer each statement as written rather than adjusting to appear good or bad. Complete all 28 selections; each four-item part needs three ratings for a mean."
+  },
+  "source": {
+    "kind": "FermatMind original everydaybehaviourreflectionin7researchbackgrounddomains;notclinicalantagonismbank/IDR35/JC21/validatedscale",
+    "formCode": "fm_interpersonal_friction_frequency_28",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "a9ea77c64bd2af3e310df759a4f52e89680a9407be2993a36f706593cee5de9f",
+    "resultContentSha256": "d4212e0007701e200b78ea070c1cc0dae586a8aaa03fb8aac06d3b9cdd72946c",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "callousness",
+      "title": {
+        "zh": "忽略他人感受",
+        "en": "Disregarding others’ feelings"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "grandiosity",
+      "title": {
+        "zh": "自我抬高与特殊待遇",
+        "en": "Self-importance and special treatment"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "domineering",
+      "title": {
+        "zh": "强行主导他人",
+        "en": "Overriding others’ say"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "manipulation",
+      "title": {
+        "zh": "隐瞒与间接施压",
+        "en": "Concealment and indirect pressure"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "suspiciousness",
+      "title": {
+        "zh": "缺少依据的猜疑",
+        "en": "Suspicion without sufficient evidence"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "aggression",
+      "title": {
+        "zh": "攻击式回应",
+        "en": "Aggressive responses"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "risk-taking",
+      "title": {
+        "zh": "忽略行动风险",
+        "en": "Disregarding action risks"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "FRICTION_01",
+      "prompt": {
+        "zh": "别人明确说我的做法让其不舒服时，我把这件事当成不值得考虑。",
+        "en": "When someone explicitly said my action made them uncomfortable, I treated that as not worth considering."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "callousness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "callousness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "callousness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "callousness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "callousness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "callousness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_02",
+      "prompt": {
+        "zh": "在共同安排里，我认为自己应比其他人获得更多便利，即使没有特别约定。",
+        "en": "In a shared arrangement, I thought I should receive more convenience than others without any special agreement."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "grandiosity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "grandiosity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "grandiosity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "grandiosity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "grandiosity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "grandiosity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_03",
+      "prompt": {
+        "zh": "在本来需要大家共同决定的事情上，我没征求意见就替别人定了方案。",
+        "en": "In something that required a shared decision, I set the plan for others without asking for their views."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "domineering",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "domineering",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "domineering",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "domineering",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "domineering",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "domineering",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_04",
+      "prompt": {
+        "zh": "为了让别人答应，我刻意不说一项我知道会影响其决定的重要信息。",
+        "en": "To obtain agreement, I deliberately withheld important information I knew would affect someone’s decision."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "manipulation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "manipulation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "manipulation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "manipulation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "manipulation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "manipulation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_05",
+      "prompt": {
+        "zh": "面对含糊的信息，我还没核对就认定对方想让我吃亏。",
+        "en": "Faced with an unclear message, I assumed the person intended to disadvantage me before checking."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "suspiciousness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "suspiciousness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "suspiciousness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "suspiciousness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "suspiciousness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "suspiciousness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_06",
+      "prompt": {
+        "zh": "有人不同意我时，我用针对其本人的侮辱来回应，而不只讨论事情。",
+        "en": "When someone disagreed with me, I answered with a personal insult rather than keeping to the issue."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "aggression",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "aggression",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "aggression",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "aggression",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "aggression",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "aggression",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_07",
+      "prompt": {
+        "zh": "一项选择可能给共同安排带来明显损失时，我没考虑后果就立即去做。",
+        "en": "When a choice could cause an obvious loss to a shared arrangement, I acted immediately without considering the consequences."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "risk-taking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "risk-taking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "risk-taking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "risk-taking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "risk-taking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "risk-taking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_08",
+      "prompt": {
+        "zh": "作共同决定时，即使知道会给别人添麻烦，我仍只按对自己方便的方式选。",
+        "en": "In a shared decision, I chose only what was convenient for me despite knowing it would inconvenience someone else."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "callousness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "callousness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "callousness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "callousness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "callousness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "callousness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_09",
+      "prompt": {
+        "zh": "别人提出与我不同的意见时，我因为觉得自己层次更高而不愿认真听。",
+        "en": "When someone offered a different view, I did not want to consider it because I regarded myself as above them."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "grandiosity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "grandiosity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "grandiosity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "grandiosity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "grandiosity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "grandiosity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_10",
+      "prompt": {
+        "zh": "别人表示想按自己的方式做一件与我无关的事时，我仍不断要求其照我的意思做。",
+        "en": "When someone wanted to handle a matter of their own in their own way, I kept insisting they do it my way."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "domineering",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "domineering",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "domineering",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "domineering",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "domineering",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "domineering",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_11",
+      "prompt": {
+        "zh": "提出请求时，我暗示对方若拒绝就欠我人情，而不是直接说明请求内容。",
+        "en": "When making a request, I implied that refusing would leave the person owing me, instead of stating the request directly."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "manipulation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "manipulation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "manipulation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "manipulation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "manipulation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "manipulation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_12",
+      "prompt": {
+        "zh": "别人给出普通解释时，我在没有新增证据的情况下仍认定其在骗我。",
+        "en": "When someone gave an ordinary explanation, I remained certain they were deceiving me without additional evidence."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "suspiciousness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "suspiciousness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "suspiciousness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "suspiciousness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "suspiciousness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "suspiciousness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_13",
+      "prompt": {
+        "zh": "遇到不顺心的共同安排时，我用威吓的言语迫使别人退让。",
+        "en": "When a shared arrangement displeased me, I used intimidating words to make others back down."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "aggression",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "aggression",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "aggression",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "aggression",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "aggression",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "aggression",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_14",
+      "prompt": {
+        "zh": "有人提醒一个具体且可核查的风险时，我还没了解就把提醒抛在一边。",
+        "en": "When someone raised a specific risk that could be checked, I brushed it aside before understanding it."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "risk-taking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "risk-taking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "risk-taking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "risk-taking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "risk-taking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "risk-taking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_15",
+      "prompt": {
+        "zh": "别人讲述遇到的困难时，我在没了解情况前就把它说成小题大做。",
+        "en": "When someone described a difficulty, I dismissed it as making a fuss before finding out what had happened."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "callousness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "callousness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "callousness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "callousness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "callousness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "callousness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_16",
+      "prompt": {
+        "zh": "需要按同一规则排队或分配时，我觉得规则不该像约束别人那样约束我。",
+        "en": "When the same rule applied to a queue or allocation, I thought it should constrain me less than everyone else."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "grandiosity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "grandiosity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "grandiosity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "grandiosity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "grandiosity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "grandiosity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_17",
+      "prompt": {
+        "zh": "讨论中有人提出异议，我利用自己能控制的安排迫使其让步。",
+        "en": "When someone disagreed in a discussion, I used arrangements under my control to pressure them into giving way."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "domineering",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "domineering",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "domineering",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "domineering",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "domineering",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "domineering",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_18",
+      "prompt": {
+        "zh": "我向不同的人给出不一致的说法，好让他们按我想要的方向行动。",
+        "en": "I gave different people inconsistent accounts to steer their actions toward what I wanted."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "manipulation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "manipulation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "manipulation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "manipulation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "manipulation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "manipulation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_19",
+      "prompt": {
+        "zh": "我把别人的中性举动解释成针对自己，即使当时也有其他合理解释。",
+        "en": "I interpreted someone’s neutral action as aimed against me even when other reasonable explanations were available."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "suspiciousness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "suspiciousness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "suspiciousness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "suspiciousness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "suspiciousness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "suspiciousness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_20",
+      "prompt": {
+        "zh": "在争执中，我故意用言语伤害对方，让其为反对我付出代价。",
+        "en": "During an argument, I deliberately used words to hurt the other person as a cost for opposing me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "aggression",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "aggression",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "aggression",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "aggression",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "aggression",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "aggression",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_21",
+      "prompt": {
+        "zh": "我知道某个省事做法可能让别人承担后果，仍因为当下方便而去做。",
+        "en": "Knowing that a shortcut could leave someone else with the consequences, I took it for immediate convenience."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "risk-taking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "risk-taking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "risk-taking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "risk-taking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "risk-taking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "risk-taking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_22",
+      "prompt": {
+        "zh": "得知自己的做法影响了别人，我会把对方的具体感受纳入下一步考虑。",
+        "en": "After learning that my action affected someone, I included their specific feelings when considering what to do next."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "callousness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "callousness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "callousness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "callousness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "callousness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "callousness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_23",
+      "prompt": {
+        "zh": "评价共同贡献时，我会用同样的标准看待自己和别人。",
+        "en": "When considering shared contributions, I used the same standards for myself and other people."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "grandiosity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "grandiosity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "grandiosity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "grandiosity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "grandiosity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "grandiosity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_24",
+      "prompt": {
+        "zh": "共同讨论时，我会保留别人提出异议和影响最终决定的机会。",
+        "en": "In a shared discussion, I left others an opportunity to disagree and influence the final decision."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "domineering",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "domineering",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "domineering",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "domineering",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "domineering",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "domineering",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_25",
+      "prompt": {
+        "zh": "希望别人答应一件事时，我会说明重要条件，并给对方真实拒绝的空间。",
+        "en": "When seeking agreement, I explained important conditions and left the person a genuine choice to decline."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "manipulation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "manipulation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "manipulation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "manipulation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "manipulation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "manipulation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_26",
+      "prompt": {
+        "zh": "对别人意图不确定时，我会区分已有事实和自己的猜测，再作判断。",
+        "en": "When uncertain about someone’s intentions, I distinguished known facts from my guesses before judging."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "suspiciousness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "suspiciousness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "suspiciousness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "suspiciousness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "suspiciousness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "suspiciousness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_27",
+      "prompt": {
+        "zh": "即使正在生气，我也会把反对意见说在事情上，不以侮辱或威吓回应。",
+        "en": "Even while angry, I kept disagreement focused on the issue without insults or intimidation."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "aggression",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "aggression",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "aggression",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "aggression",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "aggression",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "aggression",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_28",
+      "prompt": {
+        "zh": "做会影响别人的选择前，我会考虑可预见的后果，以及是否有代价更小的办法。",
+        "en": "Before a choice affecting others, I considered foreseeable consequences and whether a less costly option was available."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "risk-taking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "risk-taking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "risk-taking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "risk-taking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "risk-taking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "risk-taking",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "callousness",
+      "directionIds": [
+        "callousness"
+      ],
+      "title": {
+        "zh": "忽略他人感受",
+        "en": "Disregarding others’ feelings"
+      },
+      "headline": {
+        "zh": "把影响听具体，再决定下一步",
+        "en": "Understand a concrete impact before choosing what comes next"
+      },
+      "summary": {
+        "zh": "这一部分观察自报互动中是否忽略别人明确表达的感受与不便，不测读心、情绪识别或同理心能力。",
+        "en": "This part explores reported disregard of expressed feelings or inconvenience, not mind-reading, emotion recognition or empathy ability."
+      },
+      "seo": {
+        "title": {
+          "zh": "忽略他人感受结果：具体影响、对话与完整解释",
+          "en": "Disregarding Feelings: Impact, Examples and Full Guide"
+        },
+        "description": {
+          "zh": "阅读难相处测试中忽略感受部分的完整结果，理解明确感受、共同不便与轻视困难的区别。附高低读法、对话和反例，不测读心能力，也不由均分诊断冷酷或评价善恶。",
+          "en": "Explore reported disregard of expressed feelings with full readings, original dialogue and counterexamples. Free guide without empathy-ability or clinical verdicts."
+        }
+      },
+      "scoreReading": {
+        "zh": "全部28条先选择，回想最近四周可回忆的普通互动，1从不至5几乎总是。每部分4条至少3条有效才取一位小数均分，反向题按6减有效评分，NA不计且不补零。最低条数与解释是本站信息完整度规则，不是原研究题本、常模或临床阈值。七项连续读法不合成总分、难相处百分比或最高人格，不按近分或并列强派类型；小数差异不证明统计显著、行为原因或实际他人评价。",
+        "en": "Complete all 28 selections about ordinary recalled interactions in the past four weeks, from 1 Never to 5 Almost always. Each four-item part needs three ratings for a one-decimal mean; rated reverse items contribute six minus the response, while NA is unscored and not zero-filled. Minimum counts and interpretations are website completeness rules, not the study instrument, norms or clinical cutoffs. Seven continuous readings produce no total, difficulty percentage or highest-score personality, and close or equal means assign no type. Decimal differences establish neither significance, causes nor observer judgments."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这部分具体问什么",
+            "en": "What this part asks"
+          },
+          "paragraphs": [
+            {
+              "zh": "四条原创题目问：别人明确说不舒服时是否忽略、共同选择是否只考虑自己方便、是否未了解就轻视别人的困难，以及得知影响后是否把具体感受纳入考虑。最后一条反向计分。它们用来观察最近四周可回想的行为，不说明你的全部关心能力，也不能知道别人没有表达的内心感受。",
+              "en": "Four original items ask about disregarding expressed discomfort, choosing only your convenience in shared matters, dismissing a difficulty before understanding it, and including someone’s feelings after learning the impact. The last item is reverse-keyed. They explore recalled behaviour in the past four weeks, not your entire capacity for care, and cannot reveal feelings that another person has not expressed."
+            }
+          ]
+        },
+        {
+          "id": "readings",
+          "title": {
+            "zh": "高低和混合回答怎样读",
+            "en": "Reading higher, lower and mixed responses"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高均分表示这组回答更接近忽略所述影响、较少认可反向行为，不等于心理诊断、没有感情或别人一定觉得你难相处。较低也不能证明每次都体贴。可以回看自己是在某一种共同选择里忽略不便，还是更常在别人讲困难时下结论；均分概括了不同描述，不能把它们变成完全相同的问题。",
+              "en": "A higher mean reflects more reported disregard in these descriptions and less endorsement of the reverse behaviour, not a diagnosis, lack of feelings or proof that others find you difficult. A lower mean cannot establish consideration on every occasion. Revisit whether the issue concerned inconvenience in a shared choice or dismissing a difficulty. The average combines different descriptions without making them identical questions."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一个原创互动例子",
+            "en": "An original interaction example"
+          },
+          "paragraphs": [
+            {
+              "zh": "共同活动中，有人明确说某个安排让其不方便。可以先说：“你提到的具体困难是什么？我先把这部分听清楚，再看安排能怎样调整。”听清不等于必须接受所有要求，也不保证总能改动，但能把抽象的“你太敏感”换成具体信息。这个例子只适用于普通可安全讨论的互动，不是要求替别人处理全部情绪。",
+              "en": "During a shared activity, someone says an arrangement is inconvenient. You could ask, “Which part is difficult for you? I want to understand that before seeing what can change.” Understanding does not require accepting every request or guarantee a change. It replaces an abstract dismissal with concrete information. This original example concerns ordinary discussion, not an obligation to manage all of another person’s emotions."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：不同意也可以关心",
+            "en": "Counterexample: disagreement can include care"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以认真听到对方不舒服，同时仍不同意其方案，或保留合理限制。承认影响与满足全部要求不是一件事。相反，只说一句礼貌话也不证明已经考虑影响，仍要看后来实际怎样安排。测试没有记录这些完整经过，不能凭低分证明一个人善良，也不能用高分剥夺你提出不同意见的权利。",
+              "en": "You can take discomfort seriously while disagreeing with a proposal or keeping a reasonable limit. Acknowledging an impact and meeting every request are different actions. Conversely, a polite sentence does not prove consideration without knowing what followed. The test lacks that whole sequence. A lower score certifies no one as kind, and a higher score does not remove your right to disagree."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六部分比较",
+            "en": "Compare the other six parts"
+          },
+          "paragraphs": [
+            {
+              "zh": "忽略感受与攻击回应不同：一个人可能没有辱骂，却很少纳入别人明确说出的不便。强行主导另问是否替人决定，隐瞒施压另问信息和拒绝空间。多个部分可同时出现，也可各不相同；它们不是七种互斥人格，没有哪个最高就代表你是谁，题目未覆盖的行为也不能自动加到某一部分。",
+              "en": "Disregard and aggressive responses differ: someone may avoid insults yet rarely include inconvenience that has been expressed. Overriding others concerns decision ownership, while concealment and pressure concern information and freedom to decline. Parts can coexist or differ. They are not seven exclusive personalities, no highest mean determines identity, and uncovered behaviour is not automatically added to one of the parts."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "把情境说清楚",
+            "en": "Keep the context specific"
+          },
+          "paragraphs": [
+            {
+              "zh": "忙碌、不了解背景或不同沟通习惯，都可能是需要再了解的背景，但本版没有验证原因，也不由分数给任何行为免责。别人明确表达的影响可以具体核对，不需要猜其全部想法。题目只由你自己回答，不是他人评价、关系安全判断、攻击风险评估或临床冷酷特征分数；也不能代替别人作答。",
+              "en": "Busyness, missing background and differing communication habits may be contexts to explore, but the test validates no cause and excuses no behaviour by a score. Check a stated impact without guessing someone’s whole mind. These are your own answers, not observer ratings, relationship-safety judgments, aggression-risk assessments or a clinical callousness score. You cannot complete the test on another person’s behalf."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次具体影响记录",
+            "en": "Try one concrete-impact note"
+          },
+          "paragraphs": [
+            {
+              "zh": "在一次普通共同安排后，私下记录对方明确说出的一个影响，以及你实际采取的一个动作；不清楚就保留“不知道”。可以挑一处安全且可协商的细节再确认，不需要让对方给你打分或证明原谅。练习的目的只是分清听到的信息与自己的猜测，不保证别人反应，也不要求立刻改变整段关系。",
+              "en": "After an ordinary shared arrangement, privately note one impact explicitly described and one action you actually took. Keep “unknown” when unclear. You may clarify one safe, negotiable detail without asking the person to grade you or prove forgiveness. The aim is to separate received information from guesses, not guarantee a response or require an immediate change to a whole relationship."
+            }
+          ]
+        },
+        {
+          "id": "calculation",
+          "title": {
+            "zh": "四条题目怎样形成均分",
+            "en": "How four items form a mean"
+          },
+          "paragraphs": [
+            {
+              "zh": "全部28题先选择，从不为1、几乎总是为5，NA不计分。本部分4条至少3条有效才取一位小数均分；反向题有效评分用6减原值，NA仍不计。最低条数和读法是本站约定，不是研究常模或诊断阈值。资料不足也呈现全部七份说明；没有总体难相处百分比，均分低不等于他人都感觉轻松。",
+              "en": "Complete all 28 selections, from 1 Never to 5 Almost always; NA is unscored. This four-item part needs three ratings for a one-decimal mean. A rated reverse item contributes six minus the response; NA remains unscored. Minimum counts and readings are website conventions, not research norms or diagnostic cutoffs. Insufficient information still retains all seven guides. There is no overall difficulty percentage or assurance that everyone feels at ease."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与研究范围",
+            "en": "Original items and research scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版28条题目与七份解释由费马独立编写。Sleep等（2021）的正式摘要报告了七类敌对特征结构，来源只核到正式摘要与文献信息，未把原论文、234条临床题池、标准量表或竞品35／21题当作本站题本。这里把相关概念作为日常行为背景，选定范围与研究临床构念不等同；尤其言语回应不完整测身体攻击，后果考虑不完整测风险寻求。没有本站信效度、常模、英中文等价验证或研究者背书，不用于诊断、他人判型、道德排名、职业判断、关系安全或伤害预测。",
+              "en": "FermatMind independently authored these 28 items and seven guides. Sleep and colleagues’ formal 2021 abstract reports seven antagonism domains; only that abstract and bibliographic information were verified. The paper, its 234-item clinical pool, standard instruments and competitors’ 35 or 21 items are not this bank. Related concepts provide everyday background, without equating selected behaviours with clinical research constructs. Verbal responses do not cover all physical aggression, and consequence consideration does not cover all risk seeking. There are no established website psychometrics, norms, English–Chinese equivalence or researcher endorsement. Results support neither diagnosis, typing others, moral ranking, career judgments, relationship-safety assessment nor harm prediction."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "grandiosity",
+      "directionIds": [
+        "grandiosity"
+      ],
+      "title": {
+        "zh": "自我抬高与特殊待遇",
+        "en": "Self-importance and special treatment"
+      },
+      "headline": {
+        "zh": "区分明确需要与没有约定的优先权",
+        "en": "Separate an explicit need from assumed priority"
+      },
+      "summary": {
+        "zh": "这一部分观察自报的特殊待遇期待、因自认高人一等而轻视意见，以及对同一规则采用不同标准，不诊断自恋。",
+        "en": "This part explores reported expectations of special treatment, dismissing views from assumed superiority and unequal standards, without diagnosing narcissism."
+      },
+      "seo": {
+        "title": {
+          "zh": "自我抬高结果：特殊待遇、共同规则与反例",
+          "en": "Self-Importance: Special Treatment and Full Reflection Guide"
+        },
+        "description": {
+          "zh": "阅读自我抬高与特殊待遇完整结果，比较优先权、轻视意见和共同规则中的不同标准。含合理调整反例、对话与小观察，不把自信、无障碍需要或职责差异当成自恋诊断。",
+          "en": "Read the self-importance guide to assumed priority, unequal standards and shared rules. Full free examples without equating confidence or access needs with narcissism."
+        }
+      },
+      "scoreReading": {
+        "zh": "全部28条先选择，回想最近四周可回忆的普通互动，1从不至5几乎总是。每部分4条至少3条有效才取一位小数均分，反向题按6减有效评分，NA不计且不补零。最低条数与解释是本站信息完整度规则，不是原研究题本、常模或临床阈值。七项连续读法不合成总分、难相处百分比或最高人格，不按近分或并列强派类型；小数差异不证明统计显著、行为原因或实际他人评价。",
+        "en": "Complete all 28 selections about ordinary recalled interactions in the past four weeks, from 1 Never to 5 Almost always. Each four-item part needs three ratings for a one-decimal mean; rated reverse items contribute six minus the response, while NA is unscored and not zero-filled. Minimum counts and interpretations are website completeness rules, not the study instrument, norms or clinical cutoffs. Seven continuous readings produce no total, difficulty percentage or highest-score personality, and close or equal means assign no type. Decimal differences establish neither significance, causes nor observer judgments."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这部分具体问什么",
+            "en": "What this part asks"
+          },
+          "paragraphs": [
+            {
+              "zh": "四条原创题目涉及共同安排中的额外便利、因为自认层次更高而不听意见、认为同一规则应较少约束自己，以及是否用相同标准评价各人贡献。最后一条反向计分。它们问最近四周可回想的互动，不问自信、抱负或自我欣赏，也不把表达自身需要自动当成傲慢或临床夸大。",
+              "en": "Four original items concern extra convenience in shared arrangements, dismissing views from assumed superiority, expecting common rules to constrain you less, and using the same standards for everyone’s contributions. The last is reverse-keyed. They ask about recalled interactions in four weeks, not confidence, ambition or self-appreciation. Expressing a need is not automatically arrogance, and the part is not a clinical grandiosity measure."
+            }
+          ]
+        },
+        {
+          "id": "readings",
+          "title": {
+            "zh": "高低不等于自信多少",
+            "en": "Higher and lower are not confidence levels"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高均分表示更认同所述优先权和不对称标准，不证明你在所有场景都如此，也不能诊断人格障碍。较低不表示缺乏自信或不敢争取。可能有一条触及某次共同分配，其他条并不符合，回看差异比接受“我就是自大的人”更具体。测试不核实你与别人实际能力的高低，也不为待遇要求作裁决。",
+              "en": "A higher mean reflects greater endorsement of the described priority and unequal standards, not conduct in every setting or a personality-disorder diagnosis. A lower mean is not low confidence or inability to advocate. One item may fit an allocation while others do not. Examine the difference instead of accepting a global identity. The test neither verifies comparative abilities nor adjudicates claims to particular treatment."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一个原创分配对话",
+            "en": "An original allocation conversation"
+          },
+          "paragraphs": [
+            {
+              "zh": "共同分配时间时，你希望先处理自己的部分，可以说：“我有一个时间限制，想说明原因，再一起看是否需要调整顺序。”这提出可讨论的信息，不默认自己比别人更重要。最后怎样分配要看实际约定与各人需要，例子不保证你获得优先，也不要求隐藏正当需求来显得谦逊。",
+              "en": "When sharing time, you may want your part handled first. You could say, “I have a time constraint; can I explain it so we can consider the order together?” This supplies discussable information without assuming greater importance. Allocation still depends on agreements and needs. The original example guarantees no priority and does not require hiding a legitimate need to appear modest."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：合理调整不是特殊优越",
+            "en": "Counterexample: an agreed adjustment"
+          },
+          "paragraphs": [
+            {
+              "zh": "明确商定的职责差异、实际无障碍需要或按规则已有的优先安排，不应仅因与别人不同就计作优越感。需要了解约定、理由和影响，而不是数谁获得更多。相反，职位或资历也不自动证明每个要求都合理。题目没有完整收集这些信息，均分不能替代对具体安排、公平或必要支持的判断。",
+              "en": "Agreed responsibilities, actual access needs or priority already defined by a rule are not superiority merely because treatment differs. Understand agreements, reasons and effects rather than count who receives more. Conversely, a title or seniority does not automatically justify every request. The questionnaire lacks this full information and cannot replace judgments about a specific arrangement, fairness or necessary support."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与主导和关切比较",
+            "en": "Compare overriding and disregard"
+          },
+          "paragraphs": [
+            {
+              "zh": "自认应获优待与是否强行替别人决定不是同一描述：你可能有特殊待遇期待，却没有实际主导权；也可能主导了事情但不认为自己更高一等。忽略感受又涉及影响是否被考虑。七部分保留这种区别，连续均分没有需要保持一致的类型，也不能互换成大五、MBTI、自恋或黑暗人格分数。",
+              "en": "Expecting priority and overriding someone’s decision are different descriptions. You may expect special treatment without decision power, or override a decision without believing yourself superior. Disregard separately concerns consideration of an impact. Seven parts retain these distinctions without a type that must stay consistent. Their means cannot be converted into Big Five, MBTI, narcissism or dark-personality scores."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "不替别人决定你的价值",
+            "en": "Your worth is not scored"
+          },
+          "paragraphs": [
+            {
+              "zh": "在某次争论里被人指责“太自我”，不等于这份自报已经证实其评价。你可以保留不同意见，并核对实际规则与各方信息。本部分不确定谁更有价值、更聪明或更有资格，也不预测晋升、领导能力、受欢迎程度或关系结果；题目没有包含这些验收依据，不能靠一个术语补出来。",
+              "en": "Being called self-important in an argument does not mean this self-report confirms that judgment. Keep room to disagree and examine the actual rules and information. This part determines neither human worth, intelligence nor entitlement to a role. It predicts no promotion, leadership, popularity or relationship outcome. Those conclusions require evidence absent from these items and cannot be supplied by a research term."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "把要求写成可核对的信息",
+            "en": "Try making a request checkable"
+          },
+          "paragraphs": [
+            {
+              "zh": "挑一个低风险共同安排，写下自己希望的调整、已有约定和会影响其他人的一处细节。若合适，再询问对方是否愿意讨论，而不是预设必须答应。也可以发现原安排已经合理而保留它。记录不用公开，不需刻意让出所有权益，目的只是让需求和依据说得清楚，不是强迫自己获得低分。",
+              "en": "For a low-stakes shared arrangement, note the adjustment you want, the existing agreement and one effect on others. If appropriate, ask whether they are willing to discuss it rather than assuming agreement. You may find the current arrangement reasonable and keep it. The note needs no disclosure or surrender of every interest. The aim is a clear request with reasons, not forcing a lower score."
+            }
+          ]
+        },
+        {
+          "id": "calculation",
+          "title": {
+            "zh": "均分、反向题和不足",
+            "en": "Means, reverse items and insufficiency"
+          },
+          "paragraphs": [
+            {
+              "zh": "四条中至少3条有效1—5评分才显示一位小数均分，最后的同标准题用6减评分后加入，NA排除而不补零。全部28题先完成选择，七项独立呈现。本站完整度规则与解释不是原研究题本、常模或临床阈值；均分相同保留，不强派主类型，也没有小数差异具有统计显著或因果含义的依据。",
+              "en": "At least three of four 1–5 ratings are needed for a one-decimal mean. The same-standards item contributes six minus its rating; NA is excluded rather than zero-filled. Complete all 28 selections before seven parts appear separately. Website completeness rules and explanations are not the study instrument, norms or clinical cutoffs. Equal means remain equal without a primary type, and decimal differences establish neither statistical significance nor causation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与研究范围",
+            "en": "Original items and research scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版28条题目与七份解释由费马独立编写。Sleep等（2021）的正式摘要报告了七类敌对特征结构，来源只核到正式摘要与文献信息，未把原论文、234条临床题池、标准量表或竞品35／21题当作本站题本。这里把相关概念作为日常行为背景，选定范围与研究临床构念不等同；尤其言语回应不完整测身体攻击，后果考虑不完整测风险寻求。没有本站信效度、常模、英中文等价验证或研究者背书，不用于诊断、他人判型、道德排名、职业判断、关系安全或伤害预测。",
+              "en": "FermatMind independently authored these 28 items and seven guides. Sleep and colleagues’ formal 2021 abstract reports seven antagonism domains; only that abstract and bibliographic information were verified. The paper, its 234-item clinical pool, standard instruments and competitors’ 35 or 21 items are not this bank. Related concepts provide everyday background, without equating selected behaviours with clinical research constructs. Verbal responses do not cover all physical aggression, and consequence consideration does not cover all risk seeking. There are no established website psychometrics, norms, English–Chinese equivalence or researcher endorsement. Results support neither diagnosis, typing others, moral ranking, career judgments, relationship-safety assessment nor harm prediction."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "domineering",
+      "directionIds": [
+        "domineering"
+      ],
+      "title": {
+        "zh": "强行主导他人",
+        "en": "Overriding others’ say"
+      },
+      "headline": {
+        "zh": "看决定属于谁，以及异议有没有空间",
+        "en": "Check who owns a decision and whether disagreement has room"
+      },
+      "summary": {
+        "zh": "这一部分问在共同决定或他人自主事务中，是否越过意见、持续强求或利用安排施压，不把领导职责自动算成难相处。",
+        "en": "This part asks about bypassing views, persistent insistence and pressure in shared or others’ decisions, without equating leadership duties with difficulty."
+      },
+      "seo": {
+        "title": {
+          "zh": "强行主导结果：决定归属、异议空间与完整说明",
+          "en": "Overriding Others: Decisions, Disagreement and Full Guide"
+        },
+        "description": {
+          "zh": "阅读强行主导他人完整结果，区分共同决定、他人自主事务和施压，附职责反例、对话和小观察。不将领导角色自动归为控制，也不由均分判断关系安全或领导能力。",
+          "en": "Explore overriding others through decision ownership, room to disagree and original examples. Full free guide without equating leadership roles with control."
+        }
+      },
+      "scoreReading": {
+        "zh": "全部28条先选择，回想最近四周可回忆的普通互动，1从不至5几乎总是。每部分4条至少3条有效才取一位小数均分，反向题按6减有效评分，NA不计且不补零。最低条数与解释是本站信息完整度规则，不是原研究题本、常模或临床阈值。七项连续读法不合成总分、难相处百分比或最高人格，不按近分或并列强派类型；小数差异不证明统计显著、行为原因或实际他人评价。",
+        "en": "Complete all 28 selections about ordinary recalled interactions in the past four weeks, from 1 Never to 5 Almost always. Each four-item part needs three ratings for a one-decimal mean; rated reverse items contribute six minus the response, while NA is unscored and not zero-filled. Minimum counts and interpretations are website completeness rules, not the study instrument, norms or clinical cutoffs. Seven continuous readings produce no total, difficulty percentage or highest-score personality, and close or equal means assign no type. Decimal differences establish neither significance, causes nor observer judgments."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这部分具体问什么",
+            "en": "What this part asks"
+          },
+          "paragraphs": [
+            {
+              "zh": "四条原创题目问共同决定中未征求意见就替人定方案、干涉与自己无关的自主事务、利用可控安排迫使异议者让步，以及是否让别人真实影响共同决定。最后一条反向计分。关注的是决定归属与参与空间，不是说话次数、是否主动或是否担任领导；也不由此判断别人是否自愿跟随你。",
+              "en": "Four original items ask about setting shared plans without views, insisting on control of someone’s own matter, using arrangements to pressure dissent, and leaving genuine influence in shared decisions. The last is reverse-keyed. The focus is decision ownership and room to participate, not how often you speak, take initiative or hold a leadership role. It cannot establish whether others follow willingly."
+            }
+          ]
+        },
+        {
+          "id": "readings",
+          "title": {
+            "zh": "高低与混合回答怎样读",
+            "en": "Reading higher, lower and mixed responses"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高均分表示更常报告这组越过意见或施压描述，不说明你能有效领导，也不诊断控制型人格。较低不等于不果断、没有责任或从不影响他人。你可能在一类集体安排里着急替人定方案，其他描述却不适用；回看具体题目，比分数最高就接受一个身份更有助于理解本次回答。",
+              "en": "A higher mean reflects more reported overriding or pressure, not effective leadership or a controlling-personality diagnosis. A lower mean does not mean indecision, lack of responsibility or no influence. You may have rushed a particular group plan while other descriptions do not fit. Revisit the items instead of treating a highest value as an identity; the aim is to understand these answers specifically."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一个原创共同决定例子",
+            "en": "An original shared-decision example"
+          },
+          "paragraphs": [
+            {
+              "zh": "普通共同安排里，你已有一个方案，可以说：“我先说明建议，再听你想改哪一处；哪些部分需要我们一起决定？”这把建议和决定权限分开，不要求每件事都全员投票。若已有明确职责，也可以说明谁负责哪部分。例子不保证达成一致，更不能用“我已经问过”替代真正考虑后来提出的信息。",
+              "en": "In an ordinary shared arrangement, you might say, “I have a proposal; can we first clarify which parts we decide together, then hear what you would change?” This separates a suggestion from decision authority without requiring a vote on everything. Explain existing responsibilities where relevant. The original example guarantees no agreement, and merely having asked is not a substitute for considering information received afterward."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：承担职责与越权不同",
+            "en": "Counterexample: acting within a role"
+          },
+          "paragraphs": [
+            {
+              "zh": "按明确约定负责某项决定、对紧急职责作必要安排，或提出有力建议，并不因采取主导行动就符合题目。需要看授权、影响、可讨论空间和实际要求。相反，“我是负责人”也不能自动解释所有越过或威吓。测试没有收集完整职责链，不能替代对某次工作、家庭或共同安排中权限边界的核对。",
+              "en": "Making a decision within an explicit responsibility, handling an urgent duty or offering a strong proposal does not automatically fit the items. Consider authority, effects, room for discussion and actual requirements. Conversely, being in charge does not automatically justify every override or threat. The questionnaire lacks the full chain of responsibilities and cannot determine the authority boundaries of a specific work, family or shared arrangement."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与特殊待遇和施压比较",
+            "en": "Compare priority and indirect pressure"
+          },
+          "paragraphs": [
+            {
+              "zh": "自我抬高部分问是否认为自己应获额外待遇，隐瞒施压部分问是否通过信息不完整或人情暗示获取答应；本部分问别人是否仍有自己的决定空间。它们可能一起出现，但不是同一行为，也不能从一个均分补出另外两个。七项是连续自报读法，不作权力能力排名、不换算领导风格或MBTI。",
+              "en": "Self-importance asks about assumed priority, while concealment and indirect pressure ask about obtaining agreement through missing information or implied debts. This part asks whether others retain a say. They can coexist without being identical, and one mean cannot supply the others. Seven continuous self-report readings rank no power skill and cannot be converted into a leadership style or MBTI result."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "具体关系里的限制",
+            "en": "Constraints in a real relationship"
+          },
+          "paragraphs": [
+            {
+              "zh": "可讨论空间会受职责、资源和权力关系影响；测试没有替任何人承诺安全或判断整个关系。不要强迫别人提供反馈来证明你不强势，也不要从分数推断对方沉默就是同意。可以核对已经明确的决定权和具体可协商部分；对方是否愿意继续讨论，应由其实际回应决定，不是标签能保证的。",
+              "en": "Duties, resources and power relationships can affect discussion. The test promises no safety and judges no whole relationship. Do not force feedback to prove you are not domineering or infer that silence means agreement. Clarify established decision rights and specific negotiable parts. Whether someone wants to continue a discussion depends on their actual response, not an assurance that a result label can provide."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次决定归属观察",
+            "en": "Try a decision-ownership note"
+          },
+          "paragraphs": [
+            {
+              "zh": "选择一件低风险共同事务，写下谁受影响、谁已有明确决定权、哪一部分尚未商量。若适合，只确认其中一个细节，让对方可以拒绝讨论或提出不同意见。无需撤掉所有职责、让出所有决定或把关系当实验，也不以对方是否同意来评价练习成功；先把范围弄清楚就足够。",
+              "en": "Choose a low-stakes shared matter and note who is affected, who already has decision authority and what remains undiscussed. If appropriate, clarify one detail while leaving room to decline discussion or disagree. There is no need to abandon every duty, surrender every decision or experiment on a relationship. Agreement is not the success criterion; a clearer scope is enough for the observation."
+            }
+          ]
+        },
+        {
+          "id": "calculation",
+          "title": {
+            "zh": "四条题目的读法",
+            "en": "Reading the four items"
+          },
+          "paragraphs": [
+            {
+              "zh": "全部28条先完成选择，本部分4条至少3条有效1—5评分才显示一位小数均分。反向题用6减有效评分，NA不计且不补零。最低条数与解释为本站规则，不是研究的常模、临床阈值或观察者评价。资料不足仍可读全部七份报告；同分不强派先后，也不把低分合成认证的“容易相处人格”。",
+              "en": "Complete all 28 selections before a mean. This four-item part needs three valid 1–5 ratings, with a rated reverse response scored as six minus the rating. NA is unscored rather than zero-filled. Minimum counts and interpretations are website rules, not research norms, clinical cutoffs or observer judgments. Insufficient information retains all seven guides. Equal means are not ordered, and low means do not certify an easy-to-deal-with personality."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与研究范围",
+            "en": "Original items and research scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版28条题目与七份解释由费马独立编写。Sleep等（2021）的正式摘要报告了七类敌对特征结构，来源只核到正式摘要与文献信息，未把原论文、234条临床题池、标准量表或竞品35／21题当作本站题本。这里把相关概念作为日常行为背景，选定范围与研究临床构念不等同；尤其言语回应不完整测身体攻击，后果考虑不完整测风险寻求。没有本站信效度、常模、英中文等价验证或研究者背书，不用于诊断、他人判型、道德排名、职业判断、关系安全或伤害预测。",
+              "en": "FermatMind independently authored these 28 items and seven guides. Sleep and colleagues’ formal 2021 abstract reports seven antagonism domains; only that abstract and bibliographic information were verified. The paper, its 234-item clinical pool, standard instruments and competitors’ 35 or 21 items are not this bank. Related concepts provide everyday background, without equating selected behaviours with clinical research constructs. Verbal responses do not cover all physical aggression, and consequence consideration does not cover all risk seeking. There are no established website psychometrics, norms, English–Chinese equivalence or researcher endorsement. Results support neither diagnosis, typing others, moral ranking, career judgments, relationship-safety assessment nor harm prediction."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "manipulation",
+      "directionIds": [
+        "manipulation"
+      ],
+      "title": {
+        "zh": "隐瞒与间接施压",
+        "en": "Concealment and indirect pressure"
+      },
+      "headline": {
+        "zh": "让重要条件和拒绝空间都清楚",
+        "en": "Make important conditions and room to decline clear"
+      },
+      "summary": {
+        "zh": "这一部分观察为取得同意而隐瞒重要信息、暗示人情负债或给出不一致说法的自报行为，不把普通说服或隐私保护当成操纵。",
+        "en": "This part explores reported withholding, implied debts and inconsistent accounts to obtain agreement, without equating ordinary persuasion or privacy with manipulation."
+      },
+      "seo": {
+        "title": {
+          "zh": "隐瞒施压结果：重要条件、真实拒绝与反例",
+          "en": "Concealment and Pressure: Requests, Examples and Full Guide"
+        },
+        "description": {
+          "zh": "阅读隐瞒与间接施压完整结果，理解重要信息、人情暗示和不一致说法。附说服与隐私反例、具体请求和小观察，不作测谎、道德排名或他人动机诊断。",
+          "en": "Read the concealment and pressure guide to conditions, implied debts and freedom to decline. Full free examples without lie detection, moral ranks or diagnoses."
+        }
+      },
+      "scoreReading": {
+        "zh": "全部28条先选择，回想最近四周可回忆的普通互动，1从不至5几乎总是。每部分4条至少3条有效才取一位小数均分，反向题按6减有效评分，NA不计且不补零。最低条数与解释是本站信息完整度规则，不是原研究题本、常模或临床阈值。七项连续读法不合成总分、难相处百分比或最高人格，不按近分或并列强派类型；小数差异不证明统计显著、行为原因或实际他人评价。",
+        "en": "Complete all 28 selections about ordinary recalled interactions in the past four weeks, from 1 Never to 5 Almost always. Each four-item part needs three ratings for a one-decimal mean; rated reverse items contribute six minus the response, while NA is unscored and not zero-filled. Minimum counts and interpretations are website completeness rules, not the study instrument, norms or clinical cutoffs. Seven continuous readings produce no total, difficulty percentage or highest-score personality, and close or equal means assign no type. Decimal differences establish neither significance, causes nor observer judgments."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这部分具体问什么",
+            "en": "What this part asks"
+          },
+          "paragraphs": [
+            {
+              "zh": "四条原创题目问是否刻意隐瞒影响决定的信息、以人情负债暗示别人应答应、给不同人不一致说法来引导行动，以及是否说明重要条件并保留真实拒绝空间。最后一条反向。题目关注可回想的具体做法，不读取隐藏动机、口才或谋略，也不能从回答得知别人是否真的被影响或因此遭受损失。",
+              "en": "Four original items ask about withholding decision-relevant information, implying a debt to obtain agreement, giving inconsistent accounts to steer actions, and explaining conditions while allowing genuine refusal. The last is reverse-keyed. They concern recalled actions, not access to hidden motives, eloquence or strategic skill. Answers cannot establish whether someone was actually influenced or suffered a loss as a result."
+            }
+          ]
+        },
+        {
+          "id": "readings",
+          "title": {
+            "zh": "高低不等于聪明或善恶",
+            "en": "Higher and lower do not rank cleverness or morality"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高均分表示更常报告这组选定做法，不证明高情商、聪明、有效谈判或任何人格障碍。较低也不能保证交流永远透明。几条可能对应不同情境，值得看清哪一项符合、哪一项不适用。测试不是侦测谎言的工具，NA不足保留，不会用其他部分的分数推断你没有回答的行为。",
+              "en": "A higher mean reflects more reported use of these selected actions, not emotional intelligence, cleverness, negotiating success or a personality disorder. A lower mean guarantees no perfect transparency. Items may concern different situations, so inspect what fits and what was inapplicable. This is not a lie detector. Insufficient ratings remain insufficient rather than inferring unanswered behaviour from another part."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一个原创请求例子",
+            "en": "An original request example"
+          },
+          "paragraphs": [
+            {
+              "zh": "普通请求里，可以说：“这件事需要你大约半小时，可能还要再修改一次；如果你不方便，可以直接说不。”内容和范围要按实际情况说明，不能承诺虚假的拒绝空间。例子不保证对方答应，也不要求把所有私人信息公开；关键是说明对其选择重要、而你实际知道的条件。",
+              "en": "For an ordinary request, you could say, “This would take about half an hour and might need one revision; if it does not work for you, you can decline.” State the real scope rather than promising a choice that does not exist. The original example guarantees no agreement and requires no disclosure of every private detail. Explain conditions you actually know that matter to the decision."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：说服与保护隐私",
+            "en": "Counterexample: persuasion and privacy"
+          },
+          "paragraphs": [
+            {
+              "zh": "说明理由、提出不同方案或保留与请求无关的个人隐私，不自动符合隐瞒施压。需要区分哪些信息影响对方决定、是否故意不说，以及拒绝是否真实可行。谈话中记错细节也不自动等于策略欺骗。测试只收集本人自报，不能代替事实核对，更不能把一个术语当成给别人定罪或识破其意图的证据。",
+              "en": "Explaining reasons, offering alternatives or keeping unrelated personal information private is not automatically concealment or pressure. Distinguish decision-relevant information, deliberate withholding and whether refusal is genuinely possible. Misremembering a detail is not automatically strategic deception. The test collects self-report, not a factual investigation, and a term cannot become proof against someone or evidence that their intentions have been uncovered."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与主导、猜疑和期望比较",
+            "en": "Compare overriding, suspicion and expectations"
+          },
+          "paragraphs": [
+            {
+              "zh": "强行主导问越过决定空间，猜疑问在依据不足时怎样理解他人；隐瞒施压问自己怎样促成答应。讨好倾向另问自己如何面对别人期望，两者不能直接相互换分或用来判断谁控制谁。不同部分可能同高同低，最高均分不指定一种人际身份，也不由这组题推出黑暗三联征、道德或关系匹配。",
+              "en": "Overriding asks about bypassing a say, suspicion about interpreting others without enough evidence, and this part about how you obtain agreement. People-pleasing separately concerns responding to expectations. Their scores are not interchangeable and cannot determine who controls whom. Parts may be similarly high or low without assigning an interpersonal identity, dark-triad score, moral verdict or relationship match."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "事实、意愿和权力背景",
+            "en": "Facts, willingness and power context"
+          },
+          "paragraphs": [
+            {
+              "zh": "一次互动里的重要条件、职责或可选择范围可能并不清楚，可以先确认事实。结果不判断整段关系安全，也不要求你向可能施压的人公开私人答案或接受盘问。具体行为的影响应按实际信息讨论，不能由均分自动洗去责任或确认恶意；测试同样没有办法保证另一方会如何理解你的表达。",
+              "en": "Important conditions, duties or available choices may be unclear in an interaction; clarify facts first. Results judge no whole relationship’s safety and require no disclosure of private answers or submission to questioning by someone applying pressure. Discuss effects using actual information. A mean neither removes responsibility nor proves malicious intent, and it cannot guarantee how another person will interpret what you say."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "把一个请求补充完整",
+            "en": "Try completing one request"
+          },
+          "paragraphs": [
+            {
+              "zh": "挑一件低风险、仍可协商的小请求，写下目的、真实所需投入、你知道的重要条件和对方有哪些选择。只确认一处可能模糊的地方，不诱导其接受，也不把这当成训练别人配合。记录无需上传，不要求承认没有发生的错误；如果条件原本清楚，也可以维持原安排。",
+              "en": "For a low-stakes, still-negotiable request, note its purpose, real effort, important known conditions and available choices. Clarify one potentially ambiguous detail without steering acceptance or training someone to cooperate. The note needs no upload and no admission of an error that did not occur. If conditions were already clear, keeping the arrangement is also a valid outcome."
+            }
+          ]
+        },
+        {
+          "id": "calculation",
+          "title": {
+            "zh": "反向计分与不足状态",
+            "en": "Reverse scoring and insufficient states"
+          },
+          "paragraphs": [
+            {
+              "zh": "每部分4条至少3条有效，按1从不到5几乎总是作答，说明条件和拒绝空间的反向题以6减评分计算。全部28条先选择；NA排除，不补零或猜测，均分一位小数。这个读法没有研究常模、百分位或临床阈值，资料不足不派类型，仍保留全部七份完整解释供比较与重测。",
+              "en": "Each four-item part needs three ratings from 1 Never to 5 Almost always. The reverse item about conditions and refusal contributes six minus the rating. Make all 28 selections first; NA is excluded without zero-filling or estimation, and means use one decimal. This reading has no study norms, percentiles or clinical cutoffs. Insufficient information assigns no type while retaining all seven full guides and retake."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与研究范围",
+            "en": "Original items and research scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版28条题目与七份解释由费马独立编写。Sleep等（2021）的正式摘要报告了七类敌对特征结构，来源只核到正式摘要与文献信息，未把原论文、234条临床题池、标准量表或竞品35／21题当作本站题本。这里把相关概念作为日常行为背景，选定范围与研究临床构念不等同；尤其言语回应不完整测身体攻击，后果考虑不完整测风险寻求。没有本站信效度、常模、英中文等价验证或研究者背书，不用于诊断、他人判型、道德排名、职业判断、关系安全或伤害预测。",
+              "en": "FermatMind independently authored these 28 items and seven guides. Sleep and colleagues’ formal 2021 abstract reports seven antagonism domains; only that abstract and bibliographic information were verified. The paper, its 234-item clinical pool, standard instruments and competitors’ 35 or 21 items are not this bank. Related concepts provide everyday background, without equating selected behaviours with clinical research constructs. Verbal responses do not cover all physical aggression, and consequence consideration does not cover all risk seeking. There are no established website psychometrics, norms, English–Chinese equivalence or researcher endorsement. Results support neither diagnosis, typing others, moral ranking, career judgments, relationship-safety assessment nor harm prediction."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "suspiciousness",
+      "directionIds": [
+        "suspiciousness"
+      ],
+      "title": {
+        "zh": "缺少依据的猜疑",
+        "en": "Suspicion without sufficient evidence"
+      },
+      "headline": {
+        "zh": "分清可核对的事实与暂时的解释",
+        "en": "Separate checkable facts from a provisional interpretation"
+      },
+      "summary": {
+        "zh": "这一部分问依据不足时是否先认定恶意、欺骗或针对，不把合理谨慎、已有证据或保护隐私当成猜疑。",
+        "en": "This part asks about assuming ill intent, deception or targeting without enough evidence, not reasonable caution, existing evidence or privacy."
+      },
+      "seo": {
+        "title": {
+          "zh": "猜疑解释结果：事实、依据与合理谨慎的区别",
+          "en": "Suspicion and Evidence: Caution, Examples and Full Guide"
+        },
+        "description": {
+          "zh": "阅读缺少依据的猜疑完整结果，区分可核对事实、暂时解释与有依据的谨慎，含对话、反例和小清单。不诊断偏执、不要求信任所有人，也不由均分保证他人安全。",
+          "en": "Explore suspicion without sufficient evidence, fact checking and reasonable caution. Full free guide without paranoia diagnoses or a duty to trust everyone."
+        }
+      },
+      "scoreReading": {
+        "zh": "全部28条先选择，回想最近四周可回忆的普通互动，1从不至5几乎总是。每部分4条至少3条有效才取一位小数均分，反向题按6减有效评分，NA不计且不补零。最低条数与解释是本站信息完整度规则，不是原研究题本、常模或临床阈值。七项连续读法不合成总分、难相处百分比或最高人格，不按近分或并列强派类型；小数差异不证明统计显著、行为原因或实际他人评价。",
+        "en": "Complete all 28 selections about ordinary recalled interactions in the past four weeks, from 1 Never to 5 Almost always. Each four-item part needs three ratings for a one-decimal mean; rated reverse items contribute six minus the response, while NA is unscored and not zero-filled. Minimum counts and interpretations are website completeness rules, not the study instrument, norms or clinical cutoffs. Seven continuous readings produce no total, difficulty percentage or highest-score personality, and close or equal means assign no type. Decimal differences establish neither significance, causes nor observer judgments."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这部分具体问什么",
+            "en": "What this part asks"
+          },
+          "paragraphs": [
+            {
+              "zh": "四条原创题目问：含糊信息是否未经核对就被解释为让自己吃亏、没有新增证据时是否仍认定普通解释是欺骗、中性举动是否被当成针对，以及是否区分事实与猜测再判断。最后一条反向。它们只记录最近四周本人回想的解释方式，不测读心准确率，也不评估他人是否实际可信。",
+              "en": "Four original items ask about interpreting unclear information as disadvantage before checking, remaining certain an ordinary explanation is deception without new evidence, reading a neutral action as targeting, and separating facts from guesses. The last is reverse-keyed. These concern your recalled interpretations in four weeks, not mind-reading accuracy or an assessment of whether someone else is actually trustworthy."
+            }
+          ]
+        },
+        {
+          "id": "readings",
+          "title": {
+            "zh": "高低和不一致怎样读",
+            "en": "Reading higher, lower and differing responses"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高均分表示更常报告这些依据不足时的确定解释，不诊断偏执、焦虑或任何精神状况。较低不证明判断准确，也不表示应该信任所有人。你可能在消息含糊时容易下结论，却会在其他场景核对事实，差异应保留。均分无法得知一段完整历史，也不能判定你受到的具体对待是否真实。",
+              "en": "A higher mean reflects more reported certainty in the described unclear situations, not paranoia, anxiety or another condition. A lower mean proves neither accurate judgment nor a duty to trust everyone. You may jump to a conclusion with ambiguous messages while checking facts elsewhere. Retain that difference. A mean lacks the whole history and cannot determine whether particular treatment you experienced was real."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一个原创澄清例子",
+            "en": "An original clarification example"
+          },
+          "paragraphs": [
+            {
+              "zh": "普通、可安全核实的协作中，收到一句很短的回复，你可以问：“我还不确定你是同意这个时间，还是只看到了消息，能确认一下吗？”这只核一个实际问题，不要求你先判定对方喜欢或讨厌你。也可以暂不追问，把“不知道”保留；例子不保证得到答案，更不要求公开自己的全部担心。",
+              "en": "In ordinary collaboration where checking is safe, a short reply may leave a practical ambiguity. You could ask, “Do you mean that time works, or just that you saw the message?” This checks one question without deciding whether someone likes you. You can also retain uncertainty and not ask immediately. The original example guarantees no answer and requires no disclosure of every concern."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：谨慎有时有充分依据",
+            "en": "Counterexample: caution with evidence"
+          },
+          "paragraphs": [
+            {
+              "zh": "已有明确记录、反复失信经历或当前不清楚的风险，都可能需要谨慎；测试不把保护自身、要求核实或保留隐私自动计为不合理猜疑。关键是题目所说的“没有足够依据就认定”，不是要求否认已经发生的事。不能用一个低分保证别人安全，也不能用高分取消你保护自己和提出合理疑问的权利。",
+              "en": "Clear records, repeated broken agreements or an uncertain risk can warrant caution. Protecting yourself, requesting verification and keeping privacy are not automatically unreasonable suspicion. The items concern certainty without enough basis, not denial of events that occurred. A lower score guarantees no one else’s safety, and a higher score does not remove your right to protect yourself or raise a reasonable question."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他部分的区别",
+            "en": "Compare the other parts"
+          },
+          "paragraphs": [
+            {
+              "zh": "猜测对方意图与自己隐瞒信息是不同方向，也不自动等于攻击回应。你可以不确定别人是否可信，同时没有侮辱、施压或越过其决定空间。七个部分分开记录，不根据一个均分填补其余，不做谁操控谁的判断，也不把近分或并列视作某种特殊人格组合、关系兼容性或临床亚型。",
+              "en": "Interpreting someone’s intentions differs from withholding information yourself and does not automatically mean an aggressive response. You can be uncertain about trust without insults, pressure or overriding decisions. Seven parts remain separate rather than filling one from another. They determine neither who controls whom nor a special personality combination, relationship compatibility or clinical subtype from close or equal means."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "当信息不完整时",
+            "en": "When information remains incomplete"
+          },
+          "paragraphs": [
+            {
+              "zh": "不清楚的事情可以暂时不下结论，或按实际需要保留限制。这里没有建议忽视危险、取消必要核查或向让你不舒服的人证明信任。分数不能代替事实记录、具体责任和现实环境，也不能替别人洗清或确认恶意。对一件事的解释可以随着新信息调整，问卷没有要求你为维持标签一直采用同一种判断。",
+              "en": "An unclear situation can remain undecided, with limits kept as needed. This guide does not ask you to ignore danger, cancel necessary checks or prove trust to someone who makes you uncomfortable. A score replaces neither records, responsibilities nor the real setting, and clears or proves no one’s motives. Interpretations can change with new information; no label requires the same judgment forever."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一张事实与解释清单",
+            "en": "Try a fact-and-interpretation note"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一件低风险小事，分两栏写“我实际看见或听到的”和“我目前的解释”。只在安全且必要时确认一个细节，没得到答案就保持未知，不用反复盘问或检查别人私人内容。记录不需要分享、上传或用于争论谁对；目的只是区分信息来源，并保留修改解释的可能。",
+              "en": "For one low-stakes matter, make two private columns: what you actually saw or heard and your current interpretation. Clarify a detail only if safe and necessary, retaining unknown when unanswered. Do not turn the exercise into repeated questioning or inspection of someone’s private information. No sharing, upload or argument about who is right is required; distinguish information sources and leave room to revise."
+            }
+          ]
+        },
+        {
+          "id": "calculation",
+          "title": {
+            "zh": "计算不等于正确率",
+            "en": "A mean is not an accuracy score"
+          },
+          "paragraphs": [
+            {
+              "zh": "全部28条先选择，每部分4条至少3条有效才取一位小数均分。区分事实的反向题有效评分按6减原值计，NA不补零。最低条数是本站完整度规则，不是研究阈值；没有正确率、真假识别或心理诊断。资料不足也保留全部七份解释，不用中性值代填，小数变化也不证明判断能力发生改变。",
+              "en": "Complete all 28 selections. A four-item part needs three ratings for a one-decimal mean; the reverse facts item contributes six minus the rating, while NA is not zero-filled. The minimum is a website completeness rule, not a study cutoff. There is no accuracy, lie-detection or diagnosis score. Insufficient information retains all seven guides without a neutral replacement, and decimal changes do not establish a change in judgment ability."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与研究范围",
+            "en": "Original items and research scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版28条题目与七份解释由费马独立编写。Sleep等（2021）的正式摘要报告了七类敌对特征结构，来源只核到正式摘要与文献信息，未把原论文、234条临床题池、标准量表或竞品35／21题当作本站题本。这里把相关概念作为日常行为背景，选定范围与研究临床构念不等同；尤其言语回应不完整测身体攻击，后果考虑不完整测风险寻求。没有本站信效度、常模、英中文等价验证或研究者背书，不用于诊断、他人判型、道德排名、职业判断、关系安全或伤害预测。",
+              "en": "FermatMind independently authored these 28 items and seven guides. Sleep and colleagues’ formal 2021 abstract reports seven antagonism domains; only that abstract and bibliographic information were verified. The paper, its 234-item clinical pool, standard instruments and competitors’ 35 or 21 items are not this bank. Related concepts provide everyday background, without equating selected behaviours with clinical research constructs. Verbal responses do not cover all physical aggression, and consequence consideration does not cover all risk seeking. There are no established website psychometrics, norms, English–Chinese equivalence or researcher endorsement. Results support neither diagnosis, typing others, moral ranking, career judgments, relationship-safety assessment nor harm prediction."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aggression",
+      "directionIds": [
+        "aggression"
+      ],
+      "title": {
+        "zh": "攻击式回应",
+        "en": "Aggressive responses"
+      },
+      "headline": {
+        "zh": "把生气与侮辱、威吓行为分开看",
+        "en": "Separate anger from insults and intimidation"
+      },
+      "summary": {
+        "zh": "这一部分关注本人自报的侮辱、威吓和故意以言语伤害的回应，不把生气、明确反对或设置限制本身当成攻击。",
+        "en": "This part concerns reported insults, intimidation and deliberately hurtful words, not anger, clear disagreement or limits by themselves."
+      },
+      "seo": {
+        "title": {
+          "zh": "攻击回应结果：生气、侮辱、威吓与反例",
+          "en": "Aggressive Responses: Anger, Words and Full Reflection Guide"
+        },
+        "description": {
+          "zh": "阅读攻击式回应完整结果，区分生气、坚定反对、人身侮辱与言语威吓，附原创对话和复盘方法。本部分不完整测身体攻击，不用均分预测危险或给行为免责。",
+          "en": "Read the aggressive-response guide to anger, insults and intimidation, with original examples. Full free meaning without violence predictions or excuses for harm."
+        }
+      },
+      "scoreReading": {
+        "zh": "全部28条先选择，回想最近四周可回忆的普通互动，1从不至5几乎总是。每部分4条至少3条有效才取一位小数均分，反向题按6减有效评分，NA不计且不补零。最低条数与解释是本站信息完整度规则，不是原研究题本、常模或临床阈值。七项连续读法不合成总分、难相处百分比或最高人格，不按近分或并列强派类型；小数差异不证明统计显著、行为原因或实际他人评价。",
+        "en": "Complete all 28 selections about ordinary recalled interactions in the past four weeks, from 1 Never to 5 Almost always. Each four-item part needs three ratings for a one-decimal mean; rated reverse items contribute six minus the response, while NA is unscored and not zero-filled. Minimum counts and interpretations are website completeness rules, not the study instrument, norms or clinical cutoffs. Seven continuous readings produce no total, difficulty percentage or highest-score personality, and close or equal means assign no type. Decimal differences establish neither significance, causes nor observer judgments."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这部分具体问什么",
+            "en": "What this part asks"
+          },
+          "paragraphs": [
+            {
+              "zh": "四条原创题目问意见不合时的人身侮辱、借威吓使人退让、争执中故意以言语伤害，以及生气时是否仍避免侮辱和威吓。最后一条反向。这里采用较窄的言语回应范围，没有完整评估身体行为、所有攻击形式或实际危险，也不由回答判定你有某种人格障碍或失控程度。",
+              "en": "Four original items ask about personal insults in disagreement, intimidating words to obtain submission, deliberately hurtful words during argument, and avoiding insults or intimidation while angry. The last is reverse-keyed. This is a narrow verbal-response scope, not a complete assessment of physical behaviour, every form of aggression or actual danger. Answers establish neither a personality disorder nor a level of loss of control."
+            }
+          ]
+        },
+        {
+          "id": "readings",
+          "title": {
+            "zh": "高低和具体事件分开",
+            "en": "Read the mean alongside specific events"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高均分表示更常报告题目中的言语行为，不等于你必然会伤害人，也不能证明别人已经如何反应。较低更不能保证任何关系安全，严重的一次行为也不应被均分淡化。可以回看哪些具体回应发生过、哪些不适用；测试没有核实后果，不以低分开脱行为，也不通过高分把你概括成坏人。",
+              "en": "A higher mean reflects more reported verbal actions, not certainty of future harm or knowledge of others’ reactions. A lower mean cannot guarantee safety, and a serious individual event should not be minimised by an average. Revisit what occurred and what was inapplicable. The test verifies no consequences, excuses no action with a low mean and reduces no one to a bad-person identity with a high one."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一个原创暂停例子",
+            "en": "An original pause example"
+          },
+          "paragraphs": [
+            {
+              "zh": "普通、可安全暂停的分歧里，可以说：“我现在很生气，继续说可能会把问题说成人身评价；我先停一下，之后再讨论这件具体事。”暂停不是威胁撤走支持，也不保证别人会接受。是否适合何时继续，要按实际情境商量；例子不要求对方留下来听，也不能代替对已经造成影响的行为负责。",
+              "en": "In an ordinary disagreement where a pause is safe, you might say, “I am angry, and continuing could turn this into personal comments. I want to pause and return to the specific issue later.” A pause is not a threat to withdraw support or a guarantee of acceptance. Discuss timing as appropriate. The original example requires no one to stay and replaces no responsibility for effects already caused."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：坚定反对不是攻击",
+            "en": "Counterexample: firm opposition"
+          },
+          "paragraphs": [
+            {
+              "zh": "清楚说不、指出错误、为自身权益提出异议，或表达正在生气，并不自动符合侮辱或威吓题目。要看实际措辞、行为和环境，不是把所有冲突都消除。相反，即使用平静语气，人身贬低或威吓也不因此被取消。测试只读本人作答，不裁决一次争执谁对，也不要求为了低分接受不愿意的安排。",
+              "en": "Saying no clearly, identifying an error, raising an objection about your interests or expressing anger is not automatically an insult or threat. Consider actual words, actions and setting rather than eliminating every conflict. Conversely, a calm voice does not cancel personal degradation or intimidation. The test reads self-report, not who was right in an argument, and does not require unwanted agreement to lower a score."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与主导和忽略感受比较",
+            "en": "Compare overriding and disregard"
+          },
+          "paragraphs": [
+            {
+              "zh": "攻击回应关心怎样说和是否威吓，主导部分关心决定空间，忽略感受关心是否纳入明确影响。一个人可能在其中一部分有较多回答，另外两部分没有；不能从一句狠话推断全部人格，也不能由责任感、领导风格或幽默标签替这些行为解释。七项只分别阅读，不组成攻击风险等级或人与人的危险排序。",
+              "en": "Aggressive responses concern words and intimidation, overriding concerns room for decisions, and disregard concerns including expressed impacts. One part can receive more endorsement without the others. A harsh statement cannot establish a whole personality, and responsibility, leadership or humor labels do not explain these behaviours away. Read seven parts separately, without an aggression-risk tier or a ranking of dangerous people."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "安全与责任不由标签决定",
+            "en": "Safety and responsibility are not labels"
+          },
+          "paragraphs": [
+            {
+              "zh": "结果不确定当前是否有危险，也不应让任何人靠低分证明自己可以被信任，或靠高分宣称无法改变。如果实际互动涉及伤害、威胁或安全疑虑，应按真实情况寻求合适支持，而不是继续拿问卷争论。这里的小观察限于普通可安全情境，不要求当面对质、继续冲突或让受到影响的人负责训练你的回应。",
+              "en": "Results establish no current danger and should not let anyone use a low score as proof of trustworthiness or a high score as an excuse for being unable to change. Actual harm, threats or safety concerns require support suited to real circumstances rather than an argument over a quiz. Small observations are limited to ordinary safe settings, without confrontation or making an affected person responsible for coaching your responses."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "只复盘一个具体回应",
+            "en": "Try reviewing one specific response"
+          },
+          "paragraphs": [
+            {
+              "zh": "挑一个低风险、已经结束的小分歧，私下区分事实意见、情绪与实际说出的措辞。只观察哪一句停留在事情上，哪一句转成人身评价，不必重演争执或请对方为你评分。若需要再沟通，可先考虑是否适合和安全；练习没有固定见效时间，也不要求一次复盘就证明行为改变。",
+              "en": "Choose a low-stakes disagreement that has ended and privately separate the issue, emotion and actual wording. Notice which sentence stayed with the issue and which became a personal judgment. Do not re-enact the argument or ask someone to grade you. Consider appropriateness and safety before further discussion. There is no fixed improvement timeline, and one review need not prove a behavioural change."
+            }
+          ]
+        },
+        {
+          "id": "calculation",
+          "title": {
+            "zh": "计分范围与资料不足",
+            "en": "Scoring scope and insufficient information"
+          },
+          "paragraphs": [
+            {
+              "zh": "每部分4条至少3条有效1—5评分才显示一位小数均分，避免侮辱的反向题用6减评分，NA不计。全部28条先选择。这个规则为本站信息完整度约定，不是临床阈值、危险分数或研究原题本。资料不足保留，不用零分或他人评价补齐，七份完整说明都能阅读，也不把小数差异当作行为改善证据。",
+              "en": "Each four-item part needs three valid 1–5 ratings for a one-decimal mean. The reverse item about avoiding insults contributes six minus its response; NA is unscored. Complete all 28 selections first. This is a website completeness convention, not a clinical cutoff, danger score or study instrument. Insufficient information is not replaced by zero or observer opinions; all seven guides remain available, and decimal differences do not prove improvement."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与研究范围",
+            "en": "Original items and research scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版28条题目与七份解释由费马独立编写。Sleep等（2021）的正式摘要报告了七类敌对特征结构，来源只核到正式摘要与文献信息，未把原论文、234条临床题池、标准量表或竞品35／21题当作本站题本。这里把相关概念作为日常行为背景，选定范围与研究临床构念不等同；尤其言语回应不完整测身体攻击，后果考虑不完整测风险寻求。没有本站信效度、常模、英中文等价验证或研究者背书，不用于诊断、他人判型、道德排名、职业判断、关系安全或伤害预测。",
+              "en": "FermatMind independently authored these 28 items and seven guides. Sleep and colleagues’ formal 2021 abstract reports seven antagonism domains; only that abstract and bibliographic information were verified. The paper, its 234-item clinical pool, standard instruments and competitors’ 35 or 21 items are not this bank. Related concepts provide everyday background, without equating selected behaviours with clinical research constructs. Verbal responses do not cover all physical aggression, and consequence consideration does not cover all risk seeking. There are no established website psychometrics, norms, English–Chinese equivalence or researcher endorsement. Results support neither diagnosis, typing others, moral ranking, career judgments, relationship-safety assessment nor harm prediction."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "risk-taking",
+      "directionIds": [
+        "risk-taking"
+      ],
+      "title": {
+        "zh": "忽略行动风险",
+        "en": "Disregarding action risks"
+      },
+      "headline": {
+        "zh": "关注可预见代价，不给勇气打分",
+        "en": "Notice foreseeable costs without rating courage"
+      },
+      "summary": {
+        "zh": "这一部分问在影响他人的行动中是否忽略明确后果与提醒，不衡量勇敢、探险喜好、投资能力或现实危险等级。",
+        "en": "This part asks about disregarding foreseeable consequences and specific warnings in actions affecting others, not courage, adventure, investment skill or actual danger."
+      },
+      "seo": {
+        "title": {
+          "zh": "忽略风险结果：行动后果、提醒与共同安排",
+          "en": "Disregarding Risks: Consequences, Choices and Full Guide"
+        },
+        "description": {
+          "zh": "阅读忽略行动风险完整结果，观察共同安排里的后果考虑、具体提醒与省事选择。附经过考虑的尝试反例，不给勇气、投资能力或活动安全打分，不用低分保证安全。",
+          "en": "Explore reported disregard of consequences in shared choices with full examples and counterexamples. Free guide without bravery, investment or safety ratings."
+        }
+      },
+      "scoreReading": {
+        "zh": "全部28条先选择，回想最近四周可回忆的普通互动，1从不至5几乎总是。每部分4条至少3条有效才取一位小数均分，反向题按6减有效评分，NA不计且不补零。最低条数与解释是本站信息完整度规则，不是原研究题本、常模或临床阈值。七项连续读法不合成总分、难相处百分比或最高人格，不按近分或并列强派类型；小数差异不证明统计显著、行为原因或实际他人评价。",
+        "en": "Complete all 28 selections about ordinary recalled interactions in the past four weeks, from 1 Never to 5 Almost always. Each four-item part needs three ratings for a one-decimal mean; rated reverse items contribute six minus the response, while NA is unscored and not zero-filled. Minimum counts and interpretations are website completeness rules, not the study instrument, norms or clinical cutoffs. Seven continuous readings produce no total, difficulty percentage or highest-score personality, and close or equal means assign no type. Decimal differences establish neither significance, causes nor observer judgments."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这部分具体问什么",
+            "en": "What this part asks"
+          },
+          "paragraphs": [
+            {
+              "zh": "四条原创题目问共同安排可能受损时是否未经考虑就行动、是否先忽略可核查的具体风险提醒、是否为了省事让别人承担后果，以及是否在影响别人前比较可预见后果和更小代价的办法。最后一条反向。它们只选取普通互动中的后果考虑，不完整覆盖研究中的风险寻求，也没有测量任何一项活动实际是否安全。",
+              "en": "Four original items ask about acting without considering an obvious loss to a shared arrangement, brushing aside a checkable risk warning, taking a convenient shortcut with consequences for others, and considering foreseeable effects or less costly options. The last is reverse-keyed. They select ordinary consequence-consideration behaviours, not the full research construct of risk seeking, and assess no activity’s actual safety."
+            }
+          ]
+        },
+        {
+          "id": "readings",
+          "title": {
+            "zh": "高低不等于勇敢与胆小",
+            "en": "Higher and lower are not bravery levels"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高均分表示更常报告所述忽略后果的做法，不证明更勇敢、创新、果断或注定发生事故。较低也不代表胆小、保守或判断更准确。你可能在某次共同安排里图省事，却在其他事情上认真核对；差异值得保留。分数只概括所选描述，没有工作绩效、财务收益、活动适应度或风险承受能力的结论。",
+              "en": "A higher mean reflects more reported disregard in these descriptions, not bravery, innovation, decisiveness or certainty of an accident. A lower mean means neither timidity nor more accurate judgment. You may have taken a shortcut in one shared arrangement while checking carefully elsewhere. Retain that difference. The mean establishes no work performance, financial return, activity suitability or capacity to tolerate risk."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一个原创共同安排例子",
+            "en": "An original shared-arrangement example"
+          },
+          "paragraphs": [
+            {
+              "zh": "要更改已经约好的时间时，可以先说：“这个改动会影响谁？我先确认一下，再决定是否调整。”这让影响成为可核对的问题，不要求为每个小选择建立复杂清单。能否等候或怎样决定仍取决于实际职责，例子不提供安全认证，也不保证所有后果都能被提前知道，更不是金融或医疗决策建议。",
+              "en": "Before changing an agreed time, you could ask, “Who would this affect? I want to check before changing it.” This makes an effect checkable without a complex checklist for every small choice. Waiting and decision authority still depend on actual duties. The original example certifies no safety, guarantees no complete foresight and supplies neither financial nor medical decision advice."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：经过考虑的尝试",
+            "en": "Counterexample: a considered attempt"
+          },
+          "paragraphs": [
+            {
+              "zh": "在了解信息、责任和可接受代价后，作出一个结果不确定的选择，不自动符合忽略风险；尝试新事物也不等于不顾别人。反过来，某次结果恰好没出问题，也不能证明当时有考虑。测试区分的是题目描述的自报做法，没有把事后成败倒推成勇气、聪明或鲁莽，更不能依据均分批准一项危险活动。",
+              "en": "Choosing an uncertain outcome after considering information, duties and acceptable costs is not automatically disregarding risk, and trying something new does not mean ignoring others. Conversely, an uneventful outcome does not prove consideration beforehand. The items concern reported actions, not hindsight that converts success or failure into courage, intelligence or recklessness. No mean can approve a hazardous activity."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六部分比较",
+            "en": "Compare the other six parts"
+          },
+          "paragraphs": [
+            {
+              "zh": "忽略后果与攻击回应、强行主导或隐瞒施压不同：一个人可能没有威吓，却未经考虑就让共同安排承担代价，也可能已经考虑风险但在决定空间上越界。七项不互相补分，最高值不指定一种人格；这一部分尤其不能直接等同低宜人性、大五分数、旅行户外偏好或临床冲动性分量表。",
+              "en": "Disregarding consequences differs from aggression, overriding and concealment. Someone may use no intimidation yet act without considering a shared cost, or consider risks while still overriding a decision. Parts do not fill in one another, and a highest mean assigns no personality. This part especially is not interchangeable with low Agreeableness, a Big Five score, outdoor travel preference or a clinical impulsivity subscale."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "现实信息比标签重要",
+            "en": "Actual information matters more than a label"
+          },
+          "paragraphs": [
+            {
+              "zh": "具体任务的安全要求、责任约定和专业判断仍需按实际情境核对，问卷不能替代它们。不能用低分保证自己或别人安全，也不能用高分为已有影响免责。有关身体、财务或其他真实风险的决定，不应靠这个自报结果进行；这里的普通小观察也不要求冒险、测试极限或让别人承担试验后果。",
+              "en": "Actual safety requirements, agreed duties and relevant expertise still need to be checked for the real task. The questionnaire replaces none of them. A low mean guarantees no one’s safety, and a high one excuses no effect. Decisions involving physical, financial or other real risks should not rely on this self-report. Its ordinary observation requires no risk taking, limit testing or exposure of others to experimental consequences."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一项低风险选择的复盘",
+            "en": "Review one low-stakes choice"
+          },
+          "paragraphs": [
+            {
+              "zh": "选择一件已经结束、普通且低风险的共同小事，写下当时已知的一条影响、自己实际考虑过的条件和后来才知道的信息。先区分当时与事后，不要求准确预测所有结果，也不刻意制造新的风险。记录完全可私下保留；如果发现需要澄清的职责，可以在合适时确认，不必为了改变分数立刻采取行动。",
+              "en": "Choose an ordinary, low-stakes shared matter that has ended. Note one effect known at the time, a condition you actually considered and information learned later. Separate hindsight from what was available, without demanding perfect prediction or creating a new risk. Keep the note private. If a responsibility needs clarification, address it when appropriate rather than acting immediately just to change a score."
+            }
+          ]
+        },
+        {
+          "id": "calculation",
+          "title": {
+            "zh": "反向题、NA和均分",
+            "en": "Reverse items, NA and means"
+          },
+          "paragraphs": [
+            {
+              "zh": "全部28条先选择1从不到5几乎总是，NA不计分；本部分4条至少3条有效才取一位小数均分，考虑后果的反向题用6减有效评分。最低条数与读法是本站约定，不是原研究常模、危险阈值或职业标准。资料不足不补零、不猜测、不派类型，所有七份完整说明仍可读；小数变化不是安全改善的证据。",
+              "en": "Make all 28 selections from 1 Never to 5 Almost always, with NA unscored. This part needs three of four ratings for a one-decimal mean; the reverse consequence-consideration item contributes six minus its rating. The minimum and reading are website conventions, not study norms, danger thresholds or occupational standards. Insufficiency produces no zero-fill, guess or type; all seven guides remain readable, and decimal change is no evidence of improved safety."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与研究范围",
+            "en": "Original items and research scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版28条题目与七份解释由费马独立编写。Sleep等（2021）的正式摘要报告了七类敌对特征结构，来源只核到正式摘要与文献信息，未把原论文、234条临床题池、标准量表或竞品35／21题当作本站题本。这里把相关概念作为日常行为背景，选定范围与研究临床构念不等同；尤其言语回应不完整测身体攻击，后果考虑不完整测风险寻求。没有本站信效度、常模、英中文等价验证或研究者背书，不用于诊断、他人判型、道德排名、职业判断、关系安全或伤害预测。",
+              "en": "FermatMind independently authored these 28 items and seven guides. Sleep and colleagues’ formal 2021 abstract reports seven antagonism domains; only that abstract and bibliographic information were verified. The paper, its 234-item clinical pool, standard instruments and competitors’ 35 or 21 items are not this bank. Related concepts provide everyday background, without equating selected behaviours with clinical research constructs. Verbal responses do not cover all physical aggression, and consequence consideration does not cover all risk seeking. There are no established website psychometrics, norms, English–Chinese equivalence or researcher endorsement. Results support neither diagnosis, typing others, moral ranking, career judgments, relationship-safety assessment nor harm prediction."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "Sleep等（2021）：敌对特征结构正式摘要，仅作概念背景",
+        "en": "Sleep et al. (2021): formal antagonism-structure abstract, conceptual background only"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34323587/"
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "zh": "频率、反向题与有效评分",
+        "en": "Frequency, reverse items and rated responses"
+      },
+      "paragraphs": [
+        {
+          "zh": "全部28条先选择，回想最近四周可回忆的普通互动，1从不至5几乎总是。每部分4条至少3条有效才取一位小数均分，反向题按6减有效评分，NA不计且不补零。最低条数与解释是本站信息完整度规则，不是原研究题本、常模或临床阈值。七项连续读法不合成总分、难相处百分比或最高人格，不按近分或并列强派类型；小数差异不证明统计显著、行为原因或实际他人评价。",
+          "en": "Complete all 28 selections about ordinary recalled interactions in the past four weeks, from 1 Never to 5 Almost always. Each four-item part needs three ratings for a one-decimal mean; rated reverse items contribute six minus the response, while NA is unscored and not zero-filled. Minimum counts and interpretations are website completeness rules, not the study instrument, norms or clinical cutoffs. Seven continuous readings produce no total, difficulty percentage or highest-score personality, and close or equal means assign no type. Decimal differences establish neither significance, causes nor observer judgments."
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "zh": "七部分独立读，不派主型",
+        "en": "Read seven parts without a primary type"
+      },
+      "paragraphs": [
+        {
+          "zh": "均分概括最近四周本人对所选行为的频率回答，不是别人是否觉得你好相处，也不是能力、道德或心理健康。七项可共存，不以最高值决定身份，均分相等不排序；全部低也不生成认证低摩擦人格。没有人群常模、难相处百分比或经过验证的近分阈值，资料不足明确保留，所有七份报告都有完整正文。",
+          "en": "Means summarise your reported frequency of selected actions in four weeks, not whether others find you easy to deal with, ability, morality or mental health. Parts can coexist without a highest-score identity or ordering equal means. Low means across parts do not create a certified low-friction personality. There are no population norms, difficulty percentages or validated close-score thresholds. Insufficiency stays explicit and every guide retains its full text."
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "zh": "研究概念与本版实际范围",
+        "en": "Research concepts and this edition’s actual scope"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版28条题目与七份解释由费马独立编写。Sleep等（2021）的正式摘要报告了七类敌对特征结构，来源只核到正式摘要与文献信息，未把原论文、234条临床题池、标准量表或竞品35／21题当作本站题本。这里把相关概念作为日常行为背景，选定范围与研究临床构念不等同；尤其言语回应不完整测身体攻击，后果考虑不完整测风险寻求。没有本站信效度、常模、英中文等价验证或研究者背书，不用于诊断、他人判型、道德排名、职业判断、关系安全或伤害预测。",
+          "en": "FermatMind independently authored these 28 items and seven guides. Sleep and colleagues’ formal 2021 abstract reports seven antagonism domains; only that abstract and bibliographic information were verified. The paper, its 234-item clinical pool, standard instruments and competitors’ 35 or 21 items are not this bank. Related concepts provide everyday background, without equating selected behaviours with clinical research constructs. Verbal responses do not cover all physical aggression, and consequence consideration does not cover all risk seeking. There are no established website psychometrics, norms, English–Chinese equivalence or researcher endorsement. Results support neither diagnosis, typing others, moral ranking, career judgments, relationship-safety assessment nor harm prediction."
+        }
+      ]
+    },
+    {
+      "id": "context-and-counterexamples",
+      "title": {
+        "zh": "实际情境、反例与安全限制",
+        "en": "Actual contexts, counterexamples and limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "明确需要不等于特殊优越，履行授权职责不等于强行主导，保护隐私不等于隐瞒施压，谨慎有依据不等于猜疑，坚定反对不等于攻击，经过考虑的尝试不等于忽略风险。各报告都给具体反例。选择是否讨论或练习要看实际情境，不靠分数证明关系安全，也不要求公开答案、盘问别人、立即对质或承担风险。",
+          "en": "An explicit need is not assumed superiority, an authorised duty not necessarily overriding, privacy not concealment, evidence-based caution not suspicion, firm opposition not aggression, and a considered attempt not disregard of risk. Every guide provides concrete counterexamples. Discussion and exercises depend on real circumstances, not scores as proof of safety. There is no requirement to disclose answers, interrogate others, confront immediately or take risks."
+        }
+      ]
+    },
+    {
+      "id": "free-and-private",
+      "title": {
+        "zh": "完整免费与可选保存分享",
+        "en": "Full free access and optional saving or sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "全部28条、七项均分或资料不足和七份完整说明都免费，无需邮箱、注册、付款或前置测试。浏览器本地计分，主动保存才留本标签页24小时草稿，完成、重测或清除即删除。分享仅公开入口与自评说明，不含答案、均分、他人信息或内部ID；存储或复制受限仍可完成。",
+          "en": "All 28 items, seven means or insufficient states and seven full guides are free without email, signup, payment or a prior test. Scoring happens in the browser. Only opting in stores a 24-hour tab draft, deleted on completion, retake or clearing. Sharing uses the public entry and reflection description without answers, means, other people’s information or internal IDs. Blocked storage or copying does not prevent completion."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "难相处人格测试比较哪七部分？",
+        "en": "Which seven parts does this difficult person test explore?"
+      },
+      "answer": {
+        "zh": "忽略感受、自我抬高、强行主导、隐瞒施压、缺少依据的猜疑、攻击回应和忽略风险。它们是研究概念背景下的原创日常自报描述，不是七种互斥人格。全部七份完整解释包含高低读法、具体对话、反例和可选小观察，作答后同时保留。",
+        "en": "Disregarding feelings, self-importance, overriding others, concealment and pressure, suspicion without sufficient evidence, aggressive responses and disregarding risks. They are original everyday self-report descriptions with research-concept background, not seven exclusive personalities. All seven full guides retain higher and lower readings, dialogue, counterexamples and optional observations."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是原研究、IDRlabs或JobCannon量表吗？",
+        "en": "Is this the study, IDRlabs or JobCannon instrument?"
+      },
+      "answer": {
+        "zh": "不是。28条题目与解释由费马独立编写，没有采用原研究234条临床题池或竞品35／21题。正式研究只核摘要与文献信息，本版普通互动范围不等同全部临床构念，没有本站信效度、常模、英中文等价验证或研究者背书。",
+        "en": "No. FermatMind independently authored 28 items and explanations without the study’s 234-item clinical pool or competitors’ 35 or 21 items. Only the formal abstract and bibliographic information were verified. The everyday scope does not equal the clinical constructs, and there are no established website psychometrics, norms, English–Chinese equivalence or researcher endorsement."
+      }
+    },
+    {
+      "question": {
+        "zh": "反向题、NA和资料不足怎样处理？",
+        "en": "How do reverse items, NA and insufficient information work?"
+      },
+      "answer": {
+        "zh": "全部28条先选择1—5或NA。每部分4条至少3条有效，反向题按6减有效评分，NA仍排除不补零，最后均分一位小数。不足则明确资料不足，仍显示全部报告。最低条数是本站完整度规则，不是心理阈值；按原句如实作答即可。",
+        "en": "Complete all 28 selections of 1–5 or NA. A four-item part needs three ratings. Rated reverse items contribute six minus the response; NA remains unscored rather than zero, and means use one decimal. Insufficiency stays explicit with all guides available. The minimum is a website completeness rule, not a psychological cutoff; answer each statement as written."
+      }
+    },
+    {
+      "question": {
+        "zh": "会算出我有多难相处或诊断人格吗？",
+        "en": "Does it calculate how difficult I am or diagnose personality?"
+      },
+      "answer": {
+        "zh": "不会。没有总体百分比、总分、最高人格、低中高等级或临床诊断。自报不等于别人实际评价，低分不能保证关系安全，高分也不证明坏人、特定病因或未来伤害；不用于职业、录用或关系匹配。",
+        "en": "No. There is no overall percentage, total, highest-score personality, low-to-high tiers or clinical diagnosis. Self-report is not others’ actual judgment; lower means guarantee no safety and higher means prove no badness, cause or future harm. Results support neither careers, hiring nor relationship matching."
+      }
+    },
+    {
+      "question": {
+        "zh": "多个均分相同或全部低怎样看？",
+        "en": "How do I read equal means or all-low results?"
+      },
+      "answer": {
+        "zh": "分别看实际题目、情境和反例，不强派先后或补一个类型。七项可能同时出现，近分没有经过验证的阈值，小数差异不证明统计显著或原因。全部低也只表示这些回答较少认可所选行为，不认证人人都觉得你容易相处。",
+        "en": "Read the items, contexts and counterexamples separately without forced ordering or a new type. Parts can coexist; close means have no validated threshold, and decimal differences establish neither significance nor cause. All-low responses describe less endorsement of selected behaviours, not certification that everyone finds you easy to deal with."
+      }
+    },
+    {
+      "question": {
+        "zh": "结果完整免费，分享会带答案吗？",
+        "en": "Are full results free, and are answers shared?"
+      },
+      "answer": {
+        "zh": "全部题目、七项读法和七份完整解释免费，无需注册。草稿仅在主动同意后留本标签页24小时，完成、重测或清除即删除。分享只有公开入口，不带答案、均分或私人关系信息；不要求别人接受盘问、作答或做MBTI才给结果。",
+        "en": "All items, seven readings and seven full guides are free without signup. A 24-hour tab draft is saved only after opting in and deleted on completion, retake or clearing. Sharing contains the public entry without answers, means or private relationship information. No one must submit to questioning, answer for others or take MBTI to access results."
+      }
+    }
+  ]
+}

@@ -1,0 +1,2059 @@
+{
+  "formCode": "fm_interpersonal_friction_frequency_28",
+  "itemBankVersion": "1.0.0",
+  "origin": "28FermatMindoriginalENZHfrequencyitemsin7research-backgrounddomains;not234clinicalitempool/IDR35/JC21/standardlicensedscale",
+  "directions": [
+    {
+      "id": "callousness",
+      "title": {
+        "zh": "忽略他人感受",
+        "en": "Disregarding others’ feelings"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "grandiosity",
+      "title": {
+        "zh": "自我抬高与特殊待遇",
+        "en": "Self-importance and special treatment"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "domineering",
+      "title": {
+        "zh": "强行主导他人",
+        "en": "Overriding others’ say"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "manipulation",
+      "title": {
+        "zh": "隐瞒与间接施压",
+        "en": "Concealment and indirect pressure"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "suspiciousness",
+      "title": {
+        "zh": "缺少依据的猜疑",
+        "en": "Suspicion without sufficient evidence"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "aggression",
+      "title": {
+        "zh": "攻击式回应",
+        "en": "Aggressive responses"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "risk-taking",
+      "title": {
+        "zh": "忽略行动风险",
+        "en": "Disregarding action risks"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "FRICTION_01",
+      "prompt": {
+        "zh": "别人明确说我的做法让其不舒服时，我把这件事当成不值得考虑。",
+        "en": "When someone explicitly said my action made them uncomfortable, I treated that as not worth considering."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "callousness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "callousness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "callousness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "callousness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "callousness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "callousness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_02",
+      "prompt": {
+        "zh": "在共同安排里，我认为自己应比其他人获得更多便利，即使没有特别约定。",
+        "en": "In a shared arrangement, I thought I should receive more convenience than others without any special agreement."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "grandiosity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "grandiosity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "grandiosity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "grandiosity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "grandiosity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "grandiosity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_03",
+      "prompt": {
+        "zh": "在本来需要大家共同决定的事情上，我没征求意见就替别人定了方案。",
+        "en": "In something that required a shared decision, I set the plan for others without asking for their views."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "domineering",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "domineering",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "domineering",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "domineering",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "domineering",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "domineering",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_04",
+      "prompt": {
+        "zh": "为了让别人答应，我刻意不说一项我知道会影响其决定的重要信息。",
+        "en": "To obtain agreement, I deliberately withheld important information I knew would affect someone’s decision."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "manipulation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "manipulation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "manipulation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "manipulation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "manipulation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "manipulation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_05",
+      "prompt": {
+        "zh": "面对含糊的信息，我还没核对就认定对方想让我吃亏。",
+        "en": "Faced with an unclear message, I assumed the person intended to disadvantage me before checking."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "suspiciousness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "suspiciousness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "suspiciousness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "suspiciousness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "suspiciousness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "suspiciousness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_06",
+      "prompt": {
+        "zh": "有人不同意我时，我用针对其本人的侮辱来回应，而不只讨论事情。",
+        "en": "When someone disagreed with me, I answered with a personal insult rather than keeping to the issue."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "aggression",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "aggression",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "aggression",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "aggression",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "aggression",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "aggression",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_07",
+      "prompt": {
+        "zh": "一项选择可能给共同安排带来明显损失时，我没考虑后果就立即去做。",
+        "en": "When a choice could cause an obvious loss to a shared arrangement, I acted immediately without considering the consequences."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "risk-taking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "risk-taking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "risk-taking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "risk-taking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "risk-taking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "risk-taking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_08",
+      "prompt": {
+        "zh": "作共同决定时，即使知道会给别人添麻烦，我仍只按对自己方便的方式选。",
+        "en": "In a shared decision, I chose only what was convenient for me despite knowing it would inconvenience someone else."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "callousness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "callousness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "callousness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "callousness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "callousness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "callousness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_09",
+      "prompt": {
+        "zh": "别人提出与我不同的意见时，我因为觉得自己层次更高而不愿认真听。",
+        "en": "When someone offered a different view, I did not want to consider it because I regarded myself as above them."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "grandiosity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "grandiosity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "grandiosity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "grandiosity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "grandiosity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "grandiosity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_10",
+      "prompt": {
+        "zh": "别人表示想按自己的方式做一件与我无关的事时，我仍不断要求其照我的意思做。",
+        "en": "When someone wanted to handle a matter of their own in their own way, I kept insisting they do it my way."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "domineering",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "domineering",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "domineering",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "domineering",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "domineering",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "domineering",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_11",
+      "prompt": {
+        "zh": "提出请求时，我暗示对方若拒绝就欠我人情，而不是直接说明请求内容。",
+        "en": "When making a request, I implied that refusing would leave the person owing me, instead of stating the request directly."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "manipulation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "manipulation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "manipulation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "manipulation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "manipulation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "manipulation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_12",
+      "prompt": {
+        "zh": "别人给出普通解释时，我在没有新增证据的情况下仍认定其在骗我。",
+        "en": "When someone gave an ordinary explanation, I remained certain they were deceiving me without additional evidence."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "suspiciousness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "suspiciousness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "suspiciousness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "suspiciousness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "suspiciousness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "suspiciousness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_13",
+      "prompt": {
+        "zh": "遇到不顺心的共同安排时，我用威吓的言语迫使别人退让。",
+        "en": "When a shared arrangement displeased me, I used intimidating words to make others back down."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "aggression",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "aggression",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "aggression",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "aggression",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "aggression",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "aggression",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_14",
+      "prompt": {
+        "zh": "有人提醒一个具体且可核查的风险时，我还没了解就把提醒抛在一边。",
+        "en": "When someone raised a specific risk that could be checked, I brushed it aside before understanding it."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "risk-taking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "risk-taking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "risk-taking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "risk-taking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "risk-taking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "risk-taking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_15",
+      "prompt": {
+        "zh": "别人讲述遇到的困难时，我在没了解情况前就把它说成小题大做。",
+        "en": "When someone described a difficulty, I dismissed it as making a fuss before finding out what had happened."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "callousness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "callousness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "callousness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "callousness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "callousness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "callousness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_16",
+      "prompt": {
+        "zh": "需要按同一规则排队或分配时，我觉得规则不该像约束别人那样约束我。",
+        "en": "When the same rule applied to a queue or allocation, I thought it should constrain me less than everyone else."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "grandiosity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "grandiosity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "grandiosity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "grandiosity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "grandiosity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "grandiosity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_17",
+      "prompt": {
+        "zh": "讨论中有人提出异议，我利用自己能控制的安排迫使其让步。",
+        "en": "When someone disagreed in a discussion, I used arrangements under my control to pressure them into giving way."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "domineering",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "domineering",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "domineering",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "domineering",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "domineering",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "domineering",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_18",
+      "prompt": {
+        "zh": "我向不同的人给出不一致的说法，好让他们按我想要的方向行动。",
+        "en": "I gave different people inconsistent accounts to steer their actions toward what I wanted."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "manipulation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "manipulation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "manipulation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "manipulation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "manipulation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "manipulation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_19",
+      "prompt": {
+        "zh": "我把别人的中性举动解释成针对自己，即使当时也有其他合理解释。",
+        "en": "I interpreted someone’s neutral action as aimed against me even when other reasonable explanations were available."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "suspiciousness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "suspiciousness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "suspiciousness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "suspiciousness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "suspiciousness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "suspiciousness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_20",
+      "prompt": {
+        "zh": "在争执中，我故意用言语伤害对方，让其为反对我付出代价。",
+        "en": "During an argument, I deliberately used words to hurt the other person as a cost for opposing me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "aggression",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "aggression",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "aggression",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "aggression",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "aggression",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "aggression",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_21",
+      "prompt": {
+        "zh": "我知道某个省事做法可能让别人承担后果，仍因为当下方便而去做。",
+        "en": "Knowing that a shortcut could leave someone else with the consequences, I took it for immediate convenience."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "risk-taking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "risk-taking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "risk-taking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "risk-taking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "risk-taking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "risk-taking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_22",
+      "prompt": {
+        "zh": "得知自己的做法影响了别人，我会把对方的具体感受纳入下一步考虑。",
+        "en": "After learning that my action affected someone, I included their specific feelings when considering what to do next."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "callousness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "callousness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "callousness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "callousness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "callousness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "callousness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_23",
+      "prompt": {
+        "zh": "评价共同贡献时，我会用同样的标准看待自己和别人。",
+        "en": "When considering shared contributions, I used the same standards for myself and other people."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "grandiosity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "grandiosity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "grandiosity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "grandiosity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "grandiosity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "grandiosity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_24",
+      "prompt": {
+        "zh": "共同讨论时，我会保留别人提出异议和影响最终决定的机会。",
+        "en": "In a shared discussion, I left others an opportunity to disagree and influence the final decision."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "domineering",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "domineering",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "domineering",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "domineering",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "domineering",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "domineering",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_25",
+      "prompt": {
+        "zh": "希望别人答应一件事时，我会说明重要条件，并给对方真实拒绝的空间。",
+        "en": "When seeking agreement, I explained important conditions and left the person a genuine choice to decline."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "manipulation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "manipulation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "manipulation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "manipulation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "manipulation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "manipulation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_26",
+      "prompt": {
+        "zh": "对别人意图不确定时，我会区分已有事实和自己的猜测，再作判断。",
+        "en": "When uncertain about someone’s intentions, I distinguished known facts from my guesses before judging."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "suspiciousness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "suspiciousness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "suspiciousness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "suspiciousness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "suspiciousness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "suspiciousness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_27",
+      "prompt": {
+        "zh": "即使正在生气，我也会把反对意见说在事情上，不以侮辱或威吓回应。",
+        "en": "Even while angry, I kept disagreement focused on the issue without insults or intimidation."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "aggression",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "aggression",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "aggression",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "aggression",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "aggression",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "aggression",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRICTION_28",
+      "prompt": {
+        "zh": "做会影响别人的选择前，我会考虑可预见的后果，以及是否有代价更小的办法。",
+        "en": "Before a choice affecting others, I considered foreseeable consequences and whether a less costly option was available."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "risk-taking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "risk-taking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "risk-taking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "risk-taking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "risk-taking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "risk-taking",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "FRICTION_01": {
+      "part": "callousness",
+      "researchConstruct": "Callousness",
+      "itemRole": "originalordinaryselfreportedbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_02": {
+      "part": "grandiosity",
+      "researchConstruct": "Grandiosity",
+      "itemRole": "originalordinaryselfreportedbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_03": {
+      "part": "domineering",
+      "researchConstruct": "Domineering",
+      "itemRole": "originalordinaryselfreportedbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_04": {
+      "part": "manipulation",
+      "researchConstruct": "Manipulation",
+      "itemRole": "originalordinaryselfreportedbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_05": {
+      "part": "suspiciousness",
+      "researchConstruct": "Suspiciousness",
+      "itemRole": "originalordinaryselfreportedbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_06": {
+      "part": "aggression",
+      "researchConstruct": "Aggression",
+      "itemRole": "originalordinaryselfreportedbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_07": {
+      "part": "risk-taking",
+      "researchConstruct": "Risk Taking",
+      "itemRole": "originalordinaryselfreportedbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_08": {
+      "part": "callousness",
+      "researchConstruct": "Callousness",
+      "itemRole": "originalordinaryselfreportedbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_09": {
+      "part": "grandiosity",
+      "researchConstruct": "Grandiosity",
+      "itemRole": "originalordinaryselfreportedbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_10": {
+      "part": "domineering",
+      "researchConstruct": "Domineering",
+      "itemRole": "originalordinaryselfreportedbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_11": {
+      "part": "manipulation",
+      "researchConstruct": "Manipulation",
+      "itemRole": "originalordinaryselfreportedbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_12": {
+      "part": "suspiciousness",
+      "researchConstruct": "Suspiciousness",
+      "itemRole": "originalordinaryselfreportedbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_13": {
+      "part": "aggression",
+      "researchConstruct": "Aggression",
+      "itemRole": "originalordinaryselfreportedbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_14": {
+      "part": "risk-taking",
+      "researchConstruct": "Risk Taking",
+      "itemRole": "originalordinaryselfreportedbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_15": {
+      "part": "callousness",
+      "researchConstruct": "Callousness",
+      "itemRole": "originalordinaryselfreportedbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_16": {
+      "part": "grandiosity",
+      "researchConstruct": "Grandiosity",
+      "itemRole": "originalordinaryselfreportedbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_17": {
+      "part": "domineering",
+      "researchConstruct": "Domineering",
+      "itemRole": "originalordinaryselfreportedbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_18": {
+      "part": "manipulation",
+      "researchConstruct": "Manipulation",
+      "itemRole": "originalordinaryselfreportedbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_19": {
+      "part": "suspiciousness",
+      "researchConstruct": "Suspiciousness",
+      "itemRole": "originalordinaryselfreportedbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_20": {
+      "part": "aggression",
+      "researchConstruct": "Aggression",
+      "itemRole": "originalordinaryselfreportedbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_21": {
+      "part": "risk-taking",
+      "researchConstruct": "Risk Taking",
+      "itemRole": "originalordinaryselfreportedbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_22": {
+      "part": "callousness",
+      "researchConstruct": "Callousness",
+      "itemRole": "reverse-keyedcounterbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_23": {
+      "part": "grandiosity",
+      "researchConstruct": "Grandiosity",
+      "itemRole": "reverse-keyedcounterbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_24": {
+      "part": "domineering",
+      "researchConstruct": "Domineering",
+      "itemRole": "reverse-keyedcounterbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_25": {
+      "part": "manipulation",
+      "researchConstruct": "Manipulation",
+      "itemRole": "reverse-keyedcounterbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_26": {
+      "part": "suspiciousness",
+      "researchConstruct": "Suspiciousness",
+      "itemRole": "reverse-keyedcounterbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_27": {
+      "part": "aggression",
+      "researchConstruct": "Aggression",
+      "itemRole": "reverse-keyedcounterbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    },
+    "FRICTION_28": {
+      "part": "risk-taking",
+      "researchConstruct": "Risk Taking",
+      "itemRole": "reverse-keyedcounterbehaviour",
+      "not_claimed": "notdiagnosis/observerrating/234itembank/SleeporIDRvalidatedinstrument"
+    }
+  },
+  "scoring": {
+    "scoringVersion": "1.0.0",
+    "kind": "likert",
+    "minimumValidPerDirection": 3,
+    "allSelectionsRequired": 28,
+    "validRatingRange": [
+      1,
+      5
+    ],
+    "na": "excluded/notzero/notneutral/notimputed",
+    "reverseItems": [
+      "FRICTION_22",
+      "FRICTION_23",
+      "FRICTION_24",
+      "FRICTION_25",
+      "FRICTION_26",
+      "FRICTION_27",
+      "FRICTION_28"
+    ],
+    "reverseRule": "6-responseforratedreverseitems;NAunscored",
+    "recall": "past4weeks/ordinaryapplicableexperiences",
+    "rounding": "mean1decimal",
+    "reading": "7continuousselfreportedpartmeansorinsufficientstates;ALL7fullguides/higherlower/mixedreadings/nocross-domainoveralltotal/maximumassignment/percentdifficulty/norm/quartile/moralranking/partnerdiagnosis/clinicaltraitseverity/actualothersjudgment/safetyorviolenceprediction/career. min3of4originalwebsitecompletenessnotcutoff. Equalmeansnotorderedandlowallnotinvented8thvalidatedtype."
+  },
+  "references": [
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34323587/",
+      "doi": "10.1037/per0000416",
+      "scope": "PubMedwebHHSonly/direct203cookiesNOTabstract;officialNCBIEUtilsEFetchpublicrecordHTTP2005460bytesactualFULLABSTRACTandbibliographicrecordread. APA2021copyright/7factorlabels/N532/234itemsfrom7measuresbackgroundONLY;notfullpaper/method/itempool/manual/licence. Crossrefpublisherdepositmetadataauthor/DOI/2021Jul12(4)300–311read,noabstract/licence. No234itemsorclinicalinstrument/protectedtranslationsadopted;noaffiliation/authorendorsement."
+    }
+  ],
+  "licence_scope": "Originalitems/reportsbyFermatMind;researchconceptbackgroundonlynotclaimlicensedclinicalbank. NoIDR/JCitemorreport/artcopied."
+}

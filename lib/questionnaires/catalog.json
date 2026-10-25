@@ -579,5 +579,33 @@
       "responsibility",
       "expectations"
     ]
+  },
+  {
+    "slug": "difficult-person-test",
+    "code": "INTERPERSONAL_FRICTION",
+    "version": "1.0.0",
+    "updated": "2026-10-25",
+    "category": "social",
+    "title": {
+      "zh": "难相处人格测试",
+      "en": "Difficult Person Test"
+    },
+    "description": {
+      "zh": "用28条原创题分别观察忽略感受、自我抬高、强行主导、隐瞒施压、猜疑、攻击回应与忽略风险。七项均分与完整解释免费，无需注册；含对话、反例和反向题，不给人贴坏人标签。",
+      "en": "Explore seven interpersonal behaviours with 28 original ratings, reverse items and full free guides. No signup, difficulty percentage, personality verdict or diagnosis."
+    },
+    "minutes": 7,
+    "collection": "explore",
+    "formCode": "fm_interpersonal_friction_frequency_28",
+    "questionCount": 28,
+    "resultSlugs": [
+      "callousness",
+      "grandiosity",
+      "domineering",
+      "manipulation",
+      "suspiciousness",
+      "aggression",
+      "risk-taking"
+    ]
   }
 ]
