@@ -8,6 +8,7 @@ import { QuestionnaireAlignmentReport } from "./QuestionnaireAlignmentReport";
 import { QuestionnaireExtraversionReport } from "./QuestionnaireExtraversionReport";
 import { QuestionnaireAffectionReport } from "./QuestionnaireAffectionReport";
 import { QuestionnaireAttachmentReport } from "./QuestionnaireAttachmentReport";
+import { QuestionnaireCommunicationReport } from "./QuestionnaireCommunicationReport";
 import { QuestionnaireReport } from "./QuestionnaireReport";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import { readQuestionnaireDraft, scoreQuestionnaire } from "@/lib/questionnaires/scoring";
@@ -126,7 +127,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
       <QuestionnaireReport profile={profile} locale={locale} />
       <Link prefetch={false} className="my-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这项结果的公开说明" : "Read the public explanation of this result"}</Link>
       </>}
-      {facets && <QuestionnaireFacetReport quiz={quiz} result={facets} locale={locale} />}
+      {facets && (quiz.slug === "communication-style" ? <QuestionnaireCommunicationReport quiz={quiz} result={facets} locale={locale} /> : <QuestionnaireFacetReport quiz={quiz} result={facets} locale={locale} />)}
       {archetypes && <QuestionnaireArchetypeReport quiz={quiz} result={archetypes} locale={locale} />}
       {alignment && <QuestionnaireAlignmentReport quiz={quiz} result={alignment} locale={locale} />}
       {extraversion && <QuestionnaireExtraversionReport quiz={quiz} result={extraversion} locale={locale} />}
@@ -134,7 +135,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
       {attachment && <QuestionnaireAttachmentReport quiz={quiz} result={attachment} locale={locale} />}
       <div className="flex flex-wrap gap-3"><button className={button} onClick={copy}>{zh ? "复制结果与链接" : "Copy result and link"}</button><button className={button} onClick={() => start()}>{zh ? "重新测试" : "Retake test"}</button></div>
       {manualCopy && <textarea readOnly aria-label={zh ? "手动复制结果" : "Result text for manual copying"} value={manualCopy} onFocus={e => e.target.select()} className="mt-4 min-h-40 w-full rounded border p-3" />}
-      <section className="mt-10 border-t pt-7"><h3 className="text-xl font-semibold">{(extraversion?.total === null || (affection && Object.values(affection.affectionFacets).every(f => f.mean === null)) || (attachment && Object.values(attachment.attachmentAxes).every(a => a.mean === null))) ? (zh ? "本次作答已结束，下一步由你选择" : "This attempt is finished. Choose what comes next.") : (zh ? "完整结果已呈现，下一步由你选择" : "Your full result is ready. Choose what comes next.")}</h3><p className="my-4 leading-7 text-slate-600">{zh ? `如果想用另一套框架探索偏好，可以另做MBTI：${versions}。需要重新完整作答，这项结果不会换算成MBTI类型。也可以在这里结束。` : `For another perspective on preferences, MBTI offers ${versions}. It needs a separate full attempt; this result is never converted into an MBTI type. You can also stop here.`}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={mbtiHref} onClick={() => trackEvent("click_test", buildSeoCtaTrackingPayload(recommendation))}>{zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions"}</Link><br /><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试" : "Back to all tests"}</Link></section>
+      <section className="mt-10 border-t pt-7"><h3 className="text-xl font-semibold">{(extraversion?.total === null || (affection && Object.values(affection.affectionFacets).every(f => f.mean === null)) || (attachment && Object.values(attachment.attachmentAxes).every(a => a.mean === null)) || (facets && quiz.slug === "communication-style" && Object.values(facets.facets).every(f => f.mean === null))) ? (zh ? "本次作答已结束，下一步由你选择" : "This attempt is finished. Choose what comes next.") : (zh ? "完整结果已呈现，下一步由你选择" : "Your full result is ready. Choose what comes next.")}</h3><p className="my-4 leading-7 text-slate-600">{zh ? `如果想用另一套框架探索偏好，可以另做MBTI：${versions}。需要重新完整作答，这项结果不会换算成MBTI类型。也可以在这里结束。` : `For another perspective on preferences, MBTI offers ${versions}. It needs a separate full attempt; this result is never converted into an MBTI type. You can also stop here.`}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={mbtiHref} onClick={() => trackEvent("click_test", buildSeoCtaTrackingPayload(recommendation))}>{zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions"}</Link><br /><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试" : "Back to all tests"}</Link></section>
     </>}
     {message && <p role="status" className="mt-5 rounded-lg bg-amber-50 p-3 text-sm leading-7">{message}</p>}
   </section>;

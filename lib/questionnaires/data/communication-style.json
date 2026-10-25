@@ -1,0 +1,2354 @@
+{
+  "slug": "communication-style",
+  "code": "COMMUNICATION_STYLES",
+  "version": "1.0.0",
+  "updated": "2026-10-25",
+  "category": "social",
+  "kind": "likert",
+  "minimumRatedItems": 4,
+  "title": {
+    "zh": "沟通风格测试",
+    "en": "Communication Style Test"
+  },
+  "description": {
+    "zh": "用24条原创频率自评，分别探索坚定表达、被动表达、强硬压过他人与间接抗拒。四项均分和四份完整解释免费，无需注册；附具体说法、取舍和小尝试，不评定能力或录用。",
+    "en": "Explore assertive, passive, aggressive and passive-aggressive responses with 24 original ratings. Get four separate means and full free guides with examples. No signup or skill verdict."
+  },
+  "seoTitle": {
+    "zh": "沟通风格测试：四种方式、完整结果与具体说法",
+    "en": "Communication Style Test: Four Patterns and Free Full Results"
+  },
+  "minutes": 6,
+  "resultHeading": {
+    "zh": "本次四项自评与全部完整说明",
+    "en": "Your four communication summaries and full guides"
+  },
+  "instructions": {
+    "zh": "回顾近四周自己在日常协作、学习、工作或相处中的实际说法与回应，按出现频率选择。1从不到5几乎总是；没有适用经历、无法判断或不愿回答可以不计分。可以有多种方式，不必挑一个理想形象；也不要替他人判型。无需填写私人对话。",
+    "en": "Think about how you actually spoke or responded in everyday cooperation, study, work or relationships over the past four weeks. Rate frequency from 1, never, to 5, almost always. Use the unscored option when no experience applies, you are unsure or you prefer not to answer. Several patterns can occur; do not choose an ideal image or classify someone else. No private conversation text is required."
+  },
+  "introduction": {
+    "zh": "沟通风格不只有一种同名分类。本版聚焦表达需要、处理分歧和回应不满时的四种行为方式：坚定表达、被动表达、强硬压过他人与间接抗拒。24条题目覆盖六类日常情境，分别记录出现频率，不把一个人塞进唯一身份。完整结果包含四项评分情况、工作与日常例子、相近方式比较和可选择的小尝试。",
+    "en": "What is my communication style? This edition focuses on four ways of responding when needs, disagreement or frustration arise: assertive, passive, aggressive and passive-aggressive. Twenty-four items cover six everyday situations, recording frequencies separately instead of assigning one identity. Full results include all four summaries, examples at work and in daily life, comparisons and optional small experiments."
+  },
+  "source": {
+    "kind": "fermatmind-original-communication-frequency-reflection",
+    "formCode": "fm_communication_patterns_frequency_24",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "66ed04b9f071b8ab0de158d98665756fa41703aef653a23da25fcf12e525de06",
+    "resultContentSha256": "002a06f6a55cc914ab90b10ccd9e938859126a4c4f0712dddb4dddd3cf6765f6",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "assertive",
+      "title": {
+        "zh": "坚定表达（Assertive）",
+        "en": "Assertive communication"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "passive",
+      "title": {
+        "zh": "被动表达（Passive）",
+        "en": "Passive communication"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "aggressive",
+      "title": {
+        "zh": "强硬压过他人（Aggressive）",
+        "en": "Aggressive communication"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "passive-aggressive",
+      "title": {
+        "zh": "间接抗拒（Passive-Aggressive）",
+        "en": "Passive-aggressive communication"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "COMM_ASSERTIVE_01",
+      "prompt": {
+        "zh": "一项约定需要调整时，我会说明自己能做到的范围，再询问对方是否有其他可行安排。",
+        "en": "When an arrangement needs adjusting, I explain what I can manage and ask what alternatives might work for the other person."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "assertive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "assertive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "assertive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "assertive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "assertive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "assertive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_PASSIVE_01",
+      "prompt": {
+        "zh": "一项安排并不适合我、我也想调整时，我仍会先答应，把自己的需要留在心里。",
+        "en": "When an arrangement does not work for me and I want to change it, I still agree while keeping my needs to myself."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "passive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "passive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "passive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_AGGRESSIVE_01",
+      "prompt": {
+        "zh": "调整安排时，我会要求按自己的时间办，而不让对方说明他们的限制。",
+        "en": "When changing an arrangement, I demand my timing without allowing the other person to explain their constraints."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "aggressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "aggressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "aggressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "aggressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "aggressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "aggressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_PASSIVE_AGGRESSIVE_01",
+      "prompt": {
+        "zh": "对一项安排不满意时，我会嘴上答应，再故意拖延，让对方从进展中感到我的抗拒。",
+        "en": "When I object to an arrangement, I agree out loud and then intentionally delay so that my resistance shows through the progress."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "passive-aggressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "passive-aggressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passive-aggressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passive-aggressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passive-aggressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "passive-aggressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_ASSERTIVE_02",
+      "prompt": {
+        "zh": "一段说明有我没听懂的地方时，我会指出具体疑问，请对方再解释那一部分。",
+        "en": "When part of an explanation is unclear to me, I identify the particular question and ask for that part to be explained."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "assertive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "assertive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "assertive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "assertive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "assertive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "assertive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_PASSIVE_02",
+      "prompt": {
+        "zh": "没听懂一段说明、也需要弄明白时，我会假装已经清楚，而不提出疑问。",
+        "en": "When I need to understand an explanation I have not followed, I pretend it is clear rather than ask."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "passive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "passive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "passive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_AGGRESSIVE_02",
+      "prompt": {
+        "zh": "一段说明不够清楚时，我会用贬低对方的说法表达不满，而不只指出内容的问题。",
+        "en": "When an explanation is unclear, I express frustration by putting the person down rather than identifying the content problem."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "aggressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "aggressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "aggressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "aggressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "aggressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "aggressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_PASSIVE_AGGRESSIVE_02",
+      "prompt": {
+        "zh": "对一段说明有意见时，我会用挖苦或反话表达不满，而不讲清自己反对哪一部分。",
+        "en": "When I object to an explanation, I use sarcasm or say the opposite of what I mean instead of clarifying the part I disagree with."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "passive-aggressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "passive-aggressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passive-aggressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passive-aggressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passive-aggressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "passive-aggressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_ASSERTIVE_03",
+      "prompt": {
+        "zh": "共同选择不合我意时，我会说出自己的考虑，也给对方讲清理由的机会。",
+        "en": "When a shared choice does not suit me, I explain my considerations and leave room for the other person’s reasons."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "assertive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "assertive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "assertive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "assertive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "assertive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "assertive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_PASSIVE_03",
+      "prompt": {
+        "zh": "共同选择有我在意的另一种可能时，我会隐藏自己的偏好，附和已经提出的选项。",
+        "en": "When another option matters to me in a shared choice, I hide my preference and go along with the option already suggested."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "passive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "passive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "passive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_AGGRESSIVE_03",
+      "prompt": {
+        "zh": "共同选择出现分歧时，我会压住其他意见，让自己的方案成为唯一可讨论的方案。",
+        "en": "When a shared choice brings disagreement, I shut down other views so that only my proposal remains open for discussion."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "aggressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "aggressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "aggressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "aggressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "aggressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "aggressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_PASSIVE_AGGRESSIVE_03",
+      "prompt": {
+        "zh": "共同选择不是我想要的时，我会表面配合、之后用消极回应暗示不满，而不直接提出不同意见。",
+        "en": "When a shared choice is not what I wanted, I appear to cooperate and later signal displeasure through unhelpful responses rather than state my objection."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "passive-aggressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "passive-aggressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passive-aggressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passive-aggressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passive-aggressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "passive-aggressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_ASSERTIVE_04",
+      "prompt": {
+        "zh": "收到不容易接受的反馈时，我会先确认对方指的是哪件事，再说明自己的看法。",
+        "en": "When feedback is difficult to hear, I check which event it concerns before explaining my view."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "assertive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "assertive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "assertive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "assertive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "assertive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "assertive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_PASSIVE_04",
+      "prompt": {
+        "zh": "对反馈中的某一点有不同看法时，我会把自己的解释咽回去，即使本来想澄清。",
+        "en": "When I disagree with part of some feedback, I hold back an explanation I had wanted to give."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "passive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "passive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "passive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_AGGRESSIVE_04",
+      "prompt": {
+        "zh": "收到不喜欢的反馈时，我会打断或贬低反馈者，让对方难以继续说明。",
+        "en": "When I dislike feedback, I interrupt or put down the person giving it so that they cannot readily continue."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "aggressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "aggressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "aggressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "aggressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "aggressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "aggressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_PASSIVE_AGGRESSIVE_04",
+      "prompt": {
+        "zh": "收到让我不满的反馈后，我会用冷淡或刻意不配合表达抗议，而不说明自己在意的点。",
+        "en": "After feedback I resent, I protest through coldness or intentional non-cooperation rather than explain the point that matters to me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "passive-aggressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "passive-aggressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passive-aggressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passive-aggressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passive-aggressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "passive-aggressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_ASSERTIVE_05",
+      "prompt": {
+        "zh": "不愿接受一项额外请求时，我会把拒绝和可以提供的范围说清楚，而不贬低提出请求的人。",
+        "en": "When I do not want to accept an additional request, I clarify my refusal and any help I can offer without putting down the person who asked."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "assertive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "assertive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "assertive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "assertive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "assertive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "assertive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_PASSIVE_05",
+      "prompt": {
+        "zh": "不想接受一项额外请求时，我会说可以，之后再独自处理它给我的负担。",
+        "en": "When I do not want an additional request, I say yes and later deal with its burden on my own."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "passive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "passive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "passive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_AGGRESSIVE_05",
+      "prompt": {
+        "zh": "拒绝一项请求时，我会把提出请求的人说得很不应该，而不只是说明我不接受。",
+        "en": "When refusing a request, I criticise the person for asking rather than simply explain that I do not accept it."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "aggressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "aggressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "aggressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "aggressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "aggressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "aggressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_PASSIVE_AGGRESSIVE_05",
+      "prompt": {
+        "zh": "不愿接受一项请求时，我会先说没问题，再故意敷衍，让对方发现我其实不愿意。",
+        "en": "When I do not want a request, I first say it is fine and then intentionally make little effort so the other person notices my unwillingness."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "passive-aggressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "passive-aggressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passive-aggressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passive-aggressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passive-aggressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "passive-aggressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_ASSERTIVE_06",
+      "prompt": {
+        "zh": "一件事没有按我们商量的方式完成时，我会指出具体差异，并提出接下来可以讨论什么。",
+        "en": "When something differs from our agreement, I identify the specific difference and suggest what we can discuss next."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "assertive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "assertive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "assertive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "assertive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "assertive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "assertive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_PASSIVE_06",
+      "prompt": {
+        "zh": "一件事偏离约定、确实影响到我时，我会不提这件事，尽管自己希望作出调整。",
+        "en": "When a departure from an agreement affects me, I leave it unmentioned despite wanting an adjustment."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "passive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "passive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "passive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_AGGRESSIVE_06",
+      "prompt": {
+        "zh": "一件事没有按约定完成时，我会责备对方整个人，而不只讨论那次事情的差异。",
+        "en": "When an agreement is not followed, I blame the person as a whole rather than discuss the difference in that particular event."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "aggressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "aggressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "aggressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "aggressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "aggressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "aggressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_PASSIVE_AGGRESSIVE_06",
+      "prompt": {
+        "zh": "对一次失约有不满时，我会让话里带刺或借其他小事表达抗拒，而不讨论那次具体约定。",
+        "en": "When I resent a broken agreement, I make pointed remarks or resist through another small matter instead of discussing that agreement."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "passive-aggressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "passive-aggressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passive-aggressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passive-aggressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passive-aggressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "passive-aggressive",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "assertive",
+      "directionIds": [
+        "assertive"
+      ],
+      "title": {
+        "zh": "坚定表达（Assertive）：清楚而尊重",
+        "en": "Assertive Communication: Clear and Respectful"
+      },
+      "headline": {
+        "zh": "把自己的范围说出来，也给对方选择",
+        "en": "State your range while leaving the other person a choice"
+      },
+      "summary": {
+        "zh": "坚定表达关注怎样把需要、疑问和不同意见说清楚，同时尊重对方；均分不认证沟通能力、勇气或人际成功。",
+        "en": "Assertive communication concerns making needs, questions and disagreement clear while respecting the other person. A mean certifies neither skill, courage nor social success."
+      },
+      "seo": {
+        "title": {
+          "zh": "坚定表达型沟通：含义、边界与具体说法",
+          "en": "Assertive Communication: Meaning, Boundaries and Examples"
+        },
+        "description": {
+          "zh": "坚定表达不等于强势或必须说服对方。阅读沟通风格完整说明、工作与日常例子、清楚拒绝和相近方式比较；自报均分不证明能力、领导力或职业适配。",
+          "en": "Explore assertive communication with clear requests, boundaries, everyday examples and comparisons. Full free guide without treating a self-rating as skill or leadership proof."
+        }
+      },
+      "scoreReading": {
+        "zh": "这一方式有6条频率题，按1—5原值计分，没有反向题。全部24题选择后，至少4条有效评分才显示一位小数均分；NA不作零分或补值，资料不足明确显示。四项分别读，不合成能力总分、不按最高值派主型，也不把小差异当统计上明确的不同。",
+        "en": "This pattern has six frequency items scored directly from 1 to 5, without reversals. After all 24 selections, at least four ratings are needed for a mean rounded to one decimal. Unscored responses are neither zero nor imputed; insufficient information stays explicit. Read all four separately, without a skill total, highest-score primary type or an assumption that a small difference is statistically meaningful."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这个方式指什么",
+            "en": "What this pattern describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "坚定表达指清楚说明自己的需要、看法和范围，同时不把对方贬低、逼迫或排除在讨论之外。它不是声音越大越好，也不是必须说服别人同意。本版观察六种具体情境里相关说法的自报频率，不把“Assertive”当固定人格、外向程度或谁更值得被听见的证书。",
+              "en": "Assertive communication means making your needs, view and limits clear while leaving the other person’s standing intact. It requires neither a louder voice nor agreement from them. This edition asks about the reported frequency of related responses in six particular situations. Assertive is not treated as a fixed personality, degree of extraversion or certificate of who deserves to be heard."
+            }
+          ]
+        },
+        {
+          "id": "items",
+          "title": {
+            "zh": "题目在观察什么",
+            "en": "What the items ask about"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组包括调整安排、澄清说明、共同选择、接收反馈、拒绝请求和讨论失约。较高均分只表示这些题目中的清楚、尊重式回应较常被你报告；较低均分不说明你没有能力或从不表达。不同情境的机会可能不同，没有适用经历可以不计分，不需要为了显得更好而补一个高值。",
+              "en": "Items cover adjusting arrangements, clarification, shared choices, feedback, declining requests and broken agreements. A higher mean says the clear, respectful responses in these items were reported more often. A lower mean establishes neither an inability nor never speaking up. Opportunities differ by situation. An unscored response is available when no experience applies, without inventing a high rating to look better."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个工作与日常例子",
+            "en": "A work and everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个共同任务临时增加了内容，可以说清“我今天能完成这两部分，新增部分需要另约时间”，再询问对方最在意哪项。日常约会时间需要调整时，也可以说明自己能到的时间，并听听对方是否合适。这两个例子都允许对方不同意；说清楚不保证获得想要的安排。",
+              "en": "A shared task gains extra work. You could explain which two parts fit today and that the addition needs another time, then ask which part matters most to the other person. For an everyday meeting, state when you can arrive and ask whether it works. Both examples permit disagreement. Clarity does not guarantee the arrangement you wanted."
+            }
+          ]
+        },
+        {
+          "id": "boundaries",
+          "title": {
+            "zh": "让边界可以被理解",
+            "en": "Make a boundary understandable"
+          },
+          "paragraphs": [
+            {
+              "zh": "一项拒绝可以只涉及这次请求，不评价提出请求的人。若愿意提供别的范围，就说明范围；若没有，也不必编一个替代承诺。尊重对方不等于必须长篇解释、随时方便或交出私人原因。形式可以随语言和文化习惯变化，关键是表达是否清楚、是否保留双方的选择。",
+              "en": "A refusal can concern this request without judging the person who made it. If you want to offer another scope, specify it; otherwise no alternative promise needs to be invented. Respect requires neither a long explanation, constant availability nor private reasons. Wording can vary with language and culture. The question is whether the message is clear and both people retain a choice."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "取舍与实际限制",
+            "en": "Tradeoffs and real constraints"
+          },
+          "paragraphs": [
+            {
+              "zh": "有时说得清楚需要先整理事实，也可能被听成不合期待。你可以调整时机和方式，但不必把对方每次不高兴都归为自己沟通失败。权力差异、场合限制和安全顾虑也会影响选择；本问卷没有调查这些条件，不要求在每个环境都坚持当面表达，更不保证对方尊重边界。",
+              "en": "Being clear may take time to organise the facts and can disappoint someone. Timing and wording can be adjusted, but every unhappy reaction is not proof of communication failure. Power differences, setting and safety concerns also affect choices. This quiz has not assessed those conditions. It requires no face-to-face expression in every environment and cannot guarantee that a boundary will be respected."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "和其他方式比较",
+            "en": "Compare other patterns"
+          },
+          "paragraphs": [
+            {
+              "zh": "坚定表达与强硬压过他人都可能直接，但前者保留对方表达和拒绝的空间；与被动表达相比，它把自己在意的需要放进了对话；与间接抗拒相比，它不靠对方猜出反对。四项均分不是同一条优劣尺，也不要求互相抵消；不同情境可以出现不同方式，不能只看最高值决定人格。",
+              "en": "Assertive and aggressive responses can both be direct, but assertiveness leaves room for the other person to speak or decline. Compared with passivity, it brings your relevant need into the discussion; compared with indirect resistance, it does not rely on someone guessing your objection. Four means do not form one worth scale or cancel each other. Situations can differ, without a highest value defining personality."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个不能推出的结论",
+            "en": "A conclusion you cannot draw"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高自报频率不证明你实际说服力强、领导力好、不会伤人或一定适合某种工作。问卷没有听到你的语气，也没有观察对方是否能自由表达。较低评分同样不能说明胆小、情商低或有心理问题。理论和教育资料介绍方式，不验证这套原创题目，也不使分数成为能力常模。",
+              "en": "A higher reported frequency does not prove persuasion, leadership, harmlessness or suitability for a job. The quiz has heard no tone and observed no freedom for another person to respond. A lower rating likewise establishes neither cowardice, low emotional intelligence nor a psychological problem. Theory and educational sources explain patterns; they do not validate these original items or turn means into ability norms."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "选择一件负担较小、适合讨论的小事，先写清自己的事实、需要和愿意接受的范围，再想想对方可以怎样回应。尝试把请求说成一个能被回答的问题，而不是必须获得同意的要求。之后只回顾是否表达清楚、是否听到了对方的范围，不用成败、得分或他人的情绪给自己定型。",
+              "en": "Choose a low-pressure matter that fits discussion. Note the facts, what you need and the range you can accept, then consider how the other person could respond. Try a request that can receive an answer rather than one that demands agreement. Afterwards, review clarity and whether you heard their limits. Success, a score or someone else’s feelings need not define you."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与行为方式的范围",
+            "en": "Original items and the scope of response patterns"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24条中英文情境频率题、四项均分规则与解释由费马独立编写，借用教育资料中的四种常见沟通行为名称，不是标准沟通能力测验、Rathus或SIS量表，也不是DISC或其他同名四分类。没有本站信效度、常模、诊断或工作表现预测验证。来源提供概念背景，不验证这些题目或建议；本题没有观察实际对话、双方意愿或关系安全，不推断动机、童年、临床状况、能力、善恶或录用结论。",
+              "en": "FermatMind independently authored these 24 bilingual situation-frequency items, four-mean rules and explanations, using four familiar communication-behaviour names found in educational resources. This is not a standard communication-skills test, a Rathus or SIS instrument, DISC or another four-style framework with a similar name. Website validity, norms, diagnosis and work-performance prediction have not been established. Sources provide conceptual background, not validation of these items or suggestions. No actual conversation, mutual willingness or relationship safety is observed. Motives, childhood, clinical conditions, ability, moral worth and hiring decisions cannot be inferred."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "passive",
+      "directionIds": [
+        "passive"
+      ],
+      "title": {
+        "zh": "被动表达（Passive）：留住自己的需要",
+        "en": "Passive Communication: Making Room for Your Needs"
+      },
+      "headline": {
+        "zh": "没有说出口的部分，也值得具体看待",
+        "en": "Look specifically at what went unsaid"
+      },
+      "summary": {
+        "zh": "本页讨论本来想表达需要、疑问或不同看法，却把它留在心里的情境；不把安静、倾听或有意暂停自动当被动。",
+        "en": "This guide concerns wanting to state a need, question or different view but keeping it to yourself. Quietness, listening and a chosen pause are not automatically passive."
+      },
+      "seo": {
+        "title": {
+          "zh": "被动表达型沟通：未说出的需要与具体例子",
+          "en": "Passive Communication: Unstated Needs and Full Guide"
+        },
+        "description": {
+          "zh": "阅读被动表达的完整解读，区分未说出的需要、愿意让步、倾听和有意暂停。包含具体例子、表达小入口与相近方式比较，不把安静当人格缺陷。",
+          "en": "Read the passive communication guide: unstated needs, chosen silence, concrete examples and comparisons. Full explanations without equating quietness with a personality defect."
+        }
+      },
+      "scoreReading": {
+        "zh": "这一方式有6条频率题，按1—5原值计分，没有反向题。全部24题选择后，至少4条有效评分才显示一位小数均分；NA不作零分或补值，资料不足明确显示。四项分别读，不合成能力总分、不按最高值派主型，也不把小差异当统计上明确的不同。",
+        "en": "This pattern has six frequency items scored directly from 1 to 5, without reversals. After all 24 selections, at least four ratings are needed for a mean rounded to one decimal. Unscored responses are neither zero nor imputed; insufficient information stays explicit. Read all four separately, without a skill total, highest-score primary type or an assumption that a small difference is statistically meaningful."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这个方式指什么",
+            "en": "What this pattern describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "被动表达在这里指本来有想说的需要、疑问或不同意见，却没有把它放进交流。它不等于温柔、善良、内向或听得认真，也不意味着你应该总是争取说话。本组题目尽量明确“原本想调整或澄清”的情境，避免把没有意见、愿意让步或选择沉默都算成问题。",
+              "en": "Here, passive communication concerns leaving a need, question or differing view unstated when you had wanted to express it. It is not equivalent to gentleness, kindness, introversion or attentive listening, and does not mean you should always compete to speak. Items specify wanting an adjustment or clarification so that having no objection, yielding willingly or choosing silence is not automatically counted as a problem."
+            }
+          ]
+        },
+        {
+          "id": "items",
+          "title": {
+            "zh": "题目在观察什么",
+            "en": "What the items ask about"
+          },
+          "paragraphs": [
+            {
+              "zh": "六种情境都围绕未说出的部分：不合适的安排、没听懂的说明、不同偏好、想澄清的反馈、不愿承担的请求和希望调整的失约。较高均分表示这些题目较常符合自报经历，不证明你害怕冲突或把别人永远放第一。较低均分也不认证表达技巧，实际做法仍要看具体例子。",
+              "en": "Six situations focus on what went unstated: an unsuitable arrangement, unclear explanation, differing preference, feedback you wanted to clarify, an unwanted request and an agreement you wanted adjusted. A higher mean says these items fitted reported experiences more often. It does not establish fear of conflict or always putting others first. A lower mean certifies no communication technique; specific examples still matter."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个工作与日常例子",
+            "en": "A work and everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "一起筹备活动时，你其实无法承担新增事项，却先说可以，后来再独自挤时间。这是题目涉及的一种情境。若你评估后真心愿意帮忙，则不是同一个意思。日常一起选时间时，也可以区分“我没有特别偏好”和“我有需要但没有说”；只有回到当时的意愿，例子才有用。",
+              "en": "While preparing an activity, you cannot comfortably take an extra task but agree and later squeeze it into your time. That is one situation addressed by the items. Freely deciding you want to help means something different. When choosing an everyday meeting time, distinguish having no preference from having an unspoken need. The example becomes useful only when connected with what you wanted then."
+            }
+          ]
+        },
+        {
+          "id": "boundaries",
+          "title": {
+            "zh": "给需要一个小入口",
+            "en": "Give a need a small opening"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果你愿意，可以先说一小部分，例如“我需要确认这件事要花多少时间，再决定能不能承担。”这不要求立即说出完整反对意见，也不需要解释全部私人安排。对方仍可能不同意；你可以继续选择是否协商、稍后回应或拒绝。这样的说法是可选例子，不是本测试验证过的干预。",
+              "en": "If you want, begin with a small part: you may need to check how much time a task needs before accepting it. You need neither state every objection immediately nor explain all private arrangements. The other person may disagree. You can still choose to negotiate, answer later or decline. This is an optional example, not an intervention validated by this quiz."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "取舍与实际限制",
+            "en": "Tradeoffs and real constraints"
+          },
+          "paragraphs": [
+            {
+              "zh": "沉默有时是有意保留、先听完或等待合适时机；在某些处境里也可能是保护自己的选择。本问卷不知道当时有哪些权力差异、语言负担或现实限制，不应要求你为了更高的坚定表达分数而冒险。若只是一个没有说清的小需要，可以讨论它，但不必把每次沉默都追溯为个人缺陷。",
+              "en": "Silence can mean deliberate privacy, listening first or waiting for suitable timing. In some circumstances it may protect you. The questionnaire does not know the power differences, language demands or real constraints involved and should never require risk for a higher assertive score. A small unspoken need can be discussed when useful, without tracing every silence to a personal defect."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "和其他方式比较",
+            "en": "Compare other patterns"
+          },
+          "paragraphs": [
+            {
+              "zh": "被动表达和间接抗拒都可能没有直接说出立场，但后者题目明确包含用反话、故意拖延或不配合表达不满。没有回复、忘记或需要时间，本身不能推出间接抗拒。坚定表达把需要说清并尊重对方；强硬压过他人则排挤对方的立场。比较的是具体行为，不是给安静的人贴标签。",
+              "en": "Passive and passive-aggressive responses may both leave a position unstated, but the latter items explicitly concern sarcasm, intentional delay or non-cooperation used to signal displeasure. A missing reply, forgetting or needing time cannot establish indirect resistance. Assertiveness states a need respectfully; aggression sidelines another person’s standing. These comparisons concern specific responses, not labels for quiet people."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个不能推出的结论",
+            "en": "A conclusion you cannot draw"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高均分不能确认童年经历、人格障碍、依恋类型、抑郁或未来一定会爆发，也不能说明你比其他人更有耐心、共情或适合服务类工作。题目只问本组自报频率，没有观察沟通成效或调查动机。分数不能被他人拿来要求你交出隐私、无条件说话或接受他们的安排。",
+              "en": "A higher mean establishes neither childhood history, a personality disorder, attachment, depression nor an inevitable later outburst. It also does not prove greater patience, empathy or suitability for a service role. Items ask only about reported frequency without observing outcomes or investigating motives. A score cannot be used to demand private information, unconditional speech or acceptance of someone else’s plans."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "找一件你愿意说、风险较小的小偏好，先写出一个简短句子，例如想调整哪一小段安排或需要澄清哪一点。选择适合自己的方式和时机提出，也允许自己决定暂时不说。之后回顾是否更清楚地知道自己的范围，不用对方是否马上同意、说了多少话或均分高低判断这次是否值得。",
+              "en": "Choose a small preference you want to express in a low-pressure setting. Draft one brief sentence about the part of an arrangement you would change or the point you need clarified. Select timing and a method that fit you, including deciding not to speak yet. Afterwards, consider whether your own range became clearer. Immediate agreement, word count or a mean need not decide whether the attempt was worthwhile."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与行为方式的范围",
+            "en": "Original items and the scope of response patterns"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24条中英文情境频率题、四项均分规则与解释由费马独立编写，借用教育资料中的四种常见沟通行为名称，不是标准沟通能力测验、Rathus或SIS量表，也不是DISC或其他同名四分类。没有本站信效度、常模、诊断或工作表现预测验证。来源提供概念背景，不验证这些题目或建议；本题没有观察实际对话、双方意愿或关系安全，不推断动机、童年、临床状况、能力、善恶或录用结论。",
+              "en": "FermatMind independently authored these 24 bilingual situation-frequency items, four-mean rules and explanations, using four familiar communication-behaviour names found in educational resources. This is not a standard communication-skills test, a Rathus or SIS instrument, DISC or another four-style framework with a similar name. Website validity, norms, diagnosis and work-performance prediction have not been established. Sources provide conceptual background, not validation of these items or suggestions. No actual conversation, mutual willingness or relationship safety is observed. Motives, childhood, clinical conditions, ability, moral worth and hiring decisions cannot be inferred."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aggressive",
+      "directionIds": [
+        "aggressive"
+      ],
+      "title": {
+        "zh": "强硬压过他人（Aggressive）：立场与尊重",
+        "en": "Aggressive Communication: Position and Respect"
+      },
+      "headline": {
+        "zh": "把反对说清楚，不把人压下去",
+        "en": "Make the objection clear without shutting someone down"
+      },
+      "summary": {
+        "zh": "本页讨论用贬低、打断或排挤对方立场表达需要的具体回应，不把坚定拒绝、紧急简短指令或本次均分等同危险人格。",
+        "en": "This guide concerns put-downs, interruption or sidelining another person’s position. A firm refusal, a brief urgent instruction or one mean does not establish a dangerous personality."
+      },
+      "seo": {
+        "title": {
+          "zh": "强硬攻击式沟通：立场、尊重与相近方式比较",
+          "en": "Aggressive Communication: Directness, Respect and Examples"
+        },
+        "description": {
+          "zh": "强硬压过他人与坚定表达怎样区分？阅读具体沟通情境、对事与对人的差别、边界和小尝试。均分不诊断危险人格、暴力风险或招聘适配。",
+          "en": "Compare aggressive and assertive communication through concrete situations, objections and respect. Full guide without inferring violence risk, a diagnosis or hiring suitability."
+        }
+      },
+      "scoreReading": {
+        "zh": "这一方式有6条频率题，按1—5原值计分，没有反向题。全部24题选择后，至少4条有效评分才显示一位小数均分；NA不作零分或补值，资料不足明确显示。四项分别读，不合成能力总分、不按最高值派主型，也不把小差异当统计上明确的不同。",
+        "en": "This pattern has six frequency items scored directly from 1 to 5, without reversals. After all 24 selections, at least four ratings are needed for a mean rounded to one decimal. Unscored responses are neither zero nor imputed; insufficient information stays explicit. Read all four separately, without a skill total, highest-score primary type or an assumption that a small difference is statistically meaningful."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这个方式指什么",
+            "en": "What this pattern describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版的Aggressive指表达自己的需要或反对时，以贬低、打断或排挤他人立场的方式压过去。区别不只是音量或是否直接，而是对方有没有机会表达、拒绝和被当作讨论中的一方。它描述题目里的回应，不是对暴力、犯罪、人格障碍或一个人整体道德价值的测量。",
+              "en": "Here, aggressive communication concerns advancing a need or objection through put-downs, interruption or sidelining another person’s position. The distinction is not merely volume or directness: it concerns whether someone else has room to speak, decline and remain a participant. The label describes responses in the items, not violence, crime, a personality disorder or a person’s overall moral worth."
+            }
+          ]
+        },
+        {
+          "id": "items",
+          "title": {
+            "zh": "题目在观察什么",
+            "en": "What the items ask about"
+          },
+          "paragraphs": [
+            {
+              "zh": "六道题分别问调整安排、没听懂说明、共同选择、接收反馈、拒绝请求和讨论失约时，是否报告过压住对方或责备整个人的回应。较高均分只说明本组说法较常被报告，不证明你总是如此或知道所有后果。较低评分也不保证对方感到被尊重，实际互动没有被本题观察。",
+              "en": "Six items ask about shutting someone down or blaming the whole person while adjusting arrangements, seeking clarity, making choices, receiving feedback, refusing or discussing an agreement. A higher mean says these descriptions were reported more often, not that they always occur or that their effects are known. A lower mean likewise does not guarantee another person felt respected; no interaction was observed."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个工作与日常例子",
+            "en": "A work and everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "一次交接少了信息，可以讨论缺了哪些内容、何时补充；如果转成评价“你做事就是不行”，焦点就从具体缺口移到了对人的贬低。日常需要改时间时，也可以区分说明自己的限制，与不允许对方讲他们的限制。例子关注表达过程，不要求为了尊重而放弃自己的实际需要。",
+              "en": "When a handover lacks information, the missing parts and a time to add them can be discussed. A blanket judgment about someone’s incompetence shifts the focus from the gap to a put-down. When changing an everyday meeting time, distinguish stating your limits from preventing someone explaining theirs. These examples concern the exchange, without requiring you to abandon a real need in order to be respectful."
+            }
+          ]
+        },
+        {
+          "id": "boundaries",
+          "title": {
+            "zh": "把立场与攻击分开",
+            "en": "Separate the position from the attack"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果想调整说法，可以保留原本要表达的分歧，只把对整个人的评价换成这次可核对的差异。例如先说明需要补哪段信息，再询问什么时候可行，而不是让对方证明自己不是坏员工。对方可能不同意，也可能需要时间；具体说法不保证获得合作或修复关系。",
+              "en": "To change the wording, keep the disagreement you wanted to express but replace a judgment about the whole person with a checkable difference in this event. Identify which information is needed and ask about timing instead of making someone prove they are not a bad worker. They may disagree or need time. Specific wording guarantees neither cooperation nor relationship repair."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "取舍与实际限制",
+            "en": "Tradeoffs and real constraints"
+          },
+          "paragraphs": [
+            {
+              "zh": "把不满说出来，并不需要以压倒对方为代价。紧急情况可能需要简短直接的指令，但简短和直接本身不等于贬低或排挤。本版不把强硬方式包装成领导力、效率或“真正关心”的证明，也不根据一次紧张情境判断动机。是否继续交流，仍要考虑双方意愿与现实处境。",
+              "en": "An objection can be stated without overpowering someone. An urgent situation may need a brief, direct instruction, but brevity and directness alone do not mean contempt or exclusion. This edition does not package aggression as proof of leadership, efficiency or real caring, nor infer motives from one tense situation. Whether an exchange should continue still depends on the people and circumstances involved."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "和其他方式比较",
+            "en": "Compare other patterns"
+          },
+          "paragraphs": [
+            {
+              "zh": "坚定表达同样可以说不和提出反对，但保留对方的立场；被动表达没有说出原本想说的需要；间接抗拒则通过反话或有意不配合表达异议。它们不是一条由弱到强的等级，也不是互斥人格。四种频率都可以回到各自情境看，不由一个最高均分决定整个人。",
+              "en": "Assertiveness can also refuse and disagree while preserving another person’s standing. Passivity leaves an intended need unstated, while passive-aggressive responses signal objections through sarcasm or intentional non-cooperation. They form neither a weak-to-strong hierarchy nor mutually exclusive personalities. Each reported frequency can be considered in context without a highest mean deciding who a person is."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个不能推出的结论",
+            "en": "A conclusion you cannot draw"
+          },
+          "paragraphs": [
+            {
+              "zh": "清楚拒绝不想要的接触、维护边界或说话比较短，不足以判断攻击性。口音、音量习惯、眼神和表达差异也不在本题的推断范围。较高均分不能说明暴力风险、心理疾病、是否适合录用或别人一定害怕你；较低均分也不能认证关系安全。本版没有这些观察、常模或预测验证。",
+              "en": "Clearly refusing unwanted contact, maintaining a boundary or speaking briefly is not enough to establish aggression. Accent, habitual volume, eye contact and expressive differences are outside the quiz’s inferences. A higher mean reveals neither violence risk, mental illness, hiring suitability nor whether others fear you. A lower mean certifies no relationship safety. These observations, norms and predictions have not been established."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一句自己愿意回顾、没有私人内容需要公开的表达，分别写出“我真正反对的具体事情”和“我对对方整个人加上的评价”。如果合适，试着只保留前者，再补一个允许回答的请求。无需立刻进行对话，也不要把对方是否配合当成训练效果或均分应当下降的证据。",
+              "en": "Choose a response you want to revisit without sharing private content. Separate the particular thing you objected to from any judgment added about the whole person. If useful, keep the former and add a request that can receive an answer. No immediate conversation is required. Someone’s cooperation is not proof of a training effect or evidence that a mean should fall."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与行为方式的范围",
+            "en": "Original items and the scope of response patterns"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24条中英文情境频率题、四项均分规则与解释由费马独立编写，借用教育资料中的四种常见沟通行为名称，不是标准沟通能力测验、Rathus或SIS量表，也不是DISC或其他同名四分类。没有本站信效度、常模、诊断或工作表现预测验证。来源提供概念背景，不验证这些题目或建议；本题没有观察实际对话、双方意愿或关系安全，不推断动机、童年、临床状况、能力、善恶或录用结论。",
+              "en": "FermatMind independently authored these 24 bilingual situation-frequency items, four-mean rules and explanations, using four familiar communication-behaviour names found in educational resources. This is not a standard communication-skills test, a Rathus or SIS instrument, DISC or another four-style framework with a similar name. Website validity, norms, diagnosis and work-performance prediction have not been established. Sources provide conceptual background, not validation of these items or suggestions. No actual conversation, mutual willingness or relationship safety is observed. Motives, childhood, clinical conditions, ability, moral worth and hiring decisions cannot be inferred."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "passive-aggressive",
+      "directionIds": [
+        "passive-aggressive"
+      ],
+      "title": {
+        "zh": "间接抗拒（Passive-Aggressive）：把异议说具体",
+        "en": "Passive-Aggressive Communication: Making Objections Explicit"
+      },
+      "headline": {
+        "zh": "看清异议怎样表达，不替别人读心",
+        "en": "Notice how an objection is expressed without mind-reading"
+      },
+      "summary": {
+        "zh": "本页讨论自报用反话、故意拖延或不配合传递不满的情境；不把沉默、忘记、延迟回复或不愿披露自动当作间接抗拒。",
+        "en": "This guide concerns reported sarcasm, intentional delay or non-cooperation used to signal displeasure. Silence, forgetting, delayed replies and privacy do not automatically establish indirect resistance."
+      },
+      "seo": {
+        "title": {
+          "zh": "被动攻击式沟通：间接抗拒、异议与完整解读",
+          "en": "Passive-Aggressive Communication: Objections and Full Guide"
+        },
+        "description": {
+          "zh": "理解被动攻击式沟通与间接抗拒，区分有意用反话传递不满、沉默和延迟回复。完整说明含具体例子与小尝试，不读心、不诊断，也不追溯未经核实的童年。",
+          "en": "Understand passive-aggressive communication, indirect objections and concrete alternatives. Full guide without reading motives into silence or inferring a disorder or childhood cause."
+        }
+      },
+      "scoreReading": {
+        "zh": "这一方式有6条频率题，按1—5原值计分，没有反向题。全部24题选择后，至少4条有效评分才显示一位小数均分；NA不作零分或补值，资料不足明确显示。四项分别读，不合成能力总分、不按最高值派主型，也不把小差异当统计上明确的不同。",
+        "en": "This pattern has six frequency items scored directly from 1 to 5, without reversals. After all 24 selections, at least four ratings are needed for a mean rounded to one decimal. Unscored responses are neither zero nor imputed; insufficient information stays explicit. Read all four separately, without a skill total, highest-score primary type or an assumption that a small difference is statistically meaningful."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这个方式指什么",
+            "en": "What this pattern describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "间接抗拒在这里指有不满或反对，却通过反话、故意拖延或有意不配合传递，而没有清楚说明具体异议。题目明确问的是自己的这类回应，不让你替同事、朋友或伴侣猜动机。“Passive-Aggressive”在本页是行为方式名称，不是人格障碍、隐蔽恶意或一个人本质的诊断。",
+              "en": "Here, passive-aggressive communication concerns an objection or displeasure signalled through sarcasm, intentional delay or deliberate non-cooperation instead of a clear account of the objection. Items ask about your own such responses, not a colleague’s, friend’s or partner’s hidden motives. Passive-aggressive is a name for a response pattern here, not a diagnosis of personality disorder, concealed malice or someone’s essential character."
+            }
+          ]
+        },
+        {
+          "id": "items",
+          "title": {
+            "zh": "题目在观察什么",
+            "en": "What the items ask about"
+          },
+          "paragraphs": [
+            {
+              "zh": "六道题在不同情境中加入了“用来表达不满”或“故意”的条件，包括安排、说明、共同选择、反馈、请求和失约。较高均分只表示这些自报条件较常符合经历；无法判断时可以不计分。它没有观察每一次拖延或冷淡，更不能从别人一次没有回复，反推他们在反抗、报复或不在意。",
+              "en": "Six items include conditions such as intentionally signalling displeasure across arrangements, explanations, choices, feedback, requests and broken agreements. A higher mean says these self-reported conditions fitted experiences more often. Uncertainty can be unscored. The quiz observes no particular delay or cold response, and one missing reply cannot establish resistance, retaliation or indifference in someone else."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个工作与日常例子",
+            "en": "A work and everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "一项共同任务其实有你反对的部分。你说可以，随后有意敷衍，希望对方由进展猜出你的不满，这才接近题目描述。若是没有资源、没弄懂要求、忘记或后来改变想法，则需要各自说明情况，不能自动算成同一种方式。日常改计划后的迟回消息，也不能单凭外观判断动机。",
+              "en": "A shared task has a part you object to. You agree and then intentionally make little effort, hoping the progress will reveal your displeasure. That resembles an item description. Missing resources, unclear instructions, forgetting or a later change of mind need their own explanation instead of the same label. An everyday delayed reply after a changed plan likewise cannot reveal motive by appearance alone."
+            }
+          ]
+        },
+        {
+          "id": "boundaries",
+          "title": {
+            "zh": "让异议成为可回答的内容",
+            "en": "Make the objection answerable"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意调整，可以先找出真正不同意的是时间、内容、分工还是决定方式，再挑一项说清楚。例如明确自己还没有答应哪部分，以及愿意讨论什么范围。这样给了对方回应具体内容的机会，但不保证达成一致。也不要求你在不合适或不安全的场合立即摊开全部想法。",
+              "en": "If you want a change, first identify whether the objection concerns timing, content, task sharing or how a decision was made, then clarify one part. State which part you have not agreed to and the scope you are willing to discuss. This makes a specific answer possible without guaranteeing agreement. It does not require revealing every thought in an unsuitable or unsafe setting."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "取舍与实际限制",
+            "en": "Tradeoffs and real constraints"
+          },
+          "paragraphs": [
+            {
+              "zh": "不直接表达可能有许多不同原因，本题不能确认它一定来自某种童年或不安全环境。与此同时，故意让对方猜异议，也不等于已经让自己的需要被准确知道。可以保留隐私、暂停或拒绝，但若希望讨论，就尽量区分暂时不说与让对方从反话中猜。均分不是要求你必须公开争论的命令。",
+              "en": "There can be many reasons not to speak directly; the quiz cannot establish a childhood cause or unsafe environment. Intentionally leaving an objection to be guessed also does not mean a need has been understood. Privacy, pauses and refusals remain options. If discussion is wanted, distinguish choosing not to speak yet from expecting an objection to be decoded from sarcasm. A mean is no order to argue publicly."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "和其他方式比较",
+            "en": "Compare other patterns"
+          },
+          "paragraphs": [
+            {
+              "zh": "被动表达更关注想说却没有说出的需要，题目不要求存在有意传递抗议；强硬压过他人更直接地排挤对方立场；坚定表达则把异议讲清、保留双方选择。不要用这些名称给信任受损程度排固定顺序，或把间接抗拒当比其他人更坏。比较的是具体回应，不是人的价值。",
+              "en": "Passive items concern an intended need left unstated without requiring intentional protest. Aggressive items more directly sideline another person’s position. Assertiveness clarifies the objection while retaining choice for both people. These names should not rank damage to trust in a fixed order or make someone worse than others. Compare responses, not people’s worth."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个不能推出的结论",
+            "en": "A conclusion you cannot draw"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高均分不能说明你总是故意、擅长操纵、曾经遭遇创伤、情商低或属于某种人格障碍。较低均分也不证明表达没有伤人。问卷没有调查动机、私人历史或对方感受，不用于招聘、亲密关系判决或判断别人说的解释是否可信。一次测试结果不应成为要求他人自证清白的标签。",
+              "en": "A higher mean does not show that you always act deliberately, manipulate skilfully, experienced trauma, have low emotional intelligence or meet a personality-disorder category. A lower mean does not prove no hurt occurred. The quiz investigates neither motives, private history nor another person’s feelings. It serves no hiring verdict, relationship judgment or test of someone’s explanation. A result should not become a label requiring another person to prove innocence."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一件负担较小、你愿意回顾的异议，写清自己不同意哪一部分，以及当前愿意承担什么、不愿承担什么。如果适合沟通，试着用一句具体说明代替一次反话；如果暂时不适合，就先保留这份澄清。目标是让自己更清楚选择，不是追查他人动机、给关系判输赢或保证下一次顺利。",
+              "en": "Choose a low-pressure objection you want to revisit. Note the exact part you disagree with and what you are and are not willing to undertake now. If discussion fits, try replacing one sarcastic response with a specific statement. If it does not, keep that clarification for yourself. The aim is clearer choice, not investigating another person’s motives, deciding who wins a relationship or guaranteeing an easier next exchange."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与行为方式的范围",
+            "en": "Original items and the scope of response patterns"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24条中英文情境频率题、四项均分规则与解释由费马独立编写，借用教育资料中的四种常见沟通行为名称，不是标准沟通能力测验、Rathus或SIS量表，也不是DISC或其他同名四分类。没有本站信效度、常模、诊断或工作表现预测验证。来源提供概念背景，不验证这些题目或建议；本题没有观察实际对话、双方意愿或关系安全，不推断动机、童年、临床状况、能力、善恶或录用结论。",
+              "en": "FermatMind independently authored these 24 bilingual situation-frequency items, four-mean rules and explanations, using four familiar communication-behaviour names found in educational resources. This is not a standard communication-skills test, a Rathus or SIS instrument, DISC or another four-style framework with a similar name. Website validity, norms, diagnosis and work-performance prediction have not been established. Sources provide conceptual background, not validation of these items or suggestions. No actual conversation, mutual willingness or relationship safety is observed. Motives, childhood, clinical conditions, ability, moral worth and hiring decisions cannot be inferred."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "HealthyWA：坚定表达、被动与攻击式沟通的概念",
+        "en": "HealthyWA: concepts of assertive, passive and aggressive communication"
+      },
+      "url": "https://www.healthywa.wa.gov.au/Articles/A_E/Assertive-communication"
+    },
+    {
+      "title": {
+        "zh": "UCSF：四种沟通行为的教育例子",
+        "en": "UCSF: educational examples of four communication patterns"
+      },
+      "url": "https://ivy.ucsf.edu/content/menu-c-effective-communication"
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "zh": "四项频率均分怎样计算",
+        "en": "How the four frequency means are calculated"
+      },
+      "paragraphs": [
+        {
+          "zh": "每种方式6题，1—5按原值计分，没有反向题。全部24题选择后，各项至少4条有效评分时，按总和除以有效题数，四舍五入到一位小数；不足时明确显示。没有经历、无法判断或不愿回答不补0或中间值。4条最低数为本站信息完整度规则，不是心理测量或临床阈值。",
+          "en": "Each pattern has six items using the selected 1–5 value, with no reversals. After all 24 selections, each part with at least four ratings uses sum divided by rated count, rounded to one decimal; otherwise it shows insufficient information. Unscored responses are never replaced by zero or a midpoint. The four-rating minimum is a website information-completeness rule, not a psychometric or clinical cutoff."
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "zh": "频率不等于能力或固定人格",
+        "en": "Frequency is not ability or a fixed personality"
+      },
+      "paragraphs": [
+        {
+          "zh": "较高均分表示本组对应回应较常被报告，不代表每种方式都更好，也不证明实际表达有效。坚定拒绝不自动等于攻击，安静和倾听不自动等于被动，忘记或迟回不自动等于间接抗拒。具体意愿、情境和限制都要另外理解，本题不观察或推断它们。",
+          "en": "A higher mean says the listed responses were reported more often. It does not make every pattern better or prove effective expression. A firm refusal is not automatically aggression; quietness is not automatically passivity; forgetting or a delayed reply is not automatically indirect resistance. Wishes, context and constraints need separate understanding and are neither observed nor inferred here."
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "zh": "相近、并列与混合方式怎样读",
+        "en": "How to read similar means and mixed patterns"
+      },
+      "paragraphs": [
+        {
+          "zh": "四项可以相近、并列、都较高或都较低，不随机打破并列、不按最高值派固定主型。小数差异没有经过本题统计验证，不能当显著差别或能力排名。全部四份完整说明都呈现；可以为每一项找一个符合和一个不符合的例子，保留暂时不确定。",
+          "en": "All four means can be similar, tied, high or low. No random tie breaker or highest-score fixed type is used. Small decimal differences have not been statistically validated as meaningful distinctions or ability ranks. All four full guides are shown. Consider one fitting and one contrasting example for each, and keep uncertainty where it belongs."
+        }
+      ]
+    },
+    {
+      "id": "source-scope",
+      "title": {
+        "zh": "概念来源与本站版本",
+        "en": "Concept sources and this edition"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版题目、计分与解释由费马独立编写，不施测标准能力量表，不借同名分类、教育资料或临床训练的信效度、认证与疗效。四种常用行为名称用于回顾实际情境，不推断心理疾病、童年、动机、工作胜任或关系安全；也不把分数换成DISC、MBTI或其他测试结果。",
+          "en": "FermatMind independently authored the items, scoring and explanations. This is not a standard ability instrument and borrows no validity, certification or clinical-training effects from similarly named frameworks or educational sources. Four familiar response names help revisit situations, without inferences about mental illness, childhood, motives, work suitability or relationship safety. Scores are not converted into DISC, MBTI or another test."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这里的四种沟通风格是什么？",
+        "en": "Which four communication styles does this edition cover?"
+      },
+      "answer": {
+        "zh": "本版讨论坚定表达（Assertive）、被动表达（Passive）、强硬压过他人（Aggressive）和间接抗拒（Passive-Aggressive）。它们是情境中的行为方式，不是DISC、分析型／直觉型等其他同名分类，也不是固定人格。",
+        "en": "This edition covers assertive, passive, aggressive and passive-aggressive responses. They describe behaviour in situations, not DISC, analytical/intuitive styles or other similarly named frameworks, and not fixed personalities."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样知道我更常用哪种方式？",
+        "en": "How can I explore which responses I use?"
+      },
+      "answer": {
+        "zh": "回顾近四周实际发生的六类情境，完成24条频率自评后，分别看四项均分或资料不足状态，再读每份完整说明。本版不按最高值派唯一类型，不把一位小数的小差异当显著差别。",
+        "en": "Reflect on six kinds of actual situations over the past four weeks. Complete 24 frequency ratings, read all four means or insufficient-information states, and explore every full guide. This edition assigns no single highest-score type and treats no small decimal difference as statistically meaningful."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是沟通能力测验、诊断或招聘工具吗？",
+        "en": "Is this a skills test, diagnosis or hiring tool?"
+      },
+      "answer": {
+        "zh": "不是。自报频率不等于观察到的能力、沟通效果、情商、领导力或工作表现；本题没有本站信效度、常模或诊断／招聘预测验证。不能由此决定录用、评价他人动机或给关系下结论。",
+        "en": "No. Reported frequency is not observed ability, effectiveness, emotional intelligence, leadership or work performance. Website validity, norms and diagnostic or hiring predictions have not been established. Results cannot decide employment, explain another person’s motives or provide a verdict on a relationship."
+      }
+    },
+    {
+      "question": {
+        "zh": "低评分和不适用怎样区分？",
+        "en": "How are low ratings different from unscored responses?"
+      },
+      "answer": {
+        "zh": "从不对应有效评分1。没有适用经历、无法判断或不愿回答完全不计分，不作零分或补值。每项6题至少4条有效评分才显示均分；资料不足明确显示，完整说明仍可阅读。",
+        "en": "Never is a valid rating of one. No applicable experience, uncertainty or preferring not to answer is excluded entirely, without zero or imputation. Each six-item part needs at least four ratings for a mean. Insufficient information stays explicit and the full guide remains available."
+      }
+    },
+    {
+      "question": {
+        "zh": "直接、沉默或延迟回复能说明别人的风格吗？",
+        "en": "Can directness, silence or delayed replies reveal someone else’s style?"
+      },
+      "answer": {
+        "zh": "不能单凭这些判断。清楚拒绝不等于压倒他人，安静可能是愿意倾听或保留隐私，延迟也可能有实际原因。本题只问自己的具体回应，不观察对方、推断童年或替别人读心。",
+        "en": "Those features alone cannot do so. A clear refusal is not the same as overpowering someone; silence may mean listening or privacy; delay may have practical causes. Items concern your own responses and neither observe another person, infer childhood nor read their mind."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果免费吗，保存与分享包含什么？",
+        "en": "Are full results free, and what do saving and sharing contain?"
+      },
+      "answer": {
+        "zh": "全部24题、四项评分情况和四份完整说明免费，无需注册。可选草稿仅在本标签页保留24小时，完成、重测或清除即删除。分享只有名称和公开入口，不带答案、均分、私人对话或内部ID；存储或复制受限仍可继续。",
+        "en": "All 24 items, four rating summaries and four full guides are free without signup. Optional drafts last 24 hours in this tab and clear on completion, retake or clearing. Sharing contains names and the public entry only, without answers, means, private conversations or internal IDs. Blocked storage or copying still permits an attempt."
+      }
+    }
+  ]
+}

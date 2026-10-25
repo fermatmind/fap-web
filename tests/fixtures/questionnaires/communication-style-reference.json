@@ -1,0 +1,1626 @@
+{
+  "code": "COMMUNICATION_STYLES",
+  "formCode": "fm_communication_patterns_frequency_24",
+  "itemBankVersion": "1.0.0",
+  "origin": "FermatMind independently authored bilingual frequency reflection using four familiar communication-behaviour categories;notRathus/SIS/validatedskilltest/DISC/MarkMurphySocialStylesorborrowedquestionbank.",
+  "instructions": {
+    "zh": "回顾近四周自己在日常协作、学习、工作或相处中的实际说法与回应，按出现频率选择。1从不到5几乎总是；没有适用经历、无法判断或不愿回答可以不计分。可以有多种方式，不必挑一个理想形象；也不要替他人判型。无需填写私人对话。",
+    "en": "Think about how you actually spoke or responded in everyday cooperation, study, work or relationships over the past four weeks. Rate frequency from 1, never, to 5, almost always. Use the unscored option when no experience applies, you are unsure or you prefer not to answer. Several patterns can occur; do not choose an ideal image or classify someone else. No private conversation text is required."
+  },
+  "directions": [
+    {
+      "id": "assertive",
+      "title": {
+        "zh": "坚定表达（Assertive）",
+        "en": "Assertive communication"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "passive",
+      "title": {
+        "zh": "被动表达（Passive）",
+        "en": "Passive communication"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "aggressive",
+      "title": {
+        "zh": "强硬压过他人（Aggressive）",
+        "en": "Aggressive communication"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "passive-aggressive",
+      "title": {
+        "zh": "间接抗拒（Passive-Aggressive）",
+        "en": "Passive-aggressive communication"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "COMM_ASSERTIVE_01",
+      "prompt": {
+        "zh": "一项约定需要调整时，我会说明自己能做到的范围，再询问对方是否有其他可行安排。",
+        "en": "When an arrangement needs adjusting, I explain what I can manage and ask what alternatives might work for the other person."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "assertive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "assertive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "assertive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "assertive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "assertive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "assertive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_PASSIVE_01",
+      "prompt": {
+        "zh": "一项安排并不适合我、我也想调整时，我仍会先答应，把自己的需要留在心里。",
+        "en": "When an arrangement does not work for me and I want to change it, I still agree while keeping my needs to myself."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "passive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "passive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "passive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_AGGRESSIVE_01",
+      "prompt": {
+        "zh": "调整安排时，我会要求按自己的时间办，而不让对方说明他们的限制。",
+        "en": "When changing an arrangement, I demand my timing without allowing the other person to explain their constraints."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "aggressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "aggressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "aggressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "aggressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "aggressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "aggressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_PASSIVE_AGGRESSIVE_01",
+      "prompt": {
+        "zh": "对一项安排不满意时，我会嘴上答应，再故意拖延，让对方从进展中感到我的抗拒。",
+        "en": "When I object to an arrangement, I agree out loud and then intentionally delay so that my resistance shows through the progress."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "passive-aggressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "passive-aggressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passive-aggressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passive-aggressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passive-aggressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "passive-aggressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_ASSERTIVE_02",
+      "prompt": {
+        "zh": "一段说明有我没听懂的地方时，我会指出具体疑问，请对方再解释那一部分。",
+        "en": "When part of an explanation is unclear to me, I identify the particular question and ask for that part to be explained."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "assertive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "assertive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "assertive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "assertive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "assertive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "assertive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_PASSIVE_02",
+      "prompt": {
+        "zh": "没听懂一段说明、也需要弄明白时，我会假装已经清楚，而不提出疑问。",
+        "en": "When I need to understand an explanation I have not followed, I pretend it is clear rather than ask."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "passive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "passive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "passive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_AGGRESSIVE_02",
+      "prompt": {
+        "zh": "一段说明不够清楚时，我会用贬低对方的说法表达不满，而不只指出内容的问题。",
+        "en": "When an explanation is unclear, I express frustration by putting the person down rather than identifying the content problem."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "aggressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "aggressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "aggressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "aggressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "aggressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "aggressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_PASSIVE_AGGRESSIVE_02",
+      "prompt": {
+        "zh": "对一段说明有意见时，我会用挖苦或反话表达不满，而不讲清自己反对哪一部分。",
+        "en": "When I object to an explanation, I use sarcasm or say the opposite of what I mean instead of clarifying the part I disagree with."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "passive-aggressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "passive-aggressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passive-aggressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passive-aggressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passive-aggressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "passive-aggressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_ASSERTIVE_03",
+      "prompt": {
+        "zh": "共同选择不合我意时，我会说出自己的考虑，也给对方讲清理由的机会。",
+        "en": "When a shared choice does not suit me, I explain my considerations and leave room for the other person’s reasons."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "assertive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "assertive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "assertive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "assertive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "assertive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "assertive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_PASSIVE_03",
+      "prompt": {
+        "zh": "共同选择有我在意的另一种可能时，我会隐藏自己的偏好，附和已经提出的选项。",
+        "en": "When another option matters to me in a shared choice, I hide my preference and go along with the option already suggested."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "passive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "passive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "passive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_AGGRESSIVE_03",
+      "prompt": {
+        "zh": "共同选择出现分歧时，我会压住其他意见，让自己的方案成为唯一可讨论的方案。",
+        "en": "When a shared choice brings disagreement, I shut down other views so that only my proposal remains open for discussion."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "aggressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "aggressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "aggressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "aggressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "aggressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "aggressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_PASSIVE_AGGRESSIVE_03",
+      "prompt": {
+        "zh": "共同选择不是我想要的时，我会表面配合、之后用消极回应暗示不满，而不直接提出不同意见。",
+        "en": "When a shared choice is not what I wanted, I appear to cooperate and later signal displeasure through unhelpful responses rather than state my objection."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "passive-aggressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "passive-aggressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passive-aggressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passive-aggressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passive-aggressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "passive-aggressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_ASSERTIVE_04",
+      "prompt": {
+        "zh": "收到不容易接受的反馈时，我会先确认对方指的是哪件事，再说明自己的看法。",
+        "en": "When feedback is difficult to hear, I check which event it concerns before explaining my view."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "assertive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "assertive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "assertive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "assertive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "assertive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "assertive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_PASSIVE_04",
+      "prompt": {
+        "zh": "对反馈中的某一点有不同看法时，我会把自己的解释咽回去，即使本来想澄清。",
+        "en": "When I disagree with part of some feedback, I hold back an explanation I had wanted to give."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "passive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "passive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "passive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_AGGRESSIVE_04",
+      "prompt": {
+        "zh": "收到不喜欢的反馈时，我会打断或贬低反馈者，让对方难以继续说明。",
+        "en": "When I dislike feedback, I interrupt or put down the person giving it so that they cannot readily continue."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "aggressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "aggressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "aggressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "aggressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "aggressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "aggressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_PASSIVE_AGGRESSIVE_04",
+      "prompt": {
+        "zh": "收到让我不满的反馈后，我会用冷淡或刻意不配合表达抗议，而不说明自己在意的点。",
+        "en": "After feedback I resent, I protest through coldness or intentional non-cooperation rather than explain the point that matters to me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "passive-aggressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "passive-aggressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passive-aggressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passive-aggressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passive-aggressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "passive-aggressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_ASSERTIVE_05",
+      "prompt": {
+        "zh": "不愿接受一项额外请求时，我会把拒绝和可以提供的范围说清楚，而不贬低提出请求的人。",
+        "en": "When I do not want to accept an additional request, I clarify my refusal and any help I can offer without putting down the person who asked."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "assertive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "assertive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "assertive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "assertive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "assertive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "assertive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_PASSIVE_05",
+      "prompt": {
+        "zh": "不想接受一项额外请求时，我会说可以，之后再独自处理它给我的负担。",
+        "en": "When I do not want an additional request, I say yes and later deal with its burden on my own."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "passive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "passive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "passive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_AGGRESSIVE_05",
+      "prompt": {
+        "zh": "拒绝一项请求时，我会把提出请求的人说得很不应该，而不只是说明我不接受。",
+        "en": "When refusing a request, I criticise the person for asking rather than simply explain that I do not accept it."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "aggressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "aggressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "aggressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "aggressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "aggressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "aggressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_PASSIVE_AGGRESSIVE_05",
+      "prompt": {
+        "zh": "不愿接受一项请求时，我会先说没问题，再故意敷衍，让对方发现我其实不愿意。",
+        "en": "When I do not want a request, I first say it is fine and then intentionally make little effort so the other person notices my unwillingness."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "passive-aggressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "passive-aggressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passive-aggressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passive-aggressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passive-aggressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "passive-aggressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_ASSERTIVE_06",
+      "prompt": {
+        "zh": "一件事没有按我们商量的方式完成时，我会指出具体差异，并提出接下来可以讨论什么。",
+        "en": "When something differs from our agreement, I identify the specific difference and suggest what we can discuss next."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "assertive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "assertive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "assertive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "assertive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "assertive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "assertive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_PASSIVE_06",
+      "prompt": {
+        "zh": "一件事偏离约定、确实影响到我时，我会不提这件事，尽管自己希望作出调整。",
+        "en": "When a departure from an agreement affects me, I leave it unmentioned despite wanting an adjustment."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "passive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "passive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "passive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_AGGRESSIVE_06",
+      "prompt": {
+        "zh": "一件事没有按约定完成时，我会责备对方整个人，而不只讨论那次事情的差异。",
+        "en": "When an agreement is not followed, I blame the person as a whole rather than discuss the difference in that particular event."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "aggressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "aggressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "aggressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "aggressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "aggressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "aggressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMM_PASSIVE_AGGRESSIVE_06",
+      "prompt": {
+        "zh": "对一次失约有不满时，我会让话里带刺或借其他小事表达抗拒，而不讨论那次具体约定。",
+        "en": "When I resent a broken agreement, I make pointed remarks or resist through another small matter instead of discussing that agreement."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "passive-aggressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "passive-aggressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passive-aggressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passive-aggressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passive-aggressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "passive-aggressive",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "COMM_ASSERTIVE_01": "arrangements",
+    "COMM_PASSIVE_01": "arrangements",
+    "COMM_AGGRESSIVE_01": "arrangements",
+    "COMM_PASSIVE_AGGRESSIVE_01": "arrangements",
+    "COMM_ASSERTIVE_02": "clarification",
+    "COMM_PASSIVE_02": "clarification",
+    "COMM_AGGRESSIVE_02": "clarification",
+    "COMM_PASSIVE_AGGRESSIVE_02": "clarification",
+    "COMM_ASSERTIVE_03": "shared-choice",
+    "COMM_PASSIVE_03": "shared-choice",
+    "COMM_AGGRESSIVE_03": "shared-choice",
+    "COMM_PASSIVE_AGGRESSIVE_03": "shared-choice",
+    "COMM_ASSERTIVE_04": "feedback",
+    "COMM_PASSIVE_04": "feedback",
+    "COMM_AGGRESSIVE_04": "feedback",
+    "COMM_PASSIVE_AGGRESSIVE_04": "feedback",
+    "COMM_ASSERTIVE_05": "declining",
+    "COMM_PASSIVE_05": "declining",
+    "COMM_AGGRESSIVE_05": "declining",
+    "COMM_PASSIVE_AGGRESSIVE_05": "declining",
+    "COMM_ASSERTIVE_06": "broken-agreement",
+    "COMM_PASSIVE_06": "broken-agreement",
+    "COMM_AGGRESSIVE_06": "broken-agreement",
+    "COMM_PASSIVE_AGGRESSIVE_06": "broken-agreement"
+  },
+  "scoring": {
+    "scoringVersion": "1.0.0",
+    "minimumRatedItems": 4,
+    "all24SelectionsRequired": true,
+    "method": "Fourindependentmeans1..5,6itemsperpattern,allreversefalse;NAexcludednot0/imputed. Afterall24selections,min4of6ratedperpatternforone-decimalmean,otherwiseexplicitinsufficient. Originalinformationcompletenessrule,notpsychometriccutoff. All4full9sectionreportsalwaysshown,nooverallskilltotal/primarystyle/ranking/populationpercentile/diagnosis/automaticabilityjobfitclaims.",
+    "psychometricValidationCompleted": false,
+    "reverseItems": []
+  },
+  "references": [
+    {
+      "url": "https://www.healthywa.wa.gov.au/Articles/A_E/Assertive-communication",
+      "scope": "Primaryhealthagencycommunicationdefinitions153-213read,notourscorevalidation/clinicalbenefitclaim;noexamplesorworksheetitemscopied"
+    },
+    {
+      "url": "https://ivy.ucsf.edu/content/menu-c-effective-communication",
+      "scope": "Primaryuniversityfourstyleeducationalexamples24-36read;conceptcategoriesonly,nosourceexamplesorquestionbankcopied"
+    }
+  ]
+}

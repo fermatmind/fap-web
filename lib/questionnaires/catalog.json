@@ -395,5 +395,30 @@
       "avoidant",
       "fearful"
     ]
+  },
+  {
+    "slug": "communication-style",
+    "code": "COMMUNICATION_STYLES",
+    "version": "1.0.0",
+    "updated": "2026-10-25",
+    "category": "social",
+    "title": {
+      "zh": "沟通风格测试",
+      "en": "Communication Style Test"
+    },
+    "description": {
+      "zh": "用24条原创频率自评，分别探索坚定表达、被动表达、强硬压过他人与间接抗拒。四项均分和四份完整解释免费，无需注册；附具体说法、取舍和小尝试，不评定能力或录用。",
+      "en": "Explore assertive, passive, aggressive and passive-aggressive responses with 24 original ratings. Get four separate means and full free guides with examples. No signup or skill verdict."
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_communication_patterns_frequency_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "assertive",
+      "passive",
+      "aggressive",
+      "passive-aggressive"
+    ]
   }
 ]
