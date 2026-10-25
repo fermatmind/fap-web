@@ -1,4 +1,5 @@
 import { llmsGeneratorFingerprint } from "./scripts/release/llms-generator-fingerprint.mjs";
+import { HTML_LIMITED_BOT_UA_RE } from "next/dist/shared/lib/router/utils/html-bots.js";
 
 /** @type {import('next').NextConfig} */
 const apiOrigin = (process.env.NEXT_PUBLIC_API_URL || "https://api.fermatmind.com").replace(/\/$/, "");
@@ -148,6 +149,8 @@ const historicalTestExact301Redirects = [
 
 const nextConfig = {
   env: { FERMATMIND_LLMS_FULL_GENERATOR_VERSION: llmsGeneratorFingerprint() },
+  // Keep canonical and hreflang in Google's initial head without replacing Next's bot defaults.
+  htmlLimitedBots: new RegExp(`${HTML_LIMITED_BOT_UA_RE.source}|Googlebot`, HTML_LIMITED_BOT_UA_RE.flags),
   agentRules: false,
   output: "standalone",
   outputFileTracingIncludes: {
