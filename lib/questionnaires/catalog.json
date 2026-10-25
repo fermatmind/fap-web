@@ -833,5 +833,48 @@
       "ares",
       "artemis"
     ]
+  },
+  {
+    "slug": "which-tarot-card-are-you",
+    "code": "TAROT_ARCANA_REFLECTION",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "metaphor",
+    "title": {
+      "zh": "你是哪张塔罗牌测试",
+      "en": "Which Tarot Card Are You?"
+    },
+    "description": {
+      "zh": "你是哪张塔罗牌？22道原创偏好题比较22张大阿尔卡那，全部最高并列与完整结果免费读，无需注册。不是生日计算、抽牌或占卜，不预告健康、财富或未来。",
+      "en": "Which tarot card are you? Take 22 original questions and read full guides for all 22 Major Arcana free. Keep highest ties, with no signup or fortune-telling."
+    },
+    "minutes": 7,
+    "collection": "explore",
+    "formCode": "fm_tarot_arcana_preferences_22",
+    "questionCount": 22,
+    "resultSlugs": [
+      "fool",
+      "magician",
+      "high-priestess",
+      "empress",
+      "emperor",
+      "hierophant",
+      "lovers",
+      "chariot",
+      "strength",
+      "hermit",
+      "wheel-of-fortune",
+      "justice",
+      "hanged-man",
+      "death",
+      "temperance",
+      "devil",
+      "tower",
+      "star",
+      "moon",
+      "sun",
+      "judgement",
+      "world"
+    ]
   }
 ]

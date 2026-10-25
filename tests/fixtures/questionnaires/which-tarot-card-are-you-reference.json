@@ -1,0 +1,1280 @@
+{
+  "formCode": "fm_tarot_arcana_preferences_22",
+  "origin": "FermatMind original22ENZH4choice/22MajorArcana contemporarysymbolicpreferences/notbirthcardcalculator/shuffle/forecast/psychometricmeasure",
+  "directions": [
+    {
+      "id": "fool",
+      "title": {
+        "zh": "愚人：带着好奇开始",
+        "en": "The Fool: Beginning with Curiosity"
+      },
+      "comparisons": 4
+    },
+    {
+      "id": "magician",
+      "title": {
+        "zh": "魔术师：使用手边材料",
+        "en": "The Magician: Using Available Materials"
+      },
+      "comparisons": 4
+    },
+    {
+      "id": "high-priestess",
+      "title": {
+        "zh": "女祭司：给未明之处留空间",
+        "en": "The High Priestess: Room for What Is Unclear"
+      },
+      "comparisons": 4
+    },
+    {
+      "id": "empress",
+      "title": {
+        "zh": "皇后：照顾生长的条件",
+        "en": "The Empress: Conditions for Growth"
+      },
+      "comparisons": 4
+    },
+    {
+      "id": "emperor",
+      "title": {
+        "zh": "皇帝：建立可用的安排",
+        "en": "The Emperor: Workable Structure"
+      },
+      "comparisons": 4
+    },
+    {
+      "id": "hierophant",
+      "title": {
+        "zh": "教皇：理解与传递已有做法",
+        "en": "The Hierophant: Learning and Passing On Practice"
+      },
+      "comparisons": 4
+    },
+    {
+      "id": "lovers",
+      "title": {
+        "zh": "恋人：表达重视与共同选择",
+        "en": "The Lovers: Values and Willing Connection"
+      },
+      "comparisons": 4
+    },
+    {
+      "id": "chariot",
+      "title": {
+        "zh": "战车：选定方向与下一步",
+        "en": "The Chariot: Direction and a Next Step"
+      },
+      "comparisons": 4
+    },
+    {
+      "id": "strength",
+      "title": {
+        "zh": "力量：温和表达与明确限度",
+        "en": "Strength: Gentleness with Limits"
+      },
+      "comparisons": 4
+    },
+    {
+      "id": "hermit",
+      "title": {
+        "zh": "隐士：留一段独自思考",
+        "en": "The Hermit: Time to Think Independently"
+      },
+      "comparisons": 4
+    },
+    {
+      "id": "wheel-of-fortune",
+      "title": {
+        "zh": "命运之轮：看见条件正在变化",
+        "en": "Wheel of Fortune: Changing Conditions"
+      },
+      "comparisons": 4
+    },
+    {
+      "id": "justice",
+      "title": {
+        "zh": "正义：核对事实与公平条件",
+        "en": "Justice: Evidence and Fair Conditions"
+      },
+      "comparisons": 4
+    },
+    {
+      "id": "hanged-man",
+      "title": {
+        "zh": "倒吊人：暂缓与换个角度",
+        "en": "The Hanged Man: Pause and Another View"
+      },
+      "comparisons": 4
+    },
+    {
+      "id": "death",
+      "title": {
+        "zh": "死神：让一个普通阶段结束",
+        "en": "Death: Allowing an Ordinary Phase to End"
+      },
+      "comparisons": 4
+    },
+    {
+      "id": "temperance",
+      "title": {
+        "zh": "节制：尝试合适的组合",
+        "en": "Temperance: Trying a Workable Blend"
+      },
+      "comparisons": 4
+    },
+    {
+      "id": "devil",
+      "title": {
+        "zh": "恶魔：分清想要与实际限制",
+        "en": "The Devil: Wants and Real Constraints"
+      },
+      "comparisons": 4
+    },
+    {
+      "id": "tower",
+      "title": {
+        "zh": "高塔：重查不合用的假设",
+        "en": "The Tower: Rechecking an Assumption"
+      },
+      "comparisons": 4
+    },
+    {
+      "id": "star",
+      "title": {
+        "zh": "星星：给可能性一点空间",
+        "en": "The Star: Room for Possibility"
+      },
+      "comparisons": 4
+    },
+    {
+      "id": "moon",
+      "title": {
+        "zh": "月亮：辨认未知与想象",
+        "en": "The Moon: Uncertainty and Imagination"
+      },
+      "comparisons": 4
+    },
+    {
+      "id": "sun",
+      "title": {
+        "zh": "太阳：留意普通的愉快时刻",
+        "en": "The Sun: An Ordinary Moment of Enjoyment"
+      },
+      "comparisons": 4
+    },
+    {
+      "id": "judgement",
+      "title": {
+        "zh": "审判：回看与重新选择",
+        "en": "Judgement: Review and Choose Again"
+      },
+      "comparisons": 4
+    },
+    {
+      "id": "world",
+      "title": {
+        "zh": "世界：看见已经完成的部分",
+        "en": "The World: Recognising Completion"
+      },
+      "comparisons": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "ARCANA_01",
+      "prompt": {
+        "zh": "给一个自选小项目安排开头，你更想优先采用哪种做法？",
+        "en": "When opening a small project you chose, which approach would you prefer first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "允许自己不熟悉，先接触一个安全的新小事。",
+            "en": "Allow myself to be unfamiliar and approach a safe new activity."
+          },
+          "directionId": "fool"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把一个想法变成可看见的草稿，不等所有工具齐全。",
+            "en": "Make an idea into a visible draft without waiting for every tool."
+          },
+          "directionId": "magician"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "在已有条件里选一条路线，约定何时重新检查。",
+            "en": "Choose a route within present conditions and set a point to review it."
+          },
+          "directionId": "chariot"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "结束一种自己已经不想维持的低风险小安排。",
+            "en": "End a low-stakes small arrangement I no longer wish to maintain."
+          },
+          "directionId": "death"
+        }
+      ]
+    },
+    {
+      "id": "ARCANA_02",
+      "prompt": {
+        "zh": "一件普通小事还没有明确方向，你更愿意先做什么？",
+        "en": "An ordinary matter has no clear direction yet. What would you prefer to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "看看手边已有的东西，拼出一个能用的小样。",
+            "en": "Look at what is already available and assemble a usable small sample."
+          },
+          "directionId": "magician"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给一个暂时说不明白的问题留下一处空白。",
+            "en": "Leave space for a question I cannot yet put clearly into words."
+          },
+          "directionId": "high-priestess"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "选择可以耐心进行的一小步，需要时停下。",
+            "en": "Choose a small step that allows patience and stop when needed."
+          },
+          "directionId": "strength"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "给不同节奏找到可以共存的部分，同时保留各自界限。",
+            "en": "Find room for different paces to coexist while keeping individual boundaries."
+          },
+          "directionId": "temperance"
+        }
+      ]
+    },
+    {
+      "id": "ARCANA_03",
+      "prompt": {
+        "zh": "整理自己的一点空闲时间，你更想为哪件事留空间？",
+        "en": "While arranging a little free time, which activity would you prefer to make room for?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先留意尚未说清的感受，不急着给它下结论。",
+            "en": "Notice a feeling that is not yet clear without rushing to conclude."
+          },
+          "directionId": "high-priestess"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "调整空间或材料，让自己和参与者用起来舒服些。",
+            "en": "Adjust the setting or materials for the comfort of myself and participants."
+          },
+          "directionId": "empress"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "暂时减少讨论，弄清自己究竟想回答哪个问题。",
+            "en": "Pause discussion briefly to clarify the question I want to answer."
+          },
+          "directionId": "hermit"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "检查一项自选投入是否仍合自己需要，而不靠羞耻驱动。",
+            "en": "Check whether a voluntary commitment still fits my needs without using shame."
+          },
+          "directionId": "devil"
+        }
+      ]
+    },
+    {
+      "id": "ARCANA_04",
+      "prompt": {
+        "zh": "回看一个自愿参与的小活动，你更想先留意什么？",
+        "en": "Looking back on a voluntary small activity, what would you prefer to notice first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "照料一件自己愿意维持的小事，看看它需要什么。",
+            "en": "Tend something small I want to sustain and notice what it needs."
+          },
+          "directionId": "empress"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先建立一份简明约定，让下一步容易照着做。",
+            "en": "Make a brief agreement that gives the next step a usable structure."
+          },
+          "directionId": "emperor"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "区分自己的决定和刚好发生的事情，分别看待。",
+            "en": "Separate my decisions from circumstances that happened around them."
+          },
+          "directionId": "wheel-of-fortune"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "遇到不合用的结构，比较局部修补与重新安排。",
+            "en": "Compare a local repair with rearrangement when a structure is not useful."
+          },
+          "directionId": "tower"
+        }
+      ]
+    },
+    {
+      "id": "ARCANA_05",
+      "prompt": {
+        "zh": "一个普通安排可以重新调整，你更愿意怎样开始？",
+        "en": "An ordinary arrangement can be adjusted. How would you prefer to begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把一个普通安排的范围和职责写清楚。",
+            "en": "Write down the scope and responsibilities of an ordinary arrangement."
+          },
+          "directionId": "emperor"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把自己已经学会的一小段方法讲清楚，供人自选。",
+            "en": "Explain a small method I have learned for others to use if they wish."
+          },
+          "directionId": "hierophant"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把已知、推测和还缺的信息分开，不急着评价人。",
+            "en": "Separate knowledge, inference and missing information before judging anyone."
+          },
+          "directionId": "justice"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "承认当前并不轻松，也看看有哪些实际可用的支持。",
+            "en": "Acknowledge current difficulty and notice support that is actually available."
+          },
+          "directionId": "star"
+        }
+      ]
+    },
+    {
+      "id": "ARCANA_06",
+      "prompt": {
+        "zh": "有人愿意与你交流一种做法，你更想先关注哪一项？",
+        "en": "Someone is willing to discuss an approach with you. What would you prefer to attend to first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "了解一种已有做法的来由，再决定怎样使用。",
+            "en": "Learn why an existing practice developed before deciding how to use it."
+          },
+          "directionId": "hierophant"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把一次自愿合作的共同需要与各自意愿说清。",
+            "en": "Clarify shared needs and individual wishes in a voluntary collaboration."
+          },
+          "directionId": "lovers"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先换一种提问方式，不急着沿原路线继续。",
+            "en": "Try asking the question differently before continuing the original route."
+          },
+          "directionId": "hanged-man"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "面对模糊信息，先说哪些未知，不急着解释别人的内心。",
+            "en": "State what is unknown in ambiguous information rather than explain another person’s mind."
+          },
+          "directionId": "moon"
+        }
+      ]
+    },
+    {
+      "id": "ARCANA_07",
+      "prompt": {
+        "zh": "为一件自己在意的小事作选择，你更愿意从哪里入手？",
+        "en": "When choosing around a small matter you care about, where would you prefer to start?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先说明自己重视什么，再听共同参与者愿意怎样选。",
+            "en": "State what matters to me and hear what willing participants choose."
+          },
+          "directionId": "lovers"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把分散的注意放回这次想完成的一件普通小事。",
+            "en": "Return scattered attention to one ordinary thing I want to finish now."
+          },
+          "directionId": "chariot"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "承认某个自选小计划已到一段落，再决定下一件事。",
+            "en": "Acknowledge a completed phase of a small chosen plan before deciding what is next."
+          },
+          "directionId": "death"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让自己享受一个轻松片刻，不必把气氛带给所有人。",
+            "en": "Enjoy an easy moment without taking responsibility for everyone’s mood."
+          },
+          "directionId": "sun"
+        }
+      ]
+    },
+    {
+      "id": "ARCANA_08",
+      "prompt": {
+        "zh": "接下来一小段时间由自己安排，你更想采用哪种方式？",
+        "en": "You can arrange the next short period yourself. Which approach would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "给一个自选小目标确定方向，再走一个可行步骤。",
+            "en": "Choose a direction for a small goal and take one workable step."
+          },
+          "directionId": "chariot"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给一个普通难处少一点催促，不靠硬撑来完成。",
+            "en": "Reduce pressure around an ordinary difficulty rather than pushing through."
+          },
+          "directionId": "strength"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "保留两个有用部分，不必先宣布哪一个完全胜出。",
+            "en": "Keep two useful contributions without first declaring one a complete winner."
+          },
+          "directionId": "temperance"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把经验整理成下一次可用的提醒，不给整个人下判词。",
+            "en": "Turn experience into a usable reminder rather than a verdict on my whole self."
+          },
+          "directionId": "judgement"
+        }
+      ]
+    },
+    {
+      "id": "ARCANA_09",
+      "prompt": {
+        "zh": "一项低风险小任务有调整余地，你更想先做什么？",
+        "en": "A low-stakes task has room for adjustment. What would you prefer to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用温和而清楚的方式表达需要，也保留自己的限度。",
+            "en": "Express a need gently and clearly while keeping my own limits."
+          },
+          "directionId": "strength"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先用自己的话写出想法，再决定是否征求意见。",
+            "en": "Write my thoughts in my own words before deciding whether to seek input."
+          },
+          "directionId": "hermit"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "承认自己有某个愿望，也看看哪些部分并不能随意选。",
+            "en": "Acknowledge a wish and identify parts that are not freely changeable."
+          },
+          "directionId": "devil"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "承认这一段已经够了，后面是否开始由自己再选。",
+            "en": "Recognise that this phase is enough and choose later whether to begin another."
+          },
+          "directionId": "world"
+        }
+      ]
+    },
+    {
+      "id": "ARCANA_10",
+      "prompt": {
+        "zh": "想更清楚地理解一次普通经历，你更愿意怎样处理？",
+        "en": "To understand an ordinary experience more clearly, what would you prefer to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "为一个自己在意的问题留一段独自整理的时间。",
+            "en": "Set aside some independent thinking time for a question that matters to me."
+          },
+          "directionId": "hermit"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给安排留一点变动余地，不假定情况一直相同。",
+            "en": "Leave room for change without assuming conditions will remain the same."
+          },
+          "directionId": "wheel-of-fortune"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把发现的新信息说清，讨论哪些部分真的需要重做。",
+            "en": "State newly discovered information and discuss what actually needs reworking."
+          },
+          "directionId": "tower"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "从一个可以撤回的小开头了解自己还想不想继续。",
+            "en": "Use a reversible beginning to discover whether I want to continue."
+          },
+          "directionId": "fool"
+        }
+      ]
+    },
+    {
+      "id": "ARCANA_11",
+      "prompt": {
+        "zh": "一个自选计划的条件与之前不同，你更想先留意哪一项？",
+        "en": "Conditions for a chosen plan differ from before. What would you prefer to consider first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "注意哪些外部条件变了，再调整自己能选的部分。",
+            "en": "Notice changed external conditions and adjust the parts I can choose."
+          },
+          "directionId": "wheel-of-fortune"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看看共同规则有没有忽略参与者不同的实际条件。",
+            "en": "Check whether a shared rule overlooks participants’ different circumstances."
+          },
+          "directionId": "justice"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给一个暂时搁置的想法留一点余地，不必立刻投入。",
+            "en": "Leave room for a deferred idea without needing to act on it immediately."
+          },
+          "directionId": "star"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把散开的几个部分接起来，看看能形成什么。",
+            "en": "Connect a few separate parts and see what can be made."
+          },
+          "directionId": "magician"
+        }
+      ]
+    },
+    {
+      "id": "ARCANA_12",
+      "prompt": {
+        "zh": "面对一份尚可修改的小安排，你更愿意先采用哪种做法？",
+        "en": "A small arrangement is still open to revision. Which approach would you prefer first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先核对发生了什么，再讨论怎样处理才合适。",
+            "en": "Check what happened before discussing an appropriate response."
+          },
+          "directionId": "justice"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "允许普通小问题暂时未定，给自己一个重看的时点。",
+            "en": "Allow a small ordinary question to remain open until a chosen review point."
+          },
+          "directionId": "hanged-man"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "注意一个普通场景带来的联想，不把联想当预感。",
+            "en": "Notice associations from an ordinary scene without treating them as predictions."
+          },
+          "directionId": "moon"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让自己先听听内在反应，再决定是否需要说出来。",
+            "en": "Attend to my own response before deciding whether to express it."
+          },
+          "directionId": "high-priestess"
+        }
+      ]
+    },
+    {
+      "id": "ARCANA_13",
+      "prompt": {
+        "zh": "一件普通事情暂时没有定论，你更想给什么留空间？",
+        "en": "An ordinary matter is temporarily unresolved. What would you prefer to leave room for?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "暂缓一个不急的决定，试着从另一个位置看问题。",
+            "en": "Pause a non-urgent decision and consider another point of view."
+          },
+          "directionId": "hanged-man"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "整理不再需要的个人草稿，保留必要记录后归档。",
+            "en": "Organise personal drafts I no longer need and archive necessary records."
+          },
+          "directionId": "death"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "为一个自选的小成果留一点庆祝，不比较别人。",
+            "en": "Make room to celebrate a small chosen effort without comparison."
+          },
+          "directionId": "sun"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "为已有的小成果提供合适条件，不急着催它长大。",
+            "en": "Provide conditions for a small existing effort without rushing its growth."
+          },
+          "directionId": "empress"
+        }
+      ]
+    },
+    {
+      "id": "ARCANA_14",
+      "prompt": {
+        "zh": "整理一个普通阶段留下的东西，你更愿意先做哪一项？",
+        "en": "When organising what remains from an ordinary phase, what would you prefer to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "给一件已经完成的普通小事明确收尾，不强留后续。",
+            "en": "Clearly finish an ordinary completed task without inventing further obligations."
+          },
+          "directionId": "death"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "调整时间或材料的比例，寻找实际舒服的安排。",
+            "en": "Adjust proportions of time or materials toward a workable arrangement."
+          },
+          "directionId": "temperance"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给已经改变的需要重新选择，而不反复处罚过去的自己。",
+            "en": "Choose again for changed needs without repeatedly punishing my past self."
+          },
+          "directionId": "judgement"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "确认哪些边界已经同意，避免大家各猜各的。",
+            "en": "Clarify the agreed boundaries rather than leaving everyone to guess."
+          },
+          "directionId": "emperor"
+        }
+      ]
+    },
+    {
+      "id": "ARCANA_15",
+      "prompt": {
+        "zh": "为下一次自愿参与的小活动作准备，你更想关注什么？",
+        "en": "Preparing for another voluntary small activity, what would you prefer to focus on?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把两种可兼容的普通做法各取一部分，小范围试用。",
+            "en": "Try a small combination of two compatible everyday approaches."
+          },
+          "directionId": "temperance"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留意一个普通习惯带来的满足，以及它实际花了什么。",
+            "en": "Notice the satisfaction of an ordinary habit and what it actually costs."
+          },
+          "directionId": "devil"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "为一件完成的普通小事记下成果与仍然未知的地方。",
+            "en": "Record what an ordinary completed task produced and what remains unknown."
+          },
+          "directionId": "world"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "记录一个值得保留的做法，也标明何时不适用。",
+            "en": "Record a practice worth keeping and note when it does not apply."
+          },
+          "directionId": "hierophant"
+        }
+      ]
+    },
+    {
+      "id": "ARCANA_16",
+      "prompt": {
+        "zh": "想重新看看自己的一个普通选择，你更愿意从哪一项入手？",
+        "en": "To reconsider an ordinary choice of your own, where would you prefer to begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把自己想要什么与现实限制分别写清，不急着责备。",
+            "en": "Name what I want and the real constraints separately, without rushing to blame."
+          },
+          "directionId": "devil"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "承认一份小计划需要修改，不为了保住样子继续。",
+            "en": "Acknowledge a needed revision to a small plan rather than preserve appearances."
+          },
+          "directionId": "tower"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把一次新的接触当体验，不急着证明自己已经会了。",
+            "en": "Treat a new encounter as experience without needing to prove competence."
+          },
+          "directionId": "fool"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "为一段自己珍惜的交流保留真实选择与说不的空间。",
+            "en": "Keep real choice and room to decline in a conversation I value."
+          },
+          "directionId": "lovers"
+        }
+      ]
+    },
+    {
+      "id": "ARCANA_17",
+      "prompt": {
+        "zh": "发现一个小计划不完全合用，你更想优先采用哪种做法？",
+        "en": "A small plan does not fit completely. Which approach would you prefer to prioritise?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "当普通安排与事实不符时，先重查原来的假设。",
+            "en": "Recheck an assumption when an ordinary arrangement no longer fits the facts."
+          },
+          "directionId": "tower"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "不要求保证好结果，也允许自己期待一件小事。",
+            "en": "Allow a small hope without requiring a guaranteed good outcome."
+          },
+          "directionId": "star"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给现有材料找一种实际用途，做出第一个版本。",
+            "en": "Find a practical use for existing materials and make a first version."
+          },
+          "directionId": "magician"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "弄清这次要去哪里，再决定愿意投入多少精力。",
+            "en": "Clarify where I want to go before deciding how much effort to offer."
+          },
+          "directionId": "chariot"
+        }
+      ]
+    },
+    {
+      "id": "ARCANA_18",
+      "prompt": {
+        "zh": "给一件暂时搁置的普通小事一点时间，你更想做什么？",
+        "en": "You give some time to an ordinary matter set aside earlier. What would you prefer to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "在已知条件里留意一个仍可能去做的普通小事。",
+            "en": "Notice one ordinary possibility still available within known conditions."
+          },
+          "directionId": "star"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "允许还不确定，同时列出可以实际核对的问题。",
+            "en": "Allow uncertainty while listing questions that can actually be checked."
+          },
+          "directionId": "moon"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把隐约感觉记成待核的问题，而不是当作已经知道。",
+            "en": "Record a vague impression as a question to check rather than knowledge."
+          },
+          "directionId": "high-priestess"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "认真对待自己的反应，不用强硬语气才算说清楚。",
+            "en": "Take my response seriously without needing a harsh tone to make it clear."
+          },
+          "directionId": "strength"
+        }
+      ]
+    },
+    {
+      "id": "ARCANA_19",
+      "prompt": {
+        "zh": "一段普通信息让你产生多种想法，你更愿意怎样回应？",
+        "en": "Some ordinary information brings several ideas to mind. How would you prefer to respond?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把看见的事实和自己想象的故事分开记下。",
+            "en": "Record observed facts separately from the story I imagine around them."
+          },
+          "directionId": "moon"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "如果自己愿意，分享一个普通好消息或愉快细节。",
+            "en": "Share ordinary good news or a pleasant detail if I wish."
+          },
+          "directionId": "sun"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留意一件事慢慢形成所需的日常照料与时间。",
+            "en": "Attend to everyday care and time needed for something to develop."
+          },
+          "directionId": "empress"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "在可行的安静时段回看已有信息，而不急着回应。",
+            "en": "Review available information in a workable quiet period without rushing a reply."
+          },
+          "directionId": "hermit"
+        }
+      ]
+    },
+    {
+      "id": "ARCANA_20",
+      "prompt": {
+        "zh": "为自己留一个可自由选择的片刻，你更想采用哪种方式？",
+        "en": "You leave yourself a moment of free choice. Which approach would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "留意一件此刻确实喜欢的小事，不要求一直快乐。",
+            "en": "Notice something small I actually enjoy without requiring constant happiness."
+          },
+          "directionId": "sun"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "承认一个可以修正的地方，再选择是否作小调整。",
+            "en": "Acknowledge a revisable point and decide whether to make a small adjustment."
+          },
+          "directionId": "judgement"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "让重复的小事有可查的顺序，同时保留调整方式。",
+            "en": "Give a recurring small task a clear sequence and a way to adjust it."
+          },
+          "directionId": "emperor"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "遇到普通变动时先重查条件，再决定是否换办法。",
+            "en": "Recheck conditions after an ordinary change before choosing another approach."
+          },
+          "directionId": "wheel-of-fortune"
+        }
+      ]
+    },
+    {
+      "id": "ARCANA_21",
+      "prompt": {
+        "zh": "回看一件自己做过的小事，你更愿意先关注哪一项？",
+        "en": "Looking back on a small thing you did, what would you prefer to attend to first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "回看一次普通决定，分清当时知道什么与现在新增什么。",
+            "en": "Review an ordinary decision and separate past knowledge from new information."
+          },
+          "directionId": "judgement"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "回看一个小过程的整体，不急着再加新的任务。",
+            "en": "Review a small process as a whole without immediately adding more tasks."
+          },
+          "directionId": "world"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "寻找可访问的说明或经验，理解别人怎样做过。",
+            "en": "Find accessible instructions or experience to understand an established approach."
+          },
+          "directionId": "hierophant"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "重新核对自己的依据，也给别人说明情况的机会。",
+            "en": "Recheck my own grounds and leave others room to explain their situation."
+          },
+          "directionId": "justice"
+        }
+      ]
+    },
+    {
+      "id": "ARCANA_22",
+      "prompt": {
+        "zh": "为一个普通过程作最后的整理，你更想怎样处理？",
+        "en": "Giving an ordinary process a final review, how would you prefer to handle it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把已做完的几部分串起来，确认这次在哪里结束。",
+            "en": "Connect completed parts and identify where this attempt ends."
+          },
+          "directionId": "world"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给一个没有标准开头的小点子留出试探空间。",
+            "en": "Leave room to explore an idea without a prescribed opening."
+          },
+          "directionId": "fool"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "检查自己的选择是否还符合当前真正重视的事。",
+            "en": "Check whether a choice still fits what matters to me now."
+          },
+          "directionId": "lovers"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把已经卡住的安排停一小会，看看能否重新理解。",
+            "en": "Briefly pause a stuck arrangement and see whether it can be understood differently."
+          },
+          "directionId": "hanged-man"
+        }
+      ]
+    }
+  ],
+  "cardNumbering": [
+    {
+      "id": "fool",
+      "number": 0,
+      "title": {
+        "zh": "愚人：带着好奇开始",
+        "en": "The Fool: Beginning with Curiosity"
+      }
+    },
+    {
+      "id": "magician",
+      "number": 1,
+      "title": {
+        "zh": "魔术师：使用手边材料",
+        "en": "The Magician: Using Available Materials"
+      }
+    },
+    {
+      "id": "high-priestess",
+      "number": 2,
+      "title": {
+        "zh": "女祭司：给未明之处留空间",
+        "en": "The High Priestess: Room for What Is Unclear"
+      }
+    },
+    {
+      "id": "empress",
+      "number": 3,
+      "title": {
+        "zh": "皇后：照顾生长的条件",
+        "en": "The Empress: Conditions for Growth"
+      }
+    },
+    {
+      "id": "emperor",
+      "number": 4,
+      "title": {
+        "zh": "皇帝：建立可用的安排",
+        "en": "The Emperor: Workable Structure"
+      }
+    },
+    {
+      "id": "hierophant",
+      "number": 5,
+      "title": {
+        "zh": "教皇：理解与传递已有做法",
+        "en": "The Hierophant: Learning and Passing On Practice"
+      }
+    },
+    {
+      "id": "lovers",
+      "number": 6,
+      "title": {
+        "zh": "恋人：表达重视与共同选择",
+        "en": "The Lovers: Values and Willing Connection"
+      }
+    },
+    {
+      "id": "chariot",
+      "number": 7,
+      "title": {
+        "zh": "战车：选定方向与下一步",
+        "en": "The Chariot: Direction and a Next Step"
+      }
+    },
+    {
+      "id": "strength",
+      "number": 8,
+      "title": {
+        "zh": "力量：温和表达与明确限度",
+        "en": "Strength: Gentleness with Limits"
+      }
+    },
+    {
+      "id": "hermit",
+      "number": 9,
+      "title": {
+        "zh": "隐士：留一段独自思考",
+        "en": "The Hermit: Time to Think Independently"
+      }
+    },
+    {
+      "id": "wheel-of-fortune",
+      "number": 10,
+      "title": {
+        "zh": "命运之轮：看见条件正在变化",
+        "en": "Wheel of Fortune: Changing Conditions"
+      }
+    },
+    {
+      "id": "justice",
+      "number": 11,
+      "title": {
+        "zh": "正义：核对事实与公平条件",
+        "en": "Justice: Evidence and Fair Conditions"
+      }
+    },
+    {
+      "id": "hanged-man",
+      "number": 12,
+      "title": {
+        "zh": "倒吊人：暂缓与换个角度",
+        "en": "The Hanged Man: Pause and Another View"
+      }
+    },
+    {
+      "id": "death",
+      "number": 13,
+      "title": {
+        "zh": "死神：让一个普通阶段结束",
+        "en": "Death: Allowing an Ordinary Phase to End"
+      }
+    },
+    {
+      "id": "temperance",
+      "number": 14,
+      "title": {
+        "zh": "节制：尝试合适的组合",
+        "en": "Temperance: Trying a Workable Blend"
+      }
+    },
+    {
+      "id": "devil",
+      "number": 15,
+      "title": {
+        "zh": "恶魔：分清想要与实际限制",
+        "en": "The Devil: Wants and Real Constraints"
+      }
+    },
+    {
+      "id": "tower",
+      "number": 16,
+      "title": {
+        "zh": "高塔：重查不合用的假设",
+        "en": "The Tower: Rechecking an Assumption"
+      }
+    },
+    {
+      "id": "star",
+      "number": 17,
+      "title": {
+        "zh": "星星：给可能性一点空间",
+        "en": "The Star: Room for Possibility"
+      }
+    },
+    {
+      "id": "moon",
+      "number": 18,
+      "title": {
+        "zh": "月亮：辨认未知与想象",
+        "en": "The Moon: Uncertainty and Imagination"
+      }
+    },
+    {
+      "id": "sun",
+      "number": 19,
+      "title": {
+        "zh": "太阳：留意普通的愉快时刻",
+        "en": "The Sun: An Ordinary Moment of Enjoyment"
+      }
+    },
+    {
+      "id": "judgement",
+      "number": 20,
+      "title": {
+        "zh": "审判：回看与重新选择",
+        "en": "Judgement: Review and Choose Again"
+      }
+    },
+    {
+      "id": "world",
+      "number": 21,
+      "title": {
+        "zh": "世界：看见已经完成的部分",
+        "en": "The World: Recognising Completion"
+      }
+    }
+  ],
+  "scoring": {
+    "required": 22,
+    "choice": "one offered option adds1 to its cardtheme",
+    "total": 22,
+    "exposureEach": 4,
+    "perPosition": 1,
+    "highest": "every highest count retains a full guide; no automatic secondary",
+    "allA": "22cardthemes exactly1each/all22fullguides",
+    "meaning": "relative distribution among offered choices/no percentages/norms/traits/prediction",
+    "verificationPlan": "all22uniquehighestwitnesses+all22tie+boundedindependentsourceanswercases/invaliddraftboundaries;not4^22exhaustion/allhighestsets/psychvalidation"
+  },
+  "scope": "22selectedMajorArcanaWaiteSmithnumberorderStrengthVIIIJusticeXI/noseventyeightcards/modernoriginalthemes/noartquotescompetitorbankorbody/noDOBordivination",
+  "instructions": {
+    "zh": "本版是22题原创偏好问卷，借22张大阿尔卡那作当代象征标签，不是生日牌计算、随机抽牌或占卜。每题从四种普通、自愿、低风险的做法中选当前更想采用的一项；每张牌在全卷出现4次、四个位置各1次。完成22题后比较本题组次数，所有最高并列都显示完整说明；全选第一项会22张各1次，全都保留。名字不评价好坏，死神、高塔、恶魔等不预告任何事件，也不判断健康、道德、能力或命运。可以停止或重测，没有必须符合的牌型。",
+    "en": "This is an original 22-question preference quiz using the 22 Major Arcana as contemporary symbolic labels, not a birth-card calculation, random draw or divination. Choose the ordinary, voluntary, low-stakes approach you currently prefer from four options per question. Each card appears four times, once in each position. After all 22 choices, compare counts within this set and read every highest-tied guide. Choosing the first option throughout gives one each and retains all 22. Names set no good–bad hierarchy: Death, The Tower and The Devil forecast no events and assess neither health, morality, ability nor destiny. You may stop or retake without needing to fit a card."
+  }
+}
