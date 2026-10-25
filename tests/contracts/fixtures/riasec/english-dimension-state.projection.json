@@ -1,0 +1,838 @@
+{
+  "provenance": {
+    "synthetic": true,
+    "compiler_version": "1.3.0",
+    "source_hash": "44af265e9756c268c89fd219b7a859aa7492d805ca86d71a547584c5a2e1849c",
+    "compiled_hash": "da80ad53486bfd001b3856ed408eeb76d04b864dce04f28421157867ccb2d94b"
+  },
+  "projections": {
+    "agreement": {
+      "schema_version": "riasec.public_projection.v2",
+      "scale_code": "RIASEC",
+      "locale": "en",
+      "private_result_authority": null,
+      "scores": {
+        "score_kind": "dimension_scores_0_100",
+        "dimensions": [
+          {
+            "code": "R",
+            "label": "Realistic",
+            "score": 85
+          },
+          {
+            "code": "I",
+            "label": "Investigative",
+            "score": 70
+          },
+          {
+            "code": "A",
+            "label": "Artistic",
+            "score": 55
+          },
+          {
+            "code": "S",
+            "label": "Social",
+            "score": 40
+          },
+          {
+            "code": "E",
+            "label": "Enterprising",
+            "score": 25
+          },
+          {
+            "code": "C",
+            "label": "Conventional",
+            "score": 10
+          }
+        ]
+      },
+      "form": {
+        "form_code": "riasec_140",
+        "question_count": 140,
+        "form_kind": "enhanced_contextual",
+        "score_space_version": "riasec_140_likert5_activity_context_space.v1",
+        "compare_compatibility_group": "RIASEC:riasec_140:riasec_140_likert5_activity_context_space.v1",
+        "cross_form_comparable": false,
+        "raw_score_delta_allowed": false,
+        "cross_form_interpretation": "emphasis_difference_only"
+      },
+      "interpretation_state": {
+        "interpretation_rule_version": "riasec_interpretation_rule_spec_v2",
+        "profile_shape": "clear_code",
+        "profile_shape_version": "riasec_profile_shape_v2_0",
+        "clarity_label": "high",
+        "near_tie_state": {
+          "state": "none",
+          "dimensions": [],
+          "threshold_rule": "adjacent_gap_lt_5_points_provisional"
+        },
+        "alternate_code": {
+          "show": false,
+          "codes": [],
+          "reason": null,
+          "display_boundary": "Alternate code is a reading aid, not a second measured result."
+        },
+        "alternate_code_reason": null,
+        "tie_display_v1": {
+          "schema_version": "riasec.tie_display.v1",
+          "kind": "none",
+          "position": "none",
+          "dimensions": [],
+          "groups": [],
+          "ordered_code": "RIA",
+          "alternate_codes": [],
+          "threshold_rule": "exact_gap_eq_0_or_adjacent_gap_lt_5_points_provisional",
+          "ordering_precision_claim_allowed": false,
+          "locale": "en",
+          "display_copy": {
+            "headline": "RIA",
+            "note": "",
+            "boundary": ""
+          }
+        },
+        "top_code_confidence": {
+          "level": "high",
+          "user_label": "高",
+          "meaning": "readability strength, not probability"
+        },
+        "reading_strength": "normal_reading",
+        "result_page_strategy": {
+          "primary_reading_mode": "single_chain",
+          "tone": "stable_not_absolute"
+        },
+        "module_visibility_policy_id": "riasec_module_visibility_policy_v1",
+        "validation_status": "theory_based_under_validation",
+        "field_authority": {
+          "profile_shape": "backend_owned",
+          "profile_shape_version": "backend_owned",
+          "clarity_label": "backend_owned",
+          "near_tie_state": "backend_owned",
+          "alternate_code": "backend_owned",
+          "alternate_code_reason": "backend_owned",
+          "tie_display_v1": "backend_owned",
+          "top_code_confidence": "backend_owned",
+          "reading_strength": "backend_owned",
+          "interpretation_rule_version": "backend_owned"
+        }
+      },
+      "deep_content_slots_v1": {
+        "schema_version": "riasec.deep_content_slots.v1",
+        "scale_code": "RIASEC",
+        "locale": "en",
+        "content_authority": "backend_riasec_deep_copy_slot_registry",
+        "snapshot_bound": true,
+        "source_policy": {
+          "frontend_fallback_allowed": false,
+          "missing_content_behavior": "omit_module_fail_closed",
+          "pending_content_behavior": "omit_module_fail_closed",
+          "unknown_slot_behavior": "hidden",
+          "formal_report_generation": "deterministic_backend_snapshot"
+        },
+        "slot_visibility_policy": {
+          "module_visibility_policy_id": "riasec_module_visibility_policy_v1",
+          "hidden_slots_omitted": true,
+          "pending_or_unavailable_slots_omitted": true,
+          "frontend_inference_allowed": false
+        },
+        "slots": [
+          {
+            "slot_key": "140q_task_card_copy",
+            "slot_group": "140q_layer_copy",
+            "slot_id": "140q_task_card_copy:R_task_agreement",
+            "module_key": "140q_context_cards",
+            "slot_visibility": "visible",
+            "status": "authored",
+            "content_status": "authored",
+            "content_version": "riasec_140q_task_environment_role_v1.en",
+            "review_status": "draft",
+            "review_state": "pending",
+            "last_reviewed_at": null,
+            "reviewer": null,
+            "source_status": "docs_only_candidate",
+            "evidence_level": "contract_only",
+            "source_review_status": "content_review_v7_3_final_preflight_candidate",
+            "source_evidence_level": null,
+            "locale": "en",
+            "frontend_fallback_allowed": false,
+            "fallback_behavior": "omit_module",
+            "selection_v1": null,
+            "applicability": {
+              "form_codes": [
+                "riasec_140"
+              ],
+              "profile_shapes": [
+                "clear_code",
+                "blended_code",
+                "broad_profile",
+                "near_tie",
+                "low_clarity"
+              ],
+              "quality_states": [
+                "normal",
+                "caution"
+              ],
+              "codes": [
+                "R_task_agreement"
+              ],
+              "dimensions": [
+                "R"
+              ]
+            },
+            "state": {
+              "layer_dimension": "R",
+              "layer": "task",
+              "slot_name": "R_task_agreement",
+              "layer_state": "agreement"
+            },
+            "content": {
+              "title": "Realistic interest: task clues | Alignment",
+              "example_question": "Which hands-on process would you be willing to try repeatedly: building, adjusting and testing, maintenance, or on-site troubleshooting?",
+              "task_activity_card": "Task activities: take sample pieces apart and assemble them, adjust and test equipment, troubleshoot with tools, and record changes on site. In the \"alignment\" state (task layer: alignment), treat this only as a clue for observing Realistic interest in day-to-day work.",
+              "summary": "140Q breaks down Realistic interest for observation at the task layer: If 140Q and 60Q broadly point in the same direction, you can use this clue as a more detailed starting point for observation: first look at how the tasks appear in day-to-day work, then decide whether to continue with low-risk checks. This layer looks only at whether you are willing to engage in the specific activities themselves; it does not infer ability, identity, or the quality of outcomes. It only makes clues about day-to-day work more specific; it does not rewrite or override 60Q or compare raw scores."
+            },
+            "boundaries": {
+              "user_visible_boundary": "140Q provides clues about tasks, environments, and role responsibilities. It only makes observation of daily work more specific; it does not rewrite 60Q, compare raw scores, or provide job conclusions.",
+              "required_boundaries": [
+                "interest_evidence_only",
+                "not_career_recommendation",
+                "not_job_fit",
+                "not_success_prediction",
+                "not_ability_or_skill_measure",
+                "no_60q_140q_raw_delta",
+                "140q_contextual_not_more_accurate",
+                "feedback_does_not_mutate_measured_result",
+                "missing_content_fails_closed",
+                "frontend_fallback_forbidden",
+                "not_personality_identity",
+                "examples_not_matches",
+                "not_hiring_or_screening_use"
+              ],
+              "forbidden_claims": [
+                "personality_identity",
+                "ability_or_skill_inference",
+                "career_match",
+                "career_recommendation",
+                "job_fit",
+                "fit_score",
+                "occupation_ranking",
+                "success_prediction",
+                "hiring_suitability",
+                "screening_use",
+                "140q_more_accurate",
+                "raw_score_delta",
+                "onet_soc_source_invention"
+              ],
+              "emphasis_difference_only": false,
+              "correctness_ranking_allowed": false,
+              "raw_score_comparison_allowed": false,
+              "result_override_allowed": false,
+              "code_conversion_allowed": false
+            }
+          },
+          {
+            "slot_key": "140q_environment_card_copy",
+            "slot_group": "140q_layer_copy",
+            "slot_id": "140q_environment_card_copy:R_environment_agreement",
+            "module_key": "140q_context_cards",
+            "slot_visibility": "visible",
+            "status": "authored",
+            "content_status": "authored",
+            "content_version": "riasec_140q_task_environment_role_v1.en",
+            "review_status": "draft",
+            "review_state": "pending",
+            "last_reviewed_at": null,
+            "reviewer": null,
+            "source_status": "docs_only_candidate",
+            "evidence_level": "contract_only",
+            "source_review_status": "content_review_v7_3_final_preflight_candidate",
+            "source_evidence_level": null,
+            "locale": "en",
+            "frontend_fallback_allowed": false,
+            "fallback_behavior": "omit_module",
+            "selection_v1": null,
+            "applicability": {
+              "form_codes": [
+                "riasec_140"
+              ],
+              "profile_shapes": [
+                "clear_code",
+                "blended_code",
+                "broad_profile",
+                "near_tie",
+                "low_clarity"
+              ],
+              "quality_states": [
+                "normal",
+                "caution"
+              ],
+              "codes": [
+                "R_environment_agreement"
+              ],
+              "dimensions": [
+                "R"
+              ]
+            },
+            "state": {
+              "layer_dimension": "R",
+              "layer": "environment",
+              "slot_name": "R_environment_agreement",
+              "layer_state": "agreement"
+            },
+            "content": {
+              "title": "Realistic interest: environment clues | Alignment",
+              "example_question": "If you continue observing Realistic interest, which day-to-day conditions would make you more willing to stay engaged: pace, feedback, amount of collaboration, or clarity of materials/information?",
+              "environment_card": "Environmental clues: materials and tools are visible and tangible, process boundaries are clear, and feedback comes from the condition of the finished product or signs of a fault. In the \"alignment\" state (environment layer: alignment), treat this only as a clue for observing Realistic interest in day-to-day work.",
+              "summary": "140Q breaks down Realistic interest for observation at the environment layer: If 140Q and 60Q broadly point in the same direction, you can use this clue as a more detailed starting point for observation: first look at how the tasks appear in day-to-day work, then decide whether to continue with low-risk checks. This layer looks only at whether day-to-day conditions amplify or drain interest; it does not turn environmental preferences into conclusions. It only makes clues about day-to-day work more specific; it does not rewrite or override 60Q or compare raw scores."
+            },
+            "boundaries": {
+              "user_visible_boundary": "140Q provides clues about tasks, environments, and role responsibilities. It only makes observation of daily work more specific; it does not rewrite 60Q, compare raw scores, or provide job conclusions.",
+              "required_boundaries": [
+                "interest_evidence_only",
+                "not_career_recommendation",
+                "not_job_fit",
+                "not_success_prediction",
+                "not_ability_or_skill_measure",
+                "no_60q_140q_raw_delta",
+                "140q_contextual_not_more_accurate",
+                "feedback_does_not_mutate_measured_result",
+                "missing_content_fails_closed",
+                "frontend_fallback_forbidden",
+                "not_personality_identity",
+                "examples_not_matches",
+                "not_hiring_or_screening_use"
+              ],
+              "forbidden_claims": [
+                "personality_identity",
+                "ability_or_skill_inference",
+                "career_match",
+                "career_recommendation",
+                "job_fit",
+                "fit_score",
+                "occupation_ranking",
+                "success_prediction",
+                "hiring_suitability",
+                "screening_use",
+                "140q_more_accurate",
+                "raw_score_delta",
+                "onet_soc_source_invention"
+              ],
+              "emphasis_difference_only": false,
+              "correctness_ranking_allowed": false,
+              "raw_score_comparison_allowed": false,
+              "result_override_allowed": false,
+              "code_conversion_allowed": false
+            }
+          },
+          {
+            "slot_key": "140q_role_card_copy",
+            "slot_group": "140q_layer_copy",
+            "slot_id": "140q_role_card_copy:R_role_agreement",
+            "module_key": "140q_context_cards",
+            "slot_visibility": "visible",
+            "status": "authored",
+            "content_status": "authored",
+            "content_version": "riasec_140q_task_environment_role_v1.en",
+            "review_status": "draft",
+            "review_state": "pending",
+            "last_reviewed_at": null,
+            "reviewer": null,
+            "source_status": "docs_only_candidate",
+            "evidence_level": "contract_only",
+            "source_review_status": "content_review_v7_3_final_preflight_candidate",
+            "source_evidence_level": null,
+            "locale": "en",
+            "frontend_fallback_allowed": false,
+            "fallback_behavior": "omit_module",
+            "selection_v1": null,
+            "applicability": {
+              "form_codes": [
+                "riasec_140"
+              ],
+              "profile_shapes": [
+                "clear_code",
+                "blended_code",
+                "broad_profile",
+                "near_tie",
+                "low_clarity"
+              ],
+              "quality_states": [
+                "normal",
+                "caution"
+              ],
+              "codes": [
+                "R_role_agreement"
+              ],
+              "dimensions": [
+                "R"
+              ]
+            },
+            "state": {
+              "layer_dimension": "R",
+              "layer": "role",
+              "slot_name": "R_role_agreement",
+              "layer_state": "agreement"
+            },
+            "content": {
+              "title": "Realistic interest: role responsibility clues | Alignment",
+              "example_question": "If you continue observing Realistic interest, which responsibility would you be more willing to take on: proposing a direction, explaining the evidence, supporting others, moving implementation forward, or maintaining order?",
+              "role_responsibility_card": "Role responsibilities: turn ideas into operating steps, maintain tools and safety boundaries, and record anomalies as clues that can be reviewed. In the \"alignment\" state (role responsibility layer: alignment), treat this only as a clue for observing Realistic interest in day-to-day work.",
+              "summary": "140Q breaks down Realistic interest for observation at the role responsibility layer: If 140Q and 60Q broadly point in the same direction, you can use this clue as a more detailed starting point for observation: first look at how the tasks appear in day-to-day work, then decide whether to continue with low-risk checks. This layer looks only at which kinds of responsibility you are willing to take on; it does not turn responsibility preferences into judgments about jobs. It only makes clues about day-to-day work more specific; it does not rewrite or override 60Q or compare raw scores."
+            },
+            "boundaries": {
+              "user_visible_boundary": "140Q provides clues about tasks, environments, and role responsibilities. It only makes observation of daily work more specific; it does not rewrite 60Q, compare raw scores, or provide job conclusions.",
+              "required_boundaries": [
+                "interest_evidence_only",
+                "not_career_recommendation",
+                "not_job_fit",
+                "not_success_prediction",
+                "not_ability_or_skill_measure",
+                "no_60q_140q_raw_delta",
+                "140q_contextual_not_more_accurate",
+                "feedback_does_not_mutate_measured_result",
+                "missing_content_fails_closed",
+                "frontend_fallback_forbidden",
+                "not_personality_identity",
+                "examples_not_matches",
+                "not_hiring_or_screening_use"
+              ],
+              "forbidden_claims": [
+                "personality_identity",
+                "ability_or_skill_inference",
+                "career_match",
+                "career_recommendation",
+                "job_fit",
+                "fit_score",
+                "occupation_ranking",
+                "success_prediction",
+                "hiring_suitability",
+                "screening_use",
+                "140q_more_accurate",
+                "raw_score_delta",
+                "onet_soc_source_invention"
+              ],
+              "emphasis_difference_only": false,
+              "correctness_ranking_allowed": false,
+              "raw_score_comparison_allowed": false,
+              "result_override_allowed": false,
+              "code_conversion_allowed": false
+            }
+          }
+        ]
+      }
+    },
+    "tension": {
+      "schema_version": "riasec.public_projection.v2",
+      "scale_code": "RIASEC",
+      "locale": "en",
+      "private_result_authority": null,
+      "scores": {
+        "score_kind": "dimension_scores_0_100",
+        "dimensions": [
+          {
+            "code": "R",
+            "label": "Realistic",
+            "score": 85
+          },
+          {
+            "code": "I",
+            "label": "Investigative",
+            "score": 70
+          },
+          {
+            "code": "A",
+            "label": "Artistic",
+            "score": 55
+          },
+          {
+            "code": "S",
+            "label": "Social",
+            "score": 40
+          },
+          {
+            "code": "E",
+            "label": "Enterprising",
+            "score": 25
+          },
+          {
+            "code": "C",
+            "label": "Conventional",
+            "score": 10
+          }
+        ]
+      },
+      "form": {
+        "form_code": "riasec_140",
+        "question_count": 140,
+        "form_kind": "enhanced_contextual",
+        "score_space_version": "riasec_140_likert5_activity_context_space.v1",
+        "compare_compatibility_group": "RIASEC:riasec_140:riasec_140_likert5_activity_context_space.v1",
+        "cross_form_comparable": false,
+        "raw_score_delta_allowed": false,
+        "cross_form_interpretation": "emphasis_difference_only"
+      },
+      "interpretation_state": {
+        "interpretation_rule_version": "riasec_interpretation_rule_spec_v2",
+        "profile_shape": "clear_code",
+        "profile_shape_version": "riasec_profile_shape_v2_0",
+        "clarity_label": "high",
+        "near_tie_state": {
+          "state": "none",
+          "dimensions": [],
+          "threshold_rule": "adjacent_gap_lt_5_points_provisional"
+        },
+        "alternate_code": {
+          "show": false,
+          "codes": [],
+          "reason": null,
+          "display_boundary": "Alternate code is a reading aid, not a second measured result."
+        },
+        "alternate_code_reason": null,
+        "tie_display_v1": {
+          "schema_version": "riasec.tie_display.v1",
+          "kind": "none",
+          "position": "none",
+          "dimensions": [],
+          "groups": [],
+          "ordered_code": "RIA",
+          "alternate_codes": [],
+          "threshold_rule": "exact_gap_eq_0_or_adjacent_gap_lt_5_points_provisional",
+          "ordering_precision_claim_allowed": false,
+          "locale": "en",
+          "display_copy": {
+            "headline": "RIA",
+            "note": "",
+            "boundary": ""
+          }
+        },
+        "top_code_confidence": {
+          "level": "high",
+          "user_label": "高",
+          "meaning": "readability strength, not probability"
+        },
+        "reading_strength": "normal_reading",
+        "result_page_strategy": {
+          "primary_reading_mode": "single_chain",
+          "tone": "stable_not_absolute"
+        },
+        "module_visibility_policy_id": "riasec_module_visibility_policy_v1",
+        "validation_status": "theory_based_under_validation",
+        "field_authority": {
+          "profile_shape": "backend_owned",
+          "profile_shape_version": "backend_owned",
+          "clarity_label": "backend_owned",
+          "near_tie_state": "backend_owned",
+          "alternate_code": "backend_owned",
+          "alternate_code_reason": "backend_owned",
+          "tie_display_v1": "backend_owned",
+          "top_code_confidence": "backend_owned",
+          "reading_strength": "backend_owned",
+          "interpretation_rule_version": "backend_owned"
+        }
+      },
+      "deep_content_slots_v1": {
+        "schema_version": "riasec.deep_content_slots.v1",
+        "scale_code": "RIASEC",
+        "locale": "en",
+        "content_authority": "backend_riasec_deep_copy_slot_registry",
+        "snapshot_bound": true,
+        "source_policy": {
+          "frontend_fallback_allowed": false,
+          "missing_content_behavior": "omit_module_fail_closed",
+          "pending_content_behavior": "omit_module_fail_closed",
+          "unknown_slot_behavior": "hidden",
+          "formal_report_generation": "deterministic_backend_snapshot"
+        },
+        "slot_visibility_policy": {
+          "module_visibility_policy_id": "riasec_module_visibility_policy_v1",
+          "hidden_slots_omitted": true,
+          "pending_or_unavailable_slots_omitted": true,
+          "frontend_inference_allowed": false
+        },
+        "slots": [
+          {
+            "slot_key": "140q_task_card_copy",
+            "slot_group": "140q_layer_copy",
+            "slot_id": "140q_task_card_copy:R_task_tension",
+            "module_key": "140q_context_cards",
+            "slot_visibility": "visible",
+            "status": "authored",
+            "content_status": "authored",
+            "content_version": "riasec_140q_task_environment_role_v1.en",
+            "review_status": "draft",
+            "review_state": "pending",
+            "last_reviewed_at": null,
+            "reviewer": null,
+            "source_status": "docs_only_candidate",
+            "evidence_level": "contract_only",
+            "source_review_status": "content_review_v7_3_final_preflight_candidate",
+            "source_evidence_level": null,
+            "locale": "en",
+            "frontend_fallback_allowed": false,
+            "fallback_behavior": "omit_module",
+            "selection_v1": null,
+            "applicability": {
+              "form_codes": [
+                "riasec_140"
+              ],
+              "profile_shapes": [
+                "clear_code",
+                "blended_code",
+                "broad_profile",
+                "near_tie",
+                "low_clarity"
+              ],
+              "quality_states": [
+                "normal",
+                "caution"
+              ],
+              "codes": [
+                "R_task_tension"
+              ],
+              "dimensions": [
+                "R"
+              ]
+            },
+            "state": {
+              "layer_dimension": "R",
+              "layer": "task",
+              "slot_name": "R_task_tension",
+              "layer_state": "tension"
+            },
+            "content": {
+              "title": "Realistic interest: task clues | Tension",
+              "example_question": "Which hands-on process would you be willing to try repeatedly: building, adjusting and testing, maintenance, or on-site troubleshooting?",
+              "task_activity_card": "Task activities: take sample pieces apart and assemble them, adjust and test equipment, troubleshoot with tools, and record changes on site. In the \"tension\" state (task layer: tension), treat this only as a clue for observing Realistic interest in day-to-day work.",
+              "summary": "140Q breaks down Realistic interest for observation at the task layer: If 140Q and 60Q emphasize different things, do not interpret this as one being right and the other wrong. Instead, record separately the appeal of the tasks, the demands of the environment that drain interest, and your willingness to take on responsibilities. This layer looks only at whether you are willing to engage in the specific activities themselves; it does not infer ability, identity, or the quality of outcomes. It only makes clues about day-to-day work more specific; it does not rewrite or override 60Q or compare raw scores."
+            },
+            "boundaries": {
+              "user_visible_boundary": "140Q provides clues about tasks, environments, and role responsibilities. It only makes observation of daily work more specific; it does not rewrite 60Q, compare raw scores, or provide job conclusions.",
+              "required_boundaries": [
+                "interest_evidence_only",
+                "not_career_recommendation",
+                "not_job_fit",
+                "not_success_prediction",
+                "not_ability_or_skill_measure",
+                "no_60q_140q_raw_delta",
+                "140q_contextual_not_more_accurate",
+                "feedback_does_not_mutate_measured_result",
+                "missing_content_fails_closed",
+                "frontend_fallback_forbidden",
+                "not_personality_identity",
+                "examples_not_matches",
+                "not_hiring_or_screening_use"
+              ],
+              "forbidden_claims": [
+                "personality_identity",
+                "ability_or_skill_inference",
+                "career_match",
+                "career_recommendation",
+                "job_fit",
+                "fit_score",
+                "occupation_ranking",
+                "success_prediction",
+                "hiring_suitability",
+                "screening_use",
+                "140q_more_accurate",
+                "raw_score_delta",
+                "onet_soc_source_invention"
+              ],
+              "emphasis_difference_only": false,
+              "correctness_ranking_allowed": false,
+              "raw_score_comparison_allowed": false,
+              "result_override_allowed": false,
+              "code_conversion_allowed": false
+            }
+          },
+          {
+            "slot_key": "140q_environment_card_copy",
+            "slot_group": "140q_layer_copy",
+            "slot_id": "140q_environment_card_copy:R_environment_tension",
+            "module_key": "140q_context_cards",
+            "slot_visibility": "visible",
+            "status": "authored",
+            "content_status": "authored",
+            "content_version": "riasec_140q_task_environment_role_v1.en",
+            "review_status": "draft",
+            "review_state": "pending",
+            "last_reviewed_at": null,
+            "reviewer": null,
+            "source_status": "docs_only_candidate",
+            "evidence_level": "contract_only",
+            "source_review_status": "content_review_v7_3_final_preflight_candidate",
+            "source_evidence_level": null,
+            "locale": "en",
+            "frontend_fallback_allowed": false,
+            "fallback_behavior": "omit_module",
+            "selection_v1": null,
+            "applicability": {
+              "form_codes": [
+                "riasec_140"
+              ],
+              "profile_shapes": [
+                "clear_code",
+                "blended_code",
+                "broad_profile",
+                "near_tie",
+                "low_clarity"
+              ],
+              "quality_states": [
+                "normal",
+                "caution"
+              ],
+              "codes": [
+                "R_environment_tension"
+              ],
+              "dimensions": [
+                "R"
+              ]
+            },
+            "state": {
+              "layer_dimension": "R",
+              "layer": "environment",
+              "slot_name": "R_environment_tension",
+              "layer_state": "tension"
+            },
+            "content": {
+              "title": "Realistic interest: environment clues | Tension",
+              "example_question": "If you continue observing Realistic interest, which day-to-day conditions would make you more willing to stay engaged: pace, feedback, amount of collaboration, or clarity of materials/information?",
+              "environment_card": "Environmental clues: materials and tools are visible and tangible, process boundaries are clear, and feedback comes from the condition of the finished product or signs of a fault. In the \"tension\" state (environment layer: tension), treat this only as a clue for observing Realistic interest in day-to-day work.",
+              "summary": "140Q breaks down Realistic interest for observation at the environment layer: If 140Q and 60Q emphasize different things, do not interpret this as one being right and the other wrong. Instead, record separately the appeal of the tasks, the demands of the environment that drain interest, and your willingness to take on responsibilities. This layer looks only at whether day-to-day conditions amplify or drain interest; it does not turn environmental preferences into conclusions. It only makes clues about day-to-day work more specific; it does not rewrite or override 60Q or compare raw scores."
+            },
+            "boundaries": {
+              "user_visible_boundary": "140Q provides clues about tasks, environments, and role responsibilities. It only makes observation of daily work more specific; it does not rewrite 60Q, compare raw scores, or provide job conclusions.",
+              "required_boundaries": [
+                "interest_evidence_only",
+                "not_career_recommendation",
+                "not_job_fit",
+                "not_success_prediction",
+                "not_ability_or_skill_measure",
+                "no_60q_140q_raw_delta",
+                "140q_contextual_not_more_accurate",
+                "feedback_does_not_mutate_measured_result",
+                "missing_content_fails_closed",
+                "frontend_fallback_forbidden",
+                "not_personality_identity",
+                "examples_not_matches",
+                "not_hiring_or_screening_use"
+              ],
+              "forbidden_claims": [
+                "personality_identity",
+                "ability_or_skill_inference",
+                "career_match",
+                "career_recommendation",
+                "job_fit",
+                "fit_score",
+                "occupation_ranking",
+                "success_prediction",
+                "hiring_suitability",
+                "screening_use",
+                "140q_more_accurate",
+                "raw_score_delta",
+                "onet_soc_source_invention"
+              ],
+              "emphasis_difference_only": false,
+              "correctness_ranking_allowed": false,
+              "raw_score_comparison_allowed": false,
+              "result_override_allowed": false,
+              "code_conversion_allowed": false
+            }
+          },
+          {
+            "slot_key": "140q_role_card_copy",
+            "slot_group": "140q_layer_copy",
+            "slot_id": "140q_role_card_copy:R_role_tension",
+            "module_key": "140q_context_cards",
+            "slot_visibility": "visible",
+            "status": "authored",
+            "content_status": "authored",
+            "content_version": "riasec_140q_task_environment_role_v1.en",
+            "review_status": "draft",
+            "review_state": "pending",
+            "last_reviewed_at": null,
+            "reviewer": null,
+            "source_status": "docs_only_candidate",
+            "evidence_level": "contract_only",
+            "source_review_status": "content_review_v7_3_final_preflight_candidate",
+            "source_evidence_level": null,
+            "locale": "en",
+            "frontend_fallback_allowed": false,
+            "fallback_behavior": "omit_module",
+            "selection_v1": null,
+            "applicability": {
+              "form_codes": [
+                "riasec_140"
+              ],
+              "profile_shapes": [
+                "clear_code",
+                "blended_code",
+                "broad_profile",
+                "near_tie",
+                "low_clarity"
+              ],
+              "quality_states": [
+                "normal",
+                "caution"
+              ],
+              "codes": [
+                "R_role_tension"
+              ],
+              "dimensions": [
+                "R"
+              ]
+            },
+            "state": {
+              "layer_dimension": "R",
+              "layer": "role",
+              "slot_name": "R_role_tension",
+              "layer_state": "tension"
+            },
+            "content": {
+              "title": "Realistic interest: role responsibility clues | Tension",
+              "example_question": "If you continue observing Realistic interest, which responsibility would you be more willing to take on: proposing a direction, explaining the evidence, supporting others, moving implementation forward, or maintaining order?",
+              "role_responsibility_card": "Role responsibilities: turn ideas into operating steps, maintain tools and safety boundaries, and record anomalies as clues that can be reviewed. In the \"tension\" state (role responsibility layer: tension), treat this only as a clue for observing Realistic interest in day-to-day work.",
+              "summary": "140Q breaks down Realistic interest for observation at the role responsibility layer: If 140Q and 60Q emphasize different things, do not interpret this as one being right and the other wrong. Instead, record separately the appeal of the tasks, the demands of the environment that drain interest, and your willingness to take on responsibilities. This layer looks only at which kinds of responsibility you are willing to take on; it does not turn responsibility preferences into judgments about jobs. It only makes clues about day-to-day work more specific; it does not rewrite or override 60Q or compare raw scores."
+            },
+            "boundaries": {
+              "user_visible_boundary": "140Q provides clues about tasks, environments, and role responsibilities. It only makes observation of daily work more specific; it does not rewrite 60Q, compare raw scores, or provide job conclusions.",
+              "required_boundaries": [
+                "interest_evidence_only",
+                "not_career_recommendation",
+                "not_job_fit",
+                "not_success_prediction",
+                "not_ability_or_skill_measure",
+                "no_60q_140q_raw_delta",
+                "140q_contextual_not_more_accurate",
+                "feedback_does_not_mutate_measured_result",
+                "missing_content_fails_closed",
+                "frontend_fallback_forbidden",
+                "not_personality_identity",
+                "examples_not_matches",
+                "not_hiring_or_screening_use"
+              ],
+              "forbidden_claims": [
+                "personality_identity",
+                "ability_or_skill_inference",
+                "career_match",
+                "career_recommendation",
+                "job_fit",
+                "fit_score",
+                "occupation_ranking",
+                "success_prediction",
+                "hiring_suitability",
+                "screening_use",
+                "140q_more_accurate",
+                "raw_score_delta",
+                "onet_soc_source_invention"
+              ],
+              "emphasis_difference_only": false,
+              "correctness_ranking_allowed": false,
+              "raw_score_comparison_allowed": false,
+              "result_override_allowed": false,
+              "code_conversion_allowed": false
+            }
+          }
+        ]
+      }
+    }
+  }
+}

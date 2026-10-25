@@ -602,6 +602,7 @@ const RIASEC_ENGLISH_SELECTED_CONTENT_KEYS = new Set([
   "low_risk_validation", "primary_activity_chain", "secondary_support_line", "tertiary_stabilizer",
   "likely_tension", "activity_sequence", "when_to_use_140q", "when_not_to_overread",
   "free_page_teaser", "deep_report_extension",
+  "task_activity_card", "environment_card", "role_responsibility_card", "example_question",
 ]);
 const KNOWN_RIASEC_DEEP_CONTENT_KEYS = new Set([
   "title",
