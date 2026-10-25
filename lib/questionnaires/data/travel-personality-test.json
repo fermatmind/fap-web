@@ -1,0 +1,1893 @@
+{
+  "slug": "travel-personality-test",
+  "code": "TRAVEL_PREFERENCES",
+  "version": "1.0.0",
+  "updated": "2026-10-25",
+  "category": "everyday",
+  "kind": "archetype",
+  "minutes": 5,
+  "title": {
+    "zh": "旅行性格类型测试",
+    "en": "Travel Personality Type Test"
+  },
+  "resultHeading": {
+    "zh": "你的旅行偏好选择结果",
+    "en": "Your travel-preference choices"
+  },
+  "seoTitle": {
+    "zh": "旅行性格类型测试：18道偏好题与六种完整结果",
+    "en": "Travel Personality Type Test: 18 Questions, Six Full Guides"
+  },
+  "description": {
+    "zh": "用18道原创出游偏好题，比较随兴漫游、行程规划、文化、户外、休闲与饮食体验。六项计数和最高并列完整报告免费，无需注册；附例子与同行协商，不评定能力或旅行资格。",
+    "en": "Take 18 original travel-preference questions. Compare wandering, planning, culture, outdoors, rest and food, with every tied full guide free. No signup or ability verdict."
+  },
+  "introduction": {
+    "zh": "有一段可自己安排的出游时间，你更想提前衔接、到现场再选，还是把时间留给文化、户外、休息或饮食？本旅行性格类型测试用18道原创偏好题比较六种常见做法，名称帮助讨论实际安排，不把它们当作六种普遍、互斥的人格。六份完整报告都能先读，作答后显示原始计数与全部最高并列解释，无需注册、付费或先做其他测评。它不判断体能、风险承受、健康、同行配对或职业适配。",
+    "en": "With time you can arrange for an outing, would you coordinate it ahead, decide on arrival or focus on culture, outdoor activities, rest or food? This Travel Personality Type Test uses 18 original preference situations to compare six familiar approaches. Their names help discuss arrangements rather than establish six universal, mutually exclusive personalities. Read every full guide first, then see raw counts and all highest-count interpretations without signup, payment or another assessment. The test judges neither fitness, risk tolerance, health, companion compatibility nor career fit."
+  },
+  "instructions": {
+    "zh": "以自己想要的一次普通短途出游为参照，假设可选活动都在真实预算、开放与个人条件允许范围内。每题选更愿意优先安排的一项，不按“哪种旅行更高级”回答；没有相关经验也可以选假设偏好，但不要当作已观察到的行为。18题全部完成才显示结果。实际参与仍需核当时条件，任何选项都不要求超出能力、饮食限制或同行意愿。",
+    "en": "Picture an ordinary short outing you would want, assuming the available options fit actual budget, access and personal conditions. Choose the option you would prefer to prioritise, without ranking forms of travel as superior. Without experience, answer as a hypothetical preference rather than observed behaviour. All 18 choices are required. Actual participation still needs current conditions; no option requires exceeding ability, dietary limits or a companion’s wishes."
+  },
+  "source": {
+    "kind": "FermatMind original ordinary-trip preference reflection;notuniversalvalidatedtaxonomy/Plog/fitness/brandendorsement",
+    "formCode": "fm_travel_preference_choices_18",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "f5bb6f64ac8729f8ec032dfc5c6149b458c0795ccb56eba3474e64e3fdfd7a79",
+    "resultContentSha256": "ee2459c74835d13722173ec07fb6f9ae07ddf589bbf755f33181834f2f2facb8",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "wanderer",
+      "title": {
+        "zh": "随兴漫游",
+        "en": "Wanderer"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "planner",
+      "title": {
+        "zh": "行程规划",
+        "en": "Planner"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "culture",
+      "title": {
+        "zh": "文化探索",
+        "en": "Cultural explorer"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "outdoors",
+      "title": {
+        "zh": "户外体验",
+        "en": "Outdoor explorer"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "rest",
+      "title": {
+        "zh": "休闲放松",
+        "en": "Rest-focused traveler"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "food",
+      "title": {
+        "zh": "饮食体验",
+        "en": "Food-focused traveler"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "TRAVEL_01",
+      "prompt": {
+        "zh": "半天的空闲可以由你安排，你更想先做哪件事？",
+        "en": "You can choose how to spend a free half-day. What appeals first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "在允许进入的街区边走边选下一站。",
+            "en": "Choose the next stop as I explore an accessible neighbourhood."
+          },
+          "directionId": "wanderer"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先排好几个想去地点的顺序和停留时间。",
+            "en": "Arrange the order and timing of a few places I want to visit."
+          },
+          "directionId": "planner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "挑一处能了解当地历史或生活的公开展览。",
+            "en": "Visit an open exhibition about local history or everyday life."
+          },
+          "directionId": "culture"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "选一个符合自己条件的户外体验。",
+            "en": "Choose an outdoor activity suited to my circumstances."
+          },
+          "directionId": "outdoors"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_02",
+      "prompt": {
+        "zh": "准备一天的出游，你更享受哪一部分？",
+        "en": "What part of preparing a day out would you most enjoy?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把交通、开放时间与几个重要节点衔接好。",
+            "en": "Connecting transport, opening times and a few key stops."
+          },
+          "directionId": "planner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先了解一处地方的故事，再去看相关遗迹或展览。",
+            "en": "Learning a place’s story before visiting its heritage or exhibition."
+          },
+          "directionId": "culture"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "比较可参与的户外项目，了解体验过程。",
+            "en": "Comparing suitable outdoor activities and what taking part involves."
+          },
+          "directionId": "outdoors"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "挑一个能舒适停留、不必频繁移动的地方。",
+            "en": "Choosing somewhere comfortable to stay without frequent movement."
+          },
+          "directionId": "rest"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_03",
+      "prompt": {
+        "zh": "到了一个适合慢慢逛的地方，你更愿意把注意力放在哪？",
+        "en": "You arrive somewhere with time to explore. Where would your attention go first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "建筑、展陈或日常习俗背后的含义。",
+            "en": "The meaning behind buildings, exhibits or everyday customs."
+          },
+          "directionId": "culture"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "能实际参与的自然观察或户外活动。",
+            "en": "Nature observation or an outdoor activity I can take part in."
+          },
+          "directionId": "outdoors"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "适合安静坐下、把节奏放慢的角落。",
+            "en": "A quiet place to settle and slow the pace."
+          },
+          "directionId": "rest"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "与当地饮食有关的摊位、店铺或公开体验。",
+            "en": "Stalls, shops or public experiences related to local food."
+          },
+          "directionId": "food"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_04",
+      "prompt": {
+        "zh": "几种安排都在可承受的范围里，你更期待哪一种下午？",
+        "en": "Several feasible plans are available. Which afternoon sounds most appealing?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "参与一个适合自己的户外活动，把时间放在体验本身。",
+            "en": "Taking part in a suitable outdoor activity for the experience itself."
+          },
+          "directionId": "outdoors"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "在舒适地点休息，给自己留出不安排事情的时间。",
+            "en": "Resting somewhere comfortable with time left unscheduled."
+          },
+          "directionId": "rest"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "围绕一顿想尝试的餐食安排前后的时间。",
+            "en": "Organising the time around a meal I want to try."
+          },
+          "directionId": "food"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先随意看看，再根据沿途发现改变去向。",
+            "en": "Looking around first and changing direction with what I notice."
+          },
+          "directionId": "wanderer"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_05",
+      "prompt": {
+        "zh": "回想一次自己想要的短途出游，哪种画面更吸引你？",
+        "en": "Picture a short trip you would want. Which scene draws you most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不赶下一站，慢慢享受一段安静时间。",
+            "en": "Enjoying quiet time without hurrying to another stop."
+          },
+          "directionId": "rest"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "尝试一种自己感兴趣的地方饮食。",
+            "en": "Trying a local food experience that interests me."
+          },
+          "directionId": "food"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "在一个可自由活动的区域偶然发现有趣小店。",
+            "en": "Coming across an interesting small shop in an area open to exploration."
+          },
+          "directionId": "wanderer"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "几个事先选好的地点按合适顺序衔接起来。",
+            "en": "Seeing chosen stops connect in an order I planned."
+          },
+          "directionId": "planner"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_06",
+      "prompt": {
+        "zh": "一段旅程快开始了，你最愿意先保留哪项空间？",
+        "en": "As a trip approaches, which space would you most want to preserve?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "能从容了解食物、品尝或参加相关活动的时间。",
+            "en": "Time to learn about food, taste it or join a related activity."
+          },
+          "directionId": "food"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "到现场再作决定的余地。",
+            "en": "Room to decide after arriving."
+          },
+          "directionId": "wanderer"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "执行自己已经安排好的几个重点的时间。",
+            "en": "Time for the few priorities I have already organised."
+          },
+          "directionId": "planner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把一个文化主题了解得更清楚的机会。",
+            "en": "An opportunity to understand a cultural topic more fully."
+          },
+          "directionId": "culture"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_07",
+      "prompt": {
+        "zh": "同行者请你提出一个共同安排，你更可能建议？",
+        "en": "A companion asks you to suggest a shared plan. What would you suggest first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先到公共活动区看看，再一起决定接下来去哪。",
+            "en": "Start in a public area and decide together what to visit next."
+          },
+          "directionId": "wanderer"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先列出关键地点、移动方式和会合时间再讨论。",
+            "en": "Discuss a draft of key stops, transport and meeting times."
+          },
+          "directionId": "planner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一起参与一项双方都适合的户外体验。",
+            "en": "Join an outdoor experience suited to both of us."
+          },
+          "directionId": "outdoors"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "找一个双方都舒服的地方留出慢慢休息的时段。",
+            "en": "Keep a slow rest period somewhere comfortable for both of us."
+          },
+          "directionId": "rest"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_08",
+      "prompt": {
+        "zh": "如果只保留一天中的一个重点，你更想保留什么？",
+        "en": "If a day could keep only one priority, what would you retain?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己事先确认好的主线，让当天有清楚结构。",
+            "en": "The main sequence I prepared so the day has a clear structure."
+          },
+          "directionId": "planner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一项能理解当地文化或历史的活动。",
+            "en": "An activity that helps me understand local culture or history."
+          },
+          "directionId": "culture"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一整段不被安排挤掉的休息时间。",
+            "en": "An uninterrupted period for rest."
+          },
+          "directionId": "rest"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一项自己特别想尝试的饮食体验。",
+            "en": "A food experience I especially want to try."
+          },
+          "directionId": "food"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_09",
+      "prompt": {
+        "zh": "你更愿意为了哪种体验在一个地方多停留？",
+        "en": "What would most make you want to stay longer in one place?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个尚未了解完的文化主题。",
+            "en": "A cultural topic I have not finished exploring."
+          },
+          "directionId": "culture"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一项还想继续参与的户外活动。",
+            "en": "An outdoor activity I would like more time to experience."
+          },
+          "directionId": "outdoors"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一组还想进一步了解的地方饮食。",
+            "en": "Local food experiences I want to learn more about."
+          },
+          "directionId": "food"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "还没预想到的新发现接连出现。",
+            "en": "Unexpected discoveries keep opening up."
+          },
+          "directionId": "wanderer"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_10",
+      "prompt": {
+        "zh": "旅途中一段可自由选择的时间，你更想怎样使用？",
+        "en": "How would you use a freely chosen period during a trip?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "实际参与一项适合条件的户外项目。",
+            "en": "Take part in an outdoor activity suited to the conditions."
+          },
+          "directionId": "outdoors"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "停下来，让自己不用连续接收新信息。",
+            "en": "Pause without continuously taking in new things."
+          },
+          "directionId": "rest"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "不设具体目标，在允许的范围里随兴走走。",
+            "en": "Explore within permitted areas without a particular destination."
+          },
+          "directionId": "wanderer"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "按自己排好的路线完成一个期待的重点。",
+            "en": "Follow my planned route to a stop I have been looking forward to."
+          },
+          "directionId": "planner"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_11",
+      "prompt": {
+        "zh": "为一段休假留出期待，你更容易想到什么？",
+        "en": "What most easily gives you something to look forward to on a break?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "可以少做决定、从容待着的时段。",
+            "en": "Time to settle comfortably with fewer decisions to make."
+          },
+          "directionId": "rest"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一场围绕饮食展开的体验。",
+            "en": "An experience organised around food."
+          },
+          "directionId": "food"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把想做的几件事安排得清楚可行。",
+            "en": "Making a few things I want to do fit a clear, feasible plan."
+          },
+          "directionId": "planner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "认识一种自己还不熟悉的文化表达。",
+            "en": "Getting to know a cultural expression unfamiliar to me."
+          },
+          "directionId": "culture"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_12",
+      "prompt": {
+        "zh": "在不必赶时间的地点，你更愿意展开哪种活动？",
+        "en": "Somewhere without a tight schedule, what would you most want to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "围绕食材、做法或品尝慢慢探索。",
+            "en": "Explore ingredients, preparation or tasting at an unhurried pace."
+          },
+          "directionId": "food"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "跟随现场吸引自己的细节改变路线。",
+            "en": "Let details that catch my attention change the route."
+          },
+          "directionId": "wanderer"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "顺着一个历史或文化线索继续了解。",
+            "en": "Follow a historical or cultural thread in more depth."
+          },
+          "directionId": "culture"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用适合自己的方式参与当地户外体验。",
+            "en": "Participate in a local outdoor experience in a way that suits me."
+          },
+          "directionId": "outdoors"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_13",
+      "prompt": {
+        "zh": "想给一段出游增加一点满足感，你更倾向增加？",
+        "en": "What would you add to make a day out more satisfying to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一段不用预先选下一站的自由时间。",
+            "en": "A period without choosing the next stop beforehand."
+          },
+          "directionId": "wanderer"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一处能读懂地方背景的公开文化场所。",
+            "en": "An open cultural place that helps explain the local background."
+          },
+          "directionId": "culture"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一段可以舒适停留的空白。",
+            "en": "An open period to stay somewhere comfortably."
+          },
+          "directionId": "rest"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一项与地方饮食有关的小体验。",
+            "en": "A small experience connected with local food."
+          },
+          "directionId": "food"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_14",
+      "prompt": {
+        "zh": "旅行结束后，你最希望带回哪种满足？",
+        "en": "At the end of a trip, which satisfaction would you most want to bring home?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把自己关心的重点安排得顺畅而清楚。",
+            "en": "Having organised the priorities I cared about into a clear flow."
+          },
+          "directionId": "planner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "亲自参与了期待的户外体验。",
+            "en": "Having taken part in an outdoor experience I wanted."
+          },
+          "directionId": "outdoors"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "对一种地方饮食有了具体的品尝或了解。",
+            "en": "Having a concrete tasting or understanding of local food."
+          },
+          "directionId": "food"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "途中出现了原先没列在计划里的发现。",
+            "en": "Having discoveries I had not put on a plan."
+          },
+          "directionId": "wanderer"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_15",
+      "prompt": {
+        "zh": "几位朋友各提一个建议，你更想优先讨论哪种？",
+        "en": "Friends each suggest an idea. Which would you most want to discuss first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "围绕一个地方故事展开的参观。",
+            "en": "A visit organised around a local story."
+          },
+          "directionId": "culture"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "节奏轻松、可以多休息的安排。",
+            "en": "An easy-paced arrangement with room for rest."
+          },
+          "directionId": "rest"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "只约好大致范围，再按现场兴趣决定。",
+            "en": "Agree a broad area and decide from what interests us there."
+          },
+          "directionId": "wanderer"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先把大家想做的事项排成可讨论的日程。",
+            "en": "Turn what people want to do into a draft schedule to discuss."
+          },
+          "directionId": "planner"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_16",
+      "prompt": {
+        "zh": "安排一段属于自己的时间，你最愿意把什么放在中心？",
+        "en": "When arranging time for yourself, what would you most want at its centre?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一项适合自己参与的户外活动。",
+            "en": "An outdoor activity suited to my participation."
+          },
+          "directionId": "outdoors"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一种想从容尝试或了解的饮食。",
+            "en": "Food I want time to try or learn about."
+          },
+          "directionId": "food"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一条事先整理好的活动顺序。",
+            "en": "An activity sequence I have organised beforehand."
+          },
+          "directionId": "planner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一项能增长地方文化理解的参观。",
+            "en": "A visit that helps me understand local culture."
+          },
+          "directionId": "culture"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_17",
+      "prompt": {
+        "zh": "你会更愿意把哪种内容加入出游笔记？",
+        "en": "What would you most want to add to notes about a day out?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "哪里适合放慢节奏，怎样给自己留空。",
+            "en": "Where I could slow down and how I left myself space."
+          },
+          "directionId": "rest"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "途中临时发现了什么，路线怎样自然变化。",
+            "en": "What I noticed unexpectedly and how the route changed."
+          },
+          "directionId": "wanderer"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "某个展览、遗迹或文化习俗带来的新理解。",
+            "en": "An understanding gained from an exhibition, heritage or cultural practice."
+          },
+          "directionId": "culture"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "参与某项户外体验时的过程。",
+            "en": "The experience of taking part in an outdoor activity."
+          },
+          "directionId": "outdoors"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_18",
+      "prompt": {
+        "zh": "下次类似出游，你最想再次保留哪一部分？",
+        "en": "On another similar outing, what would you most want to keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "围绕饮食探索和品尝的时间。",
+            "en": "Time for exploring and trying food."
+          },
+          "directionId": "food"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "提前梳理重点、路线与时间的过程。",
+            "en": "The process of organising priorities, routes and timing."
+          },
+          "directionId": "planner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "亲身参与户外体验的机会。",
+            "en": "An opportunity to take part in an outdoor experience."
+          },
+          "directionId": "outdoors"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "无需持续行动、可以自在休息的节奏。",
+            "en": "A pace with room to rest instead of keeping active."
+          },
+          "directionId": "rest"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "wanderer",
+      "directionIds": [
+        "wanderer"
+      ],
+      "title": {
+        "zh": "随兴漫游型旅行者",
+        "en": "Wanderer Travel Style"
+      },
+      "headline": {
+        "zh": "给现场发现留下位置",
+        "en": "Leaving space for discoveries on the way"
+      },
+      "summary": {
+        "zh": "本题组中，你更常选择到现场再决定、顺着沿途兴趣改变去向。随兴不等于不做必要准备，也不证明外向、勇敢、轻装或更适合独自出游。",
+        "en": "Your choices more often leave decisions open until arrival and follow things you notice along the way. Spontaneity does not mean omitting necessary preparation or establish extraversion, bravery, light packing or suitability for solo travel."
+      },
+      "seo": {
+        "title": {
+          "zh": "随兴漫游型旅行结果：留白、准备与同行协商",
+          "en": "Wanderer Travel Style: Flexibility, Examples and Tradeoffs"
+        },
+        "description": {
+          "zh": "阅读随兴漫游型完整结果，理解现场选择、必要准备与同行协商的区别，附例子和小尝试。免费解释，不把随兴当勇敢、外向、轻装或不必做准备。",
+          "en": "Explore the Wanderer travel style: flexible choices, necessary preparation and companion agreements. Full free examples without inferring bravery, extraversion or readiness."
+        }
+      },
+      "scoreReading": {
+        "zh": "18道题各选一种做法，为对应方向加1。每题提供六种中的四种，各方向总共出现12次、每个选项位置3次；次数只能比较这组选择。完成全部18题后显示六项原始次数及所有最高并列完整报告，不随机打破并列、不强派副型，也不用隐藏权重或匹配百分比。接近次数没有经过验证的近分阈值，不能当作人格比例、能力、常模或统计显著差异。",
+        "en": "Each of 18 selections adds one to its approach. An item offers four of the six approaches; each appears 12 times and three times in each position. Counts compare only this set of choices. All 18 selections produce six raw tallies and every highest-count full guide, without random tie breaking, a forced secondary, hidden weighting or match percentages. Nearby counts have no validated close-score threshold and establish neither personality proportions, ability, norms nor statistical significance."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这份结果怎样理解",
+            "en": "What this result describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "随兴漫游的选项保留到现场再选择的空间，把注意力交给当时出现的细节。回看你更想少排几个地点、跟随一个兴趣，还是允许临时改变方向；它们不完全相同。次数只比较这组情境中的选择，不代表所有旅行都应无计划，也不能补出你面对陌生人或不确定性时的真实反应。",
+              "en": "Wanderer options leave room to decide on arrival and follow details noticed at the time. Revisit whether you wanted fewer fixed stops, freedom to follow an interest or permission to change direction. Those are different preferences. Counts compare this set of situations without prescribing an unplanned trip or establishing your real response to strangers or uncertainty."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一个出游例子",
+            "en": "A day-out example"
+          },
+          "paragraphs": [
+            {
+              "zh": "你为一个短途下午选好大致活动区域，抵达后发现一家开放的小展厅，于是把原本留白的时间用来看看。真正要分开的是可自由决定的部分和已经约好的会合、交通或入场条件。随兴可以发生在一段有边界的时间里，不必把整趟旅行变成没有任何安排的考验。",
+              "en": "For a short afternoon outing, you choose a broad area. On arrival, an open small exhibition catches your attention and fills some time you deliberately left free. Separate that discretionary period from agreed meeting times, transport or admission conditions. Spontaneity can occupy one bounded part of a trip rather than becoming a test of having no arrangements at all."
+            }
+          ]
+        },
+        {
+          "id": "preparation",
+          "title": {
+            "zh": "怎样准备得更合适",
+            "en": "Preparing for this preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "先确认真正不能临时改的事项，再把其余选择保留为可变。可以把“今天必须做到”和“路上再看看”分开写，避免同行者把你的留白理解成没有考虑。实际开放、出行和安全条件应查当时权威信息，本结果没有提供目的地、交通、健康或活动资格判断，也不决定你能否临时进入某处。",
+              "en": "Confirm what genuinely cannot change, then leave other choices flexible. Separate commitments from possibilities you will assess on the way so companions understand the open space. Check actual opening, travel and safety conditions through current authoritative information. This result supplies no destination, transport, health or activity-eligibility decision and does not establish permission to enter a place spontaneously."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "值得留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果每一步都临时决定，你可能需要反复协商下一站；反过来，完全排满也可能让你错过想多停留的机会。可以留一个清楚的选择窗口，而不是要求全天随时改动。是否更便宜、见到更多或压力更少都要看真实安排，报告不按旅行风格预言费用、效率或体验好坏。",
+              "en": "Deciding every step on the spot can create repeated negotiations, while filling every period can remove a chance to stay somewhere interesting. Keep a clear window for choice instead of expecting continuous changes. Price, number of experiences and stress depend on actual arrangements; the label predicts neither cost, efficiency nor the quality of a trip."
+            }
+          ]
+        },
+        {
+          "id": "companions",
+          "title": {
+            "zh": "与同行者协商",
+            "en": "Discussing it with companions"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想留两小时到现场再决定，其他会合点先确定。”询问对方最需要提前知道什么，也约好改变安排时怎样联系。同行者愿不愿意分开活动需要共同决定，不能因为其喜欢计划就说其拘束，也不能因你想留白就把协调责任交给别人。具体约定比类型配对更有用。",
+              "en": "You could say, “I would like two hours to decide on arrival; let us fix the other meeting points.” Ask what another person needs to know ahead and how changes will be communicated. Separate activities require agreement. Neither planning nor flexibility justifies stereotyping a companion or shifting coordination work to them; specific arrangements matter more than type pairings."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他偏好比较",
+            "en": "Comparing other preferences"
+          },
+          "paragraphs": [
+            {
+              "zh": "行程规划重视事先衔接，随兴漫游重视现场选择；文化、户外、休闲和饮食更多涉及想把时间用在哪里。它们可以组合，不是六种互斥人格。一个人也可能事先规划文化参观，再留出自由时间。最高次数相同的报告全部保留，没有用第二高分强派副型或声称某组合罕见。",
+              "en": "Planner choices emphasise advance coordination and Wanderer choices decisions on arrival. Cultural, outdoor, rest and food choices more often concern how time is spent. These can combine without forming six exclusive personalities. You can plan a cultural visit and leave another period open. All highest-count ties retain their guides, without forcing a secondary type or declaring blends rare."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个反例",
+            "en": "A counterexample"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能喜欢临时决定但携带很多必需品，也可能喜欢和固定伙伴一起走，而不想认识陌生人。这样的情况无需为了符合“漫游者”而改变。本题没有测打包习惯、适应能力、风险偏好、MBTI或大五开放性；若某次旅行受预算、身体条件或照护责任限制，也不由标签评价是否够自由。",
+              "en": "You may prefer decisions on arrival while carrying many necessities, or exploring with familiar companions rather than meeting strangers. Neither needs changing to fit a Wanderer label. These items assess neither packing, adaptability, risk preference, MBTI nor Big Five openness. Constraints involving budget, access or caring responsibilities do not make a trip less authentic or free."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "在下一次低负担出游中，和同行者约好一小段真正可变的时间，其他必要条件照常确认。结束后回看发现了什么、何处仍需提前沟通、谁承担了临时决定。目标是找到能共享的灵活程度，而不是验证自己够随性，或用一段顺利经历证明整趟都应无计划。",
+              "en": "On a low-burden outing, agree one genuinely flexible period while confirming necessary conditions as usual. Afterwards, note discoveries, missing communication and who made the on-the-spot decisions. The aim is a workable degree of flexibility, not proof of spontaneity or a conclusion that one successful open period means an entire trip should remain unplanned."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创偏好题与使用范围",
+            "en": "Original preference items and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版18道题、计数与全部解释由费马独立编写，六种常见偏好名称用于比较具体出游安排，不是普遍、穷尽或经过验证的人格分类，也不是Plog量表或旅行品牌背书。UN Tourism来源只说明相关活动范围，不验证题本或六类型。没有本站信效度、常模、健康与活动资格判断，不能推断身体能力、风险承受、关系配对或职业适配；真实旅行仍需核实际条件与同行意愿。",
+              "en": "FermatMind independently authored these 18 items, counting rules and explanations. Six familiar preference names organise trip arrangements, not a universal, exhaustive or validated personality taxonomy, a Plog instrument or travel-brand endorsement. UN Tourism sources explain activity scope without validating the items or six types. There are no established website psychometrics, norms, health or activity-eligibility judgments. Counts establish neither fitness, risk tolerance, companion compatibility nor career fit; real plans require actual conditions and the people’s wishes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "planner",
+      "directionIds": [
+        "planner"
+      ],
+      "title": {
+        "zh": "行程规划型旅行者",
+        "en": "Planner Travel Style"
+      },
+      "headline": {
+        "zh": "先把重点、顺序与时间连起来",
+        "en": "Connecting priorities, sequence and timing in advance"
+      },
+      "summary": {
+        "zh": "本题组中，你更常选择提前梳理重点、路线与时间。规划描述一种安排偏好，不等于行程必须排满、天生高效、控制欲强或适合项目管理职业。",
+        "en": "Your choices more often organise priorities, routes and timing in advance. Planning is an arrangement preference, without requiring a packed schedule or establishing efficiency, controlling behaviour or project-management career fit."
+      },
+      "seo": {
+        "title": {
+          "zh": "行程规划型旅行结果：重点、节奏与弹性安排",
+          "en": "Planner Travel Style: Itineraries, Pace and Full Guide"
+        },
+        "description": {
+          "zh": "规划型不等于行程排满。阅读提前衔接、保留休息、可变安排与分工的完整解释。免费结果，不由次数推断效率、控制欲、焦虑或职业适配。",
+          "en": "Read the Planner travel guide to priorities, timing, rest and flexible arrangements. Full free interpretation without treating planning choices as efficiency, anxiety or career fit."
+        }
+      },
+      "scoreReading": {
+        "zh": "18道题各选一种做法，为对应方向加1。每题提供六种中的四种，各方向总共出现12次、每个选项位置3次；次数只能比较这组选择。完成全部18题后显示六项原始次数及所有最高并列完整报告，不随机打破并列、不强派副型，也不用隐藏权重或匹配百分比。接近次数没有经过验证的近分阈值，不能当作人格比例、能力、常模或统计显著差异。",
+        "en": "Each of 18 selections adds one to its approach. An item offers four of the six approaches; each appears 12 times and three times in each position. Counts compare only this set of choices. All 18 selections produce six raw tallies and every highest-count full guide, without random tie breaking, a forced secondary, hidden weighting or match percentages. Nearby counts have no validated close-score threshold and establish neither personality proportions, ability, norms nor statistical significance."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这份结果怎样理解",
+            "en": "What this result describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "行程规划的选项把事先整理本身看作出游的一部分：先确认重点，再安排衔接。回看你选择的是清楚顺序、提前知道条件，还是让同行者有共同草案；它们可能有不同理由。次数没有观察实际执行，也不证明你比别人看得更多、花得更少或不会临时改变主意。",
+              "en": "Planner options make advance organisation part of the outing: identify priorities and connect them. Revisit whether you wanted a sequence, clearer conditions or a shared draft for companions. Different reasons can produce similar counts. The items do not observe execution or establish that you see more, spend less or never change your mind."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一个出游例子",
+            "en": "A day-out example"
+          },
+          "paragraphs": [
+            {
+              "zh": "你想在一天里看一处展览、走走公共街区，再和朋友见面，于是先检查开放条件和移动时间，排出一个可以讨论的顺序。规划可以只包含这几个重点，不需要精确到每分钟。朋友想多休息时，也能讨论删去哪一项，而不是把原计划当作每个人已经接受的义务。",
+              "en": "You want an exhibition, time in a public neighbourhood and a meeting with a friend in one day. Check opening conditions and travel time, then draft an order to discuss. The plan can contain a few priorities instead of every minute. If a companion wants more rest, discuss what to remove rather than treating the draft as everyone’s obligation."
+            }
+          ]
+        },
+        {
+          "id": "preparation",
+          "title": {
+            "zh": "怎样准备得更合适",
+            "en": "Preparing for this preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "把必要条件、个人愿望和备选分开，注明哪些已经确认、哪些仍是假设。这样遇到变化时，比较容易知道要调整哪一段。实际交通、入场、预算与安全信息仍需另外核对，不从结果里推定。你也可以把休息和留白写进计划；计划的作用是帮助这次安排，不是证明自己准备得最多。",
+              "en": "Distinguish requirements, wishes and alternatives, marking what is confirmed and what remains an assumption. A change then points to a particular part to revise. Verify transport, access, budget and safety information separately rather than inferring it from the result. Rest and open time can be planned too; organisation serves this outing rather than a competition over who prepared most."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "值得留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "安排得清楚可能减少现场反复决定，也可能在条件改变后产生额外修改工作。可以提前约一个“允许删去”的项目和一个必须再确认的节点，不要求为了完成清单忽略当时需要。报告不把调整说成失败，也没有证明你容易焦虑、缺乏弹性或一定让同行者有压力，需看真实反馈。",
+              "en": "A clear plan may reduce repeated decisions on arrival or create revision work when conditions change. Identify something you can drop and a point requiring reconfirmation instead of completing a list at the expense of current needs. Adjustment is not failure. The report establishes neither anxiety, inflexibility nor pressure on companions; check their actual feedback."
+            }
+          ]
+        },
+        {
+          "id": "companions",
+          "title": {
+            "zh": "与同行者协商",
+            "en": "Discussing it with companions"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以先问大家最想保留的一件事，再展示草案，请对方指出需要慢下来或自由活动的部分。谁负责查询、预订与提醒应说清楚，不让“你比较会规划”变成默认无偿分工，也不让做了功课成为替别人决定的理由。同行是否合适不能由两种风格的分数或名称来认证。",
+              "en": "Ask each person for one priority, then show a draft and invite slower periods or free time. Make research, booking and reminders explicit responsibilities. Being regarded as the planner does not automatically assign you all that work, and doing it grants no right to decide for others. Style names or counts cannot certify compatibility between companions."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他偏好比较",
+            "en": "Comparing other preferences"
+          },
+          "paragraphs": [
+            {
+              "zh": "随兴漫游更保留现场决定，行程规划更重视提前衔接；两者可以分配到不同时间。文化、户外、休闲与饮食则能成为计划里的内容。规划型也可以安排整天休息，不需要把休闲视为对立面。全部最高并列报告保留，不强定主副型、不把一种组合说成罕见或更成熟。",
+              "en": "Wanderer choices leave decisions for arrival, while Planner choices connect things beforehand; different periods can use each. Cultural, outdoor, rest and food interests can all supply a plan’s content. Planning a day of rest creates no contradiction. Every highest-count guide remains, without forced primary/secondary labels or claims that a combination is rare or mature."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个反例",
+            "en": "A counterexample"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能喜欢准备，但临时更改时也很轻松；或者只在带家人、需要无障碍安排或承担照护责任时计划较多。问卷没有区分所有现实原因，也没有测责任心、控制需求、焦虑、管理能力或大五尽责性。较高次数只说明本题组更常选了规划做法，不要求形成固定人设。",
+              "en": "You may enjoy preparation and change course easily, or plan more when coordinating family, access needs or caring responsibilities. The questionnaire cannot recover every practical reason and measures neither conscientiousness, a need for control, anxiety nor management ability. A higher tally means more planning choices within these items, without requiring a permanent identity."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "下次低负担出游，做一份只有几个重点的草案，同时写清一段可删、可留白的时间。和同行者确认各自能决定什么，结束后问哪些准备真正有用、哪些信息没有用上。尝试的目标是减少这次安排的摩擦，不是比较谁效率更高，也不凭一次结果预测以后旅行一定顺利。",
+              "en": "For a low-burden outing, draft only a few priorities and one period that can be dropped or left open. Agree what each companion can decide. Afterwards, ask which preparation actually helped and what information went unused. Improve this arrangement rather than comparing efficiency or predicting that future trips will succeed because one plan worked."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创偏好题与使用范围",
+            "en": "Original preference items and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版18道题、计数与全部解释由费马独立编写，六种常见偏好名称用于比较具体出游安排，不是普遍、穷尽或经过验证的人格分类，也不是Plog量表或旅行品牌背书。UN Tourism来源只说明相关活动范围，不验证题本或六类型。没有本站信效度、常模、健康与活动资格判断，不能推断身体能力、风险承受、关系配对或职业适配；真实旅行仍需核实际条件与同行意愿。",
+              "en": "FermatMind independently authored these 18 items, counting rules and explanations. Six familiar preference names organise trip arrangements, not a universal, exhaustive or validated personality taxonomy, a Plog instrument or travel-brand endorsement. UN Tourism sources explain activity scope without validating the items or six types. There are no established website psychometrics, norms, health or activity-eligibility judgments. Counts establish neither fitness, risk tolerance, companion compatibility nor career fit; real plans require actual conditions and the people’s wishes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "culture",
+      "directionIds": [
+        "culture"
+      ],
+      "title": {
+        "zh": "文化探索型旅行者",
+        "en": "Cultural Explorer Travel Style"
+      },
+      "headline": {
+        "zh": "把一个地方理解得更具体",
+        "en": "Understanding a place more specifically"
+      },
+      "summary": {
+        "zh": "本题组中，你更常选择地方历史、文化表达与生活背景。文化兴趣不证明知识水平、品味高低或比其他旅人更接近当地人；它可以和休息、饮食或自由活动一起出现。",
+        "en": "Your choices more often favour local history, cultural expressions and everyday context. Cultural interest establishes neither expertise, superior taste nor closeness to local identity, and can coexist with rest, food or open time."
+      },
+      "seo": {
+        "title": {
+          "zh": "文化探索型旅行结果：地方背景、兴趣与边界",
+          "en": "Cultural Explorer Travel Style: Meaning and Full Guide"
+        },
+        "description": {
+          "zh": "阅读文化探索型旅行完整结果，了解地方故事、参观节奏、尊重意愿与同行协商。免费查看具体例子，不认证知识、品味、语言能力或比其他旅人更真实。",
+          "en": "Explore the Cultural Explorer travel style with examples, local context, pace and respectful participation. Full free guide without claims of expertise or superior authenticity."
+        }
+      },
+      "scoreReading": {
+        "zh": "18道题各选一种做法，为对应方向加1。每题提供六种中的四种，各方向总共出现12次、每个选项位置3次；次数只能比较这组选择。完成全部18题后显示六项原始次数及所有最高并列完整报告，不随机打破并列、不强派副型，也不用隐藏权重或匹配百分比。接近次数没有经过验证的近分阈值，不能当作人格比例、能力、常模或统计显著差异。",
+        "en": "Each of 18 selections adds one to its approach. An item offers four of the six approaches; each appears 12 times and three times in each position. Counts compare only this set of choices. All 18 selections produce six raw tallies and every highest-count full guide, without random tie breaking, a forced secondary, hidden weighting or match percentages. Nearby counts have no validated close-score threshold and establish neither personality proportions, ability, norms nor statistical significance."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这份结果怎样理解",
+            "en": "What this result describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "文化探索的选项把了解地方背景作为时间安排的一个重点，可以是展览、遗迹、公开活动或日常文化表达。回看你更好奇故事、做法还是它们与眼前景物的联系。一个次数无法区分你已知道多少、实际会停留多久，也不能推断你愿不愿意和陌生人交流；兴趣与能力分别理解。",
+              "en": "Cultural explorer options give time to a place’s background through an exhibition, heritage, a public activity or everyday cultural expression. Revisit whether stories, practices or connections with what you see drew your interest. A tally cannot establish existing knowledge, length of engagement or willingness to speak with strangers. Interest and ability remain different observations."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一个出游例子",
+            "en": "A day-out example"
+          },
+          "paragraphs": [
+            {
+              "zh": "在一片公共街区，你看到一处开放展览介绍旧行业怎样影响附近建筑，愿意多留些时间，再去看相关街道。你可以保留一个想了解的问题，而不要求把每块说明都看完。这个例子也不把购买纪念品、吃一顿饭或单纯看风景说成浅薄；每种活动都可以有自己的意义。",
+              "en": "In a public neighbourhood, an open exhibition explains how an earlier trade influenced nearby buildings. You want time there before looking at the related streets. Keep one question to explore instead of requiring every label to be read. The example does not dismiss a souvenir, a meal or simply enjoying a view as shallow; each activity can have its own meaning."
+            }
+          ]
+        },
+        {
+          "id": "preparation",
+          "title": {
+            "zh": "怎样准备得更合适",
+            "en": "Preparing for this preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一项真正想了解的内容，确认公开开放与参与条件，再给看资料和实际体验留出合适节奏。展陈、官方讲解与当地人的个人看法可能各有范围，不把某一个声音当整个群体的唯一答案。具体历史事实要查相应来源，本问卷不提供地方知识考试，也不认证文化理解已经充分。",
+              "en": "Choose something you actually want to understand, confirm public access and participation conditions, and allow time for both information and experience. Exhibitions, official interpretation and individual local views have different scopes; no single voice represents an entire community. Check specific historical claims through their sources. This questionnaire is neither a knowledge examination nor certification of sufficient cultural understanding."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "值得留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "想深入一个主题，可能需要少选几个地点；如果每处都想读完，行程也可能超出当时精力。可以先确认一个重点和一个停止点，再看是否继续。这里不把认真当成更高等级的旅行，也不假定你一定让同行者觉得沉重；需要从当次安排和反馈判断是否节奏合适。",
+              "en": "Exploring a topic more fully may require fewer stops, while reading everything can exceed the energy available that day. Set one focus and a stopping point before deciding whether to continue. Serious attention does not create a superior grade of travel, and the result cannot establish that companions find it burdensome. Check the pace in the actual situation."
+            }
+          ]
+        },
+        {
+          "id": "companions",
+          "title": {
+            "zh": "与同行者协商",
+            "en": "Discussing it with companions"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说清自己想在某处多留多久，也询问对方想保留的活动。如果分开一段时间，先共同确认会合方式；如果一起参加，让不同兴趣的人也能选择只看一部分。当地生活和私人空间不是供旅人随意取用的素材，接触、拍摄与参与应尊重实际规则和人的意愿，不凭文化型标签放宽边界。",
+              "en": "Explain how long you want at a place and ask which activities a companion wants to retain. Agree meeting arrangements before separate time, or allow different levels of participation in a shared visit. Local lives and private spaces are not automatically visitor material. Contact, photography and participation require actual rules and willingness rather than permission from a cultural-explorer label."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他偏好比较",
+            "en": "Comparing other preferences"
+          },
+          "paragraphs": [
+            {
+              "zh": "饮食体验也可能连接文化，户外活动也可能涉及地方故事；规划和随兴则影响怎样安排这些兴趣，休闲影响节奏。六种并不穷尽旅行，也没有给知识深浅排序。文化与其他最高次数相同，所有对应完整报告都会保留；没有把某个组合说成更真实、更少见或更适合某种同行者。",
+              "en": "Food and outdoor experiences can also connect with culture. Planning and spontaneity shape their arrangement, while rest concerns pace. The six readings exhaust neither travel nor levels of knowledge. If cultural choices share the highest count, every matching guide remains. No blend is certified as more authentic, rarer or better suited to a particular companion."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个反例",
+            "en": "A counterexample"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能很愿意看展览，却不喜欢提前读厚书；也可能熟悉某地历史，但这次只想休息。兴趣会受具体任务、语言、开放条件和可用时间影响。问卷没有测智力、学历、语言能力、阶层、审美或职业适配，也不能由结果推断适合外交、写作、人类学等工作。",
+              "en": "You may enjoy exhibitions without reading extensively beforehand, or know a place’s history and want only rest on this outing. Tasks, language, access and time affect interest. These items assess neither intelligence, education, language ability, class, taste nor career fit, and cannot establish suitability for diplomacy, writing, anthropology or another occupation."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "下次普通出游，选一个自己确实好奇的问题，通过一个公开且合适的场所去了解，结束后写下新知道了什么、还不确定什么。允许只记住一件小事，也给休息和同行者的兴趣留空间。目标是增加一次具体理解，不是证明比别人懂得多或把旅程变成必须完成的课程。",
+              "en": "On an ordinary outing, take one question you genuinely care about to an appropriate public place. Afterwards, note what you learned and what remains uncertain. Remembering one small detail is enough, with room for rest and companions’ interests. Seek a specific understanding rather than proof of knowing more than others or a course that must be completed."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创偏好题与使用范围",
+            "en": "Original preference items and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版18道题、计数与全部解释由费马独立编写，六种常见偏好名称用于比较具体出游安排，不是普遍、穷尽或经过验证的人格分类，也不是Plog量表或旅行品牌背书。UN Tourism来源只说明相关活动范围，不验证题本或六类型。没有本站信效度、常模、健康与活动资格判断，不能推断身体能力、风险承受、关系配对或职业适配；真实旅行仍需核实际条件与同行意愿。",
+              "en": "FermatMind independently authored these 18 items, counting rules and explanations. Six familiar preference names organise trip arrangements, not a universal, exhaustive or validated personality taxonomy, a Plog instrument or travel-brand endorsement. UN Tourism sources explain activity scope without validating the items or six types. There are no established website psychometrics, norms, health or activity-eligibility judgments. Counts establish neither fitness, risk tolerance, companion compatibility nor career fit; real plans require actual conditions and the people’s wishes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "outdoors",
+      "directionIds": [
+        "outdoors"
+      ],
+      "title": {
+        "zh": "户外体验型旅行者",
+        "en": "Outdoor Explorer Travel Style"
+      },
+      "headline": {
+        "zh": "把时间留给亲身参与",
+        "en": "Making room for taking part outdoors"
+      },
+      "summary": {
+        "zh": "本题组中，你更常选择亲身参与适合条件的户外活动。它不判断身体能力、经验、风险承受或活动资格，也不要求刺激和艰苦；实际参与按真实条件另行决定。",
+        "en": "Your choices more often favour taking part in outdoor activities suited to the circumstances. They establish neither fitness, experience, risk tolerance nor eligibility, and require no thrill or hardship. Actual participation depends on conditions assessed separately."
+      },
+      "seo": {
+        "title": {
+          "zh": "户外体验型旅行结果：参与偏好、条件与取舍",
+          "en": "Outdoor Explorer Travel Style: Preferences and Limits"
+        },
+        "description": {
+          "zh": "户外兴趣不等于身体能力或风险承受。阅读亲身参与、实际条件、可选范围与同行协商的完整解释。免费结果，不提供活动资格、健康或安全判断。",
+          "en": "Read the Outdoor Explorer travel guide to participation preferences, actual conditions and companion agreements. Full free interpretation without fitness, risk or safety judgments."
+        }
+      },
+      "scoreReading": {
+        "zh": "18道题各选一种做法，为对应方向加1。每题提供六种中的四种，各方向总共出现12次、每个选项位置3次；次数只能比较这组选择。完成全部18题后显示六项原始次数及所有最高并列完整报告，不随机打破并列、不强派副型，也不用隐藏权重或匹配百分比。接近次数没有经过验证的近分阈值，不能当作人格比例、能力、常模或统计显著差异。",
+        "en": "Each of 18 selections adds one to its approach. An item offers four of the six approaches; each appears 12 times and three times in each position. Counts compare only this set of choices. All 18 selections produce six raw tallies and every highest-count full guide, without random tie breaking, a forced secondary, hidden weighting or match percentages. Nearby counts have no validated close-score threshold and establish neither personality proportions, ability, norms nor statistical significance."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这份结果怎样理解",
+            "en": "What this result describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "户外体验的选项把实际参与放在中心，而不是只看地点名称。它可以是适合自己的自然观察、短程活动或其他公开可参与体验，不以强度高低计分。先回看你想参与的过程是什么，再区分兴趣与已经具备的条件；本题没有测试技能、体能、装备、恢复能力或处理突发情况的本领。",
+              "en": "Outdoor explorer options emphasise taking part rather than collecting place names. They can include suitable nature observation, a short activity or another public experience, without scoring intensity. Revisit the process you want to join and distinguish that interest from conditions already in place. Items test neither skill, fitness, equipment, recovery nor responses to unexpected events."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一个出游例子",
+            "en": "A day-out example"
+          },
+          "paragraphs": [
+            {
+              "zh": "你愿意把一段下午留给符合自己条件的自然观察活动，而不是连续赶几个室内地点。参加之前，仍需确认活动怎样进行、是否开放、个人条件与安排是否合适。选择这个例子不表示要走得更远或挑战别人，也不把需要无障碍参与、短时停留或随时退出当作较低等级的体验。",
+              "en": "You would like part of an afternoon for nature observation suited to your circumstances rather than several indoor stops. Participation still requires checking how the activity works, access and your own conditions. Choosing it does not mean going farther or challenging someone, and an accessible, short or easily exited activity is no lower grade of experience."
+            }
+          ]
+        },
+        {
+          "id": "preparation",
+          "title": {
+            "zh": "怎样准备得更合适",
+            "en": "Preparing for this preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "把想体验什么、真实参与要求和退出安排分开核对。具体活动以主办方、场所和适用专业信息为准，结果名称不能代替现场判断；这份报告也不提供路线、天气、医学或技术指引。可以选择更轻松、时间更短或不参加的方案，不需要为了维持一个户外型身份去超出实际条件。",
+              "en": "Check the desired experience, actual participation requirements and exit arrangements separately. Follow the organiser, location and relevant professional information; a result name cannot replace situational judgment. This guide supplies no route, weather, medical or technical instruction. A shorter, gentler alternative or not participating remains valid without needing to maintain an outdoor-explorer identity."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "值得留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "把大段时间给一项体验，可能减少其他活动，也需要确认自己和同行者愿意投入多少。可以在草案里安排可停止、可休息的节点，而不是用完成程度比较谁更投入。报告没有证明户外能化解你的压力、提升长期健康或一定让你更放松，实际感受和结果需另外观察，不能当作保证。",
+              "en": "Giving substantial time to one experience reduces time for others and requires agreement on the commitment. Include stopping and rest opportunities in a draft rather than comparing dedication by completion. This report does not establish that outdoor activity relieves your stress, improves long-term health or guarantees relaxation. Actual feelings and outcomes require observation of their own."
+            }
+          ]
+        },
+        {
+          "id": "companions",
+          "title": {
+            "zh": "与同行者协商",
+            "en": "Discussing it with companions"
+          },
+          "paragraphs": [
+            {
+              "zh": "先问每个人愿不愿意、适不适合参加，不把犹豫当胆小，也不以“难得来一趟”施压。有人选择不同活动时，共同确认联系与会合安排；不能把你的偏好变成别人必须承担的风险、费用或协助责任。哪些支持是确实可提供的也要说清，不凭类型推断同行者能照顾谁。",
+              "en": "Ask whether each person wants and is able to participate without labelling hesitation as cowardice or pressuring someone because the opportunity is unusual. Agree contact and meeting arrangements for separate activities. Your preference cannot impose risk, expense or support work on others. Specify available assistance rather than inferring that a companion’s type qualifies them to look after someone."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他偏好比较",
+            "en": "Comparing other preferences"
+          },
+          "paragraphs": [
+            {
+              "zh": "户外体验描述想做的活动，规划和随兴描述怎样安排，文化与饮食也能在同一旅程出现，休闲则可以决定活动间隔。它们不是勇敢与保守的等级，也不把户外加随兴解释成可以脱离必要准备。所有最高并列报告都保留，不强定副型或宣称某些组合罕见、紧张或更成熟。",
+              "en": "Outdoor interests concern activities; planning and spontaneity their arrangement. Culture and food can share the trip, and rest can shape intervals. These are not grades of courage or caution, and combining outdoor choices with spontaneity grants no exemption from preparation. All highest-count guides remain without forced secondary types or claims of rare, tense or mature blends."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个反例",
+            "en": "A counterexample"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能很喜欢安静的户外观察，却不喜欢速度、刺激或高强度项目；也可能有很多活动经验，这次只想休息。兴趣并不直接映射能力或风险偏好。肤色、伤痕、装备和旅行故事都不作为评分证据，本结果也不判断适合野外研究、表演或任何职业，不能用于证明活动资格。",
+              "en": "You might enjoy quiet outdoor observation without speed, thrills or strenuous activities, or have considerable experience and want rest this time. Interest does not map directly to ability or risk preference. Appearance, scars, equipment and stories supply no scoring evidence. This result selects neither field research, performance nor any occupation and cannot establish activity eligibility."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "在低负担出游里，先写下自己想参与的一个具体过程，再查真实条件，与同行者确认可选范围；如果不合适，也记录是什么条件影响了选择。回看期待与实际是否相符，不用强度、忍耐或完成距离评价自己。目标是明确这次体验偏好，而不是把原始次数变成能力证明或健康建议。",
+              "en": "For a low-burden outing, name one process you want to experience, check actual conditions and agree an optional scope with companions. If it does not fit, note which condition mattered. Compare expectation and experience without rating yourself by intensity, endurance or distance. Clarify this preference rather than turning a raw tally into an ability certificate or health recommendation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创偏好题与使用范围",
+            "en": "Original preference items and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版18道题、计数与全部解释由费马独立编写，六种常见偏好名称用于比较具体出游安排，不是普遍、穷尽或经过验证的人格分类，也不是Plog量表或旅行品牌背书。UN Tourism来源只说明相关活动范围，不验证题本或六类型。没有本站信效度、常模、健康与活动资格判断，不能推断身体能力、风险承受、关系配对或职业适配；真实旅行仍需核实际条件与同行意愿。",
+              "en": "FermatMind independently authored these 18 items, counting rules and explanations. Six familiar preference names organise trip arrangements, not a universal, exhaustive or validated personality taxonomy, a Plog instrument or travel-brand endorsement. UN Tourism sources explain activity scope without validating the items or six types. There are no established website psychometrics, norms, health or activity-eligibility judgments. Counts establish neither fitness, risk tolerance, companion compatibility nor career fit; real plans require actual conditions and the people’s wishes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rest",
+      "directionIds": [
+        "rest"
+      ],
+      "title": {
+        "zh": "休闲放松型旅行者",
+        "en": "Rest-Focused Travel Style"
+      },
+      "headline": {
+        "zh": "让不赶路的时间也有位置",
+        "en": "Making room for time without rushing"
+      },
+      "summary": {
+        "zh": "本题组中，你更常选择舒适停留、减少连续安排与保留休息。休闲不需要豪华度假村或先证明自己努力，也不等于懒惰、逃避、健康恢复已经发生或不关心目的地。",
+        "en": "Your choices more often favour a comfortable pause, fewer continuous activities and time for rest. Rest requires neither a luxury resort nor proof of hard work, and establishes neither laziness, avoidance, health recovery nor disinterest in a place."
+      },
+      "seo": {
+        "title": {
+          "zh": "休闲放松型旅行结果：舒适停留与自主节奏",
+          "en": "Rest-Focused Travel Style: Pace, Examples and Full Guide"
+        },
+        "description": {
+          "zh": "休闲不需要豪华度假村或先证明努力。阅读保留空白、舒适条件、同行分工与具体例子。完整解释免费，不把偏好当懒惰、逃避或健康恢复保证。",
+          "en": "Explore a rest-focused travel style with examples, comfortable pauses and companion agreements. Full free guide without luxury requirements or promises of recovery."
+        }
+      },
+      "scoreReading": {
+        "zh": "18道题各选一种做法，为对应方向加1。每题提供六种中的四种，各方向总共出现12次、每个选项位置3次；次数只能比较这组选择。完成全部18题后显示六项原始次数及所有最高并列完整报告，不随机打破并列、不强派副型，也不用隐藏权重或匹配百分比。接近次数没有经过验证的近分阈值，不能当作人格比例、能力、常模或统计显著差异。",
+        "en": "Each of 18 selections adds one to its approach. An item offers four of the six approaches; each appears 12 times and three times in each position. Counts compare only this set of choices. All 18 selections produce six raw tallies and every highest-count full guide, without random tie breaking, a forced secondary, hidden weighting or match percentages. Nearby counts have no validated close-score threshold and establish neither personality proportions, ability, norms nor statistical significance."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这份结果怎样理解",
+            "en": "What this result describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "休闲放松的选项重视停留与节奏，允许一段时间不用赶下一件事。回看你想减少的是移动、连续决策还是不断接收新内容；这些需要可能不同。次数不能判断最近是否疲惫、为什么想休息或这次旅行能否让你恢复，也不把少做几项活动当作浪费，只保留本题里的选择。",
+              "en": "Rest-focused options value pauses and pace, allowing a period without rushing to another activity. Revisit whether you wanted less movement, fewer decisions or less continuous information; these are different needs. A tally cannot establish fatigue, motives or recovery from the trip, and does not classify doing fewer activities as waste. It records choices within these items."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一个出游例子",
+            "en": "A day-out example"
+          },
+          "paragraphs": [
+            {
+              "zh": "你和朋友完成一段轻松参观后，更想在舒服的公共休息处坐一会儿，而不是马上赶另一站。可以说明想停多久、是否愿意聊天，以及之后怎样继续。这个安排不需要泳池、酒精或昂贵住宿才能成立；能够舒服休息的条件因人而异，不能由一种风格替所有人决定。",
+              "en": "After a gentle visit with a friend, you would rather sit somewhere comfortable than head immediately to another stop. Explain the desired pause, whether conversation is welcome and what happens afterwards. No pool, alcohol or expensive accommodation is required. Conditions for comfortable rest differ between people and cannot be decided for everyone by one style label."
+            }
+          ]
+        },
+        {
+          "id": "preparation",
+          "title": {
+            "zh": "怎样准备得更合适",
+            "en": "Preparing for this preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "把希望留白的时间像其他重点一样写进草案，再核对实际可停留的场所、开放条件和必要支持。若某项安排会不断让你换地方，可以讨论合并或删减，而不是只在累了以后临时寻找空档。报告没有提供住宿、医疗或恢复方案，具体需求与服务是否合适仍要依据真实信息判断。",
+              "en": "Put desired open time into the draft like another priority, then check actual places to pause, access and necessary support. If an arrangement requires repeated moves, discuss combining or removing stops instead of relying only on gaps found later. This guide supplies no accommodation, medical or recovery plan; assess actual needs and services through their relevant information."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "值得留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "留出休息可能意味着少去一处地方，但不需要因此给体验排高低。若同行者期待活动，可以讨论不同时间或可选安排，不必把整个团队都改成同一种节奏。放慢是否让你舒服，要由这次体验来回答；本结果不能保证返程后精神更好、长期健康改善，也不能推断是在逃避日常问题。",
+              "en": "Keeping rest may mean omitting a stop without ranking the resulting experience. If a companion wants activities, discuss separate periods or optional plans rather than giving the entire group one pace. Whether slowing down feels good requires this person’s actual experience. The result guarantees neither returning refreshed, improved long-term health nor an explanation involving avoidance of everyday problems."
+            }
+          ]
+        },
+        {
+          "id": "companions",
+          "title": {
+            "zh": "与同行者协商",
+            "en": "Discussing it with companions"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想保留这一段不安排活动的时间，你想参加别的内容可以一起讨论会合方式。”自己休息不等于替对方规定，也不意味着要独自承担让别人不无聊的责任。照护、无障碍与联系安排应直接说清，不由“放松型”推定你能负责看管物品、等候或照顾同行的人。",
+              "en": "You could say, “I want this period without activities; if you want something else, let us agree how to meet afterwards.” Your pause need not prescribe another person’s plan or make you responsible for preventing their boredom. Discuss care, access and contact directly. A rest-focused label does not assign you waiting, watching belongings or caring for companions."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他偏好比较",
+            "en": "Comparing other preferences"
+          },
+          "paragraphs": [
+            {
+              "zh": "休闲描述节奏，规划可以帮助保留休息，随兴可以让停留自然延长，文化、户外与饮食也可以按舒适程度安排。因此不把休闲和规划说成罕见组合，也不把它与户外配成注定紧张的搭档。所有最高并列解释完整保留，实际怎样同行仍要看双方的安排、条件与意愿。",
+              "en": "Rest concerns pace. Planning can protect it, spontaneity can extend it, and cultural, outdoor or food experiences can be arranged around comfort. Rest with planning is not declared rare, nor rest with outdoor interests an inevitably tense pairing. Every highest-count guide remains, while actual cooperation depends on the people’s arrangements, conditions and wishes."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个反例",
+            "en": "A counterexample"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能在日常工作中行动很多，但这次希望少安排；也可能喜欢边休息边了解地方生活，并不是不关心目的地。一次偏好不等于整体生活态度。题目没有测动力、抑郁、倦怠、阶层、身体健康或职业适配，不能由休闲结果推断适合度假服务、瑜伽教学等工作，也不要求证明休息值得。",
+              "en": "You may be active in everyday work and want fewer activities on this trip, or learn about a place while pausing rather than ignoring it. One preference is not an attitude towards all of life. These items assess neither motivation, depression, burnout, class, health nor career fit, and do not require proof that rest has been earned."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "在下一次普通出游里，先留出一段确实可以休息的时间，与同行者说明它的边界和后续安排。结束后观察舒适条件是否到位、有哪些不必要移动，以及自己愿不愿意继续保留。不要把这次感受当作健康效果验证，也不需要为了符合标签完全不活动，目标是更清楚地安排节奏。",
+              "en": "On an ordinary outing, protect one genuinely available pause and agree its boundaries and subsequent arrangements with companions. Afterwards, notice comfort conditions, unnecessary moves and whether you want to keep such a period. This is not validation of a health effect or a requirement to avoid all activity. The aim is a clearer, workable pace."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创偏好题与使用范围",
+            "en": "Original preference items and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版18道题、计数与全部解释由费马独立编写，六种常见偏好名称用于比较具体出游安排，不是普遍、穷尽或经过验证的人格分类，也不是Plog量表或旅行品牌背书。UN Tourism来源只说明相关活动范围，不验证题本或六类型。没有本站信效度、常模、健康与活动资格判断，不能推断身体能力、风险承受、关系配对或职业适配；真实旅行仍需核实际条件与同行意愿。",
+              "en": "FermatMind independently authored these 18 items, counting rules and explanations. Six familiar preference names organise trip arrangements, not a universal, exhaustive or validated personality taxonomy, a Plog instrument or travel-brand endorsement. UN Tourism sources explain activity scope without validating the items or six types. There are no established website psychometrics, norms, health or activity-eligibility judgments. Counts establish neither fitness, risk tolerance, companion compatibility nor career fit; real plans require actual conditions and the people’s wishes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food",
+      "directionIds": [
+        "food"
+      ],
+      "title": {
+        "zh": "饮食体验型旅行者",
+        "en": "Food-Focused Travel Style"
+      },
+      "headline": {
+        "zh": "让饮食成为愿意停留的内容",
+        "en": "Giving food experiences time of their own"
+      },
+      "summary": {
+        "zh": "本题组中，你更常选择围绕饮食、食材、做法或品尝安排时间。饮食兴趣不需要昂贵餐厅、酒类或无所不吃，也不证明品味、知识、社交能力或职业适配。",
+        "en": "Your choices more often organise time around food, ingredients, preparation or tasting. Food interest requires neither expensive restaurants, alcohol nor eating everything, and establishes neither taste, expertise, social ability nor occupational fit."
+      },
+      "seo": {
+        "title": {
+          "zh": "饮食体验型旅行结果：兴趣、个人需要与安排",
+          "en": "Food-Focused Travel Style: Experiences and Full Guide"
+        },
+        "description": {
+          "zh": "阅读饮食体验型旅行完整解释，区分品尝、了解食物、个人限制、预算与同行协商。免费结果，不要求昂贵餐厅、酒类或无所不吃，也不评定品味与厨艺。",
+          "en": "Read the food-focused travel guide to tasting, context, dietary needs and shared arrangements. Full free examples without requiring expensive meals or judging taste and expertise."
+        }
+      },
+      "scoreReading": {
+        "zh": "18道题各选一种做法，为对应方向加1。每题提供六种中的四种，各方向总共出现12次、每个选项位置3次；次数只能比较这组选择。完成全部18题后显示六项原始次数及所有最高并列完整报告，不随机打破并列、不强派副型，也不用隐藏权重或匹配百分比。接近次数没有经过验证的近分阈值，不能当作人格比例、能力、常模或统计显著差异。",
+        "en": "Each of 18 selections adds one to its approach. An item offers four of the six approaches; each appears 12 times and three times in each position. Counts compare only this set of choices. All 18 selections produce six raw tallies and every highest-count full guide, without random tie breaking, a forced secondary, hidden weighting or match percentages. Nearby counts have no validated close-score threshold and establish neither personality proportions, ability, norms nor statistical significance."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这份结果怎样理解",
+            "en": "What this result describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "饮食体验的选项把吃什么、怎样做和如何了解食物当作旅程内容，而不只是补充体力的间隙。回看自己更想品尝、了解来源，还是给一餐留出从容时间；它们可能带来相似计数，却不是相同需要。本题没有测味觉、知识、饮食健康、社交自信或是否知道哪里的东西最好吃。",
+              "en": "Food-focused options treat eating, preparation or learning about food as trip content rather than merely a gap between activities. Revisit whether tasting, origins or an unhurried meal appealed; similar counts can reflect different needs. These items assess neither palate, knowledge, dietary health, social confidence nor expertise about where to find the best version of a dish."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一个出游例子",
+            "en": "A day-out example"
+          },
+          "paragraphs": [
+            {
+              "zh": "你愿意把一段下午留给公开的地方饮食介绍，再在符合自己需要的范围里选择一顿餐食。重点可能是做法、食材故事或味道，不必追求排队、昂贵套餐或名气。例子只说明偏好怎样进入安排，不认证某种食物安全、营养或适合所有人，也不要求为了体验忽略自己的限制。",
+              "en": "You would like part of an afternoon for a public introduction to local food, then a meal fitting your needs. Preparation, an ingredient’s story or taste can matter without queues, expensive menus or fame. The example shows a preference becoming an arrangement; it certifies neither safety, nutrition nor suitability for everyone, and asks nobody to ignore a personal restriction."
+            }
+          ]
+        },
+        {
+          "id": "preparation",
+          "title": {
+            "zh": "怎样准备得更合适",
+            "en": "Preparing for this preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "把想了解的内容、实际饮食需要、预算与时间分别说清，再查询真实的供应和参与条件。若与别人同行，先确认对方能吃、愿吃什么，允许不同选择；不要把限制叫作没有品味。过敏、健康或其他专业要求须依适用真实信息处理，本测试既不提供饮食医疗建议，也不由风格决定该尝试什么。",
+              "en": "Specify the desired experience, dietary needs, budget and time separately before checking actual availability and participation conditions. Ask companions what they can and want to eat, allowing different choices without judging taste. Allergies, health and other professional requirements need appropriate information. This test gives no dietary medical advice and does not decide what anyone should try."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "值得留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "围绕一餐组织行程，可能减少别的停留时间，也可能让等待或移动比预想多。可以确认这次最重要的是某个体验，还是和人一起从容用餐，再决定哪些部分可变。报告不预言饮食型最贵、最懂文化或最容易失望，价格和体验都要看真实选择，不按结果比较消费水平。",
+              "en": "Organising a day around a meal reduces time elsewhere and may involve more waiting or movement than expected. Clarify whether the priority is a particular experience or an unhurried meal together, then decide what can change. The report predicts neither higher expense, deeper cultural knowledge nor disappointment. Actual choices determine costs and experiences without ranking consumption by result."
+            }
+          ]
+        },
+        {
+          "id": "companions",
+          "title": {
+            "zh": "与同行者协商",
+            "en": "Discussing it with companions"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以先列出一项自己很想体验的内容，也问对方最需要保留什么。分开用餐或各选不同食物可以讨论，不把一起旅行等同必须共享相同口味。实际查询、预约、费用与时间分工要说明白，不让“你比较懂吃”变成默认服务责任，也不拿食物冒险要求别人证明融入。",
+              "en": "Name one experience you especially want and ask what another person needs to retain. Separate meals or different choices can be discussed; travelling together does not require identical tastes. Explain research, reservations, costs and timing responsibilities instead of treating a food interest as automatic service work. Trying a food is no test of someone’s willingness to belong."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他偏好比较",
+            "en": "Comparing other preferences"
+          },
+          "paragraphs": [
+            {
+              "zh": "饮食可以连接文化，也可以按计划安排、随兴发现或穿插休息；有户外兴趣的人同样可能很看重一餐。这些共同出现并不需要另创一个固定组合人格。最高次数相同的所有报告都会保留，不强派第二高为副型，不推荐所谓最佳同行风格，也不由饮食标签换算MBTI、大五或职业方向。",
+              "en": "Food can connect with culture, be planned, discovered spontaneously or combined with rest. Someone interested in outdoor activities can also value a meal. Coexistence needs no fixed blended personality. Every highest-count guide remains, without forcing a runner-up secondary type, recommending an ideal companion or converting food preferences into MBTI, Big Five or career results."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个反例",
+            "en": "A counterexample"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能只想从容尝试一种熟悉食物，不想与厨师或摊主交谈；也可能对食物历史很感兴趣，却有严格的个人饮食要求。这些都不降低兴趣的真实性。题目没有测挑食、营养状况、财富、感官能力或厨艺，也不能由结果判断适合餐饮经营、写作、品鉴等职业，知识与技能需要另看。",
+              "en": "You may want time with a familiar food without speaking to a cook or vendor, or enjoy food history while following strict dietary requirements. Neither makes the interest less genuine. These items assess neither selective eating, nutrition, wealth, sensory ability nor cooking skill, and establish no suitability for running a restaurant, writing or tasting professionally."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "下一次低负担出游，挑一个符合真实饮食需要和可用条件的小体验，明确自己期待了解的是味道、过程还是背景。和同行者先说明时间与可选范围，结束后回看哪些部分值得保留。目的不是追名气、花更多或证明懂吃，也不把一次喜欢的经历扩成适合所有人的饮食或旅行建议。",
+              "en": "On a low-burden outing, choose one small experience fitting actual dietary needs and conditions. Identify whether taste, process or context interests you, and agree time and optional participation with companions. Review what you want to retain without chasing fame, higher spending or proof of expertise, and without turning one enjoyable experience into advice for everyone."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创偏好题与使用范围",
+            "en": "Original preference items and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版18道题、计数与全部解释由费马独立编写，六种常见偏好名称用于比较具体出游安排，不是普遍、穷尽或经过验证的人格分类，也不是Plog量表或旅行品牌背书。UN Tourism来源只说明相关活动范围，不验证题本或六类型。没有本站信效度、常模、健康与活动资格判断，不能推断身体能力、风险承受、关系配对或职业适配；真实旅行仍需核实际条件与同行意愿。",
+              "en": "FermatMind independently authored these 18 items, counting rules and explanations. Six familiar preference names organise trip arrangements, not a universal, exhaustive or validated personality taxonomy, a Plog instrument or travel-brand endorsement. UN Tourism sources explain activity scope without validating the items or six types. There are no established website psychometrics, norms, health or activity-eligibility judgments. Counts establish neither fitness, risk tolerance, companion compatibility nor career fit; real plans require actual conditions and the people’s wishes."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "UN Tourism：文化旅游定义（活动背景）",
+        "en": "UN Tourism: cultural tourism definition, activity background"
+      },
+      "url": "https://www.untourism.int/tourism-and-culture"
+    },
+    {
+      "title": {
+        "zh": "UN Tourism：饮食旅游定义（活动背景）",
+        "en": "UN Tourism: gastronomy tourism definition, activity background"
+      },
+      "url": "https://www.untourism.int/gastronomy-wine-tourism"
+    },
+    {
+      "title": {
+        "zh": "UN Tourism：术语表中的户外探险活动范围",
+        "en": "UN Tourism: adventure activity scope in the glossary"
+      },
+      "url": "https://www.untourism.int/glossary-tourism-terms"
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "原始次数来自具体选择",
+        "en": "Raw counts come from choices"
+      },
+      "paragraphs": [
+        {
+          "zh": "18道题各选一种做法，为对应方向加1。每题提供六种中的四种，各方向总共出现12次、每个选项位置3次；次数只能比较这组选择。完成全部18题后显示六项原始次数及所有最高并列完整报告，不随机打破并列、不强派副型，也不用隐藏权重或匹配百分比。接近次数没有经过验证的近分阈值，不能当作人格比例、能力、常模或统计显著差异。",
+          "en": "Each of 18 selections adds one to its approach. An item offers four of the six approaches; each appears 12 times and three times in each position. Counts compare only this set of choices. All 18 selections produce six raw tallies and every highest-count full guide, without random tie breaking, a forced secondary, hidden weighting or match percentages. Nearby counts have no validated close-score threshold and establish neither personality proportions, ability, norms nor statistical significance."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "全部最高并列都完整保留",
+        "en": "Every highest-count tie stays complete"
+      },
+      "paragraphs": [
+        {
+          "zh": "最高次数相同的方向全部呈现完整报告，包括六项各3次的情况；不按名称顺序优先、不随机抽一个主型、不强派第二高为副型。未并列但次数接近，只表示这组题选择接近，不承诺误差带、统计显著或某种已验证混合类型。所有六份指南也都可直接公开阅读。",
+          "en": "All approaches with the highest count receive their full reports, including six counts of three. Order never prioritises a name; no primary is randomly selected and no runner-up is forced into a secondary type. Nearby untied counts indicate nearby choices in these items, not an error band, significance claim or validated blend. All six guides are also publicly readable."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "偏好名称帮助讨论，不认证人格",
+        "en": "Preference names support discussion, not personality certification"
+      },
+      "paragraphs": [
+        {
+          "zh": "规划和随兴偏向安排方式，文化、户外、休闲与饮食偏向活动或节奏，这些层面可以组合。六种名称不是穷尽所有旅人的统一人格模型，不认证普遍类型、Plog量表、生活方式高低或最合适的同行者。结果适合提出具体安排问题，不据此决定路线、活动资格、健康或职业。",
+          "en": "Planning and wandering concern arrangement, while culture, outdoors, rest and food concern activities or pace. These aspects can combine. Six names are not an exhaustive unified personality model, universal types, a Plog instrument, lifestyle ranks or a companion-matching system. Use the result to raise arrangement questions, without deciding routes, eligibility, health or careers from it."
+        }
+      ]
+    },
+    {
+      "id": "background",
+      "title": {
+        "zh": "背景定义的范围",
+        "en": "Scope of the background definitions"
+      },
+      "paragraphs": [
+        {
+          "zh": "UN Tourism说明文化、饮食与户外探险活动的范围，不提出本站六种人格或验证题目。本站户外偏好不要求刺激、风险或高强度；休闲不需豪华住宿，饮食不要求酒类或忽视限制。真实开放、参与和个人需要另核，不能把偏好名称当作能力或可参加的证明。",
+          "en": "UN Tourism explains cultural, gastronomy and adventure activity scope without proposing these six personalities or validating the items. Outdoor preferences here require neither thrills, risk nor intensity. Rest needs no luxury accommodation and food interest neither alcohol nor ignoring restrictions. Actual access, participation and personal needs are separate checks; a preference name establishes no ability or eligibility."
+        }
+      ]
+    },
+    {
+      "id": "free-and-private",
+      "title": {
+        "zh": "完整免费、可选草稿与分享",
+        "en": "Full free access, optional drafts and sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "18题、六项计数、全部最高并列报告和六份公开完整指南免费，无需邮箱或前置测评。浏览器本地计分，主动保存才保留本标签页24小时草稿，完成、清除或重测即删除。分享只有结果名称与公开链接，不带答案、次数或内部ID；公开页不关联私人答卷。",
+          "en": "All 18 items, six counts, every highest-count report and six full public guides are free without email or another assessment. Scoring happens in the browser. Only opting in saves a 24-hour tab draft, deleted on completion, clearing or retake. Sharing contains names and public links without answers, counts or internal IDs. Public pages contain no private attempts."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这份旅行性格测试有哪六种结果？",
+        "en": "Which six results does this travel personality test include?"
+      },
+      "answer": {
+        "zh": "随兴漫游、行程规划、文化探索、户外体验、休闲放松与饮食体验。它们是讨论出游安排的偏好名称，可以组合，不是六种普遍或互斥人格。全部六份完整说明都有具体例子、准备、取舍、同行协商和小尝试。",
+        "en": "Wanderer, Planner, Cultural Explorer, Outdoor Explorer, Rest-Focused and Food-Focused. These names organise trip preferences that can combine, not six universal or exclusive personalities. Each full guide includes examples, preparation, tradeoffs, companion agreements and a small experiment."
+      }
+    },
+    {
+      "question": {
+        "zh": "18题怎样计分和处理并列？",
+        "en": "How are the 18 questions scored, including ties?"
+      },
+      "answer": {
+        "zh": "每题给所选方向加1，六方向各出现12次、每位置3次，完成18题后显示六项原始次数及全部最高并列报告。不随机打破并列或强派副型，次数不是匹配百分比、常模或人格含量；接近分数没有验证的近分阈值。",
+        "en": "Each choice adds one to its approach. Every approach appears 12 times and three times in each position. Complete all 18 for six raw counts and every highest-count full report. Ties are not randomly broken and secondary types are not forced. Counts supply no match percentages, norms, personality content or validated close-score threshold."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是经过验证的旅行人格或Plog量表吗？",
+        "en": "Is this a validated travel-personality or Plog instrument?"
+      },
+      "answer": {
+        "zh": "不是。题目、计数与解释由本站独立编写，没有本站信效度或常模验证，也不采用Plog量表。UN Tourism来源只说明活动背景，不认证六类型；本版不推断MBTI、大五、体能、风险承受、健康或职业适配。",
+        "en": "No. Items, counts and interpretations are independently authored without established website psychometrics or local norms, and no Plog instrument is adopted. UN Tourism sources explain activities rather than certify six types. This edition supplies neither MBTI, Big Five, fitness, risk tolerance, health nor career fit."
+      }
+    },
+    {
+      "question": {
+        "zh": "休闲型必须去度假村，户外型必须冒险吗？",
+        "en": "Does rest require a resort, or outdoor interest require risk?"
+      },
+      "answer": {
+        "zh": "都不需要。休闲可以是一段舒适停留，户外可以是适合条件的普通参与；饮食也不要求昂贵餐厅或酒类。实际是否能参加、怎样安排需核真实条件与个人需要，不由类型决定，也不把活动强度排高低。",
+        "en": "Neither is required. Rest can be a comfortable pause and outdoor interest ordinary participation suited to the conditions. Food interest needs neither expensive restaurants nor alcohol. Actual participation and arrangements depend on conditions and personal needs rather than a type or an intensity ranking."
+      }
+    },
+    {
+      "question": {
+        "zh": "能判断谁最适合和我同行吗？",
+        "en": "Can this tell me the best person to travel with?"
+      },
+      "answer": {
+        "zh": "不能按类型认证配对，也不宣称某些组合罕见或注定冲突。可以用结果提出具体问题：谁需要提前知道什么、各自想保留哪段时间、哪些参与可选。真正的安排、责任与意愿需要直接协商。",
+        "en": "It cannot certify matches or declare combinations rare or destined for conflict. Use a result to ask what someone needs to know beforehand, which time they want to protect and what participation is optional. Actual arrangements, responsibilities and wishes require direct discussion."
+      }
+    },
+    {
+      "question": {
+        "zh": "全部结果免费吗，草稿与分享有什么？",
+        "en": "Are all results free, and what do drafts and sharing include?"
+      },
+      "answer": {
+        "zh": "全部题目、计数、并列报告与六份完整公开解释免费，无需注册或前置测试。草稿是主动选择的本标签页24小时保存，完成、清除或重测即删；分享只有名称与公开链接，不包含答案、次数或内部ID。",
+        "en": "Every item, count, tied report and six full public explanations are free without signup or another test. Drafts are optional 24-hour tab storage, deleted on completion, clearing or retake. Sharing includes names and public links without answers, counts or internal IDs."
+      }
+    }
+  ]
+}

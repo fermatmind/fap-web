@@ -1,0 +1,971 @@
+{
+  "formCode": "fm_travel_preference_choices_18",
+  "itemBankVersion": "1.0.0",
+  "origin": "FermatMind original bilingual ordinary-trip preference situations; notuniversaltravelpersonalitytaxonomy/validatedscale/Plog/brandendorsement",
+  "directions": [
+    {
+      "id": "wanderer",
+      "title": {
+        "zh": "随兴漫游",
+        "en": "Wanderer"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "planner",
+      "title": {
+        "zh": "行程规划",
+        "en": "Planner"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "culture",
+      "title": {
+        "zh": "文化探索",
+        "en": "Cultural explorer"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "outdoors",
+      "title": {
+        "zh": "户外体验",
+        "en": "Outdoor explorer"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "rest",
+      "title": {
+        "zh": "休闲放松",
+        "en": "Rest-focused traveler"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "food",
+      "title": {
+        "zh": "饮食体验",
+        "en": "Food-focused traveler"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "TRAVEL_01",
+      "prompt": {
+        "zh": "半天的空闲可以由你安排，你更想先做哪件事？",
+        "en": "You can choose how to spend a free half-day. What appeals first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "在允许进入的街区边走边选下一站。",
+            "en": "Choose the next stop as I explore an accessible neighbourhood."
+          },
+          "directionId": "wanderer"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先排好几个想去地点的顺序和停留时间。",
+            "en": "Arrange the order and timing of a few places I want to visit."
+          },
+          "directionId": "planner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "挑一处能了解当地历史或生活的公开展览。",
+            "en": "Visit an open exhibition about local history or everyday life."
+          },
+          "directionId": "culture"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "选一个符合自己条件的户外体验。",
+            "en": "Choose an outdoor activity suited to my circumstances."
+          },
+          "directionId": "outdoors"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_02",
+      "prompt": {
+        "zh": "准备一天的出游，你更享受哪一部分？",
+        "en": "What part of preparing a day out would you most enjoy?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把交通、开放时间与几个重要节点衔接好。",
+            "en": "Connecting transport, opening times and a few key stops."
+          },
+          "directionId": "planner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先了解一处地方的故事，再去看相关遗迹或展览。",
+            "en": "Learning a place’s story before visiting its heritage or exhibition."
+          },
+          "directionId": "culture"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "比较可参与的户外项目，了解体验过程。",
+            "en": "Comparing suitable outdoor activities and what taking part involves."
+          },
+          "directionId": "outdoors"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "挑一个能舒适停留、不必频繁移动的地方。",
+            "en": "Choosing somewhere comfortable to stay without frequent movement."
+          },
+          "directionId": "rest"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_03",
+      "prompt": {
+        "zh": "到了一个适合慢慢逛的地方，你更愿意把注意力放在哪？",
+        "en": "You arrive somewhere with time to explore. Where would your attention go first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "建筑、展陈或日常习俗背后的含义。",
+            "en": "The meaning behind buildings, exhibits or everyday customs."
+          },
+          "directionId": "culture"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "能实际参与的自然观察或户外活动。",
+            "en": "Nature observation or an outdoor activity I can take part in."
+          },
+          "directionId": "outdoors"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "适合安静坐下、把节奏放慢的角落。",
+            "en": "A quiet place to settle and slow the pace."
+          },
+          "directionId": "rest"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "与当地饮食有关的摊位、店铺或公开体验。",
+            "en": "Stalls, shops or public experiences related to local food."
+          },
+          "directionId": "food"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_04",
+      "prompt": {
+        "zh": "几种安排都在可承受的范围里，你更期待哪一种下午？",
+        "en": "Several feasible plans are available. Which afternoon sounds most appealing?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "参与一个适合自己的户外活动，把时间放在体验本身。",
+            "en": "Taking part in a suitable outdoor activity for the experience itself."
+          },
+          "directionId": "outdoors"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "在舒适地点休息，给自己留出不安排事情的时间。",
+            "en": "Resting somewhere comfortable with time left unscheduled."
+          },
+          "directionId": "rest"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "围绕一顿想尝试的餐食安排前后的时间。",
+            "en": "Organising the time around a meal I want to try."
+          },
+          "directionId": "food"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先随意看看，再根据沿途发现改变去向。",
+            "en": "Looking around first and changing direction with what I notice."
+          },
+          "directionId": "wanderer"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_05",
+      "prompt": {
+        "zh": "回想一次自己想要的短途出游，哪种画面更吸引你？",
+        "en": "Picture a short trip you would want. Which scene draws you most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不赶下一站，慢慢享受一段安静时间。",
+            "en": "Enjoying quiet time without hurrying to another stop."
+          },
+          "directionId": "rest"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "尝试一种自己感兴趣的地方饮食。",
+            "en": "Trying a local food experience that interests me."
+          },
+          "directionId": "food"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "在一个可自由活动的区域偶然发现有趣小店。",
+            "en": "Coming across an interesting small shop in an area open to exploration."
+          },
+          "directionId": "wanderer"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "几个事先选好的地点按合适顺序衔接起来。",
+            "en": "Seeing chosen stops connect in an order I planned."
+          },
+          "directionId": "planner"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_06",
+      "prompt": {
+        "zh": "一段旅程快开始了，你最愿意先保留哪项空间？",
+        "en": "As a trip approaches, which space would you most want to preserve?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "能从容了解食物、品尝或参加相关活动的时间。",
+            "en": "Time to learn about food, taste it or join a related activity."
+          },
+          "directionId": "food"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "到现场再作决定的余地。",
+            "en": "Room to decide after arriving."
+          },
+          "directionId": "wanderer"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "执行自己已经安排好的几个重点的时间。",
+            "en": "Time for the few priorities I have already organised."
+          },
+          "directionId": "planner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把一个文化主题了解得更清楚的机会。",
+            "en": "An opportunity to understand a cultural topic more fully."
+          },
+          "directionId": "culture"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_07",
+      "prompt": {
+        "zh": "同行者请你提出一个共同安排，你更可能建议？",
+        "en": "A companion asks you to suggest a shared plan. What would you suggest first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先到公共活动区看看，再一起决定接下来去哪。",
+            "en": "Start in a public area and decide together what to visit next."
+          },
+          "directionId": "wanderer"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先列出关键地点、移动方式和会合时间再讨论。",
+            "en": "Discuss a draft of key stops, transport and meeting times."
+          },
+          "directionId": "planner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一起参与一项双方都适合的户外体验。",
+            "en": "Join an outdoor experience suited to both of us."
+          },
+          "directionId": "outdoors"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "找一个双方都舒服的地方留出慢慢休息的时段。",
+            "en": "Keep a slow rest period somewhere comfortable for both of us."
+          },
+          "directionId": "rest"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_08",
+      "prompt": {
+        "zh": "如果只保留一天中的一个重点，你更想保留什么？",
+        "en": "If a day could keep only one priority, what would you retain?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己事先确认好的主线，让当天有清楚结构。",
+            "en": "The main sequence I prepared so the day has a clear structure."
+          },
+          "directionId": "planner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一项能理解当地文化或历史的活动。",
+            "en": "An activity that helps me understand local culture or history."
+          },
+          "directionId": "culture"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一整段不被安排挤掉的休息时间。",
+            "en": "An uninterrupted period for rest."
+          },
+          "directionId": "rest"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一项自己特别想尝试的饮食体验。",
+            "en": "A food experience I especially want to try."
+          },
+          "directionId": "food"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_09",
+      "prompt": {
+        "zh": "你更愿意为了哪种体验在一个地方多停留？",
+        "en": "What would most make you want to stay longer in one place?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个尚未了解完的文化主题。",
+            "en": "A cultural topic I have not finished exploring."
+          },
+          "directionId": "culture"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一项还想继续参与的户外活动。",
+            "en": "An outdoor activity I would like more time to experience."
+          },
+          "directionId": "outdoors"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一组还想进一步了解的地方饮食。",
+            "en": "Local food experiences I want to learn more about."
+          },
+          "directionId": "food"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "还没预想到的新发现接连出现。",
+            "en": "Unexpected discoveries keep opening up."
+          },
+          "directionId": "wanderer"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_10",
+      "prompt": {
+        "zh": "旅途中一段可自由选择的时间，你更想怎样使用？",
+        "en": "How would you use a freely chosen period during a trip?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "实际参与一项适合条件的户外项目。",
+            "en": "Take part in an outdoor activity suited to the conditions."
+          },
+          "directionId": "outdoors"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "停下来，让自己不用连续接收新信息。",
+            "en": "Pause without continuously taking in new things."
+          },
+          "directionId": "rest"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "不设具体目标，在允许的范围里随兴走走。",
+            "en": "Explore within permitted areas without a particular destination."
+          },
+          "directionId": "wanderer"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "按自己排好的路线完成一个期待的重点。",
+            "en": "Follow my planned route to a stop I have been looking forward to."
+          },
+          "directionId": "planner"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_11",
+      "prompt": {
+        "zh": "为一段休假留出期待，你更容易想到什么？",
+        "en": "What most easily gives you something to look forward to on a break?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "可以少做决定、从容待着的时段。",
+            "en": "Time to settle comfortably with fewer decisions to make."
+          },
+          "directionId": "rest"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一场围绕饮食展开的体验。",
+            "en": "An experience organised around food."
+          },
+          "directionId": "food"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把想做的几件事安排得清楚可行。",
+            "en": "Making a few things I want to do fit a clear, feasible plan."
+          },
+          "directionId": "planner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "认识一种自己还不熟悉的文化表达。",
+            "en": "Getting to know a cultural expression unfamiliar to me."
+          },
+          "directionId": "culture"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_12",
+      "prompt": {
+        "zh": "在不必赶时间的地点，你更愿意展开哪种活动？",
+        "en": "Somewhere without a tight schedule, what would you most want to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "围绕食材、做法或品尝慢慢探索。",
+            "en": "Explore ingredients, preparation or tasting at an unhurried pace."
+          },
+          "directionId": "food"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "跟随现场吸引自己的细节改变路线。",
+            "en": "Let details that catch my attention change the route."
+          },
+          "directionId": "wanderer"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "顺着一个历史或文化线索继续了解。",
+            "en": "Follow a historical or cultural thread in more depth."
+          },
+          "directionId": "culture"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用适合自己的方式参与当地户外体验。",
+            "en": "Participate in a local outdoor experience in a way that suits me."
+          },
+          "directionId": "outdoors"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_13",
+      "prompt": {
+        "zh": "想给一段出游增加一点满足感，你更倾向增加？",
+        "en": "What would you add to make a day out more satisfying to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一段不用预先选下一站的自由时间。",
+            "en": "A period without choosing the next stop beforehand."
+          },
+          "directionId": "wanderer"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一处能读懂地方背景的公开文化场所。",
+            "en": "An open cultural place that helps explain the local background."
+          },
+          "directionId": "culture"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一段可以舒适停留的空白。",
+            "en": "An open period to stay somewhere comfortably."
+          },
+          "directionId": "rest"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一项与地方饮食有关的小体验。",
+            "en": "A small experience connected with local food."
+          },
+          "directionId": "food"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_14",
+      "prompt": {
+        "zh": "旅行结束后，你最希望带回哪种满足？",
+        "en": "At the end of a trip, which satisfaction would you most want to bring home?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把自己关心的重点安排得顺畅而清楚。",
+            "en": "Having organised the priorities I cared about into a clear flow."
+          },
+          "directionId": "planner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "亲自参与了期待的户外体验。",
+            "en": "Having taken part in an outdoor experience I wanted."
+          },
+          "directionId": "outdoors"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "对一种地方饮食有了具体的品尝或了解。",
+            "en": "Having a concrete tasting or understanding of local food."
+          },
+          "directionId": "food"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "途中出现了原先没列在计划里的发现。",
+            "en": "Having discoveries I had not put on a plan."
+          },
+          "directionId": "wanderer"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_15",
+      "prompt": {
+        "zh": "几位朋友各提一个建议，你更想优先讨论哪种？",
+        "en": "Friends each suggest an idea. Which would you most want to discuss first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "围绕一个地方故事展开的参观。",
+            "en": "A visit organised around a local story."
+          },
+          "directionId": "culture"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "节奏轻松、可以多休息的安排。",
+            "en": "An easy-paced arrangement with room for rest."
+          },
+          "directionId": "rest"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "只约好大致范围，再按现场兴趣决定。",
+            "en": "Agree a broad area and decide from what interests us there."
+          },
+          "directionId": "wanderer"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先把大家想做的事项排成可讨论的日程。",
+            "en": "Turn what people want to do into a draft schedule to discuss."
+          },
+          "directionId": "planner"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_16",
+      "prompt": {
+        "zh": "安排一段属于自己的时间，你最愿意把什么放在中心？",
+        "en": "When arranging time for yourself, what would you most want at its centre?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一项适合自己参与的户外活动。",
+            "en": "An outdoor activity suited to my participation."
+          },
+          "directionId": "outdoors"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一种想从容尝试或了解的饮食。",
+            "en": "Food I want time to try or learn about."
+          },
+          "directionId": "food"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一条事先整理好的活动顺序。",
+            "en": "An activity sequence I have organised beforehand."
+          },
+          "directionId": "planner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一项能增长地方文化理解的参观。",
+            "en": "A visit that helps me understand local culture."
+          },
+          "directionId": "culture"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_17",
+      "prompt": {
+        "zh": "你会更愿意把哪种内容加入出游笔记？",
+        "en": "What would you most want to add to notes about a day out?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "哪里适合放慢节奏，怎样给自己留空。",
+            "en": "Where I could slow down and how I left myself space."
+          },
+          "directionId": "rest"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "途中临时发现了什么，路线怎样自然变化。",
+            "en": "What I noticed unexpectedly and how the route changed."
+          },
+          "directionId": "wanderer"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "某个展览、遗迹或文化习俗带来的新理解。",
+            "en": "An understanding gained from an exhibition, heritage or cultural practice."
+          },
+          "directionId": "culture"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "参与某项户外体验时的过程。",
+            "en": "The experience of taking part in an outdoor activity."
+          },
+          "directionId": "outdoors"
+        }
+      ]
+    },
+    {
+      "id": "TRAVEL_18",
+      "prompt": {
+        "zh": "下次类似出游，你最想再次保留哪一部分？",
+        "en": "On another similar outing, what would you most want to keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "围绕饮食探索和品尝的时间。",
+            "en": "Time for exploring and trying food."
+          },
+          "directionId": "food"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "提前梳理重点、路线与时间的过程。",
+            "en": "The process of organising priorities, routes and timing."
+          },
+          "directionId": "planner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "亲身参与户外体验的机会。",
+            "en": "An opportunity to take part in an outdoor experience."
+          },
+          "directionId": "outdoors"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "无需持续行动、可以自在休息的节奏。",
+            "en": "A pace with room to rest instead of keeping active."
+          },
+          "directionId": "rest"
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "TRAVEL_01": [
+      "wanderer",
+      "planner",
+      "culture",
+      "outdoors"
+    ],
+    "TRAVEL_02": [
+      "planner",
+      "culture",
+      "outdoors",
+      "rest"
+    ],
+    "TRAVEL_03": [
+      "culture",
+      "outdoors",
+      "rest",
+      "food"
+    ],
+    "TRAVEL_04": [
+      "outdoors",
+      "rest",
+      "food",
+      "wanderer"
+    ],
+    "TRAVEL_05": [
+      "rest",
+      "food",
+      "wanderer",
+      "planner"
+    ],
+    "TRAVEL_06": [
+      "food",
+      "wanderer",
+      "planner",
+      "culture"
+    ],
+    "TRAVEL_07": [
+      "wanderer",
+      "planner",
+      "outdoors",
+      "rest"
+    ],
+    "TRAVEL_08": [
+      "planner",
+      "culture",
+      "rest",
+      "food"
+    ],
+    "TRAVEL_09": [
+      "culture",
+      "outdoors",
+      "food",
+      "wanderer"
+    ],
+    "TRAVEL_10": [
+      "outdoors",
+      "rest",
+      "wanderer",
+      "planner"
+    ],
+    "TRAVEL_11": [
+      "rest",
+      "food",
+      "planner",
+      "culture"
+    ],
+    "TRAVEL_12": [
+      "food",
+      "wanderer",
+      "culture",
+      "outdoors"
+    ],
+    "TRAVEL_13": [
+      "wanderer",
+      "culture",
+      "rest",
+      "food"
+    ],
+    "TRAVEL_14": [
+      "planner",
+      "outdoors",
+      "food",
+      "wanderer"
+    ],
+    "TRAVEL_15": [
+      "culture",
+      "rest",
+      "wanderer",
+      "planner"
+    ],
+    "TRAVEL_16": [
+      "outdoors",
+      "food",
+      "planner",
+      "culture"
+    ],
+    "TRAVEL_17": [
+      "rest",
+      "wanderer",
+      "culture",
+      "outdoors"
+    ],
+    "TRAVEL_18": [
+      "food",
+      "planner",
+      "outdoors",
+      "rest"
+    ]
+  },
+  "balance": {
+    "exposure": {
+      "wanderer": 12,
+      "planner": 12,
+      "culture": 12,
+      "outdoors": 12,
+      "rest": 12,
+      "food": 12
+    },
+    "option_positions": {
+      "wanderer": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "planner": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "culture": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "outdoors": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "rest": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "food": [
+        3,
+        3,
+        3,
+        3
+      ]
+    }
+  },
+  "scoring": {
+    "scoringVersion": "1.0.0",
+    "method": "Raw+1selectedapproach;all18required;all6countsandEVERYhighest-countfullreport. Nohiddenweight/random/forcedsecondary/validatedclose-threshold/%norm/personality/ability/fitness/travelreadiness/medical/safetyassessmentorcareerfit."
+  },
+  "references": [
+    {
+      "url": "https://www.untourism.int/tourism-and-culture",
+      "scope": "Definitionparagraph12readforculturalactivitybackgroundonly,notquestionnairevalidation/6universaltypes;30pct/47pctnotadopted"
+    },
+    {
+      "url": "https://www.untourism.int/gastronomy-wine-tourism",
+      "scope": "Gastronomydefinitionparagraph14read,notwineorhealth/advice/populationclaims"
+    },
+    {
+      "url": "https://www.untourism.int/glossary-tourism-terms",
+      "scope": "Adventuredefinition20-21readforactivitycontext,notreadiness/safetyinstructionoradrenalinesuperiority"
+    }
+  ]
+}

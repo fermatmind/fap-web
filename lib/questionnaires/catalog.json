@@ -472,5 +472,32 @@
       "self-deprecating",
       "banter"
     ]
+  },
+  {
+    "slug": "travel-personality-test",
+    "code": "TRAVEL_PREFERENCES",
+    "version": "1.0.0",
+    "updated": "2026-10-25",
+    "category": "everyday",
+    "title": {
+      "zh": "旅行性格类型测试",
+      "en": "Travel Personality Type Test"
+    },
+    "description": {
+      "zh": "用18道原创出游偏好题，比较随兴漫游、行程规划、文化、户外、休闲与饮食体验。六项计数和最高并列完整报告免费，无需注册；附例子与同行协商，不评定能力或旅行资格。",
+      "en": "Take 18 original travel-preference questions. Compare wandering, planning, culture, outdoors, rest and food, with every tied full guide free. No signup or ability verdict."
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "fm_travel_preference_choices_18",
+    "questionCount": 18,
+    "resultSlugs": [
+      "wanderer",
+      "planner",
+      "culture",
+      "outdoors",
+      "rest",
+      "food"
+    ]
   }
 ]
