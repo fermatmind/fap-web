@@ -1187,5 +1187,33 @@
       "luke-skywalker",
       "yoda"
     ]
+  },
+  {
+    "slug": "hello-kitty",
+    "code": "HELLO_KITTY_FAN_ORDINARY_CHOICES",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "metaphor",
+    "title": {
+      "zh": "Hello Kitty 角色测试",
+      "en": "Hello Kitty Test"
+    },
+    "description": {
+      "zh": "免费完成21道原创相处选择，比较凯蒂猫、美乐蒂、大耳狗等七角色。完整结果、具体例子与计分直接读，最高并列全部保留；非官方同人测试。",
+      "en": "Take 21 original everyday questions and compare seven Hello Kitty and Friends characters. Full tied results, examples and scoring are free; unofficial."
+    },
+    "minutes": 7,
+    "collection": "explore",
+    "formCode": "fm_hello_kitty_fan_choices_21",
+    "questionCount": 21,
+    "resultSlugs": [
+      "hello-kitty",
+      "my-melody",
+      "keroppi",
+      "chococat",
+      "badtz-maru",
+      "cinnamoroll",
+      "pompompurin"
+    ]
   }
 ]

@@ -1,0 +1,2187 @@
+{
+  "slug": "hello-kitty",
+  "code": "HELLO_KITTY_FAN_ORDINARY_CHOICES",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "metaphor",
+  "kind": "archetype",
+  "title": {
+    "zh": "Hello Kitty 角色测试",
+    "en": "Hello Kitty Test"
+  },
+  "resultHeading": {
+    "zh": "七角色的本次选择与全部最高并列",
+    "en": "Your seven character choices and every highest tie"
+  },
+  "description": {
+    "zh": "免费完成21道原创相处选择，比较凯蒂猫、美乐蒂、大耳狗等七角色。完整结果、具体例子与计分直接读，最高并列全部保留；非官方同人测试。",
+    "en": "Take 21 original everyday questions and compare seven Hello Kitty and Friends characters. Full tied results, examples and scoring are free; unofficial."
+  },
+  "seoTitle": {
+    "zh": "Hello Kitty角色测试：21题、七角色与完整结果",
+    "en": "Hello Kitty Test: Free Quiz & Seven Full Character Results"
+  },
+  "minutes": 7,
+  "introduction": {
+    "zh": "你更想欢迎新朋友、一起做熟悉的小事、玩个小游戏、看看新消息、保留个人趣味、慢慢加入，还是轻松待一会？21道原创题比较普通相处中的自选偏好，七份完整说明可先读，最高并列全部完整显示。选用七位三丽鸥角色，不代表全阵容，也不按外貌、性别或心理疾病分型。",
+    "en": "Would you rather welcome someone new, share a familiar activity, play, notice an update, keep a personal twist, join gradually or take it easy? Twenty-one original questions compare everyday chosen preferences. Read all seven guides first and see every highest tie in full. Seven selected Sanrio characters represent neither the entire cast nor categories of appearance, gender or mental illness."
+  },
+  "instructions": {
+    "zh": "21道原创非官方同人题，用凯蒂猫、美乐蒂、大眼蛙、巧克猫、酷企鹅、大耳狗和布丁狗七位角色比较普通相处中的自选偏好。每题从四种做法选一个较接近自己的；都以自愿、许可和可停止为前提。每选加1，每位出现12次、每位置3次，总数21，最高并列全部完整显示。无需买周边、看动画或提供照片；不测外貌、善良程度、能力或心理疾病，不是三丽鸥官方测试，也不把角色换算成MBTI。",
+    "en": "Twenty-one original unofficial fan questions compare voluntary everyday preferences through seven selected Sanrio characters: Hello Kitty, My Melody, Keroppi, Chococat, Badtz-Maru, Cinnamoroll and Pompompurin. Choose the closer of four approaches in permitted, voluntary situations that can end. Each choice adds one; each character appears twelve times, three per position, and counts sum to twenty-one. Every highest tie appears in full. No merchandise, animation knowledge or photo is needed. This is no official Sanrio test or measure of appearance, goodness, ability or mental illness, and characters do not convert into MBTI types."
+  },
+  "source": {
+    "kind": "FermatMindoriginal21ENZH4choice/unofficialtextonlyfanreading/sevenselectedSanriocharacters",
+    "formCode": "fm_hello_kitty_fan_choices_21",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "d9a197fa9a663ee3c028862e34bdbf5bcae82bee8d25bbca827abe35627ee15c",
+    "resultContentSha256": "fceac9424b0d204ad5f262f284847e6a38c1f651feb6f8849960e7fca4d6d795",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "hello-kitty",
+      "title": {
+        "zh": "凯蒂猫：为新朋友留个位置",
+        "en": "Hello Kitty: Making Room for New Friends"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "my-melody",
+      "title": {
+        "zh": "美乐蒂：一起做熟悉的小事",
+        "en": "My Melody: Sharing a Familiar Activity"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "keroppi",
+      "title": {
+        "zh": "大眼蛙：把相聚变成一起玩",
+        "en": "Keroppi: Turning Time Together into Play"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "chococat",
+      "title": {
+        "zh": "巧克猫：留意新消息与小变化",
+        "en": "Chococat: Noticing News and Small Changes"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "badtz-maru",
+      "title": {
+        "zh": "酷企鹅：保留自己的趣味",
+        "en": "Badtz-Maru: Keeping Your Own Sense of Fun"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "cinnamoroll",
+      "title": {
+        "zh": "大耳狗：慢慢加入也很友好",
+        "en": "Cinnamoroll: Joining Gently at Your Own Pace"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "pompompurin",
+      "title": {
+        "zh": "布丁狗：给相处留一点从容",
+        "en": "Pompompurin: Leaving Room to Take It Easy"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "HELLO_KITTY_01",
+      "prompt": {
+        "zh": "朋友带来一位你不认识的人，大家准备做纸卡，你更想？",
+        "en": "A friend brings someone new to a small card-making get-together. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先问新朋友愿不愿意一起，留个空位",
+            "en": "Ask whether the new person wants to join and leave a space"
+          },
+          "directionId": "hello-kitty"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "与熟悉的人慢慢做一张简单卡片",
+            "en": "Make a simple card alongside someone familiar"
+          },
+          "directionId": "my-melody"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "提议自愿参加的纸片小游戏",
+            "en": "Suggest an optional little paper game"
+          },
+          "directionId": "keroppi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "看看有没有大家没试过的新折法",
+            "en": "Notice a new fold that nobody has tried"
+          },
+          "directionId": "chococat"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_02",
+      "prompt": {
+        "zh": "一个自由下午，和朋友用已有材料做点小东西，你更想？",
+        "en": "On a free afternoon, friends make something with materials already available. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "重复一个熟悉做法，边做边聊",
+            "en": "Repeat a familiar activity while chatting"
+          },
+          "directionId": "my-melody"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给制作加个没有输赢的小玩法",
+            "en": "Add a little play without winners or losers"
+          },
+          "directionId": "keroppi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留意新发现，看看能不能换个细节",
+            "en": "Notice a new discovery and consider changing a detail"
+          },
+          "directionId": "chococat"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "加一处只有自己觉得好玩的设计",
+            "en": "Add a detail that expresses your own sense of fun"
+          },
+          "directionId": "badtz-maru"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_03",
+      "prompt": {
+        "zh": "几个人自愿等候活动开始，空出的时间里你更想？",
+        "en": "While voluntarily waiting for an activity to begin, what would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "邀请愿意的人玩一个轻松小游戏",
+            "en": "Invite willing people into a casual game"
+          },
+          "directionId": "keroppi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "分享一件刚发现的有趣小事",
+            "en": "Share something interesting you recently noticed"
+          },
+          "directionId": "chococat"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "按自己的兴趣画个小涂鸦",
+            "en": "Make a little doodle that follows your own taste"
+          },
+          "directionId": "badtz-maru"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先在旁边看看，想参与时再加入",
+            "en": "Watch nearby and join when you feel ready"
+          },
+          "directionId": "cinnamoroll"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_04",
+      "prompt": {
+        "zh": "整理自己的一小盒纪念纸片时，你先注意？",
+        "en": "Sorting a small box of your own keepsake papers, what attracts you first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "以前没留意过的信息或变化",
+            "en": "Information or changes you had not noticed before"
+          },
+          "directionId": "chococat"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "哪一张最符合自己特别的趣味",
+            "en": "Which one best fits your particular taste"
+          },
+          "directionId": "badtz-maru"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "慢慢翻看，不急着给别人介绍",
+            "en": "Looking through quietly without rushing to present anything"
+          },
+          "directionId": "cinnamoroll"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "怎样摆得顺手，让这件小事更轻松",
+            "en": "An easy arrangement that makes this activity comfortable"
+          },
+          "directionId": "pompompurin"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_05",
+      "prompt": {
+        "zh": "朋友提议大家做相同样式的私人书签，你更愿意？",
+        "en": "Friends suggest making matching personal bookmarks. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己的那张保留一点不同的趣味",
+            "en": "Keep a playful difference on your own bookmark"
+          },
+          "directionId": "badtz-maru"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先看一会，想好以后再加入",
+            "en": "Watch for a while and join after settling in"
+          },
+          "directionId": "cinnamoroll"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "选不赶时间、做起来舒服的方式",
+            "en": "Choose a comfortable approach without rushing"
+          },
+          "directionId": "pompompurin"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "也给刚来的朋友一个自选的参与位置",
+            "en": "Leave an optional place for a newcomer too"
+          },
+          "directionId": "hello-kitty"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_06",
+      "prompt": {
+        "zh": "第一次到一个自愿参加的小手作聚会，你更想？",
+        "en": "At a new optional craft gathering, what would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先安静熟悉环境，再用自己的速度参与",
+            "en": "Settle in quietly and participate at your own pace"
+          },
+          "directionId": "cinnamoroll"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找个舒服位置，慢慢享受这段时间",
+            "en": "Find a comfortable spot and enjoy the time unhurriedly"
+          },
+          "directionId": "pompompurin"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "和一个愿意交流的新面孔打个招呼",
+            "en": "Say hello to a new person who welcomes conversation"
+          },
+          "directionId": "hello-kitty"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "找一件熟悉的小事，和同伴一起做",
+            "en": "Find a familiar little activity to share with a companion"
+          },
+          "directionId": "my-melody"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_07",
+      "prompt": {
+        "zh": "与朋友约好一个不必完成作品的下午，你更想保留？",
+        "en": "For an afternoon with friends that needs no finished product, what matters most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "随时坐坐、休息和聊聊的余地",
+            "en": "Room to sit, rest and chat whenever wanted"
+          },
+          "directionId": "pompompurin"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "认识新朋友或让新来的人融入的机会",
+            "en": "An opening to meet someone or welcome a newcomer"
+          },
+          "directionId": "hello-kitty"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一起重复喜欢的小活动的时间",
+            "en": "Time to share a familiar favourite activity"
+          },
+          "directionId": "my-melody"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "大家愿意就玩一会的小乐趣",
+            "en": "A little shared play if people want it"
+          },
+          "directionId": "keroppi"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_08",
+      "prompt": {
+        "zh": "你为一个自选聊天角落写小提示，更想写？",
+        "en": "Writing a note for an optional conversation corner, what appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "新朋友愿意的话也可以来坐坐",
+            "en": "New friends are welcome to sit if they wish"
+          },
+          "directionId": "hello-kitty"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "可以带一件熟悉的小事来一起做",
+            "en": "Bring a familiar little activity to share"
+          },
+          "directionId": "my-melody"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "想玩一个简单小游戏的可以加入",
+            "en": "Join a simple little game if interested"
+          },
+          "directionId": "keroppi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "可以分享最近发现的新消息",
+            "en": "Share a recent discovery or piece of news"
+          },
+          "directionId": "chococat"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_09",
+      "prompt": {
+        "zh": "与熟悉朋友安排一次普通相聚，你更想先说？",
+        "en": "Planning an ordinary get-together with a familiar friend, what would you say first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一起做上次喜欢的那件小事吧",
+            "en": "Let us share that familiar activity we enjoyed"
+          },
+          "directionId": "my-melody"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "愿意的话，把它变成一个小玩法",
+            "en": "If wanted, let us make a little game of it"
+          },
+          "directionId": "keroppi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我刚发现一个新点子，可以看看",
+            "en": "I noticed a new idea we could look at"
+          },
+          "directionId": "chococat"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我想保留一个自己觉得有趣的版本",
+            "en": "I would like a version with my own playful touch"
+          },
+          "directionId": "badtz-maru"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_10",
+      "prompt": {
+        "zh": "桌上只有普通纸和笔，大家都愿意自由活动，你更想？",
+        "en": "With ordinary paper and pens and freedom to choose, what appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "邀请大家自愿接画，不比较画得好坏",
+            "en": "Invite optional turn-taking doodles without judging quality"
+          },
+          "directionId": "keroppi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "试试刚发现的一种小变化",
+            "en": "Try a small variation you recently noticed"
+          },
+          "directionId": "chococat"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "画自己喜欢的怪趣味，不求都一样",
+            "en": "Draw your own quirky idea without matching everyone"
+          },
+          "directionId": "badtz-maru"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先看别人怎么玩，再慢慢动笔",
+            "en": "Observe and start drawing when ready"
+          },
+          "directionId": "cinnamoroll"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_11",
+      "prompt": {
+        "zh": "朋友发来一个普通活动的新安排，你最想先看？",
+        "en": "A friend shares a new arrangement for a casual activity. What attracts attention?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "和之前相比改了什么、新增什么",
+            "en": "What changed or was added since before"
+          },
+          "directionId": "chococat"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "有没有空间放进自己的特别点子",
+            "en": "Whether your own unusual idea has a place"
+          },
+          "directionId": "badtz-maru"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "是否可以慢慢熟悉再决定怎么加入",
+            "en": "Whether you can settle in before choosing how to join"
+          },
+          "directionId": "cinnamoroll"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有没有不赶时间、随时休息的余地",
+            "en": "Whether there is time to relax and take breaks"
+          },
+          "directionId": "pompompurin"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_12",
+      "prompt": {
+        "zh": "为自己的笔记本选一个小标题，你更在意？",
+        "en": "Choosing a small heading for your own notebook, what matters?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "它是不是符合自己那一点独特趣味",
+            "en": "Whether it fits your particular playful taste"
+          },
+          "directionId": "badtz-maru"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "可以慢慢想，不急着展示给别人",
+            "en": "Having time to think without presenting it immediately"
+          },
+          "directionId": "cinnamoroll"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看着舒服，用起来不费劲",
+            "en": "A comfortable appearance and easy use"
+          },
+          "directionId": "pompompurin"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "以后与愿意了解的新朋友分享也自然",
+            "en": "An easy opening to share with an interested new friend"
+          },
+          "directionId": "hello-kitty"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_13",
+      "prompt": {
+        "zh": "有朋友说欢迎你加入自愿小活动，你更喜欢？",
+        "en": "A friend welcomes you into an optional activity. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先了解一下，再按自己的速度加入",
+            "en": "Learn about it first and join at your own pace"
+          },
+          "directionId": "cinnamoroll"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找个轻松方式参与，不把时间排满",
+            "en": "Join easily without filling the whole time"
+          },
+          "directionId": "pompompurin"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "也认识一位愿意聊天的新朋友",
+            "en": "Meet another person who welcomes conversation"
+          },
+          "directionId": "hello-kitty"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "和熟悉同伴做一件已有的小活动",
+            "en": "Share an existing little activity with someone familiar"
+          },
+          "directionId": "my-melody"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_14",
+      "prompt": {
+        "zh": "周末小聚可以随时停下来，你更期待？",
+        "en": "At a weekend get-together where anyone may pause, what do you look forward to?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不用一直忙，有舒服地坐坐的时间",
+            "en": "Time to sit comfortably without staying busy"
+          },
+          "directionId": "pompompurin"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让新来的人也有自然加入的机会",
+            "en": "A natural opening for a newcomer to participate"
+          },
+          "directionId": "hello-kitty"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一起做一件彼此熟悉的小事",
+            "en": "Sharing a familiar activity together"
+          },
+          "directionId": "my-melody"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "愿意的人可以玩一会轻松小游戏",
+            "en": "A casual little game for anyone interested"
+          },
+          "directionId": "keroppi"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_15",
+      "prompt": {
+        "zh": "有人第一次来你的普通兴趣小组，你更愿意？",
+        "en": "Someone joins your casual interest group for the first time. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先欢迎，再问对方想怎样参与",
+            "en": "Welcome them and ask how they want to participate"
+          },
+          "directionId": "hello-kitty"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "邀请对方一起做组里熟悉的小活动",
+            "en": "Offer a familiar group activity to share"
+          },
+          "directionId": "my-melody"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "提议愿意才玩的轻松破冰小游戏",
+            "en": "Suggest a light optional icebreaker game"
+          },
+          "directionId": "keroppi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "分享今天刚发现的小消息",
+            "en": "Share a little discovery from today"
+          },
+          "directionId": "chococat"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_16",
+      "prompt": {
+        "zh": "与一位熟悉朋友用已有材料做装饰，你更喜欢？",
+        "en": "Making a decoration with a familiar friend and existing materials, what appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把熟悉做法再做一次，享受一起的过程",
+            "en": "Repeat a familiar process and enjoy doing it together"
+          },
+          "directionId": "my-melody"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "加入轮流选颜色这样的小玩法",
+            "en": "Add play such as taking turns choosing colours"
+          },
+          "directionId": "keroppi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看看材料里有没有未发现的新细节",
+            "en": "Look for a detail you had not noticed in the materials"
+          },
+          "directionId": "chococat"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "自己的部分留一处有个性的设计",
+            "en": "Keep a personally playful detail in your own part"
+          },
+          "directionId": "badtz-maru"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_17",
+      "prompt": {
+        "zh": "几个人都愿意参加一场普通纸上游戏，你更期待？",
+        "en": "When everyone wants an ordinary paper game, what do you anticipate?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "大家一起玩的过程，规则简单就好",
+            "en": "Shared play with simple rules"
+          },
+          "directionId": "keroppi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "发现一个此前没注意的新玩法",
+            "en": "Discovering a variation you had not noticed"
+          },
+          "directionId": "chococat"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给自己加个有趣小设定，不强求别人照做",
+            "en": "A personal playful twist without requiring others to follow"
+          },
+          "directionId": "badtz-maru"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先熟悉一轮，想好了再自然加入",
+            "en": "Watching a round and joining when settled"
+          },
+          "directionId": "cinnamoroll"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_18",
+      "prompt": {
+        "zh": "重新看自己的普通活动记录，你更留意？",
+        "en": "Looking back at your own notes on casual activities, what stands out?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "最近出现的新点子与小变化",
+            "en": "New ideas and recent little changes"
+          },
+          "directionId": "chococat"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "哪些细节仍然符合自己的趣味",
+            "en": "Details that still fit your individual taste"
+          },
+          "directionId": "badtz-maru"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "哪些时候可以按自己的节奏参与",
+            "en": "Times when you could participate at your own pace"
+          },
+          "directionId": "cinnamoroll"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "哪些安排让相处更舒服、不匆忙",
+            "en": "Arrangements that made time together comfortable and unhurried"
+          },
+          "directionId": "pompompurin"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_19",
+      "prompt": {
+        "zh": "大家准备各自画一张明信片，不要求统一，你更想？",
+        "en": "Everyone makes a personal postcard without a matching requirement. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "画一个自己觉得有意思的特别版本",
+            "en": "Make a distinctive version that you find amusing"
+          },
+          "directionId": "badtz-maru"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先看一会再开始，不急着抢先",
+            "en": "Take time before beginning without being first"
+          },
+          "directionId": "cinnamoroll"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "轻松画到哪里算哪里，不赶进度",
+            "en": "Draw comfortably without chasing progress"
+          },
+          "directionId": "pompompurin"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "与愿意交流的新朋友分享自己的想法",
+            "en": "Share ideas with a new person who welcomes them"
+          },
+          "directionId": "hello-kitty"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_20",
+      "prompt": {
+        "zh": "一个你还不熟悉的普通交流活动，你更愿意怎样开头？",
+        "en": "How would you start an unfamiliar casual conversation activity?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先听听，准备好以后再说一点",
+            "en": "Listen first and speak when ready"
+          },
+          "directionId": "cinnamoroll"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找到自在的位置，允许有安静空当",
+            "en": "Find a comfortable place and allow quiet gaps"
+          },
+          "directionId": "pompompurin"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "与一位愿意的新朋友相互认识",
+            "en": "Get acquainted with a willing new person"
+          },
+          "directionId": "hello-kitty"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "围绕一件熟悉的小活动慢慢聊",
+            "en": "Chat around a familiar little activity"
+          },
+          "directionId": "my-melody"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_21",
+      "prompt": {
+        "zh": "一场自愿相聚快结束时，你最想保留哪种感受？",
+        "en": "As an optional gathering ends, which feeling would you most like to keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "有从容停下来、舒服道别的余地",
+            "en": "An unhurried pause and comfortable goodbye"
+          },
+          "directionId": "pompompurin"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "新认识的人有机会被欢迎",
+            "en": "An opening for new acquaintances to feel welcome"
+          },
+          "directionId": "hello-kitty"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一起做熟悉小事留下的亲切感",
+            "en": "The warmth of sharing something familiar"
+          },
+          "directionId": "my-melody"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一起玩过一会的轻松乐趣",
+            "en": "The easy pleasure of having played together"
+          },
+          "directionId": "keroppi"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "hello-kitty",
+      "directionIds": [
+        "hello-kitty"
+      ],
+      "title": {
+        "zh": "凯蒂猫：为新朋友留个位置",
+        "en": "Hello Kitty: Making Room for New Friends"
+      },
+      "headline": {
+        "zh": "凯蒂猫：为新朋友留个位置",
+        "en": "Hello Kitty: Making Room for New Friends"
+      },
+      "summary": {
+        "zh": "从一次手作聚会理解欢迎新朋友的偏好，比较邀请、熟悉陪伴、游戏与安静加入；友好不要求一直外向。",
+        "en": "Explore welcoming someone at a craft gathering, with examples and six comparisons. Friendliness does not require constant sociability."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，每位全卷出现12次、每位置3次，未提供的三位不记拒绝。最高计数全部保留完整结果；全选第一项会七位各3次、七份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似百分比、真实人格比例、受欢迎程度或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可以自行比较，不补造并列。本版没有常模、稀有度、科学分界或心理测量验证，情境与理解改变时，选择也可以改变。",
+        "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters appear per item. Each appears twelve times and three times per position; absent characters are not rejections. Every highest count retains its full result. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, popularity nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Compare close guides without inventing ties. This edition has no norms, rarity estimates, scientific cutoffs or psychometric validation; changing circumstances and interpretations can change choices."
+      },
+      "seo": {
+        "title": {
+          "zh": "凯蒂猫测试结果：欢迎新朋友、例子与完整说明",
+          "en": "Hello Kitty Result: New Friends & Full Character Guide"
+        },
+        "description": {
+          "zh": "凯蒂猫结果完整说明：以手作聚会看欢迎新朋友的偏好，含具体表达、六角色对照、反例与21题计分；非官方同人读法。",
+          "en": "Read your Hello Kitty result through welcoming a newcomer: a craft example, wording, six comparisons and scoring in an unofficial full guide."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "角色背景与本版读法",
+            "en": "Character context and this edition’s reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "三丽鸥官方简介里的凯蒂猫喜欢结识朋友。本站借这个背景，选择“为新朋友留个位置”的角度：先发出清楚、可拒绝的邀请，再让对方决定怎么参加。这是本版对普通相处的有限读法，不是官方人格分类。你无需一直热情、擅长聊天或认识许多人，安静的一次欢迎也能符合这个角度。",
+              "en": "Sanrio’s short biography connects Hello Kitty with making friends. This edition uses that background for an opening that somebody new may accept or decline. The emphasis is making participation available rather than producing an impressive introduction. A quiet welcome can fit just as well as an animated greeting. This is one editorial fan reading, with no requirement to be consistently outgoing, talkative or surrounded by acquaintances."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些选择",
+            "en": "Which choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若计数最高，你在这些题目里较常选到欢迎新面孔、给新来的人留空间的做法。想想当时吸引你的是认识人，还是希望聚会容易加入：两者可以不同。问卷没有实际观察社交行为，也不评朋友多少。你依然可以只想与熟人相处，或者今天不想加入任何活动；这不会推翻一次选择记录。",
+              "en": "A highest count records more selections involving a newcomer or an opening to join. Was the appeal meeting somebody, making the setting accessible, or simply knowing how an invitation works? These can be different reasons for the same answer. No social behaviour was observed and no friend count was collected. Wanting familiar company or time alone on another day is compatible with this particular set of choices."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体相处例子",
+            "en": "A concrete everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，朋友带来一个你不认识的人参加纸卡小聚，你可以说这里还有空位，也可以先问对方想看还是想做。不必要求立刻自我介绍、跟着同一套玩法或展示作品。若对方选择旁观，邀请就已经完成；你也能回到自己的卡片。让入口清楚与承担整场气氛是两件事，不需要每次都负责照顾所有人。",
+              "en": "At a card-making afternoon, point out an available place and ask whether the new person would like to watch or make something. They need not introduce themselves immediately, follow the same method or show a finished card. Watching can be the complete response to your invitation. Return to your own project afterwards. Offering an opening and becoming responsible for the whole gathering are separate choices, with quite different demands."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可以使用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "一句表达可以是：“这里还有位置，你想一起做、先看看，或者不参加都可以。”有共同安排时，再确认现有参与者是否方便，不替别人许诺时间或材料。你也可以说自己今天只待一会；明确自己的余地不会让欢迎失效。好的邀请容得下拒绝、短暂停留与不同参与方式，不需要用更多热情换取回应。",
+              "en": "You might say, “There is a place here if you want to make something or just watch; passing is fine too.” Check shared space and materials before offering what belongs to others. Mention your own limited time if needed. An invitation can remain warm with an endpoint, a refusal or different forms of participation. Its usefulness does not depend on receiving enthusiasm in return or keeping conversation going indefinitely."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六角色读法比较",
+            "en": "Comparisons with the other six readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "凯蒂猫读法重在新朋友的加入，美乐蒂重在熟悉小事中的陪伴，大眼蛙重在一起玩；三者都可能很友好。巧克猫留意新消息，酷企鹅保留个人趣味，大耳狗慢慢加入，布丁狗让相处从容。欢迎一个人不代表必须带头玩、提供新点子或消除安静。并列说明这些选项同样常见，不把谁排成更受欢迎、更可爱或更善良。",
+              "en": "Hello Kitty concerns an opening for somebody new, My Melody familiar shared activity and Keroppi shared play. All three can be friendly. Chococat notices updates, Badtz-Maru keeps personal playfulness, Cinnamoroll joins gradually and Pompompurin leaves unhurried room. Welcoming someone need not supply a game, news or constant conversation. Equal counts retain several readings without ranking popularity, attractiveness or goodness, and none establishes how other people actually feel about you."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与理解边界",
+            "en": "Counterexamples and interpretation limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，邀请新人可能因为你熟悉场地，并非平时喜欢广交朋友；先旁观的人也可以非常重视别人。结果不能判断外向程度、孤独、讨好、社交能力或关系质量。若你根本不喜欢被安排欢迎别人，就把这个差异记下来，不必为了像某个角色而接受额外责任。卡通人物的亲切形象也不意味着现实里必须随时可接近。",
+              "en": "An invitation may reflect knowing the venue rather than enjoying frequent introductions. Someone who watches first may care greatly about other people. This result establishes no extraversion, loneliness, people-pleasing, social ability or relationship quality. Record a mismatch if welcoming others felt like an unwanted assignment. Looking like a friendly fictional character is no reason to take that responsibility or make yourself continuously available to strangers, friends or a group."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选小观察：回想一次你愿意发出邀请的普通场景，写下邀请内容和对方可以怎样拒绝，不需要真的联系谁。再看你喜欢的是新认识、让人容易加入，还是活动本身。也可以只保留一条“今天不邀请”的选择。这个观察帮助你讲清当时的偏好，不是扩充朋友圈、训练外向或证明自己友善的任务。",
+              "en": "For an optional observation, recall an ordinary setting where you would willingly invite someone. Write what the invitation offers and how it can be declined; contact nobody for the exercise. Notice whether meeting someone, accessible participation or the activity itself appealed. Keep “no invitation today” as a legitimate alternative. The purpose is describing a preference in context, without expanding your social circle, training sociability or proving personal kindness."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题计数与全部最高并列",
+            "en": "21-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，每位全卷出现12次、每位置3次，未提供的三位不记拒绝。最高计数全部保留完整结果；全选第一项会七位各3次、七份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似百分比、真实人格比例、受欢迎程度或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可以自行比较，不补造并列。本版没有常模、稀有度、科学分界或心理测量验证，情境与理解改变时，选择也可以改变。",
+              "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters appear per item. Each appears twelve times and three times per position; absent characters are not rejections. Every highest count retains its full result. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, popularity nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Compare close guides without inventing ties. This edition has no norms, rarity estimates, scientific cutoffs or psychometric validation; changing circumstances and interpretations can change choices."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源",
+            "en": "Unofficial original edition and sources"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的21题非官方同人问卷，选凯蒂猫、美乐蒂、大眼蛙、巧克猫、酷企鹅、大耳狗和布丁狗七位三丽鸥角色，用有限的普通相处角度解释当前选择，不代表全部三丽鸥阵容、完整角色人格或官方分类。大耳狗与玉桂狗是Cinnamoroll同一身份，不另增角色或测试。题目、选项、映射、计数、解释与例子原创，未采用IDR35题、竞品正文或算法、角色立绘、动画截图、台词、歌词、官方口号或其他受保护素材。作品、角色与相关商标归相应权利人；本站无三丽鸥合作、授权或官方认可。官方短简介用于核对身份和基本背景，不验证本站题目、计分或心理解释。中文名参考大陆官网，英文身份稳定。结果不评外貌、物种、年龄、性别、健康、心理疾病、智商、善良程度、危险性、受欢迎程度、关系质量或职业，不要求模仿飞行、食物或休息设定，也不换算MBTI或其他测评。",
+              "en": "This independently authored FermatMind 21-item unofficial fan quiz selects Hello Kitty, My Melody, Keroppi, Chococat, Badtz-Maru, Cinnamoroll and Pompompurin for limited readings of current everyday preferences. They represent neither all Sanrio characters, complete fictional personalities nor official categories. The two Chinese names used for Cinnamoroll retain one identity rather than extra characters or tests. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, character art, animation stills, dialogue, lyrics, official slogans or other protected material is adopted. Respective rights holders retain works, characters and trademarks; this is no Sanrio partnership, authorisation or endorsement. Official short biographies check identities and basic context without validating these questions, counts or psychology. Chinese names follow mainland context and English identities remain stable. Results assess no appearance, species, age, gender, health, mental illness, IQ, goodness, dangerousness, popularity, relationship quality or career, prescribe no fictional flying, food or rest practices and convert into no MBTI or other assessment."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "my-melody",
+      "directionIds": [
+        "my-melody"
+      ],
+      "title": {
+        "zh": "美乐蒂：一起做熟悉的小事",
+        "en": "My Melody: Sharing a Familiar Activity"
+      },
+      "headline": {
+        "zh": "美乐蒂：一起做熟悉的小事",
+        "en": "My Melody: Sharing a Familiar Activity"
+      },
+      "summary": {
+        "zh": "用熟悉的纸卡小活动看陪伴、共同过程与各自选择，含六角色对照；不把熟悉等同于保守或依赖。",
+        "en": "Read familiar shared activity through a simple card-making example, wording and six comparisons, without labels of dependence or conservatism."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，每位全卷出现12次、每位置3次，未提供的三位不记拒绝。最高计数全部保留完整结果；全选第一项会七位各3次、七份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似百分比、真实人格比例、受欢迎程度或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可以自行比较，不补造并列。本版没有常模、稀有度、科学分界或心理测量验证，情境与理解改变时，选择也可以改变。",
+        "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters appear per item. Each appears twelve times and three times per position; absent characters are not rejections. Every highest count retains its full result. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, popularity nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Compare close guides without inventing ties. This edition has no norms, rarity estimates, scientific cutoffs or psychometric validation; changing circumstances and interpretations can change choices."
+      },
+      "seo": {
+        "title": {
+          "zh": "美乐蒂测试结果：熟悉陪伴、例子与完整说明",
+          "en": "My Melody Result: Familiar Activities & Full Guide"
+        },
+        "description": {
+          "zh": "美乐蒂结果完整说明：以熟悉的书签活动看陪伴与各自选择，含表达、六角色对照、反例与计分；不评依赖或性别气质。",
+          "en": "Explore a My Melody result through familiar shared activity, a bookmark example, six comparisons, counterexamples and transparent scoring."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "角色背景与本版读法",
+            "en": "Character context and this edition’s reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "官方短简介以美乐蒂与母亲做饼干、和朋友相处等日常背景介绍她。本站不复制食谱或故事，借“一起做熟悉的小事”讨论普通陪伴：已有做法让开始容易，交流可以随着过程自然发生。结果不要求烘焙、吃某种食物、扮演照顾者或喜欢粉色，也不把温柔当成任何性别的义务。",
+              "en": "Official background places My Melody in familiar shared activities. This edition takes that as a starting point for companionship through a process people already know. Conversation can emerge while doing something simple, without requiring a new attraction or a polished outcome. Baking, particular food, caregiving, pink clothing and any gendered expectation are unnecessary. The reading concerns an ordinary activity you choose to share, rather than an official account of your personality."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些选择",
+            "en": "Which choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若计数最高，本次较常选择和熟悉同伴重复喜欢的小活动，重视一起做的过程。可以问自己：熟悉让你更舒服，还是今天只想节省准备时间？这不是依赖、念旧或拒绝变化的分数。你可以独自做同一件事，也可以下一次主动尝新；不同场合改变安排很自然，不需要长期维持某种角色气质。",
+              "en": "A highest count means familiar shared activities appeared relatively often among your choices. Familiarity might feel pleasant, reduce preparation or simply suit this occasion. The count does not distinguish those reasons and measures no dependence, nostalgia or resistance to change. You can do the same activity alone or choose something unfamiliar next time. There is no obligation to preserve a consistently gentle, traditional or companion-oriented image across changing situations."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体相处例子",
+            "en": "A concrete everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，和熟悉朋友用已有纸片做书签，可以沿用上次的简单折法，边做边聊，也可以各做各的。开始前确认两个人都愿意重复，而非因为你喜欢就默认对方也喜欢。若朋友想换一种方式，你们可以分开做，再彼此看看。共同过程不要求同款作品、全程交谈或不停帮助；安静并坐也可以是相聚的一种样子。",
+              "en": "Two familiar friends can make bookmarks from available paper using a fold they already know, chatting or working quietly. Check that repeating it appeals to both rather than assuming shared preference. If one wants another approach, work differently and compare afterwards if wanted. A shared process needs neither matching objects nor continuous conversation or assistance. Sitting alongside one another can be enough, without turning the afternoon into a demonstration of closeness."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可以使用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我还想做上次那件小东西，你愿意一起吗？你想换个做法也行。”把共同参与与作品要求分开，别人不参加也不代表拒绝这段关系。自己只想做一会时，同样可以说清楚。熟悉的小事只是一个方便的相处入口，不负责维持亲密、解决冲突或让所有人开心，也无需把对方的需求排在自己之前。",
+              "en": "You might say, “I would enjoy making that little thing again. Would you like to join, perhaps with a different approach?” Separate companionship from the product and its rules. Declining the activity need not reject the relationship, and a short shared interval can have a clear endpoint. Familiar activity offers an opening for time together without maintaining intimacy, resolving disagreement or making everybody happy, and your own preferences still deserve a place."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六角色读法比较",
+            "en": "Comparisons with the other six readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "美乐蒂读法重在熟悉过程，凯蒂猫重在新朋友的入口，大眼蛙重在一起玩；熟悉活动也可以欢迎新人或含有游戏。巧克猫偏新消息，酷企鹅偏个人趣味，大耳狗偏自己的加入速度，布丁狗偏从容。不要用这七种划分谁传统、谁创新、谁适合照顾人。最高并列可以一起读，近分也可以自选比较，不必硬找唯一角色。",
+              "en": "My Melody emphasises a familiar process, Hello Kitty an opening for new company and Keroppi shared play. Familiar activities can include either. Chococat notices news, Badtz-Maru personal playfulness, Cinnamoroll pace of joining and Pompompurin unhurried time. These angles divide no traditional or innovative people and nominate no caregivers. Read tied guides together or compare a close guide by choice; no single character needs to explain the whole experience of spending time with others."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与理解边界",
+            "en": "Counterexamples and interpretation limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，重复做法可能只是材料有限；选了新活动也不说明不重视陪伴。计数不推断依恋、家庭关系、服从、无私、成熟或情绪状态。熟悉并不等于安全或合适，真实的不舒服仍然需要按具体情况处理，不能用“像美乐蒂就该温柔”要求自己忍让。你有权不想做、不同意或改变主意，不需要额外补偿别人。",
+              "en": "Repeating a method can follow limited materials; choosing something new can still value companionship. Counts infer no attachment pattern, family relationship, obedience, selflessness, maturity or emotional condition. Familiarity does not establish suitability, and an uncomfortable arrangement needs attention on its actual terms. A My Melody reading is no instruction to yield or remain gentle under pressure. You can decline or change your mind without providing a compensating performance for somebody else."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：列一件你愿意独自做的小事，以及它在什么条件下也适合两个人一起。把自己的意愿、同伴意愿和材料条件分开写，可以不实际开展。若没有想分享的活动，也如实保留。观察重点是熟悉过程怎样影响这一次选择，不是设计完美相聚、改善关系或证明自己会陪伴，换一种安排也完全可以。",
+              "en": "For an optional observation, name one small activity you would choose alone and conditions under which sharing it might also appeal. Separate your wishes, the companion’s wishes and available materials without arranging a meeting. Having no activity to share is a valid finding. Notice what familiarity contributes to this particular choice. There is no perfect gathering to design, relationship to improve or companionship skill to demonstrate, and a different arrangement remains available."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题计数与全部最高并列",
+            "en": "21-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，每位全卷出现12次、每位置3次，未提供的三位不记拒绝。最高计数全部保留完整结果；全选第一项会七位各3次、七份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似百分比、真实人格比例、受欢迎程度或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可以自行比较，不补造并列。本版没有常模、稀有度、科学分界或心理测量验证，情境与理解改变时，选择也可以改变。",
+              "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters appear per item. Each appears twelve times and three times per position; absent characters are not rejections. Every highest count retains its full result. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, popularity nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Compare close guides without inventing ties. This edition has no norms, rarity estimates, scientific cutoffs or psychometric validation; changing circumstances and interpretations can change choices."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源",
+            "en": "Unofficial original edition and sources"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的21题非官方同人问卷，选凯蒂猫、美乐蒂、大眼蛙、巧克猫、酷企鹅、大耳狗和布丁狗七位三丽鸥角色，用有限的普通相处角度解释当前选择，不代表全部三丽鸥阵容、完整角色人格或官方分类。大耳狗与玉桂狗是Cinnamoroll同一身份，不另增角色或测试。题目、选项、映射、计数、解释与例子原创，未采用IDR35题、竞品正文或算法、角色立绘、动画截图、台词、歌词、官方口号或其他受保护素材。作品、角色与相关商标归相应权利人；本站无三丽鸥合作、授权或官方认可。官方短简介用于核对身份和基本背景，不验证本站题目、计分或心理解释。中文名参考大陆官网，英文身份稳定。结果不评外貌、物种、年龄、性别、健康、心理疾病、智商、善良程度、危险性、受欢迎程度、关系质量或职业，不要求模仿飞行、食物或休息设定，也不换算MBTI或其他测评。",
+              "en": "This independently authored FermatMind 21-item unofficial fan quiz selects Hello Kitty, My Melody, Keroppi, Chococat, Badtz-Maru, Cinnamoroll and Pompompurin for limited readings of current everyday preferences. They represent neither all Sanrio characters, complete fictional personalities nor official categories. The two Chinese names used for Cinnamoroll retain one identity rather than extra characters or tests. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, character art, animation stills, dialogue, lyrics, official slogans or other protected material is adopted. Respective rights holders retain works, characters and trademarks; this is no Sanrio partnership, authorisation or endorsement. Official short biographies check identities and basic context without validating these questions, counts or psychology. Chinese names follow mainland context and English identities remain stable. Results assess no appearance, species, age, gender, health, mental illness, IQ, goodness, dangerousness, popularity, relationship quality or career, prescribe no fictional flying, food or rest practices and convert into no MBTI or other assessment."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keroppi",
+      "directionIds": [
+        "keroppi"
+      ],
+      "title": {
+        "zh": "大眼蛙：把相聚变成一起玩",
+        "en": "Keroppi: Turning Time Together into Play"
+      },
+      "headline": {
+        "zh": "大眼蛙：把相聚变成一起玩",
+        "en": "Keroppi: Turning Time Together into Play"
+      },
+      "summary": {
+        "zh": "用自愿接画看共享乐趣、简单规则与退出空间，含六角色比较；参与游戏不等于好胜或擅长运动。",
+        "en": "Explore shared play through optional turn-taking doodles, simple rules and six comparisons, without assumptions about competition or sporting ability."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，每位全卷出现12次、每位置3次，未提供的三位不记拒绝。最高计数全部保留完整结果；全选第一项会七位各3次、七份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似百分比、真实人格比例、受欢迎程度或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可以自行比较，不补造并列。本版没有常模、稀有度、科学分界或心理测量验证，情境与理解改变时，选择也可以改变。",
+        "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters appear per item. Each appears twelve times and three times per position; absent characters are not rejections. Every highest count retains its full result. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, popularity nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Compare close guides without inventing ties. This edition has no norms, rarity estimates, scientific cutoffs or psychometric validation; changing circumstances and interpretations can change choices."
+      },
+      "seo": {
+        "title": {
+          "zh": "大眼蛙测试结果：共享游戏、例子与完整说明",
+          "en": "Keroppi Result: Shared Play & Full Character Guide"
+        },
+        "description": {
+          "zh": "大眼蛙结果完整说明：以自愿接画看共享乐趣、简单规则和退出空间，含六角色对照、反例与计分；不评体能或好胜。",
+          "en": "Read your Keroppi result through optional doodle play, simple rules, six comparisons, counterexamples and scoring. No sporting or competition score."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "角色背景与本版读法",
+            "en": "Character context and this edition’s reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "三丽鸥的官方简介把大眼蛙与朋友、游戏联系起来。本版选“把相聚变成一起玩”的角度，用普通纸笔、轻松轮流等情境讨论共同乐趣，不测运动能力或反应速度。角色住在池塘等背景帮助辨认身份，不表示你有相同生活方式，也不要求参加户外项目、比赛或扮演聚会气氛担当。",
+              "en": "Official context associates Keroppi with friends and games. This edition selects shared play, using ordinary paper, simple turns and willing participants rather than sporting performance. Setting details identify the fictional character without assigning you a lifestyle. There is no need to organise an outing, compete, perform quickly or become the person who keeps a gathering lively. Play can be quiet, brief and unrelated to winning or producing anything valuable."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些选择",
+            "en": "Which choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若计数最高，本次较常选择给相聚加一点共同玩法。可以问：你喜欢的是轮流互动、没有成品要求，还是大家一起经历同一件小事？计数不区分这些原因，也不记录游戏水平。你能只提议一次，别人不想玩时就停下；不必因为得到大眼蛙结果而总有点子、总有精力，或负责让别人尽兴。",
+              "en": "A highest count means you often selected a little play within shared time. Taking turns, avoiding a finished-product requirement and experiencing the same small event can each explain the appeal. Counts cannot separate those reasons or record game skill. Offer something once and stop if others prefer not to play. Receiving Keroppi requires no permanent supply of ideas, energy or responsibility for making everyone enjoy themselves throughout an afternoon."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体相处例子",
+            "en": "A concrete everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，用普通纸笔接着画一条线，每个人愿意才加一笔，没有画得好坏或输赢的要求。先说清可以跳过、旁观或随时结束，也不拿别人的作品开玩笑。最后纸上可能没有完整图案，大家也可以已经玩够。这个例子把共同过程放在前面，不以兴奋程度、参与人数或持续时长判断是否成功，更不要求所有人保持同样步调。",
+              "en": "For example, invite people to add a line to a shared doodle if they wish, without judging drawing quality or declaring winners. Allow passing, watching and ending, and avoid making someone’s contribution a joke. The page may never become a complete picture. The shared interval can still have served its purpose, without a success score based on excitement, group size or duration, or a demand that everyone participate at the same pace."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可以使用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“愿意的话轮流加一笔，不想画可以跳过，玩一会就停。”若自己更想休息，也直接说今天不发起。邀请游戏不是取得他人时间的许可，轻松气氛也不能替代实际同意；听到“不玩”就结束邀请即可。你可以享受游戏，同时不喜欢竞争、被起哄或公开展示，这些选择不矛盾，也不需要角色结果替你解释。",
+              "en": "You might say, “Add a line in turn if you like; passing is fine, and we can stop after a little while.” You can also want rest and propose nothing today. A playful atmosphere gives no claim on another person’s time. Accept a refusal without turning it into another game. Enjoying play while disliking competition, teasing or public performance is entirely possible and needs no fictional explanation or consistent character identity."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六角色读法比较",
+            "en": "Comparisons with the other six readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "大眼蛙读法偏一起玩，凯蒂猫偏让新人加入，美乐蒂偏熟悉活动；一个小游戏可能同时包含三者。巧克猫偏发现新变化，酷企鹅偏个人趣味，大耳狗偏慢慢加入，布丁狗偏舒服从容。喜欢新规则与喜欢一起玩也不是同一件事。最高并列保留不同切面，不代表你比别人更活泼、乐观、健康或有团队精神。",
+              "en": "Keroppi concerns shared play, Hello Kitty newcomer participation and My Melody familiar activity; a game can contain all three. Chococat notices variations, Badtz-Maru personal playfulness, Cinnamoroll gradual participation and Pompompurin comfortable time. Enjoying a new rule and enjoying playing together are distinct preferences. Tied readings retain several angles without establishing greater liveliness, optimism, health or team spirit, and a lower play count says nothing about whether somebody is pleasant company."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与理解边界",
+            "en": "Counterexamples and interpretation limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，选游戏可能只是这次等候太久，平时你更喜欢安静聊天；不玩的人也可能很重视共同经历。结果不推断多动、冲动、社交能力、体能、领导或适合的工作。真实活动是否方便仍看场地、时间和各自意愿，不靠角色授权。若某种游戏让人不舒服，取消它比证明自己有趣更重要；这个问卷不要求克服拒绝或不适。",
+              "en": "Selecting a game may simply suit a wait on this occasion, while quiet conversation remains your usual preference. Declining play can still value shared experience. This reading infers no hyperactivity, impulse, social skill, fitness, leadership or suitable occupation. Actual space, time and willingness determine an activity’s fit. Cancel an uncomfortable game without proving that you are entertaining or treating refusal and discomfort as obstacles a Keroppi-like person must overcome to make the event succeed."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：为一个本来愿意参加的普通场景，想一个没有输赢、可以旁观的小玩法，并写下什么时候结束，可以完全不实施。再看你在意的是轮流、共同注意一件事，还是摆脱成品要求。也可以发现自己其实更想聊天。观察帮助区分游戏带来的具体乐趣，不是训练团队能力、增加活动量或提高受欢迎程度。",
+              "en": "For an optional observation, imagine a tiny activity without winners for an ordinary setting you already want to join. Include watching and an endpoint, with no need to try it. Notice whether turns, shared attention or freedom from a finished product matters. You may discover that conversation appeals more. Distinguish the particular pleasure of play without training teamwork, increasing physical activity or attempting to become more popular with a group of friends."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题计数与全部最高并列",
+            "en": "21-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，每位全卷出现12次、每位置3次，未提供的三位不记拒绝。最高计数全部保留完整结果；全选第一项会七位各3次、七份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似百分比、真实人格比例、受欢迎程度或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可以自行比较，不补造并列。本版没有常模、稀有度、科学分界或心理测量验证，情境与理解改变时，选择也可以改变。",
+              "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters appear per item. Each appears twelve times and three times per position; absent characters are not rejections. Every highest count retains its full result. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, popularity nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Compare close guides without inventing ties. This edition has no norms, rarity estimates, scientific cutoffs or psychometric validation; changing circumstances and interpretations can change choices."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源",
+            "en": "Unofficial original edition and sources"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的21题非官方同人问卷，选凯蒂猫、美乐蒂、大眼蛙、巧克猫、酷企鹅、大耳狗和布丁狗七位三丽鸥角色，用有限的普通相处角度解释当前选择，不代表全部三丽鸥阵容、完整角色人格或官方分类。大耳狗与玉桂狗是Cinnamoroll同一身份，不另增角色或测试。题目、选项、映射、计数、解释与例子原创，未采用IDR35题、竞品正文或算法、角色立绘、动画截图、台词、歌词、官方口号或其他受保护素材。作品、角色与相关商标归相应权利人；本站无三丽鸥合作、授权或官方认可。官方短简介用于核对身份和基本背景，不验证本站题目、计分或心理解释。中文名参考大陆官网，英文身份稳定。结果不评外貌、物种、年龄、性别、健康、心理疾病、智商、善良程度、危险性、受欢迎程度、关系质量或职业，不要求模仿飞行、食物或休息设定，也不换算MBTI或其他测评。",
+              "en": "This independently authored FermatMind 21-item unofficial fan quiz selects Hello Kitty, My Melody, Keroppi, Chococat, Badtz-Maru, Cinnamoroll and Pompompurin for limited readings of current everyday preferences. They represent neither all Sanrio characters, complete fictional personalities nor official categories. The two Chinese names used for Cinnamoroll retain one identity rather than extra characters or tests. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, character art, animation stills, dialogue, lyrics, official slogans or other protected material is adopted. Respective rights holders retain works, characters and trademarks; this is no Sanrio partnership, authorisation or endorsement. Official short biographies check identities and basic context without validating these questions, counts or psychology. Chinese names follow mainland context and English identities remain stable. Results assess no appearance, species, age, gender, health, mental illness, IQ, goodness, dangerousness, popularity, relationship quality or career, prescribe no fictional flying, food or rest practices and convert into no MBTI or other assessment."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chococat",
+      "directionIds": [
+        "chococat"
+      ],
+      "title": {
+        "zh": "巧克猫：留意新消息与小变化",
+        "en": "Chococat: Noticing News and Small Changes"
+      },
+      "headline": {
+        "zh": "巧克猫：留意新消息与小变化",
+        "en": "Chococat: Noticing News and Small Changes"
+      },
+      "summary": {
+        "zh": "从一条活动更新理解留意变化、确认含义与选择分享，含六角色对照；新消息不是智商或注意力分数。",
+        "en": "Use an activity update to explore noticing changes, checking meaning and choosing what to share, with six comparisons and no attention or IQ score."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，每位全卷出现12次、每位置3次，未提供的三位不记拒绝。最高计数全部保留完整结果；全选第一项会七位各3次、七份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似百分比、真实人格比例、受欢迎程度或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可以自行比较，不补造并列。本版没有常模、稀有度、科学分界或心理测量验证，情境与理解改变时，选择也可以改变。",
+        "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters appear per item. Each appears twelve times and three times per position; absent characters are not rejections. Every highest count retains its full result. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, popularity nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Compare close guides without inventing ties. This edition has no norms, rarity estimates, scientific cutoffs or psychometric validation; changing circumstances and interpretations can change choices."
+      },
+      "seo": {
+        "title": {
+          "zh": "巧克猫测试结果：新消息、细节与完整说明",
+          "en": "Chococat Result: Updates & Full Character Guide"
+        },
+        "description": {
+          "zh": "巧克猫结果完整说明：从一条活动更新看新消息、确认含义与分享，含六角色对照、反例与计分；不评注意力、记忆或智商。",
+          "en": "Explore a Chococat result through noticing an activity update, checking meaning, six comparisons and scoring, without an attention or IQ verdict."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "角色背景与本版读法",
+            "en": "Character context and this edition’s reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "官方简介把巧克猫与最新消息、敏锐触须的虚构设定联系起来；名字指鼻子的颜色，并不是“爱吃巧克力”的证明。本版取留意新信息的日常角度，不把触须能力搬到人身上，也不根据角色评注意力、整洁或组织能力。你可以只是喜欢发现一处小变化，不需要成为群里消息最多或更新最快的人。",
+              "en": "Official context connects Chococat with news and fictional antenna-like whiskers; the name refers to a coloured nose rather than a diet. This edition selects noticing an update, without transferring fictional senses or claiming attention, tidiness or organisational ability. One small difference can interest you without making you the person with the most information or the fastest updates. The character provides context for an ordinary preference, rather than evidence of an actual human capability."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些选择",
+            "en": "Which choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若计数最高，你在这些题里较常选择查看新消息、发现以前没注意的细节。可以问自己：新鲜本身吸引你，还是某个变化恰好与这次活动有关？问卷不追踪你看过什么，也不测记忆准确度。知道有变化与了解变化含义是两步，你依然可以说还没看懂、暂时不关注或今天不想接收更多信息。",
+              "en": "A highest count records frequent choices involving updates or unnoticed details. Novelty itself may appeal, or the change may matter for this particular activity. No browsing history was collected and no memory accuracy was measured. Noticing that something changed and understanding what the change means are separate steps. You can remain unsure, decline further information or choose not to follow a topic without contradicting the answers you selected in this brief quiz."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体相处例子",
+            "en": "A concrete everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，朋友更新了普通纸上活动的时间，你先发现“比原先晚半小时”，再看看自己是否仍方便。不必立即把整个安排转发给所有人；若只是私人消息，先确认是否适合分享。这个例子把变化和它的实际影响分开，不以知道更多、抢先发布或反应更快认证聪明。没有新消息时，保留原安排也很合理。",
+              "en": "A friend changes the time of a casual paper activity. You notice it is half an hour later and then consider whether that still suits you. Forwarding the entire arrangement to everybody is unnecessary; private information may not be yours to share. This example separates an update from its practical implications. Knowing more, publishing first and responding fastest certify no intelligence, while an unchanged arrangement can remain perfectly adequate when no update is relevant."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可以使用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我看到这一处变了，先确认一下是不是最新安排；你需要我把这一点说清吗？”把看到、理解和确认区分开，不确定时直接说明。消息不一定需要你解释，更不要求替别人搜集私人情况。你可以喜欢新发现，同时选择减少通知或慢一点回复；可用时间与兴趣都能变化，不必维持“随时知道”的角色。",
+              "en": "You might say, “I noticed this changed; I will check whether it is current. Would a brief explanation help?” Distinguish seeing, understanding and confirming, and name uncertainty directly. Not every update needs your explanation, and collecting private information about someone else is unnecessary. Interest in discoveries can coexist with fewer notifications or slower replies. Available time and interest may change without maintaining an always-informed role for friends or a group."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六角色读法比较",
+            "en": "Comparisons with the other six readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "巧克猫读法偏新消息，美乐蒂偏熟悉过程，两者不是聪明与保守的对立。大眼蛙偏共享玩法，酷企鹅偏自己的趣味，凯蒂猫偏新朋友入口，大耳狗偏加入速度，布丁狗偏从容。一项新玩法可能同时吸引巧克猫和大眼蛙读法，但前者关注变化，后者关注一起玩。并列只保留这次选择的多个切面，不排知识量、好奇心或反应能力。",
+              "en": "Chococat concerns updates and My Melody familiar process, rather than intelligence versus conservatism. Keroppi emphasises shared play, Badtz-Maru personal playfulness, Hello Kitty new participation, Cinnamoroll joining pace and Pompompurin unhurried time. A new game can interest both Chococat and Keroppi readings: one notices the variation, the other the shared play. Equal counts retain several angles without ranking knowledge, curiosity or responsiveness, and neither angle determines the value of the activity itself."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与理解边界",
+            "en": "Counterexamples and interpretation limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，发现新时间可能只是你需要赶车，并非喜欢追消息；没注意一处变化也不说明粗心。结果不判断注意缺陷、记忆、焦虑、八卦、学习能力或工作适配。真实消息是否可靠需要看来源与语境，问卷不替任何信息背书。遇到不想了解的私人话题，可以不问、不看、不转述；角色的虚构触须不是现实里窥探他人的理由。",
+              "en": "Noticing a changed time may follow a transport constraint rather than a taste for news. Missing a detail does not establish carelessness. Counts assess no attention condition, memory, anxiety, gossip, learning ability or occupational fit. Actual information needs its own source and context checks; this quiz endorses none of it. You can avoid asking, viewing or repeating unwanted private material. A fictional whisker ability provides no reason to inspect someone else’s life or belongings."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：从自己愿意看的普通安排里找一处已知变化，分开写“我看到什么”“还没确认什么”“是否影响我”，不需要找新消息或查别人。如果没有变化，也写没有。观察重点是把新信息与解释分开，而非提高警觉、练记忆或随时保持在线。你也可以选择暂停接收，等真正需要时再看。",
+              "en": "For an optional observation, take one known update in an ordinary arrangement you already want to view. Separate what you saw, what remains unconfirmed and whether it affects you, without seeking news or investigating anybody. Record no change if there is none. Notice the difference between information and interpretation without training vigilance, memory or constant availability. Pausing updates until they are actually useful remains an equally reasonable choice for your time and attention."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题计数与全部最高并列",
+            "en": "21-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，每位全卷出现12次、每位置3次，未提供的三位不记拒绝。最高计数全部保留完整结果；全选第一项会七位各3次、七份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似百分比、真实人格比例、受欢迎程度或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可以自行比较，不补造并列。本版没有常模、稀有度、科学分界或心理测量验证，情境与理解改变时，选择也可以改变。",
+              "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters appear per item. Each appears twelve times and three times per position; absent characters are not rejections. Every highest count retains its full result. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, popularity nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Compare close guides without inventing ties. This edition has no norms, rarity estimates, scientific cutoffs or psychometric validation; changing circumstances and interpretations can change choices."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源",
+            "en": "Unofficial original edition and sources"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的21题非官方同人问卷，选凯蒂猫、美乐蒂、大眼蛙、巧克猫、酷企鹅、大耳狗和布丁狗七位三丽鸥角色，用有限的普通相处角度解释当前选择，不代表全部三丽鸥阵容、完整角色人格或官方分类。大耳狗与玉桂狗是Cinnamoroll同一身份，不另增角色或测试。题目、选项、映射、计数、解释与例子原创，未采用IDR35题、竞品正文或算法、角色立绘、动画截图、台词、歌词、官方口号或其他受保护素材。作品、角色与相关商标归相应权利人；本站无三丽鸥合作、授权或官方认可。官方短简介用于核对身份和基本背景，不验证本站题目、计分或心理解释。中文名参考大陆官网，英文身份稳定。结果不评外貌、物种、年龄、性别、健康、心理疾病、智商、善良程度、危险性、受欢迎程度、关系质量或职业，不要求模仿飞行、食物或休息设定，也不换算MBTI或其他测评。",
+              "en": "This independently authored FermatMind 21-item unofficial fan quiz selects Hello Kitty, My Melody, Keroppi, Chococat, Badtz-Maru, Cinnamoroll and Pompompurin for limited readings of current everyday preferences. They represent neither all Sanrio characters, complete fictional personalities nor official categories. The two Chinese names used for Cinnamoroll retain one identity rather than extra characters or tests. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, character art, animation stills, dialogue, lyrics, official slogans or other protected material is adopted. Respective rights holders retain works, characters and trademarks; this is no Sanrio partnership, authorisation or endorsement. Official short biographies check identities and basic context without validating these questions, counts or psychology. Chinese names follow mainland context and English identities remain stable. Results assess no appearance, species, age, gender, health, mental illness, IQ, goodness, dangerousness, popularity, relationship quality or career, prescribe no fictional flying, food or rest practices and convert into no MBTI or other assessment."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "badtz-maru",
+      "directionIds": [
+        "badtz-maru"
+      ],
+      "title": {
+        "zh": "酷企鹅：保留自己的趣味",
+        "en": "Badtz-Maru: Keeping Your Own Sense of Fun"
+      },
+      "headline": {
+        "zh": "酷企鹅：保留自己的趣味",
+        "en": "Badtz-Maru: Keeping Your Own Sense of Fun"
+      },
+      "summary": {
+        "zh": "从私人书签的一处特别设计理解个人趣味、表达与共同规则，含六角色比较；不同不等于反叛或难相处。",
+        "en": "Explore personal playfulness through a distinctive bookmark detail, expression and six comparisons. Difference is no verdict of rebellion or difficulty."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，每位全卷出现12次、每位置3次，未提供的三位不记拒绝。最高计数全部保留完整结果；全选第一项会七位各3次、七份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似百分比、真实人格比例、受欢迎程度或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可以自行比较，不补造并列。本版没有常模、稀有度、科学分界或心理测量验证，情境与理解改变时，选择也可以改变。",
+        "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters appear per item. Each appears twelve times and three times per position; absent characters are not rejections. Every highest count retains its full result. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, popularity nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Compare close guides without inventing ties. This edition has no norms, rarity estimates, scientific cutoffs or psychometric validation; changing circumstances and interpretations can change choices."
+      },
+      "seo": {
+        "title": {
+          "zh": "酷企鹅测试结果：个人趣味、例子与完整说明",
+          "en": "Badtz-Maru Result: Personal Playfulness & Full Guide"
+        },
+        "description": {
+          "zh": "酷企鹅结果完整说明：用私人书签看个人趣味、表达和共同规则，含六角色对照、反例与计分；不贴叛逆或难相处标签。",
+          "en": "Read a Badtz-Maru result through a playful bookmark detail, wording, six comparisons and scoring. Difference is no label of rebellion or difficulty."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "角色背景与本版读法",
+            "en": "Character context and this edition’s reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "官方短简介呈现酷企鹅带点淘气与自己视角的角色背景。本版取“保留自己的趣味”这一角度，放在自有纸张、私人书签等普通情境里，不鼓励恶作剧或嘲讽别人。角色的表情与造型帮助辨认身份，不是答题者脾气的证据；你可以喜欢一点特别的设计，也可以在很多事上与别人相同。",
+              "en": "Official context gives Badtz-Maru a mischievous perspective. This edition selects personal playfulness within ordinary choices about your own paper or bookmark, without encouraging pranks or ridicule. A fictional expression and design identify the character rather than proving your temperament. Enjoying one unusual detail can coexist with sharing many preferences with other people. The reading offers a small angle on chosen enjoyment, without requiring a permanently unconventional appearance, attitude or way of interacting with friends."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些选择",
+            "en": "Which choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若计数最高，本次较常选择给自己的版本留一点独特趣味。可以问：你真喜欢这个细节，还是只因为别人都用了另一种样式？计数不辨别，也不判断原创能力。自己的趣味可以很普通，不必与众不同才算成立；已经和别人一样时，也不用刻意改变，更不需要借一次问卷证明独立或坚持某种形象。",
+              "en": "A highest count means you often chose a personally playful detail for your own version. Does the detail appeal in itself, or mainly because others chose something else? Counts cannot decide and assess no originality. Your taste may be common and still belong to you. Matching other people does not require a corrective change, and this quiz offers no reason to prove independence by maintaining a distinctive image or disagreeing with an otherwise suitable arrangement."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体相处例子",
+            "en": "A concrete everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，大家各做自己的书签，你想在自己那张留一个奇怪的小角或不对称图形，可以先看看是否仍好用。别人不需要照做，也不必理解同一个笑点；如果后来不喜欢，换回简单样式即可。个人趣味在这里是自己作品的一部分，不是点评别人的机会，不以得到注意、引发争论或别人觉得大胆来认证。",
+              "en": "When everyone makes a personal bookmark, you might choose an odd corner or an asymmetric shape on yours and check that it remains usable. Nobody needs to copy it or share the same amusement. Return to a simple version if preferred later. Personal playfulness belongs to your object here, without inviting commentary on someone else’s work. Attention, argument and being called daring are unnecessary measures of whether the detail is worth keeping for yourself."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可以使用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想把自己这张做成这个样子，你按你喜欢的来。”如果作品要共同使用，就另外讨论哪些地方需要一致，不把“有个性”当作忽略约定的理由。你也可以不解释私人趣味，不需要用讽刺保住选择。平静表达、修改作品或发现自己其实喜欢大众款，都不让这个角度失效，也不代表失去自我。",
+              "en": "You might say, “I would like mine this way; choose what you enjoy for yours.” Discuss necessary consistency separately for something shared. Individuality does not replace agreements or make sarcasm necessary to protect a preference. You may keep the reason private, revise the object or discover a liking for the popular version. None establishes a loss of self, and an ordinary calm explanation can be enough for a small design difference between willing participants."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六角色读法比较",
+            "en": "Comparisons with the other six readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "酷企鹅读法偏个人趣味，大眼蛙偏一起玩；觉得一个设计好笑与想邀大家玩不是同一件事。巧克猫关注新变化，未必在意独特；美乐蒂关注熟悉过程，凯蒂猫关注新朋友入口，大耳狗关注加入速度，布丁狗关注从容。七种不是叛逆与顺从、主见与没主见的排名，最高并列也不分配任何真实脾气或群体角色。",
+              "en": "Badtz-Maru concerns personal playfulness and Keroppi shared play; amusing yourself with a detail differs from inviting a group into a game. Chococat notices novelty without necessarily seeking distinctiveness. My Melody concerns familiarity, Hello Kitty newcomer participation, Cinnamoroll joining pace and Pompompurin unhurried time. These angles rank neither rebellion against obedience nor strong against weak opinions. Equal counts assign no actual temperament or role in a group and can simply preserve several appeals within one set of answers."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与理解边界",
+            "en": "Counterexamples and interpretation limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，特别设计可能只是材料形状如此，并非想表达个性；遵循同一样式也可能是自己真心喜欢。结果不评愤怒、反社会、难相处、自恋、反权威、审美或创造力。别人的拒绝仍然是拒绝，不能用“我就是酷企鹅”替嘲笑、骚扰或违约辩护。卡通的淘气设定不是现实行为许可，也不要求你压住原本平和的一面。",
+              "en": "An unusual design may simply follow the available material, while a matching style can be a sincere preference. This result assesses no anger, antisocial trait, difficulty, narcissism, opposition to authority, aesthetics or creativity. Another person’s refusal remains a refusal. “I am Badtz-Maru” excuses no mockery, harassment or broken agreement. Fictional mischief grants no behavioural permission and provides no reason to suppress an ordinarily peaceful or agreeable side of your actual interactions with other people."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：想一件完全属于自己的普通小物，写一个你喜欢的细节，再写一个即使别人也喜欢仍愿保留的理由，可以不改任何东西。若没有特别细节，也照实记下。重点是分清自己的享受与必须不同的压力，不是培养反叛、显得更酷或赢得注意；喜欢简单、相同或变化都可以，最终仍由你选择。",
+              "en": "For an optional observation, think of an ordinary object that is entirely yours. Name one detail you enjoy and a reason to keep it even if everyone else likes it too, without changing anything. Having no special detail is a valid answer. Distinguish enjoyment from pressure to stand out rather than cultivating rebellion, looking cooler or winning attention. Simple, matching and changing preferences all remain available, with the actual choice belonging to you rather than a character result."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题计数与全部最高并列",
+            "en": "21-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，每位全卷出现12次、每位置3次，未提供的三位不记拒绝。最高计数全部保留完整结果；全选第一项会七位各3次、七份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似百分比、真实人格比例、受欢迎程度或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可以自行比较，不补造并列。本版没有常模、稀有度、科学分界或心理测量验证，情境与理解改变时，选择也可以改变。",
+              "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters appear per item. Each appears twelve times and three times per position; absent characters are not rejections. Every highest count retains its full result. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, popularity nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Compare close guides without inventing ties. This edition has no norms, rarity estimates, scientific cutoffs or psychometric validation; changing circumstances and interpretations can change choices."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源",
+            "en": "Unofficial original edition and sources"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的21题非官方同人问卷，选凯蒂猫、美乐蒂、大眼蛙、巧克猫、酷企鹅、大耳狗和布丁狗七位三丽鸥角色，用有限的普通相处角度解释当前选择，不代表全部三丽鸥阵容、完整角色人格或官方分类。大耳狗与玉桂狗是Cinnamoroll同一身份，不另增角色或测试。题目、选项、映射、计数、解释与例子原创，未采用IDR35题、竞品正文或算法、角色立绘、动画截图、台词、歌词、官方口号或其他受保护素材。作品、角色与相关商标归相应权利人；本站无三丽鸥合作、授权或官方认可。官方短简介用于核对身份和基本背景，不验证本站题目、计分或心理解释。中文名参考大陆官网，英文身份稳定。结果不评外貌、物种、年龄、性别、健康、心理疾病、智商、善良程度、危险性、受欢迎程度、关系质量或职业，不要求模仿飞行、食物或休息设定，也不换算MBTI或其他测评。",
+              "en": "This independently authored FermatMind 21-item unofficial fan quiz selects Hello Kitty, My Melody, Keroppi, Chococat, Badtz-Maru, Cinnamoroll and Pompompurin for limited readings of current everyday preferences. They represent neither all Sanrio characters, complete fictional personalities nor official categories. The two Chinese names used for Cinnamoroll retain one identity rather than extra characters or tests. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, character art, animation stills, dialogue, lyrics, official slogans or other protected material is adopted. Respective rights holders retain works, characters and trademarks; this is no Sanrio partnership, authorisation or endorsement. Official short biographies check identities and basic context without validating these questions, counts or psychology. Chinese names follow mainland context and English identities remain stable. Results assess no appearance, species, age, gender, health, mental illness, IQ, goodness, dangerousness, popularity, relationship quality or career, prescribe no fictional flying, food or rest practices and convert into no MBTI or other assessment."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cinnamoroll",
+      "directionIds": [
+        "cinnamoroll"
+      ],
+      "title": {
+        "zh": "大耳狗：慢慢加入也很友好",
+        "en": "Cinnamoroll: Joining Gently at Your Own Pace"
+      },
+      "headline": {
+        "zh": "大耳狗：慢慢加入也很友好",
+        "en": "Cinnamoroll: Joining Gently at Your Own Pace"
+      },
+      "summary": {
+        "zh": "用第一次手作聚会说明先观察、慢慢参与与明确表达，含六角色比较；安静不等于不友好或社交焦虑。",
+        "en": "Explore observing before joining a craft gathering, clear wording and six comparisons. Quiet participation is no verdict of unfriendliness or social anxiety."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，每位全卷出现12次、每位置3次，未提供的三位不记拒绝。最高计数全部保留完整结果；全选第一项会七位各3次、七份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似百分比、真实人格比例、受欢迎程度或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可以自行比较，不补造并列。本版没有常模、稀有度、科学分界或心理测量验证，情境与理解改变时，选择也可以改变。",
+        "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters appear per item. Each appears twelve times and three times per position; absent characters are not rejections. Every highest count retains its full result. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, popularity nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Compare close guides without inventing ties. This edition has no norms, rarity estimates, scientific cutoffs or psychometric validation; changing circumstances and interpretations can change choices."
+      },
+      "seo": {
+        "title": {
+          "zh": "大耳狗测试结果：慢慢加入、例子与完整说明",
+          "en": "Cinnamoroll Result: Joining Gently & Full Guide"
+        },
+        "description": {
+          "zh": "大耳狗／玉桂狗结果完整说明：用首次手作聚会看先观察和慢慢加入，含六角色对照、反例与计分；安静不等于社交问题。",
+          "en": "Explore a Cinnamoroll result through observing before joining, clear wording, six comparisons and scoring. Quietness is no social-anxiety verdict."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "角色背景与本版读法",
+            "en": "Character context and this edition’s reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "官方大耳狗简介同时保留有些害羞和友好的特点，本版借此讨论按自己速度加入，不把安静写成缺陷。大耳狗是大陆官网采用的名称，玉桂狗是常见搜索别称，英文身份都是Cinnamoroll，不增加另一角色。飞行是虚构设定，结果不要求模仿；可爱造型、物种或身体外形也不用于给人评分。",
+              "en": "Official context describes Cinnamoroll as both shy and friendly. This edition uses that combination to discuss joining at your own pace without treating quietness as a deficit. The official mainland Chinese name and the common Chinese search alias refer to the same Cinnamoroll character, not extra results. Fictional flight is no exercise to imitate, and appearance, species or bodily features play no part in assigning a reading to a real respondent."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些选择",
+            "en": "Which choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若计数最高，本次较常选择先观察、熟悉环境，再决定怎样参与。可以问自己：你想听清规则、等一个自然空当，还是只是暂时还没想做？这些都可能产生同一选择。计数不测害羞程度，也不认定有社交问题。你可以后来很主动，或者看完就离开；准备好以后加入不是必须完成的后半段。",
+              "en": "A highest count records more choices to observe, settle in and then decide how to participate. You might want the rules explained, an easy opening or simply more time to know whether the activity appeals. Those reasons can lead to the same option. Counts measure no degree of shyness or social problem. Becoming active later or leaving after watching are both possible; joining after preparation is an option rather than a required second stage."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体相处例子",
+            "en": "A concrete everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，第一次来到自愿手作小聚，可以先在方便的位置看一会，问清材料是否可用，再决定要不要做。别人已经开始并不要求你立刻追上。若愿意加入，就选一个自己想做的小部分；若只想看看，也能说清楚。这个例子让旁观有实际位置，不把它当作等待被带动或需要别人替你决定的状态。",
+              "en": "At a first optional craft gathering, watch from a convenient place, ask whether materials are available and decide whether making something appeals. Others starting does not require you to catch up immediately. Choose one part if you want to join, or say that watching is enough. Observation has a place in its own right here, rather than being a state where somebody must motivate you, rescue the interaction or decide on your behalf."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可以使用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想先看看，等会如果想做再加入；你们可以继续。”也可以说今天只旁观，不必给出更长解释。若想询问，用一句具体问题就够，不需要突然变得健谈来证明友好。别人愿意留空间时，可以感谢，也可以提出自己需要的距离；友好与个人节奏可以同时存在，不要求接受所有邀请或身体接近。",
+              "en": "You might say, “I would like to watch first and may join later; please carry on.” Watching only today needs no longer justification. A specific question can be enough without becoming talkative to prove friendliness. Thank someone for space if wanted and state the distance or pace that suits you. Friendliness and personal timing can coexist without accepting every invitation or permitting physical closeness, and another person need not interpret quietness for you."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六角色读法比较",
+            "en": "Comparisons with the other six readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "大耳狗读法偏加入速度，凯蒂猫偏新朋友的入口；一个人可以既欢迎别人，也自己慢慢来。布丁狗偏舒服从容，未必需要先熟悉；美乐蒂偏熟悉过程，大眼蛙偏共享玩法，巧克猫偏新消息，酷企鹅偏个人趣味。安静不是这些偏好的反面，最高并列也不说明内外向混合或隐藏的第二人格，只保留多种当前选择。",
+              "en": "Cinnamoroll concerns joining pace and Hello Kitty an opening for someone new; you may welcome others while taking your own time. Pompompurin concerns comfort without necessarily needing an introduction to the setting. My Melody emphasises familiarity, Keroppi shared play, Chococat updates and Badtz-Maru personal playfulness. Quietness opposes none of them. A highest tie preserves several current preferences without establishing mixed extraversion, a hidden second personality or another psychological category that this questionnaire never measured."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与理解边界",
+            "en": "Counterexamples and interpretation limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，先看可能因为材料不熟，不是害怕别人；马上加入也不证明更友好或更自信。结果不诊断社交焦虑、回避、依恋、敏感、沟通能力或安全感。若实际活动让你不舒服，可以离开，不把角色解释当成必须适应的理由；别人同样不能以“你只是害羞”忽略明确拒绝。需要怎样参与应由具体情况与自己的意愿决定。",
+              "en": "Watching first may follow unfamiliar materials rather than fear of people. Joining immediately proves neither greater friendliness nor confidence. This result diagnoses no social anxiety, avoidance, attachment, sensitivity, communication ability or sense of safety. Leave an uncomfortable activity rather than using a character explanation as a duty to adapt. Others cannot dismiss a clear refusal as mere shyness. Actual conditions and your wishes determine participation, without a quiz deciding what level of contact is right for you."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：回想一个本来愿意了解的普通活动，分别写“只看看也可以”“愿意加入的条件”“可以离开的时点”，不需要报名或联系别人。也可以发现自己其实不想参加。观察的是参与节奏，不是暴露训练、克服害羞或变外向；先看、直接加入、一直旁观和离开，都可以是经过考虑的选择。",
+              "en": "For an optional observation, recall an ordinary activity you actually want to learn about. Write what watching alone offers, conditions for joining and a possible endpoint, without signing up or contacting anyone. You may realise that attending does not appeal. Notice participation pace without exposure training, overcoming shyness or becoming outgoing. Watching first, joining directly, continuing to observe and leaving can each be considered choices, with no preferred progression imposed by this result."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题计数与全部最高并列",
+            "en": "21-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，每位全卷出现12次、每位置3次，未提供的三位不记拒绝。最高计数全部保留完整结果；全选第一项会七位各3次、七份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似百分比、真实人格比例、受欢迎程度或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可以自行比较，不补造并列。本版没有常模、稀有度、科学分界或心理测量验证，情境与理解改变时，选择也可以改变。",
+              "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters appear per item. Each appears twelve times and three times per position; absent characters are not rejections. Every highest count retains its full result. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, popularity nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Compare close guides without inventing ties. This edition has no norms, rarity estimates, scientific cutoffs or psychometric validation; changing circumstances and interpretations can change choices."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源",
+            "en": "Unofficial original edition and sources"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的21题非官方同人问卷，选凯蒂猫、美乐蒂、大眼蛙、巧克猫、酷企鹅、大耳狗和布丁狗七位三丽鸥角色，用有限的普通相处角度解释当前选择，不代表全部三丽鸥阵容、完整角色人格或官方分类。大耳狗与玉桂狗是Cinnamoroll同一身份，不另增角色或测试。题目、选项、映射、计数、解释与例子原创，未采用IDR35题、竞品正文或算法、角色立绘、动画截图、台词、歌词、官方口号或其他受保护素材。作品、角色与相关商标归相应权利人；本站无三丽鸥合作、授权或官方认可。官方短简介用于核对身份和基本背景，不验证本站题目、计分或心理解释。中文名参考大陆官网，英文身份稳定。结果不评外貌、物种、年龄、性别、健康、心理疾病、智商、善良程度、危险性、受欢迎程度、关系质量或职业，不要求模仿飞行、食物或休息设定，也不换算MBTI或其他测评。",
+              "en": "This independently authored FermatMind 21-item unofficial fan quiz selects Hello Kitty, My Melody, Keroppi, Chococat, Badtz-Maru, Cinnamoroll and Pompompurin for limited readings of current everyday preferences. They represent neither all Sanrio characters, complete fictional personalities nor official categories. The two Chinese names used for Cinnamoroll retain one identity rather than extra characters or tests. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, character art, animation stills, dialogue, lyrics, official slogans or other protected material is adopted. Respective rights holders retain works, characters and trademarks; this is no Sanrio partnership, authorisation or endorsement. Official short biographies check identities and basic context without validating these questions, counts or psychology. Chinese names follow mainland context and English identities remain stable. Results assess no appearance, species, age, gender, health, mental illness, IQ, goodness, dangerousness, popularity, relationship quality or career, prescribe no fictional flying, food or rest practices and convert into no MBTI or other assessment."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pompompurin",
+      "directionIds": [
+        "pompompurin"
+      ],
+      "title": {
+        "zh": "布丁狗：给相处留一点从容",
+        "en": "Pompompurin: Leaving Room to Take It Easy"
+      },
+      "headline": {
+        "zh": "布丁狗：给相处留一点从容",
+        "en": "Pompompurin: Leaving Room to Take It Easy"
+      },
+      "summary": {
+        "zh": "从不要求成品的自由下午理解舒服、留白和结束，含六角色比较；从容不是懒惰、睡眠或健康结论。",
+        "en": "Read unhurried companionship through an afternoon without a finished product, clear endpoints and six comparisons, without sleep or health claims."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，每位全卷出现12次、每位置3次，未提供的三位不记拒绝。最高计数全部保留完整结果；全选第一项会七位各3次、七份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似百分比、真实人格比例、受欢迎程度或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可以自行比较，不补造并列。本版没有常模、稀有度、科学分界或心理测量验证，情境与理解改变时，选择也可以改变。",
+        "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters appear per item. Each appears twelve times and three times per position; absent characters are not rejections. Every highest count retains its full result. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, popularity nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Compare close guides without inventing ties. This edition has no norms, rarity estimates, scientific cutoffs or psychometric validation; changing circumstances and interpretations can change choices."
+      },
+      "seo": {
+        "title": {
+          "zh": "布丁狗测试结果：从容相处、例子与完整说明",
+          "en": "Pompompurin Result: Unhurried Time & Full Guide"
+        },
+        "description": {
+          "zh": "布丁狗结果完整说明：从自由下午看舒服、留白与结束点，含六角色对照、反例与计分；不评懒惰、睡眠、健康或效率。",
+          "en": "Read a Pompompurin result through comfortable shared time, an afternoon example, six comparisons and scoring, without sleep, health or productivity claims."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "角色背景与本版读法",
+            "en": "Character context and this edition’s reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "官方布丁狗简介保留悠闲、休息与容易交朋友等虚构日常背景。本站选“给相处留一点从容”的普通角度，关注不把共同时间填满。角色的午睡、食物和体形不转成现实建议，也不收集相关输入。你可以喜欢轻松相聚，同时在别的场合赶时间；一个角色读法并不要求整天慢下来或保持随和。",
+              "en": "Official context places Pompompurin in an easygoing fictional everyday life. This edition selects leaving unhurried room in time together rather than filling every interval. Naps, food and bodily features become no actual advice or questionnaire inputs. Enjoying an easy gathering can coexist with being busy elsewhere. A character reading requires neither slowing your whole day nor maintaining an agreeable manner, and the preference concerns a particular ordinary setting rather than an official lifestyle category."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些选择",
+            "en": "Which choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若计数最高，本次较常选择舒服的位置、可以停下的安排和不赶进度的过程。可以问自己：你在意的是不必完成作品、安静空当，还是想保留随时结束的余地？计数不测体力、疲劳或拖延，也不判断你为什么想休息。今天需要从容与长期做事习惯不同，不能凭这组选择推断勤奋、效率或未来表现。",
+              "en": "A highest count records more selections involving comfort, pauses and freedom from rushing. Perhaps finishing a product is unnecessary, quiet gaps matter or you want an easy endpoint. Counts assess no stamina, fatigue or procrastination and cannot determine why a pause appeals. Today’s wish for unhurried time differs from a long-term working habit. No conclusion about diligence, efficiency or future performance follows from these ordinary choices about an optional gathering with other people."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体相处例子",
+            "en": "A concrete everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，与朋友约一个不必完成作品的下午，可以各带一件愿意做的小事，想聊就聊，想停就停。提前说清大致结束时间，不因为“轻松”就让别人无限等候。舒服也需要各自确认，同一张椅子或同一音量不一定适合所有人。这个例子重在有余地的安排，不以待得更久、吃了什么或睡得怎样衡量休闲质量。",
+              "en": "For an afternoon needing no finished object, bring a small chosen activity, talk if wanted and pause freely. Agree an approximate endpoint rather than making someone wait indefinitely in the name of relaxation. Check comfort individually: the same seat or volume need not suit everyone. The example concerns room within an arrangement, without judging leisure quality through duration, food or sleep. A short interval can be enough, with different activities continuing independently if that suits the participants."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可以使用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“今天想轻松待一会，不把时间排满；到这个点我就结束。”若别人更想玩游戏或完成作品，可以各做各的，也可以另约时间。不需要用“随便”隐藏自己的不愿意；具体说清舒服和不舒服之处，通常比要求大家都放松更准确。你也可以有不同意见，从容不等于凡事配合、没有边界或永远不生气。",
+              "en": "You might say, “I would like an easy interval without filling it, and I will finish at this time.” Someone else may want a game or a completed project; choose separate activities or another occasion. “Anything is fine” need not conceal a refusal. Describe what suits you rather than asking everyone to relax. Unhurried time allows disagreement and boundaries, without requiring permanent cooperation, a lack of preferences or a consistently cheerful emotional state throughout the day."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六角色读法比较",
+            "en": "Comparisons with the other six readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "布丁狗读法偏从容，大耳狗偏加入的速度；熟悉场地的人也可能想休息，慢慢加入的人也可能很快投入。美乐蒂偏熟悉活动，凯蒂猫偏新朋友，大眼蛙偏共享玩法，巧克猫偏新变化，酷企鹅偏个人趣味。一个轻松下午可以容纳所有这些角度。最高并列不是混合体质、能量类型或休息需求，不给任何偏好排高低。",
+              "en": "Pompompurin concerns unhurried room and Cinnamoroll joining pace. Someone familiar with a setting may want a pause, while a gradual arrival may later become absorbed. My Melody concerns familiar activity, Hello Kitty new company, Keroppi play, Chococat updates and Badtz-Maru personal playfulness. An easy afternoon can contain all these angles. Equal counts establish no mixed bodily constitution, energy type or rest requirement and rank none of the preferences as a better way to spend time together."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与理解边界",
+            "en": "Counterexamples and interpretation limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，选择舒服位置可能只是现场只有那处空着，不代表喜欢慢节奏；安排紧凑也可能让你很自在。结果不判断睡眠、饮食、健康、情绪疾病、懒惰、生产力或关系里的迁就程度。若有持续困扰，应按真实情况理解，不从布丁狗的虚构生活寻找解释。你无需证明自己休息得好，也不必把活动完成多少当作这次相聚的成绩。",
+              "en": "Choosing a comfortable place may follow the available space rather than a preference for slow time. A structured schedule can also feel easy. This reading assesses no sleep, diet, health, emotional disorder, laziness, productivity or accommodation in relationships. Understand any continuing concern on its actual terms rather than through a fictional character’s lifestyle. There is no need to demonstrate successful relaxation or turn the number of completed activities into a score for this particular period of companionship."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：为一段本来就愿意保留的自由时间，写一个想做的小事、一个可以什么都不做的空当和一个结束点，可以只想不实施。再问自己真正喜欢的是舒服、没有成品要求，还是可调整的安排；若更喜欢排好进度，也记下来。观察帮助说清这一次时间偏好，不是睡眠建议、休息处方或效率训练，任何安排都仍可改变。",
+              "en": "For an optional observation, take an interval of free time you already want to keep. Name one possible activity, an empty space and an endpoint, with no need to carry it out. Notice whether comfort, no finished-product requirement or a revisable arrangement appeals; record a preference for structure too. Describe this particular use of time without sleep advice, a rest prescription or efficiency training. The plan remains yours to change, shorten or abandon rather than an obligation assigned by the result."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题计数与全部最高并列",
+            "en": "21-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，每位全卷出现12次、每位置3次，未提供的三位不记拒绝。最高计数全部保留完整结果；全选第一项会七位各3次、七份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似百分比、真实人格比例、受欢迎程度或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可以自行比较，不补造并列。本版没有常模、稀有度、科学分界或心理测量验证，情境与理解改变时，选择也可以改变。",
+              "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters appear per item. Each appears twelve times and three times per position; absent characters are not rejections. Every highest count retains its full result. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, popularity nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Compare close guides without inventing ties. This edition has no norms, rarity estimates, scientific cutoffs or psychometric validation; changing circumstances and interpretations can change choices."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源",
+            "en": "Unofficial original edition and sources"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的21题非官方同人问卷，选凯蒂猫、美乐蒂、大眼蛙、巧克猫、酷企鹅、大耳狗和布丁狗七位三丽鸥角色，用有限的普通相处角度解释当前选择，不代表全部三丽鸥阵容、完整角色人格或官方分类。大耳狗与玉桂狗是Cinnamoroll同一身份，不另增角色或测试。题目、选项、映射、计数、解释与例子原创，未采用IDR35题、竞品正文或算法、角色立绘、动画截图、台词、歌词、官方口号或其他受保护素材。作品、角色与相关商标归相应权利人；本站无三丽鸥合作、授权或官方认可。官方短简介用于核对身份和基本背景，不验证本站题目、计分或心理解释。中文名参考大陆官网，英文身份稳定。结果不评外貌、物种、年龄、性别、健康、心理疾病、智商、善良程度、危险性、受欢迎程度、关系质量或职业，不要求模仿飞行、食物或休息设定，也不换算MBTI或其他测评。",
+              "en": "This independently authored FermatMind 21-item unofficial fan quiz selects Hello Kitty, My Melody, Keroppi, Chococat, Badtz-Maru, Cinnamoroll and Pompompurin for limited readings of current everyday preferences. They represent neither all Sanrio characters, complete fictional personalities nor official categories. The two Chinese names used for Cinnamoroll retain one identity rather than extra characters or tests. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, character art, animation stills, dialogue, lyrics, official slogans or other protected material is adopted. Respective rights holders retain works, characters and trademarks; this is no Sanrio partnership, authorisation or endorsement. Official short biographies check identities and basic context without validating these questions, counts or psychology. Chinese names follow mainland context and English identities remain stable. Results assess no appearance, species, age, gender, health, mental illness, IQ, goodness, dangerousness, popularity, relationship quality or career, prescribe no fictional flying, food or rest practices and convert into no MBTI or other assessment."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "21题怎样形成七角色计数",
+        "en": "How 21 choices produce seven character counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，每位全卷出现12次、每位置3次，未提供的三位不记拒绝。最高计数全部保留完整结果；全选第一项会七位各3次、七份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似百分比、真实人格比例、受欢迎程度或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可以自行比较，不补造并列。本版没有常模、稀有度、科学分界或心理测量验证，情境与理解改变时，选择也可以改变。",
+          "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters appear per item. Each appears twelve times and three times per position; absent characters are not rejections. Every highest count retains its full result. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, popularity nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Compare close guides without inventing ties. This edition has no norms, rarity estimates, scientific cutoffs or psychometric validation; changing circumstances and interpretations can change choices."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "完整结果、并列与近分",
+        "en": "Full guides, ties and close choices"
+      },
+      "paragraphs": [
+        {
+          "zh": "七份结果各有角色背景、当前选择、例子、表达、六角色对照、反例、小观察、计分和来源。所有最高并列逐份完整显示，不按主角或名单顺序指定主型，也不自动补第二角色。公开结果页不展示私有答卷或次数；近分可以自己选择比较，不把细小次数差写成科学差异。",
+          "en": "Each of seven guides includes context, current choices, an example, wording, six comparisons, counterexamples, an observation, scoring and sources. Every highest tie appears in full without protagonist or list-order priority or an automatic second character. Public guides show no private answers or counts. Choose a close guide to compare without making a scientific difference out of a small count gap."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "七个选定角色与别名",
+        "en": "Seven selected characters and their names"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是费马独立创作的21题非官方同人问卷，选凯蒂猫、美乐蒂、大眼蛙、巧克猫、酷企鹅、大耳狗和布丁狗七位三丽鸥角色，用有限的普通相处角度解释当前选择，不代表全部三丽鸥阵容、完整角色人格或官方分类。大耳狗与玉桂狗是Cinnamoroll同一身份，不另增角色或测试。题目、选项、映射、计数、解释与例子原创，未采用IDR35题、竞品正文或算法、角色立绘、动画截图、台词、歌词、官方口号或其他受保护素材。作品、角色与相关商标归相应权利人；本站无三丽鸥合作、授权或官方认可。官方短简介用于核对身份和基本背景，不验证本站题目、计分或心理解释。中文名参考大陆官网，英文身份稳定。结果不评外貌、物种、年龄、性别、健康、心理疾病、智商、善良程度、危险性、受欢迎程度、关系质量或职业，不要求模仿飞行、食物或休息设定，也不换算MBTI或其他测评。",
+          "en": "This independently authored FermatMind 21-item unofficial fan quiz selects Hello Kitty, My Melody, Keroppi, Chococat, Badtz-Maru, Cinnamoroll and Pompompurin for limited readings of current everyday preferences. They represent neither all Sanrio characters, complete fictional personalities nor official categories. The two Chinese names used for Cinnamoroll retain one identity rather than extra characters or tests. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, character art, animation stills, dialogue, lyrics, official slogans or other protected material is adopted. Respective rights holders retain works, characters and trademarks; this is no Sanrio partnership, authorisation or endorsement. Official short biographies check identities and basic context without validating these questions, counts or psychology. Chinese names follow mainland context and English identities remain stable. Results assess no appearance, species, age, gender, health, mental illness, IQ, goodness, dangerousness, popularity, relationship quality or career, prescribe no fictional flying, food or rest practices and convert into no MBTI or other assessment."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "草稿、分享与可选下一步",
+        "en": "Drafts, sharing and optional next steps"
+      },
+      "paragraphs": [
+        {
+          "zh": "答案在浏览器内计分，不上传、不进网址或分析。草稿需主动开启，只在本标签页恢复，24小时失效，完成、重测、退出清除即删除。分享自选，只含公开角色说明和链接，不含答案或次数。完整结果免费，无需注册、邮箱或另一测试；后续测评可不做，选择继续需要另外作答。",
+          "en": "Answers are scored in your browser without uploading them or placing them in URLs or analytics. Drafts require opt-in, restore only in this tab, expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public guides and links without answers or counts. Full results are free without signup, email or another test; further assessments are optional and require new answers."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "Hello Kitty角色测试包括哪七位？",
+        "en": "Which seven characters does this Hello Kitty test include?"
+      },
+      "answer": {
+        "zh": "本版选凯蒂猫、美乐蒂、大眼蛙、巧克猫、酷企鹅、大耳狗和布丁狗，分别对应Hello Kitty、My Melody、Keroppi、Chococat、Badtz-Maru、Cinnamoroll和Pompompurin。大耳狗与玉桂狗是同一角色；本版不声称包括全部三丽鸥角色。",
+        "en": "This edition selects Hello Kitty, My Melody, Keroppi, Chococat, Badtz-Maru, Cinnamoroll and Pompompurin. The two Chinese names used for Cinnamoroll refer to one character, not extra results. This is not the entire Sanrio cast."
+      }
+    },
+    {
+      "question": {
+        "zh": "需要照片、动画知识或购买周边吗？",
+        "en": "Do I need a photo, animation knowledge or merchandise?"
+      },
+      "answer": {
+        "zh": "不需要，也不收照片。21题都是普通相处中的选择，没有剧情答对或外貌输入。角色背景会在完整结果中说明；无需购买、注册或先做另一测试。",
+        "en": "No, and no photo is collected. Twenty-one items concern ordinary everyday choices without correct trivia answers or appearance input. Full guides explain the character context; no purchase, signup or another test is required."
+      }
+    },
+    {
+      "question": {
+        "zh": "最高并列、近分和次数怎样理解？",
+        "en": "How do highest ties, close choices and counts work?"
+      },
+      "answer": {
+        "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，每位全卷出现12次、每位置3次，未提供的三位不记拒绝。最高计数全部保留完整结果；全选第一项会七位各3次、七份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似百分比、真实人格比例、受欢迎程度或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可以自行比较，不补造并列。本版没有常模、稀有度、科学分界或心理测量验证，情境与理解改变时，选择也可以改变。",
+        "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters appear per item. Each appears twelve times and three times per position; absent characters are not rejections. Every highest count retains its full result. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, popularity nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Compare close guides without inventing ties. This edition has no norms, rarity estimates, scientific cutoffs or psychometric validation; changing circumstances and interpretations can change choices."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是三丽鸥官方或科学人格测试吗？",
+        "en": "Is this an official Sanrio or scientific personality test?"
+      },
+      "answer": {
+        "zh": "这是费马独立创作的21题非官方同人问卷，选凯蒂猫、美乐蒂、大眼蛙、巧克猫、酷企鹅、大耳狗和布丁狗七位三丽鸥角色，用有限的普通相处角度解释当前选择，不代表全部三丽鸥阵容、完整角色人格或官方分类。大耳狗与玉桂狗是Cinnamoroll同一身份，不另增角色或测试。题目、选项、映射、计数、解释与例子原创，未采用IDR35题、竞品正文或算法、角色立绘、动画截图、台词、歌词、官方口号或其他受保护素材。作品、角色与相关商标归相应权利人；本站无三丽鸥合作、授权或官方认可。官方短简介用于核对身份和基本背景，不验证本站题目、计分或心理解释。中文名参考大陆官网，英文身份稳定。结果不评外貌、物种、年龄、性别、健康、心理疾病、智商、善良程度、危险性、受欢迎程度、关系质量或职业，不要求模仿飞行、食物或休息设定，也不换算MBTI或其他测评。",
+        "en": "This independently authored FermatMind 21-item unofficial fan quiz selects Hello Kitty, My Melody, Keroppi, Chococat, Badtz-Maru, Cinnamoroll and Pompompurin for limited readings of current everyday preferences. They represent neither all Sanrio characters, complete fictional personalities nor official categories. The two Chinese names used for Cinnamoroll retain one identity rather than extra characters or tests. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, character art, animation stills, dialogue, lyrics, official slogans or other protected material is adopted. Respective rights holders retain works, characters and trademarks; this is no Sanrio partnership, authorisation or endorsement. Official short biographies check identities and basic context without validating these questions, counts or psychology. Chinese names follow mainland context and English identities remain stable. Results assess no appearance, species, age, gender, health, mental illness, IQ, goodness, dangerousness, popularity, relationship quality or career, prescribe no fictional flying, food or rest practices and convert into no MBTI or other assessment."
+      }
+    },
+    {
+      "question": {
+        "zh": "结果、重测和分享都免费吗？",
+        "en": "Are full results, retaking and sharing free?"
+      },
+      "answer": {
+        "zh": "免费，七份完整说明可先读，答完21题后最高并列全部完整显示，无需邮箱或其他测试解锁。重测清除本次选择，可选分享不含答案或次数。后续MBTI需独立重新作答，不从角色结果换算。",
+        "en": "Yes. Read all seven full guides first; after 21 choices every highest tie appears in full, without email or another test to unlock it. Retaking clears this attempt, and optional sharing contains no answers or counts. Further MBTI questions require separate answers rather than conversion from a character."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "三丽鸥官方角色简介：凯蒂猫",
+        "en": "Official Sanrio character context: Hello Kitty"
+      },
+      "url": "https://www.sanrio.com/collections/hello-kitty"
+    },
+    {
+      "title": {
+        "zh": "三丽鸥官方角色简介：美乐蒂",
+        "en": "Official Sanrio character context: My Melody"
+      },
+      "url": "https://www.sanrio.com/collections/my-melody"
+    },
+    {
+      "title": {
+        "zh": "三丽鸥官方角色简介：大眼蛙",
+        "en": "Official Sanrio character context: Keroppi"
+      },
+      "url": "https://www.sanrio.com/collections/keroppi"
+    },
+    {
+      "title": {
+        "zh": "三丽鸥官方角色简介：巧克猫",
+        "en": "Official Sanrio character context: Chococat"
+      },
+      "url": "https://www.sanrio.com/collections/chococat"
+    },
+    {
+      "title": {
+        "zh": "三丽鸥官方角色简介：酷企鹅",
+        "en": "Official Sanrio character context: Badtz-Maru"
+      },
+      "url": "https://www.sanrio.com/collections/badtz-maru"
+    },
+    {
+      "title": {
+        "zh": "三丽鸥官方角色简介：大耳狗",
+        "en": "Official Sanrio character context: Cinnamoroll"
+      },
+      "url": "https://www.sanrio.com/collections/cinnamoroll"
+    },
+    {
+      "title": {
+        "zh": "三丽鸥官方角色简介：布丁狗",
+        "en": "Official Sanrio character context: Pompompurin"
+      },
+      "url": "https://www.sanrio.com/collections/pompompurin"
+    },
+    {
+      "title": {
+        "zh": "三丽鸥大陆官网：角色中文名与品牌背景",
+        "en": "Official Sanrio mainland site: names and brand context"
+      },
+      "url": "https://www.sanrio.com.cn/"
+    }
+  ]
+}

@@ -1,0 +1,939 @@
+{
+  "formCode": "fm_hello_kitty_fan_choices_21",
+  "origin": "FermatMindoriginal21ENZH4choice/unofficialtextonlyfanreading/sevenselectedSanriocharacters",
+  "directions": [
+    {
+      "id": "hello-kitty",
+      "title": {
+        "zh": "凯蒂猫：为新朋友留个位置",
+        "en": "Hello Kitty: Making Room for New Friends"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "my-melody",
+      "title": {
+        "zh": "美乐蒂：一起做熟悉的小事",
+        "en": "My Melody: Sharing a Familiar Activity"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "keroppi",
+      "title": {
+        "zh": "大眼蛙：把相聚变成一起玩",
+        "en": "Keroppi: Turning Time Together into Play"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "chococat",
+      "title": {
+        "zh": "巧克猫：留意新消息与小变化",
+        "en": "Chococat: Noticing News and Small Changes"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "badtz-maru",
+      "title": {
+        "zh": "酷企鹅：保留自己的趣味",
+        "en": "Badtz-Maru: Keeping Your Own Sense of Fun"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "cinnamoroll",
+      "title": {
+        "zh": "大耳狗：慢慢加入也很友好",
+        "en": "Cinnamoroll: Joining Gently at Your Own Pace"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "pompompurin",
+      "title": {
+        "zh": "布丁狗：给相处留一点从容",
+        "en": "Pompompurin: Leaving Room to Take It Easy"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "HELLO_KITTY_01",
+      "prompt": {
+        "zh": "朋友带来一位你不认识的人，大家准备做纸卡，你更想？",
+        "en": "A friend brings someone new to a small card-making get-together. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先问新朋友愿不愿意一起，留个空位",
+            "en": "Ask whether the new person wants to join and leave a space"
+          },
+          "directionId": "hello-kitty"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "与熟悉的人慢慢做一张简单卡片",
+            "en": "Make a simple card alongside someone familiar"
+          },
+          "directionId": "my-melody"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "提议自愿参加的纸片小游戏",
+            "en": "Suggest an optional little paper game"
+          },
+          "directionId": "keroppi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "看看有没有大家没试过的新折法",
+            "en": "Notice a new fold that nobody has tried"
+          },
+          "directionId": "chococat"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_02",
+      "prompt": {
+        "zh": "一个自由下午，和朋友用已有材料做点小东西，你更想？",
+        "en": "On a free afternoon, friends make something with materials already available. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "重复一个熟悉做法，边做边聊",
+            "en": "Repeat a familiar activity while chatting"
+          },
+          "directionId": "my-melody"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给制作加个没有输赢的小玩法",
+            "en": "Add a little play without winners or losers"
+          },
+          "directionId": "keroppi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留意新发现，看看能不能换个细节",
+            "en": "Notice a new discovery and consider changing a detail"
+          },
+          "directionId": "chococat"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "加一处只有自己觉得好玩的设计",
+            "en": "Add a detail that expresses your own sense of fun"
+          },
+          "directionId": "badtz-maru"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_03",
+      "prompt": {
+        "zh": "几个人自愿等候活动开始，空出的时间里你更想？",
+        "en": "While voluntarily waiting for an activity to begin, what would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "邀请愿意的人玩一个轻松小游戏",
+            "en": "Invite willing people into a casual game"
+          },
+          "directionId": "keroppi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "分享一件刚发现的有趣小事",
+            "en": "Share something interesting you recently noticed"
+          },
+          "directionId": "chococat"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "按自己的兴趣画个小涂鸦",
+            "en": "Make a little doodle that follows your own taste"
+          },
+          "directionId": "badtz-maru"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先在旁边看看，想参与时再加入",
+            "en": "Watch nearby and join when you feel ready"
+          },
+          "directionId": "cinnamoroll"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_04",
+      "prompt": {
+        "zh": "整理自己的一小盒纪念纸片时，你先注意？",
+        "en": "Sorting a small box of your own keepsake papers, what attracts you first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "以前没留意过的信息或变化",
+            "en": "Information or changes you had not noticed before"
+          },
+          "directionId": "chococat"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "哪一张最符合自己特别的趣味",
+            "en": "Which one best fits your particular taste"
+          },
+          "directionId": "badtz-maru"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "慢慢翻看，不急着给别人介绍",
+            "en": "Looking through quietly without rushing to present anything"
+          },
+          "directionId": "cinnamoroll"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "怎样摆得顺手，让这件小事更轻松",
+            "en": "An easy arrangement that makes this activity comfortable"
+          },
+          "directionId": "pompompurin"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_05",
+      "prompt": {
+        "zh": "朋友提议大家做相同样式的私人书签，你更愿意？",
+        "en": "Friends suggest making matching personal bookmarks. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己的那张保留一点不同的趣味",
+            "en": "Keep a playful difference on your own bookmark"
+          },
+          "directionId": "badtz-maru"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先看一会，想好以后再加入",
+            "en": "Watch for a while and join after settling in"
+          },
+          "directionId": "cinnamoroll"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "选不赶时间、做起来舒服的方式",
+            "en": "Choose a comfortable approach without rushing"
+          },
+          "directionId": "pompompurin"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "也给刚来的朋友一个自选的参与位置",
+            "en": "Leave an optional place for a newcomer too"
+          },
+          "directionId": "hello-kitty"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_06",
+      "prompt": {
+        "zh": "第一次到一个自愿参加的小手作聚会，你更想？",
+        "en": "At a new optional craft gathering, what would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先安静熟悉环境，再用自己的速度参与",
+            "en": "Settle in quietly and participate at your own pace"
+          },
+          "directionId": "cinnamoroll"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找个舒服位置，慢慢享受这段时间",
+            "en": "Find a comfortable spot and enjoy the time unhurriedly"
+          },
+          "directionId": "pompompurin"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "和一个愿意交流的新面孔打个招呼",
+            "en": "Say hello to a new person who welcomes conversation"
+          },
+          "directionId": "hello-kitty"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "找一件熟悉的小事，和同伴一起做",
+            "en": "Find a familiar little activity to share with a companion"
+          },
+          "directionId": "my-melody"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_07",
+      "prompt": {
+        "zh": "与朋友约好一个不必完成作品的下午，你更想保留？",
+        "en": "For an afternoon with friends that needs no finished product, what matters most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "随时坐坐、休息和聊聊的余地",
+            "en": "Room to sit, rest and chat whenever wanted"
+          },
+          "directionId": "pompompurin"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "认识新朋友或让新来的人融入的机会",
+            "en": "An opening to meet someone or welcome a newcomer"
+          },
+          "directionId": "hello-kitty"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一起重复喜欢的小活动的时间",
+            "en": "Time to share a familiar favourite activity"
+          },
+          "directionId": "my-melody"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "大家愿意就玩一会的小乐趣",
+            "en": "A little shared play if people want it"
+          },
+          "directionId": "keroppi"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_08",
+      "prompt": {
+        "zh": "你为一个自选聊天角落写小提示，更想写？",
+        "en": "Writing a note for an optional conversation corner, what appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "新朋友愿意的话也可以来坐坐",
+            "en": "New friends are welcome to sit if they wish"
+          },
+          "directionId": "hello-kitty"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "可以带一件熟悉的小事来一起做",
+            "en": "Bring a familiar little activity to share"
+          },
+          "directionId": "my-melody"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "想玩一个简单小游戏的可以加入",
+            "en": "Join a simple little game if interested"
+          },
+          "directionId": "keroppi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "可以分享最近发现的新消息",
+            "en": "Share a recent discovery or piece of news"
+          },
+          "directionId": "chococat"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_09",
+      "prompt": {
+        "zh": "与熟悉朋友安排一次普通相聚，你更想先说？",
+        "en": "Planning an ordinary get-together with a familiar friend, what would you say first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一起做上次喜欢的那件小事吧",
+            "en": "Let us share that familiar activity we enjoyed"
+          },
+          "directionId": "my-melody"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "愿意的话，把它变成一个小玩法",
+            "en": "If wanted, let us make a little game of it"
+          },
+          "directionId": "keroppi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我刚发现一个新点子，可以看看",
+            "en": "I noticed a new idea we could look at"
+          },
+          "directionId": "chococat"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我想保留一个自己觉得有趣的版本",
+            "en": "I would like a version with my own playful touch"
+          },
+          "directionId": "badtz-maru"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_10",
+      "prompt": {
+        "zh": "桌上只有普通纸和笔，大家都愿意自由活动，你更想？",
+        "en": "With ordinary paper and pens and freedom to choose, what appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "邀请大家自愿接画，不比较画得好坏",
+            "en": "Invite optional turn-taking doodles without judging quality"
+          },
+          "directionId": "keroppi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "试试刚发现的一种小变化",
+            "en": "Try a small variation you recently noticed"
+          },
+          "directionId": "chococat"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "画自己喜欢的怪趣味，不求都一样",
+            "en": "Draw your own quirky idea without matching everyone"
+          },
+          "directionId": "badtz-maru"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先看别人怎么玩，再慢慢动笔",
+            "en": "Observe and start drawing when ready"
+          },
+          "directionId": "cinnamoroll"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_11",
+      "prompt": {
+        "zh": "朋友发来一个普通活动的新安排，你最想先看？",
+        "en": "A friend shares a new arrangement for a casual activity. What attracts attention?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "和之前相比改了什么、新增什么",
+            "en": "What changed or was added since before"
+          },
+          "directionId": "chococat"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "有没有空间放进自己的特别点子",
+            "en": "Whether your own unusual idea has a place"
+          },
+          "directionId": "badtz-maru"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "是否可以慢慢熟悉再决定怎么加入",
+            "en": "Whether you can settle in before choosing how to join"
+          },
+          "directionId": "cinnamoroll"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有没有不赶时间、随时休息的余地",
+            "en": "Whether there is time to relax and take breaks"
+          },
+          "directionId": "pompompurin"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_12",
+      "prompt": {
+        "zh": "为自己的笔记本选一个小标题，你更在意？",
+        "en": "Choosing a small heading for your own notebook, what matters?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "它是不是符合自己那一点独特趣味",
+            "en": "Whether it fits your particular playful taste"
+          },
+          "directionId": "badtz-maru"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "可以慢慢想，不急着展示给别人",
+            "en": "Having time to think without presenting it immediately"
+          },
+          "directionId": "cinnamoroll"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看着舒服，用起来不费劲",
+            "en": "A comfortable appearance and easy use"
+          },
+          "directionId": "pompompurin"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "以后与愿意了解的新朋友分享也自然",
+            "en": "An easy opening to share with an interested new friend"
+          },
+          "directionId": "hello-kitty"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_13",
+      "prompt": {
+        "zh": "有朋友说欢迎你加入自愿小活动，你更喜欢？",
+        "en": "A friend welcomes you into an optional activity. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先了解一下，再按自己的速度加入",
+            "en": "Learn about it first and join at your own pace"
+          },
+          "directionId": "cinnamoroll"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找个轻松方式参与，不把时间排满",
+            "en": "Join easily without filling the whole time"
+          },
+          "directionId": "pompompurin"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "也认识一位愿意聊天的新朋友",
+            "en": "Meet another person who welcomes conversation"
+          },
+          "directionId": "hello-kitty"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "和熟悉同伴做一件已有的小活动",
+            "en": "Share an existing little activity with someone familiar"
+          },
+          "directionId": "my-melody"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_14",
+      "prompt": {
+        "zh": "周末小聚可以随时停下来，你更期待？",
+        "en": "At a weekend get-together where anyone may pause, what do you look forward to?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不用一直忙，有舒服地坐坐的时间",
+            "en": "Time to sit comfortably without staying busy"
+          },
+          "directionId": "pompompurin"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让新来的人也有自然加入的机会",
+            "en": "A natural opening for a newcomer to participate"
+          },
+          "directionId": "hello-kitty"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一起做一件彼此熟悉的小事",
+            "en": "Sharing a familiar activity together"
+          },
+          "directionId": "my-melody"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "愿意的人可以玩一会轻松小游戏",
+            "en": "A casual little game for anyone interested"
+          },
+          "directionId": "keroppi"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_15",
+      "prompt": {
+        "zh": "有人第一次来你的普通兴趣小组，你更愿意？",
+        "en": "Someone joins your casual interest group for the first time. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先欢迎，再问对方想怎样参与",
+            "en": "Welcome them and ask how they want to participate"
+          },
+          "directionId": "hello-kitty"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "邀请对方一起做组里熟悉的小活动",
+            "en": "Offer a familiar group activity to share"
+          },
+          "directionId": "my-melody"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "提议愿意才玩的轻松破冰小游戏",
+            "en": "Suggest a light optional icebreaker game"
+          },
+          "directionId": "keroppi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "分享今天刚发现的小消息",
+            "en": "Share a little discovery from today"
+          },
+          "directionId": "chococat"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_16",
+      "prompt": {
+        "zh": "与一位熟悉朋友用已有材料做装饰，你更喜欢？",
+        "en": "Making a decoration with a familiar friend and existing materials, what appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把熟悉做法再做一次，享受一起的过程",
+            "en": "Repeat a familiar process and enjoy doing it together"
+          },
+          "directionId": "my-melody"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "加入轮流选颜色这样的小玩法",
+            "en": "Add play such as taking turns choosing colours"
+          },
+          "directionId": "keroppi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看看材料里有没有未发现的新细节",
+            "en": "Look for a detail you had not noticed in the materials"
+          },
+          "directionId": "chococat"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "自己的部分留一处有个性的设计",
+            "en": "Keep a personally playful detail in your own part"
+          },
+          "directionId": "badtz-maru"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_17",
+      "prompt": {
+        "zh": "几个人都愿意参加一场普通纸上游戏，你更期待？",
+        "en": "When everyone wants an ordinary paper game, what do you anticipate?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "大家一起玩的过程，规则简单就好",
+            "en": "Shared play with simple rules"
+          },
+          "directionId": "keroppi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "发现一个此前没注意的新玩法",
+            "en": "Discovering a variation you had not noticed"
+          },
+          "directionId": "chococat"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给自己加个有趣小设定，不强求别人照做",
+            "en": "A personal playful twist without requiring others to follow"
+          },
+          "directionId": "badtz-maru"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先熟悉一轮，想好了再自然加入",
+            "en": "Watching a round and joining when settled"
+          },
+          "directionId": "cinnamoroll"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_18",
+      "prompt": {
+        "zh": "重新看自己的普通活动记录，你更留意？",
+        "en": "Looking back at your own notes on casual activities, what stands out?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "最近出现的新点子与小变化",
+            "en": "New ideas and recent little changes"
+          },
+          "directionId": "chococat"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "哪些细节仍然符合自己的趣味",
+            "en": "Details that still fit your individual taste"
+          },
+          "directionId": "badtz-maru"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "哪些时候可以按自己的节奏参与",
+            "en": "Times when you could participate at your own pace"
+          },
+          "directionId": "cinnamoroll"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "哪些安排让相处更舒服、不匆忙",
+            "en": "Arrangements that made time together comfortable and unhurried"
+          },
+          "directionId": "pompompurin"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_19",
+      "prompt": {
+        "zh": "大家准备各自画一张明信片，不要求统一，你更想？",
+        "en": "Everyone makes a personal postcard without a matching requirement. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "画一个自己觉得有意思的特别版本",
+            "en": "Make a distinctive version that you find amusing"
+          },
+          "directionId": "badtz-maru"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先看一会再开始，不急着抢先",
+            "en": "Take time before beginning without being first"
+          },
+          "directionId": "cinnamoroll"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "轻松画到哪里算哪里，不赶进度",
+            "en": "Draw comfortably without chasing progress"
+          },
+          "directionId": "pompompurin"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "与愿意交流的新朋友分享自己的想法",
+            "en": "Share ideas with a new person who welcomes them"
+          },
+          "directionId": "hello-kitty"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_20",
+      "prompt": {
+        "zh": "一个你还不熟悉的普通交流活动，你更愿意怎样开头？",
+        "en": "How would you start an unfamiliar casual conversation activity?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先听听，准备好以后再说一点",
+            "en": "Listen first and speak when ready"
+          },
+          "directionId": "cinnamoroll"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找到自在的位置，允许有安静空当",
+            "en": "Find a comfortable place and allow quiet gaps"
+          },
+          "directionId": "pompompurin"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "与一位愿意的新朋友相互认识",
+            "en": "Get acquainted with a willing new person"
+          },
+          "directionId": "hello-kitty"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "围绕一件熟悉的小活动慢慢聊",
+            "en": "Chat around a familiar little activity"
+          },
+          "directionId": "my-melody"
+        }
+      ]
+    },
+    {
+      "id": "HELLO_KITTY_21",
+      "prompt": {
+        "zh": "一场自愿相聚快结束时，你最想保留哪种感受？",
+        "en": "As an optional gathering ends, which feeling would you most like to keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "有从容停下来、舒服道别的余地",
+            "en": "An unhurried pause and comfortable goodbye"
+          },
+          "directionId": "pompompurin"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "新认识的人有机会被欢迎",
+            "en": "An opening for new acquaintances to feel welcome"
+          },
+          "directionId": "hello-kitty"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一起做熟悉小事留下的亲切感",
+            "en": "The warmth of sharing something familiar"
+          },
+          "directionId": "my-melody"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一起玩过一会的轻松乐趣",
+            "en": "The easy pleasure of having played together"
+          },
+          "directionId": "keroppi"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "required": 21,
+    "total": 21,
+    "exposureEach": 12,
+    "perPosition": 3,
+    "highest": "allhighestretainfullguides/noautomaticsecondary",
+    "allA": "sevencharacters3each/all7fullguides",
+    "verificationPlan": "7uniquehighest+4all7ties+4096deterministiccompleteanswersplanned4107boundedsourceoraclecases/NOTexecuted/not4^21/globalDP/allhighestsets/psychvalidation"
+  },
+  "scope": "Seven editorial fan readings, not all Sanrio characters or official personality categories; no art, images, dialogue, lyrics, competitor items/results/scorer, clinical or MBTI conversions. Cinnamoroll uses official mainland name 大耳狗; 玉桂狗 searchable alias, not another identity. No ability, goodness, gender, appearance, age, relationship, career or health inference.",
+  "instructions": {
+    "zh": "21道原创非官方同人题，用凯蒂猫、美乐蒂、大眼蛙、巧克猫、酷企鹅、大耳狗和布丁狗七位角色比较普通相处中的自选偏好。每题从四种做法选一个较接近自己的；都以自愿、许可和可停止为前提。每选加1，每位出现12次、每位置3次，总数21，最高并列全部完整显示。无需买周边、看动画或提供照片；不测外貌、善良程度、能力或心理疾病，不是三丽鸥官方测试，也不把角色换算成MBTI。",
+    "en": "Twenty-one original unofficial fan questions compare voluntary everyday preferences through seven selected Sanrio characters: Hello Kitty, My Melody, Keroppi, Chococat, Badtz-Maru, Cinnamoroll and Pompompurin. Choose the closer of four approaches in permitted, voluntary situations that can end. Each choice adds one; each character appears twelve times, three per position, and counts sum to twenty-one. Every highest tie appears in full. No merchandise, animation knowledge or photo is needed. This is no official Sanrio test or measure of appearance, goodness, ability or mental illness, and characters do not convert into MBTI types."
+  }
+}
