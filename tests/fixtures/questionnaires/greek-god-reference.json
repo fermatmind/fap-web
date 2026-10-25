@@ -1,0 +1,809 @@
+{
+  "formCode": "fm_greek_god_preferences_18",
+  "origin": "FermatMind original bilingual myth-theme preferences; selected six figures, not all Greek gods or a scientific archetype inventory",
+  "directions": [
+    {
+      "id": "zeus",
+      "title": {
+        "zh": "宙斯：共同安排与责任",
+        "en": "Zeus: Shared Arrangements and Responsibility"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "athena",
+      "title": {
+        "zh": "雅典娜：比较路径与计划",
+        "en": "Athena: Comparing Routes and Planning"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "apollo",
+      "title": {
+        "zh": "阿波罗：节奏与创作表达",
+        "en": "Apollo: Rhythm and Creative Expression"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "aphrodite",
+      "title": {
+        "zh": "阿芙罗狄蒂：美感与交流",
+        "en": "Aphrodite: Aesthetics and Connection"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "ares",
+      "title": {
+        "zh": "阿瑞斯：有边界的挑战",
+        "en": "Ares: A Bounded Challenge"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "artemis",
+      "title": {
+        "zh": "阿尔忒弥斯：自主与自然观察",
+        "en": "Artemis: Autonomy and Observing Nature"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "GREEK_01",
+      "prompt": {
+        "zh": "社区自愿征集一个小展览的想法，你最想贡献哪一部分？",
+        "en": "A community invites voluntary ideas for a small exhibition. Which contribution would you most like to make?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "和参与者约定展览范围，承担协调已同意事项的责任。",
+            "en": "Agree the exhibition’s scope with participants and coordinate what was agreed."
+          },
+          "directionId": "zeus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "比较两种布置方案，标出各自的条件和取舍。",
+            "en": "Compare two layouts and mark the conditions and tradeoffs of each."
+          },
+          "directionId": "athena"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "为展览写一小段声音或文字，让主题有自己的节奏。",
+            "en": "Write a short sound or text piece that gives the theme its own rhythm."
+          },
+          "directionId": "apollo"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "选择彼此衬托的颜色和欢迎语，让入口更有亲近感。",
+            "en": "Choose complementary colours and a welcoming message for the entrance."
+          },
+          "directionId": "aphrodite"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_02",
+      "prompt": {
+        "zh": "雨天有一段自己支配的空闲，你更想怎样度过？",
+        "en": "You have some freely chosen time on a rainy day. Which way of spending it appeals most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "拿一个感兴趣的小问题，画出几种解决路线。",
+            "en": "Take an interesting small problem and sketch several ways to approach it."
+          },
+          "directionId": "athena"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "听一段喜欢的旋律，再尝试自己的短小变奏。",
+            "en": "Listen to a melody I enjoy and try a small variation of my own."
+          },
+          "directionId": "apollo"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "整理一个自己喜欢的角落，享受色彩和物件的搭配。",
+            "en": "Arrange a corner I like and enjoy the combination of colours and objects."
+          },
+          "directionId": "aphrodite"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "选一个安全、可暂停的小练习，试着完成其中一轮。",
+            "en": "Choose a safe exercise I can pause and try completing one round."
+          },
+          "directionId": "ares"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_03",
+      "prompt": {
+        "zh": "要留下这段日常生活的一份纪念，你更想做什么？",
+        "en": "You want to keep a small record of this period of everyday life. What would you prefer to make?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "写几行有个人语气的文字，或录一段短短的声音。",
+            "en": "Write a few lines in my own voice or record a short sound piece."
+          },
+          "directionId": "apollo"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "挑出让自己感到美好的细节，编成一页图文。",
+            "en": "Choose details I find beautiful and arrange them on a page."
+          },
+          "directionId": "aphrodite"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "记下一次自愿练习里从开始到完成的具体过程。",
+            "en": "Record the concrete steps of a voluntary practice from beginning to completion."
+          },
+          "directionId": "ares"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "按自己的节奏观察天气或窗边植物，留下几条记录。",
+            "en": "Observe the weather or a plant by my window at my own pace and keep notes."
+          },
+          "directionId": "artemis"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_04",
+      "prompt": {
+        "zh": "几位朋友自愿办一次很小的聚会，你更想优先照顾哪一项？",
+        "en": "Friends voluntarily arrange a very small gathering. Which part would you prefer to attend to?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让空间和招呼方式有温度，也给不想互动的人留余地。",
+            "en": "Make the setting and greetings inviting while leaving room not to interact."
+          },
+          "directionId": "aphrodite"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "准备一个可自由参加、随时退出的小挑战。",
+            "en": "Prepare a small challenge that people can freely join or leave."
+          },
+          "directionId": "ares"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "保留可以独处或安静看景的时间，不把全程排满。",
+            "en": "Leave time to be alone or quietly observe the surroundings rather than filling every moment."
+          },
+          "directionId": "artemis"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把共同确认的时间和分工说清，方便大家按约参加。",
+            "en": "Clarify the agreed time and responsibilities so everyone can participate as arranged."
+          },
+          "directionId": "zeus"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_05",
+      "prompt": {
+        "zh": "挑选一个新的小爱好时，哪种体验最吸引你？",
+        "en": "When choosing a small new hobby, which experience appeals to you most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "有一个难度合适的短练习，可以亲自试一试。",
+            "en": "Having a manageable short exercise I can attempt myself."
+          },
+          "directionId": "ares"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "自己决定节奏，在可访问的环境里观察自然细节。",
+            "en": "Setting my own pace and observing natural details in an accessible setting."
+          },
+          "directionId": "artemis"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "和愿意参与的人组织一件共同的小事。",
+            "en": "Organising a small shared activity with willing participants."
+          },
+          "directionId": "zeus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "比较方法、建立步骤，再看怎样改进安排。",
+            "en": "Comparing methods, building steps and considering a better arrangement."
+          },
+          "directionId": "athena"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_06",
+      "prompt": {
+        "zh": "为自己策划一个普通的半天，你更想从哪里开始？",
+        "en": "You are arranging an ordinary half-day for yourself. Where would you prefer to begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先保留不被安排打断的自主时间，再决定去哪里或看什么。",
+            "en": "Keep some self-directed time before deciding where to go or what to observe."
+          },
+          "directionId": "artemis"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把已答应别人的共同事项确认好，再安排自己的部分。",
+            "en": "Confirm shared commitments I have accepted before arranging my own part."
+          },
+          "directionId": "zeus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "比较几种路线的时间和条件，选一个合适方案。",
+            "en": "Compare timing and conditions for several routes and choose a suitable plan."
+          },
+          "directionId": "athena"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "给半天选一个声音、文字或创作主题，随它展开。",
+            "en": "Choose a sound, text or creative theme and let the half-day develop around it."
+          },
+          "directionId": "apollo"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_07",
+      "prompt": {
+        "zh": "一份自愿参与的通讯需要收尾，你更想接手什么？",
+        "en": "A voluntary newsletter needs finishing. Which part would you prefer to take on?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "确认哪些内容已经同意发布，协调最后的责任交接。",
+            "en": "Confirm what has been approved for publication and coordinate the final handover."
+          },
+          "directionId": "zeus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "检查顺序是否清楚，比较读者可能走的阅读路线。",
+            "en": "Check the sequence and compare possible reading routes."
+          },
+          "directionId": "athena"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "调整版面的留白和措辞，让阅读和交流更舒适。",
+            "en": "Adjust spacing and wording to make reading and responding more comfortable."
+          },
+          "directionId": "aphrodite"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "集中处理一个明确的小难点，做完后就停下。",
+            "en": "Focus on one clearly bounded difficulty and stop after completing it."
+          },
+          "directionId": "ares"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_08",
+      "prompt": {
+        "zh": "整理一次自选活动的记录时，你最想留下哪种内容？",
+        "en": "When organising notes from an activity you chose, what would you most like to keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不同做法为什么可行，以及下一次可以怎样选择。",
+            "en": "Why different approaches worked and how I could choose next time."
+          },
+          "directionId": "athena"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一段有趣的表达，把这次经历变成自己的作品。",
+            "en": "An interesting expression that turns the experience into a small piece of my own."
+          },
+          "directionId": "apollo"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "实际练习过的步骤，以及哪一步需要再试一次。",
+            "en": "The steps I actually practised and one that I might try again."
+          },
+          "directionId": "ares"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "按自己兴趣发现的小细节，不急着汇成统一结论。",
+            "en": "Small details I noticed through my own interests without rushing to a single conclusion."
+          },
+          "directionId": "artemis"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_09",
+      "prompt": {
+        "zh": "收到一份没有固定用途的空白本子，你更想怎样开始用？",
+        "en": "You receive a blank notebook with no assigned purpose. How would you prefer to begin using it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "写一首短诗、一段旋律记号或一页有节奏的文字。",
+            "en": "Write a short poem, a melody sketch or a page of rhythmic prose."
+          },
+          "directionId": "apollo"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "收集让自己喜欢的配色、纹理和交流片段。",
+            "en": "Collect colours, textures and fragments of conversation I enjoy."
+          },
+          "directionId": "aphrodite"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "记下自己观察到的季节、光线或植物变化。",
+            "en": "Note changes in seasons, light or plants that I notice for myself."
+          },
+          "directionId": "artemis"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "记录一件共同事项的约定，让职责和决定容易查找。",
+            "en": "Record agreements for a shared activity so responsibilities and decisions are easy to find."
+          },
+          "directionId": "zeus"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_10",
+      "prompt": {
+        "zh": "共同空间有一面可以临时使用的空墙，你更愿意提出什么？",
+        "en": "There is a wall available for temporary use in a shared space. What would you prefer to propose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "做一个温和的视觉角落，先问使用者喜欢怎样的氛围。",
+            "en": "Create a welcoming visual corner after asking users what atmosphere they prefer."
+          },
+          "directionId": "aphrodite"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "做一个自愿参与的小任务板，难度适中、完成即可移除。",
+            "en": "Make an optional small-task board with manageable challenges that can be removed when done."
+          },
+          "directionId": "ares"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先确认大家同意的用途、时限和维护责任。",
+            "en": "First confirm the agreed use, time limit and responsibility for maintenance."
+          },
+          "directionId": "zeus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "画出不同用途的草图，比较怎样更方便实际使用。",
+            "en": "Sketch alternative uses and compare how they would work in practice."
+          },
+          "directionId": "athena"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_11",
+      "prompt": {
+        "zh": "独自去一个熟悉而安全的地方短暂休息，你更想带上什么？",
+        "en": "You are taking a short break in a familiar, safe place. What would you prefer to bring?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一件可以随时停止的简短练习材料。",
+            "en": "Materials for a brief practice I can stop at any time."
+          },
+          "directionId": "ares"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "轻便的观察记录方式，让自己的注意自由停留。",
+            "en": "A light way to record observations while letting my attention move freely."
+          },
+          "directionId": "artemis"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一页想慢慢比较的方案，不必当场作决定。",
+            "en": "A page of options to compare slowly without needing an immediate decision."
+          },
+          "directionId": "athena"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个可以记下声音、画面或文字灵感的小工具。",
+            "en": "A small tool for recording sounds, images or words that inspire me."
+          },
+          "directionId": "apollo"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_12",
+      "prompt": {
+        "zh": "朋友邀请你参与一件普通的小创作，你更想怎样贡献？",
+        "en": "A friend invites you to join a small, ordinary creative activity. How would you prefer to contribute?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "保留自己探索的部分和节奏，再自愿分享所见。",
+            "en": "Keep a part and pace for my own exploration, then share observations if I wish."
+          },
+          "directionId": "artemis"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "和对方确认谁负责什么，以及怎样共同作决定。",
+            "en": "Agree who owns each part and how we will make shared decisions."
+          },
+          "directionId": "zeus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "想出一种有个人语气的表达，把感觉放进作品。",
+            "en": "Develop an expression in my own voice and put a feeling into the work."
+          },
+          "directionId": "apollo"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "关注作品怎样让人感到被欢迎，以及细节怎样搭配。",
+            "en": "Attend to how the work feels welcoming and how its details fit together."
+          },
+          "directionId": "aphrodite"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_13",
+      "prompt": {
+        "zh": "你可以为自愿小组增加一个可选环节，哪一种更合你意？",
+        "en": "You can add one optional element to a voluntary group. Which would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个简短的共同约定时段，让责任和决定更清楚。",
+            "en": "A brief time for agreements that clarifies responsibilities and decisions."
+          },
+          "directionId": "zeus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个分享原创短句、旋律或小作品的时段。",
+            "en": "A time to share original lines, melodies or small creations."
+          },
+          "directionId": "apollo"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一个低风险的小挑战，参与者自行决定做到哪里。",
+            "en": "A low-stakes challenge whose participants decide their own stopping point."
+          },
+          "directionId": "ares"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一段可自己选择路线的观察时间，室内也能参加。",
+            "en": "An observation period with self-chosen routes and indoor participation available."
+          },
+          "directionId": "artemis"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_14",
+      "prompt": {
+        "zh": "遇到一项可以自主安排的普通练习，你更想先照顾什么？",
+        "en": "An ordinary practice can be arranged as you wish. What would you prefer to consider first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先比较两种步骤，看哪一种更适合当前条件。",
+            "en": "Compare two sequences to see which fits the present conditions."
+          },
+          "directionId": "athena"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让材料和交流方式有自己喜欢的美感与舒适感。",
+            "en": "Give the materials and communication an aesthetic and comfort I enjoy."
+          },
+          "directionId": "aphrodite"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留出独自调整节奏的空间，不必跟别人同步。",
+            "en": "Leave room to set my own pace without needing to match others."
+          },
+          "directionId": "artemis"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "若涉及同伴，先明确各自接受的责任和安排。",
+            "en": "If companions are involved, clarify the responsibilities and arrangements each accepts."
+          },
+          "directionId": "zeus"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_15",
+      "prompt": {
+        "zh": "看完一个开放的小展览，你更想和朋友聊哪一方面？",
+        "en": "After an open small exhibition, which aspect would you prefer to discuss with a friend?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "某种声音、叙述或表现形式怎样触动了自己。",
+            "en": "How a sound, narrative or form of expression affected me."
+          },
+          "directionId": "apollo"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "哪一个亲手尝试的环节让自己愿意迎接小挑战。",
+            "en": "Which hands-on element made me want to attempt a manageable challenge."
+          },
+          "directionId": "ares"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "活动怎样组织、共同规则怎样让参与顺利。",
+            "en": "How the activity was organised and how shared rules supported participation."
+          },
+          "directionId": "zeus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "展陈路线的取舍，以及另一种设计可能怎样工作。",
+            "en": "The tradeoffs of the display route and how another design might work."
+          },
+          "directionId": "athena"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_16",
+      "prompt": {
+        "zh": "准备给自己留一个普通周末的纪念，你更想保留什么？",
+        "en": "You want a small keepsake from an ordinary weekend. What would you prefer to keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让自己喜欢的色彩和一段有温度的交流。",
+            "en": "Colours I enjoyed and a fragment of a warm conversation."
+          },
+          "directionId": "aphrodite"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一段自己选择的安静时间里发现的自然细节。",
+            "en": "A natural detail noticed during quiet time I chose for myself."
+          },
+          "directionId": "artemis"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一次计划的取舍记录，看看安排怎样影响体验。",
+            "en": "A record of planning tradeoffs and how the arrangement shaped the experience."
+          },
+          "directionId": "athena"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一份自己做的小作品，让那天有独特的表达。",
+            "en": "A small creation of my own that gives the day a distinctive expression."
+          },
+          "directionId": "apollo"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_17",
+      "prompt": {
+        "zh": "一次自选活动将结束，你更想为下一回留下什么？",
+        "en": "An activity you chose is ending. What would you prefer to leave for next time?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个难度刚好的练习目标，保留选择退出的余地。",
+            "en": "A manageable practice target with room to choose not to continue."
+          },
+          "directionId": "ares"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "清楚的共同约定和交接，避免责任含混。",
+            "en": "Clear shared agreements and a handover that avoids ambiguous responsibilities."
+          },
+          "directionId": "zeus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一个还想继续发展的声音、文字或创作点子。",
+            "en": "A sound, text or creative idea I would like to develop further."
+          },
+          "directionId": "apollo"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个让人舒服的细节或表达感谢的方式。",
+            "en": "A comfortable detail or a way of expressing appreciation."
+          },
+          "directionId": "aphrodite"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_18",
+      "prompt": {
+        "zh": "一个没有外部评分的小项目可以重新开始，你更想怎样做？",
+        "en": "A small project with no external grade can be restarted. How would you prefer to approach it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己挑选关注的角度，按可行的节奏慢慢探索。",
+            "en": "Choose my own angle of attention and explore at a workable pace."
+          },
+          "directionId": "artemis"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "重新比较几个路径，写清这一回的取舍。",
+            "en": "Compare several routes again and state the tradeoffs for this attempt."
+          },
+          "directionId": "athena"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "调整配色、材质或交流方式，找到自己喜欢的感觉。",
+            "en": "Adjust colours, materials or communication to find a feeling I enjoy."
+          },
+          "directionId": "aphrodite"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "挑一个具体可练的部分，尝试后再决定是否继续。",
+            "en": "Choose a specific part to practise and decide whether to continue after trying it."
+          },
+          "directionId": "ares"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "choice": "one selected original option adds1 to its theme",
+    "required": 18,
+    "total": 18,
+    "exposure": 12,
+    "per_position": 3,
+    "highest": "all highest counts retain full guides; no automatic secondary",
+    "meaning": "relative choices in this set, not abilities/percentages/norms/religious identity",
+    "DPplan": "full reachable six-count vectors and all highest sets; not4^18individualresponses or psychometricvalidation"
+  },
+  "scope": "Original everyday preferences with six selected myth figures, no ancient six-personality doctrine/competitor bank/results/art/clinical/ability/careerfit or religiousidentity claim",
+  "instructions": {
+    "zh": "本版选取六位希腊神话人物作娱乐主题标签，不是古代完整人格分类，也不测神话知识。按你目前更想选择的做法回答18题；每题只提供其中四种选择，每个主题在全卷出现12次，在四个位置各3次。所有情境都是普通、自愿、可退出的安排；没有道德上唯一正确或证明勇气的选项。全部选择后看本题组相对计数，保留全部最高并列。名字和性别不限制谁可以匹配；结果不判断真实能力、信仰身份、天命、精神状态或职业适配。",
+    "en": "This edition uses six selected Greek myth figures as entertainment labels, not a complete ancient personality system or a mythology knowledge test. Answer 18 questions with the approach you currently prefer. Each offers four themes; every theme appears 12 times and three times in each position. Situations are ordinary, voluntary and open to withdrawal, without morally superior answers or proof of courage. After completion, compare counts within this set and retain every highest tie. Names and genders restrict no one’s matches. Results establish no ability, religious identity, destiny, mental state or career fit."
+  }
+}

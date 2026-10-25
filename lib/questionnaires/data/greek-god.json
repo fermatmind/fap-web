@@ -1,0 +1,1869 @@
+{
+  "slug": "greek-god",
+  "code": "GREEK_GOD_THEMES",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "metaphor",
+  "kind": "archetype",
+  "title": {
+    "zh": "希腊神测试",
+    "en": "Which Greek God Are You?"
+  },
+  "resultHeading": {
+    "zh": "六个主题的本次选择与全部最高并列",
+    "en": "Your six-theme choices and every highest tie"
+  },
+  "description": {
+    "zh": "免费希腊神测试：18道原创选择比较宙斯、雅典娜、阿波罗、阿芙罗狄蒂、阿瑞斯和阿尔忒弥斯。无需注册，全部最高并列与完整说明直接读；神话趣味，不鉴定能力、天命或职业。",
+    "en": "Which Greek god are you? Compare six myth themes through 18 original choices. Read full results and highest ties free, without signup or ability claims."
+  },
+  "seoTitle": {
+    "zh": "希腊神测试：18题、六位神祇与完整结果",
+    "en": "Which Greek God Are You? Free Quiz and Full Results"
+  },
+  "minutes": 6,
+  "introduction": {
+    "zh": "你更想明确共同约定、比较路线、创作表达、体验美感交流、试一个小挑战，还是自主观察？本版从六位希腊神话人物中选取当代偏好联想，提供18道普通、低风险的原创四选一。全部完成后看六主题原始次数，最高并列都保留完整报告。名字只是娱乐标签，不是古代完整人格分类，更不说明谁更聪明、勇敢、有魅力或适合某种职业；神话性别不限制匹配。六份完整结果也可以先读。",
+    "en": "Would you rather clarify shared agreements, compare routes, make an expression, enjoy aesthetic connection, try a bounded challenge or observe at your own pace? This edition uses six selected Greek myth figures for contemporary preference associations in 18 original, low-stakes choices. After completion, compare raw counts and read every highest-tied report in full. Names are entertainment labels, not a complete ancient personality system or evidence of intelligence, courage, charm or career fit. Mythological genders restrict no one’s matches. All six full guides are also available before answering."
+  },
+  "instructions": {
+    "zh": "本版选取六位希腊神话人物作娱乐主题标签，不是古代完整人格分类，也不测神话知识。按你目前更想选择的做法回答18题；每题只提供其中四种选择，每个主题在全卷出现12次，在四个位置各3次。所有情境都是普通、自愿、可退出的安排；没有道德上唯一正确或证明勇气的选项。全部选择后看本题组相对计数，保留全部最高并列。名字和性别不限制谁可以匹配；结果不判断真实能力、信仰身份、天命、精神状态或职业适配。",
+    "en": "This edition uses six selected Greek myth figures as entertainment labels, not a complete ancient personality system or a mythology knowledge test. Answer 18 questions with the approach you currently prefer. Each offers four themes; every theme appears 12 times and three times in each position. Situations are ordinary, voluntary and open to withdrawal, without morally superior answers or proof of courage. After completion, compare counts within this set and retain every highest tie. Names and genders restrict no one’s matches. Results establish no ability, religious identity, destiny, mental state or career fit."
+  },
+  "source": {
+    "kind": "FermatMindoriginalGreekmythpreferences18/sixselectedfigures/notancientpersonalitydoctrineorpsychometricinstrument",
+    "formCode": "fm_greek_god_preferences_18",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "3380397f311ef35de7d769a37c1e365ffc03fefed6d1be26f1e419ee7396d579",
+    "resultContentSha256": "4d5c499e2aa737c7d03bb9295079bd59df57bd3cd63dbcce04a74b8e1d121c12",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "zeus",
+      "title": {
+        "zh": "宙斯：共同安排与责任",
+        "en": "Zeus: Shared Arrangements and Responsibility"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "athena",
+      "title": {
+        "zh": "雅典娜：比较路径与计划",
+        "en": "Athena: Comparing Routes and Planning"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "apollo",
+      "title": {
+        "zh": "阿波罗：节奏与创作表达",
+        "en": "Apollo: Rhythm and Creative Expression"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "aphrodite",
+      "title": {
+        "zh": "阿芙罗狄蒂：美感与交流",
+        "en": "Aphrodite: Aesthetics and Connection"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "ares",
+      "title": {
+        "zh": "阿瑞斯：有边界的挑战",
+        "en": "Ares: A Bounded Challenge"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "artemis",
+      "title": {
+        "zh": "阿尔忒弥斯：自主与自然观察",
+        "en": "Artemis: Autonomy and Observing Nature"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "GREEK_01",
+      "prompt": {
+        "zh": "社区自愿征集一个小展览的想法，你最想贡献哪一部分？",
+        "en": "A community invites voluntary ideas for a small exhibition. Which contribution would you most like to make?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "和参与者约定展览范围，承担协调已同意事项的责任。",
+            "en": "Agree the exhibition’s scope with participants and coordinate what was agreed."
+          },
+          "directionId": "zeus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "比较两种布置方案，标出各自的条件和取舍。",
+            "en": "Compare two layouts and mark the conditions and tradeoffs of each."
+          },
+          "directionId": "athena"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "为展览写一小段声音或文字，让主题有自己的节奏。",
+            "en": "Write a short sound or text piece that gives the theme its own rhythm."
+          },
+          "directionId": "apollo"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "选择彼此衬托的颜色和欢迎语，让入口更有亲近感。",
+            "en": "Choose complementary colours and a welcoming message for the entrance."
+          },
+          "directionId": "aphrodite"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_02",
+      "prompt": {
+        "zh": "雨天有一段自己支配的空闲，你更想怎样度过？",
+        "en": "You have some freely chosen time on a rainy day. Which way of spending it appeals most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "拿一个感兴趣的小问题，画出几种解决路线。",
+            "en": "Take an interesting small problem and sketch several ways to approach it."
+          },
+          "directionId": "athena"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "听一段喜欢的旋律，再尝试自己的短小变奏。",
+            "en": "Listen to a melody I enjoy and try a small variation of my own."
+          },
+          "directionId": "apollo"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "整理一个自己喜欢的角落，享受色彩和物件的搭配。",
+            "en": "Arrange a corner I like and enjoy the combination of colours and objects."
+          },
+          "directionId": "aphrodite"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "选一个安全、可暂停的小练习，试着完成其中一轮。",
+            "en": "Choose a safe exercise I can pause and try completing one round."
+          },
+          "directionId": "ares"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_03",
+      "prompt": {
+        "zh": "要留下这段日常生活的一份纪念，你更想做什么？",
+        "en": "You want to keep a small record of this period of everyday life. What would you prefer to make?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "写几行有个人语气的文字，或录一段短短的声音。",
+            "en": "Write a few lines in my own voice or record a short sound piece."
+          },
+          "directionId": "apollo"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "挑出让自己感到美好的细节，编成一页图文。",
+            "en": "Choose details I find beautiful and arrange them on a page."
+          },
+          "directionId": "aphrodite"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "记下一次自愿练习里从开始到完成的具体过程。",
+            "en": "Record the concrete steps of a voluntary practice from beginning to completion."
+          },
+          "directionId": "ares"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "按自己的节奏观察天气或窗边植物，留下几条记录。",
+            "en": "Observe the weather or a plant by my window at my own pace and keep notes."
+          },
+          "directionId": "artemis"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_04",
+      "prompt": {
+        "zh": "几位朋友自愿办一次很小的聚会，你更想优先照顾哪一项？",
+        "en": "Friends voluntarily arrange a very small gathering. Which part would you prefer to attend to?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让空间和招呼方式有温度，也给不想互动的人留余地。",
+            "en": "Make the setting and greetings inviting while leaving room not to interact."
+          },
+          "directionId": "aphrodite"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "准备一个可自由参加、随时退出的小挑战。",
+            "en": "Prepare a small challenge that people can freely join or leave."
+          },
+          "directionId": "ares"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "保留可以独处或安静看景的时间，不把全程排满。",
+            "en": "Leave time to be alone or quietly observe the surroundings rather than filling every moment."
+          },
+          "directionId": "artemis"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把共同确认的时间和分工说清，方便大家按约参加。",
+            "en": "Clarify the agreed time and responsibilities so everyone can participate as arranged."
+          },
+          "directionId": "zeus"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_05",
+      "prompt": {
+        "zh": "挑选一个新的小爱好时，哪种体验最吸引你？",
+        "en": "When choosing a small new hobby, which experience appeals to you most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "有一个难度合适的短练习，可以亲自试一试。",
+            "en": "Having a manageable short exercise I can attempt myself."
+          },
+          "directionId": "ares"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "自己决定节奏，在可访问的环境里观察自然细节。",
+            "en": "Setting my own pace and observing natural details in an accessible setting."
+          },
+          "directionId": "artemis"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "和愿意参与的人组织一件共同的小事。",
+            "en": "Organising a small shared activity with willing participants."
+          },
+          "directionId": "zeus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "比较方法、建立步骤，再看怎样改进安排。",
+            "en": "Comparing methods, building steps and considering a better arrangement."
+          },
+          "directionId": "athena"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_06",
+      "prompt": {
+        "zh": "为自己策划一个普通的半天，你更想从哪里开始？",
+        "en": "You are arranging an ordinary half-day for yourself. Where would you prefer to begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先保留不被安排打断的自主时间，再决定去哪里或看什么。",
+            "en": "Keep some self-directed time before deciding where to go or what to observe."
+          },
+          "directionId": "artemis"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把已答应别人的共同事项确认好，再安排自己的部分。",
+            "en": "Confirm shared commitments I have accepted before arranging my own part."
+          },
+          "directionId": "zeus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "比较几种路线的时间和条件，选一个合适方案。",
+            "en": "Compare timing and conditions for several routes and choose a suitable plan."
+          },
+          "directionId": "athena"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "给半天选一个声音、文字或创作主题，随它展开。",
+            "en": "Choose a sound, text or creative theme and let the half-day develop around it."
+          },
+          "directionId": "apollo"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_07",
+      "prompt": {
+        "zh": "一份自愿参与的通讯需要收尾，你更想接手什么？",
+        "en": "A voluntary newsletter needs finishing. Which part would you prefer to take on?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "确认哪些内容已经同意发布，协调最后的责任交接。",
+            "en": "Confirm what has been approved for publication and coordinate the final handover."
+          },
+          "directionId": "zeus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "检查顺序是否清楚，比较读者可能走的阅读路线。",
+            "en": "Check the sequence and compare possible reading routes."
+          },
+          "directionId": "athena"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "调整版面的留白和措辞，让阅读和交流更舒适。",
+            "en": "Adjust spacing and wording to make reading and responding more comfortable."
+          },
+          "directionId": "aphrodite"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "集中处理一个明确的小难点，做完后就停下。",
+            "en": "Focus on one clearly bounded difficulty and stop after completing it."
+          },
+          "directionId": "ares"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_08",
+      "prompt": {
+        "zh": "整理一次自选活动的记录时，你最想留下哪种内容？",
+        "en": "When organising notes from an activity you chose, what would you most like to keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不同做法为什么可行，以及下一次可以怎样选择。",
+            "en": "Why different approaches worked and how I could choose next time."
+          },
+          "directionId": "athena"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一段有趣的表达，把这次经历变成自己的作品。",
+            "en": "An interesting expression that turns the experience into a small piece of my own."
+          },
+          "directionId": "apollo"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "实际练习过的步骤，以及哪一步需要再试一次。",
+            "en": "The steps I actually practised and one that I might try again."
+          },
+          "directionId": "ares"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "按自己兴趣发现的小细节，不急着汇成统一结论。",
+            "en": "Small details I noticed through my own interests without rushing to a single conclusion."
+          },
+          "directionId": "artemis"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_09",
+      "prompt": {
+        "zh": "收到一份没有固定用途的空白本子，你更想怎样开始用？",
+        "en": "You receive a blank notebook with no assigned purpose. How would you prefer to begin using it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "写一首短诗、一段旋律记号或一页有节奏的文字。",
+            "en": "Write a short poem, a melody sketch or a page of rhythmic prose."
+          },
+          "directionId": "apollo"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "收集让自己喜欢的配色、纹理和交流片段。",
+            "en": "Collect colours, textures and fragments of conversation I enjoy."
+          },
+          "directionId": "aphrodite"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "记下自己观察到的季节、光线或植物变化。",
+            "en": "Note changes in seasons, light or plants that I notice for myself."
+          },
+          "directionId": "artemis"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "记录一件共同事项的约定，让职责和决定容易查找。",
+            "en": "Record agreements for a shared activity so responsibilities and decisions are easy to find."
+          },
+          "directionId": "zeus"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_10",
+      "prompt": {
+        "zh": "共同空间有一面可以临时使用的空墙，你更愿意提出什么？",
+        "en": "There is a wall available for temporary use in a shared space. What would you prefer to propose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "做一个温和的视觉角落，先问使用者喜欢怎样的氛围。",
+            "en": "Create a welcoming visual corner after asking users what atmosphere they prefer."
+          },
+          "directionId": "aphrodite"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "做一个自愿参与的小任务板，难度适中、完成即可移除。",
+            "en": "Make an optional small-task board with manageable challenges that can be removed when done."
+          },
+          "directionId": "ares"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先确认大家同意的用途、时限和维护责任。",
+            "en": "First confirm the agreed use, time limit and responsibility for maintenance."
+          },
+          "directionId": "zeus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "画出不同用途的草图，比较怎样更方便实际使用。",
+            "en": "Sketch alternative uses and compare how they would work in practice."
+          },
+          "directionId": "athena"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_11",
+      "prompt": {
+        "zh": "独自去一个熟悉而安全的地方短暂休息，你更想带上什么？",
+        "en": "You are taking a short break in a familiar, safe place. What would you prefer to bring?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一件可以随时停止的简短练习材料。",
+            "en": "Materials for a brief practice I can stop at any time."
+          },
+          "directionId": "ares"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "轻便的观察记录方式，让自己的注意自由停留。",
+            "en": "A light way to record observations while letting my attention move freely."
+          },
+          "directionId": "artemis"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一页想慢慢比较的方案，不必当场作决定。",
+            "en": "A page of options to compare slowly without needing an immediate decision."
+          },
+          "directionId": "athena"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个可以记下声音、画面或文字灵感的小工具。",
+            "en": "A small tool for recording sounds, images or words that inspire me."
+          },
+          "directionId": "apollo"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_12",
+      "prompt": {
+        "zh": "朋友邀请你参与一件普通的小创作，你更想怎样贡献？",
+        "en": "A friend invites you to join a small, ordinary creative activity. How would you prefer to contribute?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "保留自己探索的部分和节奏，再自愿分享所见。",
+            "en": "Keep a part and pace for my own exploration, then share observations if I wish."
+          },
+          "directionId": "artemis"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "和对方确认谁负责什么，以及怎样共同作决定。",
+            "en": "Agree who owns each part and how we will make shared decisions."
+          },
+          "directionId": "zeus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "想出一种有个人语气的表达，把感觉放进作品。",
+            "en": "Develop an expression in my own voice and put a feeling into the work."
+          },
+          "directionId": "apollo"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "关注作品怎样让人感到被欢迎，以及细节怎样搭配。",
+            "en": "Attend to how the work feels welcoming and how its details fit together."
+          },
+          "directionId": "aphrodite"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_13",
+      "prompt": {
+        "zh": "你可以为自愿小组增加一个可选环节，哪一种更合你意？",
+        "en": "You can add one optional element to a voluntary group. Which would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个简短的共同约定时段，让责任和决定更清楚。",
+            "en": "A brief time for agreements that clarifies responsibilities and decisions."
+          },
+          "directionId": "zeus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个分享原创短句、旋律或小作品的时段。",
+            "en": "A time to share original lines, melodies or small creations."
+          },
+          "directionId": "apollo"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一个低风险的小挑战，参与者自行决定做到哪里。",
+            "en": "A low-stakes challenge whose participants decide their own stopping point."
+          },
+          "directionId": "ares"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一段可自己选择路线的观察时间，室内也能参加。",
+            "en": "An observation period with self-chosen routes and indoor participation available."
+          },
+          "directionId": "artemis"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_14",
+      "prompt": {
+        "zh": "遇到一项可以自主安排的普通练习，你更想先照顾什么？",
+        "en": "An ordinary practice can be arranged as you wish. What would you prefer to consider first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先比较两种步骤，看哪一种更适合当前条件。",
+            "en": "Compare two sequences to see which fits the present conditions."
+          },
+          "directionId": "athena"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让材料和交流方式有自己喜欢的美感与舒适感。",
+            "en": "Give the materials and communication an aesthetic and comfort I enjoy."
+          },
+          "directionId": "aphrodite"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留出独自调整节奏的空间，不必跟别人同步。",
+            "en": "Leave room to set my own pace without needing to match others."
+          },
+          "directionId": "artemis"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "若涉及同伴，先明确各自接受的责任和安排。",
+            "en": "If companions are involved, clarify the responsibilities and arrangements each accepts."
+          },
+          "directionId": "zeus"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_15",
+      "prompt": {
+        "zh": "看完一个开放的小展览，你更想和朋友聊哪一方面？",
+        "en": "After an open small exhibition, which aspect would you prefer to discuss with a friend?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "某种声音、叙述或表现形式怎样触动了自己。",
+            "en": "How a sound, narrative or form of expression affected me."
+          },
+          "directionId": "apollo"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "哪一个亲手尝试的环节让自己愿意迎接小挑战。",
+            "en": "Which hands-on element made me want to attempt a manageable challenge."
+          },
+          "directionId": "ares"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "活动怎样组织、共同规则怎样让参与顺利。",
+            "en": "How the activity was organised and how shared rules supported participation."
+          },
+          "directionId": "zeus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "展陈路线的取舍，以及另一种设计可能怎样工作。",
+            "en": "The tradeoffs of the display route and how another design might work."
+          },
+          "directionId": "athena"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_16",
+      "prompt": {
+        "zh": "准备给自己留一个普通周末的纪念，你更想保留什么？",
+        "en": "You want a small keepsake from an ordinary weekend. What would you prefer to keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让自己喜欢的色彩和一段有温度的交流。",
+            "en": "Colours I enjoyed and a fragment of a warm conversation."
+          },
+          "directionId": "aphrodite"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一段自己选择的安静时间里发现的自然细节。",
+            "en": "A natural detail noticed during quiet time I chose for myself."
+          },
+          "directionId": "artemis"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一次计划的取舍记录，看看安排怎样影响体验。",
+            "en": "A record of planning tradeoffs and how the arrangement shaped the experience."
+          },
+          "directionId": "athena"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一份自己做的小作品，让那天有独特的表达。",
+            "en": "A small creation of my own that gives the day a distinctive expression."
+          },
+          "directionId": "apollo"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_17",
+      "prompt": {
+        "zh": "一次自选活动将结束，你更想为下一回留下什么？",
+        "en": "An activity you chose is ending. What would you prefer to leave for next time?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个难度刚好的练习目标，保留选择退出的余地。",
+            "en": "A manageable practice target with room to choose not to continue."
+          },
+          "directionId": "ares"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "清楚的共同约定和交接，避免责任含混。",
+            "en": "Clear shared agreements and a handover that avoids ambiguous responsibilities."
+          },
+          "directionId": "zeus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一个还想继续发展的声音、文字或创作点子。",
+            "en": "A sound, text or creative idea I would like to develop further."
+          },
+          "directionId": "apollo"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个让人舒服的细节或表达感谢的方式。",
+            "en": "A comfortable detail or a way of expressing appreciation."
+          },
+          "directionId": "aphrodite"
+        }
+      ]
+    },
+    {
+      "id": "GREEK_18",
+      "prompt": {
+        "zh": "一个没有外部评分的小项目可以重新开始，你更想怎样做？",
+        "en": "A small project with no external grade can be restarted. How would you prefer to approach it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己挑选关注的角度，按可行的节奏慢慢探索。",
+            "en": "Choose my own angle of attention and explore at a workable pace."
+          },
+          "directionId": "artemis"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "重新比较几个路径，写清这一回的取舍。",
+            "en": "Compare several routes again and state the tradeoffs for this attempt."
+          },
+          "directionId": "athena"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "调整配色、材质或交流方式，找到自己喜欢的感觉。",
+            "en": "Adjust colours, materials or communication to find a feeling I enjoy."
+          },
+          "directionId": "aphrodite"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "挑一个具体可练的部分，尝试后再决定是否继续。",
+            "en": "Choose a specific part to practise and decide whether to continue after trying it."
+          },
+          "directionId": "ares"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "zeus",
+      "directionIds": [
+        "zeus"
+      ],
+      "title": {
+        "zh": "宙斯：共同安排与责任",
+        "en": "Zeus: Shared Arrangements and Responsibility"
+      },
+      "headline": {
+        "zh": "六位神话人物之一的当代偏好联想，不是实际能力结论。",
+        "en": "A contemporary preference association with one of six myth figures, not an ability verdict."
+      },
+      "summary": {
+        "zh": "从共同约定、协调与承担看本次选择：读一个具体组织例子，比较计划与行动，保留他人同意和自己的责任范围。",
+        "en": "Explore agreements, coordination and ownership through a concrete organising example, with comparisons that keep consent and responsibility clear."
+      },
+      "scoreReading": {
+        "zh": "18题全部各选一项，对应主题加1，总数固定18。每题从六主题中提供四个，每个主题在全卷出现12次、每位置3次；没有选上的另外两项不记为拒绝。原始次数只是这组可选项中的相对分布，不是独立品质、神祇相似度百分比或人口排名。所有最高计数都保留完整报告；全选第一项会六项各3，全都显示。名单顺序不设主次，相差一次只是一项选择，不证明显著差异、固定主副型或某个特质消失。近分可以一起比较，但不补造未并列的混合类型。换情境或时间可能改变回答，没有常模、稀有度或科学分界。",
+        "en": "Choose one option for all 18 questions; each adds one to its theme, and counts always sum to 18. Each question offers four of the six themes. Every theme appears 12 times and three times in each position; the two absent themes are not counted as rejected. Raw counts describe relative choices among these options, not independent qualities, god-match percentages or population ranks. Every highest count retains its full guide: choosing the first option throughout gives three each and displays all six. List order establishes no priority. A one-choice gap proves neither significance, fixed primary–secondary types nor the absence of a quality. Compare close results without inventing an untied hybrid type. Context or time may change responses. There are no norms, rarity estimates or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "宙斯测试结果：共同安排、具体例子与完整说明",
+          "en": "Zeus Quiz Result: Agreements, Examples and Full Guide"
+        },
+        "description": {
+          "zh": "从共同约定、协调与承担看本次选择：读一个具体组织例子，比较计划与行动，保留他人同意和自己的责任范围。",
+          "en": "Explore the Zeus result through agreements, coordination and practical examples. Compare all six themes without claiming leadership or career fit."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "神话背景与本版主题",
+            "en": "Mythological background and this edition’s theme"
+          },
+          "paragraphs": [
+            {
+              "zh": "宙斯在希腊神话中是天空之神和众神之王。本版只借这个统筹联想，写成共同安排和明确责任的原创偏好主题。它不是古代留下的宙斯人格量表，也不把权力、控制、血统或被人服从当成值得追求的品质。",
+              "en": "Zeus is the sky god and king of the gods in Greek mythology. Here that coordinating association becomes an original theme about shared arrangements and explicit responsibility. This is a contemporary editorial mapping, not an ancient Zeus personality inventory, and power or obedience is not a quality the quiz rewards."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数怎样联系具体处境",
+            "en": "Reading counts in their context"
+          },
+          "paragraphs": [
+            {
+              "zh": "若这一项计数最高，你在本题组提供的选择里较常优先处理共同约定、职责和决定怎样落地。较少选择可能因为你更想创作、观察或比较方案。可以问自己：我想接手的是协调，还是只是希望当前安排清楚？两种需要不必被同一个名字包住。",
+              "en": "A highest count means you more often prioritised agreements, responsibilities and how decisions become arrangements among the offered choices. Fewer may reflect a wish to create, observe or compare options instead. Ask whether you want to coordinate or simply want the current arrangement clarified; those needs need not have the same explanation."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体日常例子",
+            "en": "A concrete everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，几位朋友自愿组织旧书交换，每个人能投入的时间不同。你可以先确认哪些书能交换、谁愿意在场、谁能收尾，再记录共同决定。协调的具体成果是一份可使用的安排，而不是让每个人听你的。若别人不愿承担某项工作，就重新缩小活动范围。",
+              "en": "Friends voluntarily organise a used-book exchange with different amounts of available time. Confirm which books can be exchanged, who wants to attend and who can close up, then record the shared decisions. The useful output is a workable arrangement rather than obedience. If nobody accepts a task, reduce the event’s scope instead of assigning it unilaterally."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可以怎样说的话",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我愿意把大家同意的事项整理起来；我能负责登记，收尾还没有人接。我们是缩短时间，还是另找安排？”这把自己的承担、尚未解决的条件和共同选择都说清了。协调之后也可以交接，不必因为开始负责就永远担任组织者。",
+              "en": "Try: “I can record what we agree and handle registration. Closing up has no volunteer yet. Should we shorten the session or choose another arrangement?” This separates accepted work, an unresolved condition and the group’s choice. A handover remains possible; coordinating the start does not make you the permanent organiser of future gatherings."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "和其他五主题怎样比较",
+            "en": "Comparisons with the other five themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "宙斯主题关注谁共同决定、谁承担；雅典娜主题更关注不同路径为什么合适，阿瑞斯主题更偏向一个亲自尝试的小挑战。三者可以在同一件事里先后出现。阿尔忒弥斯的自主选择也不与负责任冲突，阿波罗的创作和阿芙罗狄蒂的美感交流同样可以帮助合作。",
+              "en": "The Zeus theme asks who decides together and owns each part. Athena emphasises why a route fits, while Ares emphasises attempting a bounded challenge. All three may appear at different moments. Artemis’s autonomy can coexist with responsibility, and Apollo’s expression or Aphrodite’s aesthetic connection can also contribute to a shared activity."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与实际能力的区别",
+            "en": "Counterexamples and actual ability"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，一个人把所有任务抓在手里，可能只是分工失灵；另一个人明确拒绝超出范围的责任，仍可能认真守约。问卷没有观察真实组织表现或他人评价，不能由次数推断领导能力、可靠程度、道德或适合管理职业。神话里复杂的权力关系也不是现实相处规范。",
+              "en": "Taking every task may reflect a broken arrangement rather than good coordination. Declining work outside an agreed scope can also be responsible. These choices observe neither organising performance nor others’ evaluations, so counts establish no leadership skill, reliability, morality or management career fit. Mythological power relationships do not provide rules for contemporary relationships."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：为一件原本就要共同完成的小事，分三栏写“已经同意”“我自愿负责”“仍需讨论”。只整理必要信息，不收集私人答卷。看看明确分工是否帮助你表达需要；也可以决定暂不组织。这个记录用于理解选择，不认证你天生适合领导。",
+              "en": "For an optional observation, take a small activity already planned together and make three columns: agreed, voluntarily mine, and still to discuss. Keep only necessary information, without private answer collection. Notice whether explicit ownership helps express your needs, or decide not to organise. The note explores a preference rather than certifying natural leadership."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "18题相对计数与全部最高并列",
+            "en": "18-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18题全部各选一项，对应主题加1，总数固定18。每题从六主题中提供四个，每个主题在全卷出现12次、每位置3次；没有选上的另外两项不记为拒绝。原始次数只是这组可选项中的相对分布，不是独立品质、神祇相似度百分比或人口排名。所有最高计数都保留完整报告；全选第一项会六项各3，全都显示。名单顺序不设主次，相差一次只是一项选择，不证明显著差异、固定主副型或某个特质消失。近分可以一起比较，但不补造未并列的混合类型。换情境或时间可能改变回答，没有常模、稀有度或科学分界。",
+              "en": "Choose one option for all 18 questions; each adds one to its theme, and counts always sum to 18. Each question offers four of the six themes. Every theme appears 12 times and three times in each position; the two absent themes are not counted as rejected. Raw counts describe relative choices among these options, not independent qualities, god-match percentages or population ranks. Every highest count retains its full guide: choosing the first option throughout gives three each and displays all six. List order establishes no priority. A one-choice gap proves neither significance, fixed primary–secondary types nor the absence of a quality. Compare close results without inventing an untied hybrid type. Context or time may change responses. There are no norms, rarity estimates or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、选取范围与来源",
+            "en": "Original edition, selection and sources"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的希腊神话主题偏好测验，选择宙斯、雅典娜、阿波罗、阿芙罗狄蒂、阿瑞斯和阿尔忒弥斯六位人物，不代表完整神谱或古代六型人格学说。Met博物馆背景文仅核对神话领域，不为本站选择映射、计分或效度提供验证。18题、选项、解释、情境、示例和配套计数规则为原创，没有采用JobCannon12题、IDRlabs35题、竞品结果正文／代码／算法、现代小说／游戏角色设定或受保护图片。神话中的行为不是现实相处标准；任何性别与信仰者都可把它当娱乐，也可选择不参与。没有本站心理测量验证，不鉴定神性、信仰、天命、智力、勇气、魅力、道德、健康、关系或职业适配。",
+              "en": "This independently authored FermatMind preference quiz selects Zeus, Athena, Apollo, Aphrodite, Ares and Artemis. It represents neither the complete Greek pantheon nor an ancient six-type personality doctrine. The Met museum essay checks mythological domains without validating this choice mapping, scoring or interpretation. All 18 items, options, explanations, scenes, examples and counting rules are original. No JobCannon 12-item or IDRlabs 35-item bank, competitor result text, code, algorithm, modern novel or game character setting, or protected image is used. Mythological conduct is not a standard for relationships. People of any gender or belief may treat it as entertainment or decline. This edition has no psychometric validation and certifies no divinity, religion, destiny, intelligence, courage, charm, morality, health, relationship or career fit."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "athena",
+      "directionIds": [
+        "athena"
+      ],
+      "title": {
+        "zh": "雅典娜：比较路径与计划",
+        "en": "Athena: Comparing Routes and Planning"
+      },
+      "headline": {
+        "zh": "六位神话人物之一的当代偏好联想，不是实际能力结论。",
+        "en": "A contemporary preference association with one of six myth figures, not an ability verdict."
+      },
+      "summary": {
+        "zh": "从方案、条件与取舍看本次选择，用具体规划例子区分想比较与实际能力，不把冷静或聪明当成结果保证。",
+        "en": "Explore routes, conditions and tradeoffs through a practical planning example. A preference for comparison does not certify intelligence or composure."
+      },
+      "scoreReading": {
+        "zh": "18题全部各选一项，对应主题加1，总数固定18。每题从六主题中提供四个，每个主题在全卷出现12次、每位置3次；没有选上的另外两项不记为拒绝。原始次数只是这组可选项中的相对分布，不是独立品质、神祇相似度百分比或人口排名。所有最高计数都保留完整报告；全选第一项会六项各3，全都显示。名单顺序不设主次，相差一次只是一项选择，不证明显著差异、固定主副型或某个特质消失。近分可以一起比较，但不补造未并列的混合类型。换情境或时间可能改变回答，没有常模、稀有度或科学分界。",
+        "en": "Choose one option for all 18 questions; each adds one to its theme, and counts always sum to 18. Each question offers four of the six themes. Every theme appears 12 times and three times in each position; the two absent themes are not counted as rejected. Raw counts describe relative choices among these options, not independent qualities, god-match percentages or population ranks. Every highest count retains its full guide: choosing the first option throughout gives three each and displays all six. List order establishes no priority. A one-choice gap proves neither significance, fixed primary–secondary types nor the absence of a quality. Compare close results without inventing an untied hybrid type. Context or time may change responses. There are no norms, rarity estimates or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "雅典娜测试结果：路径比较与完整说明",
+          "en": "Athena Quiz Result: Planning, Examples and Full Guide"
+        },
+        "description": {
+          "zh": "从方案、条件与取舍看本次选择，用具体规划例子区分想比较与实际能力，不把冷静或聪明当成结果保证。",
+          "en": "Read the Athena result through routes, tradeoffs and a practical planning example. Compare themes without treating a preference as intelligence."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "神话背景与本版主题",
+            "en": "Mythological background and this edition’s theme"
+          },
+          "paragraphs": [
+            {
+              "zh": "雅典娜在希腊神话中与雅典、智慧和手工技艺等相联系。本版从中选取比较路径与安排步骤的联想，写成原创普通选择。它没有测知识、推理或工作表现，也不把“理性压过感情”当成正确答案；计划中同样可以包括感受、访问需要和休息。",
+              "en": "Athena is associated in Greek mythology with Athens, wisdom and crafts. This edition draws a contemporary planning theme from those associations in original everyday choices. It tests no knowledge, reasoning or work performance, and treating feelings as irrelevant is not a correct answer. Plans may include emotions, access needs and rest alongside practical conditions."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数怎样联系具体处境",
+            "en": "Reading counts in their context"
+          },
+          "paragraphs": [
+            {
+              "zh": "若计数最高，本次较常选择比较办法、辨认条件和说明取舍。你可以进一步区分：是享受思考不同路线，还是因为当前信息不足而暂时需要计划？较少选择也许是已有可用方案，并不说明冲动或不会思考。计数读的是选择次序，不是想得越多就越好。",
+              "en": "A highest count means you more often chose comparison, relevant conditions and explicit tradeoffs. Distinguish enjoying alternative routes from needing a plan because information is currently missing. Fewer choices may mean a workable plan already exists rather than impulsiveness or inability to think. The tally describes priorities without making more deliberation inherently better."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体日常例子",
+            "en": "A concrete everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你想把一小批资料整理到容易查找，有按日期和按用途两种办法。可以各拿三份试分，比较日常会怎样寻找，再决定保留哪一种。这个例子关心检索任务与分类的关系；不用先把所有资料分析完，也不要求只有一个永远正确的系统。",
+              "en": "Suppose you want a small collection of notes to be easy to find. Try sorting three by date and three by use, then compare how you would actually retrieve them. This links the method to a practical task without analysing every note first. There need not be one permanently correct system for every future use."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可以怎样说的话",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想比较这两种办法。我们最常要找的是哪类资料？先用几份试一下，再定是否扩大。”这样把比较的问题、范围和决定点说清。别人需要马上使用时，可以先提供临时入口；计划不是阻止开始的资格，也不必替所有人的需要作判断。",
+              "en": "You could say, “I’d like to compare these methods. What do we most often need to find? Let’s try a few notes before expanding.” This names the question, scope and decision point. If someone needs immediate access, offer a temporary route. Planning grants no right to delay everyone or decide their needs for them."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "和其他五主题怎样比较",
+            "en": "Comparisons with the other five themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "雅典娜与宙斯都可能参与安排，但前者偏比较路径，后者偏共同决定与职责；这不是智力与权力的对立。阿瑞斯可以先练一个步骤，阿波罗可以调整表达，阿芙罗狄蒂可以照顾美感交流，阿尔忒弥斯可以保留自主观察。它们是题目中的不同优先事项，不是六种互斥的人。",
+              "en": "Athena and Zeus can both involve arrangements: the former emphasises routes, the latter shared decisions and ownership. They are not an intelligence-versus-power opposition. Ares may try a step, Apollo shape expression, Aphrodite attend to aesthetic connection and Artemis keep autonomous observation. These are priorities among options rather than six mutually exclusive kinds of person."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与实际能力的区别",
+            "en": "Counterexamples and actual ability"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，一份详细计划可能建立在错误资料上；临时决定也可能来自丰富经验。问卷没有检验方案质量、认知能力或压力反应，不能说雅典娜结果代表更聪明、更公正或适合研究工作。若继续比较已经妨碍实际需要，可以停下或请相关人一起决定，而不是维护原型形象。",
+              "en": "A detailed plan can rest on wrong information, while a quick decision can draw on experience. No plan quality, cognitive ability or stress response is assessed here. An Athena result certifies neither intelligence, fairness nor research suitability. If continued comparison obstructs a real need, stop or involve the relevant people rather than performing an archetype."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：选一件低风险、自己本来就想安排的事，写出两个方案、一个重要条件和停止比较的时点。完成后记录实际发生了什么，不把结果好坏归结为神话类型。你也可以只写出问题，留到有条件时再决定，不新增无必要的任务。",
+              "en": "If useful, choose a low-stakes matter you already want to arrange. Write two options, one important condition and a point to stop comparing. Later record what actually happened without attributing success or failure to a mythological type. You may simply identify the question and defer a decision until conditions permit, without adding an unnecessary task."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "18题相对计数与全部最高并列",
+            "en": "18-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18题全部各选一项，对应主题加1，总数固定18。每题从六主题中提供四个，每个主题在全卷出现12次、每位置3次；没有选上的另外两项不记为拒绝。原始次数只是这组可选项中的相对分布，不是独立品质、神祇相似度百分比或人口排名。所有最高计数都保留完整报告；全选第一项会六项各3，全都显示。名单顺序不设主次，相差一次只是一项选择，不证明显著差异、固定主副型或某个特质消失。近分可以一起比较，但不补造未并列的混合类型。换情境或时间可能改变回答，没有常模、稀有度或科学分界。",
+              "en": "Choose one option for all 18 questions; each adds one to its theme, and counts always sum to 18. Each question offers four of the six themes. Every theme appears 12 times and three times in each position; the two absent themes are not counted as rejected. Raw counts describe relative choices among these options, not independent qualities, god-match percentages or population ranks. Every highest count retains its full guide: choosing the first option throughout gives three each and displays all six. List order establishes no priority. A one-choice gap proves neither significance, fixed primary–secondary types nor the absence of a quality. Compare close results without inventing an untied hybrid type. Context or time may change responses. There are no norms, rarity estimates or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、选取范围与来源",
+            "en": "Original edition, selection and sources"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的希腊神话主题偏好测验，选择宙斯、雅典娜、阿波罗、阿芙罗狄蒂、阿瑞斯和阿尔忒弥斯六位人物，不代表完整神谱或古代六型人格学说。Met博物馆背景文仅核对神话领域，不为本站选择映射、计分或效度提供验证。18题、选项、解释、情境、示例和配套计数规则为原创，没有采用JobCannon12题、IDRlabs35题、竞品结果正文／代码／算法、现代小说／游戏角色设定或受保护图片。神话中的行为不是现实相处标准；任何性别与信仰者都可把它当娱乐，也可选择不参与。没有本站心理测量验证，不鉴定神性、信仰、天命、智力、勇气、魅力、道德、健康、关系或职业适配。",
+              "en": "This independently authored FermatMind preference quiz selects Zeus, Athena, Apollo, Aphrodite, Ares and Artemis. It represents neither the complete Greek pantheon nor an ancient six-type personality doctrine. The Met museum essay checks mythological domains without validating this choice mapping, scoring or interpretation. All 18 items, options, explanations, scenes, examples and counting rules are original. No JobCannon 12-item or IDRlabs 35-item bank, competitor result text, code, algorithm, modern novel or game character setting, or protected image is used. Mythological conduct is not a standard for relationships. People of any gender or belief may treat it as entertainment or decline. This edition has no psychometric validation and certifies no divinity, religion, destiny, intelligence, courage, charm, morality, health, relationship or career fit."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "apollo",
+      "directionIds": [
+        "apollo"
+      ],
+      "title": {
+        "zh": "阿波罗：节奏与创作表达",
+        "en": "Apollo: Rhythm and Creative Expression"
+      },
+      "headline": {
+        "zh": "六位神话人物之一的当代偏好联想，不是实际能力结论。",
+        "en": "A contemporary preference association with one of six myth figures, not an ability verdict."
+      },
+      "summary": {
+        "zh": "围绕声音、文字与创作语气理解选择：看一个小作品怎样形成，比较表达、美感和计划，不以结果认证天赋或外向。",
+        "en": "Explore sound, words and a creative voice through a small worked example. Compare expression, aesthetics and planning without certifying talent or extraversion."
+      },
+      "scoreReading": {
+        "zh": "18题全部各选一项，对应主题加1，总数固定18。每题从六主题中提供四个，每个主题在全卷出现12次、每位置3次；没有选上的另外两项不记为拒绝。原始次数只是这组可选项中的相对分布，不是独立品质、神祇相似度百分比或人口排名。所有最高计数都保留完整报告；全选第一项会六项各3，全都显示。名单顺序不设主次，相差一次只是一项选择，不证明显著差异、固定主副型或某个特质消失。近分可以一起比较，但不补造未并列的混合类型。换情境或时间可能改变回答，没有常模、稀有度或科学分界。",
+        "en": "Choose one option for all 18 questions; each adds one to its theme, and counts always sum to 18. Each question offers four of the six themes. Every theme appears 12 times and three times in each position; the two absent themes are not counted as rejected. Raw counts describe relative choices among these options, not independent qualities, god-match percentages or population ranks. Every highest count retains its full guide: choosing the first option throughout gives three each and displays all six. List order establishes no priority. A one-choice gap proves neither significance, fixed primary–secondary types nor the absence of a quality. Compare close results without inventing an untied hybrid type. Context or time may change responses. There are no norms, rarity estimates or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "阿波罗测试结果：创作表达与完整说明",
+          "en": "Apollo Quiz Result: Expression, Examples and Full Guide"
+        },
+        "description": {
+          "zh": "围绕声音、文字与创作语气理解选择：看一个小作品怎样形成，比较表达、美感和计划，不以结果认证天赋或外向。",
+          "en": "Explore an Apollo result through sound, words and a small creative example. Read full comparisons without certifying talent, charisma or extraversion."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "神话背景与本版主题",
+            "en": "Mythological background and this edition’s theme"
+          },
+          "paragraphs": [
+            {
+              "zh": "阿波罗在希腊神话中与音乐和预言等领域有关。本版只借音乐与表达的联想，把原创声音、文字和小作品写进偏好题。它不测艺术天赋、不预测未来，也不要求站上舞台或被别人欣赏；自己独处时的短小创作同样可以成为表达。",
+              "en": "Apollo is associated in Greek mythology with music and prophecy, among other domains. Here the musical association informs original preferences about sound, words and small creations. This edition measures no artistic talent and predicts no future. Expression need not involve a stage or audience; a small private creation can matter on its own terms."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数怎样联系具体处境",
+            "en": "Reading counts in their context"
+          },
+          "paragraphs": [
+            {
+              "zh": "若计数最高，本次较常选择给经历一个个人语气，或把感受放进声音和文字。可以想想：吸引你的是创作过程、节奏、传达某种感觉，还是把普通经历留作纪念？较少选择不说明没有创造力，也许你更想观察、练习或照顾共同安排。",
+              "en": "A highest count means you more often chose to give an experience your own voice or put a feeling into sound and words. Consider whether you enjoy making, rhythm, conveying a feeling or keeping a memory. Fewer choices establish no lack of creativity; observation, practice or shared arrangements may simply have mattered more here."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体日常例子",
+            "en": "A concrete everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，记录一个普通傍晚，不一定要写成完整文章。你可以留下三句文字：一个声音、一个画面和一个当时的感受，再试着改变句子的长短。小作品的价值是你愿意怎样表达这一次经历，而不是证明文字优美、产量足够或值得公开展示。",
+              "en": "To record an ordinary evening, you need not write a finished essay. Note three lines: a sound, an image and how the moment felt, then try changing their lengths. The small piece concerns how you want to express this experience rather than proving quality, producing enough work or creating something worthy of public display."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可以怎样说的话",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想用一段很短的声音记住这次活动，还没决定是否给别人听。你愿意只说说听到了什么吗？”这区分创作、是否公开和需要哪种回应。也可以不征求反馈；创作不是持续输出的承诺，休息不会让你失去所谓阿波罗资格。",
+              "en": "You might say, “I want to remember this through a very short recording and haven’t decided whether to share it. Would you simply describe what you hear?” This separates making, publication and the response wanted. Feedback is optional. A preference for expression creates no commitment to constant output, and resting removes no supposed Apollo qualification."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "和其他五主题怎样比较",
+            "en": "Comparisons with the other five themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "阿波罗主题偏向自己做出一种表达，阿芙罗狄蒂主题更关注美感与交流如何被体验；同一作品可以包含两者。雅典娜的步骤比较、阿瑞斯的短练习也能支持创作，宙斯能处理共同约定，阿尔忒弥斯能保留独自观察。并列可以一起读，不必编一个主次人格。",
+              "en": "Apollo emphasises making an expression, while Aphrodite attends to experiencing aesthetics and connection; one piece may involve both. Athena’s comparison or Ares’s brief practice may support making, Zeus may handle agreements and Artemis may preserve independent observation. Tied guides can be read together without inventing a primary and secondary personality or ranking the value of their themes."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与实际能力的区别",
+            "en": "Counterexamples and actual ability"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，有人此刻只想安静欣赏，仍可能有丰富的表达能力；大量创作也不自动代表乐观、魅力或疗愈作用。问卷没有评作品，也没有测试创造力、外向、职业技能或心理健康。不要因为得到这个标签就要求自己感染全场，或把低落看作不符合原型。",
+              "en": "Someone who wants only to listen may still express themselves richly elsewhere. Producing many pieces guarantees neither optimism, charisma nor healing. No artwork, creativity, extraversion, career skill or mental health is assessed. The label cannot demand that you brighten a room, and feeling low is not a failure to live up to a theme."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：选一个已经想记录的普通瞬间，用三行字、几个声音或简单图形表达，再问自己哪一部分最接近当时的感觉。可以保存、修改或删除，也不必向外展示。观察的是你想怎样表达，不是创作是否提升了心理状态或证明某种潜力。",
+              "en": "For an optional observation, take a moment you already wanted to record. Use three lines, a few sounds or simple shapes, then ask which part comes closest to the experience. Keep, revise or delete it without showing anyone. Notice how you want to express yourself rather than testing whether creation improves mental health or demonstrates potential."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "18题相对计数与全部最高并列",
+            "en": "18-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18题全部各选一项，对应主题加1，总数固定18。每题从六主题中提供四个，每个主题在全卷出现12次、每位置3次；没有选上的另外两项不记为拒绝。原始次数只是这组可选项中的相对分布，不是独立品质、神祇相似度百分比或人口排名。所有最高计数都保留完整报告；全选第一项会六项各3，全都显示。名单顺序不设主次，相差一次只是一项选择，不证明显著差异、固定主副型或某个特质消失。近分可以一起比较，但不补造未并列的混合类型。换情境或时间可能改变回答，没有常模、稀有度或科学分界。",
+              "en": "Choose one option for all 18 questions; each adds one to its theme, and counts always sum to 18. Each question offers four of the six themes. Every theme appears 12 times and three times in each position; the two absent themes are not counted as rejected. Raw counts describe relative choices among these options, not independent qualities, god-match percentages or population ranks. Every highest count retains its full guide: choosing the first option throughout gives three each and displays all six. List order establishes no priority. A one-choice gap proves neither significance, fixed primary–secondary types nor the absence of a quality. Compare close results without inventing an untied hybrid type. Context or time may change responses. There are no norms, rarity estimates or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、选取范围与来源",
+            "en": "Original edition, selection and sources"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的希腊神话主题偏好测验，选择宙斯、雅典娜、阿波罗、阿芙罗狄蒂、阿瑞斯和阿尔忒弥斯六位人物，不代表完整神谱或古代六型人格学说。Met博物馆背景文仅核对神话领域，不为本站选择映射、计分或效度提供验证。18题、选项、解释、情境、示例和配套计数规则为原创，没有采用JobCannon12题、IDRlabs35题、竞品结果正文／代码／算法、现代小说／游戏角色设定或受保护图片。神话中的行为不是现实相处标准；任何性别与信仰者都可把它当娱乐，也可选择不参与。没有本站心理测量验证，不鉴定神性、信仰、天命、智力、勇气、魅力、道德、健康、关系或职业适配。",
+              "en": "This independently authored FermatMind preference quiz selects Zeus, Athena, Apollo, Aphrodite, Ares and Artemis. It represents neither the complete Greek pantheon nor an ancient six-type personality doctrine. The Met museum essay checks mythological domains without validating this choice mapping, scoring or interpretation. All 18 items, options, explanations, scenes, examples and counting rules are original. No JobCannon 12-item or IDRlabs 35-item bank, competitor result text, code, algorithm, modern novel or game character setting, or protected image is used. Mythological conduct is not a standard for relationships. People of any gender or belief may treat it as entertainment or decline. This edition has no psychometric validation and certifies no divinity, religion, destiny, intelligence, courage, charm, morality, health, relationship or career fit."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aphrodite",
+      "directionIds": [
+        "aphrodite"
+      ],
+      "title": {
+        "zh": "阿芙罗狄蒂：美感与交流",
+        "en": "Aphrodite: Aesthetics and Connection"
+      },
+      "headline": {
+        "zh": "六位神话人物之一的当代偏好联想，不是实际能力结论。",
+        "en": "A contemporary preference association with one of six myth figures, not an ability verdict."
+      },
+      "summary": {
+        "zh": "从配色、氛围与愿意发生的交流看选择，比较欣赏与创作，保留独处和不回应的空间，不判断吸引力或爱情。",
+        "en": "Explore colours, atmosphere and willing connection, comparing appreciation with making while keeping room for solitude and no response."
+      },
+      "scoreReading": {
+        "zh": "18题全部各选一项，对应主题加1，总数固定18。每题从六主题中提供四个，每个主题在全卷出现12次、每位置3次；没有选上的另外两项不记为拒绝。原始次数只是这组可选项中的相对分布，不是独立品质、神祇相似度百分比或人口排名。所有最高计数都保留完整报告；全选第一项会六项各3，全都显示。名单顺序不设主次，相差一次只是一项选择，不证明显著差异、固定主副型或某个特质消失。近分可以一起比较，但不补造未并列的混合类型。换情境或时间可能改变回答，没有常模、稀有度或科学分界。",
+        "en": "Choose one option for all 18 questions; each adds one to its theme, and counts always sum to 18. Each question offers four of the six themes. Every theme appears 12 times and three times in each position; the two absent themes are not counted as rejected. Raw counts describe relative choices among these options, not independent qualities, god-match percentages or population ranks. Every highest count retains its full guide: choosing the first option throughout gives three each and displays all six. List order establishes no priority. A one-choice gap proves neither significance, fixed primary–secondary types nor the absence of a quality. Compare close results without inventing an untied hybrid type. Context or time may change responses. There are no norms, rarity estimates or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "阿芙罗狄蒂测试结果：美感交流与完整说明",
+          "en": "Aphrodite Quiz Result: Aesthetics and Full Guide"
+        },
+        "description": {
+          "zh": "从配色、氛围与愿意发生的交流看选择，比较欣赏与创作，保留独处和不回应的空间，不判断吸引力或爱情。",
+          "en": "Read the Aphrodite result through colours, atmosphere and willing connection. Full examples and comparisons without attractiveness or romance verdicts."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "神话背景与本版主题",
+            "en": "Mythological background and this edition’s theme"
+          },
+          "paragraphs": [
+            {
+              "zh": "阿芙罗狄蒂是希腊神话中的爱神。本版借这个背景创作美感与交流主题：关注自己喜欢的细节，以及人们怎样自愿接近一件事。它不是对外貌、受欢迎程度或恋爱倾向的测量，也不把任何性别、伴侣状态或表达方式设为更符合神话名字。",
+              "en": "Aphrodite is the goddess of love in Greek mythology. This edition draws an original theme of aesthetics and connection from that background: details you enjoy and how people willingly approach an experience. It measures neither appearance, popularity nor romantic orientation, and no gender, relationship status or expressive style makes someone a better match for the name."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数怎样联系具体处境",
+            "en": "Reading counts in their context"
+          },
+          "paragraphs": [
+            {
+              "zh": "若计数最高，本次较常选择配色、舒适的细节、欢迎方式或交流片段。可以分清吸引你的具体部分：喜欢视觉搭配、享受某种氛围，还是想让交流容易开始？这些体验可以单独出现。较少选择也许只是此刻不想互动，不说明冷漠、不懂美或不值得被爱。",
+              "en": "A highest count means you more often chose colours, comfortable details, greetings or fragments of connection. Separate what appealed: visual combinations, an atmosphere or making conversation easier to begin. These experiences can occur independently. Fewer choices may simply reflect no current wish to interact, without establishing coldness, poor aesthetic appreciation or anyone’s worthiness of love."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体日常例子",
+            "en": "A concrete everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你为自愿读书交流准备一张小卡片。可以选清楚而喜欢的配色，写一句不催促回应的邀请，再留出空白让参加者自己决定写不写。这个例子关注可亲近的体验；卡片不必漂亮到得到称赞，也不需要换来每个人的热情。",
+              "en": "For a voluntary reading discussion, you might make a small card with clear colours you enjoy, a low-pressure invitation and blank space people may choose to use. The example concerns an approachable experience. The card need not win praise, produce enthusiasm from everyone or turn every quiet participant into someone who wants to talk."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可以怎样说的话",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想把这个角落布置得舒服一些，你愿意说说哪些细节方便你使用吗？不想参与也没关系。”这把自己的美感偏好与对方真实需要分开。对方说不喜欢时，可以调整或保留不同看法；不把拒绝看作对自己魅力的评价。",
+              "en": "You could say, “I’d like to make this corner comfortable. Would you tell me which details help you use it? It’s also fine not to join.” This separates your aesthetic preference from another person’s actual needs. If they dislike a detail, adjust or accept differing tastes without reading rejection as an assessment of personal charm."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "和其他五主题怎样比较",
+            "en": "Comparisons with the other five themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "阿芙罗狄蒂主题侧重怎样体验美感和交流，阿波罗主题侧重自己做出怎样的表达。宙斯可以处理共同约定，雅典娜可以比较布置方式，阿瑞斯可以尝试一个具体步骤，阿尔忒弥斯可以保留独处观察。六者没有谁更有感情或更值得喜欢，近分也不说明人际关系质量。",
+              "en": "Aphrodite emphasises experiencing aesthetics and connection, whereas Apollo emphasises making an expression. Zeus can handle agreements, Athena compare arrangements, Ares attempt a step and Artemis keep independent observation. None is more emotional or more deserving of affection. Close counts cannot establish the quality of relationships or reveal how other people actually feel about you."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与实际能力的区别",
+            "en": "Counterexamples and actual ability"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，一个人不喜欢某种装饰，可能只是有不同访问需要；一个温暖的场面也可能让某位参加者疲惫。问卷没有收集别人的感受或观察实际关系，所以不认证同理心、读人能力、吸引力、依恋或伴侣匹配，也不能据此推荐设计或关系服务职业。",
+              "en": "Disliking decoration may reflect different access needs, and an apparently warm setting may tire a participant. These items collect no other person’s feelings and observe no relationship. They certify neither empathy, mind-reading, attractiveness, attachment nor partner compatibility, and cannot recommend design or relationship-service careers. The same visible setting can be experienced differently by different people."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：在自己能调整的一小块空间，改变一个本来就想改变的细节，再记下自己怎样体验它。有共用者时先征求同意，不收集私人评价或用结果要求回应。喜欢、不喜欢、没有明显感觉都可以；这个观察理解美感选择，不验证魅力或关系改善。",
+              "en": "If useful, change one detail you already wanted to change in a small space you can control, then note your experience. Ask any co-users first, without collecting private evaluations or demanding a response. Enjoyment, dislike and no noticeable change are all possible. This explores aesthetic choices without validating charm or proving that relationships have improved."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "18题相对计数与全部最高并列",
+            "en": "18-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18题全部各选一项，对应主题加1，总数固定18。每题从六主题中提供四个，每个主题在全卷出现12次、每位置3次；没有选上的另外两项不记为拒绝。原始次数只是这组可选项中的相对分布，不是独立品质、神祇相似度百分比或人口排名。所有最高计数都保留完整报告；全选第一项会六项各3，全都显示。名单顺序不设主次，相差一次只是一项选择，不证明显著差异、固定主副型或某个特质消失。近分可以一起比较，但不补造未并列的混合类型。换情境或时间可能改变回答，没有常模、稀有度或科学分界。",
+              "en": "Choose one option for all 18 questions; each adds one to its theme, and counts always sum to 18. Each question offers four of the six themes. Every theme appears 12 times and three times in each position; the two absent themes are not counted as rejected. Raw counts describe relative choices among these options, not independent qualities, god-match percentages or population ranks. Every highest count retains its full guide: choosing the first option throughout gives three each and displays all six. List order establishes no priority. A one-choice gap proves neither significance, fixed primary–secondary types nor the absence of a quality. Compare close results without inventing an untied hybrid type. Context or time may change responses. There are no norms, rarity estimates or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、选取范围与来源",
+            "en": "Original edition, selection and sources"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的希腊神话主题偏好测验，选择宙斯、雅典娜、阿波罗、阿芙罗狄蒂、阿瑞斯和阿尔忒弥斯六位人物，不代表完整神谱或古代六型人格学说。Met博物馆背景文仅核对神话领域，不为本站选择映射、计分或效度提供验证。18题、选项、解释、情境、示例和配套计数规则为原创，没有采用JobCannon12题、IDRlabs35题、竞品结果正文／代码／算法、现代小说／游戏角色设定或受保护图片。神话中的行为不是现实相处标准；任何性别与信仰者都可把它当娱乐，也可选择不参与。没有本站心理测量验证，不鉴定神性、信仰、天命、智力、勇气、魅力、道德、健康、关系或职业适配。",
+              "en": "This independently authored FermatMind preference quiz selects Zeus, Athena, Apollo, Aphrodite, Ares and Artemis. It represents neither the complete Greek pantheon nor an ancient six-type personality doctrine. The Met museum essay checks mythological domains without validating this choice mapping, scoring or interpretation. All 18 items, options, explanations, scenes, examples and counting rules are original. No JobCannon 12-item or IDRlabs 35-item bank, competitor result text, code, algorithm, modern novel or game character setting, or protected image is used. Mythological conduct is not a standard for relationships. People of any gender or belief may treat it as entertainment or decline. This edition has no psychometric validation and certifies no divinity, religion, destiny, intelligence, courage, charm, morality, health, relationship or career fit."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ares",
+      "directionIds": [
+        "ares"
+      ],
+      "title": {
+        "zh": "阿瑞斯：有边界的挑战",
+        "en": "Ares: A Bounded Challenge"
+      },
+      "headline": {
+        "zh": "六位神话人物之一的当代偏好联想，不是实际能力结论。",
+        "en": "A contemporary preference association with one of six myth figures, not an ability verdict."
+      },
+      "summary": {
+        "zh": "用一个可暂停的小练习理解行动选择，比较尝试与计划；挑战不要求争斗、冒险、硬撑或证明强大。",
+        "en": "Explore action through a small practice you can pause, comparing attempts with planning. Challenge requires no fighting, risk or proof of strength."
+      },
+      "scoreReading": {
+        "zh": "18题全部各选一项，对应主题加1，总数固定18。每题从六主题中提供四个，每个主题在全卷出现12次、每位置3次；没有选上的另外两项不记为拒绝。原始次数只是这组可选项中的相对分布，不是独立品质、神祇相似度百分比或人口排名。所有最高计数都保留完整报告；全选第一项会六项各3，全都显示。名单顺序不设主次，相差一次只是一项选择，不证明显著差异、固定主副型或某个特质消失。近分可以一起比较，但不补造未并列的混合类型。换情境或时间可能改变回答，没有常模、稀有度或科学分界。",
+        "en": "Choose one option for all 18 questions; each adds one to its theme, and counts always sum to 18. Each question offers four of the six themes. Every theme appears 12 times and three times in each position; the two absent themes are not counted as rejected. Raw counts describe relative choices among these options, not independent qualities, god-match percentages or population ranks. Every highest count retains its full guide: choosing the first option throughout gives three each and displays all six. List order establishes no priority. A one-choice gap proves neither significance, fixed primary–secondary types nor the absence of a quality. Compare close results without inventing an untied hybrid type. Context or time may change responses. There are no norms, rarity estimates or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "阿瑞斯测试结果：有边界的挑战与完整说明",
+          "en": "Ares Quiz Result: Bounded Challenges and Full Guide"
+        },
+        "description": {
+          "zh": "用一个可暂停的小练习理解行动选择，比较尝试与计划；挑战不要求争斗、冒险、硬撑或证明强大。",
+          "en": "Explore an Ares result through a manageable practice, stopping points and comparisons. A full guide without aggression, bravery or fitness claims."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "神话背景与本版主题",
+            "en": "Mythological background and this edition’s theme"
+          },
+          "paragraphs": [
+            {
+              "zh": "阿瑞斯是希腊神话中的战争之神。本版不把神话战争写成现实行为建议，而独立选择“有边界的小挑战”作娱乐联想：愿意亲自尝试一个难度合适、可以暂停的步骤。它不以冲突、暴力、支配、身体条件或忍痛当作高分品质。",
+              "en": "Ares is the god of war in Greek mythology. This edition does not turn mythological warfare into advice. Instead it makes an original entertainment association with bounded challenges: trying a manageable step that can be paused. Conflict, violence, dominance, physical condition and enduring pain are not qualities rewarded by the questions or required by this theme."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数怎样联系具体处境",
+            "en": "Reading counts in their context"
+          },
+          "paragraphs": [
+            {
+              "zh": "若计数最高，本次较常选择亲自练一个部分，或用实际尝试了解过程。可以问：吸引你的是明确的难度、看见一次完成，还是暂时少谈多做？较少选择可能因为你需要休息或已有别的优先事项，不说明胆小、懒惰或意志薄弱，也不要求改变自己。",
+              "en": "A highest count means you more often chose practising a part or learning a process through an attempt. Was the appeal a clear difficulty, seeing one completion or doing rather than discussing at that moment? Fewer choices may reflect rest or another priority, without establishing cowardice, laziness or weak will, or creating a demand to change yourself."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体日常例子",
+            "en": "A concrete everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你自愿学一个普通折纸步骤，可以挑一次折痕练习，先看说明、确认材料，再试一轮。完成或决定停下都算作这次过程的一部分。挑战的边界是材料、时间和自己的意愿，不是和别人比赛，也不是一次不会就必须继续到做对。",
+              "en": "Suppose you voluntarily learn an ordinary paper fold. Choose one crease to practise, read the instructions, check the material and try one round. Completion and deciding to stop both belong to the process. The boundary comes from materials, time and willingness rather than competition or a requirement to continue until you get it right."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可以怎样说的话",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想先试这一小段，五分钟后再决定要不要继续；现在不需要比赛或评价。”这把尝试的范围和退出方式放在前面。如果同伴更想慢慢看说明，可以分开安排。行动不必获得所有人跟随，暂停也不等于输掉挑战或失去原型。",
+              "en": "Try: “I’d like to attempt this short part, then decide after five minutes whether to continue. I don’t need competition or evaluation.” This puts scope and exit first. A companion may prefer to read slowly; separate arrangements are possible. Action requires no followers, and pausing is not losing a challenge or failing a supposed archetype."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "和其他五主题怎样比较",
+            "en": "Comparisons with the other five themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "阿瑞斯与雅典娜可以分别强调试一个步骤和比较路线，顺序并不固定；熟悉的人也可能先计划。宙斯关注共同职责，阿波罗关注表达，美感交流对应阿芙罗狄蒂，自主观察对应阿尔忒弥斯。它们都不是行动与退缩的等级，全部最高并列可同时保留。",
+              "en": "Ares and Athena can emphasise attempting a step and comparing routes, in either order; an experienced person may plan first too. Zeus attends to shared responsibility, Apollo to expression, Aphrodite to aesthetic connection and Artemis to autonomous observation. These are not grades of action versus retreat, and every highest tie can remain visible together."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与实际能力的区别",
+            "en": "Counterexamples and actual ability"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，快速行动可能只是步骤熟悉，延迟尝试也可能是条件尚未安全。题目没有观察运动、危险应对或实际表现，不推断体力、攻击性、勇气、抗压、临床状态或适合军警消防等职业。若某件事让人不舒服，应按实际需要停止，不用分数挑战健康与界限。",
+              "en": "Quick action may simply reflect familiarity; delaying an attempt may mean conditions are not safe yet. No sport, danger response or actual performance is observed. Counts establish neither fitness, aggression, courage, resilience, clinical state nor suitability for military, police or emergency work. Stop according to actual needs rather than testing health or boundaries against a score."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：挑一件自己本来就想练、低风险且可访问的小事，先写下“只试哪里、何时停下、需要什么”。尝试后只记录实际过程和自己是否还愿意继续，不给毅力打分。也可以发现今天不适合而取消；这个决定不降低任何人的价值。",
+              "en": "For an optional observation, choose a low-stakes, accessible practice you already wanted. Write the part to try, a stopping point and what you need. Afterwards record the actual process and whether you still wish to continue, without grading persistence. Cancelling because today does not fit is also a decision, and reduces no person’s worth."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "18题相对计数与全部最高并列",
+            "en": "18-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18题全部各选一项，对应主题加1，总数固定18。每题从六主题中提供四个，每个主题在全卷出现12次、每位置3次；没有选上的另外两项不记为拒绝。原始次数只是这组可选项中的相对分布，不是独立品质、神祇相似度百分比或人口排名。所有最高计数都保留完整报告；全选第一项会六项各3，全都显示。名单顺序不设主次，相差一次只是一项选择，不证明显著差异、固定主副型或某个特质消失。近分可以一起比较，但不补造未并列的混合类型。换情境或时间可能改变回答，没有常模、稀有度或科学分界。",
+              "en": "Choose one option for all 18 questions; each adds one to its theme, and counts always sum to 18. Each question offers four of the six themes. Every theme appears 12 times and three times in each position; the two absent themes are not counted as rejected. Raw counts describe relative choices among these options, not independent qualities, god-match percentages or population ranks. Every highest count retains its full guide: choosing the first option throughout gives three each and displays all six. List order establishes no priority. A one-choice gap proves neither significance, fixed primary–secondary types nor the absence of a quality. Compare close results without inventing an untied hybrid type. Context or time may change responses. There are no norms, rarity estimates or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、选取范围与来源",
+            "en": "Original edition, selection and sources"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的希腊神话主题偏好测验，选择宙斯、雅典娜、阿波罗、阿芙罗狄蒂、阿瑞斯和阿尔忒弥斯六位人物，不代表完整神谱或古代六型人格学说。Met博物馆背景文仅核对神话领域，不为本站选择映射、计分或效度提供验证。18题、选项、解释、情境、示例和配套计数规则为原创，没有采用JobCannon12题、IDRlabs35题、竞品结果正文／代码／算法、现代小说／游戏角色设定或受保护图片。神话中的行为不是现实相处标准；任何性别与信仰者都可把它当娱乐，也可选择不参与。没有本站心理测量验证，不鉴定神性、信仰、天命、智力、勇气、魅力、道德、健康、关系或职业适配。",
+              "en": "This independently authored FermatMind preference quiz selects Zeus, Athena, Apollo, Aphrodite, Ares and Artemis. It represents neither the complete Greek pantheon nor an ancient six-type personality doctrine. The Met museum essay checks mythological domains without validating this choice mapping, scoring or interpretation. All 18 items, options, explanations, scenes, examples and counting rules are original. No JobCannon 12-item or IDRlabs 35-item bank, competitor result text, code, algorithm, modern novel or game character setting, or protected image is used. Mythological conduct is not a standard for relationships. People of any gender or belief may treat it as entertainment or decline. This edition has no psychometric validation and certifies no divinity, religion, destiny, intelligence, courage, charm, morality, health, relationship or career fit."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "artemis",
+      "directionIds": [
+        "artemis"
+      ],
+      "title": {
+        "zh": "阿尔忒弥斯：自主与自然观察",
+        "en": "Artemis: Autonomy and Observing Nature"
+      },
+      "headline": {
+        "zh": "六位神话人物之一的当代偏好联想，不是实际能力结论。",
+        "en": "A contemporary preference association with one of six myth figures, not an ability verdict."
+      },
+      "summary": {
+        "zh": "从自选节奏和自然细节理解本次偏好，比较自主与合作，室内观察和请求帮助都可以，不把独处当固定人格。",
+        "en": "Explore self-chosen pace and natural details, comparing autonomy with cooperation. Indoor observation and asking for help remain possible."
+      },
+      "scoreReading": {
+        "zh": "18题全部各选一项，对应主题加1，总数固定18。每题从六主题中提供四个，每个主题在全卷出现12次、每位置3次；没有选上的另外两项不记为拒绝。原始次数只是这组可选项中的相对分布，不是独立品质、神祇相似度百分比或人口排名。所有最高计数都保留完整报告；全选第一项会六项各3，全都显示。名单顺序不设主次，相差一次只是一项选择，不证明显著差异、固定主副型或某个特质消失。近分可以一起比较，但不补造未并列的混合类型。换情境或时间可能改变回答，没有常模、稀有度或科学分界。",
+        "en": "Choose one option for all 18 questions; each adds one to its theme, and counts always sum to 18. Each question offers four of the six themes. Every theme appears 12 times and three times in each position; the two absent themes are not counted as rejected. Raw counts describe relative choices among these options, not independent qualities, god-match percentages or population ranks. Every highest count retains its full guide: choosing the first option throughout gives three each and displays all six. List order establishes no priority. A one-choice gap proves neither significance, fixed primary–secondary types nor the absence of a quality. Compare close results without inventing an untied hybrid type. Context or time may change responses. There are no norms, rarity estimates or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "阿尔忒弥斯测试结果：自主观察与完整说明",
+          "en": "Artemis Quiz Result: Autonomy, Examples and Full Guide"
+        },
+        "description": {
+          "zh": "从自选节奏和自然细节理解本次偏好，比较自主与合作，室内观察和请求帮助都可以，不把独处当固定人格。",
+          "en": "Read the Artemis result through self-chosen pace and observing nature, including indoor examples. Compare themes without judging independence or attachment."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "神话背景与本版主题",
+            "en": "Mythological background and this edition’s theme"
+          },
+          "paragraphs": [
+            {
+              "zh": "阿尔忒弥斯在希腊神话中是狩猎女神。本版不把狩猎转成现实行动，而独立借用自然与自主探索的联想：按自己的节奏观察天气、光线或植物。它不要求户外行走、独居或拒绝关系，神话性别和婚姻叙事也不规定任何人的现实身份。",
+              "en": "Artemis is the goddess of hunting in Greek mythology. This edition proposes no hunting activity. It makes an original association with nature and autonomous exploration: observing weather, light or plants at a self-chosen pace. Outdoor walking, living alone and rejecting relationships are not requirements, and mythological gender or marriage stories prescribe no contemporary identity."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数怎样联系具体处境",
+            "en": "Reading counts in their context"
+          },
+          "paragraphs": [
+            {
+              "zh": "若计数最高，本次较常选择保留自主时间、自己决定注意方向，或观察自然细节。可以区分：想自由安排节奏，还是对当下的光线、天气和植物感兴趣？两者不必总同时存在。较少选择也许只是没有条件或更想合作，不说明依赖、缺少原则或不能独处。",
+              "en": "A highest count means you more often chose self-directed time, your own focus or noticing natural details. Separate wanting control of your pace from interest in current light, weather or plants; the two need not always coexist. Fewer choices may reflect limited access or a wish to collaborate, without establishing dependence, weak principles or inability to be alone."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体日常例子",
+            "en": "A concrete everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，在自己方便的室内位置，留几分钟观察窗边光影，不拍照也可以。你决定看什么、何时结束，也可以请人帮忙调整座位或取得材料。这个例子里的自主是拥有选择，不是所有事情都要独自完成，更不是必须亲近某一种自然环境。",
+              "en": "From an accessible indoor place, spend a few minutes noticing light and shadow by a window, without needing photographs. Choose your focus and ending point, and ask for help adjusting a seat or reaching materials if useful. Autonomy here means having choices rather than doing everything alone or needing access to a particular natural environment."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可以怎样说的话",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“这段时间我想按自己的节奏看看周围，之后再决定是否一起活动；需要帮助时我会提出。”这样说明的是当前安排，不是拒绝所有关系。朋友也可以有不同需要。独处和交流可以轮换，不必把每次邀请看作自由受威胁，也不需要维护冷淡形象。",
+              "en": "You might say, “For this period I’d like to observe at my own pace, then decide whether to join an activity. I’ll ask if I need help.” This states a current arrangement rather than rejecting relationships. Others can have different needs. Solitude and connection can alternate without treating every invitation as a threat to freedom or performing aloofness."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "和其他五主题怎样比较",
+            "en": "Comparisons with the other five themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "阿尔忒弥斯偏自主观察，阿波罗偏把体验做成表达，两者可以先后发生；阿芙罗狄蒂的交流也不等于依赖。宙斯的共同约定能保护自主时间，雅典娜的计划能帮助访问，阿瑞斯的小练习也可以自己决定。没有任何一位神代表更成熟、自由或真实的生活。",
+              "en": "Artemis emphasises autonomous observation, Apollo turning experience into expression; both can occur in sequence. Aphrodite’s connection need not mean dependence. Zeus’s agreements can protect self-directed time, Athena’s planning can support access and Ares’s practice can be self-chosen. No figure represents a more mature, free or authentic way of living than the others in this edition."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与实际能力的区别",
+            "en": "Counterexamples and actual ability"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，一个人常在户外可能只是工作需要；另一个人需要支持才能进入环境，仍然能作自主决定。问卷没有评自立能力、依恋、感觉特征或人际健康，不诊断回避、孤独或神经差异，也不把结果直接推成野生动物、环保或其他职业适配。",
+              "en": "Frequent outdoor time may reflect work rather than preference. Someone who needs support to access a setting can still make autonomous decisions. No independence skill, attachment, sensory profile or relationship health is assessed. The result diagnoses neither avoidance, loneliness nor neurodivergence and cannot translate directly into wildlife, conservation or other career suitability from this small choice set."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：为一段本来就有的空闲，保留一个自选关注点和可行的结束方式。它可以是室内光线、声音或植物，不必出门。看看自主节奏对自己意味着什么，必要时请求帮助或改成共同活动。观察不验证天性、疗愈效果或你应当一直独处。",
+              "en": "If useful, give a break you already have one self-chosen focus and a workable ending. It might be indoor light, sound or a plant; going outside is optional. Notice what your own pace means, and ask for help or switch to shared activity if wanted. The observation validates no innate nature, healing effect or permanent need for solitude."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "18题相对计数与全部最高并列",
+            "en": "18-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18题全部各选一项，对应主题加1，总数固定18。每题从六主题中提供四个，每个主题在全卷出现12次、每位置3次；没有选上的另外两项不记为拒绝。原始次数只是这组可选项中的相对分布，不是独立品质、神祇相似度百分比或人口排名。所有最高计数都保留完整报告；全选第一项会六项各3，全都显示。名单顺序不设主次，相差一次只是一项选择，不证明显著差异、固定主副型或某个特质消失。近分可以一起比较，但不补造未并列的混合类型。换情境或时间可能改变回答，没有常模、稀有度或科学分界。",
+              "en": "Choose one option for all 18 questions; each adds one to its theme, and counts always sum to 18. Each question offers four of the six themes. Every theme appears 12 times and three times in each position; the two absent themes are not counted as rejected. Raw counts describe relative choices among these options, not independent qualities, god-match percentages or population ranks. Every highest count retains its full guide: choosing the first option throughout gives three each and displays all six. List order establishes no priority. A one-choice gap proves neither significance, fixed primary–secondary types nor the absence of a quality. Compare close results without inventing an untied hybrid type. Context or time may change responses. There are no norms, rarity estimates or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、选取范围与来源",
+            "en": "Original edition, selection and sources"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的希腊神话主题偏好测验，选择宙斯、雅典娜、阿波罗、阿芙罗狄蒂、阿瑞斯和阿尔忒弥斯六位人物，不代表完整神谱或古代六型人格学说。Met博物馆背景文仅核对神话领域，不为本站选择映射、计分或效度提供验证。18题、选项、解释、情境、示例和配套计数规则为原创，没有采用JobCannon12题、IDRlabs35题、竞品结果正文／代码／算法、现代小说／游戏角色设定或受保护图片。神话中的行为不是现实相处标准；任何性别与信仰者都可把它当娱乐，也可选择不参与。没有本站心理测量验证，不鉴定神性、信仰、天命、智力、勇气、魅力、道德、健康、关系或职业适配。",
+              "en": "This independently authored FermatMind preference quiz selects Zeus, Athena, Apollo, Aphrodite, Ares and Artemis. It represents neither the complete Greek pantheon nor an ancient six-type personality doctrine. The Met museum essay checks mythological domains without validating this choice mapping, scoring or interpretation. All 18 items, options, explanations, scenes, examples and counting rules are original. No JobCannon 12-item or IDRlabs 35-item bank, competitor result text, code, algorithm, modern novel or game character setting, or protected image is used. Mythological conduct is not a standard for relationships. People of any gender or belief may treat it as entertainment or decline. This edition has no psychometric validation and certifies no divinity, religion, destiny, intelligence, courage, charm, morality, health, relationship or career fit."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "18题怎样形成六主题计数",
+        "en": "How 18 choices produce six-theme counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "18题全部各选一项，对应主题加1，总数固定18。每题从六主题中提供四个，每个主题在全卷出现12次、每位置3次；没有选上的另外两项不记为拒绝。原始次数只是这组可选项中的相对分布，不是独立品质、神祇相似度百分比或人口排名。所有最高计数都保留完整报告；全选第一项会六项各3，全都显示。名单顺序不设主次，相差一次只是一项选择，不证明显著差异、固定主副型或某个特质消失。近分可以一起比较，但不补造未并列的混合类型。换情境或时间可能改变回答，没有常模、稀有度或科学分界。",
+          "en": "Choose one option for all 18 questions; each adds one to its theme, and counts always sum to 18. Each question offers four of the six themes. Every theme appears 12 times and three times in each position; the two absent themes are not counted as rejected. Raw counts describe relative choices among these options, not independent qualities, god-match percentages or population ranks. Every highest count retains its full guide: choosing the first option throughout gives three each and displays all six. List order establishes no priority. A one-choice gap proves neither significance, fixed primary–secondary types nor the absence of a quality. Compare close results without inventing an untied hybrid type. Context or time may change responses. There are no norms, rarity estimates or scientific cutoffs."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "并列、近分与完整结果",
+        "en": "Ties, close counts and full guides"
+      },
+      "paragraphs": [
+        {
+          "zh": "六份结果各自说明神话背景、本站偏好读法、具体日常例子、可用表达、五主题比较、反例、小观察、计分和来源。所有最高并列都完整显示，不把名单第一位当主型。计数相差一次不证明显著差异；可以读接近的说明，但不由此造混合类型。重新作答反映当前选择，不证明人格变化。",
+          "en": "Each of the six guides includes mythological context, this edition’s interpretation, an everyday example, possible wording, comparisons, counterexamples, an optional observation, scoring and sources. Every highest tie appears in full without treating the first as a primary type. A one-choice gap establishes no significant difference. Read nearby guides without inventing hybrid types. Retaking reflects current responses, not proven personality change."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "神话联想不等于现实鉴定",
+        "en": "Myth associations are not personal verdicts"
+      },
+      "paragraphs": [
+        {
+          "zh": "宙斯不认证领导力，雅典娜不测智商，阿波罗不测天赋，阿芙罗狄蒂不判吸引力，阿瑞斯不要求争斗，阿尔忒弥斯不要求独处或户外活动。六位是本版选取，不声称涵盖全部神祇、完整十二主神或统一心理学原型；现代小说和游戏中的同名人物也不等同本版背景。",
+          "en": "Zeus certifies no leadership, Athena no IQ, Apollo no talent and Aphrodite no attractiveness. Ares requires no fighting, and Artemis requires neither solitude nor outdoor activity. These six are an editorial selection, not all Greek gods, the complete twelve Olympians or a unified psychological archetype system. Characters in modern novels and games with the same names are not this edition’s source."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "zh": "原创题目与背景来源",
+        "en": "Original choices and background sources"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是费马独立创作的希腊神话主题偏好测验，选择宙斯、雅典娜、阿波罗、阿芙罗狄蒂、阿瑞斯和阿尔忒弥斯六位人物，不代表完整神谱或古代六型人格学说。Met博物馆背景文仅核对神话领域，不为本站选择映射、计分或效度提供验证。18题、选项、解释、情境、示例和配套计数规则为原创，没有采用JobCannon12题、IDRlabs35题、竞品结果正文／代码／算法、现代小说／游戏角色设定或受保护图片。神话中的行为不是现实相处标准；任何性别与信仰者都可把它当娱乐，也可选择不参与。没有本站心理测量验证，不鉴定神性、信仰、天命、智力、勇气、魅力、道德、健康、关系或职业适配。",
+          "en": "This independently authored FermatMind preference quiz selects Zeus, Athena, Apollo, Aphrodite, Ares and Artemis. It represents neither the complete Greek pantheon nor an ancient six-type personality doctrine. The Met museum essay checks mythological domains without validating this choice mapping, scoring or interpretation. All 18 items, options, explanations, scenes, examples and counting rules are original. No JobCannon 12-item or IDRlabs 35-item bank, competitor result text, code, algorithm, modern novel or game character setting, or protected image is used. Mythological conduct is not a standard for relationships. People of any gender or belief may treat it as entertainment or decline. This edition has no psychometric validation and certifies no divinity, religion, destiny, intelligence, courage, charm, morality, health, relationship or career fit."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "草稿、分享与可选下一步",
+        "en": "Drafts, sharing and optional next steps"
+      },
+      "paragraphs": [
+        {
+          "zh": "答案在浏览器内计分，不上传、不进网址或分析。草稿需主动开启，只在本标签页恢复，24小时失效，完成、重测、退出清除即删除。可选分享只含公开主题说明和链接，不含答案或次数。完整结果免费，不收邮箱、不先做其他测试；后续MBTI等属于另一个框架，需要重新作答，不能由神祇换算人格或职业，也可以到此结束。",
+          "en": "Answers are scored in your browser without uploading them or placing them in URLs or analytics. Drafts require opt-in, restore only in this tab, expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public theme guides and links without answers or counts. Full results are free without email or another test first. Later assessments are separate frameworks requiring new responses; no god converts into personality or career fit. You can stop here."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "希腊神测试比较哪六位？",
+        "en": "Which six Greek gods are included?"
+      },
+      "answer": {
+        "zh": "本版选取宙斯、雅典娜、阿波罗、阿芙罗狄蒂、阿瑞斯和阿尔忒弥斯，对应六种原创日常偏好联想。它不是完整神谱，也不是十二主神知识测试。其他网站可能选不同人物和方法；同名不表示题本、算法或验证相同。",
+        "en": "This edition selects Zeus, Athena, Apollo, Aphrodite, Ares and Artemis for six original everyday preference associations. It is neither the complete pantheon nor a twelve-Olympian knowledge test. Other websites may choose different figures and methods; a shared name does not establish equivalent items, algorithms or validation."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是科学人格或天命测试吗？",
+        "en": "Is this a scientific personality or destiny test?"
+      },
+      "answer": {
+        "zh": "这是费马独立创作的希腊神话主题偏好测验，选择宙斯、雅典娜、阿波罗、阿芙罗狄蒂、阿瑞斯和阿尔忒弥斯六位人物，不代表完整神谱或古代六型人格学说。Met博物馆背景文仅核对神话领域，不为本站选择映射、计分或效度提供验证。18题、选项、解释、情境、示例和配套计数规则为原创，没有采用JobCannon12题、IDRlabs35题、竞品结果正文／代码／算法、现代小说／游戏角色设定或受保护图片。神话中的行为不是现实相处标准；任何性别与信仰者都可把它当娱乐，也可选择不参与。没有本站心理测量验证，不鉴定神性、信仰、天命、智力、勇气、魅力、道德、健康、关系或职业适配。",
+        "en": "This independently authored FermatMind preference quiz selects Zeus, Athena, Apollo, Aphrodite, Ares and Artemis. It represents neither the complete Greek pantheon nor an ancient six-type personality doctrine. The Met museum essay checks mythological domains without validating this choice mapping, scoring or interpretation. All 18 items, options, explanations, scenes, examples and counting rules are original. No JobCannon 12-item or IDRlabs 35-item bank, competitor result text, code, algorithm, modern novel or game character setting, or protected image is used. Mythological conduct is not a standard for relationships. People of any gender or belief may treat it as entertainment or decline. This edition has no psychometric validation and certifies no divinity, religion, destiny, intelligence, courage, charm, morality, health, relationship or career fit."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样计分、处理并列和近分？",
+        "en": "How are counts, ties and close results handled?"
+      },
+      "answer": {
+        "zh": "18题全部各选一项，对应主题加1，总数固定18。每题从六主题中提供四个，每个主题在全卷出现12次、每位置3次；没有选上的另外两项不记为拒绝。原始次数只是这组可选项中的相对分布，不是独立品质、神祇相似度百分比或人口排名。所有最高计数都保留完整报告；全选第一项会六项各3，全都显示。名单顺序不设主次，相差一次只是一项选择，不证明显著差异、固定主副型或某个特质消失。近分可以一起比较，但不补造未并列的混合类型。换情境或时间可能改变回答，没有常模、稀有度或科学分界。",
+        "en": "Choose one option for all 18 questions; each adds one to its theme, and counts always sum to 18. Each question offers four of the six themes. Every theme appears 12 times and three times in each position; the two absent themes are not counted as rejected. Raw counts describe relative choices among these options, not independent qualities, god-match percentages or population ranks. Every highest count retains its full guide: choosing the first option throughout gives three each and displays all six. List order establishes no priority. A one-choice gap proves neither significance, fixed primary–secondary types nor the absence of a quality. Compare close results without inventing an untied hybrid type. Context or time may change responses. There are no norms, rarity estimates or scientific cutoffs."
+      }
+    },
+    {
+      "question": {
+        "zh": "性别、信仰或是否喜欢神话会影响资格吗？",
+        "en": "Do gender, belief or liking mythology determine eligibility?"
+      },
+      "answer": {
+        "zh": "名字和神话性别不限制谁匹配哪位；题目不要求信仰认同或熟悉神话，选择不参加也可以。所有题目是当代普通偏好，不鉴定宗教、身份、神性或道德。结果中战争等背景不是现实行为要求，不应为符合标签而争斗、冒险或忽视需要。",
+        "en": "Names and mythological genders restrict no match. The questions require neither belief nor mythological knowledge, and participation is optional. They concern contemporary preferences rather than religion, identity, divinity or morality. Mythological warfare is not a behavioural requirement; no label asks you to fight, take risks or ignore needs."
+      }
+    },
+    {
+      "question": {
+        "zh": "可以免费读全结果、重测和分享吗？",
+        "en": "Can I read full results, retake and share for free?"
+      },
+      "answer": {
+        "zh": "可以先读全部六份完整说明，完成18题后所有最高匹配完整显示，无需注册或邮箱。重测会清除本次答案，分享只含公开结果和链接，不含计数或答卷。后续测评自选，不把神话标签转换成MBTI、健康或职业结论。",
+        "en": "Yes. All six full guides can be read first, and every highest match appears after all 18 choices without signup or email. Retaking clears this attempt. Optional sharing contains public guides and links without counts or answers. Further assessments are your choice and do not convert myth labels into MBTI, health or career verdicts."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "Met博物馆：希腊诸神与宗教实践（神话背景，非本版计分依据）",
+        "en": "The Met: Greek Gods and Religious Practices (mythological background, not scoring validation)"
+      },
+      "url": "https://www.metmuseum.org/essays/greek-gods-and-religious-practices"
+    }
+  ]
+}

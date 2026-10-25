@@ -806,5 +806,32 @@
       "ravenclaw",
       "slytherin"
     ]
+  },
+  {
+    "slug": "greek-god",
+    "code": "GREEK_GOD_THEMES",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "metaphor",
+    "title": {
+      "zh": "希腊神测试",
+      "en": "Which Greek God Are You?"
+    },
+    "description": {
+      "zh": "免费希腊神测试：18道原创选择比较宙斯、雅典娜、阿波罗、阿芙罗狄蒂、阿瑞斯和阿尔忒弥斯。无需注册，全部最高并列与完整说明直接读；神话趣味，不鉴定能力、天命或职业。",
+      "en": "Which Greek god are you? Compare six myth themes through 18 original choices. Read full results and highest ties free, without signup or ability claims."
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_greek_god_preferences_18",
+    "questionCount": 18,
+    "resultSlugs": [
+      "zeus",
+      "athena",
+      "apollo",
+      "aphrodite",
+      "ares",
+      "artemis"
+    ]
   }
 ]
