@@ -36,6 +36,8 @@ REQUIRE_CONTENT_RELEASE_REVALIDATION="${REQUIRE_CONTENT_RELEASE_REVALIDATION:-0}
 local_runtime_config=""
 local_tracking_config=""
 remote_tracking_config=""
+local_pdf_config=""
+remote_pdf_config=""
 installer_started=0
 installer_terminal=0
 cleanup_private_inputs() {
@@ -44,6 +46,10 @@ cleanup_private_inputs() {
   set +e
   if [[ -n "$local_runtime_config" ]]; then rm -f -- "$local_runtime_config"; rmdir -- "$(dirname "$local_runtime_config")" || true; fi
   if [[ -n "$local_tracking_config" ]]; then rm -f -- "$local_tracking_config"; rmdir -- "$(dirname "$local_tracking_config")" || true; fi
+  if [[ -n "$local_pdf_config" ]]; then rm -f -- "$local_pdf_config"; rmdir -- "$(dirname "$local_pdf_config")" || true; fi
+  if [[ -n "$remote_pdf_config" && ( "$installer_started" == 0 || "$installer_terminal" == 1 ) ]]; then
+    ssh "${ssh_args[@]}" "$DEPLOY_USER@$DEPLOY_HOST" "rm -f -- '$remote_pdf_config'" >/dev/null 2>&1 || code=1
+  fi
   if [[ -n "$remote_tracking_config" ]]; then
     if [[ "$installer_started" == 0 || "$installer_terminal" == 1 ]]; then
       # Before installer entry no remote process consumes this input. After
@@ -76,6 +82,10 @@ if [[ "$REQUIRE_TRACKING_INGEST_RUNTIME" == "1" ]]; then
   local_tracking_config="$tracking_tmp/input.json"
   node .github/trunk/tracking-runtime.cjs from-env "$local_tracking_config"
 fi
+pdf_tmp="$(mktemp -d "${RUNNER_TEMP:?}/pdf-print-runtime.XXXXXX")"
+local_pdf_config="$pdf_tmp/input.env"
+node .github/trunk/pdf-print-runtime.mjs from-env "$local_pdf_config"
+unset GOTENBERG_RESULT_PRINT_TOKEN_SECRET
 # The runner's value is no longer inherited by generic commands or children.
 unset TRACK_INGEST_TOKEN
 
@@ -102,7 +112,7 @@ ssh_args=(-o ServerAliveInterval=15 -o ServerAliveCountMax=4 -o BatchMode=yes -o
 ssh "${ssh_args[@]}" "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$control' && chmod 700 '$control'"
 control_files=(scripts/install_standalone_release.sh scripts/deploy_web_pm2.sh \
   scripts/rolling_reload_pm2.sh scripts/ops/verify-career-renderer.mjs lib/site.ts scripts/ops/verify-llms-full-artifact.mjs scripts/ops/career-current-inventory.mjs ecosystem.config.cjs .github/trunk/content-release-runtime.mjs \
-  .github/trunk/fetch-oss-release.sh .github/trunk/install-ossutil.sh .github/trunk/tracking-runtime.cjs)
+  .github/trunk/fetch-oss-release.sh .github/trunk/install-ossutil.sh .github/trunk/tracking-runtime.cjs .github/trunk/pdf-print-runtime.mjs)
 if [[ "$RELEASE_TRANSPORT_MODE" == "local" ]]; then control_files=("$RELEASE_ARCHIVE" "${control_files[@]}"); fi
 scp -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -P "$DEPLOY_PORT" \
   "${control_files[@]}" "$DEPLOY_USER@$DEPLOY_HOST:$control/"
@@ -117,6 +127,9 @@ if [[ -n "$local_tracking_config" ]]; then
   scp -q -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -P "$DEPLOY_PORT" \
     "$local_tracking_config" "$DEPLOY_USER@$DEPLOY_HOST:$remote_tracking_config"
 fi
+remote_pdf_config="$control/pdf-print-runtime.env"
+scp -q -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -P "$DEPLOY_PORT" \
+  "$local_pdf_config" "$DEPLOY_USER@$DEPLOY_HOST:$remote_pdf_config"
 transport_status=0
 if [[ "$RELEASE_TRANSPORT_MODE" == "oss" ]]; then
   set +e
@@ -156,6 +169,8 @@ if [[ "$transport_status" -eq 0 ]]; then
    REQUIRE_TRACKING_INGEST_RUNTIME='$REQUIRE_TRACKING_INGEST_RUNTIME' \
    TRACKING_RUNTIME_SOURCE='$control/tracking-runtime.json' \
    TRACKING_RUNTIME_HELPER='$control/tracking-runtime.cjs' \
+   PDF_PRINT_RUNTIME_SOURCE='$control/pdf-print-runtime.env' \
+   PDF_PRINT_RUNTIME_HELPER='$control/pdf-print-runtime.mjs' \
    LLMS_FULL_VERIFY_SCRIPT='$control/verify-llms-full-artifact.mjs' \
    DEPLOY_OUTCOME_PATH='$remote_outcome' \
    LLMS_FULL_RECEIPT_PATH='$remote_llms_full_receipt' LLMS_FULL_VERIFY_TIMEOUT_MS='330000' \

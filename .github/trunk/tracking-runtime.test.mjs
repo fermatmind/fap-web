@@ -114,8 +114,10 @@ for (const secure of [true, false]) {
     const source = path.join(root, 'tracking-input.json'); writeConfig(source, values);
     const outcome = path.join(root, 'outcome.json');
     const digest = value => createHash('sha256').update(value).digest('hex');
+    const pdfInput = path.join(root, 'pdf-input.env');
+    writeFileSync(pdfInput, 'GOTENBERG_RESULT_PRINT_TOKEN_SECRET='+ 'a'.repeat(64)+'\n', { mode: 0o600 });
     const run = spawnSync('bash', ['scripts/install_standalone_release.sh'], { encoding: 'utf8', timeout: 10000,
-      env: { ...process.env, APP_DIR: app, APP_USER: userInfo().username, APP_MANAGER: 'pm2', DEPLOY_SHA: sha, ARTIFACT_DIGEST: `sha256:${'c'.repeat(64)}`,
+      env: { ...process.env, PDF_PRINT_RUNTIME_SOURCE: pdfInput, PDF_PRINT_RUNTIME_HELPER: path.resolve('.github/trunk/pdf-print-runtime.mjs'), APP_DIR: app, APP_USER: userInfo().username, APP_MANAGER: 'pm2', DEPLOY_SHA: sha, ARTIFACT_DIGEST: `sha256:${'c'.repeat(64)}`,
         ARCHIVE_SHA256: digest(readFileSync(archive)), RELEASE_MANIFEST_DIGEST: `sha256:${digest('{}')}`, RELEASE_ARCHIVE: archive,
         DEPLOY_SCRIPT: controller, ROLLING_RELOAD_SCRIPT: controller, DEPLOY_OUTCOME_PATH: outcome,
         REQUIRE_CONTENT_RELEASE_REVALIDATION: '0', REQUIRE_TRACKING_INGEST_RUNTIME: '1', TRACKING_RUNTIME_SOURCE: source,
@@ -145,6 +147,8 @@ set -eu
 command="\${@: -1}"
 if [[ "$command" == "mkdir -p '$MOCK_CONTROL' && chmod 700 '$MOCK_CONTROL'" ]]; then
   echo create >> "$CALL_LOG"; exit 0
+elif [[ "$command" == "rm -f -- '$MOCK_CONTROL/pdf-print-runtime.env'" ]]; then
+  exit 0
 elif [[ "$command" == "rm -f -- '$MOCK_CONTROL/tracking-runtime.json'" ]]; then
   echo cleanup >> "$CALL_LOG"
   [[ "$TEST_MODE" != cleanup-failure ]] || exit 7
@@ -184,7 +188,7 @@ fi
       env: { ...process.env, PATH: `${bin}:${process.env.PATH}`, TEST_MODE: mode, MOCK_CONTROL: control, CALL_LOG: log, FIXTURE_OUTCOME: fixture,
         DEPLOY_HOST: 'test.invalid', DEPLOY_USER: 'test', DEPLOY_PORT: '22', APP_DIR: path.join(root, 'app'), APP_NAME: 'fixture', APP_PORT: '3000',
         PUBLIC_BASE_URL: 'https://test.invalid', DEPLOY_SHA: sha, RELEASE_ARCHIVE_SHA256: 'b'.repeat(64), RELEASE_MANIFEST_DIGEST: `sha256:${'c'.repeat(64)}`, ARTIFACT_DIGEST: `sha256:${'d'.repeat(64)}`,
-        GITHUB_RUN_ID: '1', GITHUB_RUN_ATTEMPT: '1', RUNNER_TEMP: runner, RELEASE_TRANSPORT_MODE: 'oss',
+        GOTENBERG_RESULT_PRINT_TOKEN_SECRET: 'a'.repeat(64), GITHUB_RUN_ID: '1', GITHUB_RUN_ATTEMPT: '1', RUNNER_TEMP: runner, RELEASE_TRANSPORT_MODE: 'oss',
         OSS_BUCKET: 'fixture-bucket', OSS_INTERNAL_ENDPOINT: 'https://oss-cn-shanghai-internal.aliyuncs.com', OSS_REGION: 'cn-shanghai', OSS_OBJECT_KEY: 'fixture/archive.tar.gz', OSS_ECS_ROLE_NAME: 'fixture-role',
         REQUIRE_LLMS_FULL_ARTIFACT: '0', REQUIRE_CONTENT_RELEASE_REVALIDATION: '0', REQUIRE_TRACKING_INGEST_RUNTIME: '1', ...values } });
     assert.equal(run.error, undefined, run.stderr);

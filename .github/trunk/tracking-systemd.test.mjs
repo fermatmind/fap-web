@@ -116,8 +116,10 @@ for (const mode of ['enabled', 'disabled', 'unsupported-unit', 'failed-preflight
     writeFileSync(controller, `#!/usr/bin/env bash\nset -eu\nnode --disable-warning=ExperimentalWarning --experimental-strip-types '${harness}' "\${CANDIDATE_RELEASE_DIR:-$APP_DIR/.next/standalone}"\nif [[ "$DEPLOY_SHA" == '${sha}' ]]; then\n if [[ "$TEST_MODE" == failed-preflight && "\${PREFLIGHT_ONLY:-0}" == 1 ]]; then exit 7; fi\n if [[ "$TEST_MODE" == failed-active-* && "\${PREFLIGHT_ONLY:-0}" == 0 ]]; then exit 7; fi\n if [[ "$TEST_MODE" == signal-* && "\${PREFLIGHT_ONLY:-0}" == 0 ]]; then signal=TERM; [[ "$TEST_MODE" != signal-hup ]] || signal=HUP; kill -"$signal" "$(cat "$INSTALLER_PID_FILE")"; exit 7; fi\nfi\n`, { mode: 0o700 });
     const source = path.join(root, 'input.json'); const enabled = mode !== 'disabled'; if (enabled) writeConfig(source, values);
     const outcome = path.join(root, 'outcome.json'); const digest = data => createHash('sha256').update(data).digest('hex');
+    const pdfInput = path.join(root, 'pdf-input.env');
+    writeFileSync(pdfInput, 'GOTENBERG_RESULT_PRINT_TOKEN_SECRET='+'a'.repeat(64)+'\n', { mode: 0o600 });
     const run = spawnSync('bash', ['-c', 'echo $$ > "$INSTALLER_PID_FILE"; exec bash scripts/install_standalone_release.sh'], { encoding: 'utf8', timeout: 15000, env: {
-      ...process.env, PATH: `${bin}:${process.env.PATH}`, APP_DIR: app, APP_USER: userInfo().username, APP_MANAGER: 'systemd', SYSTEMD_SERVICE: 'fap-web-staging.service',
+      ...process.env, PDF_PRINT_RUNTIME_SOURCE: pdfInput, PDF_PRINT_RUNTIME_HELPER: path.resolve('.github/trunk/pdf-print-runtime.mjs'), PATH: `${bin}:${process.env.PATH}`, APP_DIR: app, APP_USER: userInfo().username, APP_MANAGER: 'systemd', SYSTEMD_SERVICE: 'fap-web-staging.service',
       DEPLOY_SHA: sha, ARTIFACT_DIGEST: `sha256:${'c'.repeat(64)}`, ARCHIVE_SHA256: digest(readFileSync(archive)), RELEASE_MANIFEST_DIGEST: `sha256:${digest('{}')}`,
       RELEASE_ARCHIVE: archive, DEPLOY_SCRIPT: controller, ROLLING_RELOAD_SCRIPT: controller, DEPLOY_OUTCOME_PATH: outcome, REQUIRE_CONTENT_RELEASE_REVALIDATION: '0',
       REQUIRE_TRACKING_INGEST_RUNTIME: enabled ? '1' : '0', TRACKING_RUNTIME_SOURCE: source, TRACKING_RUNTIME_HELPER: path.resolve('.github/trunk/tracking-runtime.cjs'),

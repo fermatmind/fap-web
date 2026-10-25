@@ -51,8 +51,10 @@ esac
       const credentials = { [KEYS[0]]: 'fixture-runtime-secret-not-production', [KEYS[1]]: 'https://redis.example.test', [KEYS[2]]: 'fixture-redis-token' };
       writeConfig(runtime, credentials);
       const outcome = path.join(root, 'outcome.json');
+      const pdfInput = path.join(root, 'pdf-input.env');
+      writeFileSync(pdfInput, 'GOTENBERG_RESULT_PRINT_TOKEN_SECRET='+ 'a'.repeat(64)+'\n', { mode: 0o600 });
       const result = spawnSync('bash', ['scripts/install_standalone_release.sh'], {
-        env: { ...process.env, APP_DIR: app, APP_USER: userInfo().username, DEPLOY_SHA: sha,
+        env: { ...process.env, PDF_PRINT_RUNTIME_SOURCE: pdfInput, PDF_PRINT_RUNTIME_HELPER: path.resolve('.github/trunk/pdf-print-runtime.mjs'), APP_DIR: app, APP_USER: userInfo().username, DEPLOY_SHA: sha,
           ARTIFACT_DIGEST: `sha256:${'c'.repeat(64)}`, ARCHIVE_SHA256: digest(readFileSync(archive)),
           RELEASE_MANIFEST_DIGEST: `sha256:${digest('{}')}`, RELEASE_ARCHIVE: archive,
           DEPLOY_SCRIPT: deploy, ROLLING_RELOAD_SCRIPT: deploy, TEST_MODE: mode,
@@ -102,12 +104,12 @@ for (const status of ['success', 'failed']) {
           DEPLOY_HOST: 'test.invalid', DEPLOY_USER: 'test', DEPLOY_PORT: '22', APP_DIR: `${root}/app`, APP_NAME: 'test', APP_PORT: '3000',
           PUBLIC_BASE_URL: 'https://test.invalid', DEPLOY_SHA: sha, RELEASE_ARCHIVE: `${root}/archive`, RELEASE_ARCHIVE_SHA256: 'd'.repeat(64),
           RELEASE_MANIFEST_DIGEST: `sha256:${'c'.repeat(64)}`, ARTIFACT_DIGEST: `sha256:${'e'.repeat(64)}`,
-          GITHUB_RUN_ID: '1', GITHUB_RUN_ATTEMPT: '1', RUNNER_TEMP: root, REQUIRE_LLMS_FULL_ARTIFACT: '0' },
+          GOTENBERG_RESULT_PRINT_TOKEN_SECRET: 'a'.repeat(64), GITHUB_RUN_ID: '1', GITHUB_RUN_ATTEMPT: '1', RUNNER_TEMP: root, REQUIRE_LLMS_FULL_ARTIFACT: '0' },
         encoding: 'utf8', timeout: 10000,
       });
       assert.equal(result.error, undefined);
       assert.equal(result.status === 0, status === 'success', result.stdout + result.stderr);
-      assert.equal(readFileSync(calls, 'utf8').trim().split('\n').length, 2);
+      assert.equal(readFileSync(calls, 'utf8').trim().split('\n').length, 3);
       assert.equal(JSON.parse(readFileSync(path.join(root, 'deploy-outcome.json'), 'utf8')).status, status);
     } finally {
       rmSync(root, { force: true, recursive: true });
@@ -147,7 +149,7 @@ globalThis.fetch = async (url) => {
           FIXTURE_OUTCOME: outcome, FIXTURE_LLMS: llms, DEPLOY_HOST: 'test.invalid', DEPLOY_USER: 'test', DEPLOY_PORT: '22',
           APP_DIR: `${root}/app`, APP_NAME: 'test', APP_PORT: '3000', PUBLIC_BASE_URL: 'https://test.invalid', DEPLOY_SHA: sha,
           RELEASE_ARCHIVE: `${root}/archive`, RELEASE_ARCHIVE_SHA256: 'd'.repeat(64), RELEASE_MANIFEST_DIGEST: `sha256:${'c'.repeat(64)}`,
-          ARTIFACT_DIGEST: `sha256:${'e'.repeat(64)}`, GITHUB_RUN_ID: '1', GITHUB_RUN_ATTEMPT: '1', RUNNER_TEMP: root,
+          ARTIFACT_DIGEST: `sha256:${'e'.repeat(64)}`, GOTENBERG_RESULT_PRINT_TOKEN_SECRET: 'a'.repeat(64), GITHUB_RUN_ID: '1', GITHUB_RUN_ATTEMPT: '1', RUNNER_TEMP: root,
           REQUIRE_LLMS_FULL_ARTIFACT: '1', REQUIRE_CONTENT_RELEASE_REVALIDATION: '0', REQUIRE_TRACKING_INGEST_RUNTIME: '0' },
         encoding: 'utf8', timeout: 10000,
       });

@@ -285,6 +285,7 @@ cleanup() {
     rm -rf "$incoming_dir"
   fi
   if [[ "$REQUIRE_TRACKING_INGEST_RUNTIME" == "1" ]]; then rm -f -- "${TRACKING_RUNTIME_SOURCE:?}"; fi
+  if [[ -n "${PDF_PRINT_RUNTIME_SOURCE:-}" ]]; then rm -f -- "$PDF_PRINT_RUNTIME_SOURCE"; fi
   exit "$code"
 }
 trap cleanup EXIT
@@ -337,6 +338,9 @@ else
   [[ ! -e "$release_dir/.tracking-runtime.json" && ! -L "$release_dir/.tracking-runtime.json" \
      && ! -e "$release_dir/.tracking-runtime-managed.json" && ! -L "$release_dir/.tracking-runtime-managed.json" ]] || fail "disabled candidate contains managed tracking authority"
 fi
+[[ -f "${PDF_PRINT_RUNTIME_HELPER:-}" && -f "${PDF_PRINT_RUNTIME_SOURCE:-}" ]] || fail "PDF print runtime configuration unavailable"
+node "$PDF_PRINT_RUNTIME_HELPER" install "$PDF_PRINT_RUNTIME_SOURCE" "$release_dir/.env.production.local"
+rm -f -- "$PDF_PRINT_RUNTIME_SOURCE"
 phase="preflight"
 write_outcome running 0
 PREFLIGHT_ONLY=1 CANDIDATE_RELEASE_DIR="$release_dir" REQUIRE_TRACKING_RUNTIME_READBACK=1 \

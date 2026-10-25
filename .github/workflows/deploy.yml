@@ -215,6 +215,7 @@ jobs:
           chmod 600 ~/.ssh/known_hosts
       - name: Activate staging candidate and complete smoke
         env:
+          GOTENBERG_RESULT_PRINT_TOKEN_SECRET: ${{ secrets.GOTENBERG_RESULT_PRINT_TOKEN_SECRET }}
           REQUIRE_CONTENT_RELEASE_REVALIDATION: "1"
           CONTENT_RELEASE_REVALIDATE_SECRET: ${{ secrets.CONTENT_RELEASE_REVALIDATE_SECRET }}
           CONTENT_RELEASE_REVALIDATE_REDIS_URL: ${{ secrets.CONTENT_RELEASE_REVALIDATE_REDIS_URL }}
@@ -306,6 +307,7 @@ jobs:
         name: Activate production candidate; installer restores previous release on failed smoke
         if: steps.order.outputs.skip != 'true'
         env:
+          GOTENBERG_RESULT_PRINT_TOKEN_SECRET: ${{ secrets.GOTENBERG_RESULT_PRINT_TOKEN_SECRET }}
           REQUIRE_TRACKING_INGEST_RUNTIME: ${{ vars.TRACK_INGEST_ENABLED == '1' && '1' || '0' }}
           TRACK_INGEST_TOKEN: ${{ vars.TRACK_INGEST_ENABLED == '1' && secrets.TRACK_INGEST_TOKEN || '' }}
           TRACK_INGEST_API_ORIGIN: https://api.fermatmind.com
