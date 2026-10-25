@@ -1,8 +1,10 @@
 import { test, expect, type Page } from "@playwright/test";
+import nativeCatalog from "../../lib/questionnaires/catalog.json";
 import catalog from "../../lib/entertainment/catalog.json";
 import { isDirectoryQuiz } from "../../lib/entertainment/directory";
 
-const samples = ["woodland-animal", "group-chat-role", "fantasy-party-role", "lost-letter-adventure", "portal-choice", "spell-school-elective", "island-day", "snow-day", "response-color", "dream-train", "board-game-table", "escape-room-role", "photo-group-role", "game-night-reset", "gift-note", "comfort-offer", "relationship-values", "choosing-together", "note-taking-doodles", "fictional-cafe", "house-of-doors", "harbor-light", "pocket-map", "story-ending"];
+// Complete native replacements are exercised by their source-specific questionnaire suites.
+const samples = ["woodland-animal", "group-chat-role", "fantasy-party-role", "lost-letter-adventure", "portal-choice", "spell-school-elective", "island-day", "snow-day", "response-color", "dream-train", "board-game-table", "escape-room-role", "photo-group-role", "game-night-reset", "gift-note", "comfort-offer", "relationship-values", "choosing-together", "note-taking-doodles", "fictional-cafe", "house-of-doors", "harbor-light", "pocket-map", "story-ending"].filter(slug => !nativeCatalog.some(native => native.slug === slug));
 async function finish(page: Page, zh: boolean) {
   for (let step = 0; step < 30; step++) {
     await page.getByRole("radio").first().check();

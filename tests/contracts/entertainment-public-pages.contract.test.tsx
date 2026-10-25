@@ -2,6 +2,8 @@ import { describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import FunQuizPage, { generateMetadata } from "@/app/(localized)/[locale]/tests/play/[slug]/page";
 import { loadFunQuiz } from "@/lib/entertainment/loaders";
+import nativeCatalog from "@/lib/questionnaires/catalog.json";
+import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
 import catalog from "@/lib/entertainment/catalog.json";
 
 vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
@@ -15,6 +17,26 @@ describe("complete bilingual entertainment entry rendering", () => {
         const metadata = await generateMetadata(props);
         const html = renderToStaticMarkup(await FunQuizPage(props));
         const dom = document.createElement("div"); dom.innerHTML = html;
+        if (nativeCatalog.some(native => native.slug === quiz.slug && native.collection === "play")) {
+          const authored = (await loadQuestionnaire(quiz.slug))!;
+          expect(dom.querySelector("h1")?.textContent).toBe(authored.title[locale]);
+          expect(dom.querySelectorAll("main")).toHaveLength(1);
+          expect(metadata.title).toBe(authored.seoTitle[locale]);
+          expect(metadata.description).toBe(authored.description[locale]);
+          expect(metadata.openGraph?.images).toEqual([`https://fermatmind.com/og/fun/${quiz.slug}?locale=${locale}&v=${authored.version}`]);
+          expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com/${locale}/tests/play/${quiz.slug}`);
+          expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/play/${quiz.slug}`, "zh-CN": `https://fermatmind.com/zh/tests/play/${quiz.slug}` });
+          expect(metadata.robots).toMatchObject({ index: true, follow: true });
+          for (const faq of authored.faq) { expect(dom.textContent).toContain(faq.question[locale]); expect(dom.textContent).toContain(faq.answer[locale]); }
+          for (const profile of authored.profiles) {
+            expect(dom.querySelector(`a[href="/${locale}/tests/play/${quiz.slug}/results/${profile.id}"]`)).not.toBeNull();
+            expect(dom.textContent).toContain(profile.summary[locale]);
+          }
+          expect(dom.querySelector("#take-test")?.textContent).toContain(locale === "zh" ? "开始测试" : "Start test");
+          expect(dom.querySelector("#take-test a[href*='mbti']")).toBeNull();
+          expect(dom.querySelectorAll('script[type="application/ld+json"]')).toHaveLength(2);
+          continue;
+        }
         expect(dom.querySelector("h1")?.textContent).toBe(quiz.title[locale]);
         expect(dom.querySelectorAll("main")).toHaveLength(1);
         const authored = (await loadFunQuiz(quiz.slug))!;

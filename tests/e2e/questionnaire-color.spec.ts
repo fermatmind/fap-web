@@ -46,6 +46,9 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     const profile = await complete(page, locale, "RED");
     expect(profile.directionIds).toEqual(["RED"]);
+    const nextStep = page.getByRole("heading", { name: zh ? "完整结果已呈现，下一步由你选择" : "Your full result is ready. Choose what comes next.", exact: true }).locator("..");
+    await expect(nextStep).toContainText(zh ? "这项结果不会换算成MBTI类型" : "this result is never converted into an MBTI type");
+    await expect(nextStep).not.toContainText(zh ? "DISC结果" : "your DISC result");
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveAttribute("href", /target_action=questionnaire_result_mbti/);
     await page.getByRole("link", { name: zh ? "阅读这项结果的公开说明" : "Read the public explanation of this result", exact: true }).click();
