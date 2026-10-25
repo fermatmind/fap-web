@@ -261,5 +261,38 @@
       "neutral-evil",
       "chaotic-evil"
     ]
+  },
+  {
+    "slug": "jungian-archetype",
+    "code": "JUNGIAN_ARCHETYPE",
+    "version": "1.0.0",
+    "updated": "2026-10-25",
+    "category": "framework",
+    "title": {
+      "zh": "荣格原型测试",
+      "en": "Jungian Archetype Test"
+    },
+    "description": {
+      "zh": "完成36道原创情境题，比较纯真者、智者、英雄等12种原型动机。查看全部计数与完整并列报告，先读相近原型、具体例子和计分；免费无需注册。",
+      "en": "Take 36 original questions and compare all 12 archetypal themes, from Sage to Creator. Get every tied result and full guides with examples. Free, no signup."
+    },
+    "minutes": 8,
+    "collection": "explore",
+    "formCode": "fm_archetypal_motivation_choices_36",
+    "questionCount": 36,
+    "resultSlugs": [
+      "innocent",
+      "sage",
+      "explorer",
+      "rebel",
+      "magician",
+      "hero",
+      "lover",
+      "jester",
+      "everyperson",
+      "caregiver",
+      "ruler",
+      "creator"
+    ]
   }
 ]

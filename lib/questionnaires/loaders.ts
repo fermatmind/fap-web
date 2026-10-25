@@ -1,6 +1,7 @@
 import type { Questionnaire } from "./types";
 
 const loaders = {
+  "jungian-archetype": async () => (await import("./data/jungian-archetype.json")).default as Questionnaire,
   "moral-alignment": async () => (await import("./data/moral-alignment.json")).default as Questionnaire,
   "superpower-test": async () => (await import("./data/superpower-test.json")).default as Questionnaire,
   "mythical-creature": async () => (await import("./data/mythical-creature.json")).default as Questionnaire,

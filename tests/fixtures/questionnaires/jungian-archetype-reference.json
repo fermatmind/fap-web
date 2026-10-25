@@ -1,0 +1,1586 @@
+{
+  "formCode": "fm_archetypal_motivation_choices_36",
+  "itemBankVersion": "1.0.0",
+  "directions": [
+    {
+      "id": "innocent",
+      "title": {
+        "zh": "纯真者",
+        "en": "Innocent"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "sage",
+      "title": {
+        "zh": "智者",
+        "en": "Sage"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "explorer",
+      "title": {
+        "zh": "探索者",
+        "en": "Explorer"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "rebel",
+      "title": {
+        "zh": "反叛者",
+        "en": "Rebel"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "magician",
+      "title": {
+        "zh": "魔法师",
+        "en": "Magician"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "hero",
+      "title": {
+        "zh": "英雄",
+        "en": "Hero"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "lover",
+      "title": {
+        "zh": "恋人",
+        "en": "Lover"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "jester",
+      "title": {
+        "zh": "弄臣",
+        "en": "Jester"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "everyperson",
+      "title": {
+        "zh": "平凡者",
+        "en": "Everyperson"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "caregiver",
+      "title": {
+        "zh": "照顾者",
+        "en": "Caregiver"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "ruler",
+      "title": {
+        "zh": "统治者",
+        "en": "Ruler"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "creator",
+      "title": {
+        "zh": "创造者",
+        "en": "Creator"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "ARCHETYPE_01",
+      "prompt": {
+        "zh": "参加一个新兴趣小组时，你最想先找到什么？",
+        "en": "When joining a new interest group, what would you most want to find first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个让人放心、可以简单开始的安排。",
+            "en": "A reassuring arrangement that makes getting started uncomplicated."
+          },
+          "directionId": "innocent"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一份能帮助自己理解主题的可靠说明。",
+            "en": "A reliable explanation that helps me understand the subject."
+          },
+          "directionId": "sage"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一种把陌生想法联系起来、产生新看法的方法。",
+            "en": "A way to connect unfamiliar ideas and see the subject differently."
+          },
+          "directionId": "magician"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个可以轻松开玩笑、享受当下的氛围。",
+            "en": "An atmosphere with room for lightness and enjoying the moment."
+          },
+          "directionId": "jester"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_02",
+      "prompt": {
+        "zh": "准备向朋友介绍一个你喜欢的主题，哪件事更能激起你的兴趣？",
+        "en": "You are introducing friends to a subject you enjoy. Which part most interests you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "弄清概念之间的区别，让解释有依据。",
+            "en": "Clarifying distinctions so the explanation has a sound basis."
+          },
+          "directionId": "sage"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "沿着一个自己还不了解的方向继续探寻。",
+            "en": "Following a direction I have not explored for myself."
+          },
+          "directionId": "explorer"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "挑战一段有难度的讲解，看看自己能否完成。",
+            "en": "Tackling a demanding explanation to see whether I can manage it."
+          },
+          "directionId": "hero"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让没有背景知识的人也能自然加入讨论。",
+            "en": "Making it easy for people without background knowledge to join in."
+          },
+          "directionId": "everyperson"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_03",
+      "prompt": {
+        "zh": "一起安排周末时，你更希望为这次相处带来什么？",
+        "en": "When arranging a weekend together, what would you most like to bring to it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一点可以各自发现新东西的空间。",
+            "en": "Room for each person to discover something unfamiliar."
+          },
+          "directionId": "explorer"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一次重新考虑“每次都得这样”的机会。",
+            "en": "A chance to reconsider something everyone assumes must stay the same."
+          },
+          "directionId": "rebel"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "对重要的人多一点专注、具体的陪伴。",
+            "en": "More attentive, personal time with someone who matters to me."
+          },
+          "directionId": "lover"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让有需要的人不用独自处理的小协助。",
+            "en": "Practical support so someone does not have to manage a need alone."
+          },
+          "directionId": "caregiver"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_04",
+      "prompt": {
+        "zh": "小组准备改进一个不太顺手的活动流程，你最愿意从哪里入手？",
+        "en": "A group wants to improve an awkward activity process. Where would you most like to begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问问哪条沿用的要求其实可以取消。",
+            "en": "Questioning which inherited requirement could be removed."
+          },
+          "directionId": "rebel"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "重新连接现有步骤，试一种不同的整体做法。",
+            "en": "Connecting existing steps differently to try another overall approach."
+          },
+          "directionId": "magician"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "让讨论不那么紧绷，给轻松的新点子留位置。",
+            "en": "Easing the atmosphere so playful ideas have some room."
+          },
+          "directionId": "jester"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "明确谁负责决定、协调与后续确认。",
+            "en": "Clarifying who will decide, coordinate and follow up."
+          },
+          "directionId": "ruler"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_05",
+      "prompt": {
+        "zh": "你有一小段空闲参与社区活动，哪项任务更吸引你？",
+        "en": "You have a little spare time for a community activity. Which task draws you most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把两个原本分开的活动点子结合起来试一试。",
+            "en": "Trying a combination of two previously separate activity ideas."
+          },
+          "directionId": "magician"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "接下一项需要练习才能做好的具体挑战。",
+            "en": "Taking on a concrete challenge that will require practice."
+          },
+          "directionId": "hero"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "和其他参与者一起做普通却需要人手的工作。",
+            "en": "Joining others in ordinary work that simply needs more hands."
+          },
+          "directionId": "everyperson"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "做出一件带有自己想法的新材料或小作品。",
+            "en": "Making a new piece of material or a small work of my own."
+          },
+          "directionId": "creator"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_06",
+      "prompt": {
+        "zh": "朋友想办一场小型分享会，你最想贡献哪一部分？",
+        "en": "A friend is organising a small gathering. What would you most like to contribute?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "承担一个有挑战的环节，并练到能完成。",
+            "en": "Taking a challenging part and practising until I can do it."
+          },
+          "directionId": "hero"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "准备一个让对方感到被认真了解的细节。",
+            "en": "Preparing a detail that shows the friend is personally understood."
+          },
+          "directionId": "lover"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "询问谁需要协助，再负责一项明确的支持。",
+            "en": "Asking who needs help and offering one specific contribution."
+          },
+          "directionId": "caregiver"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让安排保持简单，留住这件事最初的愉快。",
+            "en": "Keeping things simple and preserving the original enjoyment."
+          },
+          "directionId": "innocent"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_07",
+      "prompt": {
+        "zh": "回顾一次相处愉快的聚会，哪种时刻最让你想再来一次？",
+        "en": "Thinking back to a gathering you enjoyed, which moment most makes you want to return?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "和某个人有了更细致、真诚的交流。",
+            "en": "Having a more attentive, sincere exchange with someone."
+          },
+          "directionId": "lover"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "大家一起笑了，短暂放下表现得很好的压力。",
+            "en": "Laughing together and briefly dropping the pressure to perform."
+          },
+          "directionId": "jester"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "安排顺利衔接，每个人知道接下来怎样参与。",
+            "en": "Seeing arrangements connect smoothly so people knew how to take part."
+          },
+          "directionId": "ruler"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "听到一个解释，让自己真正理解了原先的疑问。",
+            "en": "Hearing an explanation that resolved something I had wondered about."
+          },
+          "directionId": "sage"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_08",
+      "prompt": {
+        "zh": "一起制作活动纪念册时，你更愿意留下什么？",
+        "en": "While making a keepsake for a shared activity, what would you most like to include?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个大家看到就会会心一笑的小细节。",
+            "en": "A small detail that makes the group smile in recognition."
+          },
+          "directionId": "jester"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "普通参与者也能认出自己的日常片段。",
+            "en": "Everyday moments in which ordinary participants can recognise themselves."
+          },
+          "directionId": "everyperson"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一种自己重新设计的版式或表达方式。",
+            "en": "A layout or form of expression I have designed afresh."
+          },
+          "directionId": "creator"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一条通向下一次新体验的线索。",
+            "en": "A lead towards another experience we have not tried."
+          },
+          "directionId": "explorer"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_09",
+      "prompt": {
+        "zh": "有人第一次加入长期活动，你更想先做哪件事？",
+        "en": "Someone joins a regular activity for the first time. What would you most want to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "陪他一起做一段普通任务，让加入不显得特别困难。",
+            "en": "Doing an ordinary task alongside them so joining feels accessible."
+          },
+          "directionId": "everyperson"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先问有哪一部分需要实际帮助。",
+            "en": "Asking which part they would like practical help with."
+          },
+          "directionId": "caregiver"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "介绍一个简单、友善的起点，让人不必担心太多。",
+            "en": "Offering a simple, welcoming starting point with less to worry about."
+          },
+          "directionId": "innocent"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "看看有没有不必要的门槛，可以一并重新讨论。",
+            "en": "Checking whether an unnecessary entry barrier could be reconsidered."
+          },
+          "directionId": "rebel"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_10",
+      "prompt": {
+        "zh": "一次共同安排已经基本可行，你还最想确认什么？",
+        "en": "A shared arrangement is nearly ready. What would you most want to check?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "需要照顾的具体情况是否有人愿意回应。",
+            "en": "Whether someone is willing to respond to specific support needs."
+          },
+          "directionId": "caregiver"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "责任、时间和决定方式是否已经说清。",
+            "en": "Whether responsibilities, timing and decisions are clear."
+          },
+          "directionId": "ruler"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "目前依据是否足够，哪里还把猜测当成事实。",
+            "en": "Whether the evidence is sufficient and assumptions are being mistaken for facts."
+          },
+          "directionId": "sage"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "这些部分能否重新组合，带来不同的体验。",
+            "en": "Whether the parts could connect differently to create another experience."
+          },
+          "directionId": "magician"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_11",
+      "prompt": {
+        "zh": "给一项自主学习计划留出一个下午，你更想怎样使用？",
+        "en": "You have an afternoon for a self-directed learning plan. What would you most like to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把步骤、时间与需要的资源安排清楚。",
+            "en": "Organise the steps, time and resources I will need."
+          },
+          "directionId": "ruler"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把学到的东西做成一个自己的新作品。",
+            "en": "Turn something I have learned into an original piece of work."
+          },
+          "directionId": "creator"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "暂时沿着一个没列入计划的问题走一段。",
+            "en": "Follow an unplanned question for a while."
+          },
+          "directionId": "explorer"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "挑一项目前还做不到的练习，认真突破它。",
+            "en": "Work at an exercise I cannot yet manage."
+          },
+          "directionId": "hero"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_12",
+      "prompt": {
+        "zh": "想给一段日常生活增加一点意义时，你更愿意从哪里开始？",
+        "en": "When you want to give everyday life a little more meaning, where would you begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "留下一个自己动手做出的新东西。",
+            "en": "Make something new that carries my own contribution."
+          },
+          "directionId": "creator"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "重新注意原本就有的简单好事。",
+            "en": "Notice simple good things that are already there."
+          },
+          "directionId": "innocent"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "停止照搬一个不再认同的惯例。",
+            "en": "Stop repeating a convention I no longer agree with."
+          },
+          "directionId": "rebel"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "认真表达对一个人或一件事的在意。",
+            "en": "Give attentive expression to someone or something I care about."
+          },
+          "directionId": "lover"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_13",
+      "prompt": {
+        "zh": "一段新计划尚未定形，什么最能让你愿意开始？",
+        "en": "A new plan has not taken shape yet. What most makes you want to begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先有一个可信、不过分复杂的小起点。",
+            "en": "A trustworthy small starting point without too much complication."
+          },
+          "directionId": "innocent"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "有空间自己发现路线，而不是全部照着说明走。",
+            "en": "Space to discover a route rather than follow every instruction."
+          },
+          "directionId": "explorer"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "有一项可以通过努力完成的明确难题。",
+            "en": "A definite challenge I could overcome through effort."
+          },
+          "directionId": "hero"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有人和自己并肩做，不必先表现出特别之处。",
+            "en": "People working alongside me without a need to stand out."
+          },
+          "directionId": "everyperson"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_14",
+      "prompt": {
+        "zh": "当别人提出一种你不熟悉的看法，你最有兴趣追问哪一部分？",
+        "en": "Someone offers an unfamiliar perspective. Which part would you most like to explore?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "哪些证据支持它，哪些概念需要区分。",
+            "en": "What evidence supports it and which concepts need separating."
+          },
+          "directionId": "sage"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "它挑战了哪条一直没被质疑的假设。",
+            "en": "Which previously unquestioned assumption it challenges."
+          },
+          "directionId": "rebel"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "说出这番话的人在意什么，希望被怎样理解。",
+            "en": "What matters to the speaker and how they hope to be understood."
+          },
+          "directionId": "lover"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "怎样回应才能让有实际需要的人得到一点支持。",
+            "en": "How a response might offer support to someone with a concrete need."
+          },
+          "directionId": "caregiver"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_15",
+      "prompt": {
+        "zh": "一个熟悉的活动准备换一种形式，你最期待什么？",
+        "en": "A familiar activity is taking a different form. What do you most look forward to?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "亲自接触原先没试过的内容。",
+            "en": "Encountering something I have not tried myself."
+          },
+          "directionId": "explorer"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "原本分开的做法结合后，会产生怎样的新效果。",
+            "en": "Seeing what happens when previously separate approaches connect."
+          },
+          "directionId": "magician"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一点意外的轻松与玩趣。",
+            "en": "An unexpected moment of play and lightness."
+          },
+          "directionId": "jester"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "新的组织方式能让协作更容易衔接。",
+            "en": "An arrangement that makes coordination easier to follow."
+          },
+          "directionId": "ruler"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_16",
+      "prompt": {
+        "zh": "一个小作品暂时没有人关注，什么最能让你继续投入？",
+        "en": "A small piece of work has attracted little attention. What most makes you want to continue?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "它表达了我想重新质疑的某种惯例。",
+            "en": "It gives expression to a convention I want to question."
+          },
+          "directionId": "rebel"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "还有一处难点，自己想通过练习把它做好。",
+            "en": "There is still a difficult part I want to master through practice."
+          },
+          "directionId": "hero"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "它能让有类似普通经历的人觉得自己并不孤单。",
+            "en": "It may help people with similar everyday experiences feel less alone."
+          },
+          "directionId": "everyperson"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "它仍有一种我想亲手实现的表达。",
+            "en": "There is still an expression I want to bring into being myself."
+          },
+          "directionId": "creator"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_17",
+      "prompt": {
+        "zh": "当你想改善一段日常相处时，哪个方向更吸引你？",
+        "en": "When you want to improve an everyday relationship, which direction draws you most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "换一种看问题的连接方式，试试新的相处可能。",
+            "en": "Connect things differently and try another way of relating."
+          },
+          "directionId": "magician"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "对彼此在意的小细节给出更多专注。",
+            "en": "Give more attention to the small things that matter to each of us."
+          },
+          "directionId": "lover"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问清哪项具体支持有用，再提供自己能承担的部分。",
+            "en": "Ask what support would help and offer what I can manage."
+          },
+          "directionId": "caregiver"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "保留简单、可信的互动，不让相处变成复杂考验。",
+            "en": "Keep interactions simple and trustworthy rather than make them a complicated test."
+          },
+          "directionId": "innocent"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_18",
+      "prompt": {
+        "zh": "完成一次不太轻松的共同任务后，哪种回顾更有吸引力？",
+        "en": "After a demanding shared task, which kind of reflection appeals most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "看看自己在哪个困难上有了实际进步。",
+            "en": "Notice a concrete improvement in something I found difficult."
+          },
+          "directionId": "hero"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找回一个有趣片段，让大家可以一起笑一笑。",
+            "en": "Recall an amusing moment we can enjoy together."
+          },
+          "directionId": "jester"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "梳理下次怎样安排责任与交接更清楚。",
+            "en": "Work out how responsibilities and handovers could be clearer next time."
+          },
+          "directionId": "ruler"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "弄清发生了什么，哪些解释仍只是推测。",
+            "en": "Understand what happened and which explanations remain guesses."
+          },
+          "directionId": "sage"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_19",
+      "prompt": {
+        "zh": "你决定认真经营一项业余爱好，最不想失去什么？",
+        "en": "You decide to give a hobby sustained attention. What would you least want to lose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "对其中人和事物那种细致、投入的喜爱。",
+            "en": "An attentive, engaged affection for the people or subject involved."
+          },
+          "directionId": "lover"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "和普通同好一起参与、不必证明特别的自在。",
+            "en": "Ease with fellow participants without having to prove I am special."
+          },
+          "directionId": "everyperson"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "做出属于自己表达的空间。",
+            "en": "Space to create an expression of my own."
+          },
+          "directionId": "creator"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "沿着新线索继续探索的自由。",
+            "en": "Freedom to keep following unfamiliar leads."
+          },
+          "directionId": "explorer"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_20",
+      "prompt": {
+        "zh": "给日常安排增加一个小变化，你最愿意尝试哪一种？",
+        "en": "You can make a small change to an everyday routine. Which would you most like to try?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "给原本认真的步骤加入一点适度玩趣。",
+            "en": "Add a little appropriate play to an otherwise serious step."
+          },
+          "directionId": "jester"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "安排一项自己愿意提供的具体协助。",
+            "en": "Make room for a specific piece of help I am willing to offer."
+          },
+          "directionId": "caregiver"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "减去多余要求，保留简单而舒服的部分。",
+            "en": "Remove unnecessary demands and keep things simple and comfortable."
+          },
+          "directionId": "innocent"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "重新决定一项习惯，不只因为一直如此就继续。",
+            "en": "Reconsider a habit rather than keep it merely because it is familiar."
+          },
+          "directionId": "rebel"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_21",
+      "prompt": {
+        "zh": "小组讨论暂时没有明确方向，你会更想贡献什么？",
+        "en": "A group discussion has no clear direction yet. What would you most like to contribute?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让每个人都能用普通语言说出自己的经历。",
+            "en": "Room for everyone to describe their experience in everyday language."
+          },
+          "directionId": "everyperson"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个能协调时间、责任和决定的简单框架。",
+            "en": "A simple structure for timing, responsibilities and decisions."
+          },
+          "directionId": "ruler"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "帮助大家分清事实、解释和待确认的问题。",
+            "en": "A distinction between facts, interpretations and unanswered questions."
+          },
+          "directionId": "sage"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把几个分散想法接起来的一种新视角。",
+            "en": "A fresh perspective that connects several scattered ideas."
+          },
+          "directionId": "magician"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_22",
+      "prompt": {
+        "zh": "为一个熟悉的地方投入一点时间，哪件事更有吸引力？",
+        "en": "You can spend some time contributing to a familiar place. What most appeals to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先找出谁有明确需要，再商量一项可行帮助。",
+            "en": "Find out who has a specific need and agree on feasible help."
+          },
+          "directionId": "caregiver"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "设计或制作一个能看见自己想法的小改变。",
+            "en": "Design or make a small change that gives form to an idea of my own."
+          },
+          "directionId": "creator"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "去一个自己还不熟悉的角落，看看有什么。",
+            "en": "Explore a corner I do not yet know."
+          },
+          "directionId": "explorer"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "解决一项需要投入练习的实际难题。",
+            "en": "Work at a practical challenge that will take some practice."
+          },
+          "directionId": "hero"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_23",
+      "prompt": {
+        "zh": "当一项安排需要大家重新达成共识，你最想守住哪件事？",
+        "en": "When a group needs to renew an agreement, what would you most want to preserve?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "责任与决定方式清楚，后续能有人协调。",
+            "en": "Clear responsibilities and decisions with a way to coordinate afterwards."
+          },
+          "directionId": "ruler"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "保有基本信任，不把每件小事都变成防备。",
+            "en": "Basic trust without turning every small matter into suspicion."
+          },
+          "directionId": "innocent"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "已经不适合的要求仍可以被质疑和调整。",
+            "en": "Room to question and change a requirement that no longer fits."
+          },
+          "directionId": "rebel"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "重要关系中的在意能被具体表达出来。",
+            "en": "Room for care within important relationships to be expressed personally."
+          },
+          "directionId": "lover"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_24",
+      "prompt": {
+        "zh": "你想把一次经历记录下来，最想突出什么？",
+        "en": "You want to record an experience. What would you most like to bring out?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一种有自己风格的表达形式。",
+            "en": "A form of expression with a contribution of my own."
+          },
+          "directionId": "creator"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "事情的来龙去脉，以及自己现在还不知道什么。",
+            "en": "What happened, how it connects and what I still do not know."
+          },
+          "directionId": "sage"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "某个让看法发生变化的连接或转折。",
+            "en": "A connection or turning point that changed the way I saw things."
+          },
+          "directionId": "magician"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个能让人重新感到轻松的小瞬间。",
+            "en": "A small moment that lets people feel a little lighter again."
+          },
+          "directionId": "jester"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_25",
+      "prompt": {
+        "zh": "准备重新开始一项中断的共同活动，你更想先恢复什么？",
+        "en": "You are restarting a shared activity after a pause. What would you most like to restore first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个可以放心参加、不用背负太多要求的起点。",
+            "en": "A reassuring starting point without an excess of demands."
+          },
+          "directionId": "innocent"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "对旧安排提问的空间，不必原样继续。",
+            "en": "Room to question the old arrangement rather than resume it unchanged."
+          },
+          "directionId": "rebel"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "人与人之间有专注、有回应的联系。",
+            "en": "Attentive connections in which people respond to one another."
+          },
+          "directionId": "lover"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有人能说出需要，并商量实际协助的机会。",
+            "en": "A chance to name needs and discuss practical help."
+          },
+          "directionId": "caregiver"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_26",
+      "prompt": {
+        "zh": "讨论一个复杂点子时，你最愿意做哪种整理？",
+        "en": "While discussing a complicated idea, which kind of organising would you most like to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把已经知道与仍待核实的部分分开。",
+            "en": "Separate what is known from what still needs checking."
+          },
+          "directionId": "sage"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "换一个联系各部分的方式，寻找可能的转变。",
+            "en": "Connect the parts differently and look for a possible change."
+          },
+          "directionId": "magician"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用一个不伤人的轻松比喻，让讨论重新有活力。",
+            "en": "Use a light, considerate analogy to bring some energy back."
+          },
+          "directionId": "jester"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "确认下一步谁决定、谁行动、何时再沟通。",
+            "en": "Clarify who decides, who acts and when to speak again."
+          },
+          "directionId": "ruler"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_27",
+      "prompt": {
+        "zh": "面对一个自己选择的长期小计划，什么最能吸引你回来？",
+        "en": "What most draws you back to a small long-term project you chose yourself?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "还有一条自己没走过的路线可以探寻。",
+            "en": "There is still an unfamiliar route I could explore."
+          },
+          "directionId": "explorer"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "有个明确难点，自己想继续练到完成。",
+            "en": "There is a definite challenge I want to keep practising."
+          },
+          "directionId": "hero"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "有一群和自己一样普通参与的人可以同行。",
+            "en": "There are fellow everyday participants to work alongside."
+          },
+          "directionId": "everyperson"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "还想亲手做出一个原先不存在的表达。",
+            "en": "There is an expression I still want to make that did not exist before."
+          },
+          "directionId": "creator"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_28",
+      "prompt": {
+        "zh": "重新考虑一段已经习惯的相处方式时，你最想为改变留下什么理由？",
+        "en": "When reconsidering a familiar way of relating, which reason for change matters most to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不再仅仅因为某种期待一直存在，就默认自己必须照做。",
+            "en": "Not assuming I must follow an expectation simply because it has long existed."
+          },
+          "directionId": "rebel"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给彼此真正在意的细节更多位置。",
+            "en": "Make more room for the personal details that matter to each of us."
+          },
+          "directionId": "lover"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "让具体需要得到愿意承担的实际回应。",
+            "en": "Make it easier to agree on practical responses to specific needs."
+          },
+          "directionId": "caregiver"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让互动重新简单可信，不必不断猜测。",
+            "en": "Restore simple, trustworthy interactions with less guessing."
+          },
+          "directionId": "innocent"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_29",
+      "prompt": {
+        "zh": "你被邀请为活动提出一项建议，哪一种贡献更吸引你？",
+        "en": "You are invited to suggest something for an activity. Which contribution most appeals to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把两个原本不相关的部分连接起来，试试整体变化。",
+            "en": "Connect two previously unrelated parts and try a different whole."
+          },
+          "directionId": "magician"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "增加一个适合场合的玩趣，让参与者轻松一点。",
+            "en": "Add appropriate play so participants can feel a little lighter."
+          },
+          "directionId": "jester"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把资源、责任与节奏安排得更容易持续。",
+            "en": "Arrange resources, responsibilities and timing so the activity is easier to sustain."
+          },
+          "directionId": "ruler"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提出一个能帮助大家看清问题的具体疑问。",
+            "en": "Offer a concrete question that helps everyone understand the issue."
+          },
+          "directionId": "sage"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_30",
+      "prompt": {
+        "zh": "在一项自己在意的技能上，你更希望保有什么？",
+        "en": "Within a skill you care about, what would you most like to preserve?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "面对难点、反复练习并看见自己进步的机会。",
+            "en": "Chances to face difficulty, practise and notice progress."
+          },
+          "directionId": "hero"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "和不同水平的人一起参与，不必用表现证明归属。",
+            "en": "Participation with people at different levels without earning belonging through performance."
+          },
+          "directionId": "everyperson"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把学到的方法做出自己表达的空间。",
+            "en": "Room to give what I have learned an expression of my own."
+          },
+          "directionId": "creator"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "跟随兴趣接触陌生内容的可能。",
+            "en": "Possibilities to follow my interest into unfamiliar material."
+          },
+          "directionId": "explorer"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_31",
+      "prompt": {
+        "zh": "给一场普通会面留下一点温度，你更愿意做什么？",
+        "en": "To bring a little warmth to an ordinary meeting, what would you most like to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "记住对方真正在意的小事，并专心回应。",
+            "en": "Remember a personal detail that matters and respond attentively."
+          },
+          "directionId": "lover"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "问问有无具体需要，提供自己愿意承担的一项帮助。",
+            "en": "Ask about a concrete need and offer help I am willing to provide."
+          },
+          "directionId": "caregiver"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "保持简单友善，让人可以安心做自己。",
+            "en": "Keep things simple and welcoming so people can feel at ease."
+          },
+          "directionId": "innocent"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "给不同意见留位置，不要求所有人照同一种方式相处。",
+            "en": "Leave room for disagreement without requiring one way of relating."
+          },
+          "directionId": "rebel"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_32",
+      "prompt": {
+        "zh": "一个讨论越来越严肃，你更想增加什么？",
+        "en": "A discussion is becoming increasingly serious. What would you most like to add?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个体贴的轻松停顿，不必一直维持表现。",
+            "en": "A considerate moment of lightness without keeping up a performance."
+          },
+          "directionId": "jester"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "清楚的议程与决定方式，让讨论可以推进。",
+            "en": "A clear agenda and decision process so it can move forward."
+          },
+          "directionId": "ruler"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "分清证据与解释的问题，让大家知道正在讨论什么。",
+            "en": "Questions that separate evidence from interpretation and clarify the subject."
+          },
+          "directionId": "sage"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一种重新连接想法的视角，试出另一种可能。",
+            "en": "A perspective that reconnects ideas and opens another possibility."
+          },
+          "directionId": "magician"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_33",
+      "prompt": {
+        "zh": "一次共同活动结束后，你更愿意带走哪份满足？",
+        "en": "After a shared activity, which satisfaction would you most like to take away?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己作为普通一员参与其中，没有被要求特别出众。",
+            "en": "Having taken part as an ordinary member without a demand to stand out."
+          },
+          "directionId": "everyperson"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留下了一件有自己想法的新作品或材料。",
+            "en": "Having made a new work or material with a contribution of my own."
+          },
+          "directionId": "creator"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "接触了一种原先不知道的生活或做法。",
+            "en": "Having encountered a way of living or doing something I had not known."
+          },
+          "directionId": "explorer"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "完成了一项自己曾觉得困难的挑战。",
+            "en": "Having completed a challenge I once found difficult."
+          },
+          "directionId": "hero"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_34",
+      "prompt": {
+        "zh": "当你有余力为身边的小环境作一点贡献，更想从哪件事开始？",
+        "en": "When you have some capacity to contribute to your immediate surroundings, where would you begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "了解一个具体需要，商量自己能够提供的支持。",
+            "en": "Understand a specific need and agree on support I can offer."
+          },
+          "directionId": "caregiver"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "保留大家原本珍惜的简单好事。",
+            "en": "Preserve simple good things people already appreciate."
+          },
+          "directionId": "innocent"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "重新讨论一项给人不必要压力的默认要求。",
+            "en": "Reconsider a default expectation that creates unnecessary pressure."
+          },
+          "directionId": "rebel"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "对某个重要的人或地方表达细致的在意。",
+            "en": "Express attentive care for a person or place that matters to me."
+          },
+          "directionId": "lover"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_35",
+      "prompt": {
+        "zh": "一项小计划有了初步成果，你更想怎样决定接下来做什么？",
+        "en": "A small plan has produced an initial result. How would you most like to approach what comes next?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先整理资源与责任，让后续可以稳定衔接。",
+            "en": "Organise resources and responsibilities so the next steps can connect reliably."
+          },
+          "directionId": "ruler"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看看证据支持了什么，哪些问题还没理解。",
+            "en": "Examine what the evidence supports and what remains unclear."
+          },
+          "directionId": "sage"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把新发现与原先想法连接，试一种转变。",
+            "en": "Connect the discovery with earlier ideas and try a change."
+          },
+          "directionId": "magician"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "留一点轻松实验的空间，别让成果消灭了玩趣。",
+            "en": "Leave room for light-hearted experiments so progress does not remove the play."
+          },
+          "directionId": "jester"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_36",
+      "prompt": {
+        "zh": "为下一段空闲时间选一个小目标，哪一种最吸引你？",
+        "en": "Choosing a small aim for your next free period, which appeals most to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "完成一个能体现自己构想的具体作品。",
+            "en": "Make something concrete that expresses an idea of my own."
+          },
+          "directionId": "creator"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "走近一项自己还没接触过的体验。",
+            "en": "Approach an experience I have not encountered before."
+          },
+          "directionId": "explorer"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "练一段目前仍有难度、但愿意投入的挑战。",
+            "en": "Practise a challenge that is still difficult but worth my effort."
+          },
+          "directionId": "hero"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "和同好一起做普通的事，享受并肩参与。",
+            "en": "Do ordinary things with fellow enthusiasts and enjoy taking part together."
+          },
+          "directionId": "everyperson"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "rule": "Each selected option addsone rawchoice toitsnamedarchetypaltheme.12appearances/theme,3in eachposition. Keep ALLhighestcounts; nofixedprimary/secondary/shadoworability/occupationinference.",
+    "scoringVersion": "1.0.0",
+    "psychometricValidationCompleted": false
+  },
+  "authority": "FermatMind independentlyauthored36everydaymotivationitems; commonmodern12archetypalthemesfromPearson-relatedcontext, NOTaPMAIform, notJungauthoredfixed12instrument; no copiedPMAI/competitoritems/manuals/results/art."
+}

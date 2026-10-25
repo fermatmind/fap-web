@@ -1,0 +1,3585 @@
+{
+  "slug": "jungian-archetype",
+  "code": "JUNGIAN_ARCHETYPE",
+  "version": "1.0.0",
+  "updated": "2026-10-25",
+  "category": "framework",
+  "kind": "archetype",
+  "minutes": 8,
+  "title": {
+    "zh": "荣格原型测试",
+    "en": "Jungian Archetype Test"
+  },
+  "resultHeading": {
+    "zh": "你的完整十二原型动机结果",
+    "en": "Your complete 12-archetype reflection"
+  },
+  "seoTitle": {
+    "zh": "荣格原型测试：36题比较12种动机与完整结果",
+    "en": "Jungian Archetype Test: All 12 Full Results"
+  },
+  "description": {
+    "zh": "完成36道原创情境题，比较纯真者、智者、英雄等12种原型动机。查看全部计数与完整并列报告，先读相近原型、具体例子和计分；免费无需注册。",
+    "en": "Take 36 original questions and compare all 12 archetypal themes, from Sage to Creator. Get every tied result and full guides with examples. Free, no signup."
+  },
+  "introduction": {
+    "zh": "什么更容易激起你参与一件事的兴趣：理解、发现、投入、照顾、组织，还是做出自己的表达？这份荣格原型测试用36道原创日常情境题，整理现代十二原型的动机线索。十二分类与Pearson等作者对原型概念的后续整理有关，不是荣格亲自编定的固定类型表；本问卷也不是PMAI商业量表。全部结果可先读，完成后显示原始计数与每份最高并列报告，不用注册、付费或先做其他测试。",
+    "en": "What draws you towards an activity: understanding, discovery, attentive connection, support, coordination or making an expression? This Jungian Archetype Test uses thirty-six original everyday questions to explore twelve modern archetypal themes. The twelve-category model reflects later work by authors including Pearson, rather than a fixed type list drawn up by Jung. This questionnaire is also separate from the commercial PMAI instrument. Read all guides before answering; a complete attempt shows raw counts and every highest tied report without signup, payment or a preceding assessment."
+  },
+  "instructions": {
+    "zh": "每题4项都可能有价值，请选近期更能吸引自己的一项，不按理想原型作答。比较的是本次动机，不是选出正确、善良或能干的人。若都不贴合可以结束，不完整时不生成解释。36题完成后显示12项计数与所有最高匹配；不把低分叫作阴影，也不把差1次解释成固定主次。",
+    "en": "All four responses can have value. Choose the one that most attracts you in your recent life rather than aim for an ideal theme. This compares motives, not correct, good or capable people. You can stop if none fits; incomplete attempts receive no interpretation. After all thirty-six items, see twelve counts and every highest match. A low count is not a shadow, and one extra choice does not establish fixed primary and secondary identities."
+  },
+  "source": {
+    "kind": "FermatMind independentlyauthoredarchetypalmotivationquiz;modern12themecontext,notPMAIinstrument",
+    "formCode": "fm_archetypal_motivation_choices_36",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "9767f4e37fca072425529faf6f2934259694870a82db21d8218e7e8e85c0ee05",
+    "resultContentSha256": "b2092136801ed96c4fa59a94007b0dc830df24c856e7ade321bdf4522dc2e7c0",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "innocent",
+      "title": {
+        "zh": "纯真者",
+        "en": "Innocent"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "sage",
+      "title": {
+        "zh": "智者",
+        "en": "Sage"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "explorer",
+      "title": {
+        "zh": "探索者",
+        "en": "Explorer"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "rebel",
+      "title": {
+        "zh": "反叛者",
+        "en": "Rebel"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "magician",
+      "title": {
+        "zh": "魔法师",
+        "en": "Magician"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "hero",
+      "title": {
+        "zh": "英雄",
+        "en": "Hero"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "lover",
+      "title": {
+        "zh": "恋人",
+        "en": "Lover"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "jester",
+      "title": {
+        "zh": "弄臣",
+        "en": "Jester"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "everyperson",
+      "title": {
+        "zh": "平凡者",
+        "en": "Everyperson"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "caregiver",
+      "title": {
+        "zh": "照顾者",
+        "en": "Caregiver"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "ruler",
+      "title": {
+        "zh": "统治者",
+        "en": "Ruler"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "creator",
+      "title": {
+        "zh": "创造者",
+        "en": "Creator"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "ARCHETYPE_01",
+      "prompt": {
+        "zh": "参加一个新兴趣小组时，你最想先找到什么？",
+        "en": "When joining a new interest group, what would you most want to find first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个让人放心、可以简单开始的安排。",
+            "en": "A reassuring arrangement that makes getting started uncomplicated."
+          },
+          "directionId": "innocent"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一份能帮助自己理解主题的可靠说明。",
+            "en": "A reliable explanation that helps me understand the subject."
+          },
+          "directionId": "sage"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一种把陌生想法联系起来、产生新看法的方法。",
+            "en": "A way to connect unfamiliar ideas and see the subject differently."
+          },
+          "directionId": "magician"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个可以轻松开玩笑、享受当下的氛围。",
+            "en": "An atmosphere with room for lightness and enjoying the moment."
+          },
+          "directionId": "jester"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_02",
+      "prompt": {
+        "zh": "准备向朋友介绍一个你喜欢的主题，哪件事更能激起你的兴趣？",
+        "en": "You are introducing friends to a subject you enjoy. Which part most interests you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "弄清概念之间的区别，让解释有依据。",
+            "en": "Clarifying distinctions so the explanation has a sound basis."
+          },
+          "directionId": "sage"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "沿着一个自己还不了解的方向继续探寻。",
+            "en": "Following a direction I have not explored for myself."
+          },
+          "directionId": "explorer"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "挑战一段有难度的讲解，看看自己能否完成。",
+            "en": "Tackling a demanding explanation to see whether I can manage it."
+          },
+          "directionId": "hero"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让没有背景知识的人也能自然加入讨论。",
+            "en": "Making it easy for people without background knowledge to join in."
+          },
+          "directionId": "everyperson"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_03",
+      "prompt": {
+        "zh": "一起安排周末时，你更希望为这次相处带来什么？",
+        "en": "When arranging a weekend together, what would you most like to bring to it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一点可以各自发现新东西的空间。",
+            "en": "Room for each person to discover something unfamiliar."
+          },
+          "directionId": "explorer"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一次重新考虑“每次都得这样”的机会。",
+            "en": "A chance to reconsider something everyone assumes must stay the same."
+          },
+          "directionId": "rebel"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "对重要的人多一点专注、具体的陪伴。",
+            "en": "More attentive, personal time with someone who matters to me."
+          },
+          "directionId": "lover"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让有需要的人不用独自处理的小协助。",
+            "en": "Practical support so someone does not have to manage a need alone."
+          },
+          "directionId": "caregiver"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_04",
+      "prompt": {
+        "zh": "小组准备改进一个不太顺手的活动流程，你最愿意从哪里入手？",
+        "en": "A group wants to improve an awkward activity process. Where would you most like to begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问问哪条沿用的要求其实可以取消。",
+            "en": "Questioning which inherited requirement could be removed."
+          },
+          "directionId": "rebel"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "重新连接现有步骤，试一种不同的整体做法。",
+            "en": "Connecting existing steps differently to try another overall approach."
+          },
+          "directionId": "magician"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "让讨论不那么紧绷，给轻松的新点子留位置。",
+            "en": "Easing the atmosphere so playful ideas have some room."
+          },
+          "directionId": "jester"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "明确谁负责决定、协调与后续确认。",
+            "en": "Clarifying who will decide, coordinate and follow up."
+          },
+          "directionId": "ruler"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_05",
+      "prompt": {
+        "zh": "你有一小段空闲参与社区活动，哪项任务更吸引你？",
+        "en": "You have a little spare time for a community activity. Which task draws you most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把两个原本分开的活动点子结合起来试一试。",
+            "en": "Trying a combination of two previously separate activity ideas."
+          },
+          "directionId": "magician"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "接下一项需要练习才能做好的具体挑战。",
+            "en": "Taking on a concrete challenge that will require practice."
+          },
+          "directionId": "hero"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "和其他参与者一起做普通却需要人手的工作。",
+            "en": "Joining others in ordinary work that simply needs more hands."
+          },
+          "directionId": "everyperson"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "做出一件带有自己想法的新材料或小作品。",
+            "en": "Making a new piece of material or a small work of my own."
+          },
+          "directionId": "creator"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_06",
+      "prompt": {
+        "zh": "朋友想办一场小型分享会，你最想贡献哪一部分？",
+        "en": "A friend is organising a small gathering. What would you most like to contribute?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "承担一个有挑战的环节，并练到能完成。",
+            "en": "Taking a challenging part and practising until I can do it."
+          },
+          "directionId": "hero"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "准备一个让对方感到被认真了解的细节。",
+            "en": "Preparing a detail that shows the friend is personally understood."
+          },
+          "directionId": "lover"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "询问谁需要协助，再负责一项明确的支持。",
+            "en": "Asking who needs help and offering one specific contribution."
+          },
+          "directionId": "caregiver"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让安排保持简单，留住这件事最初的愉快。",
+            "en": "Keeping things simple and preserving the original enjoyment."
+          },
+          "directionId": "innocent"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_07",
+      "prompt": {
+        "zh": "回顾一次相处愉快的聚会，哪种时刻最让你想再来一次？",
+        "en": "Thinking back to a gathering you enjoyed, which moment most makes you want to return?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "和某个人有了更细致、真诚的交流。",
+            "en": "Having a more attentive, sincere exchange with someone."
+          },
+          "directionId": "lover"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "大家一起笑了，短暂放下表现得很好的压力。",
+            "en": "Laughing together and briefly dropping the pressure to perform."
+          },
+          "directionId": "jester"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "安排顺利衔接，每个人知道接下来怎样参与。",
+            "en": "Seeing arrangements connect smoothly so people knew how to take part."
+          },
+          "directionId": "ruler"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "听到一个解释，让自己真正理解了原先的疑问。",
+            "en": "Hearing an explanation that resolved something I had wondered about."
+          },
+          "directionId": "sage"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_08",
+      "prompt": {
+        "zh": "一起制作活动纪念册时，你更愿意留下什么？",
+        "en": "While making a keepsake for a shared activity, what would you most like to include?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个大家看到就会会心一笑的小细节。",
+            "en": "A small detail that makes the group smile in recognition."
+          },
+          "directionId": "jester"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "普通参与者也能认出自己的日常片段。",
+            "en": "Everyday moments in which ordinary participants can recognise themselves."
+          },
+          "directionId": "everyperson"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一种自己重新设计的版式或表达方式。",
+            "en": "A layout or form of expression I have designed afresh."
+          },
+          "directionId": "creator"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一条通向下一次新体验的线索。",
+            "en": "A lead towards another experience we have not tried."
+          },
+          "directionId": "explorer"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_09",
+      "prompt": {
+        "zh": "有人第一次加入长期活动，你更想先做哪件事？",
+        "en": "Someone joins a regular activity for the first time. What would you most want to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "陪他一起做一段普通任务，让加入不显得特别困难。",
+            "en": "Doing an ordinary task alongside them so joining feels accessible."
+          },
+          "directionId": "everyperson"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先问有哪一部分需要实际帮助。",
+            "en": "Asking which part they would like practical help with."
+          },
+          "directionId": "caregiver"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "介绍一个简单、友善的起点，让人不必担心太多。",
+            "en": "Offering a simple, welcoming starting point with less to worry about."
+          },
+          "directionId": "innocent"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "看看有没有不必要的门槛，可以一并重新讨论。",
+            "en": "Checking whether an unnecessary entry barrier could be reconsidered."
+          },
+          "directionId": "rebel"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_10",
+      "prompt": {
+        "zh": "一次共同安排已经基本可行，你还最想确认什么？",
+        "en": "A shared arrangement is nearly ready. What would you most want to check?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "需要照顾的具体情况是否有人愿意回应。",
+            "en": "Whether someone is willing to respond to specific support needs."
+          },
+          "directionId": "caregiver"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "责任、时间和决定方式是否已经说清。",
+            "en": "Whether responsibilities, timing and decisions are clear."
+          },
+          "directionId": "ruler"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "目前依据是否足够，哪里还把猜测当成事实。",
+            "en": "Whether the evidence is sufficient and assumptions are being mistaken for facts."
+          },
+          "directionId": "sage"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "这些部分能否重新组合，带来不同的体验。",
+            "en": "Whether the parts could connect differently to create another experience."
+          },
+          "directionId": "magician"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_11",
+      "prompt": {
+        "zh": "给一项自主学习计划留出一个下午，你更想怎样使用？",
+        "en": "You have an afternoon for a self-directed learning plan. What would you most like to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把步骤、时间与需要的资源安排清楚。",
+            "en": "Organise the steps, time and resources I will need."
+          },
+          "directionId": "ruler"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把学到的东西做成一个自己的新作品。",
+            "en": "Turn something I have learned into an original piece of work."
+          },
+          "directionId": "creator"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "暂时沿着一个没列入计划的问题走一段。",
+            "en": "Follow an unplanned question for a while."
+          },
+          "directionId": "explorer"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "挑一项目前还做不到的练习，认真突破它。",
+            "en": "Work at an exercise I cannot yet manage."
+          },
+          "directionId": "hero"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_12",
+      "prompt": {
+        "zh": "想给一段日常生活增加一点意义时，你更愿意从哪里开始？",
+        "en": "When you want to give everyday life a little more meaning, where would you begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "留下一个自己动手做出的新东西。",
+            "en": "Make something new that carries my own contribution."
+          },
+          "directionId": "creator"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "重新注意原本就有的简单好事。",
+            "en": "Notice simple good things that are already there."
+          },
+          "directionId": "innocent"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "停止照搬一个不再认同的惯例。",
+            "en": "Stop repeating a convention I no longer agree with."
+          },
+          "directionId": "rebel"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "认真表达对一个人或一件事的在意。",
+            "en": "Give attentive expression to someone or something I care about."
+          },
+          "directionId": "lover"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_13",
+      "prompt": {
+        "zh": "一段新计划尚未定形，什么最能让你愿意开始？",
+        "en": "A new plan has not taken shape yet. What most makes you want to begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先有一个可信、不过分复杂的小起点。",
+            "en": "A trustworthy small starting point without too much complication."
+          },
+          "directionId": "innocent"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "有空间自己发现路线，而不是全部照着说明走。",
+            "en": "Space to discover a route rather than follow every instruction."
+          },
+          "directionId": "explorer"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "有一项可以通过努力完成的明确难题。",
+            "en": "A definite challenge I could overcome through effort."
+          },
+          "directionId": "hero"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有人和自己并肩做，不必先表现出特别之处。",
+            "en": "People working alongside me without a need to stand out."
+          },
+          "directionId": "everyperson"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_14",
+      "prompt": {
+        "zh": "当别人提出一种你不熟悉的看法，你最有兴趣追问哪一部分？",
+        "en": "Someone offers an unfamiliar perspective. Which part would you most like to explore?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "哪些证据支持它，哪些概念需要区分。",
+            "en": "What evidence supports it and which concepts need separating."
+          },
+          "directionId": "sage"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "它挑战了哪条一直没被质疑的假设。",
+            "en": "Which previously unquestioned assumption it challenges."
+          },
+          "directionId": "rebel"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "说出这番话的人在意什么，希望被怎样理解。",
+            "en": "What matters to the speaker and how they hope to be understood."
+          },
+          "directionId": "lover"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "怎样回应才能让有实际需要的人得到一点支持。",
+            "en": "How a response might offer support to someone with a concrete need."
+          },
+          "directionId": "caregiver"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_15",
+      "prompt": {
+        "zh": "一个熟悉的活动准备换一种形式，你最期待什么？",
+        "en": "A familiar activity is taking a different form. What do you most look forward to?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "亲自接触原先没试过的内容。",
+            "en": "Encountering something I have not tried myself."
+          },
+          "directionId": "explorer"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "原本分开的做法结合后，会产生怎样的新效果。",
+            "en": "Seeing what happens when previously separate approaches connect."
+          },
+          "directionId": "magician"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一点意外的轻松与玩趣。",
+            "en": "An unexpected moment of play and lightness."
+          },
+          "directionId": "jester"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "新的组织方式能让协作更容易衔接。",
+            "en": "An arrangement that makes coordination easier to follow."
+          },
+          "directionId": "ruler"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_16",
+      "prompt": {
+        "zh": "一个小作品暂时没有人关注，什么最能让你继续投入？",
+        "en": "A small piece of work has attracted little attention. What most makes you want to continue?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "它表达了我想重新质疑的某种惯例。",
+            "en": "It gives expression to a convention I want to question."
+          },
+          "directionId": "rebel"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "还有一处难点，自己想通过练习把它做好。",
+            "en": "There is still a difficult part I want to master through practice."
+          },
+          "directionId": "hero"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "它能让有类似普通经历的人觉得自己并不孤单。",
+            "en": "It may help people with similar everyday experiences feel less alone."
+          },
+          "directionId": "everyperson"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "它仍有一种我想亲手实现的表达。",
+            "en": "There is still an expression I want to bring into being myself."
+          },
+          "directionId": "creator"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_17",
+      "prompt": {
+        "zh": "当你想改善一段日常相处时，哪个方向更吸引你？",
+        "en": "When you want to improve an everyday relationship, which direction draws you most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "换一种看问题的连接方式，试试新的相处可能。",
+            "en": "Connect things differently and try another way of relating."
+          },
+          "directionId": "magician"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "对彼此在意的小细节给出更多专注。",
+            "en": "Give more attention to the small things that matter to each of us."
+          },
+          "directionId": "lover"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问清哪项具体支持有用，再提供自己能承担的部分。",
+            "en": "Ask what support would help and offer what I can manage."
+          },
+          "directionId": "caregiver"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "保留简单、可信的互动，不让相处变成复杂考验。",
+            "en": "Keep interactions simple and trustworthy rather than make them a complicated test."
+          },
+          "directionId": "innocent"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_18",
+      "prompt": {
+        "zh": "完成一次不太轻松的共同任务后，哪种回顾更有吸引力？",
+        "en": "After a demanding shared task, which kind of reflection appeals most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "看看自己在哪个困难上有了实际进步。",
+            "en": "Notice a concrete improvement in something I found difficult."
+          },
+          "directionId": "hero"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找回一个有趣片段，让大家可以一起笑一笑。",
+            "en": "Recall an amusing moment we can enjoy together."
+          },
+          "directionId": "jester"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "梳理下次怎样安排责任与交接更清楚。",
+            "en": "Work out how responsibilities and handovers could be clearer next time."
+          },
+          "directionId": "ruler"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "弄清发生了什么，哪些解释仍只是推测。",
+            "en": "Understand what happened and which explanations remain guesses."
+          },
+          "directionId": "sage"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_19",
+      "prompt": {
+        "zh": "你决定认真经营一项业余爱好，最不想失去什么？",
+        "en": "You decide to give a hobby sustained attention. What would you least want to lose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "对其中人和事物那种细致、投入的喜爱。",
+            "en": "An attentive, engaged affection for the people or subject involved."
+          },
+          "directionId": "lover"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "和普通同好一起参与、不必证明特别的自在。",
+            "en": "Ease with fellow participants without having to prove I am special."
+          },
+          "directionId": "everyperson"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "做出属于自己表达的空间。",
+            "en": "Space to create an expression of my own."
+          },
+          "directionId": "creator"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "沿着新线索继续探索的自由。",
+            "en": "Freedom to keep following unfamiliar leads."
+          },
+          "directionId": "explorer"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_20",
+      "prompt": {
+        "zh": "给日常安排增加一个小变化，你最愿意尝试哪一种？",
+        "en": "You can make a small change to an everyday routine. Which would you most like to try?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "给原本认真的步骤加入一点适度玩趣。",
+            "en": "Add a little appropriate play to an otherwise serious step."
+          },
+          "directionId": "jester"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "安排一项自己愿意提供的具体协助。",
+            "en": "Make room for a specific piece of help I am willing to offer."
+          },
+          "directionId": "caregiver"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "减去多余要求，保留简单而舒服的部分。",
+            "en": "Remove unnecessary demands and keep things simple and comfortable."
+          },
+          "directionId": "innocent"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "重新决定一项习惯，不只因为一直如此就继续。",
+            "en": "Reconsider a habit rather than keep it merely because it is familiar."
+          },
+          "directionId": "rebel"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_21",
+      "prompt": {
+        "zh": "小组讨论暂时没有明确方向，你会更想贡献什么？",
+        "en": "A group discussion has no clear direction yet. What would you most like to contribute?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让每个人都能用普通语言说出自己的经历。",
+            "en": "Room for everyone to describe their experience in everyday language."
+          },
+          "directionId": "everyperson"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个能协调时间、责任和决定的简单框架。",
+            "en": "A simple structure for timing, responsibilities and decisions."
+          },
+          "directionId": "ruler"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "帮助大家分清事实、解释和待确认的问题。",
+            "en": "A distinction between facts, interpretations and unanswered questions."
+          },
+          "directionId": "sage"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把几个分散想法接起来的一种新视角。",
+            "en": "A fresh perspective that connects several scattered ideas."
+          },
+          "directionId": "magician"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_22",
+      "prompt": {
+        "zh": "为一个熟悉的地方投入一点时间，哪件事更有吸引力？",
+        "en": "You can spend some time contributing to a familiar place. What most appeals to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先找出谁有明确需要，再商量一项可行帮助。",
+            "en": "Find out who has a specific need and agree on feasible help."
+          },
+          "directionId": "caregiver"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "设计或制作一个能看见自己想法的小改变。",
+            "en": "Design or make a small change that gives form to an idea of my own."
+          },
+          "directionId": "creator"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "去一个自己还不熟悉的角落，看看有什么。",
+            "en": "Explore a corner I do not yet know."
+          },
+          "directionId": "explorer"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "解决一项需要投入练习的实际难题。",
+            "en": "Work at a practical challenge that will take some practice."
+          },
+          "directionId": "hero"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_23",
+      "prompt": {
+        "zh": "当一项安排需要大家重新达成共识，你最想守住哪件事？",
+        "en": "When a group needs to renew an agreement, what would you most want to preserve?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "责任与决定方式清楚，后续能有人协调。",
+            "en": "Clear responsibilities and decisions with a way to coordinate afterwards."
+          },
+          "directionId": "ruler"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "保有基本信任，不把每件小事都变成防备。",
+            "en": "Basic trust without turning every small matter into suspicion."
+          },
+          "directionId": "innocent"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "已经不适合的要求仍可以被质疑和调整。",
+            "en": "Room to question and change a requirement that no longer fits."
+          },
+          "directionId": "rebel"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "重要关系中的在意能被具体表达出来。",
+            "en": "Room for care within important relationships to be expressed personally."
+          },
+          "directionId": "lover"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_24",
+      "prompt": {
+        "zh": "你想把一次经历记录下来，最想突出什么？",
+        "en": "You want to record an experience. What would you most like to bring out?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一种有自己风格的表达形式。",
+            "en": "A form of expression with a contribution of my own."
+          },
+          "directionId": "creator"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "事情的来龙去脉，以及自己现在还不知道什么。",
+            "en": "What happened, how it connects and what I still do not know."
+          },
+          "directionId": "sage"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "某个让看法发生变化的连接或转折。",
+            "en": "A connection or turning point that changed the way I saw things."
+          },
+          "directionId": "magician"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个能让人重新感到轻松的小瞬间。",
+            "en": "A small moment that lets people feel a little lighter again."
+          },
+          "directionId": "jester"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_25",
+      "prompt": {
+        "zh": "准备重新开始一项中断的共同活动，你更想先恢复什么？",
+        "en": "You are restarting a shared activity after a pause. What would you most like to restore first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个可以放心参加、不用背负太多要求的起点。",
+            "en": "A reassuring starting point without an excess of demands."
+          },
+          "directionId": "innocent"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "对旧安排提问的空间，不必原样继续。",
+            "en": "Room to question the old arrangement rather than resume it unchanged."
+          },
+          "directionId": "rebel"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "人与人之间有专注、有回应的联系。",
+            "en": "Attentive connections in which people respond to one another."
+          },
+          "directionId": "lover"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有人能说出需要，并商量实际协助的机会。",
+            "en": "A chance to name needs and discuss practical help."
+          },
+          "directionId": "caregiver"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_26",
+      "prompt": {
+        "zh": "讨论一个复杂点子时，你最愿意做哪种整理？",
+        "en": "While discussing a complicated idea, which kind of organising would you most like to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把已经知道与仍待核实的部分分开。",
+            "en": "Separate what is known from what still needs checking."
+          },
+          "directionId": "sage"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "换一个联系各部分的方式，寻找可能的转变。",
+            "en": "Connect the parts differently and look for a possible change."
+          },
+          "directionId": "magician"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用一个不伤人的轻松比喻，让讨论重新有活力。",
+            "en": "Use a light, considerate analogy to bring some energy back."
+          },
+          "directionId": "jester"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "确认下一步谁决定、谁行动、何时再沟通。",
+            "en": "Clarify who decides, who acts and when to speak again."
+          },
+          "directionId": "ruler"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_27",
+      "prompt": {
+        "zh": "面对一个自己选择的长期小计划，什么最能吸引你回来？",
+        "en": "What most draws you back to a small long-term project you chose yourself?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "还有一条自己没走过的路线可以探寻。",
+            "en": "There is still an unfamiliar route I could explore."
+          },
+          "directionId": "explorer"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "有个明确难点，自己想继续练到完成。",
+            "en": "There is a definite challenge I want to keep practising."
+          },
+          "directionId": "hero"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "有一群和自己一样普通参与的人可以同行。",
+            "en": "There are fellow everyday participants to work alongside."
+          },
+          "directionId": "everyperson"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "还想亲手做出一个原先不存在的表达。",
+            "en": "There is an expression I still want to make that did not exist before."
+          },
+          "directionId": "creator"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_28",
+      "prompt": {
+        "zh": "重新考虑一段已经习惯的相处方式时，你最想为改变留下什么理由？",
+        "en": "When reconsidering a familiar way of relating, which reason for change matters most to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不再仅仅因为某种期待一直存在，就默认自己必须照做。",
+            "en": "Not assuming I must follow an expectation simply because it has long existed."
+          },
+          "directionId": "rebel"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给彼此真正在意的细节更多位置。",
+            "en": "Make more room for the personal details that matter to each of us."
+          },
+          "directionId": "lover"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "让具体需要得到愿意承担的实际回应。",
+            "en": "Make it easier to agree on practical responses to specific needs."
+          },
+          "directionId": "caregiver"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让互动重新简单可信，不必不断猜测。",
+            "en": "Restore simple, trustworthy interactions with less guessing."
+          },
+          "directionId": "innocent"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_29",
+      "prompt": {
+        "zh": "你被邀请为活动提出一项建议，哪一种贡献更吸引你？",
+        "en": "You are invited to suggest something for an activity. Which contribution most appeals to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把两个原本不相关的部分连接起来，试试整体变化。",
+            "en": "Connect two previously unrelated parts and try a different whole."
+          },
+          "directionId": "magician"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "增加一个适合场合的玩趣，让参与者轻松一点。",
+            "en": "Add appropriate play so participants can feel a little lighter."
+          },
+          "directionId": "jester"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把资源、责任与节奏安排得更容易持续。",
+            "en": "Arrange resources, responsibilities and timing so the activity is easier to sustain."
+          },
+          "directionId": "ruler"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提出一个能帮助大家看清问题的具体疑问。",
+            "en": "Offer a concrete question that helps everyone understand the issue."
+          },
+          "directionId": "sage"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_30",
+      "prompt": {
+        "zh": "在一项自己在意的技能上，你更希望保有什么？",
+        "en": "Within a skill you care about, what would you most like to preserve?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "面对难点、反复练习并看见自己进步的机会。",
+            "en": "Chances to face difficulty, practise and notice progress."
+          },
+          "directionId": "hero"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "和不同水平的人一起参与，不必用表现证明归属。",
+            "en": "Participation with people at different levels without earning belonging through performance."
+          },
+          "directionId": "everyperson"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把学到的方法做出自己表达的空间。",
+            "en": "Room to give what I have learned an expression of my own."
+          },
+          "directionId": "creator"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "跟随兴趣接触陌生内容的可能。",
+            "en": "Possibilities to follow my interest into unfamiliar material."
+          },
+          "directionId": "explorer"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_31",
+      "prompt": {
+        "zh": "给一场普通会面留下一点温度，你更愿意做什么？",
+        "en": "To bring a little warmth to an ordinary meeting, what would you most like to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "记住对方真正在意的小事，并专心回应。",
+            "en": "Remember a personal detail that matters and respond attentively."
+          },
+          "directionId": "lover"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "问问有无具体需要，提供自己愿意承担的一项帮助。",
+            "en": "Ask about a concrete need and offer help I am willing to provide."
+          },
+          "directionId": "caregiver"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "保持简单友善，让人可以安心做自己。",
+            "en": "Keep things simple and welcoming so people can feel at ease."
+          },
+          "directionId": "innocent"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "给不同意见留位置，不要求所有人照同一种方式相处。",
+            "en": "Leave room for disagreement without requiring one way of relating."
+          },
+          "directionId": "rebel"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_32",
+      "prompt": {
+        "zh": "一个讨论越来越严肃，你更想增加什么？",
+        "en": "A discussion is becoming increasingly serious. What would you most like to add?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个体贴的轻松停顿，不必一直维持表现。",
+            "en": "A considerate moment of lightness without keeping up a performance."
+          },
+          "directionId": "jester"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "清楚的议程与决定方式，让讨论可以推进。",
+            "en": "A clear agenda and decision process so it can move forward."
+          },
+          "directionId": "ruler"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "分清证据与解释的问题，让大家知道正在讨论什么。",
+            "en": "Questions that separate evidence from interpretation and clarify the subject."
+          },
+          "directionId": "sage"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一种重新连接想法的视角，试出另一种可能。",
+            "en": "A perspective that reconnects ideas and opens another possibility."
+          },
+          "directionId": "magician"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_33",
+      "prompt": {
+        "zh": "一次共同活动结束后，你更愿意带走哪份满足？",
+        "en": "After a shared activity, which satisfaction would you most like to take away?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己作为普通一员参与其中，没有被要求特别出众。",
+            "en": "Having taken part as an ordinary member without a demand to stand out."
+          },
+          "directionId": "everyperson"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留下了一件有自己想法的新作品或材料。",
+            "en": "Having made a new work or material with a contribution of my own."
+          },
+          "directionId": "creator"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "接触了一种原先不知道的生活或做法。",
+            "en": "Having encountered a way of living or doing something I had not known."
+          },
+          "directionId": "explorer"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "完成了一项自己曾觉得困难的挑战。",
+            "en": "Having completed a challenge I once found difficult."
+          },
+          "directionId": "hero"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_34",
+      "prompt": {
+        "zh": "当你有余力为身边的小环境作一点贡献，更想从哪件事开始？",
+        "en": "When you have some capacity to contribute to your immediate surroundings, where would you begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "了解一个具体需要，商量自己能够提供的支持。",
+            "en": "Understand a specific need and agree on support I can offer."
+          },
+          "directionId": "caregiver"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "保留大家原本珍惜的简单好事。",
+            "en": "Preserve simple good things people already appreciate."
+          },
+          "directionId": "innocent"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "重新讨论一项给人不必要压力的默认要求。",
+            "en": "Reconsider a default expectation that creates unnecessary pressure."
+          },
+          "directionId": "rebel"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "对某个重要的人或地方表达细致的在意。",
+            "en": "Express attentive care for a person or place that matters to me."
+          },
+          "directionId": "lover"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_35",
+      "prompt": {
+        "zh": "一项小计划有了初步成果，你更想怎样决定接下来做什么？",
+        "en": "A small plan has produced an initial result. How would you most like to approach what comes next?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先整理资源与责任，让后续可以稳定衔接。",
+            "en": "Organise resources and responsibilities so the next steps can connect reliably."
+          },
+          "directionId": "ruler"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看看证据支持了什么，哪些问题还没理解。",
+            "en": "Examine what the evidence supports and what remains unclear."
+          },
+          "directionId": "sage"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把新发现与原先想法连接，试一种转变。",
+            "en": "Connect the discovery with earlier ideas and try a change."
+          },
+          "directionId": "magician"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "留一点轻松实验的空间，别让成果消灭了玩趣。",
+            "en": "Leave room for light-hearted experiments so progress does not remove the play."
+          },
+          "directionId": "jester"
+        }
+      ]
+    },
+    {
+      "id": "ARCHETYPE_36",
+      "prompt": {
+        "zh": "为下一段空闲时间选一个小目标，哪一种最吸引你？",
+        "en": "Choosing a small aim for your next free period, which appeals most to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "完成一个能体现自己构想的具体作品。",
+            "en": "Make something concrete that expresses an idea of my own."
+          },
+          "directionId": "creator"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "走近一项自己还没接触过的体验。",
+            "en": "Approach an experience I have not encountered before."
+          },
+          "directionId": "explorer"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "练一段目前仍有难度、但愿意投入的挑战。",
+            "en": "Practise a challenge that is still difficult but worth my effort."
+          },
+          "directionId": "hero"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "和同好一起做普通的事，享受并肩参与。",
+            "en": "Do ordinary things with fellow enthusiasts and enjoy taking part together."
+          },
+          "directionId": "everyperson"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "innocent",
+      "directionIds": [
+        "innocent"
+      ],
+      "title": {
+        "zh": "纯真者原型",
+        "en": "Innocent Archetype"
+      },
+      "headline": {
+        "zh": "为简单可信的好事留位置",
+        "en": "Make room for simple, trustworthy good things"
+      },
+      "summary": {
+        "zh": "本版纯真者线索指向简单、可信与保留希望的动机，不等于幼稚、无知或永远乐观。原始计数只说明这组选择中哪些回应更吸引你。",
+        "en": "The Innocent theme here concerns simplicity, trust and keeping room for hope. It does not establish naivety, ignorance or constant optimism. Raw counts show only which responses attracted you within these items."
+      },
+      "seo": {
+        "title": {
+          "zh": "纯真者原型：含义、情境与结果读法",
+          "en": "Innocent Archetype Meaning — Jungian Archetype Test"
+        },
+        "description": {
+          "zh": "纯真者原型关注简单、信任与希望，不等于幼稚。阅读具体情境、与照顾者及平凡者的比较、计分局限和小尝试；完整原创原型说明免费。",
+          "en": "Explore the Innocent archetype: simplicity, trust and hope, with everyday examples, tradeoffs and comparisons. Full original quiz guide, free without signup."
+        }
+      },
+      "scoreReading": {
+        "zh": "本版36题，每题4个不同动机选项；每个原型出现12次、各位置3次，选中加1。原始次数只比较本题组中的选择，不是原型含量、相似度百分比、能力或人群排名。所有最高并列保留，每份报告完整呈现；差1次不代表已验证的显著差异，不按分差编造主次型或阴影。",
+        "en": "This edition has thirty-six questions with four different motivational options each. Every theme appears twelve times, three in each position, and a selection adds one. Raw counts compare choices in this set, not archetype content, match percentages, ability or population ranks. Every highest tie retains its full report. One extra choice is not an established significant difference, and gaps do not generate fixed secondary or shadow types."
+      },
+      "sections": [
+        {
+          "id": "motivation",
+          "title": {
+            "zh": "本版在观察什么",
+            "en": "What this edition explores"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能更想保护一件事最初值得参与的部分，而不是不断增加防备、比较和复杂要求。这里的纯真是一个动机比喻，不是道德等级。希望事情可以简单可信，也可以同时认真核对事实、设定界限，并承认有些承诺还不能相信。",
+              "en": "You may be drawn to protecting what made an activity worth joining before extra demands and comparisons accumulated. Innocent is a motivational metaphor rather than a moral rank. Wanting simplicity and trust can coexist with checking facts, setting a limit and acknowledging that a particular promise has not yet earned confidence."
+            }
+          ]
+        },
+        {
+          "id": "score-meaning",
+          "title": {
+            "zh": "怎样阅读本次计数",
+            "en": "Reading your counts"
+          },
+          "paragraphs": [
+            {
+              "zh": "相关选项在36题中出现12次，每个位置3次。次数较多，只表示这些具体回应在本次比较中更常被选中；它不是乐观分数或受骗概率。若有其他最高并列，完整报告会一起显示，不能为了维护一个纯真人设忽略它们。",
+              "en": "This theme appears twelve times across thirty-six questions, three in each option position. A higher count means these particular responses were chosen more often within the comparisons, not an optimism score or a probability of being deceived. Every highest tie retains its report; there is no need to suppress another theme to preserve an identity."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个具体情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "兴趣小组准备第一次见面，大家开始担心材料、流程和表现。你可能希望先用一个简单任务让人安心加入。可以同时说明时间和参与条件，让轻松有具体支撑，而不是只说“别想太多”。别人的顾虑也可能指出需要处理的真实问题。",
+              "en": "A new interest group becomes preoccupied with materials, procedures and how well everyone will perform. You might prefer a simple first task that makes joining reassuring. Give that ease concrete support through clear timing and participation conditions. Another person’s concern may reveal something worth resolving rather than an attitude they should simply abandon."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "可以提供的视角",
+            "en": "A perspective to contribute"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个动机可以提醒大家：安排是否已经复杂到让人忘记为什么参与？你可以指出一个值得保留的小好处，或提议去掉一项多余要求。是否真的改善了体验仍需听参与者反馈；选择纯真者选项不证明你天然能安慰人，也不要求承担群体情绪。",
+              "en": "This motive can prompt a useful question: has an arrangement become so complicated that people have lost its original point? You might name one small benefit worth preserving or suggest removing an unnecessary demand. Whether that helps needs feedback. Selecting this theme does not prove an ability to reassure people or make you responsible for a group’s emotions."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "希望保持简单时，容易想尽快结束让人不舒服的讨论。可以把多余复杂和必要信息分开：哪些只是形式，哪些涉及真实代价与同意？不必因为想保持信任就答应一切。暂时不知道、要求说明或拒绝参加，都不意味着失去了纯真。",
+              "en": "A wish for simplicity can create pressure to end an uncomfortable discussion too quickly. Separate needless complication from information about actual costs and agreement. You need not accept every request to maintain trust. Asking for an explanation, remaining uncertain or declining participation does not mean you have failed to embody a hopeful theme."
+            }
+          ]
+        },
+        {
+          "id": "relationships-work",
+          "title": {
+            "zh": "相处与工作中的读法",
+            "en": "Reading it in relationships and work"
+          },
+          "paragraphs": [
+            {
+              "zh": "共同任务需要确认责任时，可以先说自己希望保留的简单原则，再商量具体步骤。重要关系中也可以既表达信任，又明确哪些事情需要再次确认。这个例子不是职业建议，也不说明他人应该以同一种轻松方式回应你；他们可以有不同需要。",
+              "en": "In a shared task, state the simple principle you want to preserve and then agree on practical steps. In an important relationship, trust can be expressed alongside clear matters that need checking. This is an example of communication, not a career recommendation or a requirement that someone else share your preferred degree of ease."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近原型比较",
+            "en": "Compare nearby themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "纯真者与照顾者都可能希望别人舒服，但前者更关注简单可信，后者更关注具体需要有没有回应。与平凡者相比，纯真者侧重保留希望，平凡者侧重平等参与与归属。不同动机可以出现在同一个人身上，计数差1次不代表已经验证的显著差异。",
+              "en": "Innocent and Caregiver choices can both concern comfort, but the former emphasises simplicity and trust while the latter attends to concrete support needs. Everyperson highlights equal participation and belonging rather than hope itself. These motives can coexist. One extra selection is not an established significant difference or evidence that one theme is your essential core."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "挑一个最近觉得过于复杂的普通安排，分别写下值得保留的好处、可以减少的要求和仍须确认的信息。只提一项可撤回的小调整，再听对方是否更容易参与。观察实际效果，不需要让所有人都赞同你的乐观，也不用证明自己属于哪个原型。",
+              "en": "Choose an ordinary arrangement that feels unnecessarily complicated. Note its worthwhile benefit, one demand that could be reduced and information that still needs checking. Propose one reversible adjustment and ask whether participation becomes easier. Observe the effect rather than seeking agreement with an optimistic outlook or proof that a particular archetype defines you."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "框架、题本与使用范围",
+            "en": "Framework, questionnaire and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "现代十二原型框架与Carol S. Pearson等作者的整理及应用有关，不是荣格亲自编定的一份固定十二类型问卷。费马独立编写本版36题、计数规则与解释；没有使用或取得PMAI商业量表题目、算法或解释材料的授权，也不自称其改编或替代版。尚无本站信效度与人群常模，不评估潜意识、阴影、智力、心理健康、职业适配或关系结局。",
+              "en": "The modern twelve-archetype framework is associated with the work and applications of authors including Carol S. Pearson, rather than a fixed twelve-type questionnaire authored by Jung. FermatMind independently wrote these thirty-six items, count rules and explanations. We neither use nor hold a licence for PMAI commercial items, scoring or interpretive materials, and do not present this as its adaptation or replacement. This edition has no established validity, reliability or population norms and does not assess unconscious processes, shadow, IQ, mental health, career fit or relationship outcomes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sage",
+      "directionIds": [
+        "sage"
+      ],
+      "title": {
+        "zh": "智者原型",
+        "en": "Sage Archetype"
+      },
+      "headline": {
+        "zh": "把想知道的事问得更清楚",
+        "en": "Make what you want to understand clearer"
+      },
+      "summary": {
+        "zh": "智者线索关注理解、证据与分清概念的动机。它不测智商、知识量、客观程度或研究能力，也不保证你的判断比别人的更正确。",
+        "en": "The Sage theme concerns a motive to understand, examine evidence and distinguish concepts. It measures neither IQ, knowledge, objectivity nor research ability, and does not make your judgment more correct than someone else’s."
+      },
+      "seo": {
+        "title": {
+          "zh": "智者原型：含义、情境与结果读法",
+          "en": "Sage Archetype Meaning — Jungian Archetype Test"
+        },
+        "description": {
+          "zh": "智者原型关注理解与证据，不是智商或知识量评价。阅读具体提问情境、与魔法师及统治者的比较、计分边界和小练习；完整说明免费。",
+          "en": "Read the Sage archetype guide: understanding, evidence, examples and comparisons with Magician and Ruler. Counts are not IQ or career-fit scores. Full guide free."
+        }
+      },
+      "scoreReading": {
+        "zh": "本版36题，每题4个不同动机选项；每个原型出现12次、各位置3次，选中加1。原始次数只比较本题组中的选择，不是原型含量、相似度百分比、能力或人群排名。所有最高并列保留，每份报告完整呈现；差1次不代表已验证的显著差异，不按分差编造主次型或阴影。",
+        "en": "This edition has thirty-six questions with four different motivational options each. Every theme appears twelve times, three in each position, and a selection adds one. Raw counts compare choices in this set, not archetype content, match percentages, ability or population ranks. Every highest tie retains its full report. One extra choice is not an established significant difference, and gaps do not generate fixed secondary or shadow types."
+      },
+      "sections": [
+        {
+          "id": "motivation",
+          "title": {
+            "zh": "本版在观察什么",
+            "en": "What this edition explores"
+          },
+          "paragraphs": [
+            {
+              "zh": "遇到一个说法，你可能想先知道它怎样成立、还有什么解释。智者在这里不是“聪明人”的称号，而是一种把理解放在前面的偏好线索。愿意追问并不等于已经掌握答案；表达不确定、承认信息不足，也可以是认真理解的一部分。",
+              "en": "When encountering a claim, you may first want to understand its basis and possible alternatives. Sage is not an award for intelligence; it is a theme that gives understanding an important place. Wanting to investigate does not mean already knowing the answer. Admitting uncertainty and identifying missing information can be part of that same motive."
+            }
+          ]
+        },
+        {
+          "id": "score-meaning",
+          "title": {
+            "zh": "怎样阅读本次计数",
+            "en": "Reading your counts"
+          },
+          "paragraphs": [
+            {
+              "zh": "这12次相关选项分布在不同日常情境中，每次选中加1。高计数不能换成知识分、理性排名或职业适配，低计数也不说明你不会思考。题目会迫使你在几个都可能重要的动机间取舍，请结合具体选项而不是只看一个“智者”名字。",
+              "en": "The twelve relevant options occur across different everyday situations and each selection adds one. A high count cannot be converted into knowledge, a rationality rank or career fit; a low count does not imply an inability to think. These questions require choices among several potentially worthwhile motives. Read the actual responses rather than the Sage name alone."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个具体情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "朋友讨论一个热门观点时，你可能想区分亲历、转述和猜测。可以先确认大家是在找资料还是分享感受，再决定怎样提问。若对方只是讲一段经历，不必立即把交流变成证据辩论；理解情境也包括理解对方希望怎样被回应。",
+              "en": "Friends discuss a popular claim and you want to distinguish first-hand experience, retelling and inference. First establish whether they are seeking information or describing a feeling. Someone sharing an experience may not be inviting an evidence debate. Understanding the situation also includes finding out what kind of response they are asking for."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "可以提供的视角",
+            "en": "A perspective to contribute"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个动机可以把“似乎如此”变成更具体的问题：已知什么、依据在哪里、什么仍需核实？你可以帮助讨论看见一个关键区别。是否清楚、有用，应由实际解释和反馈来判断，不能因为选中了智者就推定自己善于教学、分析或保持客观。",
+              "en": "This motive can turn a broad impression into specific questions about what is known, the evidence behind it and what remains unverified. You might bring one important distinction to a discussion. Clarity and usefulness need to be judged from the actual explanation and feedback, not inferred from selecting a theme associated with understanding."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "想弄清全部条件，有时会让一个可以小步试行的决定不断延后。可以说明哪些信息会改变选择，哪些只是额外好奇，再约定一个回看的时间。这不是“分析瘫痪”的诊断；同一个人也可能在另一种情境下很快行动。",
+              "en": "Wanting to understand every condition can sometimes postpone a decision that could be tried on a small scale. State which missing information could change the choice and which questions are additional curiosity, then agree on a review point. This is not a diagnosis of analysis paralysis or a prediction of how quickly you act elsewhere."
+            }
+          ]
+        },
+        {
+          "id": "relationships-work",
+          "title": {
+            "zh": "相处与工作中的读法",
+            "en": "Reading it in relationships and work"
+          },
+          "paragraphs": [
+            {
+              "zh": "共同任务里可以先解释为什么某个问题值得核实，避免连续追问被理解成否定别人。关系中则可以问：“你希望我听一听，还是一起理清？”这个选择关乎沟通条件，不由智者计数决定你适合研究、咨询、教学或任何工作，也不判定两个人能否合拍。",
+              "en": "In a shared task, explain why a question needs checking so repeated questions are not left to sound like rejection. In a relationship, ask whether someone wants listening or help untangling an issue. These are communication choices. A Sage tally cannot decide suitability for research, consulting, teaching or any occupation, or whether two people are compatible."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近原型比较",
+            "en": "Compare nearby themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "智者与魔法师都可能对新的联系感兴趣，智者更关注解释是否成立，魔法师更关注重组后能否带来变化。与统治者相比，智者先问怎样理解，统治者先看怎样协调。它们不是知识与权力的高低等级，最高并列时应把相应报告一起阅读。",
+              "en": "Sage and Magician can both be interested in connections; Sage foregrounds whether an explanation is supported, while Magician foregrounds what a different connection might change. Ruler places coordination earlier than understanding itself. These are neither ranks of knowledge nor power. If counts tie at the top, read every corresponding report without declaring a fixed primary and secondary."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一个普通问题，用三栏写“已知”“推测”“下一步要确认”。只找一项会影响当前选择的信息，并用一句普通语言向相关的人解释。如果答案暂时得不到，就说明临时决定与回看条件。练习是让理解服务于当前需要，不是证明自己总能看穿事物。",
+              "en": "Take an ordinary question and make three notes: known, inferred and next to check. Seek one piece of information relevant to the current choice and explain it in everyday language. If it is unavailable, state a provisional decision and when to revisit it. Practise making understanding useful rather than proving exceptional insight."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "框架、题本与使用范围",
+            "en": "Framework, questionnaire and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "现代十二原型框架与Carol S. Pearson等作者的整理及应用有关，不是荣格亲自编定的一份固定十二类型问卷。费马独立编写本版36题、计数规则与解释；没有使用或取得PMAI商业量表题目、算法或解释材料的授权，也不自称其改编或替代版。尚无本站信效度与人群常模，不评估潜意识、阴影、智力、心理健康、职业适配或关系结局。",
+              "en": "The modern twelve-archetype framework is associated with the work and applications of authors including Carol S. Pearson, rather than a fixed twelve-type questionnaire authored by Jung. FermatMind independently wrote these thirty-six items, count rules and explanations. We neither use nor hold a licence for PMAI commercial items, scoring or interpretive materials, and do not present this as its adaptation or replacement. This edition has no established validity, reliability or population norms and does not assess unconscious processes, shadow, IQ, mental health, career fit or relationship outcomes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "explorer",
+      "directionIds": [
+        "explorer"
+      ],
+      "title": {
+        "zh": "探索者原型",
+        "en": "Explorer Archetype"
+      },
+      "headline": {
+        "zh": "给亲自发现留一点空间",
+        "en": "Leave some space for discovering things yourself"
+      },
+      "summary": {
+        "zh": "探索者线索关注自主接触陌生经验与寻找自己的路线。不等于爱冒险、不能安定、具有旅行能力或适合某种职业；是否行动仍取决于实际条件。",
+        "en": "The Explorer theme concerns autonomous encounters with unfamiliar experiences and finding a route of your own. It does not establish risk-taking, an inability to settle, travel ability or career suitability. Actual action depends on your circumstances."
+      },
+      "seo": {
+        "title": {
+          "zh": "探索者原型：含义、情境与结果读法",
+          "en": "Explorer Archetype Meaning — Jungian Archetype Test"
+        },
+        "description": {
+          "zh": "探索者原型关注亲自发现与自主路线，不等于冒险或不能安定。查看具体例子、与反叛者及创造者的比较和可撤回小尝试；完整说明免费。",
+          "en": "Explore the Explorer archetype: discovering your own route, ordinary examples and comparisons with Rebel and Creator. Complete free guide without career predictions."
+        }
+      },
+      "scoreReading": {
+        "zh": "本版36题，每题4个不同动机选项；每个原型出现12次、各位置3次，选中加1。原始次数只比较本题组中的选择，不是原型含量、相似度百分比、能力或人群排名。所有最高并列保留，每份报告完整呈现；差1次不代表已验证的显著差异，不按分差编造主次型或阴影。",
+        "en": "This edition has thirty-six questions with four different motivational options each. Every theme appears twelve times, three in each position, and a selection adds one. Raw counts compare choices in this set, not archetype content, match percentages, ability or population ranks. Every highest tie retains its full report. One extra choice is not an established significant difference, and gaps do not generate fixed secondary or shadow types."
+      },
+      "sections": [
+        {
+          "id": "motivation",
+          "title": {
+            "zh": "本版在观察什么",
+            "en": "What this edition explores"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能更想亲自走近一个还没接触的方向，而不是只沿着已有说明完成任务。探索可以很小：看一种新做法、学一个问题、换一个观察角度，不要求远行或花钱。这个名称是在整理动机线索，不是替生活方式作价值排名。",
+              "en": "You may want to encounter an unfamiliar direction for yourself rather than only complete a prescribed route. Exploration can be small: observing another method, learning about a question or considering a different angle. It requires neither travel nor spending money. The name organises motivational clues without ranking one lifestyle above another."
+            }
+          ]
+        },
+        {
+          "id": "score-meaning",
+          "title": {
+            "zh": "怎样阅读本次计数",
+            "en": "Reading your counts"
+          },
+          "paragraphs": [
+            {
+              "zh": "探索者选项共出现12次，位置均衡，每次选择加1。次数不是开放性量表分数，也不测勇气、适应能力或探索成功率。你可能在兴趣里追求新鲜，在重要关系里重视稳定；原始计数不会把这些情境压成一个不可改变的人格身份。",
+              "en": "Explorer options appear twelve times in balanced positions, with one count per selection. The tally is not an openness scale, a courage measure, an adaptability score or a success probability. You may seek unfamiliar material in a hobby and stability in a relationship. A raw tally cannot turn those contextual choices into an unchanging identity."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个具体情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "熟悉的课程给出固定练习，你对旁边一个问题更好奇。可以先完成必要部分，再给新问题留一小段时间，或和参与者确认能否改路线。这样既保留自主探索，也让已经答应的任务有回应。不是只有离开既定安排才配叫探索。",
+              "en": "A familiar course offers a set exercise, but a related question catches your attention. You might finish the necessary part and set aside a little time for the question, or check whether a different route is possible. Autonomy and responding to an existing commitment can coexist; exploration does not require abandoning every established arrangement."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "可以提供的视角",
+            "en": "A perspective to contribute"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个动机可以帮助讨论多看一种可能：“还有没有我们没接触过的做法？”你可以带来一条线索或描述一次亲自观察。它是否值得继续，要根据实际需要和信息判断；探索者计数不保证创新，更不说明留下来把事情做完的人缺少好奇心。",
+              "en": "This motive can add a useful possibility to a discussion by asking which approach nobody has yet encountered. You might bring a lead or describe an observation of your own. Its value depends on the need and evidence. Selecting Explorer does not guarantee innovation or make someone who stays to finish an existing task less curious."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "选择空间很多时，新的线索可能不断替代已经开始的事情。可以确认这次只是看看，还是愿意投入一段实际行动，并把结束或回来的条件说清。不必把所有兴趣都变成任务，也不因选择稳定安排就认为自己失去了自由。",
+              "en": "When possibilities multiply, a new lead may repeatedly displace something already begun. Clarify whether you are merely looking or choosing a period of actual participation, and state when you will stop or return. Not every interest needs to become a project, and selecting a stable arrangement does not mean losing your freedom."
+            }
+          ]
+        },
+        {
+          "id": "relationships-work",
+          "title": {
+            "zh": "相处与工作中的读法",
+            "en": "Reading it in relationships and work"
+          },
+          "paragraphs": [
+            {
+              "zh": "共同安排中可以提前说明自己希望保留哪段自主时间，并听其他人的条件。任务里则可以把想试的新路线和仍需完成的交付分开讨论。这里不是建议换工作、远行或结束关系；真实决定需要能力、资源、责任和对方意愿，不能从原型直接推出。",
+              "en": "In a shared arrangement, explain which part you would like to keep autonomous and hear other people’s conditions. For a task, distinguish an experimental route from what still needs completing. This is not advice to change jobs, travel or end a relationship. Real decisions require information about skills, resources, commitments and other people’s willingness."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近原型比较",
+            "en": "Compare nearby themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "探索者与反叛者都可能不满足于既定路线，但前者更想发现未知，后者更想质疑某个不再认同的要求。与创造者相比，探索者关注接触新经验，创造者关注做出一个自己的表达。这些动机可以相互支持，没有证据把它们换成固定合拍组合或冲突预测。",
+              "en": "Explorer and Rebel may both depart from a familiar route, but Explorer seeks the unfamiliar while Rebel questions an expectation no longer accepted. Creator foregrounds making an original expression rather than encountering experience itself. Such motives may support each other. These counts provide no basis for fixed compatible pairings or predictions of interpersonal conflict."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "找一个低成本、可撤回的新线索，只给自己十五分钟了解它。事先写下想知道什么，结束后决定继续、搁置或把发现带回原计划。若涉及共同安排，先说明时间与责任。观察探索给了什么信息，而不是用不停尝新来维持探索者身份。",
+              "en": "Choose one inexpensive, reversible lead and give it fifteen minutes of attention. Note what you want to learn, then decide whether to continue, set it aside or bring something back to an existing plan. Explain timing and responsibilities if others are involved. Observe the information gained rather than maintain an Explorer identity through constant novelty."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "框架、题本与使用范围",
+            "en": "Framework, questionnaire and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "现代十二原型框架与Carol S. Pearson等作者的整理及应用有关，不是荣格亲自编定的一份固定十二类型问卷。费马独立编写本版36题、计数规则与解释；没有使用或取得PMAI商业量表题目、算法或解释材料的授权，也不自称其改编或替代版。尚无本站信效度与人群常模，不评估潜意识、阴影、智力、心理健康、职业适配或关系结局。",
+              "en": "The modern twelve-archetype framework is associated with the work and applications of authors including Carol S. Pearson, rather than a fixed twelve-type questionnaire authored by Jung. FermatMind independently wrote these thirty-six items, count rules and explanations. We neither use nor hold a licence for PMAI commercial items, scoring or interpretive materials, and do not present this as its adaptation or replacement. This edition has no established validity, reliability or population norms and does not assess unconscious processes, shadow, IQ, mental health, career fit or relationship outcomes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rebel",
+      "directionIds": [
+        "rebel"
+      ],
+      "title": {
+        "zh": "反叛者原型",
+        "en": "Rebel Archetype"
+      },
+      "headline": {
+        "zh": "把默认期待重新拿出来讨论",
+        "en": "Bring an assumed expectation back into discussion"
+      },
+      "summary": {
+        "zh": "反叛者线索关注质疑不再认同的要求，并为不同做法争取空间。不是违法倾向、政治立场、勇气或破坏能力的判断，也不给实际伤害开脱。",
+        "en": "The Rebel theme concerns questioning an expectation you no longer accept and making room for alternatives. It does not assess unlawful behaviour, political positions, courage or destructive ability, and excuses no actual harm."
+      },
+      "seo": {
+        "title": {
+          "zh": "反叛者原型：含义、情境与结果读法",
+          "en": "Rebel Archetype Meaning — Jungian Archetype Test"
+        },
+        "description": {
+          "zh": "反叛者原型怎样理解质疑默认期待？阅读协商改变的例子、与探索者及创造者的比较和计分局限；不预测违法、政治立场或冲突，完整说明免费。",
+          "en": "Read the Rebel archetype: questioning assumptions, negotiating changes and comparing nearby themes. No political or behavioural prediction; the full guide is free."
+        }
+      },
+      "scoreReading": {
+        "zh": "本版36题，每题4个不同动机选项；每个原型出现12次、各位置3次，选中加1。原始次数只比较本题组中的选择，不是原型含量、相似度百分比、能力或人群排名。所有最高并列保留，每份报告完整呈现；差1次不代表已验证的显著差异，不按分差编造主次型或阴影。",
+        "en": "This edition has thirty-six questions with four different motivational options each. Every theme appears twelve times, three in each position, and a selection adds one. Raw counts compare choices in this set, not archetype content, match percentages, ability or population ranks. Every highest tie retains its full report. One extra choice is not an established significant difference, and gaps do not generate fixed secondary or shadow types."
+      },
+      "sections": [
+        {
+          "id": "motivation",
+          "title": {
+            "zh": "本版在观察什么",
+            "en": "What this edition explores"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能不愿只因一件事一直这样做，就把它当作唯一合理的方式。反叛者在这里关注对默认要求的重新选择，不要求为了反对而反对。你可以认可部分约定、质疑另一部分，也可以选择通过协商而不是对抗表达不同意见。",
+              "en": "You may be reluctant to accept a practice as the only reasonable option merely because it has long existed. Rebel concerns reconsidering an expectation, not opposition for its own sake. You can accept part of an agreement, question another part and choose negotiation rather than confrontation as the way to express disagreement."
+            }
+          ]
+        },
+        {
+          "id": "score-meaning",
+          "title": {
+            "zh": "怎样阅读本次计数",
+            "en": "Reading your counts"
+          },
+          "paragraphs": [
+            {
+              "zh": "12次相关选项各有明确场景，每次选中加1，全部最高并列保留。次数不能预测你会不会挑战权威、承担风险或作出某种社会选择。也不能把最低原型叫作你压抑的阴影；这份原创题目没有评估无意识、创伤或隐藏动机。",
+              "en": "Each of the twelve relevant options has a particular context and adds one when selected; all highest ties remain. Counts cannot predict challenges to authority, risk-taking or social choices. Nor can the lowest theme be called a repressed shadow. These original items do not assess unconscious processes, trauma or hidden motives."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个具体情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个活动要求每个人都以同一种方式分享，你发现这个要求并非活动本身必须。可以提出另一种参与办法，说明改变能解决什么，再问参与者是否愿意试行。是否接受仍需共同确认；一个测试结果不能替你决定真实约定该怎样处理。",
+              "en": "An activity requires everyone to share in the same format, although that requirement may not be necessary to its purpose. Suggest an alternative, explain the problem it addresses and ask whether people want a trial. Agreement still needs confirmation. A quiz result cannot decide how a real commitment should be handled."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "可以提供的视角",
+            "en": "A perspective to contribute"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个动机可以让讨论看见原先没有被问过的问题：这个要求在保护什么，现在还需要吗？你可以提出一项具体替代，而不只表达不满。它是否有用要靠事实与反馈判断，不能由反叛者名称推出你有改革、创新或领导能力。",
+              "en": "This motive can bring an unasked question into view: what does this requirement protect, and is it still needed? You might offer a specific alternative rather than dissatisfaction alone. Its usefulness depends on facts and feedback; the Rebel name supplies no evidence of reforming, innovative or leadership ability."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "急于摆脱旧要求时，容易把所有协调都看成限制。可以分清不再认同的规则、已经同意的责任和别人的合理条件。改变一项安排，也需要有人处理交接与后续。这里是供回看的问题，不是认定你不可靠或总与人冲突。",
+              "en": "A wish to leave an old expectation behind may make coordination feel like restriction. Distinguish the rule you question from responsibilities already accepted and other people’s reasonable conditions. Changing an arrangement also creates handover and follow-up needs. These are questions for reflection, not judgments that you are unreliable or habitually in conflict."
+            }
+          ]
+        },
+        {
+          "id": "relationships-work",
+          "title": {
+            "zh": "相处与工作中的读法",
+            "en": "Reading it in relationships and work"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以用“我想调整的是这一部分，愿意继续承担的是这一部分”表达不同意见。先听对方在保护什么，再讨论能否小步改动。这个沟通例子不是职业匹配、辞职或关系去留建议，原型也不能决定谁应当服从谁或谁比较有勇气。",
+              "en": "Try distinguishing the part you want changed from the part you remain willing to carry. Hear what the other person wants to protect before discussing a small adjustment. This communication example is not advice about an occupation, leaving a job or staying in a relationship, and an archetype cannot decide who should obey whom."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近原型比较",
+            "en": "Compare nearby themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "反叛者与探索者都可能想离开旧路线，反叛者先问某项要求是否仍值得认可，探索者先看未知经验有什么。与创造者相比，反叛者更关心重新选择规则，创造者更关心做出表达。它们不是反抗程度的高低，也不是固定的团队搭配公式。",
+              "en": "Rebel and Explorer can both depart from a familiar route. Rebel questions whether an expectation still deserves acceptance; Explorer is drawn towards unfamiliar experience. Creator places making an expression earlier than reconsidering a rule itself. These are not levels of resistance or a formula for assembling a compatible team."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "挑一项低风险的普通惯例，先写出它的目的、自己想改变的部分和可能受影响的人。提出一个可撤回的替代方案，并约定试行后听反馈。无需去寻找更大的规则挑战；练习是让不同意见清楚可商量，而不是证明自己足够叛逆。",
+              "en": "Choose one low-stakes convention. Note its purpose, the part you want to change and who could be affected. Propose a reversible alternative and agree to hear feedback afterwards. There is no need to seek a larger rule to challenge. Practise making disagreement understandable and negotiable rather than proving a rebellious identity."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "框架、题本与使用范围",
+            "en": "Framework, questionnaire and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "现代十二原型框架与Carol S. Pearson等作者的整理及应用有关，不是荣格亲自编定的一份固定十二类型问卷。费马独立编写本版36题、计数规则与解释；没有使用或取得PMAI商业量表题目、算法或解释材料的授权，也不自称其改编或替代版。尚无本站信效度与人群常模，不评估潜意识、阴影、智力、心理健康、职业适配或关系结局。",
+              "en": "The modern twelve-archetype framework is associated with the work and applications of authors including Carol S. Pearson, rather than a fixed twelve-type questionnaire authored by Jung. FermatMind independently wrote these thirty-six items, count rules and explanations. We neither use nor hold a licence for PMAI commercial items, scoring or interpretive materials, and do not present this as its adaptation or replacement. This edition has no established validity, reliability or population norms and does not assess unconscious processes, shadow, IQ, mental health, career fit or relationship outcomes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "magician",
+      "directionIds": [
+        "magician"
+      ],
+      "title": {
+        "zh": "魔法师原型",
+        "en": "Magician Archetype"
+      },
+      "headline": {
+        "zh": "重新连接已有部分，试出不同可能",
+        "en": "Reconnect existing parts to try another possibility"
+      },
+      "summary": {
+        "zh": "魔法师是看见联系与尝试转变的叙事比喻，不表示超能力、灵性层级、特殊洞察或改变他人的权力。本版只整理相关选项的原始选择次数。",
+        "en": "Magician is a narrative metaphor for noticing connections and trying a change. It establishes neither supernatural powers, spiritual rank, special insight nor authority to transform someone else. This edition organises raw selections of the relevant responses."
+      },
+      "seo": {
+        "title": {
+          "zh": "魔法师原型：含义、情境与结果读法",
+          "en": "Magician Archetype Meaning — Jungian Archetype Test"
+        },
+        "description": {
+          "zh": "魔法师原型是连接与转变的比喻，不表示超能力。阅读具体假设、取舍、与智者及创造者的比较和小试行；完整原创原型说明免费。",
+          "en": "Explore the Magician archetype as a metaphor for connections and change. Full examples, tradeoffs and comparisons without supernatural or special-insight claims."
+        }
+      },
+      "scoreReading": {
+        "zh": "本版36题，每题4个不同动机选项；每个原型出现12次、各位置3次，选中加1。原始次数只比较本题组中的选择，不是原型含量、相似度百分比、能力或人群排名。所有最高并列保留，每份报告完整呈现；差1次不代表已验证的显著差异，不按分差编造主次型或阴影。",
+        "en": "This edition has thirty-six questions with four different motivational options each. Every theme appears twelve times, three in each position, and a selection adds one. Raw counts compare choices in this set, not archetype content, match percentages, ability or population ranks. Every highest tie retains its full report. One extra choice is not an established significant difference, and gaps do not generate fixed secondary or shadow types."
+      },
+      "sections": [
+        {
+          "id": "motivation",
+          "title": {
+            "zh": "本版在观察什么",
+            "en": "What this edition explores"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能对“把现有部分重新联系起来，会不会产生不同体验”更感兴趣。变化可以是一种解释、一个步骤组合或新的相处方式，并不需要神秘化。这里观察的是想尝试转变的动机，不是预言、治愈能力、操控他人或已经得到验证的系统思维。",
+              "en": "You may be interested in whether connecting existing parts differently could produce another experience. The change might involve an explanation, a combination of steps or a way of relating, without anything mystical. This is a motive to try a transformation, not a measure of prediction, healing, control over others or established systems-thinking ability."
+            }
+          ]
+        },
+        {
+          "id": "score-meaning",
+          "title": {
+            "zh": "怎样阅读本次计数",
+            "en": "Reading your counts"
+          },
+          "paragraphs": [
+            {
+              "zh": "魔法师相关选项有12次、各位置3次，每次选择只加1。高计数不说明你比别人看得深，也不能把一个新联系自动当成事实。并列时全部报告一起读，不用按名称次序确定主次，也不由低计数推断你尚未觉醒的潜力或心理阴影。",
+              "en": "Magician-related options appear twelve times, three in each position, and add one per choice. A high tally does not establish deeper perception or turn a new connection into a fact. Read all highest ties together without assigning priority by list order. Low counts do not reveal dormant powers or a psychological shadow."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个具体情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "活动讨论里有两个看似分开的点子，你想试着把其中一部分接起来。可以先画清连接方式，问参与者是否理解，再用小试行观察效果。若没有改善，就调整解释或放下假设；不必把反对意见理解成别人看不到你看见的东西。",
+              "en": "Two ideas in an activity discussion appear separate and you want to connect part of them. Describe the connection, check whether people understand it and observe a small trial. If it does not help, revise or set aside the assumption. Disagreement need not mean someone lacks access to a special insight you possess."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "可以提供的视角",
+            "en": "A perspective to contribute"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个动机可以帮助大家在旧解释之外多看一种可能。你可以提出一个明确假设，而不是保证事情一定改变。真正有用的连接，应让人更容易理解、参与或核对效果；是否做到，需要实际反馈，不能因为得到魔法师结果就宣布自己善于变革。",
+              "en": "This motive can add another possibility beyond a familiar explanation. Offer a clear hypothesis rather than a guarantee that things will change. A useful connection should make something easier to understand, participate in or evaluate. Whether it does needs feedback, not a declaration of transformative ability based on a quiz label."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个完整的新视角很有吸引力时，可能会把不配合的信息看成小例外。可以主动问：什么证据会让我修正这个看法？也要听受影响的人是否愿意尝试。对方有权不参与，不能为了完成自己设想的转变而替别人决定。",
+              "en": "An appealing new perspective can make inconsistent information seem like a minor exception. Ask what evidence would make you revise it. Also hear whether those affected want to try it. Someone can decline participation; completing an imagined transformation is not a reason to make decisions on their behalf."
+            }
+          ]
+        },
+        {
+          "id": "relationships-work",
+          "title": {
+            "zh": "相处与工作中的读法",
+            "en": "Reading it in relationships and work"
+          },
+          "paragraphs": [
+            {
+              "zh": "共同任务里，先说明想连接哪两部分、预计改变什么、怎样看结果，比使用笼统愿景更容易讨论。关系中也可以邀请新做法，但不能承诺修复或治愈别人。此处不是咨询、医疗、领导或创业能力评估，也不建议按原型选择职业。",
+              "en": "In a shared task, explain the parts you want to connect, the change you expect and how to observe it. That is easier to discuss than an expansive vision alone. In relationships, invite another approach without promising to repair or heal someone. This is not an assessment of counselling, medical, leadership or entrepreneurial competence."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近原型比较",
+            "en": "Compare nearby themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "魔法师与智者都可能寻找联系，魔法师侧重尝试重组带来的变化，智者侧重解释和证据。与创造者相比，魔法师先看关系怎样改变，创造者先看自己要做出的表达。它们没有更高级或更觉醒的一方，也不对应某种MBTI功能或九型。",
+              "en": "Magician and Sage can both seek connections; Magician foregrounds trying a different configuration, while Sage foregrounds explanation and evidence. Creator starts from an expression to make rather than the relation to change. None is more advanced or awakened, and these counts do not map to an MBTI function or an Enneagram type."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一个普通流程，写清旧做法、想改变的一处联系和可观察的结果。只试一个小步骤，提前征得相关参与者同意，再回看有没有帮助。若结果不支持原先设想，就保留这个发现。练习把可能性变成可讨论的假设，不是证明特殊洞察。",
+              "en": "Choose an ordinary process and describe the current approach, one connection to change and an observable outcome. Try only a small step, agree it with participants first and review whether it helps. Keep the finding even if it contradicts the idea. Practise turning possibility into a discussable hypothesis rather than demonstrating exceptional insight."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "框架、题本与使用范围",
+            "en": "Framework, questionnaire and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "现代十二原型框架与Carol S. Pearson等作者的整理及应用有关，不是荣格亲自编定的一份固定十二类型问卷。费马独立编写本版36题、计数规则与解释；没有使用或取得PMAI商业量表题目、算法或解释材料的授权，也不自称其改编或替代版。尚无本站信效度与人群常模，不评估潜意识、阴影、智力、心理健康、职业适配或关系结局。",
+              "en": "The modern twelve-archetype framework is associated with the work and applications of authors including Carol S. Pearson, rather than a fixed twelve-type questionnaire authored by Jung. FermatMind independently wrote these thirty-six items, count rules and explanations. We neither use nor hold a licence for PMAI commercial items, scoring or interpretive materials, and do not present this as its adaptation or replacement. This edition has no established validity, reliability or population norms and does not assess unconscious processes, shadow, IQ, mental health, career fit or relationship outcomes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hero",
+      "directionIds": [
+        "hero"
+      ],
+      "title": {
+        "zh": "英雄原型",
+        "en": "Hero Archetype"
+      },
+      "headline": {
+        "zh": "愿意投入练习，回应眼前的挑战",
+        "en": "Put practice towards the challenge in front of you"
+      },
+      "summary": {
+        "zh": "英雄线索关注迎接具体难点、投入努力与看见进步的动机。不是勇气、能力、道德价值或抗压水平的认证，也不要求你拯救别人或承担全部困难。",
+        "en": "The Hero theme concerns engaging with a concrete difficulty, putting in effort and noticing progress. It certifies neither courage, ability, moral worth nor stress tolerance, and does not require rescuing others or taking on every challenge."
+      },
+      "seo": {
+        "title": {
+          "zh": "英雄原型：含义、情境与结果读法",
+          "en": "Hero Archetype Meaning — Jungian Archetype Test"
+        },
+        "description": {
+          "zh": "英雄原型关注愿意练习和回应难点，不是能力或勇气认证。阅读任务情境、休息与投入的取舍、相近原型和小练习；完整说明免费。",
+          "en": "Read the Hero archetype: chosen challenges, practice, tradeoffs and limits. Compare Ruler and Caregiver without ranking courage or ability. Full free guide."
+        }
+      },
+      "scoreReading": {
+        "zh": "本版36题，每题4个不同动机选项；每个原型出现12次、各位置3次，选中加1。原始次数只比较本题组中的选择，不是原型含量、相似度百分比、能力或人群排名。所有最高并列保留，每份报告完整呈现；差1次不代表已验证的显著差异，不按分差编造主次型或阴影。",
+        "en": "This edition has thirty-six questions with four different motivational options each. Every theme appears twelve times, three in each position, and a selection adds one. Raw counts compare choices in this set, not archetype content, match percentages, ability or population ranks. Every highest tie retains its full report. One extra choice is not an established significant difference, and gaps do not generate fixed secondary or shadow types."
+      },
+      "sections": [
+        {
+          "id": "motivation",
+          "title": {
+            "zh": "本版在观察什么",
+            "en": "What this edition explores"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能更愿意面对一个有难度、但自己想投入的目标，看看练习能带来什么变化。英雄不是比其他原型更有价值的角色，也不等于赢过别人。选择适合自己的挑战、寻求协助或及时停止，都可以与认真投入并存。",
+              "en": "You may be drawn to a difficult goal you actually want to work at and to finding out what practice changes. Hero is not a more valuable character than the other themes, nor does it require outperforming someone. Choosing an appropriate challenge, asking for help and deciding to stop can all coexist with serious effort."
+            }
+          ]
+        },
+        {
+          "id": "score-meaning",
+          "title": {
+            "zh": "怎样阅读本次计数",
+            "en": "Reading your counts"
+          },
+          "paragraphs": [
+            {
+              "zh": "英雄相关选项出现12次、位置均衡，每次选中加1。次数只表明本组情境中这些动机更常吸引你，不测完成质量、实际技能或压力承受。并列时其他最高报告同样重要；没有依据把低计数解释成软弱、懒惰或没有毅力。",
+              "en": "Hero-related options appear twelve times in balanced positions and add one when selected. Counts indicate the appeal of those motives in these situations, not performance quality, practical skill or tolerance of pressure. Every highest tie matters equally. There is no basis for interpreting a low count as weakness, laziness or a lack of perseverance."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个具体情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "学习一项手工时，有个步骤暂时做不好，你想再练一次。可以把目标缩成一个动作、留出有限时间，再观察是否更熟悉。若仍不顺手，也可以请人示范。这个场景不意味着你永远坚持；有些困难值得投入，有些则不适合当前条件。",
+              "en": "While learning a craft, one step remains difficult and you want another attempt. Reduce the aim to a single movement, give it a limited period and observe whether it becomes more familiar. Ask for a demonstration if useful. The example does not require constant persistence; some difficulties deserve effort and others do not suit current conditions."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "可以提供的视角",
+            "en": "A perspective to contribute"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个动机可以把一个笼统的“太难了”拆成可以尝试的小部分。你可以说明自己愿意练哪一步，以及需要什么支持。是否真的有进步，要看具体任务表现和反馈，不能从英雄计数推断运动、学习、领导或任何职业能力。",
+              "en": "This motive can help turn a broad sense of difficulty into a smaller part worth attempting. State which step you are willing to practise and what support you need. Actual progress must be judged through the task and feedback, not inferred from a tally as evidence of athletic, learning, leadership or occupational ability."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "把每件事都当成必须突破的挑战，可能让休息和普通参与显得不够好。可以先问自己为什么想完成，代价是否愿意承担，还有谁会被影响。放弃一个不再合适的目标，不等于需要通过别的成绩找回个人价值。",
+              "en": "Treating everything as something to overcome can make rest and ordinary participation feel inadequate. Ask why you want to finish, whether you accept the cost and who else may be affected. Setting aside a goal that no longer fits does not create a need to recover personal worth through another achievement."
+            }
+          ]
+        },
+        {
+          "id": "relationships-work",
+          "title": {
+            "zh": "相处与工作中的读法",
+            "en": "Reading it in relationships and work"
+          },
+          "paragraphs": [
+            {
+              "zh": "共同任务中，可以明确自己愿意承担的难点，而不是默默包下全部工作。别人可能需要的是陪伴或分工，不是被你救场。这里不判断你适合带队、竞争、救助或高压职业，也不要求关系里有人必须一直强大，真正安排要听双方条件。",
+              "en": "In a shared task, name the difficult part you are willing to take rather than silently absorb all the work. Someone else may want company or a division of tasks instead of rescue. This does not establish suitability for leading, competing, helping professions or high-pressure work, or require one person in a relationship to remain strong."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近原型比较",
+            "en": "Compare nearby themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "英雄与统治者都可能愿意承担事情，英雄更关心攻克具体难点，统治者更关心资源与责任怎样衔接。与照顾者相比，英雄偏向挑战本身，照顾者偏向需要得到回应。它们不划分强者与弱者，也不决定谁有资格帮助别人。",
+              "en": "Hero and Ruler may both accept responsibility, but Hero foregrounds a specific challenge while Ruler foregrounds coordination of resources and roles. Caregiver focuses on responding to a need rather than difficulty itself. These distinctions do not divide strong from weak or decide who is qualified to help another person."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "挑一个自己确实愿意投入的小难点，设一个可以观察的练习目标与结束时间。提前决定需要协助时怎样开口，完成后记录哪一步变容易、哪一步还不确定。也记录是否愿意继续。练习是认识投入条件，不是用成败证明英雄身份。",
+              "en": "Choose a small difficulty you actually want to engage with, set an observable practice aim and choose a stopping time. Decide how you will ask for help if needed. Afterwards, note what became easier, what remains unclear and whether you want to continue. Explore the conditions for effort rather than prove a Hero identity through success or failure."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "框架、题本与使用范围",
+            "en": "Framework, questionnaire and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "现代十二原型框架与Carol S. Pearson等作者的整理及应用有关，不是荣格亲自编定的一份固定十二类型问卷。费马独立编写本版36题、计数规则与解释；没有使用或取得PMAI商业量表题目、算法或解释材料的授权，也不自称其改编或替代版。尚无本站信效度与人群常模，不评估潜意识、阴影、智力、心理健康、职业适配或关系结局。",
+              "en": "The modern twelve-archetype framework is associated with the work and applications of authors including Carol S. Pearson, rather than a fixed twelve-type questionnaire authored by Jung. FermatMind independently wrote these thirty-six items, count rules and explanations. We neither use nor hold a licence for PMAI commercial items, scoring or interpretive materials, and do not present this as its adaptation or replacement. This edition has no established validity, reliability or population norms and does not assess unconscious processes, shadow, IQ, mental health, career fit or relationship outcomes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lover",
+      "directionIds": [
+        "lover"
+      ],
+      "title": {
+        "zh": "恋人原型",
+        "en": "Lover Archetype"
+      },
+      "headline": {
+        "zh": "让在意有具体、专注的表达",
+        "en": "Give care an attentive, personal expression"
+      },
+      "summary": {
+        "zh": "恋人线索关注投入、欣赏和重要联系，不判断是否恋爱、性取向、性欲、依恋类型或是否值得被爱。对艺术、地方或兴趣的珍视也可能出现在相关选择中。",
+        "en": "The Lover theme concerns engagement, appreciation and personally important connections. It does not establish relationship status, sexual orientation, desire, attachment style or worthiness of love. Appreciation of art, a place or an interest can also inform these choices."
+      },
+      "seo": {
+        "title": {
+          "zh": "恋人原型：含义、情境与结果读法",
+          "en": "Lover Archetype Meaning — Jungian Archetype Test"
+        },
+        "description": {
+          "zh": "恋人原型关注投入、欣赏与具体联系，不判断恋爱、性取向或依恋类型。查看相处例子、界限、相近动机比较与小尝试；完整说明免费。",
+          "en": "Explore the Lover archetype: attentive connection, appreciation and consent, with full examples and comparisons. Not an attachment or sexuality assessment."
+        }
+      },
+      "scoreReading": {
+        "zh": "本版36题，每题4个不同动机选项；每个原型出现12次、各位置3次，选中加1。原始次数只比较本题组中的选择，不是原型含量、相似度百分比、能力或人群排名。所有最高并列保留，每份报告完整呈现；差1次不代表已验证的显著差异，不按分差编造主次型或阴影。",
+        "en": "This edition has thirty-six questions with four different motivational options each. Every theme appears twelve times, three in each position, and a selection adds one. Raw counts compare choices in this set, not archetype content, match percentages, ability or population ranks. Every highest tie retains its full report. One extra choice is not an established significant difference, and gaps do not generate fixed secondary or shadow types."
+      },
+      "sections": [
+        {
+          "id": "motivation",
+          "title": {
+            "zh": "本版在观察什么",
+            "en": "What this edition explores"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能更想认真回应一个具体的人或自己在意的事，而不只完成形式上的互动。恋人是一个投入与珍视的动机比喻，不限于爱情，也不要求强烈情绪。安静、少量但专注的联系，同样可能符合这些选项的含义。",
+              "en": "You may want to give attentive expression to a particular person or something you care about, rather than merely complete the form of an interaction. Lover is a metaphor for engagement and appreciation, not a requirement for romance or intense emotion. Quiet and limited but attentive contact can fit the meaning of these options."
+            }
+          ]
+        },
+        {
+          "id": "score-meaning",
+          "title": {
+            "zh": "怎样阅读本次计数",
+            "en": "Reading your counts"
+          },
+          "paragraphs": [
+            {
+              "zh": "恋人相关选项出现12次、各位置3次，每次选择加1。计数不是爱人的能力、吸引力或关系需求强度，也不说明别人怎样看你。其他最高原型并列时会完整保留；没有一项必须压过另一项，才能证明你在关系里真诚。",
+              "en": "The twelve Lover-related options appear three times in each position, adding one per selection. Counts measure neither capacity to love, attractiveness nor intensity of relationship needs, and say nothing about how others see you. Every highest tie remains complete. No theme needs to outrank another to demonstrate sincerity in a relationship."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个具体情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "朋友办一场小聚，你可能想记住一件他真正在意的小事，而不是准备最醒目的安排。可以直接确认对方喜不喜欢这个细节，也接受“不需要”。在意不是猜中别人所有心思，专注表达也不意味着应该得到同等强度的回报。",
+              "en": "For a friend’s small gathering, you may want to remember a personally meaningful detail rather than make the most noticeable contribution. Check whether the detail is welcome and accept a refusal. Care does not require guessing every thought, and attentive expression creates no entitlement to an equally intense response."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "可以提供的视角",
+            "en": "A perspective to contribute"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个动机可以提醒大家：除了任务顺利，参与的人是否也感到自己的具体偏好被听见？你可以提出一个个性化细节，或给一段交流更多专注。是否有帮助仍要问对方；结果不证明你天然敏感、会读心或更懂感情。",
+              "en": "This motive can bring attention to whether particular preferences have been heard alongside completing a task. You might suggest a personal detail or offer more attention during an exchange. Ask whether it helps. A result does not establish exceptional sensitivity, mind-reading or superior understanding of relationships."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "投入一件事时，可能很想让它持续保持特别，反而把普通、间隔或不同偏好理解成疏远。可以先确认实际发生了什么，再表达自己的希望和容量。这个问题供回看，不是依赖、焦虑或讨好模式的诊断，也不要求靠更多付出来维系联系。",
+              "en": "Engagement can create a wish for every interaction to remain special, making an ordinary interval or differing preference feel like distance. Check what actually happened before expressing your wish and capacity. This is a question for reflection, not a diagnosis of dependency, anxiety or people-pleasing, and does not prescribe giving more to preserve contact."
+            }
+          ]
+        },
+        {
+          "id": "relationships-work",
+          "title": {
+            "zh": "相处与工作中的读法",
+            "en": "Reading it in relationships and work"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以问一句：“这个细节对你重要吗？”也可以说明自己愿意投入多少时间，不必因为重视关系就答应全部。共同任务中，个人化的关心仍要尊重信息与参与界限。它不证明你适合服务、艺术、咨询或任何职业，也不判断伴侣是否匹配。",
+              "en": "Ask whether a detail matters to someone and state the time you are willing to give. Valuing a relationship need not mean accepting every request. Within a shared task, personal care still needs to respect information and participation boundaries. It does not prove suitability for service, art, counselling or any occupation, or predict partner compatibility."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近原型比较",
+            "en": "Compare nearby themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "恋人与照顾者都可能关心别人，恋人更关注专注联系与欣赏，照顾者更关注实际需要有没有得到支持。与平凡者相比，恋人侧重具体联系的独特意味，平凡者侧重平等归属。这不是谁更会爱人的排行，选择少也不说明缺少感情。",
+              "en": "Lover and Caregiver can both concern others; Lover foregrounds attentive connection and appreciation, while Caregiver foregrounds a concrete support need. Everyperson emphasises equal belonging rather than a connection’s particular significance. These are not ranks of loving ability, and fewer selections do not establish an absence of feeling."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一件自己确实在意的小事，先确认相关的人愿意怎样参与，再给它一段有限、专注的时间。结束后问哪些细节有用，哪些不需要，并检查自己是否仍舒服。练习把在意说清楚，不用通过对方反应证明自己被重视或属于恋人原型。",
+              "en": "Choose one small matter you care about, check how others want to take part and give it a limited period of attention. Afterwards, ask which details helped and which were unnecessary, and check your own comfort. Practise expressing care without using the response as proof of being valued or belonging to a Lover identity."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "框架、题本与使用范围",
+            "en": "Framework, questionnaire and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "现代十二原型框架与Carol S. Pearson等作者的整理及应用有关，不是荣格亲自编定的一份固定十二类型问卷。费马独立编写本版36题、计数规则与解释；没有使用或取得PMAI商业量表题目、算法或解释材料的授权，也不自称其改编或替代版。尚无本站信效度与人群常模，不评估潜意识、阴影、智力、心理健康、职业适配或关系结局。",
+              "en": "The modern twelve-archetype framework is associated with the work and applications of authors including Carol S. Pearson, rather than a fixed twelve-type questionnaire authored by Jung. FermatMind independently wrote these thirty-six items, count rules and explanations. We neither use nor hold a licence for PMAI commercial items, scoring or interpretive materials, and do not present this as its adaptation or replacement. This edition has no established validity, reliability or population norms and does not assess unconscious processes, shadow, IQ, mental health, career fit or relationship outcomes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jester",
+      "directionIds": [
+        "jester"
+      ],
+      "title": {
+        "zh": "弄臣原型",
+        "en": "Jester Archetype"
+      },
+      "headline": {
+        "zh": "为适合的玩趣与轻松留位置",
+        "en": "Make room for considerate play and lightness"
+      },
+      "summary": {
+        "zh": "弄臣是玩趣、轻松与当下参与的动机比喻，不是嘲弄、取悦别人的义务，也不测幽默才能、成熟度或是否认真负责。",
+        "en": "Jester is a metaphor for play, lightness and participation in the moment. It creates no duty to mock, entertain or please others, and measures neither comic talent, maturity nor responsibility."
+      },
+      "seo": {
+        "title": {
+          "zh": "弄臣原型：含义、情境与结果读法",
+          "en": "Jester Archetype Meaning — Jungian Archetype Test"
+        },
+        "description": {
+          "zh": "弄臣原型关注适合的玩趣与当下参与，不是取悦他人的义务。阅读具体例子、认真问题的边界、相近原型和小尝试；完整免费说明。",
+          "en": "Read the Jester archetype: considerate play, ordinary examples and tradeoffs. Compare Innocent and Creator without judging humour, maturity or responsibility."
+        }
+      },
+      "scoreReading": {
+        "zh": "本版36题，每题4个不同动机选项；每个原型出现12次、各位置3次，选中加1。原始次数只比较本题组中的选择，不是原型含量、相似度百分比、能力或人群排名。所有最高并列保留，每份报告完整呈现；差1次不代表已验证的显著差异，不按分差编造主次型或阴影。",
+        "en": "This edition has thirty-six questions with four different motivational options each. Every theme appears twelve times, three in each position, and a selection adds one. Raw counts compare choices in this set, not archetype content, match percentages, ability or population ranks. Every highest tie retains its full report. One extra choice is not an established significant difference, and gaps do not generate fixed secondary or shadow types."
+      },
+      "sections": [
+        {
+          "id": "motivation",
+          "title": {
+            "zh": "本版在观察什么",
+            "en": "What this edition explores"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能更想给一段过于紧绷的活动留一点玩趣，让参与不只剩下表现与结果。轻松可以是温和的小停顿、共同笑点或自由试验，不需要拿谁的尴尬作材料。这个名称不表示你总在开玩笑，也不把严肃需求说成缺乏幽默。",
+              "en": "You may want to leave room for play when an activity has become dominated by performance and outcomes. Lightness can take the form of a considerate pause, a shared amusing detail or an experiment without pressure. It need not use anyone’s embarrassment. The name neither demands constant joking nor makes a serious need humourless."
+            }
+          ]
+        },
+        {
+          "id": "score-meaning",
+          "title": {
+            "zh": "怎样阅读本次计数",
+            "en": "Reading your counts"
+          },
+          "paragraphs": [
+            {
+              "zh": "相关选项共出现12次，每个位置3次。选中次数不等于幽默能力、外向程度或快乐水平，也不说明你会回避责任。若最高计数并列，每份报告都会呈现。不能把低计数原型当成你隐藏的严肃一面，或从本题本推断心理防御机制。",
+              "en": "The twelve relevant options occur three times in each position. Selections are not a measure of humour, extraversion or happiness, and do not establish avoidance of responsibility. Each highest tie receives its complete report. A lower theme cannot be treated as a hidden serious side, and these items cannot identify psychological defence mechanisms."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个具体情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "小组长时间认真讨论后，你想加一个体贴的轻松停顿。可以先看大家是否愿意休息，或用不指向任何人的小比喻换一下节奏。若有人仍需要认真说完，就给他空间；轻松有没有帮助，要看当事人的反馈而不是自己的意图。",
+              "en": "After an extended serious discussion, you want a considerate moment of lightness. Check whether people want a break or use a small analogy that targets nobody. If someone still needs to finish an important point, leave space for it. Whether the change helps depends on participants’ feedback rather than your intention alone."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "可以提供的视角",
+            "en": "A perspective to contribute"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个动机可以提醒大家：一项活动是否已经没有试错和普通参与的位置？你可以提出一个低压力试验，让结果不必立即被评价。是否能做到仍是具体行动问题；弄臣计数不能证明你善于活跃气氛、社交或帮助别人减轻痛苦。",
+              "en": "This motive can ask whether an activity still allows mistakes and ordinary participation. You might suggest an experiment without immediate evaluation. Making it useful is a matter of actual action. A Jester tally is not evidence of skill in energising a group, socialising or relieving another person’s distress."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "太想让气氛轻松时，可能把尚未处理的认真问题带过去。可以先回应事实与需要，再确认是否适合换节奏。你不必承担让每个人开心的任务，也可以没有笑点或不想表演。轻松不是否定影响，更不是要求受影响的人别介意。",
+              "en": "A strong wish for ease can move a discussion past an unresolved serious matter. Acknowledge the facts and need before checking whether a change of pace fits. You are not responsible for making everyone happy and can have no joke to offer. Lightness should not dismiss effects or require an affected person to stop caring."
+            }
+          ]
+        },
+        {
+          "id": "relationships-work",
+          "title": {
+            "zh": "相处与工作中的读法",
+            "en": "Reading it in relationships and work"
+          },
+          "paragraphs": [
+            {
+              "zh": "共同任务中，可以明确哪些环节适合自由试，哪些需要认真确认。关系里也能问：“现在想轻松一下，还是继续说？”这个沟通选择不判断你适合创意、表演、销售或其他职业，也不证明你在困难时是否可靠。",
+              "en": "In a shared task, distinguish steps suitable for playful trials from matters needing careful confirmation. In a relationship, ask whether someone wants a lighter moment or to continue speaking. This communication choice decides neither occupational suitability in creative work, performance, sales or elsewhere, nor dependability in a difficult situation."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近原型比较",
+            "en": "Compare nearby themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "弄臣与纯真者都可能希望相处轻松，弄臣侧重玩趣与当下，纯真者侧重简单可信。与创造者相比，弄臣更看重参与过程的玩趣，创造者更看重做出自己的表达。两者可能同时出现，不划分谁更有创意、更快乐或更成熟。",
+              "en": "Jester and Innocent may both welcome ease, but Jester foregrounds play in the moment while Innocent foregrounds simplicity and trust. Creator emphasises making an expression, whereas Jester can value the play of participating itself. These motives may coexist without ranking creativity, happiness or maturity."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "挑一个没有重大后果的普通活动，先确认参与者愿不愿意留十分钟自由试。约好不拿人开玩笑，也不急着评价成果。结束后问这个空间是否有帮助，认真听不喜欢的部分。观察适合的条件，不用证明自己一定是大家的开心果。",
+              "en": "Choose an ordinary activity without major consequences and ask whether participants want ten minutes for a playful trial. Agree not to make anyone the target or evaluate the result immediately. Ask afterwards whether the space helped and hear what did not. Explore suitable conditions without proving you must be the group’s entertainer."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "框架、题本与使用范围",
+            "en": "Framework, questionnaire and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "现代十二原型框架与Carol S. Pearson等作者的整理及应用有关，不是荣格亲自编定的一份固定十二类型问卷。费马独立编写本版36题、计数规则与解释；没有使用或取得PMAI商业量表题目、算法或解释材料的授权，也不自称其改编或替代版。尚无本站信效度与人群常模，不评估潜意识、阴影、智力、心理健康、职业适配或关系结局。",
+              "en": "The modern twelve-archetype framework is associated with the work and applications of authors including Carol S. Pearson, rather than a fixed twelve-type questionnaire authored by Jung. FermatMind independently wrote these thirty-six items, count rules and explanations. We neither use nor hold a licence for PMAI commercial items, scoring or interpretive materials, and do not present this as its adaptation or replacement. This edition has no established validity, reliability or population norms and does not assess unconscious processes, shadow, IQ, mental health, career fit or relationship outcomes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "everyperson",
+      "directionIds": [
+        "everyperson"
+      ],
+      "title": {
+        "zh": "平凡者原型",
+        "en": "Everyperson Archetype"
+      },
+      "headline": {
+        "zh": "不必特别出众，也能一起参与",
+        "en": "Take part together without needing to stand out"
+      },
+      "summary": {
+        "zh": "平凡者线索关注平等参与、日常联系与归属。平凡不是能力、价值或成就的评价，也不表示随大流、没有个性或不值得被注意。",
+        "en": "The Everyperson theme concerns equal participation, everyday connection and belonging. Ordinary is not a judgment of ability, worth or achievement, nor evidence of conformity, a lack of individuality or being unworthy of attention."
+      },
+      "seo": {
+        "title": {
+          "zh": "平凡者原型：含义、情境与结果读法",
+          "en": "Everyperson Archetype Meaning — Jungian Archetype Test"
+        },
+        "description": {
+          "zh": "平凡者原型关注平等参与与归属，不评价能力或个人价值。阅读普通情境、表达差异、与照顾者及恋人的比较；完整原型说明免费。",
+          "en": "Explore the Everyperson archetype: belonging, equal participation and room for difference. Full examples and comparisons without popularity or worth judgments."
+        }
+      },
+      "scoreReading": {
+        "zh": "本版36题，每题4个不同动机选项；每个原型出现12次、各位置3次，选中加1。原始次数只比较本题组中的选择，不是原型含量、相似度百分比、能力或人群排名。所有最高并列保留，每份报告完整呈现；差1次不代表已验证的显著差异，不按分差编造主次型或阴影。",
+        "en": "This edition has thirty-six questions with four different motivational options each. Every theme appears twelve times, three in each position, and a selection adds one. Raw counts compare choices in this set, not archetype content, match percentages, ability or population ranks. Every highest tie retains its full report. One extra choice is not an established significant difference, and gaps do not generate fixed secondary or shadow types."
+      },
+      "sections": [
+        {
+          "id": "motivation",
+          "title": {
+            "zh": "本版在观察什么",
+            "en": "What this edition explores"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能更想和别人并肩做事，不必先有一个特别身份或突出表现才能加入。这个动机可以出现在兴趣、学习和共同生活里，并不要求所有人相同。归属也可以容纳不同意见、独处需要与个人表达，不等于放弃自己的选择。",
+              "en": "You may want to take part alongside others without first earning admission through a special identity or exceptional performance. This motive can appear in hobbies, learning and shared life without requiring uniformity. Belonging can include disagreement, a need for solitude and individual expression; it need not mean abandoning your choices."
+            }
+          ]
+        },
+        {
+          "id": "score-meaning",
+          "title": {
+            "zh": "怎样阅读本次计数",
+            "en": "Reading your counts"
+          },
+          "paragraphs": [
+            {
+              "zh": "平凡者相关选项出现12次，每个位置3次。次数不测受欢迎程度、社交能力或别人是否接纳你，更不是人群平均人格。所有最高并列报告都会保留，不能因为还有别的高计数，就认为自己的归属需要不够真实或缺少独特性。",
+              "en": "Everyperson-related options appear twelve times, three in each position. Counts measure neither popularity, social competence nor acceptance by others, and do not represent an average human personality. All highest ties remain. Another high theme does not make a wish for belonging less real or establish a lack of distinctiveness."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个具体情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "有人第一次来参加兴趣活动，担心自己没有经验。你可能愿意陪他做一段普通任务，让加入不需要先证明水平。也可以说明不同参与方式，让对方自己选择。这不是把每个人都拉进群体；不想加入或只参与一部分，也应有空间。",
+              "en": "Someone joins a hobby activity worried about inexperience. You may want to do an ordinary task alongside them so participation does not depend on proving skill. Explain different ways to join and let them choose. Belonging is not a demand to pull everyone into the group; limited participation or declining should remain possible."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "可以提供的视角",
+            "en": "A perspective to contribute"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个动机可以让讨论看见普通参与者的位置：说明是否只有熟手才懂，贡献是否只有显眼成果才被注意？你可以指出一个较容易加入的步骤。是否真的更平等，要听参与者经验，不能因为平凡者计数高就推定自己代表所有人的需要。",
+              "en": "This motive can bring ordinary participation into view: do instructions assume expertise, and is only a visible result recognised as contribution? You might suggest a more accessible first step. Whether that makes participation more equal needs people’s experience, not an assumption that a high Everyperson tally lets you speak for everybody."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "想避免显得特别时，可能不太容易说出自己的偏好。可以把“希望一起参与”和“有一项不同需要”同时说清。别人也可能不把差异看成拒绝。这里不认定你缺乏主见或在讨好，而是邀请回看一次具体表达是否被理解。",
+              "en": "A wish not to stand apart can make a personal preference harder to express. State both the wish to participate and a differing need. Others may not regard difference as rejection. This is not a judgment of passivity or people-pleasing; it invites a look at whether a particular expression was understood."
+            }
+          ]
+        },
+        {
+          "id": "relationships-work",
+          "title": {
+            "zh": "相处与工作中的读法",
+            "en": "Reading it in relationships and work"
+          },
+          "paragraphs": [
+            {
+              "zh": "共同任务中，可以用普通语言确认每个人知道怎样开始，也明确自己愿意承担多少。关系里，日常陪伴不必每次都制造特别时刻。原型不能证明你适合团队、服务或某种岗位，也不能要求别人用同样频率的联系来回应归属需要。",
+              "en": "For a shared task, use everyday language to confirm how people can begin and state what you are willing to carry. In relationships, ordinary company need not produce a special moment every time. The theme proves neither teamwork ability nor occupational fit, and cannot require others to maintain your preferred frequency of contact."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近原型比较",
+            "en": "Compare nearby themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "平凡者与照顾者都可能让人更容易参与，平凡者侧重并肩与平等归属，照顾者侧重具体支持。与恋人相比，平凡者关注不必特殊也能加入，恋人关注具体联系的投入与欣赏。这不是亲密程度排行，更不表示哪一种人比较值得被爱。",
+              "en": "Everyperson and Caregiver can make participation easier, but Everyperson foregrounds belonging alongside others while Caregiver foregrounds specific help. Lover emphasises engaged appreciation within a particular connection rather than joining without being special. These are not ranks of closeness or judgments of who deserves affection."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "在一次愿意参加的小活动里，同时说一项自己可以做的普通贡献和一项真实偏好。听听别人怎样回应，再确认不一致的部分是否需要调整。观察自己能否既参与又不隐藏差异，不用通过退让或表现突出，证明自己有资格待在这里。",
+              "en": "In a small activity you want to join, name one ordinary contribution you can make and one genuine preference. Hear the response and check whether differing parts need adjustment. Observe whether you can participate without concealing difference, rather than earn a place through either yielding everything or producing an exceptional performance."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "框架、题本与使用范围",
+            "en": "Framework, questionnaire and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "现代十二原型框架与Carol S. Pearson等作者的整理及应用有关，不是荣格亲自编定的一份固定十二类型问卷。费马独立编写本版36题、计数规则与解释；没有使用或取得PMAI商业量表题目、算法或解释材料的授权，也不自称其改编或替代版。尚无本站信效度与人群常模，不评估潜意识、阴影、智力、心理健康、职业适配或关系结局。",
+              "en": "The modern twelve-archetype framework is associated with the work and applications of authors including Carol S. Pearson, rather than a fixed twelve-type questionnaire authored by Jung. FermatMind independently wrote these thirty-six items, count rules and explanations. We neither use nor hold a licence for PMAI commercial items, scoring or interpretive materials, and do not present this as its adaptation or replacement. This edition has no established validity, reliability or population norms and does not assess unconscious processes, shadow, IQ, mental health, career fit or relationship outcomes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caregiver",
+      "directionIds": [
+        "caregiver"
+      ],
+      "title": {
+        "zh": "照顾者原型",
+        "en": "Caregiver Archetype"
+      },
+      "headline": {
+        "zh": "让具体需要得到愿意承担的支持",
+        "en": "Connect a concrete need with willing support"
+      },
+      "summary": {
+        "zh": "照顾者线索关注询问需要并提供实际协助的动机，不证明共情能力、善良程度或职业胜任，也不要求你牺牲自己的时间、身体或合理界限。",
+        "en": "The Caregiver theme concerns asking about needs and offering practical support. It establishes neither empathy, moral goodness nor occupational competence, and does not require sacrificing your time, health or reasonable limits."
+      },
+      "seo": {
+        "title": {
+          "zh": "照顾者原型：含义、情境与结果读法",
+          "en": "Caregiver Archetype Meaning — Jungian Archetype Test"
+        },
+        "description": {
+          "zh": "照顾者原型关注询问需要和实际支持，不要求牺牲自己。阅读具体例子、容量与同意、相近原型和小尝试；完整说明免费可读。",
+          "en": "Read the Caregiver archetype: practical support, consent and capacity. Complete examples and comparisons without empathy scores or a duty to sacrifice yourself."
+        }
+      },
+      "scoreReading": {
+        "zh": "本版36题，每题4个不同动机选项；每个原型出现12次、各位置3次，选中加1。原始次数只比较本题组中的选择，不是原型含量、相似度百分比、能力或人群排名。所有最高并列保留，每份报告完整呈现；差1次不代表已验证的显著差异，不按分差编造主次型或阴影。",
+        "en": "This edition has thirty-six questions with four different motivational options each. Every theme appears twelve times, three in each position, and a selection adds one. Raw counts compare choices in this set, not archetype content, match percentages, ability or population ranks. Every highest tie retains its full report. One extra choice is not an established significant difference, and gaps do not generate fixed secondary or shadow types."
+      },
+      "sections": [
+        {
+          "id": "motivation",
+          "title": {
+            "zh": "本版在观察什么",
+            "en": "What this edition explores"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能更想知道谁需要什么，以及自己能否提供一项真正有用的支持。照顾不是替别人决定，也不限于情绪安慰；可以是一次具体协助、清楚说明或合适转介。愿意帮助与是否有余力是两件事，拒绝也不否定这个动机。",
+              "en": "You may want to find out who needs what and whether you can offer something useful. Care does not mean deciding for someone or only providing emotional reassurance; it may involve practical help, an explanation or directing a request elsewhere. Wanting to help and having capacity are separate matters. Declining does not invalidate the motive."
+            }
+          ]
+        },
+        {
+          "id": "score-meaning",
+          "title": {
+            "zh": "怎样阅读本次计数",
+            "en": "Reading your counts"
+          },
+          "paragraphs": [
+            {
+              "zh": "相关选项出现12次，每个位置3次，每次选择加1。它不是利他程度、共情分数或别人对你的满意度。所有最高并列都保留，不把照顾者当成唯一主型，也不由低计数判断冷漠。本版没有测讨好、拯救模式或隐含创伤。",
+              "en": "The twelve relevant options occur three times in each position, adding one per choice. Counts are not levels of altruism, empathy scores or another person’s satisfaction. Every highest tie remains; Caregiver need not become a sole primary identity. Low counts do not establish coldness, and these items assess neither rescuing patterns nor hidden trauma."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个具体情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "活动中有人难以完成一项步骤，你可以先问哪部分需要协助，再说明自己能提供多少。对方可能需要示范而不是代做，也可能不想接受帮助。可以尊重他的选择，把支持做成双方都知道的安排，而不靠猜测谁应该感激谁。",
+              "en": "Someone at an activity struggles with a step. Ask which part needs help and state what you can offer. They may want a demonstration rather than someone taking over, or may decline altogether. Respect that choice and make support an understood arrangement instead of guessing who should be grateful to whom."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "可以提供的视角",
+            "en": "A perspective to contribute"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个动机可以提醒大家：任务之外，有没有一个具体困难尚未被听见？你可以帮助把模糊的不方便说清，再询问可行支持。效果要由实际需要和反馈判断；不能因为选了照顾者就推定自己理解所有人的感受，或拥有帮助他人的专业资格。",
+              "en": "This motive can ask whether a concrete difficulty has gone unheard alongside the task itself. You might help make a vague inconvenience clear and ask what support would work. Its effect needs to be judged from the need and feedback, not inferred as comprehensive emotional understanding or a professional qualification to help others."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果总先看见别人需要，可能晚一些才注意自己的容量。可以在答应前确认时间、范围和自己是否愿意；也可以把超出能力的部分明确说出。这里不是诊断过度照顾，而是提供一个回看的问题。照顾不需要以耗尽自己作为证明。",
+              "en": "Noticing another person’s need first can leave your own capacity until later. Before agreeing, clarify time, scope and willingness, and name anything beyond your skills. This is a question for reflection rather than a diagnosis of over-caring. Support does not need exhaustion as proof that the motive is sincere."
+            }
+          ]
+        },
+        {
+          "id": "relationships-work",
+          "title": {
+            "zh": "相处与工作中的读法",
+            "en": "Reading it in relationships and work"
+          },
+          "paragraphs": [
+            {
+              "zh": "共同任务里，可以把“我愿意帮这一部分”和“其余需要另作安排”同时说清。关系中也可以先问对方想要什么回应，而不是承担全部情绪。原型不能判定医疗、咨询、教育或服务工作的适配，更不能替代所需训练、资格与实际表现。",
+              "en": "In a shared task, distinguish the part you are willing to help with from what needs another arrangement. In a relationship, ask what response someone wants rather than accept responsibility for all their feelings. An archetype cannot establish fit for healthcare, counselling, education or service work, or replace training, qualifications and actual performance."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近原型比较",
+            "en": "Compare nearby themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "照顾者与恋人都可能重视别人，照顾者更关注具体支持，恋人更关注投入与欣赏。与英雄相比，照顾者先看需要，英雄先看想回应的挑战；与平凡者相比，前者侧重帮助，后者侧重并肩归属。区别不是谁更好、更强或更值得被需要。",
+              "en": "Caregiver and Lover may both value others, but Caregiver foregrounds practical support while Lover foregrounds engaged appreciation. Hero starts from a challenge to meet, and Everyperson from belonging alongside others. These distinctions do not rank goodness or strength, or decide who deserves to be needed. The same person may express several of these motives."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "下一次想提供帮助时，先问一个具体需要，再说自己愿意承担的一个部分与结束时间。确认对方是否愿意，结束后问有没有真正帮到。也记下自己的容量。练习让支持与同意同时清楚，不用以做得更多来守住照顾者身份。",
+              "en": "The next time you want to help, ask about one specific need, offer one part you are willing to carry and state a stopping time. Check consent and ask afterwards whether it helped, while noticing your own capacity. Practise making support and agreement clear rather than preserving a Caregiver identity through doing more."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "框架、题本与使用范围",
+            "en": "Framework, questionnaire and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "现代十二原型框架与Carol S. Pearson等作者的整理及应用有关，不是荣格亲自编定的一份固定十二类型问卷。费马独立编写本版36题、计数规则与解释；没有使用或取得PMAI商业量表题目、算法或解释材料的授权，也不自称其改编或替代版。尚无本站信效度与人群常模，不评估潜意识、阴影、智力、心理健康、职业适配或关系结局。",
+              "en": "The modern twelve-archetype framework is associated with the work and applications of authors including Carol S. Pearson, rather than a fixed twelve-type questionnaire authored by Jung. FermatMind independently wrote these thirty-six items, count rules and explanations. We neither use nor hold a licence for PMAI commercial items, scoring or interpretive materials, and do not present this as its adaptation or replacement. This edition has no established validity, reliability or population norms and does not assess unconscious processes, shadow, IQ, mental health, career fit or relationship outcomes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ruler",
+      "directionIds": [
+        "ruler"
+      ],
+      "title": {
+        "zh": "统治者原型",
+        "en": "Ruler Archetype"
+      },
+      "headline": {
+        "zh": "让资源、责任与决定有清楚的衔接",
+        "en": "Make resources, responsibilities and decisions connect clearly"
+      },
+      "summary": {
+        "zh": "统治者线索关注组织、协调和可持续安排的动机。名称不赋予权力，不测领导力、控制欲、管理技能或社会地位，也不表示别人应当服从你。",
+        "en": "The Ruler theme concerns organisation, coordination and arrangements that can continue. The name grants no authority and measures neither leadership, controlling behaviour, management skill nor social status. It creates no obligation for others to obey you."
+      },
+      "seo": {
+        "title": {
+          "zh": "统治者原型：含义、情境与结果读法",
+          "en": "Ruler Archetype Meaning — Jungian Archetype Test"
+        },
+        "description": {
+          "zh": "统治者原型关注资源、责任与协调，不赋予权力或证明领导力。阅读分工例子、调整空间、相近原型与小尝试；完整说明免费。",
+          "en": "Explore the Ruler archetype: coordination, responsibilities and revisable agreements. Full examples and comparisons without leadership or management-fit claims."
+        }
+      },
+      "scoreReading": {
+        "zh": "本版36题，每题4个不同动机选项；每个原型出现12次、各位置3次，选中加1。原始次数只比较本题组中的选择，不是原型含量、相似度百分比、能力或人群排名。所有最高并列保留，每份报告完整呈现；差1次不代表已验证的显著差异，不按分差编造主次型或阴影。",
+        "en": "This edition has thirty-six questions with four different motivational options each. Every theme appears twelve times, three in each position, and a selection adds one. Raw counts compare choices in this set, not archetype content, match percentages, ability or population ranks. Every highest tie retains its full report. One extra choice is not an established significant difference, and gaps do not generate fixed secondary or shadow types."
+      },
+      "sections": [
+        {
+          "id": "motivation",
+          "title": {
+            "zh": "本版在观察什么",
+            "en": "What this edition explores"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能更在意一件事怎样安排才容易持续：谁决定、谁承担、资源从哪里来、下一步怎样衔接。这个动机不一定由负责人表达，普通参与者也可能希望流程清楚。统治者只是本版保留的原型名称，不是对现实权力关系的认可。",
+              "en": "You may be interested in what lets an arrangement continue: who decides, who carries a task, where resources come from and how steps connect. A person need not be in charge to want that clarity. Ruler is the archetypal name retained here, not an endorsement of a real hierarchy or a claim to authority."
+            }
+          ]
+        },
+        {
+          "id": "score-meaning",
+          "title": {
+            "zh": "怎样阅读本次计数",
+            "en": "Reading your counts"
+          },
+          "paragraphs": [
+            {
+              "zh": "相关选项12次、各位置3次，每次选中加1，全部最高并列保留。计数不测组织效果、责任心或支配倾向，不能用来决定谁更适合当负责人。低计数也不表示缺乏担当；题目只是让几个可能都重要的动机进行本次比较。",
+              "en": "The twelve relevant options occur three times in each position, adding one per selection, with all highest ties retained. Counts measure neither organisational effectiveness, conscientiousness nor dominance, and cannot decide who should lead. A low count does not establish a lack of responsibility; the questions compare several potentially important motives in this attempt."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个具体情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "活动已经有很多好点子，你可能先想确认材料、时间和交接。可以提出一个简单分工草案，再让参与者说明是否愿意、哪些条件不合适。安排清楚不等于单方面替大家决定；一个有效流程应让需要调整的人有表达空间。",
+              "en": "An activity already has many ideas and you want to clarify materials, timing and handovers. Suggest a simple draft division of tasks, then let participants say whether they agree and what does not fit. Clarity is not unilateral decision-making. A workable process leaves room for someone who needs an adjustment to say so."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "可以提供的视角",
+            "en": "A perspective to contribute"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个动机可以帮助大家把“以后再说”变成一个明确的确认点。你可以问谁来决定、怎样知道完成，而不是把所有事项收归自己。是否有用，要看参与者是否更容易行动和修改；统治者结果不能证明你的安排天然正确或高效。",
+              "en": "This motive can turn an indefinite later into a clear point for confirmation. Ask who decides and how completion will be recognised rather than gather every matter under your own control. Usefulness depends on whether participants can act and revise more easily. A Ruler result does not make your arrangement inherently correct or efficient."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "太想维持顺畅时，可能把不同意见理解成打乱节奏。可以先区分必要条件与个人偏好，再问新信息是否要求改变安排。流程服务于参与目的，而不是必须被保护的身份。这里不认定你强势或僵化，只邀请核对一次实际互动。",
+              "en": "A wish for smooth coordination can make disagreement feel like disruption. Separate necessary conditions from personal preference and ask whether new information calls for an adjustment. A process serves participation rather than an identity to defend. This is not a judgment of forcefulness or rigidity; it invites examination of a particular interaction."
+            }
+          ]
+        },
+        {
+          "id": "relationships-work",
+          "title": {
+            "zh": "相处与工作中的读法",
+            "en": "Reading it in relationships and work"
+          },
+          "paragraphs": [
+            {
+              "zh": "共同任务里可以把安排写得足够简单，让别人知道怎样提出变更。关系中则应明确哪些是一起同意的条件，哪些只是自己的期待。此处不是管理、行政、创业或领导潜质评估，也不授权替对方做决定；真实职责需要另有依据。",
+              "en": "For a shared task, keep the arrangement simple enough for others to understand how to request a change. In relationships, distinguish jointly agreed conditions from your own expectations. This is not an assessment of managerial, administrative, entrepreneurial or leadership potential, and gives no authority to decide for another person. Actual responsibilities need a separate basis."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近原型比较",
+            "en": "Compare nearby themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "统治者与英雄都可能愿意承担，前者更关注协调与持续，后者更关注攻克难点。与智者相比，统治者先看怎样组织，智者先看怎样理解。与创造者相比，统治者关注安排能否衔接，创造者关注表达能否实现。它们不决定团队里谁应居于更高位置。",
+              "en": "Ruler and Hero may both accept a task; Ruler foregrounds coordination and continuity, while Hero foregrounds a challenge. Sage places understanding first, whereas Creator places making an expression first. These contrasts do not decide a team hierarchy, divide thinkers from doers or establish which motive is more responsible. Highest ties can be read together without a fixed rank."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一项低风险共同安排，用几行写清目的、责任、时间和提出变更的方式。把草案交给相关的人确认，而不是当作已经决定的通知。试行后问有没有更容易参与，删去无用步骤。练习的是让协调可理解、可修改，不是证明自己必须掌控。",
+              "en": "Choose a low-stakes shared arrangement and briefly state its purpose, responsibilities, timing and way to request changes. Offer it as a draft for agreement rather than a finished notice. Afterwards, ask whether participation became easier and remove unnecessary steps. Practise understandable, revisable coordination instead of proving a need to remain in control."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "框架、题本与使用范围",
+            "en": "Framework, questionnaire and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "现代十二原型框架与Carol S. Pearson等作者的整理及应用有关，不是荣格亲自编定的一份固定十二类型问卷。费马独立编写本版36题、计数规则与解释；没有使用或取得PMAI商业量表题目、算法或解释材料的授权，也不自称其改编或替代版。尚无本站信效度与人群常模，不评估潜意识、阴影、智力、心理健康、职业适配或关系结局。",
+              "en": "The modern twelve-archetype framework is associated with the work and applications of authors including Carol S. Pearson, rather than a fixed twelve-type questionnaire authored by Jung. FermatMind independently wrote these thirty-six items, count rules and explanations. We neither use nor hold a licence for PMAI commercial items, scoring or interpretive materials, and do not present this as its adaptation or replacement. This edition has no established validity, reliability or population norms and does not assess unconscious processes, shadow, IQ, mental health, career fit or relationship outcomes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "creator",
+      "directionIds": [
+        "creator"
+      ],
+      "title": {
+        "zh": "创造者原型",
+        "en": "Creator Archetype"
+      },
+      "headline": {
+        "zh": "把自己的构想做成可见的表达",
+        "en": "Give an idea of your own a tangible expression"
+      },
+      "summary": {
+        "zh": "创造者线索关注把构想做出来、形成自己表达的动机。不测创造力、艺术天赋、创新能力或作品质量，也不要求把每项兴趣做成成果。",
+        "en": "The Creator theme concerns making an idea and giving it an expression of your own. It measures neither creativity, artistic talent, innovative ability nor quality of work, and does not require every interest to produce an outcome."
+      },
+      "seo": {
+        "title": {
+          "zh": "创造者原型：含义、情境与结果读法",
+          "en": "Creator Archetype Meaning — Jungian Archetype Test"
+        },
+        "description": {
+          "zh": "创造者原型关注把构想做成表达，不测艺术或创新能力。阅读作品粗样、反馈与修改取舍、相近原型和小尝试；完整说明免费。",
+          "en": "Read the Creator archetype: making an expression, trying a draft and using feedback. Full examples and comparisons without artistic-talent or creativity rankings."
+        }
+      },
+      "scoreReading": {
+        "zh": "本版36题，每题4个不同动机选项；每个原型出现12次、各位置3次，选中加1。原始次数只比较本题组中的选择，不是原型含量、相似度百分比、能力或人群排名。所有最高并列保留，每份报告完整呈现；差1次不代表已验证的显著差异，不按分差编造主次型或阴影。",
+        "en": "This edition has thirty-six questions with four different motivational options each. Every theme appears twelve times, three in each position, and a selection adds one. Raw counts compare choices in this set, not archetype content, match percentages, ability or population ranks. Every highest tie retains its full report. One extra choice is not an established significant difference, and gaps do not generate fixed secondary or shadow types."
+      },
+      "sections": [
+        {
+          "id": "motivation",
+          "title": {
+            "zh": "本版在观察什么",
+            "en": "What this edition explores"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能更想亲手留下一个原本不存在的表达：一段文字、一种版式、一个小物件或不同的做法。形式不必独一无二，材料也不必昂贵。这个动机指向想做出什么，不是已经做得多好；普通、简单的表达也可以有意义。",
+              "en": "You may want to bring an expression into being: a piece of writing, a layout, a small object or a way of doing something. It need not be unique in every respect or use expensive materials. The motive concerns wanting to make something, not how well you already make it. A simple expression can still matter."
+            }
+          ]
+        },
+        {
+          "id": "score-meaning",
+          "title": {
+            "zh": "怎样阅读本次计数",
+            "en": "Reading your counts"
+          },
+          "paragraphs": [
+            {
+              "zh": "创造者选项出现12次、每个位置3次。计数反映本组比较中对这些回应的选择，不是创造力测验成绩、作品评级或成功概率。最高并列时所有报告一起呈现，低计数也不表示没有想象力；现实技能与成果需要通过实际任务另行了解。",
+              "en": "Creator options appear twelve times, three in each position. The tally reflects selections within these comparisons, not a creativity-test result, a work rating or a probability of success. Every highest tie receives its report. Low counts do not establish a lack of imagination; actual skills and outcomes need information from real tasks."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个具体情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "活动需要一张简单说明，你可能想重新组织版面，让它带有自己的表达。可以先做一个粗略版本，问使用者是否看得懂，再决定要不要继续细化。不必等到足够完美才让人看，也不用为了体现自己而牺牲说明的实际用途。",
+              "en": "An activity needs a simple information sheet and you want to arrange it with an expression of your own. Make a rough version, ask whether users understand it and then decide whether to refine it. You need not wait for perfection to show it, or sacrifice its practical purpose simply to make it distinctive."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "可以提供的视角",
+            "en": "A perspective to contribute"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个动机可以让抽象讨论多一个能看见、能试用的版本。你可以做一个小样，让大家更容易指出合适与不合适的部分。是否真的有帮助，要看实际体验；得到创造者不证明审美更好、点子更多，也不把别人的反馈降为不懂创作。",
+              "en": "This motive can give an abstract discussion something visible to try. A small draft may make it easier for others to identify what fits and what does not. Its value depends on actual experience. Selecting Creator does not prove better taste or more ideas, or make someone’s feedback uninformed merely because they did not make the draft."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "想让表达贴近构想，可能会不断修改，直到没有余力继续。可以先定义这次作品只需完成的一个目的，再区分必要修改与可留到以后的小细节。这个问题不是完美主义或拖延诊断；有时停止修改，比继续追求理想版本更适合当前条件。",
+              "en": "A wish for expression to match an idea can lead to repeated revision until capacity runs out. Define one purpose the work needs to meet and distinguish necessary changes from details that can wait. This is not a diagnosis of perfectionism or procrastination. Stopping revision may sometimes fit current conditions better than pursuing an ideal version."
+            }
+          ]
+        },
+        {
+          "id": "relationships-work",
+          "title": {
+            "zh": "相处与工作中的读法",
+            "en": "Reading it in relationships and work"
+          },
+          "paragraphs": [
+            {
+              "zh": "共同制作时，可以先问哪些条件必须满足，哪些部分可以自由表达。别人有不同意见，不自动否定你的投入；你也可以说明自己愿意改到哪里。原型不判断艺术、设计、写作、工程或创业适配，实际任务仍要看能力、资源、需求和作品反馈。",
+              "en": "When making something together, clarify required conditions and where expression can remain open. A different opinion need not reject your effort, and you can state what you are willing to revise. The theme cannot establish fit for art, design, writing, engineering or entrepreneurship; real tasks require skills, resources, needs and feedback about the work."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近原型比较",
+            "en": "Compare nearby themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "创造者与探索者都可能喜欢新鲜，创造者更关注做出表达，探索者更关注亲自接触未知。与魔法师相比，创造者先看作品如何成形，魔法师先看连接怎样带来转变。与弄臣相比，创造者重视做出什么，弄臣重视参与中的玩趣，不划分谁更有创造力。",
+              "en": "Creator and Explorer can both welcome novelty; Creator foregrounds making an expression while Explorer foregrounds encountering the unfamiliar. Magician asks what a different connection might change, and Jester can value play in participation itself. None of these contrasts ranks creativity or divides genuinely creative people from everyone else. They describe motives that may coexist."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一个可以在二十分钟内做出粗样的小想法，先写下它只需回应的一个目的。完成后请一位愿意的人指出哪里清楚、哪里困惑，再决定一项修改或就此结束。观察表达与反馈怎样接上，不用靠发布、点赞或精致程度证明创造者身份。",
+              "en": "Choose an idea small enough for a rough draft in twenty minutes and name one purpose it should serve. Ask one willing person what is clear and what is confusing, then decide on a single revision or stop. Observe how expression connects with feedback rather than prove a Creator identity through publication, approval counts or polish."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "框架、题本与使用范围",
+            "en": "Framework, questionnaire and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "现代十二原型框架与Carol S. Pearson等作者的整理及应用有关，不是荣格亲自编定的一份固定十二类型问卷。费马独立编写本版36题、计数规则与解释；没有使用或取得PMAI商业量表题目、算法或解释材料的授权，也不自称其改编或替代版。尚无本站信效度与人群常模，不评估潜意识、阴影、智力、心理健康、职业适配或关系结局。",
+              "en": "The modern twelve-archetype framework is associated with the work and applications of authors including Carol S. Pearson, rather than a fixed twelve-type questionnaire authored by Jung. FermatMind independently wrote these thirty-six items, count rules and explanations. We neither use nor hold a licence for PMAI commercial items, scoring or interpretive materials, and do not present this as its adaptation or replacement. This edition has no established validity, reliability or population norms and does not assess unconscious processes, shadow, IQ, mental health, career fit or relationship outcomes."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "Carol S. Pearson：十二原型系统的形成与名称差异",
+        "en": "Carol S. Pearson: development and names of the twelve-archetype system"
+      },
+      "url": "https://carolspearson.com/about/the-pearson-12-archetype-system-human-development-and-evolution"
+    },
+    {
+      "title": {
+        "zh": "Carol S. Pearson：商业原型测评与验证的区别",
+        "en": "Carol S. Pearson: archetypal assessments and validation"
+      },
+      "url": "https://carolspearson.com/about/archetypal-assessment-pearson-marr-archetype-indicator-r"
+    },
+    {
+      "title": {
+        "zh": "Storywell：PMAI材料与商标的使用边界",
+        "en": "Storywell: scope of protected PMAI content and marks"
+      },
+      "url": "https://www.storywell.com/legal.htm"
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "12种动机怎样计数",
+        "en": "How the twelve themes are counted"
+      },
+      "paragraphs": [
+        {
+          "zh": "36题每题4项，各项只对应一个明确原型；每个原型出现12次，各位置3次。选中加1，不加权、不反向、无总人格分。不同题目可能体现同一动机的不同情境，计数不测技能、人格含量或人口百分位。",
+          "en": "Each of the thirty-six items has four options, each naming one theme. Every theme appears twelve times, three in each position. A selection adds one without weighting, reversal or a total personality score. Items reflect different situations for a motive. Counts do not measure skill, personality content or population percentiles."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "最高并列与近分",
+        "en": "Highest ties and nearby counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "所有最高计数都保留，每份报告完整呈现，不按名单顺序确定主型。其他计数也同时显示，便于比较；差1次不是经过验证的显著差异。本版没有原型比例、主次型置信度，也不把最低计数或压力下的回答称为测得的阴影。",
+          "en": "Every highest count retains its full report, without selecting a primary by list order. Other counts remain visible for comparison; a single extra choice is not an established significant difference. There are no archetype percentages or primary/secondary confidence scores, and neither a low tally nor a response under pressure becomes an assessed shadow."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "动机框架，不是隐藏本性",
+        "en": "A motivational lens, not a hidden essence"
+      },
+      "paragraphs": [
+        {
+          "zh": "原型名称帮助讨论想参与什么、愿意怎样投入，不证明真实本性、普遍文化规律或无意识结构。不能从这里换算MBTI八功能、九型、能力、职业匹配或关系结局。各原型都可以有价值与取舍，没有高低、善恶或成熟度排名。",
+          "en": "Names help discuss what attracts participation and how you want to engage. They do not establish an essential nature, a universal cultural law or an unconscious structure. Counts cannot be converted into MBTI functions, Enneagram, ability, career fit or relationship outcomes. Each theme can involve value and tradeoffs without a rank of worth or maturity."
+        }
+      ]
+    },
+    {
+      "id": "framework-source",
+      "title": {
+        "zh": "现代十二分类的来源",
+        "en": "Where the modern twelve-category model comes from"
+      },
+      "paragraphs": [
+        {
+          "zh": "Pearson在自己的著作中先提出六个、后来扩展到十二个原型，不同著作和应用采用过不同名称。本版保留常见的纯真者、智者、探索者、反叛者、魔法师、英雄、恋人、弄臣、平凡者、照顾者、统治者与创造者，用于原创情境比较；不把这张现代清单归为荣格亲自编定的标准问卷。",
+          "en": "Pearson describes developing six archetypes and later extending her model to twelve, with different names across books and applications. This edition uses the familiar Innocent, Sage, Explorer, Rebel, Magician, Hero, Lover, Jester, Everyperson, Caregiver, Ruler and Creator for original scenario comparisons. It does not attribute this modern list to a standard questionnaire written by Jung."
+        }
+      ]
+    },
+    {
+      "id": "original-scope",
+      "title": {
+        "zh": "独立题本与完整免费范围",
+        "en": "Independent questionnaire and full free access"
+      },
+      "paragraphs": [
+        {
+          "zh": "36题、计数规则与报告由费马独立编写，未使用竞品或PMAI题目、计分、解释材料、人物图片。PMAI是另一个商业工具，其研究不能证明本问卷有效；本站尚无信效度或常模。全部12份完整说明、所有最高并列免费，不需要邮箱或前置测评；小程序荣格心理功能题本也不是本测试。",
+          "en": "FermatMind independently wrote the thirty-six items, count rules and reports without competitor or PMAI questions, scoring, interpretive materials or character artwork. PMAI is a separate commercial instrument whose research does not validate this quiz. This edition has no established validity, reliability or norms. All twelve guides and every highest tie are free without email or a preceding assessment. The owned mini-program’s Jungian-function form is a different product."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "十二原型包括哪些？",
+        "en": "Which twelve archetypes are included?"
+      },
+      "answer": {
+        "zh": "纯真者、智者、探索者、反叛者、魔法师、英雄、恋人、弄臣、平凡者、照顾者、统治者、创造者。不同现代著作可能用不同名称，例如Rebel也常见Outlaw、Everyperson也常见Everyman；这里不是额外增加类型。",
+        "en": "Innocent, Sage, Explorer, Rebel, Magician, Hero, Lover, Jester, Everyperson, Caregiver, Ruler and Creator. Names differ across modern applications; Rebel may be called Outlaw and Everyperson may be called Everyman. Those variants do not create additional types here."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是荣格原版问卷或PMAI吗？",
+        "en": "Is this an original Jung questionnaire or PMAI?"
+      },
+      "answer": {
+        "zh": "都不是。现代十二分类与Pearson等作者后续整理有关，不能说是荣格亲自编定的固定十二型。PMAI是独立商业工具；本版36题、计数与报告是费马原创，没有其量表授权，也不自称官方或等价替代。",
+        "en": "Neither. The modern twelve-category framework reflects later work by authors including Pearson, rather than a fixed twelve-type questionnaire by Jung. PMAI is a separate commercial instrument. These thirty-six questions, counts and reports are original FermatMind work, without a PMAI licence or claims of official status or equivalent measurement."
+      }
+    },
+    {
+      "question": {
+        "zh": "结果怎样计算，为什么会并列？",
+        "en": "How are results counted, and why can they tie?"
+      },
+      "answer": {
+        "zh": "每题选中选项对应的动机加1，各动机均有12次出现机会、各位置3次。完成36题后保留所有最高次数，逐份显示完整报告。计数不是相似度或人群比例；名单先后不决定主次。",
+        "en": "Each selected response adds one to its named theme. All themes appear twelve times, three in each position. After thirty-six responses, every highest tally receives its full report. Counts are neither similarity percentages nor population proportions, and list order does not establish priority."
+      }
+    },
+    {
+      "question": {
+        "zh": "能从最低计数找到阴影或隐藏动机吗？",
+        "en": "Does the lowest count reveal a shadow or hidden motive?"
+      },
+      "answer": {
+        "zh": "不能。题目没有评估潜意识、压抑或心理创伤，也没有验证把低计数叫作阴影的算法。差1次不构成已验证的显著差异，完整计数和其他报告只是供比较，不生成固定次型或人格发展阶段。",
+        "en": "No. The items assess neither unconscious processes, repression nor trauma, and there is no validated algorithm turning a low tally into a shadow. One extra choice is not an established significant difference. Counts and guides support comparison without fixed secondary identities or developmental stages."
+      }
+    },
+    {
+      "question": {
+        "zh": "和MBTI、八功能及小程序荣格测试有什么不同？",
+        "en": "How does this differ from MBTI, functions and the mini-program form?"
+      },
+      "answer": {
+        "zh": "这里比较原型动机的原创情境选择；MBTI偏好、八功能与小程序中的荣格态度／心理功能题本是不同任务。不能把四偏好变成十二原型或八功能，也不由本结果推断任何MBTI类型。想进一步做MBTI时需要完整独立作答。",
+        "en": "This quiz compares original archetypal-motivation choices. MBTI preferences, eight-function interpretations and the mini-program’s Jungian-attitude/function form address different tasks. Four preferences cannot generate twelve archetypes or eight-function scores, and this result implies no MBTI type. A later MBTI attempt requires its own complete responses."
+      }
+    },
+    {
+      "question": {
+        "zh": "免费结果、草稿和分享包含什么？",
+        "en": "What do free results, drafts and sharing include?"
+      },
+      "answer": {
+        "zh": "全部题目、12种完整指南、每个最高并列结果都免费，无需注册。仅主动开启才在本标签页保存24小时草稿，完成、清除或重测删除。分享只有结果名称与公开链接，不含答案或计数；存储或复制不可用时仍能完成并手动分享。",
+        "en": "All questions, twelve full guides and every highest tied report are free without signup. Only opting in saves a 24-hour draft in this tab; completion, clearing or retaking removes it. Sharing includes names and public links, never answers or counts. Blocked storage or copying does not prevent completion or manual sharing."
+      }
+    }
+  ]
+}
