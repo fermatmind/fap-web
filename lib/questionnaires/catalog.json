@@ -319,5 +319,30 @@
     "code": "IPIP_EXTRAVERSION_10",
     "collection": "explore",
     "formCode": "ipip_bfm_extraversion_10_web"
+  },
+  {
+    "slug": "temperament",
+    "code": "CLASSICAL_TEMPERAMENT",
+    "version": "1.0.0",
+    "updated": "2026-10-25",
+    "category": "framework",
+    "title": {
+      "zh": "气质测试",
+      "en": "Temperament Test"
+    },
+    "description": {
+      "zh": "完成24道原创日常情境题，比较多血质、胆汁质、抑郁质与黏液质的本次选择次数。四种完整结果免费可读，保留全部最高并列，无需注册；古典标签不等于医学、能力或职业判断。",
+      "en": "Take 24 original everyday questions. Compare Sanguine, Choleric, Melancholic and Phlegmatic choices, with every tied full report. Free, no signup; a classical-style reflection."
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_classical_temperament_choices_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "sanguine",
+      "choleric",
+      "melancholic",
+      "phlegmatic"
+    ]
   }
 ]

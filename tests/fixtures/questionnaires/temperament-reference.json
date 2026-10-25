@@ -1,0 +1,1072 @@
+{
+  "formCode": "fm_classical_temperament_choices_24",
+  "itemBankVersion": "1.0.0",
+  "origin": "FermatMind original bilingual everyday-choice reflection using four classical temperament labels as descriptive metaphors,notstandardEysenck/Keirsey/developmentaltemperamentinstrument",
+  "directions": [
+    {
+      "id": "sanguine",
+      "title": {
+        "zh": "多血质：活跃参与",
+        "en": "Sanguine: open engagement"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "choleric",
+      "title": {
+        "zh": "胆汁质：目标推进",
+        "en": "Choleric: directed action"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "melancholic",
+      "title": {
+        "zh": "抑郁质：细致思量",
+        "en": "Melancholic: considered reflection"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "phlegmatic",
+      "title": {
+        "zh": "黏液质：稳定节奏",
+        "en": "Phlegmatic: a steady pace"
+      },
+      "comparisons": 24
+    }
+  ],
+  "questions": [
+    {
+      "id": "TEMPERAMENT_01",
+      "prompt": {
+        "zh": "原定的小聚临时取消，晚上空了出来。你更自然地会怎样安排？",
+        "en": "A small gathering is cancelled, leaving your evening open. What would you most naturally do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问问还有谁想临时做点别的，让晚上有个新鲜去处。",
+            "en": "Ask who might enjoy an impromptu alternative and see where the evening goes."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "决定今晚要完成的一件事，把空出的时间用起来。",
+            "en": "Choose one thing to finish tonight and put the available time toward it."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留点时间想想自己原本期待什么，再决定合适的替代。",
+            "en": "Consider what you had been looking forward to before choosing a suitable alternative."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "照平常舒服的节奏过晚上，不急着填满空出来的时间。",
+            "en": "Keep a comfortable ordinary pace without rushing to fill the opening."
+          },
+          "directionId": "phlegmatic"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_02",
+      "prompt": {
+        "zh": "一个新兴趣让你有点心动。最吸引你的开始方式是？",
+        "en": "A new interest catches your attention. Which beginning appeals most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "选一个自己想做到的小目标，直接开始第一步。",
+            "en": "Choose a small goal you want to reach and begin the first step."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看一两个细致的例子，想清楚自己喜欢其中什么。",
+            "en": "Look closely at an example or two and consider what appeals to you."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "找一个容易融入日常的小练习，慢慢熟悉起来。",
+            "en": "Find a small practice that fits daily life and get familiar with it gradually."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先体验几个不同玩法，也听听大家觉得哪里有趣。",
+            "en": "Try a few ways of doing it and hear what others find enjoyable."
+          },
+          "directionId": "sanguine"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_03",
+      "prompt": {
+        "zh": "一件日常事务的做法突然变了。你通常先关注什么？",
+        "en": "The way an everyday task is done suddenly changes. What usually draws your attention first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "变化影响了哪些细节，自己有哪些疑问。",
+            "en": "Which details the change affects and what questions you have."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "怎样接上熟悉的节奏，让过渡尽量平稳。",
+            "en": "How to connect it with a familiar rhythm and make the transition steady."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "新的安排里有没有值得试试的地方。",
+            "en": "Whether the new arrangement offers something interesting to try."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "现在要达到什么目的，接下来先做哪一步。",
+            "en": "What needs to be accomplished now and which step comes next."
+          },
+          "directionId": "choleric"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_04",
+      "prompt": {
+        "zh": "周末有半天空闲，也没有必须完成的任务。哪种安排更像你的第一选择？",
+        "en": "You have half a free day with nothing you must finish. Which plan feels closest to your first choice?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "做些熟悉舒服的小事，按自己的速度慢慢过。",
+            "en": "Enjoy familiar, comfortable activities at an unhurried pace."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看看临时有什么有趣的邀约或活动。",
+            "en": "See what interesting invitations or activities come up."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "做一件自己一直想推进、但还没动手的事。",
+            "en": "Move forward with something you have wanted to start."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "留一段能认真投入、回味想法或细节的时间。",
+            "en": "Make room to become absorbed in an idea or its details."
+          },
+          "directionId": "melancholic"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_05",
+      "prompt": {
+        "zh": "回想最近一次喜欢的小活动，你更容易记住哪个部分？",
+        "en": "Think of a small activity you recently enjoyed. Which part stays with you most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "现场冒出的趣味、新想法或轻快互动。",
+            "en": "An unexpected pleasure, fresh idea or lively exchange."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "终于把一件想做的事往前推了一步。",
+            "en": "Having moved something you wanted to do one step forward."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "其中一个值得细想、很合心意的细节。",
+            "en": "A thoughtful detail that felt particularly meaningful to you."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "从头到尾比较从容，节奏没有被打乱。",
+            "en": "Feeling at ease and keeping a comfortable rhythm throughout."
+          },
+          "directionId": "phlegmatic"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_06",
+      "prompt": {
+        "zh": "遇到一件不熟悉、但可以自己摸索的小事，你更愿意怎样起步？",
+        "en": "You face an unfamiliar small task that you can explore yourself. How would you prefer to begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "定下要完成的东西，先做出一个可以继续推进的版本。",
+            "en": "Set an outcome and produce a first version you can move forward from."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找清关键细节，想过几种做法后再开始。",
+            "en": "Understand the important details and consider a few approaches before starting."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "从一个熟悉的小步骤接进去，再逐渐扩展。",
+            "en": "Begin with a familiar small step and extend it gradually."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先试几种可能，边体验边看看会有什么发现。",
+            "en": "Try several possibilities and see what you discover through the experience."
+          },
+          "directionId": "sanguine"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_07",
+      "prompt": {
+        "zh": "你提出一个日常安排，有人说不太适合。你的第一反应更接近？",
+        "en": "Someone says an everyday plan you suggested does not quite suit them. Which first response feels closest?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "想想对方话里的具体意思，再整理自己的回应。",
+            "en": "Consider the particular meaning of the feedback before shaping your response."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先缓一缓，找双方都不用急着调整的安排。",
+            "en": "Slow the exchange down and look for an arrangement neither person needs to rush."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "再抛出几个可能有趣的选项，看看有没有新的交集。",
+            "en": "Offer a few other possibilities and see whether a new shared interest appears."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问清需要改变哪一点，好尽快确定下一种方案。",
+            "en": "Ask what needs changing so you can settle on the next workable plan."
+          },
+          "directionId": "choleric"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_08",
+      "prompt": {
+        "zh": "你想给日常加一个小习惯。怎样开始更合自己的意？",
+        "en": "You want to add a small habit to your day. Which start feels most appealing?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "接在已有习惯后面，让新做法慢慢变得熟悉。",
+            "en": "Attach it to an existing habit and let it become familiar gradually."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "试得轻松有趣一点，允许过程中换些花样。",
+            "en": "Make trying it enjoyable and leave room for variety."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给自己一个清楚的小目标，开始追踪完成情况。",
+            "en": "Set a clear small goal and begin noting what you complete."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先弄清这样做对自己有什么意义，再认真安排。",
+            "en": "Clarify why it matters to you before arranging it carefully."
+          },
+          "directionId": "melancholic"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_09",
+      "prompt": {
+        "zh": "一件期待的小事没有想象中有趣。接下来你更可能？",
+        "en": "Something small you looked forward to is less enjoyable than expected. What are you more likely to do next?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "找找还有没有别的有意思的部分，或试个新活动。",
+            "en": "Look for another enjoyable part or try a different activity."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看看还有什么值得完成，决定接下来怎么处理。",
+            "en": "Consider what is still worth accomplishing and decide what to do next."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "回想预期与实际差在哪里，给自己一点整理感受的时间。",
+            "en": "Reflect on the gap between expectation and experience and make time to sort out your response."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先回到熟悉的事情中，让这段插曲慢慢过去。",
+            "en": "Return to something familiar and let the episode settle at its own pace."
+          },
+          "directionId": "phlegmatic"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_10",
+      "prompt": {
+        "zh": "和刚认识的人聊到共同兴趣时，你更容易走向哪种交流？",
+        "en": "When a shared interest comes up with someone you have just met, which exchange comes most naturally?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "聊聊各自想做成什么，以及有没有可以推进的事情。",
+            "en": "Discuss what each of you wants to do and whether there is something to move forward."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "挑一个感兴趣的细节多聊一会儿，了解彼此为什么在意。",
+            "en": "Stay with an interesting detail and explore why it matters to each of you."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "沿着双方都熟悉的话题慢慢聊，不必急着扩展。",
+            "en": "Take a familiar shared topic at an easy pace without needing to expand it quickly."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "互相分享有趣经历，话题顺着新联想展开。",
+            "en": "Swap enjoyable experiences and follow the associations that arise."
+          },
+          "directionId": "sanguine"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_11",
+      "prompt": {
+        "zh": "想一想接下来一段普通日子，你更希望给什么留出位置？",
+        "en": "Thinking about an ordinary stretch of days ahead, what would you most like to make room for?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "值得认真投入的内容，以及整理想法的空间。",
+            "en": "Something worth considered attention and space to reflect."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "熟悉而从容的安排，不用频繁改变节奏。",
+            "en": "Familiar, comfortable arrangements without frequent changes of pace."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一些新鲜体验和能轻松参与的交流。",
+            "en": "Fresh experiences and exchanges you can join with enjoyment."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "几件明确想推进的事情和看得见的进展。",
+            "en": "A few things you want to move forward and progress you can notice."
+          },
+          "directionId": "choleric"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_12",
+      "prompt": {
+        "zh": "有几种可行选择，时间也比较充裕。你通常怎样靠近决定？",
+        "en": "Several choices would work and there is time to decide. How do you usually move toward a choice?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "倾向比较顺手、能保持现有节奏的那个选项。",
+            "en": "Lean toward the option that fits easily with your current rhythm."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先接触一下不同可能，看哪种体验更吸引自己。",
+            "en": "Sample the possibilities and notice which experience draws you in."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看哪项最接近自己想达到的目的，再定下来。",
+            "en": "Identify the option closest to your aim and settle on it."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "比较自己在意的差别，想清楚取舍后再选。",
+            "en": "Compare the distinctions that matter to you and think through the tradeoff."
+          },
+          "directionId": "melancholic"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_13",
+      "prompt": {
+        "zh": "你准备继续做一件答应过的小事。哪种方式更容易让你投入？",
+        "en": "You are returning to a small commitment you made. Which approach helps you engage most naturally?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "给过程加一点变化，找回开始时有趣的感觉。",
+            "en": "Add some variety and reconnect with what made starting enjoyable."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "明确这次要完成哪一段，开始把它做完。",
+            "en": "Identify the part to finish this time and get it done."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "重新看看自己在意的细节，把这一段做得合心意。",
+            "en": "Revisit the details you care about and work on them with attention."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "沿用已经熟悉的步骤，在合适的节奏里继续。",
+            "en": "Continue through familiar steps at a comfortable pace."
+          },
+          "directionId": "phlegmatic"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_14",
+      "prompt": {
+        "zh": "你和同伴做一件不赶时间的事，彼此节奏不太一样。你更可能先怎样沟通？",
+        "en": "You and a companion are doing something without a tight deadline, but your paces differ. How would you most naturally open the conversation?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说清这次想推进到哪里，再商量怎样到达那里。",
+            "en": "State the point you want to reach and discuss how to get there."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "解释自己为什么在某一步停留，也了解对方的考虑。",
+            "en": "Explain why you are staying with a particular step and ask about their considerations."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先商量一个双方都能从容跟上的速度。",
+            "en": "Agree on a pace both of you can follow comfortably."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提议换一种大家可能更有兴致的做法。",
+            "en": "Suggest another approach both of you might enjoy more."
+          },
+          "directionId": "sanguine"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_15",
+      "prompt": {
+        "zh": "一件小事顺利结束，你想用一点时间庆祝。你更喜欢？",
+        "en": "Something small has gone well and you want to mark it. What would you enjoy most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "回味过程中让自己在意的片段，留下有意义的记录。",
+            "en": "Reflect on moments that mattered and keep a meaningful record."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "照自己舒服的方式放松一下，不必安排得热闹。",
+            "en": "Relax in a comfortable familiar way without making a large occasion of it."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "找个有新鲜感的活动，或者和人轻快地分享一下。",
+            "en": "Try something fresh or share the occasion in a lively exchange."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "给这次完成留个明确的记号，享受做成了的感觉。",
+            "en": "Mark the completion clearly and enjoy having accomplished it."
+          },
+          "directionId": "choleric"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_16",
+      "prompt": {
+        "zh": "结束一个普通的日子时，哪种收尾更合你的意？",
+        "en": "At the end of an ordinary day, which ending appeals most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "回到熟悉的收尾习惯，让一天平稳结束。",
+            "en": "Return to a familiar closing routine and let the day settle."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留一点轻松有趣的内容，让注意力换个地方。",
+            "en": "Enjoy something light or interesting that takes your attention somewhere new."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "确认今天推进了什么，给明天留个清楚的起点。",
+            "en": "Notice what moved forward today and leave a clear starting point for tomorrow."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "给想法和感受一点整理空间，不急着翻篇。",
+            "en": "Make room to reflect on thoughts and responses without rushing to move on."
+          },
+          "directionId": "melancholic"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_17",
+      "prompt": {
+        "zh": "熟人向你介绍一个你不熟悉的兴趣。什么最容易勾起你的回应？",
+        "en": "Someone you know introduces an unfamiliar interest. What most naturally draws a response from you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "其中新鲜有趣的体验，以及可以一起试试的部分。",
+            "en": "Fresh experiences and parts you might enjoy trying together."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "对方想用它做到什么，有没有可以开始的具体行动。",
+            "en": "What they want to do with it and a concrete way to begin."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "对方为什么在意它，以及其中值得细看的内容。",
+            "en": "Why it matters to them and what deserves a closer look."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "怎样轻松接触它，先从自己能从容参与的部分开始。",
+            "en": "A comfortable introduction and a part you could join at an easy pace."
+          },
+          "directionId": "phlegmatic"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_18",
+      "prompt": {
+        "zh": "你还需要一点时间再回应一个日常安排。哪种说法更接近你？",
+        "en": "You need a little more time before responding to an everyday plan. Which wording feels closest to yours?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“我先把要解决的一点确定下来，之后给你明确答复。”",
+            "en": "“Let me settle one point first, then I can give you a clear answer.”"
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“我想把自己在意的地方想清楚，再认真回复你。”",
+            "en": "“I want to think through what matters to me before giving you a considered reply.”"
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“我想留一点余地，等安排比较平稳时再定。”",
+            "en": "“I would like some breathing room and to decide once the arrangements feel settled.”"
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“我还想看看有没有别的有趣选项，晚一点告诉你。”",
+            "en": "“I would like to look at a few other possibilities and get back to you later.”"
+          },
+          "directionId": "sanguine"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_19",
+      "prompt": {
+        "zh": "一个可做可不做的小计划暂时卡住了。你更容易选择哪条路？",
+        "en": "An optional small plan has stalled for now. Which direction comes most naturally?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "想清楚卡在哪里，以及自己是否仍在意原来的设想。",
+            "en": "Reflect on what has stalled and whether the original idea still matters to you."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先放一放，等有合适的条件时按熟悉的方式继续。",
+            "en": "Let it rest and return through a familiar approach when conditions suit."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "试试另一种可能有趣的玩法，让计划重新活起来。",
+            "en": "Try a fresh possibility that might make the plan enjoyable again."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "找出能动的一小步，先把它向前推进。",
+            "en": "Identify a step you can take and move it forward."
+          },
+          "directionId": "choleric"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_20",
+      "prompt": {
+        "zh": "下午有一段没人打扰的自由时间，你会更想把它变成什么样？",
+        "en": "You have some uninterrupted free time in the afternoon. What would you most like it to become?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "享受一些熟悉的小事，让时间按舒服的节奏流过。",
+            "en": "Enjoy familiar small activities and let the time pass at a comfortable pace."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "随兴趣探索几件新鲜事，过程可以不断换方向。",
+            "en": "Explore a few fresh interests and let the direction change along the way."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把一件自己想做的事推进到一个明确节点。",
+            "en": "Bring something you want to do to a clear stopping point."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "深入一段让自己在意的内容，不必匆忙跳出来。",
+            "en": "Become absorbed in something meaningful without having to leave it quickly."
+          },
+          "directionId": "melancholic"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_21",
+      "prompt": {
+        "zh": "两个人对一个小安排的偏好不同，但可以商量。你更自然地先提出什么？",
+        "en": "Two people prefer different versions of a small plan, with room to discuss it. What would you most naturally offer first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个可能让双方都觉得有趣的新选项。",
+            "en": "A fresh option that might appeal to both people."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个可以开始实行、之后再调整的具体决定。",
+            "en": "A concrete decision you can act on and adjust afterwards."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "自己在意的原因，和想进一步了解的差别。",
+            "en": "The reasons that matter to you and distinctions you would like to understand."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个双方都不太费力、能平稳接上的折中安排。",
+            "en": "An easy arrangement both people can fit into without a large adjustment."
+          },
+          "directionId": "phlegmatic"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_22",
+      "prompt": {
+        "zh": "一段经历让你觉得“下次还想这样”。最可能是哪种原因？",
+        "en": "An experience leaves you wanting to repeat it. Which reason is most likely?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "做成了自己想做的事，进展让人满意。",
+            "en": "You accomplished something you wanted and were satisfied with the progress."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "有值得细想或认真投入的内容，留下了清楚的印象。",
+            "en": "It offered something worth reflection or close attention and left a clear impression."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "整个过程从容顺手，不需要频繁调整自己。",
+            "en": "The experience felt comfortable and familiar without frequent adjustments."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "过程中有新鲜发现，参与起来也很有兴致。",
+            "en": "It brought fresh discoveries and was enjoyable to join."
+          },
+          "directionId": "sanguine"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_23",
+      "prompt": {
+        "zh": "一个日常计划多了一条限制，但仍有很多做法可选。你通常先想？",
+        "en": "An everyday plan gains a new constraint, but several approaches remain possible. What do you usually consider first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "这条变化会影响哪些自己在意的细节和取舍。",
+            "en": "Which details and tradeoffs you care about are affected by the change."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "怎样少改动一些已有安排，让过程依然平稳。",
+            "en": "How to preserve a steady process with fewer changes to existing arrangements."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "限制之外还有哪些有意思的可能。",
+            "en": "What interesting possibilities remain around the constraint."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "在这个条件下，怎样仍能达到最在意的目标。",
+            "en": "How to reach the aim that matters most within this condition."
+          },
+          "directionId": "choleric"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_24",
+      "prompt": {
+        "zh": "学一件没有考核的小事时，你更喜欢哪种过程？",
+        "en": "When learning something small without an assessment, which process do you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "重复熟悉的步骤，逐渐形成不费力的节奏。",
+            "en": "Repeat familiar steps and gradually develop an easy rhythm."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "不断试出不同花样，从新鲜感中保持兴致。",
+            "en": "Keep trying variations and stay interested through discoveries."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "边做边完成一个小成果，让学习有清楚的方向。",
+            "en": "Produce a small outcome as you go so the learning has a clear direction."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "慢慢弄懂细节之间的联系，让理解更合自己的意。",
+            "en": "Take time to understand connections between details in a way that makes sense to you."
+          },
+          "directionId": "melancholic"
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "TEMPERAMENT_01": "changed-plans",
+    "TEMPERAMENT_02": "new-interest",
+    "TEMPERAMENT_03": "minor-disruption",
+    "TEMPERAMENT_04": "open-weekend",
+    "TEMPERAMENT_05": "satisfying-part",
+    "TEMPERAMENT_06": "unfamiliar-task",
+    "TEMPERAMENT_07": "feedback-on-idea",
+    "TEMPERAMENT_08": "trying-a-routine",
+    "TEMPERAMENT_09": "small-letdown",
+    "TEMPERAMENT_10": "new-acquaintance",
+    "TEMPERAMENT_11": "reviewing-priorities",
+    "TEMPERAMENT_12": "decision-with-time",
+    "TEMPERAMENT_13": "ongoing-commitment",
+    "TEMPERAMENT_14": "different-paces",
+    "TEMPERAMENT_15": "small-celebration",
+    "TEMPERAMENT_16": "ordinary-day-ending",
+    "TEMPERAMENT_17": "someone-elses-interest",
+    "TEMPERAMENT_18": "asking-for-time",
+    "TEMPERAMENT_19": "plan-paused",
+    "TEMPERAMENT_20": "unstructured-afternoon",
+    "TEMPERAMENT_21": "preferences-differ",
+    "TEMPERAMENT_22": "worth-repeating",
+    "TEMPERAMENT_23": "new-constraint",
+    "TEMPERAMENT_24": "learning-something-small"
+  },
+  "scoring": {
+    "scoringVersion": "1.0.0",
+    "method": "Selectedoptionaddsonepointtoitsnamedtheme;24completeanswersrequired;showallfourrawcounts,allhighesttiesandalltheirfullreports;noarbitraryorder/forcedsecondary/noincompleteinterpretation",
+    "totalSelections": 24,
+    "themeExposure": 24,
+    "eachOptionPositionPerTheme": 6,
+    "psychometricValidationCompleted": false,
+    "exclusions": [
+      "Nohumoral/genetic/nervoussystemmeasurement",
+      "NoEysenckaxes/Keirseytypes/MBTIorBig5conversion",
+      "Noclinicaldepression/sensitivity/ability/morality/careerfitassessment",
+      "Noofficialcertification/norms/percentiles/rarity/populationaccuracy",
+      "Nosecondaryblendassignmentwithuntiedcounts"
+    ]
+  },
+  "references": [
+    {
+      "url": "https://www.nlm.nih.gov/exhibition/shakespeare-and-the-four-humors/index.html",
+      "scope": "Historicalsourceonly;introductioncallsfourhumorbiologydiscarded;notvalidationofourquestionsorstylecounts"
+    }
+  ]
+}

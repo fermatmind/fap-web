@@ -1,0 +1,1807 @@
+{
+  "slug": "temperament",
+  "code": "CLASSICAL_TEMPERAMENT",
+  "version": "1.0.0",
+  "updated": "2026-10-25",
+  "category": "framework",
+  "kind": "archetype",
+  "minutes": 6,
+  "title": {
+    "zh": "气质测试",
+    "en": "Temperament Test"
+  },
+  "resultHeading": {
+    "zh": "你的古典气质结果",
+    "en": "Your classical temperament reflection"
+  },
+  "seoTitle": {
+    "zh": "气质测试：24题与四种古典气质完整结果",
+    "en": "Temperament Test: 24 Questions, Four Full Result Guides"
+  },
+  "description": {
+    "zh": "完成24道原创日常情境题，比较多血质、胆汁质、抑郁质与黏液质的本次选择次数。四种完整结果免费可读，保留全部最高并列，无需注册；古典标签不等于医学、能力或职业判断。",
+    "en": "Take 24 original everyday questions. Compare Sanguine, Choleric, Melancholic and Phlegmatic choices, with every tied full report. Free, no signup; a classical-style reflection."
+  },
+  "introduction": {
+    "zh": "面对变化、空闲、兴趣和共同安排，你更愿意从新鲜参与、明确推进、细致思量，还是平稳节奏进入？本气质测试借用多血质、胆汁质、抑郁质、黏液质四个古典名称，独立编写24道日常情境题和全部解释。它不测体液、遗传或天生情绪接线，也不等于现代心理学的气质量表。可以先阅读全部结果，完成后再看本次原始次数和所有最高并列报告；无需先注册、付费或完成别的测试。",
+    "en": "When plans change or ordinary interests and shared activities leave room to choose, do you favour fresh engagement, directed action, considered reflection or a steady pace? This Temperament Test uses the classical names Sanguine, Choleric, Melancholic and Phlegmatic with 24 independently authored everyday situations and full explanations. It measures no bodily fluids, genetics or inborn emotional wiring, and is not a modern temperament instrument. Read every guide before answering, then see your raw counts and every highest-count full report without signup, payment or a preceding assessment."
+  },
+  "instructions": {
+    "zh": "每题选出近期普通生活里更自然、或自己更愿意先采取的一种做法，不按希望成为的样子回答。四种选项没有高低或正确之分；同一人可在不同情境选不同方向。全部24题选完才显示次数与完整结果，未完成不解释。若几种都像，按这一题的具体场景选择，不需要证明自己属于哪一种气质。",
+    "en": "For each situation, choose the approach that feels more natural in ordinary recent life or the one you would prefer to try first, rather than an ideal image. No option is better or correct, and one person can favour different approaches in different settings. Counts and full reports appear only after all 24 selections. If several fit, use the particular situation instead of trying to prove membership of a temperament."
+  },
+  "source": {
+    "kind": "FermatMind original classical-style reflection;historicalnamesnotvalidatedEysenck/Keirsey/developmental/clinicalinstrument",
+    "formCode": "fm_classical_temperament_choices_24",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "5754f3e1ad6cbe83181504e36ffff0f30fb75701b013fb9fa0750fd3c953074c",
+    "resultContentSha256": "f1520508f33a87ec1137a94893971ad1bbd6c0d6f23b122abb7bfcf62dd0a0a1",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "sanguine",
+      "title": {
+        "zh": "多血质：活跃参与",
+        "en": "Sanguine: open engagement"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "choleric",
+      "title": {
+        "zh": "胆汁质：目标推进",
+        "en": "Choleric: directed action"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "melancholic",
+      "title": {
+        "zh": "抑郁质：细致思量",
+        "en": "Melancholic: considered reflection"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "phlegmatic",
+      "title": {
+        "zh": "黏液质：稳定节奏",
+        "en": "Phlegmatic: a steady pace"
+      },
+      "comparisons": 24
+    }
+  ],
+  "questions": [
+    {
+      "id": "TEMPERAMENT_01",
+      "prompt": {
+        "zh": "原定的小聚临时取消，晚上空了出来。你更自然地会怎样安排？",
+        "en": "A small gathering is cancelled, leaving your evening open. What would you most naturally do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问问还有谁想临时做点别的，让晚上有个新鲜去处。",
+            "en": "Ask who might enjoy an impromptu alternative and see where the evening goes."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "决定今晚要完成的一件事，把空出的时间用起来。",
+            "en": "Choose one thing to finish tonight and put the available time toward it."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留点时间想想自己原本期待什么，再决定合适的替代。",
+            "en": "Consider what you had been looking forward to before choosing a suitable alternative."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "照平常舒服的节奏过晚上，不急着填满空出来的时间。",
+            "en": "Keep a comfortable ordinary pace without rushing to fill the opening."
+          },
+          "directionId": "phlegmatic"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_02",
+      "prompt": {
+        "zh": "一个新兴趣让你有点心动。最吸引你的开始方式是？",
+        "en": "A new interest catches your attention. Which beginning appeals most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "选一个自己想做到的小目标，直接开始第一步。",
+            "en": "Choose a small goal you want to reach and begin the first step."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看一两个细致的例子，想清楚自己喜欢其中什么。",
+            "en": "Look closely at an example or two and consider what appeals to you."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "找一个容易融入日常的小练习，慢慢熟悉起来。",
+            "en": "Find a small practice that fits daily life and get familiar with it gradually."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先体验几个不同玩法，也听听大家觉得哪里有趣。",
+            "en": "Try a few ways of doing it and hear what others find enjoyable."
+          },
+          "directionId": "sanguine"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_03",
+      "prompt": {
+        "zh": "一件日常事务的做法突然变了。你通常先关注什么？",
+        "en": "The way an everyday task is done suddenly changes. What usually draws your attention first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "变化影响了哪些细节，自己有哪些疑问。",
+            "en": "Which details the change affects and what questions you have."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "怎样接上熟悉的节奏，让过渡尽量平稳。",
+            "en": "How to connect it with a familiar rhythm and make the transition steady."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "新的安排里有没有值得试试的地方。",
+            "en": "Whether the new arrangement offers something interesting to try."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "现在要达到什么目的，接下来先做哪一步。",
+            "en": "What needs to be accomplished now and which step comes next."
+          },
+          "directionId": "choleric"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_04",
+      "prompt": {
+        "zh": "周末有半天空闲，也没有必须完成的任务。哪种安排更像你的第一选择？",
+        "en": "You have half a free day with nothing you must finish. Which plan feels closest to your first choice?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "做些熟悉舒服的小事，按自己的速度慢慢过。",
+            "en": "Enjoy familiar, comfortable activities at an unhurried pace."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看看临时有什么有趣的邀约或活动。",
+            "en": "See what interesting invitations or activities come up."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "做一件自己一直想推进、但还没动手的事。",
+            "en": "Move forward with something you have wanted to start."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "留一段能认真投入、回味想法或细节的时间。",
+            "en": "Make room to become absorbed in an idea or its details."
+          },
+          "directionId": "melancholic"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_05",
+      "prompt": {
+        "zh": "回想最近一次喜欢的小活动，你更容易记住哪个部分？",
+        "en": "Think of a small activity you recently enjoyed. Which part stays with you most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "现场冒出的趣味、新想法或轻快互动。",
+            "en": "An unexpected pleasure, fresh idea or lively exchange."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "终于把一件想做的事往前推了一步。",
+            "en": "Having moved something you wanted to do one step forward."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "其中一个值得细想、很合心意的细节。",
+            "en": "A thoughtful detail that felt particularly meaningful to you."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "从头到尾比较从容，节奏没有被打乱。",
+            "en": "Feeling at ease and keeping a comfortable rhythm throughout."
+          },
+          "directionId": "phlegmatic"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_06",
+      "prompt": {
+        "zh": "遇到一件不熟悉、但可以自己摸索的小事，你更愿意怎样起步？",
+        "en": "You face an unfamiliar small task that you can explore yourself. How would you prefer to begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "定下要完成的东西，先做出一个可以继续推进的版本。",
+            "en": "Set an outcome and produce a first version you can move forward from."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找清关键细节，想过几种做法后再开始。",
+            "en": "Understand the important details and consider a few approaches before starting."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "从一个熟悉的小步骤接进去，再逐渐扩展。",
+            "en": "Begin with a familiar small step and extend it gradually."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先试几种可能，边体验边看看会有什么发现。",
+            "en": "Try several possibilities and see what you discover through the experience."
+          },
+          "directionId": "sanguine"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_07",
+      "prompt": {
+        "zh": "你提出一个日常安排，有人说不太适合。你的第一反应更接近？",
+        "en": "Someone says an everyday plan you suggested does not quite suit them. Which first response feels closest?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "想想对方话里的具体意思，再整理自己的回应。",
+            "en": "Consider the particular meaning of the feedback before shaping your response."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先缓一缓，找双方都不用急着调整的安排。",
+            "en": "Slow the exchange down and look for an arrangement neither person needs to rush."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "再抛出几个可能有趣的选项，看看有没有新的交集。",
+            "en": "Offer a few other possibilities and see whether a new shared interest appears."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问清需要改变哪一点，好尽快确定下一种方案。",
+            "en": "Ask what needs changing so you can settle on the next workable plan."
+          },
+          "directionId": "choleric"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_08",
+      "prompt": {
+        "zh": "你想给日常加一个小习惯。怎样开始更合自己的意？",
+        "en": "You want to add a small habit to your day. Which start feels most appealing?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "接在已有习惯后面，让新做法慢慢变得熟悉。",
+            "en": "Attach it to an existing habit and let it become familiar gradually."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "试得轻松有趣一点，允许过程中换些花样。",
+            "en": "Make trying it enjoyable and leave room for variety."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给自己一个清楚的小目标，开始追踪完成情况。",
+            "en": "Set a clear small goal and begin noting what you complete."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先弄清这样做对自己有什么意义，再认真安排。",
+            "en": "Clarify why it matters to you before arranging it carefully."
+          },
+          "directionId": "melancholic"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_09",
+      "prompt": {
+        "zh": "一件期待的小事没有想象中有趣。接下来你更可能？",
+        "en": "Something small you looked forward to is less enjoyable than expected. What are you more likely to do next?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "找找还有没有别的有意思的部分，或试个新活动。",
+            "en": "Look for another enjoyable part or try a different activity."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看看还有什么值得完成，决定接下来怎么处理。",
+            "en": "Consider what is still worth accomplishing and decide what to do next."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "回想预期与实际差在哪里，给自己一点整理感受的时间。",
+            "en": "Reflect on the gap between expectation and experience and make time to sort out your response."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先回到熟悉的事情中，让这段插曲慢慢过去。",
+            "en": "Return to something familiar and let the episode settle at its own pace."
+          },
+          "directionId": "phlegmatic"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_10",
+      "prompt": {
+        "zh": "和刚认识的人聊到共同兴趣时，你更容易走向哪种交流？",
+        "en": "When a shared interest comes up with someone you have just met, which exchange comes most naturally?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "聊聊各自想做成什么，以及有没有可以推进的事情。",
+            "en": "Discuss what each of you wants to do and whether there is something to move forward."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "挑一个感兴趣的细节多聊一会儿，了解彼此为什么在意。",
+            "en": "Stay with an interesting detail and explore why it matters to each of you."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "沿着双方都熟悉的话题慢慢聊，不必急着扩展。",
+            "en": "Take a familiar shared topic at an easy pace without needing to expand it quickly."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "互相分享有趣经历，话题顺着新联想展开。",
+            "en": "Swap enjoyable experiences and follow the associations that arise."
+          },
+          "directionId": "sanguine"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_11",
+      "prompt": {
+        "zh": "想一想接下来一段普通日子，你更希望给什么留出位置？",
+        "en": "Thinking about an ordinary stretch of days ahead, what would you most like to make room for?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "值得认真投入的内容，以及整理想法的空间。",
+            "en": "Something worth considered attention and space to reflect."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "熟悉而从容的安排，不用频繁改变节奏。",
+            "en": "Familiar, comfortable arrangements without frequent changes of pace."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一些新鲜体验和能轻松参与的交流。",
+            "en": "Fresh experiences and exchanges you can join with enjoyment."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "几件明确想推进的事情和看得见的进展。",
+            "en": "A few things you want to move forward and progress you can notice."
+          },
+          "directionId": "choleric"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_12",
+      "prompt": {
+        "zh": "有几种可行选择，时间也比较充裕。你通常怎样靠近决定？",
+        "en": "Several choices would work and there is time to decide. How do you usually move toward a choice?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "倾向比较顺手、能保持现有节奏的那个选项。",
+            "en": "Lean toward the option that fits easily with your current rhythm."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先接触一下不同可能，看哪种体验更吸引自己。",
+            "en": "Sample the possibilities and notice which experience draws you in."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看哪项最接近自己想达到的目的，再定下来。",
+            "en": "Identify the option closest to your aim and settle on it."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "比较自己在意的差别，想清楚取舍后再选。",
+            "en": "Compare the distinctions that matter to you and think through the tradeoff."
+          },
+          "directionId": "melancholic"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_13",
+      "prompt": {
+        "zh": "你准备继续做一件答应过的小事。哪种方式更容易让你投入？",
+        "en": "You are returning to a small commitment you made. Which approach helps you engage most naturally?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "给过程加一点变化，找回开始时有趣的感觉。",
+            "en": "Add some variety and reconnect with what made starting enjoyable."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "明确这次要完成哪一段，开始把它做完。",
+            "en": "Identify the part to finish this time and get it done."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "重新看看自己在意的细节，把这一段做得合心意。",
+            "en": "Revisit the details you care about and work on them with attention."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "沿用已经熟悉的步骤，在合适的节奏里继续。",
+            "en": "Continue through familiar steps at a comfortable pace."
+          },
+          "directionId": "phlegmatic"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_14",
+      "prompt": {
+        "zh": "你和同伴做一件不赶时间的事，彼此节奏不太一样。你更可能先怎样沟通？",
+        "en": "You and a companion are doing something without a tight deadline, but your paces differ. How would you most naturally open the conversation?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说清这次想推进到哪里，再商量怎样到达那里。",
+            "en": "State the point you want to reach and discuss how to get there."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "解释自己为什么在某一步停留，也了解对方的考虑。",
+            "en": "Explain why you are staying with a particular step and ask about their considerations."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先商量一个双方都能从容跟上的速度。",
+            "en": "Agree on a pace both of you can follow comfortably."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提议换一种大家可能更有兴致的做法。",
+            "en": "Suggest another approach both of you might enjoy more."
+          },
+          "directionId": "sanguine"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_15",
+      "prompt": {
+        "zh": "一件小事顺利结束，你想用一点时间庆祝。你更喜欢？",
+        "en": "Something small has gone well and you want to mark it. What would you enjoy most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "回味过程中让自己在意的片段，留下有意义的记录。",
+            "en": "Reflect on moments that mattered and keep a meaningful record."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "照自己舒服的方式放松一下，不必安排得热闹。",
+            "en": "Relax in a comfortable familiar way without making a large occasion of it."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "找个有新鲜感的活动，或者和人轻快地分享一下。",
+            "en": "Try something fresh or share the occasion in a lively exchange."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "给这次完成留个明确的记号，享受做成了的感觉。",
+            "en": "Mark the completion clearly and enjoy having accomplished it."
+          },
+          "directionId": "choleric"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_16",
+      "prompt": {
+        "zh": "结束一个普通的日子时，哪种收尾更合你的意？",
+        "en": "At the end of an ordinary day, which ending appeals most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "回到熟悉的收尾习惯，让一天平稳结束。",
+            "en": "Return to a familiar closing routine and let the day settle."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留一点轻松有趣的内容，让注意力换个地方。",
+            "en": "Enjoy something light or interesting that takes your attention somewhere new."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "确认今天推进了什么，给明天留个清楚的起点。",
+            "en": "Notice what moved forward today and leave a clear starting point for tomorrow."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "给想法和感受一点整理空间，不急着翻篇。",
+            "en": "Make room to reflect on thoughts and responses without rushing to move on."
+          },
+          "directionId": "melancholic"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_17",
+      "prompt": {
+        "zh": "熟人向你介绍一个你不熟悉的兴趣。什么最容易勾起你的回应？",
+        "en": "Someone you know introduces an unfamiliar interest. What most naturally draws a response from you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "其中新鲜有趣的体验，以及可以一起试试的部分。",
+            "en": "Fresh experiences and parts you might enjoy trying together."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "对方想用它做到什么，有没有可以开始的具体行动。",
+            "en": "What they want to do with it and a concrete way to begin."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "对方为什么在意它，以及其中值得细看的内容。",
+            "en": "Why it matters to them and what deserves a closer look."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "怎样轻松接触它，先从自己能从容参与的部分开始。",
+            "en": "A comfortable introduction and a part you could join at an easy pace."
+          },
+          "directionId": "phlegmatic"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_18",
+      "prompt": {
+        "zh": "你还需要一点时间再回应一个日常安排。哪种说法更接近你？",
+        "en": "You need a little more time before responding to an everyday plan. Which wording feels closest to yours?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“我先把要解决的一点确定下来，之后给你明确答复。”",
+            "en": "“Let me settle one point first, then I can give you a clear answer.”"
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“我想把自己在意的地方想清楚，再认真回复你。”",
+            "en": "“I want to think through what matters to me before giving you a considered reply.”"
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“我想留一点余地，等安排比较平稳时再定。”",
+            "en": "“I would like some breathing room and to decide once the arrangements feel settled.”"
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“我还想看看有没有别的有趣选项，晚一点告诉你。”",
+            "en": "“I would like to look at a few other possibilities and get back to you later.”"
+          },
+          "directionId": "sanguine"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_19",
+      "prompt": {
+        "zh": "一个可做可不做的小计划暂时卡住了。你更容易选择哪条路？",
+        "en": "An optional small plan has stalled for now. Which direction comes most naturally?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "想清楚卡在哪里，以及自己是否仍在意原来的设想。",
+            "en": "Reflect on what has stalled and whether the original idea still matters to you."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先放一放，等有合适的条件时按熟悉的方式继续。",
+            "en": "Let it rest and return through a familiar approach when conditions suit."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "试试另一种可能有趣的玩法，让计划重新活起来。",
+            "en": "Try a fresh possibility that might make the plan enjoyable again."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "找出能动的一小步，先把它向前推进。",
+            "en": "Identify a step you can take and move it forward."
+          },
+          "directionId": "choleric"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_20",
+      "prompt": {
+        "zh": "下午有一段没人打扰的自由时间，你会更想把它变成什么样？",
+        "en": "You have some uninterrupted free time in the afternoon. What would you most like it to become?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "享受一些熟悉的小事，让时间按舒服的节奏流过。",
+            "en": "Enjoy familiar small activities and let the time pass at a comfortable pace."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "随兴趣探索几件新鲜事，过程可以不断换方向。",
+            "en": "Explore a few fresh interests and let the direction change along the way."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把一件自己想做的事推进到一个明确节点。",
+            "en": "Bring something you want to do to a clear stopping point."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "深入一段让自己在意的内容，不必匆忙跳出来。",
+            "en": "Become absorbed in something meaningful without having to leave it quickly."
+          },
+          "directionId": "melancholic"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_21",
+      "prompt": {
+        "zh": "两个人对一个小安排的偏好不同，但可以商量。你更自然地先提出什么？",
+        "en": "Two people prefer different versions of a small plan, with room to discuss it. What would you most naturally offer first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个可能让双方都觉得有趣的新选项。",
+            "en": "A fresh option that might appeal to both people."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个可以开始实行、之后再调整的具体决定。",
+            "en": "A concrete decision you can act on and adjust afterwards."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "自己在意的原因，和想进一步了解的差别。",
+            "en": "The reasons that matter to you and distinctions you would like to understand."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个双方都不太费力、能平稳接上的折中安排。",
+            "en": "An easy arrangement both people can fit into without a large adjustment."
+          },
+          "directionId": "phlegmatic"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_22",
+      "prompt": {
+        "zh": "一段经历让你觉得“下次还想这样”。最可能是哪种原因？",
+        "en": "An experience leaves you wanting to repeat it. Which reason is most likely?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "做成了自己想做的事，进展让人满意。",
+            "en": "You accomplished something you wanted and were satisfied with the progress."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "有值得细想或认真投入的内容，留下了清楚的印象。",
+            "en": "It offered something worth reflection or close attention and left a clear impression."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "整个过程从容顺手，不需要频繁调整自己。",
+            "en": "The experience felt comfortable and familiar without frequent adjustments."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "过程中有新鲜发现，参与起来也很有兴致。",
+            "en": "It brought fresh discoveries and was enjoyable to join."
+          },
+          "directionId": "sanguine"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_23",
+      "prompt": {
+        "zh": "一个日常计划多了一条限制，但仍有很多做法可选。你通常先想？",
+        "en": "An everyday plan gains a new constraint, but several approaches remain possible. What do you usually consider first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "这条变化会影响哪些自己在意的细节和取舍。",
+            "en": "Which details and tradeoffs you care about are affected by the change."
+          },
+          "directionId": "melancholic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "怎样少改动一些已有安排，让过程依然平稳。",
+            "en": "How to preserve a steady process with fewer changes to existing arrangements."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "限制之外还有哪些有意思的可能。",
+            "en": "What interesting possibilities remain around the constraint."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "在这个条件下，怎样仍能达到最在意的目标。",
+            "en": "How to reach the aim that matters most within this condition."
+          },
+          "directionId": "choleric"
+        }
+      ]
+    },
+    {
+      "id": "TEMPERAMENT_24",
+      "prompt": {
+        "zh": "学一件没有考核的小事时，你更喜欢哪种过程？",
+        "en": "When learning something small without an assessment, which process do you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "重复熟悉的步骤，逐渐形成不费力的节奏。",
+            "en": "Repeat familiar steps and gradually develop an easy rhythm."
+          },
+          "directionId": "phlegmatic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "不断试出不同花样，从新鲜感中保持兴致。",
+            "en": "Keep trying variations and stay interested through discoveries."
+          },
+          "directionId": "sanguine"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "边做边完成一个小成果，让学习有清楚的方向。",
+            "en": "Produce a small outcome as you go so the learning has a clear direction."
+          },
+          "directionId": "choleric"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "慢慢弄懂细节之间的联系，让理解更合自己的意。",
+            "en": "Take time to understand connections between details in a way that makes sense to you."
+          },
+          "directionId": "melancholic"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "sanguine",
+      "directionIds": [
+        "sanguine"
+      ],
+      "title": {
+        "zh": "多血质结果（古典气质）",
+        "en": "Sanguine Temperament Result"
+      },
+      "headline": {
+        "zh": "从新鲜感与参与感中寻找起点",
+        "en": "Finding a starting point in interest and engagement"
+      },
+      "summary": {
+        "zh": "本题组中，你更常选择新鲜体验、开放尝试和轻快参与。多血质在这里是古典风格名称，帮助回看具体选择，不判断天生乐观、社交魅力或情绪状态。",
+        "en": "Your choices more often favour fresh experiences, open exploration and enjoyable engagement. Sanguine is a classical style label used to revisit these choices, without establishing inborn optimism, charisma or an emotional condition."
+      },
+      "seo": {
+        "title": {
+          "zh": "多血质结果：古典气质的含义、情境与取舍",
+          "en": "Sanguine Temperament: Meaning, Examples and Full Result"
+        },
+        "description": {
+          "zh": "多血质在本版气质测试中怎样理解？阅读新鲜参与、开放尝试的具体情境、取舍与其他气质比较。完整结果免费，不把计数当作社交魅力、天生乐观或能力证明。",
+          "en": "Read the Sanguine temperament guide: fresh engagement, everyday examples, tradeoffs and comparisons. Full free interpretation without claims about charisma or inborn optimism."
+        }
+      },
+      "scoreReading": {
+        "zh": "每题所选项给其对应方向加1，共24次选择；四种方向各在24题中出现，每个选项位置出现6次。完成全部题目后显示四项原始次数，最高次数相同的方向全部保留，并呈现每份完整报告。不合成百分比，不用排序硬定主副型，也不把接近的次数当统计显著差异。",
+        "en": "Each selected option adds one raw count to its named direction, across 24 selections. Each direction appears in all 24 items and six times in each position. Complete all items to see the four counts and every highest-count match with its full report. Counts are not percentages; order never assigns primary and secondary types, and nearby tallies establish no statistical significance."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这份结果在描述什么",
+            "en": "What this reading describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "当一个安排还没有定型，你可能更愿意从有趣的部分进入，允许体验带来新方向。先看看具体题目里，你偏向的是新内容、参与方式，还是可以临时改变的空间。它们都能带来多血质计数，却未必代表同一种日常习惯；标签不能替代这些差别。",
+              "en": "When a plan is still open, you may prefer entering through an interesting part and allowing the experience to suggest a direction. Revisit whether you chose novelty, participation or room to change course. Each can contribute to this reading without describing the same everyday habit. The label cannot recover those distinctions from a total."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常例子",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "朋友取消了一次小聚，你想到换个地方走走，或问问谁愿意临时尝试别的活动。真正有用的信息是：新的可能让这段时间重新值得期待。是否邀请别人、活动规模多大、之后是否疲惫，都还需要另看，不能由这一个选择补出来。",
+              "en": "Suppose a small gathering is cancelled and you consider another place to visit or an activity someone might join. The useful observation is that a fresh possibility renews your interest in the available time. It does not establish how many people you want around, whether they enjoy the idea or how you will feel afterwards."
+            }
+          ]
+        },
+        {
+          "id": "helpful-conditions",
+          "title": {
+            "zh": "什么条件可能让它有用",
+            "en": "Conditions that may make it useful"
+          },
+          "paragraphs": [
+            {
+              "zh": "在一个允许探索的小任务里，可以先体验一个有趣的部分，再决定是否继续。若新鲜感让你更愿意开始，就把它当作安排活动的线索，而不是必须保持热情的人设。别人可能需要清楚步骤或熟悉节奏；试着把有趣的开头与对方需要的条件一起说清楚。",
+              "en": "For a small task with room to explore, try an appealing part before deciding how far to continue. If interest makes beginning easier, use that as information about the arrangement rather than a role requiring constant enthusiasm. Someone else may want clear steps or a familiar pace. Explain both the attractive beginning and the conditions they need."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "值得留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "当有很多新想法时，可以区分“我愿意试一下”和“我承诺负责到底”。比如提出周末去一个新地方，也说明自己能承担哪一段安排。这里讨论的是一次行动怎样更清楚，不是认定多血质的人一定冲动、肤浅或不能坚持；这些结论需要另外的事实。",
+              "en": "When possibilities multiply, distinguish an idea you would enjoy trying from a commitment you are taking responsibility for. Suggesting a new weekend outing can include naming the part you can arrange. This makes one action clearer; it does not establish that people with this reading are impulsive, superficial or unable to persist. Those judgments require other evidence."
+            }
+          ]
+        },
+        {
+          "id": "work-relationships",
+          "title": {
+            "zh": "用于工作与相处",
+            "en": "Using it in work and relationships"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果你喜欢从交流和尝试中启动，可以提议先做一个小样或交换几个想法，再一起确定继续的范围。在相处中，也可以邀请新活动，同时给对方拒绝或选择熟悉安排的空间。报告并不告诉你适合销售、表演或任何职业，更不能代替对他人意愿的询问。",
+              "en": "If exchanges and experimentation help you begin, suggest a small sample or a few ideas before agreeing on the scope of further work. In relationships, invite a fresh activity while leaving room for refusal or a familiar alternative. The report does not select sales, entertainment or any occupation, and cannot replace asking what another person wants."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他古典读法比较",
+            "en": "Comparing the other classical readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版多血质更留意参与感和新可能；胆汁质更留意目标与推进；抑郁质更留意细节和意义；黏液质更留意熟悉节奏与平稳衔接。这些是选项的组织方式，不是四种人的能力排名。最高次数相同时，所有对应完整报告都会保留，不凭顺序指定主型和副型。",
+              "en": "This edition’s Sanguine options emphasise engagement and fresh possibilities; Choleric options emphasise aims and action, Melancholic options considered detail and meaning, and Phlegmatic options a familiar steady pace. These organise choices rather than rank four kinds of people. Every highest-count tie keeps its full report, without assigning primary and secondary identities by order."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个可能不符合标签的情况",
+            "en": "A counterexample worth considering"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能喜欢独自探索新东西，却不喜欢热闹聚会；也可能在某项长期兴趣里很能坚持。这样的情况不需要被“多血质应该怎样”纠正。问卷没有测外向性、注意力障碍或坚持能力，也没有验证天生乐观。若标签不贴切，可以保留对具体选择的观察，放下标签。",
+              "en": "You might enjoy exploring something new alone while disliking large gatherings, or stay with a long-standing interest. Neither needs correction to fit a Sanguine label. These items do not measure extraversion, an attention disorder or persistence, and cannot establish inborn optimism. If the name feels unhelpful, retain an observation about a particular choice and leave the label aside."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一件自己确实想参与的小事，给它设计一个有趣的开头，也写下愿意投入的时间或承担的范围。结束后回看：新鲜感帮助了哪一步，哪些部分需要别的安排？目标是找到适合这件事的做法，而不是让多血质计数变高、证明自己热情或影响别人。",
+              "en": "Choose a small activity you actually want to join. Give it an interesting beginning and specify the time or responsibility you are offering. Afterwards, note which step benefited from novelty and which needed another arrangement. The aim is a useful approach to this activity, not a higher Sanguine count or proof of enthusiasm and influence."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与古典名称的使用范围",
+            "en": "Original items and the scope of classical labels"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24道情境题、计数规则与结果解释均由费马独立编写，借用四种古典气质名称作为描述风格的比喻。古代体液生物学早已被弃用；历史悠久不等于本题本经过验证。它不是艾森克、Keirsey或现代发展心理学气质量表，也没有测量遗传、神经系统、抑郁症、能力或职业适配。原始次数不对应常模、百分位、天生主副型或固定身份。",
+              "en": "FermatMind independently authored these 24 situations, counting rules and explanations, using four classical temperament names as descriptive style metaphors. Ancient humoral biology is discarded; historical longevity does not validate these items. This is not an Eysenck, Keirsey or modern developmental temperament instrument. It measures neither genetics, nervous-system functioning, depression, ability nor career fit. Raw counts supply no norms, percentiles, inborn primary/secondary types or fixed identity."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "choleric",
+      "directionIds": [
+        "choleric"
+      ],
+      "title": {
+        "zh": "胆汁质结果（古典气质）",
+        "en": "Choleric Temperament Result"
+      },
+      "headline": {
+        "zh": "把想推进的事情说清楚",
+        "en": "Making the next intended step clear"
+      },
+      "summary": {
+        "zh": "本题组中，你更常选择明确目标、定下方向与推进下一步。胆汁质是古典名称；这些选择既不证明领导力或高效率，也不把易怒、攻击或控制他人当作你的特征。",
+        "en": "Your choices more often favour a clear aim, a decision and a next step. Choleric is a classical label here. These choices do not establish leadership, efficiency, anger, aggression or control over others."
+      },
+      "seo": {
+        "title": {
+          "zh": "胆汁质结果：目标、行动与沟通边界",
+          "en": "Choleric Temperament: Action, Tradeoffs and Full Result"
+        },
+        "description": {
+          "zh": "查看胆汁质气质结果的完整解释，比较目标推进、决定下一步与听取条件的具体情境。不以原始次数判断易怒、领导力或职业适配，说明免费可读。",
+          "en": "Explore the Choleric temperament result: clear aims, next steps, communication and tradeoffs. Full free guide without inferring anger, leadership or career suitability."
+        }
+      },
+      "scoreReading": {
+        "zh": "每题所选项给其对应方向加1，共24次选择；四种方向各在24题中出现，每个选项位置出现6次。完成全部题目后显示四项原始次数，最高次数相同的方向全部保留，并呈现每份完整报告。不合成百分比，不用排序硬定主副型，也不把接近的次数当统计显著差异。",
+        "en": "Each selected option adds one raw count to its named direction, across 24 selections. Each direction appears in all 24 items and six times in each position. Complete all items to see the four counts and every highest-count match with its full report. Counts are not percentages; order never assigns primary and secondary types, and nearby tallies establish no statistical significance."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这份结果在描述什么",
+            "en": "What this reading describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "面对几种可行安排，你可能先问“我想做到哪里”“现在能推进什么”。本版把这种目标与行动取向的选择记入胆汁质方向。先回看选项里的具体目的：完成一个小成果、确定安排或开始行动，未必代表你在所有事情上都想快，也不说明决定一定更好。",
+              "en": "When several arrangements are possible, you may first ask what you want to accomplish and what can move forward now. This edition counts those aim-and-action choices toward Choleric. Revisit the particular purpose: finishing something small, settling a plan or beginning. They need not mean you always want speed, and cannot establish that your decisions are better."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常例子",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "朋友讨论周末怎么安排时，你想先确定一个都愿意参与的地点，再处理细节。这个做法可能让讨论有个起点，也可能还需要补充别人没说出的条件。它描述你这一次怎样靠近决定；同伴是否感到被听见、计划是否合适，仍要从实际交流和反馈判断。",
+              "en": "While discussing a weekend plan, you may want to settle on a place everyone wants to visit before arranging details. That can give the discussion a starting point, while conditions others have not yet mentioned may still matter. It describes how you approached this decision; actual feedback is needed to know whether people felt heard or the plan suited them."
+            }
+          ]
+        },
+        {
+          "id": "helpful-conditions",
+          "title": {
+            "zh": "什么条件可能让它有用",
+            "en": "Conditions that may make it useful"
+          },
+          "paragraphs": [
+            {
+              "zh": "当一件小事缺少明确起点时，可以试着把目标和下一步说得具体，例如“今天先把哪一段完成”。也说明什么需要共同决定、什么可以由自己安排。如果这种方式有帮助，把它保留为一次协作方法；不必将自己设定为永远负责拍板的人，也不从标签获得指挥他人的资格。",
+              "en": "When a small task lacks a starting point, make the aim and next step concrete, such as the part you propose finishing today. State what needs a shared decision and what you can arrange yourself. If this helps, retain it as a way of working together. You need not become the permanent decision-maker, and the label grants no authority."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "值得留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "提出决定时，可以加一句“哪些条件还没有考虑到？”并留出真正回应的时间。明确方向与收集信息可以在同一段交流里发生。这不是说你必定强势或不听人说话，而是提供一个可观察的小调整：下一步是否清楚，同时参与的人是否知道还能提出什么。",
+              "en": "When proposing a decision, ask which conditions remain unconsidered and leave actual time for a response. Direction and information gathering can belong in the same exchange. This does not establish that you are domineering or inattentive. It offers an observable adjustment: whether the next step is clear and participants know what they can still contribute."
+            }
+          ]
+        },
+        {
+          "id": "work-relationships",
+          "title": {
+            "zh": "用于工作与相处",
+            "en": "Using it in work and relationships"
+          },
+          "paragraphs": [
+            {
+              "zh": "在协作中，把希望达到的结果、自己愿意做的部分和需要确认的条件分开说。在关系中，推进一个共同计划也要问对方是否想参与；明确不等于替别人决定。胆汁质计数不判断管理、创业、军警或其他职业适配，不认证果断能力、竞争力或他人是否应该跟随你。",
+              "en": "In shared work, separate the outcome you propose, the part you are offering and conditions that need confirmation. Moving a relationship plan forward also involves asking whether the other person wants it. Clarity does not mean deciding for them. This tally establishes no fit for management, entrepreneurship or any occupation, and certifies neither decisiveness nor a right to lead."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他古典读法比较",
+            "en": "Comparing the other classical readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "胆汁质选项偏向目标与下一步，多血质选项偏向新鲜参与，抑郁质选项偏向细致思量，黏液质选项偏向平稳节奏。一个普通安排可能需要其中几种做法；分数没有判断哪一种当下最好。并列时保留每份完整说明，不把较低方向说成缺陷，也不推断固定主副气质。",
+              "en": "Choleric options favour aims and next steps, Sanguine options fresh engagement, Melancholic options considered reflection, and Phlegmatic options a steady pace. An ordinary plan may benefit from several approaches; counts do not decide which is best now. Ties keep each full guide, without interpreting a lower direction as a deficiency or inferring fixed primary and secondary temperaments."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个可能不符合标签的情况",
+            "en": "A counterexample worth considering"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能愿意推动自己在意的事，却不喜欢竞争、公开发言或主持团队；有些时候也需要慢慢想。这些情况不否定具体作答。古典“胆汁质”名称不能用来反推身体成分、易怒程度、神经系统或天生领导力。若这些联想妨碍理解，就直接说自己这次选择了什么。",
+              "en": "You may want to advance something that matters to you while disliking competition, public speaking or running a team. You may also need time to think. Those circumstances do not invalidate particular answers. The classical name cannot establish bodily composition, anger, nervous-system functioning or inborn leadership. If those associations distract, describe the particular choice directly instead."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "找一个自己愿意推进的小安排，用两句话提出目标与下一步，再问对方是否还有条件需要补充。结束后观察：哪些地方因为说清楚而更容易，哪些需要重新商量？不把快慢或别人是否同意当作气质优劣，而是看这个安排是否对参与者有用。",
+              "en": "Choose a small plan you want to advance. Propose an aim and a next step in two sentences, then ask what conditions still need adding. Afterwards, consider what became easier through clarity and what needed renegotiation. Speed and agreement do not rank temperaments; the relevant question is whether the arrangement worked for the people involved."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与古典名称的使用范围",
+            "en": "Original items and the scope of classical labels"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24道情境题、计数规则与结果解释均由费马独立编写，借用四种古典气质名称作为描述风格的比喻。古代体液生物学早已被弃用；历史悠久不等于本题本经过验证。它不是艾森克、Keirsey或现代发展心理学气质量表，也没有测量遗传、神经系统、抑郁症、能力或职业适配。原始次数不对应常模、百分位、天生主副型或固定身份。",
+              "en": "FermatMind independently authored these 24 situations, counting rules and explanations, using four classical temperament names as descriptive style metaphors. Ancient humoral biology is discarded; historical longevity does not validate these items. This is not an Eysenck, Keirsey or modern developmental temperament instrument. It measures neither genetics, nervous-system functioning, depression, ability nor career fit. Raw counts supply no norms, percentiles, inborn primary/secondary types or fixed identity."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "melancholic",
+      "directionIds": [
+        "melancholic"
+      ],
+      "title": {
+        "zh": "抑郁质结果（古典气质）",
+        "en": "Melancholic Temperament Result"
+      },
+      "headline": {
+        "zh": "给细节与在意的意义留出空间",
+        "en": "Making room for details and what matters"
+      },
+      "summary": {
+        "zh": "本题组中，你更常选择认真考虑细节、理解原因与整理自己的回应。抑郁质是古典气质标签，不是抑郁症筛查结果，也不证明情绪更深、智力更高或道德感更强。",
+        "en": "Your choices more often favour considered detail, understanding reasons and reflecting on a response. Melancholic is a classical label, not a depression-screening result or evidence of deeper emotions, higher intelligence or greater moral sensitivity."
+      },
+      "seo": {
+        "title": {
+          "zh": "抑郁质结果：古典气质、细致思量与计分范围",
+          "en": "Melancholic Temperament: Reflection, Meaning and Limits"
+        },
+        "description": {
+          "zh": "抑郁质是古典气质标签，不是抑郁症筛查结果。阅读本版细致思量、重视意义的具体例子、相邻比较和小尝试；完整解释免费，不推断敏感程度或智力。",
+          "en": "Read the Melancholic temperament guide to considered reflection, detail and meaning. Full examples and comparisons; this classical label is not a depression-screening result."
+        }
+      },
+      "scoreReading": {
+        "zh": "每题所选项给其对应方向加1，共24次选择；四种方向各在24题中出现，每个选项位置出现6次。完成全部题目后显示四项原始次数，最高次数相同的方向全部保留，并呈现每份完整报告。不合成百分比，不用排序硬定主副型，也不把接近的次数当统计显著差异。",
+        "en": "Each selected option adds one raw count to its named direction, across 24 selections. Each direction appears in all 24 items and six times in each position. Complete all items to see the four counts and every highest-count match with its full report. Counts are not percentages; order never assigns primary and secondary types, and nearby tallies establish no statistical significance."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这份结果在描述什么",
+            "en": "What this reading describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "当一件事有几种做法，你可能想先分清自己在意的差别，以及为什么愿意选择其中一种。本版把细致思量与意义整理的选择计入抑郁质方向。可以回看你实际选的是信息细节、投入的理由，还是回应前的思考时间；相同计数未必来自相同习惯。",
+              "en": "When several approaches are possible, you may want to understand the distinctions that matter to you and why you would choose one. This edition counts considered reflection toward Melancholic. Revisit whether you selected information detail, a reason to invest attention or time before responding. Identical tallies need not come from identical habits."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常例子",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "准备开始一个兴趣项目时，你更想先看一两个具体例子，弄清自己喜欢其中什么。这样做可能帮助你找到愿意投入的部分，也可能只是这次还不熟悉材料。观察实际过程，比推断自己总是深思熟虑更有用；问卷也没有验证你是否比别人发现更多细节。",
+              "en": "Before starting an interest project, you may prefer examining an example or two to understand what appeals to you. That could help locate something worth your attention, or simply reflect unfamiliarity with the material. Observing the actual process is more useful than concluding you are always thoughtful. The quiz does not verify that you notice more than others."
+            }
+          ]
+        },
+        {
+          "id": "helpful-conditions",
+          "title": {
+            "zh": "什么条件可能让它有用",
+            "en": "Conditions that may make it useful"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果认真看过材料后更容易开始，可以提前拿到说明、留一段准备时间，或先写下自己最想弄清的一点。把这些条件说成可商量的安排，而不是别人必须理解的气质要求。它们是否有效，要看这次任务和反馈；细致也不总意味着需要更长时间。",
+              "en": "If looking closely at material helps you begin, ask for information beforehand, allow preparation time or write down the point you most want to understand. Present these as negotiable arrangements rather than demands attached to a temperament. Whether they help depends on the task and feedback; considered attention does not invariably require taking longer."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "值得留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "当还有很多值得想的细节时，可以先确定这件事做到什么程度就能进入下一步。例如给一个小项目定下本次要确认的问题，其余留待实际尝试后再看。这是在安排思考与行动，不是认定你完美主义、犹豫或想太多。若自己并不认同这些描述，不必为了符合标签接受它们。",
+              "en": "When many details remain interesting, decide what would be enough to take the next step. For a small project, identify the question to settle now and leave others until after a trial. This arranges reflection alongside action; it does not establish perfectionism, indecision or overthinking. You need not accept those descriptions to make the label fit."
+            }
+          ]
+        },
+        {
+          "id": "work-relationships",
+          "title": {
+            "zh": "用于工作与相处",
+            "en": "Using it in work and relationships"
+          },
+          "paragraphs": [
+            {
+              "zh": "在协作中，可以提前说明需要什么材料、想确认哪一处差别，以及什么时候能够回复。在关系里，也可以说“我想整理一下再回答”，同时听见对方的时间需要。这些沟通条件不选择研究、艺术、咨询或任何职业，也不证明忠诚、原则性或对关系的投入程度。",
+              "en": "In shared work, explain what information you need, which distinction you want to clarify and when you can respond. In relationships, you can ask for time to reflect while hearing the other person’s timing needs. These conditions select neither research, art, counselling nor any occupation, and establish no degree of loyalty, principle or commitment to a relationship."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他古典读法比较",
+            "en": "Comparing the other classical readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版抑郁质强调细节与意义，多血质强调新鲜参与，胆汁质强调目标推进，黏液质强调平稳节奏。它们可能在同一件事的不同阶段出现；计数并不判断谁更成熟或更有深度。最高并列时，逐份完整报告一起阅读即可，不需要另外找一个真正的主型。",
+              "en": "Melancholic options in this edition emphasise detail and meaning, Sanguine options fresh engagement, Choleric options directed action, and Phlegmatic options a steady pace. Different stages of one activity may call for different approaches. Counts rank neither maturity nor depth. At a highest-count tie, read every full guide without searching for an additional supposedly true primary type."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个可能不符合标签的情况",
+            "en": "A counterexample worth considering"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能常常开玩笑、喜欢社交，也会在一些事情上很快决定，同时在本题组选择细致考虑。这个组合并不矛盾。“抑郁质”名称不能反推抑郁症、敏感程度、神经系统或处理情绪的速度；本题没有测这些。若词语容易造成误会，直接描述自己希望先看细节、再回应的做法就够了。",
+              "en": "You may often joke, enjoy social occasions and decide some things quickly while choosing considered reflection in these items. That combination requires no resolution. The word Melancholic establishes neither depression, sensitivity, nervous-system functioning nor emotional-processing speed; these are not assessed. If the name causes confusion, describe the specific preference to consider details before responding instead."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "找一件自己想开始的小事，写下最在意的一个问题，也定下获得什么信息后就愿意先试一步。之后看看：哪些细节确实帮助了你，哪些只有开始做了才知道？目标是让思考服务于这件事，不是让抑郁质分数更高，也不是证明自己深刻或消除某种气质。",
+              "en": "Choose something small you want to begin. Write one question that matters and identify the information that would let you try a first step. Afterwards, note which details helped and which became clear only through doing. The aim is reflection that serves this activity, not a higher Melancholic score, proof of depth or removal of a temperament."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与古典名称的使用范围",
+            "en": "Original items and the scope of classical labels"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24道情境题、计数规则与结果解释均由费马独立编写，借用四种古典气质名称作为描述风格的比喻。古代体液生物学早已被弃用；历史悠久不等于本题本经过验证。它不是艾森克、Keirsey或现代发展心理学气质量表，也没有测量遗传、神经系统、抑郁症、能力或职业适配。原始次数不对应常模、百分位、天生主副型或固定身份。",
+              "en": "FermatMind independently authored these 24 situations, counting rules and explanations, using four classical temperament names as descriptive style metaphors. Ancient humoral biology is discarded; historical longevity does not validate these items. This is not an Eysenck, Keirsey or modern developmental temperament instrument. It measures neither genetics, nervous-system functioning, depression, ability nor career fit. Raw counts supply no norms, percentiles, inborn primary/secondary types or fixed identity."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phlegmatic",
+      "directionIds": [
+        "phlegmatic"
+      ],
+      "title": {
+        "zh": "黏液质结果（古典气质）",
+        "en": "Phlegmatic Temperament Result"
+      },
+      "headline": {
+        "zh": "从熟悉而平稳的节奏进入",
+        "en": "Beginning through a familiar and steady pace"
+      },
+      "summary": {
+        "zh": "本题组中，你更常选择熟悉步骤、从容衔接与可维持的节奏。黏液质在这里是古典风格名称，不判断懒惰、反应速度、情绪调节能力或是否应该承担照顾他人的责任。",
+        "en": "Your choices more often favour familiar steps, easy transitions and a maintainable pace. Phlegmatic is a classical style label here, not a judgment of laziness, response speed, emotional regulation or a duty to care for others."
+      },
+      "seo": {
+        "title": {
+          "zh": "黏液质结果：熟悉步骤、稳定节奏与表达需要",
+          "en": "Phlegmatic Temperament: Steady Pace and Full Result"
+        },
+        "description": {
+          "zh": "阅读黏液质古典气质结果，了解熟悉步骤、平稳衔接与表达需要的具体场景。完整说明免费，不把稳定节奏当懒惰、反应速度或情绪调节能力。",
+          "en": "Explore the Phlegmatic temperament result: familiar steps, a steady pace, needs and tradeoffs. Full interpretation without judgments about laziness or emotional regulation."
+        }
+      },
+      "scoreReading": {
+        "zh": "每题所选项给其对应方向加1，共24次选择；四种方向各在24题中出现，每个选项位置出现6次。完成全部题目后显示四项原始次数，最高次数相同的方向全部保留，并呈现每份完整报告。不合成百分比，不用排序硬定主副型，也不把接近的次数当统计显著差异。",
+        "en": "Each selected option adds one raw count to its named direction, across 24 selections. Each direction appears in all 24 items and six times in each position. Complete all items to see the four counts and every highest-count match with its full report. Counts are not percentages; order never assigns primary and secondary types, and nearby tallies establish no statistical significance."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这份结果在描述什么",
+            "en": "What this reading describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "面对日常安排，你可能更愿意先找到熟悉、顺手的部分，让事情平稳接续。本版把这类节奏与衔接选择计入黏液质方向。可以看看自己是在保护时间、避免频繁切换，还是单纯喜欢某个熟悉做法；一个总次数无法把这些原因分别辨认出来。",
+              "en": "With an everyday arrangement, you may prefer locating a familiar, comfortable part and letting the activity continue steadily. This edition counts choices about pace and easy transitions toward Phlegmatic. Revisit whether you were protecting time, avoiding frequent switches or simply enjoying a familiar approach. A total cannot distinguish those reasons on its own."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常例子",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "学习一件没有考核的小事时，你愿意先重复一个顺手的步骤，等熟悉后再扩展。这个过程可能让参与更容易，也可能只是这次时间或环境更适合这样。它不说明学习速度慢，更不能比较谁聪明；要了解效果，需要看实际尝试和自己想达到的目的。",
+              "en": "When learning something small without an assessment, you may prefer repeating an easy step and extending it once familiar. That might make participation easier, or simply suit the available time and setting. It does not establish slower learning or compare intelligence. Understanding its usefulness requires looking at the actual experience and what you wanted to achieve."
+            }
+          ]
+        },
+        {
+          "id": "helpful-conditions",
+          "title": {
+            "zh": "什么条件可能让它有用",
+            "en": "Conditions that may make it useful"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果熟悉的起点让你更容易参与，可以把新安排接到已有习惯后面，减少不必要的来回切换，或先约定一个都能跟上的节奏。把这些看成这一次可选择的条件，而不是必须永远稳定。新的兴趣、紧急的实际需要或对方的安排，也可能让你愿意改变做法。",
+              "en": "If a familiar starting point makes participation easier, connect a new arrangement with an existing habit, reduce unnecessary switching or agree on a pace people can follow. Treat these as available conditions for this occasion rather than a requirement for permanent stability. A fresh interest, a real urgency or another person’s circumstances may lead you to choose differently."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "值得留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个安排看起来平稳，也可以问自己“我是否真的愿意这样做”。比如接受熟悉的活动时，说出自己希望保留的时间或想改变的一点。这里并不认定你总在迁就、没有目标或害怕冲突；只是让从容参与与表达自己的需要同时存在，而不是用气质替自己决定。",
+              "en": "Even when an arrangement looks comfortable, ask whether it is something you actually want. On accepting a familiar activity, name the time you want to preserve or one change you would prefer. This does not establish habitual accommodation, absent goals or fear of conflict. It makes room for easy participation and expressing your needs, rather than letting a label decide."
+            }
+          ]
+        },
+        {
+          "id": "work-relationships",
+          "title": {
+            "zh": "用于工作与相处",
+            "en": "Using it in work and relationships"
+          },
+          "paragraphs": [
+            {
+              "zh": "在协作中，可以把希望沿用的步骤、可接受的变化与自己的承担范围说清楚。在关系里，熟悉的陪伴方式也需要双方同意，而不是默默接下所有安排。报告不认证可靠、善于照顾人或情绪稳定，也不指定护理、协调、手艺或其他职业；这些都需要实际能力和条件。",
+              "en": "In shared work, explain which steps you would keep, what changes you can accommodate and the responsibility you are offering. Familiar companionship also needs agreement rather than silent acceptance of every arrangement. This report certifies neither reliability, caregiving nor emotional stability, and selects no nursing, coordination, trade or other occupation. Those require actual skills and circumstances."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他古典读法比较",
+            "en": "Comparing the other classical readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "黏液质选项偏向熟悉与平稳，多血质偏向新鲜参与，胆汁质偏向明确推进，抑郁质偏向认真思量。节奏平稳不等于情绪稳定，节奏快也不等于焦虑或冲动。可以比较同一情境的不同选项；并列最高时，所有完整报告都保留，不强行找一个主型或副型。",
+              "en": "Phlegmatic options favour familiarity and steadiness, Sanguine options fresh engagement, Choleric options directed action, and Melancholic options considered reflection. A steady activity pace is not a measure of emotional stability; a quicker pace establishes neither anxiety nor impulsivity. Compare alternatives within a situation. Highest ties keep all full reports without forcing primary and secondary identities."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个可能不符合标签的情况",
+            "en": "A counterexample worth considering"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能喜欢某项刺激的运动、愿意主持重要活动，却仍在普通日常中偏爱稳定步骤。这不需要改掉标签中的某一部分来解释。古典“黏液质”不测身体成分、神经反应、动力或抗压能力；若这些联想不合适，直接说自己希望怎样安排节奏会更清楚。",
+              "en": "You may enjoy an adventurous sport or want to host an important occasion while preferring familiar steps in ordinary daily life. You do not need to correct one part to explain the other. The classical name measures neither bodily composition, neural response, motivation nor stress tolerance. If those associations distract, describe the pace and arrangements you want directly."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一个自己确实愿意加入的小安排，保留一个熟悉的起点，也明确说出一项自己的偏好。结束后看看：平稳衔接帮助了什么，哪里其实需要改变？目标不是一直显得温和、让别人满意或提高黏液质计数，而是找到能参与、能表达、也能调整的具体做法。",
+              "en": "Choose a small arrangement you actually want to join. Keep one familiar starting point and state one preference of your own. Afterwards, note what a steady transition helped and where change was useful. The aim is neither constant agreeableness, satisfying others nor a higher Phlegmatic count, but an approach that leaves room to participate, express and adjust."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与古典名称的使用范围",
+            "en": "Original items and the scope of classical labels"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24道情境题、计数规则与结果解释均由费马独立编写，借用四种古典气质名称作为描述风格的比喻。古代体液生物学早已被弃用；历史悠久不等于本题本经过验证。它不是艾森克、Keirsey或现代发展心理学气质量表，也没有测量遗传、神经系统、抑郁症、能力或职业适配。原始次数不对应常模、百分位、天生主副型或固定身份。",
+              "en": "FermatMind independently authored these 24 situations, counting rules and explanations, using four classical temperament names as descriptive style metaphors. Ancient humoral biology is discarded; historical longevity does not validate these items. This is not an Eysenck, Keirsey or modern developmental temperament instrument. It measures neither genetics, nervous-system functioning, depression, ability nor career fit. Raw counts supply no norms, percentiles, inborn primary/secondary types or fixed identity."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "美国国立医学图书馆：莎士比亚与四体液的历史背景",
+        "en": "National Library of Medicine: Shakespeare and the historical four humors"
+      },
+      "url": "https://www.nlm.nih.gov/exhibition/shakespeare-and-the-four-humors/index.html"
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "次数来自具体选项",
+        "en": "Counts come from the selected options"
+      },
+      "paragraphs": [
+        {
+          "zh": "每题给一个对应方向加1，共24次选择。四种方向各出现24次，每个选项位置各6次，避免单靠位置偏向某个名称。完成后同时显示四项原始次数；这些次数只能比较本题组中的选择，不是人格含量、能力得分或人群排名。",
+          "en": "Each item adds one to its selected direction, across 24 choices. Every direction appears 24 times and six times in each option position. A complete attempt shows all four raw tallies. These compare choices within this set, not personality content, ability or population rank."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "最高并列全部保留",
+        "en": "Every highest-count tie stays"
+      },
+      "paragraphs": [
+        {
+          "zh": "最高次数相同的方向全部呈现完整报告；四项都相同时保留四份，不指定主型。未并列时也不强派一个副型，不使用隐藏加权、随机结果、加题或付费解除并列。次数相近不代表已验证的近分群体或误差范围。",
+          "en": "All directions sharing the highest count receive their full reports. Four equal tallies keep all four, without a primary type. A secondary type is never forced from an untied count. There are no hidden weights, random results or paid tie breakers, and nearby counts establish no validated close-score group or error range."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "古典名称不测天生生理",
+        "en": "Classical labels do not measure biology"
+      },
+      "paragraphs": [
+        {
+          "zh": "四种古典名称在本版只组织日常应对方式的比喻；古代体液理论的生物学解释早已被弃用。名字古老不验证本站问卷，也不让它等同艾森克、Keirsey或现代发展气质研究。抑郁质不等于抑郁症筛查，其他名称同样不能判断情绪健康、遗传或神经系统。",
+          "en": "Here the classical names organise descriptive metaphors for everyday approaches. The biology of ancient humoral theory is discarded. Old names validate neither this website nor equivalence with Eysenck, Keirsey or modern developmental temperament research. Melancholic is not a depression-screening result, and none of the labels assesses emotional health, genetics or nervous-system functioning."
+        }
+      ]
+    },
+    {
+      "id": "other-frameworks",
+      "title": {
+        "zh": "与其他测试分别理解",
+        "en": "Keep other assessments separate"
+      },
+      "paragraphs": [
+        {
+          "zh": "DISC是另一个行为风格框架，大五使用独立题本探索五个连续维度，MBTI另有偏好与计分；这里没有直接换算关系。需要完整大五或MBTI时，要另外完成对应题本，不用四气质计数补出其他分数、字母或职业匹配。",
+          "en": "DISC is another behavioural-style framework; Big Five forms explore five continuous traits and MBTI has its own preference questions and scoring. None is converted from these counts. A full Big Five or MBTI result requires a separate complete attempt, without filling in traits, letters or career matches from a classical label."
+        }
+      ]
+    },
+    {
+      "id": "free-and-private",
+      "title": {
+        "zh": "完整免费与草稿、分享",
+        "en": "Full free access, drafts and sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "全部24题、四项计数、四份公开完整说明与最高并列报告免费，不收邮箱或要求前置测评。个人回答在浏览器计分；只有主动保存才有本标签页24小时草稿，完成、清除或重测即删。分享只含结果名称与公开链接，不带答案、次数或内部ID。",
+          "en": "All 24 items, four tallies, four full public guides and every highest-count report are free without email or another assessment. Answers are scored in the browser. Only opting in saves a 24-hour tab draft, cleared on completion, exit-and-clear or retake. Sharing includes names and public links without answers, counts or internal IDs."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "四种古典气质在这里各指什么？",
+        "en": "What do the four classical temperaments mean here?"
+      },
+      "answer": {
+        "zh": "本版把新鲜参与、目标推进、细致思量与稳定节奏分别组织为多血质、胆汁质、抑郁质、黏液质四个风格名称。它们描述题组里的具体选择，不认证固定人格、生理成分、天生情绪或能力；四份完整说明都可以直接阅读。",
+        "en": "This edition organises fresh engagement, directed action, considered reflection and a steady pace under Sanguine, Choleric, Melancholic and Phlegmatic. They describe choices within the items, without certifying a fixed personality, bodily composition, inborn emotion or ability. Every full guide is available before answering."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样计分，会不会随机选主型和副型？",
+        "en": "How is this scored, and are primary or secondary types chosen?"
+      },
+      "answer": {
+        "zh": "每题所选项给对应方向加1，24题全部选择后显示四项次数和所有最高并列报告。不随机定型、不按顺序打破并列，也不在次数没有并列时硬派副型。原始次数不是人格比例、百分位、常模或统计置信区间。",
+        "en": "Each choice adds one to its direction. All 24 selections are required for the four tallies and every highest-count full report. No random assignment or ordering breaks a tie, and no secondary type is forced from an untied tally. Counts are not personality proportions, percentiles, norms or confidence intervals."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是经过验证的标准气质量表吗？",
+        "en": "Is this a validated standard temperament instrument?"
+      },
+      "answer": {
+        "zh": "不是。本题本、计数读法和解释由本站独立编写，没有本站信效度或常模验证。历史来源说明古典名称与已经弃用的体液理论，不验证这些题目；本测试不等同艾森克、Keirsey或现代发展心理学的气质量表。",
+        "en": "No. These items, counting rules and explanations are independently authored and have no established website validity or local norms. The historical source explains classical names and discarded humoral theory, not validation of the items. This is not an Eysenck, Keirsey or modern developmental temperament instrument."
+      }
+    },
+    {
+      "question": {
+        "zh": "抑郁质代表抑郁症，胆汁质代表易怒吗？",
+        "en": "Does Melancholic mean depression, or Choleric mean anger?"
+      },
+      "answer": {
+        "zh": "不能这样解释。两者在这里是古典风格标签，分别对应细致思量与目标推进的选项。本题没有评估抑郁症、易怒、攻击、神经系统、遗传或情绪健康，不能由结果反推这些情况。",
+        "en": "That interpretation is unsupported. Here they are classical style labels for considered reflection and directed-action choices. Items do not assess depression, anger, aggression, nervous-system functioning, genetics or emotional health, so results cannot establish those conditions."
+      }
+    },
+    {
+      "question": {
+        "zh": "这能换算MBTI、大五、职业或关系匹配吗？",
+        "en": "Can the result supply MBTI, Big Five, career or relationship matches?"
+      },
+      "answer": {
+        "zh": "不能。其他框架有各自题目与计分，需要另做完整测评；本页不补出字母、五维、能力或职业适配。相处建议围绕具体安排和双方意愿，不给不同气质排配对、价值或成熟度。",
+        "en": "No. Other frameworks have their own questions and scoring and require separate complete attempts. This page supplies no letters, five-trait profile, ability or career fit. Relationship suggestions concern specific arrangements and mutual wishes, not compatibility, worth or maturity rankings."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果免费吗，保存和分享包含什么？",
+        "en": "Are full results free, and what do saving and sharing include?"
+      },
+      "answer": {
+        "zh": "全部题目、四项次数和完整结果免费，无需注册或前置测试。保存是可选的本标签页24小时草稿，完成、重测或清除即删。分享只有名称和公开说明链接，不含答卷、计数或内部ID；存储或复制受限时仍可继续与手动分享。",
+        "en": "All questions, four tallies and full results are free without signup or a preceding assessment. Saving is an optional 24-hour tab draft, deleted on completion, retake or clearing. Sharing contains names and public guide links without answers, counts or internal IDs. Blocked storage or copying still allows continuation and manual sharing."
+      }
+    }
+  ]
+}
