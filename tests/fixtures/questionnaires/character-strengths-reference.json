@@ -1,0 +1,7347 @@
+{
+  "formCode": "ipip_via_r_96_fm_zh_trial_1",
+  "itemBankVersion": "IPIP-VIA-R-key2021/fm-zh-trial1",
+  "origin": "Official IPIP-VIA-R 96-item short key attributed to Bluemke, Partsch, Saucier & Lechner (2021), not older variable-length IPIP-VIA or VIA Institute instrument",
+  "directions": [
+    {
+      "id": "appreciation-of-beauty",
+      "sourceCode": "APP",
+      "title": {
+        "zh": "美的欣赏",
+        "en": "Appreciation of beauty"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "love",
+      "sourceCode": "CAP",
+      "title": {
+        "zh": "表达与接纳关爱",
+        "en": "Capacity for love"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "teamwork",
+      "sourceCode": "CIT",
+      "title": {
+        "zh": "团队合作",
+        "en": "Teamwork"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "curiosity",
+      "sourceCode": "CUR",
+      "title": {
+        "zh": "好奇心",
+        "en": "Curiosity"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "fairness",
+      "sourceCode": "EQU",
+      "title": {
+        "zh": "公平对待",
+        "en": "Fairness"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "forgiveness",
+      "sourceCode": "FOR",
+      "title": {
+        "zh": "宽恕倾向",
+        "en": "Forgiveness"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "gratitude",
+      "sourceCode": "GRA",
+      "title": {
+        "zh": "感恩表达",
+        "en": "Gratitude"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "hope",
+      "sourceCode": "HOP",
+      "title": {
+        "zh": "希望与乐观",
+        "en": "Hope and optimism"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "humor",
+      "sourceCode": "HUM",
+      "title": {
+        "zh": "幽默与玩心",
+        "en": "Humor and playfulness"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "perseverance",
+      "sourceCode": "IND",
+      "title": {
+        "zh": "坚持完成",
+        "en": "Perseverance"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "honesty",
+      "sourceCode": "INT",
+      "title": {
+        "zh": "诚实与守诺",
+        "en": "Honesty and integrity"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "judgment",
+      "sourceCode": "JUD",
+      "title": {
+        "zh": "审慎判断",
+        "en": "Judgment and open-mindedness"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "kindness",
+      "sourceCode": "KIN",
+      "title": {
+        "zh": "善意与助人",
+        "en": "Kindness and generosity"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "leadership",
+      "sourceCode": "LEA",
+      "title": {
+        "zh": "协调带领",
+        "en": "Leadership"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "love-of-learning",
+      "sourceCode": "LOV",
+      "title": {
+        "zh": "热爱学习",
+        "en": "Love of learning"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "humility",
+      "sourceCode": "MOD",
+      "title": {
+        "zh": "谦逊表达",
+        "en": "Modesty and humility"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "creativity",
+      "sourceCode": "ORI",
+      "title": {
+        "zh": "原创思考",
+        "en": "Originality and creativity"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "perspective",
+      "sourceCode": "PER",
+      "title": {
+        "zh": "整体视角",
+        "en": "Perspective and wisdom"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "prudence",
+      "sourceCode": "PRU",
+      "title": {
+        "zh": "行动前审慎",
+        "en": "Prudence"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "self-regulation",
+      "sourceCode": "SEL",
+      "title": {
+        "zh": "自我调节",
+        "en": "Self-regulation"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "social-intelligence",
+      "sourceCode": "SOC",
+      "title": {
+        "zh": "社交理解自评",
+        "en": "Social understanding self-report"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "spirituality",
+      "sourceCode": "SPI",
+      "title": {
+        "zh": "精神性与宗教性",
+        "en": "Spirituality and religiousness"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "bravery",
+      "sourceCode": "VAL",
+      "title": {
+        "zh": "表达信念的勇气",
+        "en": "Bravery in expressing convictions"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "zest",
+      "sourceCode": "ZES",
+      "title": {
+        "zh": "活力与热忱",
+        "en": "Zest and enthusiasm"
+      },
+      "itemCount": 4
+    }
+  ],
+  "sourceOrderedItems": [
+    {
+      "id": "IPIPVIA_APP_1",
+      "directionId": "appreciation-of-beauty",
+      "reverse": false,
+      "prompt": {
+        "zh": "美的世界对我来说很重要。",
+        "en": "Feel it's important to live in a world of beauty."
+      },
+      "sourcePosition": 1
+    },
+    {
+      "id": "IPIPVIA_APP_2",
+      "directionId": "appreciation-of-beauty",
+      "reverse": false,
+      "prompt": {
+        "zh": "看到美的事物时，我会产生深刻的情感。",
+        "en": "Experience deep emotions when I see beautiful things."
+      },
+      "sourcePosition": 2
+    },
+    {
+      "id": "IPIPVIA_APP_3",
+      "directionId": "appreciation-of-beauty",
+      "reverse": true,
+      "prompt": {
+        "zh": "我很少留意环境中的自然美。",
+        "en": "Am rarely aware of the natural beauty in the environment."
+      },
+      "sourcePosition": 3
+    },
+    {
+      "id": "IPIPVIA_APP_4",
+      "directionId": "appreciation-of-beauty",
+      "reverse": true,
+      "prompt": {
+        "zh": "在别人提起之前，我往往注意不到美。",
+        "en": "Fail to notice beauty until others comment on it."
+      },
+      "sourcePosition": 4
+    },
+    {
+      "id": "IPIPVIA_CAP_1",
+      "directionId": "love",
+      "reverse": false,
+      "prompt": {
+        "zh": "我知道，生活中有人像关心自己一样关心我。",
+        "en": "Know that there are people in my life who care as much for me as for themselves."
+      },
+      "sourcePosition": 1
+    },
+    {
+      "id": "IPIPVIA_CAP_2",
+      "directionId": "love",
+      "reverse": false,
+      "prompt": {
+        "zh": "我能向别人表达爱。",
+        "en": "Can express love to someone else."
+      },
+      "sourcePosition": 2
+    },
+    {
+      "id": "IPIPVIA_CAP_3",
+      "directionId": "love",
+      "reverse": true,
+      "prompt": {
+        "zh": "我不容易与别人分享自己的感受。",
+        "en": "Do not easily share my feelings with others."
+      },
+      "sourcePosition": 3
+    },
+    {
+      "id": "IPIPVIA_CAP_4",
+      "directionId": "love",
+      "reverse": true,
+      "prompt": {
+        "zh": "我难以接受任何人给予的爱。",
+        "en": "Have difficulty accepting love from anyone."
+      },
+      "sourcePosition": 4
+    },
+    {
+      "id": "IPIPVIA_CIT_1",
+      "directionId": "teamwork",
+      "reverse": false,
+      "prompt": {
+        "zh": "我是一个非常忠诚的人。",
+        "en": "Am an extremely loyal person."
+      },
+      "sourcePosition": 1
+    },
+    {
+      "id": "IPIPVIA_CIT_2",
+      "directionId": "teamwork",
+      "reverse": false,
+      "prompt": {
+        "zh": "我支持队友或其他小组成员。",
+        "en": "Support my teammates or fellow group members."
+      },
+      "sourcePosition": 2
+    },
+    {
+      "id": "IPIPVIA_CIT_3",
+      "directionId": "teamwork",
+      "reverse": true,
+      "prompt": {
+        "zh": "我不擅长在团队中工作。",
+        "en": "Am not good at working with a group."
+      },
+      "sourcePosition": 3
+    },
+    {
+      "id": "IPIPVIA_CIT_4",
+      "directionId": "teamwork",
+      "reverse": true,
+      "prompt": {
+        "zh": "我更喜欢独自做所有事情。",
+        "en": "Prefer to do everything alone."
+      },
+      "sourcePosition": 4
+    },
+    {
+      "id": "IPIPVIA_CUR_1",
+      "directionId": "curiosity",
+      "reverse": false,
+      "prompt": {
+        "zh": "许多不同的活动都让我感到兴奋。",
+        "en": "Am excited by many different activities."
+      },
+      "sourcePosition": 1
+    },
+    {
+      "id": "IPIPVIA_CUR_2",
+      "directionId": "curiosity",
+      "reverse": false,
+      "prompt": {
+        "zh": "在任何情境中，我都能找到感兴趣的事物。",
+        "en": "Can find something of interest in any situation."
+      },
+      "sourcePosition": 2
+    },
+    {
+      "id": "IPIPVIA_CUR_3",
+      "directionId": "curiosity",
+      "reverse": true,
+      "prompt": {
+        "zh": "我对这个世界并没有那么好奇。",
+        "en": "Am not all that curious about the world."
+      },
+      "sourcePosition": 3
+    },
+    {
+      "id": "IPIPVIA_CUR_4",
+      "directionId": "curiosity",
+      "reverse": true,
+      "prompt": {
+        "zh": "我的兴趣不多。",
+        "en": "Have few interests."
+      },
+      "sourcePosition": 4
+    },
+    {
+      "id": "IPIPVIA_EQU_1",
+      "directionId": "fairness",
+      "reverse": false,
+      "prompt": {
+        "zh": "我平等对待所有人。",
+        "en": "Treat all people equally."
+      },
+      "sourcePosition": 1
+    },
+    {
+      "id": "IPIPVIA_EQU_2",
+      "directionId": "fairness",
+      "reverse": false,
+      "prompt": {
+        "zh": "我相信每个人的权利都同样重要。",
+        "en": "Believe that everyone's rights are equally important."
+      },
+      "sourcePosition": 2
+    },
+    {
+      "id": "IPIPVIA_EQU_3",
+      "directionId": "fairness",
+      "reverse": true,
+      "prompt": {
+        "zh": "我会占别人的便宜。",
+        "en": "Take advantage of others."
+      },
+      "sourcePosition": 3
+    },
+    {
+      "id": "IPIPVIA_EQU_4",
+      "directionId": "fairness",
+      "reverse": true,
+      "prompt": {
+        "zh": "如果不喜欢某个人，我对待这个人的方式就会不同。",
+        "en": "Treat others differently if I don't like them."
+      },
+      "sourcePosition": 4
+    },
+    {
+      "id": "IPIPVIA_FOR_1",
+      "directionId": "forgiveness",
+      "reverse": false,
+      "prompt": {
+        "zh": "别人对我不好时，我尽量以理解回应。",
+        "en": "Try to respond with understanding when someone treats me badly."
+      },
+      "sourcePosition": 1
+    },
+    {
+      "id": "IPIPVIA_FOR_2",
+      "directionId": "forgiveness",
+      "reverse": false,
+      "prompt": {
+        "zh": "我允许别人重新开始。",
+        "en": "Allow others to make a fresh start."
+      },
+      "sourcePosition": 2
+    },
+    {
+      "id": "IPIPVIA_FOR_3",
+      "directionId": "forgiveness",
+      "reverse": true,
+      "prompt": {
+        "zh": "我会记仇。",
+        "en": "Hold grudges."
+      },
+      "sourcePosition": 3
+    },
+    {
+      "id": "IPIPVIA_FOR_4",
+      "directionId": "forgiveness",
+      "reverse": true,
+      "prompt": {
+        "zh": "我发现很难原谅别人。",
+        "en": "Find it hard to forgive others."
+      },
+      "sourcePosition": 4
+    },
+    {
+      "id": "IPIPVIA_GRA_1",
+      "directionId": "gratitude",
+      "reverse": false,
+      "prompt": {
+        "zh": "我向关心我的人表达感谢。",
+        "en": "Express my thanks to those who care about me."
+      },
+      "sourcePosition": 1
+    },
+    {
+      "id": "IPIPVIA_GRA_2",
+      "directionId": "gratitude",
+      "reverse": false,
+      "prompt": {
+        "zh": "我是一个非常懂得感恩的人。",
+        "en": "Am an extremely grateful person."
+      },
+      "sourcePosition": 2
+    },
+    {
+      "id": "IPIPVIA_GRA_3",
+      "directionId": "gratitude",
+      "reverse": true,
+      "prompt": {
+        "zh": "我对别人没有感激之情。",
+        "en": "Feel no gratitude to others."
+      },
+      "sourcePosition": 3
+    },
+    {
+      "id": "IPIPVIA_GRA_4",
+      "directionId": "gratitude",
+      "reverse": true,
+      "prompt": {
+        "zh": "我觉得生活中值得感激的事情很少。",
+        "en": "Find few things in my life to be grateful for."
+      },
+      "sourcePosition": 4
+    },
+    {
+      "id": "IPIPVIA_HOP_1",
+      "directionId": "hope",
+      "reverse": false,
+      "prompt": {
+        "zh": "在别人看来消极的事情中，我能找到积极的一面。",
+        "en": "Can find the positive in what seems negative to others."
+      },
+      "sourcePosition": 1
+    },
+    {
+      "id": "IPIPVIA_HOP_2",
+      "directionId": "hope",
+      "reverse": false,
+      "prompt": {
+        "zh": "面对挑战，我仍抱有希望。",
+        "en": "Remain hopeful despite challenges."
+      },
+      "sourcePosition": 2
+    },
+    {
+      "id": "IPIPVIA_HOP_3",
+      "directionId": "hope",
+      "reverse": true,
+      "prompt": {
+        "zh": "我预期最坏的结果。",
+        "en": "Expect the worst."
+      },
+      "sourcePosition": 3
+    },
+    {
+      "id": "IPIPVIA_HOP_4",
+      "directionId": "hope",
+      "reverse": true,
+      "prompt": {
+        "zh": "我常想到那些不太可能发生的负面结果。",
+        "en": "Often think about the possibility of negative outcomes that are not likely to occur."
+      },
+      "sourcePosition": 4
+    },
+    {
+      "id": "IPIPVIA_HUM_1",
+      "directionId": "humor",
+      "reverse": false,
+      "prompt": {
+        "zh": "我用笑声让别人的日子更明亮。",
+        "en": "Use laughter to brighten the days of others."
+      },
+      "sourcePosition": 1
+    },
+    {
+      "id": "IPIPVIA_HUM_2",
+      "directionId": "humor",
+      "reverse": false,
+      "prompt": {
+        "zh": "即使在低沉的情境中，我仍保有幽默感。",
+        "en": "Keep my sense of humor even in gloomy situations."
+      },
+      "sourcePosition": 2
+    },
+    {
+      "id": "IPIPVIA_HUM_3",
+      "directionId": "humor",
+      "reverse": true,
+      "prompt": {
+        "zh": "我并不以有幽默感而著称。",
+        "en": "Am not known for my sense of humor."
+      },
+      "sourcePosition": 3
+    },
+    {
+      "id": "IPIPVIA_HUM_4",
+      "directionId": "humor",
+      "reverse": true,
+      "prompt": {
+        "zh": "和我相处并不好玩。",
+        "en": "Am not fun to be with."
+      },
+      "sourcePosition": 4
+    },
+    {
+      "id": "IPIPVIA_IND_1",
+      "directionId": "perseverance",
+      "reverse": false,
+      "prompt": {
+        "zh": "任务没有完成之前，我不会放弃。",
+        "en": "Don't quit a task before it is finished."
+      },
+      "sourcePosition": 1
+    },
+    {
+      "id": "IPIPVIA_IND_2",
+      "directionId": "perseverance",
+      "reverse": false,
+      "prompt": {
+        "zh": "即使遇到障碍，我也会把事情完成。",
+        "en": "Finish things despite obstacles in the way."
+      },
+      "sourcePosition": 2
+    },
+    {
+      "id": "IPIPVIA_IND_3",
+      "directionId": "perseverance",
+      "reverse": true,
+      "prompt": {
+        "zh": "我没有完成自己开始做的事情。",
+        "en": "Don't finish what I start."
+      },
+      "sourcePosition": 3
+    },
+    {
+      "id": "IPIPVIA_IND_4",
+      "directionId": "perseverance",
+      "reverse": true,
+      "prompt": {
+        "zh": "我容易放弃。",
+        "en": "Give up easily."
+      },
+      "sourcePosition": 4
+    },
+    {
+      "id": "IPIPVIA_INT_1",
+      "directionId": "honesty",
+      "reverse": false,
+      "prompt": {
+        "zh": "别人信任我会保守秘密。",
+        "en": "Am trusted to keep secrets."
+      },
+      "sourcePosition": 1
+    },
+    {
+      "id": "IPIPVIA_INT_2",
+      "directionId": "honesty",
+      "reverse": false,
+      "prompt": {
+        "zh": "我信守承诺。",
+        "en": "Keep my promises."
+      },
+      "sourcePosition": 2
+    },
+    {
+      "id": "IPIPVIA_INT_3",
+      "directionId": "honesty",
+      "reverse": true,
+      "prompt": {
+        "zh": "我撒谎来让自己摆脱麻烦。",
+        "en": "Lie to get myself out of trouble."
+      },
+      "sourcePosition": 3
+    },
+    {
+      "id": "IPIPVIA_INT_4",
+      "directionId": "honesty",
+      "reverse": true,
+      "prompt": {
+        "zh": "我欺骗信任过我的人。",
+        "en": "Cheat on people who have trusted me."
+      },
+      "sourcePosition": 4
+    },
+    {
+      "id": "IPIPVIA_JUD_1",
+      "directionId": "judgment",
+      "reverse": false,
+      "prompt": {
+        "zh": "我会权衡利弊。",
+        "en": "Weigh the pro's and the con's."
+      },
+      "sourcePosition": 1
+    },
+    {
+      "id": "IPIPVIA_JUD_2",
+      "directionId": "judgment",
+      "reverse": false,
+      "prompt": {
+        "zh": "朋友看重我的判断力。",
+        "en": "Am valued by my friends for my good judgment."
+      },
+      "sourcePosition": 2
+    },
+    {
+      "id": "IPIPVIA_JUD_3",
+      "directionId": "judgment",
+      "reverse": true,
+      "prompt": {
+        "zh": "我不太会批判性地思考事情。",
+        "en": "Don't tend to think things through critically."
+      },
+      "sourcePosition": 3
+    },
+    {
+      "id": "IPIPVIA_JUD_4",
+      "directionId": "judgment",
+      "reverse": true,
+      "prompt": {
+        "zh": "作决定时，我不会考虑不同的可能性。",
+        "en": "Don't think about different possibilities when making decisions."
+      },
+      "sourcePosition": 4
+    },
+    {
+      "id": "IPIPVIA_KIN_1",
+      "directionId": "kindness",
+      "reverse": false,
+      "prompt": {
+        "zh": "我从不会忙到没有时间帮助朋友。",
+        "en": "Am never too busy to help a friend."
+      },
+      "sourcePosition": 1
+    },
+    {
+      "id": "IPIPVIA_KIN_2",
+      "directionId": "kindness",
+      "reverse": false,
+      "prompt": {
+        "zh": "对于看起来情绪低落的人，我会特意做些事让他们振作。",
+        "en": "Go out of my way to cheer up people who appear down."
+      },
+      "sourcePosition": 2
+    },
+    {
+      "id": "IPIPVIA_KIN_3",
+      "directionId": "kindness",
+      "reverse": true,
+      "prompt": {
+        "zh": "别人向我讲他们的问题时，我会变得不耐烦。",
+        "en": "Get impatient when others talk to me about their problems."
+      },
+      "sourcePosition": 3
+    },
+    {
+      "id": "IPIPVIA_KIN_4",
+      "directionId": "kindness",
+      "reverse": true,
+      "prompt": {
+        "zh": "我只对那些对我好过的人友善。",
+        "en": "Am only kind to others if they have been kind to me."
+      },
+      "sourcePosition": 4
+    },
+    {
+      "id": "IPIPVIA_LEA_1",
+      "directionId": "leadership",
+      "reverse": false,
+      "prompt": {
+        "zh": "我擅长帮助大家良好合作。",
+        "en": "Am good at helping people work well together."
+      },
+      "sourcePosition": 1
+    },
+    {
+      "id": "IPIPVIA_LEA_2",
+      "directionId": "leadership",
+      "reverse": false,
+      "prompt": {
+        "zh": "别人说我是一个有力而公平的领导者。",
+        "en": "Am told that I am a strong but fair leader."
+      },
+      "sourcePosition": 2
+    },
+    {
+      "id": "IPIPVIA_LEA_3",
+      "directionId": "leadership",
+      "reverse": true,
+      "prompt": {
+        "zh": "我难以让别人一起工作。",
+        "en": "Have difficulty getting others to work together."
+      },
+      "sourcePosition": 3
+    },
+    {
+      "id": "IPIPVIA_LEA_4",
+      "directionId": "leadership",
+      "reverse": true,
+      "prompt": {
+        "zh": "我不擅长负责带领一个团队。",
+        "en": "Am not good at taking charge of a group."
+      },
+      "sourcePosition": 4
+    },
+    {
+      "id": "IPIPVIA_LOV_1",
+      "directionId": "love-of-learning",
+      "reverse": false,
+      "prompt": {
+        "zh": "我确实是一个终身学习者。",
+        "en": "Am a true life-long learner."
+      },
+      "sourcePosition": 1
+    },
+    {
+      "id": "IPIPVIA_LOV_2",
+      "directionId": "love-of-learning",
+      "reverse": false,
+      "prompt": {
+        "zh": "学到新东西时，我很兴奋。",
+        "en": "Am thrilled when I learn something new."
+      },
+      "sourcePosition": 2
+    },
+    {
+      "id": "IPIPVIA_LOV_3",
+      "directionId": "love-of-learning",
+      "reverse": true,
+      "prompt": {
+        "zh": "我不喜欢学习新东西。",
+        "en": "Don't like to learn new things."
+      },
+      "sourcePosition": 3
+    },
+    {
+      "id": "IPIPVIA_LOV_4",
+      "directionId": "love-of-learning",
+      "reverse": true,
+      "prompt": {
+        "zh": "我不会为了乐趣而阅读非虚构书籍。",
+        "en": "Don't read nonfiction books for fun."
+      },
+      "sourcePosition": 4
+    },
+    {
+      "id": "IPIPVIA_MOD_1",
+      "directionId": "humility",
+      "reverse": false,
+      "prompt": {
+        "zh": "我不吹嘘自己的成就。",
+        "en": "Don't brag about my accomplishments."
+      },
+      "sourcePosition": 1
+    },
+    {
+      "id": "IPIPVIA_MOD_2",
+      "directionId": "humility",
+      "reverse": false,
+      "prompt": {
+        "zh": "别人绝不会把我描述为傲慢的人。",
+        "en": "Would never be described as arrogant."
+      },
+      "sourcePosition": 2
+    },
+    {
+      "id": "IPIPVIA_MOD_3",
+      "directionId": "humility",
+      "reverse": true,
+      "prompt": {
+        "zh": "我喜欢在人群中引人注目。",
+        "en": "Like to stand out in a crowd."
+      },
+      "sourcePosition": 3
+    },
+    {
+      "id": "IPIPVIA_MOD_4",
+      "directionId": "humility",
+      "reverse": true,
+      "prompt": {
+        "zh": "我喜欢谈论自己。",
+        "en": "Like to talk about myself."
+      },
+      "sourcePosition": 4
+    },
+    {
+      "id": "IPIPVIA_ORI_1",
+      "directionId": "creativity",
+      "reverse": false,
+      "prompt": {
+        "zh": "我会想出做事情的新方法。",
+        "en": "Come up with new ways to do things."
+      },
+      "sourcePosition": 1
+    },
+    {
+      "id": "IPIPVIA_ORI_2",
+      "directionId": "creativity",
+      "reverse": false,
+      "prompt": {
+        "zh": "我是一个有原创想法的人。",
+        "en": "Am an original thinker."
+      },
+      "sourcePosition": 2
+    },
+    {
+      "id": "IPIPVIA_ORI_3",
+      "directionId": "creativity",
+      "reverse": true,
+      "prompt": {
+        "zh": "别人不认为我有新颖而不同的想法。",
+        "en": "Am not considered to have new and different ideas."
+      },
+      "sourcePosition": 3
+    },
+    {
+      "id": "IPIPVIA_ORI_4",
+      "directionId": "creativity",
+      "reverse": true,
+      "prompt": {
+        "zh": "我并没有特别想做出原创东西的冲动。",
+        "en": "Have no special urge to do something original."
+      },
+      "sourcePosition": 4
+    },
+    {
+      "id": "IPIPVIA_PER_1",
+      "directionId": "perspective",
+      "reverse": false,
+      "prompt": {
+        "zh": "我对人生有成熟的看法。",
+        "en": "Have a mature view on life."
+      },
+      "sourcePosition": 1
+    },
+    {
+      "id": "IPIPVIA_PER_2",
+      "directionId": "perspective",
+      "reverse": false,
+      "prompt": {
+        "zh": "别人认为我是一个有智慧的人。",
+        "en": "Am considered to be a wise person."
+      },
+      "sourcePosition": 2
+    },
+    {
+      "id": "IPIPVIA_PER_3",
+      "directionId": "perspective",
+      "reverse": true,
+      "prompt": {
+        "zh": "我不擅长弄清楚什么才是真正重要的。",
+        "en": "Am not good at figuring out what really matters."
+      },
+      "sourcePosition": 3
+    },
+    {
+      "id": "IPIPVIA_PER_4",
+      "directionId": "perspective",
+      "reverse": true,
+      "prompt": {
+        "zh": "别人很少来征求我的建议。",
+        "en": "Am rarely consulted for advice by others."
+      },
+      "sourcePosition": 4
+    },
+    {
+      "id": "IPIPVIA_PRU_1",
+      "directionId": "prudence",
+      "reverse": false,
+      "prompt": {
+        "zh": "我相信，小心一些总比事后后悔好。",
+        "en": "Believe it is always better to be safe than sorry"
+      },
+      "sourcePosition": 1
+    },
+    {
+      "id": "IPIPVIA_PRU_2",
+      "directionId": "prudence",
+      "reverse": false,
+      "prompt": {
+        "zh": "我谨慎作出选择。",
+        "en": "Make careful choices."
+      },
+      "sourcePosition": 2
+    },
+    {
+      "id": "IPIPVIA_PRU_3",
+      "directionId": "prudence",
+      "reverse": true,
+      "prompt": {
+        "zh": "我还没想清楚后果就采取行动。",
+        "en": "Act before thinking through the consequences."
+      },
+      "sourcePosition": 3
+    },
+    {
+      "id": "IPIPVIA_PRU_4",
+      "directionId": "prudence",
+      "reverse": true,
+      "prompt": {
+        "zh": "我喜欢冒险。",
+        "en": "Like taking risks."
+      },
+      "sourcePosition": 4
+    },
+    {
+      "id": "IPIPVIA_SEL_1",
+      "directionId": "self-regulation",
+      "reverse": false,
+      "prompt": {
+        "zh": "我是一个高度自律的人。",
+        "en": "Am a highly disciplined person."
+      },
+      "sourcePosition": 1
+    },
+    {
+      "id": "IPIPVIA_SEL_2",
+      "directionId": "self-regulation",
+      "reverse": false,
+      "prompt": {
+        "zh": "即使某些事情能让我短暂感觉良好，只要它们长远来看对我有害，我就会放弃。",
+        "en": "Forego things that are bad for me in the long run even if they make me feel good in the short run."
+      },
+      "sourcePosition": 2
+    },
+    {
+      "id": "IPIPVIA_SEL_3",
+      "directionId": "self-regulation",
+      "reverse": true,
+      "prompt": {
+        "zh": "我会让花费过多或进食过多的冲动控制自己。",
+        "en": "Let myself be taken over by urges to spend or eat too much."
+      },
+      "sourcePosition": 3
+    },
+    {
+      "id": "IPIPVIA_SEL_4",
+      "directionId": "self-regulation",
+      "reverse": true,
+      "prompt": {
+        "zh": "我会屈从于自己的冲动。",
+        "en": "Give in to my urges."
+      },
+      "sourcePosition": 4
+    },
+    {
+      "id": "IPIPVIA_SOC_1",
+      "directionId": "social-intelligence",
+      "reverse": false,
+      "prompt": {
+        "zh": "我擅长感知别人的感受。",
+        "en": "Am good at sensing what others are feeling."
+      },
+      "sourcePosition": 1
+    },
+    {
+      "id": "IPIPVIA_SOC_2",
+      "directionId": "social-intelligence",
+      "reverse": false,
+      "prompt": {
+        "zh": "我知道说什么能让别人感觉良好。",
+        "en": "Know what to say to make people feel good."
+      },
+      "sourcePosition": 2
+    },
+    {
+      "id": "IPIPVIA_SOC_3",
+      "directionId": "social-intelligence",
+      "reverse": true,
+      "prompt": {
+        "zh": "在新的社交场合，我不知道该如何表现。",
+        "en": "Don't know how to handle myself in a new social situation."
+      },
+      "sourcePosition": 3
+    },
+    {
+      "id": "IPIPVIA_SOC_4",
+      "directionId": "social-intelligence",
+      "reverse": true,
+      "prompt": {
+        "zh": "我难以猜到别人会怎样反应。",
+        "en": "Have trouble guessing how others will react."
+      },
+      "sourcePosition": 4
+    },
+    {
+      "id": "IPIPVIA_SPI_1",
+      "directionId": "spirituality",
+      "reverse": false,
+      "prompt": {
+        "zh": "我是一个有精神信仰的人。",
+        "en": "Am a spiritual person."
+      },
+      "sourcePosition": 1
+    },
+    {
+      "id": "IPIPVIA_SPI_2",
+      "directionId": "spirituality",
+      "reverse": false,
+      "prompt": {
+        "zh": "我相信，每个人的人生都有其目的。",
+        "en": "Believe that each person has a purpose in life."
+      },
+      "sourcePosition": 2
+    },
+    {
+      "id": "IPIPVIA_SPI_3",
+      "directionId": "spirituality",
+      "reverse": true,
+      "prompt": {
+        "zh": "我觉得人生没有意义。",
+        "en": "Feel that life has no meaning."
+      },
+      "sourcePosition": 3
+    },
+    {
+      "id": "IPIPVIA_SPI_4",
+      "directionId": "spirituality",
+      "reverse": true,
+      "prompt": {
+        "zh": "我不相信有普遍性的力量或神。",
+        "en": "Do not believe in a universal power or a God."
+      },
+      "sourcePosition": 4
+    },
+    {
+      "id": "IPIPVIA_VAL_1",
+      "directionId": "bravery",
+      "reverse": false,
+      "prompt": {
+        "zh": "面对强烈反对时，我曾多次坚持自己的立场。",
+        "en": "Have taken frequent stands in the face of strong opposition."
+      },
+      "sourcePosition": 1
+    },
+    {
+      "id": "IPIPVIA_VAL_2",
+      "directionId": "bravery",
+      "reverse": false,
+      "prompt": {
+        "zh": "我毫不犹豫地表达不受欢迎的观点。",
+        "en": "Don't hesitate to express an unpopular opinion."
+      },
+      "sourcePosition": 2
+    },
+    {
+      "id": "IPIPVIA_VAL_3",
+      "directionId": "bravery",
+      "reverse": true,
+      "prompt": {
+        "zh": "我不为自己的信念挺身而出。",
+        "en": "Do not stand up for my beliefs."
+      },
+      "sourcePosition": 3
+    },
+    {
+      "id": "IPIPVIA_VAL_4",
+      "directionId": "bravery",
+      "reverse": true,
+      "prompt": {
+        "zh": "如果可能有不好的后果，我就不会坦率地表达想法。",
+        "en": "Don't speak my mind freely when there might be negative results."
+      },
+      "sourcePosition": 4
+    },
+    {
+      "id": "IPIPVIA_ZES_1",
+      "directionId": "zest",
+      "reverse": false,
+      "prompt": {
+        "zh": "醒来时，我对一天中的各种可能性感到兴奋。",
+        "en": "Awaken with a sense of excitement about the day's possibilities."
+      },
+      "sourcePosition": 1
+    },
+    {
+      "id": "IPIPVIA_ZES_2",
+      "directionId": "zest",
+      "reverse": false,
+      "prompt": {
+        "zh": "我期待每一个新的一天。",
+        "en": "Look forward to each new day."
+      },
+      "sourcePosition": 2
+    },
+    {
+      "id": "IPIPVIA_ZES_3",
+      "directionId": "zest",
+      "reverse": true,
+      "prompt": {
+        "zh": "别人把我描述为脾气不佳的人。",
+        "en": "Am described as grumpy."
+      },
+      "sourcePosition": 3
+    },
+    {
+      "id": "IPIPVIA_ZES_4",
+      "directionId": "zest",
+      "reverse": true,
+      "prompt": {
+        "zh": "我的精力不多。",
+        "en": "Don't have much energy."
+      },
+      "sourcePosition": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "IPIPVIA_APP_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "美的世界对我来说很重要。",
+        "en": "Feel it's important to live in a world of beauty."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "appreciation-of-beauty"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "appreciation-of-beauty"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "appreciation-of-beauty"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "appreciation-of-beauty"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "appreciation-of-beauty"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "appreciation-of-beauty"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_CAP_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "我知道，生活中有人像关心自己一样关心我。",
+        "en": "Know that there are people in my life who care as much for me as for themselves."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "love"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "love"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "love"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "love"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "love"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "love"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_CIT_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "我是一个非常忠诚的人。",
+        "en": "Am an extremely loyal person."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "teamwork"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_CUR_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "许多不同的活动都让我感到兴奋。",
+        "en": "Am excited by many different activities."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "curiosity"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "curiosity"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "curiosity"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "curiosity"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "curiosity"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "curiosity"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_EQU_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "我平等对待所有人。",
+        "en": "Treat all people equally."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "fairness"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_FOR_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "别人对我不好时，我尽量以理解回应。",
+        "en": "Try to respond with understanding when someone treats me badly."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "forgiveness"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "forgiveness"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "forgiveness"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "forgiveness"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "forgiveness"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "forgiveness"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_GRA_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "我向关心我的人表达感谢。",
+        "en": "Express my thanks to those who care about me."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "gratitude"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "gratitude"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "gratitude"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "gratitude"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "gratitude"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "gratitude"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_HOP_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "在别人看来消极的事情中，我能找到积极的一面。",
+        "en": "Can find the positive in what seems negative to others."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "hope"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "hope"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "hope"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "hope"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "hope"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "hope"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_HUM_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "我用笑声让别人的日子更明亮。",
+        "en": "Use laughter to brighten the days of others."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "humor"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "humor"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "humor"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "humor"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "humor"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "humor"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_IND_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "任务没有完成之前，我不会放弃。",
+        "en": "Don't quit a task before it is finished."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "perseverance"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "perseverance"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "perseverance"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "perseverance"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "perseverance"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "perseverance"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_INT_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "别人信任我会保守秘密。",
+        "en": "Am trusted to keep secrets."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "honesty"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "honesty"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "honesty"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "honesty"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "honesty"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "honesty"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_JUD_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "我会权衡利弊。",
+        "en": "Weigh the pro's and the con's."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "judgment"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "judgment"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "judgment"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "judgment"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "judgment"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "judgment"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_KIN_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "我从不会忙到没有时间帮助朋友。",
+        "en": "Am never too busy to help a friend."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "kindness"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "kindness"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "kindness"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "kindness"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "kindness"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "kindness"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_LEA_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "我擅长帮助大家良好合作。",
+        "en": "Am good at helping people work well together."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "leadership"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "leadership"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "leadership"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "leadership"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "leadership"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "leadership"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_LOV_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "我确实是一个终身学习者。",
+        "en": "Am a true life-long learner."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "love-of-learning"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "love-of-learning"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "love-of-learning"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "love-of-learning"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "love-of-learning"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "love-of-learning"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_MOD_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "我不吹嘘自己的成就。",
+        "en": "Don't brag about my accomplishments."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "humility"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "humility"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "humility"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "humility"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "humility"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "humility"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_ORI_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "我会想出做事情的新方法。",
+        "en": "Come up with new ways to do things."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "creativity"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "creativity"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "creativity"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "creativity"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "creativity"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "creativity"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_PER_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "我对人生有成熟的看法。",
+        "en": "Have a mature view on life."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "perspective"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "perspective"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "perspective"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "perspective"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "perspective"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "perspective"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_PRU_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "我相信，小心一些总比事后后悔好。",
+        "en": "Believe it is always better to be safe than sorry"
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "prudence"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "prudence"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "prudence"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "prudence"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "prudence"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "prudence"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_SEL_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "我是一个高度自律的人。",
+        "en": "Am a highly disciplined person."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "self-regulation"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "self-regulation"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "self-regulation"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "self-regulation"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "self-regulation"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "self-regulation"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_SOC_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "我擅长感知别人的感受。",
+        "en": "Am good at sensing what others are feeling."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "social-intelligence"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_SPI_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "我是一个有精神信仰的人。",
+        "en": "Am a spiritual person."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "spirituality"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "spirituality"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "spirituality"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "spirituality"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "spirituality"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "spirituality"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_VAL_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "面对强烈反对时，我曾多次坚持自己的立场。",
+        "en": "Have taken frequent stands in the face of strong opposition."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "bravery"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "bravery"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "bravery"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "bravery"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "bravery"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "bravery"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_ZES_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "醒来时，我对一天中的各种可能性感到兴奋。",
+        "en": "Awaken with a sense of excitement about the day's possibilities."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "zest"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "zest"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "zest"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "zest"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "zest"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "zest"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_APP_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "我很少留意环境中的自然美。",
+        "en": "Am rarely aware of the natural beauty in the environment."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "appreciation-of-beauty"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "appreciation-of-beauty"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "appreciation-of-beauty"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "appreciation-of-beauty"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "appreciation-of-beauty"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "appreciation-of-beauty"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_CAP_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "我不容易与别人分享自己的感受。",
+        "en": "Do not easily share my feelings with others."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "love"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "love"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "love"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "love"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "love"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "love"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_CIT_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "我不擅长在团队中工作。",
+        "en": "Am not good at working with a group."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "teamwork"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_CUR_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "我对这个世界并没有那么好奇。",
+        "en": "Am not all that curious about the world."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "curiosity"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "curiosity"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "curiosity"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "curiosity"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "curiosity"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "curiosity"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_EQU_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "我会占别人的便宜。",
+        "en": "Take advantage of others."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "fairness"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_FOR_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "我会记仇。",
+        "en": "Hold grudges."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "forgiveness"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "forgiveness"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "forgiveness"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "forgiveness"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "forgiveness"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "forgiveness"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_GRA_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "我对别人没有感激之情。",
+        "en": "Feel no gratitude to others."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "gratitude"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "gratitude"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "gratitude"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "gratitude"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "gratitude"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "gratitude"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_HOP_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "我预期最坏的结果。",
+        "en": "Expect the worst."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "hope"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "hope"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "hope"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "hope"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "hope"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "hope"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_HUM_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "我并不以有幽默感而著称。",
+        "en": "Am not known for my sense of humor."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "humor"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "humor"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "humor"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "humor"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "humor"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "humor"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_IND_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "我没有完成自己开始做的事情。",
+        "en": "Don't finish what I start."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "perseverance"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "perseverance"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "perseverance"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "perseverance"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "perseverance"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "perseverance"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_INT_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "我撒谎来让自己摆脱麻烦。",
+        "en": "Lie to get myself out of trouble."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "honesty"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "honesty"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "honesty"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "honesty"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "honesty"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "honesty"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_JUD_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "我不太会批判性地思考事情。",
+        "en": "Don't tend to think things through critically."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "judgment"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "judgment"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "judgment"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "judgment"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "judgment"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "judgment"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_KIN_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "别人向我讲他们的问题时，我会变得不耐烦。",
+        "en": "Get impatient when others talk to me about their problems."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "kindness"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "kindness"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "kindness"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "kindness"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "kindness"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "kindness"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_LEA_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "我难以让别人一起工作。",
+        "en": "Have difficulty getting others to work together."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "leadership"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "leadership"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "leadership"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "leadership"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "leadership"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "leadership"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_LOV_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "我不喜欢学习新东西。",
+        "en": "Don't like to learn new things."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "love-of-learning"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "love-of-learning"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "love-of-learning"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "love-of-learning"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "love-of-learning"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "love-of-learning"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_MOD_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "我喜欢在人群中引人注目。",
+        "en": "Like to stand out in a crowd."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "humility"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "humility"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "humility"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "humility"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "humility"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "humility"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_ORI_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "别人不认为我有新颖而不同的想法。",
+        "en": "Am not considered to have new and different ideas."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "creativity"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "creativity"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "creativity"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "creativity"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "creativity"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "creativity"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_PER_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "我不擅长弄清楚什么才是真正重要的。",
+        "en": "Am not good at figuring out what really matters."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "perspective"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "perspective"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "perspective"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "perspective"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "perspective"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "perspective"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_PRU_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "我还没想清楚后果就采取行动。",
+        "en": "Act before thinking through the consequences."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "prudence"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "prudence"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "prudence"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "prudence"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "prudence"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "prudence"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_SEL_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "我会让花费过多或进食过多的冲动控制自己。",
+        "en": "Let myself be taken over by urges to spend or eat too much."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "self-regulation"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "self-regulation"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "self-regulation"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "self-regulation"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "self-regulation"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "self-regulation"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_SOC_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "在新的社交场合，我不知道该如何表现。",
+        "en": "Don't know how to handle myself in a new social situation."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "social-intelligence"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_SPI_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "我觉得人生没有意义。",
+        "en": "Feel that life has no meaning."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "spirituality"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "spirituality"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "spirituality"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "spirituality"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "spirituality"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "spirituality"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_VAL_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "我不为自己的信念挺身而出。",
+        "en": "Do not stand up for my beliefs."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "bravery"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "bravery"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "bravery"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "bravery"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "bravery"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "bravery"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_ZES_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "别人把我描述为脾气不佳的人。",
+        "en": "Am described as grumpy."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "zest"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "zest"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "zest"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "zest"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "zest"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "zest"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_APP_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "看到美的事物时，我会产生深刻的情感。",
+        "en": "Experience deep emotions when I see beautiful things."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "appreciation-of-beauty"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "appreciation-of-beauty"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "appreciation-of-beauty"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "appreciation-of-beauty"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "appreciation-of-beauty"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "appreciation-of-beauty"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_CAP_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "我能向别人表达爱。",
+        "en": "Can express love to someone else."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "love"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "love"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "love"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "love"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "love"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "love"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_CIT_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "我支持队友或其他小组成员。",
+        "en": "Support my teammates or fellow group members."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "teamwork"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_CUR_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "在任何情境中，我都能找到感兴趣的事物。",
+        "en": "Can find something of interest in any situation."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "curiosity"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "curiosity"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "curiosity"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "curiosity"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "curiosity"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "curiosity"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_EQU_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "我相信每个人的权利都同样重要。",
+        "en": "Believe that everyone's rights are equally important."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "fairness"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_FOR_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "我允许别人重新开始。",
+        "en": "Allow others to make a fresh start."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "forgiveness"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "forgiveness"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "forgiveness"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "forgiveness"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "forgiveness"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "forgiveness"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_GRA_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "我是一个非常懂得感恩的人。",
+        "en": "Am an extremely grateful person."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "gratitude"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "gratitude"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "gratitude"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "gratitude"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "gratitude"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "gratitude"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_HOP_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "面对挑战，我仍抱有希望。",
+        "en": "Remain hopeful despite challenges."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "hope"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "hope"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "hope"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "hope"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "hope"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "hope"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_HUM_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "即使在低沉的情境中，我仍保有幽默感。",
+        "en": "Keep my sense of humor even in gloomy situations."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "humor"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "humor"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "humor"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "humor"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "humor"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "humor"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_IND_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "即使遇到障碍，我也会把事情完成。",
+        "en": "Finish things despite obstacles in the way."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "perseverance"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "perseverance"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "perseverance"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "perseverance"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "perseverance"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "perseverance"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_INT_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "我信守承诺。",
+        "en": "Keep my promises."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "honesty"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "honesty"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "honesty"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "honesty"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "honesty"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "honesty"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_JUD_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "朋友看重我的判断力。",
+        "en": "Am valued by my friends for my good judgment."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "judgment"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "judgment"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "judgment"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "judgment"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "judgment"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "judgment"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_KIN_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "对于看起来情绪低落的人，我会特意做些事让他们振作。",
+        "en": "Go out of my way to cheer up people who appear down."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "kindness"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "kindness"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "kindness"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "kindness"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "kindness"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "kindness"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_LEA_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "别人说我是一个有力而公平的领导者。",
+        "en": "Am told that I am a strong but fair leader."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "leadership"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "leadership"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "leadership"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "leadership"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "leadership"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "leadership"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_LOV_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "学到新东西时，我很兴奋。",
+        "en": "Am thrilled when I learn something new."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "love-of-learning"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "love-of-learning"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "love-of-learning"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "love-of-learning"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "love-of-learning"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "love-of-learning"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_MOD_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "别人绝不会把我描述为傲慢的人。",
+        "en": "Would never be described as arrogant."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "humility"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "humility"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "humility"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "humility"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "humility"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "humility"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_ORI_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "我是一个有原创想法的人。",
+        "en": "Am an original thinker."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "creativity"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "creativity"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "creativity"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "creativity"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "creativity"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "creativity"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_PER_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "别人认为我是一个有智慧的人。",
+        "en": "Am considered to be a wise person."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "perspective"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "perspective"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "perspective"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "perspective"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "perspective"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "perspective"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_PRU_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "我谨慎作出选择。",
+        "en": "Make careful choices."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "prudence"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "prudence"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "prudence"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "prudence"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "prudence"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "prudence"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_SEL_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "即使某些事情能让我短暂感觉良好，只要它们长远来看对我有害，我就会放弃。",
+        "en": "Forego things that are bad for me in the long run even if they make me feel good in the short run."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "self-regulation"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "self-regulation"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "self-regulation"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "self-regulation"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "self-regulation"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "self-regulation"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_SOC_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "我知道说什么能让别人感觉良好。",
+        "en": "Know what to say to make people feel good."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "social-intelligence"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_SPI_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "我相信，每个人的人生都有其目的。",
+        "en": "Believe that each person has a purpose in life."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "spirituality"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "spirituality"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "spirituality"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "spirituality"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "spirituality"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "spirituality"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_VAL_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "我毫不犹豫地表达不受欢迎的观点。",
+        "en": "Don't hesitate to express an unpopular opinion."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "bravery"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "bravery"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "bravery"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "bravery"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "bravery"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "bravery"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_ZES_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "我期待每一个新的一天。",
+        "en": "Look forward to each new day."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "zest"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "zest"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "zest"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "zest"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "zest"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "zest"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_APP_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "在别人提起之前，我往往注意不到美。",
+        "en": "Fail to notice beauty until others comment on it."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "appreciation-of-beauty"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "appreciation-of-beauty"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "appreciation-of-beauty"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "appreciation-of-beauty"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "appreciation-of-beauty"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "appreciation-of-beauty"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_CAP_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "我难以接受任何人给予的爱。",
+        "en": "Have difficulty accepting love from anyone."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "love"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "love"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "love"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "love"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "love"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "love"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_CIT_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "我更喜欢独自做所有事情。",
+        "en": "Prefer to do everything alone."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "teamwork"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_CUR_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "我的兴趣不多。",
+        "en": "Have few interests."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "curiosity"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "curiosity"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "curiosity"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "curiosity"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "curiosity"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "curiosity"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_EQU_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "如果不喜欢某个人，我对待这个人的方式就会不同。",
+        "en": "Treat others differently if I don't like them."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "fairness"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_FOR_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "我发现很难原谅别人。",
+        "en": "Find it hard to forgive others."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "forgiveness"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "forgiveness"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "forgiveness"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "forgiveness"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "forgiveness"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "forgiveness"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_GRA_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "我觉得生活中值得感激的事情很少。",
+        "en": "Find few things in my life to be grateful for."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "gratitude"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "gratitude"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "gratitude"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "gratitude"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "gratitude"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "gratitude"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_HOP_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "我常想到那些不太可能发生的负面结果。",
+        "en": "Often think about the possibility of negative outcomes that are not likely to occur."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "hope"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "hope"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "hope"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "hope"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "hope"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "hope"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_HUM_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "和我相处并不好玩。",
+        "en": "Am not fun to be with."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "humor"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "humor"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "humor"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "humor"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "humor"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "humor"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_IND_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "我容易放弃。",
+        "en": "Give up easily."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "perseverance"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "perseverance"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "perseverance"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "perseverance"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "perseverance"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "perseverance"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_INT_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "我欺骗信任过我的人。",
+        "en": "Cheat on people who have trusted me."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "honesty"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "honesty"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "honesty"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "honesty"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "honesty"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "honesty"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_JUD_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "作决定时，我不会考虑不同的可能性。",
+        "en": "Don't think about different possibilities when making decisions."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "judgment"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "judgment"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "judgment"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "judgment"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "judgment"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "judgment"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_KIN_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "我只对那些对我好过的人友善。",
+        "en": "Am only kind to others if they have been kind to me."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "kindness"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "kindness"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "kindness"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "kindness"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "kindness"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "kindness"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_LEA_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "我不擅长负责带领一个团队。",
+        "en": "Am not good at taking charge of a group."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "leadership"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "leadership"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "leadership"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "leadership"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "leadership"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "leadership"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_LOV_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "我不会为了乐趣而阅读非虚构书籍。",
+        "en": "Don't read nonfiction books for fun."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "love-of-learning"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "love-of-learning"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "love-of-learning"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "love-of-learning"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "love-of-learning"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "love-of-learning"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_MOD_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "我喜欢谈论自己。",
+        "en": "Like to talk about myself."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "humility"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "humility"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "humility"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "humility"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "humility"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "humility"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_ORI_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "我并没有特别想做出原创东西的冲动。",
+        "en": "Have no special urge to do something original."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "creativity"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "creativity"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "creativity"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "creativity"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "creativity"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "creativity"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_PER_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "别人很少来征求我的建议。",
+        "en": "Am rarely consulted for advice by others."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "perspective"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "perspective"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "perspective"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "perspective"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "perspective"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "perspective"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_PRU_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "我喜欢冒险。",
+        "en": "Like taking risks."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "prudence"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "prudence"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "prudence"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "prudence"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "prudence"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "prudence"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_SEL_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "我会屈从于自己的冲动。",
+        "en": "Give in to my urges."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "self-regulation"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "self-regulation"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "self-regulation"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "self-regulation"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "self-regulation"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "self-regulation"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_SOC_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "我难以猜到别人会怎样反应。",
+        "en": "Have trouble guessing how others will react."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "social-intelligence"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_SPI_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "我不相信有普遍性的力量或神。",
+        "en": "Do not believe in a universal power or a God."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "spirituality"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "spirituality"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "spirituality"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "spirituality"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "spirituality"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "spirituality"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_VAL_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "如果可能有不好的后果，我就不会坦率地表达想法。",
+        "en": "Don't speak my mind freely when there might be negative results."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "bravery"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "bravery"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "bravery"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "bravery"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "bravery"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "bravery"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_ZES_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "我的精力不多。",
+        "en": "Don't have much energy."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "zest"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "zest"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "zest"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "zest"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "zest"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "zest"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "minimumRatedItems": 4,
+    "itemsEach": 4,
+    "positiveEach": 2,
+    "negativeEach": 2,
+    "reverse": "6-r",
+    "websiteDisplay": "sum/4 rounded to one decimal; raw sum available to report; official general instructions sum1..5 keyed items",
+    "NA": "website opt-out/unknown; any missing item suppresses only that part mean; never imputed",
+    "all96SelectionsRequired": true,
+    "noTotal": true,
+    "noRankOrSignatureType": true,
+    "noNorms": true
+  },
+  "source_url": "https://ipip.ori.org/IPIP-VIA-R_Key.html",
+  "permission_url": "https://ipip.ori.org/newPermission.htm",
+  "adaptations": "IndependentZHtranslation; mixed presentation order; voluntaryNAopt-out; all-four requirement; mean display; original educational explanations; not official VIA Survey, certified translation, local validation, ability/character worth test or hiring instrument"
+}

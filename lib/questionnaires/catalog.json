@@ -711,5 +711,50 @@
       "reading-writing",
       "kinesthetic"
     ]
+  },
+  {
+    "slug": "character-strengths",
+    "code": "IPIP_VIA_R_96",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "framework",
+    "title": {
+      "zh": "性格优势测试",
+      "en": "Character Strengths Test"
+    },
+    "description": {
+      "zh": "96条公有领域IPIP-VIA-R题目，24项自评与全部完整双语解释免费，无需注册。中文为独立试译；含具体例子、比较和行动，不评人品、能力或职业适配。",
+      "en": "Take 96 public-domain IPIP-VIA-R items and read all 24 full result guides free. No signup, moral ranking, ability score or automatic signature-strength labels."
+    },
+    "minutes": 15,
+    "collection": "explore",
+    "formCode": "ipip_via_r_96_fm_zh_trial_1",
+    "questionCount": 96,
+    "resultSlugs": [
+      "appreciation-of-beauty",
+      "love",
+      "teamwork",
+      "curiosity",
+      "fairness",
+      "forgiveness",
+      "gratitude",
+      "hope",
+      "humor",
+      "perseverance",
+      "honesty",
+      "judgment",
+      "kindness",
+      "leadership",
+      "love-of-learning",
+      "humility",
+      "creativity",
+      "perspective",
+      "prudence",
+      "self-regulation",
+      "social-intelligence",
+      "spirituality",
+      "bravery",
+      "zest"
+    ]
   }
 ]
