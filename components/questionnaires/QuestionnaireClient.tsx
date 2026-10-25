@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { QuestionnaireFacetReport } from "./QuestionnaireFacetReport";
 import { QuestionnaireArchetypeReport } from "./QuestionnaireArchetypeReport";
+import { QuestionnaireAlignmentReport } from "./QuestionnaireAlignmentReport";
 import { QuestionnaireReport } from "./QuestionnaireReport";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import { readQuestionnaireDraft, scoreQuestionnaire } from "@/lib/questionnaires/scoring";
@@ -36,6 +37,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
   const directional = result.status === "complete" && "profileId" in result ? result : undefined;
   const facets = result.status === "complete" && "facets" in result ? result : undefined;
   const archetypes = result.status === "complete" && "profileIds" in result ? result : undefined;
+  const alignment = result.status === "complete" && "alignmentIds" in result ? result : undefined;
   const hasCompleteResult = result.status === "complete";
   const profile = directional ? quiz.profiles.find(p => p.id === directional.profileId) : undefined;
   const question = quiz.questions[position];
@@ -84,8 +86,9 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
   }
   async function copy() {
     if (!hasCompleteResult) return;
-    const single = profile ?? (archetypes?.profileIds.length === 1 ? quiz.profiles.find(p => p.id === archetypes.profileIds[0]) : undefined);
-    const label = single?.title[locale] ?? (archetypes ? archetypes.profileIds.map(id => quiz.profiles.find(p => p.id === id)!.title[locale]).join(zh ? "、" : ", ") : (zh ? "完整自我观察" : "Complete self-reflection"));
+    const matchedIds = alignment?.alignmentIds ?? archetypes?.profileIds;
+    const single = profile ?? (matchedIds?.length === 1 ? quiz.profiles.find(p => p.id === matchedIds[0]) : undefined);
+    const label = single?.title[locale] ?? (matchedIds ? matchedIds.map(id => quiz.profiles.find(p => p.id === id)!.title[locale]).join(zh ? "、" : ", ") : (zh ? "完整自我观察" : "Complete self-reflection"));
     const text = `${quiz.title[locale]}\n${label}\nhttps://fermatmind.com${single ? questionnaireGuidePath(locale, quiz.slug, single.id) : questionnairePath(locale, quiz.slug)}`;
     try { await navigator.clipboard.writeText(text); setMessage(zh ? "已复制结果名称与公开说明链接。" : "Copied the result name and public explanation link."); }
     catch { setManualCopy(text); setMessage(zh ? "请选中下方文字手动复制。" : "Select the text below to copy it manually."); }
@@ -119,6 +122,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
       </>}
       {facets && <QuestionnaireFacetReport quiz={quiz} result={facets} locale={locale} />}
       {archetypes && <QuestionnaireArchetypeReport quiz={quiz} result={archetypes} locale={locale} />}
+      {alignment && <QuestionnaireAlignmentReport quiz={quiz} result={alignment} locale={locale} />}
       <div className="flex flex-wrap gap-3"><button className={button} onClick={copy}>{zh ? "复制结果与链接" : "Copy result and link"}</button><button className={button} onClick={() => start()}>{zh ? "重新测试" : "Retake test"}</button></div>
       {manualCopy && <textarea readOnly aria-label={zh ? "手动复制结果" : "Result text for manual copying"} value={manualCopy} onFocus={e => e.target.select()} className="mt-4 min-h-40 w-full rounded border p-3" />}
       <section className="mt-10 border-t pt-7"><h3 className="text-xl font-semibold">{zh ? "完整结果已呈现，下一步由你选择" : "Your full result is ready. Choose what comes next."}</h3><p className="my-4 leading-7 text-slate-600">{zh ? `如果想用另一套框架探索偏好，可以另做MBTI：${versions}。需要重新完整作答，这项结果不会换算成MBTI类型。也可以在这里结束。` : `For another perspective on preferences, MBTI offers ${versions}. It needs a separate full attempt; this result is never converted into an MBTI type. You can also stop here.`}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={mbtiHref} onClick={() => trackEvent("click_test", buildSeoCtaTrackingPayload(recommendation))}>{zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions"}</Link><br /><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试" : "Back to all tests"}</Link></section>

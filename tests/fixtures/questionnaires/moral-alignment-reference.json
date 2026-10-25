@@ -1,0 +1,685 @@
+{
+  "formCode": "fm_moral_alignment_choices_24",
+  "itemBankVersion": "1.0.0",
+  "scoringVersion": "1.0.0",
+  "kind": "alignment",
+  "directions": [
+    {
+      "id": "lawful",
+      "title": {
+        "zh": "守序端",
+        "en": "Lawful direction"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "chaotic",
+      "title": {
+        "zh": "混乱端",
+        "en": "Chaotic direction"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "good",
+      "title": {
+        "zh": "善良端",
+        "en": "Good direction"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "evil",
+      "title": {
+        "zh": "邪恶端",
+        "en": "Evil direction"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "ALIGN_01",
+      "prompt": {
+        "zh": "一次共同活动有大家已经同意的流程，你觉得另一种做法更顺手。你更可能先？",
+        "en": "A shared activity has an agreed process, but another way seems easier to you. What would you be more likely to consider first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先按约定完成这次，再提议大家一起修改后续流程。",
+            "en": "Use the agreed process this time, then propose a shared revision."
+          },
+          "directionId": "lawful"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "根据眼前情况换一种做法，再解释自己为什么这样处理。",
+            "en": "Use a different approach for the situation, then explain my choice."
+          },
+          "directionId": "chaotic"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_02",
+      "prompt": {
+        "zh": "一份共同成果得到表扬，但外人误以为主要是你完成的。你更可能？",
+        "en": "A shared piece of work is praised, but someone assumes you did most of it. Which response would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "主动补充其他人的贡献，即使这样自己获得的赞赏少一些。",
+            "en": "Name the others’ contributions, even if that leaves less praise for me."
+          },
+          "directionId": "good"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "如果其他人没有提出异议，就先保留这份对自己有利的印象。",
+            "en": "Keep the favourable impression for now if nobody else challenges it."
+          },
+          "directionId": "evil"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_03",
+      "prompt": {
+        "zh": "一个惯用规则暂时不适合眼前的新情况，你更倾向？",
+        "en": "An established rule does not fit a new situation very well. Which approach would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先做自己认为适合这一次的判断，不要求每次都有统一办法。",
+            "en": "Make the judgment that seems right for this occasion without requiring a uniform method."
+          },
+          "directionId": "chaotic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先找已有的原则或修改程序，让这次决定也能被一致解释。",
+            "en": "Look for a principle or revision process that explains the decision consistently."
+          },
+          "directionId": "lawful"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_04",
+      "prompt": {
+        "zh": "一项资源原本留给所有参与者，你有机会多拿一份而不易被发现。你更可能？",
+        "en": "A resource is meant for all participants. You could take an extra share without it being noticed easily. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先多拿一份满足自己，即使这可能让后来的人分不到。",
+            "en": "Take another share for myself, even if someone arriving later may go without."
+          },
+          "directionId": "evil"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "按原本的份额领取，把别人也需要的部分留在原处。",
+            "en": "Take the agreed share and leave what other participants may need."
+          },
+          "directionId": "good"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_05",
+      "prompt": {
+        "zh": "你答应以某种方式完成一件普通小事，后来发现有更灵活的办法。你更可能？",
+        "en": "You agreed to handle a small task in a particular way and later find a more flexible approach. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先重新确认承诺的内容，再决定是否改变做法。",
+            "en": "Reconfirm what was agreed before changing the approach."
+          },
+          "directionId": "lawful"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "以自己此刻的判断处理，认为结果合适比照原方式更重要。",
+            "en": "Use my present judgment, giving more weight to a suitable outcome than the original method."
+          },
+          "directionId": "chaotic"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_06",
+      "prompt": {
+        "zh": "你的一次疏忽让同伴多花了时间，而对方还不知道原因。你更可能？",
+        "en": "An oversight of yours has cost a companion time, and they do not know why yet. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说明自己的疏忽，商量怎样补上应由自己承担的部分。",
+            "en": "Explain the oversight and discuss how to make good my part."
+          },
+          "directionId": "good"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "只要不会继续影响自己，就先不提原因，让对方处理眼前的麻烦。",
+            "en": "Leave the cause unmentioned if it will not affect me further and let them handle the inconvenience."
+          },
+          "directionId": "evil"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_07",
+      "prompt": {
+        "zh": "为一项临时合作作决定时，你更愿意依据？",
+        "en": "For a decision in an informal collaboration, which basis would you more likely prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "这一次自己判断最合适的办法，即使下次会另作选择。",
+            "en": "The approach I judge best this time, even if I choose differently next time."
+          },
+          "directionId": "chaotic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "大家能预先知道、之后也能继续适用的一套约定。",
+            "en": "An agreement people can know in advance and use again later."
+          },
+          "directionId": "lawful"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_08",
+      "prompt": {
+        "zh": "你发现一条别人不知道的信息，能让自己占便宜，也会让对方在不知情时承担损失。你更可能？",
+        "en": "Information unavailable to another person could benefit you while leaving them with an undisclosed cost. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "保留信息争取自己的好处，认为对方应当自己发现风险。",
+            "en": "Keep the information to gain the advantage, leaving them to discover the cost themselves."
+          },
+          "directionId": "evil"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先把会影响对方的条件说清，让对方能知情决定。",
+            "en": "Explain the relevant condition so they can decide with the information available."
+          },
+          "directionId": "good"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_09",
+      "prompt": {
+        "zh": "对一个你并不喜欢、但事先已接受的活动规则，你更可能？",
+        "en": "You dislike a rule you previously accepted for an activity. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "通过原本同意的方式提出异议，改变前仍按已接受的约定行事。",
+            "en": "Raise the objection through the agreed process and keep the arrangement until it changes."
+          },
+          "directionId": "lawful"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "按自己的想法作例外处理，不把之前同意过视作最后决定。",
+            "en": "Make an exception based on my own view rather than treating the earlier agreement as final."
+          },
+          "directionId": "chaotic"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_10",
+      "prompt": {
+        "zh": "合作出现小问题时，把责任推给一个没在场的人会让你轻松一些。你更可能？",
+        "en": "A small problem in a collaboration would be easier for you if responsibility fell on someone absent. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "只说明已经核实的事实，不让对方替自己承担不属于他们的责任。",
+            "en": "State only what is established and avoid passing my responsibility to them."
+          },
+          "directionId": "good"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "如果没人追问，就接受对自己较有利的说法，即使那个人会因此被误解。",
+            "en": "Accept the more favourable account if nobody asks further, even if it misrepresents that person."
+          },
+          "directionId": "evil"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_11",
+      "prompt": {
+        "zh": "遇到两个相似的请求时，你更愿意？",
+        "en": "When considering two similar requests, which approach would you more likely prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "分别看每次情况，保留临时改变判断的自由。",
+            "en": "Treat each occasion separately and keep the freedom to change my judgment."
+          },
+          "directionId": "chaotic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "尽量用同一条事先认可的原则处理，例外也说明依据。",
+            "en": "Apply a previously accepted principle consistently and explain the basis of exceptions."
+          },
+          "directionId": "lawful"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_12",
+      "prompt": {
+        "zh": "你可以把一项原本由自己承担的麻烦转给不知情的同伴。你更可能？",
+        "en": "You could pass an inconvenience that belongs to you to an uninformed companion. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "只要对方暂时没察觉，就先让他们承担，以减轻自己的负担。",
+            "en": "Let them carry it while they remain unaware, reducing the burden on me."
+          },
+          "directionId": "evil"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先说明情况并征求同意；对方不愿意就由自己处理。",
+            "en": "Explain and seek agreement, handling it myself if they decline."
+          },
+          "directionId": "good"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_13",
+      "prompt": {
+        "zh": "在没有外部规则的个人选择中，你更倾向？",
+        "en": "For a personal choice without an external rule, which approach would you more likely prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "依据自己一贯认可的准则，保持前后能说得通。",
+            "en": "Follow a personal code I generally accept and keep my reasoning consistent."
+          },
+          "directionId": "lawful"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "允许当下的意愿改变方向，不要求每次符合固定准则。",
+            "en": "Let a present preference change the direction without requiring a fixed code each time."
+          },
+          "directionId": "chaotic"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_14",
+      "prompt": {
+        "zh": "你可以得到一项额外便利，但它需要别人承担未经商量的额外工作。你更可能？",
+        "en": "An extra convenience for you would create unagreed work for someone else. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先问对方是否愿意，若不愿意就不把便利建立在他们的负担上。",
+            "en": "Ask whether they agree and forgo the convenience if they do not."
+          },
+          "directionId": "good"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先用上这项便利，认为别人是否愿意承担不是自己首先要考虑的事。",
+            "en": "Use the convenience first, without making their willingness a priority."
+          },
+          "directionId": "evil"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_15",
+      "prompt": {
+        "zh": "和别人安排一个可自由选择的项目时，你更希望？",
+        "en": "When arranging a project people can freely choose to join, which arrangement would you more likely prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把具体做法留到当时决定，不预先把行动固定得太多。",
+            "en": "Leave specific approaches for the moment rather than fixing much in advance."
+          },
+          "directionId": "chaotic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先明确一套共同认可的做法，之后的调整也有可沟通的依据。",
+            "en": "Establish a shared approach and a communicable basis for later adjustments."
+          },
+          "directionId": "lawful"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_16",
+      "prompt": {
+        "zh": "你知道一个简单说明能帮助别人避免本可预防的损失，但说了会少一点自己的优势。你更可能？",
+        "en": "A simple explanation could help someone avoid a preventable loss, but giving it would reduce your advantage. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "保留优势，不因对方可能吃亏而主动提供说明。",
+            "en": "Keep the advantage rather than volunteer an explanation because they might lose out."
+          },
+          "directionId": "evil"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "说明会造成损失的关键事实，让对方不必在不知情中吃亏。",
+            "en": "Explain the important fact so they do not bear the loss unknowingly."
+          },
+          "directionId": "good"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_17",
+      "prompt": {
+        "zh": "面对同伴提出的一次例外，你更愿意先讨论？",
+        "en": "A companion proposes an exception. What would you more likely want to discuss first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "它依据什么原则，以及相似情况以后是否也这样处理。",
+            "en": "Its principle and whether similar situations would be handled that way later."
+          },
+          "directionId": "lawful"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "它在眼前这次是否合适，不必先决定以后怎么办。",
+            "en": "Whether it works for this occasion without first deciding what happens later."
+          },
+          "directionId": "chaotic"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_18",
+      "prompt": {
+        "zh": "一次分配中，你能让熟悉的人和自己获益，但会让其他已约好份额的人受损。你更可能？",
+        "en": "In an allocation, you and people close to you could gain at the expense of others’ agreed shares. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把其他人的份额也算在内，不因熟悉程度就未经同意地挪走。",
+            "en": "Preserve the others’ agreed shares rather than redirect them without consent."
+          },
+          "directionId": "good"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "优先让自己这一边获益，即使其他人的既定份额因此减少。",
+            "en": "Prioritise gains for my side even if the others’ agreed shares are reduced."
+          },
+          "directionId": "evil"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_19",
+      "prompt": {
+        "zh": "当一种临时办法已经奏效，而大家原本有另一套约定时，你更可能？",
+        "en": "A temporary approach has worked, but there was a different shared agreement. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "继续采用眼前有用的办法，不急着把它变成统一约定。",
+            "en": "Keep using what works now without hurrying to turn it into a shared rule."
+          },
+          "directionId": "chaotic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把这次做法拿出来确认，决定怎样正式纳入或修改原约定。",
+            "en": "Review it together and decide how to incorporate it into or revise the agreement."
+          },
+          "directionId": "lawful"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_20",
+      "prompt": {
+        "zh": "你的一次决定可能给不在场的人带来明显不便，而自己并不需要承担后果。你更可能？",
+        "en": "A decision could create a clear inconvenience for someone absent while leaving you unaffected. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先按自己最方便的方式决定，把对方受到的影响留给他们处理。",
+            "en": "Choose what is easiest for me and leave them to handle the effect."
+          },
+          "directionId": "evil"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把对方的影响纳入决定，找一个不把代价直接转给他们的办法。",
+            "en": "Include the effect on them and look for an option that does not simply shift the cost."
+          },
+          "directionId": "good"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_21",
+      "prompt": {
+        "zh": "计划中有人希望“这次凭感觉来”，你更接近哪种回应？",
+        "en": "Someone suggests going by instinct for a plan this time. Which response is closer to what you would consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "仍希望保留已经共同认可的基本准则，再在其内灵活处理。",
+            "en": "Keep the basic principles already shared, with flexibility inside them."
+          },
+          "directionId": "lawful"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "愿意先放下固定方式，按当时的判断随情况调整。",
+            "en": "Set the fixed approach aside and adjust by judgment as the situation unfolds."
+          },
+          "directionId": "chaotic"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_22",
+      "prompt": {
+        "zh": "公开说明一件事时，遗漏一个事实会让你更有利，却可能让别人作出对自己不利的决定。你更可能？",
+        "en": "Omitting a fact from an explanation would favour you but could lead someone else to a costly decision. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "补上会影响对方决定的事实，不只选择对自己有利的部分。",
+            "en": "Include the fact relevant to their decision, not only what favours me."
+          },
+          "directionId": "good"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "只说有利于自己的部分，把对方可能承担的后果视为他们自己的事。",
+            "en": "Give only the favourable part and treat the possible consequences as their concern."
+          },
+          "directionId": "evil"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_23",
+      "prompt": {
+        "zh": "回看一个自己作出的例外决定，你更希望能说明？",
+        "en": "Looking back at an exception you made, what would you more likely want to explain?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "它为什么适合当时的处境，即使没有可以一直沿用的规则。",
+            "en": "Why it suited that particular situation, even without a rule to keep using."
+          },
+          "directionId": "chaotic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "它怎样符合自己认可的一贯原则，或为什么需要明确修订原则。",
+            "en": "How it fits an accepted principle or why that principle needs an explicit revision."
+          },
+          "directionId": "lawful"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_24",
+      "prompt": {
+        "zh": "结束一项共同任务时，你能悄悄少做一部分，让别人不得不补上。你更可能？",
+        "en": "At the end of a shared task, you could quietly leave part of your contribution for others to cover. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "如果没有人马上发现，就先离开，把剩余的工作留给其他人。",
+            "en": "Leave while it goes unnoticed and let others cover the remaining work."
+          },
+          "directionId": "evil"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把自己同意的部分完成，做不到就先说明并重新商量。",
+            "en": "Finish the part I agreed to, or explain and renegotiate if I cannot."
+          },
+          "directionId": "good"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "axis_pairs": {
+      "order": [
+        "lawful",
+        "chaotic"
+      ],
+      "morality": [
+        "good",
+        "evil"
+      ]
+    },
+    "one_selection": "Add1onlytotheexplicitendpoint;nootheraxispoints/weights/total",
+    "all_answers_required": 24,
+    "positions": "Eachendpoint12appearances,6Aand6B;fixedauthoringnotruntimerandomisation",
+    "raw_high_count_bands": {
+      "0..3": [
+        "low"
+      ],
+      "4": [
+        "low",
+        "neutral"
+      ],
+      "5..7": [
+        "neutral"
+      ],
+      "8": [
+        "neutral",
+        "high"
+      ],
+      "9..12": [
+        "high"
+      ]
+    },
+    "boundary_handling": "Crossproductallaxisbands,1to4completeguides;neverordertiebreak;notconfidenceinterval",
+    "reachable_count_pairs": 169,
+    "not_official_instrument_or_cutoffs": true,
+    "scope": "OriginaltwoaxisreflectionusingSRD5.2.1role-frameworkconcepts;notpersonal-moralworth/clinicaldiagnosis/violence/ability/careerprediction. Evilaxischoicesexplicitlyallowunagreedcostorharm,notsimplyselfcare/healthyboundaries;categorydefinitionsmustnotbesoftened. Middlebandmeanscloserrawchoiceshere,notprovenrealethicalneutrality."
+  },
+  "source_reference": {
+    "framework": "SRD5.2.1alignmentpages21–22",
+    "license": "CC-BY-4.0,exactrequiredattributioninpage1tobeincludedinruntimepackage",
+    "questions_scoring_and_reports": "IndependentFermatMindadaptation,notofficialD&Dquizorcompetitorbank"
+  }
+}

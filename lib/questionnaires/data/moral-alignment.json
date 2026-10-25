@@ -1,0 +1,2237 @@
+{
+  "slug": "moral-alignment",
+  "code": "MORAL_ALIGNMENT",
+  "version": "1.0.0",
+  "updated": "2026-10-25",
+  "category": "framework",
+  "kind": "alignment",
+  "minutes": 7,
+  "title": {
+    "zh": "道德阵营测试",
+    "en": "Moral Alignment Test"
+  },
+  "resultHeading": {
+    "zh": "你的完整两轴阵营结果",
+    "en": "Your complete two-axis alignment result"
+  },
+  "seoTitle": {
+    "zh": "道德阵营测试：24题两轴计分与九种完整结果",
+    "en": "Moral Alignment Test: Your D&D Alignment"
+  },
+  "description": {
+    "zh": "完成24道原创情境二选一，查看两轴原始计数、九宫格位置与所有边界并列报告。九种完整双语阵营说明可先读，免费无需注册；区分角色框架与真实道德判断。",
+    "en": "Take 24 original scenarios, see two raw-count axes and explore all nine D&D-inspired alignment guides. Full results free, including boundary matches. No signup."
+  },
+  "introduction": {
+    "zh": "你会怎样看待共同准则，又怎样考虑行动对他人的影响？这份道德阵营测试用24道原创二选一情境，分别累计两轴选择，再映射到熟悉的D&D九宫格。角色框架来自SRD 5.2.1，题目、显示分区和报告为本版原创改写。它不是官方问卷，不揭示真实本性，也不给人判好坏。可以先读九种完整说明和计分，再决定是否作答。",
+    "en": "How do you consider a shared code and the effects of a choice on someone else? This Moral Alignment Test uses twenty-four original paired scenarios, separate counts on two axes and the familiar D&D nine-cell grid. The character framework comes from SRD 5.2.1; questions, display bands and reports are original adaptations in this edition. It is not an official questionnaire or a verdict on an essential nature or moral worth. Read all nine guides and the method before deciding whether to answer."
+  },
+  "instructions": {
+    "zh": "每题选更接近近期自己可能考虑的一种回应，不按想得到的阵营作答。两项都不贴合时可以结束本次作答；不完整时不分配阵营。这里不是知识对错考试，也不表示每种行为都没有真实后果。完成24题后才显示两轴次数、九宫格与所有边界匹配；合理自我照顾或拒绝请求不会自动计成邪恶。",
+    "en": "For each pair, choose the response closer to what you might consider in your recent life, rather than aiming for a label. You can stop if neither fits; incomplete attempts receive no alignment. This is not a right-answer knowledge examination, nor a claim that every action is without real consequences. After twenty-four responses, see both tallies, the grid and all boundary matches. Legitimate self-care or declining a request is not automatically scored as Evil."
+  },
+  "source": {
+    "kind": "FermatMind original two-axis reflection adapting the SRD5.2.1 nine-alignment character framework",
+    "formCode": "fm_moral_alignment_choices_24",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "f92f2775f8432cc9fcf81abb16664c534bdaad94c3abb0ff31dc2647aa9902e6",
+    "resultContentSha256": "842fbb36cd20eeb2d1c53cf53084bdf2c92efab917826413b0b87db0a8ba5f74",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "lawful",
+      "title": {
+        "zh": "守序端",
+        "en": "Lawful direction"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "chaotic",
+      "title": {
+        "zh": "混乱端",
+        "en": "Chaotic direction"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "good",
+      "title": {
+        "zh": "善良端",
+        "en": "Good direction"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "evil",
+      "title": {
+        "zh": "邪恶端",
+        "en": "Evil direction"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "ALIGN_01",
+      "prompt": {
+        "zh": "一次共同活动有大家已经同意的流程，你觉得另一种做法更顺手。你更可能先？",
+        "en": "A shared activity has an agreed process, but another way seems easier to you. What would you be more likely to consider first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先按约定完成这次，再提议大家一起修改后续流程。",
+            "en": "Use the agreed process this time, then propose a shared revision."
+          },
+          "directionId": "lawful"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "根据眼前情况换一种做法，再解释自己为什么这样处理。",
+            "en": "Use a different approach for the situation, then explain my choice."
+          },
+          "directionId": "chaotic"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_02",
+      "prompt": {
+        "zh": "一份共同成果得到表扬，但外人误以为主要是你完成的。你更可能？",
+        "en": "A shared piece of work is praised, but someone assumes you did most of it. Which response would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "主动补充其他人的贡献，即使这样自己获得的赞赏少一些。",
+            "en": "Name the others’ contributions, even if that leaves less praise for me."
+          },
+          "directionId": "good"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "如果其他人没有提出异议，就先保留这份对自己有利的印象。",
+            "en": "Keep the favourable impression for now if nobody else challenges it."
+          },
+          "directionId": "evil"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_03",
+      "prompt": {
+        "zh": "一个惯用规则暂时不适合眼前的新情况，你更倾向？",
+        "en": "An established rule does not fit a new situation very well. Which approach would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先做自己认为适合这一次的判断，不要求每次都有统一办法。",
+            "en": "Make the judgment that seems right for this occasion without requiring a uniform method."
+          },
+          "directionId": "chaotic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先找已有的原则或修改程序，让这次决定也能被一致解释。",
+            "en": "Look for a principle or revision process that explains the decision consistently."
+          },
+          "directionId": "lawful"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_04",
+      "prompt": {
+        "zh": "一项资源原本留给所有参与者，你有机会多拿一份而不易被发现。你更可能？",
+        "en": "A resource is meant for all participants. You could take an extra share without it being noticed easily. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先多拿一份满足自己，即使这可能让后来的人分不到。",
+            "en": "Take another share for myself, even if someone arriving later may go without."
+          },
+          "directionId": "evil"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "按原本的份额领取，把别人也需要的部分留在原处。",
+            "en": "Take the agreed share and leave what other participants may need."
+          },
+          "directionId": "good"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_05",
+      "prompt": {
+        "zh": "你答应以某种方式完成一件普通小事，后来发现有更灵活的办法。你更可能？",
+        "en": "You agreed to handle a small task in a particular way and later find a more flexible approach. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先重新确认承诺的内容，再决定是否改变做法。",
+            "en": "Reconfirm what was agreed before changing the approach."
+          },
+          "directionId": "lawful"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "以自己此刻的判断处理，认为结果合适比照原方式更重要。",
+            "en": "Use my present judgment, giving more weight to a suitable outcome than the original method."
+          },
+          "directionId": "chaotic"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_06",
+      "prompt": {
+        "zh": "你的一次疏忽让同伴多花了时间，而对方还不知道原因。你更可能？",
+        "en": "An oversight of yours has cost a companion time, and they do not know why yet. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说明自己的疏忽，商量怎样补上应由自己承担的部分。",
+            "en": "Explain the oversight and discuss how to make good my part."
+          },
+          "directionId": "good"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "只要不会继续影响自己，就先不提原因，让对方处理眼前的麻烦。",
+            "en": "Leave the cause unmentioned if it will not affect me further and let them handle the inconvenience."
+          },
+          "directionId": "evil"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_07",
+      "prompt": {
+        "zh": "为一项临时合作作决定时，你更愿意依据？",
+        "en": "For a decision in an informal collaboration, which basis would you more likely prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "这一次自己判断最合适的办法，即使下次会另作选择。",
+            "en": "The approach I judge best this time, even if I choose differently next time."
+          },
+          "directionId": "chaotic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "大家能预先知道、之后也能继续适用的一套约定。",
+            "en": "An agreement people can know in advance and use again later."
+          },
+          "directionId": "lawful"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_08",
+      "prompt": {
+        "zh": "你发现一条别人不知道的信息，能让自己占便宜，也会让对方在不知情时承担损失。你更可能？",
+        "en": "Information unavailable to another person could benefit you while leaving them with an undisclosed cost. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "保留信息争取自己的好处，认为对方应当自己发现风险。",
+            "en": "Keep the information to gain the advantage, leaving them to discover the cost themselves."
+          },
+          "directionId": "evil"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先把会影响对方的条件说清，让对方能知情决定。",
+            "en": "Explain the relevant condition so they can decide with the information available."
+          },
+          "directionId": "good"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_09",
+      "prompt": {
+        "zh": "对一个你并不喜欢、但事先已接受的活动规则，你更可能？",
+        "en": "You dislike a rule you previously accepted for an activity. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "通过原本同意的方式提出异议，改变前仍按已接受的约定行事。",
+            "en": "Raise the objection through the agreed process and keep the arrangement until it changes."
+          },
+          "directionId": "lawful"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "按自己的想法作例外处理，不把之前同意过视作最后决定。",
+            "en": "Make an exception based on my own view rather than treating the earlier agreement as final."
+          },
+          "directionId": "chaotic"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_10",
+      "prompt": {
+        "zh": "合作出现小问题时，把责任推给一个没在场的人会让你轻松一些。你更可能？",
+        "en": "A small problem in a collaboration would be easier for you if responsibility fell on someone absent. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "只说明已经核实的事实，不让对方替自己承担不属于他们的责任。",
+            "en": "State only what is established and avoid passing my responsibility to them."
+          },
+          "directionId": "good"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "如果没人追问，就接受对自己较有利的说法，即使那个人会因此被误解。",
+            "en": "Accept the more favourable account if nobody asks further, even if it misrepresents that person."
+          },
+          "directionId": "evil"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_11",
+      "prompt": {
+        "zh": "遇到两个相似的请求时，你更愿意？",
+        "en": "When considering two similar requests, which approach would you more likely prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "分别看每次情况，保留临时改变判断的自由。",
+            "en": "Treat each occasion separately and keep the freedom to change my judgment."
+          },
+          "directionId": "chaotic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "尽量用同一条事先认可的原则处理，例外也说明依据。",
+            "en": "Apply a previously accepted principle consistently and explain the basis of exceptions."
+          },
+          "directionId": "lawful"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_12",
+      "prompt": {
+        "zh": "你可以把一项原本由自己承担的麻烦转给不知情的同伴。你更可能？",
+        "en": "You could pass an inconvenience that belongs to you to an uninformed companion. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "只要对方暂时没察觉，就先让他们承担，以减轻自己的负担。",
+            "en": "Let them carry it while they remain unaware, reducing the burden on me."
+          },
+          "directionId": "evil"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先说明情况并征求同意；对方不愿意就由自己处理。",
+            "en": "Explain and seek agreement, handling it myself if they decline."
+          },
+          "directionId": "good"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_13",
+      "prompt": {
+        "zh": "在没有外部规则的个人选择中，你更倾向？",
+        "en": "For a personal choice without an external rule, which approach would you more likely prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "依据自己一贯认可的准则，保持前后能说得通。",
+            "en": "Follow a personal code I generally accept and keep my reasoning consistent."
+          },
+          "directionId": "lawful"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "允许当下的意愿改变方向，不要求每次符合固定准则。",
+            "en": "Let a present preference change the direction without requiring a fixed code each time."
+          },
+          "directionId": "chaotic"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_14",
+      "prompt": {
+        "zh": "你可以得到一项额外便利，但它需要别人承担未经商量的额外工作。你更可能？",
+        "en": "An extra convenience for you would create unagreed work for someone else. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先问对方是否愿意，若不愿意就不把便利建立在他们的负担上。",
+            "en": "Ask whether they agree and forgo the convenience if they do not."
+          },
+          "directionId": "good"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先用上这项便利，认为别人是否愿意承担不是自己首先要考虑的事。",
+            "en": "Use the convenience first, without making their willingness a priority."
+          },
+          "directionId": "evil"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_15",
+      "prompt": {
+        "zh": "和别人安排一个可自由选择的项目时，你更希望？",
+        "en": "When arranging a project people can freely choose to join, which arrangement would you more likely prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把具体做法留到当时决定，不预先把行动固定得太多。",
+            "en": "Leave specific approaches for the moment rather than fixing much in advance."
+          },
+          "directionId": "chaotic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先明确一套共同认可的做法，之后的调整也有可沟通的依据。",
+            "en": "Establish a shared approach and a communicable basis for later adjustments."
+          },
+          "directionId": "lawful"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_16",
+      "prompt": {
+        "zh": "你知道一个简单说明能帮助别人避免本可预防的损失，但说了会少一点自己的优势。你更可能？",
+        "en": "A simple explanation could help someone avoid a preventable loss, but giving it would reduce your advantage. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "保留优势，不因对方可能吃亏而主动提供说明。",
+            "en": "Keep the advantage rather than volunteer an explanation because they might lose out."
+          },
+          "directionId": "evil"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "说明会造成损失的关键事实，让对方不必在不知情中吃亏。",
+            "en": "Explain the important fact so they do not bear the loss unknowingly."
+          },
+          "directionId": "good"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_17",
+      "prompt": {
+        "zh": "面对同伴提出的一次例外，你更愿意先讨论？",
+        "en": "A companion proposes an exception. What would you more likely want to discuss first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "它依据什么原则，以及相似情况以后是否也这样处理。",
+            "en": "Its principle and whether similar situations would be handled that way later."
+          },
+          "directionId": "lawful"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "它在眼前这次是否合适，不必先决定以后怎么办。",
+            "en": "Whether it works for this occasion without first deciding what happens later."
+          },
+          "directionId": "chaotic"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_18",
+      "prompt": {
+        "zh": "一次分配中，你能让熟悉的人和自己获益，但会让其他已约好份额的人受损。你更可能？",
+        "en": "In an allocation, you and people close to you could gain at the expense of others’ agreed shares. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把其他人的份额也算在内，不因熟悉程度就未经同意地挪走。",
+            "en": "Preserve the others’ agreed shares rather than redirect them without consent."
+          },
+          "directionId": "good"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "优先让自己这一边获益，即使其他人的既定份额因此减少。",
+            "en": "Prioritise gains for my side even if the others’ agreed shares are reduced."
+          },
+          "directionId": "evil"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_19",
+      "prompt": {
+        "zh": "当一种临时办法已经奏效，而大家原本有另一套约定时，你更可能？",
+        "en": "A temporary approach has worked, but there was a different shared agreement. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "继续采用眼前有用的办法，不急着把它变成统一约定。",
+            "en": "Keep using what works now without hurrying to turn it into a shared rule."
+          },
+          "directionId": "chaotic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把这次做法拿出来确认，决定怎样正式纳入或修改原约定。",
+            "en": "Review it together and decide how to incorporate it into or revise the agreement."
+          },
+          "directionId": "lawful"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_20",
+      "prompt": {
+        "zh": "你的一次决定可能给不在场的人带来明显不便，而自己并不需要承担后果。你更可能？",
+        "en": "A decision could create a clear inconvenience for someone absent while leaving you unaffected. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先按自己最方便的方式决定，把对方受到的影响留给他们处理。",
+            "en": "Choose what is easiest for me and leave them to handle the effect."
+          },
+          "directionId": "evil"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把对方的影响纳入决定，找一个不把代价直接转给他们的办法。",
+            "en": "Include the effect on them and look for an option that does not simply shift the cost."
+          },
+          "directionId": "good"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_21",
+      "prompt": {
+        "zh": "计划中有人希望“这次凭感觉来”，你更接近哪种回应？",
+        "en": "Someone suggests going by instinct for a plan this time. Which response is closer to what you would consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "仍希望保留已经共同认可的基本准则，再在其内灵活处理。",
+            "en": "Keep the basic principles already shared, with flexibility inside them."
+          },
+          "directionId": "lawful"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "愿意先放下固定方式，按当时的判断随情况调整。",
+            "en": "Set the fixed approach aside and adjust by judgment as the situation unfolds."
+          },
+          "directionId": "chaotic"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_22",
+      "prompt": {
+        "zh": "公开说明一件事时，遗漏一个事实会让你更有利，却可能让别人作出对自己不利的决定。你更可能？",
+        "en": "Omitting a fact from an explanation would favour you but could lead someone else to a costly decision. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "补上会影响对方决定的事实，不只选择对自己有利的部分。",
+            "en": "Include the fact relevant to their decision, not only what favours me."
+          },
+          "directionId": "good"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "只说有利于自己的部分，把对方可能承担的后果视为他们自己的事。",
+            "en": "Give only the favourable part and treat the possible consequences as their concern."
+          },
+          "directionId": "evil"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_23",
+      "prompt": {
+        "zh": "回看一个自己作出的例外决定，你更希望能说明？",
+        "en": "Looking back at an exception you made, what would you more likely want to explain?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "它为什么适合当时的处境，即使没有可以一直沿用的规则。",
+            "en": "Why it suited that particular situation, even without a rule to keep using."
+          },
+          "directionId": "chaotic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "它怎样符合自己认可的一贯原则，或为什么需要明确修订原则。",
+            "en": "How it fits an accepted principle or why that principle needs an explicit revision."
+          },
+          "directionId": "lawful"
+        }
+      ]
+    },
+    {
+      "id": "ALIGN_24",
+      "prompt": {
+        "zh": "结束一项共同任务时，你能悄悄少做一部分，让别人不得不补上。你更可能？",
+        "en": "At the end of a shared task, you could quietly leave part of your contribution for others to cover. What would you be more likely to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "如果没有人马上发现，就先离开，把剩余的工作留给其他人。",
+            "en": "Leave while it goes unnoticed and let others cover the remaining work."
+          },
+          "directionId": "evil"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把自己同意的部分完成，做不到就先说明并重新商量。",
+            "en": "Finish the part I agreed to, or explain and renegotiate if I cannot."
+          },
+          "directionId": "good"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "lawful-good",
+      "directionIds": [
+        "lawful",
+        "good"
+      ],
+      "title": {
+        "zh": "守序善良",
+        "en": "Lawful Good"
+      },
+      "headline": {
+        "zh": "让一致的原则服务于对他人的关心",
+        "en": "Let consistent principles support care for others"
+      },
+      "summary": {
+        "zh": "守序善良在角色框架中把原则与顾及他人放在一起。本版结果只表示相关选项次数落入这两个显示区间，不是正直、善良或领导能力的证明。",
+        "en": "Lawful Good joins consistent principles with concern for others in the character framework. Here, it only means the relevant choice counts fall in those display bands, not proof of integrity, kindness or leadership ability."
+      },
+      "seo": {
+        "title": {
+          "zh": "守序善良结果解读：道德阵营测试",
+          "en": "Lawful Good Result — Moral Alignment Test"
+        },
+        "description": {
+          "zh": "守序善良在九阵营框架中怎样结合原则与关心他人？阅读具体情境、与中立善良及守序中立的比较、本版两轴计数的边界；完整道德阵营说明免费。",
+          "en": "Explore Lawful Good in the nine-alignment framework, with everyday examples, comparisons and limits of this quiz’s original two-axis counts. Full guide free."
+        }
+      },
+      "scoreReading": {
+        "zh": "本版分别看守序端与善良端的原始次数，每轴12题。各轴0—3次为低端，4次同时保留低端与中立，5—7次为中立，8次同时保留中立与高端，9—12次为高端；秩序轴低／高为混乱／守序，另一轴低／高为邪恶／善良。交叉后显示1—4份报告。本规则为原创显示分区，不是官方D&D计分、心理阈值、置信区间或人群排名。",
+        "en": "This edition uses separate Lawful and Good raw counts, with twelve items per axis. For each: 0–3 is low; 4 keeps low and neutral; 5–7 is neutral; 8 keeps neutral and high; 9–12 is high. Low/high is Chaotic/Lawful on order and Evil/Good on the other axis. Their combinations yield one to four complete reports. These original display bands are not official D&D scoring, psychological cutoffs, confidence intervals or population ranks."
+      },
+      "sections": [
+        {
+          "id": "framework",
+          "title": {
+            "zh": "角色框架中的含义",
+            "en": "Meaning in the character framework"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个阵营把相对稳定的准则与保护他人的取向放在一起。守序可以来自共同约定、传统或个人认可的原则，不只等于听从权威。善良也不是让自己承受所有代价；它更关注决定怎样影响别人，是否在追求目的时忽略了本可避免的伤害。",
+              "en": "This alignment combines relatively consistent principles with an orientation towards protecting others. Order can come from agreements, traditions or a personal code, rather than obedience to authority alone. Good does not require carrying every cost yourself. It concerns the effects of decisions and avoidable harm in pursuing an aim."
+            }
+          ]
+        },
+        {
+          "id": "score-meaning",
+          "title": {
+            "zh": "本版计分怎样对应",
+            "en": "How this edition maps choices"
+          },
+          "paragraphs": [
+            {
+              "zh": "本题本分别累计守序端和善良端的选择，没有把两轴相加。进入守序善良区间，只说明你在这24题里较多选择了相应做法；恰好在边界时也会显示相邻报告。它不能证明你一直按这种方式生活，更不能成为给他人判好坏的证书。",
+              "en": "The quiz counts Lawful and Good responses separately rather than adding the axes. This band means you selected more of the corresponding responses across these twenty-four items; an exact boundary also shows neighbouring reports. It cannot establish a consistent way of life or provide a certificate for judging another person."
+            }
+          ]
+        },
+        {
+          "id": "reflection",
+          "title": {
+            "zh": "可以带着结果思考的问题",
+            "en": "A question to explore"
+          },
+          "paragraphs": [
+            {
+              "zh": "哪一条你重视的约定，确实帮助了参与者，而不只是让流程看起来整齐？可以找一个具体例子，看看谁因此更容易表达、获得应有份额或避免被误解。这样的回看关注行为证据，不需要把自己描述成总能主持公道的人。",
+              "en": "Which agreement you value has actually helped participants rather than merely making a process look orderly? Consider who could express a need, receive an agreed share or avoid being misrepresented because of it. Reflect through a specific action without describing yourself as someone who always delivers justice."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个规则执行得一致，不自动说明它公平。若有人不断承担较多代价，可以检查规则本身，而不只要求大家配合。也别因想帮助别人就默认自己有权替他们决定；先听需要与意愿，再讨论怎样修改共同安排。",
+              "en": "A rule applied consistently is not automatically fair. If someone repeatedly carries more cost, examine the rule instead of asking only for compliance. Wanting to help also gives no right to decide for others. Hear their needs and willingness before discussing a revision to the arrangement."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个普通情境",
+            "en": "An everyday situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "共同活动原来按先报名先得分配材料，后来有人因信息较晚才错过机会。你可以先核对发生了什么，再和参与者讨论以后怎样让规则更容易被所有人知道。无需在不清楚事实时替谁定性，也不必把维持旧流程当成唯一负责任的做法。",
+              "en": "An activity allocates materials by signup order, but someone heard about it too late. Establish what happened and discuss how future rules could be known to everyone. Avoid judging motives before the facts are clear or treating preservation of the old process as the only responsible option."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相邻阵营怎样比较",
+            "en": "Comparing neighbouring alignments"
+          },
+          "paragraphs": [
+            {
+              "zh": "中立善良同样偏向顾及他人，但在本版秩序轴更接近中间区；守序中立同样偏向一致原则，但在另一轴的选择较接近。比较的是这组题的两份计数，不是哪个人更善良、更可靠。具体行为可能比格子名称更能解释差异。",
+              "en": "Neutral Good also points towards concern for others but sits nearer the middle of the order axis here. Lawful Neutral similarly points towards consistent principles with a more central count on the other axis. Compare the two tallies, not who is kinder or more dependable. Actual actions may explain differences better than labels."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "挑一项会影响别人的日常约定，分别问：它原本想保护什么、现在谁承担代价、需要谁同意才能调整？把事实和自己的猜测分开，只提出一项小修改。练习目标是让原则与真实影响接得上，不是证明自己属于某个理想阵营。",
+              "en": "Choose one everyday agreement affecting others. Ask what it was meant to protect, who currently bears a cost and whose agreement a change needs. Separate facts from assumptions and suggest one small revision. Practise connecting principles to actual effects rather than proving membership of an ideal alignment."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "守序善良等于无条件服从吗",
+            "en": "Does Lawful Good mean unconditional obedience?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不是这种简单换算。角色框架里的守序可以是个人准则，关心他人也可能要求认真审视不合适的安排。本版计数不能决定现实里的法律或伦理问题；需要处理具体事务时，应依据实际情况和相应资料，而不是凭测试格子行动。",
+              "en": "It is not that simple. Order in the character framework can involve a personal code, while concern for others may require examining an unsuitable arrangement. These counts cannot settle real legal or ethical questions. Use the circumstances and relevant information for a concrete matter rather than acting from a quiz cell."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "范围与来源",
+            "en": "Scope and source"
+          },
+          "paragraphs": [
+            {
+              "zh": "本页以SRD 5.2.1的两因素九阵营角色框架为参考，题目、计分分区与解释为费马原创改写，非官方工具，尚无信度、效度或人群常模。它不测真实道德价值、心理健康、暴力风险、能力或职业适配；不把合理自我照顾、拒绝或界限视为邪恶，也不以名称免除具体行为的影响。",
+              "en": "This unofficial quiz adapts the two-factor, nine-alignment character framework in SRD 5.2.1 through original FermatMind questions, display bands and explanations, without established reliability, validity or population norms. It does not assess real moral worth, mental health, violence risk, ability or career fit. Legitimate self-care, refusal and boundaries are not treated as Evil, and a name does not excuse an action’s effects."
+            },
+            {
+              "zh": "授权声明（按原文保留）：This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+              "en": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "neutral-good",
+      "directionIds": [
+        "order-neutral",
+        "good"
+      ],
+      "title": {
+        "zh": "中立善良",
+        "en": "Neutral Good"
+      },
+      "headline": {
+        "zh": "先看对人的影响，也问清方法的代价",
+        "en": "Attend to the effect on people and the cost of the method"
+      },
+      "summary": {
+        "zh": "中立善良在角色框架中重视帮助他人，而不把维持或打破规则当成唯一立场。本版的“中立”表示秩序轴计数的中间显示区，不证明你在现实中完全客观或没有原则。",
+        "en": "Neutral Good prioritises helping others without making either preserving or breaking rules its sole position. Neutral here is the central display band of the order count, not proof of complete objectivity or an absence of principles in real life."
+      },
+      "seo": {
+        "title": {
+          "zh": "中立善良结果解读：道德阵营测试",
+          "en": "Neutral Good Result — Moral Alignment Test"
+        },
+        "description": {
+          "zh": "中立善良不等于没有原则。查看角色框架含义、顾及他人与具体办法的取舍，以及与守序善良和混乱善良的比较；完整道德阵营测试说明免费。",
+          "en": "Read the Neutral Good result: concern for others, contextual choices and comparisons with Lawful Good and Chaotic Good. Complete original quiz guide, free."
+        }
+      },
+      "scoreReading": {
+        "zh": "本版分别看守序端与善良端的原始次数，每轴12题。各轴0—3次为低端，4次同时保留低端与中立，5—7次为中立，8次同时保留中立与高端，9—12次为高端；秩序轴低／高为混乱／守序，另一轴低／高为邪恶／善良。交叉后显示1—4份报告。本规则为原创显示分区，不是官方D&D计分、心理阈值、置信区间或人群排名。",
+        "en": "This edition uses separate Lawful and Good raw counts, with twelve items per axis. For each: 0–3 is low; 4 keeps low and neutral; 5–7 is neutral; 8 keeps neutral and high; 9–12 is high. Low/high is Chaotic/Lawful on order and Evil/Good on the other axis. Their combinations yield one to four complete reports. These original display bands are not official D&D scoring, psychological cutoffs, confidence intervals or population ranks."
+      },
+      "sections": [
+        {
+          "id": "framework",
+          "title": {
+            "zh": "角色框架中的含义",
+            "en": "Meaning in the character framework"
+          },
+          "paragraphs": [
+            {
+              "zh": "中立善良通常把他人的需要与决定的影响放在前面，对具体规则则保留情境判断。它并不表示任何手段都可以，也不要求每次都帮助所有人。是否得到同意、是否把代价推给别人，仍值得认真考虑，而不是只看自己是否有好意。",
+              "en": "Neutral Good gives weight to people’s needs and a decision’s effects while allowing contextual judgment about rules. It does not make every method acceptable or require helping everyone on every occasion. Agreement and the transfer of costs still matter; goodwill alone does not settle whether an action helps."
+            }
+          ]
+        },
+        {
+          "id": "score-meaning",
+          "title": {
+            "zh": "本版计分怎样对应",
+            "en": "How this edition maps choices"
+          },
+          "paragraphs": [
+            {
+              "zh": "你的秩序轴计数落在中间区，另一轴较多选中了顾及他人的回应。中间区可能来自不同情境里的不同做法，并不等于一种稳定“中庸性格”。若守序或混乱方向正好在边界，所有相邻结果都会保留，不需要强行只选一个身份。",
+              "en": "The order tally falls in the central band while more responses on the other axis attend to others. A central count can result from different approaches in different situations, rather than a stable balanced personality. At an exact Lawful or Chaotic boundary, all neighbouring results remain without forcing a single identity."
+            }
+          ]
+        },
+        {
+          "id": "reflection",
+          "title": {
+            "zh": "可以带着结果思考的问题",
+            "en": "A question to explore"
+          },
+          "paragraphs": [
+            {
+              "zh": "你说“这样比较能帮到人”时，依据的是对方明确表达的需要，还是自己想象的需要？可以回看一次小协助，看看有没有先询问、哪些部分真的有用。这样不必先决定自己是否富有同情心，就能把帮助说得更具体。",
+              "en": "When you think an option would help, is it based on a stated need or one you imagined? Review a small contribution: whether you asked first and which part was useful. Making help specific does not require first deciding whether you are a compassionate person."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "根据情境调整办法，有时可能让别人不知道你下次会怎样选择。可以解释这次优先考虑的需要和仍会遵守的边界。也要留意自己是否因想立即帮忙而接下太多；关心别人不等于放弃自己的同意权、休息或合理份额。",
+              "en": "Adapting a method can leave others unsure what you will choose next. Explain the need you are prioritising and the limits that still apply. Notice whether immediate helpfulness leads you to accept too much. Concern for others does not remove your own consent, rest or reasonable share."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个普通情境",
+            "en": "An everyday situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "同伴临时需要调整活动分工，你可以先问是哪一部分难以完成，再看哪些条件能改。若自己只能协助十分钟，就把范围说清。你不用为了得到“善良”的结果承担整件事，也不因无法答应全部请求而变成另一种人。",
+              "en": "A companion needs a change to an activity’s tasks. Ask what is difficult and which conditions can move. If ten minutes of help is available, state that limit. You need not take over the entire task to deserve a Good result, and declining part of a request does not transform your identity."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相邻阵营怎样比较",
+            "en": "Comparing neighbouring alignments"
+          },
+          "paragraphs": [
+            {
+              "zh": "守序善良更倾向在共同原则内实现关心；混乱善良更强调不受既有方式约束的行动；中立善良在本版秩序轴处于两者之间。三者都不是现实善恶的认证。绝对中立则在另一轴也处于中间区，仍不能由名称判断它会不会帮助别人。",
+              "en": "Lawful Good gives more emphasis to shared principles, Chaotic Good to action less bound by an established approach, and Neutral Good lies between them on this edition’s order tally. None certifies real-world goodness. True Neutral is central on the other axis too, without its name determining whether someone would help."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "在提出帮助前，先问一个具体需要，再说一项自己能提供的支持和时间上限。结束后请对方指出是否有不合适的地方，也检查自己是否舒服。把反馈当成安排信息，不把接受或拒绝当作对个人价值的评分。",
+              "en": "Before helping, ask about one concrete need and offer one contribution with a time limit. Afterwards, invite feedback about what did not suit and check your own comfort. Treat that feedback as information about an arrangement rather than taking acceptance or refusal as a score of personal worth."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "中立善良表示没有原则吗",
+            "en": "Does Neutral Good mean having no principles?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不能这样判断。本版中间计数可能反映多种选择，而不是缺乏准则。你可以重视某些原则，也愿意因新信息调整具体办法。问卷没有检验真实道德推理质量、同理心、职业胜任或领导表现，也不给任何人免于解释行为的许可。",
+              "en": "That conclusion is unsupported. A central tally can reflect several approaches rather than a lack of principles. You can value a code and revise a method when information changes. The quiz tests neither moral reasoning quality nor empathy, career competence or leadership, and excuses nobody from explaining actual behaviour."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "范围与来源",
+            "en": "Scope and source"
+          },
+          "paragraphs": [
+            {
+              "zh": "本页以SRD 5.2.1的两因素九阵营角色框架为参考，题目、计分分区与解释为费马原创改写，非官方工具，尚无信度、效度或人群常模。它不测真实道德价值、心理健康、暴力风险、能力或职业适配；不把合理自我照顾、拒绝或界限视为邪恶，也不以名称免除具体行为的影响。",
+              "en": "This unofficial quiz adapts the two-factor, nine-alignment character framework in SRD 5.2.1 through original FermatMind questions, display bands and explanations, without established reliability, validity or population norms. It does not assess real moral worth, mental health, violence risk, ability or career fit. Legitimate self-care, refusal and boundaries are not treated as Evil, and a name does not excuse an action’s effects."
+            },
+            {
+              "zh": "授权声明（按原文保留）：This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+              "en": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chaotic-good",
+      "directionIds": [
+        "chaotic",
+        "good"
+      ],
+      "title": {
+        "zh": "混乱善良",
+        "en": "Chaotic Good"
+      },
+      "headline": {
+        "zh": "为顾及他人寻找不同办法，也承担自己的影响",
+        "en": "Find another way to help and attend to its effects"
+      },
+      "summary": {
+        "zh": "混乱善良把顾及他人和较强的自主判断放在一起。“混乱”在这里是阵营术语，不是失控或心理问题；结果也不授权随意破坏约定或替别人作主。",
+        "en": "Chaotic Good combines concern for others with more autonomous judgment. Chaotic is an alignment term, not a mental-health description or loss of control. The result authorises neither arbitrary disruption of agreements nor deciding for someone else."
+      },
+      "seo": {
+        "title": {
+          "zh": "混乱善良结果解读：道德阵营测试",
+          "en": "Chaotic Good Result — Moral Alignment Test"
+        },
+        "description": {
+          "zh": "混乱善良怎样同时理解自主与对他人的影响？阅读普通情境、相邻阵营比较和小尝试，区分官方角色框架与本版计数；完整说明免费。",
+          "en": "Explore Chaotic Good: autonomy, care, practical examples and neighbouring alignments. See how this original quiz differs from the character framework. Full guide free."
+        }
+      },
+      "scoreReading": {
+        "zh": "本版分别看守序端与善良端的原始次数，每轴12题。各轴0—3次为低端，4次同时保留低端与中立，5—7次为中立，8次同时保留中立与高端，9—12次为高端；秩序轴低／高为混乱／守序，另一轴低／高为邪恶／善良。交叉后显示1—4份报告。本规则为原创显示分区，不是官方D&D计分、心理阈值、置信区间或人群排名。",
+        "en": "This edition uses separate Lawful and Good raw counts, with twelve items per axis. For each: 0–3 is low; 4 keeps low and neutral; 5–7 is neutral; 8 keeps neutral and high; 9–12 is high. Low/high is Chaotic/Lawful on order and Evil/Good on the other axis. Their combinations yield one to four complete reports. These original display bands are not official D&D scoring, psychological cutoffs, confidence intervals or population ranks."
+      },
+      "sections": [
+        {
+          "id": "framework",
+          "title": {
+            "zh": "角色框架中的含义",
+            "en": "Meaning in the character framework"
+          },
+          "paragraphs": [
+            {
+              "zh": "在这个角色框架中，混乱善良更愿意按自己的良知行动，而不只接受既有期待。它的善良端仍关注别人承受的影响，因此不能把单纯反对、追求新鲜或无视同意，都叫作在帮助人。自主与照顾需要一起看具体行为。",
+              "en": "In the character framework, Chaotic Good gives weight to conscience rather than established expectations alone. Its Good aspect still concerns effects on others. Opposition for its own sake, novelty or disregarding agreement should not simply be renamed help. Consider autonomy and care through the particular action."
+            }
+          ]
+        },
+        {
+          "id": "score-meaning",
+          "title": {
+            "zh": "本版计分怎样对应",
+            "en": "How this edition maps choices"
+          },
+          "paragraphs": [
+            {
+              "zh": "本次选择较多落在混乱端和善良端，表示你在这组情境里更常同时倾向灵活自主与顾及他人。这是两份独立累计的原始次数，不证明人格因子在统计上独立，也不说明你更勇敢、更有正义感或适合某种职业。",
+              "en": "More choices fall towards Chaotic and Good here, combining flexible autonomy with attention to others across the presented situations. These are separately accumulated raw tallies, not evidence of statistically independent personality factors. They do not establish greater courage, justice or suitability for a profession."
+            }
+          ]
+        },
+        {
+          "id": "reflection",
+          "title": {
+            "zh": "可以带着结果思考的问题",
+            "en": "A question to explore"
+          },
+          "paragraphs": [
+            {
+              "zh": "你想换一种办法时，怎样知道改变确实减轻了别人的负担？可以先询问受影响的人，并把他们的反馈与自己的期待分开。一个想法很有新意，不代表它已经合适；别人不想采用，也不自动表示他们缺乏勇气。",
+              "en": "When you want another approach, how do you know the change reduces someone’s burden? Ask those affected and separate their feedback from your expectation. A novel idea is not thereby suitable, and someone declining it is not automatically lacking courage."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "急于摆脱旧做法，可能把协商和后续收尾留给别人。可以先说清哪些部分希望改变、谁会受影响，以及自己愿意承担哪一项具体工作。关心不只在动机里，也包括行动后对代价和反馈保持注意。",
+              "en": "Hurrying away from an established approach can leave negotiation and finishing work to others. State what you want to change, who is affected and which concrete contribution you will take on. Care involves attention to costs and feedback after an action, not intention alone."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个普通情境",
+            "en": "An everyday situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "活动原本只有一种参加方式，有人因此难以加入。你可以提出一个较轻的替代方案，先问相关的人是否真的需要，再和组织者沟通怎样试行。例子是在讨论可行安排，不是用测试鼓励现实中的违法、冒险或替别人宣布被帮助。",
+              "en": "An activity offers only one way to participate, making joining difficult for someone. Propose a lighter alternative, check whether it is wanted and discuss a trial with the organiser. This example concerns workable arrangements, not encouragement of illegal conduct, risk-taking or declaring someone helped without asking."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相邻阵营怎样比较",
+            "en": "Comparing neighbouring alignments"
+          },
+          "paragraphs": [
+            {
+              "zh": "中立善良在秩序轴较接近中间区，混乱中立在另一轴较接近中间区。前者不一定更保守，后者也不自动不关心人。计数差异只来自这些题目的选择；请比较具体情境，不把“混乱”当成随性或不可靠的日常诊断。",
+              "en": "Neutral Good is more central on the order tally, while Chaotic Neutral is more central on the other axis. The former is not necessarily conservative, and the latter does not automatically lack care. Counts arise from these particular responses. Compare situations without making Chaotic a diagnosis of spontaneity or unreliability."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "挑一个自己想改的小安排，写下改变理由、对别人可能的影响，以及需要先问谁。提出一个可撤回的小试行，结束后检查实际效果。练习的目标是让自主判断接受反馈，而不是为了符合混乱善良标签去寻找规则来挑战。",
+              "en": "For a small arrangement you want to change, note the reason, possible effects on others and whom to ask first. Suggest a reversible trial and review the effect. Practise bringing autonomous judgment into contact with feedback rather than finding a rule to challenge for the sake of an alignment label."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "混乱善良是不是越反叛越好",
+            "en": "Is more rebellion automatically better?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不是。本版没有测勇气、政治立场、社会责任或反叛能力，也不给打破约定本身加价值判断。真实情境需要事实、同意和后果信息；阵营名称不能替代这些条件。你也可以选择遵守某项规则，而不需要维护一个固定人设。",
+              "en": "No. This edition does not measure courage, political positions, responsibility or rebellious ability, or award moral value to breaking agreements itself. Actual situations need facts, consent and information about consequences. An alignment cannot replace those conditions. You can follow a rule without needing to defend a fixed persona."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "范围与来源",
+            "en": "Scope and source"
+          },
+          "paragraphs": [
+            {
+              "zh": "本页以SRD 5.2.1的两因素九阵营角色框架为参考，题目、计分分区与解释为费马原创改写，非官方工具，尚无信度、效度或人群常模。它不测真实道德价值、心理健康、暴力风险、能力或职业适配；不把合理自我照顾、拒绝或界限视为邪恶，也不以名称免除具体行为的影响。",
+              "en": "This unofficial quiz adapts the two-factor, nine-alignment character framework in SRD 5.2.1 through original FermatMind questions, display bands and explanations, without established reliability, validity or population norms. It does not assess real moral worth, mental health, violence risk, ability or career fit. Legitimate self-care, refusal and boundaries are not treated as Evil, and a name does not excuse an action’s effects."
+            },
+            {
+              "zh": "授权声明（按原文保留）：This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+              "en": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lawful-neutral",
+      "directionIds": [
+        "lawful",
+        "moral-neutral"
+      ],
+      "title": {
+        "zh": "守序中立",
+        "en": "Lawful Neutral"
+      },
+      "headline": {
+        "zh": "看重一致的准则，也检查它带来的实际影响",
+        "en": "Value a consistent code and examine its actual effects"
+      },
+      "summary": {
+        "zh": "守序中立在角色框架中强调法律、传统或个人准则。本版另一轴落在中间计数区，不表示没有感情、完全公正或永远站在正确的一边。",
+        "en": "Lawful Neutral emphasises law, tradition or a personal code in the character framework. A central tally on the other axis here does not establish a lack of feeling, perfect fairness or always being on the right side."
+      },
+      "seo": {
+        "title": {
+          "zh": "守序中立结果解读：道德阵营测试",
+          "en": "Lawful Neutral Result — Moral Alignment Test"
+        },
+        "description": {
+          "zh": "守序中立关注一致准则，不证明公正或缺乏同情。阅读规则与实际影响的例子、相近阵营和计分边界；本版完整道德阵营说明免费可读。",
+          "en": "Read the Lawful Neutral guide: consistent codes, actual effects, examples and nearby alignments. Clear original scoring limits without claims of perfect fairness."
+        }
+      },
+      "scoreReading": {
+        "zh": "本版分别看守序端与善良端的原始次数，每轴12题。各轴0—3次为低端，4次同时保留低端与中立，5—7次为中立，8次同时保留中立与高端，9—12次为高端；秩序轴低／高为混乱／守序，另一轴低／高为邪恶／善良。交叉后显示1—4份报告。本规则为原创显示分区，不是官方D&D计分、心理阈值、置信区间或人群排名。",
+        "en": "This edition uses separate Lawful and Good raw counts, with twelve items per axis. For each: 0–3 is low; 4 keeps low and neutral; 5–7 is neutral; 8 keeps neutral and high; 9–12 is high. Low/high is Chaotic/Lawful on order and Evil/Good on the other axis. Their combinations yield one to four complete reports. These original display bands are not official D&D scoring, psychological cutoffs, confidence intervals or population ranks."
+      },
+      "sections": [
+        {
+          "id": "framework",
+          "title": {
+            "zh": "角色框架中的含义",
+            "en": "Meaning in the character framework"
+          },
+          "paragraphs": [
+            {
+              "zh": "这一阵营的重点是遵循相对稳定的准则，而不是每次都因眼前需要或个人欲望改变做法。准则本身可以不同，也可能需要被审视。它不自动给执行者公正、可靠或冷静的能力，更不说明某个现实制度因为有规则就一定值得维护。",
+              "en": "The emphasis is a relatively stable code rather than changing approach solely for an immediate need or desire. Codes can differ and may themselves require examination. Following one does not automatically confer fairness, dependability or composure, or establish that a real institution deserves preservation simply because it has rules."
+            }
+          ]
+        },
+        {
+          "id": "score-meaning",
+          "title": {
+            "zh": "本版计分怎样对应",
+            "en": "How this edition maps choices"
+          },
+          "paragraphs": [
+            {
+              "zh": "你在秩序轴较多选择了一致准则，在另一轴则进入中间显示区。中间区是这一份原始计数的整理方法，不是测得的“道德中性”。同一个次数可以由不同题目组成，所以回看具体情境，比把格子当成完整人格更有信息。",
+              "en": "More order responses favour a consistent code, while the other tally is in the central display band. That band organises raw choices in this edition; it is not measured moral neutrality. Different item selections can produce the same count, so situations are more informative than treating the cell as a complete personality."
+            }
+          ]
+        },
+        {
+          "id": "reflection",
+          "title": {
+            "zh": "可以带着结果思考的问题",
+            "en": "A question to explore"
+          },
+          "paragraphs": [
+            {
+              "zh": "你最希望哪些事情能够前后一致？可以区分让人有预期的约定，与只是因为熟悉而沿用的习惯。再看当条件改变时，你会怎样说明调整依据。这样的梳理不要求放弃原则，而是让别人更容易知道原则在保护什么。",
+              "en": "What do you most want to remain consistent? Separate agreements that create understandable expectations from habits retained because they are familiar. Consider how you would explain an adjustment when conditions change. This need not abandon a principle; it can clarify what the principle is protecting."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "只说“规定如此”，可能没有回答受影响的人正在承担什么。可以先听实际后果，再区分自己能调整的部分与需要共同确认的部分。程序与影响都值得看，不必用一个中立标签结束讨论，也不应因按程序做过就忽略修正的必要。",
+              "en": "Saying a rule requires something may leave its effects unanswered. Hear the consequences and distinguish what you can adjust from what needs shared confirmation. Process and effect both deserve attention. A Neutral label should not close the discussion, and having followed a process does not remove a need for correction."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个普通情境",
+            "en": "An everyday situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "你负责一项活动的报名顺序，可以把使用的规则提前公开，并说明有特殊情况时怎样提出。有人质疑结果时，先核对记录，再问规则是否遗漏了重要条件。例子关注透明与复核，不是证明你适合管理、审判或任何工作。",
+              "en": "When handling an activity’s signup order, make the rule visible and explain how to raise an exception. If an outcome is questioned, check records and consider whether an important condition was omitted. This example concerns transparency and review, not evidence of suitability for management, judgment or any profession."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相邻阵营怎样比较",
+            "en": "Comparing neighbouring alignments"
+          },
+          "paragraphs": [
+            {
+              "zh": "守序善良在本版另一轴更偏向顾及他人；守序邪恶更偏向容许别人承担未获同意的代价；守序中立在两者计数之间。绝对中立则在秩序轴也居中。这些是计分位置的差别，不能拿来给真实的人贴公正、冷漠或危险标签。",
+              "en": "Lawful Good leans towards concern for others on this edition’s other tally, while Lawful Evil leans towards accepting an unagreed cost to them. Lawful Neutral lies between those tallies; True Neutral is also central on order. These positions do not label actual people fair, indifferent or dangerous."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "找一项自己常引用的约定，写下它的目的、适用条件和重新讨论的方式。向一位受影响的人确认自己的理解是否准确。只记录与安排有关的信息，不需要收集私人经历，也不把对方是否同意当成他们懂不懂规则的考试。",
+              "en": "Choose an agreement you often cite and note its purpose, conditions and way to revisit it. Check your understanding with someone affected. Keep to information about the arrangement without collecting private experiences or treating their agreement as a test of whether they understand rules."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "守序中立是不是没有同情心",
+            "en": "Does Lawful Neutral imply a lack of compassion?"
+          },
+          "paragraphs": [
+            {
+              "zh": "没有这样的结论。问卷没有测共情、感情深度或实际道德表现；一个中间次数也不能说明你在任何情境里都会站在中间。若某次行为让人受影响，应讨论事实与责任，而不是用阵营解释或免除需要作出的回应。",
+              "en": "That conclusion is unsupported. The quiz does not measure empathy, depth of feeling or actual moral performance. A central tally does not mean taking the middle in every situation. Discuss facts and responsibility when an action affects someone rather than using an alignment to explain away a necessary response."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "范围与来源",
+            "en": "Scope and source"
+          },
+          "paragraphs": [
+            {
+              "zh": "本页以SRD 5.2.1的两因素九阵营角色框架为参考，题目、计分分区与解释为费马原创改写，非官方工具，尚无信度、效度或人群常模。它不测真实道德价值、心理健康、暴力风险、能力或职业适配；不把合理自我照顾、拒绝或界限视为邪恶，也不以名称免除具体行为的影响。",
+              "en": "This unofficial quiz adapts the two-factor, nine-alignment character framework in SRD 5.2.1 through original FermatMind questions, display bands and explanations, without established reliability, validity or population norms. It does not assess real moral worth, mental health, violence risk, ability or career fit. Legitimate self-care, refusal and boundaries are not treated as Evil, and a name does not excuse an action’s effects."
+            },
+            {
+              "zh": "授权声明（按原文保留）：This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+              "en": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "true-neutral",
+      "directionIds": [
+        "order-neutral",
+        "moral-neutral"
+      ],
+      "title": {
+        "zh": "绝对中立",
+        "en": "True Neutral"
+      },
+      "headline": {
+        "zh": "留意情境差异，也说清自己愿意坚持什么",
+        "en": "Notice differences between situations and name what you will uphold"
+      },
+      "summary": {
+        "zh": "绝对中立对应两轴的中间位置，官方角色框架常简称Neutral。本版中间计数不证明客观、善于调解、没有原则或对一切都无所谓。",
+        "en": "True Neutral occupies the middle on both axes and is called Neutral in the official character framework. Central counts here prove neither objectivity nor mediation skill, an absence of principles or indifference to everything."
+      },
+      "seo": {
+        "title": {
+          "zh": "绝对中立结果解读：道德阵营测试",
+          "en": "True Neutral Result — Moral Alignment Test"
+        },
+        "description": {
+          "zh": "绝对中立在本版表示两轴计数居中，不证明客观或没有原则。阅读具体情境、四个相邻方向与计分边界；完整道德阵营说明免费。",
+          "en": "Explore True Neutral: central counts on two axes, contextual choices, examples and four neighbouring directions. Full guide without claims of objectivity or rarity."
+        }
+      },
+      "scoreReading": {
+        "zh": "本版分别看守序端与善良端的原始次数，每轴12题。各轴0—3次为低端，4次同时保留低端与中立，5—7次为中立，8次同时保留中立与高端，9—12次为高端；秩序轴低／高为混乱／守序，另一轴低／高为邪恶／善良。交叉后显示1—4份报告。本规则为原创显示分区，不是官方D&D计分、心理阈值、置信区间或人群排名。",
+        "en": "This edition uses separate Lawful and Good raw counts, with twelve items per axis. For each: 0–3 is low; 4 keeps low and neutral; 5–7 is neutral; 8 keeps neutral and high; 9–12 is high. Low/high is Chaotic/Lawful on order and Evil/Good on the other axis. Their combinations yield one to four complete reports. These original display bands are not official D&D scoring, psychological cutoffs, confidence intervals or population ranks."
+      },
+      "sections": [
+        {
+          "id": "framework",
+          "title": {
+            "zh": "角色框架中的含义",
+            "en": "Meaning in the character framework"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个位置没有把角色稳定放在守序或混乱、善良或邪恶的某一端。在游戏叙事里，它可以用来构思依情境选择、避免投入某一立场的角色。它不是比其他位置更平衡的认证，也不意味着现实的人不需要考虑行动的后果。",
+              "en": "This position does not consistently place a character at one end of order or morality. In a game narrative, it can inspire a character responding to circumstances without committing to one side. It is not certification of superior balance, and does not remove anyone’s need to consider consequences in real life."
+            }
+          ]
+        },
+        {
+          "id": "score-meaning",
+          "title": {
+            "zh": "本版计分怎样对应",
+            "en": "How this edition maps choices"
+          },
+          "paragraphs": [
+            {
+              "zh": "两份原始计数都进入中间显示区，可能只是不同题目里的选择方向相互接近。它不能证明你没有偏好，也不等于一半善良一半邪恶。边界计数会连同相邻报告一起保留；中间区的名称不是统计置信区间、常模或测得的人格核心。",
+              "en": "Both raw tallies fall in central display bands, which may simply mean different choices produced nearby counts. This does not prove an absence of preferences or mean half Good and half Evil. Exact boundaries retain neighbouring reports. The band is not a statistical confidence interval, population norm or measured personality core."
+            }
+          ]
+        },
+        {
+          "id": "reflection",
+          "title": {
+            "zh": "可以带着结果思考的问题",
+            "en": "A question to explore"
+          },
+          "paragraphs": [
+            {
+              "zh": "哪些选择会随条件改变，哪些对你仍有相对清楚的界限？可以各找一个具体例子，说明改变是因为新信息、余力不同，还是自己尚未决定。无需把所有情况压成一个统一立场，也不用用“中立”代替说明理由。",
+              "en": "Which choices depend on conditions, and where do you still have a clear limit? Find an example of each and consider whether a change reflects information, capacity or an undecided preference. You need not force every situation into a single position or use Neutral instead of giving a reason."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "不立即选边有时能留出思考空间，也可能让需要回应的人不知道你会怎样参与。可以先说出已确定的部分与需要再了解的条件。若自己的决定影响了别人，仍要面对具体影响；不是保持中间位置就自动免于责任。",
+              "en": "Not immediately taking a side can leave time to think, but may leave someone needing a response unsure of your participation. State what is settled and what needs more information. A decision’s effects still deserve attention. Remaining central does not automatically remove responsibility for them."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个普通情境",
+            "en": "An everyday situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "两个同伴希望采用不同的活动方案，你可以先分别了解各自需要，再说明自己愿意参加哪一部分。若不想承担协调，也可以直说。这个例子不证明你是天生调解者，更不要求你为维持“平衡”而忽略一方受到的实际不便。",
+              "en": "Two companions prefer different plans. Hear what each needs and state which part you want to join. You can also say that you do not want to coordinate. This does not establish natural mediation skill or require ignoring someone’s actual inconvenience for the sake of balance."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相邻阵营怎样比较",
+            "en": "Comparing neighbouring alignments"
+          },
+          "paragraphs": [
+            {
+              "zh": "守序中立与混乱中立主要在本版秩序计数上不同，中立善良与中立邪恶主要在另一轴不同。相邻不表示谁更成熟、更理性或更适合你。四个方向的次数与题目都可以公开核对，理解时请回到实际选择。",
+              "en": "Lawful Neutral and Chaotic Neutral differ mainly on the order tally here, while Neutral Good and Neutral Evil differ mainly on the other axis. Neighbouring cells do not indicate maturity, rationality or compatibility. All four counts and the item method are visible; return to the choices when interpreting them."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "挑一项最近需要回应的小安排，用三句话说明：目前知道什么、自己愿意做什么、还需要确认什么。给出一个再沟通的时间。练习让暂时未定变得容易理解，不要求为了摆脱中立结果而突然改变立场。",
+              "en": "For a small arrangement needing a response, state what is known, what you are willing to do and what needs checking. Set a time to return to it. Practise making uncertainty understandable rather than suddenly taking a position simply to move away from a Neutral result."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "绝对中立是最客观或最常见的吗",
+            "en": "Is True Neutral the most objective or most common?"
+          },
+          "paragraphs": [
+            {
+              "zh": "本页没有这样的证据。两轴计数居中不等于没有偏见，答题组合出现频率也不是人群分布。没有经过采样研究，就不能发布某阵营更普遍或更罕见的比例。你也不需要因结果居中而证明自己足够特别。",
+              "en": "There is no evidence for that claim here. Central tallies do not establish an absence of bias, and answer-combination frequencies are not population prevalence. Without sampling research, no alignment can be assigned a commonness or rarity percentage. A central result does not create a need to prove yourself distinctive."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "范围与来源",
+            "en": "Scope and source"
+          },
+          "paragraphs": [
+            {
+              "zh": "本页以SRD 5.2.1的两因素九阵营角色框架为参考，题目、计分分区与解释为费马原创改写，非官方工具，尚无信度、效度或人群常模。它不测真实道德价值、心理健康、暴力风险、能力或职业适配；不把合理自我照顾、拒绝或界限视为邪恶，也不以名称免除具体行为的影响。",
+              "en": "This unofficial quiz adapts the two-factor, nine-alignment character framework in SRD 5.2.1 through original FermatMind questions, display bands and explanations, without established reliability, validity or population norms. It does not assess real moral worth, mental health, violence risk, ability or career fit. Legitimate self-care, refusal and boundaries are not treated as Evil, and a name does not excuse an action’s effects."
+            },
+            {
+              "zh": "授权声明（按原文保留）：This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+              "en": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chaotic-neutral",
+      "directionIds": [
+        "chaotic",
+        "moral-neutral"
+      ],
+      "title": {
+        "zh": "混乱中立",
+        "en": "Chaotic Neutral"
+      },
+      "headline": {
+        "zh": "保留自主判断，也让参与条件足够清楚",
+        "en": "Keep autonomous judgment and make participation clear"
+      },
+      "summary": {
+        "zh": "混乱中立在角色框架中重视个人自由与临时判断。本版结果不表示情绪失控、不可靠、聪明灵活或有某种心理问题。",
+        "en": "Chaotic Neutral gives weight to personal freedom and judgment in the moment in the character framework. The result does not imply emotional instability, unreliability, clever adaptability or a mental-health condition."
+      },
+      "seo": {
+        "title": {
+          "zh": "混乱中立结果解读：道德阵营测试",
+          "en": "Chaotic Neutral Result — Moral Alignment Test"
+        },
+        "description": {
+          "zh": "混乱中立是角色框架术语，不是心理诊断。阅读自主判断、参与条件与具体界限的例子，比较绝对中立和混乱善良；完整说明免费。",
+          "en": "Read the Chaotic Neutral result: autonomy, participation, agreements and nearby alignments. Complete examples without mental-health or dependability judgments."
+        }
+      },
+      "scoreReading": {
+        "zh": "本版分别看守序端与善良端的原始次数，每轴12题。各轴0—3次为低端，4次同时保留低端与中立，5—7次为中立，8次同时保留中立与高端，9—12次为高端；秩序轴低／高为混乱／守序，另一轴低／高为邪恶／善良。交叉后显示1—4份报告。本规则为原创显示分区，不是官方D&D计分、心理阈值、置信区间或人群排名。",
+        "en": "This edition uses separate Lawful and Good raw counts, with twelve items per axis. For each: 0–3 is low; 4 keeps low and neutral; 5–7 is neutral; 8 keeps neutral and high; 9–12 is high. Low/high is Chaotic/Lawful on order and Evil/Good on the other axis. Their combinations yield one to four complete reports. These original display bands are not official D&D scoring, psychological cutoffs, confidence intervals or population ranks."
+      },
+      "sections": [
+        {
+          "id": "framework",
+          "title": {
+            "zh": "角色框架中的含义",
+            "en": "Meaning in the character framework"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个阵营更关注角色按自身意愿行动，不把服从固定方式当成唯一依据。中立指另一条轴没有固定在善良或邪恶一端，不是对他人影响可以不闻不问。游戏标签可以帮助构思角色，不能代替现实里的同意、责任或具体约定。",
+              "en": "This alignment emphasises a character acting by personal preference rather than treating a fixed approach as the sole authority. Neutral places the other axis away from a consistent Good or Evil end; it does not make effects on others irrelevant. A game label cannot replace consent, responsibility or specific real-world agreements."
+            }
+          ]
+        },
+        {
+          "id": "score-meaning",
+          "title": {
+            "zh": "本版计分怎样对应",
+            "en": "How this edition maps choices"
+          },
+          "paragraphs": [
+            {
+              "zh": "你在秩序轴较多选择临时判断或灵活做法，另一份计数居中。这里的“混乱”只是显示区的名称，不是混乱程度、冲动性或现实风险分数。若刚好在与中间区的边界，邻近报告会一起出现，而不随机替你确定一个。",
+              "en": "More order choices favour flexible or occasion-specific judgment, while the other tally is central. Chaotic is a display-band label rather than a level of disorder, impulsivity or actual risk. At a boundary with the middle, neighbouring reports appear together instead of one being selected randomly."
+            }
+          ]
+        },
+        {
+          "id": "reflection",
+          "title": {
+            "zh": "可以带着结果思考的问题",
+            "en": "A question to explore"
+          },
+          "paragraphs": [
+            {
+              "zh": "你希望保留哪一种选择空间，它会怎样影响一起参与的人？例如想临时改变路线，可以同时说清哪些时间仍能确认。这样的梳理不要求放弃自由，而是让别人知道自己能够依赖哪些条件，不必一直猜测。",
+              "en": "What room to choose do you want, and how does it affect companions? If you may change a route, state what timing can still be confirmed. This need not abandon freedom. It helps others know which conditions they can rely on instead of continually guessing."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "把所有约定都视作限制，可能看不到它们也在保护参与者的时间与同意。可以区分不适合自己的安排，与自己已经明确答应的部分。想改变时主动说明并协商，比让别人承担突发变化更清楚；标签不能让一次失约变得无需回应。",
+              "en": "Treating every agreement as a constraint can overlook how it protects time and consent. Distinguish an unsuitable proposal from a part you have already agreed to. Explain and renegotiate a change rather than leaving its costs to others. A label does not make a broken agreement require no response."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个普通情境",
+            "en": "An everyday situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "外出时你希望留一点自由探索的时间，可以事先约好集合时段，并说明中间可能各自行动。愿意的人再一起参与，不愿意的人也有替代安排。这比先答应全程同行、后来不解释地离开，更能让不同偏好同时成立。",
+              "en": "For an outing, you want time to explore independently. Agree on a meeting interval and say that part of the day may be separate. People can choose whether to join and make an alternative. This accommodates preferences more clearly than agreeing to stay together throughout and then leaving without explanation."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相邻阵营怎样比较",
+            "en": "Comparing neighbouring alignments"
+          },
+          "paragraphs": [
+            {
+              "zh": "绝对中立在本版秩序轴更居中，混乱善良和混乱邪恶主要在另一份计数上不同。不能把混乱善良说成更会交朋友，或把混乱中立说成不愿关心人。比较的是这组选择，现实里的表达、影响与后续回应仍需单独了解。",
+              "en": "True Neutral is more central on the order tally, while Chaotic Good and Chaotic Evil differ mainly on the other one. The labels cannot establish better friendship skills or an unwillingness to care. Compare the selected responses; actual expression, effects and follow-through need separate information."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "在一次想临时调整的小安排里，先说出自己的偏好、对方可能受影响的部分，以及一个愿意共同确认的条件。听完再决定怎样行动。练习的目标是让自主与沟通同时清楚，不是为保持自由精神而拒绝所有固定安排。",
+              "en": "For a small adjustment, state your preference, its possible effect on the other person and one condition you are willing to confirm together. Hear the response before acting. Practise making autonomy and communication clear without rejecting every fixed arrangement to preserve a free-spirit identity."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "混乱中立表示我应该只顾自己吗",
+            "en": "Does Chaotic Neutral mean I should only consider myself?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不表示。结果不提供行为许可，也没有测出别人应该为你承担多少。健康界限与未经同意把代价推给别人是不同问题；本版也不会把拒绝一项不愿承担的请求自动计成邪恶。请根据具体选择与真实影响理解报告。",
+              "en": "It does not. A result gives no permission or measure of what others owe you. A healthy limit differs from shifting an unagreed cost to someone else. This edition also does not automatically score declining an unwanted request as Evil. Interpret the guide through the particular choices and actual effects."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "范围与来源",
+            "en": "Scope and source"
+          },
+          "paragraphs": [
+            {
+              "zh": "本页以SRD 5.2.1的两因素九阵营角色框架为参考，题目、计分分区与解释为费马原创改写，非官方工具，尚无信度、效度或人群常模。它不测真实道德价值、心理健康、暴力风险、能力或职业适配；不把合理自我照顾、拒绝或界限视为邪恶，也不以名称免除具体行为的影响。",
+              "en": "This unofficial quiz adapts the two-factor, nine-alignment character framework in SRD 5.2.1 through original FermatMind questions, display bands and explanations, without established reliability, validity or population norms. It does not assess real moral worth, mental health, violence risk, ability or career fit. Legitimate self-care, refusal and boundaries are not treated as Evil, and a name does not excuse an action’s effects."
+            },
+            {
+              "zh": "授权声明（按原文保留）：This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+              "en": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lawful-evil",
+      "directionIds": [
+        "lawful",
+        "evil"
+      ],
+      "title": {
+        "zh": "守序邪恶",
+        "en": "Lawful Evil"
+      },
+      "headline": {
+        "zh": "核查一套安排让谁获益、又让谁承担代价",
+        "en": "Examine who benefits from an arrangement and who bears its cost"
+      },
+      "summary": {
+        "zh": "守序邪恶在角色框架中把依准则行动与容许他人受损的取向放在一起。本版计数不是对现实品格的判决，也不把剥削美化成能力或领导潜质。",
+        "en": "Lawful Evil combines acting through a code with an orientation that permits costs to others in the character framework. These counts are not a verdict on actual character and do not turn exploitation into ability or leadership potential."
+      },
+      "seo": {
+        "title": {
+          "zh": "守序邪恶结果解读：道德阵营测试",
+          "en": "Lawful Evil Result — Moral Alignment Test"
+        },
+        "description": {
+          "zh": "守序邪恶怎样理解规则与他人承担的代价？阅读框架原义、具体情境、本版计数局限与相邻阵营比较；不把结果当作品格、能力或职业结论。",
+          "en": "Explore Lawful Evil in the character framework: codes, costs to others and this quiz’s limits. Full examples and comparisons without claims about real character or leadership."
+        }
+      },
+      "scoreReading": {
+        "zh": "本版分别看守序端与善良端的原始次数，每轴12题。各轴0—3次为低端，4次同时保留低端与中立，5—7次为中立，8次同时保留中立与高端，9—12次为高端；秩序轴低／高为混乱／守序，另一轴低／高为邪恶／善良。交叉后显示1—4份报告。本规则为原创显示分区，不是官方D&D计分、心理阈值、置信区间或人群排名。",
+        "en": "This edition uses separate Lawful and Good raw counts, with twelve items per axis. For each: 0–3 is low; 4 keeps low and neutral; 5–7 is neutral; 8 keeps neutral and high; 9–12 is high. Low/high is Chaotic/Lawful on order and Evil/Good on the other axis. Their combinations yield one to four complete reports. These original display bands are not official D&D scoring, psychological cutoffs, confidence intervals or population ranks."
+      },
+      "sections": [
+        {
+          "id": "framework",
+          "title": {
+            "zh": "角色框架中的含义",
+            "en": "Meaning in the character framework"
+          },
+          "paragraphs": [
+            {
+              "zh": "官方框架中的这一阵营，会在传统、忠诚或秩序的限制内追求自身目的，也可能利用制度让他人受损。关键不只是有条理，而是怎样对待受到影响的人。正常的自我照顾、拒绝请求或坚持合理界限，不能仅因包含个人利益就被叫作邪恶。",
+              "en": "In the official framework, this alignment pursues its aims within a code of tradition, loyalty or order, potentially using systems at others’ expense. Being organised alone is not the point; treatment of those affected matters. Ordinary self-care, declining a request or maintaining a reasonable limit is not Evil merely because personal interests are involved."
+            }
+          ]
+        },
+        {
+          "id": "score-meaning",
+          "title": {
+            "zh": "本版计分怎样对应",
+            "en": "How this edition maps choices"
+          },
+          "paragraphs": [
+            {
+              "zh": "本次秩序计数较偏守序，另一轴较多选择了容许未经同意的代价由别人承担的选项。这个映射由本版原创规则产生，不是官方问卷、临床工具或道德裁决。请回看具体选择；题目不能验证你真实做过什么、意图如何或是否会造成伤害。",
+              "en": "The order tally leans Lawful, while more responses on the other axis permit someone else to bear an unagreed cost. This mapping comes from original rules in this edition, not an official questionnaire, clinical tool or moral adjudication. Review the choices. The items cannot verify actual conduct, intentions or future harm."
+            }
+          ]
+        },
+        {
+          "id": "reflection",
+          "title": {
+            "zh": "可以带着结果思考的问题",
+            "en": "A question to explore"
+          },
+          "paragraphs": [
+            {
+              "zh": "某项安排看起来符合流程时，是否仍有人不知道自己将承担什么？可以把谁获益、谁付出、谁能提出不同意见分别列清。关注可核实的条件，不用先给自己或别人定性；也别把一个手续完成当成所有影响都已得到回应。",
+              "en": "When an arrangement appears to follow a process, does someone still not know what they will bear? Separate the beneficiary, the cost and who can object. Look at verifiable conditions before labelling anyone. A completed procedure does not by itself establish that every effect has been addressed."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "程序可以提供预期，也可能被用来结束本应继续的讨论。如果自己从安排中获益，值得额外听听受影响者是否真正同意。这里不是在判断任何具体事务是否合法，而是在提醒：符合某个流程与充分顾及他人，是需要分别检查的问题。",
+              "en": "A process can create expectations or be used to end a discussion that still needs attention. If you benefit, hear whether affected people actually agree. This is not a legal assessment of a particular matter. Following a process and attending to others are separate questions to examine."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个普通情境",
+            "en": "An everyday situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "共同完成的材料只写了一个人的名字，即使提交流程已经结束，也仍可以核对贡献和更正方式。先查实际记录、听参与者的说明，再决定怎样修正。不要从一份阵营结果推断谁在算计，也不把工作顺利完成当作忽略署名影响的理由。",
+              "en": "Shared material lists only one contributor. Even after submission, contributions and correction options can be checked. Review records and hear participants before deciding on a revision. An alignment result cannot establish that someone is scheming, and smooth completion does not make the effects of credit irrelevant."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相邻阵营怎样比较",
+            "en": "Comparing neighbouring alignments"
+          },
+          "paragraphs": [
+            {
+              "zh": "守序中立在本版另一轴的计数较居中，中立邪恶在秩序轴较居中。相邻的区别不是“坏得更少”或“更会运用规则”，也不是危险等级。三个位置都只能按本题组选择解释，真实责任与行为影响需要另外了解。",
+              "en": "Lawful Neutral is more central on the other tally here, and Neutral Evil is more central on order. The distinction is not being less bad, better at using rules or more dangerous. All three positions concern this set of responses; actual responsibility and effects need separate information."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一项自己也会获益的普通安排，确认相关的人是否知道条件、能否提出异议，以及有什么代价尚未说明。若有遗漏，先补充信息再继续。练习让受影响者能够知情选择，不是用测试寻找需要被指责的人。",
+              "en": "For an ordinary arrangement benefiting you, check whether people know its conditions, can raise an objection and have been told about costs. Supply missing information before continuing. Practise making an informed choice possible rather than using a quiz to find someone to blame."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "守序邪恶代表很会管理或不需要内疚吗",
+            "en": "Does Lawful Evil imply management skill or permission to ignore harm?"
+          },
+          "paragraphs": [
+            {
+              "zh": "都没有这种结论。题目没有测管理、法律判断、共情或领导力，阵营也不是行为许可。若一项实际行为让别人承担了未同意的损失，应讨论事实、补救与责任，而不是把名称当成强者标签或免于回应的理由。",
+              "en": "Neither conclusion follows. The items do not measure management, legal judgment, empathy or leadership, and an alignment gives no permission. If an actual action imposes an unagreed loss, discuss facts, repair and responsibility rather than turning the name into a powerful persona or an excuse not to respond."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "范围与来源",
+            "en": "Scope and source"
+          },
+          "paragraphs": [
+            {
+              "zh": "本页以SRD 5.2.1的两因素九阵营角色框架为参考，题目、计分分区与解释为费马原创改写，非官方工具，尚无信度、效度或人群常模。它不测真实道德价值、心理健康、暴力风险、能力或职业适配；不把合理自我照顾、拒绝或界限视为邪恶，也不以名称免除具体行为的影响。",
+              "en": "This unofficial quiz adapts the two-factor, nine-alignment character framework in SRD 5.2.1 through original FermatMind questions, display bands and explanations, without established reliability, validity or population norms. It does not assess real moral worth, mental health, violence risk, ability or career fit. Legitimate self-care, refusal and boundaries are not treated as Evil, and a name does not excuse an action’s effects."
+            },
+            {
+              "zh": "授权声明（按原文保留）：This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+              "en": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "neutral-evil",
+      "directionIds": [
+        "order-neutral",
+        "evil"
+      ],
+      "title": {
+        "zh": "中立邪恶",
+        "en": "Neutral Evil"
+      },
+      "headline": {
+        "zh": "分清自己的需要与被转给他人的成本",
+        "en": "Distinguish a personal need from a cost shifted to someone else"
+      },
+      "summary": {
+        "zh": "中立邪恶在角色框架中强调追求自身目的时不在意造成的伤害。本版落入该格子，不证明你符合这种完整描述，也不能把合理自利与伤害别人混为一谈。",
+        "en": "Neutral Evil in the character framework concerns pursuing desires without being troubled by resulting harm. Landing in this cell does not establish that the full description fits you, or make legitimate self-interest equivalent to harming someone."
+      },
+      "seo": {
+        "title": {
+          "zh": "中立邪恶结果解读：道德阵营测试",
+          "en": "Neutral Evil Result — Moral Alignment Test"
+        },
+        "description": {
+          "zh": "中立邪恶不等于正常自利。本页区分未经同意的代价与合理界限，说明角色原义、计分局限和相近结果；完整道德阵营指南免费。",
+          "en": "Read Neutral Evil with its framework meaning, examples and scoring limits. Distinguish unagreed costs from legitimate self-interest in the full free guide."
+        }
+      },
+      "scoreReading": {
+        "zh": "本版分别看守序端与善良端的原始次数，每轴12题。各轴0—3次为低端，4次同时保留低端与中立，5—7次为中立，8次同时保留中立与高端，9—12次为高端；秩序轴低／高为混乱／守序，另一轴低／高为邪恶／善良。交叉后显示1—4份报告。本规则为原创显示分区，不是官方D&D计分、心理阈值、置信区间或人群排名。",
+        "en": "This edition uses separate Lawful and Good raw counts, with twelve items per axis. For each: 0–3 is low; 4 keeps low and neutral; 5–7 is neutral; 8 keeps neutral and high; 9–12 is high. Low/high is Chaotic/Lawful on order and Evil/Good on the other axis. Their combinations yield one to four complete reports. These original display bands are not official D&D scoring, psychological cutoffs, confidence intervals or population ranks."
+      },
+      "sections": [
+        {
+          "id": "framework",
+          "title": {
+            "zh": "角色框架中的含义",
+            "en": "Meaning in the character framework"
+          },
+          "paragraphs": [
+            {
+              "zh": "这一阵营没有把守序或混乱当成首要坚持，重点是追求自己的欲望时怎样看待他人的损失。它不是对务实、灵活或重视个人需要的另一个称赞。是否让别人承担未经同意的代价，和是否照顾自己的生活，是不同的问题。",
+              "en": "Neither order nor chaos is the primary commitment of this alignment. Its point concerns treatment of others’ losses while pursuing desires. It is not another compliment for pragmatism, flexibility or attending to personal needs. Imposing an unagreed cost differs from looking after your own life."
+            }
+          ]
+        },
+        {
+          "id": "score-meaning",
+          "title": {
+            "zh": "本版计分怎样对应",
+            "en": "How this edition maps choices"
+          },
+          "paragraphs": [
+            {
+              "zh": "秩序轴计数处于中间区，另一轴较多选中了把未获同意的代价留给别人的回应。这是原始次数经过本版显示规则后的名称，不是实际人格、动机、危险性或违法行为的认定。边界结果会完整保留，也没有坏人百分比。",
+              "en": "The order tally is central while more responses on the other axis leave an unagreed cost to someone else. This name follows original display rules applied to raw choices. It establishes neither actual personality, motives, dangerousness nor unlawful conduct. Boundary matches remain, without a bad-person percentage."
+            }
+          ]
+        },
+        {
+          "id": "reflection",
+          "title": {
+            "zh": "可以带着结果思考的问题",
+            "en": "A question to explore"
+          },
+          "paragraphs": [
+            {
+              "zh": "当自己获得便利时，是否知道便利的一部分由谁来付出？可以从一项很小的日常安排开始，核对对方是否知情、是否真正愿意。先辨认条件和影响，不靠结果名称猜测谁自私，也不要求自己为了避免标签答应所有请求。",
+              "en": "When a convenience is available, do you know who bears part of its cost? Start with a small everyday arrangement and check whether the person knows and willingly agrees. Examine conditions and effects instead of guessing selfishness from a label or accepting every request to avoid one."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "只看自己是否得利，容易漏掉别人有没有选择空间；只看别人是否满意，也可能忽略自己的合理界限。可以把两件事同时说清：自己的需要是什么，以及哪些成本不应未经同意地转给他人。本题本不会把正常拒绝自动当作邪恶。",
+              "en": "Looking only at personal gain can miss another person’s room to choose; looking only at satisfaction can obscure your own reasonable limits. Name both your need and the costs that should not be transferred without agreement. Normal refusal is not automatically scored as Evil here."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个普通情境",
+            "en": "An everyday situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "一次共同活动的物品有约定份额，你可以先确认自己的需求，再和其他人商量是否有余量。若需要更多，就提出请求，而不是默默挪走别人已经分到的部分。这个例子讨论行为和同意，不凭一份问卷判断任何真实的人是否做过类似事。",
+              "en": "An activity has agreed shares of materials. State your need and ask whether spare supplies exist. If more is needed, request it instead of quietly taking someone’s allocated part. This example concerns conduct and agreement, without using a questionnaire to claim that any actual person has acted that way."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相邻阵营怎样比较",
+            "en": "Comparing neighbouring alignments"
+          },
+          "paragraphs": [
+            {
+              "zh": "守序邪恶与混乱邪恶在本版秩序计数上更靠两端，绝对中立在另一轴更居中。这里不是从较轻到较重的伤害排名。现实影响取决于具体行动与处境，不由两个数字、一个中间位置或一个令人不舒服的名称决定。",
+              "en": "Lawful Evil and Chaotic Evil lie nearer the ends of this edition’s order tally, while True Neutral is more central on the other axis. This is not a ranking from lesser to greater harm. Actual effects depend on actions and circumstances, not two numbers, a central position or an uncomfortable name."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "在下一次共同安排里，把自己的请求明确说出来，同时确认别人可以拒绝。若自己不愿承担某项工作，也直接说明，再共同调整。观察是否减少了未经商量的转移与猜测，而不是试着通过表现得完美来得到另一种阵营。",
+              "en": "In the next shared arrangement, state your request and make room for refusal. If you do not want a task, say so and discuss an adjustment. Notice whether unagreed transfers and guessing decrease rather than trying to perform perfection to earn another alignment."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "选择个人利益就会得到邪恶吗",
+            "en": "Does choosing a personal interest automatically count as Evil?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不会。题目中指向邪恶端的选项，明确涉及容许他人承受未同意的代价、隐瞒相关信息或推卸责任。保护自己的时间、拒绝不愿承担的要求，并不因此成为邪恶。即便如此，本版也没有能力用24题裁定真实道德身份。",
+              "en": "No. Responses assigned to Evil explicitly involve an unagreed cost, withholding relevant information or shifting responsibility. Protecting time or declining an unwanted demand does not become Evil for that reason. Even with this distinction, twenty-four items cannot adjudicate an actual moral identity."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "范围与来源",
+            "en": "Scope and source"
+          },
+          "paragraphs": [
+            {
+              "zh": "本页以SRD 5.2.1的两因素九阵营角色框架为参考，题目、计分分区与解释为费马原创改写，非官方工具，尚无信度、效度或人群常模。它不测真实道德价值、心理健康、暴力风险、能力或职业适配；不把合理自我照顾、拒绝或界限视为邪恶，也不以名称免除具体行为的影响。",
+              "en": "This unofficial quiz adapts the two-factor, nine-alignment character framework in SRD 5.2.1 through original FermatMind questions, display bands and explanations, without established reliability, validity or population norms. It does not assess real moral worth, mental health, violence risk, ability or career fit. Legitimate self-care, refusal and boundaries are not treated as Evil, and a name does not excuse an action’s effects."
+            },
+            {
+              "zh": "授权声明（按原文保留）：This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+              "en": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chaotic-evil",
+      "directionIds": [
+        "chaotic",
+        "evil"
+      ],
+      "title": {
+        "zh": "混乱邪恶",
+        "en": "Chaotic Evil"
+      },
+      "headline": {
+        "zh": "回到具体选择，检查未经同意的代价",
+        "en": "Return to the choices and examine unagreed costs"
+      },
+      "summary": {
+        "zh": "混乱邪恶是游戏角色框架中的极端阵营，官方描述涉及任意暴力与破坏。本版没有评估暴力、仇恨或现实危险，不能因为两轴计数落入这个格子就推断这些特征。",
+        "en": "Chaotic Evil is an extreme alignment in the game framework, whose official description includes arbitrary violence and havoc. This quiz does not assess violence, hatred or actual dangerousness, so those features cannot be inferred from falling into this cell."
+      },
+      "seo": {
+        "title": {
+          "zh": "混乱邪恶结果解读：道德阵营测试",
+          "en": "Chaotic Evil Result — Moral Alignment Test"
+        },
+        "description": {
+          "zh": "混乱邪恶是游戏中的极端阵营，本测试不评估暴力或危险。阅读角色定义、本版计数能与不能说明什么，以及相邻结果；完整解释免费。",
+          "en": "Explore Chaotic Evil’s framework meaning and the limits of this original quiz. Counts do not assess violence or dangerousness. Full examples and comparisons, free."
+        }
+      },
+      "scoreReading": {
+        "zh": "本版分别看守序端与善良端的原始次数，每轴12题。各轴0—3次为低端，4次同时保留低端与中立，5—7次为中立，8次同时保留中立与高端，9—12次为高端；秩序轴低／高为混乱／守序，另一轴低／高为邪恶／善良。交叉后显示1—4份报告。本规则为原创显示分区，不是官方D&D计分、心理阈值、置信区间或人群排名。",
+        "en": "This edition uses separate Lawful and Good raw counts, with twelve items per axis. For each: 0–3 is low; 4 keeps low and neutral; 5–7 is neutral; 8 keeps neutral and high; 9–12 is high. Low/high is Chaotic/Lawful on order and Evil/Good on the other axis. Their combinations yield one to four complete reports. These original display bands are not official D&D scoring, psychological cutoffs, confidence intervals or population ranks."
+      },
+      "sections": [
+        {
+          "id": "framework",
+          "title": {
+            "zh": "角色框架中的含义",
+            "en": "Meaning in the character framework"
+          },
+          "paragraphs": [
+            {
+              "zh": "官方角色概念把缺乏秩序约束与蓄意伤害、破坏等放在一起。这些是叙事中的描述，不应被包装成自由、创造力或真实人的某种优势。本页保留名称是为了完整说明九宫格，并不把它当作值得追求的身份或现实行为建议。",
+              "en": "The official character concept joins a lack of ordered constraint with deliberate harm and havoc. These narrative descriptions should not be repackaged as freedom, creativity or a real person’s advantage. The name is retained to explain the complete grid, not to offer an identity to pursue or behavioural advice."
+            }
+          ]
+        },
+        {
+          "id": "score-meaning",
+          "title": {
+            "zh": "本版计分怎样对应",
+            "en": "How this edition maps choices"
+          },
+          "paragraphs": [
+            {
+              "zh": "本次秩序计数较偏混乱，另一轴较多选择了容许他人承担未获同意代价的选项。本题本只按这两份原始次数映射格子，无法测出官方概念中的暴力、仇恨或破坏动机。请逐项看实际选择，不把框架名称读成对现实风险的评估。",
+              "en": "The order tally leans Chaotic while more responses on the other axis permit unagreed costs to others. This edition maps a cell from those two raw tallies. It cannot measure the violence, hatred or destructive motives in the official concept. Review the selections rather than reading the label as a real risk assessment."
+            }
+          ]
+        },
+        {
+          "id": "reflection",
+          "title": {
+            "zh": "可以带着结果思考的问题",
+            "en": "A question to explore"
+          },
+          "paragraphs": [
+            {
+              "zh": "在想按自己的方式行动时，怎样确认没有让别人被迫承担本不愿承担的部分？可以只看一个具体安排，分清谁知道条件、谁能拒绝、哪些承诺仍需回应。这些问题比猜测自己的真实本性，或用格子判断朋友，更容易得到实际信息。",
+              "en": "When acting your own way, how can you check that someone is not being left with something they did not agree to carry? Examine one arrangement: who knows the conditions, can refuse and still needs a response about a commitment. These questions provide more information than guessing an essential nature or typing a friend."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "自主决定与伤害他人不是同一件事，愤怒或不喜欢规则也不自动等于邪恶。另一方面，结果不是为实际造成的损失开脱的理由。若有具体行为需要修正，就按事实讨论和补救，不必通过维护或反驳一个测试身份来处理。",
+              "en": "Autonomous decisions and harming others are different, and anger or disliking a rule is not automatically Evil. Equally, a result does not excuse an actual loss. Address facts and repair where an action needs correction instead of handling it by defending or rejecting a quiz identity."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个普通情境",
+            "en": "An everyday situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "共同安排临时变化时，可以说明自己不再愿意参加，再商量已经答应的工作怎样交接。直接表达界限与不说明就把负担留给别人，是可以分开处理的行为差异。例子不涉及对任何真实个体的动机或危险性作判断。",
+              "en": "If a shared plan changes, state that you no longer want to join and discuss handing over a task already accepted. Expressing a limit differs from leaving its burden unexplained. These actions can be considered separately without judging an actual person’s motives or dangerousness."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相邻阵营怎样比较",
+            "en": "Comparing neighbouring alignments"
+          },
+          "paragraphs": [
+            {
+              "zh": "混乱中立在本版另一轴较居中，中立邪恶在秩序轴较居中。它们不是经过验证的风险等级，也不预测谁会违反规则或伤害别人。尤其不能因一个人得到混乱邪恶，就替他们诊断、排斥或作职业判断。",
+              "en": "Chaotic Neutral is more central on the other tally here, and Neutral Evil is more central on order. These are not validated risk levels or predictions of rule-breaking or harm. A Chaotic Evil result particularly cannot justify diagnosing, excluding or making employment judgments about someone."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "挑一项正在考虑的小调整，先确认它会影响谁，再把自己的意愿和仍需履行的部分说清。需要改变已有承诺时，主动询问可行的交接。练习关注同意与实际影响，不用再做测试来证明自己一定属于哪个阵营。",
+              "en": "For a small change under consideration, identify those affected and state both your preference and what still needs doing. Ask about a workable handover when a commitment must change. Attend to agreement and effects rather than retaking a quiz to prove membership of a particular alignment."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "这个结果表示我危险或有心理问题吗",
+            "en": "Does this result mean I am dangerous or have a mental-health problem?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不能这样推断。本页既不是危险性评估，也不是心理健康筛查，不包含所需的历史、情境或专业判断。它只显示本版选择计数对应的框架名称。任何需要认真处理的真实行为，都应依据实际情况，而不是由娱乐问卷认定或排除。",
+              "en": "That inference is unsupported. This is neither a risk assessment nor mental-health screening, and contains none of the necessary history, context or professional evaluation. It displays a framework name mapped from this edition’s counts. Address actual conduct through its circumstances rather than establishing or ruling it out with an entertainment quiz."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "范围与来源",
+            "en": "Scope and source"
+          },
+          "paragraphs": [
+            {
+              "zh": "本页以SRD 5.2.1的两因素九阵营角色框架为参考，题目、计分分区与解释为费马原创改写，非官方工具，尚无信度、效度或人群常模。它不测真实道德价值、心理健康、暴力风险、能力或职业适配；不把合理自我照顾、拒绝或界限视为邪恶，也不以名称免除具体行为的影响。",
+              "en": "This unofficial quiz adapts the two-factor, nine-alignment character framework in SRD 5.2.1 through original FermatMind questions, display bands and explanations, without established reliability, validity or population norms. It does not assess real moral worth, mental health, violence risk, ability or career fit. Legitimate self-care, refusal and boundaries are not treated as Evil, and a name does not excuse an action’s effects."
+            },
+            {
+              "zh": "授权声明（按原文保留）：This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+              "en": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "SRD 5.2.1：角色阵营，21—22页（英文）",
+        "en": "SRD 5.2.1: character alignment, pages21–22"
+      },
+      "url": "https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf"
+    },
+    {
+      "title": {
+        "zh": "SRD 来源与版本说明",
+        "en": "SRD source and edition information"
+      },
+      "url": "https://www.dndbeyond.com/srd"
+    },
+    {
+      "title": {
+        "zh": "知识共享署名4.0国际许可",
+        "en": "Creative Commons Attribution4.0International licence"
+      },
+      "url": "https://creativecommons.org/licenses/by/4.0/legalcode"
+    }
+  ],
+  "guide": [
+    {
+      "id": "two-axes",
+      "title": {
+        "zh": "两轴分别计分",
+        "en": "Two separately counted axes"
+      },
+      "paragraphs": [
+        {
+          "zh": "12题比较一致准则与临时自主判断，分别给守序或混乱端加1次；另12题比较顾及他人和容许他人承担未获同意代价的做法，分别给善良或邪恶端加1次。每题只影响所属一轴，两端各出现12次、A/B位置各6次。不合并为总分，也不称统计上已经验证的独立人格因子。",
+          "en": "Twelve items compare a consistent code with autonomous judgment, adding one choice to Lawful or Chaotic. Another twelve compare attention to others with permitting an unagreed cost, adding one to Good or Evil. Each item affects only its own axis. Every endpoint appears twelve times, six in each A/B position. No total is formed and no statistically established independent personality factors are claimed."
+        }
+      ]
+    },
+    {
+      "id": "display-bands",
+      "title": {
+        "zh": "本版原创分区与边界",
+        "en": "Original display bands and boundaries"
+      },
+      "paragraphs": [
+        {
+          "zh": "每轴按守序端或善良端的次数定位：0—3低端，4低端＋中立，5—7中立，8中立＋高端，9—12高端。低端为混乱／邪恶，高端为守序／善良。两个轴交叉可得1—4项匹配，每份完整报告都显示；不按名单或随机数选一个。分区为本版编辑约定，不是官方D&D阈值、常模或测量精度。",
+          "en": "Each axis uses the Lawful or Good tally: 0–3 low; 4 low plus neutral; 5–7 neutral; 8 neutral plus high; 9–12 high. Low is Chaotic/Evil and high is Lawful/Good. Crossing the axes produces one to four matches, each with its complete report, without selection by list order or chance. Bands are editorial conventions here, not official D&D cutoffs, norms or measurement precision."
+        }
+      ]
+    },
+    {
+      "id": "meaning-limits",
+      "title": {
+        "zh": "框架名称与个人判断",
+        "en": "Framework names and personal judgments"
+      },
+      "paragraphs": [
+        {
+          "zh": "SRD以两因素形成九种角色阵营，官方Neutral在网络上也常称True Neutral，本页译为绝对中立。邪恶的角色含义涉及容许伤害或剥削，不等于照顾自己或说不；混乱邪恶的官方描述还涉及暴力，本题本并没有测它。名称只是本版计数映射，不能证明或排除现实品格、心理健康、危险性或实际行为。",
+          "en": "The SRD combines two factors into nine character alignments. Neutral is also commonly called True Neutral online. Evil involves permitting harm or exploitation, rather than self-care or saying no. The official Chaotic Evil description includes violence, which these items do not assess. A mapped name can neither establish nor rule out real character, mental health, dangerousness or actual conduct."
+        }
+      ]
+    },
+    {
+      "id": "source-scope",
+      "title": {
+        "zh": "来源、改写与免费范围",
+        "en": "Source, adaptation and free access"
+      },
+      "paragraphs": [
+        {
+          "zh": "两轴九阵营框架参考SRD 5.2.1，以下保留其许可所要求的署名。24题、原始计数、显示分区和九份解释为费马原创改写，尚无心理测量验证，不复制竞品题库、结果、人物图像或影视台词。全部题目、所有边界匹配和公开报告免费，无需注册；不提供职业适配、名人同型或人群稀有度。",
+          "en": "The two-factor, nine-alignment framework is adapted from SRD 5.2.1, with its required attribution below. FermatMind independently authored the twenty-four items, raw-count display bands and nine explanations without psychometric validation. No competitor bank, results, character artwork or dialogue is reproduced. All questions, boundary matches and public reports are free without signup. There are no career matches, celebrity types or population rarity claims."
+        }
+      ]
+    },
+    {
+      "id": "attribution",
+      "title": {
+        "zh": "授权声明与改动",
+        "en": "Attribution and changes"
+      },
+      "paragraphs": [
+        {
+          "zh": "题目、算法分区与解释为费马原创改写，非官方问卷；授权声明按原文保留：This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+          "en": "Questions, algorithmic display bands and explanations are original FermatMind adaptations. This is an unofficial quiz. This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "道德阵营测试怎样得到九宫格结果？",
+        "en": "How does the Moral Alignment Test produce a grid result?"
+      },
+      "answer": {
+        "zh": "24题分为两组，各12题独立累计原始次数。两条轴各按公开的低端／中立／高端规则定位，再交叉显示阵营；不是从九个角色里随机挑一个，也不把两轴加成总分。",
+        "en": "The twenty-four items form two groups of twelve with separate raw tallies. Each axis uses the published low/neutral/high bands, whose combinations produce the matches. The quiz neither picks randomly among nine characters nor adds both axes into a total."
+      }
+    },
+    {
+      "question": {
+        "zh": "有哪些完整阵营说明？",
+        "en": "Which complete alignment guides are available?"
+      },
+      "answer": {
+        "zh": "守序善良、中立善良、混乱善良、守序中立、绝对中立、混乱中立、守序邪恶、中立邪恶、混乱邪恶。九份都有框架含义、计分读法、情境、取舍、相邻比较和小尝试，可在作答前阅读。",
+        "en": "Lawful Good, Neutral Good, Chaotic Good, Lawful Neutral, True Neutral, Chaotic Neutral, Lawful Evil, Neutral Evil and Chaotic Evil. All nine include framework meaning, score interpretation, examples, tradeoffs, neighbouring comparisons and a small experiment, readable before you answer."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是官方D&D人格测评吗？",
+        "en": "Is this an official D&D personality assessment?"
+      },
+      "answer": {
+        "zh": "不是。角色框架依据SRD 5.2.1的两因素九阵营，遵守其CC-BY-4.0署名要求；题目、计分分区和报告是费马原创改写，尚未完成信效度或常模研究。官方角色描述不能直接证明这份自报问卷有效。",
+        "en": "No. The character framework follows the two-factor, nine-alignment SRD 5.2.1 under its CC-BY-4.0 attribution terms. Items, display bands and reports are original FermatMind adaptations without established validity, reliability or norms. Official character descriptions do not validate a self-report quiz."
+      }
+    },
+    {
+      "question": {
+        "zh": "得到邪恶或混乱结果，表示我危险或很坏吗？",
+        "en": "Does an Evil or Chaotic result mean I am dangerous or bad?"
+      },
+      "answer": {
+        "zh": "不能这样推断。原始计数不评估真实品格、心理健康或危险性，也不裁定实际行为。题目把未经同意转嫁代价与健康界限分开；角色术语不能为伤害开脱，也不能给真实的人贴诊断标签。",
+        "en": "That inference is unsupported. Counts do not assess actual character, mental health or dangerousness, or adjudicate conduct. The items distinguish unagreed costs from healthy limits. A character term neither excuses harm nor supplies a diagnosis for a real person."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么有时出现两项或四项完整结果？",
+        "en": "Why can there be two or four complete matches?"
+      },
+      "answer": {
+        "zh": "某轴守序端或善良端恰好4次或8次时，会同时保留相邻两个分区；两轴都在边界时就是四项。边界是本版显示约定，不是统计置信区间；每份报告都免费完整显示，不用加题、注册或付费打破。",
+        "en": "At exactly four or eight Lawful or Good choices, an axis keeps its two adjacent bands; two such boundaries yield four matches. These are display conventions rather than statistical confidence intervals. Every report is complete and free, without extra questions, signup or payment to break a boundary match."
+      }
+    },
+    {
+      "question": {
+        "zh": "答案、草稿与分享会怎样处理？",
+        "en": "How are answers, drafts and sharing handled?"
+      },
+      "answer": {
+        "zh": "浏览器计算，完整作答后才显示计数。主动开启时仅保存本标签页24小时草稿，刷新或换语言后可主动恢复；完成、退出清除或重测即删除。分享只有阵营名称和公开链接，不含答案、计数或内部ID；禁止存储仍可完成。",
+        "en": "Scoring runs in your browser and counts appear only after completion. An optional draft lasts 24 hours in this tab and can be resumed after a refresh or language change; completion, exit-and-clear or retaking deletes it. Sharing includes names and public links, never answers, counts or internal IDs. You can finish with storage blocked."
+      }
+    }
+  ]
+}

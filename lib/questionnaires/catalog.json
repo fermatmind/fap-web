@@ -231,5 +231,35 @@
       "invisibility",
       "super-strength"
     ]
+  },
+  {
+    "slug": "moral-alignment",
+    "code": "MORAL_ALIGNMENT",
+    "version": "1.0.0",
+    "updated": "2026-10-25",
+    "category": "framework",
+    "title": {
+      "zh": "道德阵营测试",
+      "en": "Moral Alignment Test"
+    },
+    "description": {
+      "zh": "完成24道原创情境二选一，查看两轴原始计数、九宫格位置与所有边界并列报告。九种完整双语阵营说明可先读，免费无需注册；区分角色框架与真实道德判断。",
+      "en": "Take 24 original scenarios, see two raw-count axes and explore all nine D&D-inspired alignment guides. Full results free, including boundary matches. No signup."
+    },
+    "minutes": 7,
+    "collection": "explore",
+    "formCode": "fm_moral_alignment_choices_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "lawful-good",
+      "neutral-good",
+      "chaotic-good",
+      "lawful-neutral",
+      "true-neutral",
+      "chaotic-neutral",
+      "lawful-evil",
+      "neutral-evil",
+      "chaotic-evil"
+    ]
   }
 ]
