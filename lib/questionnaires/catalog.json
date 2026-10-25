@@ -756,5 +756,30 @@
       "bravery",
       "zest"
     ]
+  },
+  {
+    "slug": "tsundere-dere-type",
+    "code": "DERE_STYLE_PLAY",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "metaphor",
+    "title": {
+      "zh": "傲娇类型测试",
+      "en": "Tsundere Type Test"
+    },
+    "description": {
+      "zh": "16道原创情境题，比较傲娇、冷娇、闷娇与热娇四种文化表达原型。全部完整结果免费，无需注册，最高并列都保留；不读心、不预测关系，不把现实拒绝解释为喜欢。",
+      "en": "Take 16 original scenarios and compare tsundere, kuudere, dandere and deredere expression tropes. Full results free, every highest tie kept, no signup."
+    },
+    "minutes": 4,
+    "collection": "explore",
+    "formCode": "fm_dere_style_scenarios_16",
+    "questionCount": 16,
+    "resultSlugs": [
+      "tsundere",
+      "kuudere",
+      "dandere",
+      "deredere"
+    ]
   }
 ]

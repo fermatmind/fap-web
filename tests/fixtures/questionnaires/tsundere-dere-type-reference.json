@@ -1,0 +1,709 @@
+{
+  "formCode": "fm_dere_style_scenarios_16",
+  "origin": "FermatMind original16ENZHvoluntaryexpressionchoices/4culturalfandomlabels/notstandardinstrument",
+  "directions": [
+    {
+      "id": "tsundere",
+      "title": {
+        "zh": "傲娇：逞强里露出关心",
+        "en": "Tsundere: Warmth behind a playful front"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "kuudere",
+      "title": {
+        "zh": "冷娇：平静地表达关心",
+        "en": "Kuudere: Calm expressions of care"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "dandere",
+      "title": {
+        "zh": "闷娇：熟悉之后慢慢表达",
+        "en": "Dandere: Opening up at your own pace"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "deredere",
+      "title": {
+        "zh": "热娇：直接表达温暖",
+        "en": "Deredere: Open expressions of warmth"
+      },
+      "comparisons": 16
+    }
+  ],
+  "questions": [
+    {
+      "id": "DERE_01",
+      "prompt": {
+        "zh": "你和一位彼此愿意往来的朋友约好见面，对方说很期待。哪种回应更像你想采用的表达？",
+        "en": "A friend you both freely choose to spend time with says they look forward to meeting. Which response would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "先打趣“别把我夸得太期待”，再明确说自己也想见面。",
+            "en": "Lightly joke about the buildup, then clearly say I look forward to meeting too."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "平静回复“我也是”，再确认时间地点。",
+            "en": "Reply calmly that I do too, then confirm the time and place."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "dandere",
+          "label": {
+            "zh": "先想一想，随后在私下消息里认真说自己也期待。",
+            "en": "Take a moment, then say sincerely in a private message that I look forward to it too."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接说“我也很期待见到你”，让开心明显一点。",
+            "en": "Say directly that I really look forward to seeing them and let my excitement show."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_02",
+      "prompt": {
+        "zh": "对方帮你找到了遗失的普通小物件，你想表达感谢。更想怎样做？",
+        "en": "They help find an ordinary item you misplaced. How would you prefer to express thanks?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "简短道谢，把物件妥善放好，并记住这次帮助。",
+            "en": "Thank them briefly, put the item away and remember the help."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "dandere",
+          "label": {
+            "zh": "当面轻声道谢，稍后再发一条完整的感谢。",
+            "en": "Thank them softly in person and send a fuller thank-you later."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接说“太谢谢你了”，清楚表达自己的轻松和开心。",
+            "en": "Thank them openly and show how relieved and pleased I feel."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "笑着说“这回算你厉害”，接着认真道谢。",
+            "en": "Smile and playfully give them this round, then thank them sincerely."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_03",
+      "prompt": {
+        "zh": "你想称赞朋友刚完成的一件日常作品。哪种表达更合你意？",
+        "en": "You want to compliment something ordinary a friend made. Which expression appeals to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dandere",
+          "label": {
+            "zh": "等到比较自在的两人时刻，再小声说出具体欣赏。",
+            "en": "Wait for a comfortable one-to-one moment and quietly describe what I appreciate."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接告诉对方我喜欢哪里，让称赞和高兴都显出来。",
+            "en": "Tell them directly what I like and let both the praise and pleasure show."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "先说“这次真让我挑不出毛病”，再讲清喜欢的细节。",
+            "en": "Playfully say it leaves me little to nitpick, then name the detail I genuinely like."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "挑一个具体细节，平稳地说它处理得不错。",
+            "en": "Choose one specific detail and calmly say it works well."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_04",
+      "prompt": {
+        "zh": "你们都同意一起散步。讨论路线时，你更想怎样表达关心？",
+        "en": "You have both agreed to take a walk. How would you prefer to show care while choosing the route?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接说希望大家都走得开心，再热情讨论可行路线。",
+            "en": "Say openly that I want us both to enjoy it, then discuss workable routes enthusiastically."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "轻轻逞强说“我可不是只顾自己”，再问哪条走着舒服。",
+            "en": "Make a light self-conscious quip, then ask which route feels comfortable for them."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "平静问清路程和休息需要，整理两个可选安排。",
+            "en": "Calmly check distance and rest needs, then outline two options."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dandere",
+          "label": {
+            "zh": "先听一会儿，再在熟悉的节奏里补充自己的体贴想法。",
+            "en": "Listen first, then add a considerate suggestion once I settle into the conversation."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_05",
+      "prompt": {
+        "zh": "你看到一件让你想到朋友爱好的小事，想告诉对方。哪种消息更像你的选择？",
+        "en": "You notice something connected with a friend’s hobby and want to mention it. Which message would you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "用“碰巧看到的，可别笑我记性好”开头，再分享内容。",
+            "en": "Open with a playful remark about remembering their hobby, then share what I noticed."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "发一条简洁消息，说明是什么以及为什么可能相关。",
+            "en": "Send a concise message explaining what it is and why it may interest them."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "dandere",
+          "label": {
+            "zh": "先留着，等到一段自在的私下交流再分享。",
+            "en": "Keep it for a relaxed private exchange and share it then."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接说“看到这个就想到你”，明白表达分享的开心。",
+            "en": "Say directly that it made me think of them and show my pleasure in sharing."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_06",
+      "prompt": {
+        "zh": "一次普通聚会结束，你想向愿意继续往来的朋友道别。更想采用哪种方式？",
+        "en": "An ordinary gathering is ending and you want to say goodbye to a friend. Which way would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "平静说今天不错，确认对方已经安排好自己的后续行程。",
+            "en": "Calmly say it was a good time and check they have their own onward plans."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "dandere",
+          "label": {
+            "zh": "现场简短道别，回去后再写下自己很开心的感受。",
+            "en": "Keep the goodbye brief and write later that I enjoyed the time together."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接说舍不得结束但很开心，愿意的话下次再约。",
+            "en": "Openly say I enjoyed it and would like another meeting if they want one too."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "打趣一句“下次可别让我等太久”，再明确说这次很开心。",
+            "en": "Make a gentle quip about another meeting, then clearly say I enjoyed this one."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_07",
+      "prompt": {
+        "zh": "朋友问你是否愿意听一小段好消息，你也愿意听。更想怎样回应？",
+        "en": "A friend asks whether you want to hear a little good news, and you do. How would you respond?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dandere",
+          "label": {
+            "zh": "先轻声答应，听到熟悉的话题后再渐渐加入回应。",
+            "en": "Agree softly and gradually join in as the topic becomes familiar."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接表现期待，用明亮的回应邀请对方分享。",
+            "en": "Show my anticipation openly and warmly invite them to share."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "先玩笑说“那你得讲得精彩”，随后明确说愿意听。",
+            "en": "Playfully ask for a good telling, then clearly say I would like to hear it."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "简短说“愿意，你讲”，安静把注意力放过去。",
+            "en": "Say briefly that I would, then quietly give it my attention."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_08",
+      "prompt": {
+        "zh": "你想为朋友留一张普通的鼓励小纸条。哪种语气更像你愿意写的？",
+        "en": "You want to leave a small everyday note of encouragement for a friend. Which tone would you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "deredere",
+          "label": {
+            "zh": "“我很为你开心，这个进展值得好好高兴一下。”",
+            "en": "An openly happy note celebrating the progress with them."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "“可别以为我只会挑刺，这次真的做得不错。”",
+            "en": "A playful admission that I do notice their good work, followed by sincere encouragement."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "“这部分已经完成得很清楚，按你的节奏继续。”",
+            "en": "A calm note naming what is already clear and leaving them their own pace."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dandere",
+          "label": {
+            "zh": "“当面没说出来，其实我很欣赏你做的这一点。”",
+            "en": "A quiet note saying what I appreciated but did not manage to say in person."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_09",
+      "prompt": {
+        "zh": "与朋友一起做小安排时，你发现自己记错了一项无关紧要的信息。你更想怎样修正？",
+        "en": "While making a small arrangement, you realise you misremembered an unimportant detail. How would you correct it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "有点不好意思地自嘲一下，再清楚承认记错并改正。",
+            "en": "Use a self-conscious little joke, then clearly acknowledge and correct the mistake."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "平静说“我刚才记错了，实际是这样”，直接修正。",
+            "en": "Calmly state that I misremembered and give the correction."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "dandere",
+          "label": {
+            "zh": "稍停片刻整理措辞，再认真说明错误和正确内容。",
+            "en": "Pause to find my words, then carefully explain the error and correction."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接承认，带着友好语气感谢对方一起核清。",
+            "en": "Acknowledge it openly and warmly thank them for checking it with me."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_10",
+      "prompt": {
+        "zh": "有人在朋友面前称赞你，而你愿意接受这次称赞。哪种回应更合你的表达习惯？",
+        "en": "Someone compliments you in front of a friend and you want to accept it. Which response would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "平静道谢，简短说明自己完成了哪一部分。",
+            "en": "Thank them calmly and briefly name the part I completed."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "dandere",
+          "label": {
+            "zh": "当下轻声说谢谢，之后在熟悉交流中再谈感受。",
+            "en": "Say a quiet thank-you now and discuss my feelings later in a familiar exchange."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接说自己很开心收到肯定，也感谢具体的观察。",
+            "en": "Say openly that I am pleased by the recognition and appreciate the specific comment."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "笑着说“再夸我就要不好意思了”，然后明确道谢。",
+            "en": "Playfully admit that more praise will embarrass me, then clearly say thanks."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_11",
+      "prompt": {
+        "zh": "你们已经同意互相帮一个小忙，朋友再次确认。哪种回应更像你？",
+        "en": "You have both agreed to help each other with a small task and the friend checks again. Which response would you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dandere",
+          "label": {
+            "zh": "先认真核对一遍，再用比较私下的语气表示愿意。",
+            "en": "Check the details carefully, then express willingness in a more private tone."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接说愿意，也表达能一起完成这件事的高兴。",
+            "en": "Say yes directly and show that I am glad we can do this together."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "轻松打趣“都答应了，还不信我呀”，再明确确认范围。",
+            "en": "Gently joke that I already agreed, then clearly confirm the scope."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "简短确认自己能做的部分和时间。",
+            "en": "Briefly confirm the part I can do and when."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_12",
+      "prompt": {
+        "zh": "你和朋友对一个普通活动偏好不同，但都愿意继续商量。你更想怎样表达？",
+        "en": "You prefer different ordinary activities but both want to keep discussing them. How would you express yourself?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接说自己想做什么，也热情邀请对方说明喜欢什么。",
+            "en": "Say openly what I would enjoy and warmly invite their preference too."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "轻轻逞强说“我的提议也不差吧”，再认真听其他选择。",
+            "en": "Playfully defend my suggestion, then genuinely listen to alternatives."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "平静说明自己的偏好，逐项比较可行安排。",
+            "en": "State my preference calmly and compare workable arrangements."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dandere",
+          "label": {
+            "zh": "先听双方想法，想清后再温和补充自己的选择。",
+            "en": "Listen first and add my preference gently after thinking it through."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_13",
+      "prompt": {
+        "zh": "你们在一段安静的共同时间里各做各的事，你想表示陪伴很舒服。更想怎样说？",
+        "en": "You are quietly doing separate things together and want to say the company is comfortable. How would you say it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "有点别扭地玩笑说“这样待着还不赖”，再承认很喜欢。",
+            "en": "Offer a slightly bashful quip that it is not bad, then acknowledge that I like it."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "平静说“这样一起待着挺好”，继续舒服的节奏。",
+            "en": "Calmly say that being together like this is good and keep the comfortable pace."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "dandere",
+          "label": {
+            "zh": "先在心里整理一下，再趁两人自在时轻声说出。",
+            "en": "Gather my words and say it softly during a comfortable moment."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接说“能这样陪着我很开心”，让温暖明显表达。",
+            "en": "Say directly that I am happy to share this time and let the warmth show."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_14",
+      "prompt": {
+        "zh": "你与一位逐渐熟悉的新朋友都愿意继续聊天。哪种变化更像你想采用的方式？",
+        "en": "You and a new friend both want to continue talking as you become familiar. Which way of opening up appeals to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "保持平静简洁，但用更具体的回应表示在意。",
+            "en": "Stay calm and concise while making my care more specific."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "dandere",
+          "label": {
+            "zh": "一开始话少，熟悉后逐渐多分享一点自己的感受。",
+            "en": "Speak little initially and gradually share more feelings as familiarity grows."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "deredere",
+          "label": {
+            "zh": "较早直接表达友善和兴趣，让热情自然显出来。",
+            "en": "Express friendliness and interest directly from early on and let my enthusiasm show."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "从轻松逞强的小玩笑开始，再慢慢把真实关心说清。",
+            "en": "Begin with gently defensive joking and gradually make genuine care explicit."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_15",
+      "prompt": {
+        "zh": "朋友记住了你提过的一个普通偏好，你想回应这份留意。哪种方式更合意？",
+        "en": "A friend remembers an ordinary preference you mentioned. How would you like to respond to that attention?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dandere",
+          "label": {
+            "zh": "当下稍有些害羞，之后私下认真说这让自己开心。",
+            "en": "Feel a little bashful now and say privately later that it pleased me."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "deredere",
+          "label": {
+            "zh": "当即直接说“你还记得，我很开心”，表达温暖。",
+            "en": "Immediately say that I am happy they remembered and express warmth openly."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "打趣“记得还挺清楚嘛”，随后明确说自己很感谢。",
+            "en": "Playfully acknowledge their good memory, then clearly say I appreciate it."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "简洁道谢，并指出对方记住了哪个细节。",
+            "en": "Thank them concisely and name the detail they remembered."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_16",
+      "prompt": {
+        "zh": "一次双方都愿意的交流后，你想发一条后续消息。哪种写法更像你的选择？",
+        "en": "After an exchange you both wanted, you would like to send a follow-up message. Which style would you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接写下开心和感谢，让对方不必猜我的意思。",
+            "en": "Write my pleasure and thanks directly so my meaning needs no guessing."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "带一点逞强玩笑，但明确说自己确实享受这次交流。",
+            "en": "Include a gently guarded joke while clearly saying I enjoyed the exchange."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "简短平静地感谢，留下下一次可以联系的空间。",
+            "en": "Send brief, calm thanks and leave room for another conversation."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dandere",
+          "label": {
+            "zh": "想好措辞后私下发出，比当面更容易表达温暖。",
+            "en": "Find my words and send them privately, where expressing warmth feels easier."
+          }
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "eachChoice": 1,
+    "equalExposure": 16,
+    "eachPosition": 4,
+    "all16Required": true,
+    "result": "allhighestcounts;alltiesretainfullreports;noarbitrarysecondary/percentage/norm;countgapnotvalidateddifference",
+    "sourceDP": "all969reachablecountvectors(sum16,4nonnegativeparts),15highestmatchsets;not4^16 individualanswer execution orpsychometricvalidation"
+  },
+  "scope": "16originalENZH4choice everyday voluntaryaffection scenes/4selectedculturaltropes;noanimecharacters/protectedart;notIDR35/7orJob20bank;no personality/attachment/sexualidentity/mindreading/compatibility/ability/clinicalassessment",
+  "instructions": {
+    "zh": "把题目当作普通、双方自愿来往的朋友之间的表达选择；可按自己想采用的方式回答，也可以只想象情境。每题选一个更合意的表达，不替别人猜意愿。所有情境都以愿意参与和可以拒绝为前提；现实中的“不”、沉默、退开和不舒服都不解释成隐藏的喜欢。16题全部选择后，仅比较本题组次数，保留所有最高并列；不想继续可以退出并清除。",
+    "en": "Treat these as everyday expression choices between friends who freely want the exchange. Answer for a style you would prefer, or simply imagine the situation. Choose one expression per question without guessing another person’s willingness. Every scene assumes voluntary participation and a right to decline. A real no, silence, withdrawal or discomfort is never interpreted as hidden affection. After all 16 choices, only counts within this set are compared and every highest tie is retained. You can exit and clear the attempt."
+  }
+}

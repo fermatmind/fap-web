@@ -1,0 +1,1476 @@
+{
+  "slug": "tsundere-dere-type",
+  "code": "DERE_STYLE_PLAY",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "metaphor",
+  "kind": "archetype",
+  "title": {
+    "zh": "傲娇类型测试",
+    "en": "Tsundere Type Test"
+  },
+  "resultHeading": {
+    "zh": "本次表达选择与全部最高并列",
+    "en": "Your expression choices and every highest tie"
+  },
+  "description": {
+    "zh": "16道原创情境题，比较傲娇、冷娇、闷娇与热娇四种文化表达原型。全部完整结果免费，无需注册，最高并列都保留；不读心、不预测关系，不把现实拒绝解释为喜欢。",
+    "en": "Take 16 original scenarios and compare tsundere, kuudere, dandere and deredere expression tropes. Full results free, every highest tie kept, no signup."
+  },
+  "seoTitle": {
+    "zh": "傲娇类型测试：16题、四种原型与完整结果",
+    "en": "Tsundere Type Test: 16 Questions and Full Dere Results"
+  },
+  "minutes": 4,
+  "introduction": {
+    "zh": "想说关心时，你更想先轻轻逞强一下、平静简短地说、熟悉之后私下补充，还是直接表达开心？这份趣味测试用16个普通、自愿互动的情境，比较你选择的表达句式。傲娇、冷娇、闷娇和热娇只是本版挑选的四个文化标签，不代表人类只有四种表达，也不把“嘴硬”当作判断别人真实想法的工具。所有完整说明都可以先读。",
+    "en": "When you want to express care, would you choose a light guarded joke, calm brevity, a private word once comfortable or openly expressed pleasure? Sixteen ordinary, voluntary-interaction scenarios compare the expressions you choose. Tsundere, kuudere, dandere and deredere are four cultural labels selected for this edition, not the only ways people communicate or tools for decoding someone else’s real thoughts. Read every full public guide first if you wish."
+  },
+  "instructions": {
+    "zh": "把题目当作普通、双方自愿来往的朋友之间的表达选择；可按自己想采用的方式回答，也可以只想象情境。每题选一个更合意的表达，不替别人猜意愿。所有情境都以愿意参与和可以拒绝为前提；现实中的“不”、沉默、退开和不舒服都不解释成隐藏的喜欢。16题全部选择后，仅比较本题组次数，保留所有最高并列；不想继续可以退出并清除。",
+    "en": "Treat these as everyday expression choices between friends who freely want the exchange. Answer for a style you would prefer, or simply imagine the situation. Choose one expression per question without guessing another person’s willingness. Every scene assumes voluntary participation and a right to decline. A real no, silence, withdrawal or discomfort is never interpreted as hidden affection. After all 16 choices, only counts within this set are compared and every highest tie is retained. You can exit and clear the attempt."
+  },
+  "source": {
+    "kind": "FermatMindoriginal16ENZH4culturalexpressiontropes/notpsychologicalinstrument",
+    "formCode": "fm_dere_style_scenarios_16",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "2d69ffda5c979682260485e1bf1c4239e867ef4a7262fe103cc14ce2a6e4db96",
+    "resultContentSha256": "a2161ef65db3b59a8c7d64bf738a030e68dfd08e9b45b705e442bdb721db600f",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "tsundere",
+      "title": {
+        "zh": "傲娇：逞强里露出关心",
+        "en": "Tsundere: Warmth behind a playful front"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "kuudere",
+      "title": {
+        "zh": "冷娇：平静地表达关心",
+        "en": "Kuudere: Calm expressions of care"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "dandere",
+      "title": {
+        "zh": "闷娇：熟悉之后慢慢表达",
+        "en": "Dandere: Opening up at your own pace"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "deredere",
+      "title": {
+        "zh": "热娇：直接表达温暖",
+        "en": "Deredere: Open expressions of warmth"
+      },
+      "comparisons": 16
+    }
+  ],
+  "questions": [
+    {
+      "id": "DERE_01",
+      "prompt": {
+        "zh": "你和一位彼此愿意往来的朋友约好见面，对方说很期待。哪种回应更像你想采用的表达？",
+        "en": "A friend you both freely choose to spend time with says they look forward to meeting. Which response would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "先打趣“别把我夸得太期待”，再明确说自己也想见面。",
+            "en": "Lightly joke about the buildup, then clearly say I look forward to meeting too."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "平静回复“我也是”，再确认时间地点。",
+            "en": "Reply calmly that I do too, then confirm the time and place."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "dandere",
+          "label": {
+            "zh": "先想一想，随后在私下消息里认真说自己也期待。",
+            "en": "Take a moment, then say sincerely in a private message that I look forward to it too."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接说“我也很期待见到你”，让开心明显一点。",
+            "en": "Say directly that I really look forward to seeing them and let my excitement show."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_02",
+      "prompt": {
+        "zh": "对方帮你找到了遗失的普通小物件，你想表达感谢。更想怎样做？",
+        "en": "They help find an ordinary item you misplaced. How would you prefer to express thanks?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "简短道谢，把物件妥善放好，并记住这次帮助。",
+            "en": "Thank them briefly, put the item away and remember the help."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "dandere",
+          "label": {
+            "zh": "当面轻声道谢，稍后再发一条完整的感谢。",
+            "en": "Thank them softly in person and send a fuller thank-you later."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接说“太谢谢你了”，清楚表达自己的轻松和开心。",
+            "en": "Thank them openly and show how relieved and pleased I feel."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "笑着说“这回算你厉害”，接着认真道谢。",
+            "en": "Smile and playfully give them this round, then thank them sincerely."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_03",
+      "prompt": {
+        "zh": "你想称赞朋友刚完成的一件日常作品。哪种表达更合你意？",
+        "en": "You want to compliment something ordinary a friend made. Which expression appeals to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dandere",
+          "label": {
+            "zh": "等到比较自在的两人时刻，再小声说出具体欣赏。",
+            "en": "Wait for a comfortable one-to-one moment and quietly describe what I appreciate."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接告诉对方我喜欢哪里，让称赞和高兴都显出来。",
+            "en": "Tell them directly what I like and let both the praise and pleasure show."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "先说“这次真让我挑不出毛病”，再讲清喜欢的细节。",
+            "en": "Playfully say it leaves me little to nitpick, then name the detail I genuinely like."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "挑一个具体细节，平稳地说它处理得不错。",
+            "en": "Choose one specific detail and calmly say it works well."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_04",
+      "prompt": {
+        "zh": "你们都同意一起散步。讨论路线时，你更想怎样表达关心？",
+        "en": "You have both agreed to take a walk. How would you prefer to show care while choosing the route?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接说希望大家都走得开心，再热情讨论可行路线。",
+            "en": "Say openly that I want us both to enjoy it, then discuss workable routes enthusiastically."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "轻轻逞强说“我可不是只顾自己”，再问哪条走着舒服。",
+            "en": "Make a light self-conscious quip, then ask which route feels comfortable for them."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "平静问清路程和休息需要，整理两个可选安排。",
+            "en": "Calmly check distance and rest needs, then outline two options."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dandere",
+          "label": {
+            "zh": "先听一会儿，再在熟悉的节奏里补充自己的体贴想法。",
+            "en": "Listen first, then add a considerate suggestion once I settle into the conversation."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_05",
+      "prompt": {
+        "zh": "你看到一件让你想到朋友爱好的小事，想告诉对方。哪种消息更像你的选择？",
+        "en": "You notice something connected with a friend’s hobby and want to mention it. Which message would you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "用“碰巧看到的，可别笑我记性好”开头，再分享内容。",
+            "en": "Open with a playful remark about remembering their hobby, then share what I noticed."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "发一条简洁消息，说明是什么以及为什么可能相关。",
+            "en": "Send a concise message explaining what it is and why it may interest them."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "dandere",
+          "label": {
+            "zh": "先留着，等到一段自在的私下交流再分享。",
+            "en": "Keep it for a relaxed private exchange and share it then."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接说“看到这个就想到你”，明白表达分享的开心。",
+            "en": "Say directly that it made me think of them and show my pleasure in sharing."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_06",
+      "prompt": {
+        "zh": "一次普通聚会结束，你想向愿意继续往来的朋友道别。更想采用哪种方式？",
+        "en": "An ordinary gathering is ending and you want to say goodbye to a friend. Which way would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "平静说今天不错，确认对方已经安排好自己的后续行程。",
+            "en": "Calmly say it was a good time and check they have their own onward plans."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "dandere",
+          "label": {
+            "zh": "现场简短道别，回去后再写下自己很开心的感受。",
+            "en": "Keep the goodbye brief and write later that I enjoyed the time together."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接说舍不得结束但很开心，愿意的话下次再约。",
+            "en": "Openly say I enjoyed it and would like another meeting if they want one too."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "打趣一句“下次可别让我等太久”，再明确说这次很开心。",
+            "en": "Make a gentle quip about another meeting, then clearly say I enjoyed this one."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_07",
+      "prompt": {
+        "zh": "朋友问你是否愿意听一小段好消息，你也愿意听。更想怎样回应？",
+        "en": "A friend asks whether you want to hear a little good news, and you do. How would you respond?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dandere",
+          "label": {
+            "zh": "先轻声答应，听到熟悉的话题后再渐渐加入回应。",
+            "en": "Agree softly and gradually join in as the topic becomes familiar."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接表现期待，用明亮的回应邀请对方分享。",
+            "en": "Show my anticipation openly and warmly invite them to share."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "先玩笑说“那你得讲得精彩”，随后明确说愿意听。",
+            "en": "Playfully ask for a good telling, then clearly say I would like to hear it."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "简短说“愿意，你讲”，安静把注意力放过去。",
+            "en": "Say briefly that I would, then quietly give it my attention."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_08",
+      "prompt": {
+        "zh": "你想为朋友留一张普通的鼓励小纸条。哪种语气更像你愿意写的？",
+        "en": "You want to leave a small everyday note of encouragement for a friend. Which tone would you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "deredere",
+          "label": {
+            "zh": "“我很为你开心，这个进展值得好好高兴一下。”",
+            "en": "An openly happy note celebrating the progress with them."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "“可别以为我只会挑刺，这次真的做得不错。”",
+            "en": "A playful admission that I do notice their good work, followed by sincere encouragement."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "“这部分已经完成得很清楚，按你的节奏继续。”",
+            "en": "A calm note naming what is already clear and leaving them their own pace."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dandere",
+          "label": {
+            "zh": "“当面没说出来，其实我很欣赏你做的这一点。”",
+            "en": "A quiet note saying what I appreciated but did not manage to say in person."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_09",
+      "prompt": {
+        "zh": "与朋友一起做小安排时，你发现自己记错了一项无关紧要的信息。你更想怎样修正？",
+        "en": "While making a small arrangement, you realise you misremembered an unimportant detail. How would you correct it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "有点不好意思地自嘲一下，再清楚承认记错并改正。",
+            "en": "Use a self-conscious little joke, then clearly acknowledge and correct the mistake."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "平静说“我刚才记错了，实际是这样”，直接修正。",
+            "en": "Calmly state that I misremembered and give the correction."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "dandere",
+          "label": {
+            "zh": "稍停片刻整理措辞，再认真说明错误和正确内容。",
+            "en": "Pause to find my words, then carefully explain the error and correction."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接承认，带着友好语气感谢对方一起核清。",
+            "en": "Acknowledge it openly and warmly thank them for checking it with me."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_10",
+      "prompt": {
+        "zh": "有人在朋友面前称赞你，而你愿意接受这次称赞。哪种回应更合你的表达习惯？",
+        "en": "Someone compliments you in front of a friend and you want to accept it. Which response would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "平静道谢，简短说明自己完成了哪一部分。",
+            "en": "Thank them calmly and briefly name the part I completed."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "dandere",
+          "label": {
+            "zh": "当下轻声说谢谢，之后在熟悉交流中再谈感受。",
+            "en": "Say a quiet thank-you now and discuss my feelings later in a familiar exchange."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接说自己很开心收到肯定，也感谢具体的观察。",
+            "en": "Say openly that I am pleased by the recognition and appreciate the specific comment."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "笑着说“再夸我就要不好意思了”，然后明确道谢。",
+            "en": "Playfully admit that more praise will embarrass me, then clearly say thanks."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_11",
+      "prompt": {
+        "zh": "你们已经同意互相帮一个小忙，朋友再次确认。哪种回应更像你？",
+        "en": "You have both agreed to help each other with a small task and the friend checks again. Which response would you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dandere",
+          "label": {
+            "zh": "先认真核对一遍，再用比较私下的语气表示愿意。",
+            "en": "Check the details carefully, then express willingness in a more private tone."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接说愿意，也表达能一起完成这件事的高兴。",
+            "en": "Say yes directly and show that I am glad we can do this together."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "轻松打趣“都答应了，还不信我呀”，再明确确认范围。",
+            "en": "Gently joke that I already agreed, then clearly confirm the scope."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "简短确认自己能做的部分和时间。",
+            "en": "Briefly confirm the part I can do and when."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_12",
+      "prompt": {
+        "zh": "你和朋友对一个普通活动偏好不同，但都愿意继续商量。你更想怎样表达？",
+        "en": "You prefer different ordinary activities but both want to keep discussing them. How would you express yourself?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接说自己想做什么，也热情邀请对方说明喜欢什么。",
+            "en": "Say openly what I would enjoy and warmly invite their preference too."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "轻轻逞强说“我的提议也不差吧”，再认真听其他选择。",
+            "en": "Playfully defend my suggestion, then genuinely listen to alternatives."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "平静说明自己的偏好，逐项比较可行安排。",
+            "en": "State my preference calmly and compare workable arrangements."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dandere",
+          "label": {
+            "zh": "先听双方想法，想清后再温和补充自己的选择。",
+            "en": "Listen first and add my preference gently after thinking it through."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_13",
+      "prompt": {
+        "zh": "你们在一段安静的共同时间里各做各的事，你想表示陪伴很舒服。更想怎样说？",
+        "en": "You are quietly doing separate things together and want to say the company is comfortable. How would you say it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "有点别扭地玩笑说“这样待着还不赖”，再承认很喜欢。",
+            "en": "Offer a slightly bashful quip that it is not bad, then acknowledge that I like it."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "平静说“这样一起待着挺好”，继续舒服的节奏。",
+            "en": "Calmly say that being together like this is good and keep the comfortable pace."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "dandere",
+          "label": {
+            "zh": "先在心里整理一下，再趁两人自在时轻声说出。",
+            "en": "Gather my words and say it softly during a comfortable moment."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接说“能这样陪着我很开心”，让温暖明显表达。",
+            "en": "Say directly that I am happy to share this time and let the warmth show."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_14",
+      "prompt": {
+        "zh": "你与一位逐渐熟悉的新朋友都愿意继续聊天。哪种变化更像你想采用的方式？",
+        "en": "You and a new friend both want to continue talking as you become familiar. Which way of opening up appeals to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "保持平静简洁，但用更具体的回应表示在意。",
+            "en": "Stay calm and concise while making my care more specific."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "dandere",
+          "label": {
+            "zh": "一开始话少，熟悉后逐渐多分享一点自己的感受。",
+            "en": "Speak little initially and gradually share more feelings as familiarity grows."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "deredere",
+          "label": {
+            "zh": "较早直接表达友善和兴趣，让热情自然显出来。",
+            "en": "Express friendliness and interest directly from early on and let my enthusiasm show."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "从轻松逞强的小玩笑开始，再慢慢把真实关心说清。",
+            "en": "Begin with gently defensive joking and gradually make genuine care explicit."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_15",
+      "prompt": {
+        "zh": "朋友记住了你提过的一个普通偏好，你想回应这份留意。哪种方式更合意？",
+        "en": "A friend remembers an ordinary preference you mentioned. How would you like to respond to that attention?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dandere",
+          "label": {
+            "zh": "当下稍有些害羞，之后私下认真说这让自己开心。",
+            "en": "Feel a little bashful now and say privately later that it pleased me."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "deredere",
+          "label": {
+            "zh": "当即直接说“你还记得，我很开心”，表达温暖。",
+            "en": "Immediately say that I am happy they remembered and express warmth openly."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "打趣“记得还挺清楚嘛”，随后明确说自己很感谢。",
+            "en": "Playfully acknowledge their good memory, then clearly say I appreciate it."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "简洁道谢，并指出对方记住了哪个细节。",
+            "en": "Thank them concisely and name the detail they remembered."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DERE_16",
+      "prompt": {
+        "zh": "一次双方都愿意的交流后，你想发一条后续消息。哪种写法更像你的选择？",
+        "en": "After an exchange you both wanted, you would like to send a follow-up message. Which style would you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "deredere",
+          "label": {
+            "zh": "直接写下开心和感谢，让对方不必猜我的意思。",
+            "en": "Write my pleasure and thanks directly so my meaning needs no guessing."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "tsundere",
+          "label": {
+            "zh": "带一点逞强玩笑，但明确说自己确实享受这次交流。",
+            "en": "Include a gently guarded joke while clearly saying I enjoyed the exchange."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "kuudere",
+          "label": {
+            "zh": "简短平静地感谢，留下下一次可以联系的空间。",
+            "en": "Send brief, calm thanks and leave room for another conversation."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dandere",
+          "label": {
+            "zh": "想好措辞后私下发出，比当面更容易表达温暖。",
+            "en": "Find my words and send them privately, where expressing warmth feels easier."
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "tsundere",
+      "directionIds": [
+        "tsundere"
+      ],
+      "title": {
+        "zh": "傲娇：逞强里露出关心",
+        "en": "Tsundere: Warmth behind a Playful Front"
+      },
+      "headline": {
+        "zh": "选择中的表达原型，现实意愿仍要直接尊重。",
+        "en": "An expression trope in your choices; real willingness still matters."
+      },
+      "summary": {
+        "zh": "在这些自愿互动选项中，你较常选择先轻轻逞强、再明确关心的表达。读具体反差和界限，不把现实拒绝解释成暗恋。",
+        "en": "Read a playful front followed by explicit care through a concrete example, comparisons and boundaries. Real rejection is never decoded as hidden affection."
+      },
+      "scoreReading": {
+        "zh": "全部16题各选一个表达，每次只给对应文化标签加1。四类在每题各出现一次，总曝光均为16次，在四个位置各出现4次；分母16是本题组机会数，不是性格相似度或人群比例。完成前不派结果，完成后保留所有最高计数匹配，每份匹配完整呈现；四项同为4次时四份都显示。差1次不证明显著、稳定主副型或哪种风格更真实。可以同时阅读其他公开说明，但不会因先读结果改分；本方法没有常模、验证阈值或预测效度。",
+        "en": "Choose one expression for every one of the 16 questions. Each choice adds one to its cultural label. All four labels appear once per question, each with 16 opportunities and four appearances in each position. The denominator is an opportunity count, not a personality-match percentage or population rate. No result is assigned before completion. Every highest count retains its full report; four equal counts of four display all four reports. One extra choice establishes neither significance, a stable primary–secondary identity nor a truer style. You can read other public guides without affecting scoring. This method has no norms, validated cutoffs or predictive validity."
+      },
+      "seo": {
+        "title": {
+          "zh": "傲娇：逞强里露出关心｜傲娇类型完整结果",
+          "en": "Tsundere Type Result: Playful Front and Clear Care"
+        },
+        "description": {
+          "zh": "在这些自愿互动选项中，你较常选择先轻轻逞强、再明确关心的表达。读具体反差和界限，不把现实拒绝解释成暗恋。",
+          "en": "Read the full tsundere result with examples, comparisons and boundaries. A playful expression trope never makes a real no into hidden affection."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本版原型指什么",
+            "en": "What this trope means here"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版的傲娇保留文化标签中的表达反差：嘴上有一点别扭或逞强，关心却需要清楚说出。题目把它限定为轻松、不伤人的自选句式，而不是讽刺、辱骂或忽略拒绝。你选择了哪些表达，不等于你内心一定藏着感情、过去受过伤或现实中属于某种人格。",
+              "en": "Tsundere here keeps the cultural contrast in expression: a slightly guarded or bashful front followed by care made explicit. The items limit this to light, non-hurtful wording you choose, rather than insults or disregarding rejection. Choosing those expressions establishes neither concealed feelings, a history of hurt nor a fixed personality you possess in real life."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数怎样阅读",
+            "en": "Reading the count"
+          },
+          "paragraphs": [
+            {
+              "zh": "若这一项计数最高，只能说本题组里这种反差句式出现得更多。较少选择也不代表你更坦率或不够可爱；你可能偏好其他表达，或不想在这些情境里开玩笑。不同朋友、语言和当日心情可能使选择不同，没有需要努力达到的理想傲娇比例。",
+              "en": "If this has a highest count, that contrast appeared more often in your choices within this set. Choosing it less often establishes neither greater honesty nor insufficient charm. Other expressions or a dislike of joking in these situations may fit better. Friends, language and mood may change choices; there is no ideal tsundere proportion to reach."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体表达例子",
+            "en": "A concrete expression example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你本来就想感谢朋友记住自己的口味，可以说：“记性还挺好嘛，谢谢你记得，我确实很开心。”前半句带一点轻松逞强，后半句让意思明确。若对方不喜欢这种玩笑，直接改说感谢即可；不需要让对方先猜中，才算理解你。",
+              "en": "For example, you already want to thank a friend for remembering a preference. You might say, “You do remember things! Thank you for remembering; I’m genuinely pleased.” The first part is playful and the second makes the meaning explicit. If the joke is unwelcome, use direct thanks; they need not guess correctly to show that they understand you."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "把意思和边界说清",
+            "en": "Making meaning and boundaries clear"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以先问：“我这样开玩笑你觉得舒服吗？不喜欢的话我就直接说。”如果对方回答不喜欢，照其字面意思处理。现实中说“不想见”“不愿意”或退开，都不因为傲娇标签变成同意；不确定就停下，而不是等对方证明藏在话后的真心。",
+              "en": "You could ask, “Is that kind of joking comfortable for you? I can say it directly instead.” Take an unwelcome response literally. In real life, declining a meeting, saying no or moving away never becomes agreement through a tsundere label. If uncertain, pause rather than waiting for someone to prove a supposed feeling behind their words."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他原型比较",
+            "en": "Comparing other tropes"
+          },
+          "paragraphs": [
+            {
+              "zh": "傲娇与热娇都可能表达关心，区别在本版选项是否先带一层轻松逞强；不是谁爱得更深。冷娇偏平静简短，不需要前后反差；闷娇偏熟悉后或私下慢慢说。几个计数相近时，可以比较具体句式，别把一两次差距变成固定主型和副型。",
+              "en": "Tsundere and deredere can both express care; here they differ in whether a light guarded front comes first, not in depth of love. Kuudere stays calm and brief without that contrast; dandere opens up with familiarity or privately. With close counts, compare actual wording rather than turning one or two choices into fixed primary and secondary identities."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and inference limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，一个人在不舒服时说冷淡的话，可能确实不想互动；不能把这称为可爱反差。另一个人偶尔打趣，也可能只是习惯，并没有恋爱意思。题目没有检查他人的感受、信任、稳定性或关系质量，不提供读心、配对、职业或心理健康结论。",
+              "en": "Someone speaking coldly when uncomfortable may actually want no interaction; that is not an invitation to reframe it as an endearing contrast. An occasional joke may also be habit without romantic interest. These questions check no other person’s feelings, trust, stability or relationship quality, and provide no mind-reading, compatibility, career or mental-health verdict."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，挑一句本来就想表达的普通感谢，分别写一个轻松版和一个直接版，再选自己愿意、对方也接受的方式。不联系不想来往的人，不制造嫉妒或拒绝来测试关系。小观察关注意思是否清楚，不证明你更迷人，也不要求改变自己的表达。",
+              "en": "If you wish, write a playful and a direct version of an ordinary thank-you you already want to express. Choose a form you want and the recipient welcomes. Contact no unwilling person or manufacture jealousy or rejection to test a relationship. Observe clarity of meaning without proving greater appeal or requiring a change to your preferred expression."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "16题原始次数与并列",
+            "en": "16-item raw counts and ties"
+          },
+          "paragraphs": [
+            {
+              "zh": "全部16题各选一个表达，每次只给对应文化标签加1。四类在每题各出现一次，总曝光均为16次，在四个位置各出现4次；分母16是本题组机会数，不是性格相似度或人群比例。完成前不派结果，完成后保留所有最高计数匹配，每份匹配完整呈现；四项同为4次时四份都显示。差1次不证明显著、稳定主副型或哪种风格更真实。可以同时阅读其他公开说明，但不会因先读结果改分；本方法没有常模、验证阈值或预测效度。",
+              "en": "Choose one expression for every one of the 16 questions. Each choice adds one to its cultural label. All four labels appear once per question, each with 16 opportunities and four appearances in each position. The denominator is an opportunity count, not a personality-match percentage or population rate. No result is assigned before completion. Every highest count retains its full report; four equal counts of four display all four reports. One extra choice establishes neither significance, a stable primary–secondary identity nor a truer style. You can read other public guides without affecting scoring. This method has no norms, validated cutoffs or predictive validity."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "文化来源与原创版本",
+            "en": "Cultural context and original edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "四个名称是本版选取的动漫和网络文化表达原型，不是统一、完整或经过验证的心理分类。小学馆《数字大辞泉》的词条说明傲娇常用于人物设置，电子书出版方词汇表也在作品语境解释冷娇；这些来源只帮助理解文化用语，不认证本版题目。16题、选项、完整解释、示例和计分安排均由费马独立编写，没有采用JobCannon20题、IDRlabs35题或其正文、角色图、作品设定、代码和算法。本版限定为自愿、无伤害的普通表达，不代表全部“dere”变体。无性别、恋爱状态、能力、职业、依恋或临床判断，不用于替别人确定意愿、隐藏感情或相处价值。",
+              "en": "These four names are selected anime and internet-culture expression tropes, not a unified, complete or validated psychological classification. Shogakukan’s Digital Daijisen describes tsundere as a character-setting term, while a fiction publisher’s glossary explains kuudere in a narrative context. Those sources clarify cultural usage, not validity of these items. FermatMind independently authored all 16 questions, options, guides, examples and scoring arrangements without adopting JobCannon’s 20 items, IDRlabs’ 35 items or their bodies, character art, settings, code or algorithms. This edition limits choices to voluntary, non-hurtful everyday expression and does not represent every dere variation. It establishes neither gender, relationship status, ability, career fit, attachment nor a clinical condition, and cannot determine anyone else’s willingness, concealed feelings or value as a companion."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kuudere",
+      "directionIds": [
+        "kuudere"
+      ],
+      "title": {
+        "zh": "冷娇：平静地表达关心",
+        "en": "Kuudere: Calm Expressions of Care"
+      },
+      "headline": {
+        "zh": "选择中的表达原型，现实意愿仍要直接尊重。",
+        "en": "An expression trope in your choices; real willingness still matters."
+      },
+      "summary": {
+        "zh": "较常选择平静、简洁或具体安排的关心句式，不等于没有情绪，也不认证抗压、可信度或内心感情。",
+        "en": "Explore calm, concise expressions and practical arrangements through an everyday example, without treating composure as proven trust, ability or hidden love."
+      },
+      "scoreReading": {
+        "zh": "全部16题各选一个表达，每次只给对应文化标签加1。四类在每题各出现一次，总曝光均为16次，在四个位置各出现4次；分母16是本题组机会数，不是性格相似度或人群比例。完成前不派结果，完成后保留所有最高计数匹配，每份匹配完整呈现；四项同为4次时四份都显示。差1次不证明显著、稳定主副型或哪种风格更真实。可以同时阅读其他公开说明，但不会因先读结果改分；本方法没有常模、验证阈值或预测效度。",
+        "en": "Choose one expression for every one of the 16 questions. Each choice adds one to its cultural label. All four labels appear once per question, each with 16 opportunities and four appearances in each position. The denominator is an opportunity count, not a personality-match percentage or population rate. No result is assigned before completion. Every highest count retains its full report; four equal counts of four display all four reports. One extra choice establishes neither significance, a stable primary–secondary identity nor a truer style. You can read other public guides without affecting scoring. This method has no norms, validated cutoffs or predictive validity."
+      },
+      "seo": {
+        "title": {
+          "zh": "冷娇：平静地表达关心｜傲娇类型完整结果",
+          "en": "Kuudere Type Result: Calm Expressions of Care"
+        },
+        "description": {
+          "zh": "较常选择平静、简洁或具体安排的关心句式，不等于没有情绪，也不认证抗压、可信度或内心感情。",
+          "en": "Explore the full kuudere result through concise care, dialogue and comparisons. Calm expression does not certify trust, composure or hidden feelings."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本版原型指什么",
+            "en": "What this trope means here"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版冷娇指表面表达平静、用简短文字或具体安排传达关心的文化原型。它不是情绪冷漠的诊断，也不说明内心一直稳定或特别深情。题目只让你选想采用的句式，没有观察压力表现、身体反应或别人是否真的接收到你的关心。",
+              "en": "Kuudere here is a cultural trope of calm expression, using concise words or concrete arrangements to communicate care. It is no diagnosis of emotional coldness and establishes neither stable inner feelings nor exceptional devotion. The questions concern expressions you would choose, without observing pressure performance, physical responses or whether someone actually received the intended care."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数怎样阅读",
+            "en": "Reading the count"
+          },
+          "paragraphs": [
+            {
+              "zh": "若计数最高，这类平静表达在本次16个选择里较常出现。较少选择不意味着你不稳重，较多也不意味着你比较可靠。你可以喜欢说短句，同时有强烈情绪；也可以当面平静、在别的方式里热情。单个计数不能替你决定情绪或身份。",
+              "en": "If the count is a highest one, calm expressions appeared more often among these 16 choices. Fewer establish no lack of composure; more establish no reliability. You can prefer short sentences while feeling strongly, or appear calm in person and expressive elsewhere. A tally cannot determine either your internal emotions or an identity on your behalf."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体表达例子",
+            "en": "A concrete expression example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，朋友帮忙找到物品后，你简短说“谢谢，这个确实帮到我了”，再把物品收好。句子短，意思仍可以清楚。但对方如何理解需要其真实回应，不能假设沉默必然让人安心，也不要求你用更多情绪表演来证明感谢。",
+              "en": "For example, after a friend finds an item, you might say briefly, “Thank you; that really helped,” and put it away. A short sentence can still be clear. Its reception depends on the other person’s actual response. Silence does not necessarily reassure them, and you need no larger emotional performance to prove appreciation."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "把意思和边界说清",
+            "en": "Making meaning and boundaries clear"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我说得比较简短，但这次确实很感谢你。如果刚才没讲清楚，我愿意补一句。”对方可以说需要哪些信息，你也可以说明自己不想公开哪些感受。清楚表达与保留私人空间可以并存，不必把简短当成别人应该自动理解的暗号。",
+              "en": "You could say, “I tend to be brief, but I really appreciated this. I can clarify if that was unclear.” The other person can name information they need, while you can keep feelings private. Clarity and privacy can coexist; brevity need not become a code that another person is expected to understand automatically."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他原型比较",
+            "en": "Comparing other tropes"
+          },
+          "paragraphs": [
+            {
+              "zh": "冷娇与闷娇都可能话少，但本版冷娇选项持续偏平静简短，闷娇更偏先等待、熟悉或私下再表达。它们不是天生冷静与社交焦虑的分类。与热娇比较时，是表达的明显程度不同，不是关心的多少；傲娇则多一层轻松反差。",
+              "en": "Kuudere and dandere may both use few words, but the kuudere options remain calm and concise, while dandere more often waits for familiarity or privacy. They do not divide natural composure from social anxiety. Compared with deredere, visibility differs rather than quantity of care; tsundere adds a light contrast in wording before making care clear."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and inference limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，有人平静是因为累、分心、语言限制或想结束谈话，并没有隐藏的关心。另一人愿意做具体安排，也不保证其承诺会兑现。实际意愿、界限和行为都要分别核对，本结果不能证明忠诚、应急能力、恋爱成熟度或不易被操控。",
+              "en": "Someone may be calm because they are tired, distracted, limited by language or ending a conversation, with no hidden affection. Offering practical arrangements also guarantees no follow-through. Willingness, boundaries and conduct need separate examination. This result cannot establish loyalty, emergency competence, romantic maturity or resistance to manipulation through a cultural label."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，选一项已经想表达的普通关心，用一句具体的话说明想法，再看是否有必要补充条件。不测试对方能否猜懂，不要求自己变得外放，也不把别人要求说明当成不够信任。观察只帮助核对表达，不验证稳定性或保证关系改善。",
+              "en": "If you wish, put an ordinary caring intention into one concrete sentence, then decide whether conditions need adding. Do not test whether someone can guess it, force yourself to become demonstrative or treat a request for clarification as insufficient trust. The observation checks expression without validating stability or guaranteeing any improvement in a relationship."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "16题原始次数与并列",
+            "en": "16-item raw counts and ties"
+          },
+          "paragraphs": [
+            {
+              "zh": "全部16题各选一个表达，每次只给对应文化标签加1。四类在每题各出现一次，总曝光均为16次，在四个位置各出现4次；分母16是本题组机会数，不是性格相似度或人群比例。完成前不派结果，完成后保留所有最高计数匹配，每份匹配完整呈现；四项同为4次时四份都显示。差1次不证明显著、稳定主副型或哪种风格更真实。可以同时阅读其他公开说明，但不会因先读结果改分；本方法没有常模、验证阈值或预测效度。",
+              "en": "Choose one expression for every one of the 16 questions. Each choice adds one to its cultural label. All four labels appear once per question, each with 16 opportunities and four appearances in each position. The denominator is an opportunity count, not a personality-match percentage or population rate. No result is assigned before completion. Every highest count retains its full report; four equal counts of four display all four reports. One extra choice establishes neither significance, a stable primary–secondary identity nor a truer style. You can read other public guides without affecting scoring. This method has no norms, validated cutoffs or predictive validity."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "文化来源与原创版本",
+            "en": "Cultural context and original edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "四个名称是本版选取的动漫和网络文化表达原型，不是统一、完整或经过验证的心理分类。小学馆《数字大辞泉》的词条说明傲娇常用于人物设置，电子书出版方词汇表也在作品语境解释冷娇；这些来源只帮助理解文化用语，不认证本版题目。16题、选项、完整解释、示例和计分安排均由费马独立编写，没有采用JobCannon20题、IDRlabs35题或其正文、角色图、作品设定、代码和算法。本版限定为自愿、无伤害的普通表达，不代表全部“dere”变体。无性别、恋爱状态、能力、职业、依恋或临床判断，不用于替别人确定意愿、隐藏感情或相处价值。",
+              "en": "These four names are selected anime and internet-culture expression tropes, not a unified, complete or validated psychological classification. Shogakukan’s Digital Daijisen describes tsundere as a character-setting term, while a fiction publisher’s glossary explains kuudere in a narrative context. Those sources clarify cultural usage, not validity of these items. FermatMind independently authored all 16 questions, options, guides, examples and scoring arrangements without adopting JobCannon’s 20 items, IDRlabs’ 35 items or their bodies, character art, settings, code or algorithms. This edition limits choices to voluntary, non-hurtful everyday expression and does not represent every dere variation. It establishes neither gender, relationship status, ability, career fit, attachment nor a clinical condition, and cannot determine anyone else’s willingness, concealed feelings or value as a companion."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dandere",
+      "directionIds": [
+        "dandere"
+      ],
+      "title": {
+        "zh": "闷娇：熟悉之后慢慢表达",
+        "en": "Dandere: Opening Up at Your Own Pace"
+      },
+      "headline": {
+        "zh": "选择中的表达原型，现实意愿仍要直接尊重。",
+        "en": "An expression trope in your choices; real willingness still matters."
+      },
+      "summary": {
+        "zh": "较常选择先整理、私下或熟悉后表达温暖的句式，保留安静的权利，不诊断害羞、焦虑或依恋类型。",
+        "en": "Read expressions that wait for familiarity, privacy or time to find words, with concrete examples and boundaries rather than anxiety or attachment labels."
+      },
+      "scoreReading": {
+        "zh": "全部16题各选一个表达，每次只给对应文化标签加1。四类在每题各出现一次，总曝光均为16次，在四个位置各出现4次；分母16是本题组机会数，不是性格相似度或人群比例。完成前不派结果，完成后保留所有最高计数匹配，每份匹配完整呈现；四项同为4次时四份都显示。差1次不证明显著、稳定主副型或哪种风格更真实。可以同时阅读其他公开说明，但不会因先读结果改分；本方法没有常模、验证阈值或预测效度。",
+        "en": "Choose one expression for every one of the 16 questions. Each choice adds one to its cultural label. All four labels appear once per question, each with 16 opportunities and four appearances in each position. The denominator is an opportunity count, not a personality-match percentage or population rate. No result is assigned before completion. Every highest count retains its full report; four equal counts of four display all four reports. One extra choice establishes neither significance, a stable primary–secondary identity nor a truer style. You can read other public guides without affecting scoring. This method has no norms, validated cutoffs or predictive validity."
+      },
+      "seo": {
+        "title": {
+          "zh": "闷娇：熟悉之后慢慢表达｜傲娇类型完整结果",
+          "en": "Dandere Type Result: Opening Up at Your Own Pace"
+        },
+        "description": {
+          "zh": "较常选择先整理、私下或熟悉后表达温暖的句式，保留安静的权利，不诊断害羞、焦虑或依恋类型。",
+          "en": "Read the full dandere result with private expression, timing, examples and comparisons. No pressure to disclose or anxiety, attachment or identity label."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本版原型指什么",
+            "en": "What this trope means here"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版闷娇指在不熟悉或公开场合先保留，较自在、熟悉或私下时再表达温暖的文化原型。它不是社交焦虑、回避依恋或内向性的测量。题目问想采用的方式，没有确定你为什么安静，也没有证明别人一旦努力就能获得更亲密的版本。",
+              "en": "Dandere here is a cultural trope of holding back in unfamiliar or public settings and expressing warmth with comfort, familiarity or privacy. It measures neither social anxiety, avoidant attachment nor introversion. The questions ask about preferred expressions without establishing why you are quiet or promising someone closer access if they try hard enough."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数怎样阅读",
+            "en": "Reading the count"
+          },
+          "paragraphs": [
+            {
+              "zh": "若这一项计数最高，本次比较里较常选先想一想、稍后私下表达。较少选择也不说明没有谨慎或不珍惜隐私。你可以对某个人自在、对另一件事需要时间，这不要求解释成隐藏真实自我。是否、何时和向谁表达，仍由你自己决定。",
+              "en": "If this is a highest count, waiting or expressing something privately appeared more often in this comparison. Fewer choices establish neither carelessness nor disregard for privacy. You may feel comfortable with one person and need time for another subject, without a hidden true self. Whether, when and to whom you express something remain your choices."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体表达例子",
+            "en": "A concrete expression example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，朋友当众展示一件作品，你当时只说了简短的“不错”。之后若自己愿意，可以私下补充“我刚才没来得及讲，那处细节我很喜欢”。这个例子保留慢一点表达的空间，不把当时话少解释成不关心，也不要求后来必须补发消息。",
+              "en": "For example, a friend shows something they made in a group, and you offer only a brief response. If you want, you can later say privately, “I didn’t find the words earlier; I particularly liked that detail.” The example leaves room for slower expression without equating few words with indifference or requiring a later message."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "把意思和边界说清",
+            "en": "Making meaning and boundaries clear"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我需要一点时间组织语言，愿意说的时候会自己补充；现在先这样就好。”若对方继续追问，也可以结束这个话题。熟悉不等于欠对方所有感受，温暖也不需要通过公开表白证明；别人拒绝交流时，同样需要尊重其选择。",
+              "en": "You could say, “I need time to find my words and will add something if I want to; this is enough for now.” You can end the subject if questions continue. Familiarity creates no debt of complete disclosure, and warmth requires no public declaration. Another person declining an exchange deserves the same respect for their choice."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他原型比较",
+            "en": "Comparing other tropes"
+          },
+          "paragraphs": [
+            {
+              "zh": "闷娇与冷娇都可能安静，但本版闷娇在熟悉、私下和等待措辞后更容易表达，冷娇则偏简洁平稳的形式。与傲娇比较，前者侧重时机，后者多一层轻松逞强；热娇更直接。相近计数只帮助比较选项，不给沉默寻找统一的心理原因。",
+              "en": "Dandere and kuudere may both be quiet; here dandere more often waits for familiarity, privacy or words, while kuudere favours a consistently concise form. Compared with tsundere, the emphasis is timing rather than a playful front; deredere is more direct. Close counts compare expressions without assigning one psychological cause to every period of silence."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and inference limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，有人一直不想说，可能就是不想参与，而不是等着合适的人来打开；另一个人私下话多，也不说明其所有公开沉默都来自害羞。题目不能解释关系安全、信任程度、神经差异或隐藏爱意，更不支持催促、试探和替别人宣布其真实想法。",
+              "en": "Someone who does not want to speak may simply not want the exchange, rather than waiting for the right person to open them up. Being talkative privately also explains no particular public silence. These questions cannot establish relationship safety, trust, neurodivergence or hidden affection, and support neither pressure, tests nor declaring another person’s real thoughts for them."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，为一句本来就想表达的话，选择自己舒服的时间、渠道和范围；也可以只写给自己，不发送。不要为了证明成长而公开私人经历，不要求别人配合等待或追问。这个小观察关注表达条件，不验证心理变化，也没有必须变得外向的终点。",
+              "en": "If you wish, choose a comfortable time, medium and scope for something you already want to express, or write privately without sending it. Reveal no personal experience to prove growth, and require no one to wait or probe. Observe conditions for expression without validating psychological change or treating greater extraversion as a required destination."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "16题原始次数与并列",
+            "en": "16-item raw counts and ties"
+          },
+          "paragraphs": [
+            {
+              "zh": "全部16题各选一个表达，每次只给对应文化标签加1。四类在每题各出现一次，总曝光均为16次，在四个位置各出现4次；分母16是本题组机会数，不是性格相似度或人群比例。完成前不派结果，完成后保留所有最高计数匹配，每份匹配完整呈现；四项同为4次时四份都显示。差1次不证明显著、稳定主副型或哪种风格更真实。可以同时阅读其他公开说明，但不会因先读结果改分；本方法没有常模、验证阈值或预测效度。",
+              "en": "Choose one expression for every one of the 16 questions. Each choice adds one to its cultural label. All four labels appear once per question, each with 16 opportunities and four appearances in each position. The denominator is an opportunity count, not a personality-match percentage or population rate. No result is assigned before completion. Every highest count retains its full report; four equal counts of four display all four reports. One extra choice establishes neither significance, a stable primary–secondary identity nor a truer style. You can read other public guides without affecting scoring. This method has no norms, validated cutoffs or predictive validity."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "文化来源与原创版本",
+            "en": "Cultural context and original edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "四个名称是本版选取的动漫和网络文化表达原型，不是统一、完整或经过验证的心理分类。小学馆《数字大辞泉》的词条说明傲娇常用于人物设置，电子书出版方词汇表也在作品语境解释冷娇；这些来源只帮助理解文化用语，不认证本版题目。16题、选项、完整解释、示例和计分安排均由费马独立编写，没有采用JobCannon20题、IDRlabs35题或其正文、角色图、作品设定、代码和算法。本版限定为自愿、无伤害的普通表达，不代表全部“dere”变体。无性别、恋爱状态、能力、职业、依恋或临床判断，不用于替别人确定意愿、隐藏感情或相处价值。",
+              "en": "These four names are selected anime and internet-culture expression tropes, not a unified, complete or validated psychological classification. Shogakukan’s Digital Daijisen describes tsundere as a character-setting term, while a fiction publisher’s glossary explains kuudere in a narrative context. Those sources clarify cultural usage, not validity of these items. FermatMind independently authored all 16 questions, options, guides, examples and scoring arrangements without adopting JobCannon’s 20 items, IDRlabs’ 35 items or their bodies, character art, settings, code or algorithms. This edition limits choices to voluntary, non-hurtful everyday expression and does not represent every dere variation. It establishes neither gender, relationship status, ability, career fit, attachment nor a clinical condition, and cannot determine anyone else’s willingness, concealed feelings or value as a companion."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deredere",
+      "directionIds": [
+        "deredere"
+      ],
+      "title": {
+        "zh": "热娇：直接表达温暖",
+        "en": "Deredere: Open Expressions of Warmth"
+      },
+      "headline": {
+        "zh": "选择中的表达原型，现实意愿仍要直接尊重。",
+        "en": "An expression trope in your choices; real willingness still matters."
+      },
+      "summary": {
+        "zh": "较常选择把开心、感谢和关心直接说出来，结合具体例子看清楚表达与对方接受程度的区别。",
+        "en": "Explore direct expressions of pleasure, thanks and care through concrete examples, while distinguishing visible warmth from another person’s willingness."
+      },
+      "scoreReading": {
+        "zh": "全部16题各选一个表达，每次只给对应文化标签加1。四类在每题各出现一次，总曝光均为16次，在四个位置各出现4次；分母16是本题组机会数，不是性格相似度或人群比例。完成前不派结果，完成后保留所有最高计数匹配，每份匹配完整呈现；四项同为4次时四份都显示。差1次不证明显著、稳定主副型或哪种风格更真实。可以同时阅读其他公开说明，但不会因先读结果改分；本方法没有常模、验证阈值或预测效度。",
+        "en": "Choose one expression for every one of the 16 questions. Each choice adds one to its cultural label. All four labels appear once per question, each with 16 opportunities and four appearances in each position. The denominator is an opportunity count, not a personality-match percentage or population rate. No result is assigned before completion. Every highest count retains its full report; four equal counts of four display all four reports. One extra choice establishes neither significance, a stable primary–secondary identity nor a truer style. You can read other public guides without affecting scoring. This method has no norms, validated cutoffs or predictive validity."
+      },
+      "seo": {
+        "title": {
+          "zh": "热娇：直接表达温暖｜傲娇类型完整结果",
+          "en": "Deredere Type Result: Open Expressions of Warmth"
+        },
+        "description": {
+          "zh": "较常选择把开心、感谢和关心直接说出来，结合具体例子看清楚表达与对方接受程度的区别。",
+          "en": "Explore the full deredere result with direct thanks, warm words and boundaries. Visible affection never determines another person’s willingness."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本版原型指什么",
+            "en": "What this trope means here"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版热娇指较直接、明显地表达友善、开心和关心的文化原型。它不意味着没有分寸、对所有人都亲密，或必须一直积极。题目只记录你选择的表达形式，没有验证别人是否觉得温暖，也不能证明你没有保留或比其他类型更真诚。",
+              "en": "Deredere here is a cultural trope of expressing friendliness, pleasure and care directly and visibly. It need not mean lacking boundaries, closeness with everyone or constant positivity. The questions record chosen expressions without verifying that anyone experiences them as warm, or establishing that you are unguarded or more sincere than someone choosing another style."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数怎样阅读",
+            "en": "Reading the count"
+          },
+          "paragraphs": [
+            {
+              "zh": "若计数最高，这些直白温暖句式在本次16题里较常被选。较少选择不等于冷淡，较多也不保证更受欢迎。你仍然可以累、不开心、需要独处或不想接触某个人。一个娱乐标签不能让别人要求你持续提供热情、微笑或情绪照顾。",
+              "en": "If this count is a highest one, openly warm expressions were chosen more often in these 16 situations. Fewer imply no coldness, and more guarantee no popularity. You can still feel tired, unhappy, need solitude or decline contact with someone. An entertainment label creates no duty to provide continuous enthusiasm, smiles or emotional care for others."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体表达例子",
+            "en": "A concrete expression example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你确实愿意参加一次双方都想要的见面，可以直接说：“我很期待这次见面，能一起聊聊很开心。”这把本人的感受说清，但没有替对方决定感受，也不要求对方同样热烈。若安排后来改变，仍可以重新确认或取消，不需维持标签形象。",
+              "en": "If you want a meeting that both people freely choose, you might say, “I’m looking forward to seeing you; I’m happy we can talk.” That states your own feeling without deciding theirs or requiring equal enthusiasm. If arrangements change, you can check again or cancel without maintaining an identity based on the label."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "把意思和边界说清",
+            "en": "Making meaning and boundaries clear"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我表达得比较明显，你愿意怎样回应都可以；如果现在想安静也直接告诉我。”当对方说需要空间时，就实际留出空间，而不是再增加消息或惊喜。明确表达的是自己，不是用热情替双方定义亲密程度或把不同节奏判成不够喜欢。",
+              "en": "You could say, “I’m fairly expressive; respond however you want, and tell me if you want quiet now.” When someone asks for space, actually leave it rather than increasing messages or surprises. Openness expresses your position; it does not define intimacy for both people or turn a different pace into insufficient affection."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他原型比较",
+            "en": "Comparing other tropes"
+          },
+          "paragraphs": [
+            {
+              "zh": "热娇与傲娇的区别在本版是是否直接说关心，而不是感情强弱；冷娇用简短平静的方式，闷娇更留意熟悉与私下时机。几种表达可以在不同场合切换，最高并列也都保留。没有哪种最好，更不从这些句式推导外向、依恋安全或关系成功。",
+              "en": "Here deredere differs from tsundere in directness rather than intensity of feeling; kuudere uses calm brevity and dandere favours familiarity or privacy. Expressions can change by setting, and every highest tie remains visible. None is best, and these wording choices establish neither extraversion, secure attachment nor the future success of a relationship."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and inference limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，一个人很会说热情的话，也可能没有核对对方是否愿意；另一个人不明显表达，也可能认真履行承诺。实际相处要看意愿、行为和界限，不能只看句式。问卷不测魅力、忠诚、情绪稳定或沟通能力，也不要求为关系结果承担单方面责任。",
+              "en": "Someone can use enthusiastic words without checking whether they are welcome, while someone less demonstrative may keep commitments carefully. Actual interaction depends on willingness, conduct and boundaries rather than wording alone. This questionnaire measures neither charm, loyalty, emotional stability nor communication ability, and assigns no one-sided responsibility for a relationship’s outcome."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，选一次真实想说的感谢，用一句具体的话说明感谢什么，并给对方不回应的空间。不追加期待对方同样表达的要求，不拿反应测试关系。可以只在纸上练习，也可以不做；小观察关注清楚和自愿，不保证增进感情或改变类型。",
+              "en": "If you wish, express a genuine thank-you in one specific sentence and leave room for no reply. Add no demand for equally expressive reciprocation or use the response as a relationship test. Private writing or skipping is acceptable. Observe clarity and willingness without promising greater affection or a change in your assigned cultural type."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "16题原始次数与并列",
+            "en": "16-item raw counts and ties"
+          },
+          "paragraphs": [
+            {
+              "zh": "全部16题各选一个表达，每次只给对应文化标签加1。四类在每题各出现一次，总曝光均为16次，在四个位置各出现4次；分母16是本题组机会数，不是性格相似度或人群比例。完成前不派结果，完成后保留所有最高计数匹配，每份匹配完整呈现；四项同为4次时四份都显示。差1次不证明显著、稳定主副型或哪种风格更真实。可以同时阅读其他公开说明，但不会因先读结果改分；本方法没有常模、验证阈值或预测效度。",
+              "en": "Choose one expression for every one of the 16 questions. Each choice adds one to its cultural label. All four labels appear once per question, each with 16 opportunities and four appearances in each position. The denominator is an opportunity count, not a personality-match percentage or population rate. No result is assigned before completion. Every highest count retains its full report; four equal counts of four display all four reports. One extra choice establishes neither significance, a stable primary–secondary identity nor a truer style. You can read other public guides without affecting scoring. This method has no norms, validated cutoffs or predictive validity."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "文化来源与原创版本",
+            "en": "Cultural context and original edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "四个名称是本版选取的动漫和网络文化表达原型，不是统一、完整或经过验证的心理分类。小学馆《数字大辞泉》的词条说明傲娇常用于人物设置，电子书出版方词汇表也在作品语境解释冷娇；这些来源只帮助理解文化用语，不认证本版题目。16题、选项、完整解释、示例和计分安排均由费马独立编写，没有采用JobCannon20题、IDRlabs35题或其正文、角色图、作品设定、代码和算法。本版限定为自愿、无伤害的普通表达，不代表全部“dere”变体。无性别、恋爱状态、能力、职业、依恋或临床判断，不用于替别人确定意愿、隐藏感情或相处价值。",
+              "en": "These four names are selected anime and internet-culture expression tropes, not a unified, complete or validated psychological classification. Shogakukan’s Digital Daijisen describes tsundere as a character-setting term, while a fiction publisher’s glossary explains kuudere in a narrative context. Those sources clarify cultural usage, not validity of these items. FermatMind independently authored all 16 questions, options, guides, examples and scoring arrangements without adopting JobCannon’s 20 items, IDRlabs’ 35 items or their bodies, character art, settings, code or algorithms. This edition limits choices to voluntary, non-hurtful everyday expression and does not represent every dere variation. It establishes neither gender, relationship status, ability, career fit, attachment nor a clinical condition, and cannot determine anyone else’s willingness, concealed feelings or value as a companion."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "表达选项怎样计数",
+        "en": "Counting expression choices"
+      },
+      "paragraphs": [
+        {
+          "zh": "全部16题各选一个表达，每次只给对应文化标签加1。四类在每题各出现一次，总曝光均为16次，在四个位置各出现4次；分母16是本题组机会数，不是性格相似度或人群比例。完成前不派结果，完成后保留所有最高计数匹配，每份匹配完整呈现；四项同为4次时四份都显示。差1次不证明显著、稳定主副型或哪种风格更真实。可以同时阅读其他公开说明，但不会因先读结果改分；本方法没有常模、验证阈值或预测效度。",
+          "en": "Choose one expression for every one of the 16 questions. Each choice adds one to its cultural label. All four labels appear once per question, each with 16 opportunities and four appearances in each position. The denominator is an opportunity count, not a personality-match percentage or population rate. No result is assigned before completion. Every highest count retains its full report; four equal counts of four display all four reports. One extra choice establishes neither significance, a stable primary–secondary identity nor a truer style. You can read other public guides without affecting scoring. This method has no norms, validated cutoffs or predictive validity."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "最高并列与相近次数",
+        "en": "Highest ties and close counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "所有最高计数都同时显示完整结果，名单顺序不决定重要性。例如7、7、1、1保留两个匹配；4、4、4、4保留全部四份。8和7只相差一个选择，不证明稳定主副型或内心感情的差别；较少选到也不表示完全没有某种表达。可以比较四份公开说明，不添加未经验证的百分比或亲密关系预测。",
+          "en": "Every highest count displays its full report without priority from list order. Counts of 7, 7, 1, 1 retain two matches; 4, 4, 4, 4 retain all four. Eight versus seven is one choice, not proof of a stable primary–secondary identity or different inner feeling. Fewer choices imply no total absence of an expression. Compare all public guides without invented percentages or predictions about relationships."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "文化标签与真实意愿",
+        "en": "Cultural labels and actual willingness"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版四原型只用于轻松比较表达；安静、退开、冷淡、拒绝和不舒服都不能被标签改写成喜欢。所有选项把明确愿意作为前提，口头玩笑后也清楚说明意思。不鼓励辱骂、控制、跟踪、嫉妒试探或制造压力，不用结果给他人贴型或要求其改变。",
+          "en": "The four tropes provide a playful comparison of expression. Quiet, withdrawal, coldness, refusal and discomfort never become affection through a label. Every option assumes clear willingness and makes meaning explicit after a joke. The quiz encourages no insults, control, stalking, jealousy tests or manufactured pressure, and does not type others or require them to change."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "zh": "原创题本与文化背景",
+        "en": "Original questions and cultural context"
+      },
+      "paragraphs": [
+        {
+          "zh": "四个名称是本版选取的动漫和网络文化表达原型，不是统一、完整或经过验证的心理分类。小学馆《数字大辞泉》的词条说明傲娇常用于人物设置，电子书出版方词汇表也在作品语境解释冷娇；这些来源只帮助理解文化用语，不认证本版题目。16题、选项、完整解释、示例和计分安排均由费马独立编写，没有采用JobCannon20题、IDRlabs35题或其正文、角色图、作品设定、代码和算法。本版限定为自愿、无伤害的普通表达，不代表全部“dere”变体。无性别、恋爱状态、能力、职业、依恋或临床判断，不用于替别人确定意愿、隐藏感情或相处价值。",
+          "en": "These four names are selected anime and internet-culture expression tropes, not a unified, complete or validated psychological classification. Shogakukan’s Digital Daijisen describes tsundere as a character-setting term, while a fiction publisher’s glossary explains kuudere in a narrative context. Those sources clarify cultural usage, not validity of these items. FermatMind independently authored all 16 questions, options, guides, examples and scoring arrangements without adopting JobCannon’s 20 items, IDRlabs’ 35 items or their bodies, character art, settings, code or algorithms. This edition limits choices to voluntary, non-hurtful everyday expression and does not represent every dere variation. It establishes neither gender, relationship status, ability, career fit, attachment nor a clinical condition, and cannot determine anyone else’s willingness, concealed feelings or value as a companion."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "草稿、分享与下一步",
+        "en": "Drafts, sharing and next steps"
+      },
+      "paragraphs": [
+        {
+          "zh": "答卷在浏览器内计算，不上传、不放进网址或分析事件；草稿仅主动保存后留在当前标签页，24小时失效，完成、退出清除或重测即删。分享可选，只含公开匹配说明和链接，不含答卷或原始次数。完整结果无需注册、邮箱或先做MBTI。后续MBTI是独立框架，要另行完整作答，不换算成此处原型；也可以在这里结束。",
+          "en": "Answers are scored in your browser without uploading them or placing them in URLs or analytics. Drafts require opt-in, remain in this tab for up to 24 hours and clear on completion, exit-and-clear or retake. Optional sharing contains public matched explanations and links without answers or raw counts. Full results need no signup, email or prerequisite MBTI. A later MBTI attempt uses a separate framework, requires its own complete responses and does not convert into these tropes. You can also stop here."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这四种类型是什么意思？",
+        "en": "What do the four types mean here?"
+      },
+      "answer": {
+        "zh": "傲娇在本版是轻松逞强后明确关心，冷娇是平静简短地表达，闷娇偏熟悉或私下慢慢说，热娇偏直接明显。它们是本版选择的文化表达标签，不是统一的心理分类，也不代表其他dere变体不存在。",
+        "en": "Here tsundere adds a light guarded front before clear care, kuudere uses calm brevity, dandere waits for familiarity or privacy and deredere is openly expressive. These are selected cultural expression labels rather than a unified psychological classification, and other dere variations still exist."
+      }
+    },
+    {
+      "question": {
+        "zh": "可以说别人拒绝其实是傲娇吗？",
+        "en": "Can I interpret someone’s no as tsundere affection?"
+      },
+      "answer": {
+        "zh": "不可以。现实拒绝、沉默、退开或不舒服都不等于隐藏同意或暗恋。本版只在双方明确愿意互动的假设下比较自己的表达选择，不替他人判断意愿，也不能作为继续追问、接触或施压的理由。",
+        "en": "No. A real refusal, silence, withdrawal or discomfort is no hidden consent or crush. The quiz compares your expressions only where both people freely want the exchange. It cannot decide someone else’s willingness or justify continued questions, contact or pressure."
+      }
+    },
+    {
+      "question": {
+        "zh": "并列或相差一次怎样看？",
+        "en": "How should I read ties or a one-choice gap?"
+      },
+      "answer": {
+        "zh": "全部16题各选一个表达，每次只给对应文化标签加1。四类在每题各出现一次，总曝光均为16次，在四个位置各出现4次；分母16是本题组机会数，不是性格相似度或人群比例。完成前不派结果，完成后保留所有最高计数匹配，每份匹配完整呈现；四项同为4次时四份都显示。差1次不证明显著、稳定主副型或哪种风格更真实。可以同时阅读其他公开说明，但不会因先读结果改分；本方法没有常模、验证阈值或预测效度。",
+        "en": "Choose one expression for every one of the 16 questions. Each choice adds one to its cultural label. All four labels appear once per question, each with 16 opportunities and four appearances in each position. The denominator is an opportunity count, not a personality-match percentage or population rate. No result is assigned before completion. Every highest count retains its full report; four equal counts of four display all four reports. One extra choice establishes neither significance, a stable primary–secondary identity nor a truer style. You can read other public guides without affecting scoring. This method has no norms, validated cutoffs or predictive validity."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是科学人格、依恋或关系配对测评吗？",
+        "en": "Is this a scientific personality, attachment or compatibility test?"
+      },
+      "answer": {
+        "zh": "四个名称是本版选取的动漫和网络文化表达原型，不是统一、完整或经过验证的心理分类。小学馆《数字大辞泉》的词条说明傲娇常用于人物设置，电子书出版方词汇表也在作品语境解释冷娇；这些来源只帮助理解文化用语，不认证本版题目。16题、选项、完整解释、示例和计分安排均由费马独立编写，没有采用JobCannon20题、IDRlabs35题或其正文、角色图、作品设定、代码和算法。本版限定为自愿、无伤害的普通表达，不代表全部“dere”变体。无性别、恋爱状态、能力、职业、依恋或临床判断，不用于替别人确定意愿、隐藏感情或相处价值。",
+        "en": "These four names are selected anime and internet-culture expression tropes, not a unified, complete or validated psychological classification. Shogakukan’s Digital Daijisen describes tsundere as a character-setting term, while a fiction publisher’s glossary explains kuudere in a narrative context. Those sources clarify cultural usage, not validity of these items. FermatMind independently authored all 16 questions, options, guides, examples and scoring arrangements without adopting JobCannon’s 20 items, IDRlabs’ 35 items or their bodies, character art, settings, code or algorithms. This edition limits choices to voluntary, non-hurtful everyday expression and does not represent every dere variation. It establishes neither gender, relationship status, ability, career fit, attachment nor a clinical condition, and cannot determine anyone else’s willingness, concealed feelings or value as a companion."
+      }
+    },
+    {
+      "question": {
+        "zh": "结果和分享要注册或保存答卷吗？",
+        "en": "Do results or sharing require signup or saving answers?"
+      },
+      "answer": {
+        "zh": "不用。完整说明直接可读，保存草稿和分享都可选。分享只含公开解释与链接，没有私人答案或次数；完成后草稿删除。其他框架如MBTI需要另行选择和作答，本结果不换算成人格或职业匹配。",
+        "en": "No. Full explanations are directly readable; draft saving and sharing are optional. Sharing contains public explanations and links without private answers or counts, and drafts clear on completion. Other frameworks such as MBTI require a separate choice and attempt; this result converts to no personality or career match."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "小学馆《数字大辞泉》：傲娇的文化词义（Kotobank）",
+        "en": "Shogakukan Digital Daijisen: cultural meaning of tsundere, via Kotobank"
+      },
+      "url": "https://kotobank.jp/word/%25E3%2581%25A4%25E3%2582%2593%25E3%2581%25A7%25E3%2582%258C-573086"
+    },
+    {
+      "title": {
+        "zh": "出版方网络文库星之砂：作品用语中的冷娇",
+        "en": "Publisher Network Bunko Hoshinosuna: kuudere in fiction terminology"
+      },
+      "url": "https://ucatv.co.jp/ebook/yougosyu/"
+    }
+  ]
+}
