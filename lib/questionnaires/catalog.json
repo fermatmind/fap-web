@@ -659,5 +659,32 @@
       "warmth-follow-through-lightness-curiosity",
       "all-five-tied"
     ]
+  },
+  {
+    "slug": "procrastinator-type-test",
+    "code": "PROCRASTINATION_PATTERNS",
+    "version": "1.0.0",
+    "updated": "2026-10-25",
+    "category": "everyday",
+    "title": {
+      "zh": "拖延者类型测试",
+      "en": "Procrastinator Type Test"
+    },
+    "description": {
+      "zh": "用24条原创中英文题分别观察额外标准、构想停留、担忧、抗拒要求、等待紧迫与承诺拥挤。六项均分及完整解释免费，无需注册；含反例和小观察，不诊断原因、能力或固定人格。",
+      "en": "Explore six procrastination patterns with 24 original ratings and full free guides. No signup, fixed personality, diagnosis, ability score or claimed hidden cause."
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_procrastination_patterns_frequency_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "perfectionist",
+      "dreamer",
+      "worrier",
+      "defier",
+      "crisis-maker",
+      "over-doer"
+    ]
   }
 ]

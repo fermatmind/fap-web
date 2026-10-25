@@ -1,0 +1,1635 @@
+{
+  "formCode": "fm_procrastination_patterns_frequency_24",
+  "itemBankVersion": "1.0.0",
+  "origin": "24originalFermatMindENZHordinarytaskfrequencyitems;Sapadinstylenamesbackgroundonly/noofficialbookquizorJob10items",
+  "directions": [
+    {
+      "id": "perfectionist",
+      "title": {
+        "zh": "额外标准拖延",
+        "en": "Extra-standard delays"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "dreamer",
+      "title": {
+        "zh": "想法停留拖延",
+        "en": "Staying with ideas"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "worrier",
+      "title": {
+        "zh": "担忧推迟开始",
+        "en": "Worry before starting"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "defier",
+      "title": {
+        "zh": "因抗拒要求而推迟",
+        "en": "Resistance to requests"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "crisis-maker",
+      "title": {
+        "zh": "等到临近期限",
+        "en": "Waiting for urgency"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "over-doer",
+      "title": {
+        "zh": "承诺拥挤拖延",
+        "en": "Crowded commitments"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "PROCRAST_01",
+      "prompt": {
+        "zh": "为了达到自己额外加的标准，我推迟交出原本已符合要求的普通任务版本。",
+        "en": "To meet extra standards I added myself, I delayed sharing an ordinary task version that already met the agreed requirements."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "perfectionist",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "perfectionist",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "perfectionist",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "perfectionist",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "perfectionist",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "perfectionist",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_02",
+      "prompt": {
+        "zh": "我反复调整可稍后修改的小细节，以至于迟迟没完成可交付的初版。",
+        "en": "I repeatedly adjusted small details that could be changed later, delaying a usable first version."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "perfectionist",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "perfectionist",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "perfectionist",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "perfectionist",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "perfectionist",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "perfectionist",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_03",
+      "prompt": {
+        "zh": "在已经有足够条件开始时，我仍等一个更理想的准备状态。",
+        "en": "When I already had enough to begin, I kept waiting for a more ideal state of preparation."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "perfectionist",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "perfectionist",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "perfectionist",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "perfectionist",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "perfectionist",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "perfectionist",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_04",
+      "prompt": {
+        "zh": "我反复设想普通项目完成后的样子，却推迟一个已经明确的小步骤。",
+        "en": "I repeatedly imagined an ordinary project’s finished form while postponing a small step that was already clear."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "dreamer",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "dreamer",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "dreamer",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "dreamer",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "dreamer",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "dreamer",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_05",
+      "prompt": {
+        "zh": "我把已有计划越想越丰富，但没有在原本打算的时间开始实际操作。",
+        "en": "I kept expanding an existing plan in my mind without beginning the practical work when I intended."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "dreamer",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "dreamer",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "dreamer",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "dreamer",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "dreamer",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "dreamer",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_06",
+      "prompt": {
+        "zh": "从有趣的构想转到琐碎的执行时，我把可以开始的任务留到了后来。",
+        "en": "When moving from an interesting idea to routine execution, I put off a task I could have begun."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "dreamer",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "dreamer",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "dreamer",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "dreamer",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "dreamer",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "dreamer",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_07",
+      "prompt": {
+        "zh": "想到一个可安全开始的小任务可能出错，我把开头留到了后来。",
+        "en": "Thinking about what might go wrong in a small task I could safely begin, I postponed the start."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "worrier",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "worrier",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "worrier",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "worrier",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "worrier",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "worrier",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_08",
+      "prompt": {
+        "zh": "即使已有必要信息，我仍反复想象不好的结果而推迟普通任务。",
+        "en": "Even with the necessary information available, I kept imagining poor outcomes and delayed an ordinary task."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "worrier",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "worrier",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "worrier",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "worrier",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "worrier",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "worrier",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_09",
+      "prompt": {
+        "zh": "我希望先不再担心才行动，因此错过了自己原本打算的开始时间。",
+        "en": "I wanted the worry to stop before acting, so I missed my intended starting time."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "worrier",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "worrier",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "worrier",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "worrier",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "worrier",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "worrier",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_10",
+      "prompt": {
+        "zh": "因为不喜欢被催促，我推迟了自己已同意且可以开始的普通任务。",
+        "en": "Because I disliked being prompted, I postponed an ordinary task I had agreed to and could begin."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "defier",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "defier",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "defier",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "defier",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "defier",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "defier",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_11",
+      "prompt": {
+        "zh": "对安排方式不满时，我没有说清想调整什么，而是把自己已接下的事往后放。",
+        "en": "When dissatisfied with an arrangement, I put off a task I had accepted rather than clarify what I wanted to change."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "defier",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "defier",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "defier",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "defier",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "defier",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "defier",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_12",
+      "prompt": {
+        "zh": "别人指定怎么做让我感到抗拒，我因此拖后了本来也想完成的安全任务。",
+        "en": "Feeling resistant to being told how to do something, I delayed a safe task I otherwise wanted to finish."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "defier",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "defier",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "defier",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "defier",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "defier",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "defier",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_13",
+      "prompt": {
+        "zh": "虽然有空提前做，我仍等到期限很近才开始自己打算完成的普通任务。",
+        "en": "Although I had time earlier, I waited until the deadline was close to begin an ordinary task I intended to finish."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "crisis-maker",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "crisis-maker",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "crisis-maker",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "crisis-maker",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "crisis-maker",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "crisis-maker",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_14",
+      "prompt": {
+        "zh": "因为觉得现在还不急，我把已经能够开始的事推迟到时间很紧。",
+        "en": "Feeling there was no urgency yet, I delayed something I could begin until time became tight."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "crisis-maker",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "crisis-maker",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "crisis-maker",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "crisis-maker",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "crisis-maker",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "crisis-maker",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_15",
+      "prompt": {
+        "zh": "我把临近期限的紧迫感当作开工信号，错过了原本可用的准备时间。",
+        "en": "I used the urgency of an approaching deadline as a signal to begin, missing earlier available preparation time."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "crisis-maker",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "crisis-maker",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "crisis-maker",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "crisis-maker",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "crisis-maker",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "crisis-maker",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_16",
+      "prompt": {
+        "zh": "我答应的事情超过了可用时间，导致自己原本打算做的普通任务被推迟。",
+        "en": "I accepted more commitments than my available time allowed, delaying an ordinary task I had intended to do."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "over-doer",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "over-doer",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "over-doer",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "over-doer",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "over-doer",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "over-doer",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_17",
+      "prompt": {
+        "zh": "已有安排很满时，我仍接下可不接的额外请求，把自己的既定任务挤到后来。",
+        "en": "With my schedule already full, I accepted optional extra requests and pushed planned tasks back."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "over-doer",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "over-doer",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "over-doer",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "over-doer",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "over-doer",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "over-doer",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_18",
+      "prompt": {
+        "zh": "在多个已答应事项之间来回切换，我推迟了原本可以完成的一小部分。",
+        "en": "Switching between several commitments, I postponed a small part I could otherwise have finished."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "over-doer",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "over-doer",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "over-doer",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "over-doer",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "over-doer",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "over-doer",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_19",
+      "prompt": {
+        "zh": "一个普通初版已经符合必要要求时，即使还可润色，我也按计划把它交出。",
+        "en": "When an ordinary first version met the necessary requirements, I shared it as planned even if it could still be polished."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "perfectionist",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "perfectionist",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "perfectionist",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "perfectionist",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "perfectionist",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "perfectionist",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_20",
+      "prompt": {
+        "zh": "有了可做的小步骤后，我按原计划从构想转到一次实际操作。",
+        "en": "Once I had a workable small step, I moved from imagining to practical action as planned."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "dreamer",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "dreamer",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "dreamer",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "dreamer",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "dreamer",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "dreamer",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_21",
+      "prompt": {
+        "zh": "对可安全开始的普通任务，即使仍有担心，我也按原计划做一个小步骤。",
+        "en": "For an ordinary task I could safely begin, I took a small step as planned even while some worry remained."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "worrier",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "worrier",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "worrier",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "worrier",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "worrier",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "worrier",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_22",
+      "prompt": {
+        "zh": "不喜欢某种安排时，我直接说明想调整的部分，而没有借推迟来回应。",
+        "en": "When I disliked an arrangement, I directly explained what I wanted to adjust rather than respond by delaying."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "defier",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "defier",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "defier",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "defier",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "defier",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "defier",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_23",
+      "prompt": {
+        "zh": "即使期限还远，我也按自己的计划开始了一小部分。",
+        "en": "Even with the deadline still distant, I began a small part according to my plan."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "crisis-maker",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "crisis-maker",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "crisis-maker",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "crisis-maker",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "crisis-maker",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "crisis-maker",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_24",
+      "prompt": {
+        "zh": "面对可拒绝的额外请求时，我先核对已有安排，避免因此推迟既定任务。",
+        "en": "Before accepting an optional extra request, I checked existing commitments so it would not delay planned tasks."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "over-doer",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "over-doer",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "over-doer",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "over-doer",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "over-doer",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "over-doer",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "coverage": "6selectedpatterns4itemseach/oneoppositeeach;notvalidated6factorsorcauses",
+  "scoring": {
+    "options": {
+      "1": "Never",
+      "2": "Rarely",
+      "3": "Sometimes",
+      "4": "Often",
+      "5": "Almost always",
+      "na": "No relevant opportunity / cannot recall"
+    },
+    "minimumRatedItems": 3,
+    "reverse": "6-response only rated",
+    "round": "one decimal",
+    "no_total": true,
+    "no_norm": true,
+    "no_diagnosis": true,
+    "no_assignment": true
+  },
+  "references": [
+    {
+      "title": {
+        "zh": "Sapadin作者官网：六风格自助书籍背景",
+        "en": "Sapadin’s author website: six-style self-help background"
+      },
+      "url": "https://www.psychwisdom.com/"
+    },
+    {
+      "title": {
+        "zh": "Appleby（2017），APA教育文章（已归档）",
+        "en": "Appleby (2017), archived APA educational article"
+      },
+      "url": "https://www.apa.org/ed/precollege/psn/2017/01/overcoming-procrastination"
+    },
+    {
+      "title": {
+        "zh": "Steel（2007）正式摘要与文献记录；未采用题库",
+        "en": "Steel (2007), formal abstract and record; no instrument adopted"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17201571/"
+    }
+  ],
+  "licence_scope": "Originalitemsandguides;protectedbookquizzes/cases/manualsandcompetitorbanknotadopted"
+}

@@ -1,0 +1,2672 @@
+{
+  "slug": "procrastinator-type-test",
+  "code": "PROCRASTINATION_PATTERNS",
+  "version": "1.0.0",
+  "updated": "2026-10-25",
+  "category": "everyday",
+  "kind": "likert",
+  "minimumRatedItems": 3,
+  "title": {
+    "zh": "拖延者类型测试",
+    "en": "Procrastinator Type Test"
+  },
+  "resultHeading": {
+    "zh": "本次六种拖延情境自评",
+    "en": "Your six procrastination-pattern reflections"
+  },
+  "description": {
+    "zh": "用24条原创中英文题分别观察额外标准、构想停留、担忧、抗拒要求、等待紧迫与承诺拥挤。六项均分及完整解释免费，无需注册；含反例和小观察，不诊断原因、能力或固定人格。",
+    "en": "Explore six procrastination patterns with 24 original ratings and full free guides. No signup, fixed personality, diagnosis, ability score or claimed hidden cause."
+  },
+  "seoTitle": {
+    "zh": "拖延者类型测试：24题、六种情境与完整结果",
+    "en": "Procrastinator Type Test: 24 Questions, Six Full Guides"
+  },
+  "minutes": 6,
+  "introduction": {
+    "zh": "明明想做的普通小事，为什么有时还没开始？本版从额外标准、停留构想、担忧推迟、抗拒要求、临期启动和承诺拥挤六个角度，整理你最近四周的自报情境。六种风格名称帮助阅读，不给你派固定人格，也不能由频率确定原因。所有六份完整说明都能先读；必要等待、真实资源限制与休息另按实际情况理解。",
+    "en": "An ordinary task you intended to do can still remain unstarted. This edition organises four weeks of self-reported situations through extra standards, staying with ideas, worry before starting, resistance to requests, waiting for urgency and crowded commitments. Six style names help with reading rather than assigning a fixed personality or establishing causes from frequency. All six full guides can be read first, with necessary waiting, actual resource limits and rest considered in context."
+  },
+  "instructions": {
+    "zh": "回想最近四周，限于你原本想做、已有必要条件、可安全开展的普通任务。按1从不至5几乎总是选择；没有相应机会或记不清选NA。等必要信息、遵守安全要求、休息、身体状况、照护责任或无法自行改变的工作量，不自动算拖延。全部24条先选择；每部分至少3条有效才取均分，NA排除，反向题按6减有效评分。",
+    "en": "Think about the past four weeks, considering ordinary tasks you intended to do, had the necessary conditions for and could safely undertake. Choose from 1 Never to 5 Almost always; use NA for no relevant opportunity or uncertain recall. Waiting for necessary information, meeting safety requirements, rest, health, caring duties or workloads outside your control are not automatically procrastination. Complete all 24 selections; each part needs three ratings for a mean, excluding NA and reversing opposite items as six minus a valid response."
+  },
+  "source": {
+    "kind": "FermatMind original24ordinary-task frequency reflection;Sapadin style names background only/not official instrument",
+    "formCode": "fm_procrastination_patterns_frequency_24",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "5f0cfac9c9abb6186d472432f3d6fcf43101f317606bf9c329d4ca52a9c21804",
+    "resultContentSha256": "b9868af22d7337c8326d1b6d92c70d38ad047239fa25e32dc3d5b843171137ab",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "perfectionist",
+      "title": {
+        "zh": "额外标准拖延",
+        "en": "Extra-standard delays"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "dreamer",
+      "title": {
+        "zh": "想法停留拖延",
+        "en": "Staying with ideas"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "worrier",
+      "title": {
+        "zh": "担忧推迟开始",
+        "en": "Worry before starting"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "defier",
+      "title": {
+        "zh": "因抗拒要求而推迟",
+        "en": "Resistance to requests"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "crisis-maker",
+      "title": {
+        "zh": "等到临近期限",
+        "en": "Waiting for urgency"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "over-doer",
+      "title": {
+        "zh": "承诺拥挤拖延",
+        "en": "Crowded commitments"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "PROCRAST_01",
+      "prompt": {
+        "zh": "为了达到自己额外加的标准，我推迟交出原本已符合要求的普通任务版本。",
+        "en": "To meet extra standards I added myself, I delayed sharing an ordinary task version that already met the agreed requirements."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "perfectionist",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "perfectionist",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "perfectionist",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "perfectionist",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "perfectionist",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "perfectionist",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_02",
+      "prompt": {
+        "zh": "我反复调整可稍后修改的小细节，以至于迟迟没完成可交付的初版。",
+        "en": "I repeatedly adjusted small details that could be changed later, delaying a usable first version."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "perfectionist",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "perfectionist",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "perfectionist",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "perfectionist",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "perfectionist",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "perfectionist",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_03",
+      "prompt": {
+        "zh": "在已经有足够条件开始时，我仍等一个更理想的准备状态。",
+        "en": "When I already had enough to begin, I kept waiting for a more ideal state of preparation."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "perfectionist",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "perfectionist",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "perfectionist",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "perfectionist",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "perfectionist",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "perfectionist",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_04",
+      "prompt": {
+        "zh": "我反复设想普通项目完成后的样子，却推迟一个已经明确的小步骤。",
+        "en": "I repeatedly imagined an ordinary project’s finished form while postponing a small step that was already clear."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "dreamer",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "dreamer",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "dreamer",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "dreamer",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "dreamer",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "dreamer",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_05",
+      "prompt": {
+        "zh": "我把已有计划越想越丰富，但没有在原本打算的时间开始实际操作。",
+        "en": "I kept expanding an existing plan in my mind without beginning the practical work when I intended."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "dreamer",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "dreamer",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "dreamer",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "dreamer",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "dreamer",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "dreamer",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_06",
+      "prompt": {
+        "zh": "从有趣的构想转到琐碎的执行时，我把可以开始的任务留到了后来。",
+        "en": "When moving from an interesting idea to routine execution, I put off a task I could have begun."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "dreamer",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "dreamer",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "dreamer",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "dreamer",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "dreamer",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "dreamer",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_07",
+      "prompt": {
+        "zh": "想到一个可安全开始的小任务可能出错，我把开头留到了后来。",
+        "en": "Thinking about what might go wrong in a small task I could safely begin, I postponed the start."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "worrier",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "worrier",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "worrier",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "worrier",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "worrier",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "worrier",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_08",
+      "prompt": {
+        "zh": "即使已有必要信息，我仍反复想象不好的结果而推迟普通任务。",
+        "en": "Even with the necessary information available, I kept imagining poor outcomes and delayed an ordinary task."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "worrier",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "worrier",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "worrier",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "worrier",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "worrier",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "worrier",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_09",
+      "prompt": {
+        "zh": "我希望先不再担心才行动，因此错过了自己原本打算的开始时间。",
+        "en": "I wanted the worry to stop before acting, so I missed my intended starting time."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "worrier",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "worrier",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "worrier",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "worrier",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "worrier",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "worrier",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_10",
+      "prompt": {
+        "zh": "因为不喜欢被催促，我推迟了自己已同意且可以开始的普通任务。",
+        "en": "Because I disliked being prompted, I postponed an ordinary task I had agreed to and could begin."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "defier",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "defier",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "defier",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "defier",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "defier",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "defier",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_11",
+      "prompt": {
+        "zh": "对安排方式不满时，我没有说清想调整什么，而是把自己已接下的事往后放。",
+        "en": "When dissatisfied with an arrangement, I put off a task I had accepted rather than clarify what I wanted to change."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "defier",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "defier",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "defier",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "defier",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "defier",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "defier",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_12",
+      "prompt": {
+        "zh": "别人指定怎么做让我感到抗拒，我因此拖后了本来也想完成的安全任务。",
+        "en": "Feeling resistant to being told how to do something, I delayed a safe task I otherwise wanted to finish."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "defier",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "defier",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "defier",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "defier",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "defier",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "defier",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_13",
+      "prompt": {
+        "zh": "虽然有空提前做，我仍等到期限很近才开始自己打算完成的普通任务。",
+        "en": "Although I had time earlier, I waited until the deadline was close to begin an ordinary task I intended to finish."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "crisis-maker",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "crisis-maker",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "crisis-maker",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "crisis-maker",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "crisis-maker",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "crisis-maker",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_14",
+      "prompt": {
+        "zh": "因为觉得现在还不急，我把已经能够开始的事推迟到时间很紧。",
+        "en": "Feeling there was no urgency yet, I delayed something I could begin until time became tight."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "crisis-maker",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "crisis-maker",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "crisis-maker",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "crisis-maker",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "crisis-maker",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "crisis-maker",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_15",
+      "prompt": {
+        "zh": "我把临近期限的紧迫感当作开工信号，错过了原本可用的准备时间。",
+        "en": "I used the urgency of an approaching deadline as a signal to begin, missing earlier available preparation time."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "crisis-maker",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "crisis-maker",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "crisis-maker",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "crisis-maker",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "crisis-maker",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "crisis-maker",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_16",
+      "prompt": {
+        "zh": "我答应的事情超过了可用时间，导致自己原本打算做的普通任务被推迟。",
+        "en": "I accepted more commitments than my available time allowed, delaying an ordinary task I had intended to do."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "over-doer",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "over-doer",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "over-doer",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "over-doer",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "over-doer",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "over-doer",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_17",
+      "prompt": {
+        "zh": "已有安排很满时，我仍接下可不接的额外请求，把自己的既定任务挤到后来。",
+        "en": "With my schedule already full, I accepted optional extra requests and pushed planned tasks back."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "over-doer",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "over-doer",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "over-doer",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "over-doer",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "over-doer",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "over-doer",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_18",
+      "prompt": {
+        "zh": "在多个已答应事项之间来回切换，我推迟了原本可以完成的一小部分。",
+        "en": "Switching between several commitments, I postponed a small part I could otherwise have finished."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "over-doer",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "over-doer",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "over-doer",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "over-doer",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "over-doer",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "over-doer",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_19",
+      "prompt": {
+        "zh": "一个普通初版已经符合必要要求时，即使还可润色，我也按计划把它交出。",
+        "en": "When an ordinary first version met the necessary requirements, I shared it as planned even if it could still be polished."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "perfectionist",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "perfectionist",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "perfectionist",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "perfectionist",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "perfectionist",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "perfectionist",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_20",
+      "prompt": {
+        "zh": "有了可做的小步骤后，我按原计划从构想转到一次实际操作。",
+        "en": "Once I had a workable small step, I moved from imagining to practical action as planned."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "dreamer",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "dreamer",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "dreamer",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "dreamer",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "dreamer",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "dreamer",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_21",
+      "prompt": {
+        "zh": "对可安全开始的普通任务，即使仍有担心，我也按原计划做一个小步骤。",
+        "en": "For an ordinary task I could safely begin, I took a small step as planned even while some worry remained."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "worrier",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "worrier",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "worrier",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "worrier",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "worrier",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "worrier",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_22",
+      "prompt": {
+        "zh": "不喜欢某种安排时，我直接说明想调整的部分，而没有借推迟来回应。",
+        "en": "When I disliked an arrangement, I directly explained what I wanted to adjust rather than respond by delaying."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "defier",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "defier",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "defier",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "defier",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "defier",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "defier",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_23",
+      "prompt": {
+        "zh": "即使期限还远，我也按自己的计划开始了一小部分。",
+        "en": "Even with the deadline still distant, I began a small part according to my plan."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "crisis-maker",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "crisis-maker",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "crisis-maker",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "crisis-maker",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "crisis-maker",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "crisis-maker",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PROCRAST_24",
+      "prompt": {
+        "zh": "面对可拒绝的额外请求时，我先核对已有安排，避免因此推迟既定任务。",
+        "en": "Before accepting an optional extra request, I checked existing commitments so it would not delay planned tasks."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "over-doer",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "over-doer",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "over-doer",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "over-doer",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "over-doer",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相应机会／记不清",
+            "en": "No relevant opportunity / cannot recall"
+          },
+          "directionId": "over-doer",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "perfectionist",
+      "directionIds": [
+        "perfectionist"
+      ],
+      "title": {
+        "zh": "完美标准拖延：额外要求与初版",
+        "en": "Perfectionist Pattern: Extra Standards"
+      },
+      "headline": {
+        "zh": "先看所选行为与真实条件，再阅读本部分均分。",
+        "en": "Read the selected behaviours and actual conditions before interpreting this part’s mean."
+      },
+      "summary": {
+        "zh": "这一部分观察：必要要求已经满足时，是否仍因自己额外加的标准而推迟开始或交出普通版本。它不测工作质量、细心、人格价值或临床完美主义，也不建议降低安全与合规标准。",
+        "en": "This part observes postponement linked to self-added standards when necessary requirements are already met. It rates neither work quality, carefulness, personal worth nor clinical perfectionism, and never recommends lowering safety or compliance requirements."
+      },
+      "scoreReading": {
+        "zh": "先完成全部24次选择。每部分4条至少3条有效，按1从不至5几乎总是计算一位小数均分；每部分1条反向、共6条以6减有效评分，NA排除不补零。最低条数是本站信息完整度规则，不是原研究阈值。六项分别显示均分或资料不足，不合总分、不按最高、相近或并列派固定人格；小数差异不证明统计显著、原因、能力或改变。",
+        "en": "Complete all 24 selections first. Each four-item part needs three ratings for a one-decimal mean from 1 Never to 5 Almost always. One opposite item per part, six in total, is scored as six minus a valid response; NA is excluded without zero-filling. Minimum counts are website completeness rules, not research cutoffs. Six separate means or insufficient-information states produce no total or highest, close-score or tied personality assignment. Decimal differences establish neither significance, causes, ability nor change."
+      },
+      "seo": {
+        "title": {
+          "zh": "额外标准拖延：初版、质量要求与完整解释",
+          "en": "Perfectionist Procrastination: Standards and First Drafts"
+        },
+        "description": {
+          "zh": "这一部分观察：必要要求已经满足时，是否仍因自己额外加的标准而推迟开始或交出普通版本。它不测工作质量、细心、人格价值或临床完美主义，也不建议降低安全与合规标准。",
+          "en": "Read the extra-standards pattern through first drafts, requirements and counterexamples. Full self-reflection without quality, ability or clinical ratings."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本部分描述什么",
+            "en": "What this part describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版的“完美主义者”是一个阅读标签：你报告自己继续等待理想条件、反复润色可后改的细节，或因额外标准延后普通初版。重点在原打算行动与后来推迟之间的具体差距，不是把追求质量本身当问题。标准是否确属额外，仍需核对任务真正要求。",
+              "en": "“Perfectionist” is a reading label here for reported waiting for ideal conditions, repeatedly polishing details that can change later or delaying an ordinary first version for self-added standards. The focus is the gap between intended action and postponement, not the pursuit of quality itself. Whether a standard is actually additional still depends on the task’s real requirements."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "较高、较低与混合读法",
+            "en": "Higher, lower and mixed readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "均分较高，只表示这组描述在最近四周较常被你报告；较低表示较少，不代表质量更好或更差。也可能一类任务会反复润色，另一类却能按时交出。反向条目描述按计划提供符合必要要求的初版，不是奖励草率。小数差异不能确定原因或改善。",
+              "en": "A higher mean describes more frequent reports in this set during four weeks; a lower mean describes fewer, without better or worse quality. You may polish one kind of task repeatedly and deliver another on time. The opposite item concerns sharing a version that meets necessary requirements as planned, not rewarding carelessness. Decimal differences establish neither causes nor improvement."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一个普通情境与表达",
+            "en": "An ordinary situation and phrase"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如为朋友做普通活动清单，已经包含日期、地点和分工，却因版式不够理想而迟迟不发。可以说：“必要信息已经齐了，我先发这个可修改版本；装饰以后再说。”这是一个可选表达例子，不代表任何初稿都适合直接发布，更不是从均分还原你的真实对话。",
+              "en": "For example, an ordinary event list already includes date, place and responsibilities, but its layout keeps delaying sharing. A possible phrase is, “The necessary information is here. I’ll send this editable version and leave decoration for later.” This is an optional example, not permission to publish any draft or a reconstruction of your actual conversation from the mean."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "必要等待与反例",
+            "en": "Necessary waiting and counterexamples"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果材料缺关键核对、隐私同意或安全审批，暂停属于必要工作；规定必须准确的数字也不能故意做错。相反，符合标准后继续改一种无关紧要的排版，才更接近本组描述。仅看耗时长短，不能区分谨慎、复杂任务与拖延。",
+              "en": "Missing essential verification, privacy consent or safety approval calls for necessary work. Required accurate figures must not be deliberately made wrong. Continuing an inconsequential layout change after requirements are met is closer to these items. Time spent alone cannot distinguish care, complexity and postponement."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近部分比较",
+            "en": "Compare nearby patterns"
+          },
+          "paragraphs": [
+            {
+              "zh": "与担忧部分相比，这里更关注额外标准是否阻挡普通版本；担忧关注对可能出错的反复想象。与想法停留相比，这里可能已经做了很多细节，那里可能还停在构想。两项可以同时出现，但并不自动证明共同根源、固定混合型或某种心理疾病。",
+              "en": "Compared with worry, this part focuses on extra standards blocking an ordinary version rather than repeated imagined failures. Compared with staying with ideas, substantial detail work may already exist here while action may not yet have begun there. Both patterns can appear without proving a shared origin, fixed blend or psychological condition."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "现实限制与协作",
+            "en": "Constraints and collaboration"
+          },
+          "paragraphs": [
+            {
+              "zh": "“足够好”必须由实际任务边界决定，不由这份报告替你决定。客户约定、无障碍需要、检查时间或合作流程都可能真实存在。若标准由别人控制，先核对能否调整，不把所有困难归为个人过度要求，也不按一次结果评价同事的效率。",
+              "en": "“Good enough” depends on the actual task, not this report. Client agreements, access needs, verification time and shared processes may all be real. Where someone else controls the standard, check what can change rather than locating every difficulty in personal demands. One result cannot assess a colleague’s efficiency."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，选一个无需公开、可随时修改的普通小草稿，写下必要条件与一个可后改的细节，再决定是否按原计划完成。可以只做记录，也可以不做。不要为验证结果故意提交错误、跳过审核或把低风险练习扩到支付、安全、健康或正式交付。",
+              "en": "If you wish, choose a small private, editable draft. Note a necessary condition and one detail that can change later, then decide whether to finish as planned. Recording alone or skipping it are both options. Do not test the result by submitting errors, bypassing review or extending this ordinary observation to payments, safety, health or formal deliveries."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "怎样计算，怎样保留资料不足",
+            "en": "Scoring and insufficient information"
+          },
+          "paragraphs": [
+            {
+              "zh": "先完成全部24次选择。每部分4条至少3条有效，按1从不至5几乎总是计算一位小数均分；每部分1条反向、共6条以6减有效评分，NA排除不补零。最低条数是本站信息完整度规则，不是原研究阈值。六项分别显示均分或资料不足，不合总分、不按最高、相近或并列派固定人格；小数差异不证明统计显著、原因、能力或改变。",
+              "en": "Complete all 24 selections first. Each four-item part needs three ratings for a one-decimal mean from 1 Never to 5 Almost always. One opposite item per part, six in total, is scored as six minus a valid response; NA is excluded without zero-filling. Minimum counts are website completeness rules, not research cutoffs. Six separate means or insufficient-information states produce no total or highest, close-score or tied personality assignment. Decimal differences establish neither significance, causes, ability nor change."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "来源与适用范围",
+            "en": "Source and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24条中英文题目与六份结果由费马独立编写，以Sapadin自助书籍的六风格名称作背景，选定普通任务中的行为范围；没有采用原书测验、案例、治疗或改变程序，也不是JobCannon的10题。作者官网与APA2017教育文只提供框架背景，不验证六个普遍原因或本题本。Steel（2007）正式摘要综述691个相关，神经质、反抗与感觉寻求关联较弱，不能用来给六风格加因果或测量认证；这里只读到摘要与记录，没有采用标准题库。没有本站信效度、常模或英中文等价验证，不作诊断、身体压力、能力、雇佣或职业适配判断。",
+              "en": "FermatMind independently authored these 24 English–Chinese items and six guides, using names from Sapadin’s six-style self-help framework as background for selected ordinary-task behaviours. No book quiz, case, treatment or change programme is used, and this is not JobCannon’s ten-item test. The author’s website and a 2017 APA educational article supply background, not validation of six universal causes or these items. Steel’s formal 2007 abstract reviews 691 correlations and reports weak links with rebelliousness and some other variables; it cannot certify six styles or causality. Only the abstract and record were read, and no standard bank is adopted. There are no local psychometric results, norms or established English–Chinese equivalence, and no diagnosis, bodily-stress, ability, hiring or career-fit verdict."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dreamer",
+      "directionIds": [
+        "dreamer"
+      ],
+      "title": {
+        "zh": "构想停留拖延：从想法到一步",
+        "en": "Dreamer Pattern: Staying with Ideas"
+      },
+      "headline": {
+        "zh": "先看所选行为与真实条件，再阅读本部分均分。",
+        "en": "Read the selected behaviours and actual conditions before interpreting this part’s mean."
+      },
+      "summary": {
+        "zh": "这一部分观察有了可做步骤后，是否仍停留在构想、扩展计划或设想成果而推迟操作。它不测创造力、智力、执行能力或ADHD，不把必要策划和休息当失败。",
+        "en": "This part observes remaining with ideas, expanding a plan or imagining outcomes after a workable step is available. It measures neither creativity, intelligence, execution ability nor ADHD, and does not treat necessary planning or rest as failure."
+      },
+      "scoreReading": {
+        "zh": "先完成全部24次选择。每部分4条至少3条有效，按1从不至5几乎总是计算一位小数均分；每部分1条反向、共6条以6减有效评分，NA排除不补零。最低条数是本站信息完整度规则，不是原研究阈值。六项分别显示均分或资料不足，不合总分、不按最高、相近或并列派固定人格；小数差异不证明统计显著、原因、能力或改变。",
+        "en": "Complete all 24 selections first. Each four-item part needs three ratings for a one-decimal mean from 1 Never to 5 Almost always. One opposite item per part, six in total, is scored as six minus a valid response; NA is excluded without zero-filling. Minimum counts are website completeness rules, not research cutoffs. Six separate means or insufficient-information states produce no total or highest, close-score or tied personality assignment. Decimal differences establish neither significance, causes, ability nor change."
+      },
+      "seo": {
+        "title": {
+          "zh": "构想停留拖延：从想法到实际一步",
+          "en": "Dreamer Procrastination: From Ideas to One Step"
+        },
+        "description": {
+          "zh": "这一部分观察有了可做步骤后，是否仍停留在构想、扩展计划或设想成果而推迟操作。它不测创造力、智力、执行能力或ADHD，不把必要策划和休息当失败。",
+          "en": "Explore staying with ideas through plans, available steps and counterexamples. Full self-reflection without creativity, intelligence or ADHD verdicts."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本部分描述什么",
+            "en": "What this part describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "“梦想者”在本版只指一组自报拖延情境，不是天生有远见或缺乏行动力的人格。题目限定原本想做、已有必要条件的普通任务，观察有明确小步骤时是否仍停在设想。想象和规划本身有用途，是否发生推迟，需要结合原计划与实际条件。",
+              "en": "“Dreamer” means a set of reported delay situations here, not an innately visionary or ineffective personality. Items concern ordinary tasks you intended to do and had conditions to begin, asking whether you remained with ideas despite a clear small step. Imagining and planning have uses; postponement depends on the original intention and actual conditions."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "较高、较低与混合读法",
+            "en": "Higher, lower and mixed readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高均分表示这些描述较常被报告，不等于创意更多、懒惰或能力不足。较低也不能证明所有想法都能落地。你可能对一件熟悉的事很快动手，对另一件事仍在探索；没有相应机会选NA，不把没做过的事当不拖延证据。",
+              "en": "A higher mean means more frequent reports, not greater creativity, laziness or low ability. A lower mean cannot prove that every idea becomes action. You may begin familiar work promptly while still exploring something else. Use NA where no relevant opportunity exists rather than treating an unattempted activity as evidence of no delay."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一个普通情境与表达",
+            "en": "An ordinary situation and phrase"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如想整理一组私人照片，已知道先选十张，却不断想象最后的相册样式而没开始。一个可能的自我记录是：“今天原计划只选十张；其他版式想法另记。”这不保证更有效，也不要求把所有爱好都变成必须完成的项目。",
+              "en": "For example, you plan to organise private photos and know the first step is selecting ten, yet keep imagining the final album. A possible note is, “Today’s plan was only to select ten; layout ideas can go elsewhere.” This guarantees no improvement and does not require turning every hobby into a project that must be completed."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "必要等待与反例",
+            "en": "Necessary waiting and counterexamples"
+          },
+          "paragraphs": [
+            {
+              "zh": "研究问题尚未明确、材料还未到、确实需要先设计，都可能是必要准备。主动决定不再做一个爱好项目，也不自动算拖延。这里观察有意完成却推迟可做步骤，不能只凭未完成数量，把探索期、资源限制或改变主意都归为梦想者。",
+              "en": "An unclear research question, missing materials or necessary design can call for preparation. Deliberately dropping a hobby project is not automatically procrastination. These items concern intended completion with a postponed workable step; unfinished-project counts cannot classify exploration, resource limits or changed priorities as a dreamer pattern."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近部分比较",
+            "en": "Compare nearby patterns"
+          },
+          "paragraphs": [
+            {
+              "zh": "与完美标准部分相比，想法停留可能尚未形成初版，而额外标准可能让已经可用的版本迟迟交不出。与临近期限部分相比，这里关注构想与操作之间的转换，那里关注是否等到紧迫才动手。不必因为两项同时较高就认领一个固定混合型。",
+              "en": "Compared with extra standards, staying with ideas may occur before a first version exists; extra standards may block sharing one already usable. Compared with waiting for urgency, this part concerns the transition from imagining to doing rather than the deadline’s timing. Two higher means need not become a fixed blended type."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "现实限制与协作",
+            "en": "Constraints and collaboration"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个步骤能否做，受材料、环境、时间与他人配合影响，不只是个人意愿。把步骤说小也不会消除实际障碍。别人不应因你的结果就被安排成“执行者”替你落地；合作范围仍需双方明确同意，不由风格标签分派角色。",
+              "en": "A step’s feasibility depends on materials, setting, time and other people, not just willingness. Making a step smaller does not remove real obstacles. A result does not assign someone else the role of executing your ideas; collaboration still requires explicit agreement on scope rather than roles imposed by a style label."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，选一件确实还想做、可独立安全开始的小事，分别记“新想法”和“下一步已知动作”，再决定要不要在原可用时间做一次。只是观察两类记录的差别，不必立承诺、付费买工具、公布进度或证明自己已改变；不做也可以。",
+              "en": "If you wish, choose something you still want to do and can safely begin independently. Note “new ideas” separately from “known next action,” then decide whether to try once during available time. This only observes the distinction. No promise, purchase, public update or proof of change is required, and you may skip it."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "怎样计算，怎样保留资料不足",
+            "en": "Scoring and insufficient information"
+          },
+          "paragraphs": [
+            {
+              "zh": "先完成全部24次选择。每部分4条至少3条有效，按1从不至5几乎总是计算一位小数均分；每部分1条反向、共6条以6减有效评分，NA排除不补零。最低条数是本站信息完整度规则，不是原研究阈值。六项分别显示均分或资料不足，不合总分、不按最高、相近或并列派固定人格；小数差异不证明统计显著、原因、能力或改变。",
+              "en": "Complete all 24 selections first. Each four-item part needs three ratings for a one-decimal mean from 1 Never to 5 Almost always. One opposite item per part, six in total, is scored as six minus a valid response; NA is excluded without zero-filling. Minimum counts are website completeness rules, not research cutoffs. Six separate means or insufficient-information states produce no total or highest, close-score or tied personality assignment. Decimal differences establish neither significance, causes, ability nor change."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "来源与适用范围",
+            "en": "Source and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24条中英文题目与六份结果由费马独立编写，以Sapadin自助书籍的六风格名称作背景，选定普通任务中的行为范围；没有采用原书测验、案例、治疗或改变程序，也不是JobCannon的10题。作者官网与APA2017教育文只提供框架背景，不验证六个普遍原因或本题本。Steel（2007）正式摘要综述691个相关，神经质、反抗与感觉寻求关联较弱，不能用来给六风格加因果或测量认证；这里只读到摘要与记录，没有采用标准题库。没有本站信效度、常模或英中文等价验证，不作诊断、身体压力、能力、雇佣或职业适配判断。",
+              "en": "FermatMind independently authored these 24 English–Chinese items and six guides, using names from Sapadin’s six-style self-help framework as background for selected ordinary-task behaviours. No book quiz, case, treatment or change programme is used, and this is not JobCannon’s ten-item test. The author’s website and a 2017 APA educational article supply background, not validation of six universal causes or these items. Steel’s formal 2007 abstract reviews 691 correlations and reports weak links with rebelliousness and some other variables; it cannot certify six styles or causality. Only the abstract and record were read, and no standard bank is adopted. There are no local psychometric results, norms or established English–Chinese equivalence, and no diagnosis, bodily-stress, ability, hiring or career-fit verdict."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "worrier",
+      "directionIds": [
+        "worrier"
+      ],
+      "title": {
+        "zh": "担忧推迟开始：可能性与可做步骤",
+        "en": "Worrier Pattern: Worry before Starting"
+      },
+      "headline": {
+        "zh": "先看所选行为与真实条件，再阅读本部分均分。",
+        "en": "Read the selected behaviours and actual conditions before interpreting this part’s mean."
+      },
+      "summary": {
+        "zh": "这一部分观察对普通任务可能出错的担忧，是否伴随原定开始时间被推迟。它不测焦虑障碍、风险判断能力、勇气或身体压力，不要求忽略真实危险。",
+        "en": "This part observes reported worry about an ordinary task going wrong alongside a postponed intended start. It rates neither anxiety disorders, risk judgment, courage nor bodily stress, and does not ask you to ignore real danger."
+      },
+      "scoreReading": {
+        "zh": "先完成全部24次选择。每部分4条至少3条有效，按1从不至5几乎总是计算一位小数均分；每部分1条反向、共6条以6减有效评分，NA排除不补零。最低条数是本站信息完整度规则，不是原研究阈值。六项分别显示均分或资料不足，不合总分、不按最高、相近或并列派固定人格；小数差异不证明统计显著、原因、能力或改变。",
+        "en": "Complete all 24 selections first. Each four-item part needs three ratings for a one-decimal mean from 1 Never to 5 Almost always. One opposite item per part, six in total, is scored as six minus a valid response; NA is excluded without zero-filling. Minimum counts are website completeness rules, not research cutoffs. Six separate means or insufficient-information states produce no total or highest, close-score or tied personality assignment. Decimal differences establish neither significance, causes, ability nor change."
+      },
+      "seo": {
+        "title": {
+          "zh": "担忧拖延：安全开始、必要信息与反例",
+          "en": "Worrier Procrastination: Worry and Starting"
+        },
+        "description": {
+          "zh": "这一部分观察对普通任务可能出错的担忧，是否伴随原定开始时间被推迟。它不测焦虑障碍、风险判断能力、勇气或身体压力，不要求忽略真实危险。",
+          "en": "Read worry before starting through ordinary tasks, known facts and necessary checks. Full self-reflection without anxiety diagnoses or risk-taking demands."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本部分描述什么",
+            "en": "What this part describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版“担忧者”指你报告的具体情境：已有必要信息且可安全开始，却继续想象不好的结果，或等担心完全消失才行动。它记录这类描述的频率，不能证明担忧是推迟的唯一原因，也不评定你平常是否过度焦虑或风险承受力如何。",
+              "en": "“Worrier” refers here to reported situations where necessary information and a safe starting point exist, yet imagined poor outcomes or waiting for worry to disappear accompany delay. It records their frequency without proving worry is the sole cause or assessing general anxiety and risk tolerance."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "较高、较低与混合读法",
+            "en": "Higher, lower and mixed readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "均分较高表示最近四周较常选到这类描述；较低不代表没有担忧，更不等于心理健康更好。担心但按原计划做一步的反向条目，让“有担心”与“因此推迟”分开。NA代表缺少可回忆机会，不补成零；几项均分很接近时，保留各自读法即可。",
+              "en": "A higher mean reflects more frequent reports during four weeks. A lower mean does not establish absence of worry or better mental health. The opposite item separates having worry from delaying while worried by describing a small step taken as planned. NA denotes no recalled opportunity rather than zero, and close means may simply retain their separate readings."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一个普通情境与表达",
+            "en": "An ordinary situation and phrase"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如准备一条普通活动通知，时间地点已确认，却反复想“有人会不会误会”，于是一直不写。一个可能的记录是：“已确认事实有哪些，仍不确定的是哪一点？”这只是区分信息与设想，不保证说出担忧就能缓解，也不是让自己暴露在害怕的情境里。",
+              "en": "For an ordinary event notice, time and place are confirmed, yet repeated thoughts about possible misunderstanding delay writing. A possible note is, “Which facts are confirmed, and what remains uncertain?” This separates information from imagined possibilities without promising relief from naming a worry or asking you to expose yourself to a feared situation."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "必要等待与反例",
+            "en": "Necessary waiting and counterexamples"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果通知涉及隐私、身体安全或未确认的重要信息，等待与继续核对可能很必要。别人催你“别担心”也不能替代证据。不要为了降低本项均分而忽略风险、越过同意、仓促作出重大决定；这里仅讨论可安全开展的普通小任务。",
+              "en": "Privacy, physical safety or unconfirmed essential details may justify waiting and checking. Another person saying “don’t worry” does not replace evidence. Never ignore risk, bypass consent or rush an important decision to lower this mean. This reflection concerns ordinary small tasks that can safely be undertaken."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近部分比较",
+            "en": "Compare nearby patterns"
+          },
+          "paragraphs": [
+            {
+              "zh": "与完美标准部分相比，担忧关注可能出现的不利结果，完美标准关注自己额外加的要求；两者不总能截然分开。与临近期限部分相比，焦点是担心与开始时间，而非缺少紧迫感。它们均不是ADHD、OCD、焦虑或抑郁的替代筛查。",
+              "en": "Compared with extra standards, worry focuses on possible adverse outcomes rather than additional requirements, though the two need not separate neatly. Compared with waiting for urgency, it concerns worry and starting time rather than low urgency. None of these parts substitutes for ADHD, OCD, anxiety or depression screening."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "现实限制与协作",
+            "en": "Constraints and collaboration"
+          },
+          "paragraphs": [
+            {
+              "zh": "担心的内容可能与真实经历、任务难度、资源或关系有关，单次自评无法判断。也不要从某位同事拖后推断他害怕失败。若普通任务变得长期难以开展，真实需求需要另行了解，而不是用“担忧者”标签要求对方硬撑或接受一套固定策略。",
+              "en": "Worry may relate to actual experience, difficulty, resources or relationships; one self-report cannot determine which. A colleague’s delay does not establish fear of failure. Persistent difficulty with ordinary tasks calls for understanding the actual needs rather than using a worrier label to demand endurance or compliance with a fixed strategy."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，选一个低风险且可停止的小任务，只记已经知道的条件、一个尚未确定的问题和原本打算的开始时间。是否尝试一步由你决定，也可完全不做。不要制造压力、模拟恐慌或把这个观察当治疗；记录没有变好也不说明意志不足。",
+              "en": "If you wish, choose a low-risk task you can stop. Note known conditions, one unresolved question and the intended starting time. You decide whether to try a step or skip it. Do not manufacture pressure, simulate panic or treat this as therapy. An unchanged record does not establish weak willpower."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "怎样计算，怎样保留资料不足",
+            "en": "Scoring and insufficient information"
+          },
+          "paragraphs": [
+            {
+              "zh": "先完成全部24次选择。每部分4条至少3条有效，按1从不至5几乎总是计算一位小数均分；每部分1条反向、共6条以6减有效评分，NA排除不补零。最低条数是本站信息完整度规则，不是原研究阈值。六项分别显示均分或资料不足，不合总分、不按最高、相近或并列派固定人格；小数差异不证明统计显著、原因、能力或改变。",
+              "en": "Complete all 24 selections first. Each four-item part needs three ratings for a one-decimal mean from 1 Never to 5 Almost always. One opposite item per part, six in total, is scored as six minus a valid response; NA is excluded without zero-filling. Minimum counts are website completeness rules, not research cutoffs. Six separate means or insufficient-information states produce no total or highest, close-score or tied personality assignment. Decimal differences establish neither significance, causes, ability nor change."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "来源与适用范围",
+            "en": "Source and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24条中英文题目与六份结果由费马独立编写，以Sapadin自助书籍的六风格名称作背景，选定普通任务中的行为范围；没有采用原书测验、案例、治疗或改变程序，也不是JobCannon的10题。作者官网与APA2017教育文只提供框架背景，不验证六个普遍原因或本题本。Steel（2007）正式摘要综述691个相关，神经质、反抗与感觉寻求关联较弱，不能用来给六风格加因果或测量认证；这里只读到摘要与记录，没有采用标准题库。没有本站信效度、常模或英中文等价验证，不作诊断、身体压力、能力、雇佣或职业适配判断。",
+              "en": "FermatMind independently authored these 24 English–Chinese items and six guides, using names from Sapadin’s six-style self-help framework as background for selected ordinary-task behaviours. No book quiz, case, treatment or change programme is used, and this is not JobCannon’s ten-item test. The author’s website and a 2017 APA educational article supply background, not validation of six universal causes or these items. Steel’s formal 2007 abstract reviews 691 correlations and reports weak links with rebelliousness and some other variables; it cannot certify six styles or causality. Only the abstract and record were read, and no standard bank is adopted. There are no local psychometric results, norms or established English–Chinese equivalence, and no diagnosis, bodily-stress, ability, hiring or career-fit verdict."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "defier",
+      "directionIds": [
+        "defier"
+      ],
+      "title": {
+        "zh": "抗拒要求拖延：不满、同意与范围",
+        "en": "Defier Pattern: Resistance and Requests"
+      },
+      "headline": {
+        "zh": "先看所选行为与真实条件，再阅读本部分均分。",
+        "en": "Read the selected behaviours and actual conditions before interpreting this part’s mean."
+      },
+      "summary": {
+        "zh": "这一部分观察你自报的不满或抗拒，是否伴随已同意且可开始的普通任务被推迟。它不判叛逆人格、边界能力、服从程度或操控他人的动机，更不要求接受不合理安排。",
+        "en": "This part observes self-reported dissatisfaction or resistance alongside delayed ordinary tasks you accepted and could begin. It judges neither a rebellious personality, boundary skill, obedience nor motives to manipulate, and does not require accepting unreasonable arrangements."
+      },
+      "scoreReading": {
+        "zh": "先完成全部24次选择。每部分4条至少3条有效，按1从不至5几乎总是计算一位小数均分；每部分1条反向、共6条以6减有效评分，NA排除不补零。最低条数是本站信息完整度规则，不是原研究阈值。六项分别显示均分或资料不足，不合总分、不按最高、相近或并列派固定人格；小数差异不证明统计显著、原因、能力或改变。",
+        "en": "Complete all 24 selections first. Each four-item part needs three ratings for a one-decimal mean from 1 Never to 5 Almost always. One opposite item per part, six in total, is scored as six minus a valid response; NA is excluded without zero-filling. Minimum counts are website completeness rules, not research cutoffs. Six separate means or insufficient-information states produce no total or highest, close-score or tied personality assignment. Decimal differences establish neither significance, causes, ability nor change."
+      },
+      "seo": {
+        "title": {
+          "zh": "抗拒要求拖延：不满、同意与真实范围",
+          "en": "Defier Procrastination: Requests and Resistance"
+        },
+        "description": {
+          "zh": "这一部分观察你自报的不满或抗拒，是否伴随已同意且可开始的普通任务被推迟。它不判叛逆人格、边界能力、服从程度或操控他人的动机，更不要求接受不合理安排。",
+          "en": "Explore reported resistance alongside delayed accepted tasks. Full examples without diagnosing motives, demanding compliance or dismissing unfairness."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本部分描述什么",
+            "en": "What this part describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "“反抗者”在这里是自助框架的阅读名称，本版只取与推迟有关的具体自报描述：不喜欢催促或做法，却没有说明想调整什么，随后拖后自己接下的事。它不能从外部行为识别隐藏动机，也不把不同意见、拒绝或合法申诉等同于拖延。",
+              "en": "“Defier” is a reading name from a self-help framework. This edition considers specific self-reports of disliking prompts or methods, not clarifying a desired change and then delaying accepted work. It cannot detect a hidden motive from observed behaviour and does not equate disagreement, refusal or a legitimate complaint with procrastination."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "较高、较低与混合读法",
+            "en": "Higher, lower and mixed readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高均分表示这些选定情境较常被报告，不证明故意伤害、操控、独立思考或抵抗剥削的能力。较低也不证明更顺从、更适合团队。反向条目描述直接说明想改的安排而没有借推迟回应；是否有权改变、对方是否同意仍需分别确认。",
+              "en": "A higher mean describes more frequent reports in the selected situations, not intentional harm, manipulation, independent thinking or resistance to exploitation. A lower mean does not establish obedience or teamwork suitability. The opposite item describes directly discussing an adjustment rather than responding through delay; authority to change it and agreement still need separate checks."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一个普通情境与表达",
+            "en": "An ordinary situation and phrase"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如你已答应整理普通会议记录，却不喜欢被重复催促。可以说：“我已接下记录，计划明早发；提醒频率我想改为只确认一次。”这只是说明已有承诺与调整请求的例子，对方可以讨论范围，不代表均分高的人一定这样想，也不建议用推迟争取权力。",
+              "en": "For example, you agreed to organise ordinary meeting notes but dislike repeated reminders: “I accepted the notes and plan to send them tomorrow morning. Could we agree on one check-in?” This illustrates separating a commitment from an adjustment request. It neither reconstructs a higher scorer’s thoughts nor recommends delay as a way to gain power."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "必要等待与反例",
+            "en": "Necessary waiting and counterexamples"
+          },
+          "paragraphs": [
+            {
+              "zh": "面对没有同意、超出权限、存在安全问题或不合法的任务，暂停、拒绝与寻求正式处理不属于本题默认的拖延。另一种情况是沟通渠道不可用，不能简单归为不愿说明。不要依据结果要求自己或别人服从，也不能用它否定实际的不公平。",
+              "en": "Pausing, refusing or seeking formal resolution for unaccepted, unauthorised, unsafe or unlawful tasks is not presumed procrastination here. An unavailable communication channel is also different from unwillingness to clarify. Do not use a result to demand compliance from yourself or others or to dismiss actual unfairness."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近部分比较",
+            "en": "Compare nearby patterns"
+          },
+          "paragraphs": [
+            {
+              "zh": "与承诺拥挤相比，这里侧重对被要求的自报反应，承诺拥挤侧重可用时间被多个事项挤占。与边界类测试相比，这里只观察是否借推迟回应，不测拒绝技巧。两种情况可能同在一项任务中，却不能推断一个稳定的被动攻击人格。",
+              "en": "Compared with crowded commitments, this part concerns reported reactions to requests rather than limited time divided among tasks. Unlike a boundary reflection, it asks about responding through delay rather than refusal skills. Both situations may occur in one task without establishing a stable passive-aggressive personality."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "现实限制与协作",
+            "en": "Constraints and collaboration"
+          },
+          "paragraphs": [
+            {
+              "zh": "任务归属、催促频率、协商余地和权力差异会改变现实选项。一个人在某种环境里无法直接提意见，不代表缺少勇气。报告不替你判断谁正确，也不建议在不安全的工作或关系里做对抗练习；具体问题应按实际可用渠道处理。",
+              "en": "Ownership, reminder frequency, room to negotiate and power differences change the available options. Difficulty expressing concerns in a particular setting does not establish low courage. This report decides neither who is right nor whether to practise confrontation in an unsafe setting; the actual available channels matter."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，只选一个安全、可讨论的普通事项，分别记下“我已答应什么”“我不喜欢哪项安排”“能否提出一个调整”。可以只记录，不发送消息、不对抗任何人。它是区分问题的小观察，不是训练服从、反抗或治疗，也不保证调整会被接受。",
+              "en": "If you wish, choose one ordinary matter that is safe to discuss. Note what you accepted, which arrangement you dislike and whether an adjustment could be requested. Recording alone is enough; no message or confrontation is required. This distinguishes issues rather than training compliance, rebellion or therapy, and guarantees no accepted adjustment."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "怎样计算，怎样保留资料不足",
+            "en": "Scoring and insufficient information"
+          },
+          "paragraphs": [
+            {
+              "zh": "先完成全部24次选择。每部分4条至少3条有效，按1从不至5几乎总是计算一位小数均分；每部分1条反向、共6条以6减有效评分，NA排除不补零。最低条数是本站信息完整度规则，不是原研究阈值。六项分别显示均分或资料不足，不合总分、不按最高、相近或并列派固定人格；小数差异不证明统计显著、原因、能力或改变。",
+              "en": "Complete all 24 selections first. Each four-item part needs three ratings for a one-decimal mean from 1 Never to 5 Almost always. One opposite item per part, six in total, is scored as six minus a valid response; NA is excluded without zero-filling. Minimum counts are website completeness rules, not research cutoffs. Six separate means or insufficient-information states produce no total or highest, close-score or tied personality assignment. Decimal differences establish neither significance, causes, ability nor change."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "来源与适用范围",
+            "en": "Source and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24条中英文题目与六份结果由费马独立编写，以Sapadin自助书籍的六风格名称作背景，选定普通任务中的行为范围；没有采用原书测验、案例、治疗或改变程序，也不是JobCannon的10题。作者官网与APA2017教育文只提供框架背景，不验证六个普遍原因或本题本。Steel（2007）正式摘要综述691个相关，神经质、反抗与感觉寻求关联较弱，不能用来给六风格加因果或测量认证；这里只读到摘要与记录，没有采用标准题库。没有本站信效度、常模或英中文等价验证，不作诊断、身体压力、能力、雇佣或职业适配判断。",
+              "en": "FermatMind independently authored these 24 English–Chinese items and six guides, using names from Sapadin’s six-style self-help framework as background for selected ordinary-task behaviours. No book quiz, case, treatment or change programme is used, and this is not JobCannon’s ten-item test. The author’s website and a 2017 APA educational article supply background, not validation of six universal causes or these items. Steel’s formal 2007 abstract reviews 691 correlations and reports weak links with rebelliousness and some other variables; it cannot certify six styles or causality. Only the abstract and record were read, and no standard bank is adopted. There are no local psychometric results, norms or established English–Chinese equivalence, and no diagnosis, bodily-stress, ability, hiring or career-fit verdict."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crisis-maker",
+      "directionIds": [
+        "crisis-maker"
+      ],
+      "title": {
+        "zh": "临期启动拖延：紧迫与准备时间",
+        "en": "Crisis-Maker Pattern: Waiting for Urgency"
+      },
+      "headline": {
+        "zh": "先看所选行为与真实条件，再阅读本部分均分。",
+        "en": "Read the selected behaviours and actual conditions before interpreting this part’s mean."
+      },
+      "summary": {
+        "zh": "这一部分观察有可用准备时间时，是否仍等到期限逼近才启动普通任务。它不测压力下表现、肾上腺素、皮质醇、健康损耗或职业适配，也不建议制造危机。",
+        "en": "This part observes waiting for an approaching deadline despite available preparation time. It measures neither performance under pressure, adrenaline, cortisol, health costs nor career fit, and never recommends creating a crisis."
+      },
+      "scoreReading": {
+        "zh": "先完成全部24次选择。每部分4条至少3条有效，按1从不至5几乎总是计算一位小数均分；每部分1条反向、共6条以6减有效评分，NA排除不补零。最低条数是本站信息完整度规则，不是原研究阈值。六项分别显示均分或资料不足，不合总分、不按最高、相近或并列派固定人格；小数差异不证明统计显著、原因、能力或改变。",
+        "en": "Complete all 24 selections first. Each four-item part needs three ratings for a one-decimal mean from 1 Never to 5 Almost always. One opposite item per part, six in total, is scored as six minus a valid response; NA is excluded without zero-filling. Minimum counts are website completeness rules, not research cutoffs. Six separate means or insufficient-information states produce no total or highest, close-score or tied personality assignment. Decimal differences establish neither significance, causes, ability nor change."
+      },
+      "seo": {
+        "title": {
+          "zh": "临期启动拖延：期限、准备机会与完整说明",
+          "en": "Crisis-Maker Procrastination: Waiting for Urgency"
+        },
+        "description": {
+          "zh": "这一部分观察有可用准备时间时，是否仍等到期限逼近才启动普通任务。它不测压力下表现、肾上腺素、皮质醇、健康损耗或职业适配，也不建议制造危机。",
+          "en": "Read waiting for urgency through available time, deadlines and counterexamples. Full self-reflection without hormone, pressure-performance or career claims."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本部分描述什么",
+            "en": "What this part describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "“危机制造者”是历史自助风格名称，并非本站给人的身份或道德判断。本版限定可提前开展的普通任务，观察是否把紧迫感当作开工信号，以及是否错过原本可用的时间。最终能否完成、完成质量和为何推迟都不由这项均分确定。",
+              "en": "“Crisis-maker” is a historical self-help label, not an identity or moral verdict assigned here. Items concern ordinary tasks that could begin earlier, asking about urgency as a starting signal and missed preparation time. The mean determines neither eventual completion, quality nor the reason for delay."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "较高、较低与混合读法",
+            "en": "Higher, lower and mixed readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高表示近四周较常报告等到时间紧，较低表示较少；两者都不是抗压能力评分。一次提前开始的反向条目，不要求一直提早，也不把合理排期当错。若期限从未明确或只有最后时刻才获得资料，可选NA，而不是假定已经有提前机会。",
+              "en": "A higher mean means more frequent reports of waiting until time was tight in four weeks; a lower mean means fewer. Neither rates pressure tolerance. The opposite item concerns starting as planned before urgency, not always starting early or rejecting reasonable scheduling. Use NA where deadlines or materials gave no actual earlier opportunity."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一个普通情境与表达",
+            "en": "An ordinary situation and phrase"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如一周前就能整理普通聚会清单，却直到前夜才动手。可以记录：“我原计划周三开始，实际周六才开；周三可用条件是什么？”这是对时间的核对，不需要给身体反应命名，也不从一次赶完推断自己天生适合临场发挥。",
+              "en": "For example, an ordinary gathering list could be organised a week earlier but starts the night before. A possible note is, “I intended Wednesday, started Saturday; what conditions existed on Wednesday?” This checks timing without naming bodily responses or interpreting one last-minute completion as an innate talent for performing under pressure."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "必要等待与反例",
+            "en": "Necessary waiting and counterexamples"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果上游资料刚到、排期本就安排在最后一天，或者其他更紧急的责任必须先做，临期动手未必是拖延。相反，早早打开文件却没推进，也不能仅凭开始日期认定没有拖延。需要核原意、可用时间和实际步骤，而不是只看是否赶上期限。",
+              "en": "Late-arriving information, a genuinely scheduled final-day task or more urgent duties can justify a late start. Conversely, opening a file early without progress does not establish absence of delay. Check intention, available time and actual steps rather than only whether the deadline was met."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近部分比较",
+            "en": "Compare nearby patterns"
+          },
+          "paragraphs": [
+            {
+              "zh": "与想法停留相比，临期部分关注时间紧迫，想法停留关注从构想到操作的转换；与承诺拥挤相比，后者可能根本没有可用时间。两项都较高不证明“靠压力才能工作”的生理机制，也不意味着更适合新闻、急救、财税或其他高压职业。",
+              "en": "Compared with staying with ideas, this part concerns urgency rather than the transition to action. Crowded commitments may leave no available time in the first place. Two higher means establish no biological need for pressure and no suitability for journalism, emergency work, tax roles or other demanding careers."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "现实限制与协作",
+            "en": "Constraints and collaboration"
+          },
+          "paragraphs": [
+            {
+              "zh": "共同任务里的最后一刻选择会影响别人的准备与交接，但影响大小需要真实信息。自评不能判断同事是否被你拖累，也不能把有时赶上当作可持续。报告不测睡眠、激素或身体负担，不要求追踪这些数据，更不以年龄或身体标签解释结果。",
+              "en": "Last-minute choices in shared work can affect preparation and handovers, but the extent needs actual information. Self-report cannot determine a colleague’s burden or establish sustainability from occasional completion. This report measures no sleep, hormones or bodily costs and does not require tracking them or explaining the result through age or bodily labels."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，选一件可随时停止、无正式交付压力的小事，标出一个原本有空的时段，看看是否愿意先做两分钟或只记录条件。不要制造假的紧急情况、召集别人施压、熬夜或降低质量要求。没有尝试或没有变化，都不构成意志与能力结论。",
+              "en": "If you wish, choose something you can stop without formal delivery pressure. Mark an available period and decide whether to try two minutes or simply note the conditions. Do not invent emergencies, recruit others to apply pressure, lose sleep or lower quality requirements. No attempt or no change establishes nothing about willpower or ability."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "怎样计算，怎样保留资料不足",
+            "en": "Scoring and insufficient information"
+          },
+          "paragraphs": [
+            {
+              "zh": "先完成全部24次选择。每部分4条至少3条有效，按1从不至5几乎总是计算一位小数均分；每部分1条反向、共6条以6减有效评分，NA排除不补零。最低条数是本站信息完整度规则，不是原研究阈值。六项分别显示均分或资料不足，不合总分、不按最高、相近或并列派固定人格；小数差异不证明统计显著、原因、能力或改变。",
+              "en": "Complete all 24 selections first. Each four-item part needs three ratings for a one-decimal mean from 1 Never to 5 Almost always. One opposite item per part, six in total, is scored as six minus a valid response; NA is excluded without zero-filling. Minimum counts are website completeness rules, not research cutoffs. Six separate means or insufficient-information states produce no total or highest, close-score or tied personality assignment. Decimal differences establish neither significance, causes, ability nor change."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "来源与适用范围",
+            "en": "Source and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24条中英文题目与六份结果由费马独立编写，以Sapadin自助书籍的六风格名称作背景，选定普通任务中的行为范围；没有采用原书测验、案例、治疗或改变程序，也不是JobCannon的10题。作者官网与APA2017教育文只提供框架背景，不验证六个普遍原因或本题本。Steel（2007）正式摘要综述691个相关，神经质、反抗与感觉寻求关联较弱，不能用来给六风格加因果或测量认证；这里只读到摘要与记录，没有采用标准题库。没有本站信效度、常模或英中文等价验证，不作诊断、身体压力、能力、雇佣或职业适配判断。",
+              "en": "FermatMind independently authored these 24 English–Chinese items and six guides, using names from Sapadin’s six-style self-help framework as background for selected ordinary-task behaviours. No book quiz, case, treatment or change programme is used, and this is not JobCannon’s ten-item test. The author’s website and a 2017 APA educational article supply background, not validation of six universal causes or these items. Steel’s formal 2007 abstract reviews 691 correlations and reports weak links with rebelliousness and some other variables; it cannot certify six styles or causality. Only the abstract and record were read, and no standard bank is adopted. There are no local psychometric results, norms or established English–Chinese equivalence, and no diagnosis, bodily-stress, ability, hiring or career-fit verdict."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "over-doer",
+      "directionIds": [
+        "over-doer"
+      ],
+      "title": {
+        "zh": "承诺拥挤拖延：时间、范围与切换",
+        "en": "Over-Doer Pattern: Crowded Commitments"
+      },
+      "headline": {
+        "zh": "先看所选行为与真实条件，再阅读本部分均分。",
+        "en": "Read the selected behaviours and actual conditions before interpreting this part’s mean."
+      },
+      "summary": {
+        "zh": "这一部分观察可拒绝的新增承诺、安排拥挤和事项切换，是否伴随原定普通任务被推迟。它不测勤奋、值得依靠、照顾他人的价值或职业能力，也不把所有工作过载归为个人选择。",
+        "en": "This part observes optional added commitments, crowded arrangements and switching alongside postponed ordinary tasks. It measures neither diligence, dependability, the value of care nor work ability, and does not attribute every overload to personal choice."
+      },
+      "scoreReading": {
+        "zh": "先完成全部24次选择。每部分4条至少3条有效，按1从不至5几乎总是计算一位小数均分；每部分1条反向、共6条以6减有效评分，NA排除不补零。最低条数是本站信息完整度规则，不是原研究阈值。六项分别显示均分或资料不足，不合总分、不按最高、相近或并列派固定人格；小数差异不证明统计显著、原因、能力或改变。",
+        "en": "Complete all 24 selections first. Each four-item part needs three ratings for a one-decimal mean from 1 Never to 5 Almost always. One opposite item per part, six in total, is scored as six minus a valid response; NA is excluded without zero-filling. Minimum counts are website completeness rules, not research cutoffs. Six separate means or insufficient-information states produce no total or highest, close-score or tied personality assignment. Decimal differences establish neither significance, causes, ability nor change."
+      },
+      "seo": {
+        "title": {
+          "zh": "承诺拥挤拖延：额外请求、时间与协作",
+          "en": "Over-Doer Procrastination: Crowded Commitments"
+        },
+        "description": {
+          "zh": "这一部分观察可拒绝的新增承诺、安排拥挤和事项切换，是否伴随原定普通任务被推迟。它不测勤奋、值得依靠、照顾他人的价值或职业能力，也不把所有工作过载归为个人选择。",
+          "en": "Explore crowded commitments through optional requests, capacity and existing duties. Full self-reflection without blame, pleasing motives or ability ratings."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本部分描述什么",
+            "en": "What this part describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "“过度承接者”在本版是描述性阅读标签，不是称赞忙碌或责怪时间不够。题目关注原本可以不接的新增事项，以及多个承诺如何挤到自己原想完成的任务。真实照护、突发事件或无法自行决定的工作量，不应被自动改写成不会拒绝。",
+              "en": "“Over-doer” is a descriptive reading label here, not praise for busyness or blame for limited time. Items concern optional additions and competing commitments alongside delayed intended work. Actual caring duties, emergencies and workloads outside your control must not automatically become an inability to refuse."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "较高、较低与混合读法",
+            "en": "Higher, lower and mixed readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高表示这些选定情境较常被报告，不证明你为讨好、怕被拒绝或缺少自律而承接，也不证明别人依赖你。较低不代表更有效率或责任更少。反向条目只观察接下额外请求前核对安排，不能代替对资源和真实义务的了解。",
+              "en": "A higher mean means more frequent reports in the selected situations. It establishes neither pleasing motives, fear of rejection, low discipline nor others’ reliance on you. A lower mean establishes neither efficiency nor fewer duties. The opposite item concerns checking commitments before optional requests, not assessing actual resources and obligations."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一个普通情境与表达",
+            "en": "An ordinary situation and phrase"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如你已计划整理私人资料，又答应三件可延期的小忙，于是原计划一再后移。可以说：“我先核对已有安排，再确认能接哪一部分。”这是延后答复的普通例子，不保证别人满意，也不是要求你把所有新请求都拒绝。",
+              "en": "For example, planned private organising keeps moving after accepting three small favours that could wait. A possible phrase is, “I’ll check existing commitments before confirming which part I can take.” This is an ordinary example of delaying a response, not a guarantee of approval or a demand to refuse every new request."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "必要等待与反例",
+            "en": "Necessary waiting and counterexamples"
+          },
+          "paragraphs": [
+            {
+              "zh": "照顾孩子、处理健康需要、承担已明确的职责或因组织缺人而过载，都不能仅凭任务推迟就归为自找。另一个人事项很多却未推迟原计划，也不符合本组的全部描述。需要区分任务数量、可选择程度与推迟的实际发生，不能只给“忙”打分。",
+              "en": "Caring for a child, meeting health needs, fulfilling an explicit duty or organisational understaffing cannot be classified as self-created overload from a delayed task alone. Many commitments without postponed intentions also differ from the complete item descriptions. Distinguish quantity, available choice and actual delay rather than rating busyness."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近部分比较",
+            "en": "Compare nearby patterns"
+          },
+          "paragraphs": [
+            {
+              "zh": "与临近期限相比，承诺拥挤可能是时间被占满，而非等待紧迫。与PPS讨好自评相比，这里观察任务安排，不推断别人是否接纳你或内在迎合动机。与抗拒要求相比，这里侧重接下过多而不是因不满往后放；这些部分都可分别阅读。",
+              "en": "Compared with waiting for urgency, crowded commitments may occupy available time rather than wait for pressure. Unlike a people-pleasing reflection, this part concerns arrangements without inferring acceptance or internal motives. Unlike resistance, it concerns taking on too much rather than delaying in dissatisfaction. Keep these readings separate."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "现实限制与协作",
+            "en": "Constraints and collaboration"
+          },
+          "paragraphs": [
+            {
+              "zh": "协作需要真实协商：哪些事项已承诺，哪些可调整，哪些有他人依赖，未必能单方面取消。结果不证明你的可靠被利用，也不给退出责任的许可。资源不足时，问题可能涉及范围与支持，不能只要求个人练习更高效或更会说不。",
+              "en": "Collaboration requires actual discussion of existing promises, possible adjustments and others’ dependencies; tasks may not be unilaterally cancelled. The result proves neither exploitation of reliability nor permission to abandon duties. Insufficient resources may call for scope and support rather than demanding greater personal efficiency or refusal skills."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，私下把一个普通时段的事项分成“已答应”“可协商”“尚未接下”，只观察时间是否重叠。无需向别人公开、马上拒绝或撤销照护责任。可以不做；这项小记录不承诺解决过载，不用于评定工作胜任、录用或关系价值。",
+              "en": "If you wish, privately sort commitments in one ordinary period into accepted, negotiable and not yet accepted, and notice overlap. No disclosure, immediate refusal or cancellation of caring duties is required. You may skip it. This record promises no solution to overload and cannot assess work competence, hiring suitability or relationship value."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "怎样计算，怎样保留资料不足",
+            "en": "Scoring and insufficient information"
+          },
+          "paragraphs": [
+            {
+              "zh": "先完成全部24次选择。每部分4条至少3条有效，按1从不至5几乎总是计算一位小数均分；每部分1条反向、共6条以6减有效评分，NA排除不补零。最低条数是本站信息完整度规则，不是原研究阈值。六项分别显示均分或资料不足，不合总分、不按最高、相近或并列派固定人格；小数差异不证明统计显著、原因、能力或改变。",
+              "en": "Complete all 24 selections first. Each four-item part needs three ratings for a one-decimal mean from 1 Never to 5 Almost always. One opposite item per part, six in total, is scored as six minus a valid response; NA is excluded without zero-filling. Minimum counts are website completeness rules, not research cutoffs. Six separate means or insufficient-information states produce no total or highest, close-score or tied personality assignment. Decimal differences establish neither significance, causes, ability nor change."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "来源与适用范围",
+            "en": "Source and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24条中英文题目与六份结果由费马独立编写，以Sapadin自助书籍的六风格名称作背景，选定普通任务中的行为范围；没有采用原书测验、案例、治疗或改变程序，也不是JobCannon的10题。作者官网与APA2017教育文只提供框架背景，不验证六个普遍原因或本题本。Steel（2007）正式摘要综述691个相关，神经质、反抗与感觉寻求关联较弱，不能用来给六风格加因果或测量认证；这里只读到摘要与记录，没有采用标准题库。没有本站信效度、常模或英中文等价验证，不作诊断、身体压力、能力、雇佣或职业适配判断。",
+              "en": "FermatMind independently authored these 24 English–Chinese items and six guides, using names from Sapadin’s six-style self-help framework as background for selected ordinary-task behaviours. No book quiz, case, treatment or change programme is used, and this is not JobCannon’s ten-item test. The author’s website and a 2017 APA educational article supply background, not validation of six universal causes or these items. Steel’s formal 2007 abstract reviews 691 correlations and reports weak links with rebelliousness and some other variables; it cannot certify six styles or causality. Only the abstract and record were read, and no standard bank is adopted. There are no local psychometric results, norms or established English–Chinese equivalence, and no diagnosis, bodily-stress, ability, hiring or career-fit verdict."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "zh": "六部分分别计算",
+        "en": "Six separate calculations"
+      },
+      "paragraphs": [
+        {
+          "zh": "先完成全部24次选择。每部分4条至少3条有效，按1从不至5几乎总是计算一位小数均分；每部分1条反向、共6条以6减有效评分，NA排除不补零。最低条数是本站信息完整度规则，不是原研究阈值。六项分别显示均分或资料不足，不合总分、不按最高、相近或并列派固定人格；小数差异不证明统计显著、原因、能力或改变。",
+          "en": "Complete all 24 selections first. Each four-item part needs three ratings for a one-decimal mean from 1 Never to 5 Almost always. One opposite item per part, six in total, is scored as six minus a valid response; NA is excluded without zero-filling. Minimum counts are website completeness rules, not research cutoffs. Six separate means or insufficient-information states produce no total or highest, close-score or tied personality assignment. Decimal differences establish neither significance, causes, ability nor change."
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "zh": "类型名称怎样使用",
+        "en": "How style names are used"
+      },
+      "paragraphs": [
+        {
+          "zh": "完美主义者、梦想者、担忧者、反抗者、危机制造者和过度承接者来自自助框架的风格用语。本版只把它们用于阅读六类选定普通行为，六项可以同时较多、较少或资料不足；不把最高项叫作你的真实人格，不强行破并列，也不做原因或疾病推断。",
+          "en": "Perfectionist, Dreamer, Worrier, Defier, Crisis-Maker and Over-Doer are style terms from a self-help framework. This edition uses them to read six selected ordinary-behaviour groups. All six can be more frequent, less frequent or insufficiently rated together. No highest mean becomes a true personality, no tie is broken and no cause or condition is inferred."
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "zh": "相近分、反向条目与不确定",
+        "en": "Close means, opposite items and uncertainty"
+      },
+      "paragraphs": [
+        {
+          "zh": "相同均分按相同显示，相差0.1也不能证明显著差异。反向条目让按计划行动或直接沟通得到相反计分，只对1—5有效评分使用6减，NA不反向。部分仅3条有效时会标出有效题数；最低条数不是经过验证的缺失数据方案，勿把两个不同有效题数的均分当精确比较。",
+          "en": "Equal means remain equal, and a 0.1 difference establishes no significant difference. Opposite items reverse planned action or direct communication as six minus a valid 1–5 rating; NA is never reversed. Rated counts remain visible when only three items are available. The minimum is not a validated missing-data protocol, so means with different rated counts are not precise comparisons."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "原题来源与框架范围",
+        "en": "Original items and framework scope"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版24条中英文题目与六份结果由费马独立编写，以Sapadin自助书籍的六风格名称作背景，选定普通任务中的行为范围；没有采用原书测验、案例、治疗或改变程序，也不是JobCannon的10题。作者官网与APA2017教育文只提供框架背景，不验证六个普遍原因或本题本。Steel（2007）正式摘要综述691个相关，神经质、反抗与感觉寻求关联较弱，不能用来给六风格加因果或测量认证；这里只读到摘要与记录，没有采用标准题库。没有本站信效度、常模或英中文等价验证，不作诊断、身体压力、能力、雇佣或职业适配判断。",
+          "en": "FermatMind independently authored these 24 English–Chinese items and six guides, using names from Sapadin’s six-style self-help framework as background for selected ordinary-task behaviours. No book quiz, case, treatment or change programme is used, and this is not JobCannon’s ten-item test. The author’s website and a 2017 APA educational article supply background, not validation of six universal causes or these items. Steel’s formal 2007 abstract reviews 691 correlations and reports weak links with rebelliousness and some other variables; it cannot certify six styles or causality. Only the abstract and record were read, and no standard bank is adopted. There are no local psychometric results, norms or established English–Chinese equivalence, and no diagnosis, bodily-stress, ability, hiring or career-fit verdict."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "草稿、分享与下一步",
+        "en": "Drafts, sharing and next steps"
+      },
+      "paragraphs": [
+        {
+          "zh": "答案在浏览器计算，不上传答卷，不进入网址或分析。主动保存的标签页草稿24小时失效，完成、退出清除或重测即删除。完整说明不要求注册、邮箱或先做其他测试；分享只含公开入口或说明，不带答卷与均分。结果后的其他测评由你选择，不能把拖延均分换算成MBTI、大五或职业适配。",
+          "en": "Answers are calculated in your browser without uploading an answer sheet or adding answers to URLs or analytics. Opt-in tab drafts expire after 24 hours and clear on completion, exit-and-clear or retake. Full guides require no signup, email or prerequisite test. Sharing includes only a public entry or guide, without answers or means. Any later assessment is optional; procrastination means cannot convert to MBTI, Big Five or career fit."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "会给我一个固定的拖延人格吗？",
+        "en": "Will this assign me a fixed procrastinator personality?"
+      },
+      "answer": {
+        "zh": "不会。24条完成后分别看六项均分或资料不足，六份完整说明都呈现。风格名称只是阅读入口，最高、相近或相同均分不派型，也没有总分、百分位或能力判断。",
+        "en": "No. After all 24 selections, read six separate means or insufficient-information states and all six full guides. Style names are reading entries; highest, close or equal means assign no type, total, percentile or ability verdict."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是Sapadin原版量表吗？",
+        "en": "Is this Sapadin’s original instrument?"
+      },
+      "answer": {
+        "zh": "这是费马24条原创日常情境自评，仅以Sapadin六风格名称作背景，没有采用原书题库、案例、治疗程序或竞品10题，不声称信效度、常模、研究者背书或英文中文等价验证。",
+        "en": "This is FermatMind’s original 24-item ordinary-situation reflection, with Sapadin’s six style names as background. It uses no book quiz, cases, treatment programme or competitor ten-item bank, and claims no validity, norms, endorsement or English–Chinese equivalence."
+      }
+    },
+    {
+      "question": {
+        "zh": "合理等待、休息和工作太多也算拖延吗？",
+        "en": "Do necessary waiting, rest and heavy workload count as procrastination?"
+      },
+      "answer": {
+        "zh": "不自动算。题目限于原本想做、已有必要条件且可安全开展的普通任务。必要信息、安全要求、健康、照护责任和无法自行改变的工作量要另核，没相应机会或记不清选NA，不补零。",
+        "en": "Not automatically. Items concern ordinary tasks you intended to do, had conditions for and could safely undertake. Necessary information, safety, health, caring duties and workloads outside your control need separate consideration. Use NA for no relevant opportunity or uncertain recall; it is not zero-filled."
+      }
+    },
+    {
+      "question": {
+        "zh": "所有结果免费吗？可以重测和不分享吗？",
+        "en": "Are all results free, and may I retake without sharing?"
+      },
+      "answer": {
+        "zh": "全部24题与六份完整结果免费，无需注册或邮箱。可以回改、选择标签页草稿、完成后重测，也可以完全不分享。小观察都可跳过，不保证效果，不用于心理诊断、治疗、录用或职业能力判断。",
+        "en": "All 24 items and six full guides are free, without signup or email. You can edit, opt into a tab draft and retake after completion, or choose not to share. Every observation can be skipped, guarantees no effect and is not for diagnosis, treatment, hiring or work-ability judgments."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "Sapadin作者官网：六风格自助书籍背景",
+        "en": "Sapadin’s author website: six-style self-help background"
+      },
+      "url": "https://www.psychwisdom.com/"
+    },
+    {
+      "title": {
+        "zh": "Appleby（2017），APA教育文章（已归档）",
+        "en": "Appleby (2017), archived APA educational article"
+      },
+      "url": "https://www.apa.org/ed/precollege/psn/2017/01/overcoming-procrastination"
+    },
+    {
+      "title": {
+        "zh": "Steel（2007）正式摘要与文献记录；未采用题库",
+        "en": "Steel (2007), formal abstract and record; no instrument adopted"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17201571/"
+    }
+  ]
+}
