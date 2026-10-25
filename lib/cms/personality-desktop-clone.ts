@@ -263,7 +263,7 @@ function isFinalOffer(value: unknown): boolean {
     && normalizeText(value.guarantee).length > 0;
 }
 
-function hasRequiredMbtiDesktopCloneContent(value: unknown): value is MbtiDesktopCloneContent {
+function hasRequiredMbtiDesktopCloneContent(value: unknown, printOnly = false): value is MbtiDesktopCloneContent {
   if (!isRecord(value)) {
     return false;
   }
@@ -300,9 +300,9 @@ function hasRequiredMbtiDesktopCloneContent(value: unknown): value is MbtiDeskto
   }
 
   return isFinalOffer(value.finalOffer)
-    && Array.isArray(value.faq)
-    && value.faq.length === 4
-    && value.faq.every((item) => isRecord(item) && normalizeText(item.question).length > 0 && normalizeText(item.answer).length > 0);
+    && ((printOnly && value.faq == null) || (Array.isArray(value.faq)
+      && value.faq.length === 4
+      && value.faq.every((item) => isRecord(item) && normalizeText(item.question).length > 0 && normalizeText(item.answer).length > 0)));
 }
 
 function normalizeStrengthWeakness(value: unknown): StrengthWeaknessBlock | undefined {
@@ -763,8 +763,8 @@ function normalizeProfileIdentity(value: unknown): ProfileIdentity | undefined {
   };
 }
 
-function normalizeMbtiDesktopCloneContent(value: unknown): MbtiDesktopCloneContent | null {
-  if (!hasRequiredMbtiDesktopCloneContent(value)) {
+function normalizeMbtiDesktopCloneContent(value: unknown, printOnly = false): MbtiDesktopCloneContent | null {
+  if (!hasRequiredMbtiDesktopCloneContent(value, printOnly)) {
     return null;
   }
 
@@ -829,7 +829,7 @@ function normalizeMbtiDesktopCloneContent(value: unknown): MbtiDesktopCloneConte
       },
     },
     finalOffer: typedContent.finalOffer,
-    faq: typedContent.faq!.map((item) => ({
+    faq: (typedContent.faq ?? []).map((item) => ({
       question: normalizeText(item.question),
       answer: normalizeText(item.answer),
     })),
@@ -968,6 +968,7 @@ export function normalizeDesktopCloneResponse(
   response: PersonalityDesktopCloneApiResponse,
   expectedFullCode: string,
   expectedLocale: "zh-CN" | "en",
+  printOnly = false,
 ): PersonalityDesktopCloneContentPayload | null {
   const templateKey = normalizeText(response.template_key);
   const schemaVersion = normalizeText(response.schema_version);
@@ -987,7 +988,7 @@ export function normalizeDesktopCloneResponse(
     return null;
   }
 
-  const content = normalizeMbtiDesktopCloneContent(response.content);
+  const content = normalizeMbtiDesktopCloneContent(response.content, printOnly);
   if (!content) {
     return null;
   }

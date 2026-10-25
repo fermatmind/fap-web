@@ -1048,6 +1048,7 @@ export type MbtiPreviewContractV1Raw = {
 };
 
 export type ReportResponse = {
+  mbti_pdf_content?: unknown;
   result_visibility_receipt?: string | null;
   ok?: boolean;
   locked?: boolean;

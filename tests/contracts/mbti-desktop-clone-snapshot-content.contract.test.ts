@@ -144,6 +144,20 @@ function createPayload(content = createContent()): PersonalityDesktopCloneConten
 }
 
 describe("MBTI desktop clone snapshot content contract", () => {
+  it("requires unredacted English full-report blocks and rejects mixed-language copy", () => {
+    const content = createContent();
+    content.hero.profileIdentity = { code: "INTJ-A", name: "Architect", nickname: "Planner", rarity: "Unknown", keywords: ["Planning"] };
+    const payload = { ...createPayload(content), locale: "en" as const };
+    expect(validateMbtiSnapshotDesktopCloneContent({ locale: "en", fullCode: "INTJ-A", payload }).ok).toBe(true);
+    content.chapters.career.lockedBlocks[0].blurredItems[0].isPlaceholder = true;
+    expect(validateMbtiSnapshotDesktopCloneContent({ locale: "en", fullCode: "INTJ-A", payload })).toMatchObject({
+      ok: false, code: "PDF_CONTENT_NOT_READY", missing: ["career.full_report_blocks"],
+    });
+    content.hero.summary = "中文内容";
+    expect(validateMbtiSnapshotDesktopCloneContent({ locale: "en", fullCode: "INTJ-A", payload })).toMatchObject({
+      ok: false, code: "PDF_CONTENT_LOCALE_MISMATCH",
+    });
+  });
   it("does not return placeholder slots in snapshot strict mode when storage content is missing", () => {
     const strictResult = resolveMbtiDesktopCloneSlotsResult(createResolveArgs(null), {
       mode: "snapshot",

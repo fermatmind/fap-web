@@ -53,7 +53,7 @@ describe("MBTI PDF snapshot rendered smoke H2", () => {
     expect(payload.surface_version).toBe("mbti.result_page_snapshot.v4");
     expect(payload.render_version).toBe("mbti.snapshot.print_layout.v1");
     expect(payload.print_asset_hash).toMatch(/^sha256:[a-f0-9]{64}$/);
-    expect(payload.page_count_range).toEqual([8, 14]);
+    expect(payload.page_count_range).toEqual([8, 18]);
     expect(payload.pdf).toBeNull();
     expect(output).not.toContain("result_access_token=");
     expect(output).not.toContain("private_url");
@@ -79,7 +79,7 @@ describe("MBTI PDF snapshot rendered smoke H2", () => {
     expect(source).toContain("pdf_page_count_range");
     expect(source).toContain("pdf_page_size_a4");
     expect(source).toContain("DEFAULT_MIN_PAGES = 8");
-    expect(source).toContain("DEFAULT_MAX_PAGES = 14");
+    expect(source).toContain("DEFAULT_MAX_PAGES = 18");
     expect(source).toContain("isA4PageSize");
     expect(source).not.toContain("writeFileSync");
     expect(source).not.toContain("mkdtempSync");

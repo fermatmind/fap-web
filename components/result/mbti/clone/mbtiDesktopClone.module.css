@@ -529,9 +529,10 @@
   .readingListGrid { grid-template-columns: minmax(0, 1fr); gap: 22px; margin-top: 20px; }
 }
 @media print {
-  .readingListBlock { padding: 4mm 0; break-inside: auto; }
-  .readingListGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4mm 6mm; margin-top: 4mm; }
-  .readingListItem { break-inside: avoid; page-break-inside: avoid; }
+  .readingListBlock { padding: 4mm 0; break-inside: avoid-page; page-break-inside: avoid; }
+  .readingListBlock > .p0Title { break-after: avoid-page; page-break-after: avoid; }
+  .readingListGrid { display: block; columns: 2; column-gap: 6mm; margin-top: 4mm; }
+  .readingListItem { break-inside: avoid; page-break-inside: avoid; margin-bottom: 4mm; }
   .readingListTitle { font-size: 10pt; break-after: avoid; }
   .readingListBody { font-size: 9pt; line-height: 1.6; }
   .readingListIcon { print-color-adjust: exact; }
@@ -1817,7 +1818,7 @@
   }
 
   .packageReceipt {
-    display: block;
+    display: none;
     margin: 6mm 0 0;
     color: #64748b;
     font-size: 7pt;
@@ -1926,8 +1927,12 @@
   }
 
   .section {
-    gap: var(--clone-block-gap);
+    display: block;
     break-before: auto;
+  }
+
+  .section > * + * {
+    margin-top: var(--clone-block-gap);
   }
 
   .sectionHeading {
@@ -2085,7 +2090,7 @@
   }
 }
 
-@media (max-width: 860px) {
+@media screen and (max-width: 860px) {
   .cloneRoot {
     padding: 20px 0 72px;
   }
@@ -2319,5 +2324,124 @@
     max-width: 100%;
     white-space: normal;
     flex-shrink: 1;
+  }
+}
+
+@media print {
+  .traitsCard,
+  .traitsOverviewRow {
+    display: block;
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  .traitsMetrics {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 4mm;
+  }
+
+  .snapshotAxisReadings {
+    display: block;
+  }
+
+  .snapshotAxisReadings section + section {
+    margin-top: 3mm;
+  }
+
+  .snapshotAxisReadings section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .snapshotAxisReadings h3 {
+    margin: 0 0 2mm;
+    font-size: 10pt;
+    break-after: avoid;
+  }
+
+  .snapshotAxisReadings p {
+    margin: 0 0 2mm;
+    font-size: 9.2pt;
+    line-height: 1.55;
+  }
+
+  .cloneRoot [data-slot-mode="placeholder"],
+  .cloneRoot [data-slot-mode="disabled"] {
+    display: none;
+  }
+}
+
+@media print {
+  .main {
+    display: block;
+  }
+
+  .main > * + * {
+    margin-top: var(--clone-section-gap);
+  }
+
+  .factorReading {
+    padding: 3mm 0;
+  }
+
+  .factorBody {
+    margin: 2.5mm 0 0;
+  }
+
+  .factorBody h5 {
+    margin: 0 0 1.5mm;
+  }
+
+  .factorMainText > section + section {
+    margin-top: 2mm;
+  }
+
+  .factorPerspectives {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4mm;
+    margin: 2mm 0;
+    padding: 0;
+  }
+
+  .factorPerspectives > section + section {
+    margin-top: 0;
+  }
+
+  .factorObservation {
+    margin: 2mm 0;
+  }
+
+  .factorPractice,
+  .scenarioPractice {
+    padding: 2.5mm;
+  }
+
+  .scenarioBlock {
+    padding: 4mm 0;
+  }
+
+  .scenarioItem {
+    padding: 3mm 0;
+  }
+}
+
+@media print {
+  .factorNavigation {
+    display: block;
+    padding: 0 0 2mm;
+    break-inside: avoid;
+    break-after: avoid-page;
+    page-break-inside: avoid;
+    page-break-after: avoid;
+  }
+
+  .influentialHeading h3 {
+    font-size: 12pt;
+  }
+
+  .influentialHeading > span {
+    font-size: 8.5pt;
   }
 }

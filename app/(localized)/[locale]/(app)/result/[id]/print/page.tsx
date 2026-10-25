@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { Container } from "@/components/layout/Container";
 import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
@@ -7,6 +8,7 @@ import { RESULT_PAGE_SNAPSHOT_SURFACE } from "@/lib/result/pdfSurface";
 import { verifyResultPagePdfToken } from "@/lib/result/pdfExportToken";
 import ResultClient from "../ResultClient";
 import { loadResultPrintBootstrap } from "./resultPrintBootstrap";
+import { MbtiPrintReportContext } from "./MbtiPrintReportContext";
 
 export const metadata: Metadata = {
   robots: NOINDEX_ROBOTS,
@@ -53,6 +55,7 @@ export default async function ResultPrintPage({
     locale,
     accessToken: printAccessToken,
   });
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
 
   return (
     <Container
@@ -66,7 +69,10 @@ export default async function ResultPrintPage({
       data-pdf-bootstrap={printBootstrap.report ? "server" : "failed"}
       className="w-full bg-white py-[var(--fm-space-10)] pdf-mode print:max-w-none print:bg-white print:px-0 print:py-0 [&:has([data-testid=mbti-result-shell])>h1]:sr-only"
     >
+      {/* Keep margin boxes outside the CSS optimizer, which drops these at-rules. */}
+      <style nonce={nonce}>{'@page fermat-result-snapshot { @bottom-center { content: counter(page) " / " counter(pages); font-family: Arial, sans-serif; font-size: 8pt; color: #64748b; } }'}</style>
       <h1 className="mb-[var(--fm-space-4)] mt-0 text-3xl font-bold text-slate-900">{dict.result.title}</h1>
+      {printBootstrap.report && <MbtiPrintReportContext report={printBootstrap.report} locale={locale} />}
       <ResultClient
         key={id}
         attemptId={id}

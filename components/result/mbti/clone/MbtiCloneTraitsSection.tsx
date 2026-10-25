@@ -25,6 +25,7 @@ type TraitTool = {
 
 type MbtiCloneTraitsSectionProps = {
   locale: Locale;
+  snapshotMode?: boolean;
   title: string;
   illustrationSlotId: MbtiDesktopCloneAssetSlotId;
   illustrationLabel: string;
@@ -108,6 +109,7 @@ function resolveEditorialBand(dominantPct: number | null | undefined): "light" |
 
 export function MbtiCloneTraitsSection({
   locale,
+  snapshotMode = false,
   title,
   illustrationSlotId,
   illustrationLabel,
@@ -162,6 +164,10 @@ export function MbtiCloneTraitsSection({
       };
     })
     .filter((dimension) => Boolean(dimension.axisCode));
+  const englishAxisExplanation = (axis: (typeof normalizedDimensions)[number]) => {
+    const band = ({ boundary: "light", clear: "clear", very_clear: "strong" } as const)[axis.strengthBand as "boundary" | "clear" | "very_clear"];
+    return band ? normalizeText(axisExplainers?.[axis.axisCode]?.[axis.dominantPole]?.[band]?.bandNuance) : "";
+  };
   const activeAxis =
     normalizedDimensions.find((dimension) => dimension.axisCode === selectedAxisCode) ?? normalizedDimensions[0] ?? null;
   const traitEntry = activeAxis && locale === "zh"
@@ -236,10 +242,33 @@ export function MbtiCloneTraitsSection({
               variant="clone16p"
               className={styles.cloneBars}
               activeDimensionCode={activeAxis?.axisCode ?? null}
-              onDimensionSelect={setSelectedAxisCode}
+              onDimensionSelect={snapshotMode ? undefined : setSelectedAxisCode}
             />
           </div>
-          <aside className={styles.summaryPane} data-testid="mbti-traits-summary-pane">
+          {snapshotMode ? (
+            <div
+              className={styles.snapshotAxisReadings}
+              data-testid="mbti-print-axis-readings"
+              data-pdf-error={normalizedDimensions.length !== 5 || normalizedDimensions.some((axis) =>
+                locale === "zh"
+                  ? !selectMbtiTraitEntry(traitCatalog, axis.axisCode, axis.dominantPole, axis.dominantPct)
+                  : !englishAxisExplanation(axis))
+                ? "MBTI_TRAIT_CONTENT_UNAVAILABLE" : undefined}
+            >
+              {normalizedDimensions.map((axis) => {
+                const entry = locale === "zh" ? selectMbtiTraitEntry(traitCatalog, axis.axisCode, axis.dominantPole, axis.dominantPct) : null;
+                const englishExplanation = locale === "en"
+                  ? englishAxisExplanation(axis)
+                  : "";
+                return (
+                  <section key={axis.axisCode} data-pdf-axis-reading={axis.axisCode}>
+                    <h3>{axis.axisTitle} · {typeof axis.dominantPct === "number" ? `${Math.round(axis.dominantPct)}%` : "—"} {axis.dominantLabel}</h3>
+                    {entry ? <><p>{entry.a}</p><p>{entry.b}</p></> : englishExplanation ? <p>{englishExplanation}</p> : null}
+                  </section>
+                );
+              })}
+            </div>
+          ) : <aside className={styles.summaryPane} data-testid="mbti-traits-summary-pane">
             <div key={activeAxis?.axisCode} className={styles.summaryContent}>
               {locale === "zh" ? <header className={styles.traitSummaryHeader}>
                 <p className={styles.microLabel}>{summaryTitle}</p>
@@ -276,7 +305,7 @@ export function MbtiCloneTraitsSection({
                 </p>
               ) : null}
             </div>
-          </aside>
+          </aside>}
         </div>
         {tools.length > 0 ? (
           <div className={styles.traitsFooter} data-testid="mbti-traits-tools">

@@ -145,6 +145,17 @@ export function validateMbtiSnapshotDesktopCloneContent({
 
   const missing: string[] = [];
   const content = payload.content;
+  if (expectedLocale === "en" && /[\u3400-\u9fff]/u.test(JSON.stringify(content))) {
+    return { ok: false, code: "PDF_CONTENT_LOCALE_MISMATCH", missing: ["english_content"] };
+  }
+  if (expectedLocale === "en") {
+    for (const chapter of ["career", "growth", "relationships"] as const) {
+      if (content.chapters[chapter].lockedBlocks.some((block) =>
+        block.blurredItems.some((item) => item.isPlaceholder || !item.body.trim()))) {
+        missing.push(`${chapter}.full_report_blocks`);
+      }
+    }
+  }
   pushIfMissing(missing, hasVisibleBlockBody(content.chapters.career.visibleBlocks), "career.visibleBlocks");
   pushIfMissing(missing, hasVisibleBlockBody(content.chapters.growth.visibleBlocks), "growth.visibleBlocks");
   pushIfMissing(missing, hasVisibleBlockBody(content.chapters.relationships.visibleBlocks), "relationships.visibleBlocks");

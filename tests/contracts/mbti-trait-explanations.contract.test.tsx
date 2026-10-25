@@ -58,6 +58,50 @@ describe("backend-owned MBTI trait editorial bands", () => {
     expect(value.parentElement).toContainElement(within(pane).getByText("内向"));
     expect(value.closest("header")).toContainElement(within(pane).getByText("能量"));
   });
+  it("prints all five numeric axes and their published explanations without hidden interactive controls", () => {
+    const { container } = render(<MbtiCloneTraitsSection {...props} snapshotMode />);
+    expect(container.querySelectorAll("button")).toHaveLength(0);
+    const readings = screen.getByTestId("mbti-print-axis-readings");
+    for (const axis of MBTI_TRAIT_AXES) {
+      expect(screen.getByTestId(`mbti-traits-track-${axis}`)).toBeInTheDocument();
+      const entry = selectMbtiTraitEntry(catalog, axis, axis[1], 67)!;
+      expect(readings).toHaveTextContent(entry.a);
+      expect(readings).toHaveTextContent(entry.b);
+    }
+    expect(readings.querySelectorAll("h3")).toHaveLength(5);
+    expect(readings.textContent?.match(/67%/g)).toHaveLength(5);
+  });
+  it("prints every English axis explanation from its existing authored band", () => {
+    const axisExplainers = Object.fromEntries(MBTI_TRAIT_AXES.map((axis) => [axis, {
+      [axis[1]]: { clear: { bandNuance: `Published ${axis} English explanation.` } },
+    }]));
+    render(<MbtiCloneTraitsSection {...props} locale="en" snapshotMode axisExplainers={axisExplainers} />);
+    const readings = screen.getByTestId("mbti-print-axis-readings");
+    expect(readings).not.toHaveAttribute("data-pdf-error");
+    for (const axis of MBTI_TRAIT_AXES) expect(readings).toHaveTextContent(`Published ${axis} English explanation.`);
+    expect(readings.textContent?.match(/67%/g)).toHaveLength(5);
+  });
+  it("uses the reported boundary state instead of upgrading a snapshot through editorial percentage cutoffs", () => {
+    const dimensions = props.dimensions.map((axis) => ({ ...axis,
+      dominantPct: axis.axisCode === "JP" ? 58 : 71,
+      strengthBand: axis.axisCode === "JP" ? "boundary" : "clear",
+    }));
+    const axisExplainers = Object.fromEntries(dimensions.map((axis) => [axis.axisCode, { [axis.dominantPole]: {
+      light: { bandNuance: `${axis.axisCode} source boundary.` },
+      clear: { bandNuance: `${axis.axisCode} source clear.` },
+      strong: { bandNuance: `${axis.axisCode} incorrect upgrade.` },
+    } }]));
+    render(<MbtiCloneTraitsSection {...props} locale="en" dimensions={dimensions} axisExplainers={axisExplainers} snapshotMode />);
+    const readings = screen.getByTestId("mbti-print-axis-readings");
+    expect(readings).toHaveTextContent("JP source boundary.");
+    expect(readings).not.toHaveTextContent("JP source clear.");
+    expect(readings).toHaveTextContent("TF source clear.");
+    expect(readings).not.toHaveTextContent("incorrect upgrade");
+  });
+  it("blocks a snapshot with an incomplete published axis interpretation", () => {
+    render(<MbtiCloneTraitsSection {...props} snapshotMode traitCatalog={null} />);
+    expect(screen.getByTestId("mbti-print-axis-readings")).toHaveAttribute("data-pdf-error", "MBTI_TRAIT_CONTENT_UNAVAILABLE");
+  });
   it("reads the Chinese public API without auth", async () => {
     get.mockResolvedValueOnce(traitCatalogResponse());
     expect(await fetchMbtiTraitCatalog()).toEqual(catalog);

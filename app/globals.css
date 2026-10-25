@@ -722,11 +722,20 @@ a {
     display: none !important;
   }
 
+  body:has([data-private-result-print-root="true"]) next-route-announcer {
+    display: none !important;
+  }
+
+  [data-private-result-print-root="true"] [data-testid="mbti-result-shell"] {
+    display: block !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
   body:has([data-private-result-print-root="true"]) :is(
-    header,
-    footer,
-    nav,
-    [role="navigation"],
+    [data-site-header="true"],
+    [data-site-footer="true"],
     .fm-header-dropdown-panel,
     .fm-header-dropdown-link,
     .fm-site-footer-light,

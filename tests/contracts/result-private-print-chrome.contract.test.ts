@@ -33,10 +33,10 @@ describe("private result print chrome contract", () => {
     expect(globals).toContain("@media print");
     expect(globals).toContain('body:has([data-private-result-print-root="true"]) [data-private-result-print-hidden="true"]');
     expect(globals).toContain('body:has([data-private-result-print-root="true"]) :is(');
-    expect(globals).toContain("header,");
-    expect(globals).toContain("footer,");
-    expect(globals).toContain("nav,");
-    expect(globals).toContain('[role="navigation"]');
+    expect(globals).toContain('[data-site-header="true"]');
+    expect(globals).toContain('[data-site-footer="true"]');
+    expect(globals).not.toContain(':is(\n    header,');
+    expect(globals).toContain('[data-private-result-print-root="true"] [data-testid="mbti-result-shell"]');
     expect(globals).toContain(".fm-header-dropdown-panel");
     expect(globals).toContain(".fm-site-footer-light");
     expect(globals).toContain(".fm-section-footer");

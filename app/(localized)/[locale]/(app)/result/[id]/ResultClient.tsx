@@ -151,7 +151,9 @@ function findMbtiPdfBlocker(): string | null {
 }
 
 function hasMbtiPdfReadySections(): boolean {
-  return MBTI_PDF_REQUIRED_SELECTORS.every((selector) => document.querySelector(selector)) && !findMbtiPdfBlocker();
+  return MBTI_PDF_REQUIRED_SELECTORS.every((selector) => document.querySelector(selector))
+    && hasMbtiPdfContentReady()
+    && !findMbtiPdfBlocker();
 }
 
 function hasMbtiPdfContentReady(): boolean {
@@ -246,7 +248,12 @@ async function waitForMbtiPdfReadySections(timeoutMs: number): Promise<boolean> 
         finish(true);
       }
     });
-    observer.observe(root, { childList: true, subtree: true });
+    observer.observe(root, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["data-pdf-content-ready", "data-pdf-content-source"],
+    });
   });
 }
 

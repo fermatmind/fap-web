@@ -3,6 +3,7 @@ import { toApiLocale, type Locale } from "@/lib/i18n/locales";
 import type { AttemptReportAccessResponse, ReportResponse } from "@/lib/api/v0_3";
 import {
   fetchPersonalityDesktopCloneSnapshotContent,
+  normalizeDesktopCloneResponse,
   type PersonalityDesktopCloneContentPayload,
 } from "@/lib/cms/personality-desktop-clone";
 import {
@@ -54,8 +55,15 @@ export async function loadResultPrintBootstrap({
       throw new Error("enneagram_print_locale_envelope_mismatch");
     }
     const mbtiFullCode = resolveMbtiSnapshotFullCodeFromReport(report);
+    // English public clone reads intentionally redact full-report modules.
+    // Only the already owner-checked private report can provide these bodies.
+    const privatePrintContent = report.mbti_pdf_content;
     const desktopCloneContent = mbtiFullCode
-      ? await fetchPersonalityDesktopCloneSnapshotContent(mbtiFullCode, locale)
+      ? locale === "en"
+        ? privatePrintContent && typeof privatePrintContent === "object"
+          ? normalizeDesktopCloneResponse(privatePrintContent as Parameters<typeof normalizeDesktopCloneResponse>[0], mbtiFullCode, "en", true)
+          : null
+        : await fetchPersonalityDesktopCloneSnapshotContent(mbtiFullCode, locale)
       : null;
     const snapshotContentStatus = mbtiFullCode
       ? validateMbtiSnapshotDesktopCloneContent({

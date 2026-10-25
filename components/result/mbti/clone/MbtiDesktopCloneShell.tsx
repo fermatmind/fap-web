@@ -1233,6 +1233,7 @@ export function MbtiDesktopCloneShell({
 
             <MbtiCloneTraitsSection
               locale={locale}
+              snapshotMode={snapshotMode}
               title={slots.traits.title}
               illustrationSlotId={slots.traits.asset.slotId}
               illustrationLabel={slots.traits.asset.label}

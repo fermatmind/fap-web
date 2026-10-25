@@ -72,6 +72,7 @@ const hoisted = vi.hoisted(() => ({
   linkAnonAttemptsOnceOnLoginSuccess: vi.fn(),
   shouldLinkAnonAttemptsOnLoginSuccess: vi.fn(() => false),
   pendingAnonLinkAttempts: [] as string[],
+  pdfContentPending: false,
   search: "",
   pathname: "/en/result/attempt-123",
   trackEvent: vi.fn(),
@@ -124,7 +125,7 @@ vi.mock("@/components/result/RichResultReport", () => ({
       data-testid="rich-result-report"
       data-unlock-stage={accessProjection?.unlockStage ?? ""}
       data-unlock-source={accessProjection?.unlockSource ?? ""}
-      data-pdf-content-ready={snapshotContentStatus ? (snapshotContentStatus.ok ? "true" : "false") : undefined}
+      data-pdf-content-ready={hoisted.pdfContentPending ? "false" : snapshotContentStatus ? (snapshotContentStatus.ok ? "true" : "false") : undefined}
       data-pdf-content-source={snapshotContentStatus?.ok ? snapshotContentStatus.source : undefined}
       data-pdf-error={snapshotContentStatus && !snapshotContentStatus.ok ? snapshotContentStatus.code : undefined}
     >
@@ -134,7 +135,7 @@ vi.mock("@/components/result/RichResultReport", () => ({
       >
         <div
           data-testid="mbti-desktop-clone-shell"
-          data-pdf-content-ready={snapshotContentStatus ? (snapshotContentStatus.ok ? "true" : "false") : undefined}
+          data-pdf-content-ready={hoisted.pdfContentPending ? "false" : snapshotContentStatus ? (snapshotContentStatus.ok ? "true" : "false") : undefined}
           data-pdf-content-source={snapshotContentStatus?.ok ? snapshotContentStatus.source : undefined}
         >
           <section id="mbti-desktop-traits" data-pdf-section="personality-traits">
@@ -374,6 +375,7 @@ describe("ResultClient view-state contract", () => {
     hoisted.search = "";
     hoisted.pathname = "/en/result/attempt-123";
     hoisted.pendingAnonLinkAttempts = [];
+    hoisted.pdfContentPending = false;
     window.sessionStorage.clear();
     hoisted.getFmToken.mockReturnValue("fm_result_test_token");
     hoisted.ensureFmTokenReady.mockResolvedValue("issued");
@@ -747,6 +749,38 @@ describe("ResultClient view-state contract", () => {
     expect((window as typeof window & { __FERMAT_PDF_READY__?: boolean }).__FERMAT_PDF_READY__).toBe(true);
 
     setIntervalSpy.mockRestore();
+  });
+
+  it("waits for delayed published content attributes after MBTI sections mount", async () => {
+    hoisted.pdfContentPending = true;
+    const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
+    reportFixture.mbti_access_hub_v1 = createMbtiAccessHubRaw("attempt-123");
+    render(
+      <ResultClient
+        attemptId="attempt-123"
+        rolloutEnv={{} as never}
+        printMode
+        printSnapshotRoute
+        printSnapshotSurface="mbti.result_page_snapshot.v4"
+        printAccessToken="print_result_access_token_123"
+        initialReportAccess={createAccessProjection()}
+        initialReportData={reportFixture}
+        snapshotContentStatus={readySnapshotContentStatus}
+      />
+    );
+    await waitFor(() => expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument());
+    await act(async () => { await new Promise((resolve) => setTimeout(resolve, 20)); });
+    expect(window.__FERMAT_PDF_READY__).not.toBe(true);
+    expect(window.__FERMAT_PDF_ERROR__).toBeUndefined();
+
+    // The child completes its catalog/intro request without changing parent props.
+    act(() => {
+      document.querySelectorAll('[data-pdf-content-ready="false"]').forEach((node) => {
+        node.setAttribute("data-pdf-content-ready", "true");
+      });
+    });
+    await waitFor(() => expect(window.__FERMAT_PDF_READY__).toBe(true));
+    expect(window.__FERMAT_PDF_ERROR__).toBeUndefined();
   });
 
   it("fails closed when the MBTI print route has no server-prefetched desktop clone content", async () => {

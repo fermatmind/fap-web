@@ -2,17 +2,22 @@
 
 import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
+import { resolve } from "node:path";
+import { pathToFileURL } from "node:url";
 
 const DEFAULT_API_ORIGIN = "https://api.fermatmind.com";
 const DEFAULT_LOCALE = "zh-CN";
 const DEFAULT_MIN_PDF_BYTES = 20000;
 const DEFAULT_MIN_PAGES = 8;
-const DEFAULT_MAX_PAGES = 14;
+// Operational anomaly bounds for the complete report, not a product page-count promise.
+// The full five-axis explanations and indivisible reading lists exceed the old snapshot bound.
+const DEFAULT_MAX_PAGES = 18;
+const ENGLISH_PAGE_RANGE = [12, 26];
 const SNAPSHOT_SURFACE_VERSION = "mbti.result_page_snapshot.v4";
 const SNAPSHOT_SURFACE_KEY = "mbti_result_page_snapshot";
 const SNAPSHOT_ENGINE = "gotenberg_chromium";
 const SNAPSHOT_RENDER_VERSION = "mbti.snapshot.print_layout.v1";
-const SNAPSHOT_PRINT_ASSET_HASH = "sha256:f8b8f8a162f469777924fb60966fac19c29ea4fdad1323b5f9ae1a19286a7614";
+const SNAPSHOT_PRINT_ASSET_HASH = "sha256:990475ec1f9a2ecc1b054dcd10a447c92be46e5edf2bdf6662cd555e9aeb277e";
 
 const REQUIRED_HEADERS = [
   ["x-report-pdf-engine", SNAPSHOT_ENGINE],
@@ -102,9 +107,9 @@ const REQUIRED_DETAIL_TEXT_BY_LOCALE = {
   ],
   en: [
     ["career_influential_traits", /Influential Traits/i],
-    ["career_advantages", /Career advantages/i],
+    ["career_advantages", /Career advantages|Career strengths/i],
     ["career_weaknesses", /Career weaknesses/i],
-    ["preferred_roles", /Preferred roles/i],
+    ["preferred_roles", /Preferred roles|Career Ideas|Career choices/i],
     ["growth_strengths", /Growth strengths/i],
     ["growth_weaknesses", /Growth weaknesses/i],
     ["relationship_strengths", /Relationship strengths/i],
@@ -112,9 +117,9 @@ const REQUIRED_DETAIL_TEXT_BY_LOCALE = {
   ],
   "en-US": [
     ["career_influential_traits", /Influential Traits/i],
-    ["career_advantages", /Career advantages/i],
+    ["career_advantages", /Career advantages|Career strengths/i],
     ["career_weaknesses", /Career weaknesses/i],
-    ["preferred_roles", /Preferred roles/i],
+    ["preferred_roles", /Preferred roles|Career Ideas|Career choices/i],
     ["growth_strengths", /Growth strengths/i],
     ["growth_weaknesses", /Growth weaknesses/i],
     ["relationship_strengths", /Relationship strengths/i],
@@ -174,6 +179,10 @@ function parseArgs(argv) {
 
   options.apiOrigin = normalizeOrigin(options.apiOrigin);
   options.locale = String(options.locale || "").trim();
+  if (/^en(?:-|$)/i.test(options.locale)) {
+    if (!argv.includes("--min-pages") && !process.env.MBTI_RESULT_PAGE_PDF_SMOKE_MIN_PAGES) options.minPages = ENGLISH_PAGE_RANGE[0];
+    if (!argv.includes("--max-pages") && !process.env.MBTI_RESULT_PAGE_PDF_SMOKE_MAX_PAGES) options.maxPages = ENGLISH_PAGE_RANGE[1];
+  }
   options.attemptId = String(options.attemptId || "").trim();
   options.accessToken = String(options.accessToken || "").trim();
 
@@ -250,6 +259,48 @@ async function requestResultPagePdf({ apiOrigin, attemptId, accessToken }) {
   };
 }
 
+const nativePdfCache = new WeakMap();
+
+export function readNativeMacPdf(pdfBytes) {
+  if (process.platform !== "darwin") return null;
+  if (nativePdfCache.has(pdfBytes)) return nativePdfCache.get(pdfBytes);
+  try {
+    const source = `
+import Foundation
+import PDFKit
+let data = FileHandle.standardInput.readDataToEndOfFile()
+guard let document = PDFDocument(data: data), let first = document.page(at: 0) else { exit(2) }
+let box = first.bounds(for: .mediaBox)
+let attributes = document.documentAttributes ?? [:]
+let emptyPages = (0..<document.pageCount).filter { (document.page(at: $0)?.string ?? "").trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
+var pageTexts = [String]()
+for index in 0..<document.pageCount {
+  guard let page = document.page(at: index) else { continue }
+  let text = page.string ?? ""
+  let lines = page.selection(for: NSRange(location: 0, length: (text as NSString).length))?.selectionsByLine() ?? []
+  let ordered = lines.sorted { $0.bounds(for: page).midY > $1.bounds(for: page).midY }
+  var rows = [[PDFSelection]]()
+  for line in ordered {
+    if let previous = rows.last?.first, abs(previous.bounds(for: page).midY - line.bounds(for: page).midY) <= 3 {
+      rows[rows.count - 1].append(line)
+    } else { rows.append([line]) }
+  }
+  pageTexts.append(rows.flatMap { $0.sorted { $0.bounds(for: page).minX < $1.bounds(for: page).minX } }.compactMap { $0.string }.joined(separator: "\\n"))
+}
+let result: [String: Any] = ["text": pageTexts.joined(separator: "\\n"), "metadata": ["source": "pdfkit", "producer": String(describing: attributes[PDFDocumentAttribute.producerAttribute] ?? ""), "creator": String(describing: attributes[PDFDocumentAttribute.creatorAttribute] ?? ""), "pages": document.pageCount, "page_size": "\\(box.width) x \\(box.height) pts", "empty_pages": emptyPages]]
+FileHandle.standardOutput.write(try JSONSerialization.data(withJSONObject: result))
+`;
+    const result = JSON.parse(execFileSync("swift", ["-e", source], {
+      input: pdfBytes, encoding: "utf8", stdio: ["pipe", "pipe", "ignore"], maxBuffer: 20 * 1024 * 1024,
+    }));
+    nativePdfCache.set(pdfBytes, result);
+    return result;
+  } catch {
+    nativePdfCache.set(pdfBytes, null);
+    return null;
+  }
+}
+
 function extractPdfText(pdfBytes) {
   try {
     return execFileSync("pdftotext", ["-", "-"], {
@@ -259,13 +310,13 @@ function extractPdfText(pdfBytes) {
       maxBuffer: 20 * 1024 * 1024,
     });
   } catch {
-    return pdfBytes.toString("latin1");
+    return readNativeMacPdf(pdfBytes)?.text ?? pdfBytes.toString("latin1");
   }
 }
 
-function parsePdfInfoOutput(output) {
+export function parsePdfInfoOutput(output) {
   const pick = (label) => {
-    const match = output.match(new RegExp(`^${label}:\\\\s*(.+)$`, "im"));
+    const match = output.match(new RegExp(`^${label}:\\s*(.+)$`, "im"));
     return match ? match[1].trim() : null;
   };
 
@@ -280,10 +331,10 @@ function parsePdfInfoOutput(output) {
   };
 }
 
-function parsePdfMetadataFallback(pdfBytes) {
+export function parsePdfMetadataFallback(pdfBytes) {
   const latin = pdfBytes.toString("latin1");
   const pickName = (name) => {
-    const match = latin.match(new RegExp(`/${name}\\\\s*\\\\(([^)]*)\\\\)`));
+    const match = latin.match(new RegExp(`/${name}\\s*\\(([^)]*)\\)`));
     return match ? match[1].trim() : null;
   };
   const mediaBox = latin.match(/\/MediaBox\s*\[\s*0\s+0\s+([0-9.]+)\s+([0-9.]+)\s*\]/);
@@ -309,7 +360,7 @@ function readPdfMetadata(pdfBytes) {
       })
     );
   } catch {
-    return parsePdfMetadataFallback(pdfBytes);
+    return readNativeMacPdf(pdfBytes)?.metadata ?? parsePdfMetadataFallback(pdfBytes);
   }
 }
 
@@ -330,7 +381,12 @@ function isA4PageSize(pageSize) {
   return /A4/i.test(value);
 }
 
+export function normalizeExtractedPdfText(text) {
+  return text.replace(/(?<=[\u3400-\u9fff])\s+(?=[\u3400-\u9fff])/gu, "");
+}
+
 function auditPdf({ pdf, text, metadata, locale, minPdfBytes, minPages, maxPages }) {
+  text = normalizeExtractedPdfText(text);
   const failures = [];
 
   if (!pdf.ok) failures.push(`pdf_http_${pdf.status}`);
@@ -347,6 +403,7 @@ function auditPdf({ pdf, text, metadata, locale, minPdfBytes, minPages, maxPages
     failures.push("pdf_page_count_range");
   }
   if (!isA4PageSize(metadata.page_size)) failures.push("pdf_page_size_a4");
+  if (Array.isArray(metadata.empty_pages) && metadata.empty_pages.length > 0) failures.push("pdf_empty_pages");
 
   for (const [header, expected] of REQUIRED_HEADERS) {
     if (String(pdf.headers[header] || "").trim() !== expected) {
@@ -442,7 +499,9 @@ async function main() {
   if (!result.ok) process.exit(1);
 }
 
-main().catch((error) => {
-  console.error(`[mbti-result-page-pdf-smoke] ${error instanceof Error ? error.message : String(error)}`);
-  process.exit(1);
-});
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+  main().catch((error) => {
+    console.error(`[mbti-result-page-pdf-smoke] ${error instanceof Error ? error.message : String(error)}`);
+    process.exit(1);
+  });
+}

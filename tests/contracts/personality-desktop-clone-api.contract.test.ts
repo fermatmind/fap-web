@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   fetchPersonalityDesktopCloneContent,
+  normalizeDesktopCloneResponse,
   normalizeDesktopCloneApiLocale,
   normalizeDesktopCloneTypeSlug,
 } from "@/lib/cms/personality-desktop-clone";
@@ -501,6 +502,14 @@ afterEach(() => {
 });
 
 describe("personality desktop clone api adapter contract", () => {
+  it("allows the print-only legacy payload to omit FAQ without relaxing the public reader schema", () => {
+    const payload = { ...createValidPayload("print"), locale: "en" };
+    Reflect.deleteProperty(payload.content, "faq");
+    expect(normalizeDesktopCloneResponse(payload, "INFJ-A", "en")).toBeNull();
+    expect(normalizeDesktopCloneResponse(payload, "INFJ-A", "en", true)?.content.faq).toEqual([]);
+    Object.assign(payload.content, { faq: [] });
+    expect(normalizeDesktopCloneResponse(payload, "INFJ-A", "en", true)).toBeNull();
+  });
   it("normalizes locale and fullCode slug, then maps a published payload with compatibility fields retained", async () => {
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input);
