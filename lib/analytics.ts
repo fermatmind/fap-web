@@ -198,8 +198,8 @@ export function trackLandingPageView(properties: AnalyticsProperties = {}): void
   if (shouldHardStopPublicAnalyticsForUrl(currentPath)) return;
 
   const [routeLocale, family, collection, quizSlug, ...remaining] = routeSegments(currentPath);
-  const questionnaire = (routeLocale === "en" || routeLocale === "zh") && family === "tests" && collection === "explore"
-    ? questionnaires.find(quiz => quiz.slug === quizSlug) : undefined;
+  const questionnaire = (routeLocale === "en" || routeLocale === "zh") && family === "tests" && (collection === "explore" || collection === "play")
+    ? questionnaires.find(quiz => quiz.slug === quizSlug && quiz.collection === collection) : undefined;
   const isQuestionnaireGuide = Boolean(questionnaire && remaining.length === 2 && remaining[0] === "results" && questionnaire.resultSlugs.includes(remaining[1]));
   const isQuestionnaireEntry = Boolean(questionnaire && (remaining.length === 0 || isQuestionnaireGuide));
   const isEntertainmentGuide = remaining.length === 2 && remaining[0] === "results" && /^[a-z]+(?:-[a-z]+)*$/.test(remaining[1]);

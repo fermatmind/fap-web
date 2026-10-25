@@ -11,10 +11,16 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { contentImagePath, relatedFunQuizzes, resultPath } from "@/lib/entertainment/guides";
 
+import QuestionnairePage, { generateMetadata as questionnaireMetadata } from "@/components/questionnaires/QuestionnairePage";
+import nativeCatalog from "@/lib/questionnaires/catalog.json";
+
+const isNative = (slug: string) => nativeCatalog.some(quiz => quiz.slug === slug && quiz.collection === "play");
+
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug } = await params;
+  if (isNative(slug)) return questionnaireMetadata({ params: Promise.resolve({ locale: input, slug }) });
   const locale = resolveLocale(input);
   const quiz = await loadFunQuiz(slug);
   if (!quiz) return { title: "Quiz unavailable", robots: { index: false, follow: false } };
@@ -23,6 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function FunQuizPage({ params }: Props) {
   const { locale: input, slug } = await params;
+  if (isNative(slug)) return QuestionnairePage({ params: Promise.resolve({ locale: input, slug }) });
   const locale = resolveLocale(input);
   const quiz = await loadFunQuiz(slug);
   if (!quiz) notFound();

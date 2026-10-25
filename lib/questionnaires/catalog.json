@@ -32,6 +32,43 @@
       "tied-d-s-c",
       "tied-i-s-c",
       "tied-d-i-s-c"
+    ],
+    "collection": "explore"
+  },
+  {
+    "slug": "response-color",
+    "code": "PERSONALITY_COLOR",
+    "version": "2.0.0",
+    "updated": "2026-10-25",
+    "category": "framework",
+    "title": {
+      "zh": "色彩性格测试",
+      "en": "Color Personality Test"
+    },
+    "description": {
+      "zh": "免费完成24道日常情境二选一，查看红、黄、蓝、绿四方向的实际选择次数与完整单项或并列报告。无需注册，附具体例子、取舍和七日观察。",
+      "en": "Take a free 24-question color personality test. See your red, yellow, blue and green choice counts, every tied result, everyday examples and a full report. No signup."
+    },
+    "minutes": 5,
+    "collection": "play",
+    "formCode": "personality_color_forced_choice_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "red",
+      "yellow",
+      "blue",
+      "green",
+      "tied-red-yellow",
+      "tied-red-blue",
+      "tied-red-green",
+      "tied-yellow-blue",
+      "tied-yellow-green",
+      "tied-blue-green",
+      "tied-red-yellow-blue",
+      "tied-red-yellow-green",
+      "tied-red-blue-green",
+      "tied-yellow-blue-green",
+      "tied-red-yellow-blue-green"
     ]
   }
 ]

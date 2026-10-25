@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
+import nativeCatalog from "@/lib/questionnaires/catalog.json";
 import catalog from "@/lib/entertainment/catalog.json";
 import { isDirectoryQuiz } from "@/lib/entertainment/directory";
 import { loadFunQuiz } from "@/lib/entertainment/loaders";
@@ -53,7 +54,7 @@ describe("complete public entertainment result assets", () => {
     const { default: ResultGuide, generateMetadata } = await import("@/app/(localized)/[locale]/tests/play/[slug]/results/[portrait]/page");
     const seen = new Set<string>(); let count = 0;
     try {
-      for (const card of catalog) {
+      for (const card of catalog.filter(card => !nativeCatalog.some(native => native.slug === card.slug))) {
         const quiz = (await loadFunQuiz(card.slug))!;
         for (const result of quiz.results) for (const locale of ["en", "zh"] as const) {
           const props = { params: Promise.resolve({ slug: quiz.slug, portrait: resultSlug(result.id), locale }) };
@@ -80,7 +81,7 @@ describe("complete public entertainment result assets", () => {
           count++;
         }
       }
-      console.info(`Complete public result assets verified: ${count} bilingual guide URLs, ${catalog.length} independent quizzes.`);
+      console.info(`Complete public result assets verified: ${count} bilingual guide URLs, historical guide assets; native replacements are covered by their source contracts.`);
     } finally { vi.unstubAllEnvs(); }
   }, 30000);
 

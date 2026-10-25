@@ -13,8 +13,8 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   const { slug } = await params;
   const query = new URL(request.url).searchParams, locale = query.get("locale") ?? "en";
   if (locale !== "en" && locale !== "zh") return new Response("Image unavailable", { status: 404 });
-  const quiz = await loadFunQuiz(slug);
-  const questionnaire = quiz ? null : await loadQuestionnaire(slug);
+  const questionnaire = await loadQuestionnaire(slug);
+  const quiz = questionnaire ? null : await loadFunQuiz(slug);
   if (!quiz && !questionnaire) return new Response("Image unavailable", { status: 404 });
   const portrait = query.get("portrait");
   const result = portrait ? (quiz ? findPublicPortrait(quiz, portrait) : questionnaire?.profiles.find(profile => profile.id === portrait)) : undefined;

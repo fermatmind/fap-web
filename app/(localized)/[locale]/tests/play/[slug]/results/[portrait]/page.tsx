@@ -10,10 +10,16 @@ import { resolveLocale } from "@/lib/i18n/getDict";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 
+import QuestionnaireGuide, { generateMetadata as questionnaireMetadata } from "@/components/questionnaires/QuestionnaireGuide";
+import nativeCatalog from "@/lib/questionnaires/catalog.json";
+
+const isNative = (slug: string) => nativeCatalog.some(quiz => quiz.slug === slug && quiz.collection === "play");
+
 type Props = { params: Promise<{ locale: string; slug: string; portrait: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug, portrait } = await params;
+  if (isNative(slug)) return questionnaireMetadata({ params: Promise.resolve({ locale: input, slug, profile: portrait }) });
   const locale = resolveLocale(input), quiz = await loadFunQuiz(slug);
   const result = quiz && findPublicPortrait(quiz, portrait);
   if (!quiz || !result) return { title: "Guide unavailable", robots: { index: false, follow: false } };
@@ -22,6 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function FunResultGuide({ params }: Props) {
   const { locale: input, slug, portrait } = await params;
+  if (isNative(slug)) return QuestionnaireGuide({ params: Promise.resolve({ locale: input, slug, profile: portrait }) });
   const locale = resolveLocale(input), quiz = await loadFunQuiz(slug);
   const result = quiz && findPublicPortrait(quiz, portrait);
   if (!quiz || !result) notFound();

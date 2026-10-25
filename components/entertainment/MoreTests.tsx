@@ -15,8 +15,8 @@ export const FUN_CATEGORIES: Record<string, { en: string; zh: string }> = {
 };
 
 const catalog = [
-  ...questionnaires.map(quiz => ({ ...quiz, minQuestionCount: quiz.questionCount, pathname: `/tests/explore/${quiz.slug}` })),
-  ...directoryQuizzes.map(quiz => ({ ...quiz, pathname: `/tests/play/${quiz.slug}` })),
+  ...questionnaires.map(quiz => ({ ...quiz, minQuestionCount: quiz.questionCount, pathname: `/tests/${quiz.collection}/${quiz.slug}` })),
+  ...directoryQuizzes.filter(quiz => !questionnaires.some(native => native.slug === quiz.slug)).map(quiz => ({ ...quiz, pathname: `/tests/play/${quiz.slug}` })),
 ];
 
 export function MoreTests({ locale }: { locale: Locale }) {

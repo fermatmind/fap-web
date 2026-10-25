@@ -1,0 +1,4862 @@
+{
+  "slug": "response-color",
+  "code": "PERSONALITY_COLOR",
+  "version": "2.0.0",
+  "updated": "2026-10-25",
+  "category": "framework",
+  "kind": "directional",
+  "title": {
+    "zh": "色彩性格测试",
+    "en": "Color Personality Test"
+  },
+  "description": {
+    "zh": "免费完成24道日常情境二选一，查看红、黄、蓝、绿四方向的实际选择次数与完整单项或并列报告。无需注册，附具体例子、取舍和七日观察。",
+    "en": "Take a free 24-question color personality test. See your red, yellow, blue and green choice counts, every tied result, everyday examples and a full report. No signup."
+  },
+  "seoTitle": {
+    "zh": "色彩性格测试：24题、四色完整结果与并列说明",
+    "en": "Color Personality Test: Free 24-Question Results"
+  },
+  "minutes": 5,
+  "introduction": {
+    "zh": "周末临时空出时间，你先行动、展开联想、整理条件，还是找回舒服的节奏？这份费马原创问卷用24道日常选择比较四种回应入口，用红、黄、蓝、绿帮助记忆。颜色来自作答计数，不靠喜欢哪种颜色，也不随机分配。",
+    "en": "Unexpected free time, a changed plan or a conversation that goes quiet: what do you do first? This original questionnaire compares acting, exploring connections, organizing and steadying the pace through 24 everyday choices. Red, yellow, blue and green help you remember those approaches. Your result comes from your answers, not your favorite color or a random draw."
+  },
+  "source": {
+    "kind": "FermatMind original mini-program questionnaire",
+    "formCode": "personality_color_forced_choice_24",
+    "itemBankVersion": "0.1.1-preview",
+    "scoringVersion": "0.1.1-preview",
+    "resultContentVersion": "0.2.1-preview",
+    "itemBankSha256": "c63bf210ef8a755868212f20d77af0f14389041f3effa4cab77ffdee34a911e0",
+    "resultContentSha256": "029b0d5bd8272afb1d8f98451480864482c7d15e41337e13f4897aaf75aab35c",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "RED",
+      "title": {
+        "zh": "红·行动回应",
+        "en": "Red · Responding through action"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "YELLOW",
+      "title": {
+        "zh": "黄·开放联想",
+        "en": "Yellow · Exploring connections"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "BLUE",
+      "title": {
+        "zh": "蓝·审慎整理",
+        "en": "Blue · Careful organization"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "GREEN",
+      "title": {
+        "zh": "绿·稳定协调",
+        "en": "Green · Steady coordination"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "COLOR_FC_001",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "周末临时多出一段空闲，我会很快选一件事开始做。",
+            "en": "If some free time opens up at the weekend, I quickly pick something and get started."
+          },
+          "directionId": "RED"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "周末临时多出一段空闲，我会想出几种有趣的过法。",
+            "en": "If some free time opens up at the weekend, I think of several interesting ways to spend it."
+          },
+          "directionId": "YELLOW"
+        }
+      ]
+    },
+    {
+      "id": "COLOR_FC_002",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "听到一个新点子时，我会先顺着它联想还有哪些可能。",
+            "en": "When I hear a new idea, I first follow the connections and imagine other possibilities."
+          },
+          "directionId": "YELLOW"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "听到一个新点子时，我会先找一个方式试起来。",
+            "en": "When I hear a new idea, I first find a way to try it out."
+          },
+          "directionId": "RED"
+        }
+      ]
+    },
+    {
+      "id": "COLOR_FC_003",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "朋友临时提议换地方时，我倾向很快回应并出发。",
+            "en": "If a friend suggests changing venues at short notice, I tend to respond quickly and head off."
+          },
+          "directionId": "RED"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "朋友临时提议换地方时，我倾向继续聊聊还有哪些选择。",
+            "en": "If a friend suggests changing venues at short notice, I tend to keep discussing the other options."
+          },
+          "directionId": "YELLOW"
+        }
+      ]
+    },
+    {
+      "id": "COLOR_FC_004",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "聊到未来计划时，我通常先分享脑中浮现的多种画面。",
+            "en": "When talking about future plans, I usually start by sharing the different possibilities I picture."
+          },
+          "directionId": "YELLOW"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "聊到未来计划时，我通常先选一个近期动作。",
+            "en": "When talking about future plans, I usually start by choosing a step I can take soon."
+          },
+          "directionId": "RED"
+        }
+      ]
+    },
+    {
+      "id": "COLOR_FC_005",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "要买一件常用物品时，我会先设定主要条件快速选定。",
+            "en": "When buying an everyday item, I set my main requirements and choose quickly."
+          },
+          "directionId": "RED"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "要买一件常用物品时，我会先比较规格和使用差异。",
+            "en": "When buying an everyday item, I first compare specifications and how the options work in practice."
+          },
+          "directionId": "BLUE"
+        }
+      ]
+    },
+    {
+      "id": "COLOR_FC_006",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "看到一段说法有些可疑时，我会先找来源和上下文。",
+            "en": "When a claim seems questionable, I first look for its source and context."
+          },
+          "directionId": "BLUE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看到一段说法有些可疑时，我会先根据已知信息做个判断。",
+            "en": "When a claim seems questionable, I first form a judgment from what I already know."
+          },
+          "directionId": "RED"
+        }
+      ]
+    },
+    {
+      "id": "COLOR_FC_007",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一件小事迟迟没处理时，我倾向先把它做掉再说。",
+            "en": "When a small task has been left undone, I tend to get it out of the way first."
+          },
+          "directionId": "RED"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一件小事迟迟没处理时，我倾向先理清它卡在哪里。",
+            "en": "When a small task has been left undone, I tend to work out what is holding it up first."
+          },
+          "directionId": "BLUE"
+        }
+      ]
+    },
+    {
+      "id": "COLOR_FC_008",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "收到一条信息后，我通常先整理里面的条件再回复。",
+            "en": "After receiving a message, I usually sort through its conditions before replying."
+          },
+          "directionId": "BLUE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "收到一条信息后，我通常先给出简短明确的回应。",
+            "en": "After receiving a message, I usually give a brief, clear response first."
+          },
+          "directionId": "RED"
+        }
+      ]
+    },
+    {
+      "id": "COLOR_FC_009",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一天安排被打乱时，我会先挑最近的事重新开始。",
+            "en": "When my day's plans are disrupted, I pick the nearest thing to do and get going again."
+          },
+          "directionId": "RED"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一天安排被打乱时，我会先找回一个舒服的新节奏。",
+            "en": "When my day's plans are disrupted, I first find a comfortable new rhythm."
+          },
+          "directionId": "GREEN"
+        }
+      ]
+    },
+    {
+      "id": "COLOR_FC_010",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "与人约定需要调整时，我会先确认对方怎样更方便。",
+            "en": "When an arrangement with someone needs changing, I first check what would suit them."
+          },
+          "directionId": "GREEN"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "与人约定需要调整时，我会先给出一个新时间。",
+            "en": "When an arrangement with someone needs changing, I first suggest a new time."
+          },
+          "directionId": "RED"
+        }
+      ]
+    },
+    {
+      "id": "COLOR_FC_011",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "临出门才发现忘了东西，我倾向立即想个替代办法。",
+            "en": "If I realize just before leaving that I have forgotten something, I tend to think of an alternative immediately."
+          },
+          "directionId": "RED"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "临出门才发现忘了东西，我倾向先调整行程避免更乱。",
+            "en": "If I realize just before leaving that I have forgotten something, I tend to adjust the plan so things do not become more chaotic."
+          },
+          "directionId": "GREEN"
+        }
+      ]
+    },
+    {
+      "id": "COLOR_FC_012",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "身边人显得有些紧张时，我通常先陪他把节奏放稳。",
+            "en": "When someone near me seems tense, I usually help them settle into a steadier pace first."
+          },
+          "directionId": "GREEN"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "身边人显得有些紧张时，我通常先帮他找一个能做的动作。",
+            "en": "When someone near me seems tense, I usually help them find something they can do first."
+          },
+          "directionId": "RED"
+        }
+      ]
+    },
+    {
+      "id": "COLOR_FC_013",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "读到一个陌生概念时，我会先想它能与哪些经历连起来。",
+            "en": "When I encounter an unfamiliar concept, I first think about experiences it might connect with."
+          },
+          "directionId": "YELLOW"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "读到一个陌生概念时，我会先拆清它的定义和条件。",
+            "en": "When I encounter an unfamiliar concept, I first clarify its definition and conditions."
+          },
+          "directionId": "BLUE"
+        }
+      ]
+    },
+    {
+      "id": "COLOR_FC_014",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "准备讲一件复杂的事时，我会先整理顺序和关键细节。",
+            "en": "When preparing to explain something complex, I first organize the sequence and key details."
+          },
+          "directionId": "BLUE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "准备讲一件复杂的事时，我会先想一个好理解的比喻。",
+            "en": "When preparing to explain something complex, I first think of an accessible analogy."
+          },
+          "directionId": "YELLOW"
+        }
+      ]
+    },
+    {
+      "id": "COLOR_FC_015",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "旅行前看攻略时，我倾向先收集不同人的新鲜体验。",
+            "en": "When researching a trip, I tend to start by gathering other people's interesting experiences."
+          },
+          "directionId": "YELLOW"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "旅行前看攻略时，我倾向先整理路线和实用信息。",
+            "en": "When researching a trip, I tend to start by organizing the route and practical information."
+          },
+          "directionId": "BLUE"
+        }
+      ]
+    },
+    {
+      "id": "COLOR_FC_016",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "大家随意聊天时，我通常先追问一个说法的具体依据。",
+            "en": "In a casual conversation, I usually start by asking what specifically supports a claim."
+          },
+          "directionId": "BLUE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "大家随意聊天时，我通常先接住话题延伸新方向。",
+            "en": "In a casual conversation, I usually pick up the topic and take it in a new direction."
+          },
+          "directionId": "YELLOW"
+        }
+      ]
+    },
+    {
+      "id": "COLOR_FC_017",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "与熟人见面时，我会先从一件新鲜经历打开话题。",
+            "en": "When meeting someone I know, I open the conversation with a recent new experience."
+          },
+          "directionId": "YELLOW"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "与熟人见面时，我会先从彼此熟悉的近况接回原有话题。",
+            "en": "When meeting someone I know, I reconnect through familiar updates and earlier conversations."
+          },
+          "directionId": "GREEN"
+        }
+      ]
+    },
+    {
+      "id": "COLOR_FC_018",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "聊天中出现冷场时，我会先留一点安静让大家自在。",
+            "en": "When conversation falls quiet, I first leave a little silence so everyone can feel at ease."
+          },
+          "directionId": "GREEN"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "聊天中出现冷场时，我会先抛出一个轻松的新话题。",
+            "en": "When conversation falls quiet, I first introduce a light new topic."
+          },
+          "directionId": "YELLOW"
+        }
+      ]
+    },
+    {
+      "id": "COLOR_FC_019",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "几个人临时聚在一起时，我倾向先提出一个新的活动选择。",
+            "en": "When a few people get together spontaneously, I tend to suggest a new activity first."
+          },
+          "directionId": "YELLOW"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "几个人临时聚在一起时，我倾向先沿用大家熟悉的安排方式。",
+            "en": "When a few people get together spontaneously, I tend to start with an arrangement everyone already knows."
+          },
+          "directionId": "GREEN"
+        }
+      ]
+    },
+    {
+      "id": "COLOR_FC_020",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "朋友的情绪不高时，我通常先陪他待一会儿。",
+            "en": "When a friend is feeling low, I usually sit with them for a while first."
+          },
+          "directionId": "GREEN"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "朋友的情绪不高时，我通常先用新角度帮他换换心情。",
+            "en": "When a friend is feeling low, I usually offer a new perspective to help shift their mood."
+          },
+          "directionId": "YELLOW"
+        }
+      ]
+    },
+    {
+      "id": "COLOR_FC_021",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "房间有些乱时，我会先按类别把东西放回去。",
+            "en": "When a room is untidy, I first put things back by category."
+          },
+          "directionId": "BLUE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "房间有些乱时，我会先恢复几个常用区域的舒服感。",
+            "en": "When a room is untidy, I first make a few frequently used areas feel comfortable again."
+          },
+          "directionId": "GREEN"
+        }
+      ]
+    },
+    {
+      "id": "COLOR_FC_022",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "两个人对安排有分歧时，我会先确认各自最在意的部分。",
+            "en": "When two people disagree about plans, I first check what matters most to each of them."
+          },
+          "directionId": "GREEN"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "两个人对安排有分歧时，我会先列出可比较的具体条件。",
+            "en": "When two people disagree about plans, I first list specific conditions they can compare."
+          },
+          "directionId": "BLUE"
+        }
+      ]
+    },
+    {
+      "id": "COLOR_FC_023",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "学一个新工具时，我倾向先按步骤熟悉每个环节。",
+            "en": "When learning a new tool, I tend to work through each step in order."
+          },
+          "directionId": "BLUE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "学一个新工具时，我倾向先用稳定的练习慢慢上手。",
+            "en": "When learning a new tool, I tend to get comfortable gradually through steady practice."
+          },
+          "directionId": "GREEN"
+        }
+      ]
+    },
+    {
+      "id": "COLOR_FC_024",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "准备第二天的事情时，我通常先给自己留出不被打乱的节奏。",
+            "en": "When preparing for the next day, I usually protect a rhythm that will not be easily disrupted."
+          },
+          "directionId": "GREEN"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "准备第二天的事情时，我通常先检查需要带的物品和信息。",
+            "en": "When preparing for the next day, I usually check the items and information I will need."
+          },
+          "directionId": "BLUE"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "red",
+      "directionIds": [
+        "RED"
+      ],
+      "title": {
+        "zh": "红·行动回应",
+        "en": "Red · Responding through action"
+      },
+      "headline": {
+        "zh": "本次选择中，红·行动回应的次数排在第一",
+        "en": "Red · Responding through action led your choices this time"
+      },
+      "summary": {
+        "zh": "这 24 道题里，你更多次选中了先动起来、先给回应、先让事情开始的那一项。",
+        "en": "Across these 24 questions, you more often chose to get moving, respond promptly or make something happen first."
+      },
+      "scoreReading": {
+        "zh": "分数怎么来的：每道题二选一，你选中的方向得 1 次；四个方向各参与 12 次比较。本次红·行动回应次数最多。这个数字只属于这 24 道题，不衡量你在人群里的位置，跟准确率、浓度、百分位都没有关系。",
+        "en": "How the counts work: each paired question adds 1 to the direction you select. Each of the four directions appears in 12 comparisons. Red led this attempt. These numbers belong only to this question set: they are not a population ranking, accuracy rate, intensity measure or percentile."
+      },
+      "sections": [
+        {
+          "id": "construct-definition",
+          "title": {
+            "zh": "颜色怎样使用",
+            "en": "What the color means here"
+          },
+          "paragraphs": [
+            {
+              "zh": "红是费马测试自建的记忆符号，标记一种反应入口：先做一个近期动作、先快速回应，或先推动事情发生。它不是人格身份，也不代表商业四色课程的红色含义。",
+              "en": "Red is FermatMind's own memory aid for a way of responding: choosing an immediate action, replying quickly or getting something under way. It is not a personality identity and does not carry the meaning assigned to red by any commercial four-color course."
+            }
+          ]
+        },
+        {
+          "id": "core-observation",
+          "title": {
+            "zh": "本次作答中的观察",
+            "en": "Observations from this attempt"
+          },
+          "paragraphs": [
+            {
+              "zh": "事情摆在面前时，你通常先找一个能做的动作：周末多出一段空闲，你很快选一件事开始做；听到新点子，你先找个方式试起来；朋友提议换地方，你很快回应并出发；小事拖着没处理，你先做掉再说。思考常发生在动手之后。",
+              "en": "When something needs attention, you tend to look for an action you can take: you quickly pick something to do with unexpected free time, try a new idea, respond and leave when a friend suggests a new venue, or clear a task that has been waiting. Thinking often continues after you start."
+            }
+          ]
+        },
+        {
+          "id": "attention-entry",
+          "title": {
+            "zh": "先注意什么",
+            "en": "What draws your attention"
+          },
+          "paragraphs": [
+            {
+              "zh": "本次题目里，你更常选‘当下可以先做什么’：收到信息时先给简短回应；临出门发现忘了东西时先想替代办法；身边人紧张时先提出一个能做的动作。这里只记录选择入口，不推断动作效果。",
+              "en": "In this question set, you more often chose 'What can I do right now?' You gave a brief reply to a message, found an alternative for a forgotten item or suggested an action to someone who felt tense. This records where your response starts, not how well the action works."
+            }
+          ]
+        },
+        {
+          "id": "daily-choice-pattern",
+          "title": {
+            "zh": "日常选择",
+            "en": "Everyday choices"
+          },
+          "paragraphs": [
+            {
+              "zh": "日常小事里，你倾向少比较、快决定。买常用物品，你设定主要条件快速选定；看到可疑说法，你先根据已知信息做个判断。",
+              "en": "For everyday decisions, you tend to compare less and decide sooner. You set your main requirements for a purchase and choose, or form an initial judgment about a questionable claim from what you already know."
+            }
+          ]
+        },
+        {
+          "id": "information-or-learning-pattern",
+          "title": {
+            "zh": "接触新信息",
+            "en": "Approaching new information"
+          },
+          "paragraphs": [
+            {
+              "zh": "面对新信息时，你在题目中更常选先动手验证：听到新点子时先找一个方式试起来。题目没有测量你的学习效果，也不说明信息不完整时的实际表现。",
+              "en": "With new information, your choices more often favored trying something: for a new idea, you looked for a way to test it out. The questions do not measure learning effectiveness or show how you actually perform with incomplete information."
+            }
+          ]
+        },
+        {
+          "id": "communication-pattern",
+          "title": {
+            "zh": "沟通方式",
+            "en": "Communication"
+          },
+          "paragraphs": [
+            {
+              "zh": "表达上偏简短、直接，常先给回应或结论，再补充原因。调整约定时，你可能先给出新时间；听到一个说法时，可能先给判断，而不是先追问依据。",
+              "en": "Your expression may be brief and direct, with a response or conclusion before the reasons. You might suggest a new meeting time immediately or give an initial judgment before asking for evidence."
+            }
+          ]
+        },
+        {
+          "id": "relationship-or-coordination-pattern",
+          "title": {
+            "zh": "相处与协调",
+            "en": "Relationships and coordination"
+          },
+          "paragraphs": [
+            {
+              "zh": "与人协调时，你在本次题目中更常选先给一个具体方案：约定要调整时先给新时间；身边人紧张时先提出一个能做的动作。这不说明方案一定合适，还需要对齐信息和节奏。",
+              "en": "In coordination, your choices more often favored a concrete proposal: a new time for a changed arrangement or an action for someone feeling tense. A proposal still needs to fit the situation, available information and other person's pace."
+            }
+          ]
+        },
+        {
+          "id": "context-variations",
+          "title": {
+            "zh": "情境差异",
+            "en": "How context changes things"
+          },
+          "paragraphs": [
+            {
+              "zh": "面对不熟悉的事情，你可能会先观察一下再上手。",
+              "en": "With something unfamiliar, you may watch for a while before trying it."
+            },
+            {
+              "zh": "时间宽松时，你也许愿意多比较；时间一紧，你的行动回应明显变多。",
+              "en": "With plenty of time, you may compare more options; under time pressure, immediate action may become more frequent."
+            },
+            {
+              "zh": "涉及钱或重要决定时，你会主动放慢，先问清条件再动。",
+              "en": "For money or important decisions, you may deliberately slow down and clarify the conditions first."
+            },
+            {
+              "zh": "身边人明确表示要慢慢来时，你会配合他们的节奏。",
+              "en": "When someone explicitly asks to take things slowly, you may adjust to their pace."
+            }
+          ]
+        },
+        {
+          "id": "possible-contributions",
+          "title": {
+            "zh": "可能带来的帮助",
+            "en": "Possible contributions"
+          },
+          "paragraphs": [
+            {
+              "zh": "讨论停滞时，你可能会先提出一个可执行动作；是否适合仍取决于目标和参与者。",
+              "en": "When discussion stalls, you may offer an actionable step. Whether it fits depends on the goal and the people involved."
+            },
+            {
+              "zh": "信息不完整时，先试一小步有时可以带来反馈；前提是这一步可撤回、风险可控。",
+              "en": "With incomplete information, a small trial can sometimes produce useful feedback, provided it is reversible and the risks are manageable."
+            },
+            {
+              "zh": "日常小事中，尽快开始可能减少等待；若条件尚未确认，仍需要先核对。",
+              "en": "Getting started promptly can reduce waiting on everyday tasks; when conditions are unclear, checking still needs to come first."
+            },
+            {
+              "zh": "看到对方犹豫时，你可能会提出一个具体动作；是否有用要看对方当时需要什么。",
+              "en": "When someone hesitates, you may suggest a concrete action. Its usefulness depends on what they need at that moment."
+            }
+          ]
+        },
+        {
+          "id": "possible-costs",
+          "title": {
+            "zh": "可能的代价",
+            "en": "Possible costs"
+          },
+          "paragraphs": [
+            {
+              "zh": "回应很快时，留给整理和核对的时间较少，细节可能被略过。",
+              "en": "A quick response leaves less time to organize and check, so details may be missed."
+            },
+            {
+              "zh": "行动速度若和同行者节奏不同，可能出现一方已开始、另一方仍在确认的情况。",
+              "en": "If your pace differs from someone else's, one of you may already be acting while the other is still checking."
+            },
+            {
+              "zh": "先做起来时，若信息不足，可能需要返工或事后补充。",
+              "en": "Starting with too little information can mean rework or extra explanation later."
+            },
+            {
+              "zh": "在需要先商量再动手的场合，快回应可能发生在关键信息尚未对齐之前。",
+              "en": "When a situation calls for discussion before action, a quick response may arrive before key information is aligned."
+            }
+          ]
+        },
+        {
+          "id": "real-world-scenes",
+          "title": {
+            "zh": "生活中的例子",
+            "en": "Everyday examples"
+          },
+          "paragraphs": [
+            {
+              "zh": "周末上午，别人还在想出不出去，你已经收拾好准备出发了。",
+              "en": "On a weekend morning, you may already be ready to leave while others are still deciding whether to go out."
+            },
+            {
+              "zh": "收到需要处理的消息，你会先回一句马上做，而不是先问背景。",
+              "en": "For a message requiring action, you may reply 'I'll do it now' before asking about the background."
+            },
+            {
+              "zh": "家里有件小事拖了很久，你会找一天顺手做掉。",
+              "en": "You may pick a day to finally take care of a small household task that has been waiting."
+            }
+          ]
+        },
+        {
+          "id": "counterbalance-prompts",
+          "title": {
+            "zh": "平衡练习",
+            "en": "Practices to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "下次回应前，先问一句：这件事需要先核对什么？",
+              "en": "Before your next response, ask: what needs checking first?"
+            },
+            {
+              "zh": "决定动手之前，给自己一分钟列一下可能漏掉的关键点。",
+              "en": "Before acting, take a minute to list any important details you might be missing."
+            },
+            {
+              "zh": "别人明显在犹豫时，先问他的节奏，而不是直接给方案。",
+              "en": "When someone is clearly hesitating, ask about their pace before proposing a solution."
+            },
+            {
+              "zh": "每周选一件小事，先比较两个选项再动手，练习行动前多留一步。",
+              "en": "Once a week, compare two options before starting a small task, leaving one extra step before action."
+            }
+          ]
+        },
+        {
+          "id": "seven-day-observation",
+          "title": {
+            "zh": "七日观察",
+            "en": "A seven-day observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "接下来七天，每次想立即动手时，先停三秒，在心里说一句我现在准备做什么。然后照做。七天结束时回看：哪些立即行动帮了忙，哪些先核对一下会更好。你不需要变慢，只需看见自己快在哪里。",
+              "en": "For the next seven days, pause for three seconds whenever you want to act immediately. Name what you are about to do, then proceed. At the end of the week, review when prompt action helped and when a check would have helped more. The aim is to notice your pace, not simply to become slower."
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "zh": "带回经历核对",
+            "en": "Questions to reflect on"
+          },
+          "paragraphs": [
+            {
+              "zh": "最近一次你立即动手的事情，后来结果怎么样？",
+              "en": "What happened after the last time you acted immediately?"
+            },
+            {
+              "zh": "有没有什么时候，你其实想先核对，但还是先动了？",
+              "en": "Have you ever wanted to check first but acted anyway?"
+            },
+            {
+              "zh": "你身边有没有人提醒过你慢一点？当时你听进去了吗？",
+              "en": "Has someone asked you to slow down? Did you take that in at the time?"
+            },
+            {
+              "zh": "在哪些事情上，你会主动选择先整理而不是先行动？",
+              "en": "For which tasks do you deliberately organize things before acting?"
+            }
+          ]
+        },
+        {
+          "id": "does-not-mean",
+          "title": {
+            "zh": "怎样避免过度解读",
+            "en": "Avoiding overinterpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "不表示你冲动或鲁莽。",
+              "en": "This does not mean you are impulsive or reckless."
+            },
+            {
+              "zh": "不表示你行动力比别人强，也不预测你的工作表现。",
+              "en": "It does not mean you are better at taking action or predict your work performance."
+            },
+            {
+              "zh": "不表示你总是这样，情境和角色变了，你的方式可能完全不同。",
+              "en": "It does not mean you always respond this way. A different situation or role may bring a different approach."
+            },
+            {
+              "zh": "不说明其他三个方向是缺点或缺失。",
+              "en": "This does not make the other three directions flaws or missing qualities."
+            },
+            {
+              "zh": "不是心理诊断，不描述你是什么人，只记录这次题组里的相对选择。",
+              "en": "This is not a diagnosis or a definition of who you are. It records relative choices in this attempt."
+            },
+            {
+              "zh": "不预测你的职业、关系或任何未来结果。",
+              "en": "It does not predict your career, relationships or future outcomes."
+            }
+          ]
+        },
+        {
+          "id": "interpretation-boundary",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个结果只反映本次 24 道题里的相对选择次数。颜色只是记忆符号，不代表人格身份，也不等同任何商业四色课程或认证体系。请把下面的描述带回你的具体经历核对，认同的留下，不符合的略过。",
+              "en": "This result reflects relative choice counts across these 24 questions. Colors are memory aids, not personality identities or equivalents of commercial four-color courses or certifications. Check the descriptions against your own experiences; keep what fits and set aside what does not."
+            }
+          ]
+        },
+        {
+          "id": "scientific-boundary",
+          "title": {
+            "zh": "版本说明",
+            "en": "About this edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "本测试用于娱乐与自我探索，尚未完成信度、效度、常模等心理测量学验证，也未获得任何官方的认证资格。结果仅基于本次自报选择的次数比较。",
+              "en": "This test is for entertainment and self-exploration. Reliability, validity and population norms have not been established, and it has no official certification. Results compare counts from your self-reported choices in this attempt."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yellow",
+      "directionIds": [
+        "YELLOW"
+      ],
+      "title": {
+        "zh": "黄·开放联想",
+        "en": "Yellow · Exploring connections"
+      },
+      "headline": {
+        "zh": "本次选择中，黄·开放联想的次数排在第一",
+        "en": "Yellow · Exploring connections led your choices this time"
+      },
+      "summary": {
+        "zh": "回答这 24 题时，你选先展开联想、先让话题继续、先从新角度回应情境这类选项的次数最多。",
+        "en": "Across these 24 questions, you most often chose to explore associations, keep a conversation going or approach a situation from a new angle."
+      },
+      "scoreReading": {
+        "zh": "得分规则：每道题选中的方向记 1 次，四个方向各出场 12 次。这次黄·开放联想排在第一。这个次数只对本次作答有意义——它不是人群排名，不是准确率，也不代表浓度或百分位。",
+        "en": "Scoring: each selected direction receives 1 count, and each direction appears 12 times. Yellow led this attempt. The count applies only to these answers; it is not a population ranking, accuracy rate, intensity measure or percentile."
+      },
+      "sections": [
+        {
+          "id": "construct-definition",
+          "title": {
+            "zh": "颜色怎样使用",
+            "en": "What the color means here"
+          },
+          "paragraphs": [
+            {
+              "zh": "黄是费马测试自建的记忆符号，标记一种反应入口：先扩展可能性、产生联系和画面，或通过话题让表达继续。它不是人格身份，也不代表商业四色课程的黄色含义。",
+              "en": "Yellow is FermatMind's own memory aid for a way of responding: expanding possibilities, making connections and picturing options, or keeping expression going through conversation. It is not a personality identity or the yellow category used by any commercial four-color course."
+            }
+          ]
+        },
+        {
+          "id": "core-observation",
+          "title": {
+            "zh": "本次作答中的观察",
+            "en": "Observations from this attempt"
+          },
+          "paragraphs": [
+            {
+              "zh": "新信息进来时，你通常先顺着它往外走：周末多出一段空闲，你想出几种有趣的过法；听到新点子，你顺着联想还有哪些可能；读到陌生概念，你想它能连上哪些经历。你习惯先让可能性展开，再决定方向。",
+              "en": "With new information, you tend to explore outward: you imagine several ways to use unexpected free time, follow a new idea into other possibilities or connect an unfamiliar concept with past experiences. You often let possibilities unfold before choosing a direction."
+            }
+          ]
+        },
+        {
+          "id": "attention-entry",
+          "title": {
+            "zh": "先注意什么",
+            "en": "What draws your attention"
+          },
+          "paragraphs": [
+            {
+              "zh": "你更先注意到的是这件事还能连到哪些可能。旅行前看攻略，你先收集不同人的新鲜体验；聊天时你接住话题延伸新方向；几个人聚在一起，你想一个可以玩的点子。关联和画面出现得很快。",
+              "en": "You may notice what else something could connect with first. Researching a trip, you gather new experiences; in conversation, you take a topic further; at a gathering, you suggest something people could try. Connections and images can arrive quickly."
+            }
+          ]
+        },
+        {
+          "id": "daily-choice-pattern",
+          "title": {
+            "zh": "日常选择",
+            "en": "Everyday choices"
+          },
+          "paragraphs": [
+            {
+              "zh": "日常选择里，你倾向先看看还有哪些选项。朋友提议换地方，你先聊聊其他选择；聊到未来计划，你先分享脑中浮现的多种画面。选项展开后，还需要再收敛。",
+              "en": "In everyday choices, you tend to consider other possibilities first. You discuss alternatives when a friend suggests changing venues, or share several images of the future. Once those options are open, a choice still needs to be narrowed down."
+            }
+          ]
+        },
+        {
+          "id": "information-or-learning-pattern",
+          "title": {
+            "zh": "接触新信息",
+            "en": "Approaching new information"
+          },
+          "paragraphs": [
+            {
+              "zh": "面对新知识时，你在题目中更常选先建立联系：读到陌生概念时，先想它与哪些经历相连；准备讲复杂内容时，先想一个比喻。这不说明记忆或理解效果。",
+              "en": "With new knowledge, your choices more often favored making connections: linking an unfamiliar concept to experience or finding an analogy for complex content. This does not show how well you remember or understand it."
+            }
+          ]
+        },
+        {
+          "id": "communication-pattern",
+          "title": {
+            "zh": "沟通方式",
+            "en": "Communication"
+          },
+          "paragraphs": [
+            {
+              "zh": "表达上偏生动、带画面，可能先分享新鲜经历、抛出新话题，或用比喻说明一件事。聊天冷场时，你可能先抛出轻松话题；与熟人见面时，可能从一件新鲜经历打开话题。",
+              "en": "Your expression may be vivid, with fresh experiences, new topics or analogies. You might introduce a light topic during a lull or open a conversation with something new that happened to you."
+            }
+          ]
+        },
+        {
+          "id": "relationship-or-coordination-pattern",
+          "title": {
+            "zh": "相处与协调",
+            "en": "Relationships and coordination"
+          },
+          "paragraphs": [
+            {
+              "zh": "与人相处时，你在本次题目中更常选引入新角度：朋友情绪不高时先换一个角度；临时聚会时先提出新的活动选择。是否合适仍要看当下情境和参与者。",
+              "en": "With others, your choices more often favored a new perspective: reframing something for a friend who feels low or suggesting a new activity for a spontaneous gathering. Whether that helps depends on the situation and participants."
+            }
+          ]
+        },
+        {
+          "id": "context-variations",
+          "title": {
+            "zh": "情境差异",
+            "en": "How context changes things"
+          },
+          "paragraphs": [
+            {
+              "zh": "在需要严谨核对的任务里，你会刻意收住联想。",
+              "en": "On tasks requiring careful checks, you may deliberately rein in associations."
+            },
+            {
+              "zh": "面对不感兴趣的话题，你可能不太愿意展开，话也会变少。",
+              "en": "With a topic that does not interest you, you may explore less and become quieter."
+            },
+            {
+              "zh": "时间紧张时，联想会收敛一些，先挑一个方向走；时间宽松时，你能想得很开。",
+              "en": "Under time pressure, you may narrow your ideas and pick a direction; with more time, your thinking may range widely."
+            },
+            {
+              "zh": "和熟悉的人在一起，话题更放得开；和不熟的人，你会先试探。",
+              "en": "With familiar people, you may let a conversation roam; with unfamiliar people, you may test the waters first."
+            }
+          ]
+        },
+        {
+          "id": "possible-contributions",
+          "title": {
+            "zh": "可能带来的帮助",
+            "en": "Possible contributions"
+          },
+          "paragraphs": [
+            {
+              "zh": "讨论停留在单一思路时，展开另一个方向可能有助于看见其他选项；是否可行仍需要核对。",
+              "en": "When discussion follows only one line, another direction may reveal more options. Feasibility still needs checking."
+            },
+            {
+              "zh": "说明陌生内容时，画面或比喻可能提供一个理解入口；是否清楚要由听者核对。",
+              "en": "An image or analogy can provide a way into unfamiliar material; the listener still needs to confirm that it makes sense."
+            },
+            {
+              "zh": "对话停顿时，新话题可能让交流继续；前提是参与者愿意转向这个话题。",
+              "en": "A new topic can keep a stalled conversation going, provided the participants want to move to it."
+            },
+            {
+              "zh": "遇到变化时，换一个角度有时能补充选项；最终决定还需要考虑条件和成本。",
+              "en": "When things change, another perspective may add options. The final decision still needs to account for conditions and costs."
+            }
+          ]
+        },
+        {
+          "id": "possible-costs",
+          "title": {
+            "zh": "可能的代价",
+            "en": "Possible costs"
+          },
+          "paragraphs": [
+            {
+              "zh": "可能性展开之后，可能迟迟不收敛，决定时间随之拉长。",
+              "en": "Opening up possibilities without narrowing them can stretch out a decision."
+            },
+            {
+              "zh": "话题跳转太快时，前后线索可能来不及说明。",
+              "en": "If topics change too quickly, the connections between them may go unexplained."
+            },
+            {
+              "zh": "丰富的联想有时会盖过对细节和依据的核对。",
+              "en": "A wealth of associations can sometimes crowd out checks of details and evidence."
+            },
+            {
+              "zh": "聊得热络不等于达成共识，散场后可能没有明确落点。",
+              "en": "An animated conversation does not necessarily produce agreement; people may leave without a clear outcome."
+            }
+          ]
+        },
+        {
+          "id": "real-world-scenes",
+          "title": {
+            "zh": "生活中的例子",
+            "en": "Everyday examples"
+          },
+          "paragraphs": [
+            {
+              "zh": "朋友说周末没事做，你一口气说了好几个可以去的地方。",
+              "en": "When a friend says there is nothing to do at the weekend, you suggest several places at once."
+            },
+            {
+              "zh": "开会讨论方案时，你会在别人的想法上再加两个变体。",
+              "en": "During a planning meeting, you may add two variations to someone else's idea."
+            },
+            {
+              "zh": "家人商量假期安排，你先讲几种不同的过法，再问大家倾向哪种。",
+              "en": "When family members plan a holiday, you describe several ways to spend it before asking which they prefer."
+            }
+          ]
+        },
+        {
+          "id": "counterbalance-prompts",
+          "title": {
+            "zh": "平衡练习",
+            "en": "Practices to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "想法冒出来之后，问一句：这些里面，今天只需要留下哪一个？",
+              "en": "When ideas appear, ask: which one of these needs to stay for today?"
+            },
+            {
+              "zh": "展开话题前，先确认对方想聊这个方向吗。",
+              "en": "Before expanding a topic, check whether the other person wants to explore that direction."
+            },
+            {
+              "zh": "重要讨论快结束时，用一句话总结我们决定了什么。",
+              "en": "Near the end of an important discussion, summarize the decision in one sentence."
+            },
+            {
+              "zh": "每周选一件事，故意只考虑一个方案就动手，练习收敛。",
+              "en": "Once a week, choose a task and deliberately start with just one plan, practicing how to narrow your options."
+            }
+          ]
+        },
+        {
+          "id": "seven-day-observation",
+          "title": {
+            "zh": "七日观察",
+            "en": "A seven-day observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "接下来七天，每次冒出第二个、第三个想法时，先记下来不说出来。等事情告一段落再回头看：展开的方向里，几个真有用，几个只是热闹。你不需要停止联想，只需看见联想之后的事。",
+              "en": "For the next seven days, write down your second and third ideas before saying them aloud. Return to them after the task: which directions helped, and which simply made things lively? You need not stop making connections; notice what happens after them."
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "zh": "带回经历核对",
+            "en": "Questions to reflect on"
+          },
+          "paragraphs": [
+            {
+              "zh": "最近一次你想出很多方向却迟迟没定，是哪件事？",
+              "en": "When did you last generate many possibilities but struggle to choose?"
+            },
+            {
+              "zh": "有没有人说你话题跳得太快？当时你觉得他说得对吗？",
+              "en": "Has someone said you change topics too quickly? Did you agree at the time?"
+            },
+            {
+              "zh": "哪些场合里，你会主动收起联想、按部就班？",
+              "en": "When do you deliberately set associations aside and follow a sequence?"
+            },
+            {
+              "zh": "你的画面和比喻，通常帮了沟通还是偶尔让事情变复杂？",
+              "en": "Do your images and analogies usually help communication, or sometimes make it more complicated?"
+            }
+          ]
+        },
+        {
+          "id": "does-not-mean",
+          "title": {
+            "zh": "怎样避免过度解读",
+            "en": "Avoiding overinterpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "不表示你比别人聪明或有创造天赋。",
+              "en": "This does not mean you are smarter or more creatively gifted than others."
+            },
+            {
+              "zh": "不表示你乐观或擅长社交，也不预测你的表达能力。",
+              "en": "It does not mean you are optimistic or socially skilled, or predict your ability to express yourself."
+            },
+            {
+              "zh": "不表示你总是这样，情境和角色变了，你的方式可能完全不同。",
+              "en": "It does not mean you always respond this way. A different situation or role may bring a different approach."
+            },
+            {
+              "zh": "不说明其他三个方向是缺点或缺失。",
+              "en": "This does not make the other three directions flaws or missing qualities."
+            },
+            {
+              "zh": "不是心理诊断，不描述你是什么人，只记录这次题组里的相对选择。",
+              "en": "This is not a diagnosis or a definition of who you are. It records relative choices in this attempt."
+            },
+            {
+              "zh": "不预测你的职业、关系或任何未来结果。",
+              "en": "It does not predict your career, relationships or future outcomes."
+            }
+          ]
+        },
+        {
+          "id": "interpretation-boundary",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个结果只反映本次 24 道题里的相对选择次数。颜色只是记忆符号，不代表人格身份，也不等同任何商业四色课程或认证体系。请把下面的描述带回你的具体经历核对，认同的留下，不符合的略过。",
+              "en": "This result reflects relative choice counts across these 24 questions. Colors are memory aids, not personality identities or equivalents of commercial four-color courses or certifications. Check the descriptions against your own experiences; keep what fits and set aside what does not."
+            }
+          ]
+        },
+        {
+          "id": "scientific-boundary",
+          "title": {
+            "zh": "版本说明",
+            "en": "About this edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "本测试用于娱乐与自我探索，尚未完成信度、效度、常模等心理测量学验证，也未获得任何官方的认证资格。结果仅基于本次自报选择的次数比较。",
+              "en": "This test is for entertainment and self-exploration. Reliability, validity and population norms have not been established, and it has no official certification. Results compare counts from your self-reported choices in this attempt."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "blue",
+      "directionIds": [
+        "BLUE"
+      ],
+      "title": {
+        "zh": "蓝·审慎整理",
+        "en": "Blue · Careful organization"
+      },
+      "headline": {
+        "zh": "本次选择中，蓝·审慎整理的次数排在第一",
+        "en": "Blue · Careful organization led your choices this time"
+      },
+      "summary": {
+        "zh": "整份问卷里，你更常选的是先整理条件、核对信息、把内容理清楚后再回应的那一项。",
+        "en": "Across this questionnaire, you more often chose to organize conditions, check information and clarify content before responding."
+      },
+      "scoreReading": {
+        "zh": "怎么计分：二选一里你选谁，谁就记 1 次；四个方向各被比较 12 次。本次蓝·审慎整理次数最高。这个数字不能拿出去当人群位置或百分位看，也不是准确率或浓度，只是这次作答的相对结果。",
+        "en": "Scoring: the direction you select in each pair receives 1 count, and each direction is compared 12 times. Blue had the highest total. This is a relative result within this attempt, not a population position, percentile, accuracy rate or intensity measure."
+      },
+      "sections": [
+        {
+          "id": "construct-definition",
+          "title": {
+            "zh": "颜色怎样使用",
+            "en": "What the color means here"
+          },
+          "paragraphs": [
+            {
+              "zh": "蓝是费马测试自建的记忆符号，标记一种反应入口：先整理条件、顺序和依据，核对信息，或在回应前形成清晰结构。它不是人格身份，也不代表商业四色课程的蓝色含义。",
+              "en": "Blue is FermatMind's own memory aid for a way of responding: organizing conditions, sequences and evidence, checking information or building a clear structure before replying. It is not a personality identity or the blue category used by any commercial four-color course."
+            }
+          ]
+        },
+        {
+          "id": "core-observation",
+          "title": {
+            "zh": "本次作答中的观察",
+            "en": "Observations from this attempt"
+          },
+          "paragraphs": [
+            {
+              "zh": "事情摆在面前时，你通常先把它理清楚再动：买常用物品，先比较规格和使用差异；看到可疑说法，先找来源和上下文；小事没处理，先理清卡点；准备讲复杂的事，先整理顺序和关键细节。你的路径是先把变量数清楚。",
+              "en": "When something needs attention, you tend to clarify it before acting: comparing product specifications, checking the source and context of a doubtful claim, finding what blocks a task, or organizing a complex explanation. Your starting point is to identify the variables."
+            }
+          ]
+        },
+        {
+          "id": "attention-entry",
+          "title": {
+            "zh": "先注意什么",
+            "en": "What draws your attention"
+          },
+          "paragraphs": [
+            {
+              "zh": "你更先注意到的是信息是否清楚、有序、可核对。收到一条信息，你先整理里面的条件再回复；聊天中听到一个说法，你先追问具体依据；学新工具，你先按步骤熟悉每个环节。没有来源和边界的说法，会让你觉得还差一步。",
+              "en": "You may first notice whether information is clear, ordered and checkable. You sort a message's conditions before replying, ask what supports a conversational claim or learn a tool step by step. A claim without a source or clear limits may feel unfinished."
+            }
+          ]
+        },
+        {
+          "id": "daily-choice-pattern",
+          "title": {
+            "zh": "日常选择",
+            "en": "Everyday choices"
+          },
+          "paragraphs": [
+            {
+              "zh": "日常选择里，你倾向先比较再决定。买物品看规格差异，旅行前整理路线和实用信息，准备第二天先检查要带的物品。你不太喜欢信息不齐时拍板。",
+              "en": "For everyday choices, you tend to compare before deciding: checking product specifications, organizing travel routes and practical information, or checking what to take tomorrow. You may prefer not to commit while information is missing."
+            }
+          ]
+        },
+        {
+          "id": "information-or-learning-pattern",
+          "title": {
+            "zh": "接触新信息",
+            "en": "Approaching new information"
+          },
+          "paragraphs": [
+            {
+              "zh": "面对新知识时，你在题目中更常选先拆解：读到陌生概念时先理清定义和条件；学新工具时先按步骤熟悉；讲复杂内容时先整理顺序。这不说明记忆、逻辑或学习能力。",
+              "en": "With new knowledge, your choices more often favored breaking it down: clarifying definitions, learning a tool in steps or organizing an explanation. This does not indicate memory, reasoning or learning ability."
+            }
+          ]
+        },
+        {
+          "id": "communication-pattern",
+          "title": {
+            "zh": "沟通方式",
+            "en": "Communication"
+          },
+          "paragraphs": [
+            {
+              "zh": "表达上偏重条件、顺序和依据，常在结论前先整理信息。准备说明一件事时，你可能先检查用词和数据；聊天中听到一个说法，可能先追问具体依据。",
+              "en": "Your expression may emphasize conditions, sequence and evidence, with information organized before the conclusion. You might check wording and figures before explaining something or ask for the basis of a claim during conversation."
+            }
+          ]
+        },
+        {
+          "id": "relationship-or-coordination-pattern",
+          "title": {
+            "zh": "相处与协调",
+            "en": "Relationships and coordination"
+          },
+          "paragraphs": [
+            {
+              "zh": "与人协调时，你在本次题目中更常选先摆清条件：对安排有分歧时先列出可比较的条件；准备第二天的事情时先检查物品和信息。条件是否足够，仍需要回到实际安排核对。",
+              "en": "In coordination, your choices more often favored clarifying conditions: listing points people can compare when plans conflict, or checking items and information for tomorrow. Whether the conditions are sufficient still needs checking against the actual plan."
+            }
+          ]
+        },
+        {
+          "id": "context-variations",
+          "title": {
+            "zh": "情境差异",
+            "en": "How context changes things"
+          },
+          "paragraphs": [
+            {
+              "zh": "时间很紧、必须当场决定时，你会明显压缩整理，先挑关键条件走。",
+              "en": "When time is short and a decision is needed immediately, you may reduce the organizing and focus on key conditions."
+            },
+            {
+              "zh": "对熟悉的领域，你的整理会很快，因为标准已在脑子里。",
+              "en": "In a familiar field, you may organize quickly because the criteria are already in mind."
+            },
+            {
+              "zh": "涉及钱、健康、承诺的重要决定，你会花多得多的时间核对。",
+              "en": "For important decisions involving money, health or commitments, you may spend much longer checking."
+            },
+            {
+              "zh": "和信任的人合作，你会减少核对；和不熟的人，你会逐项确认。",
+              "en": "With trusted collaborators, you may check less; with unfamiliar people, you may confirm each point."
+            }
+          ]
+        },
+        {
+          "id": "possible-contributions",
+          "title": {
+            "zh": "可能带来的帮助",
+            "en": "Possible contributions"
+          },
+          "paragraphs": [
+            {
+              "zh": "信息混杂时，把条件和顺序理清可能方便后续核对；是否足够还取决于信息完整度。",
+              "en": "When information is mixed together, clarifying conditions and sequence can make later checks easier. Sufficiency still depends on how complete the information is."
+            },
+            {
+              "zh": "处理复杂内容时，拆成步骤可能有助于看清顺序；实际执行仍需要检查。",
+              "en": "Breaking complex material into steps can reveal the sequence; actual execution still needs checking."
+            },
+            {
+              "zh": "遇到可疑说法时，查找来源可能补充判断依据；来源本身也需要评估。",
+              "en": "Looking up a questionable claim's source may add evidence for a judgment; the source itself also needs evaluation."
+            },
+            {
+              "zh": "长链条任务中，写下步骤和检查点可能便于追踪；是否有效仍取决于更新和执行。",
+              "en": "Writing steps and checkpoints can help track a long task, provided they are kept current and followed."
+            }
+          ]
+        },
+        {
+          "id": "possible-costs",
+          "title": {
+            "zh": "可能的代价",
+            "en": "Possible costs"
+          },
+          "paragraphs": [
+            {
+              "zh": "信息不完整时，可能迟迟不开始，错过尝试时机。",
+              "en": "Waiting for complete information may delay your start and cause you to miss a chance to try."
+            },
+            {
+              "zh": "对细节和依据的专注，可能挤占本可用来动手的时间。",
+              "en": "Attention to detail and evidence can take time away from acting."
+            },
+            {
+              "zh": "反复核对可能让讨论长时间停留在确认阶段。",
+              "en": "Repeated checking can keep a discussion in the confirmation stage for a long time."
+            },
+            {
+              "zh": "在需要快速应变的场合，整理所需的时间可能与现场节奏冲突。",
+              "en": "When quick adaptation is needed, the time required to organize information may clash with the situation's pace."
+            }
+          ]
+        },
+        {
+          "id": "real-world-scenes",
+          "title": {
+            "zh": "生活中的例子",
+            "en": "Everyday examples"
+          },
+          "paragraphs": [
+            {
+              "zh": "买东西前，你会先列几个要比较的点，再逐项看。",
+              "en": "Before buying something, you may list comparison points and check them one by one."
+            },
+            {
+              "zh": "收到一份说明，你会先检查里面的数字和出处再转发。",
+              "en": "Before forwarding an explanation, you may check its numbers and sources."
+            },
+            {
+              "zh": "接手复杂任务，你会先把步骤和检查点写下来再开始。",
+              "en": "When taking on a complex task, you may write out steps and checkpoints before starting."
+            }
+          ]
+        },
+        {
+          "id": "counterbalance-prompts",
+          "title": {
+            "zh": "平衡练习",
+            "en": "Practices to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "下次想再核对一轮之前，问一句：再查一遍，能改变什么结果？",
+              "en": "Before checking again, ask: what outcome could another check change?"
+            },
+            {
+              "zh": "信息不齐时，给自己一个开始动作：先做最小的一步。",
+              "en": "With incomplete information, give yourself a starting action: take the smallest step first."
+            },
+            {
+              "zh": "给初稿提意见时，先说一句整体方向没问题，再进细节。",
+              "en": "When commenting on a first draft, acknowledge the overall direction before discussing details."
+            },
+            {
+              "zh": "每周选一件小事，故意不做清单直接做，练习在够好的地方停手。",
+              "en": "Once a week, do a small task without making a list, practicing stopping when it is good enough."
+            }
+          ]
+        },
+        {
+          "id": "seven-day-observation",
+          "title": {
+            "zh": "七日观察",
+            "en": "A seven-day observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "接下来七天，每天选一件原本会再核对的小事，事先定下停止条件：查完一轮就停。记下哪些一轮已经足够，哪些后来还需要补充，只核对具体情境。",
+              "en": "For the next seven days, choose one small task each day that you would normally check again. Set a stopping rule in advance: stop after one round. Note when one round was enough and when more was needed, keeping each observation tied to its situation."
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "zh": "带回经历核对",
+            "en": "Questions to reflect on"
+          },
+          "paragraphs": [
+            {
+              "zh": "最近一次核对改变了你的判断，是哪件事？",
+              "en": "When did a check last change your judgment?"
+            },
+            {
+              "zh": "有没有一次，你因为核对太久错过了时机？",
+              "en": "Have you ever missed an opportunity because you checked for too long?"
+            },
+            {
+              "zh": "最近一次你等待补充信息后才开始，是哪件事？",
+              "en": "When did you last wait for more information before starting?"
+            },
+            {
+              "zh": "哪些事情上，你可以接受核对一轮就停？",
+              "en": "For which tasks can you accept stopping after one check?"
+            }
+          ]
+        },
+        {
+          "id": "does-not-mean",
+          "title": {
+            "zh": "怎样避免过度解读",
+            "en": "Avoiding overinterpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "不表示你的智力或逻辑能力比别人强。",
+              "en": "This does not mean your intelligence or reasoning ability is higher than anyone else's."
+            },
+            {
+              "zh": "不表示你刻板、挑剔，也不预测你的工作表现。",
+              "en": "It does not mean you are rigid or fussy, or predict your work performance."
+            },
+            {
+              "zh": "不表示你总是这样，情境和角色变了，你的方式可能完全不同。",
+              "en": "It does not mean you always respond this way. A different situation or role may bring a different approach."
+            },
+            {
+              "zh": "不说明其他三个方向是缺点或缺失。",
+              "en": "This does not make the other three directions flaws or missing qualities."
+            },
+            {
+              "zh": "不是心理诊断，不描述你是什么人，只记录这次题组里的相对选择。",
+              "en": "This is not a diagnosis or a definition of who you are. It records relative choices in this attempt."
+            },
+            {
+              "zh": "不预测你的职业、关系或任何未来结果。",
+              "en": "It does not predict your career, relationships or future outcomes."
+            }
+          ]
+        },
+        {
+          "id": "interpretation-boundary",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个结果只反映本次 24 道题里的相对选择次数。颜色只是记忆符号，不代表人格身份，也不等同任何商业四色课程或认证体系。请把下面的描述带回你的具体经历核对，认同的留下，不符合的略过。",
+              "en": "This result reflects relative choice counts across these 24 questions. Colors are memory aids, not personality identities or equivalents of commercial four-color courses or certifications. Check the descriptions against your own experiences; keep what fits and set aside what does not."
+            }
+          ]
+        },
+        {
+          "id": "scientific-boundary",
+          "title": {
+            "zh": "版本说明",
+            "en": "About this edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "本测试用于娱乐与自我探索，尚未完成信度、效度、常模等心理测量学验证，也未获得任何官方的认证资格。结果仅基于本次自报选择的次数比较。",
+              "en": "This test is for entertainment and self-exploration. Reliability, validity and population norms have not been established, and it has no official certification. Results compare counts from your self-reported choices in this attempt."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "green",
+      "directionIds": [
+        "GREEN"
+      ],
+      "title": {
+        "zh": "绿·稳定协调",
+        "en": "Green · Steady coordination"
+      },
+      "headline": {
+        "zh": "本次选择中，绿·稳定协调的次数排在第一",
+        "en": "Green · Steady coordination led your choices this time"
+      },
+      "summary": {
+        "zh": "看完你的回答，次数最多的方向是绿·稳定协调——先恢复节奏、先照顾相处舒适、先维持连续性。",
+        "en": "Green had the highest count in your answers: restoring a rhythm, keeping interactions comfortable and maintaining continuity."
+      },
+      "scoreReading": {
+        "zh": "计分方式：每次选中记 1 次，四个方向各参与 12 次比较。本次绿·稳定协调次数最多。这个数字只在本次题组内部成立，不是人群百分位，不是准确率，更不是浓度。",
+        "en": "Each selection adds 1 count, and each direction appears in 12 comparisons. Green led this attempt. The number applies only within this question set; it is not a population percentile, accuracy rate or intensity measure."
+      },
+      "sections": [
+        {
+          "id": "construct-definition",
+          "title": {
+            "zh": "颜色怎样使用",
+            "en": "What the color means here"
+          },
+          "paragraphs": [
+            {
+              "zh": "绿是费马测试自建的记忆符号，标记一种反应入口：先恢复可持续的节奏、照顾相处中的舒适程度、维持连续性，或给人留出适应空间。它不是人格身份，也不代表商业四色课程的绿色含义。",
+              "en": "Green is FermatMind's own memory aid for a way of responding: restoring a sustainable rhythm, attending to comfort between people, maintaining continuity or leaving room to adjust. It is not a personality identity or the green category used by any commercial four-color course."
+            }
+          ]
+        },
+        {
+          "id": "core-observation",
+          "title": {
+            "zh": "本次作答中的观察",
+            "en": "Observations from this attempt"
+          },
+          "paragraphs": [
+            {
+              "zh": "变化和忙乱来临时，你通常先找回可衔接的节奏：一天安排被打乱，先重新排好常用环节；与熟人见面，先从彼此熟悉的近况接回原有话题；临时聚在一起，先沿用熟悉的安排方式。",
+              "en": "When change or busyness arrives, you tend to restore a rhythm you can continue: rearranging familiar parts of a disrupted day, reconnecting through familiar updates or using an established plan for a spontaneous gathering."
+            }
+          ]
+        },
+        {
+          "id": "attention-entry",
+          "title": {
+            "zh": "先注意什么",
+            "en": "What draws your attention"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能更先注意一件事能否沿着熟悉的节奏继续。聊天冷场时，你可能先留一点安静；临时聚会时，可能先沿用熟悉的安排；朋友情绪不高时，可能先陪他待一会儿。",
+              "en": "You may first notice whether something can continue at a familiar pace. During a conversational lull, you may leave some silence; at a gathering, use a familiar arrangement; with a friend feeling low, sit together for a while."
+            }
+          ]
+        },
+        {
+          "id": "daily-choice-pattern",
+          "title": {
+            "zh": "日常选择",
+            "en": "Everyday choices"
+          },
+          "paragraphs": [
+            {
+              "zh": "日常安排里，你倾向让节奏保持顺畅。准备第二天的事，你先留出不被打乱的节奏；房间有些乱，你先恢复常用区域的舒服感；一天被打乱，你先找回舒服的新节奏。",
+              "en": "In daily planning, you tend to keep things flowing: protecting tomorrow's rhythm, making regularly used areas comfortable or finding a workable new pace after disruption."
+            }
+          ]
+        },
+        {
+          "id": "information-or-learning-pattern",
+          "title": {
+            "zh": "接触新信息",
+            "en": "Approaching new information"
+          },
+          "paragraphs": [
+            {
+              "zh": "面对新知识，你可能倾向用重复练习慢慢上手。学一个新工具时，你可能先沿用稳定的练习节奏，而不是急着跳步骤。这只是本次题目支持的学习入口，不说明学习效果。",
+              "en": "With new knowledge, you may favor gradual practice. Learning a tool, you may keep a steady practice rhythm rather than skip steps. This describes the starting approach supported by these questions, not learning effectiveness."
+            }
+          ]
+        },
+        {
+          "id": "communication-pattern",
+          "title": {
+            "zh": "沟通方式",
+            "en": "Communication"
+          },
+          "paragraphs": [
+            {
+              "zh": "表达上可能偏温和、留余地，先听，再沿着当前节奏回应。聊天冷场时，你可能留一点安静；与熟人见面时，可能先从熟悉近况接回原有话题。",
+              "en": "Your expression may be gentle and leave room for others: listening first, then responding within the current rhythm. You might allow a quiet moment or reconnect through familiar updates."
+            }
+          ]
+        },
+        {
+          "id": "relationship-or-coordination-pattern",
+          "title": {
+            "zh": "相处与协调",
+            "en": "Relationships and coordination"
+          },
+          "paragraphs": [
+            {
+              "zh": "与人协调时，你在本次题目中更常选先维持平稳衔接：对安排有分歧时先确认各自在意的部分；朋友情绪不高时先陪他待一会儿。这不说明你能判断他人状态或保证相处效果。",
+              "en": "In coordination, your choices more often favored a smooth transition: checking what matters to each person during a disagreement or spending time with a friend feeling low. This does not show that you can assess another person's state or guarantee a good interaction."
+            }
+          ]
+        },
+        {
+          "id": "context-variations",
+          "title": {
+            "zh": "情境差异",
+            "en": "How context changes things"
+          },
+          "paragraphs": [
+            {
+              "zh": "面对必须快速决定的事，你会压缩照顾节奏的时间，先按流程走。",
+              "en": "When a quick decision is required, you may spend less time adjusting the pace and follow the process first."
+            },
+            {
+              "zh": "和特别熟的人在一起，你更敢说自己的需要；和不熟的人，你会更小心。",
+              "en": "With very familiar people, you may state your needs more readily; with unfamiliar people, you may be more cautious."
+            },
+            {
+              "zh": "事情与你切身相关时，你会更坚定；纯协助别人时，你更容易让步。",
+              "en": "When something directly affects you, you are more firm. When you are only helping someone else, you are more likely to yield."
+            },
+            {
+              "zh": "稳定的环境里你的节奏感发挥得最好；频繁变动时，你会更累。",
+              "en": "A stable setting may suit your sense of rhythm; frequent changes may be more tiring."
+            }
+          ]
+        },
+        {
+          "id": "possible-contributions",
+          "title": {
+            "zh": "可能带来的帮助",
+            "en": "Possible contributions"
+          },
+          "paragraphs": [
+            {
+              "zh": "场面忙乱时，先回到固定环节可能有助于继续衔接；是否有效仍取决于当时任务。",
+              "en": "In a busy situation, returning to a fixed step may help things continue. Its usefulness depends on the task at hand."
+            },
+            {
+              "zh": "对话停顿时，留出一点安静可能给表达留出时间；是否适合要看参与者的需要。",
+              "en": "Leaving a little silence in conversation may give people time to speak; whether it fits depends on their needs."
+            },
+            {
+              "zh": "变化频繁时，保留一个固定环节可能便于衔接；若环境已变，这个环节也需要重新评估。",
+              "en": "During frequent change, keeping one familiar step may help continuity. That step still needs review if the situation has changed."
+            },
+            {
+              "zh": "在需要持续执行的事情上，沿用熟悉安排可能减少频繁切换；实际效果仍取决于安排是否适合。",
+              "en": "For sustained tasks, familiar arrangements may reduce switching; results still depend on whether those arrangements fit."
+            }
+          ]
+        },
+        {
+          "id": "possible-costs",
+          "title": {
+            "zh": "可能的代价",
+            "en": "Possible costs"
+          },
+          "paragraphs": [
+            {
+              "zh": "为了维持顺畅，你可能延后说出自己的需要。",
+              "en": "To keep things smooth, you may put off stating your own needs."
+            },
+            {
+              "zh": "保持熟悉节奏可能让新尝试启动得比较慢。",
+              "en": "Maintaining a familiar rhythm may slow the start of a new experiment."
+            },
+            {
+              "zh": "反复协调多方节奏时，留给自己安排的空间可能变少。",
+              "en": "Repeatedly coordinating other people's pace can leave less room for your own plans."
+            },
+            {
+              "zh": "在需要快速表态的场合，温和表述可能没有把自己的立场说清楚。",
+              "en": "When a clear position is needed quickly, gentle wording may leave your view unclear."
+            }
+          ]
+        },
+        {
+          "id": "real-world-scenes",
+          "title": {
+            "zh": "生活中的例子",
+            "en": "Everyday examples"
+          },
+          "paragraphs": [
+            {
+              "zh": "大家一起商量去哪吃饭，你会先问有没有人不能吃辣或赶时间。",
+              "en": "When choosing a restaurant together, you may first ask whether anyone avoids spicy food or is short of time."
+            },
+            {
+              "zh": "团队里有人状态不好，你会先私下问一句。",
+              "en": "If someone on the team seems out of sorts, you may ask them privately how they are."
+            },
+            {
+              "zh": "家里安排出行，你会留出富余时间，避免一路被催。",
+              "en": "For a family outing, you may allow extra time so no one is hurried along the way."
+            }
+          ]
+        },
+        {
+          "id": "counterbalance-prompts",
+          "title": {
+            "zh": "平衡练习",
+            "en": "Practices to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "下次想说没关系我来协调之前，先问：我的需要是什么？",
+              "en": "Before saying 'It's fine, I'll coordinate,' ask: what do I need?"
+            },
+            {
+              "zh": "决定放慢节奏前，确认一下：再等下去，会错过什么？",
+              "en": "Before slowing things down, check: what might we miss if we keep waiting?"
+            },
+            {
+              "zh": "需要表态时，练习直接说我的意见是……。",
+              "en": "When a position is needed, practice saying directly: 'My view is…'"
+            },
+            {
+              "zh": "每周留一件事，主动提出自己的安排，让别人来配合一次。",
+              "en": "Once a week, propose your own arrangement and let others adjust to it."
+            }
+          ]
+        },
+        {
+          "id": "seven-day-observation",
+          "title": {
+            "zh": "七日观察",
+            "en": "A seven-day observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "接下来七天，每天留意一次你本想照顾别人但没说出口的时刻，试着把那个照顾说出来，或把同样的话用在自己身上一次。七天结束时回看：说出需要后，关系有没有变差？",
+              "en": "For the next seven days, notice one daily moment when you wanted to care for someone but did not say so. Try putting that care into words, or offering the same words to yourself. At week's end, review whether expressing a need actually harmed the relationship."
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "zh": "带回经历核对",
+            "en": "Questions to reflect on"
+          },
+          "paragraphs": [
+            {
+              "zh": "最近一次你想说自己的需要、最后没说的是什么？",
+              "en": "What need did you last want to express but leave unsaid?"
+            },
+            {
+              "zh": "什么时候你会比平时更快、更坚定地做决定？",
+              "en": "When do you make decisions faster and more firmly than usual?"
+            },
+            {
+              "zh": "有没有一次，你先配合了别人的安排，后来才发现自己并不方便？",
+              "en": "Have you ever followed someone else's arrangement, only to realize later that it did not suit you?"
+            },
+            {
+              "zh": "如果节奏可以再快一点，你最想在哪件事上加速？",
+              "en": "If you could move a little faster, which matter would you most like to speed up?"
+            }
+          ]
+        },
+        {
+          "id": "does-not-mean",
+          "title": {
+            "zh": "怎样避免过度解读",
+            "en": "Avoiding overinterpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "不表示你善良或情绪更稳定。",
+              "en": "This does not mean you are kinder or more emotionally stable."
+            },
+            {
+              "zh": "不表示你温吞、没有主见或好欺负。",
+              "en": "It does not mean you are passive, have no views of your own or are easy to push around."
+            },
+            {
+              "zh": "不表示你总是这样，情境和角色变了，你的方式可能完全不同。",
+              "en": "It does not mean you always respond this way. A different situation or role may bring a different approach."
+            },
+            {
+              "zh": "不说明其他三个方向是缺点或缺失。",
+              "en": "This does not make the other three directions flaws or missing qualities."
+            },
+            {
+              "zh": "不是心理诊断，不描述你是什么人，只记录这次题组里的相对选择。",
+              "en": "This is not a diagnosis or a definition of who you are. It records relative choices in this attempt."
+            },
+            {
+              "zh": "不预测你的职业、关系或任何未来结果。",
+              "en": "It does not predict your career, relationships or future outcomes."
+            }
+          ]
+        },
+        {
+          "id": "interpretation-boundary",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个结果只反映本次 24 道题里的相对选择次数。颜色只是记忆符号，不代表人格身份，也不等同任何商业四色课程或认证体系。请把下面的描述带回你的具体经历核对，认同的留下，不符合的略过。",
+              "en": "This result reflects relative choice counts across these 24 questions. Colors are memory aids, not personality identities or equivalents of commercial four-color courses or certifications. Check the descriptions against your own experiences; keep what fits and set aside what does not."
+            }
+          ]
+        },
+        {
+          "id": "scientific-boundary",
+          "title": {
+            "zh": "版本说明",
+            "en": "About this edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "本测试用于娱乐与自我探索，尚未完成信度、效度、常模等心理测量学验证，也未获得任何官方的认证资格。结果仅基于本次自报选择的次数比较。",
+              "en": "This test is for entertainment and self-exploration. Reliability, validity and population norms have not been established, and it has no official certification. Results compare counts from your self-reported choices in this attempt."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tied-red-yellow",
+      "directionIds": [
+        "RED",
+        "YELLOW"
+      ],
+      "title": {
+        "zh": "红 / 黄 并列",
+        "en": "Red / Yellow tie"
+      },
+      "headline": {
+        "zh": "本次选择中，红·行动回应 与 黄·开放联想 的原始次数并列最高",
+        "en": "Red · Responding through action and Yellow · Exploring connections share the highest raw count"
+      },
+      "summary": {
+        "zh": "这只记录本次题组里红·行动回应、黄·开放联想获得相同最高次数，不定义固定类型。",
+        "en": "This only records equal highest counts for Red and Yellow within this question set; it does not define a fixed type."
+      },
+      "scoreReading": {
+        "zh": "每道题只给被选中的方向记 1 次；本次红和黄的次数相同且高于其余方向，系统完整保留并列，不使用题号、字母或选项位置破同分。",
+        "en": "Each question adds 1 count only to the selected direction. Red and Yellow have equal totals above the others. Every tie is kept; question number, letter and option position never break it."
+      },
+      "sections": [
+        {
+          "id": "direction-readings",
+          "title": {
+            "zh": "各方向如何计数",
+            "en": "How each direction is counted"
+          },
+          "paragraphs": [
+            {
+              "zh": "红·行动回应：红的方向次数，来自你在相关二选一题里选择先行动、先回应选项的次数；它不是冲动或行动速度的评分。",
+              "en": "Red · Responding through action: Red's count comes from choosing action or a prompt response in the relevant paired questions. It does not rate impulsiveness or action speed."
+            },
+            {
+              "zh": "黄·开放联想：黄的方向次数，来自你在相关二选一题里选择展开联想、延伸话题选项的次数；它不是聪明或表达能力的评分。",
+              "en": "Yellow · Exploring connections: Yellow's count comes from choosing to explore associations or extend a topic. It does not rate intelligence or expressive ability."
+            }
+          ]
+        },
+        {
+          "id": "contexts-to-review",
+          "title": {
+            "zh": "可回看的情境",
+            "en": "Situations to revisit"
+          },
+          "paragraphs": [
+            {
+              "zh": "最近一次先选了个做法、又聊出好几个新可能的情形，两种入口分别出现在哪里？",
+              "en": "Recall a time when you chose an approach and then discussed several new possibilities. Where did each starting point appear?"
+            },
+            {
+              "zh": "独自安排时间和与朋友商量时，你选择的入口是否不同？",
+              "en": "Does your starting approach differ when planning alone and when discussing with friends?"
+            },
+            {
+              "zh": "时间宽裕与时间紧张时，你的实际行为发生了哪些变化？",
+              "en": "How did your actual actions change when time was plentiful versus short?"
+            }
+          ]
+        },
+        {
+          "id": "decision-review-questions",
+          "title": {
+            "zh": "决定过程",
+            "en": "The decision process"
+          },
+          "paragraphs": [
+            {
+              "zh": "最近一次做决定时，你是先定了方向，还是先让可能性多展开了一会儿？",
+              "en": "In a recent decision, did you choose a direction first or let possibilities unfold for longer?"
+            },
+            {
+              "zh": "哪些事情适合先动一步，哪些事情适合再想想别的选项？",
+              "en": "Which tasks suit an initial action, and which suit exploring more options first?"
+            }
+          ]
+        },
+        {
+          "id": "communication-review-questions",
+          "title": {
+            "zh": "沟通过程",
+            "en": "The communication process"
+          },
+          "paragraphs": [
+            {
+              "zh": "聊天时，你更常先给出回应，还是先抛出新话题？",
+              "en": "In conversation, do you more often respond first or introduce a new topic?"
+            },
+            {
+              "zh": "对话热闹之后，是否留下了明确的下一步？",
+              "en": "After a lively conversation, was there a clear next step?"
+            }
+          ]
+        },
+        {
+          "id": "collaboration-review-questions",
+          "title": {
+            "zh": "协作过程",
+            "en": "The collaboration process"
+          },
+          "paragraphs": [
+            {
+              "zh": "一起做事时，谁负责先落地，谁负责出点子？",
+              "en": "When working together, who gets something under way and who generates ideas?"
+            },
+            {
+              "zh": "想法变多之后，由谁来决定收敛到哪一个？",
+              "en": "When ideas multiply, who decides which one to pursue?"
+            }
+          ]
+        },
+        {
+          "id": "real-world-checkpoints",
+          "title": {
+            "zh": "现实检查点",
+            "en": "Checks against real experience"
+          },
+          "paragraphs": [
+            {
+              "zh": "找一次最近的聚会或讨论，分别标出先动手和先出点子的句子。",
+              "en": "Revisit a recent gathering or discussion. Mark the statements that started action and those that introduced ideas."
+            },
+            {
+              "zh": "回看一个已完成的小事，核对最初的选择和最终的结果是否一致。",
+              "en": "Review a completed small task: did the initial choice and final outcome align?"
+            }
+          ]
+        },
+        {
+          "id": "balancing-actions",
+          "title": {
+            "zh": "可尝试的动作",
+            "en": "Actions to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "下一次想先动手时，先问一句：这个方向真的定了吗？",
+              "en": "Before acting next time, ask: have we really settled on this direction?"
+            },
+            {
+              "zh": "下一次想继续聊选项时，先问一句：现在需要先落一个动作吗？",
+              "en": "Before continuing to discuss options, ask: do we need to take one concrete step now?"
+            },
+            {
+              "zh": "记录一次先动再聊和一次先聊再动，哪种更适合当时。",
+              "en": "Record one instance of acting then discussing, and one of discussing then acting. Which fit each situation better?"
+            }
+          ]
+        },
+        {
+          "id": "pressure-review",
+          "title": {
+            "zh": "压力下可以核对什么",
+            "en": "What to check under pressure"
+          },
+          "paragraphs": [
+            {
+              "zh": "本次并列不能说明压力下红或黄哪个先出现、占上风或自动切换；题组没有测量这种顺序。",
+              "en": "This tie does not show whether Red or Yellow comes first, dominates or switches automatically under pressure. The questions do not measure that sequence."
+            },
+            {
+              "zh": "压力出现时，实际发生了哪些可观察的动作？",
+              "en": "What observable actions actually occurred when pressure appeared?"
+            },
+            {
+              "zh": "当时的角色、时间限制和参与者分别是什么？",
+              "en": "What were your role, time limits and the people involved?"
+            },
+            {
+              "zh": "事后看，哪些动作有帮助，哪些需要调整？",
+              "en": "Looking back, which actions helped and which needed adjusting?"
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "zh": "带回经历核对",
+            "en": "Questions to reflect on"
+          },
+          "paragraphs": [
+            {
+              "zh": "这次作答里，红和黄各在哪几类题目上拿到的次数更多？",
+              "en": "In which kinds of questions did Red and Yellow each gain more counts?"
+            },
+            {
+              "zh": "如果当时正赶时间，你的选择会不会偏向某一边？",
+              "en": "If you had been in a hurry, might your choices have leaned toward one side?"
+            },
+            {
+              "zh": "回想一次先行动后聊开、或先聊开后行动的经历，哪种顺序更常出现？",
+              "en": "Recall acting before a discussion opened up, or discussing before acting. Which sequence occurs more often?"
+            }
+          ]
+        },
+        {
+          "id": "does-not-mean",
+          "title": {
+            "zh": "怎样避免过度解读",
+            "en": "Avoiding overinterpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "不表示这两个方向组成了固定类型或混合人格。",
+              "en": "This does not mean these directions form a fixed type or blended personality."
+            },
+            {
+              "zh": "不表示你在不同场景都会同时采用这两种做法。",
+              "en": "It does not mean you use both approaches together in every situation."
+            },
+            {
+              "zh": "不表示任何一个方向对应能力高低或表现优劣。",
+              "en": "It does not mean either direction corresponds to better ability or performance."
+            },
+            {
+              "zh": "不预测职业、关系、领导力或团队结果。",
+              "en": "It does not predict career, relationship, leadership or team outcomes."
+            },
+            {
+              "zh": "不构成心理诊断、招聘筛选或高影响决策依据。",
+              "en": "It is not a psychological diagnosis or a basis for recruitment screening or high-stakes decisions."
+            }
+          ]
+        },
+        {
+          "id": "interpretation-boundary",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "本页只解释本次 24 道题里两个方向的原始次数并列。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业四色课程或认证体系。",
+              "en": "This page explains only a tie in the raw counts of two directions across these 24 questions. Check it against specific experiences; use what fits as a clue and set aside what does not. Reliability, validity and population norms have not been established, and this is not equivalent to any commercial four-color course or certification."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tied-red-blue",
+      "directionIds": [
+        "RED",
+        "BLUE"
+      ],
+      "title": {
+        "zh": "红 / 蓝 并列",
+        "en": "Red / Blue tie"
+      },
+      "headline": {
+        "zh": "本次选择中，红·行动回应 与 蓝·审慎整理 的原始次数并列最高",
+        "en": "Red · Responding through action and Blue · Careful organization share the highest raw count"
+      },
+      "summary": {
+        "zh": "这只记录本次题组里红·行动回应、蓝·审慎整理获得相同最高次数，不定义固定类型。",
+        "en": "This only records equal highest counts for Red and Blue within this question set; it does not define a fixed type."
+      },
+      "scoreReading": {
+        "zh": "计分规则是选中哪个方向就给它记 1 次；本次红和蓝次数相同且都高于其余两个方向，系统保留全部并列，不因题号、字母或选项位置而分先后。",
+        "en": "Each selection adds 1 count to its direction. Red and Blue have equal totals above the other two. Every tie is kept, regardless of question number, letter or option position."
+      },
+      "sections": [
+        {
+          "id": "direction-readings",
+          "title": {
+            "zh": "各方向如何计数",
+            "en": "How each direction is counted"
+          },
+          "paragraphs": [
+            {
+              "zh": "红·行动回应：红的次数来自你选择先动手、先给回应选项的题目；它不是执行力或决断力的评分。",
+              "en": "Red · Responding through action: Red's count comes from choosing action or a prompt response. It does not rate execution or decisiveness."
+            },
+            {
+              "zh": "蓝·审慎整理：蓝的次数来自你选择先整理、先核对选项的题目；它不是智力或逻辑能力的评分。",
+              "en": "Blue · Careful organization: Blue's count comes from choosing to organize or check first. It does not rate intelligence or reasoning ability."
+            }
+          ]
+        },
+        {
+          "id": "contexts-to-review",
+          "title": {
+            "zh": "可回看的情境",
+            "en": "Situations to revisit"
+          },
+          "paragraphs": [
+            {
+              "zh": "最近一次既想快点动手、又想先把条件查清楚的事情，你实际先做了哪一步？",
+              "en": "Recall wanting both to start quickly and to clarify the conditions. What did you actually do first?"
+            },
+            {
+              "zh": "买小件物品和做重要决定时，你的入口是否不同？",
+              "en": "Does your starting approach differ between buying a small item and making an important decision?"
+            },
+            {
+              "zh": "熟悉的领域和陌生领域里，你的做法有什么变化？",
+              "en": "How does your approach change between familiar and unfamiliar fields?"
+            }
+          ]
+        },
+        {
+          "id": "decision-review-questions",
+          "title": {
+            "zh": "决定过程",
+            "en": "The decision process"
+          },
+          "paragraphs": [
+            {
+              "zh": "最近一次决定里，你是先凭已有信息走了一步，还是先等条件齐了？",
+              "en": "In a recent decision, did you take a step with what you knew or wait for the conditions to be clear?"
+            },
+            {
+              "zh": "哪些决定适合先试，哪些决定必须先把依据核对完？",
+              "en": "Which decisions suit an initial trial, and which require the evidence to be checked first?"
+            }
+          ]
+        },
+        {
+          "id": "communication-review-questions",
+          "title": {
+            "zh": "沟通过程",
+            "en": "The communication process"
+          },
+          "paragraphs": [
+            {
+              "zh": "回复消息时，你是先给简短回应，还是先整理条件？",
+              "en": "When replying to messages, do you respond briefly first or organize the conditions?"
+            },
+            {
+              "zh": "收到可疑说法时，你更常直接判断，还是先找来源？",
+              "en": "With a questionable claim, do you usually judge directly or look for its source first?"
+            }
+          ]
+        },
+        {
+          "id": "collaboration-review-questions",
+          "title": {
+            "zh": "协作过程",
+            "en": "The collaboration process"
+          },
+          "paragraphs": [
+            {
+              "zh": "一起推进事情时，谁负责先走一步，谁负责把关条件？",
+              "en": "When moving something forward together, who takes the first step and who checks the conditions?"
+            },
+            {
+              "zh": "动手前核对到什么程度，团队是否有一致的预期？",
+              "en": "Does the team agree on how much checking is needed before starting?"
+            }
+          ]
+        },
+        {
+          "id": "real-world-checkpoints",
+          "title": {
+            "zh": "现实检查点",
+            "en": "Checks against real experience"
+          },
+          "paragraphs": [
+            {
+              "zh": "找一件最近完成的购物或任务，核对先定的条件和后来的结果。",
+              "en": "Review a recent purchase or task. Compare the initial conditions with the eventual outcome."
+            },
+            {
+              "zh": "回看一条重要消息的回复，看你是先回应还是先确认。",
+              "en": "Revisit a reply to an important message. Did you respond or confirm first?"
+            }
+          ]
+        },
+        {
+          "id": "balancing-actions",
+          "title": {
+            "zh": "可尝试的动作",
+            "en": "Actions to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "下一次想直接动手时，先问一句：这里有没有必须核对的硬条件？",
+              "en": "Before acting directly next time, ask: are there any essential conditions I must check?"
+            },
+            {
+              "zh": "下一次想继续核对时，先问一句：这一步可以先试了吗？",
+              "en": "Before checking further, ask: can I try this step now?"
+            },
+            {
+              "zh": "分别记一件先动更好和先查更好的事。",
+              "en": "Record one situation where acting first helped and another where checking first helped."
+            }
+          ]
+        },
+        {
+          "id": "pressure-review",
+          "title": {
+            "zh": "压力下可以核对什么",
+            "en": "What to check under pressure"
+          },
+          "paragraphs": [
+            {
+              "zh": "本次并列不能说明压力下红或蓝哪个先出现、占上风或自动切换；题组没有测量这种顺序。",
+              "en": "This tie does not show whether Red or Blue comes first, dominates or switches automatically under pressure. The questions do not measure that sequence."
+            },
+            {
+              "zh": "赶时间时，你的实际行为更像哪一种入口？",
+              "en": "When you were in a hurry, which starting approach did your actions resemble?"
+            },
+            {
+              "zh": "当时的风险大小和后果，是否改变了你的做法？",
+              "en": "Did the risks and consequences change your approach?"
+            },
+            {
+              "zh": "事后看，哪一步最该保留，哪一步可以省掉？",
+              "en": "Looking back, which step most needed keeping and which could have been omitted?"
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "zh": "带回经历核对",
+            "en": "Questions to reflect on"
+          },
+          "paragraphs": [
+            {
+              "zh": "这次作答里，红和蓝的题目分别让你更靠近哪种入口？",
+              "en": "Which starting approach did the Red and Blue questions draw you toward in this attempt?"
+            },
+            {
+              "zh": "如果这件事后果更严重，你的选择会更偏蓝吗？",
+              "en": "If the consequences were more serious, might your choices lean more toward Blue?"
+            },
+            {
+              "zh": "最近一次你又想动手又想把条件查清的事，最后怎么收场的？",
+              "en": "What happened the last time you wanted both to act and to clarify the conditions?"
+            }
+          ]
+        },
+        {
+          "id": "does-not-mean",
+          "title": {
+            "zh": "怎样避免过度解读",
+            "en": "Avoiding overinterpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "不表示这两个方向组成了固定类型或混合人格。",
+              "en": "This does not mean these directions form a fixed type or blended personality."
+            },
+            {
+              "zh": "不表示你在不同场景都会同时采用这两种做法。",
+              "en": "It does not mean you use both approaches together in every situation."
+            },
+            {
+              "zh": "不表示任何一个方向对应能力高低或表现优劣。",
+              "en": "It does not mean either direction corresponds to better ability or performance."
+            },
+            {
+              "zh": "不预测职业、关系、领导力或团队结果。",
+              "en": "It does not predict career, relationship, leadership or team outcomes."
+            },
+            {
+              "zh": "不构成心理诊断、招聘筛选或高影响决策依据。",
+              "en": "It is not a psychological diagnosis or a basis for recruitment screening or high-stakes decisions."
+            }
+          ]
+        },
+        {
+          "id": "interpretation-boundary",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "本页只解释本次 24 道题里两个方向的原始次数并列。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业四色课程或认证体系。",
+              "en": "This page explains only a tie in the raw counts of two directions across these 24 questions. Check it against specific experiences; use what fits as a clue and set aside what does not. Reliability, validity and population norms have not been established, and this is not equivalent to any commercial four-color course or certification."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tied-red-green",
+      "directionIds": [
+        "RED",
+        "GREEN"
+      ],
+      "title": {
+        "zh": "红 / 绿 并列",
+        "en": "Red / Green tie"
+      },
+      "headline": {
+        "zh": "本次选择中，红·行动回应 与 绿·稳定协调 的原始次数并列最高",
+        "en": "Red · Responding through action and Green · Steady coordination share the highest raw count"
+      },
+      "summary": {
+        "zh": "这只记录本次题组里红·行动回应、绿·稳定协调获得相同最高次数，不定义固定类型。",
+        "en": "This only records equal highest counts for Red and Green within this question set; it does not define a fixed type."
+      },
+      "scoreReading": {
+        "zh": "每次选择记 1 次，本次红和绿得到的次数相等，且都排在另外两个方向前面。系统原样保留并列，不用题号、字母顺序或选项位置破同分。",
+        "en": "Each choice adds 1 count. Red and Green have equal totals above the other two directions. The tie stays intact; question number, letter order and option position never break it."
+      },
+      "sections": [
+        {
+          "id": "direction-readings",
+          "title": {
+            "zh": "各方向如何计数",
+            "en": "How each direction is counted"
+          },
+          "paragraphs": [
+            {
+              "zh": "红·行动回应：红的次数来自你选先动起来、先给回应选项的题目；它不是胆量或行动力的评分。",
+              "en": "Red · Responding through action: Red's count comes from choosing to get moving or respond promptly. It does not rate courage or ability to act."
+            },
+            {
+              "zh": "绿·稳定协调：绿的次数来自你选先稳节奏、先照顾舒适选项的题目；它不是善良或情绪稳定的评分。",
+              "en": "Green · Steady coordination: Green's count comes from choosing to steady the pace or attend to comfort. It does not rate kindness or emotional stability."
+            }
+          ]
+        },
+        {
+          "id": "contexts-to-review",
+          "title": {
+            "zh": "可回看的情境",
+            "en": "Situations to revisit"
+          },
+          "paragraphs": [
+            {
+              "zh": "最近一次安排被打乱时，你是先挑最近的事重新开始，还是先找回舒服的节奏？",
+              "en": "When plans were last disrupted, did you restart with the nearest task or first restore a comfortable rhythm?"
+            },
+            {
+              "zh": "和人约定需要调整时，你是先给新时间，还是先问对方方便？",
+              "en": "When an arrangement changes, do you suggest a new time first or ask what suits the other person?"
+            },
+            {
+              "zh": "身边人紧张时，你的第一反应更像哪种入口？",
+              "en": "When someone near you feels tense, which starting approach does your first response resemble?"
+            }
+          ]
+        },
+        {
+          "id": "decision-review-questions",
+          "title": {
+            "zh": "决定过程",
+            "en": "The decision process"
+          },
+          "paragraphs": [
+            {
+              "zh": "最近的调整里，你在往前赶和保持顺畅之间怎么取舍？",
+              "en": "During a recent adjustment, how did you balance moving forward with keeping things smooth?"
+            },
+            {
+              "zh": "哪些事情必须快，哪些事情快反而添乱？",
+              "en": "Which things need speed, and which become more chaotic when rushed?"
+            }
+          ]
+        },
+        {
+          "id": "communication-review-questions",
+          "title": {
+            "zh": "沟通过程",
+            "en": "The communication process"
+          },
+          "paragraphs": [
+            {
+              "zh": "商量事情时，你更常直接给方案，还是先照顾对方的状态？",
+              "en": "When discussing something, do you more often offer a proposal directly or first attend to the other person's state?"
+            },
+            {
+              "zh": "你的回应速度，和对方的舒适节奏是否一致？",
+              "en": "Does your response speed match the other person's comfortable pace?"
+            }
+          ]
+        },
+        {
+          "id": "collaboration-review-questions",
+          "title": {
+            "zh": "协作过程",
+            "en": "The collaboration process"
+          },
+          "paragraphs": [
+            {
+              "zh": "一起行动时，谁负责往前冲，谁负责看大家跟不跟得上？",
+              "en": "When acting together, who pushes ahead and who checks that everyone can keep up?"
+            },
+            {
+              "zh": "节奏由谁定，其他人有没有机会说出自己的需要？",
+              "en": "Who sets the pace, and can others express what they need?"
+            }
+          ]
+        },
+        {
+          "id": "real-world-checkpoints",
+          "title": {
+            "zh": "现实检查点",
+            "en": "Checks against real experience"
+          },
+          "paragraphs": [
+            {
+              "zh": "找一次最近的出行或安排变动，标出你选择了快还是稳。",
+              "en": "Review a recent trip or change of plans. Mark where you chose speed or steadiness."
+            },
+            {
+              "zh": "回看一次帮人忙的经历，看你是先给动作还是先陪节奏。",
+              "en": "Recall helping someone. Did you suggest an action first or match their pace?"
+            }
+          ]
+        },
+        {
+          "id": "balancing-actions",
+          "title": {
+            "zh": "可尝试的动作",
+            "en": "Actions to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "下一次想立即行动前，先看一眼身边人的节奏。",
+              "en": "Before acting immediately next time, notice the pace of people around you."
+            },
+            {
+              "zh": "下一次想稳住场面时，问一句：这件事还需要往前推吗？",
+              "en": "When trying to steady a situation, ask: does this also need moving forward?"
+            },
+            {
+              "zh": "记一次快帮了忙和一次稳帮了忙的具体场景。",
+              "en": "Record a specific situation where speed helped and another where steadiness helped."
+            }
+          ]
+        },
+        {
+          "id": "pressure-review",
+          "title": {
+            "zh": "压力下可以核对什么",
+            "en": "What to check under pressure"
+          },
+          "paragraphs": [
+            {
+              "zh": "本次并列不能说明压力下红或绿哪个先出现、占上风或自动切换；题组没有测量这种顺序。",
+              "en": "This tie does not show whether Red or Green comes first, dominates or switches automatically under pressure. The questions do not measure that sequence."
+            },
+            {
+              "zh": "忙乱时，你的第一动作更像哪一种？",
+              "en": "In a busy situation, which approach did your first action resemble?"
+            },
+            {
+              "zh": "当时在场的人和他们的状态，影响了你的做法吗？",
+              "en": "Did the people present and how they were doing affect your approach?"
+            },
+            {
+              "zh": "事后看，快和稳各自起了什么作用？",
+              "en": "Looking back, what did speed and steadiness each contribute?"
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "zh": "带回经历核对",
+            "en": "Questions to reflect on"
+          },
+          "paragraphs": [
+            {
+              "zh": "这次作答里，红和绿分别在哪类情境下拿到的次数更多？",
+              "en": "In which situations did Red and Green each gain more counts in this attempt?"
+            },
+            {
+              "zh": "如果换一批人陪在身边，你的选择会变吗？",
+              "en": "Would your choices change with a different group of people around you?"
+            },
+            {
+              "zh": "最近一次安排被打乱，你的第一反应更像快还是稳？",
+              "en": "When plans were last disrupted, did your first response favor speed or steadiness?"
+            }
+          ]
+        },
+        {
+          "id": "does-not-mean",
+          "title": {
+            "zh": "怎样避免过度解读",
+            "en": "Avoiding overinterpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "不表示这两个方向组成了固定类型或混合人格。",
+              "en": "This does not mean these directions form a fixed type or blended personality."
+            },
+            {
+              "zh": "不表示你在不同场景都会同时采用这两种做法。",
+              "en": "It does not mean you use both approaches together in every situation."
+            },
+            {
+              "zh": "不表示任何一个方向对应能力高低或表现优劣。",
+              "en": "It does not mean either direction corresponds to better ability or performance."
+            },
+            {
+              "zh": "不预测职业、关系、领导力或团队结果。",
+              "en": "It does not predict career, relationship, leadership or team outcomes."
+            },
+            {
+              "zh": "不构成心理诊断、招聘筛选或高影响决策依据。",
+              "en": "It is not a psychological diagnosis or a basis for recruitment screening or high-stakes decisions."
+            }
+          ]
+        },
+        {
+          "id": "interpretation-boundary",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "本页只解释本次 24 道题里两个方向的原始次数并列。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业四色课程或认证体系。",
+              "en": "This page explains only a tie in the raw counts of two directions across these 24 questions. Check it against specific experiences; use what fits as a clue and set aside what does not. Reliability, validity and population norms have not been established, and this is not equivalent to any commercial four-color course or certification."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tied-yellow-blue",
+      "directionIds": [
+        "YELLOW",
+        "BLUE"
+      ],
+      "title": {
+        "zh": "黄 / 蓝 并列",
+        "en": "Yellow / Blue tie"
+      },
+      "headline": {
+        "zh": "本次选择中，黄·开放联想 与 蓝·审慎整理 的原始次数并列最高",
+        "en": "Yellow · Exploring connections and Blue · Careful organization share the highest raw count"
+      },
+      "summary": {
+        "zh": "这只记录本次题组里黄·开放联想、蓝·审慎整理获得相同最高次数，不定义固定类型。",
+        "en": "This only records equal highest counts for Yellow and Blue within this question set; it does not define a fixed type."
+      },
+      "scoreReading": {
+        "zh": "计分方式是选中即记 1 次；本次黄和蓝次数相同，且都高于其余两个方向。系统不做任何破同分处理，不使用题号、字母或选项位置排序。",
+        "en": "Each selection adds 1 count. Yellow and Blue have equal totals above the other two directions. There is no tie-breaking by question number, letter or option position."
+      },
+      "sections": [
+        {
+          "id": "direction-readings",
+          "title": {
+            "zh": "各方向如何计数",
+            "en": "How each direction is counted"
+          },
+          "paragraphs": [
+            {
+              "zh": "黄·开放联想：黄的次数来自你选先联想、先延伸选项的题目；它不是想象天赋或智力的评分。",
+              "en": "Yellow · Exploring connections: Yellow's count comes from choosing associations or further possibilities. It does not rate imaginative talent or intelligence."
+            },
+            {
+              "zh": "蓝·审慎整理：蓝的次数来自你选先拆解、先核对选项的题目；它不是严谨或能力的评分。",
+              "en": "Blue · Careful organization: Blue's count comes from choosing to break things down or check first. It does not rate rigor or ability."
+            }
+          ]
+        },
+        {
+          "id": "contexts-to-review",
+          "title": {
+            "zh": "可回看的情境",
+            "en": "Situations to revisit"
+          },
+          "paragraphs": [
+            {
+              "zh": "最近一次接触陌生内容时，你是先找联系，还是先拆定义？",
+              "en": "With recent unfamiliar material, did you first look for connections or break down the definitions?"
+            },
+            {
+              "zh": "准备讲一件复杂的事，你是先想比喻，还是先排顺序？",
+              "en": "When explaining something complex, do you first find an analogy or arrange the sequence?"
+            },
+            {
+              "zh": "看攻略和做笔记时，你的做法分别更接近哪种入口？",
+              "en": "Which starting approach appears when you research a trip or take notes?"
+            }
+          ]
+        },
+        {
+          "id": "decision-review-questions",
+          "title": {
+            "zh": "决定过程",
+            "en": "The decision process"
+          },
+          "paragraphs": [
+            {
+              "zh": "面对新信息，你更常先让它展开，还是先把它理清？",
+              "en": "With new information, do you usually let it expand first or clarify it first?"
+            },
+            {
+              "zh": "哪些内容适合先联想再整理，哪些必须先把结构搭好？",
+              "en": "Which material suits exploring connections before organizing, and which needs a structure first?"
+            }
+          ]
+        },
+        {
+          "id": "communication-review-questions",
+          "title": {
+            "zh": "沟通过程",
+            "en": "The communication process"
+          },
+          "paragraphs": [
+            {
+              "zh": "讲事情时，你更常先讲画面，还是先讲顺序？",
+              "en": "When explaining something, do you usually start with an image or a sequence?"
+            },
+            {
+              "zh": "听到一个说法，你是先延伸它，还是先追问依据？",
+              "en": "On hearing a claim, do you first extend it or ask what supports it?"
+            }
+          ]
+        },
+        {
+          "id": "collaboration-review-questions",
+          "title": {
+            "zh": "协作过程",
+            "en": "The collaboration process"
+          },
+          "paragraphs": [
+            {
+              "zh": "一起讨论时，谁负责出新角度，谁负责理清条件？",
+              "en": "In a shared discussion, who offers new angles and who clarifies the conditions?"
+            },
+            {
+              "zh": "想法展开之后，由谁把结构和下一步搭出来？",
+              "en": "Once ideas have unfolded, who builds the structure and next steps?"
+            }
+          ]
+        },
+        {
+          "id": "real-world-checkpoints",
+          "title": {
+            "zh": "现实检查点",
+            "en": "Checks against real experience"
+          },
+          "paragraphs": [
+            {
+              "zh": "找一份你最近写的说明或笔记，标出联想句和整理句。",
+              "en": "In a recent explanation or set of notes, mark sentences that make connections and those that organize."
+            },
+            {
+              "zh": "回看一次学习新东西的经历，看你先连接还是先拆解。",
+              "en": "Recall learning something new. Did you connect it with something else or break it down first?"
+            }
+          ]
+        },
+        {
+          "id": "balancing-actions",
+          "title": {
+            "zh": "可尝试的动作",
+            "en": "Actions to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "下一次想展开联想时，先问一句：结构清楚了吗？",
+              "en": "Before exploring more associations, ask: is the structure clear?"
+            },
+            {
+              "zh": "下一次想继续核对时，先问一句：有没有漏掉的关键关联？",
+              "en": "Before checking further, ask: have I missed an important connection?"
+            },
+            {
+              "zh": "记一次联想带来新发现和一次整理避免出错的事。",
+              "en": "Record a time when an association led to a discovery and another when organization prevented an error."
+            }
+          ]
+        },
+        {
+          "id": "pressure-review",
+          "title": {
+            "zh": "压力下可以核对什么",
+            "en": "What to check under pressure"
+          },
+          "paragraphs": [
+            {
+              "zh": "本次并列不能说明压力下黄或蓝哪个先出现、占上风或自动切换；题组没有测量这种顺序。",
+              "en": "This tie does not show whether Yellow or Blue comes first, dominates or switches automatically under pressure. The questions do not measure that sequence."
+            },
+            {
+              "zh": "时间紧时，你的处理更像联想还是整理？",
+              "en": "Under time pressure, did your approach resemble making connections or organizing?"
+            },
+            {
+              "zh": "信息的熟悉程度，改变了你的做法吗？",
+              "en": "Did familiarity with the information change your approach?"
+            },
+            {
+              "zh": "事后看，展开和整理各自帮了什么？",
+              "en": "Looking back, how did exploring and organizing each help?"
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "zh": "带回经历核对",
+            "en": "Questions to reflect on"
+          },
+          "paragraphs": [
+            {
+              "zh": "这次作答里，黄的联想题和蓝的整理题各占了多少次数？",
+              "en": "How many choices in this attempt went to Yellow's connections and Blue's organization?"
+            },
+            {
+              "zh": "如果内容换成你熟悉的领域，你的选择会偏哪边？",
+              "en": "If the material came from a familiar field, which way might your choices lean?"
+            },
+            {
+              "zh": "最近一次先联想再整理、或先整理再联想的学习经历，哪种更顺？",
+              "en": "In a recent learning experience, was it smoother to connect then organize, or organize then connect?"
+            }
+          ]
+        },
+        {
+          "id": "does-not-mean",
+          "title": {
+            "zh": "怎样避免过度解读",
+            "en": "Avoiding overinterpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "不表示这两个方向组成了固定类型或混合人格。",
+              "en": "This does not mean these directions form a fixed type or blended personality."
+            },
+            {
+              "zh": "不表示你在不同场景都会同时采用这两种做法。",
+              "en": "It does not mean you use both approaches together in every situation."
+            },
+            {
+              "zh": "不表示任何一个方向对应能力高低或表现优劣。",
+              "en": "It does not mean either direction corresponds to better ability or performance."
+            },
+            {
+              "zh": "不预测职业、关系、领导力或团队结果。",
+              "en": "It does not predict career, relationship, leadership or team outcomes."
+            },
+            {
+              "zh": "不构成心理诊断、招聘筛选或高影响决策依据。",
+              "en": "It is not a psychological diagnosis or a basis for recruitment screening or high-stakes decisions."
+            }
+          ]
+        },
+        {
+          "id": "interpretation-boundary",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "本页只解释本次 24 道题里两个方向的原始次数并列。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业四色课程或认证体系。",
+              "en": "This page explains only a tie in the raw counts of two directions across these 24 questions. Check it against specific experiences; use what fits as a clue and set aside what does not. Reliability, validity and population norms have not been established, and this is not equivalent to any commercial four-color course or certification."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tied-yellow-green",
+      "directionIds": [
+        "YELLOW",
+        "GREEN"
+      ],
+      "title": {
+        "zh": "黄 / 绿 并列",
+        "en": "Yellow / Green tie"
+      },
+      "headline": {
+        "zh": "本次选择中，黄·开放联想 与 绿·稳定协调 的原始次数并列最高",
+        "en": "Yellow · Exploring connections and Green · Steady coordination share the highest raw count"
+      },
+      "summary": {
+        "zh": "这只记录本次题组里黄·开放联想、绿·稳定协调获得相同最高次数，不定义固定类型。",
+        "en": "This only records equal highest counts for Yellow and Green within this question set; it does not define a fixed type."
+      },
+      "scoreReading": {
+        "zh": "选中的方向每次记 1 次；本次黄和绿次数相等，且都高于其余两个方向。系统保留全部并列，不用题号、字母顺序或选项位置分先后。",
+        "en": "Each selected direction receives 1 count. Yellow and Green have equal totals above the other two. All ties remain intact, with no ranking by question number, letter order or option position."
+      },
+      "sections": [
+        {
+          "id": "direction-readings",
+          "title": {
+            "zh": "各方向如何计数",
+            "en": "How each direction is counted"
+          },
+          "paragraphs": [
+            {
+              "zh": "黄·开放联想：黄的次数来自你选先抛话题、先出点子选项的题目；它不是开朗或社交的评分。",
+              "en": "Yellow · Exploring connections: Yellow's count comes from choosing a topic or idea first. It does not rate cheerfulness or social skill."
+            },
+            {
+              "zh": "绿·稳定协调：绿的次数来自你选先照顾舒适、先陪节奏选项的题目；它不是温和或治愈的评分。",
+              "en": "Green · Steady coordination: Green's count comes from choosing comfort or accompanying someone's pace. It does not rate gentleness or an ability to heal others."
+            }
+          ]
+        },
+        {
+          "id": "contexts-to-review",
+          "title": {
+            "zh": "可回看的情境",
+            "en": "Situations to revisit"
+          },
+          "paragraphs": [
+            {
+              "zh": "最近一次聚会里，你是先想点子带动气氛，还是先照顾每个人的状态？",
+              "en": "At a recent gathering, did you first generate ideas to enliven things or attend to how everyone was doing?"
+            },
+            {
+              "zh": "朋友情绪不高时，你的第一反应更像哪种入口？",
+              "en": "When a friend feels low, which starting approach does your first response resemble?"
+            },
+            {
+              "zh": "聊天冷场时，你是先抛新话题，还是先留一点安静？",
+              "en": "When conversation falls quiet, do you introduce a new topic or leave some silence?"
+            }
+          ]
+        },
+        {
+          "id": "decision-review-questions",
+          "title": {
+            "zh": "决定过程",
+            "en": "The decision process"
+          },
+          "paragraphs": [
+            {
+              "zh": "与人相处时，你更常先让气氛活起来，还是先让气氛稳下来？",
+              "en": "With others, do you more often enliven the atmosphere first or help it settle?"
+            },
+            {
+              "zh": "哪些场合需要新话题，哪些场合更需要安静陪伴？",
+              "en": "Which situations need a new topic, and which need quiet company?"
+            }
+          ]
+        },
+        {
+          "id": "communication-review-questions",
+          "title": {
+            "zh": "沟通过程",
+            "en": "The communication process"
+          },
+          "paragraphs": [
+            {
+              "zh": "与熟人见面，你先分享新鲜事，还是先关心对方？",
+              "en": "When meeting someone you know, do you share something new first or ask about them?"
+            },
+            {
+              "zh": "你的话题节奏，和在场的人是否合拍？",
+              "en": "Does the pace of your topics fit the people present?"
+            }
+          ]
+        },
+        {
+          "id": "collaboration-review-questions",
+          "title": {
+            "zh": "协作过程",
+            "en": "The collaboration process"
+          },
+          "paragraphs": [
+            {
+              "zh": "一起活动时，谁负责出点子，谁负责照顾节奏？",
+              "en": "In a shared activity, who supplies ideas and who attends to the pace?"
+            },
+            {
+              "zh": "热闹之下，有没有人被冷落，谁注意到了？",
+              "en": "Amid the liveliness, was anyone left out, and who noticed?"
+            }
+          ]
+        },
+        {
+          "id": "real-world-checkpoints",
+          "title": {
+            "zh": "现实检查点",
+            "en": "Checks against real experience"
+          },
+          "paragraphs": [
+            {
+              "zh": "找一次最近的聚会，标出你出点子和照顾人的时刻。",
+              "en": "Revisit a gathering. Mark when you offered ideas and when you attended to people."
+            },
+            {
+              "zh": "回看一次安慰朋友的经历，看你先说还是先陪。",
+              "en": "Recall comforting a friend. Did you speak first or simply stay with them?"
+            }
+          ]
+        },
+        {
+          "id": "balancing-actions",
+          "title": {
+            "zh": "可尝试的动作",
+            "en": "Actions to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "下一次想抛新话题时，先看一眼有没有人被晾着。",
+              "en": "Before introducing a new topic, check whether anyone is being left out."
+            },
+            {
+              "zh": "下一次想安静陪伴时，问一句：气氛需要活跃一下吗？",
+              "en": "Before offering quiet company, ask: would a little more activity help the atmosphere?"
+            },
+            {
+              "zh": "记一次新话题救场和一次安静帮上忙的场景。",
+              "en": "Record a situation where a new topic helped and another where silence helped."
+            }
+          ]
+        },
+        {
+          "id": "pressure-review",
+          "title": {
+            "zh": "压力下可以核对什么",
+            "en": "What to check under pressure"
+          },
+          "paragraphs": [
+            {
+              "zh": "本次并列不能说明压力下黄或绿哪个先出现、占上风或自动切换；题组没有测量这种顺序。",
+              "en": "This tie does not show whether Yellow or Green comes first, dominates or switches automatically under pressure. The questions do not measure that sequence."
+            },
+            {
+              "zh": "气氛紧张时，你的动作更像哪一种入口？",
+              "en": "In a tense atmosphere, which starting approach did your actions resemble?"
+            },
+            {
+              "zh": "对方的状态，改变了你的回应方式吗？",
+              "en": "Did the other person's state change how you responded?"
+            },
+            {
+              "zh": "事后看，活跃和安静各自起了什么作用？",
+              "en": "Looking back, what did liveliness and quiet each contribute?"
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "zh": "带回经历核对",
+            "en": "Questions to reflect on"
+          },
+          "paragraphs": [
+            {
+              "zh": "这次作答里，黄的活跃入口和绿的照顾入口各出现在哪些题目？",
+              "en": "Which questions brought out Yellow's active approach and Green's attentive approach in this attempt?"
+            },
+            {
+              "zh": "如果换成完全不熟的人，你的选择会偏哪边？",
+              "en": "With completely unfamiliar people, which way might your choices lean?"
+            },
+            {
+              "zh": "最近一次聚会里，你出点子和照顾人的时刻各占多少？",
+              "en": "At a recent gathering, how much time did you spend offering ideas and attending to others?"
+            }
+          ]
+        },
+        {
+          "id": "does-not-mean",
+          "title": {
+            "zh": "怎样避免过度解读",
+            "en": "Avoiding overinterpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "不表示这两个方向组成了固定类型或混合人格。",
+              "en": "This does not mean these directions form a fixed type or blended personality."
+            },
+            {
+              "zh": "不表示你在不同场景都会同时采用这两种做法。",
+              "en": "It does not mean you use both approaches together in every situation."
+            },
+            {
+              "zh": "不表示任何一个方向对应能力高低或表现优劣。",
+              "en": "It does not mean either direction corresponds to better ability or performance."
+            },
+            {
+              "zh": "不预测职业、关系、领导力或团队结果。",
+              "en": "It does not predict career, relationship, leadership or team outcomes."
+            },
+            {
+              "zh": "不构成心理诊断、招聘筛选或高影响决策依据。",
+              "en": "It is not a psychological diagnosis or a basis for recruitment screening or high-stakes decisions."
+            }
+          ]
+        },
+        {
+          "id": "interpretation-boundary",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "本页只解释本次 24 道题里两个方向的原始次数并列。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业四色课程或认证体系。",
+              "en": "This page explains only a tie in the raw counts of two directions across these 24 questions. Check it against specific experiences; use what fits as a clue and set aside what does not. Reliability, validity and population norms have not been established, and this is not equivalent to any commercial four-color course or certification."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tied-blue-green",
+      "directionIds": [
+        "BLUE",
+        "GREEN"
+      ],
+      "title": {
+        "zh": "蓝 / 绿 并列",
+        "en": "Blue / Green tie"
+      },
+      "headline": {
+        "zh": "本次选择中，蓝·审慎整理 与 绿·稳定协调 的原始次数并列最高",
+        "en": "Blue · Careful organization and Green · Steady coordination share the highest raw count"
+      },
+      "summary": {
+        "zh": "这只记录本次题组里蓝·审慎整理、绿·稳定协调获得相同最高次数，不定义固定类型。",
+        "en": "This only records equal highest counts for Blue and Green within this question set; it does not define a fixed type."
+      },
+      "scoreReading": {
+        "zh": "每选中一次记 1 次；本次蓝和绿次数相同，且都高于其余两个方向。系统保留并列，不因题号、字母或选项位置而分出先后。",
+        "en": "Each selection adds 1 count. Blue and Green have equal totals above the other two directions. The tie stays intact, regardless of question number, letter or option position."
+      },
+      "sections": [
+        {
+          "id": "direction-readings",
+          "title": {
+            "zh": "各方向如何计数",
+            "en": "How each direction is counted"
+          },
+          "paragraphs": [
+            {
+              "zh": "蓝·审慎整理：蓝的次数来自你选先整理、先核对选项的题目；它不是仔细或聪明的评分。",
+              "en": "Blue · Careful organization: Blue's count comes from choosing to organize or check first. It does not rate carefulness or intelligence."
+            },
+            {
+              "zh": "绿·稳定协调：绿的次数来自你选先稳节奏、先照顾舒适选项的题目；它不是体贴或情绪健康的评分。",
+              "en": "Green · Steady coordination: Green's count comes from choosing a steady pace or comfort. It does not rate thoughtfulness or emotional health."
+            }
+          ]
+        },
+        {
+          "id": "contexts-to-review",
+          "title": {
+            "zh": "可回看的情境",
+            "en": "Situations to revisit"
+          },
+          "paragraphs": [
+            {
+              "zh": "最近一次房间很乱或日程被打乱时，你是先整理，还是先找回舒服感？",
+              "en": "When your room was last messy or your schedule disrupted, did you organize first or restore a comfortable feel?"
+            },
+            {
+              "zh": "两个人对安排有分歧时，你先确认在意的事，还是先列条件？",
+              "en": "When plans conflict, do you first check what matters to each person or list the conditions?"
+            },
+            {
+              "zh": "学新东西时，你先按步骤，还是先顾节奏？",
+              "en": "When learning something new, do you first follow the steps or attend to the pace?"
+            }
+          ]
+        },
+        {
+          "id": "decision-review-questions",
+          "title": {
+            "zh": "决定过程",
+            "en": "The decision process"
+          },
+          "paragraphs": [
+            {
+              "zh": "面对混乱，你更常先把规则理清，还是先让一切舒服起来？",
+              "en": "Faced with disorder, do you usually clarify the rules first or make things feel comfortable?"
+            },
+            {
+              "zh": "哪些事情必须先整理，哪些事情先顾节奏更重要？",
+              "en": "Which tasks need organization first, and which need attention to rhythm more?"
+            }
+          ]
+        },
+        {
+          "id": "communication-review-questions",
+          "title": {
+            "zh": "沟通过程",
+            "en": "The communication process"
+          },
+          "paragraphs": [
+            {
+              "zh": "商量安排时，你先讲条件，还是先问感受？",
+              "en": "When discussing arrangements, do you state conditions first or ask about feelings?"
+            },
+            {
+              "zh": "一次实际沟通中，你先说明了条件，还是先留出了表达时间？",
+              "en": "In an actual conversation, did you explain conditions first or leave time for expression?"
+            }
+          ]
+        },
+        {
+          "id": "collaboration-review-questions",
+          "title": {
+            "zh": "协作过程",
+            "en": "The collaboration process"
+          },
+          "paragraphs": [
+            {
+              "zh": "一起安排事情时，谁负责定规则，谁负责看大家的感受？",
+              "en": "When planning together, who sets the rules and who notices how everyone feels?"
+            },
+            {
+              "zh": "规则和舒适冲突时，由谁来调和？",
+              "en": "When rules and comfort conflict, who reconciles them?"
+            }
+          ]
+        },
+        {
+          "id": "real-world-checkpoints",
+          "title": {
+            "zh": "现实检查点",
+            "en": "Checks against real experience"
+          },
+          "paragraphs": [
+            {
+              "zh": "找一次整理房间或日程的经历，看你先排规则还是先顾感觉。",
+              "en": "Recall organizing a room or schedule. Did you first establish rules or attend to how it felt?"
+            },
+            {
+              "zh": "回看一次分歧沟通，标出你讲条件和照顾感受的时刻。",
+              "en": "Revisit a disagreement. Mark when you discussed conditions and when you considered feelings."
+            }
+          ]
+        },
+        {
+          "id": "balancing-actions",
+          "title": {
+            "zh": "可尝试的动作",
+            "en": "Actions to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "下一次想继续核对时，先问一句：对方现在的状态如何？",
+              "en": "Before checking further, ask: how is the other person doing right now?"
+            },
+            {
+              "zh": "下一次想先顾节奏时，问一句：规则要不要先定下来？",
+              "en": "Before attending to the pace, ask: do we need to settle the rules first?"
+            },
+            {
+              "zh": "记一次规则省事和一次顾感受避坑的场景。",
+              "en": "Record one situation where rules saved effort and another where attention to feelings prevented a problem."
+            }
+          ]
+        },
+        {
+          "id": "pressure-review",
+          "title": {
+            "zh": "压力下可以核对什么",
+            "en": "What to check under pressure"
+          },
+          "paragraphs": [
+            {
+              "zh": "本次并列不能说明压力下蓝或绿哪个先出现、占上风或自动切换；题组没有测量这种顺序。",
+              "en": "This tie does not show whether Blue or Green comes first, dominates or switches automatically under pressure. The questions do not measure that sequence."
+            },
+            {
+              "zh": "事情多而乱时，你的第一反应更像哪一种？",
+              "en": "When things became numerous and disorganized, which approach did your first response resemble?"
+            },
+            {
+              "zh": "身边人的状态，改变了你的做法吗？",
+              "en": "Did the people around you change your approach?"
+            },
+            {
+              "zh": "事后看，整理和稳节奏各自帮了什么？",
+              "en": "Looking back, how did organizing and steadying the pace each help?"
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "zh": "带回经历核对",
+            "en": "Questions to reflect on"
+          },
+          "paragraphs": [
+            {
+              "zh": "这次作答里，蓝的整理题和绿的稳节奏题各占了多少次数？",
+              "en": "How many choices in this attempt went to Blue's organization and Green's steady rhythm?"
+            },
+            {
+              "zh": "如果事情只有你一个人，你的选择会偏哪边？",
+              "en": "If you were doing this alone, which way might your choices lean?"
+            },
+            {
+              "zh": "最近一次整理房间或日程，你先排规则还是先顾感觉？",
+              "en": "When organizing a room or schedule recently, did you first set rules or attend to how it felt?"
+            }
+          ]
+        },
+        {
+          "id": "does-not-mean",
+          "title": {
+            "zh": "怎样避免过度解读",
+            "en": "Avoiding overinterpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "不表示这两个方向组成了固定类型或混合人格。",
+              "en": "This does not mean these directions form a fixed type or blended personality."
+            },
+            {
+              "zh": "不表示你在不同场景都会同时采用这两种做法。",
+              "en": "It does not mean you use both approaches together in every situation."
+            },
+            {
+              "zh": "不表示任何一个方向对应能力高低或表现优劣。",
+              "en": "It does not mean either direction corresponds to better ability or performance."
+            },
+            {
+              "zh": "不预测职业、关系、领导力或团队结果。",
+              "en": "It does not predict career, relationship, leadership or team outcomes."
+            },
+            {
+              "zh": "不构成心理诊断、招聘筛选或高影响决策依据。",
+              "en": "It is not a psychological diagnosis or a basis for recruitment screening or high-stakes decisions."
+            }
+          ]
+        },
+        {
+          "id": "interpretation-boundary",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "本页只解释本次 24 道题里两个方向的原始次数并列。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业四色课程或认证体系。",
+              "en": "This page explains only a tie in the raw counts of two directions across these 24 questions. Check it against specific experiences; use what fits as a clue and set aside what does not. Reliability, validity and population norms have not been established, and this is not equivalent to any commercial four-color course or certification."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tied-red-yellow-blue",
+      "directionIds": [
+        "RED",
+        "YELLOW",
+        "BLUE"
+      ],
+      "title": {
+        "zh": "红 / 黄 / 蓝 三方向并列",
+        "en": "Red / Yellow / Blue three-way tie"
+      },
+      "headline": {
+        "zh": "本次选择中，红·行动回应、黄·开放联想、蓝·审慎整理的原始次数并列最高",
+        "en": "Red · Responding through action, Yellow · Exploring connections and Blue · Careful organization share the highest raw count"
+      },
+      "summary": {
+        "zh": "这只记录本次题组里红、黄、蓝获得相同最高次数；本次没有形成唯一的顶部方向。",
+        "en": "This only records equal highest counts for Red, Yellow and Blue in this question set. No single direction led this attempt."
+      },
+      "scoreReading": {
+        "zh": "三个方向在本组二选一里被选中的次数相同，且都高于绿。系统不做任何破同分处理，也不为这三个方向排先后。这不代表你的人格复杂或分裂——只是这次题组没有出现唯一领先的方向。",
+        "en": "Three directions were selected equally often, each more often than Green. The system neither breaks the tie nor ranks those three. This does not mean your personality is complex or fragmented; this question set simply produced no sole leader."
+      },
+      "sections": [
+        {
+          "id": "direction-readings",
+          "title": {
+            "zh": "各方向如何计数",
+            "en": "How each direction is counted"
+          },
+          "paragraphs": [
+            {
+              "zh": "红·行动回应：红的次数来自你选择先行动、先回应选项的题目；它不是胆量或行动力的评分。",
+              "en": "Red · Responding through action: Red's count comes from choosing action or a prompt response. It does not rate courage or ability to act."
+            },
+            {
+              "zh": "黄·开放联想：黄的次数来自你选择先联想、先延伸选项的题目；它不是聪明或想象力的评分。",
+              "en": "Yellow · Exploring connections: Yellow's count comes from choosing associations or further possibilities. It does not rate intelligence or imagination."
+            },
+            {
+              "zh": "蓝·审慎整理：蓝的次数来自你选择先整理、先核对选项的题目；它不是逻辑或能力的评分。",
+              "en": "Blue · Careful organization: Blue's count comes from choosing to organize or check first. It does not rate reasoning or ability."
+            }
+          ]
+        },
+        {
+          "id": "contexts-to-review",
+          "title": {
+            "zh": "可回看的情境",
+            "en": "Situations to revisit"
+          },
+          "paragraphs": [
+            {
+              "zh": "最近一次处理新信息时，你是先动手、先联想，还是先整理？",
+              "en": "With new information recently, did you act, explore connections or organize first?"
+            },
+            {
+              "zh": "在熟悉和陌生的场合里，你的入口是否不同？",
+              "en": "Does your starting approach differ between familiar and unfamiliar situations?"
+            },
+            {
+              "zh": "时间紧张和宽裕时，三种做法各自出现过吗？",
+              "en": "Have all three approaches appeared when time was short and when it was plentiful?"
+            }
+          ]
+        },
+        {
+          "id": "decision-review-questions",
+          "title": {
+            "zh": "决定过程",
+            "en": "The decision process"
+          },
+          "paragraphs": [
+            {
+              "zh": "面对一个新任务，你的第一步更像三种里的哪一种？",
+              "en": "Which of the three approaches most resembles your first step on a new task?"
+            },
+            {
+              "zh": "哪些任务你倾向于动手试，哪些先想方案，哪些先查条件？",
+              "en": "Which tasks lead you to try something, consider possibilities or check conditions first?"
+            }
+          ]
+        },
+        {
+          "id": "communication-review-questions",
+          "title": {
+            "zh": "沟通过程",
+            "en": "The communication process"
+          },
+          "paragraphs": [
+            {
+              "zh": "表达想法时，你更常先给动作、先给画面，还是先给结构？",
+              "en": "When expressing an idea, do you more often begin with an action, an image or a structure?"
+            },
+            {
+              "zh": "不同对象面前，你的表达入口会变吗？",
+              "en": "Does your starting approach to expression change with different audiences?"
+            }
+          ]
+        },
+        {
+          "id": "collaboration-review-questions",
+          "title": {
+            "zh": "协作过程",
+            "en": "The collaboration process"
+          },
+          "paragraphs": [
+            {
+              "zh": "一起推进时，团队里的动作、想法和整理分别由谁承担？",
+              "en": "When working together, who takes on action, ideas and organization?"
+            },
+            {
+              "zh": "三种入口之间，通常由谁来做衔接？",
+              "en": "Who usually connects those three approaches?"
+            }
+          ]
+        },
+        {
+          "id": "real-world-checkpoints",
+          "title": {
+            "zh": "现实检查点",
+            "en": "Checks against real experience"
+          },
+          "paragraphs": [
+            {
+              "zh": "找一件最近完成的事，标出你动手、联想、整理分别出现的环节。",
+              "en": "Review a recently completed task. Mark where action, associations and organization each appeared."
+            },
+            {
+              "zh": "回看一次会议或讨论，看三种入口在你身上的先后。",
+              "en": "Revisit a meeting or discussion and the order in which you used the three approaches."
+            }
+          ]
+        },
+        {
+          "id": "balancing-actions",
+          "title": {
+            "zh": "可尝试的动作",
+            "en": "Actions to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "下一次处理新事情前，先写下一句话：这次先试哪一步。",
+              "en": "Before handling something new, write one sentence naming the step you will try first."
+            },
+            {
+              "zh": "过程中留意另外两种入口是否被你完全忽略。",
+              "en": "During the task, notice whether you have completely overlooked the other two approaches."
+            },
+            {
+              "zh": "结束后记录哪种入口最贴合当时的任务。",
+              "en": "Afterward, record which starting approach best fit the task."
+            }
+          ]
+        },
+        {
+          "id": "pressure-review",
+          "title": {
+            "zh": "压力下可以核对什么",
+            "en": "What to check under pressure"
+          },
+          "paragraphs": [
+            {
+              "zh": "本次并列不能说明压力下红、黄、蓝中哪个先出现、占上风或自动切换；题组没有测量这种顺序。",
+              "en": "This tie does not show which of Red, Yellow or Blue comes first, dominates or switches automatically under pressure. The questions do not measure that sequence."
+            },
+            {
+              "zh": "压力出现时，你的实际动作更像哪种入口？",
+              "en": "When pressure appeared, which approach did your actual actions resemble?"
+            },
+            {
+              "zh": "当时的任务类型和限制条件是什么？",
+              "en": "What kind of task and constraints were present?"
+            },
+            {
+              "zh": "事后看，哪种入口最常帮到你？",
+              "en": "Looking back, which approach most often helped you?"
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "zh": "带回经历核对",
+            "en": "Questions to reflect on"
+          },
+          "paragraphs": [
+            {
+              "zh": "这次作答里，红、黄、蓝三组题目各把你带向哪种入口？",
+              "en": "Which starting approach did each of the Red, Yellow and Blue question groups draw you toward?"
+            },
+            {
+              "zh": "如果换成你熟悉的任务，你的选择会偏哪边？",
+              "en": "With a familiar task, which way might your choices lean?"
+            },
+            {
+              "zh": "最近一次处理新信息，你的第一步是动、想还是查？",
+              "en": "When handling new information recently, did you first act, imagine or check?"
+            }
+          ]
+        },
+        {
+          "id": "does-not-mean",
+          "title": {
+            "zh": "怎样避免过度解读",
+            "en": "Avoiding overinterpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "不表示这三个方向组成了固定类型或混合人格。",
+              "en": "This does not mean the three directions form a fixed type or blended personality."
+            },
+            {
+              "zh": "不表示你是多重人格或复杂人格。",
+              "en": "This does not mean you have multiple or complex personalities."
+            },
+            {
+              "zh": "不表示任何一个方向对应能力高低或表现优劣。",
+              "en": "It does not mean either direction corresponds to better ability or performance."
+            },
+            {
+              "zh": "不表示你比单方向的人更全面或更适应。",
+              "en": "It does not mean you are more rounded or adaptable than someone with one leading direction."
+            },
+            {
+              "zh": "不构成心理诊断、招聘筛选或高影响决策依据。",
+              "en": "It is not a psychological diagnosis or a basis for recruitment screening or high-stakes decisions."
+            }
+          ]
+        },
+        {
+          "id": "interpretation-boundary",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "三方向并列只说明本次题组没有形成唯一顶部方向。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业四色课程或认证体系。",
+              "en": "A three-way tie only means this question set produced no sole leading direction. Check it against specific experiences; use what fits as a clue and set aside what does not. Reliability, validity and population norms have not been established, and this is not equivalent to any commercial four-color course or certification."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tied-red-yellow-green",
+      "directionIds": [
+        "RED",
+        "YELLOW",
+        "GREEN"
+      ],
+      "title": {
+        "zh": "红 / 黄 / 绿 三方向并列",
+        "en": "Red / Yellow / Green three-way tie"
+      },
+      "headline": {
+        "zh": "本次选择中，红·行动回应、黄·开放联想、绿·稳定协调的原始次数并列最高",
+        "en": "Red · Responding through action, Yellow · Exploring connections and Green · Steady coordination share the highest raw count"
+      },
+      "summary": {
+        "zh": "这只记录本次题组里红、黄、绿获得相同最高次数；本次没有形成唯一的顶部方向。",
+        "en": "This only records equal highest counts for Red, Yellow and Green in this question set. No single direction led this attempt."
+      },
+      "scoreReading": {
+        "zh": "红、黄、绿三个方向被选中的次数一样多，且都高于蓝。系统不排先后，也不做任何破同分处理。这不表示多重人格或身份分裂——只是这次题组里没有哪个方向明显领先。",
+        "en": "Red, Yellow and Green were selected equally often, each more often than Blue. The system neither ranks them nor breaks the tie. This does not imply multiple personalities or a fragmented identity; no single direction led this question set."
+      },
+      "sections": [
+        {
+          "id": "direction-readings",
+          "title": {
+            "zh": "各方向如何计数",
+            "en": "How each direction is counted"
+          },
+          "paragraphs": [
+            {
+              "zh": "红·行动回应：红的次数来自你选择先动手、先回应选项的题目；它不是勇敢或冲劲的评分。",
+              "en": "Red · Responding through action: Red's count comes from choosing action or a prompt response. It does not rate bravery or drive."
+            },
+            {
+              "zh": "黄·开放联想：黄的次数来自你选择先抛话题、先出点子选项的题目；它不是热情或社交的评分。",
+              "en": "Yellow · Exploring connections: Yellow's count comes from choosing a topic or idea first. It does not rate enthusiasm or social skill."
+            },
+            {
+              "zh": "绿·稳定协调：绿的次数来自你选择先稳节奏、先照顾舒适选项的题目；它不是善良或治愈的评分。",
+              "en": "Green · Steady coordination: Green's count comes from choosing a steady pace or comfort. It does not rate kindness or an ability to heal others."
+            }
+          ]
+        },
+        {
+          "id": "contexts-to-review",
+          "title": {
+            "zh": "可回看的情境",
+            "en": "Situations to revisit"
+          },
+          "paragraphs": [
+            {
+              "zh": "最近一次聚会或共同活动里，你的先手更像哪一种入口？",
+              "en": "At a recent gathering or shared activity, which approach most resembled your opening move?"
+            },
+            {
+              "zh": "和新朋友、老朋友相处时，你的入口是否不同？",
+              "en": "Does your starting approach differ with new friends and old friends?"
+            },
+            {
+              "zh": "气氛热闹与气氛安静时，你分别做了什么？",
+              "en": "What did you do when the atmosphere was lively, and when it was quiet?"
+            }
+          ]
+        },
+        {
+          "id": "decision-review-questions",
+          "title": {
+            "zh": "决定过程",
+            "en": "The decision process"
+          },
+          "paragraphs": [
+            {
+              "zh": "一起决定去哪里时，你先提议、先出主意，还是先看大家状态？",
+              "en": "When deciding where to go together, do you first make a proposal, offer ideas or check how everyone is doing?"
+            },
+            {
+              "zh": "不同场景里，你的第一步会换吗？",
+              "en": "Does your first step change between situations?"
+            }
+          ]
+        },
+        {
+          "id": "communication-review-questions",
+          "title": {
+            "zh": "沟通过程",
+            "en": "The communication process"
+          },
+          "paragraphs": [
+            {
+              "zh": "聊天时，你更常先给回应、先抛话题，还是先顺着对方？",
+              "en": "In conversation, do you usually respond first, introduce a topic or follow the other person's lead?"
+            },
+            {
+              "zh": "冷场时你的选择，和热络时是否不同？",
+              "en": "Do your choices differ during a lull and a lively exchange?"
+            }
+          ]
+        },
+        {
+          "id": "collaboration-review-questions",
+          "title": {
+            "zh": "协作过程",
+            "en": "The collaboration process"
+          },
+          "paragraphs": [
+            {
+              "zh": "一起活动时，动作、点子、照顾分别由谁承担？",
+              "en": "In a shared activity, who takes on action, ideas and attention to people?"
+            },
+            {
+              "zh": "三种入口之间，谁来平衡节奏？",
+              "en": "Who balances the pace between those three approaches?"
+            }
+          ]
+        },
+        {
+          "id": "real-world-checkpoints",
+          "title": {
+            "zh": "现实检查点",
+            "en": "Checks against real experience"
+          },
+          "paragraphs": [
+            {
+              "zh": "找一次最近的集体活动，标出你动手、出点子、照顾人的时刻。",
+              "en": "Review a recent group activity. Mark when you acted, offered ideas and attended to people."
+            },
+            {
+              "zh": "回看一次冷场或忙乱的场面，看你的先手是什么。",
+              "en": "Recall a lull or a hectic situation. What was your opening move?"
+            }
+          ]
+        },
+        {
+          "id": "balancing-actions",
+          "title": {
+            "zh": "可尝试的动作",
+            "en": "Actions to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "下一次活动前，先想一句：这次我打算先出哪一种入口。",
+              "en": "Before your next activity, decide which approach you intend to try first."
+            },
+            {
+              "zh": "留意另外两种入口是否被你留到了最后。",
+              "en": "Notice whether you leave the other two approaches until last."
+            },
+            {
+              "zh": "结束后记录哪种入口最贴合现场的需要。",
+              "en": "Afterward, record which approach best fit what the situation needed."
+            }
+          ]
+        },
+        {
+          "id": "pressure-review",
+          "title": {
+            "zh": "压力下可以核对什么",
+            "en": "What to check under pressure"
+          },
+          "paragraphs": [
+            {
+              "zh": "本次并列不能说明压力下红、黄、绿中哪个先出现、占上风或自动切换；题组没有测量这种顺序。",
+              "en": "This tie does not show which of Red, Yellow or Green comes first, dominates or switches automatically under pressure. The questions do not measure that sequence."
+            },
+            {
+              "zh": "场面忙乱时，你的第一动作更像哪一种？",
+              "en": "When the situation became busy, which approach did your first action resemble?"
+            },
+            {
+              "zh": "在场的人影响了你的做法吗？",
+              "en": "Did the people present affect your approach?"
+            },
+            {
+              "zh": "事后看，哪种入口最常让局面走顺？",
+              "en": "Looking back, which starting approach most often helped things run smoothly?"
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "zh": "带回经历核对",
+            "en": "Questions to reflect on"
+          },
+          "paragraphs": [
+            {
+              "zh": "这次作答里，红、黄、绿三组题目分别对应你的哪种先手？",
+              "en": "Which opening move does each of the Red, Yellow and Green question groups correspond to for you?"
+            },
+            {
+              "zh": "如果换成不熟的人，你的选择会变吗？",
+              "en": "Would your choices change with unfamiliar people?"
+            },
+            {
+              "zh": "最近一次集体活动，你的先手更常是动、说还是稳？",
+              "en": "In a recent group activity, did your opening move more often involve action, conversation or steadiness?"
+            }
+          ]
+        },
+        {
+          "id": "does-not-mean",
+          "title": {
+            "zh": "怎样避免过度解读",
+            "en": "Avoiding overinterpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "不表示这三个方向组成了固定类型或混合人格。",
+              "en": "This does not mean the three directions form a fixed type or blended personality."
+            },
+            {
+              "zh": "不表示你是多重人格或复杂人格。",
+              "en": "This does not mean you have multiple or complex personalities."
+            },
+            {
+              "zh": "不表示任何一个方向对应能力高低或表现优劣。",
+              "en": "It does not mean either direction corresponds to better ability or performance."
+            },
+            {
+              "zh": "不表示你比单方向的人更全面或更适应。",
+              "en": "It does not mean you are more rounded or adaptable than someone with one leading direction."
+            },
+            {
+              "zh": "不构成心理诊断、招聘筛选或高影响决策依据。",
+              "en": "It is not a psychological diagnosis or a basis for recruitment screening or high-stakes decisions."
+            }
+          ]
+        },
+        {
+          "id": "interpretation-boundary",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "三方向并列只说明本次题组没有形成唯一顶部方向。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业四色课程或认证体系。",
+              "en": "A three-way tie only means this question set produced no sole leading direction. Check it against specific experiences; use what fits as a clue and set aside what does not. Reliability, validity and population norms have not been established, and this is not equivalent to any commercial four-color course or certification."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tied-red-blue-green",
+      "directionIds": [
+        "RED",
+        "BLUE",
+        "GREEN"
+      ],
+      "title": {
+        "zh": "红 / 蓝 / 绿 三方向并列",
+        "en": "Red / Blue / Green three-way tie"
+      },
+      "headline": {
+        "zh": "本次选择中，红·行动回应、蓝·审慎整理、绿·稳定协调的原始次数并列最高",
+        "en": "Red · Responding through action, Blue · Careful organization and Green · Steady coordination share the highest raw count"
+      },
+      "summary": {
+        "zh": "这只记录本次题组里红、蓝、绿获得相同最高次数；本次没有形成唯一的顶部方向。",
+        "en": "This only records equal highest counts for Red, Blue and Green in this question set. No single direction led this attempt."
+      },
+      "scoreReading": {
+        "zh": "红、蓝、绿三个方向被选中的次数相同，且都高于黄。系统保留并列，不为三者排先后，也不做破同分处理。别把它理解成复杂人格或多重身份——它只说明这次题组没有形成唯一的顶部方向。",
+        "en": "Red, Blue and Green were selected equally often, each more often than Yellow. The system keeps the tie without ranking or tie-breaking. This does not imply a complex personality or multiple identities; this question set produced no sole leading direction."
+      },
+      "sections": [
+        {
+          "id": "direction-readings",
+          "title": {
+            "zh": "各方向如何计数",
+            "en": "How each direction is counted"
+          },
+          "paragraphs": [
+            {
+              "zh": "红·行动回应：红的次数来自你选择先动手、先回应选项的题目；它不是胆量或执行力的评分。",
+              "en": "Red · Responding through action: Red's count comes from choosing action or a prompt response. It does not rate courage or execution."
+            },
+            {
+              "zh": "蓝·审慎整理：蓝的次数来自你选择先整理、先核对选项的题目；它不是严谨或智力的评分。",
+              "en": "Blue · Careful organization: Blue's count comes from choosing to organize or check first. It does not rate rigor or intelligence."
+            },
+            {
+              "zh": "绿·稳定协调：绿的次数来自你选择先稳节奏、先照顾舒适选项的题目；它不是温和或情绪稳定的评分。",
+              "en": "Green · Steady coordination: Green's count comes from choosing a steady pace or comfort. It does not rate gentleness or emotional stability."
+            }
+          ]
+        },
+        {
+          "id": "contexts-to-review",
+          "title": {
+            "zh": "可回看的情境",
+            "en": "Situations to revisit"
+          },
+          "paragraphs": [
+            {
+              "zh": "最近一次处理混乱局面时，你先动手、先整理，还是先稳节奏？",
+              "en": "When handling a disorganized situation recently, did you first act, organize or steady the pace?"
+            },
+            {
+              "zh": "处理自己的事和帮别人忙时，你的入口是否不同？",
+              "en": "Does your starting approach differ when handling your own affairs and helping someone else?"
+            },
+            {
+              "zh": "重要决定和日常小事上，三种做法分别出现过吗？",
+              "en": "Have all three approaches appeared in important decisions and everyday tasks?"
+            }
+          ]
+        },
+        {
+          "id": "decision-review-questions",
+          "title": {
+            "zh": "决定过程",
+            "en": "The decision process"
+          },
+          "paragraphs": [
+            {
+              "zh": "面对一件要推进的事，你的第一步更像哪一种？",
+              "en": "When something needs moving forward, which approach most resembles your first step?"
+            },
+            {
+              "zh": "哪些事你直接做，哪些先查，哪些先稳？",
+              "en": "Which things do you do directly, check first or steady first?"
+            }
+          ]
+        },
+        {
+          "id": "communication-review-questions",
+          "title": {
+            "zh": "沟通过程",
+            "en": "The communication process"
+          },
+          "paragraphs": [
+            {
+              "zh": "表达时，你更常先给动作、先给依据，还是先顾对方状态？",
+              "en": "When speaking, do you usually start with an action, evidence or attention to the other person?"
+            },
+            {
+              "zh": "说话对象和场合不同时，你的表达入口会变吗？",
+              "en": "Does your starting approach to expression change with the audience and setting?"
+            }
+          ]
+        },
+        {
+          "id": "collaboration-review-questions",
+          "title": {
+            "zh": "协作过程",
+            "en": "The collaboration process"
+          },
+          "paragraphs": [
+            {
+              "zh": "一起做事时，动作、把关、照顾分别由谁承担？",
+              "en": "When working together, who takes on action, checking and attention to people?"
+            },
+            {
+              "zh": "三种入口之间，谁来保证不互相耽误？",
+              "en": "Who makes sure the three approaches do not hold one another up?"
+            }
+          ]
+        },
+        {
+          "id": "real-world-checkpoints",
+          "title": {
+            "zh": "现实检查点",
+            "en": "Checks against real experience"
+          },
+          "paragraphs": [
+            {
+              "zh": "找一件最近推进的事，标出你动手、整理、稳节奏的环节。",
+              "en": "Review something you recently moved forward. Mark where action, organization and a steady pace appeared."
+            },
+            {
+              "zh": "回看一次帮忙的经历，看你先做了什么。",
+              "en": "Recall helping someone. What did you do first?"
+            }
+          ]
+        },
+        {
+          "id": "balancing-actions",
+          "title": {
+            "zh": "可尝试的动作",
+            "en": "Actions to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "下一次开始前，先写一句：这次先走哪一步。",
+              "en": "Before starting next time, write one sentence naming your first step."
+            },
+            {
+              "zh": "过程中留意被忽略的另外两种入口。",
+              "en": "During the task, notice the other two approaches you may be overlooking."
+            },
+            {
+              "zh": "结束后记录哪种入口最贴合当时的情况。",
+              "en": "Afterward, record which starting approach best fit the circumstances."
+            }
+          ]
+        },
+        {
+          "id": "pressure-review",
+          "title": {
+            "zh": "压力下可以核对什么",
+            "en": "What to check under pressure"
+          },
+          "paragraphs": [
+            {
+              "zh": "本次并列不能说明压力下红、蓝、绿中哪个先出现、占上风或自动切换；题组没有测量这种顺序。",
+              "en": "This tie does not show which of Red, Blue or Green comes first, dominates or switches automatically under pressure. The questions do not measure that sequence."
+            },
+            {
+              "zh": "时间紧时，你的实际动作更像哪种入口？",
+              "en": "Under time pressure, which starting approach did your actual actions resemble?"
+            },
+            {
+              "zh": "事情的轻重，改变了你的做法吗？",
+              "en": "Did the importance of the task change your approach?"
+            },
+            {
+              "zh": "事后看，哪种入口最常让事情落地？",
+              "en": "Looking back, which approach most often helped something get done?"
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "zh": "带回经历核对",
+            "en": "Questions to reflect on"
+          },
+          "paragraphs": [
+            {
+              "zh": "这次作答里，红、蓝、绿三组题目分别对应你的哪种先手？",
+              "en": "Which opening move does each of the Red, Blue and Green question groups correspond to for you?"
+            },
+            {
+              "zh": "如果换成你熟悉的领域，你的选择会偏哪边？",
+              "en": "With a familiar field, which way might your choices lean?"
+            },
+            {
+              "zh": "最近一次推进一件要事，你的第一步是动、查还是稳？",
+              "en": "When moving an important task forward recently, did you first act, check or steady the pace?"
+            }
+          ]
+        },
+        {
+          "id": "does-not-mean",
+          "title": {
+            "zh": "怎样避免过度解读",
+            "en": "Avoiding overinterpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "不表示这三个方向组成了固定类型或混合人格。",
+              "en": "This does not mean the three directions form a fixed type or blended personality."
+            },
+            {
+              "zh": "不表示你是多重人格或复杂人格。",
+              "en": "This does not mean you have multiple or complex personalities."
+            },
+            {
+              "zh": "不表示任何一个方向对应能力高低或表现优劣。",
+              "en": "It does not mean either direction corresponds to better ability or performance."
+            },
+            {
+              "zh": "不表示你比单方向的人更全面或更适应。",
+              "en": "It does not mean you are more rounded or adaptable than someone with one leading direction."
+            },
+            {
+              "zh": "不构成心理诊断、招聘筛选或高影响决策依据。",
+              "en": "It is not a psychological diagnosis or a basis for recruitment screening or high-stakes decisions."
+            }
+          ]
+        },
+        {
+          "id": "interpretation-boundary",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "三方向并列只说明本次题组没有形成唯一顶部方向。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业四色课程或认证体系。",
+              "en": "A three-way tie only means this question set produced no sole leading direction. Check it against specific experiences; use what fits as a clue and set aside what does not. Reliability, validity and population norms have not been established, and this is not equivalent to any commercial four-color course or certification."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tied-yellow-blue-green",
+      "directionIds": [
+        "YELLOW",
+        "BLUE",
+        "GREEN"
+      ],
+      "title": {
+        "zh": "黄 / 蓝 / 绿 三方向并列",
+        "en": "Yellow / Blue / Green three-way tie"
+      },
+      "headline": {
+        "zh": "本次选择中，黄·开放联想、蓝·审慎整理、绿·稳定协调的原始次数并列最高",
+        "en": "Yellow · Exploring connections, Blue · Careful organization and Green · Steady coordination share the highest raw count"
+      },
+      "summary": {
+        "zh": "这只记录本次题组里黄、蓝、绿获得相同最高次数；本次没有形成唯一的顶部方向。",
+        "en": "This only records equal highest counts for Yellow, Blue and Green in this question set. No single direction led this attempt."
+      },
+      "scoreReading": {
+        "zh": "黄、蓝、绿三个方向被选中的次数一样多，且都高于红。系统不为三者排先后，也不做任何破同分处理。这并不意味着你人格复杂——只是这一次题组没有产生唯一领先的方向。",
+        "en": "Yellow, Blue and Green were selected equally often, each more often than Red. The system neither ranks them nor breaks the tie. This does not imply a complex personality; this question set simply produced no sole leading direction."
+      },
+      "sections": [
+        {
+          "id": "direction-readings",
+          "title": {
+            "zh": "各方向如何计数",
+            "en": "How each direction is counted"
+          },
+          "paragraphs": [
+            {
+              "zh": "黄·开放联想：黄的次数来自你选择先联想、先延伸选项的题目；它不是灵感或表达力的评分。",
+              "en": "Yellow · Exploring connections: Yellow's count comes from choosing associations or further possibilities. It does not rate inspiration or expressive ability."
+            },
+            {
+              "zh": "蓝·审慎整理：蓝的次数来自你选择先整理、先核对选项的题目；它不是仔细或逻辑的评分。",
+              "en": "Blue · Careful organization: Blue's count comes from choosing to organize or check first. It does not rate carefulness or reasoning."
+            },
+            {
+              "zh": "绿·稳定协调：绿的次数来自你选择先稳节奏、先照顾舒适选项的题目；它不是贴心或治愈的评分。",
+              "en": "Green · Steady coordination: Green's count comes from choosing a steady pace or comfort. It does not rate caring or an ability to heal others."
+            }
+          ]
+        },
+        {
+          "id": "contexts-to-review",
+          "title": {
+            "zh": "可回看的情境",
+            "en": "Situations to revisit"
+          },
+          "paragraphs": [
+            {
+              "zh": "最近一次接触新内容时，你先联想、先整理，还是先稳节奏？",
+              "en": "With new material recently, did you first make connections, organize or steady the pace?"
+            },
+            {
+              "zh": "学习、沟通、相处三类情境里，你的入口是否不同？",
+              "en": "Does your starting approach differ between learning, communicating and spending time with others?"
+            },
+            {
+              "zh": "独自做事和与人协作时，三种做法分别出现过吗？",
+              "en": "Have all three approaches appeared when working alone and collaborating?"
+            }
+          ]
+        },
+        {
+          "id": "decision-review-questions",
+          "title": {
+            "zh": "决定过程",
+            "en": "The decision process"
+          },
+          "paragraphs": [
+            {
+              "zh": "面对需要消化的新东西，你的第一步更像哪一种？",
+              "en": "With something new to take in, which approach most resembles your first step?"
+            },
+            {
+              "zh": "哪些内容你边联想边懂，哪些必须先拆开，哪些需要慢慢来？",
+              "en": "Which material do you understand through connections, which needs breaking down first, and which needs time?"
+            }
+          ]
+        },
+        {
+          "id": "communication-review-questions",
+          "title": {
+            "zh": "沟通过程",
+            "en": "The communication process"
+          },
+          "paragraphs": [
+            {
+              "zh": "表达时，你更常先给画面、先给依据，还是先顾对方？",
+              "en": "When speaking, do you usually start with an image, evidence or attention to the other person?"
+            },
+            {
+              "zh": "听的人不同，你的表达入口会变吗？",
+              "en": "Does your starting approach to expression change with the listener?"
+            }
+          ]
+        },
+        {
+          "id": "collaboration-review-questions",
+          "title": {
+            "zh": "协作过程",
+            "en": "The collaboration process"
+          },
+          "paragraphs": [
+            {
+              "zh": "一起讨论时，点子、结构、节奏分别由谁承担？",
+              "en": "In a shared discussion, who takes on ideas, structure and pace?"
+            },
+            {
+              "zh": "三种入口之间，谁来保证信息不遗漏、人不被冷落？",
+              "en": "Who makes sure information is not lost and people are not left out between those approaches?"
+            }
+          ]
+        },
+        {
+          "id": "real-world-checkpoints",
+          "title": {
+            "zh": "现实检查点",
+            "en": "Checks against real experience"
+          },
+          "paragraphs": [
+            {
+              "zh": "找一次最近的学习或整理经历，标出联想、拆解、稳节奏的环节。",
+              "en": "Review a recent learning or organizing experience. Mark where associations, breaking things down and a steady pace appeared."
+            },
+            {
+              "zh": "回看一次协作讨论，看三种入口的先后。",
+              "en": "Revisit a collaborative discussion and the order of the three approaches."
+            }
+          ]
+        },
+        {
+          "id": "balancing-actions",
+          "title": {
+            "zh": "可尝试的动作",
+            "en": "Actions to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "下一次开始前，先写一句：这次先顾哪一种入口。",
+              "en": "Before starting next time, write one sentence naming the approach you will attend to first."
+            },
+            {
+              "zh": "过程中留意被你放下的另外两种入口。",
+              "en": "During the task, notice the other two approaches you have set aside."
+            },
+            {
+              "zh": "结束后记录哪种入口最贴合当时的场景。",
+              "en": "Afterward, record which approach best fit the situation."
+            }
+          ]
+        },
+        {
+          "id": "pressure-review",
+          "title": {
+            "zh": "压力下可以核对什么",
+            "en": "What to check under pressure"
+          },
+          "paragraphs": [
+            {
+              "zh": "本次并列不能说明压力下黄、蓝、绿中哪个先出现、占上风或自动切换；题组没有测量这种顺序。",
+              "en": "This tie does not show which of Yellow, Blue or Green comes first, dominates or switches automatically under pressure. The questions do not measure that sequence."
+            },
+            {
+              "zh": "信息又多又乱时，你的第一反应更像哪种入口？",
+              "en": "When information was plentiful and disorganized, which approach did your first response resemble?"
+            },
+            {
+              "zh": "当时的任务类型，改变了你的做法吗？",
+              "en": "Did the type of task change your approach?"
+            },
+            {
+              "zh": "事后看，哪种入口最常让事情清楚？",
+              "en": "Looking back, which approach most often helped make things clear?"
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "zh": "带回经历核对",
+            "en": "Questions to reflect on"
+          },
+          "paragraphs": [
+            {
+              "zh": "这次作答里，黄、蓝、绿三组题目分别把你带向哪种入口？",
+              "en": "Which starting approach did each of the Yellow, Blue and Green question groups draw you toward?"
+            },
+            {
+              "zh": "如果换成你经常接触的内容，你的选择会偏哪边？",
+              "en": "With material you encounter often, which way might your choices lean?"
+            },
+            {
+              "zh": "最近一次学习新东西，你的第一步是想、拆还是稳？",
+              "en": "When learning something new recently, did you first imagine, break it down or steady the pace?"
+            }
+          ]
+        },
+        {
+          "id": "does-not-mean",
+          "title": {
+            "zh": "怎样避免过度解读",
+            "en": "Avoiding overinterpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "不表示这三个方向组成了固定类型或混合人格。",
+              "en": "This does not mean the three directions form a fixed type or blended personality."
+            },
+            {
+              "zh": "不表示你是多重人格或复杂人格。",
+              "en": "This does not mean you have multiple or complex personalities."
+            },
+            {
+              "zh": "不表示任何一个方向对应能力高低或表现优劣。",
+              "en": "It does not mean either direction corresponds to better ability or performance."
+            },
+            {
+              "zh": "不表示你比单方向的人更全面或更适应。",
+              "en": "It does not mean you are more rounded or adaptable than someone with one leading direction."
+            },
+            {
+              "zh": "不构成心理诊断、招聘筛选或高影响决策依据。",
+              "en": "It is not a psychological diagnosis or a basis for recruitment screening or high-stakes decisions."
+            }
+          ]
+        },
+        {
+          "id": "interpretation-boundary",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "三方向并列只说明本次题组没有形成唯一顶部方向。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业四色课程或认证体系。",
+              "en": "A three-way tie only means this question set produced no sole leading direction. Check it against specific experiences; use what fits as a clue and set aside what does not. Reliability, validity and population norms have not been established, and this is not equivalent to any commercial four-color course or certification."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tied-red-yellow-blue-green",
+      "directionIds": [
+        "RED",
+        "YELLOW",
+        "BLUE",
+        "GREEN"
+      ],
+      "title": {
+        "zh": "四方向次数相同",
+        "en": "All four directions have equal counts"
+      },
+      "headline": {
+        "zh": "本次选择中，四个方向次数相同，不指定顶部方向",
+        "en": "All four directions have equal counts; no leading direction is assigned"
+      },
+      "summary": {
+        "zh": "这只记录本次题组里红、黄、蓝、绿被选中的次数完全相同，因此本次不指定顶部方向。",
+        "en": "Red, Yellow, Blue and Green were selected exactly equally often in this question set, so no leading direction is assigned."
+      },
+      "scoreReading": {
+        "zh": "四个方向在二选一里被选中的次数完全一样。系统不做任何破同分处理，不排先后，也不判定没有方向。这既不代表测试失效，也不表示四种特质完美平衡——只是这次题组里，没有哪一个方向出现得更多。",
+        "en": "All four directions were selected exactly equally often. The system does not break the tie, rank them or decide that you have no direction. This does not mean the test failed or that four traits are perfectly balanced. No direction simply appeared more often in this question set."
+      },
+      "sections": [
+        {
+          "id": "direction-readings",
+          "title": {
+            "zh": "各方向如何计数",
+            "en": "How each direction is counted"
+          },
+          "paragraphs": [
+            {
+              "zh": "红·行动回应：红的次数来自你选择先动手、先回应选项的题目。",
+              "en": "Red · Responding through action: Red's count comes from choosing action or a prompt response."
+            },
+            {
+              "zh": "黄·开放联想：黄的次数来自你选择先联想、先延伸选项的题目。",
+              "en": "Yellow · Exploring connections: Yellow's count comes from choosing associations or further possibilities."
+            },
+            {
+              "zh": "蓝·审慎整理：蓝的次数来自你选择先整理、先核对选项的题目。",
+              "en": "Blue · Careful organization: Blue's count comes from choosing to organize or check first."
+            },
+            {
+              "zh": "绿·稳定协调：绿的次数来自你选择先稳节奏、先照顾舒适选项的题目。",
+              "en": "Green · Steady coordination: Green's count comes from choosing a steady pace or comfort."
+            }
+          ]
+        },
+        {
+          "id": "contexts-to-review",
+          "title": {
+            "zh": "可回看的情境",
+            "en": "Situations to revisit"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果你最近处理过新任务：回看启动、进行、收尾三个阶段，你的入口分别是什么。",
+              "en": "If you recently handled a new task, review its beginning, middle and end. Which approach appeared at each stage?"
+            },
+            {
+              "zh": "如果你最近带过新人或学过新东西：前两周里，你更常先做什么、先想什么，还是先问为什么。",
+              "en": "If you recently guided someone new or learned something, review the first two weeks. What did you more often do, imagine or ask about first?"
+            },
+            {
+              "zh": "如果你最近和人有过分歧：回看分歧发生时，你的第一反应是给动作、出想法、理条件，还是先稳气氛。",
+              "en": "If you recently disagreed with someone, review your first response: an action, an idea, clarified conditions or a steadier atmosphere?"
+            }
+          ]
+        },
+        {
+          "id": "decision-review-questions",
+          "title": {
+            "zh": "决定过程",
+            "en": "The decision process"
+          },
+          "paragraphs": [
+            {
+              "zh": "四个方向的次数一样，说明这次题组没能区分你的相对偏好，不是你的答案有问题。",
+              "en": "Equal counts mean this question set did not distinguish a relative preference in your answers. They do not mean anything is wrong with your responses."
+            },
+            {
+              "zh": "想获得更有区分度的观察，可以隔一段时间（比如两周后）重新作答一次，看结果是否稳定。",
+              "en": "For another observation, you can answer again after an interval, such as two weeks, and see whether the result is consistent."
+            }
+          ]
+        },
+        {
+          "id": "communication-review-questions",
+          "title": {
+            "zh": "沟通过程",
+            "en": "The communication process"
+          },
+          "paragraphs": [
+            {
+              "zh": "本次并列不描述你的沟通方式。沟通上可以参考任意一个方向的描述来核对，但不必把任何一条当成你的方式。",
+              "en": "This tie does not describe your communication style. You can check any direction's description against experience without treating it as your style."
+            },
+            {
+              "zh": "如果你想知道自己平时的入口，可以问问信任的同伴：你观察到的我，通常先做什么。",
+              "en": "To explore your usual starting approach, ask a trusted person: what do you notice I tend to do first?"
+            }
+          ]
+        },
+        {
+          "id": "collaboration-review-questions",
+          "title": {
+            "zh": "协作过程",
+            "en": "The collaboration process"
+          },
+          "paragraphs": [
+            {
+              "zh": "本次并列不描述你的协作方式。如果你在团队里确实常轮换入口，这正是值得观察的信号。",
+              "en": "This tie does not describe your collaboration style. If you do switch approaches in a team, that is something worth observing directly."
+            },
+            {
+              "zh": "下一次协作时，留意自己在不同环节分别调用了哪种入口。",
+              "en": "Next time you collaborate, notice which approach you use at each stage."
+            }
+          ]
+        },
+        {
+          "id": "real-world-checkpoints",
+          "title": {
+            "zh": "现实检查点",
+            "en": "Checks against real experience"
+          },
+          "paragraphs": [
+            {
+              "zh": "未来一周，每天睡前记一句：今天我最先做的动作是动、想、查、稳里的哪一种。",
+              "en": "For the next week, write one sentence before bed: which came first today—acting, imagining, checking or steadying?"
+            },
+            {
+              "zh": "一周后统计出现最多的入口，那个方向可能就是你这段时间的实际偏好。",
+              "en": "At week's end, count the most frequent starting approach. It may be a clue to your actual preferences during that period."
+            }
+          ]
+        },
+        {
+          "id": "balancing-actions",
+          "title": {
+            "zh": "可尝试的动作",
+            "en": "Actions to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "不急着给自己贴标签，先用一周的真实行为来观察。",
+              "en": "Rather than rushing to label yourself, observe a week of actual behavior first."
+            },
+            {
+              "zh": "想重新确认时，间隔两周左右再测一次。",
+              "en": "If you want another check, allow about two weeks before retaking."
+            },
+            {
+              "zh": "任何时候，都以具体经历为准，而不是用次数解释自己。",
+              "en": "Always give specific experiences priority over explaining yourself through counts."
+            }
+          ]
+        },
+        {
+          "id": "pressure-review",
+          "title": {
+            "zh": "压力下可以核对什么",
+            "en": "What to check under pressure"
+          },
+          "paragraphs": [
+            {
+              "zh": "本次并列不说明你在压力下会怎样。压力下的行为通常比日常选择更值得单独观察，题组没有测量这种顺序。",
+              "en": "This tie does not show how you respond under pressure. Behavior under pressure merits its own observation; these questions do not measure that sequence."
+            },
+            {
+              "zh": "下一次忙乱时，留意自己的第一反应是动、想、查还是稳。",
+              "en": "Next time things become hectic, notice whether you first act, imagine, check or steady the pace."
+            },
+            {
+              "zh": "当时的环境和角色，是否改变了你的反应？",
+              "en": "Did the setting and your role change your response?"
+            },
+            {
+              "zh": "连续记录几次之后，看有没有稳定的模式。",
+              "en": "After recording several occasions, look for a consistent pattern."
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "zh": "带回经历核对",
+            "en": "Questions to reflect on"
+          },
+          "paragraphs": [
+            {
+              "zh": "这次作答时，你是很快选还是经常犹豫？犹豫本身也是一种信息。",
+              "en": "During this attempt, did you choose quickly or often hesitate? Hesitation is also information."
+            },
+            {
+              "zh": "有没有可能，你最近正处在一个什么都得兼顾的阶段？",
+              "en": "Could you be in a period where you need to attend to everything at once?"
+            },
+            {
+              "zh": "如果必须用一周的真实行为投票，四个方向里你会投给哪个？",
+              "en": "If you voted using a week of actual behavior, which of the four directions would you choose?"
+            }
+          ]
+        },
+        {
+          "id": "does-not-mean",
+          "title": {
+            "zh": "怎样避免过度解读",
+            "en": "Avoiding overinterpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "不表示四种特质完美平衡，也不表示你面面俱到。",
+              "en": "This does not mean four traits are perfectly balanced or that you cover every angle."
+            },
+            {
+              "zh": "不表示你是最稀有的类型或什么全才。",
+              "en": "It does not mean you are the rarest type or an all-round talent."
+            },
+            {
+              "zh": "不表示你没有偏好，也不表示测试失效。",
+              "en": "It does not mean you have no preferences or that the test failed."
+            },
+            {
+              "zh": "不表示四个方向都等于你或都代表你。",
+              "en": "It does not mean all four directions define or represent you."
+            },
+            {
+              "zh": "不是心理诊断，不描述你是什么人，只记录这次题组里的相对选择。",
+              "en": "This is not a diagnosis or a definition of who you are. It records relative choices in this attempt."
+            }
+          ]
+        },
+        {
+          "id": "interpretation-boundary",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "四方向并列只说明本次选择次数完全相同，不指定顶部方向。请用具体经历核对，而不是用标签理解自己；内容尚未完成信度、效度或常模验证，也不等同任何商业四色课程或认证体系。",
+              "en": "A four-way tie only means the choice counts are exactly equal, with no leading direction assigned. Check specific experiences instead of defining yourself through a label. Reliability, validity and population norms have not been established, and this is not equivalent to any commercial four-color course or certification."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "how-to-read",
+      "title": {
+        "zh": "怎样阅读结果",
+        "en": "How to read the result"
+      },
+      "paragraphs": [
+        {
+          "zh": "先看四个方向各自的原始选择次数，再找出次数最高的一个或多个方向（并列时全部保留），然后把它们带回最近的具体经历核对：哪些说法对得上，哪些对不上。结果页里的描述是线索，不是判决。",
+          "en": "Start with the raw choice count for each of the four directions, then identify the direction or directions with the highest count, keeping every tie. Check them against specific recent experiences: what fits, and what does not? The descriptions on the results page are clues, not a verdict."
+        }
+      ]
+    },
+    {
+      "id": "raw-wins-explanation",
+      "title": {
+        "zh": "原始计数",
+        "en": "Raw counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "每道题是两个方向的两两比较，选中的那个方向得 1 次。四个方向各参与 12 次比较，所以每个方向的次数都在 0 到 12 之间。这个数字只在本次题组内部成立：它说明你相对更常选哪个方向，不代表你在人群中的位置，也不是准确率、浓度或百分位。",
+          "en": "Each question compares two directions, and the selected direction gains 1 count. Each of the four directions takes part in 12 comparisons, so each count ranges from 0 to 12. This number applies only within the current question set. It shows which direction you selected relatively more often, not your place in a population, an accuracy rate, concentration or percentile."
+        }
+      ]
+    },
+    {
+      "id": "ties-explanation",
+      "title": {
+        "zh": "并列与接近的计数",
+        "en": "Ties and close counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "当两个或多个方向的次数相同且同为最高时，本次结果就是并列顶部。并列会完整保留，不使用题号顺序、字母顺序或选项位置破同分。并列不是错误，也不是测试失效，它就是本次回答的真实结果。",
+          "en": "When two or more directions have the same count and jointly hold the highest count, the result is a tie at the top. Every tie is retained, without using question order, letter order or option position to separate it. A tie is neither an error nor a test failure. It is the actual outcome of these answers."
+        }
+      ]
+    },
+    {
+      "id": "context-dependence",
+      "title": {
+        "zh": "情境影响",
+        "en": "Context matters"
+      },
+      "paragraphs": [
+        {
+          "zh": "行为会随情境变化。同一个人，在赶时间的任务里、在熟悉的朋友间、在高压的场合里，第一反应可能完全不同。结果页描述的是这次作答时你更常选什么，不是你任何时候都这样。",
+          "en": "Behavior changes with context. The same person's first response may differ on a rushed task, among familiar friends or under pressure. The report describes what you selected more often in this attempt, not how you always behave."
+        }
+      ]
+    },
+    {
+      "id": "low-direction-explanation",
+      "title": {
+        "zh": "较低计数怎样理解",
+        "en": "Reading lower counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "次数较低的方向不代表缺陷或缺失。它只说明在本次两两比较中，你相对少选那个方向。很多时候，次数低只是因为你在本次作答里更常选了另一个方向。四个方向是反应入口，不是能力打分。",
+          "en": "A lower count does not mean a defect or missing trait. It only means you chose that direction less often in these comparisons, often because you chose another direction more. The four directions describe starting approaches, not ability scores."
+        }
+      ]
+    },
+    {
+      "id": "not-a-fixed-identity",
+      "title": {
+        "zh": "不是固定身份",
+        "en": "No fixed identity"
+      },
+      "paragraphs": [
+        {
+          "zh": "结果不是固定身份或标签。请把它当作这次作答的观察记录，而不是你是什么人的答案。颜色只是记忆符号，不描述某种固定不变的人格本质，也不把任何方向称作你的主方向或次方向。",
+          "en": "The result is not a fixed identity or label. Treat it as a record of this attempt, rather than an answer to who you are. Colors are memory aids, not fixed personality essences, and no direction is designated your primary or secondary identity."
+        }
+      ]
+    },
+    {
+      "id": "not-a-diagnosis",
+      "title": {
+        "zh": "适用范围",
+        "en": "Intended use"
+      },
+      "paragraphs": [
+        {
+          "zh": "这不是临床工具，不用于心理诊断，也不能替代专业评估。它不识别任何心理状态或障碍，不构成心理健康相关结论。",
+          "en": "This is not a clinical tool, is not used for psychological diagnosis and cannot replace a professional assessment. It does not identify mental states or disorders or establish mental-health conclusions."
+        }
+      ]
+    },
+    {
+      "id": "not-an-official-four-color-system",
+      "title": {
+        "zh": "题本来源",
+        "en": "Questionnaire source"
+      },
+      "paragraphs": [
+        {
+          "zh": "本测试是费马测试自建的原创自报问卷，与任何商业四色课程或认证体系无关，也不构成认证报告。颜色命名（如红·行动回应）只是记忆符号，不表示颜色有天然、文化或科学上的固定人格含义。",
+          "en": "This is FermatMind's original self-report questionnaire, unrelated to any commercial four-color course or certification and not a certified report. Color names such as Red · Responding through action are memory aids; they do not assign natural, cultural or scientifically fixed personality meanings to colors."
+        }
+      ]
+    },
+    {
+      "id": "high-stakes-decision-boundary",
+      "title": {
+        "zh": "使用边界",
+        "en": "Limits of use"
+      },
+      "paragraphs": [
+        {
+          "zh": "请勿将本结果用于招聘、人事筛选、录用、晋升、绩效评估、婚恋决策或任何高影响决策。它没有经过心理测量学验证，不预测工作绩效、领导力、职业适配或人际关系结果。",
+          "en": "Do not use this result for recruitment, personnel screening, hiring, promotion, performance reviews, relationship decisions or any high-stakes decision. It has not established psychometric validity and does not predict job performance, leadership, career fit or relationship outcomes."
+        }
+      ]
+    },
+    {
+      "id": "public-preview-scientific-boundary",
+      "title": {
+        "zh": "版本说明",
+        "en": "About this edition"
+      },
+      "paragraphs": [
+        {
+          "zh": "本测试用于娱乐与自我探索，尚未完成信度、效度、常模等心理测量学验证，不代表正式商业量表，也未获得任何官方认证。",
+          "en": "This test is for entertainment and self-exploration. Reliability, validity and population norms have not been established. It is not a formal commercial instrument and has no official certification."
+        }
+      ]
+    },
+    {
+      "id": "retest-boundary",
+      "title": {
+        "zh": "重测与观察",
+        "en": "Retaking and observing"
+      },
+      "paragraphs": [
+        {
+          "zh": "如果你对结果有疑问，或在不同时间作答可能得到不同结果，都是正常的。可以隔一段时间重新作答，观察结果是否稳定。重新作答不会影响之前的记录，除非你清除本地数据。",
+          "en": "It is normal to have questions about your result or to get different results at different times. You can answer again after some time to observe whether the result is stable. A new attempt will not affect earlier records unless you clear the local data."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "红黄蓝绿各是什么意思？",
+        "en": "What do red, yellow, blue and green mean?"
+      },
+      "answer": {
+        "zh": "在本题本里，红指先行动回应，黄指先展开联想，蓝指先整理核对，绿指先稳定协调。四个方向都是日常回应入口，没有优劣之分；颜色是费马自编记忆符号，不等同任何商业四色课程或认证体系。",
+        "en": "In this edition, Red starts with action, Yellow with connections, Blue with organization and checks, and Green with steady coordination. None is superior. The colors are FermatMind’s own memory aids, not categories from a commercial four-color course or certification."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么可能出现两个、三个或四个并列方向？",
+        "en": "Why can two, three or all four colors tie?"
+      },
+      "answer": {
+        "zh": "每道题只给选中的方向加1次，四方向各参与12次比较。最高次数相同就完整保留并列，共15种单项或并列结果；全部相同时不指定唯一顶部。没有设近分阈值，相差1次也不能解释为能力差异或人群排名。",
+        "en": "Each answer adds 1 count to its direction, and each direction appears in 12 comparisons. Equal highest totals stay tied. The 15 reports cover every single and tied outcome; equal counts across all four produce no sole leader. There is no near-score cutoff, and a 1-count difference is not an ability difference or population ranking."
+      }
+    },
+    {
+      "question": {
+        "zh": "这与DISC或按颜色偏好排序的测试一样吗？",
+        "en": "Is this the same as DISC or a color-preference test?"
+      },
+      "answer": {
+        "zh": "本题本探索日常回应入口，DISC页面探索工作中的行为方式，不能按颜色把两者换算。这里也不要求按喜好排列色块，不使用颜色偏好推断心理状态。每个框架应按自己的题目、计分与版本阅读；本站自编题本尚未完成信度、效度和常模验证。",
+        "en": "This questionnaire explores everyday starting responses; our DISC page explores approaches to workplace behavior. Colors do not convert one result into the other. You do not rank color swatches here, and color preferences are not used to infer psychological states. Read each framework through its own questions, scoring and edition. Reliability, validity and population norms have not been established for this original questionnaire."
+      }
+    },
+    {
+      "question": {
+        "zh": "作答和完整报告是否免费，答案会发送吗？",
+        "en": "Are the full questions and report free, and are answers sent anywhere?"
+      },
+      "answer": {
+        "zh": "24题与全部完整报告免费，无需注册、邮箱或先做MBTI。答案只在浏览器计算，不发送至服务器、不进入网址或分析事件。只有主动选择后才在本标签页保存，24小时后失效，完成、退出清除或重测即删除。",
+        "en": "All 24 questions and full reports are free, with no signup, email or prerequisite MBTI test. Answers are evaluated in your browser, never sent to a server, URL or analytics event. Tab saving is optional, expires after 24 hours and clears on completion, exit-and-clear or retake."
+      }
+    }
+  ]
+}

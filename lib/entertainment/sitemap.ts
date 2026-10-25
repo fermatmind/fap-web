@@ -8,6 +8,7 @@ import type { PublicSitemapEntry } from "@/lib/seo/publicSitemap";
 export function appendFunSitemapEntries(entries: PublicSitemapEntry[]): PublicSitemapEntry[] {
   const result = new Map(entries.map(entry => [entry.loc, entry]));
   for (const quiz of catalog) {
+    if (questionnaires.some(native => native.slug === quiz.slug)) continue;
     for (const locale of ["en", "zh"]) {
       const loc = `${CANONICAL_SITE_URL}/${locale}/tests/play/${quiz.slug}`;
       result.set(loc, { loc, lastmod: `${quiz.updated}T00:00:00.000Z` });
@@ -17,7 +18,7 @@ export function appendFunSitemapEntries(entries: PublicSitemapEntry[]): PublicSi
     }
   }
   for (const quiz of questionnaires) for (const locale of ["en", "zh"]) {
-    const loc = `${CANONICAL_SITE_URL}/${locale}/tests/explore/${quiz.slug}`;
+    const loc = `${CANONICAL_SITE_URL}/${locale}/tests/${quiz.collection}/${quiz.slug}`;
     result.set(loc, { loc, lastmod: `${quiz.updated}T00:00:00.000Z` });
     for (const profile of quiz.resultSlugs) result.set(`${loc}/results/${profile}`, { loc: `${loc}/results/${profile}`, lastmod: `${quiz.updated}T00:00:00.000Z` });
   }

@@ -7,3 +7,5 @@ Source: [Google Fonts Noto Sans SC](https://github.com/google/fonts/tree/main/of
 The subset was generated with FontTools: instantiate weight 700, populate the subset from both languages of `seo.topic` and all result titles in `lib/entertainment/data`, printable ASCII, and `完整内容免费仅供娱乐原创趣味测试公开画像指南·—`. Update the subset when those displayed labels change. There is no runtime font-network request.
 
 The DISC questionnaire edition adds its bilingual test/profile titles and the labels `公开结果说明自编风格问卷完整报告免费自我探索` to the existing character set. Existing entertainment glyph coverage is retained.
+
+The complete color edition retains its existing entry and four single-result titles, adds all tied-result titles, and extends the existing glyph set with `三向四彩数`. All prior glyphs remain covered.
