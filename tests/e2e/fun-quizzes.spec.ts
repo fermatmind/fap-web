@@ -1,5 +1,6 @@
 import { test, expect, type Page } from "@playwright/test";
 import catalog from "../../lib/entertainment/catalog.json";
+import { isDirectoryQuiz } from "../../lib/entertainment/directory";
 
 const samples = ["woodland-animal", "group-chat-role", "fantasy-party-role", "lost-letter-adventure", "portal-choice", "spell-school-elective", "island-day", "snow-day", "response-color", "dream-train", "board-game-table", "escape-room-role", "photo-group-role", "game-night-reset", "gift-note", "comfort-offer", "relationship-values", "choosing-together", "note-taking-doodles", "fictional-cafe", "house-of-doors", "harbor-light", "pocket-map", "story-ending"];
 async function finish(page: Page, zh: boolean) {
@@ -101,7 +102,11 @@ test("@release public hub initial HTML links, failure state and invalid identity
     const response = await request.get(`/${locale}/tests`);
     expect(response.status()).toBe(200);
     const html = await response.text();
-    for (const card of catalog) expect(html).toContain(`href="/${locale}/tests/play/${card.slug}"`);
+    for (const card of catalog) {
+      const link = `href="/${locale}/tests/play/${card.slug}"`;
+      if (isDirectoryQuiz(card.slug)) expect(html).toContain(link);
+      else expect(html).not.toContain(link);
+    }
   }
   const response = await page.goto("/en/tests/play/not-a-real-quiz");
   expect(response?.status()).toBe(404);

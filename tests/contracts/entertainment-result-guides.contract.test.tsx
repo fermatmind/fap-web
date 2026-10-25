@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import catalog from "@/lib/entertainment/catalog.json";
+import { isDirectoryQuiz } from "@/lib/entertainment/directory";
 import { loadFunQuiz } from "@/lib/entertainment/loaders";
 import { contentImagePath, findPublicPortrait, portraitRuleExample, relatedFunQuizzes, resultPath, resultSlug } from "@/lib/entertainment/guides";
 import { isMissingFunRoute } from "@/lib/entertainment/routing";
@@ -23,8 +24,8 @@ describe("complete public entertainment result assets", () => {
         expect(quiz.seo.description[locale].length, card.slug).toBeGreaterThan(30);
         expect(quiz.seo.faq.answer[locale].length, card.slug).toBeGreaterThan(40);
       }
-      expect(relatedFunQuizzes(catalog, quiz)).toHaveLength(3);
-      expect(relatedFunQuizzes(catalog, quiz).every(other => other.slug !== quiz.slug && other.category === quiz.category)).toBe(true);
+      expect(relatedFunQuizzes(catalog, quiz)).toHaveLength(isDirectoryQuiz(quiz.slug) ? 1 : 2);
+      expect(relatedFunQuizzes(catalog, quiz).every(other => other.slug !== quiz.slug && isDirectoryQuiz(other.slug))).toBe(true);
       for (const result of quiz.results) {
         expect(findPublicPortrait(quiz, resultSlug(result.id))?.id).toBe(result.id);
         const example = portraitRuleExample(quiz, result.id);

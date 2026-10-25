@@ -1,4 +1,5 @@
 import type { FunCard, FunQuiz, FunResult } from "./types";
+import { isDirectoryQuiz } from "./directory";
 
 export const resultSlug = (id: string) => id.replaceAll("_", "-");
 export const quizPath = (locale: "en" | "zh", slug: string) => `/${locale}/tests/play/${slug}`;
@@ -10,7 +11,7 @@ export function findPublicPortrait(quiz: FunQuiz, slug: string): FunResult | und
 }
 
 export function relatedFunQuizzes(cards: FunCard[], quiz: Pick<FunQuiz, "slug" | "category">): FunCard[] {
-  const others = cards.filter(card => card.slug !== quiz.slug);
+  const others = cards.filter(card => card.slug !== quiz.slug && isDirectoryQuiz(card.slug));
   return [...others.filter(card => card.category === quiz.category), ...others.filter(card => card.category !== quiz.category)].slice(0, 3);
 }
 

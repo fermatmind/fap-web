@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
-import catalog from "@/lib/entertainment/catalog.json";
+import { directoryQuizzes as catalog } from "@/lib/entertainment/directory";
 import type { Locale } from "@/lib/i18n/locales";
 
 export const FUN_CATEGORIES: Record<string, { en: string; zh: string }> = {
@@ -9,14 +9,14 @@ export const FUN_CATEGORIES: Record<string, { en: string; zh: string }> = {
   social: { en: "Friends & teams", zh: "社交与团队" },
   everyday: { en: "Everyday choices", zh: "日常选择" },
   relationships: { en: "Connection & relationships", zh: "相处与关系" },
-  metaphor: { en: "Personality metaphors", zh: "人格趣味比喻" },
+  metaphor: { en: "Responses & preferences", zh: "行为与偏好" },
 };
 
 export function MoreTests({ locale }: { locale: Locale }) {
   return <section id="more-tests" aria-labelledby="more-tests-title" className="bg-slate-50 py-12">
     <Container>
       <h2 id="more-tests-title" className="text-3xl font-semibold text-slate-950">{locale === "zh" ? "更多测试" : "More Tests"}</h2>
-      <p className="mt-3 max-w-3xl text-slate-600">{locale === "zh" ? "原创轻娱乐测试，完整题目与结果免费，无需注册。以下故事和比喻用于趣味探索，并非经过验证的科学量表，也不提供诊断或职业匹配。" : "Original quizzes for a little playful self-discovery. Every question and complete result is free, with no signup. These stories and metaphors are entertainment, not validated scales, diagnoses, or career matches."}</p>
+      <p className="mt-3 max-w-3xl text-slate-600">{locale === "zh" ? "更多自我探索问卷，完整题目与当前版本结果免费，无需注册。每项标明题数和用时，可比较这次选择中的侧重。" : "More questionnaires for self-exploration. All questions and the current edition’s results are free, with no signup. Each entry shows its question count and estimated time."}</p>
       <nav aria-label={locale === "zh" ? "娱乐测试分类" : "Fun quiz categories"} className="my-6 flex flex-wrap gap-3">
         {Object.keys(FUN_CATEGORIES).filter(key => catalog.some(q => q.category === key)).map(key => <a className="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm underline underline-offset-4" href={`#fun-${key}`} key={key}>{FUN_CATEGORIES[key][locale]}</a>)}
       </nav>
