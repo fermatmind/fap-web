@@ -1,0 +1,939 @@
+{
+  "formCode": "fm_bleach_fan_choices_21",
+  "origin": "FermatMindoriginal21ENZH4choice/unofficialtextonlyfanreading/sevenselectedTiteKuboBleachcharacters/notclinicalinstrument",
+  "directions": [
+    {
+      "id": "ichigo-kurosaki",
+      "title": {
+        "zh": "黑崎一护：为自选帮助说明范围",
+        "en": "Ichigo Kurosaki: Limits for Chosen Help"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "rukia-kuchiki",
+      "title": {
+        "zh": "朽木露琪亚：把普通做法说明白",
+        "en": "Rukia Kuchiki: Explaining an Ordinary Procedure"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "sosuke-aizen",
+      "title": {
+        "zh": "蓝染惣右介：重看最初采用的框架",
+        "en": "Sosuke Aizen: Reconsidering an Initial Frame"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "byakuya-kuchiki",
+      "title": {
+        "zh": "朽木白哉：说清自己愿意守的约定",
+        "en": "Byakuya Kuchiki: Clarifying Chosen Commitments"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "orihime-inoue",
+      "title": {
+        "zh": "井上织姬：给对方的意愿留空间",
+        "en": "Orihime Inoue: Room for Others to Choose"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "kisuke-urahara",
+      "title": {
+        "zh": "浦原喜助：先做一个可改的小样",
+        "en": "Kisuke Urahara: A Small Revisable Prototype"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "kenpachi-zaraki",
+      "title": {
+        "zh": "更木剑八：自选一项有界小挑战",
+        "en": "Kenpachi Zaraki: One Chosen Bounded Challenge"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "BLEACH_01",
+      "prompt": {
+        "zh": "熟人问你能否帮忙整理几张普通图片，你更想先做什么？",
+        "en": "An acquaintance asks for help arranging ordinary pictures. What would you rather do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说明自己愿意帮哪一小部分、能留多少时间",
+            "en": "State the small part you want to help with and the time available"
+          },
+          "directionId": "ichigo-kurosaki"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把现有整理做法用简单步骤讲清",
+            "en": "Explain the existing procedure in simple steps"
+          },
+          "directionId": "rukia-kuchiki"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问最初把图片这样分组的框架是否仍合适",
+            "en": "Ask whether the original grouping frame still fits"
+          },
+          "directionId": "sosuke-aizen"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "说清自己愿意接受什么约定、到哪里结束",
+            "en": "Clarify the commitment you want to accept and its endpoint"
+          },
+          "directionId": "byakuya-kuchiki"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_02",
+      "prompt": {
+        "zh": "你要向愿意听的朋友介绍一种普通笔记做法，更愿意？",
+        "en": "You explain an ordinary note-taking approach to a willing friend. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "按实际使用顺序，把做法讲成几步",
+            "en": "Explain it in the order it is actually used"
+          },
+          "directionId": "rukia-kuchiki"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先想这个做法背后的分类是否适合眼前内容",
+            "en": "Reconsider whether its underlying categories fit this material"
+          },
+          "directionId": "sosuke-aizen"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "说明这次介绍包含什么、不承诺什么",
+            "en": "State what this explanation includes and does not promise"
+          },
+          "directionId": "byakuya-kuchiki"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先问对方想听哪一点，也允许不想继续",
+            "en": "Ask what they want to hear and leave room to stop"
+          },
+          "directionId": "orihime-inoue"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_03",
+      "prompt": {
+        "zh": "一组自选收藏的原分类不再顺手，你更接近？",
+        "en": "The original categories for a chosen collection no longer fit comfortably. What feels closer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先重看分类问题本身，暂不急着按原框架补齐",
+            "en": "Reconsider the grouping question before filling the old frame"
+          },
+          "directionId": "sosuke-aizen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "核对自己原先同意的范围，必要时另议",
+            "en": "Check the scope you agreed and discuss any change"
+          },
+          "directionId": "byakuya-kuchiki"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "若与人共看，先问对方是否也想换方式",
+            "en": "If looking together, ask whether the other person wants a change"
+          },
+          "directionId": "orihime-inoue"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用一小张草稿试一个新分类，再决定",
+            "en": "Try another grouping on a small draft before deciding"
+          },
+          "directionId": "kisuke-urahara"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_04",
+      "prompt": {
+        "zh": "你与朋友自愿互借一本普通小册子，最想先说明？",
+        "en": "You and a friend willingly lend a small booklet to each other. What comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "各自愿意接受的借阅时间和归还约定",
+            "en": "The lending time and return agreement each wants to accept"
+          },
+          "directionId": "byakuya-kuchiki"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "对方希望怎么用、有没有不想讨论的部分",
+            "en": "How they want to use it and any part they do not want to discuss"
+          },
+          "directionId": "orihime-inoue"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先用一页试记一个可改的小样，不动原本",
+            "en": "Try a revisable note sample on one page without changing the original"
+          },
+          "directionId": "kisuke-urahara"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "给自己选一小段想弄明白的内容，不扩成全本",
+            "en": "Choose one small part to work through without taking on the whole booklet"
+          },
+          "directionId": "kenpachi-zaraki"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_05",
+      "prompt": {
+        "zh": "有人向你分享一项普通小兴趣，你比较想怎样回应？",
+        "en": "Someone shares an ordinary small interest with you. How would you rather respond?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问他现在想分享、听意见，还是只想说一下",
+            "en": "Ask whether they want to share, hear an opinion or simply mention it"
+          },
+          "directionId": "orihime-inoue"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "提一个可以只想、不执行的小样构想",
+            "en": "Suggest a small prototype idea that need not be made"
+          },
+          "directionId": "kisuke-urahara"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "选一个自己愿意试的小点，说明可以停止",
+            "en": "Choose one small point you want to try with room to stop"
+          },
+          "directionId": "kenpachi-zaraki"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "若需要帮助，明确自己愿意提供的部分",
+            "en": "If help is wanted, state the part you want to offer"
+          },
+          "directionId": "ichigo-kurosaki"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_06",
+      "prompt": {
+        "zh": "你想尝试一种属于自己、可以修改的标签样式，更愿意？",
+        "en": "You want to try a changeable label style for your own things. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先做一个很小的样张，再看要不要继续",
+            "en": "Make one small sample before deciding whether to continue"
+          },
+          "directionId": "kisuke-urahara"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "自选一个清楚的小目标，只试这一点",
+            "en": "Choose one clear little challenge and try only that part"
+          },
+          "directionId": "kenpachi-zaraki"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "如果请人帮忙，先说明只需要哪一小处",
+            "en": "If asking for help, specify the small part needed"
+          },
+          "directionId": "ichigo-kurosaki"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把这次标签使用步骤简单说出来",
+            "en": "Explain the label procedure in plain steps"
+          },
+          "directionId": "rukia-kuchiki"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_07",
+      "prompt": {
+        "zh": "一件低风险、自愿的小手作有几个可试部分，你更愿意？",
+        "en": "A low-stakes voluntary craft has several parts you could try. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "挑一项自己想挑战的小点，定好停止处",
+            "en": "Choose one small challenge you want and an endpoint"
+          },
+          "directionId": "kenpachi-zaraki"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "愿意帮同伴一小段，但先说清范围",
+            "en": "Offer a small part of help with clear limits"
+          },
+          "directionId": "ichigo-kurosaki"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把其中一个普通步骤说明白，再自选是否试",
+            "en": "Explain one ordinary step before choosing whether to try it"
+          },
+          "directionId": "rukia-kuchiki"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "重看原先为何分这几部分，也许可以换框架",
+            "en": "Reconsider why it was divided this way and whether another frame fits"
+          },
+          "directionId": "sosuke-aizen"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_08",
+      "prompt": {
+        "zh": "朋友问你能否陪着看一页普通说明，你更想先？",
+        "en": "A friend asks whether you can look at one page of instructions together. What comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说明自己愿意看哪一段、何时要停",
+            "en": "State which passage you want to help with and when to stop"
+          },
+          "directionId": "ichigo-kurosaki"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把这一页的普通用法顺序讲清",
+            "en": "Explain the ordinary sequence described on the page"
+          },
+          "directionId": "rukia-kuchiki"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问这个说明采用的前提是否符合当前用途",
+            "en": "Ask whether its premise fits the current use"
+          },
+          "directionId": "sosuke-aizen"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "确认这次一起看的约定，不默认以后都负责",
+            "en": "Clarify this agreement without taking permanent responsibility"
+          },
+          "directionId": "byakuya-kuchiki"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_09",
+      "prompt": {
+        "zh": "你为一件普通小物品写自用说明，更倾向？",
+        "en": "You write personal instructions for an ordinary object. What is your inclination?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用实际顺序和简单词语把做法说清",
+            "en": "Use actual order and plain words to explain the procedure"
+          },
+          "directionId": "rukia-kuchiki"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先看“用途”这个分类是否限制了别的理解",
+            "en": "Check whether the use category restricts other ways of understanding it"
+          },
+          "directionId": "sosuke-aizen"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "写清这份说明承诺覆盖哪部分",
+            "en": "State the scope this note commits to covering"
+          },
+          "directionId": "byakuya-kuchiki"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "若给别人看，先问他希望了解什么",
+            "en": "If showing someone, ask what they want to understand"
+          },
+          "directionId": "orihime-inoue"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_10",
+      "prompt": {
+        "zh": "你发现旧笔记的标题不再表达内容，更愿意？",
+        "en": "An old note’s heading no longer expresses its content. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "重新想这一页应按什么问题来理解",
+            "en": "Reconsider which question should frame the page"
+          },
+          "directionId": "sosuke-aizen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先核对原本自己同意保留哪些内容",
+            "en": "Check which content you originally agreed to keep"
+          },
+          "directionId": "byakuya-kuchiki"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "若共同使用，先留位置给对方不同想法",
+            "en": "If shared, leave room for another person’s different wishes"
+          },
+          "directionId": "orihime-inoue"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先做一个标题小样，再看是否更合适",
+            "en": "Try one heading prototype and consider its fit"
+          },
+          "directionId": "kisuke-urahara"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_11",
+      "prompt": {
+        "zh": "安排一次双方都愿意的短交流，你比较关心？",
+        "en": "You arrange a short conversation both people want. What interests you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己愿意承诺的时间和结束方式是否清楚",
+            "en": "Whether your chosen time commitment and ending are clear"
+          },
+          "directionId": "byakuya-kuchiki"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "对方现在想谈什么，也能选择不谈",
+            "en": "What the other person wants to discuss, with room not to"
+          },
+          "directionId": "orihime-inoue"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先试一个很小的开头，不默认谈完整件事",
+            "en": "Try a small opening without assuming the whole topic must be covered"
+          },
+          "directionId": "kisuke-urahara"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "自选一个想问清的小点，不把交流变成任务赛",
+            "en": "Choose one small point to clarify without turning it into a contest"
+          },
+          "directionId": "kenpachi-zaraki"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_12",
+      "prompt": {
+        "zh": "朋友对一张你喜欢的卡片没有兴趣，你比较会？",
+        "en": "A friend is not interested in a card you like. What feels closer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "接受对方的兴趣不同，另问是否想看别的",
+            "en": "Accept the difference and ask whether they want to see something else"
+          },
+          "directionId": "orihime-inoue"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先只给自己做一个表达这张卡的小样",
+            "en": "Make a small sample of your response for yourself"
+          },
+          "directionId": "kisuke-urahara"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "挑自己想研究的一点继续，不要求对方一起",
+            "en": "Continue with one chosen point without requiring company"
+          },
+          "directionId": "kenpachi-zaraki"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "如果原本答应帮忙整理，就只做已同意的范围",
+            "en": "If you agreed to help organise, keep to that agreed scope"
+          },
+          "directionId": "ichigo-kurosaki"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_13",
+      "prompt": {
+        "zh": "你打算为私人资料试一种新的排列，更愿意？",
+        "en": "You want a new arrangement for private material. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用几条材料做一个能改的小样",
+            "en": "Use a few entries for a revisable prototype"
+          },
+          "directionId": "kisuke-urahara"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "只挑一个自己想试清楚的小难点",
+            "en": "Choose one small difficulty you want to work through"
+          },
+          "directionId": "kenpachi-zaraki"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "若需要别人协助，先定帮助范围",
+            "en": "Set the scope before asking someone for assistance"
+          },
+          "directionId": "ichigo-kurosaki"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "按顺序把新排列怎样使用说明白",
+            "en": "Explain the new arrangement’s use in order"
+          },
+          "directionId": "rukia-kuchiki"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_14",
+      "prompt": {
+        "zh": "一个自选小练习有些陌生，但可以随时停，你更愿意？",
+        "en": "A chosen little exercise feels unfamiliar but can stop at any time. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "只选一项自己想试的小挑战，不扩大难度",
+            "en": "Select one wanted challenge without expanding its difficulty"
+          },
+          "directionId": "kenpachi-zaraki"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "想想是否有人需要自己愿意提供的一点帮助",
+            "en": "Consider whether anyone wants a small part of help you would offer"
+          },
+          "directionId": "ichigo-kurosaki"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先把练习步骤用自己的话说明白",
+            "en": "Explain its steps in your own words first"
+          },
+          "directionId": "rukia-kuchiki"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问最初定义的练习目标是否仍适合",
+            "en": "Reconsider whether the initial definition of the exercise still fits"
+          },
+          "directionId": "sosuke-aizen"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_15",
+      "prompt": {
+        "zh": "你愿意为共同小活动出一点力，更想怎样说？",
+        "en": "You want to contribute a little to a shared activity. How would you rather put it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把愿意做的部分和不承担的部分分别说清",
+            "en": "Distinguish the part you want from the part you are not taking"
+          },
+          "directionId": "ichigo-kurosaki"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "用简单步骤说明自己这部分怎样进行",
+            "en": "Explain your part’s ordinary procedure in simple steps"
+          },
+          "directionId": "rukia-kuchiki"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "提问这次活动最初的安排框架是否仍合适",
+            "en": "Ask whether the original frame of the arrangement still fits"
+          },
+          "directionId": "sosuke-aizen"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "说明自己愿意守的约定与可以重谈的条件",
+            "en": "State your chosen commitment and when it could be revisited"
+          },
+          "directionId": "byakuya-kuchiki"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_16",
+      "prompt": {
+        "zh": "有人自愿来听你说明一个普通材料的用法，更愿意先？",
+        "en": "Someone willingly listens to an ordinary material’s use. What would you prefer first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "按拿取、使用和收好的顺序简单解释",
+            "en": "Explain taking, using and putting it away in order"
+          },
+          "directionId": "rukia-kuchiki"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看看原先理解材料的框架是否太窄",
+            "en": "Consider whether the original frame for the material is too narrow"
+          },
+          "directionId": "sosuke-aizen"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "说明这次答应解释的内容到哪里",
+            "en": "State where the explanation you agreed to provide ends"
+          },
+          "directionId": "byakuya-kuchiki"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问对方需要哪些内容，不默认全都想听",
+            "en": "Ask which parts they want without assuming they want everything"
+          },
+          "directionId": "orihime-inoue"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_17",
+      "prompt": {
+        "zh": "一份属于自己的旧分类清单已经不合用，你更想？",
+        "en": "An old classification list of your own no longer fits. What would you rather do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "重新看列表是在回答什么问题",
+            "en": "Reconsider the question the list is meant to answer"
+          },
+          "directionId": "sosuke-aizen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "核对自己原本承诺保留的用途是否仍有效",
+            "en": "Check whether a use you committed to retaining still matters"
+          },
+          "directionId": "byakuya-kuchiki"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "如果影响共用者，先问他愿不愿意调整",
+            "en": "If someone shares it, ask whether they want a change"
+          },
+          "directionId": "orihime-inoue"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "做一版很小的新清单样张，不先改全部",
+            "en": "Make a small new list prototype without changing everything"
+          },
+          "directionId": "kisuke-urahara"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_18",
+      "prompt": {
+        "zh": "一次共同小安排准备延长，你更愿意先确认？",
+        "en": "A small shared arrangement may be extended. What would you clarify first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己是否仍愿意接受这段额外约定",
+            "en": "Whether you want to accept the additional commitment"
+          },
+          "directionId": "byakuya-kuchiki"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "对方是否真的想继续，而不是随口答应",
+            "en": "Whether the other person actually wants to continue"
+          },
+          "directionId": "orihime-inoue"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "能否先试一小段，再另行决定",
+            "en": "Whether to try a small extension before deciding separately"
+          },
+          "directionId": "kisuke-urahara"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "自己只想尝试哪一个明确的小点",
+            "en": "Which single clear little point you want to try"
+          },
+          "directionId": "kenpachi-zaraki"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_19",
+      "prompt": {
+        "zh": "你和朋友对小活动想要不同内容，更倾向？",
+        "en": "You and a friend want different things from a small activity. What is your inclination?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "给对方不参加这一部分的空间",
+            "en": "Leave room for them not to join this part"
+          },
+          "directionId": "orihime-inoue"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把自己的想法先做成可改的小样再看",
+            "en": "Make a revisable prototype of your idea first"
+          },
+          "directionId": "kisuke-urahara"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "选自己愿意做的一小点，不把不同变成比赛",
+            "en": "Choose one small point without making the difference a contest"
+          },
+          "directionId": "kenpachi-zaraki"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "明确愿意提供哪一段协助，不接全部",
+            "en": "State the part of assistance you want to offer without taking it all"
+          },
+          "directionId": "ichigo-kurosaki"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_20",
+      "prompt": {
+        "zh": "你想将一个私人小构想变成看得见的形式，更愿意？",
+        "en": "You want to make a private little idea visible. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先做一个可修改、可丢弃的小样",
+            "en": "Make one revisable sample you may discard"
+          },
+          "directionId": "kisuke-urahara"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "挑一个自选小挑战，先只完成这一步",
+            "en": "Choose one little challenge and stay with this step"
+          },
+          "directionId": "kenpachi-zaraki"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "若需要帮助，分别说明各自愿意做的范围",
+            "en": "If help is needed, clarify the scopes each person wants"
+          },
+          "directionId": "ichigo-kurosaki"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用简单顺序说清这个构想怎样使用",
+            "en": "Explain the idea’s ordinary use in a simple sequence"
+          },
+          "directionId": "rukia-kuchiki"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_21",
+      "prompt": {
+        "zh": "结束一次自愿的小尝试时，你更愿意留意？",
+        "en": "At the end of a voluntary little attempt, what would you rather notice?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自选的那项小挑战是否到达自己定的停止处",
+            "en": "Whether your chosen challenge has reached the endpoint you set"
+          },
+          "directionId": "kenpachi-zaraki"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "自己愿意提供的帮助是否已经到此结束",
+            "en": "Whether the help you chose to offer has ended"
+          },
+          "directionId": "ichigo-kurosaki"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "有没有一段普通做法想再说明白",
+            "en": "Whether an ordinary procedure could be explained more clearly"
+          },
+          "directionId": "rukia-kuchiki"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "最初理解这件事的框架是否需要重看",
+            "en": "Whether the initial way of framing it needs reconsideration"
+          },
+          "directionId": "sosuke-aizen"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "required": 21,
+    "total": 21,
+    "exposureEach": 12,
+    "perPosition": 3,
+    "highest": "allhighestretainfullguides/noautomaticsecondary",
+    "allA": "sevencharacters3each/all7fullguides",
+    "verificationPlan": "7uniquehighest+4all7ties+4096deterministiccompleteanswersplanned4107boundedsourceoraclecases/NOTexecuted/not4^21/globalDP/allhighestsets/psychvalidation"
+  },
+  "scope": "OriginalunofficialfanreadingofTiteKuboBleachordinaryvoluntarychoices/notwholecanonicalpersonality/notspiritualpressuremeasurementorofficialtest. No competitorbank/body/scorer/manga/animeart/dialogue/lyricsadopted. No realghosts/afterlife/powers/combat/weapons/selfinjury/manipulation/healingclaims. No clinical/trauma/survivorguilt/impostorsyndrome/IQ/morality/danger/gender/romance/career inference orMBTIconversion.",
+  "instructions": {
+    "zh": "21道原创非官方同人题，借久保带人作品BLEACH《死神》的黑崎一护、朽木露琪亚、蓝染惣右介、朽木白哉、井上织姬、浦原喜助和更木剑八，比较普通自选小事中的帮助范围、说明、框架、约定、意愿、小样与有界挑战。每题从四种做法选一个较接近自己的，均以自愿、许可、可改和可停止为前提。每选加1，每位出现12次、每位置3次，总数21；全部最高并列完整显示。无需剧情知识，不测灵压、灵魂、超自然能力、战斗、创伤、智商、同理心、道德或职业，不要求受伤、忍让或操控他人，也不换算MBTI。",
+    "en": "Twenty-one original unofficial fan questions use seven characters from Tite Kubo’s BLEACH: Ichigo, Rukia, Aizen, Byakuya, Orihime, Urahara and Kenpachi. Compare ordinary chosen help limits, explanations, frames, commitments, wishes, prototypes and bounded challenges. Choose the closer of four approaches in voluntary, permitted, revisable and stoppable situations. Each choice adds one, each character appears twelve times and three times per position, and counts sum to twenty-one. Every highest tie appears in full. No episode knowledge is required. There is no spiritual pressure, soul, supernatural power, combat, trauma, IQ, empathy, morality or career assessment, no requirement for injury, yielding or manipulation, and no MBTI conversion."
+  }
+}

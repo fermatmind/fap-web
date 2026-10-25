@@ -1,0 +1,2186 @@
+{
+  "slug": "bleach",
+  "code": "BLEACH_FAN_ORDINARY_CHOICES",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "metaphor",
+  "kind": "archetype",
+  "title": {
+    "zh": "《死神》角色测试",
+    "en": "Bleach Test"
+  },
+  "resultHeading": {
+    "zh": "七位角色的本次选择与全部最高并列",
+    "en": "Your seven character choices and every highest tie"
+  },
+  "description": {
+    "zh": "免费完成21道原创普通选择，比较BLEACH《死神》的一护、露琪亚等七位角色。完整结果、例子和计分直接读，最高并列全部保留；非官方同人测试，不评灵压与能力。",
+    "en": "Take 21 original everyday questions and compare seven BLEACH characters. Full tied results, examples and scoring are free in this unofficial fan quiz."
+  },
+  "seoTitle": {
+    "zh": "死神BLEACH角色测试：21题、七角色与完整结果",
+    "en": "Bleach Test: Free Character Quiz & Seven Full Results"
+  },
+  "minutes": 7,
+  "introduction": {
+    "zh": "在普通小事里，你更在意帮助范围、说明做法、重看框架、自选约定、对方意愿、可改小样，还是一项有界挑战？21道原创题借久保带人作品BLEACH《死神》七位角色作有限同人读法，不考剧情、不测灵压，不把战斗和创伤当现实人格。七份完整结果可先读，全部最高并列完整显示。",
+    "en": "In ordinary activities, what interests you: help limits, explaining a procedure, reconsidering a frame, chosen commitments, another person’s wishes, a revisable prototype or one bounded challenge? Twenty-one original questions use seven characters from Tite Kubo’s BLEACH as limited fan readings, without trivia, spiritual pressure or making combat and trauma an actual personality. Read all seven guides first and see every highest tie in full."
+  },
+  "instructions": {
+    "zh": "21道原创非官方同人题，借久保带人作品BLEACH《死神》的黑崎一护、朽木露琪亚、蓝染惣右介、朽木白哉、井上织姬、浦原喜助和更木剑八，比较普通自选小事中的帮助范围、说明、框架、约定、意愿、小样与有界挑战。每题从四种做法选一个较接近自己的，均以自愿、许可、可改和可停止为前提。每选加1，每位出现12次、每位置3次，总数21；全部最高并列完整显示。无需剧情知识，不测灵压、灵魂、超自然能力、战斗、创伤、智商、同理心、道德或职业，不要求受伤、忍让或操控他人，也不换算MBTI。",
+    "en": "Twenty-one original unofficial fan questions use seven characters from Tite Kubo’s BLEACH: Ichigo, Rukia, Aizen, Byakuya, Orihime, Urahara and Kenpachi. Compare ordinary chosen help limits, explanations, frames, commitments, wishes, prototypes and bounded challenges. Choose the closer of four approaches in voluntary, permitted, revisable and stoppable situations. Each choice adds one, each character appears twelve times and three times per position, and counts sum to twenty-one. Every highest tie appears in full. No episode knowledge is required. There is no spiritual pressure, soul, supernatural power, combat, trauma, IQ, empathy, morality or career assessment, no requirement for injury, yielding or manipulation, and no MBTI conversion."
+  },
+  "source": {
+    "kind": "FermatMindoriginal21ENZH4choice/unofficialtextonlyfanreading/sevenselectedTiteKuboBleachcharacters/notclinicalinstrument",
+    "formCode": "fm_bleach_fan_choices_21",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "1de01e8295f0a2ada1f21f5006a48139df8836e44803782e319147cdaae630b1",
+    "resultContentSha256": "8685548b9207083645d0392c16fefdc0818aa5dff570e7094fb81274fdf18b3c",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "ichigo-kurosaki",
+      "title": {
+        "zh": "黑崎一护：为自选帮助说明范围",
+        "en": "Ichigo Kurosaki: Limits for Chosen Help"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "rukia-kuchiki",
+      "title": {
+        "zh": "朽木露琪亚：把普通做法说明白",
+        "en": "Rukia Kuchiki: Explaining an Ordinary Procedure"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "sosuke-aizen",
+      "title": {
+        "zh": "蓝染惣右介：重看最初采用的框架",
+        "en": "Sosuke Aizen: Reconsidering an Initial Frame"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "byakuya-kuchiki",
+      "title": {
+        "zh": "朽木白哉：说清自己愿意守的约定",
+        "en": "Byakuya Kuchiki: Clarifying Chosen Commitments"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "orihime-inoue",
+      "title": {
+        "zh": "井上织姬：给对方的意愿留空间",
+        "en": "Orihime Inoue: Room for Others to Choose"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "kisuke-urahara",
+      "title": {
+        "zh": "浦原喜助：先做一个可改的小样",
+        "en": "Kisuke Urahara: A Small Revisable Prototype"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "kenpachi-zaraki",
+      "title": {
+        "zh": "更木剑八：自选一项有界小挑战",
+        "en": "Kenpachi Zaraki: One Chosen Bounded Challenge"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "BLEACH_01",
+      "prompt": {
+        "zh": "熟人问你能否帮忙整理几张普通图片，你更想先做什么？",
+        "en": "An acquaintance asks for help arranging ordinary pictures. What would you rather do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说明自己愿意帮哪一小部分、能留多少时间",
+            "en": "State the small part you want to help with and the time available"
+          },
+          "directionId": "ichigo-kurosaki"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把现有整理做法用简单步骤讲清",
+            "en": "Explain the existing procedure in simple steps"
+          },
+          "directionId": "rukia-kuchiki"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问最初把图片这样分组的框架是否仍合适",
+            "en": "Ask whether the original grouping frame still fits"
+          },
+          "directionId": "sosuke-aizen"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "说清自己愿意接受什么约定、到哪里结束",
+            "en": "Clarify the commitment you want to accept and its endpoint"
+          },
+          "directionId": "byakuya-kuchiki"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_02",
+      "prompt": {
+        "zh": "你要向愿意听的朋友介绍一种普通笔记做法，更愿意？",
+        "en": "You explain an ordinary note-taking approach to a willing friend. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "按实际使用顺序，把做法讲成几步",
+            "en": "Explain it in the order it is actually used"
+          },
+          "directionId": "rukia-kuchiki"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先想这个做法背后的分类是否适合眼前内容",
+            "en": "Reconsider whether its underlying categories fit this material"
+          },
+          "directionId": "sosuke-aizen"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "说明这次介绍包含什么、不承诺什么",
+            "en": "State what this explanation includes and does not promise"
+          },
+          "directionId": "byakuya-kuchiki"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先问对方想听哪一点，也允许不想继续",
+            "en": "Ask what they want to hear and leave room to stop"
+          },
+          "directionId": "orihime-inoue"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_03",
+      "prompt": {
+        "zh": "一组自选收藏的原分类不再顺手，你更接近？",
+        "en": "The original categories for a chosen collection no longer fit comfortably. What feels closer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先重看分类问题本身，暂不急着按原框架补齐",
+            "en": "Reconsider the grouping question before filling the old frame"
+          },
+          "directionId": "sosuke-aizen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "核对自己原先同意的范围，必要时另议",
+            "en": "Check the scope you agreed and discuss any change"
+          },
+          "directionId": "byakuya-kuchiki"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "若与人共看，先问对方是否也想换方式",
+            "en": "If looking together, ask whether the other person wants a change"
+          },
+          "directionId": "orihime-inoue"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用一小张草稿试一个新分类，再决定",
+            "en": "Try another grouping on a small draft before deciding"
+          },
+          "directionId": "kisuke-urahara"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_04",
+      "prompt": {
+        "zh": "你与朋友自愿互借一本普通小册子，最想先说明？",
+        "en": "You and a friend willingly lend a small booklet to each other. What comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "各自愿意接受的借阅时间和归还约定",
+            "en": "The lending time and return agreement each wants to accept"
+          },
+          "directionId": "byakuya-kuchiki"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "对方希望怎么用、有没有不想讨论的部分",
+            "en": "How they want to use it and any part they do not want to discuss"
+          },
+          "directionId": "orihime-inoue"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先用一页试记一个可改的小样，不动原本",
+            "en": "Try a revisable note sample on one page without changing the original"
+          },
+          "directionId": "kisuke-urahara"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "给自己选一小段想弄明白的内容，不扩成全本",
+            "en": "Choose one small part to work through without taking on the whole booklet"
+          },
+          "directionId": "kenpachi-zaraki"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_05",
+      "prompt": {
+        "zh": "有人向你分享一项普通小兴趣，你比较想怎样回应？",
+        "en": "Someone shares an ordinary small interest with you. How would you rather respond?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问他现在想分享、听意见，还是只想说一下",
+            "en": "Ask whether they want to share, hear an opinion or simply mention it"
+          },
+          "directionId": "orihime-inoue"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "提一个可以只想、不执行的小样构想",
+            "en": "Suggest a small prototype idea that need not be made"
+          },
+          "directionId": "kisuke-urahara"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "选一个自己愿意试的小点，说明可以停止",
+            "en": "Choose one small point you want to try with room to stop"
+          },
+          "directionId": "kenpachi-zaraki"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "若需要帮助，明确自己愿意提供的部分",
+            "en": "If help is wanted, state the part you want to offer"
+          },
+          "directionId": "ichigo-kurosaki"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_06",
+      "prompt": {
+        "zh": "你想尝试一种属于自己、可以修改的标签样式，更愿意？",
+        "en": "You want to try a changeable label style for your own things. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先做一个很小的样张，再看要不要继续",
+            "en": "Make one small sample before deciding whether to continue"
+          },
+          "directionId": "kisuke-urahara"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "自选一个清楚的小目标，只试这一点",
+            "en": "Choose one clear little challenge and try only that part"
+          },
+          "directionId": "kenpachi-zaraki"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "如果请人帮忙，先说明只需要哪一小处",
+            "en": "If asking for help, specify the small part needed"
+          },
+          "directionId": "ichigo-kurosaki"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把这次标签使用步骤简单说出来",
+            "en": "Explain the label procedure in plain steps"
+          },
+          "directionId": "rukia-kuchiki"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_07",
+      "prompt": {
+        "zh": "一件低风险、自愿的小手作有几个可试部分，你更愿意？",
+        "en": "A low-stakes voluntary craft has several parts you could try. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "挑一项自己想挑战的小点，定好停止处",
+            "en": "Choose one small challenge you want and an endpoint"
+          },
+          "directionId": "kenpachi-zaraki"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "愿意帮同伴一小段，但先说清范围",
+            "en": "Offer a small part of help with clear limits"
+          },
+          "directionId": "ichigo-kurosaki"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把其中一个普通步骤说明白，再自选是否试",
+            "en": "Explain one ordinary step before choosing whether to try it"
+          },
+          "directionId": "rukia-kuchiki"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "重看原先为何分这几部分，也许可以换框架",
+            "en": "Reconsider why it was divided this way and whether another frame fits"
+          },
+          "directionId": "sosuke-aizen"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_08",
+      "prompt": {
+        "zh": "朋友问你能否陪着看一页普通说明，你更想先？",
+        "en": "A friend asks whether you can look at one page of instructions together. What comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说明自己愿意看哪一段、何时要停",
+            "en": "State which passage you want to help with and when to stop"
+          },
+          "directionId": "ichigo-kurosaki"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把这一页的普通用法顺序讲清",
+            "en": "Explain the ordinary sequence described on the page"
+          },
+          "directionId": "rukia-kuchiki"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问这个说明采用的前提是否符合当前用途",
+            "en": "Ask whether its premise fits the current use"
+          },
+          "directionId": "sosuke-aizen"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "确认这次一起看的约定，不默认以后都负责",
+            "en": "Clarify this agreement without taking permanent responsibility"
+          },
+          "directionId": "byakuya-kuchiki"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_09",
+      "prompt": {
+        "zh": "你为一件普通小物品写自用说明，更倾向？",
+        "en": "You write personal instructions for an ordinary object. What is your inclination?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用实际顺序和简单词语把做法说清",
+            "en": "Use actual order and plain words to explain the procedure"
+          },
+          "directionId": "rukia-kuchiki"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先看“用途”这个分类是否限制了别的理解",
+            "en": "Check whether the use category restricts other ways of understanding it"
+          },
+          "directionId": "sosuke-aizen"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "写清这份说明承诺覆盖哪部分",
+            "en": "State the scope this note commits to covering"
+          },
+          "directionId": "byakuya-kuchiki"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "若给别人看，先问他希望了解什么",
+            "en": "If showing someone, ask what they want to understand"
+          },
+          "directionId": "orihime-inoue"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_10",
+      "prompt": {
+        "zh": "你发现旧笔记的标题不再表达内容，更愿意？",
+        "en": "An old note’s heading no longer expresses its content. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "重新想这一页应按什么问题来理解",
+            "en": "Reconsider which question should frame the page"
+          },
+          "directionId": "sosuke-aizen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先核对原本自己同意保留哪些内容",
+            "en": "Check which content you originally agreed to keep"
+          },
+          "directionId": "byakuya-kuchiki"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "若共同使用，先留位置给对方不同想法",
+            "en": "If shared, leave room for another person’s different wishes"
+          },
+          "directionId": "orihime-inoue"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先做一个标题小样，再看是否更合适",
+            "en": "Try one heading prototype and consider its fit"
+          },
+          "directionId": "kisuke-urahara"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_11",
+      "prompt": {
+        "zh": "安排一次双方都愿意的短交流，你比较关心？",
+        "en": "You arrange a short conversation both people want. What interests you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己愿意承诺的时间和结束方式是否清楚",
+            "en": "Whether your chosen time commitment and ending are clear"
+          },
+          "directionId": "byakuya-kuchiki"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "对方现在想谈什么，也能选择不谈",
+            "en": "What the other person wants to discuss, with room not to"
+          },
+          "directionId": "orihime-inoue"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先试一个很小的开头，不默认谈完整件事",
+            "en": "Try a small opening without assuming the whole topic must be covered"
+          },
+          "directionId": "kisuke-urahara"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "自选一个想问清的小点，不把交流变成任务赛",
+            "en": "Choose one small point to clarify without turning it into a contest"
+          },
+          "directionId": "kenpachi-zaraki"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_12",
+      "prompt": {
+        "zh": "朋友对一张你喜欢的卡片没有兴趣，你比较会？",
+        "en": "A friend is not interested in a card you like. What feels closer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "接受对方的兴趣不同，另问是否想看别的",
+            "en": "Accept the difference and ask whether they want to see something else"
+          },
+          "directionId": "orihime-inoue"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先只给自己做一个表达这张卡的小样",
+            "en": "Make a small sample of your response for yourself"
+          },
+          "directionId": "kisuke-urahara"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "挑自己想研究的一点继续，不要求对方一起",
+            "en": "Continue with one chosen point without requiring company"
+          },
+          "directionId": "kenpachi-zaraki"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "如果原本答应帮忙整理，就只做已同意的范围",
+            "en": "If you agreed to help organise, keep to that agreed scope"
+          },
+          "directionId": "ichigo-kurosaki"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_13",
+      "prompt": {
+        "zh": "你打算为私人资料试一种新的排列，更愿意？",
+        "en": "You want a new arrangement for private material. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用几条材料做一个能改的小样",
+            "en": "Use a few entries for a revisable prototype"
+          },
+          "directionId": "kisuke-urahara"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "只挑一个自己想试清楚的小难点",
+            "en": "Choose one small difficulty you want to work through"
+          },
+          "directionId": "kenpachi-zaraki"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "若需要别人协助，先定帮助范围",
+            "en": "Set the scope before asking someone for assistance"
+          },
+          "directionId": "ichigo-kurosaki"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "按顺序把新排列怎样使用说明白",
+            "en": "Explain the new arrangement’s use in order"
+          },
+          "directionId": "rukia-kuchiki"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_14",
+      "prompt": {
+        "zh": "一个自选小练习有些陌生，但可以随时停，你更愿意？",
+        "en": "A chosen little exercise feels unfamiliar but can stop at any time. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "只选一项自己想试的小挑战，不扩大难度",
+            "en": "Select one wanted challenge without expanding its difficulty"
+          },
+          "directionId": "kenpachi-zaraki"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "想想是否有人需要自己愿意提供的一点帮助",
+            "en": "Consider whether anyone wants a small part of help you would offer"
+          },
+          "directionId": "ichigo-kurosaki"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先把练习步骤用自己的话说明白",
+            "en": "Explain its steps in your own words first"
+          },
+          "directionId": "rukia-kuchiki"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问最初定义的练习目标是否仍适合",
+            "en": "Reconsider whether the initial definition of the exercise still fits"
+          },
+          "directionId": "sosuke-aizen"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_15",
+      "prompt": {
+        "zh": "你愿意为共同小活动出一点力，更想怎样说？",
+        "en": "You want to contribute a little to a shared activity. How would you rather put it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把愿意做的部分和不承担的部分分别说清",
+            "en": "Distinguish the part you want from the part you are not taking"
+          },
+          "directionId": "ichigo-kurosaki"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "用简单步骤说明自己这部分怎样进行",
+            "en": "Explain your part’s ordinary procedure in simple steps"
+          },
+          "directionId": "rukia-kuchiki"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "提问这次活动最初的安排框架是否仍合适",
+            "en": "Ask whether the original frame of the arrangement still fits"
+          },
+          "directionId": "sosuke-aizen"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "说明自己愿意守的约定与可以重谈的条件",
+            "en": "State your chosen commitment and when it could be revisited"
+          },
+          "directionId": "byakuya-kuchiki"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_16",
+      "prompt": {
+        "zh": "有人自愿来听你说明一个普通材料的用法，更愿意先？",
+        "en": "Someone willingly listens to an ordinary material’s use. What would you prefer first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "按拿取、使用和收好的顺序简单解释",
+            "en": "Explain taking, using and putting it away in order"
+          },
+          "directionId": "rukia-kuchiki"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看看原先理解材料的框架是否太窄",
+            "en": "Consider whether the original frame for the material is too narrow"
+          },
+          "directionId": "sosuke-aizen"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "说明这次答应解释的内容到哪里",
+            "en": "State where the explanation you agreed to provide ends"
+          },
+          "directionId": "byakuya-kuchiki"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问对方需要哪些内容，不默认全都想听",
+            "en": "Ask which parts they want without assuming they want everything"
+          },
+          "directionId": "orihime-inoue"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_17",
+      "prompt": {
+        "zh": "一份属于自己的旧分类清单已经不合用，你更想？",
+        "en": "An old classification list of your own no longer fits. What would you rather do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "重新看列表是在回答什么问题",
+            "en": "Reconsider the question the list is meant to answer"
+          },
+          "directionId": "sosuke-aizen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "核对自己原本承诺保留的用途是否仍有效",
+            "en": "Check whether a use you committed to retaining still matters"
+          },
+          "directionId": "byakuya-kuchiki"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "如果影响共用者，先问他愿不愿意调整",
+            "en": "If someone shares it, ask whether they want a change"
+          },
+          "directionId": "orihime-inoue"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "做一版很小的新清单样张，不先改全部",
+            "en": "Make a small new list prototype without changing everything"
+          },
+          "directionId": "kisuke-urahara"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_18",
+      "prompt": {
+        "zh": "一次共同小安排准备延长，你更愿意先确认？",
+        "en": "A small shared arrangement may be extended. What would you clarify first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己是否仍愿意接受这段额外约定",
+            "en": "Whether you want to accept the additional commitment"
+          },
+          "directionId": "byakuya-kuchiki"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "对方是否真的想继续，而不是随口答应",
+            "en": "Whether the other person actually wants to continue"
+          },
+          "directionId": "orihime-inoue"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "能否先试一小段，再另行决定",
+            "en": "Whether to try a small extension before deciding separately"
+          },
+          "directionId": "kisuke-urahara"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "自己只想尝试哪一个明确的小点",
+            "en": "Which single clear little point you want to try"
+          },
+          "directionId": "kenpachi-zaraki"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_19",
+      "prompt": {
+        "zh": "你和朋友对小活动想要不同内容，更倾向？",
+        "en": "You and a friend want different things from a small activity. What is your inclination?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "给对方不参加这一部分的空间",
+            "en": "Leave room for them not to join this part"
+          },
+          "directionId": "orihime-inoue"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把自己的想法先做成可改的小样再看",
+            "en": "Make a revisable prototype of your idea first"
+          },
+          "directionId": "kisuke-urahara"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "选自己愿意做的一小点，不把不同变成比赛",
+            "en": "Choose one small point without making the difference a contest"
+          },
+          "directionId": "kenpachi-zaraki"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "明确愿意提供哪一段协助，不接全部",
+            "en": "State the part of assistance you want to offer without taking it all"
+          },
+          "directionId": "ichigo-kurosaki"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_20",
+      "prompt": {
+        "zh": "你想将一个私人小构想变成看得见的形式，更愿意？",
+        "en": "You want to make a private little idea visible. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先做一个可修改、可丢弃的小样",
+            "en": "Make one revisable sample you may discard"
+          },
+          "directionId": "kisuke-urahara"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "挑一个自选小挑战，先只完成这一步",
+            "en": "Choose one little challenge and stay with this step"
+          },
+          "directionId": "kenpachi-zaraki"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "若需要帮助，分别说明各自愿意做的范围",
+            "en": "If help is needed, clarify the scopes each person wants"
+          },
+          "directionId": "ichigo-kurosaki"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用简单顺序说清这个构想怎样使用",
+            "en": "Explain the idea’s ordinary use in a simple sequence"
+          },
+          "directionId": "rukia-kuchiki"
+        }
+      ]
+    },
+    {
+      "id": "BLEACH_21",
+      "prompt": {
+        "zh": "结束一次自愿的小尝试时，你更愿意留意？",
+        "en": "At the end of a voluntary little attempt, what would you rather notice?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自选的那项小挑战是否到达自己定的停止处",
+            "en": "Whether your chosen challenge has reached the endpoint you set"
+          },
+          "directionId": "kenpachi-zaraki"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "自己愿意提供的帮助是否已经到此结束",
+            "en": "Whether the help you chose to offer has ended"
+          },
+          "directionId": "ichigo-kurosaki"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "有没有一段普通做法想再说明白",
+            "en": "Whether an ordinary procedure could be explained more clearly"
+          },
+          "directionId": "rukia-kuchiki"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "最初理解这件事的框架是否需要重看",
+            "en": "Whether the initial way of framing it needs reconsideration"
+          },
+          "directionId": "sosuke-aizen"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "ichigo-kurosaki",
+      "directionIds": [
+        "ichigo-kurosaki"
+      ],
+      "title": {
+        "zh": "黑崎一护：为自选帮助说明范围",
+        "en": "Ichigo Kurosaki: Limits for Chosen Help"
+      },
+      "headline": {
+        "zh": "黑崎一护：为自选帮助说明范围",
+        "en": "Ichigo Kurosaki: Limits for Chosen Help"
+      },
+      "summary": {
+        "zh": "用陪看一页普通说明理解自选帮助、范围和结束点，含六角色对照；不认证英雄、共情或救人能力，也不要求承担所有需要。",
+        "en": "Explore Ichigo through help with one page, chosen limits and six character comparisons. No heroism, empathy or rescue ability is certified."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；未提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、灵压、战斗力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可自行比较，不补造并列、混合种族或能力。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, spiritual pressure, combat power nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Read close guides without inventing ties, mixed species or powers. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "黑崎一护测试结果：帮助范围与完整说明",
+          "en": "Ichigo Kurosaki Quiz Result: Help Limits & Full Guide"
+        },
+        "description": {
+          "zh": "从陪看一页普通说明理解黑崎一护的自选帮助范围和结束点，含六角色对照；不认证英雄、共情或要求长期守护别人。",
+          "en": "Read Ichigo through help with one page, chosen limits and six comparisons. Full examples without heroism, empathy or permanent-protection claims."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "角色背景与本版有限读法",
+            "en": "Character context and this edition’s limited reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "官方作品简介中的一护与保护身边人的剧情有关。本站只选“为自己愿意提供的帮助说明范围”这个普通读法，不把整个人物归为保护者，也不要求答题者承担作品中的危险与责任。帮助的前提是对方需要、自己愿意且有实际许可；角色不能替双方同意，更不把受伤、牺牲自己的需要或从不离开当成关心的证明。",
+              "en": "Official series context connects Ichigo with protecting people around him. This edition selects stating limits for help you want to offer without reducing the whole character to a protector or requiring fictional danger and responsibility. Help depends on actual need, willingness and permission. A character cannot consent for either person, and injury, sacrificing your needs or never leaving proves no greater care in an ordinary situation involving actual people."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择说明愿意帮哪部分、可留多少时间，以及这次是否已经结束。可以问：这是自己想提供的一点协助，还是觉得没人做就必须接下？计数不能分辨，也不观察对方是否受益。范围可以很小，帮一次不代表今后一直负责；不帮、交还或重新商量也可以，不由角色名字决定你的义务。",
+              "en": "A highest count means you more often chose to clarify the part you want to help with, available time and its endpoint. Is it assistance you choose, or something you feel obliged to take because nobody else has? Counts cannot distinguish these reasons or observe benefit. The scope may be small. Helping once creates no permanent responsibility, and declining, handing back or discussing a change remain available rather than obligations decided by a character name."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，朋友问能否陪看一页普通说明，你可以说愿意看其中两段，十分钟后要结束；剩余内容由对方另定，不默认全部交给你。看到自己也不懂的地方，就说不知道，不为了帮上忙编答案。这个例子让协助有内容与时间范围，不以完成多少、解决多难或对方是否感谢来证明像一护，也不要求替对方做决定。",
+              "en": "If a friend asks you to look at one page of instructions, offer two passages and say you will finish after ten minutes. The rest remains for their separate decision rather than passing automatically to you. Admit what you do not understand instead of inventing an answer to be useful. The example bounds content and time without proving resemblance through completion, difficulty or gratitude, and asks for no decisions made on someone else’s behalf."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“这一小段我愿意一起看，到这里就结束；后面的部分需要你另外安排，我也可能不知道。”清楚说明不是要求对方称赞，也不必先解释自己够不够好。若对方需要的超出范围，可以承认不同，不因为像主角就自动扩大承诺。你也能改变主意并说明调整，帮助不需要变成单方面长期守护。",
+              "en": "You might say, “I want to look at this small part together, then finish here. The rest needs another arrangement, and I may not know the answer.” Clarity requires neither praise nor proof of being good enough. Acknowledge a need beyond your scope without automatically expanding a promise because of a protagonist match. Explain a changed wish if necessary; help needs no transformation into one-sided, indefinite protection of another person."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六位角色读法比较",
+            "en": "Comparisons with the other six character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "一护读法偏“愿意帮到哪里”，井上织姬偏给对方选择的空间，朽木白哉偏自己愿意守的约定；帮助不等于接受全部约定，也不替别人同意。露琪亚偏说明普通做法，浦原偏可改小样，蓝染偏重看框架，剑八偏有界小挑战。六个对照没有英雄、能力、关心或责任高低，全部最高并列也不规定你要照顾更多人。",
+              "en": "This Ichigo angle concerns chosen help limits, Orihime room for another person’s choice and Byakuya chosen commitments. Help accepts neither every agreement nor consent on someone else’s behalf. Rukia concerns explaining procedures, Urahara a revisable prototype, Aizen reconsidering a frame and Kenpachi a bounded challenge. These comparisons rank neither heroism, skill, care nor responsibility. A highest tie assigns no extra people for you to support or extra tasks to complete."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，先说范围可能因为时间有限，暂不帮可能因为对方并不需要或自己没有许可。计数不判断共情、勇气、自私、罪疚、创伤、能力、性别、道德或真实关系，也不证明你应当救助谁。现实困难需要具体理解，不能靠虚构战斗解决；更不能因结果像一护，就把忍受伤害或忽略自身需要看成必须完成的角色任务。",
+              "en": "Stating scope may follow limited time; no help may reflect no need or permission. Counts establish no empathy, courage, selfishness, guilt, trauma, ability, gender, morality or actual relationship and decide nobody you must rescue. Real difficulties need actual understanding rather than fictional combat. An Ichigo-like result makes neither enduring harm nor ignoring your needs a character task that you must complete to remain worthy of the name or another person’s appreciation."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：为一件本来愿意提供的小协助，想一句“我愿意做什么”和一句“到哪里结束”，可以不发给别人。再看看对方是否仍能选择不要，自己是否也能停。不统计帮助次数、辛苦程度或感谢，不把想象变成实际承诺；如果现在不想提供协助，就保留这个选择，观察已经足够。",
+              "en": "For an optional observation, imagine what you would offer in one small piece of wanted help and where it ends. No message is required. Does the other person retain the option to decline, and can you stop too? Count neither favours, effort nor thanks, and turn no imagined arrangement into an actual promise. Keeping a present wish not to help is an available conclusion; the observation needs nothing further."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题计数与全部最高并列",
+            "en": "21-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；未提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、灵压、战斗力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可自行比较，不补造并列、混合种族或能力。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, spiritual pressure, combat power nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Read close guides without inventing ties, mixed species or powers. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的21题非官方同人问卷，只选久保带人作品BLEACH《死神》的黑崎一护、朽木露琪亚、蓝染惣右介、朽木白哉、井上织姬、浦原喜助和更木剑八七位虚构人物，作为普通自选做法的有限阅读角度，不代表完整人格、全作品阵容或官方分类。题目、选项、映射、计数、解释和例子原创，未采用IDR35题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材；不是官方测验，无权利人合作、授权或认可，作品与角色权利归相应权利人。VIZ系列简介、Bandai Namco授权游戏名单、TVTokyo历史动画简介与KLab角色短文只核基础作品背景和名字，不验证本站题目、计分或心理解释，也不将游戏机制当作现实做法。中文名为本版编辑采用写法，英文身份稳定，不因译名增加角色。结果不推断灵压、灵魂、超自然能力、身体能力、疾病、神经类型、创伤、罪疚、冒充者感、智商、共情、疗愈、道德、危险性、性别、爱情、关系或职业，不指导战斗、武器、自伤、忍受伤害或操控，也不换算MBTI或其他角色测试。",
+              "en": "This is an independently authored FermatMind 21-item unofficial fan quiz selecting seven fictional characters from Tite Kubo’s BLEACH: Ichigo, Rukia, Aizen, Byakuya, Orihime, Urahara and Kenpachi. They support limited readings of ordinary chosen approaches rather than complete personalities, every series character or an official classification. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; respective owners retain series and character rights. VIZ context, Bandai Namco licensed rosters, TV Tokyo’s historical anime introduction and a KLab character blurb check basic context and names without validating these items, counts or psychology or turning game mechanics into actual methods. Chinese names are editorial choices retaining English identities; variants add no characters. Results infer no spiritual pressure, souls, supernatural or physical powers, illness, neurotype, trauma, guilt, impostor feelings, IQ, empathy, healing, morality, dangerousness, gender, romance, relationship or career, instruct no combat, weapons, self-injury, enduring harm or manipulation, and convert into no MBTI or other character test."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rukia-kuchiki",
+      "directionIds": [
+        "rukia-kuchiki"
+      ],
+      "title": {
+        "zh": "朽木露琪亚：把普通做法说明白",
+        "en": "Rukia Kuchiki: Explaining an Ordinary Procedure"
+      },
+      "headline": {
+        "zh": "朽木露琪亚：把普通做法说明白",
+        "en": "Rukia Kuchiki: Explaining an Ordinary Procedure"
+      },
+      "summary": {
+        "zh": "从一份自用物品说明看顺序、普通词语与可选解释，含六角色对照；不认证老师、纪律、权威或必须教会所有人的能力。",
+        "en": "Read Rukia through an ordinary object’s procedure, plain wording and six comparisons. No teaching skill, discipline or authority is certified."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；未提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、灵压、战斗力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可自行比较，不补造并列、混合种族或能力。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, spiritual pressure, combat power nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Read close guides without inventing ties, mixed species or powers. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "露琪亚测试结果：做法说明、例子与完整说明",
+          "en": "Rukia Kuchiki Quiz Result: Procedures & Full Guide"
+        },
+        "description": {
+          "zh": "从自用文具说明理解露琪亚的顺序、普通词语和可选解释，含六角色对照；不认证老师、权威、纪律或实际操作能力。",
+          "en": "Explore Rukia through ordinary stationery instructions, plain wording and six comparisons. No teaching, authority, discipline or actual-skill verdict."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "角色背景与本版有限读法",
+            "en": "Character context and this edition’s limited reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "官方作品背景中的露琪亚与一护认识死神世界的开端有关。本站只选“把一个普通做法说明白”的有限角度，不将虚构规则、身份或职责作为现实权威，也不把人物缩成严肃导师。这里解释的是自愿交流中的普通顺序，可以不知道、问对方需要哪部分或只说一小段，不要求让别人听话、照做或立刻学会。",
+              "en": "Official context connects Rukia with Ichigo’s introduction to the Soul Reaper world. This edition selects explaining an ordinary procedure without making fictional rules, identity or duties actual authority, or reducing her to a stern mentor. Explanation concerns an ordinary sequence within willing conversation. Admit uncertainty, ask which part is wanted or explain only a little. It requires neither obedience, imitation nor immediate learning from another person in the real situation."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择按实际顺序、用简单词语说清拿取、使用、记录或收好。可以问：这是对方想了解的内容，还是你以为每一步都必须讲？计数不观察说明质量、事实正确性或别人是否理解。简短和详细都可能合适，顺序也可以根据实际需要调整；选择这一角度不证明你应该承担教学或管理任务。",
+              "en": "A highest count means you more often chose plain wording and actual order for taking, using, recording or putting something away. Is that what someone wants to understand, or what you assume must all be explained? Counts observe neither explanation quality, accuracy nor understanding. Brief or detailed versions may fit, and actual needs can change the order. This reading establishes no duty for you to teach, manage or make an ordinary activity comprehensible to everyone."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，为一件普通文具写自用说明，可以按“从哪里拿、怎样用、放回哪里”写三句，遇到不同使用条件就另记，不假装只有一种正确做法。若别人愿意看，先问他只想了解哪一段；不用完整演示。这个例子关心说明与用途是否衔接，不以对方记住多少、自己讲得多清楚或是否被当作老师评分。",
+              "en": "For ordinary stationery, note where to take it, how you use it and where it goes back. Record different conditions separately rather than pretending there is one correct method. Ask a willing reader which part they want without requiring a full demonstration. The example connects explanation and use, without scoring another person’s recall, your apparent clarity or recognition as a teacher. A private note can remain unfinished and useful only to you."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我知道的是这一种普通用法，先按这个顺序说；你想听哪一部分，也可以不继续。”把自己知道的范围与不知道的地方分清，不用角色式口吻发布命令。对方采用不同做法，可以问原因或到此为止，不把不同理解当成不守纪律。你也能只留一段私人说明，不需要一直为大家解释。",
+              "en": "You might say, “This is the ordinary use I know, in this order. Which part would you like, if any?” Separate knowledge and uncertainty without issuing character-like commands. Ask about a different approach or leave it there rather than treating another interpretation as indiscipline. Keep a private note if preferred. You need not become a permanent explainer for everyone simply because an ordinary procedure is something you chose to describe."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六位角色读法比较",
+            "en": "Comparisons with the other six character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "露琪亚读法偏“做法怎样说明”，浦原偏先做一个可改小样，剑八偏自选一项有界小挑战；会选说明不等于实际会操作，试一小样也不保证有效。一护偏帮助范围，白哉偏自选约定，织姬偏他人意愿，蓝染偏框架是否合适。这些没有导师、执行者或被照顾者的固定等级，也不换算沟通风格、智商或职业身份。",
+              "en": "This Rukia angle concerns explaining a procedure, Urahara a revisable prototype and Kenpachi a chosen bounded challenge. Choosing explanation proves no actual skill, and a prototype guarantees no success. Ichigo concerns help limits, Byakuya commitments, Orihime others’ wishes and Aizen the initial frame. These establish no permanent teacher, doer or dependent hierarchy and convert into neither communication styles, IQ nor occupational identity for an actual respondent or somebody involved with them."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，按顺序解释可能因为对方只缺步骤，不是自己偏好规则；少解释可能因为已有说明或不想说。计数不认证口才、教学、纪律、责任心、冒充者感、罪疚、心理状况或角色经历。真正的操作与安全要求应依实际资料处理，不能从虚构规则推出现实许可；角色名也不能为训斥、单方面安排或要求别人听从辩护。",
+              "en": "Explaining in order may follow a need for steps rather than a preference for rules; less explanation may reflect existing instructions or no wish to speak. Counts certify no eloquence, teaching, discipline, conscientiousness, impostor feelings, guilt, psychological state or fictional history. Actual operations and safety follow actual information, not permissions inferred from fictional rules. A character name excuses neither scolding, unilateral arrangements nor demands that someone else follow your instructions in an ordinary exchange."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：为一件属于自己、已经熟悉的普通物品，想一句最需要的使用说明，再标明一处暂时不知道的地方，可以不写。不考核简洁、正确率或能否教会别人，也不用接触不熟悉的操作。如果没有解释需要，就停；观察的是自己愿不愿意用语言整理做法，不要求承担老师角色或一直保持严肃。",
+              "en": "For an optional observation, imagine one useful instruction for a familiar ordinary object you own and note one uncertainty. Writing is optional. Test neither brevity, accuracy nor teaching success, and attempt no unfamiliar operation. Stop if no explanation is needed. Notice whether putting a procedure into words appeals without assuming a teacher role, instructing others or maintaining a permanently serious manner to resemble a fictional character."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题计数与全部最高并列",
+            "en": "21-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；未提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、灵压、战斗力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可自行比较，不补造并列、混合种族或能力。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, spiritual pressure, combat power nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Read close guides without inventing ties, mixed species or powers. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的21题非官方同人问卷，只选久保带人作品BLEACH《死神》的黑崎一护、朽木露琪亚、蓝染惣右介、朽木白哉、井上织姬、浦原喜助和更木剑八七位虚构人物，作为普通自选做法的有限阅读角度，不代表完整人格、全作品阵容或官方分类。题目、选项、映射、计数、解释和例子原创，未采用IDR35题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材；不是官方测验，无权利人合作、授权或认可，作品与角色权利归相应权利人。VIZ系列简介、Bandai Namco授权游戏名单、TVTokyo历史动画简介与KLab角色短文只核基础作品背景和名字，不验证本站题目、计分或心理解释，也不将游戏机制当作现实做法。中文名为本版编辑采用写法，英文身份稳定，不因译名增加角色。结果不推断灵压、灵魂、超自然能力、身体能力、疾病、神经类型、创伤、罪疚、冒充者感、智商、共情、疗愈、道德、危险性、性别、爱情、关系或职业，不指导战斗、武器、自伤、忍受伤害或操控，也不换算MBTI或其他角色测试。",
+              "en": "This is an independently authored FermatMind 21-item unofficial fan quiz selecting seven fictional characters from Tite Kubo’s BLEACH: Ichigo, Rukia, Aizen, Byakuya, Orihime, Urahara and Kenpachi. They support limited readings of ordinary chosen approaches rather than complete personalities, every series character or an official classification. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; respective owners retain series and character rights. VIZ context, Bandai Namco licensed rosters, TV Tokyo’s historical anime introduction and a KLab character blurb check basic context and names without validating these items, counts or psychology or turning game mechanics into actual methods. Chinese names are editorial choices retaining English identities; variants add no characters. Results infer no spiritual pressure, souls, supernatural or physical powers, illness, neurotype, trauma, guilt, impostor feelings, IQ, empathy, healing, morality, dangerousness, gender, romance, relationship or career, instruct no combat, weapons, self-injury, enduring harm or manipulation, and convert into no MBTI or other character test."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sosuke-aizen",
+      "directionIds": [
+        "sosuke-aizen"
+      ],
+      "title": {
+        "zh": "蓝染惣右介：重看最初采用的框架",
+        "en": "Sosuke Aizen: Reconsidering an Initial Frame"
+      },
+      "headline": {
+        "zh": "蓝染惣右介：重看最初采用的框架",
+        "en": "Sosuke Aizen: Reconsidering an Initial Frame"
+      },
+      "summary": {
+        "zh": "从旧收藏清单看最初问题、分类前提与可修改框架，含六角色对照；不美化欺骗和控制，不认证智商、远见或看透别人。",
+        "en": "Explore Aizen through an old collection frame, its initial question and six comparisons. Deception, control, superior IQ and insight into others are not endorsed."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；未提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、灵压、战斗力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可自行比较，不补造并列、混合种族或能力。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, spiritual pressure, combat power nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Read close guides without inventing ties, mixed species or powers. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "蓝染测试结果：重看框架、例子与完整说明",
+          "en": "Sosuke Aizen Quiz Result: Initial Frames & Full Guide"
+        },
+        "description": {
+          "zh": "用旧收藏清单理解蓝染的初始问题与分类框架，含六角色比较；不美化欺骗控制，不认证智商、洞察或隐藏策划。",
+          "en": "Read Aizen through an old collection list’s question and frame. Full comparisons without glorifying deception, control, superior IQ or hidden planning."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "角色背景与本版有限读法",
+            "en": "Character context and this edition’s limited reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "蓝染是作品中处于重大冲突里的角色，授权资料核到他的作品身份。本站只选“重看最初采用的框架”作普通同人阅读角度，不把虚构控制与欺骗美化为远见，也不声称这是他完整人格的正面总结。框架在这里是一份自用清单怎样分类、一个普通问题怎样提出，不是替别人重写现实、否定对方经历或把人当工具。",
+              "en": "Aizen is a character involved in major fictional conflict, with identity checked in licensed context. This edition selects reconsidering an initial frame without recasting fictional control and deception as foresight or presenting a positive summary of his complete personality. A frame here concerns categories in a personal list or how an ordinary question is posed. It never means rewriting another person’s reality, denying their experiences or treating people as instruments in your own plan."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择先问原分类、前提或目标定义是否还适合，再决定是否补充内容。可以问：框架真的不合用，还是自己只是想换一种看法？计数不能回答，也不证明新解释更深刻。原框架可能仍很好，别人的分类也可以服务不同用途；提出重新理解，不等于获得决定唯一真实版本的权力。",
+              "en": "A highest count means you more often chose to reconsider categories, premises or an aim’s definition before adding content. Does the frame no longer fit, or do you simply want another view? Counts cannot answer or prove greater depth. The original may remain useful, and another person’s categories may serve a different purpose. Reconsidering understanding creates no authority to decide the single true version of an ordinary activity or someone else’s account."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，一份私人收藏清单原按年份排，现在你想找“愿意重看的片段”，可以先问这份清单究竟要回答什么，再决定是否增加新栏目。保留原版也可以，不必把旧记录说成错误或过时。这个例子区别了问题、分类与材料，不以别人惊讶、看法新奇或能否说服所有人评分，也不把修改框架变成操控别人理解的办法。",
+              "en": "A personal collection list ordered by year may now need to answer which passages you want to revisit. Ask what the list is for before adding a field. Keep the original if preferred without declaring old notes wrong or obsolete. The example separates question, categories and material. Surprise, novelty and persuading everyone are not scored, and revising a frame supplies no technique for controlling how somebody else understands an actual situation."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“这份清单原来回答那个问题，我现在想换一个问题看看；原来的版本仍然可以保留。”若共同使用，就另问别人是否愿意改，不把个人重看说成所有人一直都理解错了。可以承认新框架也有局限，甚至暂时没有更好的办法。表达疑问不用隐藏目的、制造不安或让别人依赖你的解释。",
+              "en": "You might say, “This list answered that question; I want to try another question while retaining the original version.” Ask agreement before changing shared material rather than declaring everyone’s previous understanding mistaken. A new frame has limits too, and there may be no better alternative yet. Expressing a question requires neither concealed aims, induced uncertainty nor making somebody dependent on your explanation of their circumstances, memories or choices."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六位角色读法比较",
+            "en": "Comparisons with the other six character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "蓝染读法偏“最初的问题和框架是否仍适合”，浦原偏试一个可改小样，露琪亚偏把已有普通做法说明白；重看、试样与解释可以先后发生。一护偏帮助范围，白哉偏自选约定，织姬偏对方意愿，剑八偏有界挑战。这些没有谁看得最透、谁拥有更高智力或谁更能控制局面，也不把最高并列当作隐藏策划者的证据。",
+              "en": "This Aizen angle concerns whether an initial question or frame still fits, Urahara a revisable prototype and Rukia explaining an existing procedure. Reframing, trials and explanation can follow one another. Ichigo concerns help limits, Byakuya chosen commitments, Orihime others’ wishes and Kenpachi bounded challenges. These establish neither superior perception, intelligence nor control. A highest tie reveals no hidden mastermind and grants no particular credibility to someone’s interpretation of actual people or events."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，重看框架可能因为材料用途变了，保留原框架可能因为它仍清楚，不是缺少想法。计数不判断操控、欺骗、自恋、智商、孤独、精神状态、道德、危险性或职业，也不识别谁在说真话。现实中若有权利、许可或共同事实，必须按实际情况理解；不能用角色来合理化误导，也不能因匹配结果怀疑一个人的动机。",
+              "en": "Reframing may follow changed material use; retaining a frame may reflect clarity rather than absent ideas. Counts establish no manipulation, deception, narcissism, IQ, loneliness, mental state, morality, dangerousness or career and identify no truth-teller. Actual rights, permissions and shared facts need actual context. A character excuses no misleading conduct and supplies no reason to suspect somebody’s motives simply because the result resembles a fictional person associated with conflict or betrayal."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：为一份只属于自己的普通清单，写一句“它原来在回答什么”和“现在是否还想问同一个问题”，可以不改清单。不评价谁更聪明，也不把别人的话当作待拆解的框架。若原问题仍适合，就保留；观察的是对分类前提的关注，不要求推翻规则、制造反转或证明自己总能看到别人看不到的东西。",
+              "en": "For an optional observation, ask what an ordinary private list originally answered and whether you still want that question. No change is required. Grade nobody’s intelligence and treat no other person’s words as a frame you must dismantle. Keep a suitable question. Notice attention to categories’ premises without needing to overturn rules, create a dramatic reversal or prove that you always see something others cannot perceive in their own lives."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题计数与全部最高并列",
+            "en": "21-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；未提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、灵压、战斗力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可自行比较，不补造并列、混合种族或能力。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, spiritual pressure, combat power nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Read close guides without inventing ties, mixed species or powers. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的21题非官方同人问卷，只选久保带人作品BLEACH《死神》的黑崎一护、朽木露琪亚、蓝染惣右介、朽木白哉、井上织姬、浦原喜助和更木剑八七位虚构人物，作为普通自选做法的有限阅读角度，不代表完整人格、全作品阵容或官方分类。题目、选项、映射、计数、解释和例子原创，未采用IDR35题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材；不是官方测验，无权利人合作、授权或认可，作品与角色权利归相应权利人。VIZ系列简介、Bandai Namco授权游戏名单、TVTokyo历史动画简介与KLab角色短文只核基础作品背景和名字，不验证本站题目、计分或心理解释，也不将游戏机制当作现实做法。中文名为本版编辑采用写法，英文身份稳定，不因译名增加角色。结果不推断灵压、灵魂、超自然能力、身体能力、疾病、神经类型、创伤、罪疚、冒充者感、智商、共情、疗愈、道德、危险性、性别、爱情、关系或职业，不指导战斗、武器、自伤、忍受伤害或操控，也不换算MBTI或其他角色测试。",
+              "en": "This is an independently authored FermatMind 21-item unofficial fan quiz selecting seven fictional characters from Tite Kubo’s BLEACH: Ichigo, Rukia, Aizen, Byakuya, Orihime, Urahara and Kenpachi. They support limited readings of ordinary chosen approaches rather than complete personalities, every series character or an official classification. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; respective owners retain series and character rights. VIZ context, Bandai Namco licensed rosters, TV Tokyo’s historical anime introduction and a KLab character blurb check basic context and names without validating these items, counts or psychology or turning game mechanics into actual methods. Chinese names are editorial choices retaining English identities; variants add no characters. Results infer no spiritual pressure, souls, supernatural or physical powers, illness, neurotype, trauma, guilt, impostor feelings, IQ, empathy, healing, morality, dangerousness, gender, romance, relationship or career, instruct no combat, weapons, self-injury, enduring harm or manipulation, and convert into no MBTI or other character test."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "byakuya-kuchiki",
+      "directionIds": [
+        "byakuya-kuchiki"
+      ],
+      "title": {
+        "zh": "朽木白哉：说清自己愿意守的约定",
+        "en": "Byakuya Kuchiki: Clarifying Chosen Commitments"
+      },
+      "headline": {
+        "zh": "朽木白哉：说清自己愿意守的约定",
+        "en": "Byakuya Kuchiki: Clarifying Chosen Commitments"
+      },
+      "summary": {
+        "zh": "用互借小册子的时间范围理解自选约定、变化与重新商量，含六角色比较；不判断高贵、守法、冷漠、自律或家庭责任。",
+        "en": "Read Byakuya through a booklet-loan commitment, its limits and six comparisons. No nobility, lawfulness, coldness, discipline or family duty is inferred."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；未提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、灵压、战斗力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可自行比较，不补造并列、混合种族或能力。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, spiritual pressure, combat power nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Read close guides without inventing ties, mixed species or powers. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "朽木白哉测试结果：自选约定与完整说明",
+          "en": "Byakuya Kuchiki Quiz Result: Commitments & Full Guide"
+        },
+        "description": {
+          "zh": "从互借小册子理解白哉的自选约定、期限和重新商量，含六角色比较；不判断高贵、守法、冷漠、家庭义务或可靠性。",
+          "en": "Explore Byakuya through a booklet-loan commitment and changes. Full comparisons without nobility, lawfulness, coldness, family duty or reliability scores."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "角色背景与本版有限读法",
+            "en": "Character context and this edition’s limited reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "白哉在官方授权角色背景中有护廷队长身份。本站只选“说清自己愿意守的约定”的普通角度，不把虚构等级、家族或职责作为现实义务，也不把全部人物归为冷淡、完美或绝不改变。约定在这里需要本人愿意、范围清楚和实际同意，不能仅因形式正式就替所有人决定，更不要求为了角色形象压住不同需要。",
+              "en": "Licensed character context identifies Byakuya with a captain’s role. This edition selects clarifying chosen commitments without making fictional rank, family or duty an actual obligation, or reducing the whole character to coldness, perfection or refusal to change. A commitment here needs willingness, clear scope and actual agreement. Formal appearance decides nothing for everyone and requires no suppression of different needs to maintain a fictional character image or an appearance of composure."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择确认愿意接受的时间、内容、归还方式或何时需要重新商量。可以问：这是自己仍然愿意的约定，还是只觉得一旦说过就不能变？计数不能分辨，也不观察实际有没有遵守。清楚承诺可以包含调整条件，不是无条件保证；没有同意的部分也不因为名字像白哉就自动成为你的职责。",
+              "en": "A highest count means you more often chose to clarify time, content, returns or when to revisit an agreement. Is it still a commitment you choose, or something you feel can never change once stated? Counts cannot distinguish these reasons or observe actual fulfilment. A clear promise can include change conditions rather than an unconditional guarantee. An unagreed part becomes no duty simply because a result resembles this limited Byakuya reading."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，与朋友互借一本普通小册子，可以先说愿意借到哪天、是否能做可移除的页码标记，以及需要延长时再询问。后来时间变了，就说明变化、商量交还，而不是不说或强行满足原安排。这个例子让约定可见且可讨论，不以从不改口、是否准时或牺牲多少来认证自律、可靠或个人价值。",
+              "en": "When lending a small booklet, agree the return day, whether removable page markers are permitted and that extensions need another question. Explain changed timing and discuss handback instead of silence or forced adherence. The example makes commitments visible and discussable without certifying discipline, reliability or worth through never changing words, punctuality or sacrifice. Actual circumstances and another person’s wishes still matter even when the original arrangement seemed clear and mutually convenient."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“这一段时间和使用方式是我愿意接受的，若条件变了，我们再确认，不把额外部分当成已经答应。”表达承诺不需要摆出权威，也不要求对方做同样承诺。若别人不同意，可以另选方式或不安排；你也能承认自己暂时无法承诺，不用用家族、身份或角色气质替一个真实选择找理由。",
+              "en": "You might say, “This timing and use are what I want to agree to. If conditions change, let us check again rather than treating more as already promised.” A commitment needs no authoritative manner or identical promise from someone else. Choose another arrangement or none if agreement is absent. Admit when you cannot commit, without invoking family, status or fictional temperament to justify an actual choice about what you can offer."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六位角色读法比较",
+            "en": "Comparisons with the other six character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "白哉读法偏“自己接受了什么约定”，一护偏帮助的范围，织姬偏对方当前愿不愿意；清楚约定不能替任何人永久同意。露琪亚偏说明步骤，浦原偏可改小样，蓝染偏重看框架，剑八偏自选有界挑战。不同关注可以互补，没有贵族、守法、自律或责任等级，也不推出你适合管理、法律或任何职业。",
+              "en": "This Byakuya angle concerns commitments you accept, Ichigo help limits and Orihime another person’s present willingness. Clarity supplies no permanent consent. Rukia concerns steps, Urahara a revisable sample, Aizen the initial frame and Kenpachi a chosen bounded challenge. These concerns may complement one another without rankings of nobility, lawfulness, discipline or responsibility and without suggesting management, legal or any other career suitability for a respondent in the actual world."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，确认很多可能因为安排刚变化，少确认可能因为双方已很清楚。计数不判断冷漠、完美主义、僵化、罪疚、悲伤、家庭关系、道德或可靠程度，也不评价你是否“重情重义”。真实规则和权利需按实际条件理解，不能把虚构纪律当现实法律，更不能为了像白哉而忽略许可、不同需要或已经不愿继续的情况。",
+              "en": "Repeated clarification may follow a changed arrangement; less may reflect existing clarity. Counts establish no coldness, perfectionism, rigidity, guilt, grief, family relationship, morality or reliability and grade no loyalty or personal feeling. Actual rules and rights depend on actual conditions rather than fictional discipline treated as real law. Resembling Byakuya requires no disregard of permission, different needs or somebody’s stated wish to stop an arrangement that no longer fits."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：为一个自己愿意参与的小安排，想一句“我接受的范围”和一句“什么变化需要重新确认”，可以不真的作承诺。不记录违约、准时率或自律程度，也不用拿别人比较。若暂时不确定，就写“还没有同意”；观察的是自己怎样说清约定，不要求永远守原法或用克制、冷静的外表证明角色相似度。",
+              "en": "For an optional observation, imagine the scope you would accept in a small arrangement and a change requiring another check. Make no actual promise if preferred. Record no breaches, punctuality or discipline and compare nobody. If uncertain, note that no agreement exists yet. Notice how you clarify commitments without requiring permanent adherence to the first method or proof of character resemblance through a restrained, calm appearance for others to evaluate."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题计数与全部最高并列",
+            "en": "21-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；未提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、灵压、战斗力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可自行比较，不补造并列、混合种族或能力。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, spiritual pressure, combat power nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Read close guides without inventing ties, mixed species or powers. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的21题非官方同人问卷，只选久保带人作品BLEACH《死神》的黑崎一护、朽木露琪亚、蓝染惣右介、朽木白哉、井上织姬、浦原喜助和更木剑八七位虚构人物，作为普通自选做法的有限阅读角度，不代表完整人格、全作品阵容或官方分类。题目、选项、映射、计数、解释和例子原创，未采用IDR35题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材；不是官方测验，无权利人合作、授权或认可，作品与角色权利归相应权利人。VIZ系列简介、Bandai Namco授权游戏名单、TVTokyo历史动画简介与KLab角色短文只核基础作品背景和名字，不验证本站题目、计分或心理解释，也不将游戏机制当作现实做法。中文名为本版编辑采用写法，英文身份稳定，不因译名增加角色。结果不推断灵压、灵魂、超自然能力、身体能力、疾病、神经类型、创伤、罪疚、冒充者感、智商、共情、疗愈、道德、危险性、性别、爱情、关系或职业，不指导战斗、武器、自伤、忍受伤害或操控，也不换算MBTI或其他角色测试。",
+              "en": "This is an independently authored FermatMind 21-item unofficial fan quiz selecting seven fictional characters from Tite Kubo’s BLEACH: Ichigo, Rukia, Aizen, Byakuya, Orihime, Urahara and Kenpachi. They support limited readings of ordinary chosen approaches rather than complete personalities, every series character or an official classification. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; respective owners retain series and character rights. VIZ context, Bandai Namco licensed rosters, TV Tokyo’s historical anime introduction and a KLab character blurb check basic context and names without validating these items, counts or psychology or turning game mechanics into actual methods. Chinese names are editorial choices retaining English identities; variants add no characters. Results infer no spiritual pressure, souls, supernatural or physical powers, illness, neurotype, trauma, guilt, impostor feelings, IQ, empathy, healing, morality, dangerousness, gender, romance, relationship or career, instruct no combat, weapons, self-injury, enduring harm or manipulation, and convert into no MBTI or other character test."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orihime-inoue",
+      "directionIds": [
+        "orihime-inoue"
+      ],
+      "title": {
+        "zh": "井上织姬：给对方的意愿留空间",
+        "en": "Orihime Inoue: Room for Others to Choose"
+      },
+      "headline": {
+        "zh": "井上织姬：给对方的意愿留空间",
+        "en": "Orihime Inoue: Room for Others to Choose"
+      },
+      "summary": {
+        "zh": "从朋友分享小兴趣看对方想要的回应、不同意愿和停止空间，含六角色对照；不认证疗愈、共情、温柔或牺牲自己的能力。",
+        "en": "Explore Orihime through a friend’s hobby, wanted responses and six comparisons. No healing, empathy, gentleness or self-sacrifice is certified."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；未提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、灵压、战斗力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可自行比较，不补造并列、混合种族或能力。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, spiritual pressure, combat power nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Read close guides without inventing ties, mixed species or powers. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "井上织姬测试结果：他人意愿与完整说明",
+          "en": "Orihime Inoue Quiz Result: Others’ Wishes & Full Guide"
+        },
+        "description": {
+          "zh": "用朋友分享小兴趣理解织姬的对方意愿、所需回应与停止空间，含六角色比较；不认证共情、疗愈、温柔或牺牲。",
+          "en": "Read Orihime through a friend’s hobby, wanted responses and room to stop. Full comparisons without empathy, healing, gentleness or self-sacrifice claims."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "角色背景与本版有限读法",
+            "en": "Character context and this edition’s limited reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "官方资料中的织姬是一护的同学，剧情中与同伴的联系很重要。本站只选“给对方的意愿留空间”的普通角度，不从虚构能力推出真实疗愈，也不把角色归为永远温柔、负责修复所有人的人。让别人选择，与自己必须放弃意愿不是同一件事；对方可以不需要帮助，你也可以不提供，两边都不由一个人物名字代替同意。",
+              "en": "Official context identifies Orihime as Ichigo’s classmate within a story where connections with companions matter. This edition selects leaving room for another person’s wishes without transferring fictional powers into healing or making her permanently gentle and responsible for repairing everyone. Another person’s choice does not require abandoning your own. They may not want help and you may not offer it; a character name supplies consent for neither person in actual circumstances."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择先问对方想分享、听意见、继续，还是不参与某个部分。可以问：这是在听实际意愿，还是因为不敢说自己的不同想法？计数不能分辨，也不保证自己听对了。意愿可以变化，明确回应比猜测可靠；对方已经说不想继续，就按这句话处理，不把留空间变成等待别人最终同意自己的安排。",
+              "en": "A highest count means you more often chose to ask whether someone wants sharing, opinions, continuation or participation. Are you listening to actual wishes or reluctant to state your own different view? Counts cannot distinguish these reasons or guarantee understanding. Wishes can change, and explicit responses matter more than guessing. Take a stated wish to stop as stated rather than making room merely a way of waiting for eventual agreement with your preferred arrangement."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，朋友提起一个普通小兴趣，你可以问“你想让我听听，还是一起想一个办法？”对方只想说一下，就不自动列建议；你现在没有空，也可以说明另约时间。这个例子区分分享、建议与共同活动，不用对方是否开心、自己给出多少帮助或是否避免所有分歧来认证共情，更不要求承担情绪或专业支持。",
+              "en": "When a friend mentions an ordinary hobby, ask whether they want a listener or an idea together. Offer no automatic advice if they simply want to mention it. Explain your own lack of time if necessary. The example separates sharing, suggestions and joint activity without certifying empathy through happiness, amount of assistance or avoiding every disagreement. It requires neither responsibility for emotions nor specialist support that an ordinary hobby conversation does not establish."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“你现在希望我怎样回应？我愿意听这一小段，也可能有不同想法；不想继续就到这里。”给对方选择，也把自己的意愿说出来，不需要靠不断赞同维持气氛。别人不想谈、只想自己做或不采纳建议，都可以按字面理解；温和的说法不是继续追问的许可，你也能结束而无需证明自己足够体贴。",
+              "en": "You might say, “What response would you like now? I want to hear this little part and may have a different view; we can stop here.” Leave choice while stating your own wishes rather than maintaining agreement indefinitely. Not wanting discussion, working alone and declining advice mean what they say. Gentle wording permits no continued questioning, and you may end without proving sufficient thoughtfulness or ability to keep everyone comfortable around you."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六位角色读法比较",
+            "en": "Comparisons with the other six character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "织姬读法偏“对方是否想这样参与”，一护偏自选帮助的范围，白哉偏自己同意的约定；三者都需要实际表达，不能靠关系或角色猜。露琪亚偏说明步骤，浦原偏可改小样，蓝染偏重看框架，剑八偏有界挑战。给别人选择也可以直接、有分歧或只做很少，没有温柔、同理心、善良或关系质量排名，也不判谁适合照料谁。",
+              "en": "This Orihime angle concerns another person’s chosen participation, Ichigo help limits and Byakuya your commitments. All need actual expression rather than guesses from a relationship or character. Rukia concerns steps, Urahara a prototype, Aizen a frame and Kenpachi a bounded challenge. Leaving choice can be direct, involve disagreement or offer little. There are no gentleness, empathy, goodness or relationship-quality ranks and no assignment of who should care for whom in actual life."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，问得多可能因为安排不明确，没再问可能因为对方已经讲清。计数不判断共情、嫉妒、不足感、焦虑、依恋、性别、创伤、疗愈能力或真实关系，也不把善于猜心当优点。现实不适需要按实际情况理解，不能拿角色解释掉；别人说不需要，也不意味着隐藏着等待你救助的需要。",
+              "en": "More questions may follow unclear arrangements; fewer may reflect an already clear answer. Counts establish no empathy, jealousy, inadequacy, anxiety, attachment, gender, trauma, healing skill or actual relationship and reward no imagined mind reading. Actual discomfort needs actual context rather than explanation through a character. A stated absence of need reveals no hidden request for rescue or obligation to keep offering until the other person responds differently to your concern."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：为一段自愿普通交流想一句“你现在想要哪种回应”，再补上自己愿意做的范围，可以只想、不发问。不记录别人情绪是否改善，也不检验自己是否更有同理心。如果对方没有表达、自己也不知道，就保留不知道；观察的是怎样给实际意愿留位置，不要求更温柔、更会安慰或放弃自己的选择。",
+              "en": "For an optional observation, imagine asking what response is wanted in an ordinary willing conversation, then add the scope you would choose. Thinking is enough. Record no emotional improvement and test no increased empathy. Keep uncertainty if no wish has been expressed. Notice room for actual preferences without requiring greater gentleness, comforting skill or surrender of your own choices in order to resemble Orihime or obtain a particular response."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题计数与全部最高并列",
+            "en": "21-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；未提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、灵压、战斗力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可自行比较，不补造并列、混合种族或能力。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, spiritual pressure, combat power nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Read close guides without inventing ties, mixed species or powers. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的21题非官方同人问卷，只选久保带人作品BLEACH《死神》的黑崎一护、朽木露琪亚、蓝染惣右介、朽木白哉、井上织姬、浦原喜助和更木剑八七位虚构人物，作为普通自选做法的有限阅读角度，不代表完整人格、全作品阵容或官方分类。题目、选项、映射、计数、解释和例子原创，未采用IDR35题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材；不是官方测验，无权利人合作、授权或认可，作品与角色权利归相应权利人。VIZ系列简介、Bandai Namco授权游戏名单、TVTokyo历史动画简介与KLab角色短文只核基础作品背景和名字，不验证本站题目、计分或心理解释，也不将游戏机制当作现实做法。中文名为本版编辑采用写法，英文身份稳定，不因译名增加角色。结果不推断灵压、灵魂、超自然能力、身体能力、疾病、神经类型、创伤、罪疚、冒充者感、智商、共情、疗愈、道德、危险性、性别、爱情、关系或职业，不指导战斗、武器、自伤、忍受伤害或操控，也不换算MBTI或其他角色测试。",
+              "en": "This is an independently authored FermatMind 21-item unofficial fan quiz selecting seven fictional characters from Tite Kubo’s BLEACH: Ichigo, Rukia, Aizen, Byakuya, Orihime, Urahara and Kenpachi. They support limited readings of ordinary chosen approaches rather than complete personalities, every series character or an official classification. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; respective owners retain series and character rights. VIZ context, Bandai Namco licensed rosters, TV Tokyo’s historical anime introduction and a KLab character blurb check basic context and names without validating these items, counts or psychology or turning game mechanics into actual methods. Chinese names are editorial choices retaining English identities; variants add no characters. Results infer no spiritual pressure, souls, supernatural or physical powers, illness, neurotype, trauma, guilt, impostor feelings, IQ, empathy, healing, morality, dangerousness, gender, romance, relationship or career, instruct no combat, weapons, self-injury, enduring harm or manipulation, and convert into no MBTI or other character test."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kisuke-urahara",
+      "directionIds": [
+        "kisuke-urahara"
+      ],
+      "title": {
+        "zh": "浦原喜助：先做一个可改的小样",
+        "en": "Kisuke Urahara: A Small Revisable Prototype"
+      },
+      "headline": {
+        "zh": "浦原喜助：先做一个可改的小样",
+        "en": "Kisuke Urahara: A Small Revisable Prototype"
+      },
+      "summary": {
+        "zh": "用自有标签样张看小样、许可、实际条件和是否继续，含六角色对照；不认证天才、预测、操盘、专业技能或秘密布局。",
+        "en": "Read Urahara through a label prototype, permission and six comparisons. No genius, prediction, orchestration, specialist skill or hidden planning is certified."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；未提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、灵压、战斗力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可自行比较，不补造并列、混合种族或能力。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, spiritual pressure, combat power nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Read close guides without inventing ties, mixed species or powers. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "浦原喜助测试结果：可改小样与完整说明",
+          "en": "Kisuke Urahara Quiz Result: Prototypes & Full Guide"
+        },
+        "description": {
+          "zh": "用自有标签样张理解浦原的可改小样、许可与是否继续，含六角色比较；不认证天才、预测、专业技术或秘密布局。",
+          "en": "Explore Urahara through a revisable label sample, permission and six comparisons. No genius, prediction, specialist skill or secret-planning verdict."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "角色背景与本版有限读法",
+            "en": "Character context and this edition’s limited reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "官方人物背景中的浦原经营商店，并以不同方式支持一护。本站只借“先做一个可改的小样”理解普通构想，不把虚构发明、谋略、专业经历或隐瞒当成现实能力，也不把完整角色简化为聪明的幕后人物。小样限于自己可用的普通材料和低风险做法，不涉及作品技术、药物、武器、身体实验或替别人秘密安排。",
+              "en": "Official context places Urahara at his shop and in support of Ichigo. This edition borrows a small revisable prototype for ordinary ideas without transferring fictional invention, strategy, specialist experience or concealment into actual ability, or reducing the character to a clever hidden organiser. Samples concern permitted ordinary materials and low-stakes approaches. They involve neither fictional techniques, substances, weapons, bodily experiments nor arrangements secretly made on another person’s behalf without their actual agreement."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择先做少量、能修改或可以丢弃的版本，再看要不要继续。可以问：你想通过小样看清什么，还是只是喜欢有个可见开头？计数不能分辨，也不检查样张是否有效。做小样可以发现不想继续，不一定为了最后成品；未执行的想法也能保留，不需要不断试验来证明有创造力或解决问题的天赋。",
+              "en": "A highest count means you more often chose a small, changeable or discardable version before deciding whether to continue. What would it clarify, or do you simply like a visible beginning? Counts cannot distinguish these reasons or check effectiveness. A prototype may reveal no wish to continue rather than serve a final product. An unmade idea may stay unmade without constant trials proving creativity, problem-solving talent or resemblance to a fictional inventor."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，为自己的普通资料做标签，可以先在一小张废纸上写两个字、摆一下位置，再看自己是否想采用。若不喜欢，就收起，不必改完所有资料，也不用购买材料或找人评价。这个例子让尝试的范围先小而可撤回，不以速度、是否漂亮或最后有没有推广来认证创新，更不从一次小样推出整套做法一定有效。",
+              "en": "For labels on your own ordinary material, write a couple of words on scrap paper and try their position before choosing whether to use them. Put the sample away if unwanted without changing every record, buying materials or requesting reviews. The example keeps scope small and revisable without certifying innovation through speed, appearance or adoption. One sample proves no whole procedure effective and creates no requirement to build out a complete system around the idea."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我先用自己的这点材料做一版可改样张，只看看是否符合现在的需要，不默认继续。”若牵涉共同东西，先问许可；不要用“只是试试”跳过他人的不同意愿。小样中仍不知道的地方可以标出，不用假装已预见全部结果。你也能只解释构想、暂停或放弃，不因为像浦原就必须随时提供妙招。",
+              "en": "You might say, “I’ll use this small amount of my own material for a revisable sample, only to consider the present need, without assuming continuation.” Ask permission for shared things rather than using a trial to bypass different wishes. Mark uncertainty instead of pretending every outcome is anticipated. Explain, pause or abandon the idea if preferred; resembling Urahara requires no clever solution to every ordinary difficulty someone happens to mention to you."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六位角色读法比较",
+            "en": "Comparisons with the other six character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "浦原读法偏“用一个可改小样看看”，蓝染偏重看框架，露琪亚偏说明步骤；小样可以采用现框架，也可以暂不说明全部。剑八偏自选有界挑战，一护偏帮助范围，白哉偏约定，织姬偏他人意愿。试样不等于比按原法更聪明，也不保证别人受益，七种没有创新、智力、专业或谋略等级，不对应职业匹配。",
+              "en": "This Urahara angle concerns a revisable sample, Aizen the initial frame and Rukia explaining steps. A sample may use the existing frame and need no complete explanation yet. Kenpachi concerns bounded challenge, Ichigo help limits, Byakuya commitments and Orihime others’ wishes. A trial proves neither superior intelligence to keeping a method nor benefit to someone else. The seven rank no innovation, IQ, expertise or strategy and establish no career match for respondents."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，做小样可能因为材料少，不做可能因为原方法已很合适、没有许可或不想花时间。计数不认证天才、创造、预测、专业、操控、伦理判断或看透他人的能力，也不推断隐藏动机。实际安全与专业要求需要按真实条件处理，不能把作品里的发明当现实说明，更不能用小样或“为你好”替未经同意的安排辩解。",
+              "en": "A sample may follow limited material; no sample may reflect a suitable existing method, no permission or limited interest. Counts certify no genius, creativity, prediction, expertise, manipulation, ethical judgement or insight into others’ minds and infer no hidden motive. Actual safety and specialist requirements follow actual conditions, not fictional inventions treated as instructions. A prototype or supposed benefit excuses no arrangement made without the actual consent of people affected by it."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：为一个自己愿意想的小构想，写出最小样张、使用哪些自有材料，以及什么情况下不做，可以不实际制作。不比新奇、不检验创造力，也不要求别人参加。如果连样张也不需要，就把构想留在纸上；观察的是你是否喜欢用可改小版本看一眼，不把普通试样变成一直解决所有问题的任务。",
+              "en": "For an optional observation, imagine the smallest sample of an idea you want, the materials you own and when you would not make it. Actual construction is unnecessary. Compare no novelty, test no creativity and require nobody to join. Keep an idea on paper if even a sample is unnecessary. Notice whether a revisable version appeals without making ordinary prototyping a permanent assignment to solve every problem or prove fictional ingenuity."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题计数与全部最高并列",
+            "en": "21-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；未提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、灵压、战斗力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可自行比较，不补造并列、混合种族或能力。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, spiritual pressure, combat power nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Read close guides without inventing ties, mixed species or powers. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的21题非官方同人问卷，只选久保带人作品BLEACH《死神》的黑崎一护、朽木露琪亚、蓝染惣右介、朽木白哉、井上织姬、浦原喜助和更木剑八七位虚构人物，作为普通自选做法的有限阅读角度，不代表完整人格、全作品阵容或官方分类。题目、选项、映射、计数、解释和例子原创，未采用IDR35题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材；不是官方测验，无权利人合作、授权或认可，作品与角色权利归相应权利人。VIZ系列简介、Bandai Namco授权游戏名单、TVTokyo历史动画简介与KLab角色短文只核基础作品背景和名字，不验证本站题目、计分或心理解释，也不将游戏机制当作现实做法。中文名为本版编辑采用写法，英文身份稳定，不因译名增加角色。结果不推断灵压、灵魂、超自然能力、身体能力、疾病、神经类型、创伤、罪疚、冒充者感、智商、共情、疗愈、道德、危险性、性别、爱情、关系或职业，不指导战斗、武器、自伤、忍受伤害或操控，也不换算MBTI或其他角色测试。",
+              "en": "This is an independently authored FermatMind 21-item unofficial fan quiz selecting seven fictional characters from Tite Kubo’s BLEACH: Ichigo, Rukia, Aizen, Byakuya, Orihime, Urahara and Kenpachi. They support limited readings of ordinary chosen approaches rather than complete personalities, every series character or an official classification. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; respective owners retain series and character rights. VIZ context, Bandai Namco licensed rosters, TV Tokyo’s historical anime introduction and a KLab character blurb check basic context and names without validating these items, counts or psychology or turning game mechanics into actual methods. Chinese names are editorial choices retaining English identities; variants add no characters. Results infer no spiritual pressure, souls, supernatural or physical powers, illness, neurotype, trauma, guilt, impostor feelings, IQ, empathy, healing, morality, dangerousness, gender, romance, relationship or career, instruct no combat, weapons, self-injury, enduring harm or manipulation, and convert into no MBTI or other character test."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kenpachi-zaraki",
+      "directionIds": [
+        "kenpachi-zaraki"
+      ],
+      "title": {
+        "zh": "更木剑八：自选一项有界小挑战",
+        "en": "Kenpachi Zaraki: One Chosen Bounded Challenge"
+      },
+      "headline": {
+        "zh": "更木剑八：自选一项有界小挑战",
+        "en": "Kenpachi Zaraki: One Chosen Bounded Challenge"
+      },
+      "summary": {
+        "zh": "用低风险纸艺的一小折看自选挑战、停止处和不必比较，含六角色对照；不以受伤、战斗、危险、强壮或无畏来判断你。",
+        "en": "Explore Kenpachi through one low-stakes paper-fold challenge and six comparisons. No injury, combat, danger, strength or fearlessness is assigned."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；未提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、灵压、战斗力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可自行比较，不补造并列、混合种族或能力。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, spiritual pressure, combat power nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Read close guides without inventing ties, mixed species or powers. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "更木剑八测试结果：有界挑战与完整说明",
+          "en": "Kenpachi Zaraki Quiz Result: Challenges & Full Guide"
+        },
+        "description": {
+          "zh": "用低风险纸艺的一小折理解剑八的自选挑战、范围与停止处，含六角色比较；不评分伤害、战斗、胆量、强壮或危险偏好。",
+          "en": "Read Kenpachi through one low-stakes paper fold, scope and stopping. Full comparisons without combat, injury, daring, strength or risk-preference scores."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "角色背景与本版有限读法",
+            "en": "Character context and this edition’s limited reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "剑八在官方授权背景中是战斗相关的队长角色。本站只借“自选一项有界小挑战”理解普通活动，不把战斗、受伤、压倒对手或极端刺激说成值得模仿。挑战在这里必须是自己愿意、低风险、获准且能停止的一小点，不是忍痛、逞强或证明比别人强。这个有限角度也不声称概括角色的全部经历、价值或真实心理。",
+              "en": "Licensed context identifies Kenpachi as a captain associated with combat. This edition borrows one chosen bounded challenge for ordinary activities without making combat, injury, overpowering an opponent or extreme stimulation exemplary. A challenge here is a wanted, permitted, low-stakes point with room to stop, never enduring pain, showing off or proving superiority. This limited angle makes no claim to summarise the character’s whole history, values or psychology as an actual person."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择一个自己想试清楚的小点，先定范围与停止处，不扩大成整项任务。可以问：你愿意挑战的是这个具体环节，还是觉得必须证明自己敢做？计数不能分辨，也不观察结果。挑战可以只想、不试、换成更简单的版本；选择停止或回到熟悉做法，不说明缺少勇气，也不使结果失效。",
+              "en": "A highest count means you more often chose one point you want to try, with scope and an endpoint rather than expansion into a whole task. Is that particular challenge wanted, or do you feel obliged to prove willingness to act? Counts cannot distinguish these reasons or observe results. Think without trying or choose an easier version. Stopping or returning to a familiar method proves no lack of courage and invalidates no result."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，一个普通纸艺有几种折法，你只想试其中一折，可以用自己的废纸、看清说明，折一次就停。做不到也不必反复、增加难度或找别人比较；纸张不合适就不做。这个例子将挑战对象与实际条件说清，不用速度、完成、受挫后坚持多久或别人是否觉得厉害来认证能力，也不把普通手作变成训练胆量。",
+              "en": "A paper craft may offer several folds, and you want to try just one using your own scrap paper and clear instructions, then stop. No repetition, increased difficulty or comparison with others is required if it does not work. Leave unsuitable material alone. The example specifies the challenge and its conditions without certifying skill through speed, completion, persistence after frustration or impressive appearance, and turns no ordinary craft into a test of daring."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想只试这一小点，到这里就停，不需要加难或比较；如果不想继续，就保留没做完。”若有人提议升级，你可以说明自己没同意更多，不用拿角色的战斗性格解释。自己的挑战也不能要求别人配合、忍受噪声或承担代价。直接说不、做简单一点或不参与，都不妨碍理解本版这一角度。",
+              "en": "You might say, “I want to try only this point and stop here, without harder versions or comparison; it may stay unfinished.” Explain that more was not agreed if somebody suggests an escalation, without invoking fictional combativeness. Your challenge requires no cooperation, disturbance or costs from someone else. Refusing, simplifying and not participating all remain compatible with understanding this edition’s limited angle on a voluntary ordinary activity."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六位角色读法比较",
+            "en": "Comparisons with the other six character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "剑八读法偏“哪一小点是自己想试的挑战”，浦原偏先做可改小样，露琪亚偏先说明普通步骤；挑战不一定做成样张，说明也不等于实际会做。一护偏帮助范围，白哉偏约定，织姬偏对方意愿，蓝染偏重看框架。七种没有强弱、胆量、实战、诚实或活在当下的等级，也不把人物之间的对抗转成你必须赢过谁。",
+              "en": "This Kenpachi angle concerns the little challenge you choose, Urahara a revisable sample and Rukia explaining steps. A challenge need not produce a prototype, and explanation proves no actual skill. Ichigo concerns help limits, Byakuya commitments, Orihime others’ wishes and Aizen the initial frame. The seven rank neither strength, daring, combat, honesty nor living in the present, and turn no fictional opposition into an obligation to defeat somebody in an actual activity."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，愿意试可能因为材料熟悉，不想试可能因为今天没兴趣、规则不允许或只是更喜欢看。计数不判断勇气、攻击、冲动、危险偏好、疼痛承受、创伤、身体能力或道德，也不认证你能保护谁。真实安全与许可始终看具体条件，不能拿剧情的受伤和战斗作现实范本，更不因角色结果要求自己“不能退”。",
+              "en": "Willingness may follow familiar material; no wish may reflect interest, rules or a preference for watching. Counts establish no courage, aggression, impulsivity, risk preference, pain tolerance, trauma, physical ability or morality and certify nobody you can protect. Actual safety and permission depend on actual conditions, not fictional injury or combat as a model. A character result cannot require you never to step back from a challenge you no longer choose."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：给一件属于自己、低风险的小活动想一个想试的具体点，再写出“不试或停止的条件”，可以不执行。不增加难度，不计算成功率，也不请人证明你够勇敢。如果发现更愿意看一眼而不是动手，就保留这一点；观察的是自选范围，不是练习忍受挫折，更不把受伤、辛苦或坚持当作角色相似的凭据。",
+              "en": "For an optional observation, imagine one point you want to try in a low-stakes activity of your own and conditions for declining or stopping. No action is required. Increase no difficulty, calculate no success rate and seek no proof of bravery. Keep a preference for looking rather than doing if it emerges. Notice chosen scope without training frustration tolerance or using injury, hardship or persistence as evidence of resemblance to a fictional character."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题计数与全部最高并列",
+            "en": "21-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；未提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、灵压、战斗力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可自行比较，不补造并列、混合种族或能力。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, spiritual pressure, combat power nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Read close guides without inventing ties, mixed species or powers. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的21题非官方同人问卷，只选久保带人作品BLEACH《死神》的黑崎一护、朽木露琪亚、蓝染惣右介、朽木白哉、井上织姬、浦原喜助和更木剑八七位虚构人物，作为普通自选做法的有限阅读角度，不代表完整人格、全作品阵容或官方分类。题目、选项、映射、计数、解释和例子原创，未采用IDR35题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材；不是官方测验，无权利人合作、授权或认可，作品与角色权利归相应权利人。VIZ系列简介、Bandai Namco授权游戏名单、TVTokyo历史动画简介与KLab角色短文只核基础作品背景和名字，不验证本站题目、计分或心理解释，也不将游戏机制当作现实做法。中文名为本版编辑采用写法，英文身份稳定，不因译名增加角色。结果不推断灵压、灵魂、超自然能力、身体能力、疾病、神经类型、创伤、罪疚、冒充者感、智商、共情、疗愈、道德、危险性、性别、爱情、关系或职业，不指导战斗、武器、自伤、忍受伤害或操控，也不换算MBTI或其他角色测试。",
+              "en": "This is an independently authored FermatMind 21-item unofficial fan quiz selecting seven fictional characters from Tite Kubo’s BLEACH: Ichigo, Rukia, Aizen, Byakuya, Orihime, Urahara and Kenpachi. They support limited readings of ordinary chosen approaches rather than complete personalities, every series character or an official classification. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; respective owners retain series and character rights. VIZ context, Bandai Namco licensed rosters, TV Tokyo’s historical anime introduction and a KLab character blurb check basic context and names without validating these items, counts or psychology or turning game mechanics into actual methods. Chinese names are editorial choices retaining English identities; variants add no characters. Results infer no spiritual pressure, souls, supernatural or physical powers, illness, neurotype, trauma, guilt, impostor feelings, IQ, empathy, healing, morality, dangerousness, gender, romance, relationship or career, instruct no combat, weapons, self-injury, enduring harm or manipulation, and convert into no MBTI or other character test."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "21题怎样形成七角色计数",
+        "en": "How 21 choices produce seven character counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；未提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、灵压、战斗力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可自行比较，不补造并列、混合种族或能力。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+          "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, spiritual pressure, combat power nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Read close guides without inventing ties, mixed species or powers. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "完整结果、最高并列与近分",
+        "en": "Full guides, highest ties and close choices"
+      },
+      "paragraphs": [
+        {
+          "zh": "七份完整说明各含人物背景、有限读法、例子、表达、六角色比较、反例、小观察、计分和来源。最高并列逐份显示，不把主角或名单第一位设为主型，不自动指定第二角色。近分可以自选比较，不补造并列、灵压、能力或隐藏种族；公开页不显示任何人的私有答卷或次数。",
+          "en": "Each of seven guides includes context, the limited reading, an example, wording, six-character comparisons, counterexamples, an observation, scoring and sources. Every highest tie appears in full without protagonist or list-order priority or an automatic second character. Read close guides without inventing ties, spiritual pressure, powers or hidden species. Public pages reveal no private attempt or counts."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "角色问卷与剧情知识、虚构能力的区别",
+        "en": "Character choices, trivia and fictional powers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是久保带人作品BLEACH《死神》的七角色同人问卷，不是全作品阵容或官方分类。无需看完作品，题目是普通自选做法，没有剧情答对、生日、照片、外貌或身体输入。基础背景只解释有限读法，不把游戏机制、灵魂、战斗与创伤转移成真实能力、心理或义务。",
+          "en": "This seven-character fan quiz concerns Tite Kubo’s BLEACH rather than the entire cast or an official taxonomy. Ordinary chosen approaches need no complete-series knowledge, trivia answers, birthday, photo, appearance or bodily input. Basic context supports limited readings without transferring game mechanics, souls, combat or trauma into actual powers, psychology or duties."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "zh": "原创同人与来源使用范围",
+        "en": "Original fan reading and source scope"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是费马独立创作的21题非官方同人问卷，只选久保带人作品BLEACH《死神》的黑崎一护、朽木露琪亚、蓝染惣右介、朽木白哉、井上织姬、浦原喜助和更木剑八七位虚构人物，作为普通自选做法的有限阅读角度，不代表完整人格、全作品阵容或官方分类。题目、选项、映射、计数、解释和例子原创，未采用IDR35题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材；不是官方测验，无权利人合作、授权或认可，作品与角色权利归相应权利人。VIZ系列简介、Bandai Namco授权游戏名单、TVTokyo历史动画简介与KLab角色短文只核基础作品背景和名字，不验证本站题目、计分或心理解释，也不将游戏机制当作现实做法。中文名为本版编辑采用写法，英文身份稳定，不因译名增加角色。结果不推断灵压、灵魂、超自然能力、身体能力、疾病、神经类型、创伤、罪疚、冒充者感、智商、共情、疗愈、道德、危险性、性别、爱情、关系或职业，不指导战斗、武器、自伤、忍受伤害或操控，也不换算MBTI或其他角色测试。",
+          "en": "This is an independently authored FermatMind 21-item unofficial fan quiz selecting seven fictional characters from Tite Kubo’s BLEACH: Ichigo, Rukia, Aizen, Byakuya, Orihime, Urahara and Kenpachi. They support limited readings of ordinary chosen approaches rather than complete personalities, every series character or an official classification. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; respective owners retain series and character rights. VIZ context, Bandai Namco licensed rosters, TV Tokyo’s historical anime introduction and a KLab character blurb check basic context and names without validating these items, counts or psychology or turning game mechanics into actual methods. Chinese names are editorial choices retaining English identities; variants add no characters. Results infer no spiritual pressure, souls, supernatural or physical powers, illness, neurotype, trauma, guilt, impostor feelings, IQ, empathy, healing, morality, dangerousness, gender, romance, relationship or career, instruct no combat, weapons, self-injury, enduring harm or manipulation, and convert into no MBTI or other character test."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "草稿、分享与可选下一步",
+        "en": "Drafts, sharing and optional next steps"
+      },
+      "paragraphs": [
+        {
+          "zh": "答案在浏览器内计分，不上传、不进网址或分析。草稿需主动开启，只在本标签页恢复，24小时失效，完成、重测、退出清除即删除。分享自选，只含公开角色说明和链接，不含答案或次数。完整结果免费，无需注册、邮箱或另一测试；后续测评可不做，选择继续需要另外作答。",
+          "en": "Answers are scored in your browser without uploading them or placing them in URLs or analytics. Drafts require opt-in, restore only in this tab, expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public guides and links without answers or counts. Full results are free without signup, email or another test; further assessments are optional and require new answers."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "BLEACH死神角色测试包括哪七位？",
+        "en": "Which seven BLEACH characters are included?"
+      },
+      "answer": {
+        "zh": "本版包括黑崎一护、朽木露琪亚、蓝染惣右介、朽木白哉、井上织姬、浦原喜助和更木剑八。各自只对应本站选取的普通读法，不是完整人格、全作品阵容或官方分类；中文名为本版编辑采用写法，译名不增加角色和测试。",
+        "en": "This edition includes Ichigo Kurosaki, Rukia Kuchiki, Sosuke Aizen, Byakuya Kuchiki, Orihime Inoue, Kisuke Urahara and Kenpachi Zaraki as selected ordinary readings, not complete personalities, the full cast or an official taxonomy. Chinese names are editorial choices; variants add no characters or tests."
+      }
+    },
+    {
+      "question": {
+        "zh": "需要剧情知识、生日或照片吗？",
+        "en": "Do I need episode knowledge, a birthday or a photo?"
+      },
+      "answer": {
+        "zh": "不需要，也不收生日或照片。21题全部是普通自选情境，不考剧情、不评外貌，也不检测灵压或身体。结果页提供理解本版读法的基础背景，不代替作品或心理评估。",
+        "en": "No, and no birthday or photo is collected. All 21 items concern ordinary chosen situations without trivia, appearance scores or detection of spiritual pressure or bodies. Guides provide basic context for these readings rather than replacing the work or a psychological assessment."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样计分、处理最高并列与近分？",
+        "en": "How are counts, highest ties and close choices handled?"
+      },
+      "answer": {
+        "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；未提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、灵压、战斗力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可自行比较，不补造并列、混合种族或能力。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, spiritual pressure, combat power nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Read close guides without inventing ties, mixed species or powers. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是官方测验或科学人格分类吗？",
+        "en": "Is this official or a scientific personality classification?"
+      },
+      "answer": {
+        "zh": "这是费马独立创作的21题非官方同人问卷，只选久保带人作品BLEACH《死神》的黑崎一护、朽木露琪亚、蓝染惣右介、朽木白哉、井上织姬、浦原喜助和更木剑八七位虚构人物，作为普通自选做法的有限阅读角度，不代表完整人格、全作品阵容或官方分类。题目、选项、映射、计数、解释和例子原创，未采用IDR35题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材；不是官方测验，无权利人合作、授权或认可，作品与角色权利归相应权利人。VIZ系列简介、Bandai Namco授权游戏名单、TVTokyo历史动画简介与KLab角色短文只核基础作品背景和名字，不验证本站题目、计分或心理解释，也不将游戏机制当作现实做法。中文名为本版编辑采用写法，英文身份稳定，不因译名增加角色。结果不推断灵压、灵魂、超自然能力、身体能力、疾病、神经类型、创伤、罪疚、冒充者感、智商、共情、疗愈、道德、危险性、性别、爱情、关系或职业，不指导战斗、武器、自伤、忍受伤害或操控，也不换算MBTI或其他角色测试。",
+        "en": "This is an independently authored FermatMind 21-item unofficial fan quiz selecting seven fictional characters from Tite Kubo’s BLEACH: Ichigo, Rukia, Aizen, Byakuya, Orihime, Urahara and Kenpachi. They support limited readings of ordinary chosen approaches rather than complete personalities, every series character or an official classification. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; respective owners retain series and character rights. VIZ context, Bandai Namco licensed rosters, TV Tokyo’s historical anime introduction and a KLab character blurb check basic context and names without validating these items, counts or psychology or turning game mechanics into actual methods. Chinese names are editorial choices retaining English identities; variants add no characters. Results infer no spiritual pressure, souls, supernatural or physical powers, illness, neurotype, trauma, guilt, impostor feelings, IQ, empathy, healing, morality, dangerousness, gender, romance, relationship or career, instruct no combat, weapons, self-injury, enduring harm or manipulation, and convert into no MBTI or other character test."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果、重测与分享免费吗？",
+        "en": "Are full results, retaking and sharing free?"
+      },
+      "answer": {
+        "zh": "免费，无需注册、邮箱或先做另一测试。可先读七份完整说明，完成21题后最高并列全部完整显示。重测清除本次选择；可选分享不含答案或次数。后续MBTI另行作答，不从角色换算，也不是解锁结果的条件。",
+        "en": "They are free without signup, email or another test first. Read seven full guides before answering; every highest tie appears after all 21 choices. Retaking clears this attempt. Optional sharing contains no answers or counts. Further MBTI questions require new responses rather than conversion and do not unlock these results."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "VIZ官方：BLEACH作品背景（非问卷验证）",
+        "en": "Official VIZ BLEACH context, not questionnaire validation"
+      },
+      "url": "https://www.viz.com/bleach"
+    },
+    {
+      "title": {
+        "zh": "Bandai Namco授权：现世角色背景",
+        "en": "Bandai Namco licensed World of the Living character context"
+      },
+      "url": "https://en.bandainamcoent.eu/bleach-rebirth-of-souls-world-of-the-living"
+    },
+    {
+      "title": {
+        "zh": "Bandai Namco授权：尸魂界角色背景",
+        "en": "Bandai Namco licensed Soul Society character context"
+      },
+      "url": "https://en.bandainamcoent.eu/bleach-rebirth-of-souls-soul-society"
+    },
+    {
+      "title": {
+        "zh": "Bandai Namco授权：虚圈角色背景",
+        "en": "Bandai Namco licensed Hueco Mundo character context"
+      },
+      "url": "https://en.bandainamcoent.eu/bleach-rebirth-of-souls-hueco-mundo"
+    },
+    {
+      "title": {
+        "zh": "TVTokyo：2024历史简介与早期动画语境",
+        "en": "TV Tokyo: historical 2024 introduction and early anime context"
+      },
+      "url": "https://www.tv-tokyo.co.jp/information/202403/4404.html"
+    },
+    {
+      "title": {
+        "zh": "KLab授权：井上织姬角色短文",
+        "en": "KLab licensed Orihime Inoue character blurb"
+      },
+      "url": "https://www.bleach-bravesouls.com/en/character/orihime.html"
+    }
+  ]
+}

@@ -1131,5 +1131,33 @@
       "teru-mikami",
       "minoru-tanaka"
     ]
+  },
+  {
+    "slug": "bleach",
+    "code": "BLEACH_FAN_ORDINARY_CHOICES",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "metaphor",
+    "title": {
+      "zh": "《死神》角色测试",
+      "en": "Bleach Test"
+    },
+    "description": {
+      "zh": "免费完成21道原创普通选择，比较BLEACH《死神》的一护、露琪亚等七位角色。完整结果、例子和计分直接读，最高并列全部保留；非官方同人测试，不评灵压与能力。",
+      "en": "Take 21 original everyday questions and compare seven BLEACH characters. Full tied results, examples and scoring are free in this unofficial fan quiz."
+    },
+    "minutes": 7,
+    "collection": "explore",
+    "formCode": "fm_bleach_fan_choices_21",
+    "questionCount": 21,
+    "resultSlugs": [
+      "ichigo-kurosaki",
+      "rukia-kuchiki",
+      "sosuke-aizen",
+      "byakuya-kuchiki",
+      "orihime-inoue",
+      "kisuke-urahara",
+      "kenpachi-zaraki"
+    ]
   }
 ]
