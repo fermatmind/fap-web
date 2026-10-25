@@ -929,5 +929,34 @@
       "indigo",
       "violet"
     ]
+  },
+  {
+    "slug": "past-life",
+    "code": "PAST_LIFE_HISTORICAL_ACTIVITY_IMAGES",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "metaphor",
+    "title": {
+      "zh": "前世测试",
+      "en": "Past Life Quiz"
+    },
+    "description": {
+      "zh": "免费前世测试：24道原创选择比较八种历史活动角色意象，完整结果与所有最高并列直接读。无需注册或生日；想象问卷，不认定真实前世、回忆、天赋或职业。",
+      "en": "Take a free past life quiz with 24 original choices and eight historical-role guides. Full results without signup, birthdays or claims of an actual former life."
+    },
+    "minutes": 7,
+    "collection": "explore",
+    "formCode": "fm_past_life_activity_preferences_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "scribe",
+      "potter",
+      "printer",
+      "weaver",
+      "drafter",
+      "trader",
+      "chartmaker",
+      "naturalist"
+    ]
   }
 ]

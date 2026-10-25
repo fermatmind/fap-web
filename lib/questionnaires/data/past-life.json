@@ -1,0 +1,2482 @@
+{
+  "slug": "past-life",
+  "code": "PAST_LIFE_HISTORICAL_ACTIVITY_IMAGES",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "metaphor",
+  "kind": "archetype",
+  "title": {
+    "zh": "前世测试",
+    "en": "Past Life Quiz"
+  },
+  "resultHeading": {
+    "zh": "八种历史活动意象的本次选择与全部最高并列",
+    "en": "Your eight historical-activity choices and every highest tie"
+  },
+  "description": {
+    "zh": "免费前世测试：24道原创选择比较八种历史活动角色意象，完整结果与所有最高并列直接读。无需注册或生日；想象问卷，不认定真实前世、回忆、天赋或职业。",
+    "en": "Take a free past life quiz with 24 original choices and eight historical-role guides. Full results without signup, birthdays or claims of an actual former life."
+  },
+  "seoTitle": {
+    "zh": "前世测试：24题、八种历史角色意象与完整结果",
+    "en": "Past Life Quiz: Free Historical-Role Quiz & Full Results"
+  },
+  "minutes": 7,
+  "introduction": {
+    "zh": "如果用历史活动作一份想象性角色对照，你现在更愿意留文字、看器物、比较印样、编排纹样、试构图、说明交换、读路线，还是观察标注？本版24道原创四选一，选取八个有资料背景的角色意象。它比较当前兴趣，不寻找真实过去身份、灵魂或记忆，也不要求认同或否定轮回信仰。全部完成后看原始次数，所有最高并列完整保留；八份完整说明也可以先读。没有高低、稀有度、能力或职业认证，不收生日和私人经历，不通过熟悉感解释创伤、恐惧或现实处境。",
+    "en": "If historical activities supplied an imagined role comparison, would you currently prefer written records, vessels, impressions, patterns, compositions, exchanges, routes or observed labels? This edition offers 24 original choices and eight role images with documented backgrounds. It compares present interests without seeking an actual former identity, soul or memory, and requires neither accepting nor rejecting reincarnation beliefs. Compare raw counts after completion and read every highest-tied guide in full. All eight guides are also available first. There are no ranks, rarity estimates, ability or career credentials. No birthday or private experience is collected, and familiarity explains no trauma, fear or real-life circumstances."
+  },
+  "instructions": {
+    "zh": "本版“前世测试”是一份24题的历史角色想象问卷：比较你现在更愿意阅读或尝试哪类普通历史活动，形成书吏、陶工、印工、织工、画坊、商旅、海图师或博物记录八种角色意象。它不寻找真实前世、回忆、灵魂、生日或血缘，不要求认同轮回，也不否定个人信仰。每题只选当前较愿意的一项，不需要历史知识或实际技能；所有体验都以许可材料、自愿、可调整和可停止为前提。24题全部作答后比较原始次数，所有最高并列完整保留，全选第一项会八种各3次。角色是本站编辑选择，不概括时代或人群性格，不分高低，不认证能力、健康或职业；历史背景也不使本站题本经过心理验证。",
+    "en": "This Past Life Quiz is a 24-question historical-role imagination quiz. It compares ordinary historical activities you would currently prefer to read about or explore, producing eight images: scribe, potter, printer, weaver, workshop drafter, trader, chartmaker or natural-history recorder. It seeks no actual former life, memory, soul, birthday or ancestry, and requires neither accepting reincarnation nor rejecting personal belief. Choose one currently preferred option without needing historical knowledge or practical skill. All experiences assume permitted materials and voluntary, adjustable, stoppable participation. Compare raw counts after all 24 choices and retain every highest-tied full guide; choosing the first option throughout gives three each. Roles are editorial selections, not personalities of entire periods or peoples, ranks, ability, health or career credentials. Historical background supplies no psychometric validation."
+  },
+  "source": {
+    "kind": "FermatMindoriginalPastLifeHistoricalActivityImages24/eighteditorialroles/notliteralformerlifeorpsychometricinstrument",
+    "formCode": "fm_past_life_activity_preferences_24",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "65b9949d476fc79eb41e9041d2938f17e1c46cf98109ef012b6fdc167ade6f98",
+    "resultContentSha256": "aab1647cf2c4cef2012a7a8e61fd9d61b490cc14f3790cabfae0c2daf5181e8c",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "scribe",
+      "title": {
+        "zh": "古埃及书吏意象：文字留存",
+        "en": "Egyptian Scribe Image: Keeping a Record"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "potter",
+      "title": {
+        "zh": "罗马陶工意象：器物形态与用途",
+        "en": "Roman Potter Image: Vessel Form and Use"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "printer",
+      "title": {
+        "zh": "宋代印工意象：版面与重复印样",
+        "en": "Song Printer Image: Layouts and Impressions"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "weaver",
+      "title": {
+        "zh": "中世纪晚期织工意象：交错与纹样",
+        "en": "Late-Medieval Weaver Image: Interlacing Patterns"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "drafter",
+      "title": {
+        "zh": "文艺复兴画坊意象：线条与构图",
+        "en": "Renaissance Workshop Image: Lines and Composition"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "trader",
+      "title": {
+        "zh": "维京时代商旅意象：说明与自愿交换",
+        "en": "Viking-Age Trader Image: Terms and Exchange"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "chartmaker",
+      "title": {
+        "zh": "地中海海图师意象：位置与路径",
+        "en": "Mediterranean Chartmaker Image: Places and Routes"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "naturalist",
+      "title": {
+        "zh": "十九世纪博物记录意象：观察与标注",
+        "en": "19th-Century Natural-History Image: Observation and Labels"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "PAST_LIFE_01",
+      "prompt": {
+        "zh": "如果参加一次自愿的历史主题体验，你更想先看哪项普通活动？",
+        "en": "At a voluntary history-themed session, which ordinary activity would you prefer to explore first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "为一份虚构物品清单安排文字，让后来读者知道记录了什么。",
+            "en": "Arrange words for a fictional inventory so a later reader knows what was recorded."
+          },
+          "directionId": "scribe"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "比较一个小容器的形状与用途，想象它怎样方便拿取。",
+            "en": "Compare a small vessel’s shape and use, considering how it might be handled."
+          },
+          "directionId": "potter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看看简单线条怎样交错成一段图案，不要求实际会织。",
+            "en": "Explore how simple threads cross into a pattern without needing weaving skill."
+          },
+          "directionId": "weaver"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "比较两份虚构货物说明，想象怎样把交换条件讲清。",
+            "en": "Compare two fictional goods descriptions and consider clear exchange terms."
+          },
+          "directionId": "trader"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_02",
+      "prompt": {
+        "zh": "在历史工艺的普通介绍桌旁，你更想停在哪一处？",
+        "en": "At an ordinary historical-craft introduction table, where would you prefer to pause?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "几种碗杯的轮廓旁，比较开口、底部与使用之间的关系。",
+            "en": "Beside vessel outlines, comparing openings, bases and uses."
+          },
+          "directionId": "potter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个安全的印样展示旁，观察同一版面怎样留下多份记录。",
+            "en": "Beside a safe print display, noticing repeated impressions from one layout."
+          },
+          "directionId": "printer"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一张草图旁，看看几笔线条怎样先安排画面。",
+            "en": "Beside a sketch, exploring how a few lines organise a composition."
+          },
+          "directionId": "drafter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一张历史海图说明旁，比较标记怎样表达海岸和路线。",
+            "en": "Beside a historical sea-chart explanation, comparing coastline and route marks."
+          },
+          "directionId": "chartmaker"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_03",
+      "prompt": {
+        "zh": "为一页历史主题的虚构活动记录选内容，你更想留什么？",
+        "en": "What would you prefer to keep on a page about a fictional historical activity?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个可重复的文字版面，以及哪份是这次印样的说明。",
+            "en": "A repeatable text layout with a note identifying this impression."
+          },
+          "directionId": "printer"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一小段交错图案和它在边缘怎样接续的示意。",
+            "en": "A short interlaced pattern and a diagram of its continuation at an edge."
+          },
+          "directionId": "weaver"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "两方各愿意提供什么、哪些交换条件还没有同意。",
+            "en": "What each side willingly offers and which exchange terms remain unagreed."
+          },
+          "directionId": "trader"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个普通物件或许可材料的细节，分开直接观察与猜测。",
+            "en": "A detail of an ordinary object or permitted material, separating observation from guesses."
+          },
+          "directionId": "naturalist"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_04",
+      "prompt": {
+        "zh": "可以自由挑一个低风险的小样介绍，你更愿意看哪种过程？",
+        "en": "Which low-stakes sample process would you prefer to explore by choice?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "从几种线条交错中，看看重复和变化怎样形成纹样。",
+            "en": "Explore repetition and variation through a few interlacing lines."
+          },
+          "directionId": "weaver"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先试几处轻线，比较它们怎样改变一个小画面的关系。",
+            "en": "Compare how a few light preliminary lines change relationships in a small composition."
+          },
+          "directionId": "drafter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把虚构海岸上的地点放进图里，说明路径和未知处。",
+            "en": "Place fictional coastal points on a diagram, stating routes and uncertainties."
+          },
+          "directionId": "chartmaker"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "为一段自编事件留文字记录，标清谁写和哪些还待核。",
+            "en": "Record an invented event in words, identifying the writer and unverified parts."
+          },
+          "directionId": "scribe"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_05",
+      "prompt": {
+        "zh": "如果做一张历史活动的想象卡，你更想突出什么？",
+        "en": "What would you prefer to emphasise on an imagined historical-activity card?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "线条和位置的不同安排，让同一场景出现几种草图。",
+            "en": "Alternative lines and placements for several sketches of one scene."
+          },
+          "directionId": "drafter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "物品怎样经过自愿交换，到达另一位愿意接收的人。",
+            "en": "How an item reaches another willing person through agreed exchange."
+          },
+          "directionId": "trader"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一处观察细节，以及这次还不能准确命名的部分。",
+            "en": "An observed detail and a part I cannot name accurately yet."
+          },
+          "directionId": "naturalist"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个容器从用途出发的轮廓，不要求成品真的能使用。",
+            "en": "A vessel outline considered through use, without requiring a functional finished object."
+          },
+          "directionId": "potter"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_06",
+      "prompt": {
+        "zh": "看一个虚构历史市集的普通说明，你更愿意追踪什么？",
+        "en": "In an account of a fictional historical market, what would you prefer to follow?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "货物的说明、双方愿意接受的条件与可不成交的空间。",
+            "en": "Goods descriptions, acceptable terms and room for either side to decline."
+          },
+          "directionId": "trader"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "几个已知地点怎样在示意图上联系，哪些距离仍未知。",
+            "en": "Connections among known points on a diagram and distances still unknown."
+          },
+          "directionId": "chartmaker"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一张记录怎样把这次发生的事交代给以后读的人。",
+            "en": "How a written record explains this occasion to a later reader."
+          },
+          "directionId": "scribe"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一份小告示怎样从同一版面重复留下清楚的印样。",
+            "en": "How one notice layout can leave repeated readable impressions."
+          },
+          "directionId": "printer"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_07",
+      "prompt": {
+        "zh": "博物馆式的自选体验有几处普通展示，你更想先看哪里？",
+        "en": "A museum-style optional session offers ordinary displays. Which would you prefer first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "海岸与港口标记的历史图示，看看它怎样传达位置。",
+            "en": "A historical coastline-and-port diagram and how it communicates positions."
+          },
+          "directionId": "chartmaker"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一页细节记录，比较图像、名称与还没确定的部分。",
+            "en": "A detail record comparing an image, name and what remains uncertain."
+          },
+          "directionId": "naturalist"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "几个小容器的形态差异，想象材料和日常用途。",
+            "en": "Differences among small vessels, considering materials and everyday use."
+          },
+          "directionId": "potter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一段纹样的交错方式，看看局部怎样加入整体。",
+            "en": "An interlaced pattern and how one part contributes to the whole."
+          },
+          "directionId": "weaver"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_08",
+      "prompt": {
+        "zh": "为自己保留一份历史主题的小观察，你更想怎样记录？",
+        "en": "How would you prefer to retain a small observation from a history-themed activity?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "画下许可材料的一处细节，旁边注明看见了什么。",
+            "en": "Draw a detail of permitted material and state what was observed."
+          },
+          "directionId": "naturalist"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "写一份简明文字记录，留出时间与内容待核的标记。",
+            "en": "Write a brief record with time and markers for unverified details."
+          },
+          "directionId": "scribe"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "比较同一版面两次出现的印样，标出相同和不同。",
+            "en": "Compare two impressions from one layout and mark similarities and differences."
+          },
+          "directionId": "printer"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "保留几张构图草稿，看看选用哪一处线条安排。",
+            "en": "Keep composition drafts and consider which arrangement of lines to use."
+          },
+          "directionId": "drafter"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_09",
+      "prompt": {
+        "zh": "如果给一段虚构历史日常安排一个小任务，你更想选什么？",
+        "en": "Which small task would you prefer in an imagined historical everyday setting?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把零散事项写成可读的清单，明确哪些是自己编的。",
+            "en": "Turn scattered points into a readable list, stating which were invented."
+          },
+          "directionId": "scribe"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "为一个普通容器比较两种轮廓，先不评价制作水平。",
+            "en": "Compare two outlines of an ordinary vessel without rating making skill."
+          },
+          "directionId": "potter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "设计一小段交错纹样，让重复处和变化处看得清楚。",
+            "en": "Design a short interlaced pattern with visible repeated and varied parts."
+          },
+          "directionId": "weaver"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "为一次虚构物品交换写清介绍和可拒绝的条件。",
+            "en": "State descriptions and rejectable terms for a fictional exchange of objects."
+          },
+          "directionId": "trader"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_10",
+      "prompt": {
+        "zh": "看完一段历史工艺介绍后，你更愿意保留哪种小样？",
+        "en": "After a historical-craft introduction, which sample would you prefer to retain?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个以日常用途说明形态的容器示意，不当真品使用。",
+            "en": "A vessel diagram related to everyday use, without treating it as a real artefact."
+          },
+          "directionId": "potter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一份注明来源与版面的印样说明，方便比较重复出现。",
+            "en": "An impression note identifying its source and layout for comparison."
+          },
+          "directionId": "printer"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "几笔试探的草图，保留尚未决定的画面安排。",
+            "en": "Exploratory sketch lines that retain an undecided composition."
+          },
+          "directionId": "drafter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一张标出已知和未知的路线示意，只作阅读不用于导航。",
+            "en": "A route diagram marking known and unknown points, for reading rather than navigation."
+          },
+          "directionId": "chartmaker"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_11",
+      "prompt": {
+        "zh": "几类许可材料可以做普通纸上体验，你更想怎样使用？",
+        "en": "How would you prefer to use permitted materials in an ordinary paper-based activity?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "排一段自编短文字，比较它在两张纸上的重复呈现。",
+            "en": "Arrange invented text and compare its repeated presentation on two sheets."
+          },
+          "directionId": "printer"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "用纸条表现简单交错，看一处局部怎样与纹样相接。",
+            "en": "Use paper strips for simple interlacing and a pattern connection."
+          },
+          "directionId": "weaver"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "制作两张虚构物品说明卡，比较双方愿意怎样交换。",
+            "en": "Make two fictional goods cards and compare mutually acceptable exchanges."
+          },
+          "directionId": "trader"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "按直接观察画一处普通物件细节，不猜它的隐藏作用。",
+            "en": "Draw an observed object detail without guessing a hidden function."
+          },
+          "directionId": "naturalist"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_12",
+      "prompt": {
+        "zh": "一次历史主题体验中，有一点可以自选调整，你更愿意看什么？",
+        "en": "What would you prefer to adjust by choice in a history-themed session?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一段纹样的交接处，让不同小段怎样连接更容易看见。",
+            "en": "A pattern join that makes connections between sections easier to see."
+          },
+          "directionId": "weaver"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一张草图中物件的位置，试试看画面关系怎样改变。",
+            "en": "Object placement in a sketch and how the composition changes."
+          },
+          "directionId": "drafter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一张虚构海图的地点说明，明确什么有依据、什么未核。",
+            "en": "Location notes on a fictional sea chart, distinguishing grounds from uncertainty."
+          },
+          "directionId": "chartmaker"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一份自编记录的措辞，让以后读者知道事件与来源。",
+            "en": "Wording in an invented record so a later reader can distinguish events and sources."
+          },
+          "directionId": "scribe"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_13",
+      "prompt": {
+        "zh": "为一个普通历史场景写想象说明，你更想从哪种活动展开？",
+        "en": "Which activity would you prefer as the starting point for an imagined historical scene?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先画几种不同构图，让人物或物件的位置关系有变化。",
+            "en": "Sketch alternative compositions with different relationships among figures or objects."
+          },
+          "directionId": "drafter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "说明一次自愿物品交换怎样提出、核对和接受条件。",
+            "en": "Describe offering, checking and accepting terms in a voluntary exchange of objects."
+          },
+          "directionId": "trader"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "从一处许可材料的细节写起，区分观察与暂时解释。",
+            "en": "Start with a permitted material’s detail, separating observation and a tentative account."
+          },
+          "directionId": "naturalist"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "比较容器外形与普通用途，保留几种不同形态。",
+            "en": "Compare vessel shapes with ordinary uses, retaining alternative forms."
+          },
+          "directionId": "potter"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_14",
+      "prompt": {
+        "zh": "在一张历史主题展示页上，你更愿意安排哪一项比较？",
+        "en": "Which comparison would you prefer on a history-themed display page?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "两份物品说明是否清楚交代双方自愿同意的条件。",
+            "en": "Whether goods descriptions clearly state the terms both sides willingly accept."
+          },
+          "directionId": "trader"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "两张历史路线图怎样标位置，以及什么不能从图上判断。",
+            "en": "How route diagrams mark positions and what they cannot establish."
+          },
+          "directionId": "chartmaker"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "两份文字记录各自记下什么，来源和遗漏有什么不同。",
+            "en": "What two written records contain, including sources and omissions."
+          },
+          "directionId": "scribe"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "同一版面留下的两份印样，在重复和差别上怎样相似。",
+            "en": "Similarities and differences between two impressions from one layout."
+          },
+          "directionId": "printer"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_15",
+      "prompt": {
+        "zh": "如果历史体验只保留一个低风险的纸上步骤，你更想做什么？",
+        "en": "If a historical activity keeps only one low-stakes paper step, which would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "为一张虚构海岸图补一处清楚的地点标记，不用于真实出行。",
+            "en": "Add a clear place mark to a fictional coast diagram, not for actual travel."
+          },
+          "directionId": "chartmaker"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "为一个普通物件画一处直接看到的细节，不推断种类或功效。",
+            "en": "Draw an observed object detail without inferring a species or effect."
+          },
+          "directionId": "naturalist"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "画一种小容器轮廓，说明它想回应哪种普通使用需要。",
+            "en": "Draw a small vessel outline and state the ordinary use it considers."
+          },
+          "directionId": "potter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用交错线画一小段纹样，想象局部怎样继续。",
+            "en": "Draw a short interlaced pattern and consider how the part might continue."
+          },
+          "directionId": "weaver"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_16",
+      "prompt": {
+        "zh": "看一份历史活动介绍时，你更想为自己留哪种问题？",
+        "en": "Which question would you prefer to keep while reading about a historical activity?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "哪些细节是直接观察，哪些名称还需要其他证据？",
+            "en": "Which details were observed directly and which names need other evidence?"
+          },
+          "directionId": "naturalist"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "谁写了这份记录，后来的人能从文字中知道多少？",
+            "en": "Who wrote the record and how much can later readers learn from its words?"
+          },
+          "directionId": "scribe"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "这个版面怎样重复出现，不同印样应怎样注明？",
+            "en": "How does the layout recur and how should different impressions be identified?"
+          },
+          "directionId": "printer"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "草稿中哪处线条安排还可以改，不急着定成成品？",
+            "en": "Which arrangement of sketch lines can still change before it becomes a finished piece?"
+          },
+          "directionId": "drafter"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_17",
+      "prompt": {
+        "zh": "一小段虚构历史活动结束，你更愿意怎样留存？",
+        "en": "How would you prefer to retain a short fictional historical activity?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "写一段标注虚构来源的文字，说明内容与尚未确定处。",
+            "en": "Write an account identifying its fictional source, content and uncertainties."
+          },
+          "directionId": "scribe"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "保留一个容器形态示意，附上考虑过的普通用途。",
+            "en": "Keep a vessel-shape diagram with the ordinary uses considered."
+          },
+          "directionId": "potter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "记下纹样交错的接续处，留给以后愿意时再看。",
+            "en": "Note a pattern’s interlacing join for a possible later revisit."
+          },
+          "directionId": "weaver"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "写清物品说明与双方可拒绝的交换条件，不记录真实交易。",
+            "en": "State goods descriptions and rejectable exchange terms without recording a real transaction."
+          },
+          "directionId": "trader"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_18",
+      "prompt": {
+        "zh": "历史展示的普通图示可以自选一张再看，你更愿意选哪张？",
+        "en": "Which ordinary historical-display diagram would you prefer to revisit by choice?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "容器的开口、底部和外形图，比较形态与使用之间的联系。",
+            "en": "Vessel opening, base and outline diagrams relating form and use."
+          },
+          "directionId": "potter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一张文字版面与几份印样，比较重复产生的信息。",
+            "en": "A text layout and impressions, comparing information produced repeatedly."
+          },
+          "directionId": "printer"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "几张准备性草图，比较画面关系怎样逐渐形成。",
+            "en": "Preparatory sketches showing how compositional relationships develop."
+          },
+          "directionId": "drafter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "历史海岸图中的几个标记，辨认地点与路线表达。",
+            "en": "Historical coastal-chart marks expressing places and routes."
+          },
+          "directionId": "chartmaker"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_19",
+      "prompt": {
+        "zh": "为一个自选历史主题设计普通便条，你更想采用哪种做法？",
+        "en": "Which approach would you prefer for an ordinary note on a historical theme you chose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "安排可重复使用的短文字版面，标明哪次做出的印样。",
+            "en": "Arrange a reusable short-text layout and identify each impression’s occasion."
+          },
+          "directionId": "printer"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让几条交错线形成纹样，说明局部怎样接入整体。",
+            "en": "Make a pattern with interlacing lines and state how a part joins the whole."
+          },
+          "directionId": "weaver"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "比较双方愿意交换的虚构物品，给不同条件留位置。",
+            "en": "Compare fictional objects for willing exchange and leave room for different terms."
+          },
+          "directionId": "trader"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "直接记录一个许可物件的形态细节，不编隐藏性质。",
+            "en": "Record a permitted object’s visible detail without inventing hidden properties."
+          },
+          "directionId": "naturalist"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_20",
+      "prompt": {
+        "zh": "一个普通历史主题小样可以重新安排，你更想调整哪里？",
+        "en": "Where would you prefer to revise an ordinary history-themed sample?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "纹样中的重复和间隔，看看一段怎样与另一段相接。",
+            "en": "Repetition and spacing in a pattern, considering joins between sections."
+          },
+          "directionId": "weaver"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "草图里的轻重线和位置，比较另一种构图可能。",
+            "en": "Line weight and placement in a sketch, considering another composition."
+          },
+          "directionId": "drafter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "海图示意的标签，让已知地点和不确定处更清楚。",
+            "en": "Labels on a sea-chart diagram so known points and uncertainties are clear."
+          },
+          "directionId": "chartmaker"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "文字清单的用词，让后来读者分清事实与自编部分。",
+            "en": "Words in a list so later readers can distinguish facts from invented content."
+          },
+          "directionId": "scribe"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_21",
+      "prompt": {
+        "zh": "给一份想象性的历史活动记录作最后一处选择，你更想保留什么？",
+        "en": "What would you prefer as a final choice in an imagined historical-activity record?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "几笔尚可修改的构图，而不是要求自己立刻画好。",
+            "en": "Revisable compositional lines without requiring an immediately good drawing."
+          },
+          "directionId": "drafter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一处经双方自愿同意的虚构交换说明，而不是强行成交。",
+            "en": "A fictional exchange statement both sides willingly accept, without forcing a deal."
+          },
+          "directionId": "trader"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一处可再次核对的普通观察，而不是需要证明直觉。",
+            "en": "An ordinary observation that can be checked again, without proving intuition."
+          },
+          "directionId": "naturalist"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一项关于容器形态与用途的想法，而不是认证制作能力。",
+            "en": "An idea relating vessel form and use, without certifying making skill."
+          },
+          "directionId": "potter"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_22",
+      "prompt": {
+        "zh": "如果给这次历史主题体验留一个“以后再看”的入口，你更愿意选什么？",
+        "en": "Which entry would you prefer for revisiting this history-themed session later?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把虚构货物说明和自愿交换条件留在同一张卡上。",
+            "en": "Keep fictional goods descriptions and voluntary exchange terms on one card."
+          },
+          "directionId": "trader"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "为一张历史路线示意注明来源、范围与未核部分。",
+            "en": "Identify the source, scope and uncertainties of a historical-route diagram."
+          },
+          "directionId": "chartmaker"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "保留一段文字记录，说明写下的时间、内容与出处。",
+            "en": "Keep a written account identifying its time, content and source."
+          },
+          "directionId": "scribe"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "留一份版面和印样的对照，方便以后比较重复。",
+            "en": "Keep a layout–impression comparison for later consideration of repetition."
+          },
+          "directionId": "printer"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_23",
+      "prompt": {
+        "zh": "看过几类普通历史活动后，你更想回到哪一处细节？",
+        "en": "After exploring ordinary historical activities, which detail would you prefer to revisit?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "图上地点如何相连，以及图示不能替代哪些实际信息。",
+            "en": "Connections among mapped points and information a diagram cannot replace."
+          },
+          "directionId": "chartmaker"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "观察记录中形态与标签的关系，哪些还需谨慎确认。",
+            "en": "The relationship between observed form and labels that still need checking."
+          },
+          "directionId": "naturalist"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一个容器的轮廓和使用设想，不把想象当实物试验。",
+            "en": "A vessel’s outline and proposed use, without treating imagination as a physical test."
+          },
+          "directionId": "potter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一段交错纹样的形成方式，不以完成好坏判断自己。",
+            "en": "How an interlaced pattern forms, without judging myself by its execution."
+          },
+          "directionId": "weaver"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_24",
+      "prompt": {
+        "zh": "结束这份历史活动偏好选择，你更愿意带走哪种纸上记录？",
+        "en": "At the end of these historical-activity choices, which paper record would you prefer to take away?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一处直接看到的细节和一个尚不确定的名称。",
+            "en": "A directly observed detail and an uncertain name."
+          },
+          "directionId": "naturalist"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一份把文字、来源和遗漏分开的简明清单。",
+            "en": "A brief list distinguishing words, sources and omissions."
+          },
+          "directionId": "scribe"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一个版面与多份印样之间的可读比较。",
+            "en": "A readable comparison between one layout and its impressions."
+          },
+          "directionId": "printer"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一组能看出变化过程的构图草稿。",
+            "en": "Composition drafts that show how arrangements changed."
+          },
+          "directionId": "drafter"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "scribe",
+      "directionIds": [
+        "scribe"
+      ],
+      "title": {
+        "zh": "古埃及书吏意象：文字留存",
+        "en": "Egyptian Scribe Image: Keeping a Record"
+      },
+      "headline": {
+        "zh": "一种当前活动偏好的历史角色意象，不是真实前世或技能判断。",
+        "en": "A historical-role image for a current activity preference, not an actual former life or skill verdict."
+      },
+      "summary": {
+        "zh": "从一份虚构清单看文字留存，区分历史背景、当前活动偏好与真实身份。完整例子不认证前世、识字能力、智慧或职责。",
+        "en": "Explore record keeping through a fictional list, separating history, current preference and identity. Full examples certify no former life, literacy or wisdom."
+      },
+      "scoreReading": {
+        "zh": "24题全部各选一项，对应活动意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些活动选项中的相对选择，不是前世概率、灵魂比例、实际技能或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二角色或强造混合身份。相差一次只是一项选择，不证明显著差异、某种品质消失或真实人生归属。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有角色或科学分界。",
+        "en": "Choose one option for all 24 questions; each adds one to its activity image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative activity choices, not former-life probabilities, soul proportions, actual skills or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second role or mixed identity. A one-choice gap proves neither significance, absent qualities nor a real life affiliation. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare roles or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "书吏前世意象结果：文字留存与完整说明",
+          "en": "Egyptian Scribe Past Life Result: Full Symbolic Guide"
+        },
+        "description": {
+          "zh": "从一份虚构清单看文字留存，区分历史背景、当前活动偏好与真实身份。完整例子不认证前世、识字能力、智慧或职责。",
+          "en": "Explore the Scribe image through a fictional list, historical context and comparisons. A full guide without claiming a former identity, literacy or wisdom."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "历史背景与本版角色意象",
+            "en": "Historical context and this edition’s role image"
+          },
+          "paragraphs": [
+            {
+              "zh": "Met的纸莎草背景文说明古埃及有书吏用墨在纸莎草上书写；这是历史材料与活动事实，不是所有埃及人的性格。本版选“文字留存”作书吏角色意象，比较现在是否愿意把事情写成可读记录，不认定你曾在古埃及生活、拥有某种身份或继承知识。",
+              "en": "The Met’s papyrus essay describes scribes writing in ink on papyrus in ancient Egypt. This is background about materials and activity, not the personality of Egyptian people. This edition selects keeping a record as a scribe image, comparing current interest in readable written accounts. It establishes no residence in ancient Egypt, former identity or knowledge inherited from another life."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数怎样联系当前兴趣",
+            "en": "Reading counts through current interests"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选文字、清单、出处或给后来读者留说明的活动。可以问：自己想保留什么，哪些是直接记录、哪些是编写，读者还需要哪些条件？较少选择可能更想看器物或图像，不说明不认真、没有记忆或缺少学问；问卷没有核查书写和理解能力。",
+              "en": "A highest count means you more often chose words, lists, sources or explanations for later readers. What do you want to retain, which parts were recorded or invented and what conditions would readers need? Fewer choices may reflect vessels or images rather than carelessness, poor memory or little learning. Writing and comprehension skills are not checked by the questionnaire."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个普通低风险例子",
+            "en": "An ordinary low-stakes example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你想象一次历史主题体验中的书吏角色，为自编物品表写下“两个纸盒、一卷纸”，并注明这是现代虚构练习。可以再添时间或一处未知，不用模仿古代文字，也不把便条当文物。例子只对应整理文字的兴趣，不证明能胜任古代或现代记录工作。",
+              "en": "Imagine a scribe role in a history-themed session and list two paper boxes and a paper roll, clearly identifying a modern fictional exercise. Add a time or uncertainty if desired. You need not imitate an ancient script or treat the note as an artefact. The example concerns interest in written organisation, not qualification for an ancient or contemporary recording job."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想把这次编写的内容留成文字，这里是来源，这里还没确定。”若涉及共同活动，先确认哪些内容可以记录和分享；私人信息不用因为扮演书吏就写下。别人可以选择图示或口头说明，不需要遵循自己的记录方式，也不因拒绝留记录而被评为不可靠。",
+              "en": "You might say, “I’d like to keep this invented material in writing; here is its source and here is what remains uncertain.” Check what may be recorded or shared in a joint activity rather than writing private information for a role. Others may prefer diagrams or speech without following your format or being judged unreliable for declining a record."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他七类活动比较",
+            "en": "Comparisons with the other seven activities"
+          },
+          "paragraphs": [
+            {
+              "zh": "书吏意象偏文字留存，宋代印工意象偏版面重复，海图师意象偏位置与路径，三者都可承载信息但活动不同。陶工看器物形态、织工看交错、画坊看构图、商旅看交换、博物记录看观察标注。这些不是阶层或才智排序，书吏也不换成荣格智者、MBTI、职业或真实前世。",
+              "en": "The Scribe image concerns written retention, Song Printer repeated layouts and Chartmaker places and routes. All can carry information through different activities. Potter concerns vessel form, Weaver interlacing, Workshop composition, Trader exchange and Natural-History observation with labels. These form no class or intelligence ranking, and Scribe cannot convert into Jungian Sage, MBTI, a career or an actual former life."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与真实经历、技能",
+            "en": "Counterexamples, actual experience and skill"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，整理清单可能来自工作要求，而不是本人愿意；不爱写字的人也可能妥善记录。问卷不验证历史记忆、识字、行政、诚实、智慧或责任感，不授予古代身份。历史生活有具体权利、资源和限制，本版小活动不还原整个社会，也不把权力或身份差异解释成今天的人格高低。",
+              "en": "A list may be required at work rather than preferred, while someone who dislikes writing can still keep records well. Historical memory, literacy, administration, honesty, wisdom and responsibility are not verified. A role grants no ancient identity. Historical lives involved particular rights, resources and restrictions; a small activity reconstructs no whole society or hierarchy of present-day personality from past status differences."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：为一个原本想保留的普通事项，写一句内容、一项来源和一处未知，或只比较自己愿意怎样记录。可以删掉，不必分享。观察是否喜欢这次文字活动，不练习恢复前世记忆，不以字迹、准确性或熟悉感推断过去身份、天赋或现实工作能力。",
+              "en": "For an optional observation, take an ordinary matter you already want to retain and note its content, a source and an uncertainty, or simply consider your preferred format. Delete it or keep it private. Notice interest in this writing activity without recovering former-life memories or using handwriting, accuracy or familiarity to infer past identity, talent or real work capability."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题相对计数与全部最高并列",
+            "en": "24-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24题全部各选一项，对应活动意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些活动选项中的相对选择，不是前世概率、灵魂比例、实际技能或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二角色或强造混合身份。相差一次只是一项选择，不证明显著差异、某种品质消失或真实人生归属。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有角色或科学分界。",
+              "en": "Choose one option for all 24 questions; each adds one to its activity image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative activity choices, not former-life probabilities, soul proportions, actual skills or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second role or mixed identity. A one-choice gap proves neither significance, absent qualities nor a real life affiliation. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare roles or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、背景来源与边界",
+            "en": "Original edition, background sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的历史活动偏好想象问卷，前世一词用于可选择的角色意象，不寻找真实过去身份、灵魂、记忆、生日、血缘、民族、宗教、性别或阶层。Met、Asian Art Museum、Getty、Viking Ship Museum、Royal Museums Greenwich和Natural History Museum仅核对选定器物与活动背景，不为本站选择映射、计分或心理效度提供验证。历史背景不等于整个时代或文化的性格，也不正当化强制、奴役、殖民或不平等。本版24题、选项、解释、情境、例子和计数规则均为原创，没有采用JobCannon12题、竞品结果正文／代码／算法、馆藏艺术图、受保护译文或现代人物类型归属。它不作回溯、暗示记忆、诊断或治疗，不解释恐惧和创伤，不认证智慧、天赋、技能、道德、健康或职业，也不转换荣格原型、MBTI或其他人格结果；没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind historical-activity imagination quiz. Past life labels optional role images rather than identifying an actual former life, soul, memory, birthday, ancestry, ethnicity, religion, gender or class. The Met, Asian Art Museum, Getty, Viking Ship Museum, Royal Museums Greenwich and Natural History Museum check selected object and activity backgrounds without validating this mapping, counts or psychology. Context establishes no personality of a whole period or culture and justifies no coercion, enslavement, colonialism or inequality. All 24 items, options, explanations, scenes, examples and rules are original. No JobCannon 12-item bank, competitor result text, code, algorithm, museum art image, protected translation or modern-person type assignment is used. This is neither regression, memory suggestion, diagnosis nor treatment, explains no fear or trauma and certifies no wisdom, talent, skill, morality, health or career. It converts into no Jungian, MBTI or other personality result and has no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "potter",
+      "directionIds": [
+        "potter"
+      ],
+      "title": {
+        "zh": "罗马陶工意象：器物形态与用途",
+        "en": "Roman Potter Image: Vessel Form and Use"
+      },
+      "headline": {
+        "zh": "一种当前活动偏好的历史角色意象，不是真实前世或技能判断。",
+        "en": "A historical-role image for a current activity preference, not an actual former life or skill verdict."
+      },
+      "summary": {
+        "zh": "通过纸上容器示意看形态与用途，含历史器物背景、对话与其他角色比较；不认证前世、手艺、耐心或现代职业适配。",
+        "en": "Consider form and use through a paper vessel diagram, historical context and comparisons. No former identity, craft skill, patience or career fit is certified."
+      },
+      "scoreReading": {
+        "zh": "24题全部各选一项，对应活动意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些活动选项中的相对选择，不是前世概率、灵魂比例、实际技能或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二角色或强造混合身份。相差一次只是一项选择，不证明显著差异、某种品质消失或真实人生归属。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有角色或科学分界。",
+        "en": "Choose one option for all 24 questions; each adds one to its activity image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative activity choices, not former-life probabilities, soul proportions, actual skills or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second role or mixed identity. A one-choice gap proves neither significance, absent qualities nor a real life affiliation. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare roles or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "陶工前世意象结果：器物形态与完整说明",
+          "en": "Roman Potter Past Life Result: Full Symbolic Guide"
+        },
+        "description": {
+          "zh": "通过纸上容器示意看形态与用途，含历史器物背景、对话与其他角色比较；不认证前世、手艺、耐心或现代职业适配。",
+          "en": "Read the Potter image through vessel form, a paper example and comparisons. No actual former life, craft skill, patience or career fit is certified."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "历史背景与本版角色意象",
+            "en": "Historical context and this edition’s role image"
+          },
+          "paragraphs": [
+            {
+              "zh": "Met藏品250088记录一件公元一世纪前半的罗马陶碗，说明其材质、釉色与陶工印记；一件器物不代表所有罗马人的生活。本版从普通器物的形态与用途选取陶工意象，比较现在愿意看什么，不认定过去身份、出生地、社会地位或真实制作技术。",
+              "en": "The Met’s object record 250088 describes a Roman terracotta bowl from the first half of the first century CE, including material, glaze and a potter’s stamp. One vessel represents no entire population’s life. This edition selects a Potter image through ordinary form and use, comparing current interest without establishing former identity, birthplace, social status or actual manufacturing technique."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数怎样联系当前兴趣",
+            "en": "Reading counts through current interests"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选比较轮廓、开口、底部与日常使用之间的关系。可以问：想回应哪种使用需要，纸上设想与实物还有什么差别，愿意只看不做吗？较少选择可能因为更喜欢文字或路线，不说明不踏实、缺少耐心或动手差；本卷没有实际制作和使用试验。",
+              "en": "A highest count means you more often chose relationships among outlines, openings, bases and everyday use. Which use do you want to consider, how does a paper proposal differ from an object and would you rather only look? Fewer choices may reflect words or routes rather than impracticality, impatience or poor manual skill. No making or usability trial is performed."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个普通低风险例子",
+            "en": "An ordinary low-stakes example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你在普通纸上画两种装干净回形针的小杯轮廓，注明只是想象，不制造食品容器或操作窑炉。可以比较哪种开口更方便看见里面，记录一个不确定处。形态是否真有用还需要合适实物条件另行判断，不因像古代器物就证明性能或前世熟悉感。",
+              "en": "Draw two small cup outlines for clean paper clips on ordinary paper, marking them as imagined rather than making food vessels or operating a kiln. Compare how an opening might reveal contents and note an uncertainty. Actual usefulness requires separate appropriate physical conditions. Resemblance to an ancient vessel proves neither performance nor familiarity carried from a previous life."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想先比较这个形状可能怎样使用，现在只是纸上设想。”若别人更关心图案或文字，允许保留不同兴趣，不必说服大家这个形态更好。停止、修改或不制作都可以，陶工意象不要求长期练手艺、买设备，或为了符合标签证明自己有耐心。",
+              "en": "You could say, “I’d like to compare how this shape might be used; it is only a paper proposal now.” Others may care about pattern or text without needing to accept one form as better. Stop, revise or make nothing. A Potter image creates no duty to practise indefinitely, buy equipment or demonstrate patience to live up to the label."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他七类活动比较",
+            "en": "Comparisons with the other seven activities"
+          },
+          "paragraphs": [
+            {
+              "zh": "陶工意象偏器物形态，织工意象偏交错纹样，画坊意象偏线条构图；都涉及材料，但不等于一种能力。书吏偏文字、印工偏重复、商旅偏交换、海图师偏路径、博物记录偏观察标注。名单不分文明高低、身份尊卑或职业潜力，也不把陶工换成气质、DISC或MBTI。",
+              "en": "Potter concerns vessel form, Weaver interlaced patterns and Workshop lines and composition. Shared material interests establish no single ability. Scribe concerns text, Printer repetition, Trader exchange, Chartmaker routes and Natural-History observation and labels. This list ranks neither civilisations, status nor career potential. A Potter image cannot convert into Temperament, DISC or MBTI through a similar preference or label."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与真实经历、技能",
+            "en": "Counterexamples, actual experience and skill"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，关心容器形状可能因为已有使用难题，而不是喜欢工艺；兴趣少也不妨碍熟练制作。问卷没有评估手艺、耐心、工程、审美或质量，不授予工匠资格。罗马陶器有不同产地、用途与制作条件，本站角色意象不概括整个时代，也不把古代劳动条件当现代行为要求。",
+              "en": "Interest in vessel shape may come from a practical problem rather than craft preference; little interest need not prevent skilled making. Craft, patience, engineering, aesthetics and quality are not assessed, and no artisan qualification is awarded. Roman pottery involved varied origins, uses and production conditions. An editorial image describes no whole period or requirement to reproduce historical working conditions today."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：为一个已经熟悉、无需实际改造的普通容器，画一处轮廓和它可能回应的用途，另写一项尚未检验。可以只观察，不必制陶或购买材料。记录兴趣而非技能，不把纸上顺手、物件偏爱或陌生时代的吸引力当作前世证据、天赋或职业方向。",
+              "en": "If useful, choose a familiar ordinary vessel needing no alteration. Draw an outline, note a possible use and identify something untested. Only look if preferred, without pottery making or buying materials. Record interest rather than skill, and treat neither easy drawing, liking an object nor attraction to an unfamiliar era as evidence of a former life, talent or career direction."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题相对计数与全部最高并列",
+            "en": "24-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24题全部各选一项，对应活动意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些活动选项中的相对选择，不是前世概率、灵魂比例、实际技能或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二角色或强造混合身份。相差一次只是一项选择，不证明显著差异、某种品质消失或真实人生归属。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有角色或科学分界。",
+              "en": "Choose one option for all 24 questions; each adds one to its activity image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative activity choices, not former-life probabilities, soul proportions, actual skills or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second role or mixed identity. A one-choice gap proves neither significance, absent qualities nor a real life affiliation. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare roles or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、背景来源与边界",
+            "en": "Original edition, background sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的历史活动偏好想象问卷，前世一词用于可选择的角色意象，不寻找真实过去身份、灵魂、记忆、生日、血缘、民族、宗教、性别或阶层。Met、Asian Art Museum、Getty、Viking Ship Museum、Royal Museums Greenwich和Natural History Museum仅核对选定器物与活动背景，不为本站选择映射、计分或心理效度提供验证。历史背景不等于整个时代或文化的性格，也不正当化强制、奴役、殖民或不平等。本版24题、选项、解释、情境、例子和计数规则均为原创，没有采用JobCannon12题、竞品结果正文／代码／算法、馆藏艺术图、受保护译文或现代人物类型归属。它不作回溯、暗示记忆、诊断或治疗，不解释恐惧和创伤，不认证智慧、天赋、技能、道德、健康或职业，也不转换荣格原型、MBTI或其他人格结果；没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind historical-activity imagination quiz. Past life labels optional role images rather than identifying an actual former life, soul, memory, birthday, ancestry, ethnicity, religion, gender or class. The Met, Asian Art Museum, Getty, Viking Ship Museum, Royal Museums Greenwich and Natural History Museum check selected object and activity backgrounds without validating this mapping, counts or psychology. Context establishes no personality of a whole period or culture and justifies no coercion, enslavement, colonialism or inequality. All 24 items, options, explanations, scenes, examples and rules are original. No JobCannon 12-item bank, competitor result text, code, algorithm, museum art image, protected translation or modern-person type assignment is used. This is neither regression, memory suggestion, diagnosis nor treatment, explains no fear or trauma and certifies no wisdom, talent, skill, morality, health or career. It converts into no Jungian, MBTI or other personality result and has no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "printer",
+      "directionIds": [
+        "printer"
+      ],
+      "title": {
+        "zh": "宋代印工意象：版面与重复印样",
+        "en": "Song Printer Image: Layouts and Impressions"
+      },
+      "headline": {
+        "zh": "一种当前活动偏好的历史角色意象，不是真实前世或技能判断。",
+        "en": "A historical-role image for a current activity preference, not an actual former life or skill verdict."
+      },
+      "summary": {
+        "zh": "通过自编版面与两份印样比较重复呈现，区分宋代印刷背景和当前偏好；不认证真实前世、文化身份、准确性或职业。",
+        "en": "Compare a personal layout and two impressions, separating Song printing history from present preference. No former life, cultural identity or accuracy is certified."
+      },
+      "scoreReading": {
+        "zh": "24题全部各选一项，对应活动意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些活动选项中的相对选择，不是前世概率、灵魂比例、实际技能或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二角色或强造混合身份。相差一次只是一项选择，不证明显著差异、某种品质消失或真实人生归属。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有角色或科学分界。",
+        "en": "Choose one option for all 24 questions; each adds one to its activity image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative activity choices, not former-life probabilities, soul proportions, actual skills or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second role or mixed identity. A one-choice gap proves neither significance, absent qualities nor a real life affiliation. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare roles or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "印工前世意象结果：版面印样与完整说明",
+          "en": "Song Printer Past Life Result: Full Symbolic Guide"
+        },
+        "description": {
+          "zh": "通过自编版面与两份印样比较重复呈现，区分宋代印刷背景和当前偏好；不认证真实前世、文化身份、准确性或职业。",
+          "en": "Explore the Printer image through layouts, impressions and a paper comparison. Full context without former-life, cultural-identity or accuracy claims."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "历史背景与本版角色意象",
+            "en": "Historical context and this edition’s role image"
+          },
+          "paragraphs": [
+            {
+              "zh": "Asian Art Museum的背景文介绍唐宋雕版与宋代活字，涉及版面、纸张及重复印制。本版选取“版面与重复印样”作宋代印工意象，不把一种技术当整个时代或人群的性格，也不认定你曾是印工。历史来源只说明背景，不为本站选择、计数或心理解释提供验证。",
+              "en": "The Asian Art Museum’s account describes Tang–Song woodblock printing and Song movable type, including layouts, paper and repeated impressions. This edition selects layouts and impressions for a Song Printer image, without making a technology the personality of a whole period or people, or identifying you as a former printer. Historical context validates neither this quiz’s choices, counts nor psychological interpretation."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数怎样联系当前兴趣",
+            "en": "Reading counts through current interests"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选同一版面的重复出现、印样之间的比较，或给每份留下清楚说明。可以问：想保留什么相同，允许哪处不同，来源和次数是否需要注明？较少选择可能是更想看单件器物或自由草图，不说明粗心、不爱传播知识或缺少秩序；问卷不测实际质量。",
+              "en": "A highest count means you more often chose repeated layouts, comparisons between impressions or readable identification of each copy. What should remain the same, where can variation appear and should sources or occasions be marked? Fewer choices may reflect individual vessels or open sketches rather than carelessness, disinterest in knowledge or poor order. The questionnaire does not measure actual quality."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个普通低风险例子",
+            "en": "An ordinary low-stakes example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你把自己写的一句普通问候排在纸上，用复制或手写方式得到两张示意，标明它们来自同一自编版面。可以比较位置、间隔和出现的差别，不操作刀具、印刷设备或化学材料。示例是现代纸上观察，不声称复原宋代工艺，也不从熟悉感推出前世或传承。",
+              "en": "Arrange a greeting you wrote yourself on paper and make two diagrams by copying or handwriting, identifying their shared invented layout. Compare position, spacing and variation without blades, printing equipment or chemical materials. This is a modern paper observation rather than a reconstruction of Song technique. Familiarity with it establishes neither a former life nor inherited knowledge of an actual craft."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“这两张来自同一个版面，我想比较哪些地方重复、哪些发生了变化。”涉及别人的文字或作品时，先确认可使用与署名条件，不因为称作印工就擅自复制。也可以只看不做，或把差别保留下来；角色不要求反复追求一致、无限校对或替别人保证准确。",
+              "en": "You might say, “These come from one layout, and I’d like to compare repetition and variation.” Check permission and attribution for others’ text or work rather than copying because of a role. Only look, make nothing or retain differences if preferred. The image demands neither endless consistency, unlimited proofreading nor responsibility for guaranteeing another person’s accuracy or understanding."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他七类活动比较",
+            "en": "Comparisons with the other seven activities"
+          },
+          "paragraphs": [
+            {
+              "zh": "印工意象偏一版多次，书吏偏文字记录，画坊偏未定的线条构图；印样可由草稿发展，但不是同一种选择。陶工看器物、织工看交错、商旅看交换、海图师看路径、博物记录看观察标注。它们不分先进落后或文化高低，也不换算荣格原型、MBTI、学习类型或职业资格。",
+              "en": "Printer concerns one layout appearing repeatedly, Scribe a written record and Workshop an undecided composition. A print can develop from a draft without making those choices equivalent. Potter concerns vessels, Weaver interlacing, Trader exchange, Chartmaker routes and Natural-History observed labels. These rank neither advancement nor cultures and convert into no Jungian archetype, MBTI, learning type or occupational qualification."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与真实经历、技能",
+            "en": "Counterexamples, actual experience and skill"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，使用固定版面可能只是软件默认或工作要求，不代表偏好；喜欢变化也不妨碍做好重复任务。问卷不测试印刷、细心、历史知识、识字或传播效果，没有准确率和工艺等级。宋代技术和劳动有具体条件，本版有限纸上活动不能代替专业历史学习，也不要求照搬古代限制。",
+              "en": "A fixed layout may be a software default or work requirement rather than preference; enjoying variation need not prevent good repeated work. Printing, care, historical knowledge, literacy and dissemination outcomes are not tested, with no accuracy rate or craft rank. Song techniques and labour involved specific conditions. A limited paper activity replaces no historical study or requirement to adopt past restrictions."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：对自己已经写好、可自由使用的一句文字，设一个版面并保留两份示意，注明重复与不同的一处；也可以只比较已有自有材料。观察是否喜欢这次版面活动，不按一致程度评判价值，不恢复前世记忆，不把结果当精细能力、文化身份或工作选择的证明。",
+              "en": "If useful, take a sentence you wrote and may use freely, set a layout and retain two diagrams with one repetition and one difference marked. Compare existing material of your own instead if preferred. Notice interest in this layout activity without judging worth by consistency, recovering past memories or certifying precision, cultural identity or a suitable choice of work."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题相对计数与全部最高并列",
+            "en": "24-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24题全部各选一项，对应活动意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些活动选项中的相对选择，不是前世概率、灵魂比例、实际技能或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二角色或强造混合身份。相差一次只是一项选择，不证明显著差异、某种品质消失或真实人生归属。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有角色或科学分界。",
+              "en": "Choose one option for all 24 questions; each adds one to its activity image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative activity choices, not former-life probabilities, soul proportions, actual skills or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second role or mixed identity. A one-choice gap proves neither significance, absent qualities nor a real life affiliation. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare roles or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、背景来源与边界",
+            "en": "Original edition, background sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的历史活动偏好想象问卷，前世一词用于可选择的角色意象，不寻找真实过去身份、灵魂、记忆、生日、血缘、民族、宗教、性别或阶层。Met、Asian Art Museum、Getty、Viking Ship Museum、Royal Museums Greenwich和Natural History Museum仅核对选定器物与活动背景，不为本站选择映射、计分或心理效度提供验证。历史背景不等于整个时代或文化的性格，也不正当化强制、奴役、殖民或不平等。本版24题、选项、解释、情境、例子和计数规则均为原创，没有采用JobCannon12题、竞品结果正文／代码／算法、馆藏艺术图、受保护译文或现代人物类型归属。它不作回溯、暗示记忆、诊断或治疗，不解释恐惧和创伤，不认证智慧、天赋、技能、道德、健康或职业，也不转换荣格原型、MBTI或其他人格结果；没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind historical-activity imagination quiz. Past life labels optional role images rather than identifying an actual former life, soul, memory, birthday, ancestry, ethnicity, religion, gender or class. The Met, Asian Art Museum, Getty, Viking Ship Museum, Royal Museums Greenwich and Natural History Museum check selected object and activity backgrounds without validating this mapping, counts or psychology. Context establishes no personality of a whole period or culture and justifies no coercion, enslavement, colonialism or inequality. All 24 items, options, explanations, scenes, examples and rules are original. No JobCannon 12-item bank, competitor result text, code, algorithm, museum art image, protected translation or modern-person type assignment is used. This is neither regression, memory suggestion, diagnosis nor treatment, explains no fear or trauma and certifies no wisdom, talent, skill, morality, health or career. It converts into no Jungian, MBTI or other personality result and has no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "weaver",
+      "directionIds": [
+        "weaver"
+      ],
+      "title": {
+        "zh": "中世纪晚期织工意象：交错与纹样",
+        "en": "Late-Medieval Weaver Image: Interlacing Patterns"
+      },
+      "headline": {
+        "zh": "一种当前活动偏好的历史角色意象，不是真实前世或技能判断。",
+        "en": "A historical-role image for a current activity preference, not an actual former life or skill verdict."
+      },
+      "summary": {
+        "zh": "从交错纸条看局部怎样加入纹样，附历史织造背景、表达与比较；不认证前世、手艺、耐力、道德或性别角色。",
+        "en": "Explore how a part joins a pattern through interlaced paper, historical context and comparisons. No former identity, craft, endurance or gender role is certified."
+      },
+      "scoreReading": {
+        "zh": "24题全部各选一项，对应活动意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些活动选项中的相对选择，不是前世概率、灵魂比例、实际技能或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二角色或强造混合身份。相差一次只是一项选择，不证明显著差异、某种品质消失或真实人生归属。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有角色或科学分界。",
+        "en": "Choose one option for all 24 questions; each adds one to its activity image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative activity choices, not former-life probabilities, soul proportions, actual skills or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second role or mixed identity. A one-choice gap proves neither significance, absent qualities nor a real life affiliation. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare roles or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "织工前世意象结果：交错纹样与完整说明",
+          "en": "Weaver Past Life Result: Patterns and Full Guide"
+        },
+        "description": {
+          "zh": "从交错纸条看局部怎样加入纹样，附历史织造背景、表达与比较；不认证前世、手艺、耐力、道德或性别角色。",
+          "en": "Read the Weaver image through interlacing, paper patterns and comparisons. A complete guide without claims of former identity, endurance or craft skill."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "历史背景与本版角色意象",
+            "en": "Historical context and this edition’s role image"
+          },
+          "paragraphs": [
+            {
+              "zh": "Met介绍中世纪晚期及文艺复兴欧洲挂毯如何由经纬线交错、参照设计稿并通过多人劳动制作。本版取“交错与纹样”作织工意象，特别指这一选定背景，不概括所有纺织文化。愿意看图案不说明曾生活在低地国家、从事织造或具有某种性别和社会身份。",
+              "en": "The Met describes late-medieval and Renaissance European tapestry through warp–weft interlacing, designs and collaborative labour. This edition selects interlacing patterns for a Weaver image in that particular context, not all textile cultures. Interest in a pattern establishes no former residence in the Low Countries, weaving occupation, gender or social identity. It concerns an activity you choose to consider now."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数怎样联系当前兴趣",
+            "en": "Reading counts through current interests"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选交错、重复间隔或一处局部怎样接入整体的活动。可以问：想看哪条线怎样经过，哪处变化有意思，是否只想观察而不制作？较少选择可能更想看文字或器物，不说明没有耐心、不擅合作或不能坚持；题目没有检查实际编织、手部操作或长期投入。",
+              "en": "A highest count means you more often chose interlacing, repeated spacing or how a part joins a whole. Which line’s path interests you, where is variation appealing and would you rather only observe? Fewer choices may reflect words or vessels rather than impatience, poor cooperation or absent persistence. Actual weaving, manual action and sustained effort are not checked by these questions."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个普通低风险例子",
+            "en": "An ordinary low-stakes example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你在普通纸上画几条交错线，或用许可的宽纸条表现一个简单纹样，留一处不同间隔作比较。不必使用织机、针具或复制馆藏图案，也不要求做成精细成品。它是现代低风险示意，不复原整套历史劳动，更不以顺手或陌生来判断是否有前世经验。",
+              "en": "Draw interlacing lines or use permitted broad paper strips for a simple pattern, leaving a different spacing to compare. No loom, needle or museum design needs to be used, and a refined object is unnecessary. This is a modern low-stakes diagram rather than a reconstruction of historical labour. Ease or unfamiliarity establishes no experience carried from an actual previous life."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想看看这一小段怎样交错进去，现在只做一个示意，随时可以停。”若共同制作，先确认各自愿意做哪部分，不按角色把重复劳动交给某个人。可以让线条不同、修改图案或放弃；织工意象不要求替大家收尾、承担长期维护，或证明自己足够细致。",
+              "en": "You could say, “I’d like to see how this part interlaces. It is only a diagram and I can stop.” In joint making, confirm willing contributions rather than assigning repetitive labour to someone because of a role. Vary lines, revise or abandon it. The image requires neither finishing for everyone, ongoing maintenance nor proof that you are sufficiently careful."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他七类活动比较",
+            "en": "Comparisons with the other seven activities"
+          },
+          "paragraphs": [
+            {
+              "zh": "织工意象偏线条交错与纹样，印工偏版面重复，画坊偏构图，陶工偏器物形态；重复出现不代表同一工艺或心理品质。书吏看文字、商旅看交换、海图师看位置路径、博物记录看观察标注。八种可以并列，不把织工等同照顾者、依附、道德或适合某种工作。",
+              "en": "Weaver concerns interlacing and pattern, Printer repeated layouts, Workshop composition and Potter vessel form. Repetition establishes neither the same craft nor a psychological quality. Scribe concerns words, Trader exchange, Chartmaker places and routes, and Natural-History observed labels. Images may tie without turning Weaver into a caregiver identity, dependence, morality or suitability for a particular job through a loose association."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与真实经历、技能",
+            "en": "Counterexamples, actual experience and skill"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，选择纹样可能因为材料容易取得、学校安排或刚见过展览，不一定是稳定偏好；兴趣少也不意味着做不好。问卷不测手艺、耐力、服从、合作或审美，不授予工匠资格。历史挂毯有劳动、资源和权利差异，本版不浪漫化这些条件，也不要求今天任何性别承担相应职责。",
+              "en": "Choosing a pattern may reflect accessible material, a school activity or a recent exhibition rather than stable preference; low interest does not imply poor execution. Craft, endurance, obedience, cooperation and aesthetics are not tested, and no artisan qualification is awarded. Historical tapestry involved differences in labour, resources and rights that this image neither romanticises nor assigns to any present-day gender."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：对一个自编的简单纹样，标一处交错、一处间隔变化，说明自己愿意继续看还是到此结束。可以只画示意，不用购买工具或坚持练习。观察当前兴趣，不把完成质量、动作速度或熟悉感当作前世、人格、价值或职业能力的依据。",
+              "en": "For an optional observation, mark an interlacing and a spacing change in a simple pattern of your own, then decide whether you want to keep looking or stop. A diagram is enough without buying tools or maintaining practice. Notice current interest without treating quality, speed or familiarity as grounds for a former life, personality, worth or actual occupational ability."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题相对计数与全部最高并列",
+            "en": "24-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24题全部各选一项，对应活动意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些活动选项中的相对选择，不是前世概率、灵魂比例、实际技能或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二角色或强造混合身份。相差一次只是一项选择，不证明显著差异、某种品质消失或真实人生归属。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有角色或科学分界。",
+              "en": "Choose one option for all 24 questions; each adds one to its activity image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative activity choices, not former-life probabilities, soul proportions, actual skills or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second role or mixed identity. A one-choice gap proves neither significance, absent qualities nor a real life affiliation. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare roles or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、背景来源与边界",
+            "en": "Original edition, background sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的历史活动偏好想象问卷，前世一词用于可选择的角色意象，不寻找真实过去身份、灵魂、记忆、生日、血缘、民族、宗教、性别或阶层。Met、Asian Art Museum、Getty、Viking Ship Museum、Royal Museums Greenwich和Natural History Museum仅核对选定器物与活动背景，不为本站选择映射、计分或心理效度提供验证。历史背景不等于整个时代或文化的性格，也不正当化强制、奴役、殖民或不平等。本版24题、选项、解释、情境、例子和计数规则均为原创，没有采用JobCannon12题、竞品结果正文／代码／算法、馆藏艺术图、受保护译文或现代人物类型归属。它不作回溯、暗示记忆、诊断或治疗，不解释恐惧和创伤，不认证智慧、天赋、技能、道德、健康或职业，也不转换荣格原型、MBTI或其他人格结果；没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind historical-activity imagination quiz. Past life labels optional role images rather than identifying an actual former life, soul, memory, birthday, ancestry, ethnicity, religion, gender or class. The Met, Asian Art Museum, Getty, Viking Ship Museum, Royal Museums Greenwich and Natural History Museum check selected object and activity backgrounds without validating this mapping, counts or psychology. Context establishes no personality of a whole period or culture and justifies no coercion, enslavement, colonialism or inequality. All 24 items, options, explanations, scenes, examples and rules are original. No JobCannon 12-item bank, competitor result text, code, algorithm, museum art image, protected translation or modern-person type assignment is used. This is neither regression, memory suggestion, diagnosis nor treatment, explains no fear or trauma and certifies no wisdom, talent, skill, morality, health or career. It converts into no Jungian, MBTI or other personality result and has no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drafter",
+      "directionIds": [
+        "drafter"
+      ],
+      "title": {
+        "zh": "文艺复兴画坊意象：线条与构图",
+        "en": "Renaissance Workshop Image: Lines and Composition"
+      },
+      "headline": {
+        "zh": "一种当前活动偏好的历史角色意象，不是真实前世或技能判断。",
+        "en": "A historical-role image for a current activity preference, not an actual former life or skill verdict."
+      },
+      "summary": {
+        "zh": "用几笔可修改的草图比较构图，区分佛罗伦萨画坊背景与当前兴趣；不认证前世、艺术天赋、创造力或真实职业。",
+        "en": "Compare compositions through revisable sketch lines, separating Florentine workshop context from current interest. No former identity, artistic gift or creativity is certified."
+      },
+      "scoreReading": {
+        "zh": "24题全部各选一项，对应活动意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些活动选项中的相对选择，不是前世概率、灵魂比例、实际技能或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二角色或强造混合身份。相差一次只是一项选择，不证明显著差异、某种品质消失或真实人生归属。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有角色或科学分界。",
+        "en": "Choose one option for all 24 questions; each adds one to its activity image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative activity choices, not former-life probabilities, soul proportions, actual skills or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second role or mixed identity. A one-choice gap proves neither significance, absent qualities nor a real life affiliation. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare roles or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "画坊前世意象结果：线条构图与完整说明",
+          "en": "Renaissance Workshop Past Life Result: Full Guide"
+        },
+        "description": {
+          "zh": "用几笔可修改的草图比较构图，区分佛罗伦萨画坊背景与当前兴趣；不认证前世、艺术天赋、创造力或真实职业。",
+          "en": "Explore the Workshop image through lines, a revisable composition and comparisons. No former artistic identity, creativity or career credential is certified."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "历史背景与本版角色意象",
+            "en": "Historical context and this edition’s role image"
+          },
+          "paragraphs": [
+            {
+              "zh": "Getty的Andrea del Sarto展览介绍其文艺复兴佛罗伦萨绘画过程、准备性研究与画坊实践。本版选“线条与构图”作画坊意象，不把一位画家或一个画坊代表整个文艺复兴，也不把兴趣解释成你曾是艺术家或继承天赋。画面活动与实际艺术能力是不同问题。",
+              "en": "Getty’s Andrea del Sarto exhibition describes his Renaissance Florentine drawing process, preparatory studies and workshop practice. This edition selects lines and composition for a Workshop image rather than making one artist or workshop represent the whole Renaissance. Interest establishes neither a former artistic identity nor inherited talent. Choosing to consider a composition and possessing actual artistic ability are different matters."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数怎样联系当前兴趣",
+            "en": "Reading counts through current interests"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择草稿、位置关系、轻重线或保留尚未定稿的安排。可以问：想看哪处关系怎样变化，哪些仍可改，只看构图是否已经足够？较少选择可能因为更愿意记录文字或看器物，不说明缺乏想象、审美或创造性；本卷没有作品评审和能力任务。",
+              "en": "A highest count means you more often chose drafts, placement, line weight or an arrangement not yet settled. Which relationship interests you, what remains revisable and is considering composition enough? Fewer choices may reflect written records or vessels rather than poor imagination, aesthetics or creativity. The questionnaire includes neither an evaluation of work nor a task establishing artistic capability."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个普通低风险例子",
+            "en": "An ordinary low-stakes example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你为自己可用的一只普通杯子和一张纸画三种位置小示意：并排、前后、留空更多。可以只用几笔，不必画得像，也不借用馆藏构图。比较的是自己愿意看哪种安排，不是测绘画、恢复历史记忆或完成一幅艺术品；没有满意方案时也可以停。",
+              "en": "Draw three small placements of an ordinary cup and sheet you may use: side by side, one behind another or with more space. A few lines suffice without likeness or borrowing a museum composition. Compare arrangements you want to consider rather than test drawing, recover historical memory or complete an artwork. Stop if none appeals, without making that a personal judgement."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想先留下几种线条安排，现在还不定稿，也不需要评价画得好不好。”若共同看图，确认对方愿意给哪种反馈，允许不同想法。可以只保留草稿、换题材或放弃，不必为了符合画坊意象不断创新、证明原创或把兴趣变成作品与收入。",
+              "en": "You might say, “I’d like to keep a few line arrangements without finalising them or judging drawing quality.” In a shared viewing, confirm what feedback is welcome and allow different ideas. Retain a draft, change subjects or stop. The Workshop image requires neither continual innovation, proof of originality nor turning an interest into finished work or income to justify the result."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他七类活动比较",
+            "en": "Comparisons with the other seven activities"
+          },
+          "paragraphs": [
+            {
+              "zh": "画坊意象偏线条构图，陶工偏器物形态，织工偏交错纹样，印工偏版面重复；一个图样可能经过多种活动，但不等于同一技能。书吏看文字、商旅看交换、海图师看位置路径、博物记录看观察标注。角色不排天赋或文化高低，不转换成荣格创造者、MBTI、智力或职业。",
+              "en": "Workshop concerns lines and composition, Potter vessel form, Weaver interlaced patterns and Printer repeated layouts. A design can involve several activities without making their skills equivalent. Scribe concerns words, Trader exchange, Chartmaker places and routes, and Natural-History observed labels. Roles rank neither talents nor cultures and convert into no Jungian Creator, MBTI, intelligence score or career through a shared creative association."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与真实经历、技能",
+            "en": "Counterexamples, actual experience and skill"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，保留草稿可能是课程要求或临时需要，不一定是个人偏好；喜欢定稿也不妨碍创造。问卷没有检验艺术、空间、想象或项目完成能力，不比较你与历史人物。真实画坊涉及学习、协作、委托与权利条件，本版纸上活动不还原整个劳动世界，也不把成功或限制归为人格命运。",
+              "en": "Keeping drafts may follow a course requirement or temporary need rather than preference; liking finality need not prevent creativity. Artistic, spatial, imaginative and project-completion abilities are not tested, and you are compared with no historical person. Actual workshops involved learning, collaboration, commissions and rights. A paper activity reconstructs no whole working world or explanation of success and constraints as personality or fate."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：对两件自己可使用的普通物件，画两种位置示意，写下愿意保留和仍可调整的一处。可以只想不画，也不必给别人看。观察当前对安排的兴趣，不按相似度、完成速度或好评判断前世、天赋、价值或是否应该从事艺术。",
+              "en": "For an optional observation, take two ordinary objects you may use and sketch two placements, noting a part to retain and a part to revise. Imagine rather than draw if preferred and keep it private. Notice current interest in arrangements without using likeness, speed or approval to judge a former life, talent, worth or whether you should pursue art."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题相对计数与全部最高并列",
+            "en": "24-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24题全部各选一项，对应活动意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些活动选项中的相对选择，不是前世概率、灵魂比例、实际技能或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二角色或强造混合身份。相差一次只是一项选择，不证明显著差异、某种品质消失或真实人生归属。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有角色或科学分界。",
+              "en": "Choose one option for all 24 questions; each adds one to its activity image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative activity choices, not former-life probabilities, soul proportions, actual skills or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second role or mixed identity. A one-choice gap proves neither significance, absent qualities nor a real life affiliation. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare roles or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、背景来源与边界",
+            "en": "Original edition, background sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的历史活动偏好想象问卷，前世一词用于可选择的角色意象，不寻找真实过去身份、灵魂、记忆、生日、血缘、民族、宗教、性别或阶层。Met、Asian Art Museum、Getty、Viking Ship Museum、Royal Museums Greenwich和Natural History Museum仅核对选定器物与活动背景，不为本站选择映射、计分或心理效度提供验证。历史背景不等于整个时代或文化的性格，也不正当化强制、奴役、殖民或不平等。本版24题、选项、解释、情境、例子和计数规则均为原创，没有采用JobCannon12题、竞品结果正文／代码／算法、馆藏艺术图、受保护译文或现代人物类型归属。它不作回溯、暗示记忆、诊断或治疗，不解释恐惧和创伤，不认证智慧、天赋、技能、道德、健康或职业，也不转换荣格原型、MBTI或其他人格结果；没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind historical-activity imagination quiz. Past life labels optional role images rather than identifying an actual former life, soul, memory, birthday, ancestry, ethnicity, religion, gender or class. The Met, Asian Art Museum, Getty, Viking Ship Museum, Royal Museums Greenwich and Natural History Museum check selected object and activity backgrounds without validating this mapping, counts or psychology. Context establishes no personality of a whole period or culture and justifies no coercion, enslavement, colonialism or inequality. All 24 items, options, explanations, scenes, examples and rules are original. No JobCannon 12-item bank, competitor result text, code, algorithm, museum art image, protected translation or modern-person type assignment is used. This is neither regression, memory suggestion, diagnosis nor treatment, explains no fear or trauma and certifies no wisdom, talent, skill, morality, health or career. It converts into no Jungian, MBTI or other personality result and has no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trader",
+      "directionIds": [
+        "trader"
+      ],
+      "title": {
+        "zh": "维京时代商旅意象：说明与自愿交换",
+        "en": "Viking-Age Trader Image: Terms and Exchange"
+      },
+      "headline": {
+        "zh": "一种当前活动偏好的历史角色意象，不是真实前世或技能判断。",
+        "en": "A historical-role image for a current activity preference, not an actual former life or skill verdict."
+      },
+      "summary": {
+        "zh": "以两张虚构物品卡比较说明与交换条件，含历史市集背景和可拒绝空间；不认证前世、民族、勇气、谈判或财富能力。",
+        "en": "Compare descriptions and terms through fictional goods cards, historical context and room to decline. No former life, ethnicity, courage, negotiation or wealth is certified."
+      },
+      "scoreReading": {
+        "zh": "24题全部各选一项，对应活动意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些活动选项中的相对选择，不是前世概率、灵魂比例、实际技能或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二角色或强造混合身份。相差一次只是一项选择，不证明显著差异、某种品质消失或真实人生归属。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有角色或科学分界。",
+        "en": "Choose one option for all 24 questions; each adds one to its activity image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative activity choices, not former-life probabilities, soul proportions, actual skills or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second role or mixed identity. A one-choice gap proves neither significance, absent qualities nor a real life affiliation. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare roles or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "商旅前世意象结果：说明交换与完整说明",
+          "en": "Viking-Age Trader Past Life Result: Full Guide"
+        },
+        "description": {
+          "zh": "以两张虚构物品卡比较说明与交换条件，含历史市集背景和可拒绝空间；不认证前世、民族、勇气、谈判或财富能力。",
+          "en": "Read the Trader image through fictional goods, voluntary terms and comparisons. Full context without ethnicity, wealth, courage or business-skill claims."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "历史背景与本版角色意象",
+            "en": "Historical context and this edition’s role image"
+          },
+          "paragraphs": [
+            {
+              "zh": "Viking Ship Museum介绍维京时代市集中的物物交换、称量白银与钱币变化，也明确提到战争与掠夺来源。本版只选“说明与自愿交换”作当代想象活动，不把历史社会美化为全部自愿，也不把商旅代表某个民族的性格。结果不认定你曾经出海、贸易或属于特定族群。",
+              "en": "The Viking Ship Museum describes barter, weighed silver and changing coin use at Viking-age markets, including links to warfare and spoils. This edition selects descriptions and voluntary exchange for a contemporary imagined activity. It neither makes the historical society wholly voluntary nor turns trading into an ethnic personality. Results establish no former voyage, trading occupation or membership of a particular people."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数怎样联系当前兴趣",
+            "en": "Reading counts through current interests"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择核对物品说明、双方愿意提供什么，或给拒绝与不同条件留空间。可以问：介绍是否清楚、同意是否真实、有哪些不能成交的情况？较少选择可能因为不想参与交换，不说明不善交际、没有勇气或不懂价值；问卷没有实际谈判、金钱与经营任务。",
+              "en": "A highest count means you more often chose goods descriptions, willing offers or room for refusal and different terms. Is a description clear, is agreement actual and when should no exchange occur? Fewer choices may reflect declining exchange rather than poor sociability, courage or judgement of value. There is no actual negotiation, money handling or business task in this questionnaire."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个普通低风险例子",
+            "en": "An ordinary low-stakes example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，用两张自编卡片分别写“普通蓝纸”和“普通白纸”，只是想象两位自愿参与者是否愿意互换。可以说明数量、用途与不交换也可以，不涉及真实购买、贵重物或私人资料。例子关注如何描述和确认，不教交易策略，也不把答题结果变成经营能力、财富或前世商人的证据。",
+              "en": "Write fictional cards for ordinary blue and white paper and imagine whether two willing participants want to exchange them. State amounts, uses and the option of no exchange, without purchases, valuables or private information. The example concerns description and confirmation rather than trading strategy. It turns no result into evidence of business capability, wealth or a former merchant identity."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“这是我愿意提供的内容和条件，你可以提出不同想法，也可以不交换。”对方拒绝时无需说服或证明自己有本领，自己也可以退出。历史商旅意象不要求冒险、逐利、成交或控制别人；真实的同意与权利优先于角色扮演，不能因标签把交易任务交给某个人。",
+              "en": "You could say, “Here is what I’m willing to offer and on what terms. You can suggest something else or decline.” A refusal creates no duty to persuade or demonstrate skill, and you may withdraw too. The image requires neither risk, profit, a deal nor control. Actual consent and rights take priority over a role, without assigning someone transactions because of a label."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他七类活动比较",
+            "en": "Comparisons with the other seven activities"
+          },
+          "paragraphs": [
+            {
+              "zh": "商旅意象偏说明与自愿交换，海图师偏位置路径，书吏偏文字记录；旅程、地图和清单可以相关，但不等于一个人格。陶工看器物、印工看重复、织工看交错、画坊看构图、博物记录看观察标注。八种无冒险或财富等级，不把商旅换成外向、DISC、MBTI、领导或职业适配。",
+              "en": "Trader concerns descriptions and voluntary exchange, Chartmaker places and routes, and Scribe written records. Journeys, maps and lists may relate without forming one personality. Potter concerns vessels, Printer repetition, Weaver interlacing, Workshop composition and Natural-History observed labels. The images rank neither risk nor wealth and convert Trader into no extraversion, DISC, MBTI, leadership credential or suitable occupation."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与真实经历、技能",
+            "en": "Counterexamples, actual experience and skill"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，参与交换可能因为实际需要或职责，不是偏好；不交换也可以体现清楚判断。问卷不测冒险、诚实、谈判、财务或文化身份，不要求模仿历史暴力。历史贸易中有不平等、强制与权利问题，本版有边界的自愿活动不证明那些行为合理，也不以历史名称评价今天任何人群。",
+              "en": "An exchange may follow a need or responsibility rather than preference, while declining can reflect clear judgement. Risk taking, honesty, negotiation, finances and cultural identity are not tested, and historical violence need not be imitated. Trade involved inequality, coercion and rights issues. A bounded voluntary activity justifies none of those practices and uses no historical name to judge a present-day group."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：只用自编、无真实交易的两张普通物品卡，写一份清楚说明、一项可接受条件和不交换的出口。可以不邀请别人、不实际互换。观察是否喜欢这次条件比较，不按成交、收益或说服效果评判能力、前世、价值或未来职业。",
+              "en": "If useful, use only two invented ordinary goods cards without a real transaction. State a clear description, an acceptable condition and an exit without exchange. Invite nobody and exchange nothing if preferred. Notice interest in comparing terms without judging ability, former life, worth or a future occupation by whether a deal occurs, a gain appears or someone is persuaded."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题相对计数与全部最高并列",
+            "en": "24-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24题全部各选一项，对应活动意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些活动选项中的相对选择，不是前世概率、灵魂比例、实际技能或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二角色或强造混合身份。相差一次只是一项选择，不证明显著差异、某种品质消失或真实人生归属。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有角色或科学分界。",
+              "en": "Choose one option for all 24 questions; each adds one to its activity image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative activity choices, not former-life probabilities, soul proportions, actual skills or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second role or mixed identity. A one-choice gap proves neither significance, absent qualities nor a real life affiliation. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare roles or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、背景来源与边界",
+            "en": "Original edition, background sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的历史活动偏好想象问卷，前世一词用于可选择的角色意象，不寻找真实过去身份、灵魂、记忆、生日、血缘、民族、宗教、性别或阶层。Met、Asian Art Museum、Getty、Viking Ship Museum、Royal Museums Greenwich和Natural History Museum仅核对选定器物与活动背景，不为本站选择映射、计分或心理效度提供验证。历史背景不等于整个时代或文化的性格，也不正当化强制、奴役、殖民或不平等。本版24题、选项、解释、情境、例子和计数规则均为原创，没有采用JobCannon12题、竞品结果正文／代码／算法、馆藏艺术图、受保护译文或现代人物类型归属。它不作回溯、暗示记忆、诊断或治疗，不解释恐惧和创伤，不认证智慧、天赋、技能、道德、健康或职业，也不转换荣格原型、MBTI或其他人格结果；没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind historical-activity imagination quiz. Past life labels optional role images rather than identifying an actual former life, soul, memory, birthday, ancestry, ethnicity, religion, gender or class. The Met, Asian Art Museum, Getty, Viking Ship Museum, Royal Museums Greenwich and Natural History Museum check selected object and activity backgrounds without validating this mapping, counts or psychology. Context establishes no personality of a whole period or culture and justifies no coercion, enslavement, colonialism or inequality. All 24 items, options, explanations, scenes, examples and rules are original. No JobCannon 12-item bank, competitor result text, code, algorithm, museum art image, protected translation or modern-person type assignment is used. This is neither regression, memory suggestion, diagnosis nor treatment, explains no fear or trauma and certifies no wisdom, talent, skill, morality, health or career. It converts into no Jungian, MBTI or other personality result and has no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chartmaker",
+      "directionIds": [
+        "chartmaker"
+      ],
+      "title": {
+        "zh": "地中海海图师意象：位置与路径",
+        "en": "Mediterranean Chartmaker Image: Places and Routes"
+      },
+      "headline": {
+        "zh": "一种当前活动偏好的历史角色意象，不是真实前世或技能判断。",
+        "en": "A historical-role image for a current activity preference, not an actual former life or skill verdict."
+      },
+      "summary": {
+        "zh": "用虚构海岸图比较位置、路径与未知处，附海图背景和角色比较；不认证前世、导航、空间智力、勇气或冒险使命。",
+        "en": "Compare places, routes and uncertainty on a fictional coast diagram. Historical context certifies no former life, navigation, spatial intelligence or adventurous mission."
+      },
+      "scoreReading": {
+        "zh": "24题全部各选一项，对应活动意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些活动选项中的相对选择，不是前世概率、灵魂比例、实际技能或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二角色或强造混合身份。相差一次只是一项选择，不证明显著差异、某种品质消失或真实人生归属。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有角色或科学分界。",
+        "en": "Choose one option for all 24 questions; each adds one to its activity image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative activity choices, not former-life probabilities, soul proportions, actual skills or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second role or mixed identity. A one-choice gap proves neither significance, absent qualities nor a real life affiliation. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare roles or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "海图师前世意象结果：位置路径与完整说明",
+          "en": "Chartmaker Past Life Result: Routes and Full Guide"
+        },
+        "description": {
+          "zh": "用虚构海岸图比较位置、路径与未知处，附海图背景和角色比较；不认证前世、导航、空间智力、勇气或冒险使命。",
+          "en": "Explore the Chartmaker image through a fictional coast, places and uncertainty. A full guide without actual navigation, former-life or courage claims."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "历史背景与本版角色意象",
+            "en": "Historical context and this edition’s role image"
+          },
+          "paragraphs": [
+            {
+              "zh": "Royal Museums Greenwich介绍地中海早期portulan海图以罗盘方向、海上估计距离和海岸地点表达航行信息。本版选“位置与路径”作海图师意象，不声称代表所有地图史，也不把航海或扩张当成好人格。偏好一张示意图不说明曾出海、属于某个文明或具备真实导航知识。",
+              "en": "Royal Museums Greenwich describes early Mediterranean portulan charts through compass directions, estimated sea distances and coastal places. This edition selects places and routes for a Chartmaker image, without representing all map history or making navigation and expansion marks of good personality. Liking a diagram establishes neither a former voyage, civilisational identity nor actual navigational knowledge or permission to guide someone at sea."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数怎样联系当前兴趣",
+            "en": "Reading counts through current interests"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选地点联系、路线示意、标记和哪些信息仍未知。可以问：图能说明什么，哪些不能确定，愿意只比较而不出行吗？较少选择可能更想看文字或纹样，不说明方向差、缺乏探索欲或害怕变化；问卷没有真实空间、交通或导航任务作依据。",
+              "en": "A highest count means you more often chose connections among places, route diagrams, marks and unknown information. What can a diagram show, what remains uncertain and would you rather compare without travelling? Fewer choices may reflect words or patterns rather than poor orientation, absent curiosity or fear of change. No actual spatial, transport or navigation task supports those conclusions."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个普通低风险例子",
+            "en": "An ordinary low-stakes example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，在普通纸上画一个完全虚构的海岸，放三个自编地点A、B、C，并用不同线说明两种想象连接。可以标“距离未知”，不使用真实地址、个人行程或历史原图。例子只是比较信息如何表达，不用于实际航海、出行或安全判断，也不把画得顺手当作前世航海经验。",
+              "en": "On ordinary paper, draw a wholly fictional coast with invented points A, B and C, using different lines for two imagined connections. Mark distance as unknown without real addresses, personal itineraries or a historical original. This compares information presentation rather than actual navigation, travel or safety, and easy drawing is no sign of experience carried from a former seafaring life."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“这张图只表达几个虚构位置的联系，距离和真实路线都没有核过。”这样把示意与可用导航分开。别人可以用文字或列表，自己也可以不继续画；海图师意象不要求出远门、挑战危险或给他人带路，更不授予对陌生地方和居民的权利。",
+              "en": "You could say, “This only shows connections between fictional places; distances and real routes have not been checked.” That separates a diagram from usable navigation. Others may use words or a list, and you can stop drawing. The image requires no distant journey, danger or guidance of others, and grants no right over unfamiliar places or the people living there."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他七类活动比较",
+            "en": "Comparisons with the other seven activities"
+          },
+          "paragraphs": [
+            {
+              "zh": "海图师意象偏位置路径，商旅偏物品交换，书吏偏文字记录；一次旅程可能涉及三者，但兴趣与技能不能互换。陶工看器物、印工看重复、织工看交错、画坊看构图、博物记录看观察标注。八种无勇气或文明等级，不换算荣格探索者、空间智力、MBTI或职业。",
+              "en": "Chartmaker concerns places and routes, Trader exchange and Scribe written records. A journey may involve all three without making their interests or skills interchangeable. Potter concerns vessels, Printer repetition, Weaver interlacing, Workshop composition and Natural-History observed labels. Images rank neither courage nor civilisations and convert into no Jungian Explorer, spatial intelligence score, MBTI or occupation through a travelling association."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与真实经历、技能",
+            "en": "Counterexamples, actual experience and skill"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，看路线可能来自生活需要、课程或交通条件，不一定是偏好；不喜欢地图也可能擅长实际出行。问卷不测方向、风险、航海、计划或技术能力，不把历史地图当今天可用信息。历史航行有不平等、暴力与殖民背景，本版有限纸上活动不美化这些关系，也不把真实人的困难写成探索不足。",
+              "en": "Route viewing may follow daily needs, a course or transport conditions rather than preference, while disliking maps need not prevent effective travel. Orientation, risk, seamanship, planning and technical abilities are not tested, and historical maps are not current guidance. Voyages involved inequality, violence and colonial contexts that a limited paper activity neither romanticises nor explains as insufficient exploration by real people."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：用三个自编地点画两条想象连接，分别注明“这张图能说什么”和“仍不知道什么”。可以只写列表，不必实际出行。观察当前对位置表达的兴趣，不以准确、速度或熟悉感证明前世、勇气、天赋或适合旅行和导航职业。",
+              "en": "If useful, draw two imagined connections among three invented places and distinguish what the diagram can say from what remains unknown. Use a list instead without travelling. Notice current interest in representing positions rather than using accuracy, speed or familiarity as proof of a former life, courage, talent or suitability for travel and navigation work in actual circumstances."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题相对计数与全部最高并列",
+            "en": "24-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24题全部各选一项，对应活动意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些活动选项中的相对选择，不是前世概率、灵魂比例、实际技能或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二角色或强造混合身份。相差一次只是一项选择，不证明显著差异、某种品质消失或真实人生归属。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有角色或科学分界。",
+              "en": "Choose one option for all 24 questions; each adds one to its activity image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative activity choices, not former-life probabilities, soul proportions, actual skills or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second role or mixed identity. A one-choice gap proves neither significance, absent qualities nor a real life affiliation. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare roles or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、背景来源与边界",
+            "en": "Original edition, background sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的历史活动偏好想象问卷，前世一词用于可选择的角色意象，不寻找真实过去身份、灵魂、记忆、生日、血缘、民族、宗教、性别或阶层。Met、Asian Art Museum、Getty、Viking Ship Museum、Royal Museums Greenwich和Natural History Museum仅核对选定器物与活动背景，不为本站选择映射、计分或心理效度提供验证。历史背景不等于整个时代或文化的性格，也不正当化强制、奴役、殖民或不平等。本版24题、选项、解释、情境、例子和计数规则均为原创，没有采用JobCannon12题、竞品结果正文／代码／算法、馆藏艺术图、受保护译文或现代人物类型归属。它不作回溯、暗示记忆、诊断或治疗，不解释恐惧和创伤，不认证智慧、天赋、技能、道德、健康或职业，也不转换荣格原型、MBTI或其他人格结果；没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind historical-activity imagination quiz. Past life labels optional role images rather than identifying an actual former life, soul, memory, birthday, ancestry, ethnicity, religion, gender or class. The Met, Asian Art Museum, Getty, Viking Ship Museum, Royal Museums Greenwich and Natural History Museum check selected object and activity backgrounds without validating this mapping, counts or psychology. Context establishes no personality of a whole period or culture and justifies no coercion, enslavement, colonialism or inequality. All 24 items, options, explanations, scenes, examples and rules are original. No JobCannon 12-item bank, competitor result text, code, algorithm, museum art image, protected translation or modern-person type assignment is used. This is neither regression, memory suggestion, diagnosis nor treatment, explains no fear or trauma and certifies no wisdom, talent, skill, morality, health or career. It converts into no Jungian, MBTI or other personality result and has no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "naturalist",
+      "directionIds": [
+        "naturalist"
+      ],
+      "title": {
+        "zh": "十九世纪博物记录意象：观察与标注",
+        "en": "19th-Century Natural-History Image: Observation and Labels"
+      },
+      "headline": {
+        "zh": "一种当前活动偏好的历史角色意象，不是真实前世或技能判断。",
+        "en": "A historical-role image for a current activity preference, not an actual former life or skill verdict."
+      },
+      "summary": {
+        "zh": "从普通许可材料的一处细节看观察与标签，含十九世纪记录背景、表达与反例；不认证前世、识别能力、科学资格或健康。",
+        "en": "Explore observation and labels through a permitted material’s detail and nineteenth-century context. Full examples certify no former identity, identification skill or scientific qualification."
+      },
+      "scoreReading": {
+        "zh": "24题全部各选一项，对应活动意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些活动选项中的相对选择，不是前世概率、灵魂比例、实际技能或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二角色或强造混合身份。相差一次只是一项选择，不证明显著差异、某种品质消失或真实人生归属。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有角色或科学分界。",
+        "en": "Choose one option for all 24 questions; each adds one to its activity image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative activity choices, not former-life probabilities, soul proportions, actual skills or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second role or mixed identity. A one-choice gap proves neither significance, absent qualities nor a real life affiliation. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare roles or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "博物记录前世意象结果：观察标注与完整说明",
+          "en": "Natural-History Past Life Result: Full Symbolic Guide"
+        },
+        "description": {
+          "zh": "从普通许可材料的一处细节看观察与标签，含十九世纪记录背景、表达与反例；不认证前世、识别能力、科学资格或健康。",
+          "en": "Read the Natural-History image through observation, labels and a photo example. No former identity, health, identification or science skill is certified."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "历史背景与本版角色意象",
+            "en": "Historical context and this edition’s role image"
+          },
+          "paragraphs": [
+            {
+              "zh": "Natural History Museum介绍十九世纪Anna Atkins如何以图像记录自然材料，也说明当时教育、资源与参与机会的不平等。本版选“观察与标注”作博物记录意象，不把你匹配成这位历史人物，也不把一种背景概括所有自然知识传统。它比较当前活动兴趣，不验证前世、物种识别、科学才能或自然疗愈。",
+              "en": "The Natural History Museum describes Anna Atkins’s nineteenth-century visual records of natural materials and unequal access to education, resources and participation. This edition selects observation and labels for a Natural-History image without matching you to that person or representing all natural-knowledge traditions. It compares current activity interest rather than verifying former identity, species identification, scientific talent or healing through nature."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数怎样联系当前兴趣",
+            "en": "Reading counts through current interests"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选直接观察的细节、图像与名称的关系，或为未确定处留说明。可以问：确实看到什么，标签来自哪里，是否还需要别的证据？较少选择可能更想看构图或文字，不说明不关心自然、粗心或不理性；题目没有真实识别、视力或科学研究任务。",
+              "en": "A highest count means you more often chose observed details, relationships between images and names or notes about uncertainty. What was actually seen, where does a label come from and what needs other evidence? Fewer choices may reflect compositions or words rather than disregard for nature, carelessness or irrationality. No actual identification, vision or scientific-research task is included in these choices."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个普通低风险例子",
+            "en": "An ordinary low-stakes example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，选一张自己有权使用的普通叶片照片，在纸上画一处边缘或线条，写“这是我看到的部分，名称未核”。可以只看照片，不采集活物、不触碰未知植物、不使用药物或化学方法。例子记录有限观察，不教鉴定、治疗或恢复记忆，也不证明能像历史研究者一样工作。",
+              "en": "Choose an ordinary leaf photograph you may use, draw an edge or line and write that the observed detail’s name is unverified. Only view the photograph, without collecting living things, touching unknown plants or using medicines or chemical methods. This records a limited observation rather than teaching identification, treatment or memory recovery, or proving qualification to work like a historical researcher."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“这里是我直接看到的细节，名称和作用我还不知道。”如果涉及他人照片或资料，先确认可用范围与署名；不知道可以留空，不靠直觉补成事实。自己可以停止，别人也不必接受一种解释；博物记录意象不授予纠正他人、鉴定健康或使用自然材料的资格。",
+              "en": "You might say, “This is the detail I directly observed; I do not know its name or function.” Check permissions and attribution for another person’s material. Leave uncertainty open instead of filling it with intuition. You may stop, and others need not accept an interpretation. The image awards no qualification to correct people, assess health or use natural materials in practice."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他七类活动比较",
+            "en": "Comparisons with the other seven activities"
+          },
+          "paragraphs": [
+            {
+              "zh": "博物记录意象偏观察与标签，画坊偏线条构图，书吏偏文字留存；同一图片可以有不同用途，不等于同一种能力。陶工看器物、印工看重复、织工看交错、商旅看交换、海图师看位置路径。八种没有知识或文化高低，不把博物记录换成荣格智者、MBTI、科学身份或职业。",
+              "en": "Natural-History concerns observation and labels, Workshop lines and composition, and Scribe written retention. One image can serve different purposes without establishing the same capability. Potter concerns vessels, Printer repetition, Weaver interlacing, Trader exchange and Chartmaker places and routes. These rank neither knowledge nor cultures and convert into no Jungian Sage, MBTI, scientific identity or career through an interest in observing."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与真实经历、技能",
+            "en": "Counterexamples, actual experience and skill"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，记录细节可能源于学习要求或标签不清，不一定是偏好；兴趣少也不妨碍准确观察。问卷不检验知觉、记忆、鉴别、研究或照顾能力，不作健康判断。历史自然研究有资源与权利条件，不能把成就都归为个人天性，也不把采集和殖民关系浪漫化为今天必须追随的冒险。",
+              "en": "Detail recording may follow a course or unclear labels rather than preference; little interest need not prevent accurate observation. Perception, memory, identification, research and care abilities are not tested, and health is not assessed. Historical natural study involved resources and rights, so achievements cannot all become innate nature or collecting and colonial relations an adventure someone must follow today."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：用一份本来愿意再看、许可清楚的普通图像，写一处直接观察、一项标签来源和一处未知；可以只写不画，也不分享。观察当前是否喜欢这种记录，不以命名、准确或熟悉感判定前世、智力、特殊感知或现实科学与职业能力。",
+              "en": "For an optional observation, take an ordinary image you already want to revisit and may use. Note a direct observation, a label source and an uncertainty; write without drawing or sharing if preferred. Notice current interest in this recording rather than judging a former life, intelligence, unusual perception or actual scientific and occupational capability through naming, accuracy or familiarity."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题相对计数与全部最高并列",
+            "en": "24-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24题全部各选一项，对应活动意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些活动选项中的相对选择，不是前世概率、灵魂比例、实际技能或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二角色或强造混合身份。相差一次只是一项选择，不证明显著差异、某种品质消失或真实人生归属。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有角色或科学分界。",
+              "en": "Choose one option for all 24 questions; each adds one to its activity image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative activity choices, not former-life probabilities, soul proportions, actual skills or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second role or mixed identity. A one-choice gap proves neither significance, absent qualities nor a real life affiliation. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare roles or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、背景来源与边界",
+            "en": "Original edition, background sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的历史活动偏好想象问卷，前世一词用于可选择的角色意象，不寻找真实过去身份、灵魂、记忆、生日、血缘、民族、宗教、性别或阶层。Met、Asian Art Museum、Getty、Viking Ship Museum、Royal Museums Greenwich和Natural History Museum仅核对选定器物与活动背景，不为本站选择映射、计分或心理效度提供验证。历史背景不等于整个时代或文化的性格，也不正当化强制、奴役、殖民或不平等。本版24题、选项、解释、情境、例子和计数规则均为原创，没有采用JobCannon12题、竞品结果正文／代码／算法、馆藏艺术图、受保护译文或现代人物类型归属。它不作回溯、暗示记忆、诊断或治疗，不解释恐惧和创伤，不认证智慧、天赋、技能、道德、健康或职业，也不转换荣格原型、MBTI或其他人格结果；没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind historical-activity imagination quiz. Past life labels optional role images rather than identifying an actual former life, soul, memory, birthday, ancestry, ethnicity, religion, gender or class. The Met, Asian Art Museum, Getty, Viking Ship Museum, Royal Museums Greenwich and Natural History Museum check selected object and activity backgrounds without validating this mapping, counts or psychology. Context establishes no personality of a whole period or culture and justifies no coercion, enslavement, colonialism or inequality. All 24 items, options, explanations, scenes, examples and rules are original. No JobCannon 12-item bank, competitor result text, code, algorithm, museum art image, protected translation or modern-person type assignment is used. This is neither regression, memory suggestion, diagnosis nor treatment, explains no fear or trauma and certifies no wisdom, talent, skill, morality, health or career. It converts into no Jungian, MBTI or other personality result and has no psychometric validation."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "24题怎样形成八类活动计数",
+        "en": "How 24 choices produce eight-activity counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "24题全部各选一项，对应活动意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些活动选项中的相对选择，不是前世概率、灵魂比例、实际技能或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二角色或强造混合身份。相差一次只是一项选择，不证明显著差异、某种品质消失或真实人生归属。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有角色或科学分界。",
+          "en": "Choose one option for all 24 questions; each adds one to its activity image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative activity choices, not former-life probabilities, soul proportions, actual skills or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second role or mixed identity. A one-choice gap proves neither significance, absent qualities nor a real life affiliation. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare roles or scientific cutoffs."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "完整结果、并列与近分",
+        "en": "Full guides, ties and close counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "八份完整说明各有历史背景、本站读法、普通例子、可用表达、七类比较、反例、小观察、计分与来源。所有最高并列完整显示，不把名单第一位当主身份，不自动指定第二角色。近分可以一起看，但不构成真实混合前世或误差区间。重测只反映当前选择，不证明记忆或过去身份变化。",
+          "en": "Each full guide includes historical context, this edition’s interpretation, an example, wording, seven-activity comparisons, counterexamples, an optional observation, scoring and sources. Every highest tie appears in full without treating the first as a primary identity or assigning an automatic second role. Read close guides without constructing actual mixed former lives or error intervals. Retaking reflects current choices, not changed memory or historical identity."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "历史背景、角色想象与真实经历",
+        "en": "Historical context, role imagination and actual experience"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版选择八种活动，不概括所有历史生活、文明或职业，也不把未来当过去。历史资料说明物件和活动确实存在，不说明任何人曾经是谁、天生有什么品质。现代纸上例子不是历史复原；历史权利和资源限制不分配给今天任何性别、族群或信仰者。",
+          "en": "Eight selected activities represent neither all historical lives, civilisations nor occupations, and the future is not treated as the past. Sources establish objects and activities, not who anyone previously was or which qualities are innate. Modern paper examples are not historical reconstructions. Past restrictions on rights and resources are assigned to no present-day gender, people or believer."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "zh": "原创问卷与历史资料的分工",
+        "en": "Original questionnaire and historical sources"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是费马独立创作的历史活动偏好想象问卷，前世一词用于可选择的角色意象，不寻找真实过去身份、灵魂、记忆、生日、血缘、民族、宗教、性别或阶层。Met、Asian Art Museum、Getty、Viking Ship Museum、Royal Museums Greenwich和Natural History Museum仅核对选定器物与活动背景，不为本站选择映射、计分或心理效度提供验证。历史背景不等于整个时代或文化的性格，也不正当化强制、奴役、殖民或不平等。本版24题、选项、解释、情境、例子和计数规则均为原创，没有采用JobCannon12题、竞品结果正文／代码／算法、馆藏艺术图、受保护译文或现代人物类型归属。它不作回溯、暗示记忆、诊断或治疗，不解释恐惧和创伤，不认证智慧、天赋、技能、道德、健康或职业，也不转换荣格原型、MBTI或其他人格结果；没有本站心理测量验证。",
+          "en": "This is an independently authored FermatMind historical-activity imagination quiz. Past life labels optional role images rather than identifying an actual former life, soul, memory, birthday, ancestry, ethnicity, religion, gender or class. The Met, Asian Art Museum, Getty, Viking Ship Museum, Royal Museums Greenwich and Natural History Museum check selected object and activity backgrounds without validating this mapping, counts or psychology. Context establishes no personality of a whole period or culture and justifies no coercion, enslavement, colonialism or inequality. All 24 items, options, explanations, scenes, examples and rules are original. No JobCannon 12-item bank, competitor result text, code, algorithm, museum art image, protected translation or modern-person type assignment is used. This is neither regression, memory suggestion, diagnosis nor treatment, explains no fear or trauma and certifies no wisdom, talent, skill, morality, health or career. It converts into no Jungian, MBTI or other personality result and has no psychometric validation."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "草稿、分享与可选下一步",
+        "en": "Drafts, sharing and optional next steps"
+      },
+      "paragraphs": [
+        {
+          "zh": "答案在浏览器内计分，不上传、不进网址或分析。草稿需主动开启，只在本标签页恢复，24小时失效，完成、重测、退出清除即删除。可选分享只含公开角色说明和链接，不含答案或次数。完整结果免费，不收邮箱、不先做其他测试；后续测评另行作答，也可以到此结束。",
+          "en": "Answers are scored in your browser without uploading them or placing them in URLs or analytics. Drafts require opt-in, restore only in this tab, expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public role guides and links without answers or counts. Full results are free without email or another test first. Further assessments require separate responses; you can stop here."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "前世测试能确定我以前是谁吗？",
+        "en": "Can this past life quiz establish who I used to be?"
+      },
+      "answer": {
+        "zh": "不能。本版只比较现在愿意探索的八类普通历史活动，输出有背景资料的角色意象，不认定真实前世、轮回、灵魂或记忆，也不要求接受或否定个人信仰。没有生日、随机抽取或记忆回溯。",
+        "en": "No. This edition compares eight ordinary historical activities you currently prefer to explore and returns contextualised role images. It establishes no actual former life, reincarnation, soul or memory and requires neither accepting nor rejecting personal belief. There is no birthday input, random draw or memory regression."
+      }
+    },
+    {
+      "question": {
+        "zh": "八种角色意象分别是什么？",
+        "en": "What are the eight historical-role images?"
+      },
+      "answer": {
+        "zh": "本版选古埃及书吏、罗马陶工、宋代印工、中世纪晚期织工、文艺复兴画坊、维京时代商旅、地中海海图师和十九世纪博物记录，分别关联文字、器物、印样、纹样、构图、交换、路线、观察标注。它们不是整个人群或时代的性格，也不代表高低。",
+        "en": "This edition selects Egyptian Scribe, Roman Potter, Song Printer, Late-Medieval Weaver, Renaissance Workshop, Viking-Age Trader, Mediterranean Chartmaker and 19th-Century Natural-History images for text, vessels, impressions, patterns, composition, exchange, routes and observed labels. They are neither personalities of entire peoples or periods nor ranks."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样计分、处理并列和近分？",
+        "en": "How are counts, ties and close results handled?"
+      },
+      "answer": {
+        "zh": "24题全部各选一项，对应活动意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些活动选项中的相对选择，不是前世概率、灵魂比例、实际技能或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二角色或强造混合身份。相差一次只是一项选择，不证明显著差异、某种品质消失或真实人生归属。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有角色或科学分界。",
+        "en": "Choose one option for all 24 questions; each adds one to its activity image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative activity choices, not former-life probabilities, soul proportions, actual skills or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second role or mixed identity. A one-choice gap proves neither significance, absent qualities nor a real life affiliation. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare roles or scientific cutoffs."
+      }
+    },
+    {
+      "question": {
+        "zh": "结果能解释天赋、恐惧或职业吗？",
+        "en": "Can a result explain talents, fears or careers?"
+      },
+      "answer": {
+        "zh": "不能。本版不验证技能、诊断、健康、恐惧成因或职业资格，不用熟悉感证明前世。历史背景不能代替当代证据，也不从角色换算荣格原型、MBTI、民族或宗教身份。需要现实判断时仍看具体事实与条件。",
+        "en": "No. This edition verifies neither skill, diagnoses, health, causes of fear nor occupational qualifications, and familiarity proves no former life. Historical context replaces no contemporary evidence, and roles convert into no Jungian, MBTI, ethnic or religious identity. Real judgements still require their specific facts and conditions."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果、重测与分享免费吗？",
+        "en": "Are full results, retaking and sharing free?"
+      },
+      "answer": {
+        "zh": "可以先读八份完整说明，完成24题后全部最高并列完整显示，无需注册或邮箱。重测清除本次答案，可选分享只含公开说明与链接，不含答卷或次数。后续测试自选，另行作答。",
+        "en": "All eight full guides can be read first, and every highest tie appears after all 24 choices without signup or email. Retaking clears this attempt. Optional sharing contains public guides and links without responses or counts. Further assessments are optional and require new answers."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "Met：纸莎草制作与书写背景",
+        "en": "The Met: Papyrus-Making in Egypt"
+      },
+      "url": "https://www.metmuseum.org/essays/papyrus-making-in-egypt"
+    },
+    {
+      "title": {
+        "zh": "Met：罗马陶碗藏品250088",
+        "en": "The Met: Roman terracotta bowl 250088"
+      },
+      "url": "https://www.metmuseum.org/art/collection/search/250088"
+    },
+    {
+      "title": {
+        "zh": "Asian Art Museum：唐宋印刷背景",
+        "en": "Asian Art Museum: Tang–Song printing"
+      },
+      "url": "https://education.asianart.org/resources/the-invention-of-woodblock-printing-in-the-tang-and-song-dynasties/"
+    },
+    {
+      "title": {
+        "zh": "Met：中世纪及文艺复兴织造背景",
+        "en": "The Met: Medieval and Renaissance tapestry production"
+      },
+      "url": "https://www.metmuseum.org/essays/how-medieval-and-renaissance-tapestries-were-made"
+    },
+    {
+      "title": {
+        "zh": "Getty：Andrea del Sarto画坊展览背景",
+        "en": "Getty: Andrea del Sarto workshop exhibition"
+      },
+      "url": "https://www.getty.edu/art/exhibitions/del_sarto/"
+    },
+    {
+      "title": {
+        "zh": "Viking Ship Museum：物物交换与钱币",
+        "en": "Viking Ship Museum: Barter and coinage"
+      },
+      "url": "https://www.vikingeskibsmuseet.dk/en/professions/education/the-viking-age-society/barter-and-coinage"
+    },
+    {
+      "title": {
+        "zh": "Royal Museums Greenwich：海图与地图",
+        "en": "Royal Museums Greenwich: Sea charts and maps"
+      },
+      "url": "https://www.rmg.co.uk/collections/our-collections-sea-charts-maps"
+    },
+    {
+      "title": {
+        "zh": "Natural History Museum：Anna Atkins的自然图像记录",
+        "en": "Natural History Museum: Anna Atkins’s cyanotypes"
+      },
+      "url": "https://www.nhm.ac.uk/discover/anna-atkins-cyanotypes-the-first-book-of-photographs.html"
+    }
+  ]
+}

@@ -1,0 +1,1071 @@
+{
+  "formCode": "fm_past_life_activity_preferences_24",
+  "origin": "FermatMindoriginal24ENZH4choice/eighthistoricallycontextualisedfictionalactivityimages/notliteralpastlifeidentityormemoryinstrument",
+  "directions": [
+    {
+      "id": "scribe",
+      "title": {
+        "zh": "古埃及书吏意象：文字留存",
+        "en": "Egyptian Scribe Image: Keeping a Record"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "potter",
+      "title": {
+        "zh": "罗马陶工意象：器物形态与用途",
+        "en": "Roman Potter Image: Vessel Form and Use"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "printer",
+      "title": {
+        "zh": "宋代印工意象：版面与重复印样",
+        "en": "Song Printer Image: Layouts and Impressions"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "weaver",
+      "title": {
+        "zh": "中世纪晚期织工意象：交错与纹样",
+        "en": "Late-Medieval Weaver Image: Interlacing Patterns"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "drafter",
+      "title": {
+        "zh": "文艺复兴画坊意象：线条与构图",
+        "en": "Renaissance Workshop Image: Lines and Composition"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "trader",
+      "title": {
+        "zh": "维京时代商旅意象：说明与自愿交换",
+        "en": "Viking-Age Trader Image: Terms and Exchange"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "chartmaker",
+      "title": {
+        "zh": "地中海海图师意象：位置与路径",
+        "en": "Mediterranean Chartmaker Image: Places and Routes"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "naturalist",
+      "title": {
+        "zh": "十九世纪博物记录意象：观察与标注",
+        "en": "19th-Century Natural-History Image: Observation and Labels"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "PAST_LIFE_01",
+      "prompt": {
+        "zh": "如果参加一次自愿的历史主题体验，你更想先看哪项普通活动？",
+        "en": "At a voluntary history-themed session, which ordinary activity would you prefer to explore first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "为一份虚构物品清单安排文字，让后来读者知道记录了什么。",
+            "en": "Arrange words for a fictional inventory so a later reader knows what was recorded."
+          },
+          "directionId": "scribe"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "比较一个小容器的形状与用途，想象它怎样方便拿取。",
+            "en": "Compare a small vessel’s shape and use, considering how it might be handled."
+          },
+          "directionId": "potter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看看简单线条怎样交错成一段图案，不要求实际会织。",
+            "en": "Explore how simple threads cross into a pattern without needing weaving skill."
+          },
+          "directionId": "weaver"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "比较两份虚构货物说明，想象怎样把交换条件讲清。",
+            "en": "Compare two fictional goods descriptions and consider clear exchange terms."
+          },
+          "directionId": "trader"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_02",
+      "prompt": {
+        "zh": "在历史工艺的普通介绍桌旁，你更想停在哪一处？",
+        "en": "At an ordinary historical-craft introduction table, where would you prefer to pause?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "几种碗杯的轮廓旁，比较开口、底部与使用之间的关系。",
+            "en": "Beside vessel outlines, comparing openings, bases and uses."
+          },
+          "directionId": "potter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个安全的印样展示旁，观察同一版面怎样留下多份记录。",
+            "en": "Beside a safe print display, noticing repeated impressions from one layout."
+          },
+          "directionId": "printer"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一张草图旁，看看几笔线条怎样先安排画面。",
+            "en": "Beside a sketch, exploring how a few lines organise a composition."
+          },
+          "directionId": "drafter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一张历史海图说明旁，比较标记怎样表达海岸和路线。",
+            "en": "Beside a historical sea-chart explanation, comparing coastline and route marks."
+          },
+          "directionId": "chartmaker"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_03",
+      "prompt": {
+        "zh": "为一页历史主题的虚构活动记录选内容，你更想留什么？",
+        "en": "What would you prefer to keep on a page about a fictional historical activity?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个可重复的文字版面，以及哪份是这次印样的说明。",
+            "en": "A repeatable text layout with a note identifying this impression."
+          },
+          "directionId": "printer"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一小段交错图案和它在边缘怎样接续的示意。",
+            "en": "A short interlaced pattern and a diagram of its continuation at an edge."
+          },
+          "directionId": "weaver"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "两方各愿意提供什么、哪些交换条件还没有同意。",
+            "en": "What each side willingly offers and which exchange terms remain unagreed."
+          },
+          "directionId": "trader"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个普通物件或许可材料的细节，分开直接观察与猜测。",
+            "en": "A detail of an ordinary object or permitted material, separating observation from guesses."
+          },
+          "directionId": "naturalist"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_04",
+      "prompt": {
+        "zh": "可以自由挑一个低风险的小样介绍，你更愿意看哪种过程？",
+        "en": "Which low-stakes sample process would you prefer to explore by choice?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "从几种线条交错中，看看重复和变化怎样形成纹样。",
+            "en": "Explore repetition and variation through a few interlacing lines."
+          },
+          "directionId": "weaver"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先试几处轻线，比较它们怎样改变一个小画面的关系。",
+            "en": "Compare how a few light preliminary lines change relationships in a small composition."
+          },
+          "directionId": "drafter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把虚构海岸上的地点放进图里，说明路径和未知处。",
+            "en": "Place fictional coastal points on a diagram, stating routes and uncertainties."
+          },
+          "directionId": "chartmaker"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "为一段自编事件留文字记录，标清谁写和哪些还待核。",
+            "en": "Record an invented event in words, identifying the writer and unverified parts."
+          },
+          "directionId": "scribe"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_05",
+      "prompt": {
+        "zh": "如果做一张历史活动的想象卡，你更想突出什么？",
+        "en": "What would you prefer to emphasise on an imagined historical-activity card?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "线条和位置的不同安排，让同一场景出现几种草图。",
+            "en": "Alternative lines and placements for several sketches of one scene."
+          },
+          "directionId": "drafter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "物品怎样经过自愿交换，到达另一位愿意接收的人。",
+            "en": "How an item reaches another willing person through agreed exchange."
+          },
+          "directionId": "trader"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一处观察细节，以及这次还不能准确命名的部分。",
+            "en": "An observed detail and a part I cannot name accurately yet."
+          },
+          "directionId": "naturalist"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个容器从用途出发的轮廓，不要求成品真的能使用。",
+            "en": "A vessel outline considered through use, without requiring a functional finished object."
+          },
+          "directionId": "potter"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_06",
+      "prompt": {
+        "zh": "看一个虚构历史市集的普通说明，你更愿意追踪什么？",
+        "en": "In an account of a fictional historical market, what would you prefer to follow?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "货物的说明、双方愿意接受的条件与可不成交的空间。",
+            "en": "Goods descriptions, acceptable terms and room for either side to decline."
+          },
+          "directionId": "trader"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "几个已知地点怎样在示意图上联系，哪些距离仍未知。",
+            "en": "Connections among known points on a diagram and distances still unknown."
+          },
+          "directionId": "chartmaker"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一张记录怎样把这次发生的事交代给以后读的人。",
+            "en": "How a written record explains this occasion to a later reader."
+          },
+          "directionId": "scribe"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一份小告示怎样从同一版面重复留下清楚的印样。",
+            "en": "How one notice layout can leave repeated readable impressions."
+          },
+          "directionId": "printer"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_07",
+      "prompt": {
+        "zh": "博物馆式的自选体验有几处普通展示，你更想先看哪里？",
+        "en": "A museum-style optional session offers ordinary displays. Which would you prefer first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "海岸与港口标记的历史图示，看看它怎样传达位置。",
+            "en": "A historical coastline-and-port diagram and how it communicates positions."
+          },
+          "directionId": "chartmaker"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一页细节记录，比较图像、名称与还没确定的部分。",
+            "en": "A detail record comparing an image, name and what remains uncertain."
+          },
+          "directionId": "naturalist"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "几个小容器的形态差异，想象材料和日常用途。",
+            "en": "Differences among small vessels, considering materials and everyday use."
+          },
+          "directionId": "potter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一段纹样的交错方式，看看局部怎样加入整体。",
+            "en": "An interlaced pattern and how one part contributes to the whole."
+          },
+          "directionId": "weaver"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_08",
+      "prompt": {
+        "zh": "为自己保留一份历史主题的小观察，你更想怎样记录？",
+        "en": "How would you prefer to retain a small observation from a history-themed activity?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "画下许可材料的一处细节，旁边注明看见了什么。",
+            "en": "Draw a detail of permitted material and state what was observed."
+          },
+          "directionId": "naturalist"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "写一份简明文字记录，留出时间与内容待核的标记。",
+            "en": "Write a brief record with time and markers for unverified details."
+          },
+          "directionId": "scribe"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "比较同一版面两次出现的印样，标出相同和不同。",
+            "en": "Compare two impressions from one layout and mark similarities and differences."
+          },
+          "directionId": "printer"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "保留几张构图草稿，看看选用哪一处线条安排。",
+            "en": "Keep composition drafts and consider which arrangement of lines to use."
+          },
+          "directionId": "drafter"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_09",
+      "prompt": {
+        "zh": "如果给一段虚构历史日常安排一个小任务，你更想选什么？",
+        "en": "Which small task would you prefer in an imagined historical everyday setting?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把零散事项写成可读的清单，明确哪些是自己编的。",
+            "en": "Turn scattered points into a readable list, stating which were invented."
+          },
+          "directionId": "scribe"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "为一个普通容器比较两种轮廓，先不评价制作水平。",
+            "en": "Compare two outlines of an ordinary vessel without rating making skill."
+          },
+          "directionId": "potter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "设计一小段交错纹样，让重复处和变化处看得清楚。",
+            "en": "Design a short interlaced pattern with visible repeated and varied parts."
+          },
+          "directionId": "weaver"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "为一次虚构物品交换写清介绍和可拒绝的条件。",
+            "en": "State descriptions and rejectable terms for a fictional exchange of objects."
+          },
+          "directionId": "trader"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_10",
+      "prompt": {
+        "zh": "看完一段历史工艺介绍后，你更愿意保留哪种小样？",
+        "en": "After a historical-craft introduction, which sample would you prefer to retain?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个以日常用途说明形态的容器示意，不当真品使用。",
+            "en": "A vessel diagram related to everyday use, without treating it as a real artefact."
+          },
+          "directionId": "potter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一份注明来源与版面的印样说明，方便比较重复出现。",
+            "en": "An impression note identifying its source and layout for comparison."
+          },
+          "directionId": "printer"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "几笔试探的草图，保留尚未决定的画面安排。",
+            "en": "Exploratory sketch lines that retain an undecided composition."
+          },
+          "directionId": "drafter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一张标出已知和未知的路线示意，只作阅读不用于导航。",
+            "en": "A route diagram marking known and unknown points, for reading rather than navigation."
+          },
+          "directionId": "chartmaker"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_11",
+      "prompt": {
+        "zh": "几类许可材料可以做普通纸上体验，你更想怎样使用？",
+        "en": "How would you prefer to use permitted materials in an ordinary paper-based activity?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "排一段自编短文字，比较它在两张纸上的重复呈现。",
+            "en": "Arrange invented text and compare its repeated presentation on two sheets."
+          },
+          "directionId": "printer"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "用纸条表现简单交错，看一处局部怎样与纹样相接。",
+            "en": "Use paper strips for simple interlacing and a pattern connection."
+          },
+          "directionId": "weaver"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "制作两张虚构物品说明卡，比较双方愿意怎样交换。",
+            "en": "Make two fictional goods cards and compare mutually acceptable exchanges."
+          },
+          "directionId": "trader"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "按直接观察画一处普通物件细节，不猜它的隐藏作用。",
+            "en": "Draw an observed object detail without guessing a hidden function."
+          },
+          "directionId": "naturalist"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_12",
+      "prompt": {
+        "zh": "一次历史主题体验中，有一点可以自选调整，你更愿意看什么？",
+        "en": "What would you prefer to adjust by choice in a history-themed session?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一段纹样的交接处，让不同小段怎样连接更容易看见。",
+            "en": "A pattern join that makes connections between sections easier to see."
+          },
+          "directionId": "weaver"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一张草图中物件的位置，试试看画面关系怎样改变。",
+            "en": "Object placement in a sketch and how the composition changes."
+          },
+          "directionId": "drafter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一张虚构海图的地点说明，明确什么有依据、什么未核。",
+            "en": "Location notes on a fictional sea chart, distinguishing grounds from uncertainty."
+          },
+          "directionId": "chartmaker"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一份自编记录的措辞，让以后读者知道事件与来源。",
+            "en": "Wording in an invented record so a later reader can distinguish events and sources."
+          },
+          "directionId": "scribe"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_13",
+      "prompt": {
+        "zh": "为一个普通历史场景写想象说明，你更想从哪种活动展开？",
+        "en": "Which activity would you prefer as the starting point for an imagined historical scene?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先画几种不同构图，让人物或物件的位置关系有变化。",
+            "en": "Sketch alternative compositions with different relationships among figures or objects."
+          },
+          "directionId": "drafter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "说明一次自愿物品交换怎样提出、核对和接受条件。",
+            "en": "Describe offering, checking and accepting terms in a voluntary exchange of objects."
+          },
+          "directionId": "trader"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "从一处许可材料的细节写起，区分观察与暂时解释。",
+            "en": "Start with a permitted material’s detail, separating observation and a tentative account."
+          },
+          "directionId": "naturalist"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "比较容器外形与普通用途，保留几种不同形态。",
+            "en": "Compare vessel shapes with ordinary uses, retaining alternative forms."
+          },
+          "directionId": "potter"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_14",
+      "prompt": {
+        "zh": "在一张历史主题展示页上，你更愿意安排哪一项比较？",
+        "en": "Which comparison would you prefer on a history-themed display page?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "两份物品说明是否清楚交代双方自愿同意的条件。",
+            "en": "Whether goods descriptions clearly state the terms both sides willingly accept."
+          },
+          "directionId": "trader"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "两张历史路线图怎样标位置，以及什么不能从图上判断。",
+            "en": "How route diagrams mark positions and what they cannot establish."
+          },
+          "directionId": "chartmaker"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "两份文字记录各自记下什么，来源和遗漏有什么不同。",
+            "en": "What two written records contain, including sources and omissions."
+          },
+          "directionId": "scribe"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "同一版面留下的两份印样，在重复和差别上怎样相似。",
+            "en": "Similarities and differences between two impressions from one layout."
+          },
+          "directionId": "printer"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_15",
+      "prompt": {
+        "zh": "如果历史体验只保留一个低风险的纸上步骤，你更想做什么？",
+        "en": "If a historical activity keeps only one low-stakes paper step, which would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "为一张虚构海岸图补一处清楚的地点标记，不用于真实出行。",
+            "en": "Add a clear place mark to a fictional coast diagram, not for actual travel."
+          },
+          "directionId": "chartmaker"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "为一个普通物件画一处直接看到的细节，不推断种类或功效。",
+            "en": "Draw an observed object detail without inferring a species or effect."
+          },
+          "directionId": "naturalist"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "画一种小容器轮廓，说明它想回应哪种普通使用需要。",
+            "en": "Draw a small vessel outline and state the ordinary use it considers."
+          },
+          "directionId": "potter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用交错线画一小段纹样，想象局部怎样继续。",
+            "en": "Draw a short interlaced pattern and consider how the part might continue."
+          },
+          "directionId": "weaver"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_16",
+      "prompt": {
+        "zh": "看一份历史活动介绍时，你更想为自己留哪种问题？",
+        "en": "Which question would you prefer to keep while reading about a historical activity?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "哪些细节是直接观察，哪些名称还需要其他证据？",
+            "en": "Which details were observed directly and which names need other evidence?"
+          },
+          "directionId": "naturalist"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "谁写了这份记录，后来的人能从文字中知道多少？",
+            "en": "Who wrote the record and how much can later readers learn from its words?"
+          },
+          "directionId": "scribe"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "这个版面怎样重复出现，不同印样应怎样注明？",
+            "en": "How does the layout recur and how should different impressions be identified?"
+          },
+          "directionId": "printer"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "草稿中哪处线条安排还可以改，不急着定成成品？",
+            "en": "Which arrangement of sketch lines can still change before it becomes a finished piece?"
+          },
+          "directionId": "drafter"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_17",
+      "prompt": {
+        "zh": "一小段虚构历史活动结束，你更愿意怎样留存？",
+        "en": "How would you prefer to retain a short fictional historical activity?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "写一段标注虚构来源的文字，说明内容与尚未确定处。",
+            "en": "Write an account identifying its fictional source, content and uncertainties."
+          },
+          "directionId": "scribe"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "保留一个容器形态示意，附上考虑过的普通用途。",
+            "en": "Keep a vessel-shape diagram with the ordinary uses considered."
+          },
+          "directionId": "potter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "记下纹样交错的接续处，留给以后愿意时再看。",
+            "en": "Note a pattern’s interlacing join for a possible later revisit."
+          },
+          "directionId": "weaver"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "写清物品说明与双方可拒绝的交换条件，不记录真实交易。",
+            "en": "State goods descriptions and rejectable exchange terms without recording a real transaction."
+          },
+          "directionId": "trader"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_18",
+      "prompt": {
+        "zh": "历史展示的普通图示可以自选一张再看，你更愿意选哪张？",
+        "en": "Which ordinary historical-display diagram would you prefer to revisit by choice?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "容器的开口、底部和外形图，比较形态与使用之间的联系。",
+            "en": "Vessel opening, base and outline diagrams relating form and use."
+          },
+          "directionId": "potter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一张文字版面与几份印样，比较重复产生的信息。",
+            "en": "A text layout and impressions, comparing information produced repeatedly."
+          },
+          "directionId": "printer"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "几张准备性草图，比较画面关系怎样逐渐形成。",
+            "en": "Preparatory sketches showing how compositional relationships develop."
+          },
+          "directionId": "drafter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "历史海岸图中的几个标记，辨认地点与路线表达。",
+            "en": "Historical coastal-chart marks expressing places and routes."
+          },
+          "directionId": "chartmaker"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_19",
+      "prompt": {
+        "zh": "为一个自选历史主题设计普通便条，你更想采用哪种做法？",
+        "en": "Which approach would you prefer for an ordinary note on a historical theme you chose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "安排可重复使用的短文字版面，标明哪次做出的印样。",
+            "en": "Arrange a reusable short-text layout and identify each impression’s occasion."
+          },
+          "directionId": "printer"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让几条交错线形成纹样，说明局部怎样接入整体。",
+            "en": "Make a pattern with interlacing lines and state how a part joins the whole."
+          },
+          "directionId": "weaver"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "比较双方愿意交换的虚构物品，给不同条件留位置。",
+            "en": "Compare fictional objects for willing exchange and leave room for different terms."
+          },
+          "directionId": "trader"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "直接记录一个许可物件的形态细节，不编隐藏性质。",
+            "en": "Record a permitted object’s visible detail without inventing hidden properties."
+          },
+          "directionId": "naturalist"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_20",
+      "prompt": {
+        "zh": "一个普通历史主题小样可以重新安排，你更想调整哪里？",
+        "en": "Where would you prefer to revise an ordinary history-themed sample?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "纹样中的重复和间隔，看看一段怎样与另一段相接。",
+            "en": "Repetition and spacing in a pattern, considering joins between sections."
+          },
+          "directionId": "weaver"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "草图里的轻重线和位置，比较另一种构图可能。",
+            "en": "Line weight and placement in a sketch, considering another composition."
+          },
+          "directionId": "drafter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "海图示意的标签，让已知地点和不确定处更清楚。",
+            "en": "Labels on a sea-chart diagram so known points and uncertainties are clear."
+          },
+          "directionId": "chartmaker"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "文字清单的用词，让后来读者分清事实与自编部分。",
+            "en": "Words in a list so later readers can distinguish facts from invented content."
+          },
+          "directionId": "scribe"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_21",
+      "prompt": {
+        "zh": "给一份想象性的历史活动记录作最后一处选择，你更想保留什么？",
+        "en": "What would you prefer as a final choice in an imagined historical-activity record?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "几笔尚可修改的构图，而不是要求自己立刻画好。",
+            "en": "Revisable compositional lines without requiring an immediately good drawing."
+          },
+          "directionId": "drafter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一处经双方自愿同意的虚构交换说明，而不是强行成交。",
+            "en": "A fictional exchange statement both sides willingly accept, without forcing a deal."
+          },
+          "directionId": "trader"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一处可再次核对的普通观察，而不是需要证明直觉。",
+            "en": "An ordinary observation that can be checked again, without proving intuition."
+          },
+          "directionId": "naturalist"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一项关于容器形态与用途的想法，而不是认证制作能力。",
+            "en": "An idea relating vessel form and use, without certifying making skill."
+          },
+          "directionId": "potter"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_22",
+      "prompt": {
+        "zh": "如果给这次历史主题体验留一个“以后再看”的入口，你更愿意选什么？",
+        "en": "Which entry would you prefer for revisiting this history-themed session later?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把虚构货物说明和自愿交换条件留在同一张卡上。",
+            "en": "Keep fictional goods descriptions and voluntary exchange terms on one card."
+          },
+          "directionId": "trader"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "为一张历史路线示意注明来源、范围与未核部分。",
+            "en": "Identify the source, scope and uncertainties of a historical-route diagram."
+          },
+          "directionId": "chartmaker"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "保留一段文字记录，说明写下的时间、内容与出处。",
+            "en": "Keep a written account identifying its time, content and source."
+          },
+          "directionId": "scribe"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "留一份版面和印样的对照，方便以后比较重复。",
+            "en": "Keep a layout–impression comparison for later consideration of repetition."
+          },
+          "directionId": "printer"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_23",
+      "prompt": {
+        "zh": "看过几类普通历史活动后，你更想回到哪一处细节？",
+        "en": "After exploring ordinary historical activities, which detail would you prefer to revisit?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "图上地点如何相连，以及图示不能替代哪些实际信息。",
+            "en": "Connections among mapped points and information a diagram cannot replace."
+          },
+          "directionId": "chartmaker"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "观察记录中形态与标签的关系，哪些还需谨慎确认。",
+            "en": "The relationship between observed form and labels that still need checking."
+          },
+          "directionId": "naturalist"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一个容器的轮廓和使用设想，不把想象当实物试验。",
+            "en": "A vessel’s outline and proposed use, without treating imagination as a physical test."
+          },
+          "directionId": "potter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一段交错纹样的形成方式，不以完成好坏判断自己。",
+            "en": "How an interlaced pattern forms, without judging myself by its execution."
+          },
+          "directionId": "weaver"
+        }
+      ]
+    },
+    {
+      "id": "PAST_LIFE_24",
+      "prompt": {
+        "zh": "结束这份历史活动偏好选择，你更愿意带走哪种纸上记录？",
+        "en": "At the end of these historical-activity choices, which paper record would you prefer to take away?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一处直接看到的细节和一个尚不确定的名称。",
+            "en": "A directly observed detail and an uncertain name."
+          },
+          "directionId": "naturalist"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一份把文字、来源和遗漏分开的简明清单。",
+            "en": "A brief list distinguishing words, sources and omissions."
+          },
+          "directionId": "scribe"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一个版面与多份印样之间的可读比较。",
+            "en": "A readable comparison between one layout and its impressions."
+          },
+          "directionId": "printer"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一组能看出变化过程的构图草稿。",
+            "en": "Composition drafts that show how arrangements changed."
+          },
+          "directionId": "drafter"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "required": 24,
+    "choice": "one option adds1 to offered historical activity image",
+    "total": 24,
+    "exposureEach": 12,
+    "perPosition": 3,
+    "highest": "allhighestcountsretainfullguides/noautomaticsecondary",
+    "allA": "eightimages3each/all8fullguides",
+    "verificationPlan": "bounded8uniquehighest+fourall8ties+4096deterministiccompleteanswersindependentsourceoracle/plannednotexecuted/not4^24orallcountvectors/psychvalidation"
+  },
+  "scope": "Currentimaginedhistoricalactivitypreferencesonly/notactualpastlife/reincarnationproof/regression/memoryrecovery/DOB/ancestry/ethnicity/religion/gender/status/health/traumaexplanation/abilityorcareerfit. Rolesareeditorialimagesnotpeopleorperiodpersonality. NomappingtoJung36/MBTI/realworkqualifications. Historycontextdoesnotjustifycoercion/slavery/colonialismorimposehistoricalsocialrestrictionsonparticipants.",
+  "instructions": {
+    "zh": "本版“前世测试”是一份24题的历史角色想象问卷：比较你现在更愿意阅读或尝试哪类普通历史活动，形成书吏、陶工、印工、织工、画坊、商旅、海图师或博物记录八种角色意象。它不寻找真实前世、回忆、灵魂、生日或血缘，不要求认同轮回，也不否定个人信仰。每题只选当前较愿意的一项，不需要历史知识或实际技能；所有体验都以许可材料、自愿、可调整和可停止为前提。24题全部作答后比较原始次数，所有最高并列完整保留，全选第一项会八种各3次。角色是本站编辑选择，不概括时代或人群性格，不分高低，不认证能力、健康或职业；历史背景也不使本站题本经过心理验证。",
+    "en": "This Past Life Quiz is a 24-question historical-role imagination quiz. It compares ordinary historical activities you would currently prefer to read about or explore, producing eight images: scribe, potter, printer, weaver, workshop drafter, trader, chartmaker or natural-history recorder. It seeks no actual former life, memory, soul, birthday or ancestry, and requires neither accepting reincarnation nor rejecting personal belief. Choose one currently preferred option without needing historical knowledge or practical skill. All experiences assume permitted materials and voluntary, adjustable, stoppable participation. Compare raw counts after all 24 choices and retain every highest-tied full guide; choosing the first option throughout gives three each. Roles are editorial selections, not personalities of entire periods or peoples, ranks, ability, health or career credentials. Historical background supplies no psychometric validation."
+  }
+}
