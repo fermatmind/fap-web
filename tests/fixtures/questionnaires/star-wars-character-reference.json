@@ -1,0 +1,939 @@
+{
+  "formCode": "fm_star_wars_fan_choices_21",
+  "origin": "FermatMindoriginal21ENZH4choice/unofficialtextonlyfanreading/sevencharactersappearingoriginaltrilogy/notclinicalinstrument",
+  "directions": [
+    {
+      "id": "han-solo",
+      "title": {
+        "zh": "汉·索罗：使用眼前可用的办法",
+        "en": "Han Solo: Working with Available Means"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "palpatine",
+      "title": {
+        "zh": "帕尔帕廷：把持续安排说清",
+        "en": "Palpatine: Describing an Ongoing Arrangement"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "darth-vader",
+      "title": {
+        "zh": "达斯·维达：集中在明确的自选一步",
+        "en": "Darth Vader: One Clear Chosen Step"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "leia-organa",
+      "title": {
+        "zh": "莱娅·奥加纳：在共同安排中表达意见",
+        "en": "Leia Organa: Expressing Views in Shared Plans"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "obi-wan-kenobi",
+      "title": {
+        "zh": "欧比旺·克诺比：需要时分享具体经验",
+        "en": "Obi-Wan Kenobi: Offering Experience When Wanted"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "luke-skywalker",
+      "title": {
+        "zh": "卢克·天行者：迈出自选的学习一步",
+        "en": "Luke Skywalker: Taking a Chosen Learning Step"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "yoda",
+      "title": {
+        "zh": "尤达：停一下再问最初假设",
+        "en": "Yoda: Pausing to Question an Assumption"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "STAR_WARS_01",
+      "prompt": {
+        "zh": "你想用现有材料做一张普通小卡，开始时更愿意？",
+        "en": "You want to make an ordinary card using existing materials. What appeals first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "看看手边有什么，临时组合一个够用办法",
+            "en": "Look at what is available and improvise an adequate approach"
+          },
+          "directionId": "han-solo"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先说清这项安排若继续，准备怎样进行",
+            "en": "Describe how the arrangement would work if it continues"
+          },
+          "directionId": "palpatine"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "挑一个明确的自选步骤，先只关注这一处",
+            "en": "Choose one clear step and attend only to that part for now"
+          },
+          "directionId": "darth-vader"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "若一起做，说明自己的想法并听听各自意愿",
+            "en": "If making it together, state your view and hear each person’s wishes"
+          },
+          "directionId": "leia-organa"
+        }
+      ]
+    },
+    {
+      "id": "STAR_WARS_02",
+      "prompt": {
+        "zh": "你想让一本私人记录本持续用一阵，更想先想清？",
+        "en": "You want to use a personal notebook for a while. What would you clarify first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "怎样继续、何时重新看看安排是否合适",
+            "en": "How it would continue and when to reconsider the arrangement"
+          },
+          "directionId": "palpatine"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "今天只想完成哪一个自己选的步骤",
+            "en": "The one chosen step you want to take today"
+          },
+          "directionId": "darth-vader"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "若和别人共用，自己对共同安排有什么意见",
+            "en": "Your view of the arrangement if someone shares it"
+          },
+          "directionId": "leia-organa"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有没有别人需要时才分享的具体使用经验",
+            "en": "Whether there is a specific experience to offer only if wanted"
+          },
+          "directionId": "obi-wan-kenobi"
+        }
+      ]
+    },
+    {
+      "id": "STAR_WARS_03",
+      "prompt": {
+        "zh": "一份自选小清单里有几件普通事，你更愿意？",
+        "en": "A chosen checklist contains several ordinary activities. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "只选一个明确小步骤，暂不切换其他",
+            "en": "Choose one clear little step without switching for now"
+          },
+          "directionId": "darth-vader"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "若与人共做，说出自己的安排意见并协商",
+            "en": "If working together, state your view and discuss the plan"
+          },
+          "directionId": "leia-organa"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "有人想听时，分享一件自己确实试过的经验",
+            "en": "If wanted, share one experience you have actually tried"
+          },
+          "directionId": "obi-wan-kenobi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "选一项自己想学的新用法，允许从最小处开始",
+            "en": "Choose a use you want to learn and start with its smallest part"
+          },
+          "directionId": "luke-skywalker"
+        }
+      ]
+    },
+    {
+      "id": "STAR_WARS_04",
+      "prompt": {
+        "zh": "几个熟人自愿一起安排普通小活动，你更接近？",
+        "en": "A few acquaintances willingly plan an ordinary activity. What feels closer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "表达自己想怎样安排，也让别人说不同意见",
+            "en": "State your preferred plan and leave room for different views"
+          },
+          "directionId": "leia-organa"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先问是否需要，再提供一项具体经验供参考",
+            "en": "Ask whether experience is wanted before offering one example"
+          },
+          "directionId": "obi-wan-kenobi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "挑一项自己想了解的新环节，学一点就够",
+            "en": "Choose an unfamiliar part you want to learn, without taking it all"
+          },
+          "directionId": "luke-skywalker"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先停一下，问大家最初默认的前提是什么",
+            "en": "Pause and ask what premise the group began with"
+          },
+          "directionId": "yoda"
+        }
+      ]
+    },
+    {
+      "id": "STAR_WARS_05",
+      "prompt": {
+        "zh": "朋友问你一种普通材料以前怎样用过，你更愿意？",
+        "en": "A friend asks how you have used an ordinary material before. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说明一次实际经验与局限，不要求照做",
+            "en": "Describe one actual experience and its limits without requiring imitation"
+          },
+          "directionId": "obi-wan-kenobi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "选一个自己也想进一步学的小点",
+            "en": "Choose one small point you also want to learn more about"
+          },
+          "directionId": "luke-skywalker"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先问为什么默认只有这种用途",
+            "en": "Question the assumption that there is only this use"
+          },
+          "directionId": "yoda"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "看看眼前现有东西，组合一个够用的办法",
+            "en": "Combine available things into an adequate approach"
+          },
+          "directionId": "han-solo"
+        }
+      ]
+    },
+    {
+      "id": "STAR_WARS_06",
+      "prompt": {
+        "zh": "你想了解一个陌生但普通的兴趣词语，更愿意？",
+        "en": "You want to understand an unfamiliar ordinary hobby term. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "从一个自己想知道的小例子开始学",
+            "en": "Begin learning with one example you want to understand"
+          },
+          "directionId": "luke-skywalker"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先问自己对这个词已经默认了什么",
+            "en": "Ask what you have already assumed about the word"
+          },
+          "directionId": "yoda"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "利用手边已有说明，临时找到够用的理解办法",
+            "en": "Use available explanations for an adequate initial approach"
+          },
+          "directionId": "han-solo"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "想想若继续记录这个词，会怎样保持安排",
+            "en": "Consider how an ongoing record of the term would work"
+          },
+          "directionId": "palpatine"
+        }
+      ]
+    },
+    {
+      "id": "STAR_WARS_07",
+      "prompt": {
+        "zh": "一个普通安排好像只有唯一做法，你比较想？",
+        "en": "An ordinary arrangement seems to have only one possible method. What interests you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "停一下，问“必须这样”来自什么前提",
+            "en": "Pause and ask what premise makes it seem necessary"
+          },
+          "directionId": "yoda"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先用现有条件想一个够用的小办法",
+            "en": "Find an adequate approach within existing conditions"
+          },
+          "directionId": "han-solo"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "说明自己若持续采用它，愿意怎样安排",
+            "en": "Describe how you would choose to keep using it"
+          },
+          "directionId": "palpatine"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "选自己真正想做的一步，不扩大范围",
+            "en": "Choose the step you actually want without expanding scope"
+          },
+          "directionId": "darth-vader"
+        }
+      ]
+    },
+    {
+      "id": "STAR_WARS_08",
+      "prompt": {
+        "zh": "自己可用的小物品临时少了一件，你更愿意？",
+        "en": "One small object available to you is temporarily missing. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用已有东西换一个许可范围内的普通办法",
+            "en": "Use what remains for another permitted ordinary approach"
+          },
+          "directionId": "han-solo"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "重说接下来怎样持续安排，允许留空",
+            "en": "Restate the ongoing arrangement with room to leave a gap"
+          },
+          "directionId": "palpatine"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "挑一个不依赖它的明确小步骤",
+            "en": "Choose one clear little step that does not depend on it"
+          },
+          "directionId": "darth-vader"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "若影响共做的人，表达自己的意见并商量",
+            "en": "If others share the activity, state your view and discuss it"
+          },
+          "directionId": "leia-organa"
+        }
+      ]
+    },
+    {
+      "id": "STAR_WARS_09",
+      "prompt": {
+        "zh": "你想为私人小兴趣保留一个可调整的习惯，更关注？",
+        "en": "You want an adjustable routine for a private hobby. What draws your attention?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "这项安排怎样持续、什么时候可以改变",
+            "en": "How the arrangement continues and when it can change"
+          },
+          "directionId": "palpatine"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "眼前一个自选步骤是否清楚、可以到此为止",
+            "en": "Whether one chosen step is clear and can end here"
+          },
+          "directionId": "darth-vader"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "若与人同行，自己的意见有没有明确说出",
+            "en": "Whether your view is clearly expressed if someone joins"
+          },
+          "directionId": "leia-organa"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有无自己试过、可在别人需要时分享的做法",
+            "en": "Whether a method you tried could be offered if someone wants it"
+          },
+          "directionId": "obi-wan-kenobi"
+        }
+      ]
+    },
+    {
+      "id": "STAR_WARS_10",
+      "prompt": {
+        "zh": "看一页属于自己的普通资料时，你更倾向？",
+        "en": "When looking at one page of ordinary material of your own, what is your inclination?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "只专看一个自己已经选定的小点",
+            "en": "Attend to one small point you have chosen"
+          },
+          "directionId": "darth-vader"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "若共同讨论，提出自己希望怎样读的意见",
+            "en": "If discussing together, propose how you want to read it"
+          },
+          "directionId": "leia-organa"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "在有人需要时说一个自己读过类似材料的经验",
+            "en": "Offer an experience with similar material only if wanted"
+          },
+          "directionId": "obi-wan-kenobi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "从一个不熟悉的小地方开始学一点",
+            "en": "Begin learning a little from one unfamiliar point"
+          },
+          "directionId": "luke-skywalker"
+        }
+      ]
+    },
+    {
+      "id": "STAR_WARS_11",
+      "prompt": {
+        "zh": "你和朋友愿意一起看一个普通展示，更想？",
+        "en": "You and a friend want to look at an ordinary display together. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说明自己想看哪部分，再商量彼此顺序",
+            "en": "State which part you want and discuss an order that suits each person"
+          },
+          "directionId": "leia-organa"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先问对方需不需要听自己以前看过的经验",
+            "en": "Ask whether they want an experience from an earlier visit"
+          },
+          "directionId": "obi-wan-kenobi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "选一个自己没了解的小主题学一点",
+            "en": "Choose one unfamiliar little topic to learn about"
+          },
+          "directionId": "luke-skywalker"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问最初为什么觉得必须按这个顺序看",
+            "en": "Question the assumption that this order is necessary"
+          },
+          "directionId": "yoda"
+        }
+      ]
+    },
+    {
+      "id": "STAR_WARS_12",
+      "prompt": {
+        "zh": "别人愿意听你介绍一种普通自用办法，你比较想？",
+        "en": "Someone wants to hear about an ordinary method you use. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "讲清自己试过的情况和不确定处，供他自选",
+            "en": "Describe the conditions you tried and uncertainties as an option"
+          },
+          "directionId": "obi-wan-kenobi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "顺便选一个自己还想了解的小点继续学",
+            "en": "Choose one point you still want to learn"
+          },
+          "directionId": "luke-skywalker"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先问自己是不是把一个经验当成普遍规则",
+            "en": "Question whether you have assumed one experience is a general rule"
+          },
+          "directionId": "yoda"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用手边已有例子临时演示一小段",
+            "en": "Improvise a brief example from what is available"
+          },
+          "directionId": "han-solo"
+        }
+      ]
+    },
+    {
+      "id": "STAR_WARS_13",
+      "prompt": {
+        "zh": "你想开始一个不熟悉的小收藏主题，更愿意？",
+        "en": "You want to begin an unfamiliar small collection topic. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "选一个自己想了解的词或样例，从这里开始",
+            "en": "Choose a word or example you want to learn and begin there"
+          },
+          "directionId": "luke-skywalker"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "停一下，问自己为什么默认要这样收藏",
+            "en": "Pause and question your initial collecting assumption"
+          },
+          "directionId": "yoda"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先用已有材料试出一个够用的入手办法",
+            "en": "Use existing material for an adequate starting approach"
+          },
+          "directionId": "han-solo"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "描述若继续一阵，自己愿意怎样安排",
+            "en": "Describe how you would choose to continue for a while"
+          },
+          "directionId": "palpatine"
+        }
+      ]
+    },
+    {
+      "id": "STAR_WARS_14",
+      "prompt": {
+        "zh": "一段普通说明让你觉得“本来就该如此”，你会更愿意？",
+        "en": "Ordinary instructions make something seem self-evident. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问这句话依赖什么没有说出的假设",
+            "en": "Ask which unstated assumption supports the sentence"
+          },
+          "directionId": "yoda"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "用手边例子找一个当前够用的做法",
+            "en": "Find an adequate present method using available examples"
+          },
+          "directionId": "han-solo"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "说清自己持续采用它时愿意怎样安排",
+            "en": "Describe how you would choose to keep using it"
+          },
+          "directionId": "palpatine"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "只选当下一个明确步骤，不扩大为所有做法",
+            "en": "Choose one clear present step without generalising it to everything"
+          },
+          "directionId": "darth-vader"
+        }
+      ]
+    },
+    {
+      "id": "STAR_WARS_15",
+      "prompt": {
+        "zh": "一次自愿的普通小安排临时有变化，你更想先？",
+        "en": "A voluntary ordinary arrangement changes unexpectedly. What comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用当前已有条件找一个够用的小变通",
+            "en": "Find an adequate adjustment using current conditions"
+          },
+          "directionId": "han-solo"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把持续安排怎样改变说清楚",
+            "en": "Describe how the ongoing arrangement would change"
+          },
+          "directionId": "palpatine"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "确定自己仍愿意做的一个明确步骤",
+            "en": "Identify one clear step you still choose"
+          },
+          "directionId": "darth-vader"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "表达自己对共同安排的意见，听别人怎么想",
+            "en": "State your view of the shared plan and hear others’ views"
+          },
+          "directionId": "leia-organa"
+        }
+      ]
+    },
+    {
+      "id": "STAR_WARS_16",
+      "prompt": {
+        "zh": "你准备把一个私人记录方式用到下个月，更关注？",
+        "en": "You may keep a private recording method into next month. What interests you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "持续方式与重新确认的时间是否清楚",
+            "en": "Whether continuation and a time to reconsider are clear"
+          },
+          "directionId": "palpatine"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "今天只需看哪一个自选小步骤",
+            "en": "Which one chosen little step matters today"
+          },
+          "directionId": "darth-vader"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "如果与人共用，自己想怎样表达安排意见",
+            "en": "How you want to express your view if the record is shared"
+          },
+          "directionId": "leia-organa"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "哪些实际经验可以在别人想听时提供",
+            "en": "Which actual experiences could be offered if someone wants them"
+          },
+          "directionId": "obi-wan-kenobi"
+        }
+      ]
+    },
+    {
+      "id": "STAR_WARS_17",
+      "prompt": {
+        "zh": "整理自己的一小块可用空间，你更愿意？",
+        "en": "You organise a small space you may use. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先完成一个明确的自选小步骤，再决定以后",
+            "en": "Take one clear chosen step before deciding what comes later"
+          },
+          "directionId": "darth-vader"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "若和人共用，表达自己想留哪一部分",
+            "en": "If shared, express which part you want to keep"
+          },
+          "directionId": "leia-organa"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "有人需要时，分享一个自己实际摆过的例子",
+            "en": "If wanted, share an arrangement you actually tried"
+          },
+          "directionId": "obi-wan-kenobi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "从一处不熟悉的普通摆放方法学一点",
+            "en": "Learn a little from one unfamiliar ordinary arrangement"
+          },
+          "directionId": "luke-skywalker"
+        }
+      ]
+    },
+    {
+      "id": "STAR_WARS_18",
+      "prompt": {
+        "zh": "朋友与你对短休息的安排意见不同，你更想？",
+        "en": "You and a friend have different views on a short break. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "直接说自己的想法，再商量各自愿意的部分",
+            "en": "State your view and discuss the parts each person wants"
+          },
+          "directionId": "leia-organa"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "问对方是否想听自己试过的一种安排",
+            "en": "Ask whether they want to hear an arrangement you tried"
+          },
+          "directionId": "obi-wan-kenobi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "挑一个自己没试过却想了解的小做法",
+            "en": "Choose an unfamiliar little approach you want to learn"
+          },
+          "directionId": "luke-skywalker"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "停一下，问为什么默认这段时间必须一起用",
+            "en": "Pause and question why the time must be spent together"
+          },
+          "directionId": "yoda"
+        }
+      ]
+    },
+    {
+      "id": "STAR_WARS_19",
+      "prompt": {
+        "zh": "熟人问你一个普通小兴趣的经验，你更倾向？",
+        "en": "An acquaintance asks about your experience with an ordinary hobby. What is your inclination?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "只说实际试过的一种情况，不当成通用答案",
+            "en": "Describe one actual case rather than a universal answer"
+          },
+          "directionId": "obi-wan-kenobi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "选一个自己也想知道的问题，学一点新内容",
+            "en": "Choose a question you also want to learn about"
+          },
+          "directionId": "luke-skywalker"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问自己是否把熟悉当成了唯一合适办法",
+            "en": "Question whether familiarity has become an assumption of sole suitability"
+          },
+          "directionId": "yoda"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "利用眼前材料临时拼一个够用的例子",
+            "en": "Improvise an adequate example from material at hand"
+          },
+          "directionId": "han-solo"
+        }
+      ]
+    },
+    {
+      "id": "STAR_WARS_20",
+      "prompt": {
+        "zh": "你想在一个普通话题上补一点新理解，更愿意？",
+        "en": "You want a little new understanding of an ordinary topic. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "从一个自选问题开始学，不要求全懂",
+            "en": "Begin with one chosen question without needing to know everything"
+          },
+          "directionId": "luke-skywalker"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "问最初对这个话题有什么未核的默认看法",
+            "en": "Question an unchecked initial assumption about the topic"
+          },
+          "directionId": "yoda"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先用已有资料找一个够用的入手方式",
+            "en": "Use available material for an adequate way in"
+          },
+          "directionId": "han-solo"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "说明若继续关注，自己愿意怎样安排",
+            "en": "Describe how you would choose an ongoing arrangement for it"
+          },
+          "directionId": "palpatine"
+        }
+      ]
+    },
+    {
+      "id": "STAR_WARS_21",
+      "prompt": {
+        "zh": "准备结束一次自愿的小交流，你更愿意留意？",
+        "en": "Before ending a voluntary little conversation, what would you rather notice?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "最初默认的前提是否还有一个值得问的问题",
+            "en": "Whether an initial assumption leaves a question worth asking"
+          },
+          "directionId": "yoda"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "眼前已有条件是否足够到这里结束",
+            "en": "Whether available conditions are enough to end here"
+          },
+          "directionId": "han-solo"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "若还有后续安排，是否已经说得清楚",
+            "en": "Whether any ongoing arrangement has been stated clearly"
+          },
+          "directionId": "palpatine"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "自己选的那个明确小步骤是否已经到此",
+            "en": "Whether the one clear step you chose has reached its endpoint"
+          },
+          "directionId": "darth-vader"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "required": 21,
+    "total": 21,
+    "exposureEach": 12,
+    "perPosition": 3,
+    "highest": "allhighestretainfullguides/noautomaticsecondary",
+    "allA": "sevencharacters3each/all7fullguides",
+    "verificationPlan": "7uniquehighest+4all7ties+4096deterministiccompleteanswersplanned4107boundedsourceoraclecases/NOTexecuted/not4^21/globalDP/allhighestsets/psychvalidation"
+  },
+  "scope": "Originalunofficialfanreadingofordinaryvoluntarychoices/sevencharactersappearingoriginaltrilogy/notfullcanonicalpersonalityorallfranchisecharacters. No officialDisneyLucasfilmendorsement/competitorbank/body/scorer/filmstills/dialogue/lyrics/artadopted. VaderAnakinoneidentity;PalpatineSidiousoneidentity. No Forcepowers/clinical/psychopathology/IQ/morality/dangerousness/disability/species/gender/trauma/romance/career/politicalbelief inference. No war,weapons,manipulation,abuse,breathingorcombatpractice. No MBTIconversion.",
+  "instructions": {
+    "zh": "21道原创非官方同人题，选用在《星球大战》原版三部曲出现的汉·索罗、帕尔帕廷、达斯·维达、莱娅、欧比旺、卢克和尤达七位虚构角色，比较普通自选做法。每题从四种做法选一个较接近自己的，均以自愿、许可、可改和可停止为前提。每选加1，每位出现12次、每位置3次，总数21；最高并列全部完整显示。帕尔帕廷与西迪厄斯、维达与阿纳金各是一位身份，不另增角色。无需剧情知识，不测原力、心理病理、智商、善恶、危险性、身体、族群、性别或职业，不要求模仿战争、武器、操控、伤害或修行，也不换算MBTI；不是Disney或Lucasfilm官方测验。",
+    "en": "Twenty-one original unofficial fan questions select seven characters appearing in the original Star Wars trilogy: Han, Palpatine, Vader, Leia, Obi-Wan, Luke and Yoda. Compare ordinary chosen approaches by selecting the closer of four options in voluntary, permitted, revisable and stoppable situations. Each choice adds one, each character appears twelve times and three times per position, and counts sum to twenty-one. Every highest tie appears in full. Palpatine and Sidious are one identity, as are Vader and Anakin, rather than extra characters. No episode knowledge is needed. There is no Force, psychopathology, IQ, good-versus-evil, dangerousness, bodily, ethnicity, gender or career assessment, imitation of war, weapons, manipulation, harm or spiritual training, or MBTI conversion. This is no official Disney or Lucasfilm test."
+  }
+}

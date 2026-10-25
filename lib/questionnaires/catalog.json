@@ -1159,5 +1159,33 @@
       "kisuke-urahara",
       "kenpachi-zaraki"
     ]
+  },
+  {
+    "slug": "star-wars-character",
+    "code": "STAR_WARS_FAN_ORDINARY_CHOICES",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "metaphor",
+    "title": {
+      "zh": "《星球大战》角色测试",
+      "en": "Star Wars Character Test"
+    },
+    "description": {
+      "zh": "免费完成21道原创普通选择，比较汉索罗、莱娅、卢克等七位星球大战角色。完整结果、例子与计分直接读，最高并列全部保留；非官方同人测试，不评原力、善恶或心理。",
+      "en": "Take 21 original everyday questions and compare seven Star Wars characters. Full tied results, examples and scoring are free in this unofficial fan quiz."
+    },
+    "minutes": 7,
+    "collection": "explore",
+    "formCode": "fm_star_wars_fan_choices_21",
+    "questionCount": 21,
+    "resultSlugs": [
+      "han-solo",
+      "palpatine",
+      "darth-vader",
+      "leia-organa",
+      "obi-wan-kenobi",
+      "luke-skywalker",
+      "yoda"
+    ]
   }
 ]
