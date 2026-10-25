@@ -1,0 +1,939 @@
+{
+  "formCode": "fm_naruto_fan_choices_21",
+  "origin": "FermatMindoriginal21ENZH4choice/unofficialtextonlyfanreading/sevenselectedfictionalcharacters/notclinicalinstrument",
+  "directions": [
+    {
+      "id": "naruto",
+      "title": {
+        "zh": "漩涡鸣人：发起一次共同尝试",
+        "en": "Naruto: Starting a Shared Attempt"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "sasuke",
+      "title": {
+        "zh": "宇智波佐助：保留自选的专注",
+        "en": "Sasuke: Keeping a Chosen Focus"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "sakura",
+      "title": {
+        "zh": "春野樱：具体练习与核对",
+        "en": "Sakura: Specific Practice and Checking"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "kakashi",
+      "title": {
+        "zh": "旗木卡卡西：说明合作中的位置",
+        "en": "Kakashi: Clarifying Roles in Cooperation"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "shikamaru",
+      "title": {
+        "zh": "奈良鹿丸：看清条件与省去多余步骤",
+        "en": "Shikamaru: Conditions and Fewer Unnecessary Steps"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "hinata",
+      "title": {
+        "zh": "日向雏田：安静而明确地参与",
+        "en": "Hinata: Quiet and Explicit Participation"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "gaara",
+      "title": {
+        "zh": "我爱罗：有边界的共同责任",
+        "en": "Gaara: Bounded Shared Responsibility"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "NARUTO_01",
+      "prompt": {
+        "zh": "你愿意参加一个普通兴趣小组，第一次见面时更想怎样开始？",
+        "en": "You willingly join an ordinary hobby group. How would you rather begin the first meeting?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "邀请愿意的人一起试一小段，再看看感觉",
+            "en": "Invite anyone willing to try a small part together and see how it feels"
+          },
+          "directionId": "naruto"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先选一个自己真正想了解的点，留一段专注时间",
+            "en": "Choose one point you want to explore and keep some focused time"
+          },
+          "directionId": "sasuke"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "拿一个简单样例练一次，核对具体哪里要改",
+            "en": "Practise one simple example and check what needs adjusting"
+          },
+          "directionId": "sakura"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先问每个人愿意参与哪部分，再安排衔接",
+            "en": "Ask which parts people want to take and clarify how they connect"
+          },
+          "directionId": "kakashi"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_02",
+      "prompt": {
+        "zh": "你有一小段自选空闲来做私人笔记，更接近哪种做法？",
+        "en": "You have a short period of chosen free time for personal notes. Which approach feels closer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "围绕一个自己选定的问题，暂时不切换题目",
+            "en": "Stay with one chosen question rather than switching topics for now"
+          },
+          "directionId": "sasuke"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "试写一个小段，再对照原意检查",
+            "en": "Write a small passage and check it against the intended meaning"
+          },
+          "directionId": "sakura"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "若需要合作资料，先说明自己要用哪一部分",
+            "en": "If shared material is needed, explain which part you intend to use"
+          },
+          "directionId": "kakashi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先看需要记录什么，去掉没有必要的格式步骤",
+            "en": "Check what needs recording and remove unnecessary formatting steps"
+          },
+          "directionId": "shikamaru"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_03",
+      "prompt": {
+        "zh": "你在学习一个可随时停下的简单纸艺，更愿意？",
+        "en": "You are learning a simple paper craft you can stop at any time. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "只练一个折法，看看哪一处与说明不同",
+            "en": "Practise one fold and check where it differs from the instructions"
+          },
+          "directionId": "sakura"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "和同伴说明谁示范、谁跟着试，也允许交换",
+            "en": "Agree who demonstrates and who tries, with room to swap"
+          },
+          "directionId": "kakashi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先确认材料和步骤是否齐全，省掉多余动作",
+            "en": "Check materials and steps first and leave out unnecessary actions"
+          },
+          "directionId": "shikamaru"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先在旁边看一遍，准备好后明确说想试哪一步",
+            "en": "Watch once, then say which step you want to try when ready"
+          },
+          "directionId": "hinata"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_04",
+      "prompt": {
+        "zh": "你与熟人自愿布置一个共享小角落，首先想确认？",
+        "en": "You and an acquaintance willingly arrange a small shared corner. What do you want to clarify first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "谁愿意摆放、谁愿意记录，怎样交接",
+            "en": "Who wants to arrange or record things and how to hand over"
+          },
+          "directionId": "kakashi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "空间和可用物品有哪些，哪些步骤可省",
+            "en": "What space and materials exist and which steps can be omitted"
+          },
+          "directionId": "shikamaru"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "自己想参加哪一小部分，不需要一直发言",
+            "en": "Which small part you want to join without speaking throughout"
+          },
+          "directionId": "hinata"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "共同物品由谁保管、各自负责到哪里",
+            "en": "Who keeps shared objects and where each responsibility ends"
+          },
+          "directionId": "gaara"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_05",
+      "prompt": {
+        "zh": "一次普通共同活动的时间缩短了，你比较想先？",
+        "en": "There is less time for an ordinary shared activity. What do you want to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "重新看时间与实际条件，删掉一个非必要环节",
+            "en": "Review time and actual conditions and remove an optional part"
+          },
+          "directionId": "shikamaru"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "明确说自己还愿意参加哪一小段",
+            "en": "Say clearly which small part you still want to join"
+          },
+          "directionId": "hinata"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "确认大家仍同意的最低安排和各自范围",
+            "en": "Confirm the minimum arrangement people still agree to and their scope"
+          },
+          "directionId": "gaara"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "邀请愿意的人先一起试最小的一段",
+            "en": "Invite anyone willing to try the smallest part together"
+          },
+          "directionId": "naruto"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_06",
+      "prompt": {
+        "zh": "别人邀请你为一件低风险小事提意见，你通常更愿意？",
+        "en": "Someone invites your opinion on a low-stakes matter. What would you rather do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "想清一点后用一句话表达，不必说得很多",
+            "en": "Think of one point and express it in a sentence without speaking at length"
+          },
+          "directionId": "hinata"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先确认自己能回应哪部分，其余由大家另定",
+            "en": "Clarify which part you can address and leave the rest for separate agreement"
+          },
+          "directionId": "gaara"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "提出大家愿意就一起试一次的小建议",
+            "en": "Suggest a small experiment people can try together if willing"
+          },
+          "directionId": "naruto"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "选自己最关心的一点，围绕它说清想法",
+            "en": "Choose the point you care about most and stay with it"
+          },
+          "directionId": "sasuke"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_07",
+      "prompt": {
+        "zh": "你与朋友借用一份可共享的普通资料，比较在意？",
+        "en": "You and a friend borrow ordinary material that may be shared. What draws your attention?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "各自能用哪些内容、怎样归还和谁负责说明",
+            "en": "What each may use, how to return it and who communicates"
+          },
+          "directionId": "gaara"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "能否邀请对方一起看一小段，不勉强同步",
+            "en": "Whether to invite a shared look at one section without requiring synchrony"
+          },
+          "directionId": "naruto"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "能否先留一段时间专看自己选的主题",
+            "en": "Whether to keep some time for the topic you chose"
+          },
+          "directionId": "sasuke"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先核对一个信息点，避免把记错的内容带走",
+            "en": "Checking one information point before taking away an inaccurate note"
+          },
+          "directionId": "sakura"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_08",
+      "prompt": {
+        "zh": "你想恢复一个自己愿意继续的小兴趣，更想怎样重开？",
+        "en": "You want to return to a small interest you still choose. How would you rather restart?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "找愿意的同伴约一次很小的共同尝试",
+            "en": "Arrange one small shared attempt with someone willing"
+          },
+          "directionId": "naruto"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "挑回自己最想探索的那一点，不急着扩展",
+            "en": "Return to the point you want to explore without expanding immediately"
+          },
+          "directionId": "sasuke"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "找一个旧样例练一次，核对哪里生疏",
+            "en": "Practise an old example and check what feels unfamiliar"
+          },
+          "directionId": "sakura"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "若和别人一起，先商量各自想承担的部分",
+            "en": "If others join, agree which parts each wants to take"
+          },
+          "directionId": "kakashi"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_09",
+      "prompt": {
+        "zh": "你要为自己整理一页普通收藏说明，更愿意？",
+        "en": "You want to organise one page of notes on a personal collection. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "只围绕一种自己选定的收藏特征写",
+            "en": "Write around one collection feature you chose"
+          },
+          "directionId": "sasuke"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "写一条就核对一条，留意具体遗漏",
+            "en": "Check each note as you write it for specific omissions"
+          },
+          "directionId": "sakura"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "若与人合写，先说明彼此编辑哪一段",
+            "en": "If writing together, clarify which section each person edits"
+          },
+          "directionId": "kakashi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先决定这页实际要回答什么，删掉无用栏目",
+            "en": "Decide what the page needs to answer and remove unused fields"
+          },
+          "directionId": "shikamaru"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_10",
+      "prompt": {
+        "zh": "学习一个普通新词的用法时，你更愿意怎样处理？",
+        "en": "When learning how to use an ordinary new word, what would you rather do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用一个自己的例句试写，再核对是否合适",
+            "en": "Try your own example sentence and check whether it fits"
+          },
+          "directionId": "sakura"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找愿意交流的人，说明谁提问、谁给例子",
+            "en": "With someone willing, clarify who asks and who supplies examples"
+          },
+          "directionId": "kakashi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先看使用条件，分清哪些说明暂时不需要",
+            "en": "Look at usage conditions and separate explanations you do not need yet"
+          },
+          "directionId": "shikamaru"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先听一个例子，准备好再提出一个明确问题",
+            "en": "Listen to an example, then ask one clear question when ready"
+          },
+          "directionId": "hinata"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_11",
+      "prompt": {
+        "zh": "几个熟人商量一本可自由传阅的小册子，你比较想先？",
+        "en": "A few acquaintances discuss a booklet they may pass around freely. What comes first for you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问清每个人想读哪部分，再安排传递",
+            "en": "Ask which sections people want and arrange the handover"
+          },
+          "directionId": "kakashi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看页数、时间和人数，选一个省事的办法",
+            "en": "Check pages, time and people and choose a simpler arrangement"
+          },
+          "directionId": "shikamaru"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "表达自己想读的一段，不必参加所有讨论",
+            "en": "State which section you want without joining every discussion"
+          },
+          "directionId": "hinata"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "确认借阅范围、归还方式和无人负责的部分",
+            "en": "Clarify lending limits, returns and any responsibility no one has taken"
+          },
+          "directionId": "gaara"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_12",
+      "prompt": {
+        "zh": "一项自选的小计划比预想繁琐，你更想先做什么？",
+        "en": "A small chosen plan is more complicated than expected. What would you rather do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "检查哪些步骤确实必要，保留够用的做法",
+            "en": "Check which steps are necessary and keep an adequate approach"
+          },
+          "directionId": "shikamaru"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "说清自己愿意继续哪一小步，也允许停下",
+            "en": "State the small step you still want to take, with room to stop"
+          },
+          "directionId": "hinata"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "若涉及共同约定，重新确认各自责任范围",
+            "en": "If shared agreements are involved, reconfirm each person’s scope"
+          },
+          "directionId": "gaara"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "邀请愿意的人先共同试一次缩小后的版本",
+            "en": "Invite anyone willing to try a smaller version together"
+          },
+          "directionId": "naruto"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_13",
+      "prompt": {
+        "zh": "朋友问你想不想参与一个普通分享环节，你更可能？",
+        "en": "A friend asks whether you want to join an ordinary sharing session. What feels closer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先想一想，再明确说自己愿意分享的一点",
+            "en": "Think first, then clearly state one point you want to share"
+          },
+          "directionId": "hinata"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先确认分享内容、时间和自己是否负责记录",
+            "en": "Clarify content, time and whether you are taking responsibility for notes"
+          },
+          "directionId": "gaara"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "邀请别人愿意的话一起做个短示例",
+            "en": "Invite someone willing to make a short example together"
+          },
+          "directionId": "naruto"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "选一个真正感兴趣的小主题，集中讲那一处",
+            "en": "Choose a topic that interests you and concentrate on that point"
+          },
+          "directionId": "sasuke"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_14",
+      "prompt": {
+        "zh": "你们自愿合做一份简单清单，你比较关心哪一点？",
+        "en": "You willingly make a simple checklist together. Which point interests you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "每个人只负责已同意的一部分，空缺另外讨论",
+            "en": "Each person takes only an agreed part and gaps are discussed separately"
+          },
+          "directionId": "gaara"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先一起试列几项，让愿意的人接着补",
+            "en": "Start a few entries together and invite willing additions"
+          },
+          "directionId": "naruto"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "保留一个自己想仔细整理的类别",
+            "en": "Keep one category you want to organise closely"
+          },
+          "directionId": "sasuke"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "拿实际例子核对一遍，找出具体漏项",
+            "en": "Check against an actual example for specific missing entries"
+          },
+          "directionId": "sakura"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_15",
+      "prompt": {
+        "zh": "你想给一次普通相聚加一个自选小环节，更愿意？",
+        "en": "You want to add an optional little activity to an ordinary gathering. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "提出一个大家愿意就共同试的小活动",
+            "en": "Propose a small activity people can try together if they want"
+          },
+          "directionId": "naruto"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "安排一个自己在意的主题，不要求大家都喜欢",
+            "en": "Choose a topic you care about without requiring everyone to like it"
+          },
+          "directionId": "sasuke"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先独自试一小遍，检查说明是否清楚",
+            "en": "Try a small version first and check whether the instructions are clear"
+          },
+          "directionId": "sakura"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问清谁愿意准备、参与或只是看看",
+            "en": "Ask who wants to prepare, participate or simply watch"
+          },
+          "directionId": "kakashi"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_16",
+      "prompt": {
+        "zh": "为了记住一段自己感兴趣的普通内容，你更想？",
+        "en": "To remember ordinary material that interests you, what would you rather do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "围绕一个选定问题整理，暂不追其他分支",
+            "en": "Organise it around one chosen question and leave other branches for now"
+          },
+          "directionId": "sasuke"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "用自己的话复述一小段，再核对原文",
+            "en": "Restate a small passage in your own words and check the original"
+          },
+          "directionId": "sakura"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "若共同整理，先说明自己的记录和别人的补充",
+            "en": "If working together, distinguish your notes from others’ additions"
+          },
+          "directionId": "kakashi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "看实际需要记住什么，删掉不必要的抄写",
+            "en": "Check what needs remembering and remove unnecessary copying"
+          },
+          "directionId": "shikamaru"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_17",
+      "prompt": {
+        "zh": "第一次使用一件普通文具时，你比较倾向？",
+        "en": "When first using an ordinary stationery item, what is your inclination?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "在自己的废纸上试一下，核对使用效果",
+            "en": "Try it on your own scrap paper and check the result"
+          },
+          "directionId": "sakura"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "若与人共用，先说明使用顺序与归还位置",
+            "en": "If sharing it, clarify the order of use and return location"
+          },
+          "directionId": "kakashi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看看实际限制，选最简单的合适用法",
+            "en": "Check actual limits and choose the simplest suitable use"
+          },
+          "directionId": "shikamaru"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先观察一下，准备好时明确说想试",
+            "en": "Observe first and clearly say you want to try when ready"
+          },
+          "directionId": "hinata"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_18",
+      "prompt": {
+        "zh": "你们自愿整理几件可共用的小物品，更想先确认？",
+        "en": "You willingly organise a few small shared objects. What do you want to clarify first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "每个人想整理哪类，怎样让下一位接得上",
+            "en": "Which category each person wants and how the next person continues"
+          },
+          "directionId": "kakashi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "哪些物品确实需要移动，哪些可以留着",
+            "en": "Which objects need moving and which can stay"
+          },
+          "directionId": "shikamaru"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "自己想参与的一小块和舒服的参与方式",
+            "en": "The small part you want to join and a comfortable way to do so"
+          },
+          "directionId": "hinata"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "各自保管到什么时候，遗留部分怎样另行安排",
+            "en": "How long each keeps responsibility and how remaining parts are arranged"
+          },
+          "directionId": "gaara"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_19",
+      "prompt": {
+        "zh": "一份普通活动说明显得太长，你比较自然地？",
+        "en": "Instructions for an ordinary activity seem too long. What comes naturally?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先看目标和限制，区分必要与可选步骤",
+            "en": "Check the aim and limits and separate required and optional steps"
+          },
+          "directionId": "shikamaru"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "挑自己需要的一点看清，再提出明确问题",
+            "en": "Read one point you need and ask a clear question"
+          },
+          "directionId": "hinata"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "确认谁已同意负责什么，不把遗漏自动接给自己",
+            "en": "Check agreed responsibilities without automatically taking every omission"
+          },
+          "directionId": "gaara"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "邀请愿意的人一起试最小的一段说明",
+            "en": "Invite someone willing to try the smallest part of the instructions together"
+          },
+          "directionId": "naruto"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_20",
+      "prompt": {
+        "zh": "完成一次自己愿意参加的小交流后，你更可能留意？",
+        "en": "After a small conversation you willingly joined, what do you tend to notice?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己有没有把想说的一点表达出来，不以话多评分",
+            "en": "Whether you expressed your point without grading how much you spoke"
+          },
+          "directionId": "hinata"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "共同约定是否清楚，自己的责任是否已经结束",
+            "en": "Whether agreements are clear and your responsibility has ended"
+          },
+          "directionId": "gaara"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "有没有愿意的人还想一起试下一小段",
+            "en": "Whether anyone wants another small shared attempt"
+          },
+          "directionId": "naruto"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "自己选的重点有没有留出足够的专注空间",
+            "en": "Whether your chosen focus had enough room"
+          },
+          "directionId": "sasuke"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_21",
+      "prompt": {
+        "zh": "一个共同小安排即将结束，你通常更想做哪件事？",
+        "en": "A small shared arrangement is ending. What would you rather do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说清已完成和未承担的部分，再按约定交还",
+            "en": "Clarify completed and unassigned parts and hand back as agreed"
+          },
+          "directionId": "gaara"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "邀请愿意的人一起看看这次做出的一小点",
+            "en": "Invite anyone willing to look together at the small result"
+          },
+          "directionId": "naruto"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "记下自己仍想继续探索的一个重点",
+            "en": "Note one focus you still want to explore"
+          },
+          "directionId": "sasuke"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "核对一个具体细节，给下次自选尝试留参考",
+            "en": "Check one specific detail as a reference for a future chosen attempt"
+          },
+          "directionId": "sakura"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "required": 21,
+    "total": 21,
+    "exposureEach": 12,
+    "perPosition": 3,
+    "highest": "allhighestretainfullguides/noautomaticsecondary",
+    "allA": "sevencharacters3each/all7fullguides",
+    "verificationPlan": "7uniquehighest+4all7ties+4096deterministiccompleteanswersplanned4107boundedsourceoraclecases/NOTexecuted/not4^21/globalDP/allhighestsets/psychvalidation"
+  },
+  "scope": "Originalunofficialfanreadingsofordinaryvoluntarychoices/notwholecanonicalpersonalityorofficialtest. No copyrightedbank/body/dialogue/manga/animeart/screenshots/scoreradopted. No combat/weapons/medicaltechniques/traumaimitationorrealIQ/clinical/morality/gender/romance/careerjudgements. NoconversiontoMBTIorotherfictionalcharacterquizzes.",
+  "instructions": {
+    "zh": "本版21道原创非官方同人题，以鸣人、佐助、小樱、卡卡西、鹿丸、雏田和我爱罗七位虚构角色，比较你当前在普通小事中愿意采用的做法。每题选四个选项中较接近自己的一个，均以自愿、许可、可改和可停止为前提。每选加1，每位全卷出现12次、每位置3次，总数21，全部最高并列完整显示。无需剧情知识，不模仿战斗、武器或医疗技术，也不以创伤、智商、天赋、道德、婚恋或职业作判断。人物背景只帮助理解本站有限读法，并非官方测验或心理验证；不换算MBTI。",
+    "en": "This original 21-question unofficial fan quiz uses Naruto, Sasuke, Sakura, Kakashi, Shikamaru, Hinata and Gaara to compare approaches you currently prefer in ordinary activities. Choose the closer of four options in voluntary, permitted, revisable and stoppable situations. Each choice adds one; each character appears twelve times and three times per position, counts sum to twenty-one and every highest tie appears in full. No episode knowledge is required. Nothing calls for combat, weapons or medical techniques or judges trauma, IQ, talent, morality, romance or careers. Fictional context supports limited editorial readings rather than an official test or psychological validation, and gives no MBTI conversion."
+  }
+}

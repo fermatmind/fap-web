@@ -1074,5 +1074,33 @@
       "moana",
       "raya"
     ]
+  },
+  {
+    "slug": "naruto-character",
+    "code": "NARUTO_FAN_ORDINARY_CHOICES",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "metaphor",
+    "title": {
+      "zh": "《火影忍者》角色测试",
+      "en": "Naruto Character Test"
+    },
+    "description": {
+      "zh": "免费完成21道原创普通选择，比较鸣人、佐助、小樱等七位角色，最高并列全部完整显示。含例子、角色对照和计分；非官方同人测试，不评智商、战斗或心理状况。",
+      "en": "Take 21 original everyday questions and compare seven Naruto characters. Full tied results, examples and scoring are free in this unofficial fan quiz."
+    },
+    "minutes": 7,
+    "collection": "explore",
+    "formCode": "fm_naruto_fan_choices_21",
+    "questionCount": 21,
+    "resultSlugs": [
+      "naruto",
+      "sasuke",
+      "sakura",
+      "kakashi",
+      "shikamaru",
+      "hinata",
+      "gaara"
+    ]
   }
 ]

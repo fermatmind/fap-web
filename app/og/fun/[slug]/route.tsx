@@ -7,6 +7,20 @@ import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
 
 let font: Promise<ArrayBuffer> | undefined;
 const localFont = () => font ??= readFile(path.join(process.cwd(), "public/fonts/noto-sans-sc/fun-700.ttf")).then(bytes => Uint8Array.from(bytes).buffer);
+const quizFonts = new Map<string, Promise<ArrayBuffer>>();
+const quizFont = (trustedSlug: string) => {
+  let selected = quizFonts.get(trustedSlug);
+  if (!selected) {
+    selected = readFile(path.join(process.cwd(), "public/fonts/noto-sans-sc", `${trustedSlug}-700.ttf`))
+      .then(bytes => Uint8Array.from(bytes).buffer)
+      .catch((error: NodeJS.ErrnoException) => {
+        if (error.code === "ENOENT") return localFont();
+        throw error;
+      });
+    quizFonts.set(trustedSlug, selected);
+  }
+  return selected;
+};
 const colors: Record<string, string> = { nature: "#166534", fantasy: "#6d28d9", social: "#9a3412", everyday: "#155e75", relationships: "#9f1239", metaphor: "#3730a3" };
 
 export async function GET(request: Request, { params }: { params: Promise<{ slug: string }> }) {
@@ -45,5 +59,5 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
       <div style={{ display: "flex", gap: 12 }}><div style={{ width: 110, height: 8, background: color, borderRadius: 4 }} /><div style={{ width: 36, height: 8, background: "#cbd5e1", borderRadius: 4 }} /><div style={{ width: 16, height: 8, background: "#cbd5e1", borderRadius: 4 }} /></div>
     </div>
     <div style={{ display: "flex", justifyContent: "space-between", fontSize: 25, color: "#475569" }}><span>fermatmind.com</span><span>{questionnaire ? (zh ? "完整报告免费 · 自我探索" : "Full report free · Self-exploration") : (zh ? "完整内容免费 · 仅供娱乐" : "Full content free · Just for fun")}</span></div>
-  </div>, { width: 1200, height: 630, fonts: [{ name: "FunNoto", data: await localFont(), weight: 700, style: "normal" }], headers: { "Cache-Control": "public, max-age=3600, s-maxage=86400" } });
+  </div>, { width: 1200, height: 630, fonts: [{ name: "FunNoto", data: await quizFont(quiz?.slug ?? questionnaire!.slug), weight: 700, style: "normal" }], headers: { "Cache-Control": "public, max-age=3600, s-maxage=86400" } });
 }

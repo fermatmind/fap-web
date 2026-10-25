@@ -1,0 +1,2179 @@
+{
+  "slug": "naruto-character",
+  "code": "NARUTO_FAN_ORDINARY_CHOICES",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "metaphor",
+  "kind": "archetype",
+  "title": {
+    "zh": "《火影忍者》角色测试",
+    "en": "Naruto Character Test"
+  },
+  "resultHeading": {
+    "zh": "七位角色的本次选择与全部最高并列",
+    "en": "Your seven character choices and every highest tie"
+  },
+  "description": {
+    "zh": "免费完成21道原创普通选择，比较鸣人、佐助、小樱等七位角色，最高并列全部完整显示。含例子、角色对照和计分；非官方同人测试，不评智商、战斗或心理状况。",
+    "en": "Take 21 original everyday questions and compare seven Naruto characters. Full tied results, examples and scoring are free in this unofficial fan quiz."
+  },
+  "seoTitle": {
+    "zh": "火影忍者角色测试：21题、七角色与完整结果",
+    "en": "Naruto Character Test: Free Quiz & Seven Full Results"
+  },
+  "minutes": 7,
+  "introduction": {
+    "zh": "你更愿意邀请大家共同起步、留出专注、练习核对、说明分工、看条件做简化、安静明确参与，还是确认责任范围？21道普通选择借七位虚构角色作有限同人读法，不考剧情、不复制忍术，也不按智商或创伤贴标签。七份完整结果可先读，完成后全部最高并列完整显示。",
+    "en": "Would you rather invite a shared beginning, keep a focus, practise and check, clarify roles, simplify around conditions, participate quietly and explicitly, or agree responsibility limits? Twenty-one ordinary choices use seven fictional characters as limited fan readings. No trivia, ninja techniques, IQ or trauma labels are involved. Read all seven guides first or complete the quiz to see every highest tie in full."
+  },
+  "instructions": {
+    "zh": "本版21道原创非官方同人题，以鸣人、佐助、小樱、卡卡西、鹿丸、雏田和我爱罗七位虚构角色，比较你当前在普通小事中愿意采用的做法。每题选四个选项中较接近自己的一个，均以自愿、许可、可改和可停止为前提。每选加1，每位全卷出现12次、每位置3次，总数21，全部最高并列完整显示。无需剧情知识，不模仿战斗、武器或医疗技术，也不以创伤、智商、天赋、道德、婚恋或职业作判断。人物背景只帮助理解本站有限读法，并非官方测验或心理验证；不换算MBTI。",
+    "en": "This original 21-question unofficial fan quiz uses Naruto, Sasuke, Sakura, Kakashi, Shikamaru, Hinata and Gaara to compare approaches you currently prefer in ordinary activities. Choose the closer of four options in voluntary, permitted, revisable and stoppable situations. Each choice adds one; each character appears twelve times and three times per position, counts sum to twenty-one and every highest tie appears in full. No episode knowledge is required. Nothing calls for combat, weapons or medical techniques or judges trauma, IQ, talent, morality, romance or careers. Fictional context supports limited editorial readings rather than an official test or psychological validation, and gives no MBTI conversion."
+  },
+  "source": {
+    "kind": "FermatMindoriginal21ENZH4choice/unofficialtextonlyfanreading/sevenselectedfictionalcharacters/notclinicalinstrument",
+    "formCode": "fm_naruto_fan_choices_21",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "3f749ca42d195f27e3e161a6f3eb8ba1341a2ea57bdea24bc20db086081a05f8",
+    "resultContentSha256": "52f4b31d0e1cb14e086c843428f028e1f903e1665a99eb5c08a6b445ceb95ea0",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "naruto",
+      "title": {
+        "zh": "漩涡鸣人：发起一次共同尝试",
+        "en": "Naruto: Starting a Shared Attempt"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "sasuke",
+      "title": {
+        "zh": "宇智波佐助：保留自选的专注",
+        "en": "Sasuke: Keeping a Chosen Focus"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "sakura",
+      "title": {
+        "zh": "春野樱：具体练习与核对",
+        "en": "Sakura: Specific Practice and Checking"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "kakashi",
+      "title": {
+        "zh": "旗木卡卡西：说明合作中的位置",
+        "en": "Kakashi: Clarifying Roles in Cooperation"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "shikamaru",
+      "title": {
+        "zh": "奈良鹿丸：看清条件与省去多余步骤",
+        "en": "Shikamaru: Conditions and Fewer Unnecessary Steps"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "hinata",
+      "title": {
+        "zh": "日向雏田：安静而明确地参与",
+        "en": "Hinata: Quiet and Explicit Participation"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "gaara",
+      "title": {
+        "zh": "我爱罗：有边界的共同责任",
+        "en": "Gaara: Bounded Shared Responsibility"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "NARUTO_01",
+      "prompt": {
+        "zh": "你愿意参加一个普通兴趣小组，第一次见面时更想怎样开始？",
+        "en": "You willingly join an ordinary hobby group. How would you rather begin the first meeting?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "邀请愿意的人一起试一小段，再看看感觉",
+            "en": "Invite anyone willing to try a small part together and see how it feels"
+          },
+          "directionId": "naruto"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先选一个自己真正想了解的点，留一段专注时间",
+            "en": "Choose one point you want to explore and keep some focused time"
+          },
+          "directionId": "sasuke"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "拿一个简单样例练一次，核对具体哪里要改",
+            "en": "Practise one simple example and check what needs adjusting"
+          },
+          "directionId": "sakura"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先问每个人愿意参与哪部分，再安排衔接",
+            "en": "Ask which parts people want to take and clarify how they connect"
+          },
+          "directionId": "kakashi"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_02",
+      "prompt": {
+        "zh": "你有一小段自选空闲来做私人笔记，更接近哪种做法？",
+        "en": "You have a short period of chosen free time for personal notes. Which approach feels closer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "围绕一个自己选定的问题，暂时不切换题目",
+            "en": "Stay with one chosen question rather than switching topics for now"
+          },
+          "directionId": "sasuke"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "试写一个小段，再对照原意检查",
+            "en": "Write a small passage and check it against the intended meaning"
+          },
+          "directionId": "sakura"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "若需要合作资料，先说明自己要用哪一部分",
+            "en": "If shared material is needed, explain which part you intend to use"
+          },
+          "directionId": "kakashi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先看需要记录什么，去掉没有必要的格式步骤",
+            "en": "Check what needs recording and remove unnecessary formatting steps"
+          },
+          "directionId": "shikamaru"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_03",
+      "prompt": {
+        "zh": "你在学习一个可随时停下的简单纸艺，更愿意？",
+        "en": "You are learning a simple paper craft you can stop at any time. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "只练一个折法，看看哪一处与说明不同",
+            "en": "Practise one fold and check where it differs from the instructions"
+          },
+          "directionId": "sakura"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "和同伴说明谁示范、谁跟着试，也允许交换",
+            "en": "Agree who demonstrates and who tries, with room to swap"
+          },
+          "directionId": "kakashi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先确认材料和步骤是否齐全，省掉多余动作",
+            "en": "Check materials and steps first and leave out unnecessary actions"
+          },
+          "directionId": "shikamaru"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先在旁边看一遍，准备好后明确说想试哪一步",
+            "en": "Watch once, then say which step you want to try when ready"
+          },
+          "directionId": "hinata"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_04",
+      "prompt": {
+        "zh": "你与熟人自愿布置一个共享小角落，首先想确认？",
+        "en": "You and an acquaintance willingly arrange a small shared corner. What do you want to clarify first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "谁愿意摆放、谁愿意记录，怎样交接",
+            "en": "Who wants to arrange or record things and how to hand over"
+          },
+          "directionId": "kakashi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "空间和可用物品有哪些，哪些步骤可省",
+            "en": "What space and materials exist and which steps can be omitted"
+          },
+          "directionId": "shikamaru"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "自己想参加哪一小部分，不需要一直发言",
+            "en": "Which small part you want to join without speaking throughout"
+          },
+          "directionId": "hinata"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "共同物品由谁保管、各自负责到哪里",
+            "en": "Who keeps shared objects and where each responsibility ends"
+          },
+          "directionId": "gaara"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_05",
+      "prompt": {
+        "zh": "一次普通共同活动的时间缩短了，你比较想先？",
+        "en": "There is less time for an ordinary shared activity. What do you want to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "重新看时间与实际条件，删掉一个非必要环节",
+            "en": "Review time and actual conditions and remove an optional part"
+          },
+          "directionId": "shikamaru"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "明确说自己还愿意参加哪一小段",
+            "en": "Say clearly which small part you still want to join"
+          },
+          "directionId": "hinata"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "确认大家仍同意的最低安排和各自范围",
+            "en": "Confirm the minimum arrangement people still agree to and their scope"
+          },
+          "directionId": "gaara"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "邀请愿意的人先一起试最小的一段",
+            "en": "Invite anyone willing to try the smallest part together"
+          },
+          "directionId": "naruto"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_06",
+      "prompt": {
+        "zh": "别人邀请你为一件低风险小事提意见，你通常更愿意？",
+        "en": "Someone invites your opinion on a low-stakes matter. What would you rather do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "想清一点后用一句话表达，不必说得很多",
+            "en": "Think of one point and express it in a sentence without speaking at length"
+          },
+          "directionId": "hinata"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先确认自己能回应哪部分，其余由大家另定",
+            "en": "Clarify which part you can address and leave the rest for separate agreement"
+          },
+          "directionId": "gaara"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "提出大家愿意就一起试一次的小建议",
+            "en": "Suggest a small experiment people can try together if willing"
+          },
+          "directionId": "naruto"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "选自己最关心的一点，围绕它说清想法",
+            "en": "Choose the point you care about most and stay with it"
+          },
+          "directionId": "sasuke"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_07",
+      "prompt": {
+        "zh": "你与朋友借用一份可共享的普通资料，比较在意？",
+        "en": "You and a friend borrow ordinary material that may be shared. What draws your attention?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "各自能用哪些内容、怎样归还和谁负责说明",
+            "en": "What each may use, how to return it and who communicates"
+          },
+          "directionId": "gaara"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "能否邀请对方一起看一小段，不勉强同步",
+            "en": "Whether to invite a shared look at one section without requiring synchrony"
+          },
+          "directionId": "naruto"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "能否先留一段时间专看自己选的主题",
+            "en": "Whether to keep some time for the topic you chose"
+          },
+          "directionId": "sasuke"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先核对一个信息点，避免把记错的内容带走",
+            "en": "Checking one information point before taking away an inaccurate note"
+          },
+          "directionId": "sakura"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_08",
+      "prompt": {
+        "zh": "你想恢复一个自己愿意继续的小兴趣，更想怎样重开？",
+        "en": "You want to return to a small interest you still choose. How would you rather restart?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "找愿意的同伴约一次很小的共同尝试",
+            "en": "Arrange one small shared attempt with someone willing"
+          },
+          "directionId": "naruto"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "挑回自己最想探索的那一点，不急着扩展",
+            "en": "Return to the point you want to explore without expanding immediately"
+          },
+          "directionId": "sasuke"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "找一个旧样例练一次，核对哪里生疏",
+            "en": "Practise an old example and check what feels unfamiliar"
+          },
+          "directionId": "sakura"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "若和别人一起，先商量各自想承担的部分",
+            "en": "If others join, agree which parts each wants to take"
+          },
+          "directionId": "kakashi"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_09",
+      "prompt": {
+        "zh": "你要为自己整理一页普通收藏说明，更愿意？",
+        "en": "You want to organise one page of notes on a personal collection. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "只围绕一种自己选定的收藏特征写",
+            "en": "Write around one collection feature you chose"
+          },
+          "directionId": "sasuke"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "写一条就核对一条，留意具体遗漏",
+            "en": "Check each note as you write it for specific omissions"
+          },
+          "directionId": "sakura"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "若与人合写，先说明彼此编辑哪一段",
+            "en": "If writing together, clarify which section each person edits"
+          },
+          "directionId": "kakashi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先决定这页实际要回答什么，删掉无用栏目",
+            "en": "Decide what the page needs to answer and remove unused fields"
+          },
+          "directionId": "shikamaru"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_10",
+      "prompt": {
+        "zh": "学习一个普通新词的用法时，你更愿意怎样处理？",
+        "en": "When learning how to use an ordinary new word, what would you rather do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用一个自己的例句试写，再核对是否合适",
+            "en": "Try your own example sentence and check whether it fits"
+          },
+          "directionId": "sakura"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找愿意交流的人，说明谁提问、谁给例子",
+            "en": "With someone willing, clarify who asks and who supplies examples"
+          },
+          "directionId": "kakashi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先看使用条件，分清哪些说明暂时不需要",
+            "en": "Look at usage conditions and separate explanations you do not need yet"
+          },
+          "directionId": "shikamaru"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先听一个例子，准备好再提出一个明确问题",
+            "en": "Listen to an example, then ask one clear question when ready"
+          },
+          "directionId": "hinata"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_11",
+      "prompt": {
+        "zh": "几个熟人商量一本可自由传阅的小册子，你比较想先？",
+        "en": "A few acquaintances discuss a booklet they may pass around freely. What comes first for you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问清每个人想读哪部分，再安排传递",
+            "en": "Ask which sections people want and arrange the handover"
+          },
+          "directionId": "kakashi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看页数、时间和人数，选一个省事的办法",
+            "en": "Check pages, time and people and choose a simpler arrangement"
+          },
+          "directionId": "shikamaru"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "表达自己想读的一段，不必参加所有讨论",
+            "en": "State which section you want without joining every discussion"
+          },
+          "directionId": "hinata"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "确认借阅范围、归还方式和无人负责的部分",
+            "en": "Clarify lending limits, returns and any responsibility no one has taken"
+          },
+          "directionId": "gaara"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_12",
+      "prompt": {
+        "zh": "一项自选的小计划比预想繁琐，你更想先做什么？",
+        "en": "A small chosen plan is more complicated than expected. What would you rather do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "检查哪些步骤确实必要，保留够用的做法",
+            "en": "Check which steps are necessary and keep an adequate approach"
+          },
+          "directionId": "shikamaru"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "说清自己愿意继续哪一小步，也允许停下",
+            "en": "State the small step you still want to take, with room to stop"
+          },
+          "directionId": "hinata"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "若涉及共同约定，重新确认各自责任范围",
+            "en": "If shared agreements are involved, reconfirm each person’s scope"
+          },
+          "directionId": "gaara"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "邀请愿意的人先共同试一次缩小后的版本",
+            "en": "Invite anyone willing to try a smaller version together"
+          },
+          "directionId": "naruto"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_13",
+      "prompt": {
+        "zh": "朋友问你想不想参与一个普通分享环节，你更可能？",
+        "en": "A friend asks whether you want to join an ordinary sharing session. What feels closer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先想一想，再明确说自己愿意分享的一点",
+            "en": "Think first, then clearly state one point you want to share"
+          },
+          "directionId": "hinata"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先确认分享内容、时间和自己是否负责记录",
+            "en": "Clarify content, time and whether you are taking responsibility for notes"
+          },
+          "directionId": "gaara"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "邀请别人愿意的话一起做个短示例",
+            "en": "Invite someone willing to make a short example together"
+          },
+          "directionId": "naruto"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "选一个真正感兴趣的小主题，集中讲那一处",
+            "en": "Choose a topic that interests you and concentrate on that point"
+          },
+          "directionId": "sasuke"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_14",
+      "prompt": {
+        "zh": "你们自愿合做一份简单清单，你比较关心哪一点？",
+        "en": "You willingly make a simple checklist together. Which point interests you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "每个人只负责已同意的一部分，空缺另外讨论",
+            "en": "Each person takes only an agreed part and gaps are discussed separately"
+          },
+          "directionId": "gaara"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先一起试列几项，让愿意的人接着补",
+            "en": "Start a few entries together and invite willing additions"
+          },
+          "directionId": "naruto"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "保留一个自己想仔细整理的类别",
+            "en": "Keep one category you want to organise closely"
+          },
+          "directionId": "sasuke"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "拿实际例子核对一遍，找出具体漏项",
+            "en": "Check against an actual example for specific missing entries"
+          },
+          "directionId": "sakura"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_15",
+      "prompt": {
+        "zh": "你想给一次普通相聚加一个自选小环节，更愿意？",
+        "en": "You want to add an optional little activity to an ordinary gathering. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "提出一个大家愿意就共同试的小活动",
+            "en": "Propose a small activity people can try together if they want"
+          },
+          "directionId": "naruto"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "安排一个自己在意的主题，不要求大家都喜欢",
+            "en": "Choose a topic you care about without requiring everyone to like it"
+          },
+          "directionId": "sasuke"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先独自试一小遍，检查说明是否清楚",
+            "en": "Try a small version first and check whether the instructions are clear"
+          },
+          "directionId": "sakura"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问清谁愿意准备、参与或只是看看",
+            "en": "Ask who wants to prepare, participate or simply watch"
+          },
+          "directionId": "kakashi"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_16",
+      "prompt": {
+        "zh": "为了记住一段自己感兴趣的普通内容，你更想？",
+        "en": "To remember ordinary material that interests you, what would you rather do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "围绕一个选定问题整理，暂不追其他分支",
+            "en": "Organise it around one chosen question and leave other branches for now"
+          },
+          "directionId": "sasuke"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "用自己的话复述一小段，再核对原文",
+            "en": "Restate a small passage in your own words and check the original"
+          },
+          "directionId": "sakura"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "若共同整理，先说明自己的记录和别人的补充",
+            "en": "If working together, distinguish your notes from others’ additions"
+          },
+          "directionId": "kakashi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "看实际需要记住什么，删掉不必要的抄写",
+            "en": "Check what needs remembering and remove unnecessary copying"
+          },
+          "directionId": "shikamaru"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_17",
+      "prompt": {
+        "zh": "第一次使用一件普通文具时，你比较倾向？",
+        "en": "When first using an ordinary stationery item, what is your inclination?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "在自己的废纸上试一下，核对使用效果",
+            "en": "Try it on your own scrap paper and check the result"
+          },
+          "directionId": "sakura"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "若与人共用，先说明使用顺序与归还位置",
+            "en": "If sharing it, clarify the order of use and return location"
+          },
+          "directionId": "kakashi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看看实际限制，选最简单的合适用法",
+            "en": "Check actual limits and choose the simplest suitable use"
+          },
+          "directionId": "shikamaru"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先观察一下，准备好时明确说想试",
+            "en": "Observe first and clearly say you want to try when ready"
+          },
+          "directionId": "hinata"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_18",
+      "prompt": {
+        "zh": "你们自愿整理几件可共用的小物品，更想先确认？",
+        "en": "You willingly organise a few small shared objects. What do you want to clarify first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "每个人想整理哪类，怎样让下一位接得上",
+            "en": "Which category each person wants and how the next person continues"
+          },
+          "directionId": "kakashi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "哪些物品确实需要移动，哪些可以留着",
+            "en": "Which objects need moving and which can stay"
+          },
+          "directionId": "shikamaru"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "自己想参与的一小块和舒服的参与方式",
+            "en": "The small part you want to join and a comfortable way to do so"
+          },
+          "directionId": "hinata"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "各自保管到什么时候，遗留部分怎样另行安排",
+            "en": "How long each keeps responsibility and how remaining parts are arranged"
+          },
+          "directionId": "gaara"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_19",
+      "prompt": {
+        "zh": "一份普通活动说明显得太长，你比较自然地？",
+        "en": "Instructions for an ordinary activity seem too long. What comes naturally?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先看目标和限制，区分必要与可选步骤",
+            "en": "Check the aim and limits and separate required and optional steps"
+          },
+          "directionId": "shikamaru"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "挑自己需要的一点看清，再提出明确问题",
+            "en": "Read one point you need and ask a clear question"
+          },
+          "directionId": "hinata"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "确认谁已同意负责什么，不把遗漏自动接给自己",
+            "en": "Check agreed responsibilities without automatically taking every omission"
+          },
+          "directionId": "gaara"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "邀请愿意的人一起试最小的一段说明",
+            "en": "Invite someone willing to try the smallest part of the instructions together"
+          },
+          "directionId": "naruto"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_20",
+      "prompt": {
+        "zh": "完成一次自己愿意参加的小交流后，你更可能留意？",
+        "en": "After a small conversation you willingly joined, what do you tend to notice?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己有没有把想说的一点表达出来，不以话多评分",
+            "en": "Whether you expressed your point without grading how much you spoke"
+          },
+          "directionId": "hinata"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "共同约定是否清楚，自己的责任是否已经结束",
+            "en": "Whether agreements are clear and your responsibility has ended"
+          },
+          "directionId": "gaara"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "有没有愿意的人还想一起试下一小段",
+            "en": "Whether anyone wants another small shared attempt"
+          },
+          "directionId": "naruto"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "自己选的重点有没有留出足够的专注空间",
+            "en": "Whether your chosen focus had enough room"
+          },
+          "directionId": "sasuke"
+        }
+      ]
+    },
+    {
+      "id": "NARUTO_21",
+      "prompt": {
+        "zh": "一个共同小安排即将结束，你通常更想做哪件事？",
+        "en": "A small shared arrangement is ending. What would you rather do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说清已完成和未承担的部分，再按约定交还",
+            "en": "Clarify completed and unassigned parts and hand back as agreed"
+          },
+          "directionId": "gaara"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "邀请愿意的人一起看看这次做出的一小点",
+            "en": "Invite anyone willing to look together at the small result"
+          },
+          "directionId": "naruto"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "记下自己仍想继续探索的一个重点",
+            "en": "Note one focus you still want to explore"
+          },
+          "directionId": "sasuke"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "核对一个具体细节，给下次自选尝试留参考",
+            "en": "Check one specific detail as a reference for a future chosen attempt"
+          },
+          "directionId": "sakura"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "naruto",
+      "directionIds": [
+        "naruto"
+      ],
+      "title": {
+        "zh": "漩涡鸣人：发起一次共同尝试",
+        "en": "Naruto: Starting a Shared Attempt"
+      },
+      "headline": {
+        "zh": "漩涡鸣人：发起一次共同尝试",
+        "en": "Naruto: Starting a Shared Attempt"
+      },
+      "summary": {
+        "zh": "从恢复小兴趣看邀请、共同起步与对方的选择，含六角色对照和具体说法；不把热情当领导力、外向、韧性或必须坚持。",
+        "en": "Explore Naruto through a shared hobby restart, invitations and six character comparisons. Enthusiasm establishes no leadership, extraversion or resilience."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；没有提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、忍者能力或人口排名。相差一次只是一项选择，不证明显著差异或固定类型。近分可自行比较，不补造并列、隐藏人格或混合身份。条件与理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; the three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Raw counts are neither similarity percentages, actual personality proportions, ninja abilities nor population ranks. One extra choice proves no significance or fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "鸣人测试结果：共同起步、例子与完整说明",
+          "en": "Naruto Quiz Result: Shared Starts & Full Guide"
+        },
+        "description": {
+          "zh": "用恢复小兴趣的邀请理解鸣人的本版读法，含六角色比较、具体表达与反例；不判断领导、外向、韧性或被接纳程度。",
+          "en": "Read Naruto through a small shared hobby restart, invitations and six character comparisons. No leadership, extraversion or resilience judgement."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "角色背景与本版有限读法",
+            "en": "Character context and this edition’s limited reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "鸣人是作品主角，官方背景包含与同伴的联系和追求目标。本站只选“发起一次共同尝试”的普通角度：给愿意的人一个可以加入的小开头，不把角色全部经历归结成积极或坚持。剧情中的承诺、竞争与危险并非现实行为范本；这份读法没有要求你获得所有人的认可，也没有让拒绝参与的人变成需要说服的对象。",
+              "en": "Naruto is the series protagonist, whose official context includes connections with others and pursuing aims. This edition selects starting one shared attempt: offering a small beginning that willing people can join. It does not reduce his whole story to positivity or persistence. Fictional promises, rivalry and danger prescribe no actual behaviour. The reading requires neither universal recognition nor treating someone who declines as a person you must persuade."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择邀请、一起试一小段或共同看一眼已有成果。值得区分的是，你喜欢有人共同开始，还是喜欢提建议本身？双方可以有不同目标，也可以只共同尝试一次。计数没有观察实际气氛、组织效果或别人是否愿意参加；少选这类选项也可能因为你已经有合适同伴，而不是缺少热情。",
+              "en": "A highest count means you more often chose an invitation, a small joint attempt or a shared look at a result. Do you enjoy beginning with someone, or making a suggestion itself? Participants can hold different aims and agree to just one attempt. Counts observe neither atmosphere, organisational success nor actual willingness to join. Fewer choices may reflect already having suitable company rather than lacking enthusiasm for an ordinary activity."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你想恢复一个小兴趣，可以问朋友愿不愿意找十分钟一起翻一页旧笔记。先说明只试这一次，不默认对方以后每周陪你；对方没空时，独自看、改天再约或暂时不做都可以。这个例子把共同开始与长期责任分开，不用完成多少、场面多热闹或有几个人响应来证明你像鸣人。",
+              "en": "To restart a small hobby, ask whether a friend wants ten minutes looking at one page of old notes together. Explain that this is a single trial, without assuming weekly company. If they are unavailable, look alone, ask another time or leave it. The example separates a shared beginning from an ongoing obligation. Completion, a lively atmosphere and the number of responses do not prove resemblance to Naruto in any meaningful psychological sense."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想先试这一小段，你愿意一起吗？这次之后不需要继续，也可以按你自己的方式来。”如果自己只是想有人看一眼，也可以直接说明，不把陪伴包装成对方的任务。邀请得到拒绝后就按拒绝处理；继续做自己的选择，不需要用角色式的坚持替别人决定。共同尝试也可以安静，不必表演兴奋。",
+              "en": "You might say, “I want to try this small part. Would you like to join? Nothing commits you beyond this, and you can approach it your own way.” If you simply want someone to look, say so rather than presenting company as their task. Treat a refusal as a refusal. Continue your own choices without fictional persistence deciding for someone else. A shared attempt can be quiet and requires no performance of excitement."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六位角色读法比较",
+            "en": "Comparisons with the other six character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "鸣人读法偏“共同开头”，佐助偏保留一个自选重点，小樱偏练一次再核对。卡卡西更关心谁参与哪部分，鹿丸先看条件和可省环节；雏田可以少说而明确加入，我爱罗强调已同意的责任范围。这七个关注点可以同在一次活动中，没有主角优先、热情等级或谁更值得交朋友；最高并列也不用选一个真身份。",
+              "en": "This Naruto angle concerns a shared beginning; Sasuke a chosen focus; Sakura a trial followed by checking. Kakashi concerns who takes which part, Shikamaru conditions and removable steps, Hinata quiet but explicit participation, and Gaara agreed responsibility. These seven concerns can coexist in one activity. There is no protagonist priority, enthusiasm ranking or friendship-worthiness judgement, and a highest tie requires no choice of a single true identity."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，一次主动邀请可能只是因为你恰好知道时间地点，独自开始可能因为别人不方便。计数不推断外向、领导、孤独、成长经历、被接纳程度、心理韧性或道德，也不评价是否足够努力。现实中是否继续取决于意愿和条件，不因结果像鸣人就必须把不适、明确拒绝或已经不想要的目标坚持下去。",
+              "en": "An invitation may simply follow knowing the time and place; beginning alone may follow others being unavailable. Counts infer no extraversion, leadership, loneliness, developmental history, acceptance, resilience or morality and grade no effort. Actual continuation depends on wishes and conditions. Resembling this Naruto reading requires no persistence through discomfort, someone’s clear refusal or an aim you no longer choose for yourself in the real situation."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：给一件本来就想做的小事写一句邀请，并补一句“不参加也没关系”，可以不发出去。看看你想要共同开始、陪伴还是别人提供意见；这几种需要可以分别表达。不必考察响应率，也不必把想象的邀请真的变成聚会。愿意停在想一想，已经足以理解本版这一角度。",
+              "en": "For an optional observation, write an invitation to something small you already want, adding that declining is fine. You need not send it. Notice whether you want a joint beginning, company or someone’s opinion; these can be expressed separately. Do not test response rates or turn an imagined invitation into an actual gathering. Thinking alone is enough to understand this editorial angle, and stopping remains an ordinary choice."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题计数与全部最高并列",
+            "en": "21-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；没有提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、忍者能力或人口排名。相差一次只是一项选择，不证明显著差异或固定类型。近分可自行比较，不补造并列、隐藏人格或混合身份。条件与理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; the three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Raw counts are neither similarity percentages, actual personality proportions, ninja abilities nor population ranks. One extra choice proves no significance or fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的21题非官方同人问卷，只选鸣人、佐助、小樱、卡卡西、鹿丸、雏田和我爱罗七位虚构角色的普通阅读角度，不代表全部作品角色或完整人格。题目、选项、映射、计数、解释与例子原创，没有采用IDR35题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材，也不是官方测验或与权利人的合作、授权、认可；作品及角色权利归相应权利人。TV Tokyo历史人物页、NARUTO官方人物专栏与授权中文人物名单仅核基础语境和名字，不验证本站题目、计分或心理解释。虚构智商、忍术和剧情成长不转移为真实能力。结果不推断智力、疾病、创伤、焦虑、依恋、血缘、性别、道德、危险性、爱情、关系或职业，不要求战斗、武器、医疗技术、承受伤害、宽恕或修复关系，也不换算MBTI或其他角色测试。",
+              "en": "This is an independently authored FermatMind 21-item unofficial fan quiz selecting ordinary readings of seven fictional characters: Naruto, Sasuke, Sakura, Kakashi, Shikamaru, Hinata and Gaara. It represents neither every series character nor complete personalities. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; series and character rights belong to their respective owners. TV Tokyo’s historical character page, official NARUTO columns and a licensed Chinese roster check basic context and names without validating these items, counts or psychology. Fictional IQ, techniques and development transfer into no actual ability. Results infer no intelligence, illness, trauma, anxiety, attachment, ancestry, gender, morality, dangerousness, romance, relationship or career, prescribe no combat, weapons, medical techniques, enduring harm, forgiveness or relationship repair, and convert into no MBTI or other character test."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sasuke",
+      "directionIds": [
+        "sasuke"
+      ],
+      "title": {
+        "zh": "宇智波佐助：保留自选的专注",
+        "en": "Sasuke: Keeping a Chosen Focus"
+      },
+      "headline": {
+        "zh": "宇智波佐助：保留自选的专注",
+        "en": "Sasuke: Keeping a Chosen Focus"
+      },
+      "summary": {
+        "zh": "用一页收藏笔记理解自选重点、专注时段与可改的目标，含六角色比较；不推断冷漠、复仇、创伤、智力或能力。",
+        "en": "Read Sasuke through a chosen collection-note focus, revisable aims and six character comparisons. No coldness, revenge, trauma or ability is inferred."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；没有提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、忍者能力或人口排名。相差一次只是一项选择，不证明显著差异或固定类型。近分可自行比较，不补造并列、隐藏人格或混合身份。条件与理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; the three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Raw counts are neither similarity percentages, actual personality proportions, ninja abilities nor population ranks. One extra choice proves no significance or fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "佐助测试结果：自选专注、例子与完整说明",
+          "en": "Sasuke Quiz Result: Chosen Focus & Full Guide"
+        },
+        "description": {
+          "zh": "从一页收藏笔记看佐助的自选重点、时间范围与可改目标，含六角色对照；不推断冷漠、创伤、复仇、智力或工作能力。",
+          "en": "Explore Sasuke through a collection-note focus, time limits and revisable aims. Full comparisons without coldness, trauma, revenge or ability claims."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "角色背景与本版有限读法",
+            "en": "Character context and this edition’s limited reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "佐助在作品中有明确追求，故事也包含复杂冲突。本站只借“保留一个自己选择的重点”理解普通兴趣，不把全部剧情化成冷静、自立或值得模仿的执着。专注在这里是当前愿意把注意放到哪里，不是与别人隔绝，也不是遇到代价就必须继续。角色的战斗、复仇与伤害不构成现实建议或计分奖励。",
+              "en": "Sasuke pursues specific aims within a story containing complex conflict. This edition borrows keeping one chosen focus for ordinary interests without making his whole story calmness, independence or admirable fixation. Focus here means where you currently want to place attention, not separation from others or an obligation to continue despite costs. Fictional combat, revenge and harm are neither actual recommendations nor behaviours rewarded by this scoring system."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择一个自己关心的问题、类别或主题，先不扩展其他分支。可以问：这是自己仍然想看的重点，还是因为已经花过时间而不好放下？本版不替你回答，也不把选得集中当作更深刻。计数没有观察注意力维持多久、成果如何或是否擅长独立做事；选择多个兴趣同样合理。",
+              "en": "A highest count means you more often chose one question, category or topic you care about, leaving other branches for now. Is it still something you want, or difficult to leave because time has already been spent? The quiz cannot answer and treats concentration as no greater depth. Counts observe neither sustained attention, results nor independent-working skill. Several interests remain as legitimate as one within an actual person’s circumstances."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，整理一页个人收藏说明时，你只想记录纸张纹理，今天不查年代或来源。可以写下“这一页只看纹理”，把其他问题留在旁边；以后若想改看颜色，也不需要证明原目标失败。这个例子让重点有范围和期限，不把大量投入、排斥帮助或忘记其他需要当作专注的证据。",
+              "en": "While making one page of personal collection notes, you may want to record paper texture without researching dates or provenance today. Write that scope down and leave other questions aside. Changing to colour later does not prove the original aim failed. A focus can have limits and a time frame. Heavy investment, refusing help or forgetting other needs are not evidence that your attention is more authentic or more like Sasuke."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“这一小段我想先看自己选的主题，之后再决定要不要换；你可以看别的，不用跟我同步。”若涉及共同资料，另行说明占用时间与可用范围。表达专注不需要把别人描述成干扰，也不表示只接受自己的方法；愿意提问、暂停或共同看看，都不与本版的自选重点冲突。",
+              "en": "You might say, “For this small period I want to explore my chosen topic, then decide whether to change. You can look elsewhere without matching me.” Agree access and timing separately for shared materials. Expressing focus requires no description of others as interruptions and no exclusive commitment to your method. Questions, pauses and a shared look can all coexist with a personally chosen focus in this edition."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六位角色读法比较",
+            "en": "Comparisons with the other six character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "佐助读法先问“我想专看什么”，小樱先练一个细节并核对，鹿丸先看条件和必要步骤；选一个重点不等于已经练得好或找到最省事办法。鸣人偏共同起步，卡卡西偏合作位置，雏田偏安静明确参与，我爱罗偏责任范围。独自专看可以与后来合作并存，七种没有个人实力、深度或成熟度排名。",
+              "en": "This Sasuke angle asks what you want to focus on; Sakura tries and checks a detail; Shikamaru examines conditions and necessary steps. Choosing a focus proves neither accomplished practice nor efficiency. Naruto concerns a shared beginning, Kakashi cooperative roles, Hinata quiet explicit participation and Gaara responsibility limits. Private focus can precede cooperation. The seven establish no ranking of personal strength, depth or maturity among respondents or fictional characters."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，你暂不切换可能因为资料只有这一页，或者今天时间很短；愿意换题可能因为新问题更有趣。计数不推断冷漠、创伤、复仇倾向、孤独、注意力障碍、智力或执行能力，也不判断你是否适合单独工作。对真实关系与共同约定，需要听实际情况，不能用角色名替代说明或作为忽视他人的理由。",
+              "en": "Staying with a topic may follow having only one page available or little time. Switching may follow a more interesting question. Counts infer no coldness, trauma, revenge, loneliness, attention disorder, intelligence or execution skill and decide no suitability for solitary work. Actual relationships and agreements need actual context; a character name cannot replace an explanation or justify disregarding another person involved in shared circumstances with you."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：为一个私人小兴趣写下“现在只看什么”和“什么时候可以停或改”。不必执行、不计专注分钟，也不要求完成作品。看看目标是不是仍由自己选择，边界是否让其他需要有位置；如果想把它改成共同活动，也可以。这个观察用来理解偏好，不用坚持时长检验意志力或角色相似度。",
+              "en": "For an optional observation, write what you would focus on in a small private interest and when you could stop or change. No action, timed concentration or finished product is required. Notice whether the aim remains chosen and whether its limits leave room for other needs. Turn it into a shared activity if preferred. The observation explores an approach without testing willpower or character resemblance through endurance."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题计数与全部最高并列",
+            "en": "21-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；没有提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、忍者能力或人口排名。相差一次只是一项选择，不证明显著差异或固定类型。近分可自行比较，不补造并列、隐藏人格或混合身份。条件与理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; the three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Raw counts are neither similarity percentages, actual personality proportions, ninja abilities nor population ranks. One extra choice proves no significance or fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的21题非官方同人问卷，只选鸣人、佐助、小樱、卡卡西、鹿丸、雏田和我爱罗七位虚构角色的普通阅读角度，不代表全部作品角色或完整人格。题目、选项、映射、计数、解释与例子原创，没有采用IDR35题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材，也不是官方测验或与权利人的合作、授权、认可；作品及角色权利归相应权利人。TV Tokyo历史人物页、NARUTO官方人物专栏与授权中文人物名单仅核基础语境和名字，不验证本站题目、计分或心理解释。虚构智商、忍术和剧情成长不转移为真实能力。结果不推断智力、疾病、创伤、焦虑、依恋、血缘、性别、道德、危险性、爱情、关系或职业，不要求战斗、武器、医疗技术、承受伤害、宽恕或修复关系，也不换算MBTI或其他角色测试。",
+              "en": "This is an independently authored FermatMind 21-item unofficial fan quiz selecting ordinary readings of seven fictional characters: Naruto, Sasuke, Sakura, Kakashi, Shikamaru, Hinata and Gaara. It represents neither every series character nor complete personalities. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; series and character rights belong to their respective owners. TV Tokyo’s historical character page, official NARUTO columns and a licensed Chinese roster check basic context and names without validating these items, counts or psychology. Fictional IQ, techniques and development transfer into no actual ability. Results infer no intelligence, illness, trauma, anxiety, attachment, ancestry, gender, morality, dangerousness, romance, relationship or career, prescribe no combat, weapons, medical techniques, enduring harm, forgiveness or relationship repair, and convert into no MBTI or other character test."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sakura",
+      "directionIds": [
+        "sakura"
+      ],
+      "title": {
+        "zh": "春野樱：具体练习与核对",
+        "en": "Sakura: Specific Practice and Checking"
+      },
+      "headline": {
+        "zh": "春野樱：具体练习与核对",
+        "en": "Sakura: Specific Practice and Checking"
+      },
+      "summary": {
+        "zh": "用一个普通新词的例句看小步练习、核对依据与可改之处，含六角色对照；不认证聪明、精确、勤奋或医疗能力。",
+        "en": "Explore Sakura through a new word’s example sentence, checking and six character comparisons. No intelligence, precision, diligence or medical skill is certified."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；没有提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、忍者能力或人口排名。相差一次只是一项选择，不证明显著差异或固定类型。近分可自行比较，不补造并列、隐藏人格或混合身份。条件与理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; the three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Raw counts are neither similarity percentages, actual personality proportions, ninja abilities nor population ranks. One extra choice proves no significance or fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "小樱测试结果：练习核对、例子与完整说明",
+          "en": "Sakura Quiz Result: Practice & Checking, Full Guide"
+        },
+        "description": {
+          "zh": "从新词例句看小樱的具体练习、核对依据和可改之处，含六角色比较；不认证聪明、精确、勤奋、完美主义或医疗技能。",
+          "en": "Read Sakura through a new word’s example, practice and checking. Full comparisons without intelligence, precision, perfectionism or medical-skill claims."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "角色背景与本版有限读法",
+            "en": "Character context and this edition’s limited reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "小樱在官方人物背景中有学习与成长的经历。本站选择“练一个具体小点，再核对哪里要改”的普通角度，不把角色归为完美主义，也不从剧情中的专业技术推到答题者能力。这里的练习可以是一句普通用法、一折纸或一条笔记，没有战斗和医疗操作，更不要求用不断修正来证明个人价值。",
+              "en": "Official Sakura context includes learning and development. This edition selects practising one specific point and checking what to adjust rather than defining her as perfectionism or transferring fictional expertise to respondents. Practice can concern an ordinary sentence, paper fold or note. It includes no combat or medical operation and never requires endless correction as proof of personal worth, competence or sufficient resemblance to the character."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择先试一个小样例、与说明比较或检查具体遗漏。可以区分：你是想弄懂一个差别，还是觉得任何错误都不能留下？问卷只计所选做法，不能识别这种原因。核对也需要合适依据，原文、说明和自己的目标未必总一致；多选这类选项并不保证事实正确、练习有效或成果精确。",
+              "en": "A highest count means you more often chose a small trial, comparison with instructions or a check for omissions. Are you curious about a difference, or feeling that no error may remain? Counts cannot identify that reason. Checking needs suitable reference material; an original, instructions and your own aim may not coincide. More such choices guarantee neither factual correctness, effective practice nor precision in an actual result you produce."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，学一个普通新词时，先写一句自己的例句，再看看词典中的用法条件。若不合适，只标出一个要改的地方；不必当场写十句，也不需要把一处改动扩成整页重写。这个例子把练习对象与核对依据说清，不把记得快、从不出错或愿意反复做当作小樱式人格的证据。",
+              "en": "When learning an ordinary new word, write one example sentence and compare it with the dictionary’s usage conditions. Mark one possible adjustment if needed. Ten immediate examples or rewriting a whole page are unnecessary. The example distinguishes what you practise from the reference you check. Fast recall, error-free work and willingness to repeat are not evidence of a Sakura-like personality or a guarantee of skill outside that small exercise."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我先试这一小处，再用这个说明核对一次；其他部分今天先不改。”若请别人看，明确只想核对哪一点，并接受对方不方便。反馈是具体参考，不是替你评定聪明或努力的判词；不同意见可以暂存，不必当场决定谁是对的。停止练习、换资料或不继续，都不会让结果失效。",
+              "en": "You might say, “I’ll try this small point and check it once against these instructions; the rest can stay today.” If asking for another look, specify the point and accept unavailability. Feedback offers a reference rather than a verdict on intelligence or effort. Different views can remain unresolved without deciding immediately who is right. Stopping, changing sources or leaving the exercise does not invalidate your result."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六位角色读法比较",
+            "en": "Comparisons with the other six character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "小樱读法偏“试过再核对”，佐助偏选定专注的主题，鹿丸偏先辨条件、删减不必要步骤；练得仔细不一定效率更高，省一步也不一定敷衍。鸣人偏共同起步，卡卡西偏合作位置，雏田偏参与表达，我爱罗偏责任边界。这些可以是同一活动的不同环节，没有聪明、专业或努力等级，也不以角色职业替你选职业。",
+              "en": "This Sakura angle concerns trying and checking, Sasuke choosing a focus, and Shikamaru conditions and removable steps. Careful practice need not be more efficient; omitting a step need not be careless. Naruto concerns a shared start, Kakashi roles, Hinata participation wording and Gaara responsibility boundaries. These can be different moments in one activity. No intelligence, professionalism or effort ranking is created, and fictional occupations choose no career for you."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，核对很多可能因为说明含糊，核对较少可能因为已经熟悉，或任务本来没有唯一答案。计数不判断完美主义、焦虑、自我要求、注意力、智商、身体能力或医疗技能。真正涉及健康、安全或专业操作时，应按实际规则处理，不能因为像小樱就觉得自己具备作品中的技术，也不能拿测试代替学习效果的观察。",
+              "en": "Frequent checking may follow unclear instructions; less checking may reflect familiarity or a task without one correct answer. Counts establish no perfectionism, anxiety, standards, attention, IQ, physical ability or medical skill. Actual health, safety and specialist operations follow their real requirements. A Sakura-like result supplies no fictional technique and cannot substitute for observing what someone has actually learned or can do in a relevant situation."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：在自己原本就想学的小事里，想一个只需试一次的例子，写清“核对什么、用什么资料、到哪里停止”。可以只想、不练，也可以保留暂时不知道的地方。不统计错误数或进步速度；如果发现没有合适依据，先不下结论也合理。观察的是自己是否喜欢这样处理细节，不是训练是否让自己变得更像角色。",
+              "en": "For an optional observation in something you already want to learn, imagine one trial and specify what to check, against which source and where to stop. Think without practising and leave uncertainties open. Do not count errors or improvement speed. If no suitable reference exists, withholding a conclusion is reasonable. Notice whether this way of handling detail appeals rather than testing whether practice makes you more like a fictional character."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题计数与全部最高并列",
+            "en": "21-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；没有提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、忍者能力或人口排名。相差一次只是一项选择，不证明显著差异或固定类型。近分可自行比较，不补造并列、隐藏人格或混合身份。条件与理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; the three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Raw counts are neither similarity percentages, actual personality proportions, ninja abilities nor population ranks. One extra choice proves no significance or fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的21题非官方同人问卷，只选鸣人、佐助、小樱、卡卡西、鹿丸、雏田和我爱罗七位虚构角色的普通阅读角度，不代表全部作品角色或完整人格。题目、选项、映射、计数、解释与例子原创，没有采用IDR35题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材，也不是官方测验或与权利人的合作、授权、认可；作品及角色权利归相应权利人。TV Tokyo历史人物页、NARUTO官方人物专栏与授权中文人物名单仅核基础语境和名字，不验证本站题目、计分或心理解释。虚构智商、忍术和剧情成长不转移为真实能力。结果不推断智力、疾病、创伤、焦虑、依恋、血缘、性别、道德、危险性、爱情、关系或职业，不要求战斗、武器、医疗技术、承受伤害、宽恕或修复关系，也不换算MBTI或其他角色测试。",
+              "en": "This is an independently authored FermatMind 21-item unofficial fan quiz selecting ordinary readings of seven fictional characters: Naruto, Sasuke, Sakura, Kakashi, Shikamaru, Hinata and Gaara. It represents neither every series character nor complete personalities. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; series and character rights belong to their respective owners. TV Tokyo’s historical character page, official NARUTO columns and a licensed Chinese roster check basic context and names without validating these items, counts or psychology. Fictional IQ, techniques and development transfer into no actual ability. Results infer no intelligence, illness, trauma, anxiety, attachment, ancestry, gender, morality, dangerousness, romance, relationship or career, prescribe no combat, weapons, medical techniques, enduring harm, forgiveness or relationship repair, and convert into no MBTI or other character test."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kakashi",
+      "directionIds": [
+        "kakashi"
+      ],
+      "title": {
+        "zh": "旗木卡卡西：说明合作中的位置",
+        "en": "Kakashi: Clarifying Roles in Cooperation"
+      },
+      "headline": {
+        "zh": "旗木卡卡西：说明合作中的位置",
+        "en": "Kakashi: Clarifying Roles in Cooperation"
+      },
+      "summary": {
+        "zh": "通过共享小册子的传递看角色、衔接与可重新商量的分工，含六角色比较；不认证带队、洞察、教学或照顾所有人的能力。",
+        "en": "Read Kakashi through shared-booklet roles, handovers and six character comparisons. No leadership, insight, teaching or universal caretaking is certified."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；没有提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、忍者能力或人口排名。相差一次只是一项选择，不证明显著差异或固定类型。近分可自行比较，不补造并列、隐藏人格或混合身份。条件与理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; the three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Raw counts are neither similarity percentages, actual personality proportions, ninja abilities nor population ranks. One extra choice proves no significance or fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "卡卡西测试结果：合作位置、例子与完整说明",
+          "en": "Kakashi Quiz Result: Cooperative Roles & Full Guide"
+        },
+        "description": {
+          "zh": "从共享小册子看卡卡西的合作位置与交接，含六角色比较、反例和表达；不认证带队、洞察、教学或照顾所有人的能力。",
+          "en": "Explore Kakashi through shared-booklet roles and handovers. Full comparisons without leadership, insight, teaching or universal caretaking certification."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "角色背景与本版有限读法",
+            "en": "Character context and this edition’s limited reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "卡卡西在官方背景中与第七班的指导和共同任务有关。本站只选“说明合作中的位置”作普通读法：谁愿意做哪部分，彼此怎样接得上。这个角度不把角色的专业、战斗经验或判断力转交给答题者，也不要求某个人永远当老师、替大家兜底或看穿所有人的想法。合作位置需要实际商量，不能从角色标签自动分派。",
+              "en": "Official Kakashi context includes guiding Team Seven and shared assignments. This edition selects clarifying roles in ordinary cooperation: which parts people want and how those parts connect. It transfers no fictional expertise, combat experience or judgement to respondents. Nobody must become the permanent teacher, cover every omission or see through everyone’s thoughts. Actual roles need discussion rather than automatic assignment from a fictional character label in a questionnaire."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择问清谁准备、谁记录、谁使用资料，以及怎样交给下一位。可以问：这是在澄清大家已经愿意的参与，还是在替别人安排？本版只能看到选项，不观察协商过程和实际效果。明确分工也可以包括“只是看看”“暂时不参加”和“这个部分还没人愿意”，不需要把每个空缺马上填满。",
+              "en": "A highest count means you more often chose to clarify preparation, notes, access or handovers. Are you making willing participation clearer, or arranging someone else’s role for them? The quiz observes choices rather than negotiations or their results. Clear roles may include watching, not participating yet or leaving a part unclaimed. There is no requirement to fill every gap immediately or make an ordinary activity resemble a fully organised team task."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，几个人想传阅一本小册子，可以先问各自想看哪部分、需不需要记录，再约定下一位怎样接到。没有人愿意写总结，就保留没有总结的安排，而不是默认你来补。这个例子关心衔接是否清楚，不以他人是否服从、全程顺利或最终完成来认证你有带队能力，也不用复杂分工制造额外工作。",
+              "en": "When several people want to pass around a booklet, ask what each wants to read and whether notes are needed, then agree the handover. If nobody wants a summary, allow an arrangement without one instead of assuming you must supply it. The example concerns clear connections rather than obedience, smoothness or completion certifying leadership. A simple shared activity needs no elaborate division of work merely to perform this reading."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“你想看这一段，我想记录那个问题；我们怎样交接会方便？不想承担的部分也可以直接说。”如果安排改变，再确认一次，而不是把第一次同意当永久责任。提出分工的人也能选择不参与，不必因为自己解释得清楚就自动成为负责人。保持说明简短，给对方改主意和不同做法的位置。",
+              "en": "You might say, “You want this section and I want to note that question. What handover would suit us? We can say which parts we do not want.” Reconfirm changed arrangements rather than treating initial agreement as permanent responsibility. Proposing roles does not automatically make you the organiser or prevent you from declining. Keep the explanation simple and leave room for changed wishes and different approaches to the shared activity."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六位角色读法比较",
+            "en": "Comparisons with the other six character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "卡卡西读法关心“各部分怎样接上”，我爱罗读法更关注已同意的责任到哪里结束，二者可以一起出现。鸣人偏邀请共同起步，佐助偏自选重点，小樱偏练习核对，鹿丸偏实际条件与简化，雏田偏安静明确参与。这里没有谁天生负责、谁只能跟随的等级；计数也不把这些同人角度转换成领导风格或职业角色。",
+              "en": "This Kakashi angle concerns how parts connect; Gaara concerns where agreed responsibility ends. Both can appear together. Naruto offers a shared beginning, Sasuke a chosen focus, Sakura practice and checking, Shikamaru conditions and simplification, and Hinata quiet explicit participation. There is no born leader or permanent follower hierarchy. Counts convert these fan readings into neither leadership styles nor occupations, and several concerns can matter in the same ordinary collaboration."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，先问分工可能因为你不清楚现有安排，而不是喜欢组织；没有提出分工可能因为大家已经熟悉。计数不判断领导、洞察、教学、责任心、经验丰富程度或情绪隐藏，也不推断你必须照顾别人。真实合作中的权利、资源和要求需要另行了解，不能拿一个卡卡西结果为单方面安排或越界代做提供理由。",
+              "en": "Asking about roles may follow uncertainty rather than an interest in organising; not asking may reflect an established arrangement. Counts establish no leadership, insight, teaching skill, conscientiousness, experience or hidden emotion and impose no duty to care for others. Actual collaboration has rights, resources and requirements to understand separately. A Kakashi result cannot justify unilateral assignments or taking over somebody else’s part without their agreement in the real situation."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：为一件本来就愿意一起做的小事，想一句“我想做哪部分”和一个需要确认的交接点，可以不联系任何人。看看是否确实需要分工，还是各自看看就够了；无需画流程图、找负责人或检验大家效率。允许保留一个无人承担的部分，也允许整件事暂时不做，观察的只是自己对衔接的关注。",
+              "en": "For an optional observation, imagine one part you want in a small shared activity and one handover to clarify, without contacting anyone. Does it need roles at all, or would separate looking be enough? No process diagram, organiser or efficiency test is required. Leave a part unclaimed or leave the whole activity for now. The observation concerns attention to connections rather than a duty to organise people or produce a completed result."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题计数与全部最高并列",
+            "en": "21-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；没有提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、忍者能力或人口排名。相差一次只是一项选择，不证明显著差异或固定类型。近分可自行比较，不补造并列、隐藏人格或混合身份。条件与理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; the three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Raw counts are neither similarity percentages, actual personality proportions, ninja abilities nor population ranks. One extra choice proves no significance or fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的21题非官方同人问卷，只选鸣人、佐助、小樱、卡卡西、鹿丸、雏田和我爱罗七位虚构角色的普通阅读角度，不代表全部作品角色或完整人格。题目、选项、映射、计数、解释与例子原创，没有采用IDR35题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材，也不是官方测验或与权利人的合作、授权、认可；作品及角色权利归相应权利人。TV Tokyo历史人物页、NARUTO官方人物专栏与授权中文人物名单仅核基础语境和名字，不验证本站题目、计分或心理解释。虚构智商、忍术和剧情成长不转移为真实能力。结果不推断智力、疾病、创伤、焦虑、依恋、血缘、性别、道德、危险性、爱情、关系或职业，不要求战斗、武器、医疗技术、承受伤害、宽恕或修复关系，也不换算MBTI或其他角色测试。",
+              "en": "This is an independently authored FermatMind 21-item unofficial fan quiz selecting ordinary readings of seven fictional characters: Naruto, Sasuke, Sakura, Kakashi, Shikamaru, Hinata and Gaara. It represents neither every series character nor complete personalities. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; series and character rights belong to their respective owners. TV Tokyo’s historical character page, official NARUTO columns and a licensed Chinese roster check basic context and names without validating these items, counts or psychology. Fictional IQ, techniques and development transfer into no actual ability. Results infer no intelligence, illness, trauma, anxiety, attachment, ancestry, gender, morality, dangerousness, romance, relationship or career, prescribe no combat, weapons, medical techniques, enduring harm, forgiveness or relationship repair, and convert into no MBTI or other character test."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shikamaru",
+      "directionIds": [
+        "shikamaru"
+      ],
+      "title": {
+        "zh": "奈良鹿丸：看清条件与省去多余步骤",
+        "en": "Shikamaru: Conditions and Fewer Unnecessary Steps"
+      },
+      "headline": {
+        "zh": "奈良鹿丸：看清条件与省去多余步骤",
+        "en": "Shikamaru: Conditions and Fewer Unnecessary Steps"
+      },
+      "summary": {
+        "zh": "从缩短后的普通活动看实际条件、必要环节和可省步骤，含六角色对照；不以虚构智商认证聪明、策略、懒惰或效率。",
+        "en": "Explore Shikamaru through a shortened activity, actual conditions and six character comparisons. Fictional IQ certifies no intelligence, strategy or efficiency."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；没有提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、忍者能力或人口排名。相差一次只是一项选择，不证明显著差异或固定类型。近分可自行比较，不补造并列、隐藏人格或混合身份。条件与理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; the three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Raw counts are neither similarity percentages, actual personality proportions, ninja abilities nor population ranks. One extra choice proves no significance or fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "鹿丸测试结果：条件简化、例子与完整说明",
+          "en": "Shikamaru Quiz Result: Conditions & Full Guide"
+        },
+        "description": {
+          "zh": "从活动时间缩短看鹿丸的条件、必要步骤和简化，含六角色比较；不采用虚构智商评分，也不判断策略、懒惰或效率。",
+          "en": "Read Shikamaru through a shortened activity, necessary conditions and simpler steps. Full comparisons without fictional IQ, laziness or efficiency scores."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "角色背景与本版有限读法",
+            "en": "Character context and this edition’s limited reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "鹿丸的官方专栏包含对情势与安排的思考，也有作品中的虚构能力设定。本站只借“先看实际条件，去掉多余一步”理解普通选择，不采用剧情智商数字、战术或战斗判断给现实的人评分。少做一步不是偷懒的同义词，安排复杂也不自动聪明；这里关心所选方法是否符合眼前自愿的小事，不是谁更会算计。",
+              "en": "Shikamaru’s official column includes thinking about situations and arrangements within fictional ability settings. This edition borrows checking actual conditions and removing one unnecessary step for ordinary choices. It uses no fictional IQ figure, tactics or combat judgement to score real people. One fewer step is no synonym for laziness, while complexity is not automatically intelligence. The concern is an approach to a chosen activity rather than who is the superior strategist."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择先看时间、材料、人数或目标，再区分必要与可选环节。可以问：这个步骤真没有用，还是它服务的需要暂时没被看见？计数没有检查你是否掌握全部信息，也没有观察省去之后的实际后果。简化可以是暂时的、可恢复的；愿意保留一点重复或余量，同样可能符合现实需要。",
+              "en": "A highest count means you more often chose to review time, materials, people or aims before separating necessary and optional steps. Is a step unnecessary, or serving a need you have not yet noticed? Counts check neither complete information nor actual consequences after removal. Simplification can be temporary and reversible. Keeping repetition or spare capacity may fit actual needs too, without contradicting an interest in a less complicated ordinary arrangement."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，一次自选共同活动从半小时变成十分钟，可以先确认大家仍想做什么，把一个可选展示留到以后。不要把安全说明、他人的使用条件或已同意的重要部分当作累赘直接删掉。这个例子是调整范围，不是效率比赛；活动最后决定取消也可以，不能仅凭删掉一个环节就断言方案更聪明或大家更满意。",
+              "en": "If a chosen shared activity shrinks from thirty minutes to ten, check what people still want and leave an optional demonstration for later. Do not silently remove safety information, access conditions or an important agreed part as clutter. This is a change of scope, not an efficiency contest. Cancellation remains possible. Removing a step alone establishes neither a smarter plan nor greater satisfaction among the actual people taking part."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“现在只剩这点时间，哪些是我们仍想保留的？这一步能不能暂时不做，之后需要再补？”把自己的判断说成可商量建议，而不是替所有人决定没有必要。若别人指出遗漏的条件，就重新看，不必为了保持简洁而争胜。你也可以说暂时不知道，先不简化；角色结果不要求随时给出巧妙办法。",
+              "en": "You might say, “With this much time left, what do we still want to keep? Could this step wait and return if needed?” Make your judgement a proposal rather than deciding necessity for everyone. Reconsider if someone identifies a missed condition instead of defending simplicity to win. You may remain uncertain and leave the arrangement unchanged. A character result requires no clever solution to every ordinary complication you encounter."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六位角色读法比较",
+            "en": "Comparisons with the other six character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "鹿丸读法先看条件和可省步骤，小樱偏具体练习与核对，佐助偏保留自己选的重点；三者不等于智商、勤奋和意志力的三个等级。卡卡西看合作衔接，我爱罗看责任范围，鸣人偏共同起步，雏田偏明确参与。一个人可能先简化，再邀请、分工与练习，最高并列不是矛盾，也不产生谁比谁聪明的结论。",
+              "en": "This Shikamaru angle concerns conditions and removable steps, Sakura specific practice and checking, and Sasuke a chosen focus. They are no intelligence, diligence or willpower grades. Kakashi concerns handovers, Gaara responsibility limits, Naruto a shared beginning and Hinata explicit participation. Someone may simplify before inviting, dividing roles and practising. A highest tie is no contradiction and creates no conclusion about who is more intelligent or more capable in actual life."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，步骤少可能因为任务简单，步骤多可能因为资料不齐、无障碍需求或需要核验。计数不认证智力、谋略、效率、懒惰、注意力或工作表现，也不判断你适合做规划。真有安全、规则、权限和共同约定时，要按真实条件处理；虚构战术不能拿来操控他人，也不是省略现实要求的理由。",
+              "en": "Fewer steps may follow a simple task; more may follow missing information, accessibility needs or necessary checking. Counts certify no intelligence, strategy, efficiency, laziness, attention or job performance and decide no planning aptitude. Actual safety, rules, permissions and agreements follow their real conditions. Fictional tactics supply neither a method for manipulating others nor a reason to omit requirements that matter in an ordinary situation with real consequences."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：给一个自选小安排列出一个必要条件和一个可能可省的步骤，补上“删掉后会影响谁或什么”。不用真的删除、计时或比较效率。如果发现它仍然有用，就保留；如果只是今天不需要，可以写明暂时略过。这个小观察帮助理解自己怎样看条件，不检验虚构智商，也不要求把所有事变得最省力。",
+              "en": "For an optional observation, name one necessary condition and one possibly removable step in a chosen small arrangement, adding who or what removal would affect. No deletion, timing or efficiency comparison is required. Keep a useful step; mark a temporarily unnecessary one as skipped for now. The observation explores how you notice conditions without testing fictional IQ or requiring every activity to become the easiest possible version."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题计数与全部最高并列",
+            "en": "21-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；没有提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、忍者能力或人口排名。相差一次只是一项选择，不证明显著差异或固定类型。近分可自行比较，不补造并列、隐藏人格或混合身份。条件与理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; the three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Raw counts are neither similarity percentages, actual personality proportions, ninja abilities nor population ranks. One extra choice proves no significance or fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的21题非官方同人问卷，只选鸣人、佐助、小樱、卡卡西、鹿丸、雏田和我爱罗七位虚构角色的普通阅读角度，不代表全部作品角色或完整人格。题目、选项、映射、计数、解释与例子原创，没有采用IDR35题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材，也不是官方测验或与权利人的合作、授权、认可；作品及角色权利归相应权利人。TV Tokyo历史人物页、NARUTO官方人物专栏与授权中文人物名单仅核基础语境和名字，不验证本站题目、计分或心理解释。虚构智商、忍术和剧情成长不转移为真实能力。结果不推断智力、疾病、创伤、焦虑、依恋、血缘、性别、道德、危险性、爱情、关系或职业，不要求战斗、武器、医疗技术、承受伤害、宽恕或修复关系，也不换算MBTI或其他角色测试。",
+              "en": "This is an independently authored FermatMind 21-item unofficial fan quiz selecting ordinary readings of seven fictional characters: Naruto, Sasuke, Sakura, Kakashi, Shikamaru, Hinata and Gaara. It represents neither every series character nor complete personalities. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; series and character rights belong to their respective owners. TV Tokyo’s historical character page, official NARUTO columns and a licensed Chinese roster check basic context and names without validating these items, counts or psychology. Fictional IQ, techniques and development transfer into no actual ability. Results infer no intelligence, illness, trauma, anxiety, attachment, ancestry, gender, morality, dangerousness, romance, relationship or career, prescribe no combat, weapons, medical techniques, enduring harm, forgiveness or relationship repair, and convert into no MBTI or other character test."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hinata",
+      "directionIds": [
+        "hinata"
+      ],
+      "title": {
+        "zh": "日向雏田：安静而明确地参与",
+        "en": "Hinata: Quiet and Explicit Participation"
+      },
+      "headline": {
+        "zh": "日向雏田：安静而明确地参与",
+        "en": "Hinata: Quiet and Explicit Participation"
+      },
+      "summary": {
+        "zh": "从普通分享环节看准备、简短表达与参加或停止的选择，含六角色对照；不从安静推断焦虑、依恋、温柔、性别或勇气。",
+        "en": "Read Hinata through a small sharing session, clear wording and six character comparisons. Quietness establishes no anxiety, attachment, gender or courage."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；没有提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、忍者能力或人口排名。相差一次只是一项选择，不证明显著差异或固定类型。近分可自行比较，不补造并列、隐藏人格或混合身份。条件与理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; the three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Raw counts are neither similarity percentages, actual personality proportions, ninja abilities nor population ranks. One extra choice proves no significance or fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "雏田测试结果：明确参与、例子与完整说明",
+          "en": "Hinata Quiz Result: Participation & Full Guide"
+        },
+        "description": {
+          "zh": "从普通分享看雏田的准备、简短表达与自选参与，含六角色比较；安静不等于焦虑、依恋、温柔、性别或勇气。",
+          "en": "Explore Hinata through preparation, brief wording and chosen participation. Full comparisons without anxiety, attachment, gender or courage judgements."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "角色背景与本版有限读法",
+            "en": "Character context and this edition’s limited reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "雏田的官方专栏包含从自己的位置作出选择、参与行动的情节。本站选“安静而明确地参与”这一有限读法，不把整个人物归结成害羞或浪漫，也不要求答题者以她的经历证明勇气。这里可以先看、准备一句话、明确加入或拒绝；说得少不意味着没有想法，说得多也不意味着偏离角色。人物关系不是现实关系的范本。",
+              "en": "Hinata’s official column includes making choices and taking part from her own position. This edition selects quiet and explicit participation rather than reducing her whole character to shyness or romance, or asking respondents to prove courage through her story. Observe, prepare one sentence, join or decline clearly. Few words need not mean few thoughts; many words do not betray the reading. Fictional relationships prescribe no actual relationship pattern for respondents."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择先观察、想清一点再说、表达自己愿意参与的具体部分。可以问：你需要的是准备时间、较少发言，还是更明确的邀请方式？本版不能从计数分辨原因，也不把准备后参与当作每个人都该克服的障碍。明确说“不想参加”同样是一种完整表达，不需要被解释成隐藏的愿望。",
+              "en": "A highest count means you more often chose observing, thinking of one point before speaking or stating the part you want to join. Do you want preparation time, fewer words or a clearer invitation? Counts cannot distinguish these reasons and frame no participation difficulty everyone should overcome. Clearly declining is complete expression too, without being interpreted as a hidden desire to take part or a signal that someone should keep encouraging you."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，朋友邀请你在普通分享环节说点什么，可以先想一个愿意讲的小发现，再说“我只想补这一点”。如果不想讲，也可以表示这次只听；不必为了证明成长而增加时长或讲私事。这个例子让内容和范围可选择，不把别人是否鼓掌、自己声音大小或是否紧张当作雏田式参与的分数。",
+              "en": "At an ordinary sharing session, think of one small observation you want to mention and say that you want to add only this point. Listening without speaking is also available. Growth needs no longer contribution or disclosure of private matters. The example leaves content and scope chosen. Applause, volume and nervousness are not scores of Hinata-like participation and tell no complete story about the person taking part in that actual setting."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想先听一下，之后愿意时补一句；如果这次不说，也请按我说的理解。”若有实际时间安排，可以问清何时表达方便，而不是要求大家一直等。留准备空间也给别人继续的空间；直接加入、说很多或临时退出都可以，不需要为了像雏田而一直轻声、退让或等人来猜。",
+              "en": "You might say, “I want to listen first and add something if I choose; if I do not speak this time, please take that as stated.” Ask about suitable timing where an actual schedule matters rather than requiring everyone to wait. Preparation leaves others room to continue too. Join directly, speak at length or leave. Resemblance to Hinata requires neither a soft voice, yielding nor waiting for somebody to guess your wishes."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六位角色读法比较",
+            "en": "Comparisons with the other six character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "雏田读法偏“参与意愿怎样明确说出”，鸣人偏发起共同尝试，佐助偏保留自选重点；安静参与可以由自己发起，也可以专注某一部分。小樱偏练习核对，卡卡西偏角色衔接，鹿丸偏条件与简化，我爱罗偏责任范围。这些不是外向与内向、强与弱的排列，也不换算依恋或关系类型；并列时可以逐份读具体差别。",
+              "en": "This Hinata angle concerns expressing participation wishes; Naruto a shared start; Sasuke a chosen focus. Quiet participation can be self-initiated or concentrated on one part. Sakura concerns checking, Kakashi roles, Shikamaru conditions and simplification, and Gaara responsibility limits. These are no extraversion, introversion, strength or weakness ranks and convert into no attachment or relationship type. Read each tied guide for its specific concern without selecting a single permanent identity."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，少说可能因为已经理解、语言不方便、环境吵或只是不想说，并非害羞；多说也不证明更自信。计数不判断焦虑、神经类型、创伤、依恋、温柔、勇气、性别或被接纳程度。现实不适与沟通条件需要具体了解，不能用可爱的角色解释掉，也不能把清楚拒绝理解成“内心其实想要”。",
+              "en": "Few words may follow understanding, language access, noise or simply not wanting to speak rather than shyness. Many words prove no greater confidence. Counts establish no anxiety, neurotype, trauma, attachment, gentleness, courage, gender or acceptance. Actual discomfort and communication conditions need specific understanding rather than dismissal through an appealing character. A clear refusal must not become a story about secretly wanting something that the person has explicitly declined in the real situation."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：为一个自愿的小交流想一句“我愿意说的范围”和一句“不想继续时怎样结束”，可以只写给自己。看看你想要安静、准备还是明确边界，不用真的发言或检验紧张是否减少。也可以发现自己今天想直接说很多；观察不是改变自己的任务，更不要求证明从安静走向活跃才算进步。",
+              "en": "For an optional observation, imagine what you would willingly share in a small conversation and a sentence for ending when you want. Write privately if preferred. Notice whether quiet, preparation or clear limits appeal without speaking or testing reduced nervousness. You may instead want to say a great deal today. The observation requires no self-change and no proof that becoming more active is the only acceptable form of progress."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题计数与全部最高并列",
+            "en": "21-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；没有提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、忍者能力或人口排名。相差一次只是一项选择，不证明显著差异或固定类型。近分可自行比较，不补造并列、隐藏人格或混合身份。条件与理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; the three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Raw counts are neither similarity percentages, actual personality proportions, ninja abilities nor population ranks. One extra choice proves no significance or fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的21题非官方同人问卷，只选鸣人、佐助、小樱、卡卡西、鹿丸、雏田和我爱罗七位虚构角色的普通阅读角度，不代表全部作品角色或完整人格。题目、选项、映射、计数、解释与例子原创，没有采用IDR35题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材，也不是官方测验或与权利人的合作、授权、认可；作品及角色权利归相应权利人。TV Tokyo历史人物页、NARUTO官方人物专栏与授权中文人物名单仅核基础语境和名字，不验证本站题目、计分或心理解释。虚构智商、忍术和剧情成长不转移为真实能力。结果不推断智力、疾病、创伤、焦虑、依恋、血缘、性别、道德、危险性、爱情、关系或职业，不要求战斗、武器、医疗技术、承受伤害、宽恕或修复关系，也不换算MBTI或其他角色测试。",
+              "en": "This is an independently authored FermatMind 21-item unofficial fan quiz selecting ordinary readings of seven fictional characters: Naruto, Sasuke, Sakura, Kakashi, Shikamaru, Hinata and Gaara. It represents neither every series character nor complete personalities. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; series and character rights belong to their respective owners. TV Tokyo’s historical character page, official NARUTO columns and a licensed Chinese roster check basic context and names without validating these items, counts or psychology. Fictional IQ, techniques and development transfer into no actual ability. Results infer no intelligence, illness, trauma, anxiety, attachment, ancestry, gender, morality, dangerousness, romance, relationship or career, prescribe no combat, weapons, medical techniques, enduring harm, forgiveness or relationship repair, and convert into no MBTI or other character test."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaara",
+      "directionIds": [
+        "gaara"
+      ],
+      "title": {
+        "zh": "我爱罗：有边界的共同责任",
+        "en": "Gaara: Bounded Shared Responsibility"
+      },
+      "headline": {
+        "zh": "我爱罗：有边界的共同责任",
+        "en": "Gaara: Bounded Shared Responsibility"
+      },
+      "summary": {
+        "zh": "从借用共享资料看同意、责任范围与结束后的交还，含六角色对照；不认证可靠、救赎、成熟、领导或心理康复。",
+        "en": "Explore Gaara through shared-material responsibility, limits and six character comparisons. No reliability, redemption, maturity or psychological recovery is certified."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；没有提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、忍者能力或人口排名。相差一次只是一项选择，不证明显著差异或固定类型。近分可自行比较，不补造并列、隐藏人格或混合身份。条件与理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; the three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Raw counts are neither similarity percentages, actual personality proportions, ninja abilities nor population ranks. One extra choice proves no significance or fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "我爱罗测试结果：责任边界、例子与完整说明",
+          "en": "Gaara Quiz Result: Responsibility & Full Guide"
+        },
+        "description": {
+          "zh": "从借用资料看我爱罗的共同责任、同意范围和交还，含六角色比较；不认证可靠、成熟、救赎、领导或心理康复。",
+          "en": "Read Gaara through shared-material agreements, responsibility limits and handback. Full comparisons without maturity, redemption or recovery certification."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "角色背景与本版有限读法",
+            "en": "Character context and this edition’s limited reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "我爱罗的官方专栏包含后来承担公共角色、与他人合作的情节。本站只选“有边界的共同责任”理解普通安排，不把复杂经历简化成从坏到好、创伤必然带来成长或必须保护所有人。接受一个已同意的小范围，与承担整个群体不是同一件事；人物的权力、战斗和牺牲不为答题者分配现实义务，也不认证领导身份。",
+              "en": "Gaara’s official column includes later public responsibilities and cooperation with others. This edition selects bounded shared responsibility for ordinary arrangements without reducing a complex history to becoming good, trauma necessarily producing growth or a duty to protect everyone. An agreed small scope differs from responsibility for a whole group. Fictional authority, combat and sacrifice assign no actual obligations to respondents and certify no leadership identity or personal redemption."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择确认谁已同意什么、自己负责到哪里、未承担部分怎样另议以及何时结束。可以问：这是你自愿接受的范围，还是因为没人接就默认该由你做？计数不能分辨，也不保证责任划分公平。一个清楚的安排可以包括拒绝、交还或暂停；没有人承担的部分不自动落到最愿意说明的人身上。",
+              "en": "A highest count means you more often chose to clarify agreements, your limits, unassigned parts and when responsibility ends. Is this a scope you accepted, or one assumed because nobody else took it? Counts cannot distinguish these reasons or guarantee fairness. A clear arrangement may include refusal, handback or pause. An unclaimed part does not automatically belong to whoever is most willing to explain the arrangement in an ordinary shared situation."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，和朋友借用一份可共享的资料，可以先说自己只负责保管到周五，归还由谁联系另行确认。到了期限按约交还，不默认以后所有资料都归自己管理。若实际条件改变，就重新商量；这个例子不是考核守约率，也不把多承担、从不拒绝或替别人处理所有遗留问题当作值得认可的证据。",
+              "en": "When borrowing shared material with a friend, state that you can keep it only until Friday and separately agree who contacts the lender. Hand it back as arranged without assuming permanent responsibility for all future materials. Revisit changed conditions. The example is no compliance score and treats neither taking more, never declining nor solving everyone’s leftover problems as evidence of worthiness, maturity or sufficient resemblance to Gaara in this editorial reading."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“这一部分我愿意负责到这里，后面需要重新确认；没有人同意的部分，我们先不要当作已经有人接下。”表达边界不是指责别人，也不需要用过往付出来证明自己有资格拒绝。若对方希望调整，听清具体需要后再决定；你的同意可以有期限，角色结果不能替你同意更多责任。",
+              "en": "You might say, “I can take this part up to this point; anything further needs another agreement. Let us not assume someone has taken an unassigned part.” A boundary accuses nobody and requires no proof of past contributions to justify declining. Listen to a proposed change before deciding. Your agreement can have a time limit, and a character result cannot consent to additional responsibility on your behalf in the actual arrangement."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六位角色读法比较",
+            "en": "Comparisons with the other six character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "我爱罗读法偏“已同意的责任到哪里”，卡卡西偏不同参与部分怎样接上，鹿丸偏实际条件和必要步骤。三者可以共同帮助说明一个安排，却不证明安排已经公平或有效。鸣人偏共同起步，佐助偏个人重点，小樱偏练习核对，雏田偏明确参与。七种没有可靠、成熟或道德等级，次数也不说明谁应当当负责人。",
+              "en": "This Gaara angle concerns the extent of agreed responsibility, Kakashi the connection between roles, and Shikamaru conditions and necessary steps. Together they may clarify an arrangement without proving fairness or effectiveness. Naruto concerns a shared start, Sasuke a personal focus, Sakura practice and checking, and Hinata explicit participation. The seven establish no reliability, maturity or moral hierarchy, and counts decide neither who should lead nor who owes the others more work."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，反复确认责任可能因为原安排含糊，少确认可能因为分工已经清楚。计数不判断可靠、成熟、责任心、领导力、道德、创伤、心理康复或是否已经放下过去，也不要求宽恕伤害或修复关系。真实共同事务里的责任要依据实际同意与规则，不能用一个我爱罗结果说明你应该承担更多或已经拥有专业判断。",
+              "en": "Repeated clarification may follow an unclear arrangement; less clarification may reflect established roles. Counts establish no reliability, maturity, conscientiousness, leadership, morality, trauma, psychological recovery or resolution of the past. They require neither forgiveness of harm nor relationship repair. Actual shared responsibilities depend on actual consent and rules. A Gaara result cannot show that you should carry more, have recovered from something or possess specialist judgement in the situation concerned."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：想一件自己本来就愿意参与的小共同事务，写出“我同意的部分、结束点、还需另行确认的部分”，可以不发给别人。若发现范围不清楚，只记一个要问的问题，不必立刻解决或主动补位。观察的是自己对责任范围的关注，不以承担多少评分；选择不参加、交还或结束，同样不需要用角色故事辩解。",
+              "en": "For an optional observation, imagine a small shared matter you already want to join and note your agreed part, its endpoint and what still needs agreement. You need not send it. Record one question if the scope is unclear without immediately solving it or filling a gap. Notice attention to responsibility limits without grading how much you carry. Declining, handing back and ending need no justification through a fictional character’s story."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题计数与全部最高并列",
+            "en": "21-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；没有提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、忍者能力或人口排名。相差一次只是一项选择，不证明显著差异或固定类型。近分可自行比较，不补造并列、隐藏人格或混合身份。条件与理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; the three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Raw counts are neither similarity percentages, actual personality proportions, ninja abilities nor population ranks. One extra choice proves no significance or fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的21题非官方同人问卷，只选鸣人、佐助、小樱、卡卡西、鹿丸、雏田和我爱罗七位虚构角色的普通阅读角度，不代表全部作品角色或完整人格。题目、选项、映射、计数、解释与例子原创，没有采用IDR35题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材，也不是官方测验或与权利人的合作、授权、认可；作品及角色权利归相应权利人。TV Tokyo历史人物页、NARUTO官方人物专栏与授权中文人物名单仅核基础语境和名字，不验证本站题目、计分或心理解释。虚构智商、忍术和剧情成长不转移为真实能力。结果不推断智力、疾病、创伤、焦虑、依恋、血缘、性别、道德、危险性、爱情、关系或职业，不要求战斗、武器、医疗技术、承受伤害、宽恕或修复关系，也不换算MBTI或其他角色测试。",
+              "en": "This is an independently authored FermatMind 21-item unofficial fan quiz selecting ordinary readings of seven fictional characters: Naruto, Sasuke, Sakura, Kakashi, Shikamaru, Hinata and Gaara. It represents neither every series character nor complete personalities. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; series and character rights belong to their respective owners. TV Tokyo’s historical character page, official NARUTO columns and a licensed Chinese roster check basic context and names without validating these items, counts or psychology. Fictional IQ, techniques and development transfer into no actual ability. Results infer no intelligence, illness, trauma, anxiety, attachment, ancestry, gender, morality, dangerousness, romance, relationship or career, prescribe no combat, weapons, medical techniques, enduring harm, forgiveness or relationship repair, and convert into no MBTI or other character test."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "21题怎样形成七角色计数",
+        "en": "How 21 choices produce seven character counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；没有提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、忍者能力或人口排名。相差一次只是一项选择，不证明显著差异或固定类型。近分可自行比较，不补造并列、隐藏人格或混合身份。条件与理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+          "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; the three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Raw counts are neither similarity percentages, actual personality proportions, ninja abilities nor population ranks. One extra choice proves no significance or fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "完整说明、并列与相近选择",
+        "en": "Full guides, ties and close choices"
+      },
+      "paragraphs": [
+        {
+          "zh": "七份完整说明各含角色语境、本版读法、具体例子、表达、六角色比较、反例、小观察、计分和来源。最高并列逐份显示，不把名单第一位当主型，也不把第二名自动设成隐藏身份。近分可以自行读差别，不补造并列。公开说明不显示任何人的私有答案或次数。",
+          "en": "Each of seven guides includes character context, the editorial reading, an example, wording, six-character comparisons, counterexamples, an observation, scoring and sources. Every highest tie appears in full without treating the first as primary or the runner-up as a hidden identity. Read close guides without inventing ties. Public pages reveal no private attempt or counts."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "普通选择与剧情知识的区别",
+        "en": "Ordinary choices and episode knowledge"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版只选七位角色，不是全作品角色全集，也不是剧情问答或MBTI匹配。基础人物语境用于理解有限同人角度，不需要看完作品；不知道情节也可以按普通选项作答。角色名不代表你的智商、忍术、性别、心理经历或现实责任。",
+          "en": "This edition selects seven characters rather than every series character, trivia answers or MBTI matches. Basic fictional context supports limited fan angles without requiring complete-series knowledge. Answer ordinary options without knowing episodes. A character name establishes no IQ, techniques, gender, psychological history or real responsibility."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "zh": "原创内容与官方背景资料",
+        "en": "Original content and official context"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是费马独立创作的21题非官方同人问卷，只选鸣人、佐助、小樱、卡卡西、鹿丸、雏田和我爱罗七位虚构角色的普通阅读角度，不代表全部作品角色或完整人格。题目、选项、映射、计数、解释与例子原创，没有采用IDR35题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材，也不是官方测验或与权利人的合作、授权、认可；作品及角色权利归相应权利人。TV Tokyo历史人物页、NARUTO官方人物专栏与授权中文人物名单仅核基础语境和名字，不验证本站题目、计分或心理解释。虚构智商、忍术和剧情成长不转移为真实能力。结果不推断智力、疾病、创伤、焦虑、依恋、血缘、性别、道德、危险性、爱情、关系或职业，不要求战斗、武器、医疗技术、承受伤害、宽恕或修复关系，也不换算MBTI或其他角色测试。",
+          "en": "This is an independently authored FermatMind 21-item unofficial fan quiz selecting ordinary readings of seven fictional characters: Naruto, Sasuke, Sakura, Kakashi, Shikamaru, Hinata and Gaara. It represents neither every series character nor complete personalities. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; series and character rights belong to their respective owners. TV Tokyo’s historical character page, official NARUTO columns and a licensed Chinese roster check basic context and names without validating these items, counts or psychology. Fictional IQ, techniques and development transfer into no actual ability. Results infer no intelligence, illness, trauma, anxiety, attachment, ancestry, gender, morality, dangerousness, romance, relationship or career, prescribe no combat, weapons, medical techniques, enduring harm, forgiveness or relationship repair, and convert into no MBTI or other character test."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "草稿、分享与可选下一步",
+        "en": "Drafts, sharing and optional next steps"
+      },
+      "paragraphs": [
+        {
+          "zh": "答案在浏览器内计分，不上传、不进网址或分析。草稿需主动开启，只在本标签页恢复，24小时失效，完成、重测、退出清除即删除。可选分享只含公开角色说明和链接，不含答案或次数。完整结果免费，无需注册、邮箱或先做另一测试；后续测评自选且另外作答。",
+          "en": "Answers are scored in your browser without uploading them or placing them in URLs or analytics. Drafts require opt-in, restore only in this tab, expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public character guides and links without answers or counts. Full results are free without signup, email or another test first; further assessments are optional and require new answers."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "火影忍者角色测试包括哪七位？",
+        "en": "Which seven Naruto characters are included?"
+      },
+      "answer": {
+        "zh": "本版包括漩涡鸣人、宇智波佐助、春野樱、旗木卡卡西、奈良鹿丸、日向雏田和我爱罗。各角色只对应本站选取的普通做法，不代表完整人格、全作品阵容或官方类型分类。译名不增加角色或测试数量。",
+        "en": "This edition includes Naruto Uzumaki, Sasuke Uchiha, Sakura Haruno, Kakashi Hatake, Shikamaru Nara, Hinata Hyuga and Gaara. Each represents a selected ordinary approach rather than complete personality, the full cast or an official type system. Name variants add no characters or tests."
+      }
+    },
+    {
+      "question": {
+        "zh": "需要看过动画或了解剧情吗？",
+        "en": "Do I need to watch the anime or know the story?"
+      },
+      "answer": {
+        "zh": "不需要。21题是普通自选活动，不考集数、能力或人物关系，也不要求模仿危险行为。结果页提供理解本版读法所需的基础语境，但不能代替作品，也不声称解释全部情节。",
+        "en": "No. Twenty-one items concern ordinary chosen activities rather than episodes, powers or character relationships and require no imitation of dangerous behaviour. Guides give basic context for this edition’s readings without replacing the work or claiming to explain every plot."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样计分、处理最高并列与近分？",
+        "en": "How are counts, highest ties and close results handled?"
+      },
+      "answer": {
+        "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；没有提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、忍者能力或人口排名。相差一次只是一项选择，不证明显著差异或固定类型。近分可自行比较，不补造并列、隐藏人格或混合身份。条件与理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; the three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Raw counts are neither similarity percentages, actual personality proportions, ninja abilities nor population ranks. One extra choice proves no significance or fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是官方测验、MBTI或心理评估吗？",
+        "en": "Is this official, MBTI or a psychological assessment?"
+      },
+      "answer": {
+        "zh": "这是费马独立创作的21题非官方同人问卷，只选鸣人、佐助、小樱、卡卡西、鹿丸、雏田和我爱罗七位虚构角色的普通阅读角度，不代表全部作品角色或完整人格。题目、选项、映射、计数、解释与例子原创，没有采用IDR35题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材，也不是官方测验或与权利人的合作、授权、认可；作品及角色权利归相应权利人。TV Tokyo历史人物页、NARUTO官方人物专栏与授权中文人物名单仅核基础语境和名字，不验证本站题目、计分或心理解释。虚构智商、忍术和剧情成长不转移为真实能力。结果不推断智力、疾病、创伤、焦虑、依恋、血缘、性别、道德、危险性、爱情、关系或职业，不要求战斗、武器、医疗技术、承受伤害、宽恕或修复关系，也不换算MBTI或其他角色测试。",
+        "en": "This is an independently authored FermatMind 21-item unofficial fan quiz selecting ordinary readings of seven fictional characters: Naruto, Sasuke, Sakura, Kakashi, Shikamaru, Hinata and Gaara. It represents neither every series character nor complete personalities. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; series and character rights belong to their respective owners. TV Tokyo’s historical character page, official NARUTO columns and a licensed Chinese roster check basic context and names without validating these items, counts or psychology. Fictional IQ, techniques and development transfer into no actual ability. Results infer no intelligence, illness, trauma, anxiety, attachment, ancestry, gender, morality, dangerousness, romance, relationship or career, prescribe no combat, weapons, medical techniques, enduring harm, forgiveness or relationship repair, and convert into no MBTI or other character test."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果、重测和分享免费吗？",
+        "en": "Are full results, retaking and sharing free?"
+      },
+      "answer": {
+        "zh": "免费，无需注册、邮箱或另一测试。可先读七份公开说明，完成21题后全部最高并列完整显示。重测清除本次选择；可选分享只含公开说明与链接，不含答案或次数。后续MBTI需要另外作答，不从角色换算，也不用于解锁结果。",
+        "en": "They are free without signup, email or another test. Read seven public guides first; every highest tie appears after all 21 choices. Retaking clears this attempt. Optional sharing contains public guides and links without answers or counts. Further MBTI questions require new responses rather than conversion and do not unlock these results."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "TV Tokyo：历史《疾风传》人物背景（非测验验证）",
+        "en": "TV Tokyo: historical Shippuden character context, not quiz validation"
+      },
+      "url": "https://www.tv-tokyo.co.jp/contents/naruto/chara.html"
+    },
+    {
+      "title": {
+        "zh": "NARUTO官方：鹿丸人物专栏（作品语境，非真实智商）",
+        "en": "Official NARUTO Shikamaru column: fictional context, not actual IQ"
+      },
+      "url": "https://naruto-official.com/en/news/01_1910"
+    },
+    {
+      "title": {
+        "zh": "NARUTO官方：雏田人物专栏",
+        "en": "Official NARUTO Hinata character column"
+      },
+      "url": "https://naruto-official.com/en/news/01_1668"
+    },
+    {
+      "title": {
+        "zh": "NARUTO官方：我爱罗人物专栏",
+        "en": "Official NARUTO Gaara character column"
+      },
+      "url": "https://naruto-official.com/en/news/01_1688"
+    },
+    {
+      "title": {
+        "zh": "GoodSmile授权中文角色名单：译名核对",
+        "en": "GoodSmile licensed Chinese character roster: name reference"
+      },
+      "url": "https://special.goodsmile.info/naruto/zh/"
+    }
+  ]
+}
