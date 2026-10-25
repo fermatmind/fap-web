@@ -294,5 +294,30 @@
       "ruler",
       "creator"
     ]
+  },
+  {
+    "slug": "introvert-extrovert",
+    "version": "1.0.0",
+    "updated": "2026-10-25",
+    "category": "framework",
+    "title": {
+      "zh": "内向还是外向测试",
+      "en": "Introvert or Extrovert Test"
+    },
+    "description": {
+      "zh": "用10条IPIP公有领域外向性条目自评，查看实际总分、均分和四种完整结果读法。说明反向计分、边界并列与缺失回应；免费无需注册，不把分数当固定人格或社交能力。",
+      "en": "Take 10 public-domain IPIP extraversion items. See your raw total, mean and full result guides, including boundary matches. Free, no signup or fixed-type verdict."
+    },
+    "minutes": 2,
+    "questionCount": 10,
+    "resultSlugs": [
+      "introvert",
+      "ambivert-intro",
+      "ambivert-extro",
+      "extrovert"
+    ],
+    "code": "IPIP_EXTRAVERSION_10",
+    "collection": "explore",
+    "formCode": "ipip_bfm_extraversion_10_web"
   }
 ]

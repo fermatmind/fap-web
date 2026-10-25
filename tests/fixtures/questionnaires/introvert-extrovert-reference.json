@@ -1,0 +1,736 @@
+{
+  "formCode": "ipip_bfm_extraversion_10_web",
+  "itemBankVersion": "fm-1.0.0",
+  "origin": "Public-domainIPIPBig-FiveFactorMarkers,FactorI10items;Englishitemsandkeysfromprimarysource;Chineseindependentlytranslated,notvalidatedforcrosslanguageequivalence",
+  "upstream": [
+    {
+      "url": "https://ipip.ori.org/newBigFive5broadKey.htm",
+      "scope": "FactorI10-itemscale5positive/5negative"
+    },
+    {
+      "url": "https://ipip.ori.org/newScoringInstructions.htm",
+      "scope": "Positive1..5;negative6-response;sumall10"
+    },
+    {
+      "url": "https://ipip.ori.org/newPermission.htm",
+      "scope": "Publicdomaincommercial/noncommercialpermission;noexternalgrantrequired"
+    },
+    {
+      "url": "https://ipip.ori.org/New_IPIP-50-item-scale.htm",
+      "scope": "Itemorder/administrationflexibility;sample50-itempositionsrecordedbelow"
+    }
+  ],
+  "evidence_mode": "Fullprimarypagesreadviawebtool2026-10-25;rawPythonHTTPSdownloadfailedSSL_EOF,nobypass. NoassertionofsuccessfulrawHTTPcaptureorupstreambyteshash.",
+  "upstreamItems": [
+    {
+      "sample50Position": 1,
+      "english": "Am the life of the party.",
+      "reverse": false
+    },
+    {
+      "sample50Position": 6,
+      "english": "Don't talk a lot.",
+      "reverse": true
+    },
+    {
+      "sample50Position": 11,
+      "english": "Feel comfortable around people.",
+      "reverse": false
+    },
+    {
+      "sample50Position": 16,
+      "english": "Keep in the background.",
+      "reverse": true
+    },
+    {
+      "sample50Position": 21,
+      "english": "Start conversations.",
+      "reverse": false
+    },
+    {
+      "sample50Position": 26,
+      "english": "Have little to say.",
+      "reverse": true
+    },
+    {
+      "sample50Position": 31,
+      "english": "Talk to a lot of different people at parties.",
+      "reverse": false
+    },
+    {
+      "sample50Position": 36,
+      "english": "Don't like to draw attention to myself.",
+      "reverse": true
+    },
+    {
+      "sample50Position": 41,
+      "english": "Don't mind being the center of attention.",
+      "reverse": false
+    },
+    {
+      "sample50Position": 46,
+      "english": "Am quiet around strangers.",
+      "reverse": true
+    }
+  ],
+  "directions": [
+    {
+      "id": "extraversion",
+      "title": {
+        "zh": "外向性回应",
+        "en": "Extraversion responses"
+      },
+      "itemCount": 10
+    }
+  ],
+  "questions": [
+    {
+      "id": "EXTRA_01",
+      "prompt": {
+        "zh": "在聚会上，我是让气氛活跃起来的人。",
+        "en": "Am the life of the party."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不符合我",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合我",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "符合与不符合之间",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合我",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合我",
+            "en": "Very Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断（不计分）",
+            "en": "Prefer not to answer or cannot judge (unscored)"
+          },
+          "directionId": "extraversion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EXTRA_02",
+      "prompt": {
+        "zh": "我说的话不多。",
+        "en": "Don't talk a lot."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不符合我",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合我",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "符合与不符合之间",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合我",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合我",
+            "en": "Very Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断（不计分）",
+            "en": "Prefer not to answer or cannot judge (unscored)"
+          },
+          "directionId": "extraversion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EXTRA_03",
+      "prompt": {
+        "zh": "和其他人在一起时，我感到自在。",
+        "en": "Feel comfortable around people."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不符合我",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合我",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "符合与不符合之间",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合我",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合我",
+            "en": "Very Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断（不计分）",
+            "en": "Prefer not to answer or cannot judge (unscored)"
+          },
+          "directionId": "extraversion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EXTRA_04",
+      "prompt": {
+        "zh": "我通常待在不显眼的位置。",
+        "en": "Keep in the background."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不符合我",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合我",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "符合与不符合之间",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合我",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合我",
+            "en": "Very Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断（不计分）",
+            "en": "Prefer not to answer or cannot judge (unscored)"
+          },
+          "directionId": "extraversion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EXTRA_05",
+      "prompt": {
+        "zh": "我会主动开启谈话。",
+        "en": "Start conversations."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不符合我",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合我",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "符合与不符合之间",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合我",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合我",
+            "en": "Very Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断（不计分）",
+            "en": "Prefer not to answer or cannot judge (unscored)"
+          },
+          "directionId": "extraversion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EXTRA_06",
+      "prompt": {
+        "zh": "我没有太多话要说。",
+        "en": "Have little to say."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不符合我",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合我",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "符合与不符合之间",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合我",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合我",
+            "en": "Very Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断（不计分）",
+            "en": "Prefer not to answer or cannot judge (unscored)"
+          },
+          "directionId": "extraversion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EXTRA_07",
+      "prompt": {
+        "zh": "在聚会上，我会和许多不同的人交谈。",
+        "en": "Talk to a lot of different people at parties."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不符合我",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合我",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "符合与不符合之间",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合我",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合我",
+            "en": "Very Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断（不计分）",
+            "en": "Prefer not to answer or cannot judge (unscored)"
+          },
+          "directionId": "extraversion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EXTRA_08",
+      "prompt": {
+        "zh": "我不喜欢让别人注意到我。",
+        "en": "Don't like to draw attention to myself."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不符合我",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合我",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "符合与不符合之间",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合我",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合我",
+            "en": "Very Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断（不计分）",
+            "en": "Prefer not to answer or cannot judge (unscored)"
+          },
+          "directionId": "extraversion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EXTRA_09",
+      "prompt": {
+        "zh": "我不介意成为大家注意的焦点。",
+        "en": "Don't mind being the center of attention."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不符合我",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合我",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "符合与不符合之间",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合我",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合我",
+            "en": "Very Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断（不计分）",
+            "en": "Prefer not to answer or cannot judge (unscored)"
+          },
+          "directionId": "extraversion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EXTRA_10",
+      "prompt": {
+        "zh": "在陌生人面前，我比较安静。",
+        "en": "Am quiet around strangers."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不符合我",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合我",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "符合与不符合之间",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合我",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合我",
+            "en": "Very Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断（不计分）",
+            "en": "Prefer not to answer or cannot judge (unscored)"
+          },
+          "directionId": "extraversion",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "scoringVersion": "fm-1.0.0",
+    "officialRule": "Sum10keyedresponses;positive=value,negative=6-value;range10..50. Mean=sum/10 is a displayconvenience,notapercentile.",
+    "websiteMissingRule": "NAisnot0. All10mustbevalidratingsbeforeanysum/mean/bandisreported. CompleteattemptwithNAhasinsufficientinformation,notaclassification.",
+    "originalDisplayBands": "10..19introvert;20introvert+ambivert-intro;21..29ambivert-intro;30ambivert-intro+ambivert-extro;31..39ambivert-extro;40ambivert-extro+extrovert;41..50extrovert. Boundaries20/30/40arewebsite response-anchor reading conventions(2/3/4mean),NOTofficialIPIPtypecutoffs,normsorconfidenceintervals.",
+    "notAllowed": "Nopopulationpercentile/percentextroverted/fixedtype/MBTIconversion/energyorclinicaldiagnosis/careerfit. Sourcepublishedreliabilitydoesnotvalidateourwebsite/Chinesetranslation.",
+    "psychometricValidationCompleted": false
+  }
+}

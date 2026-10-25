@@ -1,0 +1,1461 @@
+{
+  "slug": "introvert-extrovert",
+  "code": "IPIP_EXTRAVERSION_10",
+  "version": "1.0.0",
+  "updated": "2026-10-25",
+  "category": "framework",
+  "kind": "extraversion",
+  "minutes": 2,
+  "minimumRatedItems": 10,
+  "title": {
+    "zh": "内向还是外向测试",
+    "en": "Introvert or Extrovert Test"
+  },
+  "resultHeading": {
+    "zh": "你的外向性自评结果",
+    "en": "Your extraversion self-reflection"
+  },
+  "seoTitle": {
+    "zh": "内向外向测试：10题IPIP自评与四种完整读法",
+    "en": "Introvert or Extrovert Test: 10 IPIP Items, Full Results"
+  },
+  "description": {
+    "zh": "用10条IPIP公有领域外向性条目自评，查看实际总分、均分和四种完整结果读法。说明反向计分、边界并列与缺失回应；免费无需注册，不把分数当固定人格或社交能力。",
+    "en": "Take 10 public-domain IPIP extraversion items. See your raw total, mean and full result guides, including boundary matches. Free, no signup or fixed-type verdict."
+  },
+  "introduction": {
+    "zh": "你通常怎样描述自己在交谈、聚会与注意焦点中的表现？这份内向外向测试采用IPIP Big-Five Factor Markers的十条外向性描述，保留五条正向与五条反向计分，中文由本站独立翻译。它只观察一个连续维度，不是完整大五问卷，也不换算MBTI的I/E。四份完整结果说明可以先读；完成后查看实际总分与均分，而不是“百分之多少外向”或人群排名。",
+    "en": "How do you describe yourself in conversation, gatherings and situations involving attention? This Introvert or Extrovert Test uses the ten-item Extraversion scale from the public-domain IPIP Big-Five Factor Markers, keeping five positively and five negatively keyed items. Chinese wording is independently translated here. It explores one continuous dimension, not a full Big Five inventory or MBTI I/E. Read all four guides first and, after answering, see your actual total and mean rather than a percentage of extroversion or a population rank."
+  },
+  "instructions": {
+    "zh": "把每条看作对自己一般情况的描述，选择近期通常有多符合，不按希望成为的样子作答。1—5分别为很不符合到很符合；中间项是符合与不符合之间。可以选“暂不作答或无法判断”，但只要有一条未计分，就不生成总分、均分或个人分区；仍可阅读全部公开说明。全部十项完成选择后再显示计分。",
+    "en": "Read each statement as a description of how you generally are now, not how you wish to be. Rate its accuracy from 1, Very Inaccurate, to 5, Very Accurate; the middle response is neither accurate nor inaccurate. You can choose an unscored response, but any such item means no total, mean or personal band is generated. All public guides remain available. Scoring appears only after all ten selections."
+  },
+  "source": {
+    "kind": "Public-domain IPIP BFM Extraversion10 items/keying;independentFermatMindZHtranslation/displaybands/reports,notfullBigFiveorMBTI",
+    "formCode": "ipip_bfm_extraversion_10_web",
+    "itemBankVersion": "fm-1.0.0",
+    "scoringVersion": "fm-1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "72d981bbfa42f3db0ea4eb6b788fa767ed8396a6de970ca61d5aacbf9212aaa7",
+    "resultContentSha256": "b01a562affb4982f95cceabcc2f901eb1f4c914d7b4f7db63d6536494bf3e76a",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "extraversion",
+      "title": {
+        "zh": "外向性回应",
+        "en": "Extraversion responses"
+      },
+      "itemCount": 10
+    }
+  ],
+  "questions": [
+    {
+      "id": "EXTRA_01",
+      "prompt": {
+        "zh": "在聚会上，我是让气氛活跃起来的人。",
+        "en": "Am the life of the party."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不符合我",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合我",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "符合与不符合之间",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合我",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合我",
+            "en": "Very Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断（不计分）",
+            "en": "Prefer not to answer or cannot judge (unscored)"
+          },
+          "directionId": "extraversion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EXTRA_02",
+      "prompt": {
+        "zh": "我说的话不多。",
+        "en": "Don't talk a lot."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不符合我",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合我",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "符合与不符合之间",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合我",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合我",
+            "en": "Very Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断（不计分）",
+            "en": "Prefer not to answer or cannot judge (unscored)"
+          },
+          "directionId": "extraversion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EXTRA_03",
+      "prompt": {
+        "zh": "和其他人在一起时，我感到自在。",
+        "en": "Feel comfortable around people."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不符合我",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合我",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "符合与不符合之间",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合我",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合我",
+            "en": "Very Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断（不计分）",
+            "en": "Prefer not to answer or cannot judge (unscored)"
+          },
+          "directionId": "extraversion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EXTRA_04",
+      "prompt": {
+        "zh": "我通常待在不显眼的位置。",
+        "en": "Keep in the background."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不符合我",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合我",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "符合与不符合之间",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合我",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合我",
+            "en": "Very Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断（不计分）",
+            "en": "Prefer not to answer or cannot judge (unscored)"
+          },
+          "directionId": "extraversion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EXTRA_05",
+      "prompt": {
+        "zh": "我会主动开启谈话。",
+        "en": "Start conversations."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不符合我",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合我",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "符合与不符合之间",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合我",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合我",
+            "en": "Very Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断（不计分）",
+            "en": "Prefer not to answer or cannot judge (unscored)"
+          },
+          "directionId": "extraversion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EXTRA_06",
+      "prompt": {
+        "zh": "我没有太多话要说。",
+        "en": "Have little to say."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不符合我",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合我",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "符合与不符合之间",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合我",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合我",
+            "en": "Very Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断（不计分）",
+            "en": "Prefer not to answer or cannot judge (unscored)"
+          },
+          "directionId": "extraversion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EXTRA_07",
+      "prompt": {
+        "zh": "在聚会上，我会和许多不同的人交谈。",
+        "en": "Talk to a lot of different people at parties."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不符合我",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合我",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "符合与不符合之间",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合我",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合我",
+            "en": "Very Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断（不计分）",
+            "en": "Prefer not to answer or cannot judge (unscored)"
+          },
+          "directionId": "extraversion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EXTRA_08",
+      "prompt": {
+        "zh": "我不喜欢让别人注意到我。",
+        "en": "Don't like to draw attention to myself."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不符合我",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合我",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "符合与不符合之间",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合我",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合我",
+            "en": "Very Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断（不计分）",
+            "en": "Prefer not to answer or cannot judge (unscored)"
+          },
+          "directionId": "extraversion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EXTRA_09",
+      "prompt": {
+        "zh": "我不介意成为大家注意的焦点。",
+        "en": "Don't mind being the center of attention."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不符合我",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合我",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "符合与不符合之间",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合我",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合我",
+            "en": "Very Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断（不计分）",
+            "en": "Prefer not to answer or cannot judge (unscored)"
+          },
+          "directionId": "extraversion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EXTRA_10",
+      "prompt": {
+        "zh": "在陌生人面前，我比较安静。",
+        "en": "Am quiet around strangers."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "很不符合我",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合我",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "符合与不符合之间",
+            "en": "Neither Accurate Nor Inaccurate"
+          },
+          "directionId": "extraversion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合我",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合我",
+            "en": "Very Accurate"
+          },
+          "directionId": "extraversion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断（不计分）",
+            "en": "Prefer not to answer or cannot judge (unscored)"
+          },
+          "directionId": "extraversion",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "introvert",
+      "directionIds": [
+        "extraversion"
+      ],
+      "title": {
+        "zh": "内向侧结果",
+        "en": "Introvert Result"
+      },
+      "headline": {
+        "zh": "在这组回应里，较少认可外向表达",
+        "en": "Fewer extraverted responses within this set"
+      },
+      "summary": {
+        "zh": "本版内向侧指十条外向性描述经过正反向计分后，总分落在较低阅读区间。它不证明固定人格、社交能力、孤独程度或社交后需要多久恢复。",
+        "en": "The introvert side here means a lower reading band after the ten extraversion statements are keyed and summed. It establishes neither a fixed identity, social ability, loneliness nor recovery time after company."
+      },
+      "seo": {
+        "title": {
+          "zh": "内向侧结果：外向性原始分数怎样读",
+          "en": "Introvert Score Guide — Introvert or Extrovert Test"
+        },
+        "description": {
+          "zh": "内向侧分数怎样理解？查看IPIP十条外向性自评的较低阅读区间、具体情境、相邻分区和计分局限。不以分数判断社交能力或恢复电量，完整说明免费。",
+          "en": "Read the Introvert score guide: lower IPIP extraversion responses, everyday examples and nearby bands. Full interpretation without claims about skill or social battery."
+        }
+      },
+      "scoreReading": {
+        "zh": "正向五题按1—5计分，反向五题按6减原回答；十题全部有效才给总分10—50与均分1—5。“暂不作答／无法判断”不按0或中间值补入。20、30、40为本版回答尺度阅读边界，各保留相邻两份完整说明；其他有效总分对应一份。它们不是IPIP官方阈值、人群平均、误差范围或固定人格认证。",
+        "en": "Five positive items use the 1–5 response; five negative items use 6 minus the response. All ten ratings are required for a total of 10–50 and a mean of 1–5. An unscored response is never replaced by zero or a midpoint. This edition keeps both adjacent full guides at response-scale boundaries of 20, 30 and 40; other valid totals receive one. These are not official IPIP cutoffs, population averages, margins of error or fixed-type certification."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这项结果说明什么",
+            "en": "What this result describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "本次回应较少认可主动交谈、成为注意焦点等外向性描述，或较多认可安静、保持不显眼等反向条目。它是在整理你怎样描述自己，不是观察员对你行为的完整记录。不同情境、机会与对语句的理解，都值得和总分一起回看。",
+              "en": "Your responses endorsed fewer statements about initiating conversation or being noticed, or more statements about staying quiet or in the background. This organises how you described yourself rather than providing an observer’s complete record. Context, opportunities and your understanding of a statement deserve attention alongside the total."
+            }
+          ]
+        },
+        {
+          "id": "score-reading",
+          "title": {
+            "zh": "总分与边界怎样读",
+            "en": "Reading the total and boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版将10—19分显示为内向侧，20分同时保留本页与中间偏内向说明。对应均分约1.0—2.0。这个区间按回答尺度设置，不是IPIP官方类型阈值、人群低分线或性格诊断；20和21只差1分，不能据此宣称发生了明确的人格变化。",
+              "en": "This edition displays totals of 10–19 in the introvert-side band and keeps both this guide and the lower-middle guide at 20. The corresponding mean is from 1.0 to 2.0. Bands follow the response scale, not official IPIP type cutoffs, population thresholds or a diagnosis. Totals of 20 and 21 are only one point apart, not evidence of a definite personality change."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个普通情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "讨论一个新点子时，你可能更喜欢先想一想，再在小范围或文字里表达；也可能只是这次场合不熟悉。可以说明适合自己的参与方式，而不必先给自己一个内向身份。别人是否愿意配合，需要实际沟通，分数不会替任何一方作决定。",
+              "en": "During a discussion of a new idea, you may prefer thinking before speaking, a smaller exchange or writing first. You may also simply be unfamiliar with that setting. Explain a useful way to participate without first adopting an introvert identity. What others can accommodate needs communication; a score decides for neither side."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "别把这些情况混在一起",
+            "en": "Distinctions worth keeping"
+          },
+          "paragraphs": [
+            {
+              "zh": "说话较少不等于不会交流，不喜欢被注意也不等于缺乏知识。十条题目没有直接评估害怕、紧张的原因、社交技巧或临床症状。若某项回应反映近期环境而非一般习惯，可以把这个背景记下来；不能从一个低总分反推出原因。",
+              "en": "Speaking less is not the same as lacking communication skill, and disliking attention does not imply limited knowledge. These items do not directly assess reasons for fear, social competence or clinical symptoms. Note when a response reflects recent surroundings rather than a general habit; a lower total cannot work backwards to establish its cause."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "较安静的参与方式可能给思考留空间，也可能让别人不知道你是否想加入。可以选择一句简短回应、一个提出意见的时间或先写后说，而不是要求自己变成最活跃的人。它是否有用，要看具体目标与反馈，不能把某种方式直接叫作内向者优势。",
+              "en": "A quieter way to participate may leave room to think but can leave others unsure whether you want to join. Try a short response, an agreed time for input or writing before speaking rather than becoming the most active participant. Its usefulness depends on the aim and feedback, not a presumed advantage attached to introverts."
+            }
+          ]
+        },
+        {
+          "id": "work-relationships",
+          "title": {
+            "zh": "工作与关系中的使用",
+            "en": "Using it in work and relationships"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以把偏好转成可协商的条件：“我想先看材料，稍后补充意见。”关系中也可以说明联系频率或交流形式的希望，同时听对方需要。分数不决定职业、领导力、伴侣适配或你应该接受多少社交；具体安排还取决于任务、技能与双方意愿。",
+              "en": "Turn a preference into a negotiable condition, such as reviewing material before adding a view. In relationships, state a preferred contact rhythm or format and hear the other person’s needs. The total determines neither occupation, leadership nor partner compatibility, and cannot prescribe how much social contact you should accept. Tasks, skills and agreement still matter."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相邻读法比较",
+            "en": "Comparing nearby readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "中间偏内向通常离回答尺度中点更近，但不能因此推断更会切换社交模式。两份问卷可以总分不同却在某些题上很接近。社交电量测试关注交流负担和恢复体验，MBTI的E/I则属于另一套偏好框架，都不能从这里的十题总分直接换算。",
+              "en": "The lower-middle band lies closer to the response-scale midpoint, but that does not prove an ability to switch social modes. Different totals can still share several responses. Social Battery explores demands and recovery experiences, while MBTI E/I belongs to another preference framework. Neither can be converted directly from this ten-item total."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一场愿意参加、没有重大后果的普通交流，提前决定一种更合适的表达方式。结束后只记录自己是否表达了想表达的内容、哪些条件有帮助。目标可以是参与得更清楚，不是提高分数，也不要求你训练成外向者或证明内向标签正确。",
+              "en": "For one ordinary exchange you want to join, choose a useful way to express yourself beforehand. Afterwards, note whether you said what you wanted and which conditions helped. The aim can be clearer participation rather than a higher score. You need not train yourself into an extrovert or prove that an introvert label is correct."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "题源与使用范围",
+            "en": "Item source and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "英文条目与正反向规则来自IPIP公有领域的Big-Five Factor Markers外向性十条量表；中文为本站独立译文，尚未验证跨语言测量等价。本页解释、20／30／40显示边界与缺失值规则为费马网站版本，不是IPIP官方人格分类或人群常模。来源研究的信度不能直接当作本网站或译文的信效度；这里不诊断心理状况、不评估能力或职业适配，也不补出完整大五或MBTI结果。",
+              "en": "English items and keying come from the public-domain IPIP Big-Five Factor Markers ten-item Extraversion scale. The Chinese translation is independent and has no established cross-language measurement equivalence. Explanations, display boundaries at 20, 30 and 40, and missing-response handling belong to this website edition, not official IPIP personality categories or population norms. Source reliability does not establish this website’s or translation’s validity. This reflection neither diagnoses mental health, assesses ability or career fit, nor supplies full Big Five or MBTI results."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ambivert-intro",
+      "directionIds": [
+        "extraversion"
+      ],
+      "title": {
+        "zh": "中间偏内向结果",
+        "en": "Ambivert Result: Introvert-Leaning"
+      },
+      "headline": {
+        "zh": "把中间计数还原成具体的回应",
+        "en": "Look at the particular responses behind a middle total"
+      },
+      "summary": {
+        "zh": "这一读法位于回答尺度中点的较低一侧。中间总分可能来自温和回应，也可能来自不同条目的高低混合；它不证明你在所有场合都能自在切换社交模式。",
+        "en": "This reading lies on the lower side of the response-scale midpoint. A middle total may come from moderate ratings or a mixture of higher and lower responses. It does not establish effortless social switching across settings."
+      },
+      "seo": {
+        "title": {
+          "zh": "中间偏内向结果：均分、混合回应与边界",
+          "en": "Ambivert, Introvert-Leaning: What This Score Means"
+        },
+        "description": {
+          "zh": "中间偏内向不是固定人格。阅读IPIP外向性较低中间分区、相同均分的不同回应、具体例子与边界。完整内向外向测试结果说明免费可读。",
+          "en": "Explore the introvert-leaning Ambivert reading: lower-middle IPIP totals, mixed responses, examples and boundaries. Full free guide without a fixed-type verdict."
+        }
+      },
+      "scoreReading": {
+        "zh": "正向五题按1—5计分，反向五题按6减原回答；十题全部有效才给总分10—50与均分1—5。“暂不作答／无法判断”不按0或中间值补入。20、30、40为本版回答尺度阅读边界，各保留相邻两份完整说明；其他有效总分对应一份。它们不是IPIP官方阈值、人群平均、误差范围或固定人格认证。",
+        "en": "Five positive items use the 1–5 response; five negative items use 6 minus the response. All ten ratings are required for a total of 10–50 and a mean of 1–5. An unscored response is never replaced by zero or a midpoint. This edition keeps both adjacent full guides at response-scale boundaries of 20, 30 and 40; other valid totals receive one. These are not official IPIP cutoffs, population averages, margins of error or fixed-type certification."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这项结果说明什么",
+            "en": "What this result describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "你对这十条自我描述的回应整体较接近中间、略偏较少外向表达的一侧。Ambivert在这里是方便阅读的中间区称呼，不是第三种已经测定的离散人格。你可能在不同条目上有不同偏好，完整总分并不能保留所有这些细节。",
+              "en": "Your responses sit nearer the middle, on the side of fewer extraverted descriptions. Ambivert is used as a convenient name for a middle reading band rather than a measured third personality category. Preferences may differ across statements, and an aggregate cannot preserve every detail of those responses."
+            }
+          ]
+        },
+        {
+          "id": "score-reading",
+          "title": {
+            "zh": "总分与边界怎样读",
+            "en": "Reading the total and boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "21—29分对应本版中间偏内向区；20分保留与内向侧的边界，30分保留与中间偏外向的边界。均分约2.0—3.0。30只是十项都按3分计入时的回答尺度中点，不是人口平均。显示分区没有临床或统计置信意义，边界不靠加题或付费打破。",
+              "en": "Totals of 21–29 receive the lower-middle reading. At 20, the introvert-side guide is also kept; at 30, the upper-middle guide is kept. The mean is from 2.0 to 3.0. Thirty is the response-scale midpoint, not a population average. Display bands have no clinical or confidence-interval meaning, and boundaries need no extra questions or payment to break."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个普通情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能愿意和熟悉的人谈话，但在陌生场合比较安静；也可能不介意被注意，却很少主动开启交谈。这些组合都可以落在相近总分。可以回想一个具体场合，分清自己想怎样参与，而不是从中间区直接得出“我对什么都适应”。",
+              "en": "You may enjoy talking with familiar people yet be quieter among strangers, or be comfortable receiving attention without often initiating conversation. Such combinations can yield nearby totals. Consider a particular setting and how you want to join it rather than infer that a middle band makes you adaptable to every situation."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "为什么均分相同也会不同",
+            "en": "Why the same mean can hide different patterns"
+          },
+          "paragraphs": [
+            {
+              "zh": "十项都选中间值会产生30分，正向与反向语句都选同一个极端，也可能得到30分。还有许多高低混合能得到相同总分。它们不是自动等价的生活习惯；请检查自己怎样理解各条语句，而不是只凭中间结果判断测试没读懂你或你特别平衡。",
+              "en": "Ten midpoint ratings produce 30, but giving the same extreme rating to positively and negatively keyed statements can also produce 30. Many other mixtures have the same total. They need not describe equivalent habits. Revisit how you understood the statements instead of interpreting a middle result as either assessment failure or exceptional balance."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果别人把你某一次活跃表现当成长期偏好，之后可能提出不合适的期待。你可以说明哪些场合愿意参与、哪些需要另作安排。不要把自己描述成必须随时满足两端需要的人；分数不测调节能力，也不保证一定知道什么时候该停。",
+              "en": "Someone may treat one active occasion as your usual preference and later expect more than suits you. State which settings you want to join and which need another arrangement. You need not become the person who always satisfies both ends. The score assesses neither self-regulation nor an assured ability to recognise when to stop."
+            }
+          ]
+        },
+        {
+          "id": "work-relationships",
+          "title": {
+            "zh": "工作与关系中的使用",
+            "en": "Using it in work and relationships"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以讨论一个实际条件：会议里先听再说、用文字补充，或在熟悉的小组主动交流。重要的是双方知道你愿意怎样参与，而不是向同事或伴侣证明自己属于中间型。这里没有销售、咨询、团队协作等能力评分，也不预测任何关系组合的结局。",
+              "en": "Discuss a practical condition: listening before speaking, adding written comments or initiating an exchange in a familiar group. The useful part is making your participation understandable, not demonstrating an ambivert identity to colleagues or a partner. These scores rate neither sales, counselling nor teamwork competence, and predict no relationship outcome."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相邻读法比较",
+            "en": "Comparing nearby readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "内向侧的本版总分较低，中间偏外向的总分较高，但差别不等于不同人种或清楚的适配界限。若两次作答跨过30分，可以先看哪几条回应改变，以及当时情境是否不同。一次变化不证明人格发生转变，也不是需要纠正或追求的目标。",
+              "en": "The introvert-side band has lower totals and the upper-middle band higher ones, without creating different kinds of people or a compatibility boundary. If two attempts cross 30, inspect which responses changed and whether circumstances differed. One change does not establish a personality transformation or something that needs correcting or pursuing."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "挑一项愿意参加的普通活动，提前写清一个想主动参与的部分和一个需要保留的条件。结束后检查这些说明是否有帮助。只记录自己的经验，不替别人打内外向标签。练习让具体安排更贴合当下，而不是证明自己可以兼顾所有社交场景。",
+              "en": "For one ordinary activity you want to join, name a part you would like to engage with and a condition you want to preserve. Afterwards, check whether stating them helped. Record your own experience without typing others. Practise making an arrangement fit the situation rather than prove you can accommodate every social setting."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "题源与使用范围",
+            "en": "Item source and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "英文条目与正反向规则来自IPIP公有领域的Big-Five Factor Markers外向性十条量表；中文为本站独立译文，尚未验证跨语言测量等价。本页解释、20／30／40显示边界与缺失值规则为费马网站版本，不是IPIP官方人格分类或人群常模。来源研究的信度不能直接当作本网站或译文的信效度；这里不诊断心理状况、不评估能力或职业适配，也不补出完整大五或MBTI结果。",
+              "en": "English items and keying come from the public-domain IPIP Big-Five Factor Markers ten-item Extraversion scale. The Chinese translation is independent and has no established cross-language measurement equivalence. Explanations, display boundaries at 20, 30 and 40, and missing-response handling belong to this website edition, not official IPIP personality categories or population norms. Source reliability does not establish this website’s or translation’s validity. This reflection neither diagnoses mental health, assesses ability or career fit, nor supplies full Big Five or MBTI results."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ambivert-extro",
+      "directionIds": [
+        "extraversion"
+      ],
+      "title": {
+        "zh": "中间偏外向结果",
+        "en": "Ambivert Result: Extrovert-Leaning"
+      },
+      "headline": {
+        "zh": "更多回应偏向表达，同时保留情境差异",
+        "en": "More responses favour expression, with context still relevant"
+      },
+      "summary": {
+        "zh": "这一读法位于回答尺度中点的较高一侧，表示本次对外向描述的认可略多。它不证明社交续航、适应能力、受欢迎程度或能否在任何群体中表现自如。",
+        "en": "This reading lies on the higher side of the response-scale midpoint, with somewhat more endorsement of extraverted descriptions. It establishes neither social stamina, adaptability, popularity nor ease in every group."
+      },
+      "seo": {
+        "title": {
+          "zh": "中间偏外向结果：具体情境与分数读法",
+          "en": "Ambivert, Extrovert-Leaning: What This Score Means"
+        },
+        "description": {
+          "zh": "中间偏外向分数说明了什么？查看IPIP外向性较高中间分区、具体交流情境与相邻结果，区分原始分数和社交适应能力。完整说明免费。",
+          "en": "Read the extrovert-leaning Ambivert guide: upper-middle IPIP responses, practical examples and nearby bands. A middle total does not establish social adaptability."
+        }
+      },
+      "scoreReading": {
+        "zh": "正向五题按1—5计分，反向五题按6减原回答；十题全部有效才给总分10—50与均分1—5。“暂不作答／无法判断”不按0或中间值补入。20、30、40为本版回答尺度阅读边界，各保留相邻两份完整说明；其他有效总分对应一份。它们不是IPIP官方阈值、人群平均、误差范围或固定人格认证。",
+        "en": "Five positive items use the 1–5 response; five negative items use 6 minus the response. All ten ratings are required for a total of 10–50 and a mean of 1–5. An unscored response is never replaced by zero or a midpoint. This edition keeps both adjacent full guides at response-scale boundaries of 20, 30 and 40; other valid totals receive one. These are not official IPIP cutoffs, population averages, margins of error or fixed-type certification."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这项结果说明什么",
+            "en": "What this result describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能较常认可主动说话、与不同的人交谈，或不太认可保持安静与不显眼的描述。中间偏外向仍只是这十条回应的整理，不是独立人格类别。一个人在熟悉和陌生场合的表现、是否喜欢被注意，都可以有不同组合，不能只由总分还原。",
+              "en": "You may endorse initiating conversation or talking with different people more often, or quieter descriptions less often. The upper-middle reading still organises these ten responses rather than identifying a discrete personality category. Familiarity, attention and participation can combine in different ways that a total alone cannot reconstruct."
+            }
+          ]
+        },
+        {
+          "id": "score-reading",
+          "title": {
+            "zh": "总分与边界怎样读",
+            "en": "Reading the total and boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "31—39分对应本版中间偏外向区；30分与中间偏内向说明同时保留，40分与外向侧说明同时保留。均分对应3.0—4.0及相应边界。分区是按回答尺度设置的阅读约定，不是IPIP官方切点、人口中间群体或统计置信区间。两个相邻总分不自动代表明确差异。",
+              "en": "Totals of 31–39 receive the upper-middle reading. At 30, the lower-middle guide is also kept; at 40, the extrovert-side guide is kept. The mean spans 3.0–4.0 including those boundaries. These are response-scale reading conventions, not official IPIP cutoffs, population groups or confidence intervals. Adjacent totals do not automatically establish a meaningful difference."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个普通情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "在熟悉的小组里，你可能愿意先开口，但对成为大群体的焦点没有太大兴趣。也可能愿意和很多人交流，却在某次陌生聚会里安静一些。这些回应并不矛盾到需要给自己另找一个类型；可以直接说明本次场合怎样参与更合适。",
+              "en": "In a familiar group, you may initiate conversation without wanting to be the focus of a larger gathering. You might enjoy speaking with different people yet be quieter at one unfamiliar event. Such responses do not require finding a new type to resolve them. Describe what participation would suit this particular setting."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "为什么中间不能等于全能",
+            "en": "Why middle does not mean all-purpose adaptability"
+          },
+          "paragraphs": [
+            {
+              "zh": "总分没有测你能否调节社交表现，也没有测完成交流后是否需要恢复。均分3分可以来自十项中立回应，也可以来自不同高低回应，甚至是对正反向语句作相同极端选择。回看具体语句比从“中间”推出天然平衡、灵活或高情商更可靠。",
+              "en": "The total does not assess your ability to regulate social performance or how much recovery you need afterwards. A mean of three can come from midpoint ratings, varied ratings or the same extreme rating across opposite-keyed statements. Reviewing the statements is more informative than inferring natural balance, adaptability or emotional intelligence from a middle position."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "主动开启交流时，别人可能默认你也愿意持续带动。可以把这次愿意参与的部分与不想承担的部分分开说，例如愿意提出点子，但不负责整场主持。这不是要求你限制自己，也不诊断过度社交，只是让参与条件不被一个活跃片段代替。",
+              "en": "Initiating an exchange may lead others to assume you also want to sustain it. Distinguish what you want to contribute from what you do not want to carry, such as offering an idea without hosting the whole discussion. This need not restrict you or diagnose over-socialising; it makes conditions clearer than one active moment can."
+            }
+          ]
+        },
+        {
+          "id": "work-relationships",
+          "title": {
+            "zh": "工作与关系中的使用",
+            "en": "Using it in work and relationships"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以和参与者商量一个具体安排：谁先提出问题、怎样轮流、是否留出文字补充。关系中则可以表达自己喜欢的联系形式，不因一次少说话就担心需要维护外向形象。分数不提供团队角色、销售能力、领导潜质或伴侣适配的结论。",
+              "en": "Agree on a practical arrangement: who introduces a question, how people take turns and whether written input has space. In relationships, express a preferred contact format without needing to preserve an outgoing image whenever you speak less. The total provides no conclusion about team roles, sales ability, leadership potential or partner compatibility."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相邻读法比较",
+            "en": "Comparing nearby readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "与中间偏内向相比，本区总分较高，不说明更成熟、更受欢迎或更懂社交。与外向侧相比，本区更靠近回答尺度中点，不说明你一定更会控制社交强度。社交电量的负担与恢复、MBTI的E/I偏好都需要各自题目，不能从这组分数直接换算。",
+              "en": "Compared with the lower-middle band, this band has higher totals without establishing greater maturity, popularity or social understanding. It lies nearer the response-scale midpoint than the extrovert side without proving better control of social intensity. Social Battery and MBTI E/I require their own questions; neither can be converted from this score."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "下一次愿意参加小组交流时，先确定一项想主动贡献的内容，同时留意别人是否也有表达机会。结束后回看自己的条件是否说清、交流是否达到了目的。无需把更热闹当作进步，也不以更安静证明自己不是外向者；看具体目标是否合适即可。",
+              "en": "Before a group exchange you want to join, choose one contribution and leave room for other people to speak. Afterwards, consider whether your conditions were understood and whether the exchange met its purpose. More activity need not mean improvement, and speaking less need not disprove an extrovert identity. Attend to the particular aim instead."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "题源与使用范围",
+            "en": "Item source and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "英文条目与正反向规则来自IPIP公有领域的Big-Five Factor Markers外向性十条量表；中文为本站独立译文，尚未验证跨语言测量等价。本页解释、20／30／40显示边界与缺失值规则为费马网站版本，不是IPIP官方人格分类或人群常模。来源研究的信度不能直接当作本网站或译文的信效度；这里不诊断心理状况、不评估能力或职业适配，也不补出完整大五或MBTI结果。",
+              "en": "English items and keying come from the public-domain IPIP Big-Five Factor Markers ten-item Extraversion scale. The Chinese translation is independent and has no established cross-language measurement equivalence. Explanations, display boundaries at 20, 30 and 40, and missing-response handling belong to this website edition, not official IPIP personality categories or population norms. Source reliability does not establish this website’s or translation’s validity. This reflection neither diagnoses mental health, assesses ability or career fit, nor supplies full Big Five or MBTI results."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "extrovert",
+      "directionIds": [
+        "extraversion"
+      ],
+      "title": {
+        "zh": "外向侧结果",
+        "en": "Extrovert Result"
+      },
+      "headline": {
+        "zh": "在这组回应里，较多认可外向表达",
+        "en": "More extraverted responses within this set"
+      },
+      "summary": {
+        "zh": "本版外向侧表示十条外向性描述经正反向计分后，总分落在较高阅读区间。它不等于社交技巧、健康、快乐、领导力或他人喜欢你的程度。",
+        "en": "The extrovert side here means a higher reading band after the ten extraversion statements are keyed and summed. It does not establish social skill, health, happiness, leadership or how much other people like you."
+      },
+      "seo": {
+        "title": {
+          "zh": "外向侧结果：IPIP分数、情境与边界",
+          "en": "Extrovert Score Guide — Introvert or Extrovert Test"
+        },
+        "description": {
+          "zh": "外向侧结果如何阅读？查看IPIP外向性较高原始分数、交谈与注意焦点的情境、边界和小尝试。不推断职业、快乐或受欢迎程度，完整说明免费。",
+          "en": "Explore the Extrovert score guide: higher IPIP responses, conversation examples, boundaries and a small experiment. No career, happiness or popularity predictions."
+        }
+      },
+      "scoreReading": {
+        "zh": "正向五题按1—5计分，反向五题按6减原回答；十题全部有效才给总分10—50与均分1—5。“暂不作答／无法判断”不按0或中间值补入。20、30、40为本版回答尺度阅读边界，各保留相邻两份完整说明；其他有效总分对应一份。它们不是IPIP官方阈值、人群平均、误差范围或固定人格认证。",
+        "en": "Five positive items use the 1–5 response; five negative items use 6 minus the response. All ten ratings are required for a total of 10–50 and a mean of 1–5. An unscored response is never replaced by zero or a midpoint. This edition keeps both adjacent full guides at response-scale boundaries of 20, 30 and 40; other valid totals receive one. These are not official IPIP cutoffs, population averages, margins of error or fixed-type certification."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这项结果说明什么",
+            "en": "What this result describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "你较多认可主动交谈、与人相处自在或不介意被注意等描述，或较少认可安静、待在不显眼处等反向语句。这里汇总的是本次自我描述，不是对真实行为的完整测量。是否在具体场合愿意开口，仍可能受到熟悉程度、角色、任务与个人意愿影响。",
+              "en": "You endorsed descriptions such as initiating conversation, feeling comfortable with others or accepting attention more often, or quieter descriptions less often. This summarises the present self-report rather than providing a complete measurement of behaviour. Willingness to speak in a particular setting can still depend on familiarity, role, task and what you want."
+            }
+          ]
+        },
+        {
+          "id": "score-reading",
+          "title": {
+            "zh": "总分与边界怎样读",
+            "en": "Reading the total and boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "41—50分对应本版外向侧，40分会同时保留本页与中间偏外向说明，均分对应4.0—5.0及边界。50只是这套正反向计分的最高可能总分，不是百分之百外向、人群第一或更理想的状态。显示区间是本网站阅读约定，没有官方IPIP类型或常模含义。",
+              "en": "Totals of 41–50 receive this reading; at 40, both this guide and the upper-middle guide are kept. The mean spans 4.0–5.0 including the boundary. Fifty is the maximum possible keyed total, not 100 percent extroversion, a top population rank or an ideal state. These website reading bands have no official IPIP-type or normative meaning."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个普通情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "一次新活动里，你可能愿意主动开场，和几位不同的人交流。可以直接表达自己的兴趣，也留意对方是否想继续。十条题没有验证你能读懂气氛、让所有人舒服或持续保持热情；这些具体效果都需要看实际互动与对方反馈。",
+              "en": "At a new activity, you may initiate an exchange and speak with several people. Express your interest while noticing whether someone wants to continue. These ten items do not verify skill in reading a room, making everyone comfortable or sustaining enthusiasm. Such effects need information from the interaction and feedback rather than the total."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "哪些结论不能推出",
+            "en": "Conclusions the total cannot support"
+          },
+          "paragraphs": [
+            {
+              "zh": "高分不等于不需要独处，也没有测社交以后会不会累；低分也不自动代表焦虑。题目未包含恢复速度、临床症状、共情或职业技能的完整评估。不要把外向侧读成一种需要全天维持的本性，或用它要求自己持续接下邀请和组织任务。",
+              "en": "A higher score does not remove a need for solitude or establish whether company leaves you tired. The items include no full assessment of recovery, clinical symptoms, empathy or occupational skill. Do not treat the extrovert side as a nature to maintain all day or a reason to keep accepting invitations and organising duties."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "比较愿意开口时，有时可能比其他人更早占据讨论空间。可以主动留一个停顿、问对方希望怎样参与，或先确认这次交流的目的。这里不是认定你自我中心或不会倾听；同一个分数可以对应很不同的沟通方式，具体反馈比标签更重要。",
+              "en": "A readiness to speak may sometimes take discussion space before someone else enters. Leave a pause, ask how another person wants to participate or clarify the exchange’s purpose. This does not establish self-centredness or poor listening. The same total can accompany different communication styles, making specific feedback more useful than the label."
+            }
+          ]
+        },
+        {
+          "id": "work-relationships",
+          "title": {
+            "zh": "工作与关系中的使用",
+            "en": "Using it in work and relationships"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以把愿意口头交流的偏好说清，同时为希望先想一想或写下来的人留位置。关系中也可以表达自己希望怎样联系，并接受频率不必完全一样。原始分数不证明适合销售、管理、表演等职业，不决定关系组合，也不给任何一方规定社交义务。",
+              "en": "State a preference for spoken exchange while leaving room for someone who wants to think or write first. In relationships, describe preferred contact without requiring matching frequency. A raw total proves no fit for sales, management, performance or any occupation, predicts no pairing outcome and creates no social obligation for either person."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相邻读法比较",
+            "en": "Comparing nearby readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "中间偏外向与本页主要差在这套总分的显示位置，不是有没有真正外向本性的分界。39和40、40和41都只是相邻总分，不能把跨区读成重大变化。若希望了解完整五维特质，可以另做现有大五问卷；本结果不补出其余四维或换算MBTI字母。",
+              "en": "The upper-middle band differs primarily in its place on this total, not possession of a separate extroverted nature. Totals of 39, 40 and 41 are neighbouring values rather than a major transformation. For a full five-trait profile, a separate Big Five attempt is needed; this result supplies neither the other traits nor MBTI letters."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "在一次普通交流中，选择一个自己想说清的问题，并主动邀请一种不同参与方式，例如让对方稍后用文字补充。结束后观察是否更容易理解彼此。目标不是压低分数或证明自己很会社交，而是让表达、倾听与真实参与条件接得上。",
+              "en": "In an ordinary exchange, choose a question you want to make clear and invite a different way to contribute, such as a written comment later. Afterwards, consider whether you understood each other more easily. The aim is neither a lower score nor proof of social skill, but a useful connection between expression, listening and actual participation conditions."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "题源与使用范围",
+            "en": "Item source and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "英文条目与正反向规则来自IPIP公有领域的Big-Five Factor Markers外向性十条量表；中文为本站独立译文，尚未验证跨语言测量等价。本页解释、20／30／40显示边界与缺失值规则为费马网站版本，不是IPIP官方人格分类或人群常模。来源研究的信度不能直接当作本网站或译文的信效度；这里不诊断心理状况、不评估能力或职业适配，也不补出完整大五或MBTI结果。",
+              "en": "English items and keying come from the public-domain IPIP Big-Five Factor Markers ten-item Extraversion scale. The Chinese translation is independent and has no established cross-language measurement equivalence. Explanations, display boundaries at 20, 30 and 40, and missing-response handling belong to this website edition, not official IPIP personality categories or population norms. Source reliability does not establish this website’s or translation’s validity. This reflection neither diagnoses mental health, assesses ability or career fit, nor supplies full Big Five or MBTI results."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "IPIP：Big-Five Factor Markers外向性十条条目与键向",
+        "en": "IPIP: ten Extraversion items and keying in the Big-Five Factor Markers"
+      },
+      "url": "https://ipip.ori.org/newBigFive5broadKey.htm"
+    },
+    {
+      "title": {
+        "zh": "IPIP：正向、反向与总分规则",
+        "en": "IPIP: positive and negative scoring and scale totals"
+      },
+      "url": "https://ipip.ori.org/newScoringInstructions.htm"
+    },
+    {
+      "title": {
+        "zh": "IPIP：公有领域使用许可",
+        "en": "IPIP: public-domain permission"
+      },
+      "url": "https://ipip.ori.org/newPermission.htm"
+    },
+    {
+      "title": {
+        "zh": "IPIP：实施建议、顺序与翻译范围",
+        "en": "IPIP: administration, item order and translation scope"
+      },
+      "url": "https://ipip.ori.org/New_IPIP-50-item-scale.htm"
+    }
+  ],
+  "guide": [
+    {
+      "id": "extraversion-scoring",
+      "title": {
+        "zh": "十项怎样得到原始分数",
+        "en": "How ten responses produce the raw score"
+      },
+      "paragraphs": [
+        {
+          "zh": "五条正向条目按1—5计入，五条反向条目用6减原回答，再将十项相加得到10—50总分。均分是总分除以10，范围1—5，只是方便阅读。正反向不是两套独立内外向量表，也不生成百分比、人群百分位或其余四个大五维度。",
+          "en": "Five positive items use responses of 1–5; five negative items use 6 minus the response. Add all ten for a total of 10–50. Dividing by ten gives a mean of 1–5 for convenient reading. The keys are not separate introversion and extraversion scales and generate no percentage, population percentile or remaining Big Five traits."
+        }
+      ]
+    },
+    {
+      "id": "extraversion-bands",
+      "title": {
+        "zh": "四种读法与边界",
+        "en": "Four readings and their boundaries"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版10—19分为内向侧，21—29为中间偏内向，31—39为中间偏外向，41—50为外向侧；恰好20、30、40分时同时保留相邻两份完整报告。这些界点对应回答均分2、3、4，是本站显示约定，不是IPIP官方人格阈值、人口分组或统计置信区间。",
+          "en": "This edition uses 10–19 for the introvert side, 21–29 for lower-middle, 31–39 for upper-middle and 41–50 for the extrovert side. At exactly 20, 30 or 40, both adjacent full reports remain. These points correspond to response means of two, three and four. They are website display conventions, not official IPIP type cutoffs, population groups or confidence intervals."
+        }
+      ]
+    },
+    {
+      "id": "extraversion-reading",
+      "title": {
+        "zh": "缺失、中段与实际情境",
+        "en": "Missing responses, middle totals and context"
+      },
+      "paragraphs": [
+        {
+          "zh": "只有十条全部为有效1—5回答才显示总分与分区；未计分项不补0、不补中间值，也不拿九项加总冒充十项。中间总分既可能来自温和回应，也可能来自高低混合或对正反语句相同的选择，因此不能自动断定兼具两端能力。题目没有直接测恢复电量、共情、职业技能或临床症状。",
+          "en": "Only ten valid ratings produce a total and reading band. Unscored items are not imputed with zero or a midpoint, and a nine-item sum is not presented as ten. A middle total may reflect moderate ratings, mixed responses or the same rating across opposite-keyed statements, rather than proficiency at both ends. Items do not directly assess recovery energy, empathy, occupational skill or clinical symptoms."
+        }
+      ]
+    },
+    {
+      "id": "source-and-translation",
+      "title": {
+        "zh": "题源、译文与网站版本",
+        "en": "Item source, translation and website edition"
+      },
+      "paragraphs": [
+        {
+          "zh": "IPIP将条目、量表与题本置于公有领域，允许商业使用与翻译；这里保留其英文十条与正反键向，中文为本站译文。本版分区、缺失处理和解释不等于来源研究的信效度；网站和中文译文尚无本站常模或跨语言等价验证，不复制竞品报告、人物或职业配对。",
+          "en": "IPIP places its items, scales and inventories in the public domain, permitting commercial use and translation. This edition retains the ten English items and keying with an independent Chinese translation. Website bands, missing handling and explanations do not inherit source research validity; this edition has no local norms or established cross-language equivalence. No competitor reports, celebrity types or career matches are copied."
+        }
+      ]
+    },
+    {
+      "id": "scope-and-free",
+      "title": {
+        "zh": "与其他测试的关系和免费范围",
+        "en": "Other assessments and full free access"
+      },
+      "paragraphs": [
+        {
+          "zh": "现有大五90／120题提供五维和更多面向，本页只做十条外向性自评，不补出完整OCEAN或MBTI类型，社交电量也要另问负担与恢复。全部题目、原始分数、四份公开报告及边界匹配免费，无需注册。个人回答只在浏览器计算，主动保存才有本标签页24小时草稿，分享不含答案或计数。",
+          "en": "The existing 90/120-question Big Five forms explore five traits and further facets; this page only offers a focused ten-item extraversion reflection. It supplies no full OCEAN profile or MBTI type, and Social Battery requires its own questions about demands and recovery. All items, raw scores, four public reports and boundary matches are free without signup. Answers are scored in the browser; only opting in saves a 24-hour tab draft, and sharing omits answers and counts."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这个内向外向测试会给我固定类型吗？",
+        "en": "Does this test assign a fixed introvert or extrovert type?"
+      },
+      "answer": {
+        "zh": "不会。它给出十条自评经过正反向计分后的总分、均分和本站四种阅读区间。内向、外向和中间只是帮助阅读的称呼，不是离散人格认证；没有“百分之多少外向”、人群排名或谁更好的判断。",
+        "en": "No. It shows the total, mean and website reading bands after keying ten self-ratings. Introvert, extrovert and middle are reading labels rather than certification of discrete personalities. There is no percentage of extroversion, population rank or judgment of who is better."
+      }
+    },
+    {
+      "question": {
+        "zh": "反向题、均分和未计分项怎样处理？",
+        "en": "How are reverse items, means and unscored responses handled?"
+      },
+      "answer": {
+        "zh": "五条负向语句按6减原回答，另外五条按原值，十项相加得到10—50。均分为总分除以10。任何一条选了暂不作答或无法判断，都明确资料不足，不生成分数或分区，不用0或中间值填补。",
+        "en": "Five negatively keyed items use 6 minus the response and five use the response itself. Their sum ranges from 10 to 50; the mean is the total divided by ten. Any unscored item produces explicit insufficient information, without a total, band, zero substitution or midpoint imputation."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么有四种读法，有时还会同时出现两份？",
+        "en": "Why are there four readings and sometimes two reports?"
+      },
+      "answer": {
+        "zh": "本版在回答均分2、3、4处设置阅读边界，也就是总分20、30、40。恰好在边界时，两份相邻完整报告都保留。界点不是IPIP官方阈值、人口分位数或误差估计，不用随机顺序、加题或付费来确定一个身份。",
+        "en": "This edition places reading boundaries at response means of two, three and four: totals of 20, 30 and 40. At a boundary, both adjacent complete reports remain. These are not official IPIP cutoffs, population quantiles or error estimates. Chance, extra questions and payment do not resolve an identity."
+      }
+    },
+    {
+      "question": {
+        "zh": "中间分数说明我是社交全能或“中性人格”吗？",
+        "en": "Does a middle score prove I am an adaptable ambivert?"
+      },
+      "answer": {
+        "zh": "不能这样推断。温和回答、不同语句的高低混合，甚至对正反向语句都作相同极端回应，都可能得到中间总分。分数没测适应能力；中间读法不是第三种固定人格，更不涉及性别或性取向。",
+        "en": "That inference is unsupported. Moderate ratings, mixed ratings and even the same extreme response to positive and negative statements can produce middle totals. Adaptability is not assessed. A middle reading is not a third fixed personality category and says nothing about gender or sexuality."
+      }
+    },
+    {
+      "question": {
+        "zh": "这等于MBTI的I人E人、完整大五或社交电量吗？",
+        "en": "Is this MBTI I/E, a full Big Five result or Social Battery?"
+      },
+      "answer": {
+        "zh": "都不等同。本页是IPIP外向性单维自评；MBTI偏好、完整五维与社交负担／恢复各有不同问题和计分。现有大五90／120题与MBTI都需独立完整作答，这里不能换算字母、补出其余维度或判断社交续航。",
+        "en": "They are different tasks. This page is a single IPIP extraversion reflection; MBTI preferences, a five-trait profile and social demands/recovery each use their own questions and scoring. Existing Big Five and MBTI forms require separate full attempts. This score supplies neither letters, the other traits nor social stamina."
+      }
+    },
+    {
+      "question": {
+        "zh": "全部结果免费吗，草稿和分享会包含什么？",
+        "en": "Are full results free, and what do drafts and sharing contain?"
+      },
+      "answer": {
+        "zh": "全部十条、计分和四份完整说明免费，无需邮箱或前置测试。草稿只有主动开启才在本标签页保存24小时，完成、清除或重测即删。分享只有结果名称和公开链接，不含答案、总分、均分或内部ID；不能保存或复制时仍可继续和手动分享。",
+        "en": "All ten items, scoring and four complete guides are free, without email or a preceding assessment. Only opting in saves a 24-hour tab draft; completion, clearing or retaking deletes it. Sharing includes names and public links, never answers, totals, means or internal IDs. Blocked storage or copying does not prevent continuation or manual sharing."
+      }
+    }
+  ]
+}

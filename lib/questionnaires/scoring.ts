@@ -1,5 +1,6 @@
 import type { Questionnaire, QuestionnaireAnswers } from "./types";
 import { isAlignmentConfigurationValid, scoreAlignmentQuestionnaire } from "./alignment";
+import { isExtraversionConfigurationValid, scoreExtraversionQuestionnaire } from "./extraversion";
 
 export type DirectionalResult = {
   status: "incomplete" | "invalid" | "unavailable";
@@ -148,9 +149,9 @@ export function scoreArchetypeQuestionnaire(quiz: Questionnaire, answers: unknow
   return { status: "complete", answered, counts, profileIds: quiz.profiles.filter(p => counts[p.directionIds[0]] === highest).map(p => p.id) };
 }
 
-export const isQuestionnaireConfigurationValid = (quiz: Questionnaire) => quiz.kind === "alignment" ? isAlignmentConfigurationValid(quiz) : quiz.kind === "likert"
+export const isQuestionnaireConfigurationValid = (quiz: Questionnaire) => quiz.kind === "extraversion" ? isExtraversionConfigurationValid(quiz) : quiz.kind === "alignment" ? isAlignmentConfigurationValid(quiz) : quiz.kind === "likert"
   ? isLikertConfigurationValid(quiz) : quiz.kind === "archetype" ? isArchetypeConfigurationValid(quiz) : isDirectionalConfigurationValid(quiz);
-export const scoreQuestionnaire = (quiz: Questionnaire, answers: unknown) => quiz.kind === "alignment" ? scoreAlignmentQuestionnaire(quiz, answers) : quiz.kind === "likert"
+export const scoreQuestionnaire = (quiz: Questionnaire, answers: unknown) => quiz.kind === "extraversion" ? scoreExtraversionQuestionnaire(quiz, answers) : quiz.kind === "alignment" ? scoreAlignmentQuestionnaire(quiz, answers) : quiz.kind === "likert"
   ? scoreLikertQuestionnaire(quiz, answers) : quiz.kind === "archetype" ? scoreArchetypeQuestionnaire(quiz, answers) : scoreDirectionalQuestionnaire(quiz, answers);
 
 export function readQuestionnaireDraft(quiz: Questionnaire, raw: string | null, now = Date.now()): QuestionnaireAnswers | null {

@@ -23,6 +23,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   const title = result?.title[locale] ?? topic, zh = locale === "zh";
   const color = colors[quiz?.category ?? questionnaire?.category ?? "framework"] ?? colors.metaphor;
   const questionnaireLabel = result ? (zh ? "公开结果说明" : "Public result guide")
+    : questionnaire?.kind === "extraversion" ? (zh ? "IPIP公有领域条目" : "Public-domain IPIP items")
     : questionnaire?.kind === "alignment" ? (zh ? "原创阵营问卷" : "Original alignment reflection")
     : questionnaire?.kind === "archetype" ? (zh ? "原创象征测验" : "Original symbolic quiz")
     : questionnaire?.kind === "likert" ? (zh ? "原创自我观察" : "Original self-reflection")
