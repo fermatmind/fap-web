@@ -1,0 +1,1797 @@
+{
+  "slug": "hogwarts-house-quiz",
+  "code": "HOGWARTS_HOUSE_FAN",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "metaphor",
+  "kind": "archetype",
+  "title": {
+    "zh": "霍格沃茨分院测试",
+    "en": "Hogwarts House Quiz"
+  },
+  "resultHeading": {
+    "zh": "本次学院主题选择与全部最高并列",
+    "en": "Your house-theme choices and every highest tie"
+  },
+  "description": {
+    "zh": "独立非官方同人测验：24道原创选择比较格兰芬多、赫奇帕奇、拉文克劳和斯莱特林。完整结果免费，无需注册，最高并列都保留；不测智力、善恶或官方学院归属。",
+    "en": "Take an unofficial Hogwarts House Quiz with 24 original choices. Compare all four houses, keep highest ties and read full guides free, without signup."
+  },
+  "seoTitle": {
+    "zh": "霍格沃茨分院测试：24题、四学院与完整结果",
+    "en": "Hogwarts House Quiz: 24 Questions and Full House Results"
+  },
+  "minutes": 7,
+  "introduction": {
+    "zh": "《哈利·波特》的四学院常让读者联想到勇敢、公平、学习和雄心。本版把这些作品联想转为四种原创选择主题：勇于迈步、公平与共同投入、理解与新想法、目标与资源安排。你将比较24个普通、低风险的做法选择，看到本次计数和所有最高并列的完整说明。这是非官方同人娱乐，不会读取内心、进行官方分院，或把某个学院等同更聪明、更善良或更成功。",
+    "en": "Harry Potter’s four houses invite readers to think about bravery, fairness, learning and ambition. This independent fan edition turns those associations into four original choice themes: stepping forward, shared effort, understanding and ideas, and goals and resources. Compare 24 ordinary, low-stakes approaches and read raw counts with every highest-tied full guide. This is unofficial entertainment, not mind reading, official sorting or a claim that a house makes someone smarter, kinder or more successful."
+  },
+  "instructions": {
+    "zh": "把四个学院当作本版非官方同人题中的四种叙事主题：勇于迈步、公平与共同投入、理解与新想法、目标与资源安排。每题选自己目前更想采用的一种做法，不是能力考试，也没有道德上唯一正确的选项。所有情境都以自愿、低风险和尊重需要为前提；题目不要求冒险、牺牲休息或取悦别人。24题全部选择后，只比较本题组原始次数，保留所有最高并列。结果不是官方分院，也不能证明实际智力、勇气、善恶、财富或职业适配。",
+    "en": "Treat the houses as four narrative themes in this independent fan edition: stepping forward, fairness and shared effort, understanding and ideas, and goals and resources. Choose the approach you would currently prefer, not a correct ability-test answer or a morally superior option. Every situation assumes voluntary, low-stakes participation and respect for needs; no risk-taking, lost rest or pleasing others is required. After all 24 choices, only raw counts within this set are compared and every highest tie is retained. This is not official sorting or evidence of intelligence, courage, morality, wealth or career fit."
+  },
+  "source": {
+    "kind": "FermatMindoriginalunofficialHogwartsfanquiz24/fictionalhousethemes/notofficialsortingorpsychometricinstrument",
+    "formCode": "fm_hogwarts_house_values_24",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "8ccd195c27c5be586aa1f294aefe50780ef535c5306a227833ca0d299ad4afc2",
+    "resultContentSha256": "0a9bc4ae658b3385a88fbb2c4cd5a2657cb9c0c53a606eac555f50935ee42e79",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "gryffindor",
+      "title": {
+        "zh": "格兰芬多：勇于迈步",
+        "en": "Gryffindor: Willing to Step Forward"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "hufflepuff",
+      "title": {
+        "zh": "赫奇帕奇：公平与共同投入",
+        "en": "Hufflepuff: Fairness and Shared Effort"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "ravenclaw",
+      "title": {
+        "zh": "拉文克劳：理解与新想法",
+        "en": "Ravenclaw: Understanding and Ideas"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "slytherin",
+      "title": {
+        "zh": "斯莱特林：目标与资源安排",
+        "en": "Slytherin: Goals and Resourcefulness"
+      },
+      "comparisons": 24
+    }
+  ],
+  "questions": [
+    {
+      "id": "HOUSE_01",
+      "prompt": {
+        "zh": "参加一个自选的小活动，四件事都值得做，你更想先负责哪一件？",
+        "en": "At a small activity you chose to join, which worthwhile task would you prefer to take first?"
+      },
+      "options": [
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "在大家同意的范围里，先示范一个可以安全尝试的小步骤。",
+            "en": "Demonstrate a safe first step within the limits everyone agreed."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "确认每个人知道怎样参与，并让分工不落在少数人身上。",
+            "en": "Check that everyone can participate and the work is shared rather than concentrated."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "弄清这项活动的原理，准备解释一个容易混淆的地方。",
+            "en": "Understand the underlying idea and prepare to explain a confusing point."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "把目标、可用时间和材料列清，确定最关键的一步。",
+            "en": "List the goal, time and materials, then identify the most important step."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_02",
+      "prompt": {
+        "zh": "只有一段短时间可以调整自己的桌面，你更愿意从哪里开始？",
+        "en": "You have a short period to change your own desk arrangement. Where would you prefer to begin?"
+      },
+      "options": [
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "先处理容易影响同用空间者的部分，让使用更方便。",
+            "en": "Start with what affects anyone sharing the space and improve access."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "观察物件怎样被使用，弄懂混乱反复出现的原因。",
+            "en": "Observe how objects are used and understand why the clutter returns."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "选出最想改善的一点，把有限时间用在影响最大的地方。",
+            "en": "Choose the improvement I want most and use the time where it matters most."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "试一个早就想试、能随时还原的小变化。",
+            "en": "Try a small reversible change I have wanted to attempt."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_03",
+      "prompt": {
+        "zh": "你和朋友已经同意一起了解一个新爱好。第一场交流更想怎样安排？",
+        "en": "You and a friend agree to explore a new hobby together. What would you prefer for the first session?"
+      },
+      "options": [
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "先提出一个真正好奇的问题，找清楚的解释。",
+            "en": "Begin with a question I am curious about and find a clear explanation."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "商量这次想做到哪一步，再按资源选合适的入门方式。",
+            "en": "Agree what we want to reach and choose a starting method that fits our resources."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "在安全边界内先试一个入门动作，看看开始是什么感觉。",
+            "en": "Try one safe beginner action and experience getting started."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "找双方都能舒服参与的节奏，轮流尝试和互相等待。",
+            "en": "Find a comfortable shared pace, taking turns and allowing time for each other."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_04",
+      "prompt": {
+        "zh": "一个普通合作任务有两个可行方向，你更愿意怎样帮助作出选择？",
+        "en": "An ordinary shared task has two workable directions. How would you prefer to help choose?"
+      },
+      "options": [
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "比较它们与目标的距离、所需资源和下一步，选合适路径。",
+            "en": "Compare progress toward the goal, resources and next steps to choose a route."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "明确说出自己支持的方向，愿意承担一个具体的小尝试。",
+            "en": "State the direction I support and volunteer for one concrete small trial."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "先听各方需要，确保选择的代价不会只落在一个人身上。",
+            "en": "Hear everyone’s needs and check that one person does not carry all the cost."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "找出两个方向背后不同的假设，再核对一项资料。",
+            "en": "Identify the assumptions behind the options and check a relevant piece of information."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_05",
+      "prompt": {
+        "zh": "你读到一份普通操作说明，其中一处没有讲清。更想怎样处理？",
+        "en": "An ordinary instruction leaves one point unclear. What would you prefer to do?"
+      },
+      "options": [
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "在确认安全且可撤回的前提下，提出试一个最小示例。",
+            "en": "Propose a minimal example only after confirming it is safe and reversible."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "先告诉一起做的人这里不清楚，避免谁独自承担误解。",
+            "en": "Tell the others what is unclear so no one carries the misunderstanding alone."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "追问这个步骤为什么需要这样做，补全理解。",
+            "en": "Ask why the step works that way and fill the gap in understanding."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "确定缺失信息是否影响目标，优先核对最关键的条件。",
+            "en": "Decide whether the missing detail affects the goal and check the crucial condition first."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_06",
+      "prompt": {
+        "zh": "做一个自选的小手工时，现有材料不够完成原计划。哪种调整更合你意？",
+        "en": "Materials for a small craft you chose are insufficient for the original plan. Which adjustment appeals to you?"
+      },
+      "options": [
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "把材料和工作量重新公平分配，让参与者都能完成一部分。",
+            "en": "Redistribute materials and effort fairly so everyone can complete a part."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "研究材料的特性，想出不同的连接或使用方式。",
+            "en": "Explore the material’s properties and another way to join or use it."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "保留最重要的用途，删减不影响目标的部分。",
+            "en": "Keep the most important function and remove parts that do not serve the goal."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "试一个安全的小替代结构，接受它可能不成功。",
+            "en": "Try a safe alternative structure while accepting that it may not work."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_07",
+      "prompt": {
+        "zh": "你对一次普通安排有不同意见，大家也愿意讨论。更想怎样表达？",
+        "en": "You disagree about an ordinary arrangement and the group welcomes discussion. How would you prefer to respond?"
+      },
+      "options": [
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "问清彼此依据，看看是不是在回答不同的问题。",
+            "en": "Ask about the reasoning and whether we are answering different questions."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "把共同目标重新说清，再找能推进它的折中步骤。",
+            "en": "Restate the shared goal and look for a workable step toward it."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "直接说明自己反对哪一点，并提出愿意尝试的替代。",
+            "en": "Name the point I oppose and offer an alternative I am willing to try."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "先确认不同安排怎样影响每个人，给被忽略的需要留空间。",
+            "en": "Check how each arrangement affects people and make room for overlooked needs."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_08",
+      "prompt": {
+        "zh": "小组需要有人介绍已经共同确认的简单安排，你更想提供什么？",
+        "en": "A group needs to introduce a simple arrangement already agreed together. What would you prefer to offer?"
+      },
+      "options": [
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "清楚说明这次目标和接下来谁负责哪一步。",
+            "en": "Clarify the goal and who owns each next step."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "自愿先开口说明，让介绍能够开始。",
+            "en": "Volunteer to speak first and get the introduction started."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "把每个人的实际贡献说明白，确保没有遗漏。",
+            "en": "Make each person’s actual contribution visible without leaving anyone out."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "解释安排背后的理由，帮助大家理解。",
+            "en": "Explain the reasoning so the arrangement makes sense."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_09",
+      "prompt": {
+        "zh": "一次普通活动快结束时，你更想把最后一点精力花在哪里？",
+        "en": "An ordinary activity is almost over. Where would you prefer to put the remaining effort?"
+      },
+      "options": [
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "承担一个还没人开始、但现在能安全完成的小动作。",
+            "en": "Take a small unfinished action that can safely be completed now."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "确认收尾工作得到分担，也有人照顾参与者的实际需要。",
+            "en": "Check that cleanup is shared and participants’ practical needs are considered."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "记下这次发现的一个新问题，留待以后了解。",
+            "en": "Note a new question that emerged and might be explored later."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "核对是否完成主要目标，留下明确的后续安排。",
+            "en": "Check the main goal and leave a clear follow-up arrangement."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_10",
+      "prompt": {
+        "zh": "有位新人加入你也参与的自愿小组，你更想怎样开始认识？",
+        "en": "Someone new joins a voluntary group you attend. How would you prefer to begin?"
+      },
+      "options": [
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "说明参与方式与可选安排，让对方不必急着融入。",
+            "en": "Explain participation options and allow them time to settle in."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "在对方愿意的前提下，了解一个共同感兴趣的话题。",
+            "en": "Explore a shared interest if they want to discuss it."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "说明小组正在做什么，询问对方愿意参与哪一部分。",
+            "en": "Explain the group’s current goal and ask what part they want to join."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "主动做一个简短自我介绍，给交流一个开头。",
+            "en": "Offer a brief introduction and give the exchange a starting point."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_11",
+      "prompt": {
+        "zh": "你在一个低风险小任务中弄错了细节，已经可以修正。更想先做哪件事？",
+        "en": "You made a small error in a low-stakes task and can correct it. What would you prefer first?"
+      },
+      "options": [
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "找出理解在哪一步出现偏差，避免只改表面。",
+            "en": "Find where my understanding went wrong rather than changing only the surface."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "判断哪些后续步骤受影响，先处理最关键的阻碍。",
+            "en": "Identify affected next steps and address the most important obstacle first."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "直接承认具体错误，动手修正自己负责的部分。",
+            "en": "Acknowledge the specific error and correct the part I own."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "说明对其他人的影响，和他们一起调整受影响的安排。",
+            "en": "Explain the effect on others and adjust the affected arrangements together."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_12",
+      "prompt": {
+        "zh": "在普通选择里，某个安全的新办法结果还不确定。你更想怎样面对？",
+        "en": "A safe new approach to an ordinary choice has an uncertain outcome. How would you prefer to handle it?"
+      },
+      "options": [
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "设定停止条件和可接受结果，保留其他可行路径。",
+            "en": "Set stopping conditions and acceptable outcomes while keeping alternatives available."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "在可接受代价内试一小步，不等到所有不确定都消失。",
+            "en": "Try a small step within acceptable costs rather than waiting for all uncertainty to vanish."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "先确认参与者愿意，且尝试的负担能够公平承担。",
+            "en": "Check willingness and whether the burden can be shared fairly."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "提出一个可以通过小观察回答的问题，再决定是否试。",
+            "en": "Define a question a small observation could answer before deciding."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_13",
+      "prompt": {
+        "zh": "学习一项自己选择的新内容，你更想保留哪种体验？",
+        "en": "When learning something you chose, which experience would you most like to retain?"
+      },
+      "options": [
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "终于敢试此前一直犹豫的一小步。",
+            "en": "Trying a small step I had previously hesitated to attempt."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "和愿意同行的人一起投入，也能互相支持不同节奏。",
+            "en": "Sharing effort with willing companions while supporting different paces."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "弄懂原本不明白的关系，产生一个新想法。",
+            "en": "Understanding a previously unclear connection and having a new idea."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "看见内容怎样帮助自己走向一个明确目标。",
+            "en": "Seeing how the material helps move toward a clear goal."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_14",
+      "prompt": {
+        "zh": "大家对一个普通任务过于犹豫，但已经确认安全和权限。你更想怎样贡献？",
+        "en": "A group hesitates over an ordinary task after safety and permission are confirmed. What would you prefer to contribute?"
+      },
+      "options": [
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "听清谁需要哪些支持，让开始的压力不集中在某个人身上。",
+            "en": "Hear what support people need so the pressure to start does not fall on one person."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "澄清还存在的一个具体疑问，让不确定变得可讨论。",
+            "en": "Clarify one remaining question so the uncertainty can be discussed."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "把任务缩成一个明确可完成的阶段，帮助决定开始条件。",
+            "en": "Reduce the task to a clear achievable stage and define conditions for starting."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "自愿承担第一个可撤回的小步骤。",
+            "en": "Volunteer for the first reversible step."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_15",
+      "prompt": {
+        "zh": "你有一点自选空闲时间，更愿意安排哪一种普通小事？",
+        "en": "You have a little freely chosen time. Which ordinary activity would you prefer?"
+      },
+      "options": [
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "追一个一直好奇的小问题，享受理解的过程。",
+            "en": "Follow a question I have been curious about and enjoy understanding it."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "为自己重视的计划整理一个可用的小步骤。",
+            "en": "Prepare one usable step for a plan that matters to me."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "尝试一种安全而陌生的小活动，允许自己还是新手。",
+            "en": "Try a safe unfamiliar activity and allow myself to be a beginner."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "做一件自己也愿意、能够帮助共享生活的小事。",
+            "en": "Do something I freely want that helps a shared part of life."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_16",
+      "prompt": {
+        "zh": "有人就你的普通作品提出了具体反馈，你更想先关注什么？",
+        "en": "Someone gives specific feedback on an ordinary piece of your work. What would you prefer to focus on first?"
+      },
+      "options": [
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "判断它与作品目标的关系，优先修改最有帮助的部分。",
+            "en": "Judge its relevance to the goal and prioritise the most useful revision."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "愿意面对指出的问题，选择一个可以直接试改的地方。",
+            "en": "Face the point raised and choose one part to try changing directly."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "弄清反馈怎样影响实际使用者和共同投入的人。",
+            "en": "Understand its effects on users and people who shared the work."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "研究反馈背后的理由，看是否带来新的理解。",
+            "en": "Examine the reasoning and whether it offers new understanding."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_17",
+      "prompt": {
+        "zh": "准备展示一件自选的小作品，你更想强调哪个方面？",
+        "en": "You are preparing to show a small piece of work you chose to make. Which aspect would you prefer to emphasise?"
+      },
+      "options": [
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "自己愿意尝试并走出第一步的地方。",
+            "en": "Where I was willing to attempt something and take a first step."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "参与者怎样互相支持，分工和贡献怎样被看见。",
+            "en": "How participants supported one another and how contributions are acknowledged."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "其中有意思的问题、关系或新的做法。",
+            "en": "An interesting question, connection or new approach within it."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "它想达到什么目标，以及怎样使用有限资源做到。",
+            "en": "The goal it served and how limited resources were used toward it."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_18",
+      "prompt": {
+        "zh": "一位同伴说需要慢一点，你也愿意调整。哪种回应更像你的优先考虑？",
+        "en": "A companion asks for a slower pace and you are willing to adjust. Which consideration would you prefer to begin with?"
+      },
+      "options": [
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "确认对方需要的节奏，让共同安排确实能够参与。",
+            "en": "Check the pace needed and make shared participation workable."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "了解哪个环节让节奏变得困难，帮助大家理解。",
+            "en": "Understand which part creates difficulty so the situation makes sense."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "调整阶段与时间，使目标和实际条件重新匹配。",
+            "en": "Adjust stages and timing to bring the goal back in line with actual conditions."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "明确支持这次调整，愿意率先改变自己的一小步。",
+            "en": "State support for the adjustment and be willing to change my own first step."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_19",
+      "prompt": {
+        "zh": "面对一个自选的普通益智小题，你更想享受哪种过程？",
+        "en": "With an optional everyday puzzle, which part of the process would you prefer to enjoy?"
+      },
+      "options": [
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "发现规律或新的解释，让不明白的地方变清楚。",
+            "en": "Finding a pattern or explanation that makes something unclear understandable."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "整理已知条件，选择更有效接近目标的步骤。",
+            "en": "Organising known conditions and choosing steps that approach the goal efficiently."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "敢于试一个想法，即使第一回可能不对。",
+            "en": "Trying an idea even if the first attempt may be wrong."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "和愿意一起想的人轮流尝试，让每个想法有机会。",
+            "en": "Taking turns with willing companions and giving ideas room to be considered."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_20",
+      "prompt": {
+        "zh": "共同整理资料时，你更想负责哪一部分？",
+        "en": "While organising information together, which part would you prefer to own?"
+      },
+      "options": [
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "围绕要完成的目标，留下最需要的信息和清楚入口。",
+            "en": "Keep the most useful information and a clear entry point for the goal."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "把迟迟没人开始的第一份资料先整理出一个示例。",
+            "en": "Make a first example from a piece of information no one has started yet."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "采用大家都能找到和使用的方式，顾及不同需要。",
+            "en": "Use a method everyone can find and access, considering different needs."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "研究资料之间的联系，发现怎样分类更容易理解。",
+            "en": "Explore connections and a classification that makes the material understandable."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_21",
+      "prompt": {
+        "zh": "一个普通计划中也需要休息，你更想怎样安排？",
+        "en": "An ordinary plan also needs room for rest. How would you prefer to arrange it?"
+      },
+      "options": [
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "明确提出需要暂停，让休息不必等别人先开口。",
+            "en": "Speak up for a pause so rest need not wait for someone else to ask."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "确认每个人都能有合适的休息，不把收尾留给少数人。",
+            "en": "Check that everyone can rest rather than leaving cleanup to a few people."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "留意哪些环节更费力，理解休息需要出现在哪里。",
+            "en": "Notice which parts take more effort and understand where breaks are needed."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "把休息放进阶段安排，让整体计划与可用精力相符。",
+            "en": "Build rest into the stages so the plan fits the energy actually available."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_22",
+      "prompt": {
+        "zh": "读到一篇自选的普通文章，你更容易想接着问哪类问题？",
+        "en": "After an ordinary article you chose to read, which question would you most like to follow?"
+      },
+      "options": [
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "其中的安排对不同参与者是否同样可用和公平？",
+            "en": "Are the arrangements usable and fair for different participants?"
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "为什么会这样，还有什么解释或联系值得了解？",
+            "en": "Why does it work this way, and what other explanation or connection is worth exploring?"
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "它能帮助什么目标，需要哪些资源和实际步骤？",
+            "en": "What goal could it support, and what resources and steps would be needed?"
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "有没有一个安全的小地方，自己可以开始尝试？",
+            "en": "Is there one safe small part I could start trying myself?"
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_23",
+      "prompt": {
+        "zh": "一个自选小计划临时变动，你更愿意先做哪件事？",
+        "en": "A small plan you chose changes unexpectedly. What would you prefer to do first?"
+      },
+      "options": [
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "弄清变动的原因，以及原来的理解需要改在哪里。",
+            "en": "Understand the cause and which parts of the original understanding need revision."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "重新核对目标、时间和资源，选择仍然可行的路线。",
+            "en": "Review the goal, time and resources and choose a route that remains workable."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "在确认条件后，愿意尝试一个新的可行开头。",
+            "en": "After checking conditions, be willing to try a new workable beginning."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "确认变动怎样影响同伴，重新分担必要的工作。",
+            "en": "Check the effect on companions and share the necessary adjustments."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_24",
+      "prompt": {
+        "zh": "回看一次已经完成的普通活动，你更愿意记住哪件事？",
+        "en": "Looking back on an ordinary activity already completed, which aspect would you most like to remember?"
+      },
+      "options": [
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "有限条件下把重要目标推进了一步，并知道下一步在哪里。",
+            "en": "Moving a meaningful goal forward within limits and knowing the next step."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "自己曾愿意面对犹豫，做出一个具体开始。",
+            "en": "Being willing to face hesitation and make a concrete start."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "大家的投入和需要得到看见，过程比较公平。",
+            "en": "People’s effort and needs being acknowledged in a reasonably fair process."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "自己理解了新东西，或看到一个原来没发现的角度。",
+            "en": "Understanding something new or noticing a previously unseen angle."
+          },
+          "id": "D"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "gryffindor",
+      "directionIds": [
+        "gryffindor"
+      ],
+      "title": {
+        "zh": "格兰芬多：勇于迈步的主题",
+        "en": "Gryffindor: The Theme of Stepping Forward"
+      },
+      "headline": {
+        "zh": "非官方同人读法：叙事主题，不是现实品质鉴定。",
+        "en": "An unofficial fan reading of a narrative theme, not certified personal qualities."
+      },
+      "summary": {
+        "zh": "非官方同人读法：本题组较常选择明确发声、面对犹豫和安全的小尝试。比较行动与其他主题，不认证勇气或要求冒险。",
+        "en": "An unofficial fan reading of speaking up and trying a safe first step. Explore concrete examples and comparisons without certifying courage or demanding risk."
+      },
+      "scoreReading": {
+        "zh": "全部24题各选一个做法，对应学院主题加1。每题四学院各有一个选项，每学院曝光24次、在四个位置各出现6次，总计数固定为24；它表示这组选择的相对分布，不是独立能力分数或学院相似度百分比。完成前不派结果，完成后所有最高计数都显示完整报告。六、六、六、六保留四份，十、十、二、二保留两份；名单顺序不决定重要性。相差一次只表示一次选择，不证明显著、固定主副学院或内在品质差异。较少选到不代表没有某种品质，也没有人口常模、稀有度或官方分院阈值。",
+        "en": "Choose one approach for all 24 questions; each adds one to its house theme. Every question offers all four houses, each with 24 opportunities and six appearances in each position. Counts always sum to 24, describing the relative distribution of this set rather than independent abilities or house-match percentages. No result appears before completion. Every highest count retains its full report: six each displays four, while ten, ten, two, two displays two. List order sets no priority. A one-choice gap establishes neither significance, fixed primary–secondary houses nor different inner qualities. Fewer choices imply no absence of a quality. There are no population norms, rarity estimates or official sorting cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "格兰芬多：勇于迈步的主题｜分院测验完整结果",
+          "en": "Gryffindor Quiz Result: Choices and Full House Guide"
+        },
+        "description": {
+          "zh": "非官方同人读法：本题组较常选择明确发声、面对犹豫和安全的小尝试。比较行动与其他主题，不认证勇气或要求冒险。",
+          "en": "Read this unofficial Gryffindor result with examples, comparisons and scoring. A fan-theme reflection without courage, ability or official-sorting claims."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "学院背景与本站主题",
+            "en": "The house and this edition’s theme"
+          },
+          "paragraphs": [
+            {
+              "zh": "格兰芬多在作品背景中与勇敢、勇气和决心相联系。本版把这个背景转为一组原创选择：面对犹豫，愿意提出自己的立场或承担安全、可撤回的第一步。这是选择到叙事主题的本站读法，不是官方分院、现实勇气测验或认定你像某个角色。",
+              "en": "Gryffindor is associated in the fictional setting with bravery, courage and determination. This edition turns that background into original choices about stating a position or taking a safe, reversible first step despite hesitation. It is our mapping from choices to a narrative theme, not official sorting, a test of actual courage or proof that you resemble a particular character."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "较多、较少与具体处境",
+            "en": "More, fewer and actual context"
+          },
+          "paragraphs": [
+            {
+              "zh": "若这一项计数最高，迈步和明确发声的选项在本次比较中被选得较多。较少选择并不表示胆小；也许你在这些情境里更重视理解、共同投入或目标安排。等待信息、休息和拒绝不安全要求都可以是合适决定，不会被少数选择次数判为缺陷。",
+              "en": "If this has a highest count, stepping forward and speaking explicitly appeared more often in this comparison. Fewer choices imply no cowardice; understanding, shared effort or planning may matter more in these situations. Waiting for information, resting and declining unsafe demands can all be appropriate rather than deficiencies established by a small tally of preferences."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体日常例子",
+            "en": "A concrete everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，几个人自愿准备一次普通读书交流，已经确认各自同意的范围。你可以提出先做两分钟的开场示例，让其他人知道活动怎样开始。开场之后仍要听反馈，也可以把主持交给更合适的人。这个具体尝试不要求一直抢先，也不意味着你有权替大家作决定。",
+              "en": "Suppose people voluntarily prepare an ordinary reading discussion and agree its limits. You could offer a two-minute opening example so others can see how it begins. Afterwards, listen to feedback and hand over if someone else is better placed. This concrete attempt requires neither always going first nor authority to make decisions for everyone involved."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "怎样表达与保留选择",
+            "en": "Expression with room for choice"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“如果大家同意，我先试一个短开场，结束后听听哪里需要调整；不合适就换办法。”这让行动有范围、有反馈和退出方式。别人提出谨慎意见时，可以认真听，不把它解释为缺乏勇气；自己需要停下时，也不必维护“狮院就该勇往直前”的形象。",
+              "en": "You could say, “If everyone agrees, I’ll try a short opening and we can review it afterwards; we can change the approach.” This gives action a scope, feedback and an exit. Take cautious input seriously rather than equating it with a lack of nerve, and pause yourself without maintaining an image that a Gryffindor must always press forward."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他三学院比较",
+            "en": "Comparing the other three houses"
+          },
+          "paragraphs": [
+            {
+              "zh": "与赫奇帕奇相比，本版格兰芬多选项较强调先明确迈步，另一组较强调参与条件和公平分担；两者可以配合。拉文克劳侧重理解，斯莱特林侧重目标与资源，也不因此缺少勇气。原始次数只比较这24个选择，不给学院排序，更不说明其他主题从你身上消失。",
+              "en": "Compared with Hufflepuff, these Gryffindor options emphasise making a first move rather than participation and shared burdens; both can work together. Ravenclaw emphasises understanding and Slytherin goals and resources, without thereby lacking courage. Raw counts compare these 24 choices, not the worth of houses or the presence and absence of every theme in your life."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与现实限制",
+            "en": "Counterexamples and real limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，快速行动可能来自熟悉流程，不是勇敢；暂不行动也可能因为缺少权限或重要条件。题目没有观察危险情境、实际表现或他人经验。结果不判断领导力、抗压、道德、智力或职业适配，不要求为证明学院归属而冒险、争吵或接下超出能力的责任。",
+              "en": "Quick action may come from a familiar procedure rather than bravery, while pausing may reflect missing authority or necessary conditions. These questions observe no dangerous situations, actual performance or other people’s experiences. The result establishes neither leadership, pressure tolerance, morality, intelligence nor career fit, and requires no risk, argument or responsibility beyond your capacity to prove a house identity."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，在一件本来就想做的低风险小事里，写下一个可撤回的第一步、必要条件和何时停下，再决定是否尝试。也可以只做计划，不实际行动。小观察关注你怎样开始，不验证勇气、魔法身份或心理改变，完成与否都不决定你属于哪里。",
+              "en": "If you wish, choose a low-stakes matter you already want to handle. Note a reversible first step, necessary conditions and a stopping point before deciding whether to try. Planning without acting is also acceptable. Observe how you begin without validating courage, magical identity or psychological change; completing it determines no place where you must belong."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题计数与全部最高并列",
+            "en": "24-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "全部24题各选一个做法，对应学院主题加1。每题四学院各有一个选项，每学院曝光24次、在四个位置各出现6次，总计数固定为24；它表示这组选择的相对分布，不是独立能力分数或学院相似度百分比。完成前不派结果，完成后所有最高计数都显示完整报告。六、六、六、六保留四份，十、十、二、二保留两份；名单顺序不决定重要性。相差一次只表示一次选择，不证明显著、固定主副学院或内在品质差异。较少选到不代表没有某种品质，也没有人口常模、稀有度或官方分院阈值。",
+              "en": "Choose one approach for all 24 questions; each adds one to its house theme. Every question offers all four houses, each with 24 opportunities and six appearances in each position. Counts always sum to 24, describing the relative distribution of this set rather than independent abilities or house-match percentages. No result appears before completion. Every highest count retains its full report: six each displays four, while ten, ten, two, two displays two. List order sets no priority. A one-choice gap establishes neither significance, fixed primary–secondary houses nor different inner qualities. Fewer choices imply no absence of a quality. There are no population norms, rarity estimates or official sorting cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源",
+            "en": "Unofficial original edition and sources"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立编写的非官方同人娱乐测验。四学院名称及虚构背景来自《哈利·波特》，相关名称、人物和元素的权利属于其权利人；本版无官方制作、合作、认可或授权暗示。官方学院介绍只用于核对作品背景，不提供本版计分或效度依据。24道普通低风险选择、四主题映射、解释、情境和示例均为独立创作，没有采用官方Sorting Ceremony／Pottermore题本、电影截图、学院徽章、标志、原著引文、JobCannon12题或IDRlabs24题及其正文／代码／算法。结果只读本次偏好选择，不认证魔法身份、善恶、智力、学历、能力、职业、信任或诊断；没有本站心理测量验证。",
+              "en": "This is an independently authored, unofficial FermatMind fan quiz. House names and the fictional setting come from Harry Potter; related names, characters and elements belong to their rights holders. No official authorship, partnership, approval or authorisation is implied. The official house guide checks fictional context, not this scoring or validity. All 24 low-stakes choices, theme mappings, explanations, scenes and examples are original. No official Sorting Ceremony or Pottermore items, film stills, house crests, logos, book quotations, JobCannon’s 12 items or IDRlabs’ 24 items, bodies, code or algorithms are used. Results read this attempt’s preferences without certifying magical identity, morality, intelligence, education, ability, career fit, trust or a diagnosis. This website edition has no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hufflepuff",
+      "directionIds": [
+        "hufflepuff"
+      ],
+      "title": {
+        "zh": "赫奇帕奇：公平与共同投入的主题",
+        "en": "Hufflepuff: Fairness and Shared Effort"
+      },
+      "headline": {
+        "zh": "非官方同人读法：叙事主题，不是现实品质鉴定。",
+        "en": "An unofficial fan reading of a narrative theme, not certified personal qualities."
+      },
+      "summary": {
+        "zh": "非官方同人读法：围绕参与、公平分担与共同投入看选择，保留自己的需要和边界，不把付出多少当人品等级。",
+        "en": "An unofficial fan reading of participation, fairness and shared effort, with boundaries and concrete examples rather than a ranking of loyalty or worth."
+      },
+      "scoreReading": {
+        "zh": "全部24题各选一个做法，对应学院主题加1。每题四学院各有一个选项，每学院曝光24次、在四个位置各出现6次，总计数固定为24；它表示这组选择的相对分布，不是独立能力分数或学院相似度百分比。完成前不派结果，完成后所有最高计数都显示完整报告。六、六、六、六保留四份，十、十、二、二保留两份；名单顺序不决定重要性。相差一次只表示一次选择，不证明显著、固定主副学院或内在品质差异。较少选到不代表没有某种品质，也没有人口常模、稀有度或官方分院阈值。",
+        "en": "Choose one approach for all 24 questions; each adds one to its house theme. Every question offers all four houses, each with 24 opportunities and six appearances in each position. Counts always sum to 24, describing the relative distribution of this set rather than independent abilities or house-match percentages. No result appears before completion. Every highest count retains its full report: six each displays four, while ten, ten, two, two displays two. List order sets no priority. A one-choice gap establishes neither significance, fixed primary–secondary houses nor different inner qualities. Fewer choices imply no absence of a quality. There are no population norms, rarity estimates or official sorting cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "赫奇帕奇：公平与共同投入的主题｜分院测验完整结果",
+          "en": "Hufflepuff Quiz Result: Choices and Full House Guide"
+        },
+        "description": {
+          "zh": "非官方同人读法：围绕参与、公平分担与共同投入看选择，保留自己的需要和边界，不把付出多少当人品等级。",
+          "en": "Explore an unofficial Hufflepuff result through fairness, shared effort and boundaries. Full examples without moral, loyalty or career rankings."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "学院背景与本站主题",
+            "en": "The house and this edition’s theme"
+          },
+          "paragraphs": [
+            {
+              "zh": "赫奇帕奇的作品主题涉及忠诚、投入与公平；本版选取其中的共同参与和分担，写成原创日常选项。它不要求永远替人收尾，也不把安静付出当成更好的人格。分院名是娱乐叙事标签，不能认证别人是否信任你或你在群体中实际承担了多少。",
+              "en": "Hufflepuff’s fictional themes include loyalty, effort and fairness. This edition draws on participation and shared burdens in original everyday options, without requiring constant cleanup for others or treating quiet giving as a superior personality. The house name is an entertainment label, not certification of others’ trust or how much work you actually carry in a group."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "较多、较少与具体处境",
+            "en": "More, fewer and actual context"
+          },
+          "paragraphs": [
+            {
+              "zh": "若计数最高，本次较常选择顾及参与条件、公平分工和共同使用的安排。较少选择不说明自私或不忠诚，也许你当时更关注另一种可行贡献。现实资源、照护责任、访问条件与个人意愿都要分别看，不能以学院标签要求你持续帮助或留在不合适的群体。",
+              "en": "If the count is a highest one, participation, fair allocation and shared access appeared more often in your choices. Fewer imply neither selfishness nor disloyalty; another contribution may have mattered more. Resources, care responsibilities, access and willingness still need separate examination. A house label cannot demand continuous helping or remaining in an unsuitable group against your wishes."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体日常例子",
+            "en": "A concrete everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，几个人自愿整理一批普通资料，有的人只方便使用文字，有的人需要更清楚的入口。你可以建议先约定大家都能找到文件的方式，再把整理工作分开。考虑不同需要不等于每个人都做完全一样的事，也不意味着你要独自补完所有差量。",
+              "en": "Suppose people voluntarily organise ordinary information. Some need text and others a clearer entry point. You could suggest agreeing a way everyone can find files before dividing the work. Considering different needs does not require identical tasks, and it does not make you responsible for completing every remaining gap alone to maintain a fair process."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "怎样表达与保留选择",
+            "en": "Expression with room for choice"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我能整理这一部分，其他部分需要大家分担；如果当前方式不方便，我们一起改入口。”这同时说明共同需要与自己的范围。请求帮助、接受报酬、提出不同意见和暂停，都不使你失去赫奇帕奇资格；别人也不欠你无限的配合或感谢。",
+              "en": "You might say, “I can organise this part; the others need sharing. If the method is inaccessible, let’s change the entry point.” This states collective needs and your scope. Asking for help, accepting compensation, disagreeing and pausing remove no Hufflepuff qualification. Others likewise owe neither unlimited cooperation nor an endless display of appreciation for your contribution."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他三学院比较",
+            "en": "Comparing the other three houses"
+          },
+          "paragraphs": [
+            {
+              "zh": "赫奇帕奇与格兰芬多可以共同表现为有人提出开始、有人核对参与条件；不是谁比较善良。拉文克劳理解资料结构，斯莱特林整理目标和资源，同样能对群体有帮助。四个计数并非道德等级，较高不认证可靠，较低也不代表你缺少关心或合作能力。",
+              "en": "Hufflepuff and Gryffindor may combine when someone proposes a start and someone checks participation, without one person being kinder. Understanding information through Ravenclaw or organising resources through Slytherin can also help a group. Four counts form no moral hierarchy: more certify no reliability and fewer imply no absence of care or ability to cooperate."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与现实限制",
+            "en": "Counterexamples and real limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，为照顾健康或已有责任而拒绝额外任务，可以是合理边界；一个答应所有请求的人也未必真正能完成。题目没有调查实际公平、团队表现或别人受到的影响。分数不用于选人、安排照护或判断谁更适合服务工作，更不能把过劳当忠诚证明。",
+              "en": "Declining extra tasks for health or existing responsibilities can be an appropriate boundary. Agreeing to everything also guarantees no completion. These items investigate neither actual fairness, team performance nor effects on others. Scores cannot select people, allocate caregiving or establish suitability for service work, and overwork is no proof of loyalty to a house or group."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，回看一次普通合作，写下谁愿意参与、分工怎样确定、自己能做多少，以及哪项需要尚未明确。不收集别人的私人答案，也不故意增加付出来换认可。这个小观察用来理解选择和条件，不证明公平、关系改善或固定学院人格。",
+              "en": "If you wish, review an ordinary collaboration: who wanted to participate, how tasks were agreed, your actual capacity and one unclarified need. Collect no private answers or deliberately give more to earn recognition. This small observation clarifies choices and conditions without proving fairness, improved relationships or a fixed house personality you should continue performing."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题计数与全部最高并列",
+            "en": "24-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "全部24题各选一个做法，对应学院主题加1。每题四学院各有一个选项，每学院曝光24次、在四个位置各出现6次，总计数固定为24；它表示这组选择的相对分布，不是独立能力分数或学院相似度百分比。完成前不派结果，完成后所有最高计数都显示完整报告。六、六、六、六保留四份，十、十、二、二保留两份；名单顺序不决定重要性。相差一次只表示一次选择，不证明显著、固定主副学院或内在品质差异。较少选到不代表没有某种品质，也没有人口常模、稀有度或官方分院阈值。",
+              "en": "Choose one approach for all 24 questions; each adds one to its house theme. Every question offers all four houses, each with 24 opportunities and six appearances in each position. Counts always sum to 24, describing the relative distribution of this set rather than independent abilities or house-match percentages. No result appears before completion. Every highest count retains its full report: six each displays four, while ten, ten, two, two displays two. List order sets no priority. A one-choice gap establishes neither significance, fixed primary–secondary houses nor different inner qualities. Fewer choices imply no absence of a quality. There are no population norms, rarity estimates or official sorting cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源",
+            "en": "Unofficial original edition and sources"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立编写的非官方同人娱乐测验。四学院名称及虚构背景来自《哈利·波特》，相关名称、人物和元素的权利属于其权利人；本版无官方制作、合作、认可或授权暗示。官方学院介绍只用于核对作品背景，不提供本版计分或效度依据。24道普通低风险选择、四主题映射、解释、情境和示例均为独立创作，没有采用官方Sorting Ceremony／Pottermore题本、电影截图、学院徽章、标志、原著引文、JobCannon12题或IDRlabs24题及其正文／代码／算法。结果只读本次偏好选择，不认证魔法身份、善恶、智力、学历、能力、职业、信任或诊断；没有本站心理测量验证。",
+              "en": "This is an independently authored, unofficial FermatMind fan quiz. House names and the fictional setting come from Harry Potter; related names, characters and elements belong to their rights holders. No official authorship, partnership, approval or authorisation is implied. The official house guide checks fictional context, not this scoring or validity. All 24 low-stakes choices, theme mappings, explanations, scenes and examples are original. No official Sorting Ceremony or Pottermore items, film stills, house crests, logos, book quotations, JobCannon’s 12 items or IDRlabs’ 24 items, bodies, code or algorithms are used. Results read this attempt’s preferences without certifying magical identity, morality, intelligence, education, ability, career fit, trust or a diagnosis. This website edition has no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ravenclaw",
+      "directionIds": [
+        "ravenclaw"
+      ],
+      "title": {
+        "zh": "拉文克劳：理解与新想法的主题",
+        "en": "Ravenclaw: Understanding and New Ideas"
+      },
+      "headline": {
+        "zh": "非官方同人读法：叙事主题，不是现实品质鉴定。",
+        "en": "An unofficial fan reading of a narrative theme, not certified personal qualities."
+      },
+      "summary": {
+        "zh": "非官方同人读法：比较追问原因、发现联系与原创办法的选择，结合具体例子，不把学院计数当智商或学历评价。",
+        "en": "An unofficial fan reading of questions, connections and new approaches, with concrete examples and limits rather than IQ, education or ability rankings."
+      },
+      "scoreReading": {
+        "zh": "全部24题各选一个做法，对应学院主题加1。每题四学院各有一个选项，每学院曝光24次、在四个位置各出现6次，总计数固定为24；它表示这组选择的相对分布，不是独立能力分数或学院相似度百分比。完成前不派结果，完成后所有最高计数都显示完整报告。六、六、六、六保留四份，十、十、二、二保留两份；名单顺序不决定重要性。相差一次只表示一次选择，不证明显著、固定主副学院或内在品质差异。较少选到不代表没有某种品质，也没有人口常模、稀有度或官方分院阈值。",
+        "en": "Choose one approach for all 24 questions; each adds one to its house theme. Every question offers all four houses, each with 24 opportunities and six appearances in each position. Counts always sum to 24, describing the relative distribution of this set rather than independent abilities or house-match percentages. No result appears before completion. Every highest count retains its full report: six each displays four, while ten, ten, two, two displays two. List order sets no priority. A one-choice gap establishes neither significance, fixed primary–secondary houses nor different inner qualities. Fewer choices imply no absence of a quality. There are no population norms, rarity estimates or official sorting cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "拉文克劳：理解与新想法的主题｜分院测验完整结果",
+          "en": "Ravenclaw Quiz Result: Choices and Full House Guide"
+        },
+        "description": {
+          "zh": "非官方同人读法：比较追问原因、发现联系与原创办法的选择，结合具体例子，不把学院计数当智商或学历评价。",
+          "en": "Read an unofficial Ravenclaw result with questions, ideas and practical comparisons. A full fan guide without IQ, education or learning-ability verdicts."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "学院背景与本站主题",
+            "en": "The house and this edition’s theme"
+          },
+          "paragraphs": [
+            {
+              "zh": "拉文克劳在作品中与智慧、机智和学习联系在一起。本版只把理解、提问与新想法作为原创偏好选项，不使用知识题、推理标准答案或人口常模。选择这些选项不能证明聪明、学识、创造力或学习速度，也不说明其他学院的选择缺少这些能力。",
+              "en": "Ravenclaw is associated in fiction with wisdom, wit and learning. Here, understanding, questions and ideas become original preference options without knowledge questions, correct reasoning answers or population norms. Choosing them establishes neither intelligence, education, creativity nor learning speed, and does not imply that choices associated with other houses lack those abilities in actual life."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "较多、较少与具体处境",
+            "en": "More, fewer and actual context"
+          },
+          "paragraphs": [
+            {
+              "zh": "若这一项计数最高，本次较常选择把问题弄清、寻找联系或理解原因。较少选择也不表示不爱思考，你可能已经知道答案，或更想先处理参与、行动和目标条件。好奇、精力、资源和实际技能不能由计数一并推出，更没有必须一直学习的要求。",
+              "en": "If this has a highest count, clarifying questions, connections or reasons appeared more often in this set. Fewer establish no disinterest in thought: you may know the answer or prioritise participation, action or goal conditions. Curiosity, energy, resources and actual skills cannot all be inferred from a tally, and there is no requirement to keep learning continuously."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体日常例子",
+            "en": "A concrete everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你整理自己的普通工具盒，发现同一种物件总被放进不同格。可以先观察取用顺序，问“分类按名称还是按用途更清楚”，再试着理解混放原因。这个小问题不要求发明新理论，也不因为你愿意追问就证明你的方法最终更好。",
+              "en": "Suppose the same kind of item repeatedly lands in different compartments of your tool box. Observe retrieval and ask whether names or uses provide a clearer classification. Understanding the mixing needs no new theory, and willingness to ask cannot establish that your eventual method is better than another practical arrangement someone else might choose."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "怎样表达与保留选择",
+            "en": "Expression with room for choice"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想先弄懂它为什么总放乱，再决定改不改。我们缺的是哪个具体信息？”也可以给提问一个停止点。别人需要实际处理时，可以讨论何时行动，不必把催促解释为不重视思想；你也不需要为维护拉文克劳形象而不断展示知识。",
+              "en": "You could say, “I’d like to understand why it keeps getting mixed before changing it. What specific information is missing?” Give questions a stopping point if useful. When someone needs practical action, discuss timing rather than assuming they dismiss thought. You need no continuous display of knowledge to maintain an image associated with Ravenclaw."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他三学院比较",
+            "en": "Comparing the other three houses"
+          },
+          "paragraphs": [
+            {
+              "zh": "拉文克劳与斯莱特林都可能认真分析，但本版前者偏想理解原理，后者偏围绕目标安排资源；两种动机可以同在。格兰芬多的尝试也能带来理解，赫奇帕奇的共同投入也可能包含知识探索。相近或并列说明多个选择主题，不是天才、书呆子或研究型职业的认证。",
+              "en": "Ravenclaw and Slytherin can both analyse, but these options emphasise understanding principles versus organising resources around goals; both motives may coexist. Gryffindor’s attempts can generate understanding, and Hufflepuff’s shared effort can include exploration. Close or tied counts show several choice themes rather than certifying genius, a bookish identity or suitability for a research career."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与现实限制",
+            "en": "Counterexamples and real limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，一个人需要更容易访问的材料、正在休息或没有空查资料，并不表示不会学习；另一个人提出很多问题，也可能没有听见别人已经给出的信息。题目不测认知能力、神经差异或学业表现，不用来决定分班、专业、培训或谁值得拥有学习资源。",
+              "en": "Needing accessible material, resting or lacking time to investigate does not mean someone cannot learn. Asking many questions may also overlook information already offered. The quiz measures neither cognitive ability, neurodivergence nor academic performance, and cannot decide classroom groups, courses, training or who deserves access to resources for learning or meaningful participation."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，为一件本来就想了解的普通事写一个具体问题，找一份可访问的公开说明，再记录哪些已经清楚、哪些仍未知。可以到此为止，不必把它变成额外任务。小观察帮助理解探索偏好，不验证智慧、创造能力或官方学院归属，也不保证学习效果。",
+              "en": "If you wish, write one concrete question about something ordinary you already want to understand. Consult an accessible public explanation and separate what is clear from what remains unknown. You can stop without creating another obligation. The observation clarifies exploration preferences without validating wisdom, creative ability or official house membership, or promising any particular learning effect."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题计数与全部最高并列",
+            "en": "24-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "全部24题各选一个做法，对应学院主题加1。每题四学院各有一个选项，每学院曝光24次、在四个位置各出现6次，总计数固定为24；它表示这组选择的相对分布，不是独立能力分数或学院相似度百分比。完成前不派结果，完成后所有最高计数都显示完整报告。六、六、六、六保留四份，十、十、二、二保留两份；名单顺序不决定重要性。相差一次只表示一次选择，不证明显著、固定主副学院或内在品质差异。较少选到不代表没有某种品质，也没有人口常模、稀有度或官方分院阈值。",
+              "en": "Choose one approach for all 24 questions; each adds one to its house theme. Every question offers all four houses, each with 24 opportunities and six appearances in each position. Counts always sum to 24, describing the relative distribution of this set rather than independent abilities or house-match percentages. No result appears before completion. Every highest count retains its full report: six each displays four, while ten, ten, two, two displays two. List order sets no priority. A one-choice gap establishes neither significance, fixed primary–secondary houses nor different inner qualities. Fewer choices imply no absence of a quality. There are no population norms, rarity estimates or official sorting cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源",
+            "en": "Unofficial original edition and sources"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立编写的非官方同人娱乐测验。四学院名称及虚构背景来自《哈利·波特》，相关名称、人物和元素的权利属于其权利人；本版无官方制作、合作、认可或授权暗示。官方学院介绍只用于核对作品背景，不提供本版计分或效度依据。24道普通低风险选择、四主题映射、解释、情境和示例均为独立创作，没有采用官方Sorting Ceremony／Pottermore题本、电影截图、学院徽章、标志、原著引文、JobCannon12题或IDRlabs24题及其正文／代码／算法。结果只读本次偏好选择，不认证魔法身份、善恶、智力、学历、能力、职业、信任或诊断；没有本站心理测量验证。",
+              "en": "This is an independently authored, unofficial FermatMind fan quiz. House names and the fictional setting come from Harry Potter; related names, characters and elements belong to their rights holders. No official authorship, partnership, approval or authorisation is implied. The official house guide checks fictional context, not this scoring or validity. All 24 low-stakes choices, theme mappings, explanations, scenes and examples are original. No official Sorting Ceremony or Pottermore items, film stills, house crests, logos, book quotations, JobCannon’s 12 items or IDRlabs’ 24 items, bodies, code or algorithms are used. Results read this attempt’s preferences without certifying magical identity, morality, intelligence, education, ability, career fit, trust or a diagnosis. This website edition has no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "slytherin",
+      "directionIds": [
+        "slytherin"
+      ],
+      "title": {
+        "zh": "斯莱特林：目标与资源安排的主题",
+        "en": "Slytherin: Goals and Resourcefulness"
+      },
+      "headline": {
+        "zh": "非官方同人读法：叙事主题，不是现实品质鉴定。",
+        "en": "An unofficial fan reading of a narrative theme, not certified personal qualities."
+      },
+      "summary": {
+        "zh": "非官方同人读法：围绕目标、关键步骤与有限资源看选择，不把雄心等同善恶、财富、操控或成功保证。",
+        "en": "An unofficial fan reading of goals, priorities and available resources, with concrete examples rather than moral labels, wealth predictions or promised success."
+      },
+      "scoreReading": {
+        "zh": "全部24题各选一个做法，对应学院主题加1。每题四学院各有一个选项，每学院曝光24次、在四个位置各出现6次，总计数固定为24；它表示这组选择的相对分布，不是独立能力分数或学院相似度百分比。完成前不派结果，完成后所有最高计数都显示完整报告。六、六、六、六保留四份，十、十、二、二保留两份；名单顺序不决定重要性。相差一次只表示一次选择，不证明显著、固定主副学院或内在品质差异。较少选到不代表没有某种品质，也没有人口常模、稀有度或官方分院阈值。",
+        "en": "Choose one approach for all 24 questions; each adds one to its house theme. Every question offers all four houses, each with 24 opportunities and six appearances in each position. Counts always sum to 24, describing the relative distribution of this set rather than independent abilities or house-match percentages. No result appears before completion. Every highest count retains its full report: six each displays four, while ten, ten, two, two displays two. List order sets no priority. A one-choice gap establishes neither significance, fixed primary–secondary houses nor different inner qualities. Fewer choices imply no absence of a quality. There are no population norms, rarity estimates or official sorting cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "斯莱特林：目标与资源安排的主题｜分院测验完整结果",
+          "en": "Slytherin Quiz Result: Choices and Full House Guide"
+        },
+        "description": {
+          "zh": "非官方同人读法：围绕目标、关键步骤与有限资源看选择，不把雄心等同善恶、财富、操控或成功保证。",
+          "en": "Explore an unofficial Slytherin result through goals, resources and tradeoffs. Full examples without evil labels, wealth predictions or success guarantees."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "学院背景与本站主题",
+            "en": "The house and this edition’s theme"
+          },
+          "paragraphs": [
+            {
+              "zh": "斯莱特林的作品主题包含雄心与足智多谋；官方背景也明确不应把学院成员一概视为坏人。本版把目标、优先级和资源安排转为原创普通选择，不采用支配、血统、财富或不择手段作为高分条件。它不是成功潜力、社会地位或道德判断。",
+              "en": "Slytherin’s fictional themes include ambition and resourcefulness; the official background also rejects treating every member as bad. This edition turns goals, priorities and resource arrangements into original ordinary choices, without rewarding dominance, lineage, wealth or pursuing ends at any cost. It is no assessment of success potential, social status or moral character in actual life."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "较多、较少与具体处境",
+            "en": "More, fewer and actual context"
+          },
+          "paragraphs": [
+            {
+              "zh": "若计数最高，本次较常选择明确目标、比较可行路径和安排有限条件。较少选择不表示没有志向、不会规划或缺少能力；你可能已经有计划，或更重视别的主题。想实现目标也不等于必须高效率，休息、关系和可用支持都可以成为目标本身的一部分。",
+              "en": "If this is a highest count, naming goals, comparing workable routes and organising limited conditions appeared more often. Fewer establish neither absent ambition nor inability to plan: a plan may already exist or another theme may matter more. Goals need not demand constant efficiency; rest, relationships and available support can be part of the goal itself."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体日常例子",
+            "en": "A concrete everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你想在有限时间里把一份普通资料整理到自己能使用。可以先决定这次最重要的是找到常用信息，再选择一个清楚入口，暂缓装饰或不必要分类。这个安排只说明一次具体取舍，不证明你更聪明、更有竞争力，或别人应该按你的计划行动。",
+              "en": "Suppose you want to organise ordinary information into something usable within limited time. Decide that finding common information matters most, create a clear entry point and defer decoration or unnecessary categories. This arrangement describes one concrete tradeoff without establishing greater intelligence, competitiveness or a right to have others follow your plan rather than their own needs."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "怎样表达与保留选择",
+            "en": "Expression with room for choice"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“这次我想先解决找不到文件的问题，其他部分以后再做；你需要保留的条件是什么？”把目标说清也给别人提出需要的空间。计划可以修改，帮助可以请求，自己也可以放弃不再合适的目标；不必为了符合斯莱特林标签把人际往来都变成工具。",
+              "en": "You could say, “I want to solve finding files first and leave the other parts for later. What conditions do you need preserved?” Stating a goal leaves room for others’ needs. Plans can change, help can be requested and an unsuitable goal can be dropped; you need not turn relationships into instruments to fit a Slytherin label."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他三学院比较",
+            "en": "Comparing the other three houses"
+          },
+          "paragraphs": [
+            {
+              "zh": "与拉文克劳相比，本版斯莱特林较关注安排怎样帮助目标，另一组较关注原因与理解，两者不排斥。格兰芬多提出第一步、赫奇帕奇核对公平分担，也能让计划更完整。四个计数不是好坏两派，更不能把一两次差距解释成某种隐藏野心或固定主副学院。",
+              "en": "Compared with Ravenclaw, these Slytherin options focus on how an arrangement serves a goal rather than understanding a reason; the motives need not conflict. Gryffindor’s first step and Hufflepuff’s attention to fair burdens can also inform planning. Counts divide no good and bad camps, and small gaps establish neither hidden ambition nor fixed primary and secondary houses."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与现实限制",
+            "en": "Counterexamples and real limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，在资源不足或条件变化时缩小目标，可能是务实决定而不是不够上进；一个详细计划也可能基于错误信息。问卷没有检验执行、资源公平、实际影响或长期结果，不用于财富、职业、领导或信任预测，也不支持为了成绩牺牲他人的界限。",
+              "en": "Reducing a goal when resources are inadequate or circumstances change may be practical rather than unambitious. A detailed plan can also rest on wrong information. The quiz tests neither execution, fair access, actual effects nor long-term results. It predicts no wealth, career, leadership or trust and never supports overriding another person’s boundaries for the sake of achievement."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，为一个自选低风险目标写下最重要的一步、已有资源、缺少条件和一个可以停下的点。不需要花钱、扩大承诺或公开私人计划。这个小记录帮助把雄心说具体，不保证成功、增加能力或证明学院归属；决定暂时不做同样是有效选择。",
+              "en": "If you wish, note the most important step, available resources, missing conditions and a stopping point for a low-stakes goal you chose. No spending, larger commitment or disclosure of private plans is needed. This small record makes ambition concrete without promising success, increasing ability or proving house membership; choosing not to proceed now remains a valid option."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "24题计数与全部最高并列",
+            "en": "24-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "全部24题各选一个做法，对应学院主题加1。每题四学院各有一个选项，每学院曝光24次、在四个位置各出现6次，总计数固定为24；它表示这组选择的相对分布，不是独立能力分数或学院相似度百分比。完成前不派结果，完成后所有最高计数都显示完整报告。六、六、六、六保留四份，十、十、二、二保留两份；名单顺序不决定重要性。相差一次只表示一次选择，不证明显著、固定主副学院或内在品质差异。较少选到不代表没有某种品质，也没有人口常模、稀有度或官方分院阈值。",
+              "en": "Choose one approach for all 24 questions; each adds one to its house theme. Every question offers all four houses, each with 24 opportunities and six appearances in each position. Counts always sum to 24, describing the relative distribution of this set rather than independent abilities or house-match percentages. No result appears before completion. Every highest count retains its full report: six each displays four, while ten, ten, two, two displays two. List order sets no priority. A one-choice gap establishes neither significance, fixed primary–secondary houses nor different inner qualities. Fewer choices imply no absence of a quality. There are no population norms, rarity estimates or official sorting cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源",
+            "en": "Unofficial original edition and sources"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立编写的非官方同人娱乐测验。四学院名称及虚构背景来自《哈利·波特》，相关名称、人物和元素的权利属于其权利人；本版无官方制作、合作、认可或授权暗示。官方学院介绍只用于核对作品背景，不提供本版计分或效度依据。24道普通低风险选择、四主题映射、解释、情境和示例均为独立创作，没有采用官方Sorting Ceremony／Pottermore题本、电影截图、学院徽章、标志、原著引文、JobCannon12题或IDRlabs24题及其正文／代码／算法。结果只读本次偏好选择，不认证魔法身份、善恶、智力、学历、能力、职业、信任或诊断；没有本站心理测量验证。",
+              "en": "This is an independently authored, unofficial FermatMind fan quiz. House names and the fictional setting come from Harry Potter; related names, characters and elements belong to their rights holders. No official authorship, partnership, approval or authorisation is implied. The official house guide checks fictional context, not this scoring or validity. All 24 low-stakes choices, theme mappings, explanations, scenes and examples are original. No official Sorting Ceremony or Pottermore items, film stills, house crests, logos, book quotations, JobCannon’s 12 items or IDRlabs’ 24 items, bodies, code or algorithms are used. Results read this attempt’s preferences without certifying magical identity, morality, intelligence, education, ability, career fit, trust or a diagnosis. This website edition has no psychometric validation."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "选择怎样形成学院主题计数",
+        "en": "How choices produce house-theme counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "全部24题各选一个做法，对应学院主题加1。每题四学院各有一个选项，每学院曝光24次、在四个位置各出现6次，总计数固定为24；它表示这组选择的相对分布，不是独立能力分数或学院相似度百分比。完成前不派结果，完成后所有最高计数都显示完整报告。六、六、六、六保留四份，十、十、二、二保留两份；名单顺序不决定重要性。相差一次只表示一次选择，不证明显著、固定主副学院或内在品质差异。较少选到不代表没有某种品质，也没有人口常模、稀有度或官方分院阈值。",
+          "en": "Choose one approach for all 24 questions; each adds one to its house theme. Every question offers all four houses, each with 24 opportunities and six appearances in each position. Counts always sum to 24, describing the relative distribution of this set rather than independent abilities or house-match percentages. No result appears before completion. Every highest count retains its full report: six each displays four, while ten, ten, two, two displays two. List order sets no priority. A one-choice gap establishes neither significance, fixed primary–secondary houses nor different inner qualities. Fewer choices imply no absence of a quality. There are no population norms, rarity estimates or official sorting cutoffs."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "并列、近分与比较",
+        "en": "Ties, close counts and comparisons"
+      },
+      "paragraphs": [
+        {
+          "zh": "所有最高计数的完整报告同时保留，相近但不相同也不补造混合人格。每份说明都有具体例子、对话、三个相邻比较、反例、可选小观察、计分与来源。你可以先读全部四份，或在不同处境下重新选择；变动只说明回答变动，不证明人格、能力、心理健康或官方身份发生了改变。",
+          "en": "Every highest count retains its full report, while close unequal counts create no invented hybrid personality. Each guide includes a concrete example, dialogue, comparisons, counterexamples, an optional observation, scoring and source scope. Read all four first or choose again for another context. Changed answers establish no change in personality, ability, mental health or official identity."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "故事学院与现实能力分开",
+        "en": "Fictional houses and actual ability differ"
+      },
+      "paragraphs": [
+        {
+          "zh": "格兰芬多不要求冒险，赫奇帕奇不要求无条件付出，拉文克劳不认证智力，斯莱特林不等于邪恶或成功潜力。四种主题都可能有用，也都受条件限制；没有好坏学院、稀有度、人群排名或招聘用途。不要用娱乐标签要求自己或别人忽略健康、访问需要、休息、意愿或边界。",
+          "en": "Gryffindor requires no risk, Hufflepuff no unconditional giving, Ravenclaw certifies no intelligence and Slytherin implies neither evil nor success potential. All four themes can be useful and all face limits. There are no good or bad houses, rarity estimates, population ranks or hiring uses. Entertainment labels cannot override health, access, rest, willingness or boundaries."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "zh": "原创题目与作品背景",
+        "en": "Original items and fictional context"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是费马独立编写的非官方同人娱乐测验。四学院名称及虚构背景来自《哈利·波特》，相关名称、人物和元素的权利属于其权利人；本版无官方制作、合作、认可或授权暗示。官方学院介绍只用于核对作品背景，不提供本版计分或效度依据。24道普通低风险选择、四主题映射、解释、情境和示例均为独立创作，没有采用官方Sorting Ceremony／Pottermore题本、电影截图、学院徽章、标志、原著引文、JobCannon12题或IDRlabs24题及其正文／代码／算法。结果只读本次偏好选择，不认证魔法身份、善恶、智力、学历、能力、职业、信任或诊断；没有本站心理测量验证。",
+          "en": "This is an independently authored, unofficial FermatMind fan quiz. House names and the fictional setting come from Harry Potter; related names, characters and elements belong to their rights holders. No official authorship, partnership, approval or authorisation is implied. The official house guide checks fictional context, not this scoring or validity. All 24 low-stakes choices, theme mappings, explanations, scenes and examples are original. No official Sorting Ceremony or Pottermore items, film stills, house crests, logos, book quotations, JobCannon’s 12 items or IDRlabs’ 24 items, bodies, code or algorithms are used. Results read this attempt’s preferences without certifying magical identity, morality, intelligence, education, ability, career fit, trust or a diagnosis. This website edition has no psychometric validation."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "草稿、分享与下一步",
+        "en": "Drafts, sharing and next steps"
+      },
+      "paragraphs": [
+        {
+          "zh": "答案仅在浏览器内计分，不上传、不进入网址或分析事件。草稿需主动保存，仅当前标签页可恢复，24小时失效，完成、退出清除或重测即删。分享可选，只含公开学院主题说明与链接，不含私人答案或计数；完整结果不要求邮箱、注册或先做MBTI。后续测评另属独立框架，需要重新作答，不换算官方学院、能力或职业；也可以在这里结束。",
+          "en": "Answers are scored in your browser without uploading them or including them in URLs or analytics. Drafts require opt-in, can be resumed only in the current tab, expire after 24 hours and clear on completion, exit-and-clear or retake. Optional sharing contains public house-theme guides and links without answers or counts. Full content needs no email, signup or prerequisite MBTI. Later assessments are separate frameworks needing new responses and cannot convert to official houses, abilities or careers. You can stop here."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这是官方分院帽或Pottermore测试吗？",
+        "en": "Is this the official Sorting Hat or Pottermore quiz?"
+      },
+      "answer": {
+        "zh": "这是费马独立编写的非官方同人娱乐测验。四学院名称及虚构背景来自《哈利·波特》，相关名称、人物和元素的权利属于其权利人；本版无官方制作、合作、认可或授权暗示。官方学院介绍只用于核对作品背景，不提供本版计分或效度依据。24道普通低风险选择、四主题映射、解释、情境和示例均为独立创作，没有采用官方Sorting Ceremony／Pottermore题本、电影截图、学院徽章、标志、原著引文、JobCannon12题或IDRlabs24题及其正文／代码／算法。结果只读本次偏好选择，不认证魔法身份、善恶、智力、学历、能力、职业、信任或诊断；没有本站心理测量验证。",
+        "en": "This is an independently authored, unofficial FermatMind fan quiz. House names and the fictional setting come from Harry Potter; related names, characters and elements belong to their rights holders. No official authorship, partnership, approval or authorisation is implied. The official house guide checks fictional context, not this scoring or validity. All 24 low-stakes choices, theme mappings, explanations, scenes and examples are original. No official Sorting Ceremony or Pottermore items, film stills, house crests, logos, book quotations, JobCannon’s 12 items or IDRlabs’ 24 items, bodies, code or algorithms are used. Results read this attempt’s preferences without certifying magical identity, morality, intelligence, education, ability, career fit, trust or a diagnosis. This website edition has no psychometric validation."
+      }
+    },
+    {
+      "question": {
+        "zh": "四个学院比较的是什么？",
+        "en": "What do the four houses compare here?"
+      },
+      "answer": {
+        "zh": "本版原创选项分别偏向勇于迈步、公平与共同投入、理解与新想法、目标与资源安排，以四学院作娱乐标签。它没有使用知识、智商或道德标准答案，也不推断你会魔法或真实属于哪所学校。四个主题都可以被选择，没有最佳学院。",
+        "en": "The original options emphasise stepping forward, fairness and shared effort, understanding and ideas, or goals and resources, using houses as entertainment labels. There are no knowledge, IQ or moral answer keys, and no inference that you have magical abilities or membership of a real school. All themes can be chosen; there is no best house."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么保留并列，不显示百分比？",
+        "en": "Why keep ties rather than show percentages?"
+      },
+      "answer": {
+        "zh": "全部24题各选一个做法，对应学院主题加1。每题四学院各有一个选项，每学院曝光24次、在四个位置各出现6次，总计数固定为24；它表示这组选择的相对分布，不是独立能力分数或学院相似度百分比。完成前不派结果，完成后所有最高计数都显示完整报告。六、六、六、六保留四份，十、十、二、二保留两份；名单顺序不决定重要性。相差一次只表示一次选择，不证明显著、固定主副学院或内在品质差异。较少选到不代表没有某种品质，也没有人口常模、稀有度或官方分院阈值。",
+        "en": "Choose one approach for all 24 questions; each adds one to its house theme. Every question offers all four houses, each with 24 opportunities and six appearances in each position. Counts always sum to 24, describing the relative distribution of this set rather than independent abilities or house-match percentages. No result appears before completion. Every highest count retains its full report: six each displays four, while ten, ten, two, two displays two. List order sets no priority. A one-choice gap establishes neither significance, fixed primary–secondary houses nor different inner qualities. Fewer choices imply no absence of a quality. There are no population norms, rarity estimates or official sorting cutoffs."
+      }
+    },
+    {
+      "question": {
+        "zh": "拉文克劳是否代表更聪明，斯莱特林是否代表坏？",
+        "en": "Does Ravenclaw mean smarter, or Slytherin mean bad?"
+      },
+      "answer": {
+        "zh": "都不代表。本版只读24个偏好选择，没有实际能力任务或道德调查。四学院是虚构背景，官方介绍也不把所有斯莱特林成员视为坏人。自己的健康、休息、资源、责任和界限不能被任何学院标签覆盖，更不用拿分数评价别人。",
+        "en": "Neither. This edition reads 24 preference choices without ability tasks or a moral investigation. The houses are fictional, and the official guide also rejects treating every Slytherin as bad. Health, rest, resources, responsibilities and boundaries cannot be overridden by a house label, and scores should not judge others."
+      }
+    },
+    {
+      "question": {
+        "zh": "可以免费读完和分享所有结果吗？",
+        "en": "Can I read and share full results for free?"
+      },
+      "answer": {
+        "zh": "可以。四份完整说明都能先读，完成后全部最高匹配完整显示。分享不含答卷或次数，不需注册；保存草稿可选，完成后删除。想继续做其他测评可以自行选择，不先收邮箱、不强做MBTI，也不把本次学院换成职业推荐。",
+        "en": "Yes. All four full guides are available before answering and every highest match appears in full after completion. Sharing includes no answers or counts and requires no signup. Draft saving is optional and clears on completion. Further assessments are your choice, without an email gate, forced MBTI or conversion from a house into career recommendations."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "HarryPotter.com官方：四学院背景介绍（不是本版题库或计分）",
+        "en": "Official HarryPotter.com house guide: fictional context, not this questionnaire or scoring"
+      },
+      "url": "https://www.harrypotter.com/features/hogwarts-house-meanings"
+    }
+  ]
+}

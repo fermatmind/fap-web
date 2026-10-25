@@ -781,5 +781,30 @@
       "dandere",
       "deredere"
     ]
+  },
+  {
+    "slug": "hogwarts-house-quiz",
+    "code": "HOGWARTS_HOUSE_FAN",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "metaphor",
+    "title": {
+      "zh": "霍格沃茨分院测试",
+      "en": "Hogwarts House Quiz"
+    },
+    "description": {
+      "zh": "独立非官方同人测验：24道原创选择比较格兰芬多、赫奇帕奇、拉文克劳和斯莱特林。完整结果免费，无需注册，最高并列都保留；不测智力、善恶或官方学院归属。",
+      "en": "Take an unofficial Hogwarts House Quiz with 24 original choices. Compare all four houses, keep highest ties and read full guides free, without signup."
+    },
+    "minutes": 7,
+    "collection": "explore",
+    "formCode": "fm_hogwarts_house_values_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "gryffindor",
+      "hufflepuff",
+      "ravenclaw",
+      "slytherin"
+    ]
   }
 ]

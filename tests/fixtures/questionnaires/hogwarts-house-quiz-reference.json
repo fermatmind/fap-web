@@ -1,0 +1,1037 @@
+{
+  "formCode": "fm_hogwarts_house_values_24",
+  "origin": "FermatMindoriginalunofficial24ENZH4housefanquiz/notofficialsortingorpsychometricinstrument",
+  "directions": [
+    {
+      "id": "gryffindor",
+      "title": {
+        "zh": "格兰芬多：勇于迈步",
+        "en": "Gryffindor: Willing to Step Forward"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "hufflepuff",
+      "title": {
+        "zh": "赫奇帕奇：公平与共同投入",
+        "en": "Hufflepuff: Fairness and Shared Effort"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "ravenclaw",
+      "title": {
+        "zh": "拉文克劳：理解与新想法",
+        "en": "Ravenclaw: Understanding and Ideas"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "slytherin",
+      "title": {
+        "zh": "斯莱特林：目标与资源安排",
+        "en": "Slytherin: Goals and Resourcefulness"
+      },
+      "comparisons": 24
+    }
+  ],
+  "questions": [
+    {
+      "id": "HOUSE_01",
+      "prompt": {
+        "zh": "参加一个自选的小活动，四件事都值得做，你更想先负责哪一件？",
+        "en": "At a small activity you chose to join, which worthwhile task would you prefer to take first?"
+      },
+      "options": [
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "在大家同意的范围里，先示范一个可以安全尝试的小步骤。",
+            "en": "Demonstrate a safe first step within the limits everyone agreed."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "确认每个人知道怎样参与，并让分工不落在少数人身上。",
+            "en": "Check that everyone can participate and the work is shared rather than concentrated."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "弄清这项活动的原理，准备解释一个容易混淆的地方。",
+            "en": "Understand the underlying idea and prepare to explain a confusing point."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "把目标、可用时间和材料列清，确定最关键的一步。",
+            "en": "List the goal, time and materials, then identify the most important step."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_02",
+      "prompt": {
+        "zh": "只有一段短时间可以调整自己的桌面，你更愿意从哪里开始？",
+        "en": "You have a short period to change your own desk arrangement. Where would you prefer to begin?"
+      },
+      "options": [
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "先处理容易影响同用空间者的部分，让使用更方便。",
+            "en": "Start with what affects anyone sharing the space and improve access."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "观察物件怎样被使用，弄懂混乱反复出现的原因。",
+            "en": "Observe how objects are used and understand why the clutter returns."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "选出最想改善的一点，把有限时间用在影响最大的地方。",
+            "en": "Choose the improvement I want most and use the time where it matters most."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "试一个早就想试、能随时还原的小变化。",
+            "en": "Try a small reversible change I have wanted to attempt."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_03",
+      "prompt": {
+        "zh": "你和朋友已经同意一起了解一个新爱好。第一场交流更想怎样安排？",
+        "en": "You and a friend agree to explore a new hobby together. What would you prefer for the first session?"
+      },
+      "options": [
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "先提出一个真正好奇的问题，找清楚的解释。",
+            "en": "Begin with a question I am curious about and find a clear explanation."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "商量这次想做到哪一步，再按资源选合适的入门方式。",
+            "en": "Agree what we want to reach and choose a starting method that fits our resources."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "在安全边界内先试一个入门动作，看看开始是什么感觉。",
+            "en": "Try one safe beginner action and experience getting started."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "找双方都能舒服参与的节奏，轮流尝试和互相等待。",
+            "en": "Find a comfortable shared pace, taking turns and allowing time for each other."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_04",
+      "prompt": {
+        "zh": "一个普通合作任务有两个可行方向，你更愿意怎样帮助作出选择？",
+        "en": "An ordinary shared task has two workable directions. How would you prefer to help choose?"
+      },
+      "options": [
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "比较它们与目标的距离、所需资源和下一步，选合适路径。",
+            "en": "Compare progress toward the goal, resources and next steps to choose a route."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "明确说出自己支持的方向，愿意承担一个具体的小尝试。",
+            "en": "State the direction I support and volunteer for one concrete small trial."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "先听各方需要，确保选择的代价不会只落在一个人身上。",
+            "en": "Hear everyone’s needs and check that one person does not carry all the cost."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "找出两个方向背后不同的假设，再核对一项资料。",
+            "en": "Identify the assumptions behind the options and check a relevant piece of information."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_05",
+      "prompt": {
+        "zh": "你读到一份普通操作说明，其中一处没有讲清。更想怎样处理？",
+        "en": "An ordinary instruction leaves one point unclear. What would you prefer to do?"
+      },
+      "options": [
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "在确认安全且可撤回的前提下，提出试一个最小示例。",
+            "en": "Propose a minimal example only after confirming it is safe and reversible."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "先告诉一起做的人这里不清楚，避免谁独自承担误解。",
+            "en": "Tell the others what is unclear so no one carries the misunderstanding alone."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "追问这个步骤为什么需要这样做，补全理解。",
+            "en": "Ask why the step works that way and fill the gap in understanding."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "确定缺失信息是否影响目标，优先核对最关键的条件。",
+            "en": "Decide whether the missing detail affects the goal and check the crucial condition first."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_06",
+      "prompt": {
+        "zh": "做一个自选的小手工时，现有材料不够完成原计划。哪种调整更合你意？",
+        "en": "Materials for a small craft you chose are insufficient for the original plan. Which adjustment appeals to you?"
+      },
+      "options": [
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "把材料和工作量重新公平分配，让参与者都能完成一部分。",
+            "en": "Redistribute materials and effort fairly so everyone can complete a part."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "研究材料的特性，想出不同的连接或使用方式。",
+            "en": "Explore the material’s properties and another way to join or use it."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "保留最重要的用途，删减不影响目标的部分。",
+            "en": "Keep the most important function and remove parts that do not serve the goal."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "试一个安全的小替代结构，接受它可能不成功。",
+            "en": "Try a safe alternative structure while accepting that it may not work."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_07",
+      "prompt": {
+        "zh": "你对一次普通安排有不同意见，大家也愿意讨论。更想怎样表达？",
+        "en": "You disagree about an ordinary arrangement and the group welcomes discussion. How would you prefer to respond?"
+      },
+      "options": [
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "问清彼此依据，看看是不是在回答不同的问题。",
+            "en": "Ask about the reasoning and whether we are answering different questions."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "把共同目标重新说清，再找能推进它的折中步骤。",
+            "en": "Restate the shared goal and look for a workable step toward it."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "直接说明自己反对哪一点，并提出愿意尝试的替代。",
+            "en": "Name the point I oppose and offer an alternative I am willing to try."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "先确认不同安排怎样影响每个人，给被忽略的需要留空间。",
+            "en": "Check how each arrangement affects people and make room for overlooked needs."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_08",
+      "prompt": {
+        "zh": "小组需要有人介绍已经共同确认的简单安排，你更想提供什么？",
+        "en": "A group needs to introduce a simple arrangement already agreed together. What would you prefer to offer?"
+      },
+      "options": [
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "清楚说明这次目标和接下来谁负责哪一步。",
+            "en": "Clarify the goal and who owns each next step."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "自愿先开口说明，让介绍能够开始。",
+            "en": "Volunteer to speak first and get the introduction started."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "把每个人的实际贡献说明白，确保没有遗漏。",
+            "en": "Make each person’s actual contribution visible without leaving anyone out."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "解释安排背后的理由，帮助大家理解。",
+            "en": "Explain the reasoning so the arrangement makes sense."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_09",
+      "prompt": {
+        "zh": "一次普通活动快结束时，你更想把最后一点精力花在哪里？",
+        "en": "An ordinary activity is almost over. Where would you prefer to put the remaining effort?"
+      },
+      "options": [
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "承担一个还没人开始、但现在能安全完成的小动作。",
+            "en": "Take a small unfinished action that can safely be completed now."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "确认收尾工作得到分担，也有人照顾参与者的实际需要。",
+            "en": "Check that cleanup is shared and participants’ practical needs are considered."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "记下这次发现的一个新问题，留待以后了解。",
+            "en": "Note a new question that emerged and might be explored later."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "核对是否完成主要目标，留下明确的后续安排。",
+            "en": "Check the main goal and leave a clear follow-up arrangement."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_10",
+      "prompt": {
+        "zh": "有位新人加入你也参与的自愿小组，你更想怎样开始认识？",
+        "en": "Someone new joins a voluntary group you attend. How would you prefer to begin?"
+      },
+      "options": [
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "说明参与方式与可选安排，让对方不必急着融入。",
+            "en": "Explain participation options and allow them time to settle in."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "在对方愿意的前提下，了解一个共同感兴趣的话题。",
+            "en": "Explore a shared interest if they want to discuss it."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "说明小组正在做什么，询问对方愿意参与哪一部分。",
+            "en": "Explain the group’s current goal and ask what part they want to join."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "主动做一个简短自我介绍，给交流一个开头。",
+            "en": "Offer a brief introduction and give the exchange a starting point."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_11",
+      "prompt": {
+        "zh": "你在一个低风险小任务中弄错了细节，已经可以修正。更想先做哪件事？",
+        "en": "You made a small error in a low-stakes task and can correct it. What would you prefer first?"
+      },
+      "options": [
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "找出理解在哪一步出现偏差，避免只改表面。",
+            "en": "Find where my understanding went wrong rather than changing only the surface."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "判断哪些后续步骤受影响，先处理最关键的阻碍。",
+            "en": "Identify affected next steps and address the most important obstacle first."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "直接承认具体错误，动手修正自己负责的部分。",
+            "en": "Acknowledge the specific error and correct the part I own."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "说明对其他人的影响，和他们一起调整受影响的安排。",
+            "en": "Explain the effect on others and adjust the affected arrangements together."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_12",
+      "prompt": {
+        "zh": "在普通选择里，某个安全的新办法结果还不确定。你更想怎样面对？",
+        "en": "A safe new approach to an ordinary choice has an uncertain outcome. How would you prefer to handle it?"
+      },
+      "options": [
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "设定停止条件和可接受结果，保留其他可行路径。",
+            "en": "Set stopping conditions and acceptable outcomes while keeping alternatives available."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "在可接受代价内试一小步，不等到所有不确定都消失。",
+            "en": "Try a small step within acceptable costs rather than waiting for all uncertainty to vanish."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "先确认参与者愿意，且尝试的负担能够公平承担。",
+            "en": "Check willingness and whether the burden can be shared fairly."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "提出一个可以通过小观察回答的问题，再决定是否试。",
+            "en": "Define a question a small observation could answer before deciding."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_13",
+      "prompt": {
+        "zh": "学习一项自己选择的新内容，你更想保留哪种体验？",
+        "en": "When learning something you chose, which experience would you most like to retain?"
+      },
+      "options": [
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "终于敢试此前一直犹豫的一小步。",
+            "en": "Trying a small step I had previously hesitated to attempt."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "和愿意同行的人一起投入，也能互相支持不同节奏。",
+            "en": "Sharing effort with willing companions while supporting different paces."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "弄懂原本不明白的关系，产生一个新想法。",
+            "en": "Understanding a previously unclear connection and having a new idea."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "看见内容怎样帮助自己走向一个明确目标。",
+            "en": "Seeing how the material helps move toward a clear goal."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_14",
+      "prompt": {
+        "zh": "大家对一个普通任务过于犹豫，但已经确认安全和权限。你更想怎样贡献？",
+        "en": "A group hesitates over an ordinary task after safety and permission are confirmed. What would you prefer to contribute?"
+      },
+      "options": [
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "听清谁需要哪些支持，让开始的压力不集中在某个人身上。",
+            "en": "Hear what support people need so the pressure to start does not fall on one person."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "澄清还存在的一个具体疑问，让不确定变得可讨论。",
+            "en": "Clarify one remaining question so the uncertainty can be discussed."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "把任务缩成一个明确可完成的阶段，帮助决定开始条件。",
+            "en": "Reduce the task to a clear achievable stage and define conditions for starting."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "自愿承担第一个可撤回的小步骤。",
+            "en": "Volunteer for the first reversible step."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_15",
+      "prompt": {
+        "zh": "你有一点自选空闲时间，更愿意安排哪一种普通小事？",
+        "en": "You have a little freely chosen time. Which ordinary activity would you prefer?"
+      },
+      "options": [
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "追一个一直好奇的小问题，享受理解的过程。",
+            "en": "Follow a question I have been curious about and enjoy understanding it."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "为自己重视的计划整理一个可用的小步骤。",
+            "en": "Prepare one usable step for a plan that matters to me."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "尝试一种安全而陌生的小活动，允许自己还是新手。",
+            "en": "Try a safe unfamiliar activity and allow myself to be a beginner."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "做一件自己也愿意、能够帮助共享生活的小事。",
+            "en": "Do something I freely want that helps a shared part of life."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_16",
+      "prompt": {
+        "zh": "有人就你的普通作品提出了具体反馈，你更想先关注什么？",
+        "en": "Someone gives specific feedback on an ordinary piece of your work. What would you prefer to focus on first?"
+      },
+      "options": [
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "判断它与作品目标的关系，优先修改最有帮助的部分。",
+            "en": "Judge its relevance to the goal and prioritise the most useful revision."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "愿意面对指出的问题，选择一个可以直接试改的地方。",
+            "en": "Face the point raised and choose one part to try changing directly."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "弄清反馈怎样影响实际使用者和共同投入的人。",
+            "en": "Understand its effects on users and people who shared the work."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "研究反馈背后的理由，看是否带来新的理解。",
+            "en": "Examine the reasoning and whether it offers new understanding."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_17",
+      "prompt": {
+        "zh": "准备展示一件自选的小作品，你更想强调哪个方面？",
+        "en": "You are preparing to show a small piece of work you chose to make. Which aspect would you prefer to emphasise?"
+      },
+      "options": [
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "自己愿意尝试并走出第一步的地方。",
+            "en": "Where I was willing to attempt something and take a first step."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "参与者怎样互相支持，分工和贡献怎样被看见。",
+            "en": "How participants supported one another and how contributions are acknowledged."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "其中有意思的问题、关系或新的做法。",
+            "en": "An interesting question, connection or new approach within it."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "它想达到什么目标，以及怎样使用有限资源做到。",
+            "en": "The goal it served and how limited resources were used toward it."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_18",
+      "prompt": {
+        "zh": "一位同伴说需要慢一点，你也愿意调整。哪种回应更像你的优先考虑？",
+        "en": "A companion asks for a slower pace and you are willing to adjust. Which consideration would you prefer to begin with?"
+      },
+      "options": [
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "确认对方需要的节奏，让共同安排确实能够参与。",
+            "en": "Check the pace needed and make shared participation workable."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "了解哪个环节让节奏变得困难，帮助大家理解。",
+            "en": "Understand which part creates difficulty so the situation makes sense."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "调整阶段与时间，使目标和实际条件重新匹配。",
+            "en": "Adjust stages and timing to bring the goal back in line with actual conditions."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "明确支持这次调整，愿意率先改变自己的一小步。",
+            "en": "State support for the adjustment and be willing to change my own first step."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_19",
+      "prompt": {
+        "zh": "面对一个自选的普通益智小题，你更想享受哪种过程？",
+        "en": "With an optional everyday puzzle, which part of the process would you prefer to enjoy?"
+      },
+      "options": [
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "发现规律或新的解释，让不明白的地方变清楚。",
+            "en": "Finding a pattern or explanation that makes something unclear understandable."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "整理已知条件，选择更有效接近目标的步骤。",
+            "en": "Organising known conditions and choosing steps that approach the goal efficiently."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "敢于试一个想法，即使第一回可能不对。",
+            "en": "Trying an idea even if the first attempt may be wrong."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "和愿意一起想的人轮流尝试，让每个想法有机会。",
+            "en": "Taking turns with willing companions and giving ideas room to be considered."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_20",
+      "prompt": {
+        "zh": "共同整理资料时，你更想负责哪一部分？",
+        "en": "While organising information together, which part would you prefer to own?"
+      },
+      "options": [
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "围绕要完成的目标，留下最需要的信息和清楚入口。",
+            "en": "Keep the most useful information and a clear entry point for the goal."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "把迟迟没人开始的第一份资料先整理出一个示例。",
+            "en": "Make a first example from a piece of information no one has started yet."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "采用大家都能找到和使用的方式，顾及不同需要。",
+            "en": "Use a method everyone can find and access, considering different needs."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "研究资料之间的联系，发现怎样分类更容易理解。",
+            "en": "Explore connections and a classification that makes the material understandable."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_21",
+      "prompt": {
+        "zh": "一个普通计划中也需要休息，你更想怎样安排？",
+        "en": "An ordinary plan also needs room for rest. How would you prefer to arrange it?"
+      },
+      "options": [
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "明确提出需要暂停，让休息不必等别人先开口。",
+            "en": "Speak up for a pause so rest need not wait for someone else to ask."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "确认每个人都能有合适的休息，不把收尾留给少数人。",
+            "en": "Check that everyone can rest rather than leaving cleanup to a few people."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "留意哪些环节更费力，理解休息需要出现在哪里。",
+            "en": "Notice which parts take more effort and understand where breaks are needed."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "把休息放进阶段安排，让整体计划与可用精力相符。",
+            "en": "Build rest into the stages so the plan fits the energy actually available."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_22",
+      "prompt": {
+        "zh": "读到一篇自选的普通文章，你更容易想接着问哪类问题？",
+        "en": "After an ordinary article you chose to read, which question would you most like to follow?"
+      },
+      "options": [
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "其中的安排对不同参与者是否同样可用和公平？",
+            "en": "Are the arrangements usable and fair for different participants?"
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "为什么会这样，还有什么解释或联系值得了解？",
+            "en": "Why does it work this way, and what other explanation or connection is worth exploring?"
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "它能帮助什么目标，需要哪些资源和实际步骤？",
+            "en": "What goal could it support, and what resources and steps would be needed?"
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "有没有一个安全的小地方，自己可以开始尝试？",
+            "en": "Is there one safe small part I could start trying myself?"
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_23",
+      "prompt": {
+        "zh": "一个自选小计划临时变动，你更愿意先做哪件事？",
+        "en": "A small plan you chose changes unexpectedly. What would you prefer to do first?"
+      },
+      "options": [
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "弄清变动的原因，以及原来的理解需要改在哪里。",
+            "en": "Understand the cause and which parts of the original understanding need revision."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "重新核对目标、时间和资源，选择仍然可行的路线。",
+            "en": "Review the goal, time and resources and choose a route that remains workable."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "在确认条件后，愿意尝试一个新的可行开头。",
+            "en": "After checking conditions, be willing to try a new workable beginning."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "确认变动怎样影响同伴，重新分担必要的工作。",
+            "en": "Check the effect on companions and share the necessary adjustments."
+          },
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "HOUSE_24",
+      "prompt": {
+        "zh": "回看一次已经完成的普通活动，你更愿意记住哪件事？",
+        "en": "Looking back on an ordinary activity already completed, which aspect would you most like to remember?"
+      },
+      "options": [
+        {
+          "directionId": "slytherin",
+          "label": {
+            "zh": "有限条件下把重要目标推进了一步，并知道下一步在哪里。",
+            "en": "Moving a meaningful goal forward within limits and knowing the next step."
+          },
+          "id": "A"
+        },
+        {
+          "directionId": "gryffindor",
+          "label": {
+            "zh": "自己曾愿意面对犹豫，做出一个具体开始。",
+            "en": "Being willing to face hesitation and make a concrete start."
+          },
+          "id": "B"
+        },
+        {
+          "directionId": "hufflepuff",
+          "label": {
+            "zh": "大家的投入和需要得到看见，过程比较公平。",
+            "en": "People’s effort and needs being acknowledged in a reasonably fair process."
+          },
+          "id": "C"
+        },
+        {
+          "directionId": "ravenclaw",
+          "label": {
+            "zh": "自己理解了新东西，或看到一个原来没发现的角度。",
+            "en": "Understanding something new or noticing a previously unseen angle."
+          },
+          "id": "D"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "eachChoice": 1,
+    "eachExposure": 24,
+    "eachPosition": 6,
+    "all24Required": true,
+    "result": "allhighestties/fullmatchedguides/allfourcounts/no arbitrarysecondary/percentage/norm",
+    "DPplan": "all2925reachablefourcountvectors(sum24),15highestmatchsets;not4^24individualanswersorpsychvalidation"
+  },
+  "scope": "Independentunofficialfanquiz/24originalENZHlow-stakespreferencechoices/4namedfictionalhouses;notofficialSortingCeremony/IDR24/Job12itemsormethod;noart/crest/logo/plotquotation;no actualmagic/IQ/moralrank/trust/ability/diagnosis/careerfit",
+  "instructions": {
+    "zh": "把四个学院当作本版非官方同人题中的四种叙事主题：勇于迈步、公平与共同投入、理解与新想法、目标与资源安排。每题选自己目前更想采用的一种做法，不是能力考试，也没有道德上唯一正确的选项。所有情境都以自愿、低风险和尊重需要为前提；题目不要求冒险、牺牲休息或取悦别人。24题全部选择后，只比较本题组原始次数，保留所有最高并列。结果不是官方分院，也不能证明实际智力、勇气、善恶、财富或职业适配。",
+    "en": "Treat the houses as four narrative themes in this independent fan edition: stepping forward, fairness and shared effort, understanding and ideas, and goals and resources. Choose the approach you would currently prefer, not a correct ability-test answer or a morally superior option. Every situation assumes voluntary, low-stakes participation and respect for needs; no risk-taking, lost rest or pleasing others is required. After all 24 choices, only raw counts within this set are compared and every highest tie is retained. This is not official sorting or evidence of intelligence, courage, morality, wealth or career fit."
+  }
+}
