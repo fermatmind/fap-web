@@ -124,3 +124,24 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.locator(`link[rel="canonical"][href="https://fermatmind.com/${locale}/tests"]`)).toHaveCount(0);
   });
 }
+
+for (const locale of ["en", "zh"] as const) {
+  test(`@release Color ${locale}: cold script loading keeps start disabled until interaction is ready`, async ({ page }) => {
+    let releaseScripts!: () => void;
+    const scriptsReady = new Promise<void>(resolve => { releaseScripts = resolve; });
+    await page.route("**/_next/static/chunks/*.js", async route => { await scriptsReady; await route.continue(); });
+    try {
+      await page.goto(`/${locale}/tests/play/response-color`, { waitUntil: "commit" });
+      await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
+      const start = page.getByRole("button", { name: locale === "zh" ? "开始测试" : "Start test", exact: true });
+      await expect(start).toBeDisabled();
+      await expect(page.getByRole("status")).toContainText(locale === "zh" ? "正在准备测试" : "Preparing the test");
+      releaseScripts();
+      await expect(start).toBeEnabled();
+      await start.click();
+      await page.locator(`input[name="${quiz.questions[0].id}"]`).first().check();
+      await page.getByRole("button", { name: locale === "zh" ? "下一题" : "Next", exact: true }).click();
+      await expect(page.locator(`input[name="${quiz.questions[1].id}"]`).first()).toBeAttached();
+    } finally { releaseScripts(); }
+  });
+}

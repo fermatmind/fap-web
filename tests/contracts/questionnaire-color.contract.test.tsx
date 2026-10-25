@@ -115,6 +115,9 @@ describe("T002 Color complete source questionnaire", () => {
         const html = renderToStaticMarkup(await entry.default(props)), meta = await entry.generateMetadata(props);
         expect(html).toContain(quiz.title[locale]); expect(String(meta.alternates?.canonical)).toBe(`https://fermatmind.com${questionnairePath(locale, "response-color")}`);
         expect(meta.description).toBe(quiz.description[locale]);
+        const initial = document.createElement("div"); initial.innerHTML = html;
+        expect(initial.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(true);
+        expect(initial.querySelector("#take-test [role=status]")?.textContent).toContain(locale === "zh" ? "正在准备测试" : "Preparing the test");
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${questionnairePath(locale, "response-color")}"`);
         for (const profile of quiz.profiles) {
           const path = questionnaireGuidePath(locale, "response-color", profile.id);

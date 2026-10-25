@@ -13,12 +13,14 @@ import { appendSeoCtaContextParamsToHref, buildSeoCtaContextParams, buildSeoCtaT
 
 const button = "min-h-12 rounded-lg border border-slate-300 px-5 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 const draftEvent = "fm-questionnaire-draft";
+const subscribeReady = () => () => {};
 function subscribe(listener: () => void) {
   window.addEventListener(draftEvent, listener);
   return () => window.removeEventListener(draftEvent, listener);
 }
 
 export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+  const ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const zh = locale === "zh", key = `fm_questionnaire_draft:${quiz.slug}`;
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({});
   const [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome");
@@ -85,7 +87,8 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
     {stage === "welcome" && <>
       <h2 className="text-2xl font-semibold">{zh ? `开始${quiz.questions.length}题的自我观察` : `Start your ${quiz.questions.length}-question reflection`}</h2>
       <p className="my-4 leading-7">{zh ? "每题比较两种做法，选择通常更自然或更先出现的一项。没有正确答案。答完全部题目后再生成计数和完整解释。" : "Each question compares two responses. Choose the one that comes more naturally or happens first. There are no correct answers. Counts and full explanations appear only after all questions are complete."}</p>
-      <div className="flex flex-wrap gap-3"><button className={`${button} bg-violet-700 text-white`} onClick={() => start()}>{zh ? "开始测试" : "Start test"}</button>{draft && <button className={button} onClick={() => start(true)}>{zh ? "恢复本标签页进度" : "Resume this tab's progress"}</button>}</div>
+      {!ready && <p role="status" className="my-3 text-sm text-slate-600">{zh ? "正在准备测试…" : "Preparing the test…"}</p>}
+      <div className="flex flex-wrap gap-3"><button disabled={!ready} className={`${button} bg-violet-700 text-white`} onClick={() => start()}>{zh ? "开始测试" : "Start test"}</button>{draft && <button disabled={!ready} className={button} onClick={() => start(true)}>{zh ? "恢复本标签页进度" : "Resume this tab's progress"}</button>}</div>
       <p className="mt-4 text-sm leading-7 text-slate-600">{zh ? "完整题目和结果免费，无需注册。只有主动保存才会在刷新或换语言后提供恢复；本标签页保存24小时后失效，完成或重测即清除。" : "All questions and full results are free, with no signup. Saving is optional; only saved attempts can be resumed after a refresh or language change. Tab drafts expire after 24 hours and clear on completion or retake."}</p>
     </>}
     {stage === "answer" && question && <>
