@@ -425,3 +425,20 @@ it("keeps preference selection and removes the exercise form and navigation", ()
   expect(focus).toHaveAttribute("aria-pressed", "false");
   expect(vm.dimensions.map((item) => item.score)).toEqual(originalScores);
 });
+
+
+it("preserves optional backend time plans and hides them with the activity module", () => {
+  const source = structuredClone(backendSamples["zh-CN-60"]);
+  const plans = { "15min": "Read and try the supplied exercise.", "30min": "Repeat one short round if useful.", "2h": "Stop after a documented revision.", "1week": "Choose two dates for an optional repeat." };
+  const firstActivity = source.activity_explorer_v0_1.code_activity_pack.activities[0];
+  Object.assign(firstActivity, { action_duration_options: plans });
+  const vm = assembleRiasecResultViewModel({ scale_code: "RIASEC", type_code: "IAS", riasec_public_projection_v2: source } as unknown as ReportResponse, "en");
+  expect(vm.activityExplorer!.codeActivityPack.activities[0].actionDurationOptions).toEqual(plans);
+  const { rerender } = render(<RiasecResultShell locale="en" viewModel={vm} />);
+  const visiblePlans = screen.getByTestId("riasec-activity-duration-options");
+  for (const text of Object.values(plans)) expect(visiblePlans).toHaveTextContent(text);
+  for (const label of ["15 minutes", "30 minutes", "2 hours", "1 week"]) expect(within(visiblePlans).getByText(label)).toBeVisible();
+  vm.moduleVisibilityPolicy!.modules.find((entry) => entry.key === "activity_explorer")!.visibility = "hidden";
+  rerender(<RiasecResultShell locale="en" viewModel={vm} />);
+  expect(screen.queryByTestId("riasec-activity-duration-options")).not.toBeInTheDocument();
+});

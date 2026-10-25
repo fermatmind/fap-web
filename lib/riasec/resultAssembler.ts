@@ -193,6 +193,7 @@ export type RiasecActivityExplorerActivity = {
   activityUserCopy: string;
   riasecDimensions: string[];
   taskExamples: string[];
+  actionDurationOptions?: Record<string, string>;
   occupationExamples: RiasecActivityExplorerOccupationExample[];
   sourceStatus: string;
 };
@@ -1416,6 +1417,12 @@ function buildActivityExplorer(rawExplorer: Record<string, unknown> | null): Ria
           activityUserCopy: normalizeText(activity.activity_user_copy),
           riasecDimensions: normalizeStringList(activity.riasec_dimensions),
           taskExamples: normalizeStringList(activity.task_examples),
+          actionDurationOptions: Object.fromEntries(
+            ["15min", "30min", "2h", "1week"].flatMap((duration) => {
+              const text = normalizeText(asRecord(activity.action_duration_options)?.[duration]);
+              return text ? [[duration, text]] : [];
+            }),
+          ),
           sourceStatus: normalizeText(activity.source_status),
           occupationExamples: rawExamples.map((rawExample) => {
             const example = asRecord(rawExample) ?? {};

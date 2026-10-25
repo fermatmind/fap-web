@@ -342,6 +342,19 @@ export function RiasecReadingReport({
                                 <li key={item}>{item}</li>
                               ))}
                           </ul>
+                          {Object.keys(activity.actionDurationOptions ?? {}).length ? (
+                            <div data-testid="riasec-activity-duration-options">
+                              <h4>{t("可选试做时长", "Optional time plans")}</h4>
+                              <dl>
+                                {Object.entries(activity.actionDurationOptions ?? {}).map(([duration, text]) => (
+                                  <div key={duration}>
+                                    <dt>{({ "15min": t("15 分钟", "15 minutes"), "30min": t("30 分钟", "30 minutes"), "2h": t("2 小时", "2 hours"), "1week": t("1 周", "1 week") } as Record<string, string>)[duration]}</dt>
+                                    <dd>{clean(text)}</dd>
+                                  </div>
+                                ))}
+                              </dl>
+                            </div>
+                          ) : null}
                           {visibility("occupation_examples") !== "hidden" &&
                           activity.occupationExamples.length ? (
                             <div data-testid="riasec-occupation-examples">
