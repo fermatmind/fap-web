@@ -1,0 +1,37 @@
+[
+  {
+    "slug": "disc",
+    "code": "DISC_BEHAVIOR",
+    "version": "1.0.0",
+    "updated": "2026-10-25",
+    "category": "framework",
+    "title": {
+      "zh": "DISC测试",
+      "en": "DISC Personality Test"
+    },
+    "description": {
+      "zh": "完成24道真实工作情境二选一，比较D、I、S、C四个方向的本次选择次数，阅读完整单项或并列结果及具体练习。全部免费，无需注册。",
+      "en": "Take a free 24-question DISC-style test. Compare your D, I, S and C choices, keep every tie and read a full report with workplace examples and practical reflection."
+    },
+    "minutes": 5,
+    "formCode": "disc_behavior_forced_choice_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "single-d",
+      "single-i",
+      "single-s",
+      "single-c",
+      "tied-d-i",
+      "tied-d-s",
+      "tied-d-c",
+      "tied-i-s",
+      "tied-i-c",
+      "tied-s-c",
+      "tied-d-i-s",
+      "tied-d-i-c",
+      "tied-d-s-c",
+      "tied-i-s-c",
+      "tied-d-i-s-c"
+    ]
+  }
+]

@@ -1,0 +1,1816 @@
+{
+  "itemBank": {
+    "test_id": "DISC_BEHAVIOR",
+    "form_code": "disc_behavior_forced_choice_24",
+    "construct_version": "0.1.0-preview",
+    "item_bank_version": "0.1.1-preview",
+    "renderer": "forced_choice",
+    "question_count": 24,
+    "status": "content_reviewed_public_preview_not_validated",
+    "public_preview": true,
+    "psychometric_validation_completed": false,
+    "copyright_origin": "original",
+    "items": [
+      {
+        "question_id": "DISC_FC_001",
+        "test_id": "DISC_BEHAVIOR",
+        "form_code": "disc_behavior_forced_choice_24",
+        "item_bank_version": "0.1.1-preview",
+        "renderer": "forced_choice",
+        "pair_code": "DOMINANCE|INFLUENCE",
+        "context_code": "collaboration",
+        "prompt": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "text": "合作任务刚启动时，我会先推动大家定下下一步。",
+            "direction_code": "DOMINANCE"
+          },
+          {
+            "code": "B",
+            "text": "合作任务刚启动时，我会先让大家说起来。",
+            "direction_code": "INFLUENCE"
+          }
+        ]
+      },
+      {
+        "question_id": "DISC_FC_002",
+        "test_id": "DISC_BEHAVIOR",
+        "form_code": "disc_behavior_forced_choice_24",
+        "item_bank_version": "0.1.1-preview",
+        "renderer": "forced_choice",
+        "pair_code": "DOMINANCE|INFLUENCE",
+        "context_code": "communication",
+        "prompt": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "text": "会议有些沉闷时，我会先用一个话题带动交流。",
+            "direction_code": "INFLUENCE"
+          },
+          {
+            "code": "B",
+            "text": "会议有些沉闷时，我会先提议直接进入决定。",
+            "direction_code": "DOMINANCE"
+          }
+        ]
+      },
+      {
+        "question_id": "DISC_FC_003",
+        "test_id": "DISC_BEHAVIOR",
+        "form_code": "disc_behavior_forced_choice_24",
+        "item_bank_version": "0.1.1-preview",
+        "renderer": "forced_choice",
+        "pair_code": "DOMINANCE|INFLUENCE",
+        "context_code": "time_pressure",
+        "prompt": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "text": "时间变紧时，我倾向先砍掉次要环节继续推进。",
+            "direction_code": "DOMINANCE"
+          },
+          {
+            "code": "B",
+            "text": "时间变紧时，我倾向先说明状况让大家加入。",
+            "direction_code": "INFLUENCE"
+          }
+        ]
+      },
+      {
+        "question_id": "DISC_FC_004",
+        "test_id": "DISC_BEHAVIOR",
+        "form_code": "disc_behavior_forced_choice_24",
+        "item_bank_version": "0.1.1-preview",
+        "renderer": "forced_choice",
+        "pair_code": "DOMINANCE|INFLUENCE",
+        "context_code": "new_team",
+        "prompt": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "text": "面对陌生团队，我通常先与几个人建立轻松互动。",
+            "direction_code": "INFLUENCE"
+          },
+          {
+            "code": "B",
+            "text": "面对陌生团队，我通常先问清目标并推进行动。",
+            "direction_code": "DOMINANCE"
+          }
+        ]
+      },
+      {
+        "question_id": "DISC_FC_005",
+        "test_id": "DISC_BEHAVIOR",
+        "form_code": "disc_behavior_forced_choice_24",
+        "item_bank_version": "0.1.1-preview",
+        "renderer": "forced_choice",
+        "pair_code": "DOMINANCE|STEADINESS",
+        "context_code": "disagreement",
+        "prompt": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "text": "意见卡住时，我会先给出可执行的取舍方案。",
+            "direction_code": "DOMINANCE"
+          },
+          {
+            "code": "B",
+            "text": "意见卡住时，我会先让各方把担心说完。",
+            "direction_code": "STEADINESS"
+          }
+        ]
+      },
+      {
+        "question_id": "DISC_FC_006",
+        "test_id": "DISC_BEHAVIOR",
+        "form_code": "disc_behavior_forced_choice_24",
+        "item_bank_version": "0.1.1-preview",
+        "renderer": "forced_choice",
+        "pair_code": "DOMINANCE|STEADINESS",
+        "context_code": "change",
+        "prompt": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "text": "计划临时改变时，我会先帮大家保持原有节奏。",
+            "direction_code": "STEADINESS"
+          },
+          {
+            "code": "B",
+            "text": "计划临时改变时，我会先重排优先级并行动。",
+            "direction_code": "DOMINANCE"
+          }
+        ]
+      },
+      {
+        "question_id": "DISC_FC_007",
+        "test_id": "DISC_BEHAVIOR",
+        "form_code": "disc_behavior_forced_choice_24",
+        "item_bank_version": "0.1.1-preview",
+        "renderer": "forced_choice",
+        "pair_code": "DOMINANCE|STEADINESS",
+        "context_code": "coordination",
+        "prompt": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "text": "任务进展缓慢时，我倾向明确追问障碍和时间点。",
+            "direction_code": "DOMINANCE"
+          },
+          {
+            "code": "B",
+            "text": "任务进展缓慢时，我倾向先补位支持当前节奏。",
+            "direction_code": "STEADINESS"
+          }
+        ]
+      },
+      {
+        "question_id": "DISC_FC_008",
+        "test_id": "DISC_BEHAVIOR",
+        "form_code": "disc_behavior_forced_choice_24",
+        "item_bank_version": "0.1.1-preview",
+        "renderer": "forced_choice",
+        "pair_code": "DOMINANCE|STEADINESS",
+        "context_code": "collaboration",
+        "prompt": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "text": "多人配合忙乱时，我通常先稳住衔接和分工。",
+            "direction_code": "STEADINESS"
+          },
+          {
+            "code": "B",
+            "text": "多人配合忙乱时，我通常先指出最需要解决的一件事。",
+            "direction_code": "DOMINANCE"
+          }
+        ]
+      },
+      {
+        "question_id": "DISC_FC_009",
+        "test_id": "DISC_BEHAVIOR",
+        "form_code": "disc_behavior_forced_choice_24",
+        "item_bank_version": "0.1.1-preview",
+        "renderer": "forced_choice",
+        "pair_code": "DOMINANCE|CONSCIENTIOUSNESS",
+        "context_code": "time_pressure",
+        "prompt": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "text": "需要当场决定时，我会先用现有信息选一条路。",
+            "direction_code": "DOMINANCE"
+          },
+          {
+            "code": "B",
+            "text": "需要当场决定时，我会先核对几个关键条件。",
+            "direction_code": "CONSCIENTIOUSNESS"
+          }
+        ]
+      },
+      {
+        "question_id": "DISC_FC_010",
+        "test_id": "DISC_BEHAVIOR",
+        "form_code": "disc_behavior_forced_choice_24",
+        "item_bank_version": "0.1.1-preview",
+        "renderer": "forced_choice",
+        "pair_code": "DOMINANCE|CONSCIENTIOUSNESS",
+        "context_code": "quality",
+        "prompt": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "text": "交付前发现小偏差时，我会先评估是否需要修正。",
+            "direction_code": "CONSCIENTIOUSNESS"
+          },
+          {
+            "code": "B",
+            "text": "交付前发现小偏差时，我会先保证主要结果按时落地。",
+            "direction_code": "DOMINANCE"
+          }
+        ]
+      },
+      {
+        "question_id": "DISC_FC_011",
+        "test_id": "DISC_BEHAVIOR",
+        "form_code": "disc_behavior_forced_choice_24",
+        "item_bank_version": "0.1.1-preview",
+        "renderer": "forced_choice",
+        "pair_code": "DOMINANCE|CONSCIENTIOUSNESS",
+        "context_code": "rules",
+        "prompt": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "text": "规则不够清楚时，我倾向先提出一个可行做法。",
+            "direction_code": "DOMINANCE"
+          },
+          {
+            "code": "B",
+            "text": "规则不够清楚时，我倾向先确认边界和标准。",
+            "direction_code": "CONSCIENTIOUSNESS"
+          }
+        ]
+      },
+      {
+        "question_id": "DISC_FC_012",
+        "test_id": "DISC_BEHAVIOR",
+        "form_code": "disc_behavior_forced_choice_24",
+        "item_bank_version": "0.1.1-preview",
+        "renderer": "forced_choice",
+        "pair_code": "DOMINANCE|CONSCIENTIOUSNESS",
+        "context_code": "change",
+        "prompt": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "text": "新方案还有不确定时，我通常先检查可能出错的环节。",
+            "direction_code": "CONSCIENTIOUSNESS"
+          },
+          {
+            "code": "B",
+            "text": "新方案还有不确定时，我通常先做一小步看实际反馈。",
+            "direction_code": "DOMINANCE"
+          }
+        ]
+      },
+      {
+        "question_id": "DISC_FC_013",
+        "test_id": "DISC_BEHAVIOR",
+        "form_code": "disc_behavior_forced_choice_24",
+        "item_bank_version": "0.1.1-preview",
+        "renderer": "forced_choice",
+        "pair_code": "INFLUENCE|STEADINESS",
+        "context_code": "disagreement",
+        "prompt": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "text": "讨论出现分歧时，我会先用自己的理解帮大家对话。",
+            "direction_code": "INFLUENCE"
+          },
+          {
+            "code": "B",
+            "text": "讨论出现分歧时，我会先听完各方再缓和节奏。",
+            "direction_code": "STEADINESS"
+          }
+        ]
+      },
+      {
+        "question_id": "DISC_FC_014",
+        "test_id": "DISC_BEHAVIOR",
+        "form_code": "disc_behavior_forced_choice_24",
+        "item_bank_version": "0.1.1-preview",
+        "renderer": "forced_choice",
+        "pair_code": "INFLUENCE|STEADINESS",
+        "context_code": "new_team",
+        "prompt": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "text": "新成员加入时，我会先陪他熟悉现有节奏。",
+            "direction_code": "STEADINESS"
+          },
+          {
+            "code": "B",
+            "text": "新成员加入时，我会先帮他与大家自然聊起来。",
+            "direction_code": "INFLUENCE"
+          }
+        ]
+      },
+      {
+        "question_id": "DISC_FC_015",
+        "test_id": "DISC_BEHAVIOR",
+        "form_code": "disc_behavior_forced_choice_24",
+        "item_bank_version": "0.1.1-preview",
+        "renderer": "forced_choice",
+        "pair_code": "INFLUENCE|STEADINESS",
+        "context_code": "collaboration",
+        "prompt": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "text": "需要多人配合时，我倾向先讲清画面让大家愿意参与。",
+            "direction_code": "INFLUENCE"
+          },
+          {
+            "code": "B",
+            "text": "需要多人配合时，我倾向先保证每个人都能接上进度。",
+            "direction_code": "STEADINESS"
+          }
+        ]
+      },
+      {
+        "question_id": "DISC_FC_016",
+        "test_id": "DISC_BEHAVIOR",
+        "form_code": "disc_behavior_forced_choice_24",
+        "item_bank_version": "0.1.1-preview",
+        "renderer": "forced_choice",
+        "pair_code": "INFLUENCE|STEADINESS",
+        "context_code": "communication",
+        "prompt": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "text": "沟通对象有些犹豫时，我通常先给他空间慢慢表达。",
+            "direction_code": "STEADINESS"
+          },
+          {
+            "code": "B",
+            "text": "沟通对象有些犹豫时，我通常先用问题引出他的想法。",
+            "direction_code": "INFLUENCE"
+          }
+        ]
+      },
+      {
+        "question_id": "DISC_FC_017",
+        "test_id": "DISC_BEHAVIOR",
+        "form_code": "disc_behavior_forced_choice_24",
+        "item_bank_version": "0.1.1-preview",
+        "renderer": "forced_choice",
+        "pair_code": "INFLUENCE|CONSCIENTIOUSNESS",
+        "context_code": "communication",
+        "prompt": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "text": "介绍一个新想法时，我会先讲它能带来的变化。",
+            "direction_code": "INFLUENCE"
+          },
+          {
+            "code": "B",
+            "text": "介绍一个新想法时，我会先讲依据和实施条件。",
+            "direction_code": "CONSCIENTIOUSNESS"
+          }
+        ]
+      },
+      {
+        "question_id": "DISC_FC_018",
+        "test_id": "DISC_BEHAVIOR",
+        "form_code": "disc_behavior_forced_choice_24",
+        "item_bank_version": "0.1.1-preview",
+        "renderer": "forced_choice",
+        "pair_code": "INFLUENCE|CONSCIENTIOUSNESS",
+        "context_code": "quality",
+        "prompt": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "text": "收到模糊反馈时，我会先问清具体例子和标准。",
+            "direction_code": "CONSCIENTIOUSNESS"
+          },
+          {
+            "code": "B",
+            "text": "收到模糊反馈时，我会先通过交流理解对方的感受。",
+            "direction_code": "INFLUENCE"
+          }
+        ]
+      },
+      {
+        "question_id": "DISC_FC_019",
+        "test_id": "DISC_BEHAVIOR",
+        "form_code": "disc_behavior_forced_choice_24",
+        "item_bank_version": "0.1.1-preview",
+        "renderer": "forced_choice",
+        "pair_code": "INFLUENCE|CONSCIENTIOUSNESS",
+        "context_code": "rules",
+        "prompt": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "text": "团队准备对外说明时，我倾向先组织一个有吸引力的开场。",
+            "direction_code": "INFLUENCE"
+          },
+          {
+            "code": "B",
+            "text": "团队准备对外说明时，我倾向先检查用词和数据。",
+            "direction_code": "CONSCIENTIOUSNESS"
+          }
+        ]
+      },
+      {
+        "question_id": "DISC_FC_020",
+        "test_id": "DISC_BEHAVIOR",
+        "form_code": "disc_behavior_forced_choice_24",
+        "item_bank_version": "0.1.1-preview",
+        "renderer": "forced_choice",
+        "pair_code": "INFLUENCE|CONSCIENTIOUSNESS",
+        "context_code": "new_team",
+        "prompt": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "text": "现场被问到细节时，我通常先确认信息再回答。",
+            "direction_code": "CONSCIENTIOUSNESS"
+          },
+          {
+            "code": "B",
+            "text": "现场被问到细节时，我通常先与对方建立共同理解。",
+            "direction_code": "INFLUENCE"
+          }
+        ]
+      },
+      {
+        "question_id": "DISC_FC_021",
+        "test_id": "DISC_BEHAVIOR",
+        "form_code": "disc_behavior_forced_choice_24",
+        "item_bank_version": "0.1.1-preview",
+        "renderer": "forced_choice",
+        "pair_code": "STEADINESS|CONSCIENTIOUSNESS",
+        "context_code": "change",
+        "prompt": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "text": "流程频繁变动时，我会先保留让大家安心的固定环节。",
+            "direction_code": "STEADINESS"
+          },
+          {
+            "code": "B",
+            "text": "流程频繁变动时，我会先整理新规则和异常点。",
+            "direction_code": "CONSCIENTIOUSNESS"
+          }
+        ]
+      },
+      {
+        "question_id": "DISC_FC_022",
+        "test_id": "DISC_BEHAVIOR",
+        "form_code": "disc_behavior_forced_choice_24",
+        "item_bank_version": "0.1.1-preview",
+        "renderer": "forced_choice",
+        "pair_code": "STEADINESS|CONSCIENTIOUSNESS",
+        "context_code": "quality",
+        "prompt": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "text": "同事交付了一份初稿时，我会先核对它是否符合要求。",
+            "direction_code": "CONSCIENTIOUSNESS"
+          },
+          {
+            "code": "B",
+            "text": "同事交付了一份初稿时，我会先了解他还需要哪些支持。",
+            "direction_code": "STEADINESS"
+          }
+        ]
+      },
+      {
+        "question_id": "DISC_FC_023",
+        "test_id": "DISC_BEHAVIOR",
+        "form_code": "disc_behavior_forced_choice_24",
+        "item_bank_version": "0.1.1-preview",
+        "renderer": "forced_choice",
+        "pair_code": "STEADINESS|CONSCIENTIOUSNESS",
+        "context_code": "coordination",
+        "prompt": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "text": "日常协作出现遗漏时，我倾向先补上缺口保持连续。",
+            "direction_code": "STEADINESS"
+          },
+          {
+            "code": "B",
+            "text": "日常协作出现遗漏时，我倾向先找出是哪个环节失准。",
+            "direction_code": "CONSCIENTIOUSNESS"
+          }
+        ]
+      },
+      {
+        "question_id": "DISC_FC_024",
+        "test_id": "DISC_BEHAVIOR",
+        "form_code": "disc_behavior_forced_choice_24",
+        "item_bank_version": "0.1.1-preview",
+        "renderer": "forced_choice",
+        "pair_code": "STEADINESS|CONSCIENTIOUSNESS",
+        "context_code": "rules",
+        "prompt": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "copyright_origin": "original",
+        "options": [
+          {
+            "code": "A",
+            "text": "工作要移交给别人时，我通常先整理清单和注意事项。",
+            "direction_code": "CONSCIENTIOUSNESS"
+          },
+          {
+            "code": "B",
+            "text": "工作要移交给别人时，我通常先安排平稳的衔接过程。",
+            "direction_code": "STEADINESS"
+          }
+        ]
+      }
+    ]
+  },
+  "scoringSpec": {
+    "test_id": "DISC_BEHAVIOR",
+    "scoring_version": "0.1.1-preview",
+    "compatible_construct_version": "0.1.0-preview",
+    "compatible_item_bank_version": "0.1.1-preview",
+    "compatible_form_code": "disc_behavior_forced_choice_24",
+    "status": "public_preview_raw_wins_not_validated",
+    "public_preview": true,
+    "psychometric_validation_completed": false,
+    "directions": [
+      {
+        "direction_code": "DOMINANCE",
+        "display_name": "D·推进处理",
+        "scheduled_comparisons": 12
+      },
+      {
+        "direction_code": "INFLUENCE",
+        "display_name": "I·表达带动",
+        "scheduled_comparisons": 12
+      },
+      {
+        "direction_code": "STEADINESS",
+        "display_name": "S·稳定支持",
+        "scheduled_comparisons": 12
+      },
+      {
+        "direction_code": "CONSCIENTIOUSNESS",
+        "display_name": "C·规范核对",
+        "scheduled_comparisons": 12
+      }
+    ],
+    "scoring_model": {
+      "name": "forced_choice_raw_wins",
+      "one_win_per_selected_option": true,
+      "ranking_requires_complete": true,
+      "preserve_all_ties": true,
+      "thresholds_enabled": false,
+      "norming_enabled": false
+    }
+  },
+  "content": {
+    "schema_version": "2.0",
+    "assembled_version": "0.2.0-preview",
+    "test_id": "DISC_BEHAVIOR",
+    "form_code": "disc_behavior_forced_choice_24",
+    "construct_version": "0.1.0-preview",
+    "compatible_item_bank_version": "0.1.1-preview",
+    "compatible_scoring_version": "0.1.1-preview",
+    "result_content_version": "0.2.0-preview",
+    "content_status": "public_preview_editorially_reviewed_not_psychometrically_validated",
+    "public_preview": true,
+    "psychometric_validation_completed": false,
+    "profiles": [
+      {
+        "profile_code": "SINGLE_D",
+        "direction_codes": [
+          "DOMINANCE"
+        ],
+        "display_name": "D·推进处理",
+        "result_headline": "本次选择中，推进处理（D）的次数排在第一",
+        "one_sentence_summary": "这 24 道题里，你更多次选了先定下一步、先让事情往前走的那一项。",
+        "score_reading": "怎么算分：每道题都是两个方向二选一，选中的方向得 1 次；四个方向各出场 12 次。本次 D·推进处理次数最多。这个数字只在这 24 题内部成立，不是人群百分位，不是准确率，也跟浓度无关。",
+        "core_pattern": "你的回答指向一个特点：当事情需要往前挪一步时，你通常先问三件事：谁来定、下一步做什么、什么时候回看结果。合作刚启动，你会先推动大家定下下一步；会议沉闷，你会提议直接进入决定；时间变紧，你会砍掉次要环节；任务进展慢，你会追问障碍和时间点。这不代表你每次都这样，只说明这类情境里你更常走这条路。",
+        "attention_priority": "你更先注意到的是事情有没有卡住、下一步是否清楚。讨论一直绕圈时，你往往是先指出只需解决一件事的人。",
+        "decision_rhythm": "需要当场决定时，你用现有信息先选一条路，再按实际反馈调整，而不是等所有条件确认完。你愿意为先走一步承担返工风险，换取事情不再停在原地。",
+        "communication_style": "表达直接、聚焦。你通常先给结论或方案，再补充原因。别人可能觉得你有点赶，但对熟悉你的人，这恰恰是有你在、事情不会停下的原因。",
+        "collaboration_pattern": "在多人配合里，你常扮演把优先级拎出来的人。忙乱时你指出最需要解决的一件事，让大家有抓手。你也会因为把下一步定得太快，而少听到一些不同意见。",
+        "conflict_response": "意见卡住时，你倾向给出可执行的取舍方案，用我们这样走行不行来结束僵持。你不习惯停在再讨论的状态；方案被否定时，你可能快速转向下一条路，忽略对方拒绝的理由。",
+        "under_pressure": "压力越大，你越倾向收窄范围、加快节奏。计划临时改变时，你先重排优先级并行动，比平时更少征求确认，身边人会有被你带着跑的感觉。",
+        "possible_contributions": [
+          "讨论陷入僵局时，你能先给出一个可执行的取舍方案，让会议从说不下去变成试一把。",
+          "时间变紧时，你能先砍掉次要环节，保住主要结果的落地。",
+          "规则不清楚时，你倾向先提出一个可行做法，让团队不必停在等定义上。",
+          "新方案有不确定时，你愿意先做一小步看实际反馈，用真实验证代替反复讨论。"
+        ],
+        "possible_costs": [
+          "推进过快时，可能压缩别人的表达空间，让他们没说完就被带向你的结论。",
+          "先走一步的模式，可能略过尚未显现的风险，事后要花时间补救。",
+          "频繁替大家定下一步，可能让别人不再主动提自己的方案。",
+          "在讲究流程和共识的环境里，你的快节奏可能被读成不尊重现有规则。"
+        ],
+        "context_variations": [
+          "当你只是执行者而非主导者时，你会明显放慢，先听安排再动。",
+          "与特别熟的人协作，你更敢直接指出问题；面对不熟的团队，你会先试探边界。",
+          "时间压力大的任务里，你会更激进地砍环节；长线低风险的项目里，你愿意多等一轮信息。",
+          "在看重程序和合规的工作里（比如财务、法务），你再急也会先留出核对环节。"
+        ],
+        "work_scenes": [
+          "项目周会上，别人还在讨论方向，你已经在问下周谁负责、周五对什么。",
+          "交付前夜，其他人在补细节，你更关心主流程能不能跑通、上线时间保不保得住。",
+          "接手一个烂尾任务时，你会先列出必须做完的三件事，而不是先复盘原因。"
+        ],
+        "relationship_scenes": [
+          "朋友跟你商量换工作时，你可能会先列一个决定框架（钱、发展、生活），而不是先陪他聊感受。",
+          "家人规划假期时，你会先问时间定了没、预算多少，让计划尽快落地，这有时会被觉得太急。"
+        ],
+        "counterbalance_prompts": [
+          "下次说出方案前，先补一句：在我给建议之前，你们觉得最重要的是什么？",
+          "决定先走一步之前，给自己六十秒列一下可能漏掉了什么，而不是立刻行动。",
+          "团队沉默时，主动问一次谁有不同的担心，再进入下一步。",
+          "每周选一件事，刻意让别人先提方案，你只负责评估。"
+        ],
+        "seven_day_experiment": "接下来七天，每天选一个本可马上推进的时刻，故意延迟十分钟：先记下别人的想法和担心，再决定下一步。七天结束时回看，哪些延迟让结果更好，哪些只是浪费时间。这不是让你变慢，而是看清快和稳各自买到了什么。",
+        "reflection_questions": [
+          "最近一次你替大家定下下一步之后，有谁后来表达了不同意见？",
+          "在什么情境下你会主动放慢、先听再说？那通常是什么让你改变了节奏？",
+          "你上一次因为推进太快而后悔，具体是哪件事？如果重来，你会在哪一步停下来？",
+          "你的同事或朋友，通常说你太快，还是正好？"
+        ],
+        "does_not_mean": [
+          "不表示你喜欢压人或者总想掌控局面。",
+          "不表示你适合当领导，也不预测你的管理表现。",
+          "不表示你总是这样，情境变了你可能完全换一种方式。",
+          "不说明其他三个方向是缺点或缺失。",
+          "不是心理诊断，不描述你是什么人，只描述这次题组里的相对选择。",
+          "不预测你的职业成败或人际关系结果。"
+        ],
+        "interpretation_boundary": "这个结果只反映本次 24 题里的相对选择次数。它不等同任何商业 DISC 产品或认证量表，不构成心理测量学验证，也不能用于招聘、人事筛选或任何高影响决策。请把下面的描述带回你的具体经历核对，认同的留下，不符合的略过。",
+        "scientific_boundary": "本测试用于娱乐与自我探索，尚未完成信度、效度、常模等心理测量学验证，也未获得任何 DISC 官方的认证资格。结果仅基于本次自报选择的次数比较。"
+      },
+      {
+        "profile_code": "SINGLE_I",
+        "direction_codes": [
+          "INFLUENCE"
+        ],
+        "display_name": "I·表达带动",
+        "result_headline": "本次选择中，表达带动（I）的次数排在第一",
+        "one_sentence_summary": "回答这 24 题时，你选先让对话流动起来这类选项的次数最多。",
+        "score_reading": "计分方式很简单：每道题都是两个方向的二选一，你选中的方向记 1 次；四个方向各出场 12 次。这次 I·表达带动拿到的次数最多。请注意，这个数字只在本次作答内部有效——它跟人群排名无关，更不是百分位、准确率或什么浓度。",
+        "core_pattern": "从回答里能看出，当一群人要一起做点什么时，你通常先让空气热起来：合作刚开始，你先让大家说起来；会议沉闷，你先用一个话题带动交流；时间变紧，你先说明状况让大家加入。你的路径是先让人进场，事情才走得动。",
+        "attention_priority": "你更先注意到的是人们有没有进入交流。有人一直没说话、有人表情犹豫，你会先于别人发现，并想办法把他带进来。",
+        "decision_rhythm": "你倾向在交流中做决定，而不是独自拍板。先抛出想法、观察反应、调整说法，再慢慢收敛。对你来说，大家点头和大家真的懂了同样重要，有时后者更重要。",
+        "communication_style": "表达偏生动、带画面。介绍新想法时，你先讲它能带来的变化，而不是先摆依据。收到模糊反馈时，你倾向通过交流理解对方真正想说什么，而不是只追问标准。",
+        "collaboration_pattern": "在多人配合里，你常扮演让衔接不冷场的人。你会保证每个人都能接上进度，用自己的理解帮大家对话。新成员加入时，你先陪他熟悉节奏，让过渡平滑一些。",
+        "conflict_response": "讨论出现分歧时，你倾向用自己的理解帮大家把话说通，把对立变成原来你说的是这个意思。你不喜欢硬碰硬，更愿意调整说法来缓和。风险是：讨论热热闹闹，但分歧并没有真正被拍板解决。",
+        "under_pressure": "压力越大，你越依赖表达来稳住场面。时间变紧时，你先说明状况让大家加入，而不是一个人扛。如果现场没人回应，你会比平时更难受，甚至觉得只有自己在推动对话。",
+        "possible_contributions": [
+          "会议冷场时，你能用一个话题或一个例子把大家带回同一张桌上。",
+          "新想法出来时，你能把抽象的东西讲成会发生什么变化，帮人更快理解。",
+          "团队里有新人或边缘成员时，你会注意到并把他带进对话。",
+          "讨论僵住时，你能用我理解你的意思是……，让双方重新开始说话。"
+        ],
+        "possible_costs": [
+          "交流热络不等于已经达成承诺，聊得开心和答应做事是两回事。",
+          "丰富的表达可能还需要收敛成具体的下一步，否则散会后没有落点。",
+          "为了维持气氛，你可能把该说重的话说得轻了，尤其是对熟悉的人。",
+          "在只讲数据和结论的场合，你的表达方式可能被读成不够严谨。"
+        ],
+        "context_variations": [
+          "面对陌生人或大型场合，你会更主动调动气氛；面对亲近的人，你可能反而话少、更直接。",
+          "在轻松聚会上你可能是带动者，在严肃评审会上你会明显收敛，先观察再开口。",
+          "当你对话题不感兴趣或不懂时，你可能不太愿意主动开口，这与爱表达并不冲突。",
+          "在群聊、邮件这类文字沟通里，你可能比面对面少很多表现力，容易被低估。"
+        ],
+        "work_scenes": [
+          "项目启动会上，别人还在看材料，你已经抛出一个如果这样会怎样开场问题。",
+          "跨部门协调时，两边都在说术语，你会用大白话把双方的意思翻一遍，让对话继续下去。",
+          "新人入职第一周通常先跟你熟起来，因为你会主动搭话。"
+        ],
+        "relationship_scenes": [
+          "朋友聚会里，冷场时先找话题的往往是你；但你有时会说得太多，没留意到有人想插话。",
+          "家人讨论重要决定时，你倾向先讲这件事会带来什么改变，再谈细节，家人可能觉得你太乐观。"
+        ],
+        "counterbalance_prompts": [
+          "聊得很热的时候，问一句：我们刚才聊的这些，最后要落到哪一件事上？",
+          "下次介绍想法时，先问自己：如果只能讲一句话，我讲什么？练习把表达收短。",
+          "当别人沉默时，先别急着补话题，给自己三十秒等一等，看看沉默里是不是有话。",
+          "重要沟通结束后，用一句话复述我们达成了什么，跟对方确认，而不是默认大家都懂。"
+        ],
+        "seven_day_experiment": "接下来七天，每次觉得场面有点冷时，先忍住六十秒不开口，观察谁在等、谁想说话，然后只做一件事：把说话机会递给他。七天结束时回看：哪些场子其实不需要你救，哪些人被你挡了话头。你不需要永远当暖场的人。",
+        "reflection_questions": [
+          "上一次聊得很热但散会没结果，是哪件事？当时少了哪一步？",
+          "在什么场合你会主动少说、多听？那是为什么？",
+          "有没有人跟你说过你话说得有点多？你当时觉得他说得对吗？",
+          "你更愿意在熟人面前放开说，还是在陌生场合更活跃？"
+        ],
+        "does_not_mean": [
+          "不表示你外向或一定喜欢社交，也不代表你话多。",
+          "不表示你善于说服别人，更不预测你的演讲能力。",
+          "不表示你总是这样，情境变了你可能换一种方式。",
+          "不说明其他三个方向是缺点或缺失。",
+          "不是心理诊断，不描述你是什么人，只描述这次题组里的相对选择。",
+          "不预测你的职业成败或人际关系结果。"
+        ],
+        "interpretation_boundary": "这个结果只反映本次 24 题里的相对选择次数。它不等同任何商业 DISC 产品或认证量表，不构成心理测量学验证，也不能用于招聘、人事筛选或任何高影响决策。请把下面的描述带回你的具体经历核对，认同的留下，不符合的略过。",
+        "scientific_boundary": "本测试用于娱乐与自我探索，尚未完成信度、效度、常模等心理测量学验证，也未获得任何 DISC 官方的认证资格。结果仅基于本次自报选择的次数比较。"
+      },
+      {
+        "profile_code": "SINGLE_S",
+        "direction_codes": [
+          "STEADINESS"
+        ],
+        "display_name": "S·稳定支持",
+        "result_headline": "本次选择中，稳定支持（S）的次数排在第一",
+        "one_sentence_summary": "整份问卷里，你更常选的是先顾好节奏、先照顾到每个人的那一项。",
+        "score_reading": "本题四个方向各被安排了 12 次出场，你每选中一次就记 1 分。本次 S·稳定支持得分最高。这个分数只在这一次作答内部有意义：它不涉及人群里的位置，更不是准确率、浓度或百分位，只说明这次你相对更常选它。",
+        "core_pattern": "看你的作答，你通常先保证大家还能稳稳往前走，再谈别的。计划临时改变时，你先帮大家保持原有节奏；多人配合忙乱时，你先稳住衔接和分工；意见卡住时，你先让各方把担心说完。你默认的路径是：把变化带来的晃动减到最小，人才能安心做事。",
+        "attention_priority": "你更先注意到的是协作是否平稳、有没有人掉队。流程频繁变动时，你会保留让大多数人安心的固定环节；有人接不上进度时，你往往比谁都先发现。",
+        "decision_rhythm": "你倾向让决定在充分表达后自然浮现，而不是被硬推出来。对方犹豫时，你先用问题引出他的想法，而不是替他决定。你愿意多花一点时间，让决定落地时大家都接得住。",
+        "communication_style": "表达偏温和、留余地。你通常先听，再用问题确认对方的想法。讨论出现分歧时，你先听完各方再缓和节奏，而不是立刻站队或推进。你说重话之前，通常会先铺垫一句我不是这个意思。",
+        "collaboration_pattern": "在多人配合里，你常扮演补位的人。协作里出了遗漏，你先把缺口补上保持连续，而不是先追责。同事交付初稿时，你先了解他还需要什么支持，再谈改稿。移交工作时，你会安排平稳衔接，让接手的人不慌。",
+        "conflict_response": "意见卡住时，你倾向让各方把担心说完，等情绪落地再谈方案。你不喜欢在火药味里做决定。风险是：你可能为维持平和，把不同意见咽下去，攒到一定量才一次性说出来。",
+        "under_pressure": "压力越大，你越倾向守住节奏、不让场面散掉。流程频繁变动时，你努力保留固定环节给团队兜底。但压力持续时，你可能变成最后一个说不行的人，因为你不愿让局面更乱。",
+        "possible_contributions": [
+          "团队忙乱时，你能先稳住衔接和分工，让大家不至于各自为战。",
+          "变化频繁的项目里，你能保留固定环节，给团队一个可预期的基础。",
+          "有人接不上进度时，你会先补位支持，而不是先追究责任。",
+          "交接工作时，你能安排平稳过渡，让接手的人少走弯路。"
+        ],
+        "possible_costs": [
+          "为了维持稳定，你可能延后说出不同意见，错过提建议的时机。",
+          "持续补位可能让责任边界变模糊，别人渐渐默认你会兜底。",
+          "你可能为照顾节奏而放慢决策，在需要快速行动时显得犹豫。",
+          "你的温和表达可能被误读为没立场，尤其在需要明确表态的场合。"
+        ],
+        "context_variations": [
+          "在熟悉的团队里，你更敢表达不同意见；在不熟的环境里，你倾向先观察再开口。",
+          "事情与你切身相关时，你会更坚定；纯协助别人时，你更容易让步。",
+          "面对高压管理者，你可能更安静；面对平级协作，你会更主动补位。",
+          "在节奏快的初创环境，你可能觉得被推着走；在稳定运营的团队里，你会更自在。"
+        ],
+        "work_scenes": [
+          "项目中途换人时，你会主动把前因后果和注意事项交接清楚，让接手的人第一天不抓瞎。",
+          "大家为交付日期争论时，你倾向先问每个人手上还有什么，再谈怎么排期。",
+          "组里有人状态不好时，你会悄悄分担一些，而不是等他自己开口。"
+        ],
+        "relationship_scenes": [
+          "朋友遇到麻烦时，通常先找你聊，因为你听得完、不急着下结论。",
+          "家人意见不合时，你常是那个先缓和气氛的人；但你自己的委屈，可能要很久才会说出来。"
+        ],
+        "counterbalance_prompts": [
+          "下次想说没关系我来补之前，先问自己：这个缺口，该不该由我补？",
+          "每周找一个机会，练习在别人说完之后直接说有不同意见，而不是先铺垫。",
+          "决定放慢节奏前，问一句：再等下去，会错过什么？",
+          "重要沟通里，练习用我的意思是……开头，而不是总说我不是这个意思。"
+        ],
+        "seven_day_experiment": "接下来七天，每天留意一次你本来想补位但忍住了的时刻，或者主动说一次不同意见，哪怕只是在小事上。七天结束时回看：你补位时，别人是感谢还是习惯？你说不同意见时，天有没有塌下来？你不需要停止照顾别人，只需要偶尔把自己也放进去。",
+        "reflection_questions": [
+          "最近一次你想说不，但说成了好，是在什么情境？",
+          "什么情况下你会比平时更坚定、更快表态？",
+          "有没有人因为你太好说话，而忽略过你的需求？",
+          "如果节奏可以再快一点，你最想在哪件事上加速？"
+        ],
+        "does_not_mean": [
+          "不表示你性格温吞、好欺负或没有主见。",
+          "不表示你只适合配合别人或做支持类的事。",
+          "不表示你总是这样，情境变了你可能换一种方式。",
+          "不说明其他三个方向是缺点或缺失。",
+          "不是心理诊断，不描述你是什么人，只描述这次题组里的相对选择。",
+          "不预测你的职业成败或人际关系结果。"
+        ],
+        "interpretation_boundary": "这个结果只反映本次 24 题里的相对选择次数。它不等同任何商业 DISC 产品或认证量表，不构成心理测量学验证，也不能用于招聘、人事筛选或任何高影响决策。请把下面的描述带回你的具体经历核对，认同的留下，不符合的略过。",
+        "scientific_boundary": "本测试用于娱乐与自我探索，尚未完成信度、效度、常模等心理测量学验证，也未获得任何 DISC 官方的认证资格。结果仅基于本次自报选择的次数比较。"
+      },
+      {
+        "profile_code": "SINGLE_C",
+        "direction_codes": [
+          "CONSCIENTIOUSNESS"
+        ],
+        "display_name": "C·规范核对",
+        "result_headline": "本次选择中，规范核对（C）的次数排在第一",
+        "one_sentence_summary": "看完你的回答，次数最多的方向是 C·规范核对——先核对依据、先确认标准和边界。",
+        "score_reading": "每个方向参与 12 次比较，被选中即得 1 次。本次 C·规范核对次数居首。这个数字不能跨出本次作答使用：它不是人群排名，不是准确率，也不是浓度或百分位，只是本次的相对结果。",
+        "core_pattern": "你的答案显示，你在做事前通常先问依据、标准和可能出错的地方。需要当场决定时，你先核对关键条件；规则不清楚时，你先确认边界和标准；新方案不确定时，你先检查可能出错的环节。你默认的路径是：把变量数清楚，再决定动不动。",
+        "attention_priority": "你更先注意到的是信息是否完整、交付是否达标。收到模糊反馈时，你先问清具体例子和标准；同事交来初稿时，你先核对是否符合要求。小偏差在你眼里不是小事，因为你知道它会连锁放大。",
+        "decision_rhythm": "你倾向在信息足够后再下决定，而不是先用直觉选路。现场被问到细节时，你先确认信息再回答，宁可慢半拍，也不愿说错。对你来说，现在不做有时是更稳妥的决定。",
+        "communication_style": "表达偏准确、重依据。介绍新想法时，你先讲依据和实施条件，而不是先讲前景。对外说明前，你先检查用词和数据。你说话常带如果……那么……，显得谨慎，有时也被觉得太绕。",
+        "collaboration_pattern": "在多人配合里，你常扮演把关的人。协作中出了遗漏，你先弄清楚是哪个环节失准，而不是只补表面。移交工作时，你先整理清单和注意事项，让接手的人有据可查。流程频繁变动时，你先整理新规则和异常点。",
+        "conflict_response": "意见卡住时，你倾向先把标准摆出来：我们按什么判断对错？再谈方案。你不接受先做了再说的提议，除非风险可控。风险是：你反复核对时，别人可能觉得你不信任他们，或觉得你太慢。",
+        "under_pressure": "压力越大，你越可能加倍核对，因为你觉得出错比慢更可怕。但时间不够时，你也能退而求其次：先守住最关键的标准，其他从简。你比看起来更能接受妥协，前提是妥协有依据。",
+        "possible_contributions": [
+          "交付前，你能先发现别人没注意的小偏差，避免它变成大问题。",
+          "规则模糊时，你能先确认边界和标准，让团队不用各猜各的。",
+          "交接工作时，你能整理出清单和注意事项，让接手的人有据可查。",
+          "新方案有不确定时，你能先列出可能出错的环节，把风险摊在桌上。"
+        ],
+        "possible_costs": [
+          "过度追求信息完整，可能拖慢尝试，错过时机。",
+          "对标准的专注，可能挤压现场协商的空间，让人觉得你只认规则。",
+          "反复核对可能被读成不信任同事，或让别人不敢把初稿交给你。",
+          "在先跑起来的文化里，你的谨慎可能被当成阻力。"
+        ],
+        "context_variations": [
+          "你对熟悉的领域会更快，因为标准已经在你脑子里；不熟的领域你会更慢、更谨慎。",
+          "后果严重的事（钱、合规、对外发布）你会更严格；内部小任务你可能放松很多。",
+          "与信任的人协作时，你核对得更少；与不熟或不可靠的人协作时，你会逐项确认。",
+          "任务由你全权负责时，你会按自己的标准把关；只是配合别人时，你可能只在关键处提醒。"
+        ],
+        "work_scenes": [
+          "发布公告或对外文档前，你会通读一遍数字和措辞，指出两处可能被误解的地方。",
+          "需求文档不完整时，你会列出还缺什么，而不是先动手写代码。",
+          "复盘会上，你往往是那个问当初的标准是什么、哪一步开始失准的人。"
+        ],
+        "relationship_scenes": [
+          "朋友让你帮忙看合同或选产品时，你会先问清用途和预算，再列对比，而不是直接推荐。",
+          "家人计划旅行时，你会先核对航班时间、天气和证件，家人有时觉得你想太多。"
+        ],
+        "counterbalance_prompts": [
+          "下次想再核对一轮之前，问自己：再查一遍，能改变的后果是什么？",
+          "对初稿提意见时，先说一句整体方向没问题，再进入细节。",
+          "标准不明确时，别只自己查，问一句：你们理解的边界是什么？让标准变成共识。",
+          "每周选一件小事，故意不做清单直接做，练习在够好处停手。"
+        ],
+        "seven_day_experiment": "接下来七天，每天选一件原本会再核对的事，提前告诉自己：查完一遍就停，同时记录哪些其实一遍就够、哪些真的出问题了。七天结束时回看，核对帮你挡了多少麻烦，又让你错过多少时机。你不必变粗心，只需让核对对准真正重要的地方。",
+        "reflection_questions": [
+          "最近一次再核对一遍救了你，是哪件事？",
+          "有没有一次，你因为核对太久错过了时机？当时哪一步可以更早停？",
+          "同事会不会因为怕被你挑错，而延迟把初稿交给你？",
+          "哪些事情上，你可以接受差不多就行？"
+        ],
+        "does_not_mean": [
+          "不表示你性格刻板、挑剔或吹毛求疵。",
+          "不表示你只适合做质检或细节工作，也不预测你的岗位适配。",
+          "不表示你总是这样，情境变了你可能换一种方式。",
+          "不说明其他三个方向是缺点或缺失。",
+          "不是心理诊断，不描述你是什么人，只描述这次题组里的相对选择。",
+          "不预测你的职业成败或人际关系结果。"
+        ],
+        "interpretation_boundary": "这个结果只反映本次 24 题里的相对选择次数。它不等同任何商业 DISC 产品或认证量表，不构成心理测量学验证，也不能用于招聘、人事筛选或任何高影响决策。请把下面的描述带回你的具体经历核对，认同的留下，不符合的略过。",
+        "scientific_boundary": "本测试用于娱乐与自我探索，尚未完成信度、效度、常模等心理测量学验证，也未获得任何 DISC 官方的认证资格。结果仅基于本次自报选择的次数比较。"
+      },
+      {
+        "profile_code": "TIED_D_I",
+        "direction_codes": [
+          "DOMINANCE",
+          "INFLUENCE"
+        ],
+        "display_name": "D / I 并列",
+        "result_headline": "本次选择中，D / I 的原始次数并列最高",
+        "one_sentence_summary": "这只记录本次题组里 D·推进处理、I·表达带动 获得相同最高次数，不定义固定类型。",
+        "tie_explanation": "每道题只给被选中的方向记 1 次；本次 D / I 的次数相同且高于其余方向，系统完整保留并列，不使用题号、字母或选项位置破同分。",
+        "direction_readings": [
+          {
+            "direction_code": "DOMINANCE",
+            "display_name": "D·推进处理",
+            "reading": "D 的次数来自你在相关二选一题中选择推进、取舍或行动选项的次数；它不是执行力或领导力评分。"
+          },
+          {
+            "direction_code": "INFLUENCE",
+            "display_name": "I·表达带动",
+            "reading": "I 的次数来自你在相关二选一题中选择表达、互动或邀请参与选项的次数；它不是社交能力评分。"
+          }
+        ],
+        "contexts_to_review": [
+          "最近一次需要同时推动任务和争取参与的场景，两类做法分别出现在哪里？",
+          "独立工作和多人讨论时，你选择的做法是否不同？",
+          "时间宽松与时间紧张时，哪些实际行为发生了变化？"
+        ],
+        "tensions_to_review": [
+          "尽快定下下一步，与让更多信息进入讨论之间如何取舍。",
+          "表达带来的参与感，与明确责任和交付之间如何衔接。"
+        ],
+        "decision_review_questions": [
+          "最近一次重要决定中，你先收集了哪些意见，又在何时停止讨论？",
+          "哪些决定适合先试一步，哪些决定需要更多人确认？"
+        ],
+        "communication_review_questions": [
+          "表达方案时，结论、理由和征求意见各占了多少？",
+          "对话活跃之后，是否留下了明确的负责人和时间点？"
+        ],
+        "collaboration_review_questions": [
+          "谁没有进入讨论，谁没有接到明确任务？",
+          "推进节奏由谁决定，其他人是否有机会提出风险？"
+        ],
+        "pressure_review": {
+          "boundary": "本次并列不能说明压力下 D / I 中哪个方向会先出现、占上风或自动切换；题组没有测量这种顺序。",
+          "questions": [
+            "压力出现时，实际发生了哪些可观察动作？",
+            "当时的角色、时间限制、风险和参与者分别是什么？",
+            "事后证据显示哪些动作有帮助，哪些需要调整？"
+          ]
+        },
+        "real_world_checkpoints": [
+          "找一段近期会议记录，分别标出邀请参与和确定下一步的句子。",
+          "回看一个已交付任务，核对最初讨论与最终责任是否一致。"
+        ],
+        "balancing_actions": [
+          "下一次相似情境开始前，先写下任务约束和必须保护的目标。",
+          "行动或沟通结束后，用具体记录核对结果，而不是用本次标签解释。",
+          "发现描述与经历不符时，以实际经历为准，并记录情境差异。"
+        ],
+        "reflection_questions": [
+          "哪些具体题目让这些方向得到相同次数？",
+          "如果换一个角色或时间限制，你的选择可能怎样变化？",
+          "近期经历中，有哪些事实不支持本页描述？"
+        ],
+        "does_not_mean": [
+          "不表示这些方向组成了固定类型。",
+          "不表示你在不同场景都会采用同一组做法。",
+          "不表示任何方向对应能力高低或表现优劣。",
+          "不预测职业、关系、领导力或团队结果。",
+          "不构成心理诊断、招聘筛选或高影响决策依据。"
+        ],
+        "interpretation_boundary": "本页仅解释本次 24 道强迫选择题的原始次数并列。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业 DISC 产品或认证量表。"
+      },
+      {
+        "profile_code": "TIED_D_S",
+        "direction_codes": [
+          "DOMINANCE",
+          "STEADINESS"
+        ],
+        "display_name": "D / S 并列",
+        "result_headline": "本次选择中，D / S 的原始次数并列最高",
+        "one_sentence_summary": "这只记录本次题组里 D·推进处理、S·稳定支持 获得相同最高次数，不定义固定类型。",
+        "tie_explanation": "每道题只给被选中的方向记 1 次；本次 D / S 的次数相同且高于其余方向，系统完整保留并列，不使用题号、字母或选项位置破同分。",
+        "direction_readings": [
+          {
+            "direction_code": "DOMINANCE",
+            "display_name": "D·推进处理",
+            "reading": "D 的次数来自你在相关二选一题中选择推进、取舍或行动选项的次数；它不是执行力或领导力评分。"
+          },
+          {
+            "direction_code": "STEADINESS",
+            "display_name": "S·稳定支持",
+            "reading": "S 的次数来自你在相关二选一题中选择维持节奏、倾听或衔接选项的次数；它不是可靠程度评分。"
+          }
+        ],
+        "contexts_to_review": [
+          "最近一次进度卡住时，你实际做了推进、补位、倾听中的哪些动作？",
+          "面对熟悉团队和临时团队时，处理节奏有何差异？",
+          "任务重要性变化时，你是否调整了协商时间？"
+        ],
+        "tensions_to_review": [
+          "尽快解除阻塞，与让协作节奏保持可承受之间如何取舍。",
+          "主动补位，与明确责任归属之间如何划界。"
+        ],
+        "decision_review_questions": [
+          "何时需要当场决定，何时应给相关人更多表达时间？",
+          "你用什么可见信息判断继续等待或开始行动？"
+        ],
+        "communication_review_questions": [
+          "提出取舍时，是否同时说明了对现有节奏的影响？",
+          "倾听担心之后，是否把下一步说得足够具体？"
+        ],
+        "collaboration_review_questions": [
+          "补上的缺口原本属于谁，之后如何归还责任？",
+          "计划改变时，哪些固定环节确实有必要保留？"
+        ],
+        "pressure_review": {
+          "boundary": "本次并列不能说明压力下 D / S 中哪个方向会先出现、占上风或自动切换；题组没有测量这种顺序。",
+          "questions": [
+            "压力出现时，实际发生了哪些可观察动作？",
+            "当时的角色、时间限制、风险和参与者分别是什么？",
+            "事后证据显示哪些动作有帮助，哪些需要调整？"
+          ]
+        },
+        "real_world_checkpoints": [
+          "选一个延期任务，记录你曾推动和曾等待的具体节点。",
+          "核对一次交接：责任、截止时间和支持方式是否都被说清。"
+        ],
+        "balancing_actions": [
+          "下一次相似情境开始前，先写下任务约束和必须保护的目标。",
+          "行动或沟通结束后，用具体记录核对结果，而不是用本次标签解释。",
+          "发现描述与经历不符时，以实际经历为准，并记录情境差异。"
+        ],
+        "reflection_questions": [
+          "哪些具体题目让这些方向得到相同次数？",
+          "如果换一个角色或时间限制，你的选择可能怎样变化？",
+          "近期经历中，有哪些事实不支持本页描述？"
+        ],
+        "does_not_mean": [
+          "不表示这些方向组成了固定类型。",
+          "不表示你在不同场景都会采用同一组做法。",
+          "不表示任何方向对应能力高低或表现优劣。",
+          "不预测职业、关系、领导力或团队结果。",
+          "不构成心理诊断、招聘筛选或高影响决策依据。"
+        ],
+        "interpretation_boundary": "本页仅解释本次 24 道强迫选择题的原始次数并列。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业 DISC 产品或认证量表。"
+      },
+      {
+        "profile_code": "TIED_D_C",
+        "direction_codes": [
+          "DOMINANCE",
+          "CONSCIENTIOUSNESS"
+        ],
+        "display_name": "D / C 并列",
+        "result_headline": "本次选择中，D / C 的原始次数并列最高",
+        "one_sentence_summary": "这只记录本次题组里 D·推进处理、C·规范核对 获得相同最高次数，不定义固定类型。",
+        "tie_explanation": "每道题只给被选中的方向记 1 次；本次 D / C 的次数相同且高于其余方向，系统完整保留并列，不使用题号、字母或选项位置破同分。",
+        "direction_readings": [
+          {
+            "direction_code": "DOMINANCE",
+            "display_name": "D·推进处理",
+            "reading": "D 的次数来自你在相关二选一题中选择推进、取舍或行动选项的次数；它不是执行力或领导力评分。"
+          },
+          {
+            "direction_code": "CONSCIENTIOUSNESS",
+            "display_name": "C·规范核对",
+            "reading": "C 的次数来自你在相关二选一题中选择核对条件、标准或细节选项的次数；它不是严谨能力评分。"
+          }
+        ],
+        "contexts_to_review": [
+          "最近一次信息不完整但必须行动的场景，你核对了什么，又舍弃了什么？",
+          "可逆决定和不可逆决定中，你采用的检查深度是否不同？",
+          "面对新任务与重复任务时，启动速度和核对步骤有何差别？"
+        ],
+        "tensions_to_review": [
+          "尽快试出反馈，与降低可预见错误之间如何取舍。",
+          "规则尚未明确时，临时做法与正式标准如何区分。"
+        ],
+        "decision_review_questions": [
+          "决定前必须确认的三个条件是什么？",
+          "哪些风险可以通过小范围试验控制，而不必等待全部信息？"
+        ],
+        "communication_review_questions": [
+          "给出结论时，是否明确区分事实、假设和待确认项？",
+          "指出标准问题后，是否同时给出可执行的修正路径？"
+        ],
+        "collaboration_review_questions": [
+          "谁负责决定，谁负责复核，是否在开始前明确？",
+          "检查点是否服务于关键风险，还是仅增加流程？"
+        ],
+        "pressure_review": {
+          "boundary": "本次并列不能说明压力下 D / C 中哪个方向会先出现、占上风或自动切换；题组没有测量这种顺序。",
+          "questions": [
+            "压力出现时，实际发生了哪些可观察动作？",
+            "当时的角色、时间限制、风险和参与者分别是什么？",
+            "事后证据显示哪些动作有帮助，哪些需要调整？"
+          ]
+        },
+        "real_world_checkpoints": [
+          "抽查一个近期决定，列出当时已知、未知和后来验证的信息。",
+          "回看一次返工，判断原因来自启动过早还是核对遗漏。"
+        ],
+        "balancing_actions": [
+          "下一次相似情境开始前，先写下任务约束和必须保护的目标。",
+          "行动或沟通结束后，用具体记录核对结果，而不是用本次标签解释。",
+          "发现描述与经历不符时，以实际经历为准，并记录情境差异。"
+        ],
+        "reflection_questions": [
+          "哪些具体题目让这些方向得到相同次数？",
+          "如果换一个角色或时间限制，你的选择可能怎样变化？",
+          "近期经历中，有哪些事实不支持本页描述？"
+        ],
+        "does_not_mean": [
+          "不表示这些方向组成了固定类型。",
+          "不表示你在不同场景都会采用同一组做法。",
+          "不表示任何方向对应能力高低或表现优劣。",
+          "不预测职业、关系、领导力或团队结果。",
+          "不构成心理诊断、招聘筛选或高影响决策依据。"
+        ],
+        "interpretation_boundary": "本页仅解释本次 24 道强迫选择题的原始次数并列。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业 DISC 产品或认证量表。"
+      },
+      {
+        "profile_code": "TIED_I_S",
+        "direction_codes": [
+          "INFLUENCE",
+          "STEADINESS"
+        ],
+        "display_name": "I / S 并列",
+        "result_headline": "本次选择中，I / S 的原始次数并列最高",
+        "one_sentence_summary": "这只记录本次题组里 I·表达带动、S·稳定支持 获得相同最高次数，不定义固定类型。",
+        "tie_explanation": "每道题只给被选中的方向记 1 次；本次 I / S 的次数相同且高于其余方向，系统完整保留并列，不使用题号、字母或选项位置破同分。",
+        "direction_readings": [
+          {
+            "direction_code": "INFLUENCE",
+            "display_name": "I·表达带动",
+            "reading": "I 的次数来自你在相关二选一题中选择表达、互动或邀请参与选项的次数；它不是社交能力评分。"
+          },
+          {
+            "direction_code": "STEADINESS",
+            "display_name": "S·稳定支持",
+            "reading": "S 的次数来自你在相关二选一题中选择维持节奏、倾听或衔接选项的次数；它不是可靠程度评分。"
+          }
+        ],
+        "contexts_to_review": [
+          "最近一次需要让新成员进入协作的场景，你做了哪些可观察动作？",
+          "一对一交流和多人交流中，你给对方的表达空间是否不同？",
+          "气氛轻松与存在分歧时，你如何确认对方真正的意见？"
+        ],
+        "tensions_to_review": [
+          "主动打开对话，与给对方安静表达空间之间如何取舍。",
+          "维持互动顺畅，与把尚未解决的分歧说清之间如何平衡。"
+        ],
+        "decision_review_questions": [
+          "讨论结束时，如何确认每个人的同意不是出于沉默？",
+          "哪些议题需要延后决定，让相关人补充信息？"
+        ],
+        "communication_review_questions": [
+          "你提出的问题是在引导答案，还是让对方说明自己的考虑？",
+          "出现沉默时，等待和继续提问分别带来了什么？"
+        ],
+        "collaboration_review_questions": [
+          "新人是否获得了信息、发言机会和明确任务？",
+          "协作中的支持是否让责任更清楚，而不是更模糊？"
+        ],
+        "pressure_review": {
+          "boundary": "本次并列不能说明压力下 I / S 中哪个方向会先出现、占上风或自动切换；题组没有测量这种顺序。",
+          "questions": [
+            "压力出现时，实际发生了哪些可观察动作？",
+            "当时的角色、时间限制、风险和参与者分别是什么？",
+            "事后证据显示哪些动作有帮助，哪些需要调整？"
+          ]
+        },
+        "real_world_checkpoints": [
+          "回看一次群聊，统计主动发言、提问和确认行动各出现几次。",
+          "找一位参与者核对：他当时有哪些未说出的顾虑。"
+        ],
+        "balancing_actions": [
+          "下一次相似情境开始前，先写下任务约束和必须保护的目标。",
+          "行动或沟通结束后，用具体记录核对结果，而不是用本次标签解释。",
+          "发现描述与经历不符时，以实际经历为准，并记录情境差异。"
+        ],
+        "reflection_questions": [
+          "哪些具体题目让这些方向得到相同次数？",
+          "如果换一个角色或时间限制，你的选择可能怎样变化？",
+          "近期经历中，有哪些事实不支持本页描述？"
+        ],
+        "does_not_mean": [
+          "不表示这些方向组成了固定类型。",
+          "不表示你在不同场景都会采用同一组做法。",
+          "不表示任何方向对应能力高低或表现优劣。",
+          "不预测职业、关系、领导力或团队结果。",
+          "不构成心理诊断、招聘筛选或高影响决策依据。"
+        ],
+        "interpretation_boundary": "本页仅解释本次 24 道强迫选择题的原始次数并列。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业 DISC 产品或认证量表。"
+      },
+      {
+        "profile_code": "TIED_I_C",
+        "direction_codes": [
+          "INFLUENCE",
+          "CONSCIENTIOUSNESS"
+        ],
+        "display_name": "I / C 并列",
+        "result_headline": "本次选择中，I / C 的原始次数并列最高",
+        "one_sentence_summary": "这只记录本次题组里 I·表达带动、C·规范核对 获得相同最高次数，不定义固定类型。",
+        "tie_explanation": "每道题只给被选中的方向记 1 次；本次 I / C 的次数相同且高于其余方向，系统完整保留并列，不使用题号、字母或选项位置破同分。",
+        "direction_readings": [
+          {
+            "direction_code": "INFLUENCE",
+            "display_name": "I·表达带动",
+            "reading": "I 的次数来自你在相关二选一题中选择表达、互动或邀请参与选项的次数；它不是社交能力评分。"
+          },
+          {
+            "direction_code": "CONSCIENTIOUSNESS",
+            "display_name": "C·规范核对",
+            "reading": "C 的次数来自你在相关二选一题中选择核对条件、标准或细节选项的次数；它不是严谨能力评分。"
+          }
+        ],
+        "contexts_to_review": [
+          "最近一次解释复杂方案时，你先用了例子还是依据，效果如何核对？",
+          "面对熟悉主题和陌生主题时，你确认信息的方式是否不同？",
+          "口头沟通和书面交付中，表达与核对分别占了多少时间？"
+        ],
+        "tensions_to_review": [
+          "让信息容易进入对话，与保持条件、数据和来源准确之间如何取舍。",
+          "现场回应速度，与回答前确认事实之间如何平衡。"
+        ],
+        "decision_review_questions": [
+          "哪些信息必须核实后才能对外表达？",
+          "讨论形成多个想法后，用什么标准收敛？"
+        ],
+        "communication_review_questions": [
+          "是否明确区分了例子、推测和已核实事实？",
+          "对方说理解后，是否用复述或书面记录确认关键条件？"
+        ],
+        "collaboration_review_questions": [
+          "谁负责内容表达，谁负责事实复核，边界是否清楚？",
+          "修改措辞时，是否意外改变了原始含义或承诺范围？"
+        ],
+        "pressure_review": {
+          "boundary": "本次并列不能说明压力下 I / C 中哪个方向会先出现、占上风或自动切换；题组没有测量这种顺序。",
+          "questions": [
+            "压力出现时，实际发生了哪些可观察动作？",
+            "当时的角色、时间限制、风险和参与者分别是什么？",
+            "事后证据显示哪些动作有帮助，哪些需要调整？"
+          ]
+        },
+        "real_world_checkpoints": [
+          "抽查一份近期说明，标记每个事实的来源和每个推测的提示语。",
+          "回看一次现场问答，记录哪些回答后来需要更正。"
+        ],
+        "balancing_actions": [
+          "下一次相似情境开始前，先写下任务约束和必须保护的目标。",
+          "行动或沟通结束后，用具体记录核对结果，而不是用本次标签解释。",
+          "发现描述与经历不符时，以实际经历为准，并记录情境差异。"
+        ],
+        "reflection_questions": [
+          "哪些具体题目让这些方向得到相同次数？",
+          "如果换一个角色或时间限制，你的选择可能怎样变化？",
+          "近期经历中，有哪些事实不支持本页描述？"
+        ],
+        "does_not_mean": [
+          "不表示这些方向组成了固定类型。",
+          "不表示你在不同场景都会采用同一组做法。",
+          "不表示任何方向对应能力高低或表现优劣。",
+          "不预测职业、关系、领导力或团队结果。",
+          "不构成心理诊断、招聘筛选或高影响决策依据。"
+        ],
+        "interpretation_boundary": "本页仅解释本次 24 道强迫选择题的原始次数并列。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业 DISC 产品或认证量表。"
+      },
+      {
+        "profile_code": "TIED_S_C",
+        "direction_codes": [
+          "STEADINESS",
+          "CONSCIENTIOUSNESS"
+        ],
+        "display_name": "S / C 并列",
+        "result_headline": "本次选择中，S / C 的原始次数并列最高",
+        "one_sentence_summary": "这只记录本次题组里 S·稳定支持、C·规范核对 获得相同最高次数，不定义固定类型。",
+        "tie_explanation": "每道题只给被选中的方向记 1 次；本次 S / C 的次数相同且高于其余方向，系统完整保留并列，不使用题号、字母或选项位置破同分。",
+        "direction_readings": [
+          {
+            "direction_code": "STEADINESS",
+            "display_name": "S·稳定支持",
+            "reading": "S 的次数来自你在相关二选一题中选择维持节奏、倾听或衔接选项的次数；它不是可靠程度评分。"
+          },
+          {
+            "direction_code": "CONSCIENTIOUSNESS",
+            "display_name": "C·规范核对",
+            "reading": "C 的次数来自你在相关二选一题中选择核对条件、标准或细节选项的次数；它不是严谨能力评分。"
+          }
+        ],
+        "contexts_to_review": [
+          "最近一次流程变化时，你保留了哪些环节，又新增了哪些检查？",
+          "支持同事完成任务时，你如何区分协助与代做？",
+          "长期重复任务和紧急任务中，衔接与核对方式有何不同？"
+        ],
+        "tensions_to_review": [
+          "保持协作连续，与及时指出标准偏差之间如何取舍。",
+          "为他人补位，与让问题回到责任人和流程之间如何划界。"
+        ],
+        "decision_review_questions": [
+          "哪些偏差需要立即暂停，哪些可以记录后继续？",
+          "改变流程前，需要让哪些相关人理解并确认？"
+        ],
+        "communication_review_questions": [
+          "指出问题时，事实、影响和下一步是否分别说明？",
+          "为了避免冲突而延后的意见，后来是否及时补充？"
+        ],
+        "collaboration_review_questions": [
+          "交接清单是否既覆盖标准，也说明了可获得的支持？",
+          "反复出现的遗漏应由谁修流程，而不是继续临时补上？"
+        ],
+        "pressure_review": {
+          "boundary": "本次并列不能说明压力下 S / C 中哪个方向会先出现、占上风或自动切换；题组没有测量这种顺序。",
+          "questions": [
+            "压力出现时，实际发生了哪些可观察动作？",
+            "当时的角色、时间限制、风险和参与者分别是什么？",
+            "事后证据显示哪些动作有帮助，哪些需要调整？"
+          ]
+        },
+        "real_world_checkpoints": [
+          "检查一份近期交接记录，确认标准、例外和责任人是否齐全。",
+          "选一个重复问题，追踪它被补位了几次、是否进入正式修正。"
+        ],
+        "balancing_actions": [
+          "下一次相似情境开始前，先写下任务约束和必须保护的目标。",
+          "行动或沟通结束后，用具体记录核对结果，而不是用本次标签解释。",
+          "发现描述与经历不符时，以实际经历为准，并记录情境差异。"
+        ],
+        "reflection_questions": [
+          "哪些具体题目让这些方向得到相同次数？",
+          "如果换一个角色或时间限制，你的选择可能怎样变化？",
+          "近期经历中，有哪些事实不支持本页描述？"
+        ],
+        "does_not_mean": [
+          "不表示这些方向组成了固定类型。",
+          "不表示你在不同场景都会采用同一组做法。",
+          "不表示任何方向对应能力高低或表现优劣。",
+          "不预测职业、关系、领导力或团队结果。",
+          "不构成心理诊断、招聘筛选或高影响决策依据。"
+        ],
+        "interpretation_boundary": "本页仅解释本次 24 道强迫选择题的原始次数并列。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业 DISC 产品或认证量表。"
+      },
+      {
+        "profile_code": "TIED_D_I_S",
+        "direction_codes": [
+          "DOMINANCE",
+          "INFLUENCE",
+          "STEADINESS"
+        ],
+        "display_name": "D / I / S 并列",
+        "result_headline": "本次选择中，D / I / S 的原始次数并列最高",
+        "one_sentence_summary": "这只记录本次题组里 D·推进处理、I·表达带动、S·稳定支持 获得相同最高次数，不定义固定类型。",
+        "tie_explanation": "每道题只给被选中的方向记 1 次；本次 D / I / S 的次数相同且高于其余方向，系统完整保留并列，不使用题号、字母或选项位置破同分。",
+        "direction_readings": [
+          {
+            "direction_code": "DOMINANCE",
+            "display_name": "D·推进处理",
+            "reading": "D 的次数来自你在相关二选一题中选择推进、取舍或行动选项的次数；它不是执行力或领导力评分。"
+          },
+          {
+            "direction_code": "INFLUENCE",
+            "display_name": "I·表达带动",
+            "reading": "I 的次数来自你在相关二选一题中选择表达、互动或邀请参与选项的次数；它不是社交能力评分。"
+          },
+          {
+            "direction_code": "STEADINESS",
+            "display_name": "S·稳定支持",
+            "reading": "S 的次数来自你在相关二选一题中选择维持节奏、倾听或衔接选项的次数；它不是可靠程度评分。"
+          }
+        ],
+        "contexts_to_review": [
+          "最近一次多人任务中，推进、邀请参与和维持节奏分别发生在哪些时刻？",
+          "角色从发起者变为参与者时，你的实际做法有何变化？",
+          "有分歧和无分歧的会议中，发言与决定过程有何不同？"
+        ],
+        "tensions_to_review": [
+          "行动速度、参与范围和协作承受度三者无法同时最大化时如何取舍。",
+          "保持交流顺畅时，是否仍能明确未解决的问题和责任。"
+        ],
+        "decision_review_questions": [
+          "谁需要参与决定，谁只需要知情？",
+          "什么证据表明讨论已经足够，可以进入下一步？"
+        ],
+        "communication_review_questions": [
+          "你是否同时说明了目标、邀请了异议并给出回应时间？",
+          "热烈讨论之后，行动项是否被逐项确认？"
+        ],
+        "collaboration_review_questions": [
+          "节奏较慢或较少发言的人是否有明确入口？",
+          "补位行为是否掩盖了原本需要处理的责任问题？"
+        ],
+        "pressure_review": {
+          "boundary": "本次并列不能说明压力下 D / I / S 中哪个方向会先出现、占上风或自动切换；题组没有测量这种顺序。",
+          "questions": [
+            "压力出现时，实际发生了哪些可观察动作？",
+            "当时的角色、时间限制、风险和参与者分别是什么？",
+            "事后证据显示哪些动作有帮助，哪些需要调整？"
+          ]
+        },
+        "real_world_checkpoints": [
+          "复盘一场会议，按推进、互动、衔接三类标记实际行为。",
+          "向两位参与者核对，他们记住的决定和下一步是否一致。"
+        ],
+        "balancing_actions": [
+          "下一次相似情境开始前，先写下任务约束和必须保护的目标。",
+          "行动或沟通结束后，用具体记录核对结果，而不是用本次标签解释。",
+          "发现描述与经历不符时，以实际经历为准，并记录情境差异。"
+        ],
+        "reflection_questions": [
+          "哪些具体题目让这些方向得到相同次数？",
+          "如果换一个角色或时间限制，你的选择可能怎样变化？",
+          "近期经历中，有哪些事实不支持本页描述？"
+        ],
+        "does_not_mean": [
+          "不表示这些方向组成了固定类型。",
+          "不表示你在不同场景都会采用同一组做法。",
+          "不表示任何方向对应能力高低或表现优劣。",
+          "不预测职业、关系、领导力或团队结果。",
+          "不构成心理诊断、招聘筛选或高影响决策依据。"
+        ],
+        "interpretation_boundary": "本页仅解释本次 24 道强迫选择题的原始次数并列。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业 DISC 产品或认证量表。"
+      },
+      {
+        "profile_code": "TIED_D_I_C",
+        "direction_codes": [
+          "DOMINANCE",
+          "INFLUENCE",
+          "CONSCIENTIOUSNESS"
+        ],
+        "display_name": "D / I / C 并列",
+        "result_headline": "本次选择中，D / I / C 的原始次数并列最高",
+        "one_sentence_summary": "这只记录本次题组里 D·推进处理、I·表达带动、C·规范核对 获得相同最高次数，不定义固定类型。",
+        "tie_explanation": "每道题只给被选中的方向记 1 次；本次 D / I / C 的次数相同且高于其余方向，系统完整保留并列，不使用题号、字母或选项位置破同分。",
+        "direction_readings": [
+          {
+            "direction_code": "DOMINANCE",
+            "display_name": "D·推进处理",
+            "reading": "D 的次数来自你在相关二选一题中选择推进、取舍或行动选项的次数；它不是执行力或领导力评分。"
+          },
+          {
+            "direction_code": "INFLUENCE",
+            "display_name": "I·表达带动",
+            "reading": "I 的次数来自你在相关二选一题中选择表达、互动或邀请参与选项的次数；它不是社交能力评分。"
+          },
+          {
+            "direction_code": "CONSCIENTIOUSNESS",
+            "display_name": "C·规范核对",
+            "reading": "C 的次数来自你在相关二选一题中选择核对条件、标准或细节选项的次数；它不是严谨能力评分。"
+          }
+        ],
+        "contexts_to_review": [
+          "最近一次对外发布前，推进、表达和核对分别用了多少时间？",
+          "临时问答与正式交付中，你对信息确认的要求是否不同？",
+          "方案可逆与不可逆时，邀请意见和设置检查点有何差别？"
+        ],
+        "tensions_to_review": [
+          "速度、参与和准确性之间如何为当前任务排序。",
+          "有吸引力的表达是否保持了事实边界和条件限制。"
+        ],
+        "decision_review_questions": [
+          "哪些条件不满足就不能发布或执行？",
+          "收集意见后，由谁依据什么标准做最终取舍？"
+        ],
+        "communication_review_questions": [
+          "方案中的事实、估计和倡议是否清楚分开？",
+          "对方的积极回应是否被误当成正式承诺？"
+        ],
+        "collaboration_review_questions": [
+          "发起、说明、复核和批准分别由谁承担？",
+          "紧急修改后，是否重新完成必要的事实检查？"
+        ],
+        "pressure_review": {
+          "boundary": "本次并列不能说明压力下 D / I / C 中哪个方向会先出现、占上风或自动切换；题组没有测量这种顺序。",
+          "questions": [
+            "压力出现时，实际发生了哪些可观察动作？",
+            "当时的角色、时间限制、风险和参与者分别是什么？",
+            "事后证据显示哪些动作有帮助，哪些需要调整？"
+          ]
+        },
+        "real_world_checkpoints": [
+          "抽查一次发布流程，记录最后一刻改动及其复核证据。",
+          "回看一个方案，从首次提出到决定，列出意见如何被采纳或舍弃。"
+        ],
+        "balancing_actions": [
+          "下一次相似情境开始前，先写下任务约束和必须保护的目标。",
+          "行动或沟通结束后，用具体记录核对结果，而不是用本次标签解释。",
+          "发现描述与经历不符时，以实际经历为准，并记录情境差异。"
+        ],
+        "reflection_questions": [
+          "哪些具体题目让这些方向得到相同次数？",
+          "如果换一个角色或时间限制，你的选择可能怎样变化？",
+          "近期经历中，有哪些事实不支持本页描述？"
+        ],
+        "does_not_mean": [
+          "不表示这些方向组成了固定类型。",
+          "不表示你在不同场景都会采用同一组做法。",
+          "不表示任何方向对应能力高低或表现优劣。",
+          "不预测职业、关系、领导力或团队结果。",
+          "不构成心理诊断、招聘筛选或高影响决策依据。"
+        ],
+        "interpretation_boundary": "本页仅解释本次 24 道强迫选择题的原始次数并列。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业 DISC 产品或认证量表。"
+      },
+      {
+        "profile_code": "TIED_D_S_C",
+        "direction_codes": [
+          "DOMINANCE",
+          "STEADINESS",
+          "CONSCIENTIOUSNESS"
+        ],
+        "display_name": "D / S / C 并列",
+        "result_headline": "本次选择中，D / S / C 的原始次数并列最高",
+        "one_sentence_summary": "这只记录本次题组里 D·推进处理、S·稳定支持、C·规范核对 获得相同最高次数，不定义固定类型。",
+        "tie_explanation": "每道题只给被选中的方向记 1 次；本次 D / S / C 的次数相同且高于其余方向，系统完整保留并列，不使用题号、字母或选项位置破同分。",
+        "direction_readings": [
+          {
+            "direction_code": "DOMINANCE",
+            "display_name": "D·推进处理",
+            "reading": "D 的次数来自你在相关二选一题中选择推进、取舍或行动选项的次数；它不是执行力或领导力评分。"
+          },
+          {
+            "direction_code": "STEADINESS",
+            "display_name": "S·稳定支持",
+            "reading": "S 的次数来自你在相关二选一题中选择维持节奏、倾听或衔接选项的次数；它不是可靠程度评分。"
+          },
+          {
+            "direction_code": "CONSCIENTIOUSNESS",
+            "display_name": "C·规范核对",
+            "reading": "C 的次数来自你在相关二选一题中选择核对条件、标准或细节选项的次数；它不是严谨能力评分。"
+          }
+        ],
+        "contexts_to_review": [
+          "最近一次紧急交付中，推进、衔接和核对分别保住了什么？",
+          "面对熟悉流程与首次任务时，你保留的检查和支持是否不同？",
+          "责任明确与责任模糊的团队中，你的补位行为有何变化？"
+        ],
+        "tensions_to_review": [
+          "尽快完成、维持协作连续和控制偏差之间如何排序。",
+          "临时解决问题后，是否把责任与流程修正重新落定。"
+        ],
+        "decision_review_questions": [
+          "哪些风险必须暂停处理，哪些可以带着记录继续？",
+          "决定改变节奏时，相关人需要获得哪些信息？"
+        ],
+        "communication_review_questions": [
+          "给出指令时，是否同步说明依据、影响和复核点？",
+          "指出问题时，是否给了责任人说明现实约束的机会？"
+        ],
+        "collaboration_review_questions": [
+          "谁在补位，谁在承担最终责任，是否能够区分？",
+          "稳定流程中的固定环节是否仍针对真实风险？"
+        ],
+        "pressure_review": {
+          "boundary": "本次并列不能说明压力下 D / S / C 中哪个方向会先出现、占上风或自动切换；题组没有测量这种顺序。",
+          "questions": [
+            "压力出现时，实际发生了哪些可观察动作？",
+            "当时的角色、时间限制、风险和参与者分别是什么？",
+            "事后证据显示哪些动作有帮助，哪些需要调整？"
+          ]
+        },
+        "real_world_checkpoints": [
+          "复盘一次紧急任务，把临时措施和永久修正分开记录。",
+          "抽查一个检查点，确认它发现过什么问题、是否值得保留。"
+        ],
+        "balancing_actions": [
+          "下一次相似情境开始前，先写下任务约束和必须保护的目标。",
+          "行动或沟通结束后，用具体记录核对结果，而不是用本次标签解释。",
+          "发现描述与经历不符时，以实际经历为准，并记录情境差异。"
+        ],
+        "reflection_questions": [
+          "哪些具体题目让这些方向得到相同次数？",
+          "如果换一个角色或时间限制，你的选择可能怎样变化？",
+          "近期经历中，有哪些事实不支持本页描述？"
+        ],
+        "does_not_mean": [
+          "不表示这些方向组成了固定类型。",
+          "不表示你在不同场景都会采用同一组做法。",
+          "不表示任何方向对应能力高低或表现优劣。",
+          "不预测职业、关系、领导力或团队结果。",
+          "不构成心理诊断、招聘筛选或高影响决策依据。"
+        ],
+        "interpretation_boundary": "本页仅解释本次 24 道强迫选择题的原始次数并列。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业 DISC 产品或认证量表。"
+      },
+      {
+        "profile_code": "TIED_I_S_C",
+        "direction_codes": [
+          "INFLUENCE",
+          "STEADINESS",
+          "CONSCIENTIOUSNESS"
+        ],
+        "display_name": "I / S / C 并列",
+        "result_headline": "本次选择中，I / S / C 的原始次数并列最高",
+        "one_sentence_summary": "这只记录本次题组里 I·表达带动、S·稳定支持、C·规范核对 获得相同最高次数，不定义固定类型。",
+        "tie_explanation": "每道题只给被选中的方向记 1 次；本次 I / S / C 的次数相同且高于其余方向，系统完整保留并列，不使用题号、字母或选项位置破同分。",
+        "direction_readings": [
+          {
+            "direction_code": "INFLUENCE",
+            "display_name": "I·表达带动",
+            "reading": "I 的次数来自你在相关二选一题中选择表达、互动或邀请参与选项的次数；它不是社交能力评分。"
+          },
+          {
+            "direction_code": "STEADINESS",
+            "display_name": "S·稳定支持",
+            "reading": "S 的次数来自你在相关二选一题中选择维持节奏、倾听或衔接选项的次数；它不是可靠程度评分。"
+          },
+          {
+            "direction_code": "CONSCIENTIOUSNESS",
+            "display_name": "C·规范核对",
+            "reading": "C 的次数来自你在相关二选一题中选择核对条件、标准或细节选项的次数；它不是严谨能力评分。"
+          }
+        ],
+        "contexts_to_review": [
+          "最近一次需要解释新规则时，表达、倾听和核对分别怎样发生？",
+          "熟人协作和跨团队协作中，你确认共同理解的方式有何差别？",
+          "对方犹豫时，你如何判断需要更多空间还是更多具体信息？"
+        ],
+        "tensions_to_review": [
+          "让对话继续、照顾表达节奏和保持信息准确之间如何取舍。",
+          "缓和分歧时，是否仍把标准差异和待决定项保留下来。"
+        ],
+        "decision_review_questions": [
+          "参与者理解规则后，如何确认他们也接受具体责任？",
+          "哪些意见需要记录并由明确负责人决定？"
+        ],
+        "communication_review_questions": [
+          "例子是否帮助理解，还是遮住了关键条件和例外？",
+          "倾听结束后，是否准确复述了对方而没有代替其下结论？"
+        ],
+        "collaboration_review_questions": [
+          "支持新成员时，信息、练习和反馈入口是否齐全？",
+          "保持关系顺畅是否延迟了必要的质量反馈？"
+        ],
+        "pressure_review": {
+          "boundary": "本次并列不能说明压力下 I / S / C 中哪个方向会先出现、占上风或自动切换；题组没有测量这种顺序。",
+          "questions": [
+            "压力出现时，实际发生了哪些可观察动作？",
+            "当时的角色、时间限制、风险和参与者分别是什么？",
+            "事后证据显示哪些动作有帮助，哪些需要调整？"
+          ]
+        },
+        "real_world_checkpoints": [
+          "检查一次规则沟通，记录对方实际复述出的关键点。",
+          "回看一个分歧，区分情绪缓和与问题解决分别在何时发生。"
+        ],
+        "balancing_actions": [
+          "下一次相似情境开始前，先写下任务约束和必须保护的目标。",
+          "行动或沟通结束后，用具体记录核对结果，而不是用本次标签解释。",
+          "发现描述与经历不符时，以实际经历为准，并记录情境差异。"
+        ],
+        "reflection_questions": [
+          "哪些具体题目让这些方向得到相同次数？",
+          "如果换一个角色或时间限制，你的选择可能怎样变化？",
+          "近期经历中，有哪些事实不支持本页描述？"
+        ],
+        "does_not_mean": [
+          "不表示这些方向组成了固定类型。",
+          "不表示你在不同场景都会采用同一组做法。",
+          "不表示任何方向对应能力高低或表现优劣。",
+          "不预测职业、关系、领导力或团队结果。",
+          "不构成心理诊断、招聘筛选或高影响决策依据。"
+        ],
+        "interpretation_boundary": "本页仅解释本次 24 道强迫选择题的原始次数并列。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业 DISC 产品或认证量表。"
+      },
+      {
+        "profile_code": "TIED_D_I_S_C",
+        "direction_codes": [
+          "DOMINANCE",
+          "INFLUENCE",
+          "STEADINESS",
+          "CONSCIENTIOUSNESS"
+        ],
+        "display_name": "D / I / S / C 并列",
+        "result_headline": "本次选择中，D / I / S / C 的原始次数并列最高",
+        "one_sentence_summary": "这只记录本次题组里 D·推进处理、I·表达带动、S·稳定支持、C·规范核对 获得相同最高次数，不定义固定类型。",
+        "tie_explanation": "每道题只给被选中的方向记 1 次；本次 D / I / S / C 的次数相同且高于其余方向，系统完整保留并列，不使用题号、字母或选项位置破同分。",
+        "direction_readings": [
+          {
+            "direction_code": "DOMINANCE",
+            "display_name": "D·推进处理",
+            "reading": "D 的次数来自你在相关二选一题中选择推进、取舍或行动选项的次数；它不是执行力或领导力评分。"
+          },
+          {
+            "direction_code": "INFLUENCE",
+            "display_name": "I·表达带动",
+            "reading": "I 的次数来自你在相关二选一题中选择表达、互动或邀请参与选项的次数；它不是社交能力评分。"
+          },
+          {
+            "direction_code": "STEADINESS",
+            "display_name": "S·稳定支持",
+            "reading": "S 的次数来自你在相关二选一题中选择维持节奏、倾听或衔接选项的次数；它不是可靠程度评分。"
+          },
+          {
+            "direction_code": "CONSCIENTIOUSNESS",
+            "display_name": "C·规范核对",
+            "reading": "C 的次数来自你在相关二选一题中选择核对条件、标准或细节选项的次数；它不是严谨能力评分。"
+          }
+        ],
+        "contexts_to_review": [
+          "本次四个方向次数相同；请分别回看哪些题目和具体经历支持了每一类选择。",
+          "工作、家庭、熟人和陌生场景中，实际做法是否一致？",
+          "角色、时间限制和风险水平变化时，哪些行为随之改变？"
+        ],
+        "tensions_to_review": [
+          "四类做法服务的目标不同，不能仅凭并列决定某一情境该采用哪一种。",
+          "速度、参与、连续和核对之间的取舍需要由具体任务条件决定。"
+        ],
+        "decision_review_questions": [
+          "当前决定最重要的约束是什么：时间、参与、连续还是风险？",
+          "有哪些事实仍未知，谁有责任补充或做最终决定？"
+        ],
+        "communication_review_questions": [
+          "这次沟通需要结论、参与、倾听和依据中的哪些部分？",
+          "哪些内容已经确认，哪些仍只是建议或假设？"
+        ],
+        "collaboration_review_questions": [
+          "团队当前缺少的是下一步、参与入口、稳定衔接还是明确标准？",
+          "选择一种做法后，如何保留对其他目标的最低保障？"
+        ],
+        "pressure_review": {
+          "boundary": "本次并列不能说明压力下 D / I / S / C 中哪个方向会先出现、占上风或自动切换；题组没有测量这种顺序。",
+          "questions": [
+            "压力出现时，实际发生了哪些可观察动作？",
+            "当时的角色、时间限制、风险和参与者分别是什么？",
+            "事后证据显示哪些动作有帮助，哪些需要调整？"
+          ]
+        },
+        "real_world_checkpoints": [
+          "逐题列出四类选项各被选择的具体情境，避免只看总次数。",
+          "选择两次近期事件，比较实际行为与本次答题选择是否一致。"
+        ],
+        "balancing_actions": [
+          "下一次相似情境开始前，先写下任务约束和必须保护的目标。",
+          "行动或沟通结束后，用具体记录核对结果，而不是用本次标签解释。",
+          "发现描述与经历不符时，以实际经历为准，并记录情境差异。"
+        ],
+        "reflection_questions": [
+          "哪些具体题目让这些方向得到相同次数？",
+          "如果换一个角色或时间限制，你的选择可能怎样变化？",
+          "近期经历中，有哪些事实不支持本页描述？"
+        ],
+        "does_not_mean": [
+          "不表示这些方向组成了固定类型。",
+          "不表示你在不同场景都会采用同一组做法。",
+          "不表示任何方向对应能力高低或表现优劣。",
+          "不预测职业、关系、领导力或团队结果。",
+          "不构成心理诊断、招聘筛选或高影响决策依据。"
+        ],
+        "interpretation_boundary": "本页仅解释本次 24 道强迫选择题的原始次数并列。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业 DISC 产品或认证量表。"
+      }
+    ],
+    "states": [
+      {
+        "profile_code": "TIED_TOP",
+        "state_code": "TIED_TOP",
+        "title": "本次有多个方向并列顶部",
+        "summary": "当两个或更多方向的原始选择次数相同且同为最高时，结果页会完整保留并列，不做任何破同分处理。",
+        "body": "并列顶部的意思是：在本次 24 题里，有两个或更多方向被选中的次数相同，而且都排在最高。比如 D 和 I 各 8 次，其他方向都更低，那么本次顶部就是 D 和 I 并列。评分系统会原样保留这个并列：不用题号顺序、不用字母顺序、不用选项位置来强行分出高低。并列不是错误，也不是测试没做好，它是本次回答的一种真实结果——你的选择恰好没有分出先后。读并列结果时，请把并列的方向分别带回具体经历核对，看看哪个更像你平时的做法，而不是纠结于次数上的细微差别。",
+        "no_tiebreak_or_behavior": "系统不使用题号顺序、字母顺序（A/B）或选项位置来区分并列方向，也不使用任何随机或人为规则破同分。并列就是并列。",
+        "what_to_do": [
+          "先看并列的方向各自在哪些题目上被选中，回想那些情境是否符合你的做法。",
+          "如果并列让你困惑，隔一段时间重新作答一次，看结果是否稳定。",
+          "把结果描述带回最近的具体经历核对，认同的留下，不符合的略过。"
+        ],
+        "does_not_mean": [
+          "不表示并列是测试出错或需要重做。",
+          "不表示并列方向比单一顶部方向更特殊或更优越。",
+          "不表示你的选择模糊、没有偏好或缺乏特点。"
+        ],
+        "interpretation_boundary": "并列状态说明的是本次题组的真实计分结果。它不等同任何商业 DISC 产品或认证量表，不构成心理测量学验证，也不能用于招聘、人事筛选或任何高影响决策。"
+      },
+      {
+        "profile_code": "INSUFFICIENT_DATA",
+        "state_code": "INSUFFICIENT_DATA",
+        "title": "需要完成全部 24 题才能生成结果",
+        "summary": "本次作答尚未完成全部题目，因此不生成方向排序和解释内容。",
+        "body": "这份测试一共 24 题，四个方向各参与 12 次两两比较。只有答完全部 24 题，才能算出完整的原始选择次数并排序。当前作答还没完成，所以本次不生成结果页，也不会给你一个临时的方向判断——半程的次数不能代表完整作答。没有答完不需要担心，也不代表任何负面含义。你可以随时回到上一题继续完成，或者选择重新作答。答案没有对错，也没有答得不好这回事。",
+        "no_tiebreak_or_behavior": "在未完成全部 24 题之前，系统不生成任何公开的方向排序或人格解释，也不对未完成的作答做任何推断。",
+        "what_to_do": [
+          "回到上一题继续完成剩余题目。",
+          "如果不想继续，可以随时退出，本次进度会保留在本地。",
+          "也可以选择清除本次数据后重新作答。"
+        ],
+        "does_not_mean": [
+          "不表示你的作答有问题或答案有异常。",
+          "不表示你没答完是因为不够认真或需要受到催促。",
+          "不表示半程结果预示最终结果。"
+        ],
+        "interpretation_boundary": "本状态不提供任何解释内容。完整作答后才可能生成结果页；结果页内容也不等同于任何商业 DISC 产品或认证量表，不构成心理测量学验证。"
+      },
+      {
+        "profile_code": "RESULT_UNAVAILABLE",
+        "state_code": "RESULT_UNAVAILABLE",
+        "title": "本次结果暂时无法生成",
+        "summary": "本地数据或版本校验未通过，本次结果不可用。",
+        "body": "生成结果前，程序会检查本地的作答数据、测试版本和配置是否一致。这次检查没有通过，所以结果页无法生成。这通常与你的答案本身无关——不是你的回答有问题，而是本地数据或版本状态出了状况。可以尝试：清除本次的本地作答数据，然后重新作答。清除只会删除本次的草稿和评分缓存，不会影响其他测试。如果清除后重新作答仍然无法生成结果，请稍后再试，或联系测试提供方说明情况。",
+        "no_tiebreak_or_behavior": "版本或配置校验失败时，系统不会输出任何排序或解释内容，也不暗示用户的答案存在异常。",
+        "what_to_do": [
+          "清除本次本地数据后重新作答。",
+          "确认使用的是最新版本的测试。",
+          "如果问题持续，稍后再试或联系测试提供方。"
+        ],
+        "does_not_mean": [
+          "不表示你的答案有异常或不可信。",
+          "不表示你做了什么导致结果丢失。",
+          "不表示测试本身失效或需要更换测试。"
+        ],
+        "interpretation_boundary": "本状态只说明技术校验未通过，不提供任何解释内容。恢复后的结果页同样不等同任何商业 DISC 产品或认证量表，不构成心理测量学验证。"
+      }
+    ],
+    "common": {
+      "profile_code": "COMMON_RESULT_GUIDE",
+      "guide_version": "0.2.0-preview",
+      "how_to_read": "先看四个方向各自的原始选择次数，再找出次数最高的一个或多个方向（并列时全部保留），然后把它们带回最近的具体经历核对：哪些说法对得上，哪些对不上。结果页里的描述是线索，不是判决。",
+      "raw_wins_explanation": "每道题是两个方向的两两比较，选中的那个方向得 1 次。四个方向各参与 12 次比较，所以每个方向的次数都在 0 到 12 之间。这个数字只在本次题组内部成立：它说明你相对更常选哪个方向，不代表你在人群中的位置，也不是准确率、浓度或百分位。",
+      "ties_explanation": "当两个或多个方向的次数相同且同为最高时，本次结果就是并列顶部。并列会完整保留，不使用题号顺序、字母顺序或选项位置破同分。并列不是错误，也不是测试失效，它就是本次回答的真实结果。",
+      "context_dependence": "行为会随情境变化。同一个人，在赶进度的项目里、在熟悉的朋友间、在高压的场合里，第一反应可能完全不同。结果页描述的是这次作答时你更常选什么，不是你任何时候都这样。",
+      "low_direction_explanation": "次数较低的方向不代表缺陷或缺失。它只说明在本次两两比较中，你相对少选那个方向。很多时候，次数低只是因为你在本次作答里更常选了另一个方向。四个方向是行为方式，不是能力打分。",
+      "not_a_fixed_identity": "结果不是固定身份或标签。请把它当作这次作答的观察记录，而不是你是什么人的答案。它不描述某种固定不变的人格本质，也不把任何方向称作你的主方向或次方向。",
+      "not_a_diagnosis": "这不是临床工具，不用于心理诊断，也不能替代专业评估。它不识别任何心理状态或障碍，不构成心理健康相关结论。",
+      "not_an_official_commercial_disc_instrument": "本测试是费马测试的原创自报问卷，与任何商业 DISC 认证产品无关，也不构成认证报告。方向命名（如推进处理、表达带动）是避免与商业产品术语混淆而采用的原创表述。",
+      "high_stakes_decision_boundary": "请勿将本结果用于招聘、人事筛选、录用、晋升、绩效评估、婚恋决策或任何高影响决策。它没有经过心理测量学验证，不预测工作绩效、领导力、职业适配或人际关系结果。",
+      "privacy_boundary": "你的作答和结果保存在本地，不参与任何服务端的心理分析。结果页不会把你的数据用于二次推断。",
+      "public_preview_scientific_boundary": "本测试用于娱乐与自我探索，尚未完成信度、效度、常模等心理测量学验证。内容提供完整的自我探索说明，但不代表正式商业量表，也未经过科学上的验证，更未获得官方的认证资格。",
+      "retest_boundary": "如果你对结果有疑问，或在不同时间作答可能得到不同结果，都是正常的。可以隔一段时间重新作答，观察结果是否稳定。重新作答不会影响之前的记录，除非你清除本地数据。"
+    }
+  }
+}

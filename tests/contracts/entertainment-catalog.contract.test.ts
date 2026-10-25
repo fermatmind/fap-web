@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, it, expect } from "vitest";
 import catalog from "@/lib/entertainment/catalog.json";
+import questionnaires from "@/lib/questionnaires/catalog.json";
 import { loadFunQuiz } from "@/lib/entertainment/loaders";
 import { readFunDraft, resolveFunQuiz } from "@/lib/entertainment/scoring";
 import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
@@ -177,7 +178,7 @@ describe("original entertainment catalog", () => {
   it("publishes bilingual entries and explicit public portrait guides, and retains backend families", () => {
     const base = [{ loc: "https://fermatmind.com/en/career", lastmod: "2026-10-01" }];
     const entries = appendFunSitemapEntries(base);
-    const publicCount = catalog.reduce((total, card) => total + 2 * (1 + card.resultSlugs.length), 0);
+    const publicCount = [...catalog, ...questionnaires].reduce((total, card) => total + 2 * (1 + card.resultSlugs.length), 0);
     expect(entries).toHaveLength(1 + publicCount);
     expect(entries).toContainEqual(base[0]);
     expect(appendFunSitemapEntries(entries)).toEqual(entries);
@@ -187,7 +188,7 @@ describe("original entertainment catalog", () => {
     }
     expect(buildPublicSitemapFamilyMap(entries).tests).toHaveLength(publicCount);
     expect(entries.every(entry => !/[?#]|\/result\//.test(entry.loc))).toBe(true);
-    expect(entries.filter(entry => entry.loc.includes("/results/")).every(entry => /^https:\/\/fermatmind\.com\/(?:en|zh)\/tests\/play\/[^/]+\/results\/[^/]+$/.test(entry.loc))).toBe(true);
+    expect(entries.filter(entry => entry.loc.includes("/results/")).every(entry => /^https:\/\/fermatmind\.com\/(?:en|zh)\/tests\/(?:play|explore)\/[^/]+\/results\/[^/]+$/.test(entry.loc))).toBe(true);
   });
 
   it("keeps questions out of the hub and uses existing consent-filtered tracking with a stable public product key", () => {

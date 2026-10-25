@@ -1,4 +1,5 @@
 import catalog from "./catalog.json";
+import questionnaires from "../questionnaires/catalog.json";
 import { CANONICAL_SITE_URL } from "@/lib/site";
 import type { PublicSitemapEntry } from "@/lib/seo/publicSitemap";
 
@@ -14,6 +15,11 @@ export function appendFunSitemapEntries(entries: PublicSitemapEntry[]): PublicSi
         result.set(`${loc}/results/${portrait}`, { loc: `${loc}/results/${portrait}`, lastmod: `${quiz.updated}T00:00:00.000Z` });
       }
     }
+  }
+  for (const quiz of questionnaires) for (const locale of ["en", "zh"]) {
+    const loc = `${CANONICAL_SITE_URL}/${locale}/tests/explore/${quiz.slug}`;
+    result.set(loc, { loc, lastmod: `${quiz.updated}T00:00:00.000Z` });
+    for (const profile of quiz.resultSlugs) result.set(`${loc}/results/${profile}`, { loc: `${loc}/results/${profile}`, lastmod: `${quiz.updated}T00:00:00.000Z` });
   }
   return [...result.values()].sort((a, b) => a.loc.localeCompare(b.loc));
 }

@@ -1,0 +1,7 @@
+# Original self-report questionnaires
+
+This code-owned preview family lives at `/{locale}/tests/explore/{slug}`. It adapts FermatMind's own local mini-program questionnaires, preserving their actual questions, scoring rules, ties and complete report content. It is not a fallback or editorial override for backend-registered assessments. The existing core tests, question APIs, scoring and reports retain backend authority.
+
+`catalog.json` contains only discovery metadata and public report IDs. `loaders.ts` uses explicit per-product imports; the hub must not import the question banks. Each complete bilingual package records its source question/scoring/content versions and hashes. Private answers are evaluated in browser memory. Optional tab drafts expire after 24 hours and clear on completion, exit-and-clear or retake. A public result explanation is not a visitor's saved result.
+
+DISC uses the original 24 paired choices. Each direction appears 12 times; selected options add one raw count. Highest counts retain every tie and select the corresponding authored report. No partial interpretation, population norm, official commercial certification, career-fit inference or MBTI conversion is added. The four-way tie sentence is clarified to say all four counts are equal; it does not compare them with nonexistent remaining directions. Website storage notices describe the actual opt-in tab behavior rather than the mini-program's record store.

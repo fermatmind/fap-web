@@ -1,5 +1,6 @@
 import { trackClientEvent, trackNetworkObservableFunnelEvent } from "@/lib/tracking/client";
 import { getLocaleFromPathname } from "@/lib/i18n/locales";
+import questionnaires from "@/lib/questionnaires/catalog.json";
 import { getOrCreateAnonId } from "@/lib/anon";
 import { hasAnalyticsConsent } from "@/lib/consent/store";
 import {
@@ -197,11 +198,24 @@ export function trackLandingPageView(properties: AnalyticsProperties = {}): void
   if (shouldHardStopPublicAnalyticsForUrl(currentPath)) return;
 
   const [routeLocale, family, collection, quizSlug, ...remaining] = routeSegments(currentPath);
+  const questionnaire = (routeLocale === "en" || routeLocale === "zh") && family === "tests" && collection === "explore"
+    ? questionnaires.find(quiz => quiz.slug === quizSlug) : undefined;
+  const isQuestionnaireGuide = Boolean(questionnaire && remaining.length === 2 && remaining[0] === "results" && questionnaire.resultSlugs.includes(remaining[1]));
+  const isQuestionnaireEntry = Boolean(questionnaire && (remaining.length === 0 || isQuestionnaireGuide));
   const isEntertainmentGuide = remaining.length === 2 && remaining[0] === "results" && /^[a-z]+(?:-[a-z]+)*$/.test(remaining[1]);
   const isEntertainmentEntry = (routeLocale === "en" || routeLocale === "zh")
     && family === "tests" && collection === "play" && (remaining.length === 0 || isEntertainmentGuide)
     && typeof quizSlug === "string" && /^[a-z]+(?:-[a-z]+)*$/.test(quizSlug);
-  const landingProperties = isEntertainmentEntry ? {
+  const landingProperties = isQuestionnaireEntry && questionnaire ? {
+    ...properties,
+    slug: questionnaire.slug,
+    test_slug: questionnaire.slug,
+    scale_code: questionnaire.code,
+    form_code: questionnaire.formCode,
+    test_type: "self_report",
+    entry_surface: properties.entry_surface ?? (isQuestionnaireGuide ? "questionnaire_guide" : "questionnaire"),
+    page_type: "test_detail",
+  } : isEntertainmentEntry ? {
     ...properties,
     slug: quizSlug,
     test_slug: quizSlug,

@@ -1,0 +1,40 @@
+export type Text = { en: string; zh: string };
+export type QuestionnaireSection = { id: string; title: Text; paragraphs: Text[] };
+export type QuestionnaireProfile = {
+  id: string;
+  directionIds: string[];
+  title: Text;
+  headline: Text;
+  summary: Text;
+  scoreReading: Text;
+  sections: QuestionnaireSection[];
+};
+export type Questionnaire = {
+  slug: string;
+  code: string;
+  version: string;
+  updated: string;
+  category: string;
+  kind: "directional";
+  title: Text;
+  description: Text;
+  seoTitle: Text;
+  minutes: number;
+  introduction: Text;
+  source: {
+    kind: string;
+    formCode: string;
+    itemBankVersion: string;
+    scoringVersion: string;
+    resultContentVersion: string;
+    itemBankSha256: string;
+    resultContentSha256: string;
+    psychometricValidationCompleted: false;
+  };
+  directions: { id: string; title: Text; comparisons: number }[];
+  questions: { id: string; prompt: Text; options: { id: string; label: Text; directionId: string }[] }[];
+  profiles: QuestionnaireProfile[];
+  guide: QuestionnaireSection[];
+  faq: { question: Text; answer: Text }[];
+};
+export type QuestionnaireAnswers = Record<string, string>;
