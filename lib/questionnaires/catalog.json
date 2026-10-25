@@ -124,5 +124,32 @@
       "bear",
       "eagle"
     ]
+  },
+  {
+    "slug": "flower",
+    "code": "FLOWER_PERSONALITY",
+    "version": "1.0.0",
+    "updated": "2026-10-25",
+    "category": "metaphor",
+    "title": {
+      "zh": "花朵人格测试",
+      "en": "What Flower Am I?"
+    },
+    "description": {
+      "zh": "免费完成18道原创偏好题，比较玫瑰、向日葵、薰衣草、莲花、兰花和雏菊的表达比喻。全部六份完整结果可直接阅读，保留并列，附具体例子、计分和小尝试；无需注册。",
+      "en": "What flower am I? Answer 18 original questions about expression, atmosphere and everyday preferences. See every tied flower and all six full reports, free with no signup."
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "fm_flower_expression_18",
+    "questionCount": 18,
+    "resultSlugs": [
+      "rose",
+      "sunflower",
+      "lavender",
+      "lotus",
+      "orchid",
+      "daisy"
+    ]
   }
 ]

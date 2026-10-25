@@ -1,0 +1,805 @@
+{
+  "formCode": "fm_flower_expression_18",
+  "itemBankVersion": "1.0.0",
+  "scoringVersion": "1.0.0",
+  "kind": "archetype",
+  "directions": [
+    {
+      "id": "rose",
+      "title": {
+        "zh": "玫瑰",
+        "en": "Rose"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "sunflower",
+      "title": {
+        "zh": "向日葵",
+        "en": "Sunflower"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "lavender",
+      "title": {
+        "zh": "薰衣草",
+        "en": "Lavender"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "lotus",
+      "title": {
+        "zh": "莲花",
+        "en": "Lotus"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "orchid",
+      "title": {
+        "zh": "兰花",
+        "en": "Orchid"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "daisy",
+      "title": {
+        "zh": "雏菊",
+        "en": "Daisy"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "FLOWER_01",
+      "prompt": {
+        "zh": "给重要的人写一张没有固定格式的小卡片，你更想写什么？",
+        "en": "You are writing a card to someone important, with no set occasion or format. What would you most like to include?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "只有我们懂的一段记忆，和一句认真想过的话。",
+            "en": "A memory that belongs to us and a sentence I have really thought about."
+          },
+          "directionId": "rose"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "热情的问候，再约一件可以一起开心做的事。",
+            "en": "A warm hello and an invitation to do something enjoyable together."
+          },
+          "directionId": "sunflower"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "不需要马上回复的问候，给对方一点轻松空间。",
+            "en": "A gentle hello with no need to reply straight away."
+          },
+          "directionId": "lavender"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "回看这段时间有什么变化，以及我想珍惜什么。",
+            "en": "A reflection on what has changed lately and what I want to keep valuing."
+          },
+          "directionId": "lotus"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_02",
+      "prompt": {
+        "zh": "如果能按自己的喜好布置一场小聚，你更想要哪种感觉？",
+        "en": "If you could set the atmosphere for a small gathering, what would you want it to feel like?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "明亮、有人来就有位置，随时可以加入聊天。",
+            "en": "Bright and welcoming, with a place for people to join the conversation."
+          },
+          "directionId": "sunflower"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "声音轻一点，不必持续说话，也能自在待着。",
+            "en": "Quiet enough to stay comfortably without having to talk all the time."
+          },
+          "directionId": "lavender"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "有一个能让大家聊聊近期经历或小变化的主题。",
+            "en": "Built around a theme that lets people reflect on recent experiences or changes."
+          },
+          "directionId": "lotus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "不必很热闹，但有一两个体现个人品味的细节。",
+            "en": "Not necessarily busy, but with one or two details that feel distinctly mine."
+          },
+          "directionId": "orchid"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_03",
+      "prompt": {
+        "zh": "整理一个只属于自己的小角落，你最想先保留什么？",
+        "en": "When arranging a small corner for yourself, what would you keep first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "清爽的留白和让眼睛休息的空间。",
+            "en": "Some uncluttered space that lets my eyes rest."
+          },
+          "directionId": "lavender"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一件提醒我走过某段变化的物品。",
+            "en": "An object that reminds me of a change I have lived through."
+          },
+          "directionId": "lotus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一件细节特别、我确实喜欢的作品或摆件。",
+            "en": "A piece of work or an object whose particular details I enjoy."
+          },
+          "directionId": "orchid"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "几样随手摆着、看到就觉得有趣的小东西。",
+            "en": "A few informal little things that make me smile when I notice them."
+          },
+          "directionId": "daisy"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_04",
+      "prompt": {
+        "zh": "想向朋友分享一件好事，你更希望怎样呈现？",
+        "en": "You want to share some good news with a friend. How would you most like to express it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说清这件事对我为什么重要，以及前后有什么变化。",
+            "en": "Explain why it matters to me and what feels different now."
+          },
+          "directionId": "lotus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "用一种有个人风格的表达，让它看起来很像我。",
+            "en": "Use a personal form of expression that feels recognisably mine."
+          },
+          "directionId": "orchid"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先把当下的开心说出来，没准备好也没关系。",
+            "en": "Let the immediate delight show, even if the words are unpolished."
+          },
+          "directionId": "daisy"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "挑一个能认真交流的时刻，和对方慢慢分享。",
+            "en": "Choose a moment when we can really talk and share it with care."
+          },
+          "directionId": "rose"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_05",
+      "prompt": {
+        "zh": "空出一小时做一件让生活更有意思的小事，你更想选？",
+        "en": "You have an hour for a small thing that could make everyday life more enjoyable. What would you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "尝试一个自己喜欢的配色、搭配或手工细节。",
+            "en": "Try a colour combination, arrangement or craft detail I personally like."
+          },
+          "directionId": "orchid"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "跟着眼前的好奇心走，做点没什么大用途的事。",
+            "en": "Follow a passing curiosity into something with no need for a bigger purpose."
+          },
+          "directionId": "daisy"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "为一个值得记住的时刻，准备一点有心意的表达。",
+            "en": "Prepare a thoughtful gesture for a moment worth remembering."
+          },
+          "directionId": "rose"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "找个愿意的人一起晒太阳、聊天或吃点东西。",
+            "en": "Find willing company for some daylight, conversation or something to eat."
+          },
+          "directionId": "sunflower"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_06",
+      "prompt": {
+        "zh": "朋友刚忙完一周，你更想用哪种小邀请表达关心？",
+        "en": "A friend has come through a busy week. Which small invitation would you most like to offer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“要不要随便逛逛？不用安排什么，开心就好。”",
+            "en": "“Fancy wandering around a little? No plan needed; we can just enjoy it.”"
+          },
+          "directionId": "daisy"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“想不想去我们上次提过的地方，好好聊一会儿？”",
+            "en": "“Would you like to visit that place we mentioned and have some proper time to talk?”"
+          },
+          "directionId": "rose"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“有人一起吃点东西，你有空就加入，没空也没关系。”",
+            "en": "“A few of us are getting something to eat. Join if you have time; no pressure if not.”"
+          },
+          "directionId": "sunflower"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“想安静坐一会儿吗？不聊天也可以，改天也行。”",
+            "en": "“Would you like some quiet company? We don’t have to talk, and another day is fine too.”"
+          },
+          "directionId": "lavender"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_07",
+      "prompt": {
+        "zh": "做一张代表近期心情的简单封面，你更想从哪里开始？",
+        "en": "You are making a simple cover to reflect your recent mood. Where would you most like to start?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个克制但有分量的重点，让人知道它对我很重要。",
+            "en": "One deliberate focal point that shows this matters to me."
+          },
+          "directionId": "rose"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "明亮、开阔的搭配，让人一看就愿意靠近。",
+            "en": "A bright, open combination that feels inviting at first glance."
+          },
+          "directionId": "sunflower"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "柔和、留白多一些，不必把空间填满。",
+            "en": "Something soft with room to breathe, rather than filling every space."
+          },
+          "directionId": "lavender"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有前后层次的画面，留下一点正在变化的感觉。",
+            "en": "Layers that leave a sense of something changing over time."
+          },
+          "directionId": "lotus"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_08",
+      "prompt": {
+        "zh": "给一段休闲时间挑背景音乐，你更看重什么？",
+        "en": "When choosing background music for some free time, what matters most to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "大家都容易听进去，能顺势一起聊或轻轻跟唱。",
+            "en": "It is easy for people to enjoy together, talk over or quietly join in with."
+          },
+          "directionId": "sunflower"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "不会占满注意力，随时停下来也很舒服。",
+            "en": "It leaves attention free, and silence between tracks feels comfortable too."
+          },
+          "directionId": "lavender"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "能连起某段经历，听完像把心事整理了一点。",
+            "en": "It connects with an experience and gives me space to reflect on it."
+          },
+          "directionId": "lotus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "带一点我自己的选择，不必是最热门的搭配。",
+            "en": "It includes choices that feel personal, whether or not they are popular."
+          },
+          "directionId": "orchid"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_09",
+      "prompt": {
+        "zh": "只留一张今天随手拍的照片，你更舍不得删掉哪种？",
+        "en": "If you kept just one casual photo from today, which would you most want to save?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "光线安静、画面很简洁的一角。",
+            "en": "A quiet corner with gentle light and a simple composition."
+          },
+          "directionId": "lavender"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个前后不同的小瞬间，让我想起今天发生的变化。",
+            "en": "A small before-and-after moment that recalls something changing today."
+          },
+          "directionId": "lotus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "别人可能没注意到，但细节很吸引我的图案。",
+            "en": "A pattern or detail that caught my eye even if others missed it."
+          },
+          "directionId": "orchid"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "没怎么构图，但看到就会笑的意外画面。",
+            "en": "An unexpected moment that makes me smile even if it is not well composed."
+          },
+          "directionId": "daisy"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_10",
+      "prompt": {
+        "zh": "回看一段已经结束的小经历，你更想怎样保存它？",
+        "en": "Looking back on a small experience that has ended, how would you most like to keep it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "记下开始和结束时有什么不同。",
+            "en": "Note what was different at the beginning and at the end."
+          },
+          "directionId": "lotus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "挑少量最有个人意味的细节，做成自己的小合集。",
+            "en": "Curate a small collection of details that mean something particular to me."
+          },
+          "directionId": "orchid"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留住几张不完美但好玩的片段就够了。",
+            "en": "Keep a few imperfect, enjoyable fragments and let that be enough."
+          },
+          "directionId": "daisy"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "保留一个能认真纪念某人或某个时刻的象征。",
+            "en": "Keep one token that gives a person or a moment some deliberate recognition."
+          },
+          "directionId": "rose"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_11",
+      "prompt": {
+        "zh": "一页空白笔记可以随意使用，你更想在上面留下什么？",
+        "en": "You have a blank notebook page to use however you like. What would you most like to leave on it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个符合自己审美的小排版或组合。",
+            "en": "A small layout or combination that suits my own taste."
+          },
+          "directionId": "orchid"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "随手想到的涂画、笑话或奇怪的小点子。",
+            "en": "A passing sketch, joke or curious little idea."
+          },
+          "directionId": "daisy"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一句想认真对某个人说、还没找到时机的话。",
+            "en": "Something I want to say thoughtfully to a particular person."
+          },
+          "directionId": "rose"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "几行可以邀请朋友补充的轻松话题。",
+            "en": "A few easy prompts that friends could add to."
+          },
+          "directionId": "sunflower"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_12",
+      "prompt": {
+        "zh": "如果给普通的一天加一个小仪式，你更愿意？",
+        "en": "If you added one small ritual to an ordinary day, what would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "给一件没什么用却让我开心的小事留五分钟。",
+            "en": "Spend five minutes on something that simply delights me, with no need to justify it."
+          },
+          "directionId": "daisy"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "认真做一件能表达心意的事，不必让很多人知道。",
+            "en": "Do one deliberate thing that expresses care, without needing a large audience."
+          },
+          "directionId": "rose"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "和愿意的人共享一次短休息，让日子热闹一点。",
+            "en": "Share a short break with willing company and bring a little warmth to the day."
+          },
+          "directionId": "sunflower"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "暂时降低声音和信息量，留一段不必回应的空白。",
+            "en": "Reduce noise and incoming information for a while, leaving space without demands to respond."
+          },
+          "directionId": "lavender"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_13",
+      "prompt": {
+        "zh": "为下个月设计一页自己的日历，你最想留出哪一部分？",
+        "en": "You are designing a calendar page for next month. What would you most want to leave room for?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "值得认真记住的人和日子，少而明确。",
+            "en": "A few people and occasions I want to mark deliberately."
+          },
+          "directionId": "rose"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "可以与别人共享的活动或小期待。",
+            "en": "Activities or little things to look forward to with other people."
+          },
+          "directionId": "sunflower"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "没有安排的空白，不必每一格都填上内容。",
+            "en": "Unscheduled space, without needing to fill every square."
+          },
+          "directionId": "lavender"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一处能回看上个月、写下新阶段心意的位置。",
+            "en": "A place to reflect on the previous month and what I want from the next stage."
+          },
+          "directionId": "lotus"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_14",
+      "prompt": {
+        "zh": "完成一件小手作后，你更想把它放在哪里或怎样使用？",
+        "en": "After finishing a small handmade piece, where would you most like to put it, or how would you use it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "放在大家都能看见或一起使用的地方。",
+            "en": "Somewhere people can notice it or use it together."
+          },
+          "directionId": "sunflower"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "放在安静的一角，和周围保持舒服的空隙。",
+            "en": "In a quiet corner with a comfortable amount of space around it."
+          },
+          "directionId": "lavender"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "和这段时间的一件纪念物放在一起，保留过程的意义。",
+            "en": "Beside a keepsake from this period, preserving something of what making it meant."
+          },
+          "directionId": "lotus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "按自己的构图安排，哪怕只有我会注意到细节。",
+            "en": "In an arrangement of my own, even if I am the only one who notices the detail."
+          },
+          "directionId": "orchid"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_15",
+      "prompt": {
+        "zh": "别人问你喜欢什么样的小礼物，你更愿意怎样描述？",
+        "en": "Someone asks what kind of small gift you enjoy. How would you most like to describe it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "简单、不增加整理负担，能自然放进日常就好。",
+            "en": "Simple and easy to fit into everyday life, without adding much to look after."
+          },
+          "directionId": "lavender"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "能提醒我某个阶段或一段经历的东西。",
+            "en": "Something that recalls a period of my life or an experience."
+          },
+          "directionId": "lotus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一个特别贴合我审美的小细节，不必贵或稀有。",
+            "en": "A detail that fits my particular taste; it need not be expensive or rare."
+          },
+          "directionId": "orchid"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一点好玩或出乎意料的小东西，收到就能开心。",
+            "en": "Something playful or unexpected that is enjoyable in the moment."
+          },
+          "directionId": "daisy"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_16",
+      "prompt": {
+        "zh": "给一张自己的生活照片写配文，你更自然地想写？",
+        "en": "You are captioning a photo from your own life. What would you most naturally want to write?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "这段经历让我重新看见了什么。",
+            "en": "What this experience helped me notice differently."
+          },
+          "directionId": "lotus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一种贴合画面的个人表达，不必解释给所有人听。",
+            "en": "A personal expression that fits the image without needing everyone to understand it."
+          },
+          "directionId": "orchid"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一句当下想到、回看也会笑的话。",
+            "en": "Something that came to mind in the moment and still makes me smile."
+          },
+          "directionId": "daisy"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一句留给某个重要的人或时刻的话。",
+            "en": "A sentence for a person or moment that matters to me."
+          },
+          "directionId": "rose"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_17",
+      "prompt": {
+        "zh": "经过一个小摊位，只选一件不昂贵的东西，你更容易被什么吸引？",
+        "en": "At a small stall, you can choose one inexpensive thing. What would most draw your attention?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "颜色、质感或做工里一个很合自己喜好的细节。",
+            "en": "A detail of colour, texture or making that fits my taste."
+          },
+          "directionId": "orchid"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一件意外好玩、没必要解释用途的小东西。",
+            "en": "Something unexpectedly playful that does not need a serious purpose."
+          },
+          "directionId": "daisy"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一件让我立刻想到某个人、可以认真送出的东西。",
+            "en": "Something that immediately brings a particular person to mind and could become a thoughtful gift."
+          },
+          "directionId": "rose"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一点方便和别人一起分享、一起享受的东西。",
+            "en": "Something easy to share and enjoy with other people."
+          },
+          "directionId": "sunflower"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_18",
+      "prompt": {
+        "zh": "想给一天留下一个舒服的结尾，你更愿意？",
+        "en": "How would you most like to give an ordinary day a satisfying ending?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "留下一件小开心，不要求今天总结出什么大收获。",
+            "en": "Keep one small delight without requiring the day to produce a major lesson."
+          },
+          "directionId": "daisy"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "认真表达一次感谢，或把重要的心意说出来。",
+            "en": "Express some thanks deliberately or say something that matters."
+          },
+          "directionId": "rose"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "和愿意的人短短聊聊，分享今天的一件好事。",
+            "en": "Have a brief conversation with willing company and share one good thing from the day."
+          },
+          "directionId": "sunflower"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把声音和安排慢慢降下来，让一天自然结束。",
+            "en": "Let the noise and demands ease down so the day can come to a quiet finish."
+          },
+          "directionId": "lavender"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "option_rule": "One selected option adds one raw choice to its explicit flower. No birthday/MBTI/randominput.",
+    "completion": "All18responsesbeforeanypersonalcounts/result",
+    "tie_rule": "Everyhighestcountretainedanditscompleteindependentreportdisplayed",
+    "denominator": 12,
+    "position_balance": "Eachflower3ineachposition",
+    "interpretation": "Originalsymbolicself-expression/aestheticpreferences,notpsychometricpersonality/ability/health/careerfit/beautyrank/universalflowerlanguage",
+    "close_results": "Allcountsvisible;onepointisonechoice,notvalidatedsignificanceortypeseparation"
+  }
+}

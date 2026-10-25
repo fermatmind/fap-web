@@ -23,7 +23,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   const title = result?.title[locale] ?? topic, zh = locale === "zh";
   const color = colors[quiz?.category ?? questionnaire?.category ?? "framework"] ?? colors.metaphor;
   const questionnaireLabel = result ? (zh ? "公开结果说明" : "Public result guide")
-    : questionnaire?.kind === "archetype" ? (zh ? "原创动物比喻" : "Original animal quiz")
+    : questionnaire?.kind === "archetype" ? (zh ? "原创象征测验" : "Original symbolic quiz")
     : questionnaire?.kind === "likert" ? (zh ? "原创自我观察" : "Original self-reflection")
     : (zh ? "自编风格问卷" : "Original style questionnaire");
   return new ImageResponse(<div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: 60, background: "#f8fafc", color: "#0f172a", fontFamily: "FunNoto" }}>

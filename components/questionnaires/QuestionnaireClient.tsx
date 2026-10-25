@@ -111,7 +111,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
       <button className="mt-3 min-h-11 text-sm underline" onClick={() => { clear(); setAnswers({}); setSaving(false); setStage("welcome"); setMessage(""); }}>{zh ? "退出并清除本次进度" : "Exit and clear this attempt"}</button>
     </>}
     {stage === "result" && result.status === "complete" && <>
-      <h2 ref={heading} tabIndex={-1} className="text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere]">{profile?.title[locale] ?? (zh ? `${quiz.title.zh}：完整结果` : `${quiz.title.en}: your complete result`)}</h2>
+      <h2 ref={heading} tabIndex={-1} className="text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere]">{profile?.title[locale] ?? quiz.resultHeading?.[locale] ?? (zh ? `${quiz.title.zh}：完整结果` : `${quiz.title.en}: your complete result`)}</h2>
       {directional && profile && <>
       <section className="my-6 rounded-lg bg-slate-50 p-4" aria-label={zh ? "本次原始选择次数" : "Raw choice counts for this attempt"}><h3 className="font-semibold">{zh ? "各方向的本次选择次数" : "Your counts across the directions"}</h3><dl className="mt-3 space-y-3">{quiz.directions.map(direction => <div className="flex flex-wrap justify-between gap-3" key={direction.id}><dt>{direction.title[locale]}</dt><dd>{directional.counts[direction.id]} / {direction.comparisons}</dd></div>)}</dl><p className="mt-3 text-sm leading-7">{zh ? "分母为该方向参加比较的次数。原始次数只比较本题组内的选择，不是人群排名或能力分数。" : "The denominator is the number of comparisons for that direction. Raw counts compare choices within this question set, not population ranks or ability scores."}</p></section>
       <QuestionnaireReport profile={profile} locale={locale} />

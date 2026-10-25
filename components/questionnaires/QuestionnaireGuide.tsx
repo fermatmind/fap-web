@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug), profile = quiz?.profiles.find(p => p.id === id);
   if (!quiz || !profile) return { title: "Result guide unavailable", robots: { index: false, follow: false } };
-  return buildPageMetadata({ locale, pathname: questionnaireGuidePath(locale, slug, id), title: `${profile.title[locale]} · ${quiz.title[locale]}`, description: profile.summary[locale], imagePath: `/og/fun/${slug}?locale=${locale}&portrait=${id}&v=${quiz.version}`, alternatesByLocale: { en: questionnaireGuidePath("en", slug, id), zh: questionnaireGuidePath("zh", slug, id), xDefault: questionnaireGuidePath("en", slug, id) } });
+  return buildPageMetadata({ locale, pathname: questionnaireGuidePath(locale, slug, id), title: profile.seo?.title[locale] ?? `${profile.title[locale]} · ${quiz.title[locale]}`, description: profile.seo?.description[locale] ?? profile.summary[locale], imagePath: `/og/fun/${slug}?locale=${locale}&portrait=${id}&v=${quiz.version}`, alternatesByLocale: { en: questionnaireGuidePath("en", slug, id), zh: questionnaireGuidePath("zh", slug, id), xDefault: questionnaireGuidePath("en", slug, id) } });
 }
 export default async function QuestionnaireResultGuide({ params }: Props) {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input), zh = locale === "zh";

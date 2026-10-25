@@ -6,6 +6,7 @@ export type QuestionnaireProfile = {
   title: Text;
   headline: Text;
   summary: Text;
+  seo?: { title: Text; description: Text };
   scoreReading: Text;
   sections: QuestionnaireSection[];
 };
@@ -21,6 +22,7 @@ export type Questionnaire = {
   instructions?: Text;
   title: Text;
   description: Text;
+  resultHeading?: Text;
   seoTitle: Text;
   minutes: number;
   introduction: Text;

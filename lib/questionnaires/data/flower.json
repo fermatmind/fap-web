@@ -1,0 +1,1857 @@
+{
+  "slug": "flower",
+  "code": "FLOWER_PERSONALITY",
+  "version": "1.0.0",
+  "updated": "2026-10-25",
+  "category": "metaphor",
+  "kind": "archetype",
+  "minutes": 5,
+  "title": {
+    "zh": "花朵人格测试",
+    "en": "What Flower Am I?"
+  },
+  "resultHeading": {
+    "zh": "你的完整花朵结果",
+    "en": "Your complete flower result"
+  },
+  "seoTitle": {
+    "zh": "我是什么花？18题花朵人格测试与完整结果",
+    "en": "What Flower Am I? Free Flower Personality Quiz"
+  },
+  "description": {
+    "zh": "免费完成18道原创偏好题，比较玫瑰、向日葵、薰衣草、莲花、兰花和雏菊的表达比喻。全部六份完整结果可直接阅读，保留并列，附具体例子、计分和小尝试；无需注册。",
+    "en": "What flower am I? Answer 18 original questions about expression, atmosphere and everyday preferences. See every tied flower and all six full reports, free with no signup."
+  },
+  "introduction": {
+    "zh": "你更喜欢一句认真想过的话、一点共享的温暖，还是一个不必填满的角落？这份花朵人格测试从具体表达与审美偏好出发，用六种花作比喻，看看本次选择更接近哪些方式。它不是按生日分花，也不是把花名当作固定性格。你可以先比较所有公开解释，再决定是否作答。",
+    "en": "Would you choose a carefully worded note, some shared warmth or a corner with space left unfilled? This flower personality quiz starts with expression and aesthetic preferences, using six flowers as metaphors for the responses you select. It is not a birth-flower calculator or a fixed personality label. Compare all public guides before deciding whether to answer."
+  },
+  "instructions": {
+    "zh": "每题有四种都可能合理的偏好，请想想近期真实的自己，更愿意采用哪一种表达或安排。几项都贴合时，选在类似情境中更自然的一项，没有正确答案。完成18题后显示全部计数，以及所有最高并列花朵的完整解释。",
+    "en": "Each question offers four preferences that may all be reasonable. Think of your recent experience and choose the expression or arrangement you would more naturally prefer. If several fit, choose what comes more easily in a similar situation. There are no right answers. After all 18 questions, see every count and the full explanation of every highest-count flower."
+  },
+  "source": {
+    "kind": "FermatMind original website symbolic expression preference quiz",
+    "formCode": "fm_flower_expression_18",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "f5c0bf2fa08db96d42a2a3aee2bacee68725e257842767e7dbd15c24b7a1b3e9",
+    "resultContentSha256": "94c817667f7e2deb5e9c8e5ca14b1b4e389541d06fd0544842972db7582a0851",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "rose",
+      "title": {
+        "zh": "玫瑰",
+        "en": "Rose"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "sunflower",
+      "title": {
+        "zh": "向日葵",
+        "en": "Sunflower"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "lavender",
+      "title": {
+        "zh": "薰衣草",
+        "en": "Lavender"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "lotus",
+      "title": {
+        "zh": "莲花",
+        "en": "Lotus"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "orchid",
+      "title": {
+        "zh": "兰花",
+        "en": "Orchid"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "daisy",
+      "title": {
+        "zh": "雏菊",
+        "en": "Daisy"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "FLOWER_01",
+      "prompt": {
+        "zh": "给重要的人写一张没有固定格式的小卡片，你更想写什么？",
+        "en": "You are writing a card to someone important, with no set occasion or format. What would you most like to include?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "只有我们懂的一段记忆，和一句认真想过的话。",
+            "en": "A memory that belongs to us and a sentence I have really thought about."
+          },
+          "directionId": "rose"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "热情的问候，再约一件可以一起开心做的事。",
+            "en": "A warm hello and an invitation to do something enjoyable together."
+          },
+          "directionId": "sunflower"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "不需要马上回复的问候，给对方一点轻松空间。",
+            "en": "A gentle hello with no need to reply straight away."
+          },
+          "directionId": "lavender"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "回看这段时间有什么变化，以及我想珍惜什么。",
+            "en": "A reflection on what has changed lately and what I want to keep valuing."
+          },
+          "directionId": "lotus"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_02",
+      "prompt": {
+        "zh": "如果能按自己的喜好布置一场小聚，你更想要哪种感觉？",
+        "en": "If you could set the atmosphere for a small gathering, what would you want it to feel like?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "明亮、有人来就有位置，随时可以加入聊天。",
+            "en": "Bright and welcoming, with a place for people to join the conversation."
+          },
+          "directionId": "sunflower"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "声音轻一点，不必持续说话，也能自在待着。",
+            "en": "Quiet enough to stay comfortably without having to talk all the time."
+          },
+          "directionId": "lavender"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "有一个能让大家聊聊近期经历或小变化的主题。",
+            "en": "Built around a theme that lets people reflect on recent experiences or changes."
+          },
+          "directionId": "lotus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "不必很热闹，但有一两个体现个人品味的细节。",
+            "en": "Not necessarily busy, but with one or two details that feel distinctly mine."
+          },
+          "directionId": "orchid"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_03",
+      "prompt": {
+        "zh": "整理一个只属于自己的小角落，你最想先保留什么？",
+        "en": "When arranging a small corner for yourself, what would you keep first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "清爽的留白和让眼睛休息的空间。",
+            "en": "Some uncluttered space that lets my eyes rest."
+          },
+          "directionId": "lavender"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一件提醒我走过某段变化的物品。",
+            "en": "An object that reminds me of a change I have lived through."
+          },
+          "directionId": "lotus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一件细节特别、我确实喜欢的作品或摆件。",
+            "en": "A piece of work or an object whose particular details I enjoy."
+          },
+          "directionId": "orchid"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "几样随手摆着、看到就觉得有趣的小东西。",
+            "en": "A few informal little things that make me smile when I notice them."
+          },
+          "directionId": "daisy"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_04",
+      "prompt": {
+        "zh": "想向朋友分享一件好事，你更希望怎样呈现？",
+        "en": "You want to share some good news with a friend. How would you most like to express it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说清这件事对我为什么重要，以及前后有什么变化。",
+            "en": "Explain why it matters to me and what feels different now."
+          },
+          "directionId": "lotus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "用一种有个人风格的表达，让它看起来很像我。",
+            "en": "Use a personal form of expression that feels recognisably mine."
+          },
+          "directionId": "orchid"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先把当下的开心说出来，没准备好也没关系。",
+            "en": "Let the immediate delight show, even if the words are unpolished."
+          },
+          "directionId": "daisy"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "挑一个能认真交流的时刻，和对方慢慢分享。",
+            "en": "Choose a moment when we can really talk and share it with care."
+          },
+          "directionId": "rose"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_05",
+      "prompt": {
+        "zh": "空出一小时做一件让生活更有意思的小事，你更想选？",
+        "en": "You have an hour for a small thing that could make everyday life more enjoyable. What would you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "尝试一个自己喜欢的配色、搭配或手工细节。",
+            "en": "Try a colour combination, arrangement or craft detail I personally like."
+          },
+          "directionId": "orchid"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "跟着眼前的好奇心走，做点没什么大用途的事。",
+            "en": "Follow a passing curiosity into something with no need for a bigger purpose."
+          },
+          "directionId": "daisy"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "为一个值得记住的时刻，准备一点有心意的表达。",
+            "en": "Prepare a thoughtful gesture for a moment worth remembering."
+          },
+          "directionId": "rose"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "找个愿意的人一起晒太阳、聊天或吃点东西。",
+            "en": "Find willing company for some daylight, conversation or something to eat."
+          },
+          "directionId": "sunflower"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_06",
+      "prompt": {
+        "zh": "朋友刚忙完一周，你更想用哪种小邀请表达关心？",
+        "en": "A friend has come through a busy week. Which small invitation would you most like to offer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“要不要随便逛逛？不用安排什么，开心就好。”",
+            "en": "“Fancy wandering around a little? No plan needed; we can just enjoy it.”"
+          },
+          "directionId": "daisy"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“想不想去我们上次提过的地方，好好聊一会儿？”",
+            "en": "“Would you like to visit that place we mentioned and have some proper time to talk?”"
+          },
+          "directionId": "rose"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“有人一起吃点东西，你有空就加入，没空也没关系。”",
+            "en": "“A few of us are getting something to eat. Join if you have time; no pressure if not.”"
+          },
+          "directionId": "sunflower"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“想安静坐一会儿吗？不聊天也可以，改天也行。”",
+            "en": "“Would you like some quiet company? We don’t have to talk, and another day is fine too.”"
+          },
+          "directionId": "lavender"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_07",
+      "prompt": {
+        "zh": "做一张代表近期心情的简单封面，你更想从哪里开始？",
+        "en": "You are making a simple cover to reflect your recent mood. Where would you most like to start?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个克制但有分量的重点，让人知道它对我很重要。",
+            "en": "One deliberate focal point that shows this matters to me."
+          },
+          "directionId": "rose"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "明亮、开阔的搭配，让人一看就愿意靠近。",
+            "en": "A bright, open combination that feels inviting at first glance."
+          },
+          "directionId": "sunflower"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "柔和、留白多一些，不必把空间填满。",
+            "en": "Something soft with room to breathe, rather than filling every space."
+          },
+          "directionId": "lavender"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有前后层次的画面，留下一点正在变化的感觉。",
+            "en": "Layers that leave a sense of something changing over time."
+          },
+          "directionId": "lotus"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_08",
+      "prompt": {
+        "zh": "给一段休闲时间挑背景音乐，你更看重什么？",
+        "en": "When choosing background music for some free time, what matters most to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "大家都容易听进去，能顺势一起聊或轻轻跟唱。",
+            "en": "It is easy for people to enjoy together, talk over or quietly join in with."
+          },
+          "directionId": "sunflower"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "不会占满注意力，随时停下来也很舒服。",
+            "en": "It leaves attention free, and silence between tracks feels comfortable too."
+          },
+          "directionId": "lavender"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "能连起某段经历，听完像把心事整理了一点。",
+            "en": "It connects with an experience and gives me space to reflect on it."
+          },
+          "directionId": "lotus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "带一点我自己的选择，不必是最热门的搭配。",
+            "en": "It includes choices that feel personal, whether or not they are popular."
+          },
+          "directionId": "orchid"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_09",
+      "prompt": {
+        "zh": "只留一张今天随手拍的照片，你更舍不得删掉哪种？",
+        "en": "If you kept just one casual photo from today, which would you most want to save?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "光线安静、画面很简洁的一角。",
+            "en": "A quiet corner with gentle light and a simple composition."
+          },
+          "directionId": "lavender"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个前后不同的小瞬间，让我想起今天发生的变化。",
+            "en": "A small before-and-after moment that recalls something changing today."
+          },
+          "directionId": "lotus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "别人可能没注意到，但细节很吸引我的图案。",
+            "en": "A pattern or detail that caught my eye even if others missed it."
+          },
+          "directionId": "orchid"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "没怎么构图，但看到就会笑的意外画面。",
+            "en": "An unexpected moment that makes me smile even if it is not well composed."
+          },
+          "directionId": "daisy"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_10",
+      "prompt": {
+        "zh": "回看一段已经结束的小经历，你更想怎样保存它？",
+        "en": "Looking back on a small experience that has ended, how would you most like to keep it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "记下开始和结束时有什么不同。",
+            "en": "Note what was different at the beginning and at the end."
+          },
+          "directionId": "lotus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "挑少量最有个人意味的细节，做成自己的小合集。",
+            "en": "Curate a small collection of details that mean something particular to me."
+          },
+          "directionId": "orchid"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留住几张不完美但好玩的片段就够了。",
+            "en": "Keep a few imperfect, enjoyable fragments and let that be enough."
+          },
+          "directionId": "daisy"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "保留一个能认真纪念某人或某个时刻的象征。",
+            "en": "Keep one token that gives a person or a moment some deliberate recognition."
+          },
+          "directionId": "rose"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_11",
+      "prompt": {
+        "zh": "一页空白笔记可以随意使用，你更想在上面留下什么？",
+        "en": "You have a blank notebook page to use however you like. What would you most like to leave on it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个符合自己审美的小排版或组合。",
+            "en": "A small layout or combination that suits my own taste."
+          },
+          "directionId": "orchid"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "随手想到的涂画、笑话或奇怪的小点子。",
+            "en": "A passing sketch, joke or curious little idea."
+          },
+          "directionId": "daisy"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一句想认真对某个人说、还没找到时机的话。",
+            "en": "Something I want to say thoughtfully to a particular person."
+          },
+          "directionId": "rose"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "几行可以邀请朋友补充的轻松话题。",
+            "en": "A few easy prompts that friends could add to."
+          },
+          "directionId": "sunflower"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_12",
+      "prompt": {
+        "zh": "如果给普通的一天加一个小仪式，你更愿意？",
+        "en": "If you added one small ritual to an ordinary day, what would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "给一件没什么用却让我开心的小事留五分钟。",
+            "en": "Spend five minutes on something that simply delights me, with no need to justify it."
+          },
+          "directionId": "daisy"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "认真做一件能表达心意的事，不必让很多人知道。",
+            "en": "Do one deliberate thing that expresses care, without needing a large audience."
+          },
+          "directionId": "rose"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "和愿意的人共享一次短休息，让日子热闹一点。",
+            "en": "Share a short break with willing company and bring a little warmth to the day."
+          },
+          "directionId": "sunflower"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "暂时降低声音和信息量，留一段不必回应的空白。",
+            "en": "Reduce noise and incoming information for a while, leaving space without demands to respond."
+          },
+          "directionId": "lavender"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_13",
+      "prompt": {
+        "zh": "为下个月设计一页自己的日历，你最想留出哪一部分？",
+        "en": "You are designing a calendar page for next month. What would you most want to leave room for?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "值得认真记住的人和日子，少而明确。",
+            "en": "A few people and occasions I want to mark deliberately."
+          },
+          "directionId": "rose"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "可以与别人共享的活动或小期待。",
+            "en": "Activities or little things to look forward to with other people."
+          },
+          "directionId": "sunflower"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "没有安排的空白，不必每一格都填上内容。",
+            "en": "Unscheduled space, without needing to fill every square."
+          },
+          "directionId": "lavender"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一处能回看上个月、写下新阶段心意的位置。",
+            "en": "A place to reflect on the previous month and what I want from the next stage."
+          },
+          "directionId": "lotus"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_14",
+      "prompt": {
+        "zh": "完成一件小手作后，你更想把它放在哪里或怎样使用？",
+        "en": "After finishing a small handmade piece, where would you most like to put it, or how would you use it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "放在大家都能看见或一起使用的地方。",
+            "en": "Somewhere people can notice it or use it together."
+          },
+          "directionId": "sunflower"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "放在安静的一角，和周围保持舒服的空隙。",
+            "en": "In a quiet corner with a comfortable amount of space around it."
+          },
+          "directionId": "lavender"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "和这段时间的一件纪念物放在一起，保留过程的意义。",
+            "en": "Beside a keepsake from this period, preserving something of what making it meant."
+          },
+          "directionId": "lotus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "按自己的构图安排，哪怕只有我会注意到细节。",
+            "en": "In an arrangement of my own, even if I am the only one who notices the detail."
+          },
+          "directionId": "orchid"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_15",
+      "prompt": {
+        "zh": "别人问你喜欢什么样的小礼物，你更愿意怎样描述？",
+        "en": "Someone asks what kind of small gift you enjoy. How would you most like to describe it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "简单、不增加整理负担，能自然放进日常就好。",
+            "en": "Simple and easy to fit into everyday life, without adding much to look after."
+          },
+          "directionId": "lavender"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "能提醒我某个阶段或一段经历的东西。",
+            "en": "Something that recalls a period of my life or an experience."
+          },
+          "directionId": "lotus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一个特别贴合我审美的小细节，不必贵或稀有。",
+            "en": "A detail that fits my particular taste; it need not be expensive or rare."
+          },
+          "directionId": "orchid"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一点好玩或出乎意料的小东西，收到就能开心。",
+            "en": "Something playful or unexpected that is enjoyable in the moment."
+          },
+          "directionId": "daisy"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_16",
+      "prompt": {
+        "zh": "给一张自己的生活照片写配文，你更自然地想写？",
+        "en": "You are captioning a photo from your own life. What would you most naturally want to write?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "这段经历让我重新看见了什么。",
+            "en": "What this experience helped me notice differently."
+          },
+          "directionId": "lotus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一种贴合画面的个人表达，不必解释给所有人听。",
+            "en": "A personal expression that fits the image without needing everyone to understand it."
+          },
+          "directionId": "orchid"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一句当下想到、回看也会笑的话。",
+            "en": "Something that came to mind in the moment and still makes me smile."
+          },
+          "directionId": "daisy"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一句留给某个重要的人或时刻的话。",
+            "en": "A sentence for a person or moment that matters to me."
+          },
+          "directionId": "rose"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_17",
+      "prompt": {
+        "zh": "经过一个小摊位，只选一件不昂贵的东西，你更容易被什么吸引？",
+        "en": "At a small stall, you can choose one inexpensive thing. What would most draw your attention?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "颜色、质感或做工里一个很合自己喜好的细节。",
+            "en": "A detail of colour, texture or making that fits my taste."
+          },
+          "directionId": "orchid"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一件意外好玩、没必要解释用途的小东西。",
+            "en": "Something unexpectedly playful that does not need a serious purpose."
+          },
+          "directionId": "daisy"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一件让我立刻想到某个人、可以认真送出的东西。",
+            "en": "Something that immediately brings a particular person to mind and could become a thoughtful gift."
+          },
+          "directionId": "rose"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一点方便和别人一起分享、一起享受的东西。",
+            "en": "Something easy to share and enjoy with other people."
+          },
+          "directionId": "sunflower"
+        }
+      ]
+    },
+    {
+      "id": "FLOWER_18",
+      "prompt": {
+        "zh": "想给一天留下一个舒服的结尾，你更愿意？",
+        "en": "How would you most like to give an ordinary day a satisfying ending?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "留下一件小开心，不要求今天总结出什么大收获。",
+            "en": "Keep one small delight without requiring the day to produce a major lesson."
+          },
+          "directionId": "daisy"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "认真表达一次感谢，或把重要的心意说出来。",
+            "en": "Express some thanks deliberately or say something that matters."
+          },
+          "directionId": "rose"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "和愿意的人短短聊聊，分享今天的一件好事。",
+            "en": "Have a brief conversation with willing company and share one good thing from the day."
+          },
+          "directionId": "sunflower"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把声音和安排慢慢降下来，让一天自然结束。",
+            "en": "Let the noise and demands ease down so the day can come to a quiet finish."
+          },
+          "directionId": "lavender"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "rose",
+      "directionIds": [
+        "rose"
+      ],
+      "title": {
+        "zh": "玫瑰",
+        "en": "Rose"
+      },
+      "headline": {
+        "zh": "把心意放进一个认真选择的细节",
+        "en": "Put care into a deliberately chosen detail"
+      },
+      "summary": {
+        "zh": "在这份问卷里，玫瑰对应有对象、有记忆、有明确心意的表达。你可能更喜欢让某个时刻被认真对待，而不是让所有人都看见。结果来自本次选择，不规定你的恋爱方式或审美等级。",
+        "en": "In this quiz, Rose corresponds to expression with a particular person, memory or intention in mind. You may prefer giving a moment deliberate attention over making it visible to everyone. This match comes from your choices here; it does not prescribe a romantic style or rank your taste."
+      },
+      "seo": {
+        "title": {
+          "zh": "玫瑰结果解读：花朵人格测试",
+          "en": "Rose Result — Flower Personality Quiz"
+        },
+        "description": {
+          "zh": "了解玫瑰在本版花朵人格测试中怎样表达具体心意。阅读日常例子、可能的取舍、与兰花及向日葵的比较，并尝试一次小表达；完整说明免费，可在作答前阅读。",
+          "en": "Read the Rose result from our flower personality quiz: thoughtful expression, everyday examples, tradeoffs and nearby profiles. Full guide free."
+        }
+      },
+      "scoreReading": {
+        "zh": "玫瑰选项在本题组出现12次，四个位置各3次。每选中一次计1次；18题全部回答后才显示计数。所有同样最高的花朵都会保留，并逐份呈现完整说明。分母12不是相似度百分比，近分也不是心理测量上的显著差异。",
+        "en": "Rose options appear twelve times in this set, three times in each position. Selecting one adds one raw choice. Counts appear only after all 18 questions are answered. Every flower sharing the highest count stays, with its complete guide. Twelve is not a match-percentage denominator, and close counts are not psychometrically significant differences."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "玫瑰在本版代表什么",
+            "en": "What Rose represents in this edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "玫瑰选项强调的是“为什么要为这个人或时刻这样表达”。同一张卡片、照片或小礼物，有时因为它承载了私人意义而值得保留。请回想你选中的具体情境，看看吸引你的究竟是心意、形式，还是当时的现实条件。",
+              "en": "Rose options focus on why you would express something this way for a particular person or occasion. A card, photo or small gift may be worth keeping because of its private meaning. Revisit the situations you selected and ask whether intention, form or practical circumstances were what actually drew you in."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "这种偏好能带来什么",
+            "en": "What this preference can offer"
+          },
+          "paragraphs": [
+            {
+              "zh": "认真选一个细节，可能比堆很多装饰更容易说明你记住了什么。例如给朋友留一句你们共同经历过的话，不需要公开展示或昂贵物品。它的价值在于表达得具体，也允许对方用自己的方式接收，不要求同等形式的回报。",
+              "en": "One carefully chosen detail can say what you remember more clearly than a large amount of decoration. A sentence recalling an experience with a friend need not be public or expensive. Its value lies in specificity and in allowing the other person to receive it in their own way, without requiring the same kind of gesture back."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "什么时候会变得费力",
+            "en": "When it can become demanding"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果每次表达都必须足够完美、足够有意义，普通问候也可能难以发出。可以把“我要认真”与“它必须被郑重回应”分开。一次简单的联系并不抹去心意，对方喜欢另一种表达方式也不表示不珍惜你。",
+              "en": "If every expression must be perfect or deeply meaningful, even an ordinary hello can become hard to send. Separate wanting to be thoughtful from needing a solemn response. A simple contact does not cancel the care behind it, and someone preferring another form of expression does not establish that they fail to value you."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "放在一件小事里",
+            "en": "In one small occasion"
+          },
+          "paragraphs": [
+            {
+              "zh": "朋友完成了一段忙碌工作，你可以具体说出自己看见的一次努力，再问对方想庆祝还是休息。不要只因为你准备了隆重的安排，就默认那也是对方此刻最想要的。心意与对方的选择可以同时被保留。",
+              "en": "If a friend finishes a busy period, name one effort you actually noticed, then ask whether they want to celebrate or rest. Preparing an elaborate plan does not mean it is what they most want now. The intention of your gesture and the other person’s choice can both be respected."
+            }
+          ]
+        },
+        {
+          "id": "expression",
+          "title": {
+            "zh": "适合怎样安排个人表达",
+            "en": "Arranging a personal expression"
+          },
+          "paragraphs": [
+            {
+              "zh": "挑一个你确实重视的重点，让颜色、文字或物品围绕它展开，其他部分保持简单。比如只保留一张合适的照片和一句说明，而不是为了“完整”加入大量内容。这是一个创作偏好练习，不说明你适合设计、策划或任何职业。",
+              "en": "Choose one focus you genuinely value and let colour, words or objects support it while keeping the rest simple. One fitting photo and a sentence may serve better than adding many things merely for completeness. This is an expression exercise, not evidence of suitability for design, planning or any career."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "玫瑰与兰花、向日葵",
+            "en": "Rose compared with Orchid and Sunflower"
+          },
+          "paragraphs": [
+            {
+              "zh": "玫瑰选项更看重表达指向谁、为什么重要；兰花选项更看重个人审美里的特定细节。向日葵则更常选择容易共享的温暖气氛。三者可能同时出现，计数接近时可以逐个回看，不必为自己确定一个唯一的花朵身份。",
+              "en": "Rose options emphasise whom an expression is for and why it matters; Orchid emphasises a particular detail of personal taste. Sunflower more often chooses warmth that is easy to share. These can coexist. If counts are close, look back at each choice without having to establish one exclusive flower identity."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次可尝试的小表达",
+            "en": "A small expression to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一个值得表达感谢的人，用一句具体的话说清你感谢的事，再给出对方可以不马上回复的空间。不要求拍照、公开或做成仪式。之后观察：你有没有把真正想说的事说清楚，还是一直在打磨形式？",
+              "en": "Choose someone you want to thank, name the specific thing in one sentence and leave room for them not to reply immediately. There is no need to photograph it, publish it or turn it into a ceremony. Afterwards, ask whether you expressed what mattered or stayed occupied with polishing the form."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "玫瑰是不是一定浪漫或热烈",
+            "en": "Does Rose always mean romance or intensity?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不是。本版玫瑰选项也包括对朋友、个人经历和普通日子的认真表达。它不测爱的深浅、伴侣适配或外在吸引力。你可以偏爱朴素的形式，也可以保留界限；没有哪一种花要求你扮演固定的相处角色。",
+              "en": "No. Rose options also include care for friends, personal experiences and ordinary days. They do not measure depth of love, partner compatibility or attractiveness. You can prefer a plain form and maintain boundaries. No flower requires you to perform a fixed role in a relationship."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、花朵对应和报告均为费马原创象征娱乐内容，没有建立信度、效度或人群常模。这是本版的表达偏好比喻，不宣称通用花语、植物特性、疗愈效果或固定人格，也不评价能力、外貌、关系或职业适配。请保留贴合实际的部分，不必为了花名改变自己。",
+              "en": "The items, flower assignments and reports are FermatMind’s original symbolic entertainment content, without established reliability, validity or population norms. These are metaphors for expression preferences in this edition, not universal flower meanings, plant properties, healing effects or fixed personalities. They do not assess ability, appearance, relationships or career fit. Keep what fits actual experience without changing yourself to match a flower name."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sunflower",
+      "directionIds": [
+        "sunflower"
+      ],
+      "title": {
+        "zh": "向日葵",
+        "en": "Sunflower"
+      },
+      "headline": {
+        "zh": "让温暖有一个容易加入的位置",
+        "en": "Give warmth an easy point of entry"
+      },
+      "summary": {
+        "zh": "向日葵在本题组代表明亮、开放、便于共享的表达偏好。它可能体现在一张邀请、一段共同休息或一个让人愿意加入的空间里；不表示你总是积极、一定外向或负责让所有人开心。",
+        "en": "Sunflower represents bright, open expression that is easy to share in this set. That might appear in an invitation, a shared break or a welcoming space. It does not mean always feeling positive, necessarily being extraverted or being responsible for everyone’s enjoyment."
+      },
+      "seo": {
+        "title": {
+          "zh": "向日葵结果解读：花朵人格测试",
+          "en": "Sunflower Result — Flower Personality Quiz"
+        },
+        "description": {
+          "zh": "向日葵结果关注开放、容易共享的温暖表达。查看具体邀请例子、照顾气氛的取舍，以及与雏菊和玫瑰的区别；完整花朵测试说明免费，无需先作答。",
+          "en": "Explore the Sunflower result: shared warmth, welcoming invitations, tradeoffs and comparisons with Daisy and Rose. A complete free flower-quiz guide."
+        }
+      },
+      "scoreReading": {
+        "zh": "向日葵选项在本题组出现12次，四个位置各3次。每选中一次计1次；18题全部回答后才显示计数。所有同样最高的花朵都会保留，并逐份呈现完整说明。分母12不是相似度百分比，近分也不是心理测量上的显著差异。",
+        "en": "Sunflower options appear twelve times in this set, three times in each position. Selecting one adds one raw choice. Counts appear only after all 18 questions are answered. Every flower sharing the highest count stays, with its complete guide. Twelve is not a match-percentage denominator, and close counts are not psychometrically significant differences."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "向日葵在本版代表什么",
+            "en": "What Sunflower represents in this edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "这些选项更常把注意力放在“能否让愿意的人一起享受”。它不是要求热闹，而是给参与提供一个清楚、轻松的入口。有人喜欢安静加入，有人只停留片刻，这些都可以符合一个开放的安排。",
+              "en": "These options put weight on making something enjoyable for willing company. That need not mean a noisy occasion; it can be a clear, easy way to take part. Someone might join quietly or stay briefly. Both can fit an arrangement that remains open rather than requiring a particular kind of enthusiasm."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "这种偏好能带来什么",
+            "en": "What this preference can offer"
+          },
+          "paragraphs": [
+            {
+              "zh": "把共享的条件说明白，可能让一个普通时刻更容易发生。例如告诉朋友大概什么时候有空、可以做什么、来不来也没关系。比起期待别人猜到你的邀请，一点具体信息能让对方按自己的余力决定。",
+              "en": "Making the conditions of sharing clear can help an ordinary moment happen. Tell a friend roughly when you are free, what you could do and that declining is fine. A little concrete information gives them room to decide from their own capacity rather than having to guess whether they have been invited."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "什么时候会变得费力",
+            "en": "When it can become demanding"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果一场活动必须让每个人都开心，邀请也会变成负担。你可以提供空间和表达善意，却无法决定别人的心情。不要因为现场安静就急着增加节目，也不必用“大家高兴一点”盖过真实的疲惫或分歧。",
+              "en": "An occasion becomes demanding if everyone has to enjoy it. You can offer space and goodwill without deciding how another person feels. Quietness does not automatically require more entertainment, and asking people to cheer up can obscure real tiredness or disagreement instead of responding to it."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "放在一件小事里",
+            "en": "In one small occasion"
+          },
+          "paragraphs": [
+            {
+              "zh": "午休时想和同伴一起吃点东西，可以给出一个短时段和一个可选位置，也允许对方带自己的安排来。有人只来聊两句就离开，不必解释成不合群。共享可以很短，也可以保留不同步的节奏。",
+              "en": "For a shared lunch break, offer a short time window and a possible place while allowing people to bring their own plans. Someone leaving after a few words does not establish that they are unsociable. A shared moment can be brief and can accommodate people moving at different paces."
+            }
+          ]
+        },
+        {
+          "id": "expression",
+          "title": {
+            "zh": "适合怎样安排个人表达",
+            "en": "Arranging a personal expression"
+          },
+          "paragraphs": [
+            {
+              "zh": "布置小空间或制作邀请时，先让关键内容容易找到：何时、何地、怎样参与。再加入你喜欢的颜色或小细节，让它有温度而不增加阅读负担。这是对表达方式的试验，不测组织、服务或社交能力。",
+              "en": "When arranging a small space or making an invitation, first make the essential information easy to find: when, where and how to join. Add the colours or details you enjoy without making it harder to read. This is an experiment in expression, not a measure of organising, service or social skill."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "向日葵与雏菊、玫瑰",
+            "en": "Sunflower compared with Daisy and Rose"
+          },
+          "paragraphs": [
+            {
+              "zh": "向日葵偏向容易共享的温暖，雏菊偏向轻巧、即时的小开心；玫瑰则更在意某个人或时刻的特定意义。一次轻松聚会也可能包含这三种心意。请比较自己的选项，不从花名推断朋友数量或关系质量。",
+              "en": "Sunflower favours warmth that is easy to share; Daisy favours small, immediate delights; Rose gives more weight to a person or occasion’s particular meaning. One gathering can contain all three intentions. Compare your selected responses rather than inferring numbers of friends or relationship quality from a flower name."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次可尝试的小表达",
+            "en": "A small expression to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "发出一次很小的邀请，把时长、内容和拒绝空间都写清楚。结束后问自己：这次安排是否也照顾到我的余力？有没有让对方自由选择？重点是让共享更容易，而不是检查自己有没有足够讨人喜欢。",
+              "en": "Make one small invitation that states the time, activity and room to decline. Afterwards, ask whether the arrangement also respected your own capacity and whether the other person could choose freely. The point is making sharing easier, not checking whether you were sufficiently likable."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "向日葵是否说明我必须外向",
+            "en": "Does Sunflower mean I have to be extraverted?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不说明。一个人可以喜欢清楚、温暖的邀请，同时需要独处或不喜欢大型聚会。本题本没有测内外向、社交电量或幸福水平。感到难过、安静或暂时不想参与，都不会让你“失去”这个花朵结果。",
+              "en": "No. You can enjoy clear, warm invitations while needing solitude or disliking large gatherings. This quiz does not measure extraversion, social battery or happiness. Feeling sad, quiet or temporarily uninterested in company does not mean you have lost the flower match."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、花朵对应和报告均为费马原创象征娱乐内容，没有建立信度、效度或人群常模。这是本版的表达偏好比喻，不宣称通用花语、植物特性、疗愈效果或固定人格，也不评价能力、外貌、关系或职业适配。请保留贴合实际的部分，不必为了花名改变自己。",
+              "en": "The items, flower assignments and reports are FermatMind’s original symbolic entertainment content, without established reliability, validity or population norms. These are metaphors for expression preferences in this edition, not universal flower meanings, plant properties, healing effects or fixed personalities. They do not assess ability, appearance, relationships or career fit. Keep what fits actual experience without changing yourself to match a flower name."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lavender",
+      "directionIds": [
+        "lavender"
+      ],
+      "title": {
+        "zh": "薰衣草",
+        "en": "Lavender"
+      },
+      "headline": {
+        "zh": "给表达留一点不必填满的空间",
+        "en": "Leave some space that does not need filling"
+      },
+      "summary": {
+        "zh": "本版薰衣草指向留白、柔和、不急于回应的表达偏好。它可以是简洁的一角、安静的陪伴或不增加负担的小礼物；不是对你有疗愈作用、情绪稳定或能让别人平静的判断。",
+        "en": "Lavender points to space, softness and expression without an urgent demand to respond in this edition. It might be a simple corner, quiet company or an undemanding gift. It does not establish healing effects, emotional stability or an ability to make other people feel calm."
+      },
+      "seo": {
+        "title": {
+          "zh": "薰衣草结果解读：花朵人格测试",
+          "en": "Lavender Result — Flower Personality Quiz"
+        },
+        "description": {
+          "zh": "薰衣草在本版花朵人格测试中代表留白、轻柔和不急于回应的表达。阅读具体情境、取舍与莲花及雏菊的比较，尝试一个小空间调整；全部说明免费。",
+          "en": "Read the Lavender flower-quiz result: space, gentle expression, everyday examples and comparisons with Lotus and Daisy. Full original guide free."
+        }
+      },
+      "scoreReading": {
+        "zh": "薰衣草选项在本题组出现12次，四个位置各3次。每选中一次计1次；18题全部回答后才显示计数。所有同样最高的花朵都会保留，并逐份呈现完整说明。分母12不是相似度百分比，近分也不是心理测量上的显著差异。",
+        "en": "Lavender options appear twelve times in this set, three times in each position. Selecting one adds one raw choice. Counts appear only after all 18 questions are answered. Every flower sharing the highest count stays, with its complete guide. Twelve is not a match-percentage denominator, and close counts are not psychometrically significant differences."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "薰衣草在本版代表什么",
+            "en": "What Lavender represents in this edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能更常选择不把画面、声音或安排填满的做法。这里关注的是一种当下偏好，不是说安静一定比热闹更好。请想想你选它的原因：喜欢形式本身，还是那几天特别忙、只是想减少一点需要回应的事？",
+              "en": "You may have selected ways of leaving visual, audible or scheduled space unfilled. This concerns a preference in this attempt, not a claim that quietness is better than activity. Ask whether you liked the form itself or whether a particularly busy period simply made fewer demands more appealing."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "这种偏好能带来什么",
+            "en": "What this preference can offer"
+          },
+          "paragraphs": [
+            {
+              "zh": "在内容很多的时候，减少一点不必要的信息，可以让你更清楚自己想保留什么。例如一张卡片只写一句真正在意的话，一次相聚允许不持续聊天。留下空间的价值在于提供选择，不是要求别人和你一样安静。",
+              "en": "When there is a lot of content, removing something unnecessary can help you see what you actually want to keep. A card might carry one sentence that matters, or a meeting might allow time without conversation. Space offers choices; it does not require someone else to be as quiet as you prefer."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "什么时候会变得费力",
+            "en": "When it can become demanding"
+          },
+          "paragraphs": [
+            {
+              "zh": "留白有时也会让需要说明的事一直没说出来。表达界限或解释改变安排的原因，可能比一味减少联系更清楚。你可以选择温和、简短的方式，但不用把所有不舒服都藏进“没事，随便”里。",
+              "en": "Leaving space can also leave something important unsaid. Stating a boundary or explaining a change of plan may be clearer than continually reducing contact. You can be gentle and brief without placing every discomfort behind a vague assurance that everything is fine and any arrangement will do."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "放在一件小事里",
+            "en": "In one small occasion"
+          },
+          "paragraphs": [
+            {
+              "zh": "想安静陪朋友坐一会儿时，可以先说“我今天话不多，但愿意一起待一会儿”。这样对方不必猜沉默的意思，也可以提出自己的需要。安静是这次相处的一种安排，不是对关系远近的测试。",
+              "en": "If you want quiet company with a friend, explain that you do not feel very talkative but would enjoy spending a little time together. They do not have to guess what the silence means and can state their own needs. Quietness becomes an arrangement for this occasion rather than a test of closeness."
+            }
+          ]
+        },
+        {
+          "id": "expression",
+          "title": {
+            "zh": "适合怎样安排个人表达",
+            "en": "Arranging a personal expression"
+          },
+          "paragraphs": [
+            {
+              "zh": "试着为一张页面或一个角落保留一个重点，再拿掉一项只是为了填满空间的内容。之后看看它是否更贴合你的喜好，而不是要求它必须让身心放松。本题本不提供芳香、睡眠、植物栽培或心理健康建议。",
+              "en": "Give a page or corner one focus, then remove an item that was present only to fill the space. Notice whether the result suits your taste better without requiring it to relax your body or mind. This quiz supplies no aromatherapy, sleep, plant-care or mental-health advice."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "薰衣草与莲花、雏菊",
+            "en": "Lavender compared with Lotus and Daisy"
+          },
+          "paragraphs": [
+            {
+              "zh": "薰衣草选项更多是在减去要求和刺激，莲花更强调为经历留下意义；雏菊也可以很轻松，但更偏向即时的小乐趣。你可以在同一天想要这些不同体验，接近计数不需要被解释成矛盾或人格不稳定。",
+              "en": "Lavender options more often reduce demands or stimulation, while Lotus puts weight on preserving an experience’s meaning. Daisy can also feel easy, but leans toward an immediate small delight. You can want these different experiences in one day; close counts need not mean a contradiction or an unstable personality."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次可尝试的小表达",
+            "en": "A small expression to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一处可以安全调整的小空间，保留你最喜欢的一样东西，其余先少放一件。过一会儿只问“我更喜欢这样吗”，而不是“我应该因此感觉更好吗”。如果不喜欢就放回去，偏好不需要服从测试结果。",
+              "en": "Choose a small space you can freely adjust, keep the item you most enjoy and temporarily remove one other thing. Later, ask whether you prefer it this way rather than whether it should have made you feel better. Put it back if you dislike the change. Your preference does not have to obey the quiz."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "薰衣草意味着我总能安抚别人吗",
+            "en": "Does Lavender mean I can always soothe people?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不能这样推断。喜欢柔和或安静的表达，不等于你有义务照顾别人的情绪，也不说明对方一定喜欢同样的安排。你可以先询问需要、说清自己的余力，再决定怎样回应，不必维护“平静的人”这个形象。",
+              "en": "You cannot infer that. Liking a soft or quiet form of expression does not oblige you to manage someone else’s feelings or establish that they want the same arrangement. Ask about their needs, state your own capacity and decide how to respond without having to maintain an image of being the calm person."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、花朵对应和报告均为费马原创象征娱乐内容，没有建立信度、效度或人群常模。这是本版的表达偏好比喻，不宣称通用花语、植物特性、疗愈效果或固定人格，也不评价能力、外貌、关系或职业适配。请保留贴合实际的部分，不必为了花名改变自己。",
+              "en": "The items, flower assignments and reports are FermatMind’s original symbolic entertainment content, without established reliability, validity or population norms. These are metaphors for expression preferences in this edition, not universal flower meanings, plant properties, healing effects or fixed personalities. They do not assess ability, appearance, relationships or career fit. Keep what fits actual experience without changing yourself to match a flower name."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lotus",
+      "directionIds": [
+        "lotus"
+      ],
+      "title": {
+        "zh": "莲花",
+        "en": "Lotus"
+      },
+      "headline": {
+        "zh": "为经历保留一点前后变化的意义",
+        "en": "Keep some meaning from how an experience changed"
+      },
+      "summary": {
+        "zh": "本版莲花对应回看阶段、保存变化线索和为经历整理意义的选择。它不证明你经历过苦难、已经成长或比别人更有韧性，也不要求每件事都成为人生功课。",
+        "en": "Lotus corresponds to reflecting on a period, keeping signs of change and finding meaning in an experience in this edition. It does not establish hardship, growth or greater resilience, or require every event to become a life lesson."
+      },
+      "seo": {
+        "title": {
+          "zh": "莲花结果解读：花朵人格测试",
+          "en": "Lotus Result — Flower Personality Quiz"
+        },
+        "description": {
+          "zh": "莲花结果关注怎样为经历和阶段变化保留意义。查看普通生活例子、过度总结的取舍，以及与薰衣草和玫瑰的区别；本版完整花朵测试说明免费可读。",
+          "en": "Explore the Lotus flower-quiz result: meaning, transitions, everyday examples and the tradeoffs of reflection. Compare nearby profiles in the full free guide."
+        }
+      },
+      "scoreReading": {
+        "zh": "莲花选项在本题组出现12次，四个位置各3次。每选中一次计1次；18题全部回答后才显示计数。所有同样最高的花朵都会保留，并逐份呈现完整说明。分母12不是相似度百分比，近分也不是心理测量上的显著差异。",
+        "en": "Lotus options appear twelve times in this set, three times in each position. Selecting one adds one raw choice. Counts appear only after all 18 questions are answered. Every flower sharing the highest count stays, with its complete guide. Twelve is not a match-percentage denominator, and close counts are not psychometrically significant differences."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "莲花在本版代表什么",
+            "en": "What Lotus represents in this edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "这些选项更常关注一件事开始和结束时有什么不同，以及哪些东西值得带到下一阶段。你可能喜欢通过物品、文字或回看记录这种变化。先检查具体选项是否贴合，不用因为花名就为自己编出一个成长故事。",
+              "en": "These options attend to what differs between the beginning and end of an experience and what you want to carry into a next stage. Objects, words or a short reflection may help you mark that. Check whether the actual responses fit without constructing a growth story merely because you received a flower name."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "这种偏好能带来什么",
+            "en": "What this preference can offer"
+          },
+          "paragraphs": [
+            {
+              "zh": "给一段普通经历留下一点记录，可以帮助你发现自己的选择曾怎样改变。例如完成一门课后，记住最想继续练习的一件事，而不是只保存结业照片。意义也可以很小、很私人，不需要证明这段时间“值得”。",
+              "en": "A small record of an ordinary experience may help you notice how your choices changed. After finishing a course, note the one thing you want to keep practising rather than saving only a completion photo. Meaning can remain small and private; you do not need to prove that a period was worthwhile."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "什么时候会变得费力",
+            "en": "When it can become demanding"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果每次结束都要总结出成长，失望或没有收获的经历可能更难被承认。可以允许一句“这次不合适，我还没想明白”存在。暂时找不到意义不表示你做错了，也不需要用漂亮的比喻盖过不喜欢的部分。",
+              "en": "If every ending has to yield growth, it becomes harder to acknowledge disappointment or an experience that gave you little. Allow an unfinished conclusion, such as recognising that something did not fit and you do not yet know why. A pleasing metaphor does not need to cover the parts you disliked."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "放在一件小事里",
+            "en": "In one small occasion"
+          },
+          "paragraphs": [
+            {
+              "zh": "搬动书桌或结束一个月时，可以留一张前后对照，写下现在更想保留的一个条件。比如发现自己更喜欢充足的空白，或需要把常用物品放近一点。这样的具体变化，比笼统评价“我变好了多少”更容易核对。",
+              "en": "After moving a desk or reaching the end of a month, keep a before-and-after note about one condition you now want to preserve. Perhaps you prefer more clear space or frequently used things closer at hand. These changes are easier to check than a broad judgment about how much better you have become."
+            }
+          ]
+        },
+        {
+          "id": "expression",
+          "title": {
+            "zh": "适合怎样安排个人表达",
+            "en": "Arranging a personal expression"
+          },
+          "paragraphs": [
+            {
+              "zh": "做一个小合集时，可以按“之前、变化、接下来”放三样内容，也允许其中一格空着。选择真正有意义的材料，不必为了完整拼出励志结局。这是个人叙述的练习，不评估经历深度、学习能力或面对困难的水平。",
+              "en": "For a small collection, try three spaces for before, change and what comes next, allowing one to stay empty. Use material that matters to you without assembling an inspiring ending simply for completeness. This is a narrative exercise, not an assessment of depth, learning ability or how well you face difficulty."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "莲花与薰衣草、玫瑰",
+            "en": "Lotus compared with Lavender and Rose"
+          },
+          "paragraphs": [
+            {
+              "zh": "莲花选项倾向为前后变化留下意义，薰衣草更倾向给当下减少要求；玫瑰更在意某个人或时刻的明确心意。三种偏好都可以出现在同一份纪念册里。比较它们是为了看清表达方式，不是判断谁经历得更深。",
+              "en": "Lotus options preserve meaning from change, while Lavender more often reduces demands in the present. Rose emphasises deliberate care for a person or occasion. All three can appear in one keepsake. The comparison helps distinguish forms of expression rather than deciding who has lived more deeply."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次可尝试的小表达",
+            "en": "A small expression to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一段已经结束的普通小经历，只写两句：我注意到什么变化；我想保留或放下什么。不必分享，也不要求积极。如果写不出来，暂时留白即可；这个练习不是对你是否会反思的检验。",
+              "en": "Choose one ordinary experience that has ended and write two sentences: what change you noticed, and what you want to keep or leave behind. You need not share it or make it positive. Leave it unfinished if nothing comes to mind; the exercise is not a test of whether you can reflect."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "莲花是否表示我很坚韧或有精神深度",
+            "en": "Does Lotus establish resilience or spiritual depth?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不能。这个结果只来自本题组对表达偏好的选择，没有测韧性、经历、信仰或心理状态。你也不用经历某种困难才“配得上”莲花。若名字不贴合，可以只借用其中一个有帮助的提问，忽略其余解释。",
+              "en": "No. The result comes only from choices about expression in this question set, not a measure of resilience, experience, belief or mental state. You do not have to have faced a particular difficulty to deserve Lotus. If the name does not fit, borrow a useful question and leave the remaining interpretation aside."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、花朵对应和报告均为费马原创象征娱乐内容，没有建立信度、效度或人群常模。这是本版的表达偏好比喻，不宣称通用花语、植物特性、疗愈效果或固定人格，也不评价能力、外貌、关系或职业适配。请保留贴合实际的部分，不必为了花名改变自己。",
+              "en": "The items, flower assignments and reports are FermatMind’s original symbolic entertainment content, without established reliability, validity or population norms. These are metaphors for expression preferences in this edition, not universal flower meanings, plant properties, healing effects or fixed personalities. They do not assess ability, appearance, relationships or career fit. Keep what fits actual experience without changing yourself to match a flower name."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orchid",
+      "directionIds": [
+        "orchid"
+      ],
+      "title": {
+        "zh": "兰花",
+        "en": "Orchid"
+      },
+      "headline": {
+        "zh": "让一个细节准确表达自己的喜好",
+        "en": "Let one detail express your particular taste"
+      },
+      "summary": {
+        "zh": "兰花在本版代表个人审美、细节取舍和不必人人都懂的表达。它不说明你更稀有、更精致或比别人有品味，也不把有选择的喜好解释成难相处。",
+        "en": "Orchid represents personal taste, attention to selected details and expression that need not be understood by everyone in this edition. It does not make you rarer, more refined or more tasteful than someone else, or turn a selective preference into a judgment of being difficult."
+      },
+      "seo": {
+        "title": {
+          "zh": "兰花结果解读：花朵人格测试",
+          "en": "Orchid Result — Flower Personality Quiz"
+        },
+        "description": {
+          "zh": "兰花在本版花朵人格测试中关注个人审美与具体细节，不给品味排等级。阅读日常表达例子、取舍及与玫瑰和雏菊的比较；完整说明免费，无需注册。",
+          "en": "Read the Orchid result: personal taste, selected details, everyday examples and comparisons with Rose and Daisy. Full flower-quiz guide, free and open."
+        }
+      },
+      "scoreReading": {
+        "zh": "兰花选项在本题组出现12次，四个位置各3次。每选中一次计1次；18题全部回答后才显示计数。所有同样最高的花朵都会保留，并逐份呈现完整说明。分母12不是相似度百分比，近分也不是心理测量上的显著差异。",
+        "en": "Orchid options appear twelve times in this set, three times in each position. Selecting one adds one raw choice. Counts appear only after all 18 questions are answered. Every flower sharing the highest count stays, with its complete guide. Twelve is not a match-percentage denominator, and close counts are not psychometrically significant differences."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "兰花在本版代表什么",
+            "en": "What Orchid represents in this edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能更常选择“这个细节很像我”，而不是“大家都容易喜欢”。它可以体现在配色、文字、摆放或保留哪张照片上。请先确认自己喜欢什么，而不是因为一个选择小众，就认定它一定更符合兰花或更有价值。",
+              "en": "You may have favoured a detail that feels like you over something that is easy for everyone to enjoy. That can concern colour, wording, arrangement or which photo to keep. Notice what you actually like rather than deciding that a less common choice is automatically more Orchid-like or more valuable."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "这种偏好能带来什么",
+            "en": "What this preference can offer"
+          },
+          "paragraphs": [
+            {
+              "zh": "把注意力放在一个真实喜欢的细节上，可能让个人表达更清楚。例如选择一种自己愿意长期看的版式，而不是不断追赶不同风格。独特感不必依靠昂贵材料或被很多人称赞；你也可以喜欢非常常见的东西。",
+              "en": "Attention to a detail you genuinely enjoy can make an expression clearer. You might choose a layout you would like to see repeatedly instead of constantly pursuing another style. A personal choice need not be expensive or widely praised, and something very common can still suit your taste precisely."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "什么时候会变得费力",
+            "en": "When it can become demanding"
+          },
+          "paragraphs": [
+            {
+              "zh": "反复追求“更像自己”，有时会把一个小选择变成没有结束点的打磨。也可能无意中让同伴觉得自己的普通喜好被否定。可以说明“这是我喜欢的版本”，同时允许共享空间保留别人的选择，不把差别变成等级。",
+              "en": "Continually trying to make something more personal can turn a small choice into polishing without an endpoint. Others may also feel that their ordinary preferences are being dismissed. Name what suits you while leaving room for their choices in a shared space, without converting a difference into a hierarchy."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "放在一件小事里",
+            "en": "In one small occasion"
+          },
+          "paragraphs": [
+            {
+              "zh": "和朋友一起布置桌面时，你可以保留一个自己选的重点，再问对方想加入什么。若两种风格不一致，也可以各留一小块区域。表达个人喜好不等于要统一全部环境，更不需要说服对方这才是“正确审美”。",
+              "en": "When arranging a table with a friend, keep one focus you chose and ask what they would like to add. If your styles differ, each person might have a small area of their own. Expressing a preference need not mean unifying the whole setting or persuading someone that your taste is the correct one."
+            }
+          ]
+        },
+        {
+          "id": "expression",
+          "title": {
+            "zh": "适合怎样安排个人表达",
+            "en": "Arranging a personal expression"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一个小作品，只给自己最多三种可比较的方案，再按一个明确条件决定，例如“愿意每天看见”。完成后先停止继续搜索。这样的安排帮助你了解偏好，不测艺术天赋、创意能力、消费层次或职业潜力。",
+              "en": "For a small piece of work, give yourself at most three alternatives and one clear criterion, such as wanting to see it every day. After choosing, stop searching for a while. The arrangement helps you explore a preference; it does not measure artistic talent, creativity, spending power or career potential."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "兰花与玫瑰、雏菊",
+            "en": "Orchid compared with Rose and Daisy"
+          },
+          "paragraphs": [
+            {
+              "zh": "兰花选项更强调个人形式里的特定细节，玫瑰更强调某个人或时刻的意义；雏菊则更容易保留当下的轻巧和不完美。一次手作可能同时包含这些心意。接近计数不是“品味混乱”，也不用因此强求风格统一。",
+              "en": "Orchid options emphasise a particular detail of personal form, Rose the meaning of a person or occasion, and Daisy an immediate lightness that can include imperfection. One handmade piece may contain all three. Close counts do not establish confused taste or create a need to unify your style."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次可尝试的小表达",
+            "en": "A small expression to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "从已有物品里选三样真正喜欢的东西，分别写一句喜欢的具体原因。不要评价贵贱、流行或别人是否看得懂。你可能发现自己喜欢的是某个颜色、触感或私人联系；这比为了结果去追求“稀有”更贴近实际。",
+              "en": "Choose three things you already own and write one specific reason you enjoy each. Leave aside price, popularity and whether others understand them. You may discover a colour, texture or private association you value. That is closer to your actual preference than pursuing rarity to fit a quiz result."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "兰花是不是表示我难以接近",
+            "en": "Does Orchid mean I am hard to approach?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不表示。偏爱个人细节与愿意交流、喜欢普通日常完全可以同时存在。本题本没有测亲密能力、社交距离或别人怎样看你。如果想让人了解一种喜好，可以用具体例子解释，而不用把自己包装成神秘或少见的人。",
+              "en": "No. Enjoying personal details can coexist with being open to conversation and liking ordinary life. This quiz does not measure intimacy, social distance or how other people see you. Explain a preference through a concrete example if you wish, without having to present yourself as mysterious or unusual."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、花朵对应和报告均为费马原创象征娱乐内容，没有建立信度、效度或人群常模。这是本版的表达偏好比喻，不宣称通用花语、植物特性、疗愈效果或固定人格，也不评价能力、外貌、关系或职业适配。请保留贴合实际的部分，不必为了花名改变自己。",
+              "en": "The items, flower assignments and reports are FermatMind’s original symbolic entertainment content, without established reliability, validity or population norms. These are metaphors for expression preferences in this edition, not universal flower meanings, plant properties, healing effects or fixed personalities. They do not assess ability, appearance, relationships or career fit. Keep what fits actual experience without changing yourself to match a flower name."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daisy",
+      "directionIds": [
+        "daisy"
+      ],
+      "title": {
+        "zh": "雏菊",
+        "en": "Daisy"
+      },
+      "headline": {
+        "zh": "允许小开心保持轻巧和不完美",
+        "en": "Let small delights stay light and imperfect"
+      },
+      "summary": {
+        "zh": "本版雏菊对应即兴、轻巧、不必有大用途的愉快表达。它可能是一张随手照片、一点涂画或普通日子的小趣味；不表示幼稚、天真、不认真或没有深度。",
+        "en": "Daisy corresponds to spontaneous, light expression that does not need a larger purpose in this edition. It might be a casual photo, a doodle or a small pleasure in an ordinary day. It does not imply immaturity, naivety, a lack of seriousness or a lack of depth."
+      },
+      "seo": {
+        "title": {
+          "zh": "雏菊结果解读：花朵人格测试",
+          "en": "Daisy Result — Flower Personality Quiz"
+        },
+        "description": {
+          "zh": "雏菊结果关注轻巧、即兴和允许不完美的小开心。阅读具体情境、可能的取舍、与向日葵及兰花的比较，并尝试两分钟表达；完整花朵测试说明免费。",
+          "en": "Explore the Daisy result: small delights, spontaneous expression, tradeoffs and nearby flower profiles. Read the complete original guide for free."
+        }
+      },
+      "scoreReading": {
+        "zh": "雏菊选项在本题组出现12次，四个位置各3次。每选中一次计1次；18题全部回答后才显示计数。所有同样最高的花朵都会保留，并逐份呈现完整说明。分母12不是相似度百分比，近分也不是心理测量上的显著差异。",
+        "en": "Daisy options appear twelve times in this set, three times in each position. Selecting one adds one raw choice. Counts appear only after all 18 questions are answered. Every flower sharing the highest count stays, with its complete guide. Twelve is not a match-percentage denominator, and close counts are not psychometrically significant differences."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "雏菊在本版代表什么",
+            "en": "What Daisy represents in this edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "这些选项更愿意让当下有趣的东西先留下来，不等它变得足够完整、漂亮或有意义。你可能喜欢不太正式的表达，也可能只在最近想少一点打磨。请把这个偏好放回具体场景，不用把所有事情都做得轻松。",
+              "en": "These options let something enjoyable stay without waiting for it to become polished, beautiful or significant enough. You might prefer informal expression, or simply want less polishing at the moment. Put the preference back into its situation; you do not need to make every part of life feel light."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "这种偏好能带来什么",
+            "en": "What this preference can offer"
+          },
+          "paragraphs": [
+            {
+              "zh": "允许一点不完美，可以降低开始和分享的门槛。例如先画一个只有自己懂的小图，或者留下一张没拍好的笑脸，不必立刻做成作品。轻巧的价值在于让兴趣有位置，不是要求每件事都搞笑或保持积极。",
+              "en": "Allowing imperfection can make starting and sharing easier. Keep a small drawing that only you understand or a poorly framed photo of a smile without immediately turning it into a finished work. Lightness gives interest a place; it does not require everything to be funny or positive."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "什么时候会变得费力",
+            "en": "When it can become demanding"
+          },
+          "paragraphs": [
+            {
+              "zh": "有些场合需要对方的认真诉求被看见，过早开玩笑可能让人觉得话题被带走。可以先确认“你想让我认真听，还是一起找点轻松的事？”保留愉快，不需要绕开不愉快，也不等于对方必须接住你的玩笑。",
+              "en": "Some occasions call for another person’s concern to be taken seriously, and joking too soon can move attention away from it. Check whether they want careful listening or something lighter together. Keeping room for enjoyment need not bypass discomfort or require someone else to welcome a joke."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "放在一件小事里",
+            "en": "In one small occasion"
+          },
+          "paragraphs": [
+            {
+              "zh": "和朋友散步时，你可能注意到一个好玩的招牌或随手拍下一幕。如果对方也愿意，可以分享；如果对方正有别的心事，就先听一听。即时的小乐趣与认真陪伴可以切换，不需要二选一成为固定角色。",
+              "en": "On a walk, you might notice an amusing sign or take a spontaneous photo. Share it if your friend is interested; if something else is on their mind, listen first. You can move between a passing pleasure and attentive company without turning either into a fixed role you must always perform."
+            }
+          ]
+        },
+        {
+          "id": "expression",
+          "title": {
+            "zh": "适合怎样安排个人表达",
+            "en": "Arranging a personal expression"
+          },
+          "paragraphs": [
+            {
+              "zh": "给一张照片、一段文字或一页涂画设一个很小的完成条件，例如“两分钟后就停”。保留第一版，再决定是否值得继续。这个练习不是要求草率，而是区分哪些场合需要精修、哪些只需要让兴趣发生。",
+              "en": "Give a photo, a piece of writing or a page of doodles a small stopping condition, such as finishing after two minutes. Keep the first version before deciding whether to continue. This is not a demand for carelessness; it helps distinguish occasions needing refinement from occasions simply needing space for interest."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "雏菊与向日葵、兰花",
+            "en": "Daisy compared with Sunflower and Orchid"
+          },
+          "paragraphs": [
+            {
+              "zh": "雏菊选项更偏向即时、轻巧的小开心，向日葵更偏向容易共同参与的温暖；兰花更常选择贴合个人喜好的特定细节。一个人可以既想随手玩一会儿，也想认真挑选某个作品。计数只记录本次题目的相对选择。",
+              "en": "Daisy options favour immediate small delights, Sunflower warmth that people can readily share, and Orchid a selected detail of personal taste. You can enjoy informal play and still want to choose a particular piece of work carefully. The counts only record relative choices within this attempt."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次可尝试的小表达",
+            "en": "A small expression to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "用两分钟记录今天一个不需要解释用途的小发现，不一定分享，也不用把它写成积极感悟。之后只看这件事是否有趣，是否想再做一次。若今天没有这样的发现，也没有欠测试一份开心作业。",
+              "en": "Spend two minutes recording one small discovery from today without explaining its purpose. You need not share it or turn it into a positive insight. Notice only whether it was enjoyable and whether you want to repeat it. If nothing comes to mind, you do not owe the quiz an exercise in cheerfulness."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "雏菊结果会不会显得不成熟",
+            "en": "Does Daisy mean I am immature?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不会。本测试没有测成熟度、责任感、智力或成就。喜欢轻松表达与能够认真处理重要事情并不冲突。如果一次真实任务需要更细致的准备，直接按任务要求去做，比要求自己变成另一种花更有用。",
+              "en": "No. This test does not measure maturity, responsibility, intelligence or achievement. Enjoying a light form of expression can coexist with taking important matters seriously. If a real task needs more preparation, respond to its requirements rather than trying to become a different flower."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、花朵对应和报告均为费马原创象征娱乐内容，没有建立信度、效度或人群常模。这是本版的表达偏好比喻，不宣称通用花语、植物特性、疗愈效果或固定人格，也不评价能力、外貌、关系或职业适配。请保留贴合实际的部分，不必为了花名改变自己。",
+              "en": "The items, flower assignments and reports are FermatMind’s original symbolic entertainment content, without established reliability, validity or population norms. These are metaphors for expression preferences in this edition, not universal flower meanings, plant properties, healing effects or fixed personalities. They do not assess ability, appearance, relationships or career fit. Keep what fits actual experience without changing yourself to match a flower name."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "计数如何产生结果",
+        "en": "How choices produce a result"
+      },
+      "paragraphs": [
+        {
+          "zh": "18题各有4个选项，每个选项对应一种花，选中加1次。六种花各出现12次，且在四个选项位置各出现3次。完整回答后展示所有原始计数，所有最高计数的花朵均为本次匹配；不使用生日、MBTI或随机抽签。",
+          "en": "Each of the 18 questions has four options, each assigned to one flower and worth one raw choice. Every flower appears twelve times, three in each option position. Complete responses reveal all counts and keep every highest-count flower as a match. No birthday, MBTI result or random draw is used."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "并列与接近计数",
+        "en": "Ties and nearby counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "最高计数相同就完整保留，不按花朵名单顺序挑一个。并列时逐份显示完整解释；其他计数也同时可见。差1次只是本题组多选了一次，不说明哪朵花更“真实”，也不是稳定主次型、显著差异或人群排名。",
+          "en": "Equal highest counts are all retained, without picking one by list order. Each tied match receives its complete explanation, and all other counts stay visible. One extra choice here does not identify a truer flower, a stable primary or secondary type, a significant difference or a population rank."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "花朵与表达偏好的关系",
+        "en": "Flowers and expression preferences"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版把花朵用作表达方式的原创比喻：心意、共享温暖、留白、阶段意义、个人细节和轻巧乐趣。它不是通用花语对照表，不由喜欢的颜色推断人格，也不要求你按照某种花生活。喜欢其他花、换一个阶段得到不同结果，都可以。",
+          "en": "This edition uses flowers as original metaphors for intention, shared warmth, space, meaning across transitions, personal details and light enjoyment. It is not a universal flower-meaning chart or an inference of personality from a favourite colour. You need not live by a flower label, and can prefer another flower or receive another result at a different time."
+        }
+      ]
+    },
+    {
+      "id": "source-scope",
+      "title": {
+        "zh": "原创题本与使用范围",
+        "en": "Original content and its scope"
+      },
+      "paragraphs": [
+        {
+          "zh": "题目与六份报告为费马独立创作，尚未完成信度、效度和常模研究。没有复制竞品题库、报告或插图，也不提供职业匹配、名人同型、外貌等级或植物疗愈建议。本页的免费范围是18题、全部计数、完整并列结果及公开说明。",
+          "en": "FermatMind independently authored the items and six reports, without established reliability, validity or norms. No competitor item bank, report text or illustration is reproduced. There are no career matches, celebrity types, appearance rankings or plant-healing recommendations. All 18 questions, counts, complete tied results and public guides are free."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "我是什么花？这份测试怎样回答？",
+        "en": "What flower am I, and how does this quiz decide?"
+      },
+      "answer": {
+        "zh": "本页根据18道具体表达与偏好题的选择累计六种花的次数，保留所有最高计数。结果是本版原创比喻，不是出生花、花语通则或心理诊断。完整计分和所有解释均可阅读，不需要先注册。",
+        "en": "The quiz counts your selections across 18 questions about expression and preferences, keeping every highest-count flower. A result is an original metaphor in this edition, not a birth flower, universal flower meaning or psychological diagnosis. The full method and every guide are readable without signup."
+      }
+    },
+    {
+      "question": {
+        "zh": "会得到哪些花朵？",
+        "en": "Which flower results are available?"
+      },
+      "answer": {
+        "zh": "玫瑰、向日葵、薰衣草、莲花、兰花、雏菊。每份报告都有具体情境、可能的帮助、取舍、相近花朵比较和一次小表达。可以先阅读六份公开说明，再决定是否开始。",
+        "en": "Rose, Sunflower, Lavender, Lotus, Orchid and Daisy. Each report offers situations, possible contributions, tradeoffs, comparisons and one small expression to try. You can read all six public guides before deciding whether to start."
+      }
+    },
+    {
+      "question": {
+        "zh": "并列结果需要再选一次才能确定吗？",
+        "en": "Do I need another choice to break a tie?"
+      },
+      "answer": {
+        "zh": "不用。相同最高计数会完整保留并逐份呈现报告，不按先后、随机数或隐藏加分挑一个。你也可以比较其他接近计数的说明，但不会把它们标成已经验证的人格距离。",
+        "en": "No. Equal highest counts remain, each with its complete report. There is no tie breaker based on order, chance or hidden extra points. You can compare guides for other nearby counts without treating them as validated personality distances."
+      }
+    },
+    {
+      "question": {
+        "zh": "这和生日花、最喜欢的花是一样的吗？",
+        "en": "Is this the same as a birth flower or my favourite flower?"
+      },
+      "answer": {
+        "zh": "不是。本页不需要生日，也不直接让你选一种喜欢的花；计数来自18道情境偏好题。你可以喜欢与结果不同的花。若想了解植物栽培或某一文化中的具体花语，需要另查对应资料，不能由本结果代替。",
+        "en": "No. No birthday is needed, and the quiz does not simply ask you to select a favourite flower. Counts come from 18 preference scenarios. You may like a different flower. Plant care or a particular cultural flower meaning requires separate information, which this result does not replace."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果免费吗，会要求再做MBTI吗？",
+        "en": "Are full results free, and must I take MBTI too?"
+      },
+      "answer": {
+        "zh": "18题、全部计数、六份完整报告和所有并列结果都免费，无需注册，也没有前置MBTI。完成后可以自选其他框架，或直接结束；花朵不会换算成MBTI类型、职业适配或关系成功概率。",
+        "en": "All 18 questions, counts, six complete reports and ties are free, without signup or prerequisite MBTI. Another framework is optional afterwards, and you can stop here. A flower is never converted into an MBTI type, career fit or probability of relationship success."
+      }
+    },
+    {
+      "question": {
+        "zh": "刷新、保存与分享会怎样处理？",
+        "en": "What happens with refreshing, saving and sharing?"
+      },
+      "answer": {
+        "zh": "答案在浏览器计算。仅主动选择时保存本标签页24小时草稿，可在刷新或换语言后主动恢复；完成、退出清除或重测即删除。分享只含花名与公开测试／说明链接，不含答卷、计数或内部ID。存储被禁止时仍可完成本次作答。",
+        "en": "Answers are evaluated in your browser. An optional tab draft lasts 24 hours and can be resumed after a refresh or language change; it clears on completion, exit-and-clear or retake. Sharing contains only flower names and a public entry or guide link, never answers, counts or internal IDs. You can finish even if storage is blocked."
+      }
+    }
+  ]
+}
