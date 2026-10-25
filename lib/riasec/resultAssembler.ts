@@ -595,13 +595,15 @@ const KNOWN_RIASEC_DEEP_SLOT_KEYS = new Set([
   "aspirations_calibration_copy",
   "disagree_path_copy",
 ]);
-const KNOWN_RIASEC_DEEP_CONTENT_KEYS = new Set([
+const RIASEC_ENGLISH_SELECTED_CONTENT_KEYS = new Set([
   "interest_activity_focus", "context_costs", "misread_guardrails", "validation_questions",
   "pair_tension", "micro_experiment", "result_page_teaser", "deep_report_extension_hint",
   "strategy_label", "activity_chain", "core_reading", "first_experiment", "ordered_code_handling",
   "low_risk_validation", "primary_activity_chain", "secondary_support_line", "tertiary_stabilizer",
   "likely_tension", "activity_sequence", "when_to_use_140q", "when_not_to_overread",
   "free_page_teaser", "deep_report_extension",
+]);
+const KNOWN_RIASEC_DEEP_CONTENT_KEYS = new Set([
   "title",
   "summary",
   "body",
@@ -1151,7 +1153,8 @@ function buildDeepContentSlot(
     return null;
   }
 
-  const content = buildDeepContentBody(asRecord(rawSlot.content));
+  if (slotKey === "triad_blend_copy" && context.requestedPageLocale !== "en") return null;
+  const content = buildDeepContentBody(asRecord(rawSlot.content), context.requestedPageLocale);
   if (Object.keys(content).length === 0) {
     return null;
   }
@@ -1243,14 +1246,14 @@ function buildDeepContentSlot(
   };
 }
 
-function buildDeepContentBody(rawContent: Record<string, unknown> | null): Record<string, string | string[]> {
+function buildDeepContentBody(rawContent: Record<string, unknown> | null, locale: Locale): Record<string, string | string[]> {
   if (!rawContent) {
     return {};
   }
 
   return Object.fromEntries(
     Object.entries(rawContent)
-      .filter(([key]) => KNOWN_RIASEC_DEEP_CONTENT_KEYS.has(key))
+      .filter(([key]) => KNOWN_RIASEC_DEEP_CONTENT_KEYS.has(key) || (locale === "en" && RIASEC_ENGLISH_SELECTED_CONTENT_KEYS.has(key)))
       .map(([key, value]) => [key, Array.isArray(value) ? normalizeStringList(value) : normalizeText(value)])
       .filter(([, value]) => Array.isArray(value) ? value.length > 0 : Boolean(value))
   );

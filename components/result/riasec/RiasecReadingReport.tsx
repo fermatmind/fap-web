@@ -87,7 +87,7 @@ export function RiasecReadingReport({
     (slot) => slot.slotKey === "dimension_deep_copy",
   );
   const combinationSlots = slots.filter(
-    (slot) => slot.slotKey === "pair_blend_copy" || slot.slotKey === "triad_blend_copy",
+    (slot) => slot.slotKey === "pair_blend_copy" || (!zh && slot.slotKey === "triad_blend_copy"),
   );
   const contextSlots = slots.filter(
     (slot) => slot.moduleKey === "140q_context_cards",
@@ -399,7 +399,7 @@ export function RiasecReadingReport({
                 </div>
               </section>
             ) : null}
-            {(contextSlots.length || ctaSlots.length) ? (
+            {!zh && (contextSlots.length || ctaSlots.length) ? (
               <section id={ANCHORS.contextual} className={styles.chapter}>
                 <h2>{t("情境线索", "Contextual clues")}</h2>
                 {[...contextSlots, ...ctaSlots].map(slot => <ContentCard key={slot.slotId} slot={slot} state={slotState(slot)} zh={zh} />)}

@@ -211,6 +211,18 @@ describe("RIASEC locale, form, and safe-surface guard", () => {
     }
   });
 
+  it("limits selected triad fields to English and preserves the existing Chinese projection", () => {
+    const slot = (locale: string) => buildSlot(locale, ["riasec_60"], {
+      slot_key: "triad_blend_copy", slot_group: "pair_blend_copy", slot_id: "triad_blend_copy:R_I_A",
+      module_key: "hero_activity_chain", selection_v1: null,
+      content: { strategy_label: "Three activity clues", core_reading: "Read the selected activities in order." },
+    });
+    const english = assembleRiasecResultViewModel(buildReport(buildProjection("en", "riasec_60", [slot("en")]), "riasec_60"), "en");
+    expect(english.deepContentSlots?.slots[0].content.core_reading).toBe("Read the selected activities in order.");
+    const chinese = assembleRiasecResultViewModel(buildReport(buildProjection("zh-CN", "riasec_60", [slot("zh-CN")]), "riasec_60"), "zh");
+    expect(chinese.deepContentSlots?.slots).toEqual([]);
+  });
+
   it("keeps the public shell free of private result, report, and history URL enumeration", () => {
     const source = fs.readFileSync(path.join(process.cwd(), "components/result/riasec/RiasecResultShell.tsx"), "utf8");
 
