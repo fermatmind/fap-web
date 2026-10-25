@@ -1013,5 +1013,32 @@
       "todd-chavez",
       "mr-peanutbutter"
     ]
+  },
+  {
+    "slug": "chiikawa",
+    "code": "CHIIKAWA_FAN_ORDINARY_CHOICES",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "metaphor",
+    "title": {
+      "zh": "吉伊卡哇角色测试",
+      "en": "Chiikawa Test"
+    },
+    "description": {
+      "zh": "免费完成18道原创普通选择，比较吉伊卡哇、小八、兔兔、小桃、栗子馒头与海獭。全部最高并列完整显示，含例子、角色差异和计分；非官方同人测试。",
+      "en": "Take 18 original everyday questions and compare six Chiikawa characters. Full tied results, examples and scoring are free in this unofficial fan quiz."
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_chiikawa_fan_choices_18",
+    "questionCount": 18,
+    "resultSlugs": [
+      "chiikawa",
+      "hachiware",
+      "usagi",
+      "momonga",
+      "kurimanju",
+      "rakko"
+    ]
   }
 ]

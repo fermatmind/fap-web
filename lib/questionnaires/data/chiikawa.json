@@ -1,0 +1,1876 @@
+{
+  "slug": "chiikawa",
+  "code": "CHIIKAWA_FAN_ORDINARY_CHOICES",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "metaphor",
+  "kind": "archetype",
+  "title": {
+    "zh": "吉伊卡哇角色测试",
+    "en": "Chiikawa Test"
+  },
+  "resultHeading": {
+    "zh": "六位角色的本次选择与全部最高并列",
+    "en": "Your six character choices and every highest tie"
+  },
+  "description": {
+    "zh": "免费完成18道原创普通选择，比较吉伊卡哇、小八、兔兔、小桃、栗子馒头与海獭。全部最高并列完整显示，含例子、角色差异和计分；非官方同人测试。",
+    "en": "Take 18 original everyday questions and compare six Chiikawa characters. Full tied results, examples and scoring are free in this unofficial fan quiz."
+  },
+  "seoTitle": {
+    "zh": "吉伊卡哇角色测试：18题、六角色与完整结果",
+    "en": "Chiikawa Test: Free Character Quiz & Full Results"
+  },
+  "minutes": 6,
+  "introduction": {
+    "zh": "不考剧情，也不按图片造型猜MBTI。18道普通小事题，比较参与速度、共同说明、新玩法、愿望、小舒适与经验分享；六位角色各有完整说明，最高并列全部保留。",
+    "en": "No episode trivia or MBTI guesses from character images. Eighteen ordinary questions compare pace, shared wording, play, wishes, comforts and experience. All six characters have full guides and every highest tie is kept."
+  },
+  "instructions": {
+    "zh": "这份18题原创非官方同人问卷，以吉伊卡哇、小八、兔兔、小桃、栗子馒头和海獭六位角色，帮助比较当前普通小事里的参与、表达、玩法、愿望、舒适与经验分享。每题选四个做法中较接近自己的一个，均以自愿、可改和可停止为前提；不要求模仿讨伐、饮酒、索取或剧情伤害。每选加1，六位各出现12次，所有最高并列完整显示。角色名不等于真实动物、性别、年龄、人格或心理状况，结果不判断能力、道德、关系或职业，不换算MBTI。无需看全作品，基础背景只用于理解同人读法。",
+    "en": "This original 18-question unofficial fan quiz uses Chiikawa, Hachiware, Usagi, Momonga, Kurimanju and Rakko to compare ordinary participation, expression, play, wishes, comforts and shared experience. Choose the closer of four approaches in voluntary, revisable and stoppable situations, without imitating combat, drinking, demands or fictional harm. Each choice adds one, each character appears 12 times and every highest tie receives its full guide. Names establish no actual species, gender, age, personality or psychological condition, and results assign no ability, morality, relationship or career or MBTI conversion. No full-series knowledge is required; basic context only supports these fan readings."
+  },
+  "source": {
+    "kind": "FermatMindoriginal18ENZH4choice/unofficialtextonlyfaninterpretation/sixselectedcharacters/notclinicalassessment",
+    "formCode": "fm_chiikawa_fan_choices_18",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "0fbc86703a6fda14a37a56d77e6cc264c2c4a0c6fc41ed264d0ca3754eb9e19f",
+    "resultContentSha256": "42deaf7cca48d9b9420eaa15afbcd173d3581ed53138448d64d2de79ebf8c26d",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "chiikawa",
+      "title": {
+        "zh": "吉伊卡哇：慢一点也参与",
+        "en": "Chiikawa: Joining at a Gentler Pace"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "hachiware",
+      "title": {
+        "zh": "小八：把话一起说明白",
+        "en": "Hachiware: Putting Things into Words Together"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "usagi",
+      "title": {
+        "zh": "兔兔：出其不意的小玩法",
+        "en": "Usagi: Unexpected Little Ways to Play"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "momonga",
+      "title": {
+        "zh": "小桃：让自己的愿望被看见",
+        "en": "Momonga: Making Personal Wishes Visible"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "kurimanju",
+      "title": {
+        "zh": "栗子馒头：慢慢享受小舒适",
+        "en": "Kurimanju: Savouring Small Comforts"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "rakko",
+      "title": {
+        "zh": "海獭：分享一项具体经验",
+        "en": "Rakko: Sharing a Specific Experience"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "CHIIKAWA_01",
+      "prompt": {
+        "zh": "来到一个可以自由参加的小聚会，你更容易怎样安顿自己？",
+        "en": "At a small gathering you can freely join, how do you tend to settle in?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先找个舒服的位置，按自己的速度加入一小段",
+            "en": "Find a comfortable place and join a little at your own pace"
+          },
+          "directionId": "chiikawa"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "问问正在聊什么，用一句话接上大家的意思",
+            "en": "Ask what people are discussing and put their point into words"
+          },
+          "directionId": "hachiware"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "拿身边一个普通小物件，试出一个新玩法",
+            "en": "Find a new playful use for an ordinary object at hand"
+          },
+          "directionId": "usagi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "说出自己现在最想参与的一个小环节",
+            "en": "State the small part you most want to join right now"
+          },
+          "directionId": "momonga"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_02",
+      "prompt": {
+        "zh": "朋友发现一种新口味的普通点心，问你的想法，你会先？",
+        "en": "A friend finds an ordinary snack in a new flavour and asks your thoughts. What comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问对方怎样描述这个味道，再说自己的感觉",
+            "en": "Ask how they describe the taste before describing your own"
+          },
+          "directionId": "hachiware"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "想一个好玩的形状联想，让试吃多点趣味",
+            "en": "Make a playful shape association for the tasting"
+          },
+          "directionId": "usagi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "明确说自己想不想尝、想留哪一小份",
+            "en": "Say clearly whether you want a taste and which small portion"
+          },
+          "directionId": "momonga"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "慢慢留意一口的味道，不急着给结论",
+            "en": "Notice the taste slowly without rushing to a verdict"
+          },
+          "directionId": "kurimanju"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_03",
+      "prompt": {
+        "zh": "一张可以随意折叠的废纸在手边，你更愿意？",
+        "en": "You have scrap paper that can be folded freely. What would you rather do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "折一个没有预定用途的古怪小形状",
+            "en": "Fold an odd shape without a predetermined use"
+          },
+          "directionId": "usagi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把它做成能表达自己当下愿望的小标记",
+            "en": "Make a little marker expressing a current personal wish"
+          },
+          "directionId": "momonga"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "慢慢摸摸纸面、看看颜色，享受一小会儿",
+            "en": "Take a moment with the texture and colour"
+          },
+          "directionId": "kurimanju"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "分享自己试过的一种简单折法，让对方自选",
+            "en": "Share a simple fold you have tried and let others choose"
+          },
+          "directionId": "rakko"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_04",
+      "prompt": {
+        "zh": "你和熟人商量怎样度过一个短休息，你通常先表达？",
+        "en": "You and an acquaintance discuss a short break. What do you tend to express first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己今天最想要哪种休息，不让对方猜",
+            "en": "The kind of break you want today rather than leaving it to guesses"
+          },
+          "directionId": "momonga"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "想找个舒服的小角落，慢慢待一会儿",
+            "en": "An interest in sitting comfortably somewhere for a while"
+          },
+          "directionId": "kurimanju"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "以前一个具体的休息安排，供这次参考",
+            "en": "One specific arrangement you tried before as an option"
+          },
+          "directionId": "rakko"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "愿意先安静待一下，再决定是否一起做点什么",
+            "en": "A wish to sit quietly first before deciding whether to join"
+          },
+          "directionId": "chiikawa"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_05",
+      "prompt": {
+        "zh": "朋友递来一件普通小物品让你看看，你比较自然地？",
+        "en": "A friend hands you an ordinary small object to look at. What comes naturally?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "花一点时间感受质地与细节，不急着说用途",
+            "en": "Take time with texture and details before discussing use"
+          },
+          "directionId": "kurimanju"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "说一个自己实际用过的类似办法，不当成标准",
+            "en": "Mention a similar use you have actually tried without making it a rule"
+          },
+          "directionId": "rakko"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先仔细看一会儿，想说的时候再回应",
+            "en": "Look quietly and respond when ready"
+          },
+          "directionId": "chiikawa"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问它对朋友有什么意思，再组织自己的回应",
+            "en": "Ask what it means to your friend before wording your response"
+          },
+          "directionId": "hachiware"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_06",
+      "prompt": {
+        "zh": "有人第一次尝试一件你做过的普通小事，你更倾向？",
+        "en": "Someone first tries an ordinary small activity you have done before. What is your inclination?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先问需不需要，再分享一个亲自试过的小细节",
+            "en": "Ask whether help is wanted before sharing a detail you tried"
+          },
+          "directionId": "rakko"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留在附近但不催，等对方想加入或提问",
+            "en": "Stay nearby without hurrying them and wait for an invitation"
+          },
+          "directionId": "chiikawa"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "帮忙把卡住的地方说成一个具体问题",
+            "en": "Help put the sticking point into a specific question"
+          },
+          "directionId": "hachiware"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "试一个轻松的不同玩法，让过程不那么单一",
+            "en": "Try a playful variation to make the process less uniform"
+          },
+          "directionId": "usagi"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_07",
+      "prompt": {
+        "zh": "你想看看一场可随时离开的兴趣展示，通常怎样开始？",
+        "en": "You want to look at a hobby display you can leave at any time. How do you begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先从人少的一角慢慢看，再决定往哪里走",
+            "en": "Start in a quiet corner and decide where to go at your pace"
+          },
+          "directionId": "chiikawa"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找一段说明读懂，再和愿意的人聊两句",
+            "en": "Read a description and talk it through with someone willing"
+          },
+          "directionId": "hachiware"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先看一个最奇怪的小细节，跟着兴趣走",
+            "en": "Follow an odd little detail that catches your interest"
+          },
+          "directionId": "usagi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "指出自己最想看的部分，商量先去那里",
+            "en": "State the part you most want to see and discuss going there"
+          },
+          "directionId": "momonga"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_08",
+      "prompt": {
+        "zh": "朋友用一个你没听过的词形容普通小物件，你会？",
+        "en": "A friend uses an unfamiliar word for an ordinary object. What do you do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "请对方换个说法，再确认自己有没有理解",
+            "en": "Ask for another description and check your understanding"
+          },
+          "directionId": "hachiware"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "随口想一个有趣的新名字，再听真正的解释",
+            "en": "Invent a playful name, then listen to the actual explanation"
+          },
+          "directionId": "usagi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "告诉对方自己最想知道的那一点",
+            "en": "Say which particular thing you want to know"
+          },
+          "directionId": "momonga"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先看看实物的样子和触感，不急着学名字",
+            "en": "Enjoy its look and feel before learning the name"
+          },
+          "directionId": "kurimanju"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_09",
+      "prompt": {
+        "zh": "自己的一小块可用空间空了出来，你更想怎么用？",
+        "en": "A small space of your own becomes available. How would you like to use it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "摆一个和平常不同的小组合，看看效果",
+            "en": "Arrange an unusual little combination and see what happens"
+          },
+          "directionId": "usagi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "放一件最能表达自己当前喜好的东西",
+            "en": "Put in something showing a current personal preference"
+          },
+          "directionId": "momonga"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留成舒服顺眼的一角，慢慢享受",
+            "en": "Make it a comfortable corner to enjoy gradually"
+          },
+          "directionId": "kurimanju"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用以前试过的一个小办法整理，保留可改余地",
+            "en": "Use one arrangement you have tried before while keeping it changeable"
+          },
+          "directionId": "rakko"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_10",
+      "prompt": {
+        "zh": "一起选一个普通小纪念物时，你通常先做什么？",
+        "en": "When choosing an ordinary little keepsake together, what do you tend to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "明确说自己喜欢哪一个，接受别人选不同的",
+            "en": "State your preference and accept that others may choose differently"
+          },
+          "directionId": "momonga"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "慢慢比较看起来、摸起来的感受",
+            "en": "Compare how the options look and feel without hurrying"
+          },
+          "directionId": "kurimanju"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "说说自己曾经用过类似东西的一个具体经验",
+            "en": "Share a concrete experience with a similar object"
+          },
+          "directionId": "rakko"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先看一会儿，等自己有想法再加入选择",
+            "en": "Look for a while and join the choice when ready"
+          },
+          "directionId": "chiikawa"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_11",
+      "prompt": {
+        "zh": "一段没有任务要求的空闲里，你更想？",
+        "en": "In free time without a required task, what would you rather do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "享受身边一个小舒服，不把时间填满",
+            "en": "Enjoy a small comfort nearby without filling the time"
+          },
+          "directionId": "kurimanju"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把一项自己熟悉的小方法记下来，方便以后自选",
+            "en": "Note a familiar little method as an option for later"
+          },
+          "directionId": "rakko"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "按自己的速度待着，偶尔参与一点周围的小事",
+            "en": "Stay at your pace and occasionally join something nearby"
+          },
+          "directionId": "chiikawa"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "和愿意的人聊聊刚才的一点发现，把意思说清",
+            "en": "Talk through a small observation with someone willing"
+          },
+          "directionId": "hachiware"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_12",
+      "prompt": {
+        "zh": "熟人问某种普通材料怎样使用，你比较会怎样回应？",
+        "en": "An acquaintance asks how to use an ordinary material. How are you likely to respond?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说明自己亲自试过哪一种用法，也说清局限",
+            "en": "Explain one use you have tried and its limits"
+          },
+          "directionId": "rakko"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "陪对方慢慢看，不急着替他决定",
+            "en": "Look at it with them without rushing to decide for them"
+          },
+          "directionId": "chiikawa"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先问具体想做到什么，再把问题拆清楚",
+            "en": "Ask what they want to do and clarify the question"
+          },
+          "directionId": "hachiware"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提议先在许可范围内试个不寻常的小样",
+            "en": "Suggest an unusual small trial within permitted uses"
+          },
+          "directionId": "usagi"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_13",
+      "prompt": {
+        "zh": "有人邀你加入一个轻松的合照，你通常更接近？",
+        "en": "Someone invites you into a casual group photo. What feels closer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先确认自己愿不愿意，再按舒服的方式加入或略过",
+            "en": "Check your willingness and join comfortably or decline"
+          },
+          "directionId": "chiikawa"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "问清怎么拍、是否公开，再说明自己的想法",
+            "en": "Clarify the arrangement and publication before stating your view"
+          },
+          "directionId": "hachiware"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "想到一个大家愿意才采用的小动作",
+            "en": "Think of a playful gesture to use only if everyone wants it"
+          },
+          "directionId": "usagi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提出自己喜欢的站位或表达方式，允许别人不同",
+            "en": "State your preferred position or expression while allowing differences"
+          },
+          "directionId": "momonga"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_14",
+      "prompt": {
+        "zh": "你想跟别人分享一件很小的开心事，会更容易？",
+        "en": "How do you tend to share a very small enjoyable moment?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把来龙去脉用自己的话说明白",
+            "en": "Put its context into your own words"
+          },
+          "directionId": "hachiware"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "用一个轻松的比喻或动作表达趣味",
+            "en": "Express the fun through a playful comparison or gesture"
+          },
+          "directionId": "usagi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "直接说自己希望对方留意哪一小处",
+            "en": "Say directly which little detail you hope they notice"
+          },
+          "directionId": "momonga"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "慢慢回味当时舒服的感觉，不一定多说",
+            "en": "Savour the pleasant feeling without necessarily saying much"
+          },
+          "directionId": "kurimanju"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_15",
+      "prompt": {
+        "zh": "一次普通活动留下几个安全可自用的小材料，你会想？",
+        "en": "An ordinary activity leaves a few safe materials you may use yourself. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "组合出一个原本没想到的小东西",
+            "en": "Combine them into something you had not planned"
+          },
+          "directionId": "usagi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "挑出自己最喜欢的一份，明确表达想保留",
+            "en": "Choose a favourite portion and clearly ask to keep it"
+          },
+          "directionId": "momonga"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "按喜欢的触感和颜色收在舒服的位置",
+            "en": "Keep them somewhere pleasant for their textures and colours"
+          },
+          "directionId": "kurimanju"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "记一条这次用材料的经验，不要求别人照做",
+            "en": "Record one experience using them without requiring imitation"
+          },
+          "directionId": "rakko"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_16",
+      "prompt": {
+        "zh": "你和朋友喜欢不同的小摆设，通常怎样继续？",
+        "en": "You and a friend prefer different small decorations. How do you continue?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把自己的喜好说出来，也给对方保留不同选择",
+            "en": "State your preference and leave room for theirs"
+          },
+          "directionId": "momonga"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "享受各自喜欢的小细节，不急着统一",
+            "en": "Enjoy the details each likes without forcing agreement"
+          },
+          "directionId": "kurimanju"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "说一个自己实际摆过的例子，供比较而非裁决",
+            "en": "Offer an arrangement you tried for comparison rather than a verdict"
+          },
+          "directionId": "rakko"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "不急着表态，等自己准备好再说",
+            "en": "Wait until you are ready rather than rushing a position"
+          },
+          "directionId": "chiikawa"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_17",
+      "prompt": {
+        "zh": "一张普通风景照让你停下来，你最可能先做什么？",
+        "en": "An ordinary landscape photo makes you pause. What are you likely to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "慢慢看看颜色与光线，享受眼前这一小会儿",
+            "en": "Enjoy the colours and light for a little while"
+          },
+          "directionId": "kurimanju"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "说一项自己亲自试过的观察或取景办法",
+            "en": "Mention a way of observing or framing that you have tried"
+          },
+          "directionId": "rakko"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "安静看一段，愿意时再加入讨论",
+            "en": "Look quietly and join discussion when you want"
+          },
+          "directionId": "chiikawa"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把自己看到的具体细节用话描述出来",
+            "en": "Put a specific detail you notice into words"
+          },
+          "directionId": "hachiware"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_18",
+      "prompt": {
+        "zh": "结束一次自己愿意参加的小活动，你通常会留意？",
+        "en": "At the end of a small activity you willingly joined, what do you tend to notice?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "有没有一项实际经验可在别人需要时分享",
+            "en": "Whether there is a specific experience to share if wanted"
+          },
+          "directionId": "rakko"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "自己参与的速度是否舒服，不必跟别人一样",
+            "en": "Whether your participation pace felt comfortable without matching others"
+          },
+          "directionId": "chiikawa"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "还有哪一点意思没说清，愿意时可以补一句",
+            "en": "Whether a point remains unclear and could be worded if wanted"
+          },
+          "directionId": "hachiware"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有没有一个有趣的偶然玩法，自己还想再试",
+            "en": "Whether an unexpected playful variation interests you again"
+          },
+          "directionId": "usagi"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "chiikawa",
+      "directionIds": [
+        "chiikawa"
+      ],
+      "title": {
+        "zh": "吉伊卡哇：慢一点也参与",
+        "en": "Chiikawa: Joining at a Gentler Pace"
+      },
+      "headline": {
+        "zh": "吉伊卡哇：慢一点也参与",
+        "en": "Chiikawa: Joining at a Gentler Pace"
+      },
+      "summary": {
+        "zh": "从自由参加的小展示看按自己的速度参与，含具体表达、五角色比较与反例；不把外表、害羞、哭泣或心理状态当你的标签。",
+        "en": "Explore participation at your pace through a small display, wording and five character comparisons. Appearance, shyness, tears and mental states are not assigned to you."
+      },
+      "scoreReading": {
+        "zh": "18题全部各选一项，对应的本版角色方向加1，总数固定18。每题提供六位中的四位，全卷每位12次、每位置3次；未提供的两位不记拒绝。所有最高计数完整保留，全选第一项会六位各3次、六份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似度百分比、真实人格比例或成为角色的概率。差一次只是一项选择，不证明显著差异、某种品质消失或固定类型。可自行比较近分说明，但不补造并列、隐藏性格或混合身份。当前情境、时间和理解可能改变选择，没有人群常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 18 items; each adds one to its editorial character direction and counts sum to 18. Four of six characters are offered per item. Each appears 12 times and three times in each position; absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all six guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions nor probabilities of being a character. One extra choice proves neither significance, missing qualities nor a fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Context, time and understanding can change choices; there are no population norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "吉伊卡哇测试结果：参与速度与完整说明",
+          "en": "Chiikawa Quiz Result: A Gentler Pace & Full Guide"
+        },
+        "description": {
+          "zh": "从一场可自由参加的小展示看参与速度，含表达、五角色比较与停止空间；不把害羞、哭泣、外表或心理状况当你的标签。",
+          "en": "Read Chiikawa through joining a small display at your pace. Full examples and comparisons without assigning shyness, tears, appearance or mental states."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "人物基础与本版读法",
+            "en": "Character context and this edition’s reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "官方人物介绍中的吉伊卡哇有温柔、谨慎的一面，作品也包含困难的日常。本站只借“慢一点也可以参与”作同人读法，不把整个人物定成胆小，也不把温柔当作必须忍让。人物外形与表达方式属于作品设定，不决定答题者的物种、性别、年龄或需要别人怎样照顾。",
+              "en": "Official character context includes a gentle, cautious side to Chiikawa, within a world that can be difficult. This edition selects joining at a gentler pace as a fan reading without reducing the whole character to timidity or making gentleness require yielding. Fictional appearance and expression establish no respondent’s species, gender, age or entitlement to decide how others should care for them."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择先看一会儿、从舒服的位置加入，或等自己准备好再表达。可以问：什么部分想参加，怎样的速度更符合意愿，现在是否想说话？原始次数不判断勇气、脆弱、内向、抗压或焦虑；少选也可能只是对眼前活动很熟悉，不说明粗心、冷漠或不懂照顾自己。",
+              "en": "A highest count means you more often chose to observe, join from a comfortable position or speak when ready. Which part interests you, what pace suits your wishes and do you want to speak now? Raw counts establish no courage, fragility, introversion, stress tolerance or anxiety. Fewer choices may reflect familiarity rather than carelessness, coldness or poor attention to your actual needs."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你想看看一个可自由离开的小展示，可以先在边缘看一件物品，再决定要不要和别人聊。看完一件就离开也算一次自己选择的参与，而不是失败或需要补考的社交。若有明确入场时间、拥挤或安全条件，需要另外核实；例子不要求强行突破，也不保证慢看会带来某种改变。",
+              "en": "At a small display with free entry and exit, look at one object from the edge before deciding whether to talk. Leaving after that can be your chosen participation rather than a social failure to correct. Check actual timing, crowding and safety separately. The example requires no forced breakthrough and promises no particular personal change from taking a slower look at an ordinary activity."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想先慢慢看一会儿，愿意时再加入，你不用一直等我。”如果是共同安排，再确认别人能否按自己的方式继续。给自己留速度，也给对方留不陪同的空间；这不是要求所有人迁就，更不意味着你必须始终柔软、安静或让别人决定。愿意直接参与或说不，也都可以。",
+              "en": "You might say, “I’d like to look slowly first and join when I want; you don’t need to wait for me.” In a shared arrangement, confirm that others can continue their own way. Room for your pace also leaves them free not to accompany you. It requires neither everyone’s accommodation nor perpetual softness, silence or letting others decide; direct participation and refusal remain possible."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他五位角色比较",
+            "en": "Comparisons with the other five character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "吉伊卡哇读法偏参与速度，小八偏把意思说清，兔兔偏出其不意的玩法；慢看也可以边说边玩。小桃偏让愿望可见，栗子馒头偏享受具体舒适，海獭偏分享试过的一点经验。这里没有主角优先、勇敢等级或谁更值得喜欢，最高并列也不规定你得按名单顺序表现。",
+              "en": "This Chiikawa angle concerns participation pace, Hachiware putting meaning into words and Usagi unexpected play; a slow look can include both conversation and play. Momonga concerns visible wishes, Kurimanju small comforts and Rakko specific experience. There is no protagonist priority, bravery rank or greater worthiness of affection, and a highest tie imposes no order in which you must perform the characters’ approaches."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，先观察可能因为光线、语言、疲劳或不熟悉规则，而不是一种稳定偏好；快参与同样可以很细心。本版不从选择判断焦虑、社交困难、依恋、神经类型、健康或成长经历，也不把哭泣当成评分题。真实不适需要具体理解，不由一个可爱角色代替说明或决定你必须怎样面对。",
+              "en": "Observing first may follow lighting, language, tiredness or unfamiliar rules rather than a lasting preference, while quick participation can be attentive too. Choices infer no anxiety, social difficulty, attachment, neurotype, health or developmental history, and crying is not a scoring criterion. Actual discomfort deserves specific understanding rather than a cute character standing in for an explanation or deciding how it must be handled."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：为一件本来就想看的低风险小事，想一个可以少量参与、也能离开的方式，不必真的去做。看看这种安排是否符合当前意愿，不用按待了多久、讲了几句给勇气打分。也可以直接略过；测试不要求你证明“虽然害怕仍然坚持”，更不把停止看成不够像吉伊卡哇。",
+              "en": "For an optional observation, imagine a small way to join and leave something low-stakes you already want to see; actual attendance is unnecessary. Notice whether it suits your wishes without grading bravery by time spent or words spoken. Skip it if preferred. The quiz requires no proof of persistence despite fear and treats no decision to stop as failing to resemble Chiikawa sufficiently."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "18题计数与全部最高并列",
+            "en": "18-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18题全部各选一项，对应的本版角色方向加1，总数固定18。每题提供六位中的四位，全卷每位12次、每位置3次；未提供的两位不记拒绝。所有最高计数完整保留，全选第一项会六位各3次、六份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似度百分比、真实人格比例或成为角色的概率。差一次只是一项选择，不证明显著差异、某种品质消失或固定类型。可自行比较近分说明，但不补造并列、隐藏性格或混合身份。当前情境、时间和理解可能改变选择，没有人群常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 18 items; each adds one to its editorial character direction and counts sum to 18. Four of six characters are offered per item. Each appears 12 times and three times in each position; absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all six guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions nor probabilities of being a character. One extra choice proves neither significance, missing qualities nor a fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Context, time and understanding can change choices; there are no population norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的非官方同人问卷，以六位吉伊卡哇角色作当前普通选择的有限阅读角度。官方人物页与授权游戏中文页只核人物基础和名字，不验证本站题目、映射、计数或心理解释；本站与原作者、制作方、授权方和游戏运营方无合作或认可关系，作品和角色权利归相应权利人。18题、选项、解释、例子与规则原创，未采用IDR30题、竞品正文或算法、漫画台词、动画字幕、截图、立绘、游戏素材或其他受保护内容。它不是全作品、全角色或完整人格结论，不推断动物分类、性别、年龄、疾病、焦虑、神经类型、天赋、道德、关系或职业，不模仿饮酒、战斗、索取或伤害，不把可爱作为绕过同意的理由，也不换算MBTI、心理自我状态或其他角色测验。",
+              "en": "This is an independently authored FermatMind unofficial fan quiz using six Chiikawa characters as limited readings of current ordinary choices. Official character and licensed-game Chinese pages check basic context and names without validating these items, mappings, counts or psychology. There is no partnership or endorsement by creators, producers, licensors or game operators; series and character rights belong to their respective owners. All 18 items, options, explanations, examples and rules are original. No IDR 30-item bank, competitor text or algorithm, comic dialogue, subtitles, screenshots, character art, game assets or other protected material is used. This is no full-series, all-character or complete-personality verdict. It infers no species, gender, age, illness, anxiety, neurotype, talent, morality, relationship or career, invites no imitation of drinking, combat, demands or harm, and makes no cuteness an exemption from agreement. Results convert into no MBTI, ego-state or other character-quiz result."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hachiware",
+      "directionIds": [
+        "hachiware"
+      ],
+      "title": {
+        "zh": "小八：把话一起说明白",
+        "en": "Hachiware: Putting Things into Words Together"
+      },
+      "headline": {
+        "zh": "小八：把话一起说明白",
+        "en": "Hachiware: Putting Things into Words Together"
+      },
+      "summary": {
+        "zh": "通过一个普通物件的名称看共同说明与确认理解，含表达、五角色比较和反例；不认证口才、乐观、聪明或调解能力。",
+        "en": "Explore shared wording and understanding through an ordinary object’s name, examples and five character comparisons. No eloquence, optimism, intelligence or mediation skill is certified."
+      },
+      "scoreReading": {
+        "zh": "18题全部各选一项，对应的本版角色方向加1，总数固定18。每题提供六位中的四位，全卷每位12次、每位置3次；未提供的两位不记拒绝。所有最高计数完整保留，全选第一项会六位各3次、六份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似度百分比、真实人格比例或成为角色的概率。差一次只是一项选择，不证明显著差异、某种品质消失或固定类型。可自行比较近分说明，但不补造并列、隐藏性格或混合身份。当前情境、时间和理解可能改变选择，没有人群常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 18 items; each adds one to its editorial character direction and counts sum to 18. Four of six characters are offered per item. Each appears 12 times and three times in each position; absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all six guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions nor probabilities of being a character. One extra choice proves neither significance, missing qualities nor a fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Context, time and understanding can change choices; there are no population norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "小八测试结果：共同说明、例子与完整指南",
+          "en": "Hachiware Quiz Result: Shared Wording & Full Guide"
+        },
+        "description": {
+          "zh": "用一个普通物件的名字理解共同说明与确认意思，含表达和五角色比较；不认证口才、乐观、聪明或调解能力。",
+          "en": "Explore Hachiware through wording and understanding an ordinary object’s name. Full comparisons without eloquence, intelligence or mediation certification."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "人物基础与本版读法",
+            "en": "Character context and this edition’s reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "小八（Hachiware）是吉伊卡哇的朋友。本站借“把眼前意思一起说出来”作同人读法，不把角色化成永远积极或代替大家发言的人。官方英文人物页也提醒，类似猫的外表不等于确定的动物分类；中文常用名字在这里用于认出角色，不据此给人贴物种、性别或外向标签。",
+              "en": "Hachiware is Chiikawa’s friend. This edition selects putting an immediate meaning into words together rather than defining the character as permanently positive or everyone’s spokesperson. Official English context also distinguishes a cat-like appearance from a settled species. Chinese naming identifies the character here without assigning species, gender or extraversion to a respondent on the basis of a name or fictional appearance."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择问一句、换个说法、描述具体细节，或确认自己是否理解了对方。可以问：现在卡在哪个词，谁愿意一起解释，能不能暂时不知道？次数只对应这些选项，不观察表达质量、事实正确性或倾听效果，也不证明你应当负责替整个群体说话。少说话同样可以有清楚的想法。",
+              "en": "A highest count means you more often chose a question, another phrasing, a specific description or a check of your understanding. Which word is unclear, who wants to explain and can uncertainty remain? Counts observe neither expression quality, factual correctness nor listening outcomes and assign no duty to speak for a group. Speaking less can also coexist with clear ideas about an ordinary shared matter."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，朋友用一个陌生词形容手边的小东西，你可以请他用用途或样子再说一次，然后回应“我理解的是这个，对吗？”不需要立即找到标准名称，也可以保留不同用法。这里共同说明的重点是确认眼前意思，不是比谁知道更多；若对方不想继续解释，也可以先放下话题。",
+              "en": "A friend uses an unfamiliar word for a small object. Ask for a description of its use or appearance, then check what you understood. There is no need to find a standard name immediately, and different usages can remain. Shared wording aims to clarify this particular meaning rather than establish who knows more; if the person does not want to continue explaining, leave it there."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想确认有没有理解你的意思，愿意换个说法吗？现在不解释也可以。”自己也可以承认没听懂，不用替别人补出未说的话。热心说明不是代言授权，尤其涉及别人隐私、决定或承诺时，需要由本人表达或明确同意，不能因为结果像小八就替他作答。",
+              "en": "You might say, “I’d like to check my understanding; would you describe it another way? It’s fine not to explain now.” Admit uncertainty without supplying words someone never said. Helpful explanation grants no authority to represent others, especially about privacy, decisions or commitments. A Hachiware-like match does not permit answering for another person without their own expression or explicit agreement in that actual situation."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他五位角色比较",
+            "en": "Comparisons with the other five character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "小八这一读法偏共同说明，海獭偏分享亲自试过的一项经验；会解释不表示经验更多。吉伊卡哇偏参与速度，兔兔偏新玩法，小桃偏表达愿望，栗子馒头偏享受细节。同一件事可以先安静看，再把发现说出来；这些不是六个语言能力或社交等级，也不直接换算沟通风格、MBTI或领导类型。",
+              "en": "This Hachiware angle concerns shared explanation, while Rakko concerns a specific tried experience; explaining does not mean having more experience. Chiikawa concerns pace, Usagi play, Momonga wishes and Kurimanju enjoyable details. One matter may include quiet observation and later wording. These are not six language-ability or social ranks and convert directly into no communication, MBTI or leadership type for an actual respondent."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，多说几句可能因为只有你熟悉那个词，少说可能因为已经理解、不方便开口或不想参与。计数不判断口才、乐观、聪明、焦虑或是否总在调解，也不把现实困难解释成角色的隐藏心理。对方说“我不想谈”时，需要按字面尊重，不把自己善于解释当成继续追问的理由。",
+              "en": "Extra words may simply follow familiarity with a term, while fewer words may reflect existing understanding, difficulty speaking or no wish to participate. Counts establish no eloquence, optimism, intelligence, anxiety or mediation habit and explain no actual difficulty through hidden fictional psychology. Respect someone’s stated wish not to discuss a matter rather than using an explanatory role as a reason to keep questioning them."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：为眼前一件自己愿意描述的普通小东西，写一句自己的说法和一句仍不确定的地方，可以不请别人核对。看看是否喜欢用语言确认意思，不考核说得是否漂亮、有说服力或总能帮上忙。不想写也可以停；角色匹配不要求你随时给出积极答案或把别人的疑问都接下来。",
+              "en": "For an optional observation, describe an ordinary small object you want to describe in one sentence and note one uncertainty. Others need not check it. Notice whether wording appeals without testing elegance, persuasiveness or usefulness. Stop if preferred; a character match requires neither constant positive answers nor responsibility for every question someone else raises during an actual conversation or shared activity with you."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "18题计数与全部最高并列",
+            "en": "18-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18题全部各选一项，对应的本版角色方向加1，总数固定18。每题提供六位中的四位，全卷每位12次、每位置3次；未提供的两位不记拒绝。所有最高计数完整保留，全选第一项会六位各3次、六份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似度百分比、真实人格比例或成为角色的概率。差一次只是一项选择，不证明显著差异、某种品质消失或固定类型。可自行比较近分说明，但不补造并列、隐藏性格或混合身份。当前情境、时间和理解可能改变选择，没有人群常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 18 items; each adds one to its editorial character direction and counts sum to 18. Four of six characters are offered per item. Each appears 12 times and three times in each position; absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all six guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions nor probabilities of being a character. One extra choice proves neither significance, missing qualities nor a fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Context, time and understanding can change choices; there are no population norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的非官方同人问卷，以六位吉伊卡哇角色作当前普通选择的有限阅读角度。官方人物页与授权游戏中文页只核人物基础和名字，不验证本站题目、映射、计数或心理解释；本站与原作者、制作方、授权方和游戏运营方无合作或认可关系，作品和角色权利归相应权利人。18题、选项、解释、例子与规则原创，未采用IDR30题、竞品正文或算法、漫画台词、动画字幕、截图、立绘、游戏素材或其他受保护内容。它不是全作品、全角色或完整人格结论，不推断动物分类、性别、年龄、疾病、焦虑、神经类型、天赋、道德、关系或职业，不模仿饮酒、战斗、索取或伤害，不把可爱作为绕过同意的理由，也不换算MBTI、心理自我状态或其他角色测验。",
+              "en": "This is an independently authored FermatMind unofficial fan quiz using six Chiikawa characters as limited readings of current ordinary choices. Official character and licensed-game Chinese pages check basic context and names without validating these items, mappings, counts or psychology. There is no partnership or endorsement by creators, producers, licensors or game operators; series and character rights belong to their respective owners. All 18 items, options, explanations, examples and rules are original. No IDR 30-item bank, competitor text or algorithm, comic dialogue, subtitles, screenshots, character art, game assets or other protected material is used. This is no full-series, all-character or complete-personality verdict. It infers no species, gender, age, illness, anxiety, neurotype, talent, morality, relationship or career, invites no imitation of drinking, combat, demands or harm, and makes no cuteness an exemption from agreement. Results convert into no MBTI, ego-state or other character-quiz result."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "usagi",
+      "directionIds": [
+        "usagi"
+      ],
+      "title": {
+        "zh": "兔兔：出其不意的小玩法",
+        "en": "Usagi: Unexpected Little Ways to Play"
+      },
+      "headline": {
+        "zh": "兔兔：出其不意的小玩法",
+        "en": "Usagi: Unexpected Little Ways to Play"
+      },
+      "summary": {
+        "zh": "从一张废纸的小形状看即兴玩法、许可与停止空间，含五角色比较；不推断物种、危险偏好、注意力或创造天赋。",
+        "en": "Explore spontaneous play, permission and room to stop through a scrap-paper shape and five character comparisons. No species, risk preference, attention or creative talent is inferred."
+      },
+      "scoreReading": {
+        "zh": "18题全部各选一项，对应的本版角色方向加1，总数固定18。每题提供六位中的四位，全卷每位12次、每位置3次；未提供的两位不记拒绝。所有最高计数完整保留，全选第一项会六位各3次、六份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似度百分比、真实人格比例或成为角色的概率。差一次只是一项选择，不证明显著差异、某种品质消失或固定类型。可自行比较近分说明，但不补造并列、隐藏性格或混合身份。当前情境、时间和理解可能改变选择，没有人群常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 18 items; each adds one to its editorial character direction and counts sum to 18. Four of six characters are offered per item. Each appears 12 times and three times in each position; absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all six guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions nor probabilities of being a character. One extra choice proves neither significance, missing qualities nor a fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Context, time and understanding can change choices; there are no population norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "兔兔测试结果：意外玩法、例子与完整说明",
+          "en": "Usagi Quiz Result: Unexpected Play & Full Guide"
+        },
+        "description": {
+          "zh": "用废纸小形状理解出其不意的玩法，保留许可、同意和停止空间；完整比较不推断物种、危险偏好、注意力或创造天赋。",
+          "en": "Read Usagi through a playful scrap-paper shape, permission and room to stop. Full comparisons without species, risk, attention or creative-talent claims."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "人物基础与本版读法",
+            "en": "Character context and this edition’s reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "兔兔（Usagi）在官方人物介绍中有活泼、寻找乐趣的一面。本站只借“在普通小事里玩出意外变化”的同人角度，不把整个角色说成混乱、无所畏惧或没有想法。名字和长耳外形不决定实际物种，也不为答题者推断性别、年龄、体力或说话方式；本版不要求模仿叫声、讨伐或冒险。",
+              "en": "Official context includes Usagi’s liveliness and interest in fun. This edition borrows unexpected variation in ordinary play without defining the whole character as chaos, fearlessness or absent thought. A name and long-eared appearance establish no actual species, gender, age, strength or speech pattern for respondents. The quiz asks for no imitation of vocalisations, fighting or risky fictional action in the real world."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择一个奇怪的小形状、新组合或临时玩法。可以问：现在对哪一点新奇有兴趣，材料能否自由使用，别人愿不愿意跟着玩？次数不证明你总是冲动、很会创新或不守规则；少选也不说明乏味。好玩的东西可以很小、安静且只属于自己，不需要制造惊喜给所有人。",
+              "en": "A highest count means you more often chose an odd shape, new combination or improvised variation. Which novelty interests you, may the materials be used and do others want to join? Counts establish neither impulsiveness, innovation nor disregard for rules; fewer choices do not mean dullness. Play may be small, quiet and private without producing surprises or entertainment for everyone else around you."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，一张可以自用的废纸让你想到折出一个没有用途的小形状，可以只试一次，再拆开或收走。若想拉朋友一起，先问他愿不愿意，不直接折他的便条或改他的东西。这个例子保留偶然发现的趣味，不以成品实用、别人发笑或是否完成来认证创造力，也不把原本普通活动推成比赛。",
+              "en": "Scrap paper you may use suggests an odd folded shape with no purpose. Try once, unfold it or put it away. Ask before involving a friend and leave their notes and belongings alone. The example keeps room for chance discovery without certifying creativity through usefulness, laughter or completion, or turning an ordinary private activity into a contest that others must enter and enjoy."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想到一个小玩法，先用自己的这点材料试；你想不想看都可以。”轻松不等于无视规则，别人不喜欢也不需要被说服接受。自己也可以按说明做、慢下来或结束，不必因为结果像兔兔就一直活跃；玩得尽兴的具体边界由实际参与者决定，角色不能替大家同意。",
+              "en": "You might say, “I have a little playful idea and will try it with my own material; you can choose whether to look.” Lightness does not cancel rules or require persuading someone to enjoy it. Follow instructions, slow down or stop whenever preferred. A Usagi-like result demands no constant activity, and fictional character names cannot supply consent on behalf of actual participants."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他五位角色比较",
+            "en": "Comparisons with the other five character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "兔兔这一读法偏玩法的新奇，小桃偏让个人愿望可见：想玩不同的东西不一定在寻求关注。吉伊卡哇偏参与速度，小八偏把话说清，栗子馒头偏小舒适，海獭偏具体经验。新奇可以与细心、安静或说明并存，没有谁更自由、聪明或强壮，也不把一次选择换算成神经类型或其他动漫角色。",
+              "en": "This Usagi angle concerns novelty in play, while Momonga concerns visible wishes; wanting a variation does not necessarily seek attention. Chiikawa concerns pace, Hachiware wording, Kurimanju comforts and Rakko experience. Novelty can coexist with care, quiet or explanation. No one is ranked freer, smarter or stronger, and a choice converts into neither a neurotype nor a character from another series or questionnaire."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，临时换玩法可能因为材料不够、没听懂或原计划不可行，不表示稳定偏好；照常做也能有很多乐趣。本版不测注意力、冲动、风险承受、战斗能力或情绪，也不把剧中危险当作勇气训练。真有安全、许可或他人权利问题时，先按现实条件处理，不能拿角色的活跃为自己辩解。",
+              "en": "A changed approach may follow missing materials, misunderstanding or an impractical plan rather than preference; routine can be enjoyable too. The quiz measures no attention, impulse control, risk tolerance, combat ability or mood and makes no dangerous scene a courage exercise. Actual safety, permission and others’ rights govern what happens, without fictional liveliness serving as an excuse to ignore those conditions in an ordinary activity."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：给一张属于自己的废纸想一个可撤回的小变化，也可以只想、不动手或略过。注意自己喜不喜欢意外出现的形状，不以速度、怪异程度或他人反应评分。无需追求更大胆、更厉害的玩法；不想继续时结束，这个问卷不要求你证明自己一直有活力或保持角色式的无所畏惧。",
+              "en": "For an optional observation, imagine a reversible variation with scrap paper you own. Think without acting or skip it entirely. Notice whether an unexpected shape appeals without scoring speed, strangeness or others’ reactions. There is no need for a bolder or more impressive experiment. Stop when you want; the questionnaire requires neither constant vitality nor a performance of fictional fearlessness for anyone to recognise you."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "18题计数与全部最高并列",
+            "en": "18-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18题全部各选一项，对应的本版角色方向加1，总数固定18。每题提供六位中的四位，全卷每位12次、每位置3次；未提供的两位不记拒绝。所有最高计数完整保留，全选第一项会六位各3次、六份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似度百分比、真实人格比例或成为角色的概率。差一次只是一项选择，不证明显著差异、某种品质消失或固定类型。可自行比较近分说明，但不补造并列、隐藏性格或混合身份。当前情境、时间和理解可能改变选择，没有人群常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 18 items; each adds one to its editorial character direction and counts sum to 18. Four of six characters are offered per item. Each appears 12 times and three times in each position; absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all six guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions nor probabilities of being a character. One extra choice proves neither significance, missing qualities nor a fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Context, time and understanding can change choices; there are no population norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的非官方同人问卷，以六位吉伊卡哇角色作当前普通选择的有限阅读角度。官方人物页与授权游戏中文页只核人物基础和名字，不验证本站题目、映射、计数或心理解释；本站与原作者、制作方、授权方和游戏运营方无合作或认可关系，作品和角色权利归相应权利人。18题、选项、解释、例子与规则原创，未采用IDR30题、竞品正文或算法、漫画台词、动画字幕、截图、立绘、游戏素材或其他受保护内容。它不是全作品、全角色或完整人格结论，不推断动物分类、性别、年龄、疾病、焦虑、神经类型、天赋、道德、关系或职业，不模仿饮酒、战斗、索取或伤害，不把可爱作为绕过同意的理由，也不换算MBTI、心理自我状态或其他角色测验。",
+              "en": "This is an independently authored FermatMind unofficial fan quiz using six Chiikawa characters as limited readings of current ordinary choices. Official character and licensed-game Chinese pages check basic context and names without validating these items, mappings, counts or psychology. There is no partnership or endorsement by creators, producers, licensors or game operators; series and character rights belong to their respective owners. All 18 items, options, explanations, examples and rules are original. No IDR 30-item bank, competitor text or algorithm, comic dialogue, subtitles, screenshots, character art, game assets or other protected material is used. This is no full-series, all-character or complete-personality verdict. It infers no species, gender, age, illness, anxiety, neurotype, talent, morality, relationship or career, invites no imitation of drinking, combat, demands or harm, and makes no cuteness an exemption from agreement. Results convert into no MBTI, ego-state or other character-quiz result."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "momonga",
+      "directionIds": [
+        "momonga"
+      ],
+      "title": {
+        "zh": "小桃：让自己的愿望被看见",
+        "en": "Momonga: Making Personal Wishes Visible"
+      },
+      "headline": {
+        "zh": "小桃：让自己的愿望被看见",
+        "en": "Momonga: Making Personal Wishes Visible"
+      },
+      "summary": {
+        "zh": "通过共同选择小纪念物理解直接表达愿望与接受不同回应，含五角色比较；不把可爱、索取、操控或隐藏心理当你的身份。",
+        "en": "Explore stating wishes and accepting different responses through a keepsake choice and five character comparisons. Cuteness, demands, manipulation and hidden motives are not your identity."
+      },
+      "scoreReading": {
+        "zh": "18题全部各选一项，对应的本版角色方向加1，总数固定18。每题提供六位中的四位，全卷每位12次、每位置3次；未提供的两位不记拒绝。所有最高计数完整保留，全选第一项会六位各3次、六份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似度百分比、真实人格比例或成为角色的概率。差一次只是一项选择，不证明显著差异、某种品质消失或固定类型。可自行比较近分说明，但不补造并列、隐藏性格或混合身份。当前情境、时间和理解可能改变选择，没有人群常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 18 items; each adds one to its editorial character direction and counts sum to 18. Four of six characters are offered per item. Each appears 12 times and three times in each position; absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all six guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions nor probabilities of being a character. One extra choice proves neither significance, missing qualities nor a fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Context, time and understanding can change choices; there are no population norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "小桃测试结果：愿望表达、例子与完整说明",
+          "en": "Momonga Quiz Result: Visible Wishes & Full Guide"
+        },
+        "description": {
+          "zh": "从共同选择小纪念物看愿望表达与接受不同回应，含五角色比较；不把可爱、索取、操控、孤独或隐藏心理当你的身份。",
+          "en": "Explore Momonga through stating a keepsake preference and accepting different responses. Full comparisons without identity or hidden-motive assignments."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "人物基础与本版读法",
+            "en": "Character context and this edition’s reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "小桃（Momonga）在作品基础介绍中很在意表现可爱，也会提出不合理要求。本站选取的是“让自己的愿望可见”这一有限阅读角度，同时保留要求可能越界的区别，不把索取或操控说成优点。角色的外形、故事身份和行为不直接属于你，也不因为匹配这个名字就判断你自私或值得被讨厌。",
+              "en": "Basic character context includes Momonga’s displays of cuteness and unreasonable demands. This edition selects making wishes visible as a limited reading while retaining the distinction between a request and overstepping; demands and manipulation are not presented as strengths. Fictional appearance, identity and behaviour are not assigned to you, and receiving the name establishes neither selfishness nor deserving dislike from actual people in your life."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择直接说出想看、想留或希望别人注意的具体一处。可以问：自己到底想要什么，是提出请求还是已经默认别人答应，能不能接受不同回应？计数不检验表达效果、受欢迎程度或动机，也不证明你需要关注。少选可能是当时没有偏好、不方便说或不愿分享，并不等于更无私。",
+              "en": "A highest count means you more often chose to state a particular wish or detail you hope someone notices. What do you want, is it a request rather than assumed agreement, and can different responses stand? Counts observe neither effectiveness, popularity nor motives and establish no attention need. Fewer choices may reflect no preference, limited opportunity or privacy rather than greater selflessness in an actual situation."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，一起选普通小纪念物时，你可以说“我喜欢这个蓝色的，想留这一份；如果已经有人选了，我们再商量”。不需要先演成不在意，也不能擅自拿走别人已选的东西。愿望被说出来，只意味着对方有机会听见，并不保证会实现；是否有余量、归属和如何分配，仍要按实际条件谈清。",
+              "en": "Choosing ordinary keepsakes together, say which blue one you would like and suggest discussion if it is already chosen. You need neither perform indifference nor take something another person selected. An expressed wish gives others a chance to hear it without guaranteeing fulfilment. Availability, ownership and distribution still need to be discussed in their actual circumstances rather than settled by a character-like manner of asking."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“这是我想要的，不过你可以说不；我不想让你靠猜。”表达清楚不等于一定礼貌或无害，若对方拒绝、说不舒服或要求停，需要听见并停止。不能借可爱、玩笑或角色名绕过同意，也不需要为了结果维持讨喜形象；别人不承担安慰、赞美或满足每个愿望的责任。",
+              "en": "You might say, “This is what I’d like, and you can say no; I don’t want you to have to guess.” Clear expression is not automatically harmless. Hear refusal or discomfort and stop when asked. Cuteness, humour and a character name cannot bypass agreement, and a result requires no appealing performance or obligation on others to reassure, praise or fulfil every expressed wish."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他五位角色比较",
+            "en": "Comparisons with the other five character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "小桃这一读法偏愿望可见，兔兔偏玩法新奇；说出想法可以很普通，不一定寻求惊喜或表演。小八偏共同说明，吉伊卡哇偏参与速度，栗子馒头偏享受细节，海獭偏经验分享。六者都需要尊重实际意愿，没有“最自我”或“最善良”的排序，也不把这一名字换成自恋、依恋或其他人格分数。",
+              "en": "This Momonga angle concerns visible wishes, while Usagi concerns novelty; stating a preference can be ordinary without surprise or performance. Hachiware concerns wording, Chiikawa pace, Kurimanju comforts and Rakko experience. All require respect for actual wishes. There is no ranking of selfishness or kindness, and the name converts into neither narcissism, attachment nor another personality score for an actual respondent or someone they know."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，一次明确表达可能因为物品要提前预留，不是稳定偏好；没有开口也可能只是没有兴趣。计数不识别操控、恶意、孤独、缺爱、危险性或任何心理原因。不能拿角色当骂人标签，也不能用“只是像小桃”免除真实越界的责任；现实行为需要按具体事实、同意和影响理解。",
+              "en": "An explicit request may follow a reservation requirement rather than a stable preference, while silence may simply mean no interest. Counts identify neither manipulation, malice, loneliness, unmet affection, danger nor psychological causes. Do not use a character as an insult or as an exemption for actual overstepping. Understand real behaviour through specific facts, agreement and impact rather than a voluntary quiz name alone."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：给一件自己本来就想表达的小事，写一句愿望，再加一句允许对方拒绝的空间，可以不发送。注意两句话是否都符合自己的意思，不检查是否得到夸奖或愿望实现，也不用证明自己已经学会关系技巧。可以不做，或者决定保留隐私；测试不要求你变得更会索取或更像角色。",
+              "en": "For an optional observation, write one small wish you already want to express and one sentence leaving room for refusal. Keep it unsent if preferred. Notice whether both reflect your meaning without checking for praise, fulfilment or improved relationship skill. Skip it or retain privacy; the quiz requires neither becoming better at obtaining things nor performing closer resemblance to a fictional character in actual interactions."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "18题计数与全部最高并列",
+            "en": "18-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18题全部各选一项，对应的本版角色方向加1，总数固定18。每题提供六位中的四位，全卷每位12次、每位置3次；未提供的两位不记拒绝。所有最高计数完整保留，全选第一项会六位各3次、六份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似度百分比、真实人格比例或成为角色的概率。差一次只是一项选择，不证明显著差异、某种品质消失或固定类型。可自行比较近分说明，但不补造并列、隐藏性格或混合身份。当前情境、时间和理解可能改变选择，没有人群常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 18 items; each adds one to its editorial character direction and counts sum to 18. Four of six characters are offered per item. Each appears 12 times and three times in each position; absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all six guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions nor probabilities of being a character. One extra choice proves neither significance, missing qualities nor a fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Context, time and understanding can change choices; there are no population norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的非官方同人问卷，以六位吉伊卡哇角色作当前普通选择的有限阅读角度。官方人物页与授权游戏中文页只核人物基础和名字，不验证本站题目、映射、计数或心理解释；本站与原作者、制作方、授权方和游戏运营方无合作或认可关系，作品和角色权利归相应权利人。18题、选项、解释、例子与规则原创，未采用IDR30题、竞品正文或算法、漫画台词、动画字幕、截图、立绘、游戏素材或其他受保护内容。它不是全作品、全角色或完整人格结论，不推断动物分类、性别、年龄、疾病、焦虑、神经类型、天赋、道德、关系或职业，不模仿饮酒、战斗、索取或伤害，不把可爱作为绕过同意的理由，也不换算MBTI、心理自我状态或其他角色测验。",
+              "en": "This is an independently authored FermatMind unofficial fan quiz using six Chiikawa characters as limited readings of current ordinary choices. Official character and licensed-game Chinese pages check basic context and names without validating these items, mappings, counts or psychology. There is no partnership or endorsement by creators, producers, licensors or game operators; series and character rights belong to their respective owners. All 18 items, options, explanations, examples and rules are original. No IDR 30-item bank, competitor text or algorithm, comic dialogue, subtitles, screenshots, character art, game assets or other protected material is used. This is no full-series, all-character or complete-personality verdict. It infers no species, gender, age, illness, anxiety, neurotype, talent, morality, relationship or career, invites no imitation of drinking, combat, demands or harm, and makes no cuteness an exemption from agreement. Results convert into no MBTI, ego-state or other character-quiz result."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kurimanju",
+      "directionIds": [
+        "kurimanju"
+      ],
+      "title": {
+        "zh": "栗子馒头：慢慢享受小舒适",
+        "en": "Kurimanju: Savouring Small Comforts"
+      },
+      "headline": {
+        "zh": "栗子馒头：慢慢享受小舒适",
+        "en": "Kurimanju: Savouring Small Comforts"
+      },
+      "summary": {
+        "zh": "从普通风景照与身边物件看细节、感受与安静共享，含五角色比较；不测饮食、饮酒、健康、成熟或情绪调节。",
+        "en": "Explore details, comfort and quiet sharing through an ordinary photo and nearby objects. Five comparisons measure no eating, drinking, health, maturity or emotional regulation."
+      },
+      "scoreReading": {
+        "zh": "18题全部各选一项，对应的本版角色方向加1，总数固定18。每题提供六位中的四位，全卷每位12次、每位置3次；未提供的两位不记拒绝。所有最高计数完整保留，全选第一项会六位各3次、六份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似度百分比、真实人格比例或成为角色的概率。差一次只是一项选择，不证明显著差异、某种品质消失或固定类型。可自行比较近分说明，但不补造并列、隐藏性格或混合身份。当前情境、时间和理解可能改变选择，没有人群常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 18 items; each adds one to its editorial character direction and counts sum to 18. Four of six characters are offered per item. Each appears 12 times and three times in each position; absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all six guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions nor probabilities of being a character. One extra choice proves neither significance, missing qualities nor a fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Context, time and understanding can change choices; there are no population norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "栗子馒头测试结果：小舒适、例子与完整说明",
+          "en": "Kurimanju Quiz Result: Small Comforts & Full Guide"
+        },
+        "description": {
+          "zh": "从风景照和普通物件看小舒适、细节与安静共享，含表达和五角色比较；不测饮食、饮酒、健康、成熟或情绪调节。",
+          "en": "Read Kurimanju through small comforts, an ordinary photo and quiet sharing. Full comparisons without drinking, health, maturity or emotional-regulation claims."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "人物基础与本版读法",
+            "en": "Character context and this edition’s reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "栗子馒头（Kurimanju）是作品中的角色，基础介绍包含与朋友分享食物等日常。本站只借“慢慢享受眼前小舒适”的同人角度，不要求模仿人物饮酒，也不把作品里的饮酒许可当现实规则。可以用光线、颜色、触感或一个安静角落理解这份读法，食物与饮料都不是作答或观察的必需品。",
+              "en": "Kurimanju’s basic fictional context includes sharing food with friends. This edition borrows savouring a small comfort without inviting imitation of drinking or treating fictional drinking permission as an actual rule. Light, colour, texture or a quiet corner can explain the reading; neither food nor drink is required for the questionnaire or an optional observation of what interests you in an ordinary moment."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择慢看细节、留意感受，或不急着给眼前东西派一个用途。可以问：喜欢的是哪种具体感觉，现在想独自待着还是一起分享？次数不观察享受程度、放松效果或生活方式，也不认证成熟、稳定、幸福或会照顾别人。少选可能因为当时忙、没兴趣或条件不合，并不等于不会享受生活。",
+              "en": "A highest count means you more often chose details, sensations or leaving something without an immediate use. Which feeling appeals, and would you prefer solitude or willing company? Counts observe neither enjoyment, relaxation outcomes nor lifestyle and certify no maturity, stability, happiness or care skill. Fewer choices may follow being busy, uninterested or in unsuitable conditions rather than being unable to enjoy an actual ordinary life."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，一张普通风景照让你注意到窗边一小片暖色，可以停下看一会儿，不一定分析拍摄方法或立刻分享。也可以移开视线、换一张或不再看；它没有规定要感觉平静。若同伴想一起看，可以各说喜欢的细节，也允许彼此不同，不把自己的舒适当作别人应该同样舒服的标准。",
+              "en": "An ordinary landscape photo draws your attention to a small warm colour by a window. Look for a while without analysing technique or sharing immediately. Look away or stop as preferred; no particular calm feeling is required. With willing company, each may name a different detail, without treating your comfort as the standard for what another person should find comfortable in that moment."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想慢慢看这一小处，不急着做别的；你可以按自己想的方式继续。”舒适不自动取消已答应的事，若时间或责任有变化，再谈具体安排。也不需要一直安静、懂吃或显得老练来符合栗子馒头的名字；表达不舒服或不想享受同一件东西，也都可以。",
+              "en": "You might say, “I’d like to spend a little time with this detail without moving on yet; you can continue your own way.” Comfort does not automatically cancel agreed duties; discuss concrete arrangements if timing changes. The character requires neither constant quiet, food expertise nor a seasoned appearance. Expressing discomfort or not wanting the same experience remains possible regardless of the result or someone else’s expectations."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他五位角色比较",
+            "en": "Comparisons with the other five character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "栗子馒头这一读法偏具体舒适，吉伊卡哇偏参与速度：慢看可以是享受，也可以是先弄清环境。小八偏共同说明，兔兔偏新玩法，小桃偏愿望表达，海獭偏经验。安静享受不等于更成熟或更内向，热闹活动也可以很舒服；六种计数不形成恢复能力、情绪调节或生活质量等级。",
+              "en": "This Kurimanju angle concerns specific comforts, while Chiikawa concerns participation pace; a slower look can be enjoyment or orientation. Hachiware concerns wording, Usagi play, Momonga wishes and Rakko experience. Quiet enjoyment is neither greater maturity nor introversion, and a lively activity can be comfortable. The six counts create no rank of recovery ability, emotional regulation or actual quality of life outside the offered situations."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，停下来可能因为等待、疲劳、身体条件或暂时没有别的事，不一定是偏好。问卷不评估饮食、饮酒、依赖、健康、情绪或年龄，也不提供放松治疗。若现实中有不适，角色名不能解释原因或替代适当处理；本版的普通例子不要求吃喝、购买东西或模仿作品里的习惯。",
+              "en": "Pausing may follow waiting, tiredness, bodily circumstances or no immediate task rather than preference. The quiz evaluates no eating, drinking, dependence, health, mood or age and supplies no relaxation treatment. A character name explains no actual discomfort or appropriate response to it. Ordinary examples require neither consumption, purchases nor imitation of habits appearing in the fictional series or another person’s interpretation of it."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：在一件原本就愿意看的小东西里，找一个自己喜欢的颜色或细节，不必停很久、拍照或分享。留意这种注意是否符合当前兴趣，不检查自己有没有变平静、被治愈或获得更好的生活方式。可以直接略过；舒适不是必须完成的任务，也不需要在真实忙碌中强行挤出一种角色式仪式。",
+              "en": "For an optional observation, notice a colour or detail in something small you already want to see. No prolonged pause, photograph or sharing is required. Notice your interest without checking whether you became calm, healed or acquired a better lifestyle. Skip it if preferred; comfort is no compulsory task and demands no character-like ritual forced into an actual busy or uncomfortable situation in your daily life."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "18题计数与全部最高并列",
+            "en": "18-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18题全部各选一项，对应的本版角色方向加1，总数固定18。每题提供六位中的四位，全卷每位12次、每位置3次；未提供的两位不记拒绝。所有最高计数完整保留，全选第一项会六位各3次、六份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似度百分比、真实人格比例或成为角色的概率。差一次只是一项选择，不证明显著差异、某种品质消失或固定类型。可自行比较近分说明，但不补造并列、隐藏性格或混合身份。当前情境、时间和理解可能改变选择，没有人群常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 18 items; each adds one to its editorial character direction and counts sum to 18. Four of six characters are offered per item. Each appears 12 times and three times in each position; absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all six guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions nor probabilities of being a character. One extra choice proves neither significance, missing qualities nor a fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Context, time and understanding can change choices; there are no population norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的非官方同人问卷，以六位吉伊卡哇角色作当前普通选择的有限阅读角度。官方人物页与授权游戏中文页只核人物基础和名字，不验证本站题目、映射、计数或心理解释；本站与原作者、制作方、授权方和游戏运营方无合作或认可关系，作品和角色权利归相应权利人。18题、选项、解释、例子与规则原创，未采用IDR30题、竞品正文或算法、漫画台词、动画字幕、截图、立绘、游戏素材或其他受保护内容。它不是全作品、全角色或完整人格结论，不推断动物分类、性别、年龄、疾病、焦虑、神经类型、天赋、道德、关系或职业，不模仿饮酒、战斗、索取或伤害，不把可爱作为绕过同意的理由，也不换算MBTI、心理自我状态或其他角色测验。",
+              "en": "This is an independently authored FermatMind unofficial fan quiz using six Chiikawa characters as limited readings of current ordinary choices. Official character and licensed-game Chinese pages check basic context and names without validating these items, mappings, counts or psychology. There is no partnership or endorsement by creators, producers, licensors or game operators; series and character rights belong to their respective owners. All 18 items, options, explanations, examples and rules are original. No IDR 30-item bank, competitor text or algorithm, comic dialogue, subtitles, screenshots, character art, game assets or other protected material is used. This is no full-series, all-character or complete-personality verdict. It infers no species, gender, age, illness, anxiety, neurotype, talent, morality, relationship or career, invites no imitation of drinking, combat, demands or harm, and makes no cuteness an exemption from agreement. Results convert into no MBTI, ego-state or other character-quiz result."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rakko",
+      "directionIds": [
+        "rakko"
+      ],
+      "title": {
+        "zh": "海獭：分享一项具体经验",
+        "en": "Rakko: Sharing a Specific Experience"
+      },
+      "headline": {
+        "zh": "海獭：分享一项具体经验",
+        "en": "Rakko: Sharing a Specific Experience"
+      },
+      "summary": {
+        "zh": "用一种亲自试过的普通材料用法理解经验分享、许可和局限，含五角色比较；不认证战斗、指导、领导、勇气或专业能力。",
+        "en": "Explore experience, permission and limits through an ordinary material use you tried. Five comparisons certify no combat, teaching, leadership, courage or professional skill."
+      },
+      "scoreReading": {
+        "zh": "18题全部各选一项，对应的本版角色方向加1，总数固定18。每题提供六位中的四位，全卷每位12次、每位置3次；未提供的两位不记拒绝。所有最高计数完整保留，全选第一项会六位各3次、六份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似度百分比、真实人格比例或成为角色的概率。差一次只是一项选择，不证明显著差异、某种品质消失或固定类型。可自行比较近分说明，但不补造并列、隐藏性格或混合身份。当前情境、时间和理解可能改变选择，没有人群常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 18 items; each adds one to its editorial character direction and counts sum to 18. Four of six characters are offered per item. Each appears 12 times and three times in each position; absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all six guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions nor probabilities of being a character. One extra choice proves neither significance, missing qualities nor a fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Context, time and understanding can change choices; there are no population norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "海獭测试结果：经验分享、例子与完整说明",
+          "en": "Rakko Quiz Result: Shared Experience & Full Guide"
+        },
+        "description": {
+          "zh": "从一种亲自试过的普通纸张用法看经验、许可与局限，含表达和五角色比较；不认证战斗、指导、领导、勇气或专业能力。",
+          "en": "Explore Rakko through a specific paper-use experience, permission and limits. Full comparisons without combat, leadership or professional-skill certification."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "人物基础与本版读法",
+            "en": "Character context and this edition’s reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "海獭（Rakko）在官方作品介绍中是有经验的讨伐角色，也有帮助朋友的一面。本站只借“在别人愿意时分享一项具体经验”的同人读法，不测试或模仿战斗，不把剧情里的排名变成答题者的勇气、资历或领导力。普通经验可以很小，喜欢分享也不表示有资格指导所有事情。",
+              "en": "Official context presents Rakko as an experienced fictional hunter who also helps friends. This edition borrows sharing one specific experience when wanted, without testing or imitating combat or converting a fictional rank into a respondent’s courage, credentials or leadership. An ordinary experience may be small, and enjoying sharing it supplies no qualification to advise on every matter another person faces in actual life."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择先问需不需要，再说一个自己实际试过的办法和局限。可以问：这是亲自用过还是听说过，适用条件是否不同，对方想不想参考？计数不观察经验是否正确、指导效果或专业水平，也不证明你更可靠。少选可能是这次没有相关经验，不表示自私、没能力或不关心别人。",
+              "en": "A highest count means you more often chose to ask whether help is wanted before mentioning a tried approach and its limits. Is it first-hand, do conditions differ and does the person want it? Counts observe neither correctness, teaching outcomes nor expertise and establish no greater reliability. Fewer choices may mean no relevant experience this time rather than selfishness, inability or indifference to someone else’s situation."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，朋友问一张普通纸怎样固定，你说自己曾用折边暂时立起来，但只试过小张、没有承重用途。对方可以采用、改动或不用；如果不是你熟悉的材料，就明确说不知道。经验分享的价值在具体范围，而不是把自己做过一次说成万能方法，更不能将普通小例子扩成危险或专业操作指导。",
+              "en": "A friend asks how to position ordinary paper. Explain that folding an edge once helped a small sheet stand temporarily, with no load-bearing use tested. They may adapt it or decline. Say when a material is unfamiliar. The point is a specific scope rather than making one attempt a universal method, or expanding an ordinary little example into hazardous or professional instructions beyond what you actually know."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我试过这一小种情况，你想听听吗？条件不同可能不适用，决定还是由你来做。”对方拒绝就停止，不用凭经验替他决定，也不把没采用当不尊重。自己可以没有答案、请别人说明或不承担这次指导；结果像海獭，不意味着现实中必须成为大家的榜样、保护者或全天候解答者。",
+              "en": "You might say, “I tried this one limited situation; would you like to hear it? It may not apply under different conditions, and the decision remains yours.” Stop at refusal without equating rejection with disrespect. You may lack an answer or decline the role. A Rakko-like result assigns no responsibility to become everyone’s model, protector or constantly available source of actual answers in daily life."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他五位角色比较",
+            "en": "Comparisons with the other five character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "海獭这一读法偏亲自经验，小八偏一起把意思说清；说明得清楚不等于实际试过，试过也不保证适用。吉伊卡哇偏参与速度，兔兔偏新玩法，小桃偏愿望，栗子馒头偏舒适。分享经验可以很安静或充满趣味，没有比别的角色更高阶，也不换算领导力、职业兴趣、专业水平或某种导师人格。",
+              "en": "This Rakko angle concerns tried experience, while Hachiware concerns shared wording; clear explanation does not imply experience, and experience does not guarantee applicability. Chiikawa concerns pace, Usagi play, Momonga wishes and Kurimanju comforts. Experience sharing may be quiet or playful, without a higher character level or conversion into leadership, career interest, expertise or a mentor personality describing the whole of an actual respondent’s life."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，提出办法可能因为被明确问到，而不是稳定偏好；没有给建议也可能是尊重对方独立处理。问卷不测专业资格、战斗、勇敢、善良或教导能力，不从人物武器与强弱映射现实身体。真涉及安全、健康、法律或重要决定，不能凭这个角色结果代替相应事实、资格和具体判断。",
+              "en": "Offering a method may follow an explicit request rather than preference, and withholding advice may respect independent handling. The quiz measures no qualification, combat, bravery, kindness or teaching ability and maps no fictional weapons or strength to actual bodies. For safety, health, law or major decisions, a character result cannot replace relevant facts, credentials and situation-specific judgement about what is appropriate in the actual circumstances."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：给一项自己真做过的低风险小事，写“试过什么”和“没有试过什么”各一句，可以不分享，也可以不做。留意这种说明是否符合自己的表达偏好，不按别人是否采用或成功来认证本领。经验可以很有限，承认不知道也完整；测试不要求你不断帮助、指导或证明自己配得上海獭的排名。",
+              "en": "For an optional observation, describe one low-stakes matter you actually tried in two sentences: what was tried and what was not. Sharing and the exercise itself are optional. Notice whether that explanation suits you without certifying skill by adoption or success. Experience can be limited and uncertainty complete; the quiz requires no constant helping, teaching or proof of deserving a fictional character’s rank in actual life."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "18题计数与全部最高并列",
+            "en": "18-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18题全部各选一项，对应的本版角色方向加1，总数固定18。每题提供六位中的四位，全卷每位12次、每位置3次；未提供的两位不记拒绝。所有最高计数完整保留，全选第一项会六位各3次、六份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似度百分比、真实人格比例或成为角色的概率。差一次只是一项选择，不证明显著差异、某种品质消失或固定类型。可自行比较近分说明，但不补造并列、隐藏性格或混合身份。当前情境、时间和理解可能改变选择，没有人群常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 18 items; each adds one to its editorial character direction and counts sum to 18. Four of six characters are offered per item. Each appears 12 times and three times in each position; absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all six guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions nor probabilities of being a character. One extra choice proves neither significance, missing qualities nor a fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Context, time and understanding can change choices; there are no population norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的非官方同人问卷，以六位吉伊卡哇角色作当前普通选择的有限阅读角度。官方人物页与授权游戏中文页只核人物基础和名字，不验证本站题目、映射、计数或心理解释；本站与原作者、制作方、授权方和游戏运营方无合作或认可关系，作品和角色权利归相应权利人。18题、选项、解释、例子与规则原创，未采用IDR30题、竞品正文或算法、漫画台词、动画字幕、截图、立绘、游戏素材或其他受保护内容。它不是全作品、全角色或完整人格结论，不推断动物分类、性别、年龄、疾病、焦虑、神经类型、天赋、道德、关系或职业，不模仿饮酒、战斗、索取或伤害，不把可爱作为绕过同意的理由，也不换算MBTI、心理自我状态或其他角色测验。",
+              "en": "This is an independently authored FermatMind unofficial fan quiz using six Chiikawa characters as limited readings of current ordinary choices. Official character and licensed-game Chinese pages check basic context and names without validating these items, mappings, counts or psychology. There is no partnership or endorsement by creators, producers, licensors or game operators; series and character rights belong to their respective owners. All 18 items, options, explanations, examples and rules are original. No IDR 30-item bank, competitor text or algorithm, comic dialogue, subtitles, screenshots, character art, game assets or other protected material is used. This is no full-series, all-character or complete-personality verdict. It infers no species, gender, age, illness, anxiety, neurotype, talent, morality, relationship or career, invites no imitation of drinking, combat, demands or harm, and makes no cuteness an exemption from agreement. Results convert into no MBTI, ego-state or other character-quiz result."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "18题怎样形成六角色计数",
+        "en": "How 18 choices produce six character counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "18题全部各选一项，对应的本版角色方向加1，总数固定18。每题提供六位中的四位，全卷每位12次、每位置3次；未提供的两位不记拒绝。所有最高计数完整保留，全选第一项会六位各3次、六份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似度百分比、真实人格比例或成为角色的概率。差一次只是一项选择，不证明显著差异、某种品质消失或固定类型。可自行比较近分说明，但不补造并列、隐藏性格或混合身份。当前情境、时间和理解可能改变选择，没有人群常模、稀有度、科学分界或心理测量验证。",
+          "en": "Choose one option for all 18 items; each adds one to its editorial character direction and counts sum to 18. Four of six characters are offered per item. Each appears 12 times and three times in each position; absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all six guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions nor probabilities of being a character. One extra choice proves neither significance, missing qualities nor a fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Context, time and understanding can change choices; there are no population norms, rarity estimates, scientific cutoffs or psychometric validation."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "完整说明、并列与近分",
+        "en": "Full guides, ties and close counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "六份完整说明各含基础人物背景、本版读法、例子、表达、五角色比较、反例、小观察、计分与来源。所有最高并列逐份显示，近分可自行读，不补造隐藏人格、概率或第二身份。公开说明不显示任何人的私有答卷或计数。",
+          "en": "Each of six full guides includes basic context, this edition’s reading, an example, wording, five-character comparisons, counterexamples, an observation, scoring and sources. Every highest tie appears in full. Read close guides without inventing hidden traits, probabilities or second identities. Public guides show no private attempt or counts."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "角色名字与现实中的你",
+        "en": "Character names and your actual life"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版只选六位的有限读法，不是所有角色或全作品结论。名字、动物外形和剧情身份不决定答题者的物种、性别、年龄、疾病、勇气或能力；也不把漫画里的饮酒、战斗或不合理要求变成现实建议。普通选择可以随条件改变，无需表演角色。",
+          "en": "This edition selects limited readings of six characters rather than every character or the full work. Names, animal-like appearances and fictional identities establish no respondent’s species, gender, age, illness, courage or ability. Drinking, combat and unreasonable fictional demands are not actual advice. Ordinary choices can change with conditions without performing a character."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "zh": "非官方同人与原创内容",
+        "en": "Unofficial fan interpretation and original content"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是费马独立创作的非官方同人问卷，以六位吉伊卡哇角色作当前普通选择的有限阅读角度。官方人物页与授权游戏中文页只核人物基础和名字，不验证本站题目、映射、计数或心理解释；本站与原作者、制作方、授权方和游戏运营方无合作或认可关系，作品和角色权利归相应权利人。18题、选项、解释、例子与规则原创，未采用IDR30题、竞品正文或算法、漫画台词、动画字幕、截图、立绘、游戏素材或其他受保护内容。它不是全作品、全角色或完整人格结论，不推断动物分类、性别、年龄、疾病、焦虑、神经类型、天赋、道德、关系或职业，不模仿饮酒、战斗、索取或伤害，不把可爱作为绕过同意的理由，也不换算MBTI、心理自我状态或其他角色测验。",
+          "en": "This is an independently authored FermatMind unofficial fan quiz using six Chiikawa characters as limited readings of current ordinary choices. Official character and licensed-game Chinese pages check basic context and names without validating these items, mappings, counts or psychology. There is no partnership or endorsement by creators, producers, licensors or game operators; series and character rights belong to their respective owners. All 18 items, options, explanations, examples and rules are original. No IDR 30-item bank, competitor text or algorithm, comic dialogue, subtitles, screenshots, character art, game assets or other protected material is used. This is no full-series, all-character or complete-personality verdict. It infers no species, gender, age, illness, anxiety, neurotype, talent, morality, relationship or career, invites no imitation of drinking, combat, demands or harm, and makes no cuteness an exemption from agreement. Results convert into no MBTI, ego-state or other character-quiz result."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "草稿、分享与可选下一步",
+        "en": "Drafts, sharing and optional next steps"
+      },
+      "paragraphs": [
+        {
+          "zh": "答案在浏览器内计分，不上传、不进网址或分析。草稿需主动开启，只在本标签页恢复，24小时失效，完成、重测、退出清除即删除。可选分享只含公开角色说明和链接，不含答卷或次数。完整结果免费，无需邮箱或先做另一测试；后续测评自选且另行作答。",
+          "en": "Answers are scored in your browser without uploading them or placing them in URLs or analytics. Drafts require opt-in, restore only in this tab, expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public character guides and links without responses or counts. Full results are free without email or another test first; further assessments are optional and require new answers."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "吉伊卡哇角色测试包括哪些角色？",
+        "en": "Which Chiikawa characters are included?"
+      },
+      "answer": {
+        "zh": "本版包括吉伊卡哇、小八（Hachiware）、兔兔（Usagi）、小桃（Momonga）、栗子馒头（Kurimanju）和海獭（Rakko）六份完整说明。它们是选定的同人角度，不是作品全部角色或官方人格类别；最高并列全部完整显示。",
+        "en": "This edition includes full guides for Chiikawa, Hachiware, Usagi, Momonga, Kurimanju and Rakko. These are selected fan-reading angles rather than every character or official personality categories. Every highest tie appears in full."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是剧情知识或MBTI测验吗？",
+        "en": "Is this episode trivia or an MBTI test?"
+      },
+      "answer": {
+        "zh": "都不是。18题是普通小事里的当前选择，无需看全作品，也不使用角色图片造型或四字母人格映射。后续MBTI必须另行回答其题目，不能由本版次数换算。",
+        "en": "Neither. Eighteen questions concern current ordinary choices without full-series knowledge, character-image variants or four-letter mapping. A further MBTI assessment requires its own responses rather than conversion from these counts."
+      }
+    },
+    {
+      "question": {
+        "zh": "计分、并列和近分怎样看？",
+        "en": "How do scoring, ties and close counts work?"
+      },
+      "answer": {
+        "zh": "18题全部各选一项，对应的本版角色方向加1，总数固定18。每题提供六位中的四位，全卷每位12次、每位置3次；未提供的两位不记拒绝。所有最高计数完整保留，全选第一项会六位各3次、六份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似度百分比、真实人格比例或成为角色的概率。差一次只是一项选择，不证明显著差异、某种品质消失或固定类型。可自行比较近分说明，但不补造并列、隐藏性格或混合身份。当前情境、时间和理解可能改变选择，没有人群常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 18 items; each adds one to its editorial character direction and counts sum to 18. Four of six characters are offered per item. Each appears 12 times and three times in each position; absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all six guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions nor probabilities of being a character. One extra choice proves neither significance, missing qualities nor a fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Context, time and understanding can change choices; there are no population norms, rarity estimates, scientific cutoffs or psychometric validation."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是官方或科学人格分类吗？",
+        "en": "Is this official or a scientific personality taxonomy?"
+      },
+      "answer": {
+        "zh": "这是费马独立创作的非官方同人问卷，以六位吉伊卡哇角色作当前普通选择的有限阅读角度。官方人物页与授权游戏中文页只核人物基础和名字，不验证本站题目、映射、计数或心理解释；本站与原作者、制作方、授权方和游戏运营方无合作或认可关系，作品和角色权利归相应权利人。18题、选项、解释、例子与规则原创，未采用IDR30题、竞品正文或算法、漫画台词、动画字幕、截图、立绘、游戏素材或其他受保护内容。它不是全作品、全角色或完整人格结论，不推断动物分类、性别、年龄、疾病、焦虑、神经类型、天赋、道德、关系或职业，不模仿饮酒、战斗、索取或伤害，不把可爱作为绕过同意的理由，也不换算MBTI、心理自我状态或其他角色测验。",
+        "en": "This is an independently authored FermatMind unofficial fan quiz using six Chiikawa characters as limited readings of current ordinary choices. Official character and licensed-game Chinese pages check basic context and names without validating these items, mappings, counts or psychology. There is no partnership or endorsement by creators, producers, licensors or game operators; series and character rights belong to their respective owners. All 18 items, options, explanations, examples and rules are original. No IDR 30-item bank, competitor text or algorithm, comic dialogue, subtitles, screenshots, character art, game assets or other protected material is used. This is no full-series, all-character or complete-personality verdict. It infers no species, gender, age, illness, anxiety, neurotype, talent, morality, relationship or career, invites no imitation of drinking, combat, demands or harm, and makes no cuteness an exemption from agreement. Results convert into no MBTI, ego-state or other character-quiz result."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果、重测和分享免费吗？",
+        "en": "Are full results, retaking and sharing free?"
+      },
+      "answer": {
+        "zh": "免费，无需注册、邮箱或另一测试。可先读六份公开说明，完成18题后全部最高并列完整显示；重测清除本次选择，分享自选且不含答案或次数。后续测评不是解锁完整结果的条件。",
+        "en": "They are free without signup, email or another test. Read all six public guides first; every highest tie appears after 18 choices. Retaking clears the attempt. Optional sharing includes no answers or counts, and further assessments are not conditions for unlocking full results."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "官方英文人物页：基础语境（非测验验证）",
+        "en": "Official English character page: basic context, not quiz validation"
+      },
+      "url": "https://www.chiikawaofficial.com/characters"
+    },
+    {
+      "title": {
+        "zh": "授权游戏中文页：作品与角色名称",
+        "en": "Licensed-game Chinese page: series and character names"
+      },
+      "url": "https://gl.chiikawa-pocket.com/zh-hant/"
+    }
+  ]
+}

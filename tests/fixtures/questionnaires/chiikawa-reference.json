@@ -1,0 +1,809 @@
+{
+  "formCode": "fm_chiikawa_fan_choices_18",
+  "origin": "FermatMindoriginal18ENZH4choice/unofficialtextonlyfaninterpretation/sixselectedcharacters/notclinicalassessment",
+  "directions": [
+    {
+      "id": "chiikawa",
+      "title": {
+        "zh": "吉伊卡哇：慢一点也参与",
+        "en": "Chiikawa: Joining at a Gentler Pace"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "hachiware",
+      "title": {
+        "zh": "小八：把话一起说明白",
+        "en": "Hachiware: Putting Things into Words Together"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "usagi",
+      "title": {
+        "zh": "兔兔：出其不意的小玩法",
+        "en": "Usagi: Unexpected Little Ways to Play"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "momonga",
+      "title": {
+        "zh": "小桃：让自己的愿望被看见",
+        "en": "Momonga: Making Personal Wishes Visible"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "kurimanju",
+      "title": {
+        "zh": "栗子馒头：慢慢享受小舒适",
+        "en": "Kurimanju: Savouring Small Comforts"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "rakko",
+      "title": {
+        "zh": "海獭：分享一项具体经验",
+        "en": "Rakko: Sharing a Specific Experience"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "CHIIKAWA_01",
+      "prompt": {
+        "zh": "来到一个可以自由参加的小聚会，你更容易怎样安顿自己？",
+        "en": "At a small gathering you can freely join, how do you tend to settle in?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先找个舒服的位置，按自己的速度加入一小段",
+            "en": "Find a comfortable place and join a little at your own pace"
+          },
+          "directionId": "chiikawa"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "问问正在聊什么，用一句话接上大家的意思",
+            "en": "Ask what people are discussing and put their point into words"
+          },
+          "directionId": "hachiware"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "拿身边一个普通小物件，试出一个新玩法",
+            "en": "Find a new playful use for an ordinary object at hand"
+          },
+          "directionId": "usagi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "说出自己现在最想参与的一个小环节",
+            "en": "State the small part you most want to join right now"
+          },
+          "directionId": "momonga"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_02",
+      "prompt": {
+        "zh": "朋友发现一种新口味的普通点心，问你的想法，你会先？",
+        "en": "A friend finds an ordinary snack in a new flavour and asks your thoughts. What comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问对方怎样描述这个味道，再说自己的感觉",
+            "en": "Ask how they describe the taste before describing your own"
+          },
+          "directionId": "hachiware"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "想一个好玩的形状联想，让试吃多点趣味",
+            "en": "Make a playful shape association for the tasting"
+          },
+          "directionId": "usagi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "明确说自己想不想尝、想留哪一小份",
+            "en": "Say clearly whether you want a taste and which small portion"
+          },
+          "directionId": "momonga"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "慢慢留意一口的味道，不急着给结论",
+            "en": "Notice the taste slowly without rushing to a verdict"
+          },
+          "directionId": "kurimanju"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_03",
+      "prompt": {
+        "zh": "一张可以随意折叠的废纸在手边，你更愿意？",
+        "en": "You have scrap paper that can be folded freely. What would you rather do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "折一个没有预定用途的古怪小形状",
+            "en": "Fold an odd shape without a predetermined use"
+          },
+          "directionId": "usagi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把它做成能表达自己当下愿望的小标记",
+            "en": "Make a little marker expressing a current personal wish"
+          },
+          "directionId": "momonga"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "慢慢摸摸纸面、看看颜色，享受一小会儿",
+            "en": "Take a moment with the texture and colour"
+          },
+          "directionId": "kurimanju"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "分享自己试过的一种简单折法，让对方自选",
+            "en": "Share a simple fold you have tried and let others choose"
+          },
+          "directionId": "rakko"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_04",
+      "prompt": {
+        "zh": "你和熟人商量怎样度过一个短休息，你通常先表达？",
+        "en": "You and an acquaintance discuss a short break. What do you tend to express first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己今天最想要哪种休息，不让对方猜",
+            "en": "The kind of break you want today rather than leaving it to guesses"
+          },
+          "directionId": "momonga"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "想找个舒服的小角落，慢慢待一会儿",
+            "en": "An interest in sitting comfortably somewhere for a while"
+          },
+          "directionId": "kurimanju"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "以前一个具体的休息安排，供这次参考",
+            "en": "One specific arrangement you tried before as an option"
+          },
+          "directionId": "rakko"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "愿意先安静待一下，再决定是否一起做点什么",
+            "en": "A wish to sit quietly first before deciding whether to join"
+          },
+          "directionId": "chiikawa"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_05",
+      "prompt": {
+        "zh": "朋友递来一件普通小物品让你看看，你比较自然地？",
+        "en": "A friend hands you an ordinary small object to look at. What comes naturally?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "花一点时间感受质地与细节，不急着说用途",
+            "en": "Take time with texture and details before discussing use"
+          },
+          "directionId": "kurimanju"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "说一个自己实际用过的类似办法，不当成标准",
+            "en": "Mention a similar use you have actually tried without making it a rule"
+          },
+          "directionId": "rakko"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先仔细看一会儿，想说的时候再回应",
+            "en": "Look quietly and respond when ready"
+          },
+          "directionId": "chiikawa"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问它对朋友有什么意思，再组织自己的回应",
+            "en": "Ask what it means to your friend before wording your response"
+          },
+          "directionId": "hachiware"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_06",
+      "prompt": {
+        "zh": "有人第一次尝试一件你做过的普通小事，你更倾向？",
+        "en": "Someone first tries an ordinary small activity you have done before. What is your inclination?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先问需不需要，再分享一个亲自试过的小细节",
+            "en": "Ask whether help is wanted before sharing a detail you tried"
+          },
+          "directionId": "rakko"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留在附近但不催，等对方想加入或提问",
+            "en": "Stay nearby without hurrying them and wait for an invitation"
+          },
+          "directionId": "chiikawa"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "帮忙把卡住的地方说成一个具体问题",
+            "en": "Help put the sticking point into a specific question"
+          },
+          "directionId": "hachiware"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "试一个轻松的不同玩法，让过程不那么单一",
+            "en": "Try a playful variation to make the process less uniform"
+          },
+          "directionId": "usagi"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_07",
+      "prompt": {
+        "zh": "你想看看一场可随时离开的兴趣展示，通常怎样开始？",
+        "en": "You want to look at a hobby display you can leave at any time. How do you begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先从人少的一角慢慢看，再决定往哪里走",
+            "en": "Start in a quiet corner and decide where to go at your pace"
+          },
+          "directionId": "chiikawa"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找一段说明读懂，再和愿意的人聊两句",
+            "en": "Read a description and talk it through with someone willing"
+          },
+          "directionId": "hachiware"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先看一个最奇怪的小细节，跟着兴趣走",
+            "en": "Follow an odd little detail that catches your interest"
+          },
+          "directionId": "usagi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "指出自己最想看的部分，商量先去那里",
+            "en": "State the part you most want to see and discuss going there"
+          },
+          "directionId": "momonga"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_08",
+      "prompt": {
+        "zh": "朋友用一个你没听过的词形容普通小物件，你会？",
+        "en": "A friend uses an unfamiliar word for an ordinary object. What do you do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "请对方换个说法，再确认自己有没有理解",
+            "en": "Ask for another description and check your understanding"
+          },
+          "directionId": "hachiware"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "随口想一个有趣的新名字，再听真正的解释",
+            "en": "Invent a playful name, then listen to the actual explanation"
+          },
+          "directionId": "usagi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "告诉对方自己最想知道的那一点",
+            "en": "Say which particular thing you want to know"
+          },
+          "directionId": "momonga"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先看看实物的样子和触感，不急着学名字",
+            "en": "Enjoy its look and feel before learning the name"
+          },
+          "directionId": "kurimanju"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_09",
+      "prompt": {
+        "zh": "自己的一小块可用空间空了出来，你更想怎么用？",
+        "en": "A small space of your own becomes available. How would you like to use it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "摆一个和平常不同的小组合，看看效果",
+            "en": "Arrange an unusual little combination and see what happens"
+          },
+          "directionId": "usagi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "放一件最能表达自己当前喜好的东西",
+            "en": "Put in something showing a current personal preference"
+          },
+          "directionId": "momonga"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留成舒服顺眼的一角，慢慢享受",
+            "en": "Make it a comfortable corner to enjoy gradually"
+          },
+          "directionId": "kurimanju"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用以前试过的一个小办法整理，保留可改余地",
+            "en": "Use one arrangement you have tried before while keeping it changeable"
+          },
+          "directionId": "rakko"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_10",
+      "prompt": {
+        "zh": "一起选一个普通小纪念物时，你通常先做什么？",
+        "en": "When choosing an ordinary little keepsake together, what do you tend to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "明确说自己喜欢哪一个，接受别人选不同的",
+            "en": "State your preference and accept that others may choose differently"
+          },
+          "directionId": "momonga"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "慢慢比较看起来、摸起来的感受",
+            "en": "Compare how the options look and feel without hurrying"
+          },
+          "directionId": "kurimanju"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "说说自己曾经用过类似东西的一个具体经验",
+            "en": "Share a concrete experience with a similar object"
+          },
+          "directionId": "rakko"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先看一会儿，等自己有想法再加入选择",
+            "en": "Look for a while and join the choice when ready"
+          },
+          "directionId": "chiikawa"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_11",
+      "prompt": {
+        "zh": "一段没有任务要求的空闲里，你更想？",
+        "en": "In free time without a required task, what would you rather do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "享受身边一个小舒服，不把时间填满",
+            "en": "Enjoy a small comfort nearby without filling the time"
+          },
+          "directionId": "kurimanju"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把一项自己熟悉的小方法记下来，方便以后自选",
+            "en": "Note a familiar little method as an option for later"
+          },
+          "directionId": "rakko"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "按自己的速度待着，偶尔参与一点周围的小事",
+            "en": "Stay at your pace and occasionally join something nearby"
+          },
+          "directionId": "chiikawa"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "和愿意的人聊聊刚才的一点发现，把意思说清",
+            "en": "Talk through a small observation with someone willing"
+          },
+          "directionId": "hachiware"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_12",
+      "prompt": {
+        "zh": "熟人问某种普通材料怎样使用，你比较会怎样回应？",
+        "en": "An acquaintance asks how to use an ordinary material. How are you likely to respond?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说明自己亲自试过哪一种用法，也说清局限",
+            "en": "Explain one use you have tried and its limits"
+          },
+          "directionId": "rakko"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "陪对方慢慢看，不急着替他决定",
+            "en": "Look at it with them without rushing to decide for them"
+          },
+          "directionId": "chiikawa"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先问具体想做到什么，再把问题拆清楚",
+            "en": "Ask what they want to do and clarify the question"
+          },
+          "directionId": "hachiware"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提议先在许可范围内试个不寻常的小样",
+            "en": "Suggest an unusual small trial within permitted uses"
+          },
+          "directionId": "usagi"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_13",
+      "prompt": {
+        "zh": "有人邀你加入一个轻松的合照，你通常更接近？",
+        "en": "Someone invites you into a casual group photo. What feels closer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先确认自己愿不愿意，再按舒服的方式加入或略过",
+            "en": "Check your willingness and join comfortably or decline"
+          },
+          "directionId": "chiikawa"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "问清怎么拍、是否公开，再说明自己的想法",
+            "en": "Clarify the arrangement and publication before stating your view"
+          },
+          "directionId": "hachiware"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "想到一个大家愿意才采用的小动作",
+            "en": "Think of a playful gesture to use only if everyone wants it"
+          },
+          "directionId": "usagi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提出自己喜欢的站位或表达方式，允许别人不同",
+            "en": "State your preferred position or expression while allowing differences"
+          },
+          "directionId": "momonga"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_14",
+      "prompt": {
+        "zh": "你想跟别人分享一件很小的开心事，会更容易？",
+        "en": "How do you tend to share a very small enjoyable moment?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把来龙去脉用自己的话说明白",
+            "en": "Put its context into your own words"
+          },
+          "directionId": "hachiware"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "用一个轻松的比喻或动作表达趣味",
+            "en": "Express the fun through a playful comparison or gesture"
+          },
+          "directionId": "usagi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "直接说自己希望对方留意哪一小处",
+            "en": "Say directly which little detail you hope they notice"
+          },
+          "directionId": "momonga"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "慢慢回味当时舒服的感觉，不一定多说",
+            "en": "Savour the pleasant feeling without necessarily saying much"
+          },
+          "directionId": "kurimanju"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_15",
+      "prompt": {
+        "zh": "一次普通活动留下几个安全可自用的小材料，你会想？",
+        "en": "An ordinary activity leaves a few safe materials you may use yourself. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "组合出一个原本没想到的小东西",
+            "en": "Combine them into something you had not planned"
+          },
+          "directionId": "usagi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "挑出自己最喜欢的一份，明确表达想保留",
+            "en": "Choose a favourite portion and clearly ask to keep it"
+          },
+          "directionId": "momonga"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "按喜欢的触感和颜色收在舒服的位置",
+            "en": "Keep them somewhere pleasant for their textures and colours"
+          },
+          "directionId": "kurimanju"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "记一条这次用材料的经验，不要求别人照做",
+            "en": "Record one experience using them without requiring imitation"
+          },
+          "directionId": "rakko"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_16",
+      "prompt": {
+        "zh": "你和朋友喜欢不同的小摆设，通常怎样继续？",
+        "en": "You and a friend prefer different small decorations. How do you continue?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把自己的喜好说出来，也给对方保留不同选择",
+            "en": "State your preference and leave room for theirs"
+          },
+          "directionId": "momonga"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "享受各自喜欢的小细节，不急着统一",
+            "en": "Enjoy the details each likes without forcing agreement"
+          },
+          "directionId": "kurimanju"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "说一个自己实际摆过的例子，供比较而非裁决",
+            "en": "Offer an arrangement you tried for comparison rather than a verdict"
+          },
+          "directionId": "rakko"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "不急着表态，等自己准备好再说",
+            "en": "Wait until you are ready rather than rushing a position"
+          },
+          "directionId": "chiikawa"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_17",
+      "prompt": {
+        "zh": "一张普通风景照让你停下来，你最可能先做什么？",
+        "en": "An ordinary landscape photo makes you pause. What are you likely to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "慢慢看看颜色与光线，享受眼前这一小会儿",
+            "en": "Enjoy the colours and light for a little while"
+          },
+          "directionId": "kurimanju"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "说一项自己亲自试过的观察或取景办法",
+            "en": "Mention a way of observing or framing that you have tried"
+          },
+          "directionId": "rakko"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "安静看一段，愿意时再加入讨论",
+            "en": "Look quietly and join discussion when you want"
+          },
+          "directionId": "chiikawa"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把自己看到的具体细节用话描述出来",
+            "en": "Put a specific detail you notice into words"
+          },
+          "directionId": "hachiware"
+        }
+      ]
+    },
+    {
+      "id": "CHIIKAWA_18",
+      "prompt": {
+        "zh": "结束一次自己愿意参加的小活动，你通常会留意？",
+        "en": "At the end of a small activity you willingly joined, what do you tend to notice?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "有没有一项实际经验可在别人需要时分享",
+            "en": "Whether there is a specific experience to share if wanted"
+          },
+          "directionId": "rakko"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "自己参与的速度是否舒服，不必跟别人一样",
+            "en": "Whether your participation pace felt comfortable without matching others"
+          },
+          "directionId": "chiikawa"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "还有哪一点意思没说清，愿意时可以补一句",
+            "en": "Whether a point remains unclear and could be worded if wanted"
+          },
+          "directionId": "hachiware"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有没有一个有趣的偶然玩法，自己还想再试",
+            "en": "Whether an unexpected playful variation interests you again"
+          },
+          "directionId": "usagi"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "required": 18,
+    "choice": "one option adds1 to offered editorial character theme",
+    "total": 18,
+    "exposureEach": 12,
+    "perPosition": 3,
+    "highest": "allhighestretainfullguides/noautomaticsecondary",
+    "allA": "sixcharacters3each/all6fullguides",
+    "verificationPlan": "independentsourcereachablecountvectorDPplannedNOTexecuted/not4^18responseexhaustionorpsychvalidation"
+  },
+  "scope": "Unofficialindependentlyauthoredfanreadings/currentordinarychoicesonly/notwholecanonicalcharactersorallseries. Officialcharactercontextnotvalidationorendorsement. No clinical/anxiety/neurotype/gender/species/age/ability/morality/relationship/career inference;noalcoholorcombatimitation;selfexpressionneverpermitsmanipulationorignoringconsent. No competitorbank/body/scorer/dialogue/art/screenshots adopted. NoconversiontoMBTI/egogram/BoJackorothercharacterquizzes.",
+  "instructions": {
+    "zh": "这份18题原创非官方同人问卷，以吉伊卡哇、小八、兔兔、小桃、栗子馒头和海獭六位角色，帮助比较当前普通小事里的参与、表达、玩法、愿望、舒适与经验分享。每题选四个做法中较接近自己的一个，均以自愿、可改和可停止为前提；不要求模仿讨伐、饮酒、索取或剧情伤害。每选加1，六位各出现12次，所有最高并列完整显示。角色名不等于真实动物、性别、年龄、人格或心理状况，结果不判断能力、道德、关系或职业，不换算MBTI。无需看全作品，基础背景只用于理解同人读法。",
+    "en": "This original 18-question unofficial fan quiz uses Chiikawa, Hachiware, Usagi, Momonga, Kurimanju and Rakko to compare ordinary participation, expression, play, wishes, comforts and shared experience. Choose the closer of four approaches in voluntary, revisable and stoppable situations, without imitating combat, drinking, demands or fictional harm. Each choice adds one, each character appears 12 times and every highest tie receives its full guide. Names establish no actual species, gender, age, personality or psychological condition, and results assign no ability, morality, relationship or career or MBTI conversion. No full-series knowledge is required; basic context only supports these fan readings."
+  }
+}
