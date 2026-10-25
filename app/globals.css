@@ -706,6 +706,7 @@ a {
     [data-cookie-banner="true"],
     [data-site-header="true"],
     [data-site-footer="true"],
+    [role="navigation"],
     [data-result-sidebar="true"],
     [data-result-tools="true"],
     [data-result-workspace="true"],
