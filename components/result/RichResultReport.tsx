@@ -1394,6 +1394,7 @@ export function RichResultReport({
   riasecEmailRecovery,
   snapshotDesktopCloneContent = null,
   snapshotContentStatus = null,
+  onDownloadMbtiPdf,
 }: {
   locale: Locale;
   reportData: ReportResponse;
@@ -1403,6 +1404,7 @@ export function RichResultReport({
   riasecEmailRecovery?: ReactNode;
   snapshotDesktopCloneContent?: PersonalityDesktopCloneContentPayload | null;
   snapshotContentStatus?: MbtiSnapshotContentStatus | null;
+  onDownloadMbtiPdf?: () => Promise<void>;
 }) {
   const scaleCode = resolveReportScaleCode(reportData);
   if (!scaleCode) {
@@ -1472,6 +1474,7 @@ export function RichResultReport({
         printSnapshotMode={printSnapshotMode}
         initialDesktopCloneContent={snapshotDesktopCloneContent}
         snapshotContentStatus={snapshotContentStatus}
+        onDownloadPdf={onDownloadMbtiPdf}
       />
     );
   }

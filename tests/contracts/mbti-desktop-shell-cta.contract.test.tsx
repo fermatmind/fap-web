@@ -625,6 +625,7 @@ describe("MBTI desktop clone shell CTA wiring", () => {
         retakeHref="/zh/test/mbti"
         historyHref="/zh/history"
         pdfHref="/zh/result/test.pdf"
+        onDownloadPdf={vi.fn().mockResolvedValue(undefined)}
         pdfReady
         primaryCtaLabel="去结算"
         primaryCtaHref="/zh/pay/checkout"
@@ -638,14 +639,50 @@ describe("MBTI desktop clone shell CTA wiring", () => {
     const traitsTools = screen.getByTestId("mbti-traits-tools");
     expect(within(traitsTools).getByText("你可以继续保存、导出或查看历史结果。")).toBeInTheDocument();
     expect(within(traitsTools).getByRole("button", { name: "分享" })).toBeInTheDocument();
-    expect(within(traitsTools).getByRole("link", { name: "导出 PDF" })).toHaveAttribute(
-      "href",
-      "/zh/result/test.pdf",
-    );
+    expect(within(traitsTools).getByRole("button", { name: "导出 PDF" })).toBeInTheDocument();
+    expect(within(traitsTools).queryByRole("link", { name: "导出 PDF" })).not.toBeInTheDocument();
     expect(within(traitsTools).getByRole("link", { name: "查看历史" })).toHaveAttribute(
       "href",
       "/zh/history",
     );
+  });
+
+  it("downloads through the authorized callback and disables both PDF tools while pending", async () => {
+    let finish!: () => void;
+    const download = vi.fn(() => new Promise<void>((resolve) => { finish = resolve; }));
+    renderDefaultShell({ isUnlocked: true, pdfReady: true, pdfHref: "/api/v0.3/attempts/attempt-owner/result-page.pdf", onDownloadPdf: download });
+    const button = await screen.findByRole("button", { name: "导出 PDF" });
+    expect(screen.queryByRole("link", { name: "导出 PDF" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "PDF" })).not.toBeInTheDocument();
+    fireEvent.click(button);
+    expect(download).toHaveBeenCalledTimes(1);
+    expect(screen.getAllByRole("button", { name: "正在请求 PDF…" })).toHaveLength(2);
+    for (const pending of screen.getAllByRole("button", { name: "正在请求 PDF…" })) expect(pending).toBeDisabled();
+    await act(async () => { finish(); });
+    expect(await screen.findByRole("button", { name: "导出 PDF" })).toBeEnabled();
+  });
+
+  it("keeps PDF failure on the result page with a sanitized text-export fallback", async () => {
+    const download = vi.fn().mockRejectedValue(new Error("SYNTHETIC_PRIVATE_DIAGNOSTIC"));
+    renderDefaultShell({ isUnlocked: true, pdfReady: true, pdfHref: "/api/v0.3/attempts/attempt-owner/result-page.pdf", onDownloadPdf: download });
+    fireEvent.click(await screen.findByRole("button", { name: "PDF" }));
+    expect(await screen.findByText("PDF 暂时不可用。你可以继续阅读已开放内容，或用 TXT/Markdown 保存所选结果。")).toBeVisible();
+    expect(screen.queryByText("SYNTHETIC_PRIVATE_DIAGNOSTIC")).not.toBeInTheDocument();
+    expect(download).toHaveBeenCalledTimes(1);
+    expect(screen.getByRole("button", { name: "导出 PDF" })).toBeEnabled();
+  });
+
+  it.each([
+    { isUnlocked: false, pdfReady: true, callback: true },
+    { isUnlocked: true, pdfReady: false, callback: true },
+    { isUnlocked: true, pdfReady: true, callback: false },
+  ])("keeps PDF tools unavailable without the existing access, readiness, and callback: %j", async ({ isUnlocked, pdfReady, callback }) => {
+    const download = vi.fn();
+    renderDefaultShell({ isUnlocked, pdfReady, pdfHref: "/api/v0.3/attempts/attempt-owner/result-page.pdf", onDownloadPdf: callback ? download : undefined });
+    await screen.findByTestId("mbti-traits-tools");
+    expect(screen.queryByRole("button", { name: "导出 PDF" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "PDF" })).not.toBeInTheDocument();
+    expect(download).not.toHaveBeenCalled();
   });
 
   it("removes runtime rail, tools, offers, and unlock actions from the print snapshot shell", async () => {

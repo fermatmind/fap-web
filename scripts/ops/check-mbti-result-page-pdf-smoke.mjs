@@ -17,7 +17,7 @@ const SNAPSHOT_SURFACE_VERSION = "mbti.result_page_snapshot.v4";
 const SNAPSHOT_SURFACE_KEY = "mbti_result_page_snapshot";
 const SNAPSHOT_ENGINE = "gotenberg_chromium";
 const SNAPSHOT_RENDER_VERSION = "mbti.snapshot.print_layout.v1";
-const SNAPSHOT_PRINT_ASSET_HASH = "sha256:a70492a63d613895db0586e8541e2d56a4ba902d5d4bce922c337a839b6b6d46";
+const SNAPSHOT_PRINT_ASSET_HASH = "sha256:845eb8bb158e07c265c33fa90569bee0c6fcd44bdcb9947773f2a0773ebdb72c";
 
 const REQUIRED_HEADERS = [
   ["x-report-pdf-engine", SNAPSHOT_ENGINE],

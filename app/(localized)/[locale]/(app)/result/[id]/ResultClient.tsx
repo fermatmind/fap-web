@@ -2184,6 +2184,10 @@ export default function ResultClient({
   if (hasRichReport && reportData) {
     // The export consumes only the projection already authorized and rendered here.
     // It never reads a public share, raw answers, hidden sections or another endpoint.
+    const onDownloadMbtiPdf = !printMode && canDownloadReportPdf(accessView) ? async () => {
+      const response = await fetchAttemptResultPagePdfWithMeta({ attemptId, anonId, accessToken: resultAccessToken });
+      await downloadResultPdf(response.blob);
+    } : undefined;
     const exportAllowed = !printMode && (!accessView || (accessView.reportState === "ready" && ["ready", "locked"].includes(accessView.accessState)));
     const mbtiExport = exportAllowed && resolvedScaleCode === "MBTI" ? buildMbtiResultExport(reportData, locale) : null;
     const riasecExport = exportAllowed && resolvedScaleCode === "RIASEC" ? buildRiasecResultExport(reportData, locale) : null;
@@ -2198,10 +2202,7 @@ export default function ResultClient({
           <MbtiResultReader projection={mbtiExport} locale={locale} />
           <ResultExportPanel projection={mbtiExport} locale={locale}
             pdfState={canDownloadReportPdf(accessView) ? "ready" : accessView?.pdfState === "pending" ? "pending" : "unavailable"}
-            onDownloadPdf={canDownloadReportPdf(accessView) ? async () => {
-              const response = await fetchAttemptResultPagePdfWithMeta({ attemptId, anonId, accessToken: resultAccessToken });
-              await downloadResultPdf(response.blob);
-            } : undefined}
+            onDownloadPdf={onDownloadMbtiPdf}
           />
         </> : null}
         <RichResultReport
@@ -2213,6 +2214,7 @@ export default function ResultClient({
           riasecEmailRecovery={resolvedScaleCode === "RIASEC" && hasRiasecProjection(reportData) && !printSnapshotContractValid ? renderOptionalEmailRecoveryCard() : null}
           snapshotDesktopCloneContent={snapshotDesktopCloneContent}
           snapshotContentStatus={snapshotContentStatus}
+          onDownloadMbtiPdf={onDownloadMbtiPdf}
         />
         {riasecExport ? <ResultExportPanel projection={riasecExport} locale={locale} /> : null}
         {domainExport ? <ResultExportPanel projection={domainExport} locale={locale} /> : null}

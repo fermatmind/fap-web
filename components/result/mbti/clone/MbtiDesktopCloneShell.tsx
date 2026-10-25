@@ -76,6 +76,7 @@ type MbtiDesktopCloneShellProps = {
   relationshipHref?: string;
   pdfHref?: string;
   pdfReady?: boolean;
+  onDownloadPdf?: () => Promise<void>;
   primaryCtaLabel: string;
   primaryCtaHref: string;
   lockedPayCtaLabel?: string;
@@ -416,6 +417,7 @@ export function MbtiDesktopCloneShell({
   relationshipHref,
   pdfHref,
   pdfReady = false,
+  onDownloadPdf,
   primaryCtaLabel,
   primaryCtaHref,
   lockedPayCtaLabel,
@@ -772,6 +774,22 @@ export function MbtiDesktopCloneShell({
   const desktopEntryHref = isUnlocked ? primaryCtaHref : desktopOfferHref;
   const desktopWorkspaceHref = isUnlocked ? workspaceHref : desktopOfferHref;
   const unlockedPdfHref = isUnlocked && pdfReady ? pdfHref : "";
+  const [pdfDownloading, setPdfDownloading] = useState(false);
+  const [pdfError, setPdfError] = useState<string | null>(null);
+  const handleDownloadPdf = async () => {
+    if (!unlockedPdfHref || !onDownloadPdf || pdfDownloading) return;
+    setPdfDownloading(true);
+    setPdfError(null);
+    try {
+      await onDownloadPdf();
+    } catch {
+      setPdfError(cloneLocale === "zh"
+        ? "PDF 暂时不可用。你可以继续阅读已开放内容，或用 TXT/Markdown 保存所选结果。"
+        : "PDF is currently unavailable. Continue reading the available report or use TXT/Markdown to save selected results.");
+    } finally {
+      setPdfDownloading(false);
+    }
+  };
   const unlockedOrderDetailHref = isUnlocked ? orderDetailHref : "";
   const unlockedRelationshipHref = isUnlocked ? relationshipHref : "";
 
@@ -947,7 +965,7 @@ export function MbtiDesktopCloneShell({
     ...(desktopWorkspaceHref && desktopWorkspaceHref !== historyHref
       ? [{ label: cloneLocale === "zh" ? "工作台" : "Workspace", href: desktopWorkspaceHref }]
       : []),
-    ...(unlockedPdfHref ? [{ label: "PDF", href: unlockedPdfHref }] : []),
+    ...(unlockedPdfHref && onDownloadPdf ? [{ label: pdfDownloading ? (cloneLocale === "zh" ? "正在请求 PDF…" : "Requesting PDF…") : "PDF", onClick: handleDownloadPdf, disabled: pdfDownloading }] : []),
     ...(orderLookupHref ? [{ label: cloneLocale === "zh" ? "订单" : "Orders", href: orderLookupHref }] : []),
     ...(unlockedOrderDetailHref ? [{ label: cloneLocale === "zh" ? "详情" : "Detail", href: unlockedOrderDetailHref }] : []),
     ...(unlockedRelationshipHref ? [{ label: cloneLocale === "zh" ? "关系" : "Compare", href: unlockedRelationshipHref }] : []),
@@ -955,7 +973,7 @@ export function MbtiDesktopCloneShell({
 
   const traitsTools: DesktopCloneTool[] = [
     { label: shareCtaLabel, onClick: onShare, disabled: shareDisabled },
-    ...(unlockedPdfHref ? [{ label: cloneLocale === "zh" ? "导出 PDF" : "Export PDF", href: unlockedPdfHref }] : []),
+    ...(unlockedPdfHref && onDownloadPdf ? [{ label: pdfDownloading ? (cloneLocale === "zh" ? "正在请求 PDF…" : "Requesting PDF…") : (cloneLocale === "zh" ? "导出 PDF" : "Export PDF"), onClick: handleDownloadPdf, disabled: pdfDownloading }] : []),
     ...(historyHref ? [{ label: cloneLocale === "zh" ? "查看历史" : "History", href: historyHref }] : []),
   ];
   const snapshotTraitsTools: DesktopCloneTool[] = [];
@@ -1257,6 +1275,7 @@ export function MbtiDesktopCloneShell({
             >
               {englishProjectionBody("traits")}
             </MbtiCloneTraitsSection>
+            {!snapshotMode && pdfError ? <p role="status" aria-live="polite">{pdfError}</p> : null}
 
             {deepNarrativeSectionsNode}
             {shouldRenderFinalOffer ? finalOfferNode : null}

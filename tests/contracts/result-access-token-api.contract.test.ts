@@ -3,6 +3,7 @@ import { fetchAttemptReport, fetchAttemptReportAccess, fetchAttemptResult } from
 
 const hoisted = vi.hoisted(() => ({
   get: vi.fn(),
+  getFmToken: vi.fn(() => null as string | null),
 }));
 
 vi.mock("@/lib/anon", () => ({
@@ -11,7 +12,7 @@ vi.mock("@/lib/anon", () => ({
 }));
 
 vi.mock("@/lib/auth/fmToken", () => ({
-  getFmToken: () => null,
+  getFmToken: hoisted.getFmToken,
 }));
 
 vi.mock("@/lib/api-client", () => ({
@@ -27,6 +28,7 @@ vi.mock("@/lib/api-client", () => ({
 describe("result access token API contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    hoisted.getFmToken.mockReturnValue(null);
     hoisted.get.mockResolvedValue({
       ok: true,
       attempt_id: "attempt-token-1",
@@ -103,5 +105,33 @@ describe("result page PDF access token", () => {
       expect(init.headers.has("X-Anon-Id")).toBe(false);
       expect(init.cache).toBe("no-store");
     } finally { vi.unstubAllGlobals(); }
+  });
+});
+
+
+describe("owner PDF fetch preserves authentication and backend denials", () => {
+  it("uses normal owner headers without putting credentials in the URL", async () => {
+    const api = await import("@/lib/api/v0_3");
+    hoisted.getFmToken.mockReturnValue("fm_synthetic_owner_contract");
+    const fetch = vi.fn().mockResolvedValue(new Response("%PDF-synthetic", { headers: { "content-type": "application/pdf" } }));
+    vi.stubGlobal("fetch", fetch);
+    try {
+      await api.fetchAttemptResultPagePdfWithMeta({ attemptId: "attempt-owner", anonId: "synthetic-owner" });
+      const [url, init] = fetch.mock.calls[0];
+      expect(String(url)).toMatch(/\/attempts\/attempt-owner\/result-page\.pdf$/);
+      expect(String(url)).not.toContain("synthetic_owner_contract");
+      expect(init.headers.get("Authorization")).toBe("Bearer fm_synthetic_owner_contract");
+      expect(init.headers.get("X-Anon-Id")).toBe("synthetic-owner");
+      expect(init.headers.has("X-Result-Access-Token")).toBe(false);
+      expect(init.cache).toBe("no-store");
+    } finally { hoisted.getFmToken.mockReturnValue(null); vi.unstubAllGlobals(); }
+  });
+
+  it.each([401, 404, 409, 503])("does not turn status %s into a PDF download", async (status) => {
+    const api = await import("@/lib/api/v0_3");
+    const fetch = vi.fn().mockResolvedValue(new Response('{"error":"private"}', { status, headers: { "content-type": "application/json" } }));
+    vi.stubGlobal("fetch", fetch);
+    try { await expect(api.fetchAttemptResultPagePdfWithMeta({ attemptId: "attempt-denied" })).rejects.toThrow(`Failed to fetch result-page pdf: ${status}`); }
+    finally { vi.unstubAllGlobals(); }
   });
 });

@@ -155,6 +155,7 @@ type MbtiResultShellProps = {
   printSnapshotMode?: boolean;
   initialDesktopCloneContent?: PersonalityDesktopCloneContentPayload | null;
   snapshotContentStatus?: MbtiSnapshotContentStatus | null;
+  onDownloadPdf?: () => Promise<void>;
   onInternalNavigate?: (path: string) => void;
   onExternalNavigate?: (url: string) => void;
 };
@@ -613,6 +614,7 @@ export function MbtiResultShell({
   printSnapshotMode = false,
   initialDesktopCloneContent = null,
   snapshotContentStatus = null,
+  onDownloadPdf,
   onInternalNavigate,
   onExternalNavigate,
 }: MbtiResultShellProps) {
@@ -1688,6 +1690,7 @@ export function MbtiResultShell({
         relationshipHref={relationshipHubHref}
         pdfHref={pdfHref}
         pdfReady={canDownloadPdf}
+        onDownloadPdf={onDownloadPdf}
         primaryCtaLabel={terminalPrimaryCtaLabel}
         primaryCtaHref={desktopClonePrimaryCtaHref}
         lockedPayCtaLabel={chapterPayCtaLabel}
