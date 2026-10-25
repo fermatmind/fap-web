@@ -93,6 +93,23 @@ export function RiasecReadingReport({
     (slot) => slot.moduleKey === "140q_context_cards",
   );
   const ctaSlots = slots.filter((slot) => slot.moduleKey === "140q_cta");
+  const qualityState = vm.trustedResultCard?.qualityState ?? "";
+  const disagreeSlots =
+    !zh && vm.resultLocale === "en" && ["normal", "caution"].includes(qualityState) &&
+    vm.interpretationState?.readingStrength !== "retake_recommended"
+      ? slots.filter((slot) =>
+          slot.slotKey === "disagree_path_copy" &&
+          slot.slotGroup === "feedback_response_copy" &&
+          slot.moduleKey === "disagree_path" &&
+          ["user_not_wrong_message", "feedback_no_mutation_boundary", "next_step"].includes(slot.state.slot_name) &&
+          slot.locale === "en" &&
+          slot.applicability.formCodes.includes(vm.formCode ?? "") &&
+          slot.applicability.qualityStates.includes(qualityState) &&
+          slot.applicability.profileShapes.includes(vm.interpretationState?.profileShape ?? "") &&
+          clean(slot.content.title) && clean(slot.content.summary) &&
+          clean(slot.boundaries.userVisibleBoundary),
+        )
+      : [];
   const lifecycle = !zh && vm.lifecycleCopy?.status === "available" ? vm.lifecycleCopy : null;
   const dimension =
     vm.dimensions.find((item) => item.code === selected) ||
@@ -421,6 +438,13 @@ export function RiasecReadingReport({
                 {lifecycle.faqItems.map((item, index) => <details className={styles.contentCard} key={index} data-testid="riasec-faq-item"><summary>{item.q}</summary><p>{item.a}</p></details>)}
               </section>
             ) : null}
+            {disagreeSlots.length ? (
+              <div className={styles.chapter} data-testid="riasec-disagree-reading">
+                {disagreeSlots.map((slot) => (
+                  <ContentCard key={slot.slotId} slot={slot} state={slotState(slot)} zh={zh} />
+                ))}
+              </div>
+            ) : null}
             <RiasecExploration
               locale={locale}
               showPreferences={hasContext}
@@ -495,6 +519,17 @@ function ContentCard({
   const title =
     clean(content.title || content.pair_label || content.short_label) ||
     (zh ? "深入阅读" : "Further reading");
+  if (slot.slotKey === "disagree_path_copy" && state === "collapsed") {
+    return (
+      <details className={`${styles.contentCard} ${styles.disclosure}`} data-testid="riasec-deep-content-slot">
+        <summary><h3 className={styles.contentTitle}>{title}</h3></summary>
+        <div className={styles.disclosureBody}>
+          <p>{clean(content.summary)}</p>
+          <p className={styles.boundary}>{slot.boundaries.userVisibleBoundary}</p>
+        </div>
+      </details>
+    );
+  }
   return (
     <article
       className={styles.contentCard}

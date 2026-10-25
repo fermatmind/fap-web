@@ -1,0 +1,2475 @@
+{
+  "provenance": {
+    "synthetic": true,
+    "compiler_version": "1.6.0",
+    "source_hash": "2dfd5e959ef395b27f67990e2b36190479aa51baf65f453ef24caee8d7a5ac7d",
+    "compiled_hash": "89e45dfc3f9e6aaea6603f7a57cbf8d1af51f4bd936667f60c914c49a538375e",
+    "source_api_commit": "f7c2adc5ac5bde55b39ae6afdce2c168d3113323",
+    "module": "three fixed disagreement cards only; synthetic unsaved results",
+    "original_fixture_sha256": "375438e8460d1356467e201e4d5c74d34a6896ac737148a1417496d1c636ed14"
+  },
+  "cases": [
+    {
+      "form": "riasec_60",
+      "quality": "normal",
+      "projection": {
+        "schema_version": "riasec.public_projection.v2",
+        "scale_code": "RIASEC",
+        "locale": "en",
+        "private_result_authority": null,
+        "holland_code": {
+          "code": "RIA",
+          "primary_type": "R",
+          "secondary_type": "I",
+          "tertiary_type": "A"
+        },
+        "scores": {
+          "score_kind": "dimension_scores_0_100",
+          "dimensions": [
+            {
+              "code": "R",
+              "label": "Realistic",
+              "score": 85
+            },
+            {
+              "code": "I",
+              "label": "Investigative",
+              "score": 70
+            },
+            {
+              "code": "A",
+              "label": "Artistic",
+              "score": 55
+            },
+            {
+              "code": "S",
+              "label": "Social",
+              "score": 40
+            },
+            {
+              "code": "E",
+              "label": "Enterprising",
+              "score": 25
+            },
+            {
+              "code": "C",
+              "label": "Conventional",
+              "score": 10
+            }
+          ]
+        },
+        "form": {
+          "form_code": "riasec_60",
+          "question_count": 60,
+          "form_kind": "standard",
+          "score_space_version": "riasec_60_likert5_activity_sum_space.v1",
+          "compare_compatibility_group": "RIASEC:riasec_60:riasec_60_likert5_activity_sum_space.v1",
+          "cross_form_comparable": false,
+          "raw_score_delta_allowed": false,
+          "cross_form_interpretation": "emphasis_difference_only"
+        },
+        "quality": {
+          "grade": "A",
+          "flags": [],
+          "display_v1": {
+            "schema_version": "riasec.quality_display.v1",
+            "locale": "en",
+            "headline": "Your responses are stable enough for a standard reading",
+            "reasons": [],
+            "improvements": [],
+            "reading_boundary": "This note concerns the readability of this response set; it does not judge ability, personality, or personal worth."
+          },
+          "low_quality_strength": "not_available_for_strong_low_quality",
+          "quality_rule_version": "riasec_quality_rule_spec_v2",
+          "quality_state": "normal",
+          "response_quality": "normal",
+          "reading_strength": "normal_reading",
+          "result_page_behavior": "show_standard_result_page",
+          "module_policy": {
+            "hide_strong_modules": false,
+            "show_activity_chain": true,
+            "show_occupation_examples": true,
+            "allow_140q_cta": true,
+            "user_blame_allowed": false,
+            "upsell_140q_allowed": true,
+            "strong_interpretation_allowed": true,
+            "cta_strength": "standard"
+          },
+          "score_mutation_allowed": false,
+          "measured_holland_code_mutation_allowed": false
+        },
+        "interpretation_state": {
+          "interpretation_rule_version": "riasec_interpretation_rule_spec_v2",
+          "profile_shape": "clear_code",
+          "profile_shape_version": "riasec_profile_shape_v2_0",
+          "clarity_label": "high",
+          "near_tie_state": {
+            "state": "none",
+            "dimensions": [],
+            "threshold_rule": "adjacent_gap_lt_5_points_provisional"
+          },
+          "alternate_code": {
+            "show": false,
+            "codes": [],
+            "reason": null,
+            "display_boundary": "Alternate code is a reading aid, not a second measured result."
+          },
+          "alternate_code_reason": null,
+          "tie_display_v1": {
+            "schema_version": "riasec.tie_display.v1",
+            "kind": "none",
+            "position": "none",
+            "dimensions": [],
+            "groups": [],
+            "ordered_code": "RIA",
+            "alternate_codes": [],
+            "threshold_rule": "exact_gap_eq_0_or_adjacent_gap_lt_5_points_provisional",
+            "ordering_precision_claim_allowed": false,
+            "locale": "en",
+            "display_copy": {
+              "headline": "RIA",
+              "note": "",
+              "boundary": ""
+            }
+          },
+          "top_code_confidence": {
+            "level": "high",
+            "user_label": "高",
+            "meaning": "readability strength, not probability"
+          },
+          "reading_strength": "normal_reading",
+          "result_page_strategy": {
+            "primary_reading_mode": "single_chain",
+            "tone": "stable_not_absolute"
+          },
+          "module_visibility_policy_id": "riasec_module_visibility_policy_v1",
+          "validation_status": "theory_based_under_validation",
+          "field_authority": {
+            "profile_shape": "backend_owned",
+            "profile_shape_version": "backend_owned",
+            "clarity_label": "backend_owned",
+            "near_tie_state": "backend_owned",
+            "alternate_code": "backend_owned",
+            "alternate_code_reason": "backend_owned",
+            "tie_display_v1": "backend_owned",
+            "top_code_confidence": "backend_owned",
+            "reading_strength": "backend_owned",
+            "interpretation_rule_version": "backend_owned"
+          }
+        },
+        "module_visibility_policy": {
+          "schema_version": "riasec.module_visibility_policy.v1",
+          "policy_id": "riasec_module_visibility_policy_v1",
+          "quality_state": "normal",
+          "profile_shape": "clear_code",
+          "form_code": "riasec_60",
+          "modules": [
+            {
+              "key": "hero_activity_chain",
+              "visibility": "visible",
+              "reason": "standard_reading_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "six_dimension_map",
+              "visibility": "visible",
+              "reason": "dimension_overview_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "pair_blend",
+              "visibility": "visible",
+              "reason": "clear_or_blended_pair_context_available",
+              "risk_boundary": "pair_blend_is_context_not_fit_or_ranking"
+            },
+            {
+              "key": "activity_explorer",
+              "visibility": "visible",
+              "reason": "examples_only_activity_explorer_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "occupation_examples",
+              "visibility": "collapsed",
+              "reason": "examples_only_not_registry_match",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "140q_cta",
+              "visibility": "visible",
+              "reason": "contextual_form_optional_not_more_accurate",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "140q_context_cards",
+              "visibility": "hidden",
+              "reason": "requires_riasec_140_contextual_form",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "share_card",
+              "visibility": "visible",
+              "reason": "safe_share_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "pdf",
+              "visibility": "visible",
+              "reason": "snapshot_bound_pdf_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "history",
+              "visibility": "visible",
+              "reason": "snapshot_bound_history_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "feedback_overlay",
+              "visibility": "visible",
+              "reason": "feedback_does_not_mutate_measured_result",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            }
+          ],
+          "fallback_policy": {
+            "unknown_module": "hidden",
+            "missing_backend_state": "hidden",
+            "frontend_inference_allowed": false
+          }
+        },
+        "deep_content_slots_v1": {
+          "schema_version": "riasec.deep_content_slots.v1",
+          "scale_code": "RIASEC",
+          "locale": "en",
+          "content_authority": "backend_riasec_deep_copy_slot_registry",
+          "snapshot_bound": true,
+          "source_policy": {
+            "frontend_fallback_allowed": false,
+            "missing_content_behavior": "omit_module_fail_closed",
+            "pending_content_behavior": "omit_module_fail_closed",
+            "unknown_slot_behavior": "hidden",
+            "formal_report_generation": "deterministic_backend_snapshot"
+          },
+          "slot_visibility_policy": {
+            "module_visibility_policy_id": "riasec_module_visibility_policy_v1",
+            "hidden_slots_omitted": true,
+            "pending_or_unavailable_slots_omitted": true,
+            "frontend_inference_allowed": false
+          },
+          "slots": [
+            {
+              "slot_key": "disagree_path_copy",
+              "slot_group": "feedback_response_copy",
+              "slot_id": "disagree_path_copy:user_not_wrong_message",
+              "module_key": "disagree_path",
+              "slot_visibility": "collapsed",
+              "status": "authored",
+              "content_status": "authored",
+              "content_version": "riasec_runtime_surface_copy_v1.en",
+              "review_status": "draft",
+              "review_state": "pending",
+              "last_reviewed_at": null,
+              "reviewer": null,
+              "source_status": "docs_only_candidate",
+              "evidence_level": "contract_only",
+              "source_review_status": null,
+              "source_evidence_level": null,
+              "locale": "en",
+              "frontend_fallback_allowed": false,
+              "fallback_behavior": "omit_module",
+              "selection_v1": null,
+              "applicability": {
+                "form_codes": [
+                  "riasec_60",
+                  "riasec_140"
+                ],
+                "profile_shapes": [
+                  "clear_code",
+                  "blended_code",
+                  "broad_profile",
+                  "near_tie",
+                  "low_clarity"
+                ],
+                "quality_states": [
+                  "normal",
+                  "caution"
+                ],
+                "codes": [
+                  "any"
+                ],
+                "dimensions": []
+              },
+              "state": {
+                "slot_name": "user_not_wrong_message",
+                "disagree_state": "disagrees_quality_normal"
+              },
+              "content": {
+                "title": "You can disagree with this result",
+                "summary": "Disagreeing with a result is valid feedback in itself. It will inform the exploration path, helping you examine your state while answering, near ties, and directions for exploring activities."
+              },
+              "boundaries": {
+                "user_visible_boundary": "Disagreeing with the result only affects the exploration path; it does not change the Holland code or RIASEC scores measured in this assessment, the report snapshot, shared content, or the PDF.",
+                "required_boundaries": [
+                  "interest_evidence_only",
+                  "not_career_recommendation",
+                  "not_job_fit",
+                  "not_success_prediction",
+                  "not_ability_or_skill_measure",
+                  "no_60q_140q_raw_delta",
+                  "140q_contextual_not_more_accurate",
+                  "feedback_does_not_mutate_measured_result",
+                  "missing_content_fails_closed",
+                  "frontend_fallback_forbidden"
+                ],
+                "forbidden_claims": [
+                  "feedback_overrides_measured_result",
+                  "score_correction",
+                  "career_recommendation",
+                  "job_fit",
+                  "raw_feedback_public_exposure"
+                ],
+                "emphasis_difference_only": false,
+                "correctness_ranking_allowed": false,
+                "raw_score_comparison_allowed": false,
+                "result_override_allowed": false,
+                "code_conversion_allowed": false
+              }
+            },
+            {
+              "slot_key": "disagree_path_copy",
+              "slot_group": "feedback_response_copy",
+              "slot_id": "disagree_path_copy:feedback_no_mutation_boundary",
+              "module_key": "disagree_path",
+              "slot_visibility": "collapsed",
+              "status": "authored",
+              "content_status": "authored",
+              "content_version": "riasec_runtime_surface_copy_v1.en",
+              "review_status": "draft",
+              "review_state": "pending",
+              "last_reviewed_at": null,
+              "reviewer": null,
+              "source_status": "docs_only_candidate",
+              "evidence_level": "contract_only",
+              "source_review_status": null,
+              "source_evidence_level": null,
+              "locale": "en",
+              "frontend_fallback_allowed": false,
+              "fallback_behavior": "omit_module",
+              "selection_v1": null,
+              "applicability": {
+                "form_codes": [
+                  "riasec_60",
+                  "riasec_140"
+                ],
+                "profile_shapes": [
+                  "clear_code",
+                  "blended_code",
+                  "broad_profile",
+                  "near_tie",
+                  "low_clarity"
+                ],
+                "quality_states": [
+                  "normal",
+                  "caution"
+                ],
+                "codes": [
+                  "any"
+                ],
+                "dimensions": []
+              },
+              "state": {
+                "slot_name": "feedback_no_mutation_boundary",
+                "disagree_state": "disagrees_quality_caution"
+              },
+              "content": {
+                "title": "Feedback does not change scores",
+                "summary": "Disagreeing, adding favorites, making exclusions, and providing feedback from experiments do not change assessment results, report snapshots, default shared content, or PDF content."
+              },
+              "boundaries": {
+                "user_visible_boundary": "Disagreeing with the result only affects the exploration path; it does not change the Holland code or RIASEC scores measured in this assessment, the report snapshot, shared content, or the PDF.",
+                "required_boundaries": [
+                  "interest_evidence_only",
+                  "not_career_recommendation",
+                  "not_job_fit",
+                  "not_success_prediction",
+                  "not_ability_or_skill_measure",
+                  "no_60q_140q_raw_delta",
+                  "140q_contextual_not_more_accurate",
+                  "feedback_does_not_mutate_measured_result",
+                  "missing_content_fails_closed",
+                  "frontend_fallback_forbidden"
+                ],
+                "forbidden_claims": [
+                  "feedback_overrides_measured_result",
+                  "score_correction",
+                  "career_recommendation",
+                  "job_fit",
+                  "raw_feedback_public_exposure"
+                ],
+                "emphasis_difference_only": false,
+                "correctness_ranking_allowed": false,
+                "raw_score_comparison_allowed": false,
+                "result_override_allowed": false,
+                "code_conversion_allowed": false
+              }
+            },
+            {
+              "slot_key": "disagree_path_copy",
+              "slot_group": "feedback_response_copy",
+              "slot_id": "disagree_path_copy:next_step",
+              "module_key": "disagree_path",
+              "slot_visibility": "collapsed",
+              "status": "authored",
+              "content_status": "authored",
+              "content_version": "riasec_runtime_surface_copy_v1.en",
+              "review_status": "draft",
+              "review_state": "pending",
+              "last_reviewed_at": null,
+              "reviewer": null,
+              "source_status": "docs_only_candidate",
+              "evidence_level": "contract_only",
+              "source_review_status": null,
+              "source_evidence_level": null,
+              "locale": "en",
+              "frontend_fallback_allowed": false,
+              "fallback_behavior": "omit_module",
+              "selection_v1": null,
+              "applicability": {
+                "form_codes": [
+                  "riasec_60",
+                  "riasec_140"
+                ],
+                "profile_shapes": [
+                  "clear_code",
+                  "blended_code",
+                  "broad_profile",
+                  "near_tie",
+                  "low_clarity"
+                ],
+                "quality_states": [
+                  "normal",
+                  "caution"
+                ],
+                "codes": [
+                  "any"
+                ],
+                "dimensions": []
+              },
+              "state": {
+                "slot_name": "next_step",
+                "disagree_state": "save_feedback_only"
+              },
+              "content": {
+                "title": "Next step",
+                "summary": "First check response quality and near ties. Then choose whether to retake the assessment, save a preferred direction, or try a small experiment to observe specific activities."
+              },
+              "boundaries": {
+                "user_visible_boundary": "Disagreeing with the result only affects the exploration path; it does not change the Holland code or RIASEC scores measured in this assessment, the report snapshot, shared content, or the PDF.",
+                "required_boundaries": [
+                  "interest_evidence_only",
+                  "not_career_recommendation",
+                  "not_job_fit",
+                  "not_success_prediction",
+                  "not_ability_or_skill_measure",
+                  "no_60q_140q_raw_delta",
+                  "140q_contextual_not_more_accurate",
+                  "feedback_does_not_mutate_measured_result",
+                  "missing_content_fails_closed",
+                  "frontend_fallback_forbidden"
+                ],
+                "forbidden_claims": [
+                  "feedback_overrides_measured_result",
+                  "score_correction",
+                  "career_recommendation",
+                  "job_fit",
+                  "raw_feedback_public_exposure"
+                ],
+                "emphasis_difference_only": false,
+                "correctness_ranking_allowed": false,
+                "raw_score_comparison_allowed": false,
+                "result_override_allowed": false,
+                "code_conversion_allowed": false
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "form": "riasec_60",
+      "quality": "caution",
+      "projection": {
+        "schema_version": "riasec.public_projection.v2",
+        "scale_code": "RIASEC",
+        "locale": "en",
+        "private_result_authority": null,
+        "holland_code": {
+          "code": "RIA",
+          "primary_type": "R",
+          "secondary_type": "I",
+          "tertiary_type": "A"
+        },
+        "scores": {
+          "score_kind": "dimension_scores_0_100",
+          "dimensions": [
+            {
+              "code": "R",
+              "label": "Realistic",
+              "score": 85
+            },
+            {
+              "code": "I",
+              "label": "Investigative",
+              "score": 70
+            },
+            {
+              "code": "A",
+              "label": "Artistic",
+              "score": 55
+            },
+            {
+              "code": "S",
+              "label": "Social",
+              "score": 40
+            },
+            {
+              "code": "E",
+              "label": "Enterprising",
+              "score": 25
+            },
+            {
+              "code": "C",
+              "label": "Conventional",
+              "score": 10
+            }
+          ]
+        },
+        "form": {
+          "form_code": "riasec_60",
+          "question_count": 60,
+          "form_kind": "standard",
+          "score_space_version": "riasec_60_likert5_activity_sum_space.v1",
+          "compare_compatibility_group": "RIASEC:riasec_60:riasec_60_likert5_activity_sum_space.v1",
+          "cross_form_comparable": false,
+          "raw_score_delta_allowed": false,
+          "cross_form_interpretation": "emphasis_difference_only"
+        },
+        "quality": {
+          "grade": "A",
+          "flags": [],
+          "display_v1": {
+            "schema_version": "riasec.quality_display.v1",
+            "locale": "en",
+            "headline": "A mild response-quality note applies; read the result alongside your real experience",
+            "reasons": [
+              "The assessment was completed unusually quickly, leaving limited time to consider each item."
+            ],
+            "improvements": [
+              "Retake when you have enough time, linking each answer to a concrete experience."
+            ],
+            "reading_boundary": "This note concerns the readability of this response set; it does not judge ability, personality, or personal worth."
+          },
+          "low_quality_strength": "not_available_for_strong_low_quality",
+          "quality_rule_version": "riasec_quality_rule_spec_v2",
+          "quality_state": "caution",
+          "response_quality": "caution",
+          "reading_strength": "cautious_reading",
+          "result_page_behavior": "show_cautious_result_page",
+          "module_policy": {
+            "hide_strong_modules": false,
+            "show_activity_chain": true,
+            "show_occupation_examples": false,
+            "allow_140q_cta": true,
+            "user_blame_allowed": false,
+            "upsell_140q_allowed": true,
+            "strong_interpretation_allowed": false,
+            "cta_strength": "soft_or_hidden"
+          },
+          "score_mutation_allowed": false,
+          "measured_holland_code_mutation_allowed": false
+        },
+        "interpretation_state": {
+          "interpretation_rule_version": "riasec_interpretation_rule_spec_v2",
+          "profile_shape": "clear_code",
+          "profile_shape_version": "riasec_profile_shape_v2_0",
+          "clarity_label": "high",
+          "near_tie_state": {
+            "state": "none",
+            "dimensions": [],
+            "threshold_rule": "adjacent_gap_lt_5_points_provisional"
+          },
+          "alternate_code": {
+            "show": false,
+            "codes": [],
+            "reason": null,
+            "display_boundary": "Alternate code is a reading aid, not a second measured result."
+          },
+          "alternate_code_reason": null,
+          "tie_display_v1": {
+            "schema_version": "riasec.tie_display.v1",
+            "kind": "none",
+            "position": "none",
+            "dimensions": [],
+            "groups": [],
+            "ordered_code": "RIA",
+            "alternate_codes": [],
+            "threshold_rule": "exact_gap_eq_0_or_adjacent_gap_lt_5_points_provisional",
+            "ordering_precision_claim_allowed": false,
+            "locale": "en",
+            "display_copy": {
+              "headline": "RIA",
+              "note": "",
+              "boundary": ""
+            }
+          },
+          "top_code_confidence": {
+            "level": "low",
+            "user_label": "谨慎阅读",
+            "meaning": "readability strength, not probability"
+          },
+          "reading_strength": "cautious_reading",
+          "result_page_strategy": {
+            "primary_reading_mode": "single_chain",
+            "tone": "stable_not_absolute"
+          },
+          "module_visibility_policy_id": "riasec_module_visibility_policy_v1",
+          "validation_status": "theory_based_under_validation",
+          "field_authority": {
+            "profile_shape": "backend_owned",
+            "profile_shape_version": "backend_owned",
+            "clarity_label": "backend_owned",
+            "near_tie_state": "backend_owned",
+            "alternate_code": "backend_owned",
+            "alternate_code_reason": "backend_owned",
+            "tie_display_v1": "backend_owned",
+            "top_code_confidence": "backend_owned",
+            "reading_strength": "backend_owned",
+            "interpretation_rule_version": "backend_owned"
+          }
+        },
+        "module_visibility_policy": {
+          "schema_version": "riasec.module_visibility_policy.v1",
+          "policy_id": "riasec_module_visibility_policy_v1",
+          "quality_state": "caution",
+          "profile_shape": "clear_code",
+          "form_code": "riasec_60",
+          "modules": [
+            {
+              "key": "hero_activity_chain",
+              "visibility": "visible",
+              "reason": "standard_reading_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "six_dimension_map",
+              "visibility": "visible",
+              "reason": "dimension_overview_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "pair_blend",
+              "visibility": "collapsed",
+              "reason": "caution_requires_boundary_first",
+              "risk_boundary": "collapsed_pair_copy_must_read_as_activity_context"
+            },
+            {
+              "key": "activity_explorer",
+              "visibility": "visible",
+              "reason": "examples_only_activity_explorer_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "occupation_examples",
+              "visibility": "collapsed",
+              "reason": "caution_requires_boundary_first",
+              "risk_boundary": "collapsed_pair_copy_must_read_as_activity_context"
+            },
+            {
+              "key": "140q_cta",
+              "visibility": "collapsed",
+              "reason": "caution_requires_boundary_first",
+              "risk_boundary": "collapsed_pair_copy_must_read_as_activity_context"
+            },
+            {
+              "key": "140q_context_cards",
+              "visibility": "hidden",
+              "reason": "requires_riasec_140_contextual_form",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "share_card",
+              "visibility": "visible",
+              "reason": "safe_share_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "pdf",
+              "visibility": "visible",
+              "reason": "snapshot_bound_pdf_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "history",
+              "visibility": "visible",
+              "reason": "snapshot_bound_history_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "feedback_overlay",
+              "visibility": "visible",
+              "reason": "feedback_does_not_mutate_measured_result",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            }
+          ],
+          "fallback_policy": {
+            "unknown_module": "hidden",
+            "missing_backend_state": "hidden",
+            "frontend_inference_allowed": false
+          }
+        },
+        "deep_content_slots_v1": {
+          "schema_version": "riasec.deep_content_slots.v1",
+          "scale_code": "RIASEC",
+          "locale": "en",
+          "content_authority": "backend_riasec_deep_copy_slot_registry",
+          "snapshot_bound": true,
+          "source_policy": {
+            "frontend_fallback_allowed": false,
+            "missing_content_behavior": "omit_module_fail_closed",
+            "pending_content_behavior": "omit_module_fail_closed",
+            "unknown_slot_behavior": "hidden",
+            "formal_report_generation": "deterministic_backend_snapshot"
+          },
+          "slot_visibility_policy": {
+            "module_visibility_policy_id": "riasec_module_visibility_policy_v1",
+            "hidden_slots_omitted": true,
+            "pending_or_unavailable_slots_omitted": true,
+            "frontend_inference_allowed": false
+          },
+          "slots": [
+            {
+              "slot_key": "disagree_path_copy",
+              "slot_group": "feedback_response_copy",
+              "slot_id": "disagree_path_copy:user_not_wrong_message",
+              "module_key": "disagree_path",
+              "slot_visibility": "collapsed",
+              "status": "authored",
+              "content_status": "authored",
+              "content_version": "riasec_runtime_surface_copy_v1.en",
+              "review_status": "draft",
+              "review_state": "pending",
+              "last_reviewed_at": null,
+              "reviewer": null,
+              "source_status": "docs_only_candidate",
+              "evidence_level": "contract_only",
+              "source_review_status": null,
+              "source_evidence_level": null,
+              "locale": "en",
+              "frontend_fallback_allowed": false,
+              "fallback_behavior": "omit_module",
+              "selection_v1": null,
+              "applicability": {
+                "form_codes": [
+                  "riasec_60",
+                  "riasec_140"
+                ],
+                "profile_shapes": [
+                  "clear_code",
+                  "blended_code",
+                  "broad_profile",
+                  "near_tie",
+                  "low_clarity"
+                ],
+                "quality_states": [
+                  "normal",
+                  "caution"
+                ],
+                "codes": [
+                  "any"
+                ],
+                "dimensions": []
+              },
+              "state": {
+                "slot_name": "user_not_wrong_message",
+                "disagree_state": "disagrees_quality_normal"
+              },
+              "content": {
+                "title": "You can disagree with this result",
+                "summary": "Disagreeing with a result is valid feedback in itself. It will inform the exploration path, helping you examine your state while answering, near ties, and directions for exploring activities."
+              },
+              "boundaries": {
+                "user_visible_boundary": "Disagreeing with the result only affects the exploration path; it does not change the Holland code or RIASEC scores measured in this assessment, the report snapshot, shared content, or the PDF.",
+                "required_boundaries": [
+                  "interest_evidence_only",
+                  "not_career_recommendation",
+                  "not_job_fit",
+                  "not_success_prediction",
+                  "not_ability_or_skill_measure",
+                  "no_60q_140q_raw_delta",
+                  "140q_contextual_not_more_accurate",
+                  "feedback_does_not_mutate_measured_result",
+                  "missing_content_fails_closed",
+                  "frontend_fallback_forbidden"
+                ],
+                "forbidden_claims": [
+                  "feedback_overrides_measured_result",
+                  "score_correction",
+                  "career_recommendation",
+                  "job_fit",
+                  "raw_feedback_public_exposure"
+                ],
+                "emphasis_difference_only": false,
+                "correctness_ranking_allowed": false,
+                "raw_score_comparison_allowed": false,
+                "result_override_allowed": false,
+                "code_conversion_allowed": false
+              }
+            },
+            {
+              "slot_key": "disagree_path_copy",
+              "slot_group": "feedback_response_copy",
+              "slot_id": "disagree_path_copy:feedback_no_mutation_boundary",
+              "module_key": "disagree_path",
+              "slot_visibility": "collapsed",
+              "status": "authored",
+              "content_status": "authored",
+              "content_version": "riasec_runtime_surface_copy_v1.en",
+              "review_status": "draft",
+              "review_state": "pending",
+              "last_reviewed_at": null,
+              "reviewer": null,
+              "source_status": "docs_only_candidate",
+              "evidence_level": "contract_only",
+              "source_review_status": null,
+              "source_evidence_level": null,
+              "locale": "en",
+              "frontend_fallback_allowed": false,
+              "fallback_behavior": "omit_module",
+              "selection_v1": null,
+              "applicability": {
+                "form_codes": [
+                  "riasec_60",
+                  "riasec_140"
+                ],
+                "profile_shapes": [
+                  "clear_code",
+                  "blended_code",
+                  "broad_profile",
+                  "near_tie",
+                  "low_clarity"
+                ],
+                "quality_states": [
+                  "normal",
+                  "caution"
+                ],
+                "codes": [
+                  "any"
+                ],
+                "dimensions": []
+              },
+              "state": {
+                "slot_name": "feedback_no_mutation_boundary",
+                "disagree_state": "disagrees_quality_caution"
+              },
+              "content": {
+                "title": "Feedback does not change scores",
+                "summary": "Disagreeing, adding favorites, making exclusions, and providing feedback from experiments do not change assessment results, report snapshots, default shared content, or PDF content."
+              },
+              "boundaries": {
+                "user_visible_boundary": "Disagreeing with the result only affects the exploration path; it does not change the Holland code or RIASEC scores measured in this assessment, the report snapshot, shared content, or the PDF.",
+                "required_boundaries": [
+                  "interest_evidence_only",
+                  "not_career_recommendation",
+                  "not_job_fit",
+                  "not_success_prediction",
+                  "not_ability_or_skill_measure",
+                  "no_60q_140q_raw_delta",
+                  "140q_contextual_not_more_accurate",
+                  "feedback_does_not_mutate_measured_result",
+                  "missing_content_fails_closed",
+                  "frontend_fallback_forbidden"
+                ],
+                "forbidden_claims": [
+                  "feedback_overrides_measured_result",
+                  "score_correction",
+                  "career_recommendation",
+                  "job_fit",
+                  "raw_feedback_public_exposure"
+                ],
+                "emphasis_difference_only": false,
+                "correctness_ranking_allowed": false,
+                "raw_score_comparison_allowed": false,
+                "result_override_allowed": false,
+                "code_conversion_allowed": false
+              }
+            },
+            {
+              "slot_key": "disagree_path_copy",
+              "slot_group": "feedback_response_copy",
+              "slot_id": "disagree_path_copy:next_step",
+              "module_key": "disagree_path",
+              "slot_visibility": "collapsed",
+              "status": "authored",
+              "content_status": "authored",
+              "content_version": "riasec_runtime_surface_copy_v1.en",
+              "review_status": "draft",
+              "review_state": "pending",
+              "last_reviewed_at": null,
+              "reviewer": null,
+              "source_status": "docs_only_candidate",
+              "evidence_level": "contract_only",
+              "source_review_status": null,
+              "source_evidence_level": null,
+              "locale": "en",
+              "frontend_fallback_allowed": false,
+              "fallback_behavior": "omit_module",
+              "selection_v1": null,
+              "applicability": {
+                "form_codes": [
+                  "riasec_60",
+                  "riasec_140"
+                ],
+                "profile_shapes": [
+                  "clear_code",
+                  "blended_code",
+                  "broad_profile",
+                  "near_tie",
+                  "low_clarity"
+                ],
+                "quality_states": [
+                  "normal",
+                  "caution"
+                ],
+                "codes": [
+                  "any"
+                ],
+                "dimensions": []
+              },
+              "state": {
+                "slot_name": "next_step",
+                "disagree_state": "save_feedback_only"
+              },
+              "content": {
+                "title": "Next step",
+                "summary": "First check response quality and near ties. Then choose whether to retake the assessment, save a preferred direction, or try a small experiment to observe specific activities."
+              },
+              "boundaries": {
+                "user_visible_boundary": "Disagreeing with the result only affects the exploration path; it does not change the Holland code or RIASEC scores measured in this assessment, the report snapshot, shared content, or the PDF.",
+                "required_boundaries": [
+                  "interest_evidence_only",
+                  "not_career_recommendation",
+                  "not_job_fit",
+                  "not_success_prediction",
+                  "not_ability_or_skill_measure",
+                  "no_60q_140q_raw_delta",
+                  "140q_contextual_not_more_accurate",
+                  "feedback_does_not_mutate_measured_result",
+                  "missing_content_fails_closed",
+                  "frontend_fallback_forbidden"
+                ],
+                "forbidden_claims": [
+                  "feedback_overrides_measured_result",
+                  "score_correction",
+                  "career_recommendation",
+                  "job_fit",
+                  "raw_feedback_public_exposure"
+                ],
+                "emphasis_difference_only": false,
+                "correctness_ranking_allowed": false,
+                "raw_score_comparison_allowed": false,
+                "result_override_allowed": false,
+                "code_conversion_allowed": false
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "form": "riasec_60",
+      "quality": "low_quality",
+      "projection": {
+        "schema_version": "riasec.public_projection.v2",
+        "scale_code": "RIASEC",
+        "locale": "en",
+        "private_result_authority": null,
+        "holland_code": {
+          "code": "RIA",
+          "primary_type": "R",
+          "secondary_type": "I",
+          "tertiary_type": "A"
+        },
+        "scores": {
+          "score_kind": "dimension_scores_0_100",
+          "dimensions": [
+            {
+              "code": "R",
+              "label": "Realistic",
+              "score": 85
+            },
+            {
+              "code": "I",
+              "label": "Investigative",
+              "score": 70
+            },
+            {
+              "code": "A",
+              "label": "Artistic",
+              "score": 55
+            },
+            {
+              "code": "S",
+              "label": "Social",
+              "score": 40
+            },
+            {
+              "code": "E",
+              "label": "Enterprising",
+              "score": 25
+            },
+            {
+              "code": "C",
+              "label": "Conventional",
+              "score": 10
+            }
+          ]
+        },
+        "form": {
+          "form_code": "riasec_60",
+          "question_count": 60,
+          "form_kind": "standard",
+          "score_space_version": "riasec_60_likert5_activity_sum_space.v1",
+          "compare_compatibility_group": "RIASEC:riasec_60:riasec_60_likert5_activity_sum_space.v1",
+          "cross_form_comparable": false,
+          "raw_score_delta_allowed": false,
+          "cross_form_interpretation": "emphasis_difference_only"
+        },
+        "quality": {
+          "grade": "A",
+          "flags": [],
+          "display_v1": {
+            "schema_version": "riasec.quality_display.v1",
+            "locale": "en",
+            "headline": "Response-quality concerns limit this result to an initial signal; consider retaking when ready",
+            "reasons": [
+              "Some required items were not completed, so a full reading is not supported."
+            ],
+            "improvements": [
+              "Complete every required item before generating a new result."
+            ],
+            "reading_boundary": "This note concerns the readability of this response set; it does not judge ability, personality, or personal worth."
+          },
+          "low_quality_strength": "not_available_for_strong_low_quality",
+          "quality_rule_version": "riasec_quality_rule_spec_v2",
+          "quality_state": "low_quality",
+          "response_quality": "low_quality",
+          "reading_strength": "retake_recommended",
+          "result_page_behavior": "show_retake_recommended_page",
+          "module_policy": {
+            "hide_strong_modules": true,
+            "show_activity_chain": false,
+            "show_occupation_examples": false,
+            "allow_140q_cta": false,
+            "user_blame_allowed": false,
+            "upsell_140q_allowed": false,
+            "strong_interpretation_allowed": false,
+            "cta_strength": "hidden"
+          },
+          "score_mutation_allowed": false,
+          "measured_holland_code_mutation_allowed": false
+        },
+        "interpretation_state": {
+          "interpretation_rule_version": "riasec_interpretation_rule_spec_v2",
+          "profile_shape": "low_quality",
+          "profile_shape_version": "riasec_profile_shape_v2_0",
+          "clarity_label": "not_readable",
+          "near_tie_state": {
+            "state": "none",
+            "dimensions": [],
+            "threshold_rule": "adjacent_gap_lt_5_points_provisional"
+          },
+          "alternate_code": {
+            "show": false,
+            "codes": [],
+            "reason": null,
+            "display_boundary": "Alternate code is a reading aid, not a second measured result."
+          },
+          "alternate_code_reason": null,
+          "tie_display_v1": {
+            "schema_version": "riasec.tie_display.v1",
+            "kind": "none",
+            "position": "none",
+            "dimensions": [],
+            "groups": [],
+            "ordered_code": "RIA",
+            "alternate_codes": [],
+            "threshold_rule": "exact_gap_eq_0_or_adjacent_gap_lt_5_points_provisional",
+            "ordering_precision_claim_allowed": false,
+            "locale": "en",
+            "display_copy": {
+              "headline": "RIA",
+              "note": "",
+              "boundary": ""
+            }
+          },
+          "top_code_confidence": {
+            "level": "not_available",
+            "user_label": "暂不显示",
+            "meaning": "readability strength, not probability"
+          },
+          "reading_strength": "retake_recommended",
+          "result_page_strategy": {
+            "primary_reading_mode": "retake_first",
+            "tone": "retake_first"
+          },
+          "module_visibility_policy_id": "riasec_module_visibility_policy_v1",
+          "validation_status": "theory_based_under_validation",
+          "field_authority": {
+            "profile_shape": "backend_owned",
+            "profile_shape_version": "backend_owned",
+            "clarity_label": "backend_owned",
+            "near_tie_state": "backend_owned",
+            "alternate_code": "backend_owned",
+            "alternate_code_reason": "backend_owned",
+            "tie_display_v1": "backend_owned",
+            "top_code_confidence": "backend_owned",
+            "reading_strength": "backend_owned",
+            "interpretation_rule_version": "backend_owned"
+          }
+        },
+        "module_visibility_policy": {
+          "schema_version": "riasec.module_visibility_policy.v1",
+          "policy_id": "riasec_module_visibility_policy_v1",
+          "quality_state": "low_quality",
+          "profile_shape": "low_quality",
+          "form_code": "riasec_60",
+          "modules": [
+            {
+              "key": "hero_activity_chain",
+              "visibility": "hidden",
+              "reason": "low_quality_hides_strong_modules",
+              "risk_boundary": "hide_when_result_quality_cannot_support_pair_reading"
+            },
+            {
+              "key": "six_dimension_map",
+              "visibility": "visible",
+              "reason": "low_quality_overview_only",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "pair_blend",
+              "visibility": "hidden",
+              "reason": "low_quality_hides_strong_modules",
+              "risk_boundary": "hide_when_result_quality_cannot_support_pair_reading"
+            },
+            {
+              "key": "activity_explorer",
+              "visibility": "hidden",
+              "reason": "low_quality_hides_strong_modules",
+              "risk_boundary": "hide_when_result_quality_cannot_support_pair_reading"
+            },
+            {
+              "key": "occupation_examples",
+              "visibility": "hidden",
+              "reason": "low_quality_hides_strong_modules",
+              "risk_boundary": "hide_when_result_quality_cannot_support_pair_reading"
+            },
+            {
+              "key": "140q_cta",
+              "visibility": "hidden",
+              "reason": "low_quality_hides_strong_modules",
+              "risk_boundary": "hide_when_result_quality_cannot_support_pair_reading"
+            },
+            {
+              "key": "140q_context_cards",
+              "visibility": "hidden",
+              "reason": "requires_riasec_140_contextual_form",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "share_card",
+              "visibility": "collapsed",
+              "reason": "low_quality_no_strong_public_share",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "pdf",
+              "visibility": "collapsed",
+              "reason": "low_quality_cautious_pdf_only",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "history",
+              "visibility": "visible",
+              "reason": "snapshot_bound_history_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "feedback_overlay",
+              "visibility": "visible",
+              "reason": "feedback_does_not_mutate_measured_result",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            }
+          ],
+          "fallback_policy": {
+            "unknown_module": "hidden",
+            "missing_backend_state": "hidden",
+            "frontend_inference_allowed": false
+          }
+        },
+        "deep_content_slots_v1": {
+          "schema_version": "riasec.deep_content_slots.v1",
+          "scale_code": "RIASEC",
+          "locale": "en",
+          "content_authority": "backend_riasec_deep_copy_slot_registry",
+          "snapshot_bound": true,
+          "source_policy": {
+            "frontend_fallback_allowed": false,
+            "missing_content_behavior": "omit_module_fail_closed",
+            "pending_content_behavior": "omit_module_fail_closed",
+            "unknown_slot_behavior": "hidden",
+            "formal_report_generation": "deterministic_backend_snapshot"
+          },
+          "slot_visibility_policy": {
+            "module_visibility_policy_id": "riasec_module_visibility_policy_v1",
+            "hidden_slots_omitted": true,
+            "pending_or_unavailable_slots_omitted": true,
+            "frontend_inference_allowed": false
+          },
+          "slots": []
+        }
+      }
+    },
+    {
+      "form": "riasec_140",
+      "quality": "normal",
+      "projection": {
+        "schema_version": "riasec.public_projection.v2",
+        "scale_code": "RIASEC",
+        "locale": "en",
+        "private_result_authority": null,
+        "holland_code": {
+          "code": "RIA",
+          "primary_type": "R",
+          "secondary_type": "I",
+          "tertiary_type": "A"
+        },
+        "scores": {
+          "score_kind": "dimension_scores_0_100",
+          "dimensions": [
+            {
+              "code": "R",
+              "label": "Realistic",
+              "score": 85
+            },
+            {
+              "code": "I",
+              "label": "Investigative",
+              "score": 70
+            },
+            {
+              "code": "A",
+              "label": "Artistic",
+              "score": 55
+            },
+            {
+              "code": "S",
+              "label": "Social",
+              "score": 40
+            },
+            {
+              "code": "E",
+              "label": "Enterprising",
+              "score": 25
+            },
+            {
+              "code": "C",
+              "label": "Conventional",
+              "score": 10
+            }
+          ]
+        },
+        "form": {
+          "form_code": "riasec_140",
+          "question_count": 140,
+          "form_kind": "enhanced_contextual",
+          "score_space_version": "riasec_140_likert5_activity_context_space.v1",
+          "compare_compatibility_group": "RIASEC:riasec_140:riasec_140_likert5_activity_context_space.v1",
+          "cross_form_comparable": false,
+          "raw_score_delta_allowed": false,
+          "cross_form_interpretation": "emphasis_difference_only"
+        },
+        "quality": {
+          "grade": "A",
+          "flags": [],
+          "display_v1": {
+            "schema_version": "riasec.quality_display.v1",
+            "locale": "en",
+            "headline": "Your responses are stable enough for a standard reading",
+            "reasons": [],
+            "improvements": [],
+            "reading_boundary": "This note concerns the readability of this response set; it does not judge ability, personality, or personal worth."
+          },
+          "low_quality_strength": "caution_flags_available",
+          "quality_rule_version": "riasec_quality_rule_spec_v2",
+          "quality_state": "normal",
+          "response_quality": "normal",
+          "reading_strength": "normal_reading",
+          "result_page_behavior": "show_standard_result_page",
+          "module_policy": {
+            "hide_strong_modules": false,
+            "show_activity_chain": true,
+            "show_occupation_examples": true,
+            "allow_140q_cta": true,
+            "user_blame_allowed": false,
+            "upsell_140q_allowed": true,
+            "strong_interpretation_allowed": true,
+            "cta_strength": "standard"
+          },
+          "score_mutation_allowed": false,
+          "measured_holland_code_mutation_allowed": false
+        },
+        "interpretation_state": {
+          "interpretation_rule_version": "riasec_interpretation_rule_spec_v2",
+          "profile_shape": "clear_code",
+          "profile_shape_version": "riasec_profile_shape_v2_0",
+          "clarity_label": "high",
+          "near_tie_state": {
+            "state": "none",
+            "dimensions": [],
+            "threshold_rule": "adjacent_gap_lt_5_points_provisional"
+          },
+          "alternate_code": {
+            "show": false,
+            "codes": [],
+            "reason": null,
+            "display_boundary": "Alternate code is a reading aid, not a second measured result."
+          },
+          "alternate_code_reason": null,
+          "tie_display_v1": {
+            "schema_version": "riasec.tie_display.v1",
+            "kind": "none",
+            "position": "none",
+            "dimensions": [],
+            "groups": [],
+            "ordered_code": "RIA",
+            "alternate_codes": [],
+            "threshold_rule": "exact_gap_eq_0_or_adjacent_gap_lt_5_points_provisional",
+            "ordering_precision_claim_allowed": false,
+            "locale": "en",
+            "display_copy": {
+              "headline": "RIA",
+              "note": "",
+              "boundary": ""
+            }
+          },
+          "top_code_confidence": {
+            "level": "high",
+            "user_label": "高",
+            "meaning": "readability strength, not probability"
+          },
+          "reading_strength": "normal_reading",
+          "result_page_strategy": {
+            "primary_reading_mode": "single_chain",
+            "tone": "stable_not_absolute"
+          },
+          "module_visibility_policy_id": "riasec_module_visibility_policy_v1",
+          "validation_status": "theory_based_under_validation",
+          "field_authority": {
+            "profile_shape": "backend_owned",
+            "profile_shape_version": "backend_owned",
+            "clarity_label": "backend_owned",
+            "near_tie_state": "backend_owned",
+            "alternate_code": "backend_owned",
+            "alternate_code_reason": "backend_owned",
+            "tie_display_v1": "backend_owned",
+            "top_code_confidence": "backend_owned",
+            "reading_strength": "backend_owned",
+            "interpretation_rule_version": "backend_owned"
+          }
+        },
+        "module_visibility_policy": {
+          "schema_version": "riasec.module_visibility_policy.v1",
+          "policy_id": "riasec_module_visibility_policy_v1",
+          "quality_state": "normal",
+          "profile_shape": "clear_code",
+          "form_code": "riasec_140",
+          "modules": [
+            {
+              "key": "hero_activity_chain",
+              "visibility": "visible",
+              "reason": "standard_reading_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "six_dimension_map",
+              "visibility": "visible",
+              "reason": "dimension_overview_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "pair_blend",
+              "visibility": "visible",
+              "reason": "clear_or_blended_pair_context_available",
+              "risk_boundary": "pair_blend_is_context_not_fit_or_ranking"
+            },
+            {
+              "key": "activity_explorer",
+              "visibility": "visible",
+              "reason": "examples_only_activity_explorer_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "occupation_examples",
+              "visibility": "collapsed",
+              "reason": "examples_only_not_registry_match",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "140q_cta",
+              "visibility": "hidden",
+              "reason": "contextual_form_optional_not_more_accurate",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "140q_context_cards",
+              "visibility": "visible",
+              "reason": "contextual_layer_available_for_140q_only",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "share_card",
+              "visibility": "visible",
+              "reason": "safe_share_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "pdf",
+              "visibility": "visible",
+              "reason": "snapshot_bound_pdf_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "history",
+              "visibility": "visible",
+              "reason": "snapshot_bound_history_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "feedback_overlay",
+              "visibility": "visible",
+              "reason": "feedback_does_not_mutate_measured_result",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            }
+          ],
+          "fallback_policy": {
+            "unknown_module": "hidden",
+            "missing_backend_state": "hidden",
+            "frontend_inference_allowed": false
+          }
+        },
+        "deep_content_slots_v1": {
+          "schema_version": "riasec.deep_content_slots.v1",
+          "scale_code": "RIASEC",
+          "locale": "en",
+          "content_authority": "backend_riasec_deep_copy_slot_registry",
+          "snapshot_bound": true,
+          "source_policy": {
+            "frontend_fallback_allowed": false,
+            "missing_content_behavior": "omit_module_fail_closed",
+            "pending_content_behavior": "omit_module_fail_closed",
+            "unknown_slot_behavior": "hidden",
+            "formal_report_generation": "deterministic_backend_snapshot"
+          },
+          "slot_visibility_policy": {
+            "module_visibility_policy_id": "riasec_module_visibility_policy_v1",
+            "hidden_slots_omitted": true,
+            "pending_or_unavailable_slots_omitted": true,
+            "frontend_inference_allowed": false
+          },
+          "slots": [
+            {
+              "slot_key": "disagree_path_copy",
+              "slot_group": "feedback_response_copy",
+              "slot_id": "disagree_path_copy:user_not_wrong_message",
+              "module_key": "disagree_path",
+              "slot_visibility": "collapsed",
+              "status": "authored",
+              "content_status": "authored",
+              "content_version": "riasec_runtime_surface_copy_v1.en",
+              "review_status": "draft",
+              "review_state": "pending",
+              "last_reviewed_at": null,
+              "reviewer": null,
+              "source_status": "docs_only_candidate",
+              "evidence_level": "contract_only",
+              "source_review_status": null,
+              "source_evidence_level": null,
+              "locale": "en",
+              "frontend_fallback_allowed": false,
+              "fallback_behavior": "omit_module",
+              "selection_v1": null,
+              "applicability": {
+                "form_codes": [
+                  "riasec_60",
+                  "riasec_140"
+                ],
+                "profile_shapes": [
+                  "clear_code",
+                  "blended_code",
+                  "broad_profile",
+                  "near_tie",
+                  "low_clarity"
+                ],
+                "quality_states": [
+                  "normal",
+                  "caution"
+                ],
+                "codes": [
+                  "any"
+                ],
+                "dimensions": []
+              },
+              "state": {
+                "slot_name": "user_not_wrong_message",
+                "disagree_state": "disagrees_quality_normal"
+              },
+              "content": {
+                "title": "You can disagree with this result",
+                "summary": "Disagreeing with a result is valid feedback in itself. It will inform the exploration path, helping you examine your state while answering, near ties, and directions for exploring activities."
+              },
+              "boundaries": {
+                "user_visible_boundary": "Disagreeing with the result only affects the exploration path; it does not change the Holland code or RIASEC scores measured in this assessment, the report snapshot, shared content, or the PDF.",
+                "required_boundaries": [
+                  "interest_evidence_only",
+                  "not_career_recommendation",
+                  "not_job_fit",
+                  "not_success_prediction",
+                  "not_ability_or_skill_measure",
+                  "no_60q_140q_raw_delta",
+                  "140q_contextual_not_more_accurate",
+                  "feedback_does_not_mutate_measured_result",
+                  "missing_content_fails_closed",
+                  "frontend_fallback_forbidden"
+                ],
+                "forbidden_claims": [
+                  "feedback_overrides_measured_result",
+                  "score_correction",
+                  "career_recommendation",
+                  "job_fit",
+                  "raw_feedback_public_exposure"
+                ],
+                "emphasis_difference_only": false,
+                "correctness_ranking_allowed": false,
+                "raw_score_comparison_allowed": false,
+                "result_override_allowed": false,
+                "code_conversion_allowed": false
+              }
+            },
+            {
+              "slot_key": "disagree_path_copy",
+              "slot_group": "feedback_response_copy",
+              "slot_id": "disagree_path_copy:feedback_no_mutation_boundary",
+              "module_key": "disagree_path",
+              "slot_visibility": "collapsed",
+              "status": "authored",
+              "content_status": "authored",
+              "content_version": "riasec_runtime_surface_copy_v1.en",
+              "review_status": "draft",
+              "review_state": "pending",
+              "last_reviewed_at": null,
+              "reviewer": null,
+              "source_status": "docs_only_candidate",
+              "evidence_level": "contract_only",
+              "source_review_status": null,
+              "source_evidence_level": null,
+              "locale": "en",
+              "frontend_fallback_allowed": false,
+              "fallback_behavior": "omit_module",
+              "selection_v1": null,
+              "applicability": {
+                "form_codes": [
+                  "riasec_60",
+                  "riasec_140"
+                ],
+                "profile_shapes": [
+                  "clear_code",
+                  "blended_code",
+                  "broad_profile",
+                  "near_tie",
+                  "low_clarity"
+                ],
+                "quality_states": [
+                  "normal",
+                  "caution"
+                ],
+                "codes": [
+                  "any"
+                ],
+                "dimensions": []
+              },
+              "state": {
+                "slot_name": "feedback_no_mutation_boundary",
+                "disagree_state": "disagrees_quality_caution"
+              },
+              "content": {
+                "title": "Feedback does not change scores",
+                "summary": "Disagreeing, adding favorites, making exclusions, and providing feedback from experiments do not change assessment results, report snapshots, default shared content, or PDF content."
+              },
+              "boundaries": {
+                "user_visible_boundary": "Disagreeing with the result only affects the exploration path; it does not change the Holland code or RIASEC scores measured in this assessment, the report snapshot, shared content, or the PDF.",
+                "required_boundaries": [
+                  "interest_evidence_only",
+                  "not_career_recommendation",
+                  "not_job_fit",
+                  "not_success_prediction",
+                  "not_ability_or_skill_measure",
+                  "no_60q_140q_raw_delta",
+                  "140q_contextual_not_more_accurate",
+                  "feedback_does_not_mutate_measured_result",
+                  "missing_content_fails_closed",
+                  "frontend_fallback_forbidden"
+                ],
+                "forbidden_claims": [
+                  "feedback_overrides_measured_result",
+                  "score_correction",
+                  "career_recommendation",
+                  "job_fit",
+                  "raw_feedback_public_exposure"
+                ],
+                "emphasis_difference_only": false,
+                "correctness_ranking_allowed": false,
+                "raw_score_comparison_allowed": false,
+                "result_override_allowed": false,
+                "code_conversion_allowed": false
+              }
+            },
+            {
+              "slot_key": "disagree_path_copy",
+              "slot_group": "feedback_response_copy",
+              "slot_id": "disagree_path_copy:next_step",
+              "module_key": "disagree_path",
+              "slot_visibility": "collapsed",
+              "status": "authored",
+              "content_status": "authored",
+              "content_version": "riasec_runtime_surface_copy_v1.en",
+              "review_status": "draft",
+              "review_state": "pending",
+              "last_reviewed_at": null,
+              "reviewer": null,
+              "source_status": "docs_only_candidate",
+              "evidence_level": "contract_only",
+              "source_review_status": null,
+              "source_evidence_level": null,
+              "locale": "en",
+              "frontend_fallback_allowed": false,
+              "fallback_behavior": "omit_module",
+              "selection_v1": null,
+              "applicability": {
+                "form_codes": [
+                  "riasec_60",
+                  "riasec_140"
+                ],
+                "profile_shapes": [
+                  "clear_code",
+                  "blended_code",
+                  "broad_profile",
+                  "near_tie",
+                  "low_clarity"
+                ],
+                "quality_states": [
+                  "normal",
+                  "caution"
+                ],
+                "codes": [
+                  "any"
+                ],
+                "dimensions": []
+              },
+              "state": {
+                "slot_name": "next_step",
+                "disagree_state": "save_feedback_only"
+              },
+              "content": {
+                "title": "Next step",
+                "summary": "First check response quality and near ties. Then choose whether to retake the assessment, save a preferred direction, or try a small experiment to observe specific activities."
+              },
+              "boundaries": {
+                "user_visible_boundary": "Disagreeing with the result only affects the exploration path; it does not change the Holland code or RIASEC scores measured in this assessment, the report snapshot, shared content, or the PDF.",
+                "required_boundaries": [
+                  "interest_evidence_only",
+                  "not_career_recommendation",
+                  "not_job_fit",
+                  "not_success_prediction",
+                  "not_ability_or_skill_measure",
+                  "no_60q_140q_raw_delta",
+                  "140q_contextual_not_more_accurate",
+                  "feedback_does_not_mutate_measured_result",
+                  "missing_content_fails_closed",
+                  "frontend_fallback_forbidden"
+                ],
+                "forbidden_claims": [
+                  "feedback_overrides_measured_result",
+                  "score_correction",
+                  "career_recommendation",
+                  "job_fit",
+                  "raw_feedback_public_exposure"
+                ],
+                "emphasis_difference_only": false,
+                "correctness_ranking_allowed": false,
+                "raw_score_comparison_allowed": false,
+                "result_override_allowed": false,
+                "code_conversion_allowed": false
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "form": "riasec_140",
+      "quality": "caution",
+      "projection": {
+        "schema_version": "riasec.public_projection.v2",
+        "scale_code": "RIASEC",
+        "locale": "en",
+        "private_result_authority": null,
+        "holland_code": {
+          "code": "RIA",
+          "primary_type": "R",
+          "secondary_type": "I",
+          "tertiary_type": "A"
+        },
+        "scores": {
+          "score_kind": "dimension_scores_0_100",
+          "dimensions": [
+            {
+              "code": "R",
+              "label": "Realistic",
+              "score": 85
+            },
+            {
+              "code": "I",
+              "label": "Investigative",
+              "score": 70
+            },
+            {
+              "code": "A",
+              "label": "Artistic",
+              "score": 55
+            },
+            {
+              "code": "S",
+              "label": "Social",
+              "score": 40
+            },
+            {
+              "code": "E",
+              "label": "Enterprising",
+              "score": 25
+            },
+            {
+              "code": "C",
+              "label": "Conventional",
+              "score": 10
+            }
+          ]
+        },
+        "form": {
+          "form_code": "riasec_140",
+          "question_count": 140,
+          "form_kind": "enhanced_contextual",
+          "score_space_version": "riasec_140_likert5_activity_context_space.v1",
+          "compare_compatibility_group": "RIASEC:riasec_140:riasec_140_likert5_activity_context_space.v1",
+          "cross_form_comparable": false,
+          "raw_score_delta_allowed": false,
+          "cross_form_interpretation": "emphasis_difference_only"
+        },
+        "quality": {
+          "grade": "A",
+          "flags": [],
+          "display_v1": {
+            "schema_version": "riasec.quality_display.v1",
+            "locale": "en",
+            "headline": "A mild response-quality note applies; read the result alongside your real experience",
+            "reasons": [
+              "The assessment was completed unusually quickly, leaving limited time to consider each item."
+            ],
+            "improvements": [
+              "Retake when you have enough time, linking each answer to a concrete experience."
+            ],
+            "reading_boundary": "This note concerns the readability of this response set; it does not judge ability, personality, or personal worth."
+          },
+          "low_quality_strength": "caution_flags_available",
+          "quality_rule_version": "riasec_quality_rule_spec_v2",
+          "quality_state": "caution",
+          "response_quality": "caution",
+          "reading_strength": "cautious_reading",
+          "result_page_behavior": "show_cautious_result_page",
+          "module_policy": {
+            "hide_strong_modules": false,
+            "show_activity_chain": true,
+            "show_occupation_examples": false,
+            "allow_140q_cta": true,
+            "user_blame_allowed": false,
+            "upsell_140q_allowed": true,
+            "strong_interpretation_allowed": false,
+            "cta_strength": "soft_or_hidden"
+          },
+          "score_mutation_allowed": false,
+          "measured_holland_code_mutation_allowed": false
+        },
+        "interpretation_state": {
+          "interpretation_rule_version": "riasec_interpretation_rule_spec_v2",
+          "profile_shape": "clear_code",
+          "profile_shape_version": "riasec_profile_shape_v2_0",
+          "clarity_label": "high",
+          "near_tie_state": {
+            "state": "none",
+            "dimensions": [],
+            "threshold_rule": "adjacent_gap_lt_5_points_provisional"
+          },
+          "alternate_code": {
+            "show": false,
+            "codes": [],
+            "reason": null,
+            "display_boundary": "Alternate code is a reading aid, not a second measured result."
+          },
+          "alternate_code_reason": null,
+          "tie_display_v1": {
+            "schema_version": "riasec.tie_display.v1",
+            "kind": "none",
+            "position": "none",
+            "dimensions": [],
+            "groups": [],
+            "ordered_code": "RIA",
+            "alternate_codes": [],
+            "threshold_rule": "exact_gap_eq_0_or_adjacent_gap_lt_5_points_provisional",
+            "ordering_precision_claim_allowed": false,
+            "locale": "en",
+            "display_copy": {
+              "headline": "RIA",
+              "note": "",
+              "boundary": ""
+            }
+          },
+          "top_code_confidence": {
+            "level": "low",
+            "user_label": "谨慎阅读",
+            "meaning": "readability strength, not probability"
+          },
+          "reading_strength": "cautious_reading",
+          "result_page_strategy": {
+            "primary_reading_mode": "single_chain",
+            "tone": "stable_not_absolute"
+          },
+          "module_visibility_policy_id": "riasec_module_visibility_policy_v1",
+          "validation_status": "theory_based_under_validation",
+          "field_authority": {
+            "profile_shape": "backend_owned",
+            "profile_shape_version": "backend_owned",
+            "clarity_label": "backend_owned",
+            "near_tie_state": "backend_owned",
+            "alternate_code": "backend_owned",
+            "alternate_code_reason": "backend_owned",
+            "tie_display_v1": "backend_owned",
+            "top_code_confidence": "backend_owned",
+            "reading_strength": "backend_owned",
+            "interpretation_rule_version": "backend_owned"
+          }
+        },
+        "module_visibility_policy": {
+          "schema_version": "riasec.module_visibility_policy.v1",
+          "policy_id": "riasec_module_visibility_policy_v1",
+          "quality_state": "caution",
+          "profile_shape": "clear_code",
+          "form_code": "riasec_140",
+          "modules": [
+            {
+              "key": "hero_activity_chain",
+              "visibility": "visible",
+              "reason": "standard_reading_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "six_dimension_map",
+              "visibility": "visible",
+              "reason": "dimension_overview_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "pair_blend",
+              "visibility": "collapsed",
+              "reason": "caution_requires_boundary_first",
+              "risk_boundary": "collapsed_pair_copy_must_read_as_activity_context"
+            },
+            {
+              "key": "activity_explorer",
+              "visibility": "visible",
+              "reason": "examples_only_activity_explorer_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "occupation_examples",
+              "visibility": "collapsed",
+              "reason": "caution_requires_boundary_first",
+              "risk_boundary": "collapsed_pair_copy_must_read_as_activity_context"
+            },
+            {
+              "key": "140q_cta",
+              "visibility": "collapsed",
+              "reason": "caution_requires_boundary_first",
+              "risk_boundary": "collapsed_pair_copy_must_read_as_activity_context"
+            },
+            {
+              "key": "140q_context_cards",
+              "visibility": "visible",
+              "reason": "contextual_layer_available_for_140q_only",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "share_card",
+              "visibility": "visible",
+              "reason": "safe_share_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "pdf",
+              "visibility": "visible",
+              "reason": "snapshot_bound_pdf_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "history",
+              "visibility": "visible",
+              "reason": "snapshot_bound_history_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "feedback_overlay",
+              "visibility": "visible",
+              "reason": "feedback_does_not_mutate_measured_result",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            }
+          ],
+          "fallback_policy": {
+            "unknown_module": "hidden",
+            "missing_backend_state": "hidden",
+            "frontend_inference_allowed": false
+          }
+        },
+        "deep_content_slots_v1": {
+          "schema_version": "riasec.deep_content_slots.v1",
+          "scale_code": "RIASEC",
+          "locale": "en",
+          "content_authority": "backend_riasec_deep_copy_slot_registry",
+          "snapshot_bound": true,
+          "source_policy": {
+            "frontend_fallback_allowed": false,
+            "missing_content_behavior": "omit_module_fail_closed",
+            "pending_content_behavior": "omit_module_fail_closed",
+            "unknown_slot_behavior": "hidden",
+            "formal_report_generation": "deterministic_backend_snapshot"
+          },
+          "slot_visibility_policy": {
+            "module_visibility_policy_id": "riasec_module_visibility_policy_v1",
+            "hidden_slots_omitted": true,
+            "pending_or_unavailable_slots_omitted": true,
+            "frontend_inference_allowed": false
+          },
+          "slots": [
+            {
+              "slot_key": "disagree_path_copy",
+              "slot_group": "feedback_response_copy",
+              "slot_id": "disagree_path_copy:user_not_wrong_message",
+              "module_key": "disagree_path",
+              "slot_visibility": "collapsed",
+              "status": "authored",
+              "content_status": "authored",
+              "content_version": "riasec_runtime_surface_copy_v1.en",
+              "review_status": "draft",
+              "review_state": "pending",
+              "last_reviewed_at": null,
+              "reviewer": null,
+              "source_status": "docs_only_candidate",
+              "evidence_level": "contract_only",
+              "source_review_status": null,
+              "source_evidence_level": null,
+              "locale": "en",
+              "frontend_fallback_allowed": false,
+              "fallback_behavior": "omit_module",
+              "selection_v1": null,
+              "applicability": {
+                "form_codes": [
+                  "riasec_60",
+                  "riasec_140"
+                ],
+                "profile_shapes": [
+                  "clear_code",
+                  "blended_code",
+                  "broad_profile",
+                  "near_tie",
+                  "low_clarity"
+                ],
+                "quality_states": [
+                  "normal",
+                  "caution"
+                ],
+                "codes": [
+                  "any"
+                ],
+                "dimensions": []
+              },
+              "state": {
+                "slot_name": "user_not_wrong_message",
+                "disagree_state": "disagrees_quality_normal"
+              },
+              "content": {
+                "title": "You can disagree with this result",
+                "summary": "Disagreeing with a result is valid feedback in itself. It will inform the exploration path, helping you examine your state while answering, near ties, and directions for exploring activities."
+              },
+              "boundaries": {
+                "user_visible_boundary": "Disagreeing with the result only affects the exploration path; it does not change the Holland code or RIASEC scores measured in this assessment, the report snapshot, shared content, or the PDF.",
+                "required_boundaries": [
+                  "interest_evidence_only",
+                  "not_career_recommendation",
+                  "not_job_fit",
+                  "not_success_prediction",
+                  "not_ability_or_skill_measure",
+                  "no_60q_140q_raw_delta",
+                  "140q_contextual_not_more_accurate",
+                  "feedback_does_not_mutate_measured_result",
+                  "missing_content_fails_closed",
+                  "frontend_fallback_forbidden"
+                ],
+                "forbidden_claims": [
+                  "feedback_overrides_measured_result",
+                  "score_correction",
+                  "career_recommendation",
+                  "job_fit",
+                  "raw_feedback_public_exposure"
+                ],
+                "emphasis_difference_only": false,
+                "correctness_ranking_allowed": false,
+                "raw_score_comparison_allowed": false,
+                "result_override_allowed": false,
+                "code_conversion_allowed": false
+              }
+            },
+            {
+              "slot_key": "disagree_path_copy",
+              "slot_group": "feedback_response_copy",
+              "slot_id": "disagree_path_copy:feedback_no_mutation_boundary",
+              "module_key": "disagree_path",
+              "slot_visibility": "collapsed",
+              "status": "authored",
+              "content_status": "authored",
+              "content_version": "riasec_runtime_surface_copy_v1.en",
+              "review_status": "draft",
+              "review_state": "pending",
+              "last_reviewed_at": null,
+              "reviewer": null,
+              "source_status": "docs_only_candidate",
+              "evidence_level": "contract_only",
+              "source_review_status": null,
+              "source_evidence_level": null,
+              "locale": "en",
+              "frontend_fallback_allowed": false,
+              "fallback_behavior": "omit_module",
+              "selection_v1": null,
+              "applicability": {
+                "form_codes": [
+                  "riasec_60",
+                  "riasec_140"
+                ],
+                "profile_shapes": [
+                  "clear_code",
+                  "blended_code",
+                  "broad_profile",
+                  "near_tie",
+                  "low_clarity"
+                ],
+                "quality_states": [
+                  "normal",
+                  "caution"
+                ],
+                "codes": [
+                  "any"
+                ],
+                "dimensions": []
+              },
+              "state": {
+                "slot_name": "feedback_no_mutation_boundary",
+                "disagree_state": "disagrees_quality_caution"
+              },
+              "content": {
+                "title": "Feedback does not change scores",
+                "summary": "Disagreeing, adding favorites, making exclusions, and providing feedback from experiments do not change assessment results, report snapshots, default shared content, or PDF content."
+              },
+              "boundaries": {
+                "user_visible_boundary": "Disagreeing with the result only affects the exploration path; it does not change the Holland code or RIASEC scores measured in this assessment, the report snapshot, shared content, or the PDF.",
+                "required_boundaries": [
+                  "interest_evidence_only",
+                  "not_career_recommendation",
+                  "not_job_fit",
+                  "not_success_prediction",
+                  "not_ability_or_skill_measure",
+                  "no_60q_140q_raw_delta",
+                  "140q_contextual_not_more_accurate",
+                  "feedback_does_not_mutate_measured_result",
+                  "missing_content_fails_closed",
+                  "frontend_fallback_forbidden"
+                ],
+                "forbidden_claims": [
+                  "feedback_overrides_measured_result",
+                  "score_correction",
+                  "career_recommendation",
+                  "job_fit",
+                  "raw_feedback_public_exposure"
+                ],
+                "emphasis_difference_only": false,
+                "correctness_ranking_allowed": false,
+                "raw_score_comparison_allowed": false,
+                "result_override_allowed": false,
+                "code_conversion_allowed": false
+              }
+            },
+            {
+              "slot_key": "disagree_path_copy",
+              "slot_group": "feedback_response_copy",
+              "slot_id": "disagree_path_copy:next_step",
+              "module_key": "disagree_path",
+              "slot_visibility": "collapsed",
+              "status": "authored",
+              "content_status": "authored",
+              "content_version": "riasec_runtime_surface_copy_v1.en",
+              "review_status": "draft",
+              "review_state": "pending",
+              "last_reviewed_at": null,
+              "reviewer": null,
+              "source_status": "docs_only_candidate",
+              "evidence_level": "contract_only",
+              "source_review_status": null,
+              "source_evidence_level": null,
+              "locale": "en",
+              "frontend_fallback_allowed": false,
+              "fallback_behavior": "omit_module",
+              "selection_v1": null,
+              "applicability": {
+                "form_codes": [
+                  "riasec_60",
+                  "riasec_140"
+                ],
+                "profile_shapes": [
+                  "clear_code",
+                  "blended_code",
+                  "broad_profile",
+                  "near_tie",
+                  "low_clarity"
+                ],
+                "quality_states": [
+                  "normal",
+                  "caution"
+                ],
+                "codes": [
+                  "any"
+                ],
+                "dimensions": []
+              },
+              "state": {
+                "slot_name": "next_step",
+                "disagree_state": "save_feedback_only"
+              },
+              "content": {
+                "title": "Next step",
+                "summary": "First check response quality and near ties. Then choose whether to retake the assessment, save a preferred direction, or try a small experiment to observe specific activities."
+              },
+              "boundaries": {
+                "user_visible_boundary": "Disagreeing with the result only affects the exploration path; it does not change the Holland code or RIASEC scores measured in this assessment, the report snapshot, shared content, or the PDF.",
+                "required_boundaries": [
+                  "interest_evidence_only",
+                  "not_career_recommendation",
+                  "not_job_fit",
+                  "not_success_prediction",
+                  "not_ability_or_skill_measure",
+                  "no_60q_140q_raw_delta",
+                  "140q_contextual_not_more_accurate",
+                  "feedback_does_not_mutate_measured_result",
+                  "missing_content_fails_closed",
+                  "frontend_fallback_forbidden"
+                ],
+                "forbidden_claims": [
+                  "feedback_overrides_measured_result",
+                  "score_correction",
+                  "career_recommendation",
+                  "job_fit",
+                  "raw_feedback_public_exposure"
+                ],
+                "emphasis_difference_only": false,
+                "correctness_ranking_allowed": false,
+                "raw_score_comparison_allowed": false,
+                "result_override_allowed": false,
+                "code_conversion_allowed": false
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "form": "riasec_140",
+      "quality": "low_quality",
+      "projection": {
+        "schema_version": "riasec.public_projection.v2",
+        "scale_code": "RIASEC",
+        "locale": "en",
+        "private_result_authority": null,
+        "holland_code": {
+          "code": "RIA",
+          "primary_type": "R",
+          "secondary_type": "I",
+          "tertiary_type": "A"
+        },
+        "scores": {
+          "score_kind": "dimension_scores_0_100",
+          "dimensions": [
+            {
+              "code": "R",
+              "label": "Realistic",
+              "score": 85
+            },
+            {
+              "code": "I",
+              "label": "Investigative",
+              "score": 70
+            },
+            {
+              "code": "A",
+              "label": "Artistic",
+              "score": 55
+            },
+            {
+              "code": "S",
+              "label": "Social",
+              "score": 40
+            },
+            {
+              "code": "E",
+              "label": "Enterprising",
+              "score": 25
+            },
+            {
+              "code": "C",
+              "label": "Conventional",
+              "score": 10
+            }
+          ]
+        },
+        "form": {
+          "form_code": "riasec_140",
+          "question_count": 140,
+          "form_kind": "enhanced_contextual",
+          "score_space_version": "riasec_140_likert5_activity_context_space.v1",
+          "compare_compatibility_group": "RIASEC:riasec_140:riasec_140_likert5_activity_context_space.v1",
+          "cross_form_comparable": false,
+          "raw_score_delta_allowed": false,
+          "cross_form_interpretation": "emphasis_difference_only"
+        },
+        "quality": {
+          "grade": "A",
+          "flags": [],
+          "display_v1": {
+            "schema_version": "riasec.quality_display.v1",
+            "locale": "en",
+            "headline": "Response-quality concerns limit this result to an initial signal; consider retaking when ready",
+            "reasons": [
+              "Some required items were not completed, so a full reading is not supported."
+            ],
+            "improvements": [
+              "Complete every required item before generating a new result."
+            ],
+            "reading_boundary": "This note concerns the readability of this response set; it does not judge ability, personality, or personal worth."
+          },
+          "low_quality_strength": "caution_flags_available",
+          "quality_rule_version": "riasec_quality_rule_spec_v2",
+          "quality_state": "low_quality",
+          "response_quality": "low_quality",
+          "reading_strength": "retake_recommended",
+          "result_page_behavior": "show_retake_recommended_page",
+          "module_policy": {
+            "hide_strong_modules": true,
+            "show_activity_chain": false,
+            "show_occupation_examples": false,
+            "allow_140q_cta": false,
+            "user_blame_allowed": false,
+            "upsell_140q_allowed": false,
+            "strong_interpretation_allowed": false,
+            "cta_strength": "hidden"
+          },
+          "score_mutation_allowed": false,
+          "measured_holland_code_mutation_allowed": false
+        },
+        "interpretation_state": {
+          "interpretation_rule_version": "riasec_interpretation_rule_spec_v2",
+          "profile_shape": "low_quality",
+          "profile_shape_version": "riasec_profile_shape_v2_0",
+          "clarity_label": "not_readable",
+          "near_tie_state": {
+            "state": "none",
+            "dimensions": [],
+            "threshold_rule": "adjacent_gap_lt_5_points_provisional"
+          },
+          "alternate_code": {
+            "show": false,
+            "codes": [],
+            "reason": null,
+            "display_boundary": "Alternate code is a reading aid, not a second measured result."
+          },
+          "alternate_code_reason": null,
+          "tie_display_v1": {
+            "schema_version": "riasec.tie_display.v1",
+            "kind": "none",
+            "position": "none",
+            "dimensions": [],
+            "groups": [],
+            "ordered_code": "RIA",
+            "alternate_codes": [],
+            "threshold_rule": "exact_gap_eq_0_or_adjacent_gap_lt_5_points_provisional",
+            "ordering_precision_claim_allowed": false,
+            "locale": "en",
+            "display_copy": {
+              "headline": "RIA",
+              "note": "",
+              "boundary": ""
+            }
+          },
+          "top_code_confidence": {
+            "level": "not_available",
+            "user_label": "暂不显示",
+            "meaning": "readability strength, not probability"
+          },
+          "reading_strength": "retake_recommended",
+          "result_page_strategy": {
+            "primary_reading_mode": "retake_first",
+            "tone": "retake_first"
+          },
+          "module_visibility_policy_id": "riasec_module_visibility_policy_v1",
+          "validation_status": "theory_based_under_validation",
+          "field_authority": {
+            "profile_shape": "backend_owned",
+            "profile_shape_version": "backend_owned",
+            "clarity_label": "backend_owned",
+            "near_tie_state": "backend_owned",
+            "alternate_code": "backend_owned",
+            "alternate_code_reason": "backend_owned",
+            "tie_display_v1": "backend_owned",
+            "top_code_confidence": "backend_owned",
+            "reading_strength": "backend_owned",
+            "interpretation_rule_version": "backend_owned"
+          }
+        },
+        "module_visibility_policy": {
+          "schema_version": "riasec.module_visibility_policy.v1",
+          "policy_id": "riasec_module_visibility_policy_v1",
+          "quality_state": "low_quality",
+          "profile_shape": "low_quality",
+          "form_code": "riasec_140",
+          "modules": [
+            {
+              "key": "hero_activity_chain",
+              "visibility": "hidden",
+              "reason": "low_quality_hides_strong_modules",
+              "risk_boundary": "hide_when_result_quality_cannot_support_pair_reading"
+            },
+            {
+              "key": "six_dimension_map",
+              "visibility": "visible",
+              "reason": "low_quality_overview_only",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "pair_blend",
+              "visibility": "hidden",
+              "reason": "low_quality_hides_strong_modules",
+              "risk_boundary": "hide_when_result_quality_cannot_support_pair_reading"
+            },
+            {
+              "key": "activity_explorer",
+              "visibility": "hidden",
+              "reason": "low_quality_hides_strong_modules",
+              "risk_boundary": "hide_when_result_quality_cannot_support_pair_reading"
+            },
+            {
+              "key": "occupation_examples",
+              "visibility": "hidden",
+              "reason": "low_quality_hides_strong_modules",
+              "risk_boundary": "hide_when_result_quality_cannot_support_pair_reading"
+            },
+            {
+              "key": "140q_cta",
+              "visibility": "hidden",
+              "reason": "low_quality_hides_strong_modules",
+              "risk_boundary": "hide_when_result_quality_cannot_support_pair_reading"
+            },
+            {
+              "key": "140q_context_cards",
+              "visibility": "hidden",
+              "reason": "low_quality_hides_strong_modules",
+              "risk_boundary": "hide_when_result_quality_cannot_support_pair_reading"
+            },
+            {
+              "key": "share_card",
+              "visibility": "collapsed",
+              "reason": "low_quality_no_strong_public_share",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "pdf",
+              "visibility": "collapsed",
+              "reason": "low_quality_cautious_pdf_only",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "history",
+              "visibility": "visible",
+              "reason": "snapshot_bound_history_available",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            },
+            {
+              "key": "feedback_overlay",
+              "visibility": "visible",
+              "reason": "feedback_does_not_mutate_measured_result",
+              "risk_boundary": "module_visibility_backend_owned_no_frontend_inference"
+            }
+          ],
+          "fallback_policy": {
+            "unknown_module": "hidden",
+            "missing_backend_state": "hidden",
+            "frontend_inference_allowed": false
+          }
+        },
+        "deep_content_slots_v1": {
+          "schema_version": "riasec.deep_content_slots.v1",
+          "scale_code": "RIASEC",
+          "locale": "en",
+          "content_authority": "backend_riasec_deep_copy_slot_registry",
+          "snapshot_bound": true,
+          "source_policy": {
+            "frontend_fallback_allowed": false,
+            "missing_content_behavior": "omit_module_fail_closed",
+            "pending_content_behavior": "omit_module_fail_closed",
+            "unknown_slot_behavior": "hidden",
+            "formal_report_generation": "deterministic_backend_snapshot"
+          },
+          "slot_visibility_policy": {
+            "module_visibility_policy_id": "riasec_module_visibility_policy_v1",
+            "hidden_slots_omitted": true,
+            "pending_or_unavailable_slots_omitted": true,
+            "frontend_inference_allowed": false
+          },
+          "slots": []
+        }
+      }
+    }
+  ]
+}
