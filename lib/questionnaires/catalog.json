@@ -420,5 +420,30 @@
       "aggressive",
       "passive-aggressive"
     ]
+  },
+  {
+    "slug": "leadership-style",
+    "code": "LEADERSHIP_APPROACHES",
+    "version": "1.0.0",
+    "updated": "2026-10-25",
+    "category": "framework",
+    "title": {
+      "zh": "领导风格测试",
+      "en": "Leadership Style Test"
+    },
+    "description": {
+      "zh": "完成24道原创团队情境题，比较专制型、民主型、放任型与变革型的本次选择。四项计数和最高并列完整结果免费，无需注册；附具体例子、取舍与小尝试，不评定领导能力。",
+      "en": "Take 24 original team scenarios to compare autocratic, democratic, laissez-faire and transformational choices. Get raw counts and every tied full result free, with no signup."
+    },
+    "minutes": 7,
+    "collection": "explore",
+    "formCode": "fm_leadership_approach_choices_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "autocratic",
+      "democratic",
+      "laissez-faire",
+      "transformational"
+    ]
   }
 ]

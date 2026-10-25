@@ -1,0 +1,1184 @@
+{
+  "formCode": "fm_leadership_approach_choices_24",
+  "itemBankVersion": "1.0.0",
+  "origin": "FermatMind independent bilingual team-scenario preference choices,notofficialLewinassessment/MLQ/licensedinstrument/observedperformance. Fourcommonapproachesfromdifferentdiscussions,notunifiedvalidatedfourfactorleadershipmodelorexhaustivepersonalitytypes.",
+  "directions": [
+    {
+      "id": "autocratic",
+      "title": {
+        "zh": "专制型：集中决策",
+        "en": "Autocratic: concentrated decisions"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "democratic",
+      "title": {
+        "zh": "民主型：共同参与",
+        "en": "Democratic: participation"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "laissez-faire",
+      "title": {
+        "zh": "放任型：低介入",
+        "en": "Laissez-faire: limited involvement"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "transformational",
+      "title": {
+        "zh": "变革型：方向与发展",
+        "en": "Transformational: direction and development"
+      },
+      "comparisons": 24
+    }
+  ],
+  "questions": [
+    {
+      "id": "LEAD_01",
+      "prompt": {
+        "zh": "你协助带一个新的小组项目，需要先明确方向。你更可能先做什么？",
+        "en": "You are helping lead a new group project and need an initial direction. What would you tend to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我先确定目标和优先事项，再把需要完成的步骤分配给成员。",
+            "en": "Set the goal and priorities myself, then assign the steps members should complete."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "请成员各自提出重要目标，一起讨论并选定小组方向。",
+            "en": "Invite members to propose important goals and choose a direction together."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把项目范围交给成员，让他们自行决定想实现什么和怎样开展。",
+            "en": "Give members the project scope and leave them to decide the aims and approach."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先谈清这个项目希望带来的改变，让成员把自己的工作与那个未来联系起来。",
+            "en": "Discuss the change the project is meant to create and help members connect their work with that future."
+          },
+          "directionId": "transformational"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_02",
+      "prompt": {
+        "zh": "两个方案都可行，小组意见分开。你更自然的下一步是？",
+        "en": "Two workable proposals divide the group. What next step feels more natural to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "组织大家比较理由，再按事先说好的集体决策方式确定方案。",
+            "en": "Have the group compare reasons and decide using an agreed shared process."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让负责具体工作的成员自行取舍，我不主动参与这次选择。",
+            "en": "Leave the choice to the members doing the work without actively joining the decision."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "请大家换一个角度重新定义问题，看看能否提出原先两案之外的思路。",
+            "en": "Invite the group to reframe the problem and explore an approach beyond the two proposals."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我比较关键条件后选定一个方案，说明大家接下来按哪个方向做。",
+            "en": "Compare the key constraints, select a proposal and explain which direction to follow."
+          },
+          "directionId": "autocratic"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_03",
+      "prompt": {
+        "zh": "一组任务需要分工，你更可能怎样开始？",
+        "en": "A set of tasks needs to be divided. How would you tend to begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让成员自己认领和协调任务，我等他们需要时再参与。",
+            "en": "Let members claim and coordinate tasks, joining only if asked."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先了解成员想发展的能力，再把任务设计成适合各人尝试的成长机会。",
+            "en": "Understand what each member wants to develop and shape tasks into suitable learning opportunities."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我决定各人负责的部分和交付要求，再逐项告知。",
+            "en": "Decide each person’s part and delivery requirements, then communicate the assignments."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "听取成员对分工的意见，一起商定每个人的负责范围。",
+            "en": "Hear members’ preferences and agree their responsibilities together."
+          },
+          "directionId": "democratic"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_04",
+      "prompt": {
+        "zh": "项目进入日常推进阶段，你更倾向怎样处理进度交流？",
+        "en": "The project is moving into routine work. How would you tend to handle progress conversations?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我先公开自己的进展与尚未解决的问题，示范我们希望保持的坦诚和责任感。",
+            "en": "Share my own progress and unresolved questions first, demonstrating the openness and responsibility we want to practise."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我规定汇报时间和格式，按要求逐项检查进度。",
+            "en": "Set the reporting schedule and format and check progress against those requirements."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "和小组一起商量怎样交流进度，按共同约定开展。",
+            "en": "Agree with the group on how to share progress and follow that arrangement."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让成员自己选择是否和怎样更新，我不主动安排例行交流。",
+            "en": "Leave whether and how to update to members without arranging regular exchanges myself."
+          },
+          "directionId": "laissez-faire"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_05",
+      "prompt": {
+        "zh": "一项任务卡住了，原来的办法没有推进。你更可能先？",
+        "en": "A task is stuck and the original approach is not moving it forward. What would you tend to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我选定一个新的处理办法，要求大家按它推进。",
+            "en": "Choose a new approach and direct the group to use it."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让相关成员一起讨论可行办法，再共同确定下一步。",
+            "en": "Bring the relevant members together to discuss options and agree the next step."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "让任务负责人自行处理，我不主动加入问题解决。",
+            "en": "Leave the task owner to resolve it without actively joining the problem-solving."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "鼓励负责人质疑原先的假设，试一个能检验新想法的小实验。",
+            "en": "Encourage the owner to question an earlier assumption and try a small experiment that tests a new idea."
+          },
+          "directionId": "transformational"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_06",
+      "prompt": {
+        "zh": "一位成员想知道怎样改进自己的工作，你更倾向？",
+        "en": "A member asks how to improve their work. What would you tend to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "和对方一起比较不同意见，商量双方认可的改进方向。",
+            "en": "Compare views with them and agree an improvement direction both can accept."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让对方自行判断怎样改进，只有被具体问到时才提供意见。",
+            "en": "Leave them to judge the improvements, offering input only when specifically asked."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先了解对方想练习的部分，再用提问和支持帮助他们形成自己的改进路径。",
+            "en": "Ask what they want to practise and use questions and support to help them develop their own improvement path."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我给出明确的修改要求和完成标准。",
+            "en": "Give clear revision instructions and completion standards."
+          },
+          "directionId": "autocratic"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_07",
+      "prompt": {
+        "zh": "一位新成员加入，需要了解小组怎样合作。你更可能先？",
+        "en": "A new member joins and needs to understand how the group works together. What would you tend to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让新成员自行了解和融入，我不主动安排介绍。",
+            "en": "Leave the new member to find their way without arranging an introduction myself."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我通过一次真实合作示范小组看重的做法，并说明这些做法背后的意义。",
+            "en": "Demonstrate practices the group values through working together and explain why they matter."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我讲清规则、分工和需要遵循的操作方式。",
+            "en": "Explain the rules, responsibilities and procedures to follow."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "邀请大家和新成员一起讨论合作方式，补充彼此的期待。",
+            "en": "Invite the group and new member to discuss how to work together and share expectations."
+          },
+          "directionId": "democratic"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_08",
+      "prompt": {
+        "zh": "项目优先事项发生调整，你更自然的处理方式是？",
+        "en": "Project priorities change. What response comes more naturally to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先解释变化与小组长期目标的联系，帮助大家重新理解为什么要这样调整。",
+            "en": "Explain how the change connects with the group’s longer-term aims and help members understand its purpose."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我重新排好顺序，告诉成员按新顺序执行。",
+            "en": "Reorder the priorities and tell members to work in the new sequence."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "和成员讨论变化带来的影响，共同商定新的优先顺序。",
+            "en": "Discuss the effects with members and agree a new priority order together."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让各负责人自行调整自己的部分，我不主动协调新的顺序。",
+            "en": "Leave each owner to adjust their part without coordinating the new order myself."
+          },
+          "directionId": "laissez-faire"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_09",
+      "prompt": {
+        "zh": "讨论中有位成员很少发言，你更可能怎样继续？",
+        "en": "One member contributes little in a discussion. How would you tend to proceed?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我安排他们回应一个明确问题，并决定讨论何时进入下一步。",
+            "en": "Assign them a specific question to answer and decide when discussion moves on."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "请大家商量怎样让不同意见进入讨论，再邀请对方按合适的方式参与。",
+            "en": "Ask the group how to include different views and invite a form of participation that fits."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "由成员自己决定参与程度，我不主动介入发言安排。",
+            "en": "Leave participation to the members without intervening in how contributions are organised."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先单独了解对方希望怎样贡献，再提供适合他们练习与发展的参与机会。",
+            "en": "Privately ask how they want to contribute and offer an opportunity suited to their development."
+          },
+          "directionId": "transformational"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_10",
+      "prompt": {
+        "zh": "你负责的一次判断带来了需要纠正的地方。你更可能先？",
+        "en": "A judgment you were responsible for needs correcting. What would you tend to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "请受影响成员一起回顾，再共同确定怎样修正。",
+            "en": "Review it with affected members and agree a correction together."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把修正交给相关成员自行处理，我不主动组织回顾。",
+            "en": "Leave the correction to relevant members without organising a review myself."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我先说明自己的判断和需要承担的部分，示范怎样承认问题并学习。",
+            "en": "Explain my judgment and responsibility first, demonstrating how to acknowledge a problem and learn from it."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我决定修正方案，直接安排接下来的处理步骤。",
+            "en": "Decide the correction and directly organise the next steps."
+          },
+          "directionId": "autocratic"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_11",
+      "prompt": {
+        "zh": "成员在一项有明确权限范围的决定上犹豫，你更倾向？",
+        "en": "A member hesitates over a decision within a clearly defined area of authority. What would you tend to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让该成员自行决定，我不主动提供方向。",
+            "en": "Leave the member to decide without proactively offering direction."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "帮助他们把选择与项目想产生的价值联系起来，再由他们形成判断。",
+            "en": "Help them connect the options with the value the project aims to create, then form their own judgment."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我替他们确定这次决定，再讲清以后应按什么方式处理。",
+            "en": "Make this decision for them and clarify how it should be handled next time."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "和相关成员一起讨论选择，形成大家接受的决定。",
+            "en": "Discuss the options with the relevant members and reach a decision the group accepts."
+          },
+          "directionId": "democratic"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_12",
+      "prompt": {
+        "zh": "回顾一项已完成的贡献时，你更可能把注意放在哪里？",
+        "en": "When reviewing a completed contribution, where would you tend to focus?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "追问这次贡献打开了什么新思路，鼓励大家把学到的东西用于下一次尝试。",
+            "en": "Ask what new possibilities the contribution opened and encourage using that learning in the next experiment."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "按我事先确定的标准指出完成情况，并明确后续要求。",
+            "en": "Review completion against standards I set and make the next requirements clear."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "邀请大家表达各自看到的贡献，一起讨论值得保留的做法。",
+            "en": "Invite the group to describe contributions they noticed and discuss what to retain."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让成员自行评价和分享，我不主动组织回顾。",
+            "en": "Leave members to evaluate and share without organising a review myself."
+          },
+          "directionId": "laissez-faire"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_13",
+      "prompt": {
+        "zh": "另一组的工作与你们相互依赖，你更可能先怎样协调？",
+        "en": "Another group’s work depends on yours and vice versa. How would you tend to coordinate first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我先确定本组的配合要求，安排成员按统一口径衔接。",
+            "en": "Set this group’s coordination requirements and direct members to use the approach I specify."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "邀请双方代表一起讨论衔接条件，共同商定配合方式。",
+            "en": "Invite representatives from both groups to discuss the conditions and agree a way to coordinate."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "让各负责人自行联系对接，我不主动参与两组之间的协调。",
+            "en": "Leave each owner to make contact without actively coordinating between the groups."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我先示范怎样公开依赖与承诺，推动大家按同样的合作原则行事。",
+            "en": "Model making dependencies and commitments visible and encourage the same cooperation principles across the groups."
+          },
+          "directionId": "transformational"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_14",
+      "prompt": {
+        "zh": "成员问一项重复工作为什么还值得做，你更自然的回应是？",
+        "en": "Members ask why a repetitive task remains worth doing. What response comes more naturally?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "请大家一起讨论它的价值与代价，再共同决定如何安排。",
+            "en": "Discuss its value and cost with the group and decide together how to organise it."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让负责这项工作的人自己判断和安排，我不主动介入。",
+            "en": "Leave those responsible to judge and arrange it without intervening proactively."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把这项工作与小组希望实现的长期改变联系起来，帮助成员看到自己的贡献。",
+            "en": "Connect the task with the longer-term change the group wants and help members see their contribution."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "说明这项工作是当前安排的一部分，并明确必须完成的要求。",
+            "en": "Explain that it is part of the current plan and make the completion requirement clear."
+          },
+          "directionId": "autocratic"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_15",
+      "prompt": {
+        "zh": "你们只有一小段时间规划一个普通任务，没有安全紧急情况。你更可能先？",
+        "en": "There is a short planning window for an ordinary task, without a safety emergency. What would you tend to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让成员自行决定如何开展，我不主动安排这次规划。",
+            "en": "Leave members to decide how to proceed without organising the planning myself."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "提出一个能打开思路的问题，鼓励大家挑战惯常做法后选一个小尝试。",
+            "en": "Ask a question that opens a new perspective and encourage a small experiment beyond the usual approach."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我直接确定方案和分工，让大家尽快按计划开始。",
+            "en": "Set the plan and roles directly so the group can start."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把有限时间用于共同讨论关键选择，按约定方式决定。",
+            "en": "Use the available time to discuss the key choices and decide through an agreed group process."
+          },
+          "directionId": "democratic"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_16",
+      "prompt": {
+        "zh": "小组需要形成一套工作标准，你更倾向怎样推动？",
+        "en": "The group needs a set of work standards. How would you tend to approach it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先了解成员在哪些判断上需要成长，再把标准讨论变成练习这些判断的机会。",
+            "en": "Identify judgments members want to develop and use the standards discussion as a chance to practise them."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我制定标准与检查方式，再要求成员照此执行。",
+            "en": "Set the standards and checks myself and ask members to follow them."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "组织成员比较各自需要，共同制定一套标准。",
+            "en": "Have members compare their needs and develop the standards together."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "由各负责人自行确定标准，我不主动统一或检查。",
+            "en": "Leave each owner to set standards without proactively coordinating or checking them."
+          },
+          "directionId": "laissez-faire"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_17",
+      "prompt": {
+        "zh": "出现一个可能值得尝试的新方向，你更可能先？",
+        "en": "A possible new direction appears. What would you tend to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我判断是否值得投入，再决定大家接下来做什么。",
+            "en": "Judge whether it merits investment and decide what the group will do next."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "请成员表达看法，一起讨论并决定是否尝试。",
+            "en": "Invite members’ views and decide together whether to try it."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "让感兴趣的成员自己决定是否投入，我不主动给方向。",
+            "en": "Leave interested members to decide whether to pursue it without actively giving direction."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先描绘这个方向可能连接的小组愿景，再帮助大家思考怎样参与其中。",
+            "en": "Explore how the direction could connect with the group’s vision and help members consider their part in it."
+          },
+          "directionId": "transformational"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_18",
+      "prompt": {
+        "zh": "成员觉得现在的交流方式太繁琐，你更可能怎样开始调整？",
+        "en": "Members find the current communication process cumbersome. How would you tend to begin changing it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "请大家提出具体困扰，共同商定一种新安排。",
+            "en": "Invite specific concerns and agree a new arrangement together."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让成员自行调整彼此的交流方式，我不主动设计新安排。",
+            "en": "Leave members to adjust how they communicate without designing a new arrangement myself."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "请大家质疑原先的交流假设，设计一个可以检验不同做法的小试验。",
+            "en": "Invite the group to question assumptions behind the process and test an alternative through a small experiment."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我选定一种更简化的做法，告诉大家今后照此执行。",
+            "en": "Choose a simpler process and tell the group to use it."
+          },
+          "directionId": "autocratic"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_19",
+      "prompt": {
+        "zh": "一位成员对自己负责到哪里感到不确定，你更倾向？",
+        "en": "A member is unsure where their responsibility ends. What would you tend to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让该成员自行与其他人协调，我不主动参与划分。",
+            "en": "Leave the member to coordinate with others without actively joining the boundary decision."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先了解对方想承担和学习的部分，再通过交流帮助他们形成更独立的判断。",
+            "en": "Explore what they want to take on and learn, then help them develop more independent judgment."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我直接划清其负责范围，并说明应怎样执行。",
+            "en": "Define their responsibility directly and explain how to carry it out."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让相关成员共同讨论边界，形成双方接受的分工。",
+            "en": "Have the relevant members discuss boundaries and agree responsibilities together."
+          },
+          "directionId": "democratic"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_20",
+      "prompt": {
+        "zh": "项目结果还不确定，成员希望知道你怎样看待。你更可能先？",
+        "en": "The project’s outcome is uncertain and members want to know how you see it. What would you tend to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我先示范怎样坦诚说明未知和自己会承担的部分，再邀请大家按这些原则行动。",
+            "en": "Model being open about uncertainty and my responsibilities, then invite the group to work by those principles."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我说明自己的判断，要求大家按我确定的路径推进。",
+            "en": "State my judgment and direct the group along the path I choose."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把已知情况摆出来，与小组共同讨论怎样继续。",
+            "en": "Share what is known and discuss with the group how to proceed."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让成员自己判断各部分的情况，我不主动发表方向意见。",
+            "en": "Leave members to judge their parts without actively offering a view on direction."
+          },
+          "directionId": "laissez-faire"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_21",
+      "prompt": {
+        "zh": "一项一直沿用的流程需要重新考虑，你更自然的第一步是？",
+        "en": "A long-used process needs reconsideration. What first step feels more natural?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我选定需要改的环节，明确新的流程要求。",
+            "en": "Select the parts to change and specify the new requirements."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让成员比较现有问题和方案，一起决定怎样改。",
+            "en": "Have members compare problems and options and decide on changes together."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "由各负责人自行调整流程，我不主动协调统一做法。",
+            "en": "Leave owners to change their processes without proactively coordinating one approach."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "鼓励大家检验“为什么一直这样做”，从新问题出发设计一次尝试。",
+            "en": "Encourage the group to examine why the process exists and design an experiment from a new question."
+          },
+          "directionId": "transformational"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_22",
+      "prompt": {
+        "zh": "一位成员希望接触更有挑战的任务，你更倾向？",
+        "en": "A member wants a more challenging task. What would you tend to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "和成员及相关同伴商量，形成小组认可的安排。",
+            "en": "Discuss it with the member and relevant peers and reach an arrangement the group accepts."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让成员自行寻找和承接机会，我不主动安排或跟进。",
+            "en": "Leave the member to find and take an opportunity without arranging or following up myself."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先了解对方想发展的方向，再一起设计有支持、有反馈的成长尝试。",
+            "en": "Explore the direction they want to develop and shape a supported learning attempt with feedback."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我判断是否合适，决定任务和必须达到的要求。",
+            "en": "Judge whether it fits, then assign a task and its required standard."
+          },
+          "directionId": "autocratic"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_23",
+      "prompt": {
+        "zh": "项目结束后需要回顾，你更可能先怎样做？",
+        "en": "The project has ended and needs a review. What would you tend to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让成员自行总结，我不主动组织整体回顾。",
+            "en": "Leave members to reflect independently without organising a group review."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我先回顾自己怎样实践了承诺、哪里还需调整，示范小组希望保持的学习方式。",
+            "en": "Review my own commitments and changes first, modelling how the group wants to learn."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我按既定要求评价完成情况，说明下次需要改什么。",
+            "en": "Assess completion against the requirements and state what must change next time."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "邀请大家一起回顾过程，共同确定值得保留与调整的部分。",
+            "en": "Invite a group review and decide together what to retain or adjust."
+          },
+          "directionId": "democratic"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_24",
+      "prompt": {
+        "zh": "准备下一阶段工作时，你更倾向把第一段讨论用来？",
+        "en": "When preparing the next stage of work, how would you tend to use the opening discussion?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "帮助大家看见这一阶段与共同愿景的联系，让个人投入有一个更长远的参照。",
+            "en": "Help members see how this stage connects with a shared vision and a longer-term reference for their contribution."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "明确我确定的目标、任务顺序和执行要求。",
+            "en": "Clarify the goals, task order and requirements I have set."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "听取成员的重点与建议，一起形成下一阶段计划。",
+            "en": "Hear members’ priorities and suggestions and develop the next plan together."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把下一阶段的选择留给成员，我不主动规定方向或组织计划。",
+            "en": "Leave the next choices to members without proactively setting direction or organising a plan."
+          },
+          "directionId": "laissez-faire"
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "LEAD_01": {
+      "context": "starting-goals",
+      "transformational_option_theme": "vision"
+    },
+    "LEAD_02": {
+      "context": "two-proposals",
+      "transformational_option_theme": "new-perspectives"
+    },
+    "LEAD_03": {
+      "context": "task-allocation",
+      "transformational_option_theme": "development"
+    },
+    "LEAD_04": {
+      "context": "progress-updates",
+      "transformational_option_theme": "example"
+    },
+    "LEAD_05": {
+      "context": "stuck-task",
+      "transformational_option_theme": "new-perspectives"
+    },
+    "LEAD_06": {
+      "context": "feedback-session",
+      "transformational_option_theme": "development"
+    },
+    "LEAD_07": {
+      "context": "new-member",
+      "transformational_option_theme": "example"
+    },
+    "LEAD_08": {
+      "context": "changed-priority",
+      "transformational_option_theme": "vision"
+    },
+    "LEAD_09": {
+      "context": "unequal-voice",
+      "transformational_option_theme": "development"
+    },
+    "LEAD_10": {
+      "context": "my-mistake",
+      "transformational_option_theme": "example"
+    },
+    "LEAD_11": {
+      "context": "delegated-decision",
+      "transformational_option_theme": "vision"
+    },
+    "LEAD_12": {
+      "context": "recognition",
+      "transformational_option_theme": "new-perspectives"
+    },
+    "LEAD_13": {
+      "context": "cross-team-dependency",
+      "transformational_option_theme": "example"
+    },
+    "LEAD_14": {
+      "context": "purpose-explanation",
+      "transformational_option_theme": "vision"
+    },
+    "LEAD_15": {
+      "context": "short-planning-window",
+      "transformational_option_theme": "new-perspectives"
+    },
+    "LEAD_16": {
+      "context": "quality-standards",
+      "transformational_option_theme": "development"
+    },
+    "LEAD_17": {
+      "context": "new-opportunity",
+      "transformational_option_theme": "vision"
+    },
+    "LEAD_18": {
+      "context": "meeting-fatigue",
+      "transformational_option_theme": "new-perspectives"
+    },
+    "LEAD_19": {
+      "context": "unclear-role",
+      "transformational_option_theme": "development"
+    },
+    "LEAD_20": {
+      "context": "uncertain-outcome",
+      "transformational_option_theme": "example"
+    },
+    "LEAD_21": {
+      "context": "process-change",
+      "transformational_option_theme": "new-perspectives"
+    },
+    "LEAD_22": {
+      "context": "growth-request",
+      "transformational_option_theme": "development"
+    },
+    "LEAD_23": {
+      "context": "end-project-review",
+      "transformational_option_theme": "example"
+    },
+    "LEAD_24": {
+      "context": "next-direction",
+      "transformational_option_theme": "vision"
+    }
+  },
+  "balance": {
+    "exposure": {
+      "autocratic": 24,
+      "democratic": 24,
+      "laissez-faire": 24,
+      "transformational": 24
+    },
+    "option_positions": {
+      "autocratic": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "democratic": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "laissez-faire": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "transformational": [
+        6,
+        6,
+        6,
+        6
+      ]
+    },
+    "transformational_option_descriptive_themes": {
+      "vision": 6,
+      "new-perspectives": 6,
+      "development": 6,
+      "example": 6
+    },
+    "theme_scope": "Authoredcoverageonly,noseparatesubscalesorMLQcomponentmeasurement"
+  },
+  "scoring": {
+    "scoringVersion": "1.0.0",
+    "method": "Selectedchoiceadds1toitsapproach,all24required;displayall4rawcountsandeveryhighest-countfullreport. Noordering/randomtiebreaker,forcedsecondary,validatedclose-threshold,matchpercentage,norm/percentile,leadershipability/jobfit/performanceprediction.",
+    "totalSelections": 24,
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "url": "https://openstax.org/books/introduction-business-2e/pages/6-4-leading-guiding-and-motivating-others",
+      "scope": "Publisherown2eparagraphs36-40,43,84-90threeapproachesread;notparsedtablecolumnorder/examplesorourscorevalidation"
+    },
+    {
+      "url": "https://www.journals.uchicago.edu/doi/abs/10.1086/218207",
+      "scope": "1939Lippittpublisherabstract45-48twochildrensclubcontextsread,notfullpaperoradultemployeeuniversalreplicationclaim"
+    },
+    {
+      "url": "https://www.mindgarden.com/16-multifactor-leadership-questionnaire",
+      "scope": "OfficialMLQauthors/copyright/adminlicense/scalessectionsread;contextforlatertransformationalconceptandprotectedinstrumentboundary. Noitems/scoring/manual/report/norm/adoptedlicenceortrademarkaffiliationclaimed."
+    }
+  ]
+}

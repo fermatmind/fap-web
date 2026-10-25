@@ -1,0 +1,1821 @@
+{
+  "slug": "leadership-style",
+  "code": "LEADERSHIP_APPROACHES",
+  "version": "1.0.0",
+  "updated": "2026-10-25",
+  "category": "framework",
+  "kind": "archetype",
+  "minutes": 7,
+  "title": {
+    "zh": "领导风格测试",
+    "en": "Leadership Style Test"
+  },
+  "resultHeading": {
+    "zh": "你的领导情境选择结果",
+    "en": "Your leadership-situation choices"
+  },
+  "seoTitle": {
+    "zh": "领导风格测试：24道情境题与四种完整结果",
+    "en": "Leadership Style Test: 24 Questions and Four Full Guides"
+  },
+  "description": {
+    "zh": "完成24道原创团队情境题，比较专制型、民主型、放任型与变革型的本次选择。四项计数和最高并列完整结果免费，无需注册；附具体例子、取舍与小尝试，不评定领导能力。",
+    "en": "Take 24 original team scenarios to compare autocratic, democratic, laissez-faire and transformational choices. Get raw counts and every tied full result free, with no signup."
+  },
+  "introduction": {
+    "zh": "团队要决定方向、分工、反馈或怎样应对变化时，你更愿意先做什么？本领导风格测试用24道原创情境题，比较集中决策、共同参与、低介入以及方向与发展四种做法。它结合不同领导讨论中的常见概念，不是一套经过验证的四因素领导量表，也不是MLQ或官方Lewin测验。可以先读四份完整结果，完成后查看本次四项计数与全部最高并列报告；无需注册、付费或先做其他测试。",
+    "en": "When a group sets direction, divides work, gives feedback or faces change, what would you prefer to do first? This Leadership Style Test compares concentrated decisions, participation, limited involvement, and direction with development through 24 original situations. These familiar concepts come from different leadership discussions, rather than a validated four-factor instrument, the MLQ or an official Lewin test. Read all four full guides before answering, then see four raw counts and every highest-count complete report without signup, payment or another assessment."
+  },
+  "instructions": {
+    "zh": "以最近一个普通团队、项目或合作小组为参照，每题选择自己通常更愿意先采取的一种做法。没有带领团队经验时，可以按假设偏好作答，但不要把结果当真实表现。即使几项都可做，也先按具体题目选第一步；选项不是正确答案或优秀程度排名。24题全部完成才显示计数与解释。",
+    "en": "Use a recent ordinary team, project or collaborative group as your context. Choose the first move you would usually prefer in each situation. Without leadership experience, answer as a hypothetical preference and keep that distinct from demonstrated behaviour. Several options may be possible; choose a first move for the specific situation rather than a correct or impressive answer. All 24 selections are required before counts and interpretations appear."
+  },
+  "source": {
+    "kind": "FermatMind original team-scenario leadership reflection; mixed descriptive approaches, not validated four-factor instrument/official Lewin/MLQ",
+    "formCode": "fm_leadership_approach_choices_24",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "6812f469b36f5471cae8941e45a9187ecc8ad5eaf1fa39c93aacd1804cdb021c",
+    "resultContentSha256": "894bd6fe20be600bf67f4317373d1ea3de9d0ebefa94ebcad167bcff0dffd442",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "autocratic",
+      "title": {
+        "zh": "专制型：集中决策",
+        "en": "Autocratic: concentrated decisions"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "democratic",
+      "title": {
+        "zh": "民主型：共同参与",
+        "en": "Democratic: participation"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "laissez-faire",
+      "title": {
+        "zh": "放任型：低介入",
+        "en": "Laissez-faire: limited involvement"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "transformational",
+      "title": {
+        "zh": "变革型：方向与发展",
+        "en": "Transformational: direction and development"
+      },
+      "comparisons": 24
+    }
+  ],
+  "questions": [
+    {
+      "id": "LEAD_01",
+      "prompt": {
+        "zh": "你协助带一个新的小组项目，需要先明确方向。你更可能先做什么？",
+        "en": "You are helping lead a new group project and need an initial direction. What would you tend to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我先确定目标和优先事项，再把需要完成的步骤分配给成员。",
+            "en": "Set the goal and priorities myself, then assign the steps members should complete."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "请成员各自提出重要目标，一起讨论并选定小组方向。",
+            "en": "Invite members to propose important goals and choose a direction together."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把项目范围交给成员，让他们自行决定想实现什么和怎样开展。",
+            "en": "Give members the project scope and leave them to decide the aims and approach."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先谈清这个项目希望带来的改变，让成员把自己的工作与那个未来联系起来。",
+            "en": "Discuss the change the project is meant to create and help members connect their work with that future."
+          },
+          "directionId": "transformational"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_02",
+      "prompt": {
+        "zh": "两个方案都可行，小组意见分开。你更自然的下一步是？",
+        "en": "Two workable proposals divide the group. What next step feels more natural to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "组织大家比较理由，再按事先说好的集体决策方式确定方案。",
+            "en": "Have the group compare reasons and decide using an agreed shared process."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让负责具体工作的成员自行取舍，我不主动参与这次选择。",
+            "en": "Leave the choice to the members doing the work without actively joining the decision."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "请大家换一个角度重新定义问题，看看能否提出原先两案之外的思路。",
+            "en": "Invite the group to reframe the problem and explore an approach beyond the two proposals."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我比较关键条件后选定一个方案，说明大家接下来按哪个方向做。",
+            "en": "Compare the key constraints, select a proposal and explain which direction to follow."
+          },
+          "directionId": "autocratic"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_03",
+      "prompt": {
+        "zh": "一组任务需要分工，你更可能怎样开始？",
+        "en": "A set of tasks needs to be divided. How would you tend to begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让成员自己认领和协调任务，我等他们需要时再参与。",
+            "en": "Let members claim and coordinate tasks, joining only if asked."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先了解成员想发展的能力，再把任务设计成适合各人尝试的成长机会。",
+            "en": "Understand what each member wants to develop and shape tasks into suitable learning opportunities."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我决定各人负责的部分和交付要求，再逐项告知。",
+            "en": "Decide each person’s part and delivery requirements, then communicate the assignments."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "听取成员对分工的意见，一起商定每个人的负责范围。",
+            "en": "Hear members’ preferences and agree their responsibilities together."
+          },
+          "directionId": "democratic"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_04",
+      "prompt": {
+        "zh": "项目进入日常推进阶段，你更倾向怎样处理进度交流？",
+        "en": "The project is moving into routine work. How would you tend to handle progress conversations?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我先公开自己的进展与尚未解决的问题，示范我们希望保持的坦诚和责任感。",
+            "en": "Share my own progress and unresolved questions first, demonstrating the openness and responsibility we want to practise."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我规定汇报时间和格式，按要求逐项检查进度。",
+            "en": "Set the reporting schedule and format and check progress against those requirements."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "和小组一起商量怎样交流进度，按共同约定开展。",
+            "en": "Agree with the group on how to share progress and follow that arrangement."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让成员自己选择是否和怎样更新，我不主动安排例行交流。",
+            "en": "Leave whether and how to update to members without arranging regular exchanges myself."
+          },
+          "directionId": "laissez-faire"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_05",
+      "prompt": {
+        "zh": "一项任务卡住了，原来的办法没有推进。你更可能先？",
+        "en": "A task is stuck and the original approach is not moving it forward. What would you tend to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我选定一个新的处理办法，要求大家按它推进。",
+            "en": "Choose a new approach and direct the group to use it."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让相关成员一起讨论可行办法，再共同确定下一步。",
+            "en": "Bring the relevant members together to discuss options and agree the next step."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "让任务负责人自行处理，我不主动加入问题解决。",
+            "en": "Leave the task owner to resolve it without actively joining the problem-solving."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "鼓励负责人质疑原先的假设，试一个能检验新想法的小实验。",
+            "en": "Encourage the owner to question an earlier assumption and try a small experiment that tests a new idea."
+          },
+          "directionId": "transformational"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_06",
+      "prompt": {
+        "zh": "一位成员想知道怎样改进自己的工作，你更倾向？",
+        "en": "A member asks how to improve their work. What would you tend to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "和对方一起比较不同意见，商量双方认可的改进方向。",
+            "en": "Compare views with them and agree an improvement direction both can accept."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让对方自行判断怎样改进，只有被具体问到时才提供意见。",
+            "en": "Leave them to judge the improvements, offering input only when specifically asked."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先了解对方想练习的部分，再用提问和支持帮助他们形成自己的改进路径。",
+            "en": "Ask what they want to practise and use questions and support to help them develop their own improvement path."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我给出明确的修改要求和完成标准。",
+            "en": "Give clear revision instructions and completion standards."
+          },
+          "directionId": "autocratic"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_07",
+      "prompt": {
+        "zh": "一位新成员加入，需要了解小组怎样合作。你更可能先？",
+        "en": "A new member joins and needs to understand how the group works together. What would you tend to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让新成员自行了解和融入，我不主动安排介绍。",
+            "en": "Leave the new member to find their way without arranging an introduction myself."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我通过一次真实合作示范小组看重的做法，并说明这些做法背后的意义。",
+            "en": "Demonstrate practices the group values through working together and explain why they matter."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我讲清规则、分工和需要遵循的操作方式。",
+            "en": "Explain the rules, responsibilities and procedures to follow."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "邀请大家和新成员一起讨论合作方式，补充彼此的期待。",
+            "en": "Invite the group and new member to discuss how to work together and share expectations."
+          },
+          "directionId": "democratic"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_08",
+      "prompt": {
+        "zh": "项目优先事项发生调整，你更自然的处理方式是？",
+        "en": "Project priorities change. What response comes more naturally to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先解释变化与小组长期目标的联系，帮助大家重新理解为什么要这样调整。",
+            "en": "Explain how the change connects with the group’s longer-term aims and help members understand its purpose."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我重新排好顺序，告诉成员按新顺序执行。",
+            "en": "Reorder the priorities and tell members to work in the new sequence."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "和成员讨论变化带来的影响，共同商定新的优先顺序。",
+            "en": "Discuss the effects with members and agree a new priority order together."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让各负责人自行调整自己的部分，我不主动协调新的顺序。",
+            "en": "Leave each owner to adjust their part without coordinating the new order myself."
+          },
+          "directionId": "laissez-faire"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_09",
+      "prompt": {
+        "zh": "讨论中有位成员很少发言，你更可能怎样继续？",
+        "en": "One member contributes little in a discussion. How would you tend to proceed?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我安排他们回应一个明确问题，并决定讨论何时进入下一步。",
+            "en": "Assign them a specific question to answer and decide when discussion moves on."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "请大家商量怎样让不同意见进入讨论，再邀请对方按合适的方式参与。",
+            "en": "Ask the group how to include different views and invite a form of participation that fits."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "由成员自己决定参与程度，我不主动介入发言安排。",
+            "en": "Leave participation to the members without intervening in how contributions are organised."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先单独了解对方希望怎样贡献，再提供适合他们练习与发展的参与机会。",
+            "en": "Privately ask how they want to contribute and offer an opportunity suited to their development."
+          },
+          "directionId": "transformational"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_10",
+      "prompt": {
+        "zh": "你负责的一次判断带来了需要纠正的地方。你更可能先？",
+        "en": "A judgment you were responsible for needs correcting. What would you tend to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "请受影响成员一起回顾，再共同确定怎样修正。",
+            "en": "Review it with affected members and agree a correction together."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把修正交给相关成员自行处理，我不主动组织回顾。",
+            "en": "Leave the correction to relevant members without organising a review myself."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我先说明自己的判断和需要承担的部分，示范怎样承认问题并学习。",
+            "en": "Explain my judgment and responsibility first, demonstrating how to acknowledge a problem and learn from it."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我决定修正方案，直接安排接下来的处理步骤。",
+            "en": "Decide the correction and directly organise the next steps."
+          },
+          "directionId": "autocratic"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_11",
+      "prompt": {
+        "zh": "成员在一项有明确权限范围的决定上犹豫，你更倾向？",
+        "en": "A member hesitates over a decision within a clearly defined area of authority. What would you tend to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让该成员自行决定，我不主动提供方向。",
+            "en": "Leave the member to decide without proactively offering direction."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "帮助他们把选择与项目想产生的价值联系起来，再由他们形成判断。",
+            "en": "Help them connect the options with the value the project aims to create, then form their own judgment."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我替他们确定这次决定，再讲清以后应按什么方式处理。",
+            "en": "Make this decision for them and clarify how it should be handled next time."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "和相关成员一起讨论选择，形成大家接受的决定。",
+            "en": "Discuss the options with the relevant members and reach a decision the group accepts."
+          },
+          "directionId": "democratic"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_12",
+      "prompt": {
+        "zh": "回顾一项已完成的贡献时，你更可能把注意放在哪里？",
+        "en": "When reviewing a completed contribution, where would you tend to focus?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "追问这次贡献打开了什么新思路，鼓励大家把学到的东西用于下一次尝试。",
+            "en": "Ask what new possibilities the contribution opened and encourage using that learning in the next experiment."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "按我事先确定的标准指出完成情况，并明确后续要求。",
+            "en": "Review completion against standards I set and make the next requirements clear."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "邀请大家表达各自看到的贡献，一起讨论值得保留的做法。",
+            "en": "Invite the group to describe contributions they noticed and discuss what to retain."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让成员自行评价和分享，我不主动组织回顾。",
+            "en": "Leave members to evaluate and share without organising a review myself."
+          },
+          "directionId": "laissez-faire"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_13",
+      "prompt": {
+        "zh": "另一组的工作与你们相互依赖，你更可能先怎样协调？",
+        "en": "Another group’s work depends on yours and vice versa. How would you tend to coordinate first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我先确定本组的配合要求，安排成员按统一口径衔接。",
+            "en": "Set this group’s coordination requirements and direct members to use the approach I specify."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "邀请双方代表一起讨论衔接条件，共同商定配合方式。",
+            "en": "Invite representatives from both groups to discuss the conditions and agree a way to coordinate."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "让各负责人自行联系对接，我不主动参与两组之间的协调。",
+            "en": "Leave each owner to make contact without actively coordinating between the groups."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我先示范怎样公开依赖与承诺，推动大家按同样的合作原则行事。",
+            "en": "Model making dependencies and commitments visible and encourage the same cooperation principles across the groups."
+          },
+          "directionId": "transformational"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_14",
+      "prompt": {
+        "zh": "成员问一项重复工作为什么还值得做，你更自然的回应是？",
+        "en": "Members ask why a repetitive task remains worth doing. What response comes more naturally?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "请大家一起讨论它的价值与代价，再共同决定如何安排。",
+            "en": "Discuss its value and cost with the group and decide together how to organise it."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让负责这项工作的人自己判断和安排，我不主动介入。",
+            "en": "Leave those responsible to judge and arrange it without intervening proactively."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把这项工作与小组希望实现的长期改变联系起来，帮助成员看到自己的贡献。",
+            "en": "Connect the task with the longer-term change the group wants and help members see their contribution."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "说明这项工作是当前安排的一部分，并明确必须完成的要求。",
+            "en": "Explain that it is part of the current plan and make the completion requirement clear."
+          },
+          "directionId": "autocratic"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_15",
+      "prompt": {
+        "zh": "你们只有一小段时间规划一个普通任务，没有安全紧急情况。你更可能先？",
+        "en": "There is a short planning window for an ordinary task, without a safety emergency. What would you tend to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让成员自行决定如何开展，我不主动安排这次规划。",
+            "en": "Leave members to decide how to proceed without organising the planning myself."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "提出一个能打开思路的问题，鼓励大家挑战惯常做法后选一个小尝试。",
+            "en": "Ask a question that opens a new perspective and encourage a small experiment beyond the usual approach."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我直接确定方案和分工，让大家尽快按计划开始。",
+            "en": "Set the plan and roles directly so the group can start."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把有限时间用于共同讨论关键选择，按约定方式决定。",
+            "en": "Use the available time to discuss the key choices and decide through an agreed group process."
+          },
+          "directionId": "democratic"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_16",
+      "prompt": {
+        "zh": "小组需要形成一套工作标准，你更倾向怎样推动？",
+        "en": "The group needs a set of work standards. How would you tend to approach it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先了解成员在哪些判断上需要成长，再把标准讨论变成练习这些判断的机会。",
+            "en": "Identify judgments members want to develop and use the standards discussion as a chance to practise them."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我制定标准与检查方式，再要求成员照此执行。",
+            "en": "Set the standards and checks myself and ask members to follow them."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "组织成员比较各自需要，共同制定一套标准。",
+            "en": "Have members compare their needs and develop the standards together."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "由各负责人自行确定标准，我不主动统一或检查。",
+            "en": "Leave each owner to set standards without proactively coordinating or checking them."
+          },
+          "directionId": "laissez-faire"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_17",
+      "prompt": {
+        "zh": "出现一个可能值得尝试的新方向，你更可能先？",
+        "en": "A possible new direction appears. What would you tend to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我判断是否值得投入，再决定大家接下来做什么。",
+            "en": "Judge whether it merits investment and decide what the group will do next."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "请成员表达看法，一起讨论并决定是否尝试。",
+            "en": "Invite members’ views and decide together whether to try it."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "让感兴趣的成员自己决定是否投入，我不主动给方向。",
+            "en": "Leave interested members to decide whether to pursue it without actively giving direction."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先描绘这个方向可能连接的小组愿景，再帮助大家思考怎样参与其中。",
+            "en": "Explore how the direction could connect with the group’s vision and help members consider their part in it."
+          },
+          "directionId": "transformational"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_18",
+      "prompt": {
+        "zh": "成员觉得现在的交流方式太繁琐，你更可能怎样开始调整？",
+        "en": "Members find the current communication process cumbersome. How would you tend to begin changing it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "请大家提出具体困扰，共同商定一种新安排。",
+            "en": "Invite specific concerns and agree a new arrangement together."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让成员自行调整彼此的交流方式，我不主动设计新安排。",
+            "en": "Leave members to adjust how they communicate without designing a new arrangement myself."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "请大家质疑原先的交流假设，设计一个可以检验不同做法的小试验。",
+            "en": "Invite the group to question assumptions behind the process and test an alternative through a small experiment."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我选定一种更简化的做法，告诉大家今后照此执行。",
+            "en": "Choose a simpler process and tell the group to use it."
+          },
+          "directionId": "autocratic"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_19",
+      "prompt": {
+        "zh": "一位成员对自己负责到哪里感到不确定，你更倾向？",
+        "en": "A member is unsure where their responsibility ends. What would you tend to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让该成员自行与其他人协调，我不主动参与划分。",
+            "en": "Leave the member to coordinate with others without actively joining the boundary decision."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先了解对方想承担和学习的部分，再通过交流帮助他们形成更独立的判断。",
+            "en": "Explore what they want to take on and learn, then help them develop more independent judgment."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我直接划清其负责范围，并说明应怎样执行。",
+            "en": "Define their responsibility directly and explain how to carry it out."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让相关成员共同讨论边界，形成双方接受的分工。",
+            "en": "Have the relevant members discuss boundaries and agree responsibilities together."
+          },
+          "directionId": "democratic"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_20",
+      "prompt": {
+        "zh": "项目结果还不确定，成员希望知道你怎样看待。你更可能先？",
+        "en": "The project’s outcome is uncertain and members want to know how you see it. What would you tend to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我先示范怎样坦诚说明未知和自己会承担的部分，再邀请大家按这些原则行动。",
+            "en": "Model being open about uncertainty and my responsibilities, then invite the group to work by those principles."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我说明自己的判断，要求大家按我确定的路径推进。",
+            "en": "State my judgment and direct the group along the path I choose."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把已知情况摆出来，与小组共同讨论怎样继续。",
+            "en": "Share what is known and discuss with the group how to proceed."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让成员自己判断各部分的情况，我不主动发表方向意见。",
+            "en": "Leave members to judge their parts without actively offering a view on direction."
+          },
+          "directionId": "laissez-faire"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_21",
+      "prompt": {
+        "zh": "一项一直沿用的流程需要重新考虑，你更自然的第一步是？",
+        "en": "A long-used process needs reconsideration. What first step feels more natural?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我选定需要改的环节，明确新的流程要求。",
+            "en": "Select the parts to change and specify the new requirements."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让成员比较现有问题和方案，一起决定怎样改。",
+            "en": "Have members compare problems and options and decide on changes together."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "由各负责人自行调整流程，我不主动协调统一做法。",
+            "en": "Leave owners to change their processes without proactively coordinating one approach."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "鼓励大家检验“为什么一直这样做”，从新问题出发设计一次尝试。",
+            "en": "Encourage the group to examine why the process exists and design an experiment from a new question."
+          },
+          "directionId": "transformational"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_22",
+      "prompt": {
+        "zh": "一位成员希望接触更有挑战的任务，你更倾向？",
+        "en": "A member wants a more challenging task. What would you tend to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "和成员及相关同伴商量，形成小组认可的安排。",
+            "en": "Discuss it with the member and relevant peers and reach an arrangement the group accepts."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让成员自行寻找和承接机会，我不主动安排或跟进。",
+            "en": "Leave the member to find and take an opportunity without arranging or following up myself."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先了解对方想发展的方向，再一起设计有支持、有反馈的成长尝试。",
+            "en": "Explore the direction they want to develop and shape a supported learning attempt with feedback."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我判断是否合适，决定任务和必须达到的要求。",
+            "en": "Judge whether it fits, then assign a task and its required standard."
+          },
+          "directionId": "autocratic"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_23",
+      "prompt": {
+        "zh": "项目结束后需要回顾，你更可能先怎样做？",
+        "en": "The project has ended and needs a review. What would you tend to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让成员自行总结，我不主动组织整体回顾。",
+            "en": "Leave members to reflect independently without organising a group review."
+          },
+          "directionId": "laissez-faire"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我先回顾自己怎样实践了承诺、哪里还需调整，示范小组希望保持的学习方式。",
+            "en": "Review my own commitments and changes first, modelling how the group wants to learn."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我按既定要求评价完成情况，说明下次需要改什么。",
+            "en": "Assess completion against the requirements and state what must change next time."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "邀请大家一起回顾过程，共同确定值得保留与调整的部分。",
+            "en": "Invite a group review and decide together what to retain or adjust."
+          },
+          "directionId": "democratic"
+        }
+      ]
+    },
+    {
+      "id": "LEAD_24",
+      "prompt": {
+        "zh": "准备下一阶段工作时，你更倾向把第一段讨论用来？",
+        "en": "When preparing the next stage of work, how would you tend to use the opening discussion?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "帮助大家看见这一阶段与共同愿景的联系，让个人投入有一个更长远的参照。",
+            "en": "Help members see how this stage connects with a shared vision and a longer-term reference for their contribution."
+          },
+          "directionId": "transformational"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "明确我确定的目标、任务顺序和执行要求。",
+            "en": "Clarify the goals, task order and requirements I have set."
+          },
+          "directionId": "autocratic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "听取成员的重点与建议，一起形成下一阶段计划。",
+            "en": "Hear members’ priorities and suggestions and develop the next plan together."
+          },
+          "directionId": "democratic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把下一阶段的选择留给成员，我不主动规定方向或组织计划。",
+            "en": "Leave the next choices to members without proactively setting direction or organising a plan."
+          },
+          "directionId": "laissez-faire"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "autocratic",
+      "directionIds": [
+        "autocratic"
+      ],
+      "title": {
+        "zh": "专制型领导风格：集中决策",
+        "en": "Autocratic Leadership Style"
+      },
+      "headline": {
+        "zh": "先明确决定，再安排执行",
+        "en": "Making the decision before organising action"
+      },
+      "summary": {
+        "zh": "本题组中，你更常选择由自己确定目标、规则和下一步。这里的专制型指决策权集中，不等于强硬沟通、人格好坏或已被证实的领导能力。",
+        "en": "Your choices more often place decisions, rules and next steps with you. Here autocratic describes concentrated decision authority, without establishing an aggressive manner, personal worth or proven leadership ability."
+      },
+      "seo": {
+        "title": {
+          "zh": "专制型领导风格：集中决策、例子与取舍",
+          "en": "Autocratic Leadership Style: Examples and Tradeoffs"
+        },
+        "description": {
+          "zh": "阅读专制型领导风格完整解释：集中决定、明确责任、听取不同意见与具体例子。免费查看本版计数读法，不把结果当强硬沟通、领导能力或危机表现证明。",
+          "en": "Explore autocratic leadership: concentrated decisions, accountability, dissent and practical examples. Full free guide without treating a tally as ability or crisis performance."
+        }
+      },
+      "scoreReading": {
+        "zh": "每道题选择一个做法，为对应风格加1；四种风格各出现24次，每个选项位置各6次。全部24题完成后同时显示四项原始次数和每份最高并列完整报告。没有随机定型、隐藏权重、强派副型或经验证的近分阈值；次数不是人格比例、人群排名或领导能力。",
+        "en": "Each choice adds one to its approach. Every approach appears in all 24 items and six times in each position. A complete attempt shows four raw tallies and every highest-count full report. No random assignment, hidden weighting, forced secondary type or validated close-score threshold is used. Counts are neither personality proportions, population ranks nor leadership ability."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这份结果怎样理解",
+            "en": "What this result describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "集中决策的选项让负责人决定做什么、怎样分工、何时转向。先回看你选的是明确标准、减少讨论，还是自己承担最后决定；同样的次数可能来自不同需要。它描述这组情境里偏好的第一步，没有观察你在真实团队怎样行使权力，也不能由此断定别人怎样感受。",
+              "en": "The concentrated-decision options place the choice of goals, assignments or changes with the person leading. Revisit whether you wanted clear standards, less discussion or responsibility for the final call. The same tally can reflect different needs. It describes preferred first moves in these situations, without observing how you exercise authority or how other people experience it."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一个具体情境",
+            "en": "A concrete situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "小组要在有限时间里整理一份活动方案，你先定下三项交付要求，再分配各部分负责人。有人提出某项资料来不及取得时，你可以说明哪些要求能调整、哪些决定需要回报。具体观察点是决定怎样作出、消息怎样进入，而不是“我一说大家就应该服从”。",
+              "en": "A group has limited time to prepare an event plan. You specify three deliverables and assign an owner to each. If someone says information will arrive late, explain which requirements can change and which decisions need escalation. Notice how decisions are made and information reaches you, rather than treating your first instruction as a reason everyone should comply."
+            }
+          ]
+        },
+        {
+          "id": "conditions",
+          "title": {
+            "zh": "可能适用的条件",
+            "en": "Conditions to consider"
+          },
+          "paragraphs": [
+            {
+              "zh": "当负责范围、最终决定人和允许的裁量已经说明，集中决定能让成员知道下一步由谁确认。是否适合这次任务仍要看信息掌握、成员经验和实际反馈；本测验没有证明它最适合危机。需要立即处理安全事件时，应遵循既有职责与专业流程，不由这份结果决定指挥方式。",
+              "en": "When responsibilities, the final decision maker and permitted discretion are explicit, a central decision can clarify who confirms the next step. Suitability still depends on information, experience and actual feedback; this quiz does not prove superiority in a crisis. Immediate safety incidents require established responsibilities and professional procedures, rather than a command arrangement chosen from this result."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果每个细节都等你确认，成员可能难以提出更好的办法，也可能把等待误当作谨慎执行。试着列出哪些决定确实需要集中、哪些可以交给任务负责人，同时给不同意见一个能改变决定的入口。计数没有证明你的团队缺乏自主，也不能单凭标签给别人贴上被控制的结论。",
+              "en": "If every detail waits for your confirmation, members may struggle to offer alternatives or mistake waiting for careful execution. Specify which decisions actually need central approval and which belong to task owners, with a route for dissent that can change a decision. The tally does not establish that your team lacks autonomy or that another person feels controlled."
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "zh": "沟通与责任",
+            "en": "Communication and accountability"
+          },
+          "paragraphs": [
+            {
+              "zh": "集中决定不要求羞辱、威胁或提高音量。可以直接说：“这部分我负责决定，依据是这些条件；若你发现遗漏，请在这个时间前告诉我。”同时说明自己会承担什么后果。成员表达保留意见不等于破坏领导，本结果也不授权越过对方职责、同意或组织规则。",
+              "en": "A central decision requires neither humiliation, threats nor a raised voice. You could say, “I am responsible for this decision, for these reasons; tell me before this point if I have missed something.” Name your own accountability too. Reservations are not automatically disloyalty, and this result grants no authority to override responsibilities, consent or organisational rules."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他风格比较",
+            "en": "Comparing the other approaches"
+          },
+          "paragraphs": [
+            {
+              "zh": "民主型强调成员共同参与决定，放任型强调负责人较少介入，变革型强调方向、反思与发展；专制型在这些题中更集中决定权。它们来自不同领导讨论，不是一套经过验证、穷尽所有领导行为的四因素模型。最高次数相同的说明都会完整保留，不按顺序另定主副型。",
+              "en": "Democratic options involve members in decisions, laissez-faire options reduce leader involvement, and transformational options emphasise direction, reflection and development. Autocratic options concentrate decision authority. These approaches come from different discussions, rather than a validated four-factor account of all leadership. Every highest-count tie retains its full guide, without using order to assign primary and secondary identities."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个反例",
+            "en": "A counterexample"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能在自己承担最终责任的项目里集中决定，却在熟悉的伙伴小组里共同商量。也可能语气温和但决定权集中，或表达强硬却仍让成员投票。领导决策与沟通方式不能互相替代；如果标签太笼统，可以只保留对某个具体安排的观察，不必把它当作固定身份。",
+              "en": "You might make central decisions where you hold final responsibility and share decisions with familiar collaborators. A calm speaker can retain authority, while a forceful speaker may still let members vote. Decision structure and communication manner are different observations. If the label obscures that distinction, keep the example about one arrangement rather than adopting a fixed identity."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "下次低风险的小任务开始前，写清一个由你决定的事项、一个交给成员的事项，以及重新讨论的触发条件。完成后分别询问清楚了什么、哪里仍在等待。目标是让权责和信息更清楚，不是让专制型次数升高，也不是用满意程度给团队或自己做未经验证的评级。",
+              "en": "Before a small low-risk task, identify one decision you retain, one belonging to a member and a condition for revisiting the plan. Afterwards, ask what became clear and where someone still waited. The aim is clearer authority and information, not a higher autocratic tally or an unvalidated rating of yourself or the team."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与领导框架范围",
+            "en": "Original items and leadership-framework scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "费马独立编写本版24道情境题、计数规则和解释。它把三种常见的决策参与方式与后来的变革型概念放在一起比较，不是一套经过验证的四因素领导量表，也未穷尽领导行为。没有采用MLQ题本、手册、常模或授权译本，不是官方Lewin测验。结果不能用于临床、录用、晋升或推断团队绩效；没有旁观者评价，也没有本站信效度验证。",
+              "en": "FermatMind independently authored these 24 situations, counting rules and explanations. They compare three familiar decision-participation approaches with the later transformational concept, not a validated four-factor instrument or an exhaustive leadership taxonomy. No MLQ items, manual, norms or licensed translation are adopted; this is not an official Lewin test. Results support neither clinical decisions, hiring, promotion nor team-performance predictions. There are no observer ratings or established website psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "democratic",
+      "directionIds": [
+        "democratic"
+      ],
+      "title": {
+        "zh": "民主型领导风格：共同参与",
+        "en": "Democratic Leadership Style"
+      },
+      "headline": {
+        "zh": "让成员的意见进入决定",
+        "en": "Bringing members’ views into decisions"
+      },
+      "summary": {
+        "zh": "本题组中，你更常选择邀请成员讨论、比较意见并共同确定行动。民主型在这里描述参与决定的方式，不保证一致、受欢迎、效率或团队表现。",
+        "en": "Your choices more often invite discussion, comparison and shared decisions. Democratic describes participation in this edition, without guaranteeing consensus, popularity, efficiency or team performance."
+      },
+      "seo": {
+        "title": {
+          "zh": "民主型领导风格：共同参与、决定规则与例子",
+          "en": "Democratic Leadership Style: Participation and Examples"
+        },
+        "description": {
+          "zh": "民主型领导怎样让意见进入决定？阅读共同参与、咨询与一致的区别、具体情境、取舍和小尝试。完整解释免费，不把自评当团队满意或绩效证明。",
+          "en": "Read the democratic leadership guide: participation, consultation, decision rules and tradeoffs, with practical examples. Free full interpretation without performance claims."
+        }
+      },
+      "scoreReading": {
+        "zh": "每道题选择一个做法，为对应风格加1；四种风格各出现24次，每个选项位置各6次。全部24题完成后同时显示四项原始次数和每份最高并列完整报告。没有随机定型、隐藏权重、强派副型或经验证的近分阈值；次数不是人格比例、人群排名或领导能力。",
+        "en": "Each choice adds one to its approach. Every approach appears in all 24 items and six times in each position. A complete attempt shows four raw tallies and every highest-count full report. No random assignment, hidden weighting, forced secondary type or validated close-score threshold is used. Counts are neither personality proportions, population ranks nor leadership ability."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这份结果怎样理解",
+            "en": "What this result describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "参与式选项让受影响的成员进入讨论，帮助形成计划、标准或优先顺序。回看你选择的是收集信息、共同商定，还是让不同声音被听见；这些做法不完全相同。本题组用民主型作为通行名称，不据此判断你的政治观点、受欢迎程度，也没有实测团队成员是否真正拥有决定权。",
+              "en": "The participative options involve affected members in shaping plans, standards or priorities. Revisit whether you chose to collect information, reach a shared agreement or include different voices; those are not identical actions. This edition uses democratic as a common leadership label, without assessing political beliefs, popularity or whether members actually hold meaningful authority in your team."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一个具体情境",
+            "en": "A concrete situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "团队对活动形式有两套方案，你先请每人说明支持的理由和担心，再一起确认预算、时间等条件。讨论开始前，可以说明最后怎样决定：共同同意、约定投票，还是听取意见后由责任人决定。后者也有参与，但不能把“听过大家”直接说成全体共同决定。",
+              "en": "Two proposals compete for a group event. Ask members for their reasons and concerns, then identify constraints such as budget and timing. Before discussion, explain whether the final choice needs agreement, an agreed vote or a responsible owner’s decision after consultation. Consultation includes participation, but hearing everyone does not make the eventual decision a shared one."
+            }
+          ]
+        },
+        {
+          "id": "conditions",
+          "title": {
+            "zh": "可能适用的条件",
+            "en": "Conditions to consider"
+          },
+          "paragraphs": [
+            {
+              "zh": "当成员掌握不同信息且确有讨论空间，可以让参与围绕一个明确的问题展开。给成员足够材料和回应时间，也确认哪些部分已经固定。不能承诺每条建议都会采用，却应说明意见怎样影响选择。参与方式需要根据具体任务检验；计数不证明民主型在所有团队或所有阶段都更有效。",
+              "en": "When members hold different information and there is genuine room to discuss, participation can focus on a specific open question. Supply enough material and response time, and distinguish fixed constraints from negotiable choices. You cannot promise to adopt every suggestion, but can explain its influence. The tally establishes no universal advantage across teams or project stages."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果一直等到每人都满意才行动，讨论可能没有结束条件；如果决定早已定好，继续征求意见又会让参与流于表面。可以先写清讨论截止点、无法一致时的规则和决定责任人。指出这些取舍不代表成员不愿合作，也不能凭结果推断你一定回避冲突或缺少决断。",
+              "en": "Waiting until everyone is pleased can leave discussion without an ending, while soliciting views after deciding can make participation superficial. Set a discussion deadline, a fallback when agreement fails and an accountable decision owner. These are practical tradeoffs, not evidence that members resist cooperation or that this result proves you avoid conflict or lack decisiveness."
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "zh": "让参与更具体",
+            "en": "Making participation concrete"
+          },
+          "paragraphs": [
+            {
+              "zh": "安静不等于同意，发言多也不等于更懂问题。可以提供书面意见或先独立思考的方式，并允许成员说“这部分我不清楚”。把未采用的关键意见和理由一起记录，避免让不同意见消失。本报告不要求在不安全的环境里公开异议，也不能代替组织既有的反馈与保护渠道。",
+              "en": "Silence need not mean agreement, and speaking most does not establish expertise. Offer written input or individual thinking time, and allow someone to say they lack information. Record important suggestions you did not adopt and why. This guide does not require public dissent in an unsafe setting or replace an organisation’s established feedback and protection routes."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他风格比较",
+            "en": "Comparing the other approaches"
+          },
+          "paragraphs": [
+            {
+              "zh": "专制型在题目里集中决定权；民主型强调共同参与；放任型更少主动介入；变革型围绕目标意义、重新思考与成员发展。共同参与也可能和明确方向同时出现。这里只比较被选项分开的第一步，不把四个名称当互斥身份，也不由未并列的第二高次数强派副型。",
+              "en": "Autocratic options concentrate decisions, democratic options involve members, laissez-faire options limit intervention, and transformational options focus on purpose, reconsideration and development. Participation and a clear direction can coexist. The questions separate possible first moves, without establishing mutually exclusive identities or forcing a secondary type from the second-highest untied tally."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个反例",
+            "en": "A counterexample"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能在熟悉领域邀请共同讨论，却在自己负责的专业事项上直接决定；也可能很愿意听意见，但成员没有时间或信息参与。情境差异值得保留，不需要为了符合民主型标签持续开会。这些题没有测成员投入、心理安全、民主制度、情商或组织绩效，也没有验证他人如何评价你的领导。",
+              "en": "You may invite shared discussion in a familiar area and decide directly on a specialised responsibility. Members may also lack time or information despite your willingness to listen. Preserve that context instead of holding meetings to fit a democratic label. These items assess neither engagement, psychological safety, political systems, emotional intelligence nor organisational performance, and collect no observer ratings."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一个真正开放、影响有限的决定，邀请相关成员先各写一个建议，再共同比较。开始前约定决定规则，结束后问哪条信息改变了方案、谁仍缺少发言机会。改进对象是这次参与安排，不是追求所有人赞同，也不是把一次顺利讨论当作团队表现得到提升的证据。",
+              "en": "Choose one genuinely open decision with limited consequences. Ask the affected members to write an initial suggestion before comparing options together. Agree the decision rule first, then identify what information changed the plan and whose contribution was missing. Improve this arrangement rather than chasing unanimous approval or treating one smooth discussion as evidence of better team performance."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与领导框架范围",
+            "en": "Original items and leadership-framework scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "费马独立编写本版24道情境题、计数规则和解释。它把三种常见的决策参与方式与后来的变革型概念放在一起比较，不是一套经过验证的四因素领导量表，也未穷尽领导行为。没有采用MLQ题本、手册、常模或授权译本，不是官方Lewin测验。结果不能用于临床、录用、晋升或推断团队绩效；没有旁观者评价，也没有本站信效度验证。",
+              "en": "FermatMind independently authored these 24 situations, counting rules and explanations. They compare three familiar decision-participation approaches with the later transformational concept, not a validated four-factor instrument or an exhaustive leadership taxonomy. No MLQ items, manual, norms or licensed translation are adopted; this is not an official Lewin test. Results support neither clinical decisions, hiring, promotion nor team-performance predictions. There are no observer ratings or established website psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "laissez-faire",
+      "directionIds": [
+        "laissez-faire"
+      ],
+      "title": {
+        "zh": "放任型领导风格：低介入",
+        "en": "Laissez-faire Leadership Style"
+      },
+      "headline": {
+        "zh": "把更多过程留给成员自行处理",
+        "en": "Leaving more of the process to members"
+      },
+      "summary": {
+        "zh": "本题组中，你更常选择较少主动安排、协调或指导，让成员自行处理任务。低介入不自动等于信任、有效授权或成员独立胜任，需要另看实际支持与责任安排。",
+        "en": "Your choices more often leave planning, coordination or guidance to members. Limited involvement does not automatically establish trust, effective delegation or independent competence; support and accountability need separate attention."
+      },
+      "seo": {
+        "title": {
+          "zh": "放任型领导风格：低介入与有支持授权的区别",
+          "en": "Laissez-faire Leadership: Autonomy, Support and Limits"
+        },
+        "description": {
+          "zh": "阅读放任型领导风格完整结果，区分较少介入、有支持的授权与缺少协调，核对目标、权限和求助方式。免费说明，不由标签推断信任、成员能力或团队留任。",
+          "en": "Explore laissez-faire leadership, limited involvement and supported delegation. Full free examples and tradeoffs without inferring trust, expertise or employee retention."
+        }
+      },
+      "scoreReading": {
+        "zh": "每道题选择一个做法，为对应风格加1；四种风格各出现24次，每个选项位置各6次。全部24题完成后同时显示四项原始次数和每份最高并列完整报告。没有随机定型、隐藏权重、强派副型或经验证的近分阈值；次数不是人格比例、人群排名或领导能力。",
+        "en": "Each choice adds one to its approach. Every approach appears in all 24 items and six times in each position. A complete attempt shows four raw tallies and every highest-count full report. No random assignment, hidden weighting, forced secondary type or validated close-score threshold is used. Counts are neither personality proportions, population ranks nor leadership ability."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这份结果怎样理解",
+            "en": "What this result describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "放任型选项减少负责人对分工、进度或解决过程的主动介入。回看你选择的是让成员决定、等待对方求助，还是不主动协调；这些选择未必来自同一个理由。题本观察的是提供的情境中你更愿意先怎样做，没有确认成员需要多少帮助，也没有测出他们是否能独立完成。",
+              "en": "The laissez-faire options reduce the leader’s active involvement in assignments, progress or problem solving. Revisit whether you left a decision to members, waited to be asked or avoided coordinating. Those choices need not share one motive. The items describe preferred first moves in the supplied situations, without establishing how much help members need or whether they can finish independently."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一个具体情境",
+            "en": "A concrete situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个活动由几位成员各自负责一部分，你让大家自行决定步骤，等他们提出具体问题时再回应。这里要回看的不是空间够不够大，而是负责人是否知道彼此依赖、遇到阻碍怎样求助、最终由谁确认完成。问卷计数不能回答这些问题，最好从这次真实安排里逐一核对。",
+              "en": "Several members each own part of an event. You leave the steps to them and respond when they raise a specific question. The useful follow-up is whether owners understand dependencies, know how to request help and know who confirms completion. A raw tally cannot answer those questions; check them against the actual arrangement rather than assuming space is sufficient."
+            }
+          ]
+        },
+        {
+          "id": "conditions",
+          "title": {
+            "zh": "与有支持的授权区分",
+            "en": "Distinguishing supported delegation"
+          },
+          "paragraphs": [
+            {
+              "zh": "有支持的授权通常仍会说明目标、权限、资源和求助方式；低介入则可能连这些条件也交给成员自己摸索。因此，放任型不能直接改名为“信任型”，也不能把缺少反馈美化成培养独立。若成员明确希望自主且条件齐全，可以继续保留空间，但应由实际约定证明，而不是由标签替他们作主。",
+              "en": "Supported delegation still specifies an aim, authority, resources and a route to assistance. Limited involvement may instead leave members to work those out themselves. Laissez-faire therefore cannot simply be renamed trust, or missing feedback praised as developing independence. If members want autonomy and have the conditions for it, preserve that space through actual agreement rather than a label deciding for them."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "你不主动介入时，可能更少打断别人，也可能让跨任务的问题无人协调。先问一个具体问题：“现在有没有必须由我确认、但还在等我的事项？”如果有，再确认责任与回应时间。报告不能断言你的团队正在失控、你没有责任感，或成员一定偏好这种方式；这些都需要另外的事实。",
+              "en": "Less intervention can mean fewer interruptions, but may also leave dependencies uncoordinated. Ask a concrete question: “Is anything waiting that needs my confirmation?” If so, agree responsibility and a response time. This report cannot establish that your group is failing, that you lack responsibility or that members prefer this arrangement. Those judgments need evidence beyond a response tally."
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "zh": "回应求助与明确责任",
+            "en": "Responding to help requests and responsibility"
+          },
+          "paragraphs": [
+            {
+              "zh": "当成员来问时，可以先确认他们需要的是信息、决定、资源还是一起梳理，而不是自动接管或直接把问题退回。即使对方负责执行，负责人也不应因“让你自主”而隐去自己承担的职责。安全、权益与组织规定仍按既有规则处理，不由这份自评决定谁可以放手不管。",
+              "en": "When someone asks for help, identify whether they need information, a decision, resources or joint thinking rather than automatically taking over or sending the problem back. Delegating execution does not erase the leader’s own responsibilities. Existing rules for safety, rights and organisational duties continue to apply; this reflection does not decide which obligations anyone can set aside."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他风格比较",
+            "en": "Comparing the other approaches"
+          },
+          "paragraphs": [
+            {
+              "zh": "专制型把决定集中于负责人，民主型让成员共同参与，变革型主动解释方向并支持反思与发展；放任型在题中较少主动介入。成员有空间不等于领导者没有支持，这两个观察可以分别讨论。最高次数相同的报告全部呈现，不因为放任型排在某个位置就优先或取消它。",
+              "en": "Autocratic options retain central decisions, democratic options involve members, and transformational options actively explain direction and support reflection and development. Laissez-faire options involve less intervention. Member discretion and leader support are separate observations worth discussing. Every highest-count tie receives its full report, without prioritising or excluding laissez-faire because of where it appears in the list."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个反例",
+            "en": "A counterexample"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能只在经验充分、已经约好边界的小组里少介入，对新成员却提供清楚介绍；也可能因自己太忙而没有及时支持。相似选项可以对应不同背景，因此次数不能证明信任程度、成熟度、成员专家水平或团队留任。若名称不贴切，保留对具体支持安排的观察即可。",
+              "en": "You might intervene little with experienced members who have already agreed boundaries while actively orienting newcomers. You might also be too busy to provide timely help. Similar choices can arise in different contexts, so the tally establishes neither trust, maturity, member expertise nor retention. Keep the observation about a particular support arrangement if the label feels unhelpful."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "找一项已经交给成员的低风险任务，和对方确认目标、可自行决定的范围、现有资源及求助时机。让对方说明哪些支持需要保留、哪些检查只是打断。之后回看是否有人等待或重复做事；不要把“没人来问”直接当作运行良好，也不需要为了改变次数增加无用管理。",
+              "en": "For one low-risk delegated task, agree the aim, discretion, resources and conditions for asking for help. Ask which support should remain and which check-ins merely interrupt. Afterwards, look for waiting or duplicated work. Nobody asking a question does not by itself establish success, and changing a tally is no reason to add unhelpful oversight."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与领导框架范围",
+            "en": "Original items and leadership-framework scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "费马独立编写本版24道情境题、计数规则和解释。它把三种常见的决策参与方式与后来的变革型概念放在一起比较，不是一套经过验证的四因素领导量表，也未穷尽领导行为。没有采用MLQ题本、手册、常模或授权译本，不是官方Lewin测验。结果不能用于临床、录用、晋升或推断团队绩效；没有旁观者评价，也没有本站信效度验证。",
+              "en": "FermatMind independently authored these 24 situations, counting rules and explanations. They compare three familiar decision-participation approaches with the later transformational concept, not a validated four-factor instrument or an exhaustive leadership taxonomy. No MLQ items, manual, norms or licensed translation are adopted; this is not an official Lewin test. Results support neither clinical decisions, hiring, promotion nor team-performance predictions. There are no observer ratings or established website psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transformational",
+      "directionIds": [
+        "transformational"
+      ],
+      "title": {
+        "zh": "变革型领导风格：方向与发展",
+        "en": "Transformational Leadership Style"
+      },
+      "headline": {
+        "zh": "连接目标意义、重新思考与成员发展",
+        "en": "Connecting purpose, reconsideration and development"
+      },
+      "summary": {
+        "zh": "本题组中，你更常选择解释方向、鼓励重新思考、支持成员发展或以行动示范。这里没有测量魅力、道德品质、团队绩效或标准MLQ分量表，也不把变革型排为最优。",
+        "en": "Your choices more often explain direction, encourage reconsideration, support development or model an approach. This establishes neither charisma, moral quality, team performance nor standard MLQ subscale scores, and does not rank transformational leadership as best."
+      },
+      "seo": {
+        "title": {
+          "zh": "变革型领导风格：方向、发展、例子与边界",
+          "en": "Transformational Leadership: Purpose, Examples and Limits"
+        },
+        "description": {
+          "zh": "了解本版变革型领导结果中的方向、重新思考、成员发展与行动示范，附具体情境、取舍和小尝试。完整说明免费，不是MLQ结果或魅力、道德与绩效认证。",
+          "en": "Read the transformational leadership guide to purpose, reconsideration, development and example. Free full interpretation, not an MLQ score or proof of charisma or performance."
+        }
+      },
+      "scoreReading": {
+        "zh": "每道题选择一个做法，为对应风格加1；四种风格各出现24次，每个选项位置各6次。全部24题完成后同时显示四项原始次数和每份最高并列完整报告。没有随机定型、隐藏权重、强派副型或经验证的近分阈值；次数不是人格比例、人群排名或领导能力。",
+        "en": "Each choice adds one to its approach. Every approach appears in all 24 items and six times in each position. A complete attempt shows four raw tallies and every highest-count full report. No random assignment, hidden weighting, forced secondary type or validated close-score threshold is used. Counts are neither personality proportions, population ranks nor leadership ability."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这份结果怎样理解",
+            "en": "What this result describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "变革型选项把具体行动与小组想实现的方向联系起来，也包含换角度思考、帮助成员练习和自己示范。回看你更常选的是哪一种情境，而不是把总次数当作一种完整能力。四类编写主题只用于保证题目覆盖，没有单独计分，也不对应本站测出了标准量表的四个成分。",
+              "en": "The transformational options connect actions with a shared direction and include reconsidering assumptions, supporting practice and modelling an approach. Revisit the situations you chose instead of treating their total as a complete ability. Four descriptive authoring themes ensure item coverage only; they are not separately scored or evidence that a standard instrument’s components have been measured."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一个具体情境",
+            "en": "A concrete situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "项目改变优先事项时，你先解释这次调整和长期目标的联系，再请成员说出旧假设哪里不再适用。解释之后仍需要确认谁做什么、资源是否够用、怎样知道完成。一个有吸引力的方向不能替代具体安排，成员提出实际限制也不是缺乏远见或不愿成长。",
+              "en": "When priorities change, explain their connection with longer-term aims and invite members to identify assumptions that no longer fit. Then confirm ownership, resources and what completion means. An appealing direction cannot replace practical arrangements, and a member raising constraints is not thereby showing a lack of vision or reluctance to grow."
+            }
+          ]
+        },
+        {
+          "id": "conditions",
+          "title": {
+            "zh": "可能适用的条件",
+            "en": "Conditions to consider"
+          },
+          "paragraphs": [
+            {
+              "zh": "当成员需要理解为什么改变，或想在任务中学习，可以围绕一个可讨论的目标和具体练习提供支持。确认他们确实愿意参与发展，也允许质疑目标本身。是否有用取决于后续事实；本版没有验证这种做法提高绩效、留任或创新，也不能由自评得出成员被你激励的程度。",
+              "en": "When people need to understand a change or want to learn through a task, support can focus on a discussable aim and a concrete practice opportunity. Check that development is wanted and allow the aim itself to be questioned. Usefulness requires subsequent evidence; this edition validates no improvements in performance, retention or innovation, and collects no measure of how inspired members feel."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "不断谈愿景可能让眼前任务缺少明确步骤，持续要求突破也可能忽略成员承受的负担。可以把方向缩成一个当前可做的行动，并说明哪些承诺暂不增加。成员需要稳定、休息或基本资源时，应先听清条件；报告不授权用“成长”要求额外劳动，也不证明高次数代表更成熟。",
+              "en": "Repeated vision statements can leave immediate steps unclear, while constant calls to improve can overlook workload. Translate the direction into one achievable action and name commitments you will not add. Hear requests for stability, rest or basic resources. This result does not justify extra work in the name of growth or establish that a higher tally means greater maturity."
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "zh": "以行动和支持落实",
+            "en": "Putting support into practice"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以说：“我想一起试这个目标，我先承担这一部分；如果条件不合适，我们怎样调整？”示范也包括承认自己判断有误，及时提供信息。关心成员发展不等于替他们决定人生方向，更不需要私人崇拜或对愿景无条件认同。是否尊重他人仍要看真实行为，不能由结果名称认证。",
+              "en": "You could say, “I would like us to try this aim, and I will take this part; how should we adjust if the conditions do not fit?” Modelling includes acknowledging mistakes and supplying information promptly. Supporting development does not mean choosing someone’s life direction, demanding personal admiration or requiring unconditional agreement. Respect must be examined in conduct rather than certified by a result name."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他风格比较",
+            "en": "Comparing the other approaches"
+          },
+          "paragraphs": [
+            {
+              "zh": "专制型强调集中决定，民主型强调共同参与，放任型减少主动介入；变革型强调方向、重新思考、发展与示范。实际团队可能同时需要多种做法，问卷只让你比较每题的第一步。后来的变革型概念与前三种不属于同一份统一量表，四项次数不能当作完整领导理论的测量。",
+              "en": "Autocratic options concentrate decisions, democratic options involve members and laissez-faire options reduce intervention. Transformational options emphasise direction, reconsideration, development and example. Real groups may use several approaches; each item compares first moves. The later transformational concept and the three classic approaches do not constitute one unified instrument, so four tallies cannot measure a complete leadership theory."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个反例",
+            "en": "A counterexample"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能善于说明目标，却需要别人帮助排出具体步骤；也可能平时讲话不多，但愿意支持成员尝试新方法。这里没有测量公众演说、人格魅力、智力、道德品质或实际影响力。若某些情境不符合你的经验，可以把结果作为假设去观察，不必把自己归入“天生变革者”。",
+              "en": "You might explain a purpose clearly yet need help organising steps, or speak little while supporting another person’s experiments. These items measure neither public speaking, charisma, intelligence, moral quality nor actual influence. If the situations differ from your experience, use the result as a hypothesis to observe rather than adopting an identity as a born change maker."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一个成员也愿意尝试的低风险改进，先共同说清目标，再约定一个小实验、资源和回看时间。结束后分别问学到了什么、增加了什么负担、哪些假设需要改。允许结论是暂不推广；目标是让方向和支持落地，不是证明自己的魅力或从一次结果推断团队长期表现。",
+              "en": "Choose one low-risk improvement a member also wants to try. Agree the purpose, a small experiment, resources and a review point. Afterwards, ask what was learned, what burden was added and which assumptions need revision. Not extending the experiment is an acceptable conclusion. The aim is practical direction and support, not proof of charisma or a prediction of long-term team performance."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与领导框架范围",
+            "en": "Original items and leadership-framework scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "费马独立编写本版24道情境题、计数规则和解释。它把三种常见的决策参与方式与后来的变革型概念放在一起比较，不是一套经过验证的四因素领导量表，也未穷尽领导行为。没有采用MLQ题本、手册、常模或授权译本，不是官方Lewin测验。结果不能用于临床、录用、晋升或推断团队绩效；没有旁观者评价，也没有本站信效度验证。",
+              "en": "FermatMind independently authored these 24 situations, counting rules and explanations. They compare three familiar decision-participation approaches with the later transformational concept, not a validated four-factor instrument or an exhaustive leadership taxonomy. No MLQ items, manual, norms or licensed translation are adopted; this is not an official Lewin test. Results support neither clinical decisions, hiring, promotion nor team-performance predictions. There are no observer ratings or established website psychometric validation."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "OpenStax商业导论6.4：领导与决策参与方式",
+        "en": "OpenStax Introduction to Business 6.4: leadership and decision participation"
+      },
+      "url": "https://openstax.org/books/introduction-business-2e/pages/6-4-leading-guiding-and-motivating-others"
+    },
+    {
+      "title": {
+        "zh": "Lippitt（1939）：儿童小组领导实验的出版方摘要",
+        "en": "Lippitt (1939): publisher abstract on leadership in children’s groups"
+      },
+      "url": "https://www.journals.uchicago.edu/doi/abs/10.1086/218207"
+    },
+    {
+      "title": {
+        "zh": "Mind Garden：MLQ产品、量表范围与使用许可说明",
+        "en": "Mind Garden: MLQ product, scale scope and licensing information"
+      },
+      "url": "https://www.mindgarden.com/16-multifactor-leadership-questionnaire"
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "每题计一次选择",
+        "en": "One count for each choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "每道题选择一个做法，为对应风格加1；四种风格各出现24次，每个选项位置各6次。全部24题完成后同时显示四项原始次数和每份最高并列完整报告。没有随机定型、隐藏权重、强派副型或经验证的近分阈值；次数不是人格比例、人群排名或领导能力。",
+          "en": "Each choice adds one to its approach. Every approach appears in all 24 items and six times in each position. A complete attempt shows four raw tallies and every highest-count full report. No random assignment, hidden weighting, forced secondary type or validated close-score threshold is used. Counts are neither personality proportions, population ranks nor leadership ability."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "保留全部最高并列",
+        "en": "Keep every highest-count tie"
+      },
+      "paragraphs": [
+        {
+          "zh": "最高次数相同的风格全部显示完整报告；四项都是6次时保留四份，不按页面位置定主型。没有隐藏加权、随机结果、强派副型或付费解除并列。未并列但次数相近，只能说本题组选择接近，不能解释成经过验证的近分类型或置信区间。",
+          "en": "Every approach sharing the highest count gets its full report. Four counts of six retain all four, without assigning a primary by page position. There are no hidden weights, random outcomes, forced secondary types or paid tie breakers. Nearby untied counts describe nearby selections in these items, not a validated close-score category or confidence interval."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "四种常见做法，不是统一标准量表",
+        "en": "Four familiar approaches, not one standard instrument"
+      },
+      "paragraphs": [
+        {
+          "zh": "专制型、民主型与放任型围绕决定权和介入方式，变革型则加入方向、反思、发展与示范。这些概念来自不同讨论，本版只作描述性比较，没有建立统一四因素模型或穷尽领导风格。MLQ是另一份有许可要求的工具，本题没有采用其题本、手册、常模或译本，也没有测其分量表。",
+          "en": "Autocratic, democratic and laissez-faire approaches concern decision authority and involvement; transformational options add purpose, reconsideration, development and example. These concepts come from different discussions and support a descriptive comparison here, not a unified four-factor model or exhaustive taxonomy. The MLQ is a separate licensed instrument. Its items, manual, norms and translations are not adopted, and its subscales are not measured."
+        }
+      ]
+    },
+    {
+      "id": "source-context",
+      "title": {
+        "zh": "背景来源如何使用",
+        "en": "How the background sources are used"
+      },
+      "paragraphs": [
+        {
+          "zh": "OpenStax提供常见领导方式的教材定义。1939年出版方摘要涉及儿童小组，不能直接推成当代成人职场的普遍效果。MLQ官方页面用于说明后来概念、工具范围和许可边界。它们都不验证本站自编题、计数或团队效果；题目覆盖中的四个变革型主题也没有分别计分。",
+          "en": "OpenStax supplies textbook definitions of familiar approaches. The 1939 publisher abstract concerns children’s groups, not universal effects in contemporary adult workplaces. The official MLQ page explains the later concept, instrument scope and licensing boundary. None validates these independently authored items, counts or team outcomes; the four transformational authoring themes are not separately scored."
+        }
+      ]
+    },
+    {
+      "id": "free-and-private",
+      "title": {
+        "zh": "免费范围、可选保存与分享",
+        "en": "Free access, optional saving and sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "全部24题、四项计数、四份公开完整指南及最高并列报告均免费，无需邮箱或前置测试。作答在浏览器计分，只有主动保存才保留本标签页24小时草稿，完成、清除或重测即删除。分享只有结果名称和公开链接，不带答案、次数或内部ID；公开指南不关联个人答卷。",
+          "en": "All 24 items, four counts, four full public guides and every highest-count report are free without email or another test. Scoring happens in the browser. Only opting in saves a 24-hour tab draft, deleted on completion, clearing or retake. Sharing includes names and public links without answers, counts or internal IDs. Public guides are not linked to private attempts."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这份领导风格测试包含哪四种？",
+        "en": "Which four leadership styles does this test compare?"
+      },
+      "answer": {
+        "zh": "比较专制型的集中决策、民主型的共同参与、放任型的低介入，以及变革型的方向与发展。四份完整说明都有例子、条件、取舍和小尝试。四种概念不是统一验证过的四因素模型，也不代表全部领导方式。",
+        "en": "It compares autocratic concentrated decisions, democratic participation, laissez-faire limited involvement and transformational direction with development. Each full guide includes examples, conditions, tradeoffs and an experiment. These concepts are neither a unified validated four-factor model nor all possible leadership approaches."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样计分和处理并列？",
+        "en": "How are choices scored and ties handled?"
+      },
+      "answer": {
+        "zh": "每题给所选风格加1，24题全部完成后显示四项次数和每份最高并列完整报告。四种风格各出现24次、每个位置各6次；没有随机打破并列、强派副型或匹配百分比，接近次数也没有统计显著性承诺。",
+        "en": "Each selected approach receives one count. All 24 choices produce four tallies and every highest-count full report. Each approach appears 24 times and six times in each position. Ties are not randomly broken, secondary types are not forced and counts supply no match percentages or statistical-significance claims."
+      }
+    },
+    {
+      "question": {
+        "zh": "放任型等于信任成员和有效授权吗？",
+        "en": "Does laissez-faire mean trust and effective delegation?"
+      },
+      "answer": {
+        "zh": "不能直接等同。本题中的低介入可能让成员自主，也可能缺少目标、反馈或协调。有支持的授权还需要明确权限、资源和求助方式，是否做到应核对真实安排，而不是由名称或次数证明。",
+        "en": "Not automatically. Limited involvement may leave discretion but can also omit aims, feedback or coordination. Supported delegation specifies authority, resources and a help route. Check the actual arrangement instead of treating a name or tally as evidence that these conditions exist."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是官方Lewin或MLQ量表吗？",
+        "en": "Is this an official Lewin test or the MLQ?"
+      },
+      "answer": {
+        "zh": "不是。24道题、计数和解释为本站原创，没有采用受许可约束的MLQ题本、手册、常模或译本。本版也没有本站信效度验证、旁观者评价或常模，背景来源不能当作问卷得到认证。",
+        "en": "No. The 24 items, counting rules and explanations are independently authored. No licensed MLQ items, manual, norms or translation are adopted. There is no established website psychometric validation, observer assessment or local norm, and background sources do not certify this questionnaire."
+      }
+    },
+    {
+      "question": {
+        "zh": "哪种领导风格最好，可以用于录用或晋升吗？",
+        "en": "Which style is best, and can this support hiring or promotion?"
+      },
+      "answer": {
+        "zh": "本测试不排名哪种最好，也不能用于录用、晋升或判断团队表现。结果只比较提供情境中的偏好；实际是否有用取决于任务、责任、成员条件和反馈，不由一次自评推断能力、魅力、成熟度或危机表现。",
+        "en": "This test ranks no style as best and supports neither hiring, promotion nor judgments of team performance. It compares preferences in supplied situations. Practical usefulness depends on tasks, responsibility, member conditions and feedback, rather than inferred ability, charisma, maturity or crisis performance."
+      }
+    },
+    {
+      "question": {
+        "zh": "没有带队经验能做吗，完整结果要付费吗？",
+        "en": "Can I answer without leadership experience, and are full results free?"
+      },
+      "answer": {
+        "zh": "可以把它当作情境偏好练习，明确假设选择不等于已表现出来的行为。全部题目、四项计数、并列报告和公开指南都免费，无需注册。可选保存和分享分别受本标签页24小时草稿与公开链接范围约束，不上传答卷。",
+        "en": "You can use it as a scenario-preference exercise while distinguishing imagined choices from demonstrated behaviour. All items, counts, tied reports and public guides are free without signup. Optional saving uses a 24-hour tab draft; sharing uses public links without uploading an answer sheet."
+      }
+    }
+  ]
+}

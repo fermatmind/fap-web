@@ -25,6 +25,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   const questionnaireLabel = result ? (zh ? "公开结果说明" : "Public result guide")
     : questionnaire?.kind === "attachment" ? (zh ? "原创依恋情境自评" : "Original attachment reflection")
     : questionnaire?.kind === "affection" ? (zh ? "原创双向爱语自评" : "Original love-language reflection")
+    : questionnaire?.slug === "leadership-style" ? (zh ? "原创领导情境自评" : "Original leadership reflection")
     : questionnaire?.slug === "temperament" ? (zh ? "原创古典气质自评" : "Original classical-style reflection")
     : questionnaire?.kind === "extraversion" ? (zh ? "IPIP公有领域条目" : "Public-domain IPIP items")
     : questionnaire?.kind === "alignment" ? (zh ? "原创阵营问卷" : "Original alignment reflection")
