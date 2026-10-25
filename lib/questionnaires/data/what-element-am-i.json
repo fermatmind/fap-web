@@ -1,0 +1,1633 @@
+{
+  "slug": "what-element-am-i",
+  "code": "FOUR_ELEMENT_PREFERENCES",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "metaphor",
+  "kind": "archetype",
+  "title": {
+    "zh": "四元素测试",
+    "en": "What Element Am I?"
+  },
+  "resultHeading": {
+    "zh": "四种意象的本次计数与全部最高并列",
+    "en": "Your four-metaphor counts and every highest tie"
+  },
+  "description": {
+    "zh": "免费四元素测试：20道原创选择比较火、水、土、风（气）四种偏好意象。无需注册，直接读完整结果和所有最高并列；不是生日星座、五行或身体能量测试。",
+    "en": "What element am I? Compare Fire, Water, Earth and Air in 20 original choices. Read full results free, without signup, birthdays or zodiac calculations."
+  },
+  "seoTitle": {
+    "zh": "四元素测试：20题、火水土风与完整结果",
+    "en": "What Element Am I? Free Four-Element Quiz & Full Results"
+  },
+  "minutes": 6,
+  "introduction": {
+    "zh": "你现在更愿意短时专注尝试、按情境调节、保留实际基础，还是打开不同联系？本版以古典火、水、土、风（气）为四个当代意象，提供20道普通、可调整的原创四选一。完成后比较原始次数，所有最高并列都完整显示；四份结果也可以先读。元素名不指身体成分，不按生日或星座计算，也不鉴定能力、健康、命运或职业。它与本站气质测试是不同题本，不能凭名字互相换算。",
+    "en": "Would you currently prefer a brief focused attempt, adjustment to context, a practical base or varied connections? This edition uses classical Fire, Water, Earth and Air as four contemporary metaphors in 20 original, ordinary and adjustable choices. Compare raw counts after completion and read every highest-tied guide in full. All four guides can also be read first. Names describe no bodily composition and use no birthday or zodiac calculation. Ability, health, destiny and careers are not assessed. This is a different bank from our Temperament quiz, with no name-based conversion."
+  },
+  "instructions": {
+    "zh": "本版把火、水、土、风（气）作四种当代偏好意象：短时专注与尝试、按情境调整节奏、实际步骤与延续、开放与多种联系。它是20题原创四选一，不测身体能量、自然元素成分或真实能力，也不按生日和星座计算。每题选当前更愿意采用的普通做法，没有好坏或正确答案，所有情境都以自愿和可调整的范围为前提。20题全部选择后比较原始次数，所有最高并列完整保留；全选第一项会四种各5次。古典名称是背景，不证明本站题本经过心理验证，也不换算气质、DISC、MBTI或职业。",
+    "en": "This edition uses Fire, Water, Earth and Air as contemporary preference metaphors: brief focus and an attempt, adjusting pace to context, tangible steps and continuity, or openness and varied connections. It is an original 20-question quiz, not a measure of bodily energy, elemental composition or ability, and uses no birthday or zodiac calculation. Choose the ordinary approach you currently prefer, without good–bad or correct answers. Situations assume voluntary participation within an adjustable scope. After all 20 choices, compare raw counts and retain every highest-tied full guide; choosing the first option throughout gives five each. Classical names provide context, not psychometric validation or conversion to Temperament, DISC, MBTI or career fit."
+  },
+  "source": {
+    "kind": "FermatMindoriginalFourElementPreferences20/classicalnamescontextonly/notancientpersonalityinstrument",
+    "formCode": "fm_four_element_preferences_20",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "71434228563e44098a823a421b162ec4472cec3d9d27633e7f8093927f6d13c2",
+    "resultContentSha256": "ea31dc08be411b8e00b6c55f8659a82578072c709c403c47a3e3d0e2028e16d9",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "fire",
+      "title": {
+        "zh": "火：短时专注与尝试",
+        "en": "Fire: Brief Focus and an Attempt"
+      },
+      "comparisons": 20
+    },
+    {
+      "id": "water",
+      "title": {
+        "zh": "水：按情境调整节奏",
+        "en": "Water: Adjusting Pace to Context"
+      },
+      "comparisons": 20
+    },
+    {
+      "id": "earth",
+      "title": {
+        "zh": "土：实际步骤与延续",
+        "en": "Earth: Tangible Steps and Continuity"
+      },
+      "comparisons": 20
+    },
+    {
+      "id": "air",
+      "title": {
+        "zh": "风（气）：开放与多种联系",
+        "en": "Air: Openness and Varied Connections"
+      },
+      "comparisons": 20
+    }
+  ],
+  "questions": [
+    {
+      "id": "ELEMENT_01",
+      "prompt": {
+        "zh": "自选一段普通创作时间，你更想以哪种方式开始？",
+        "en": "You choose a period for an ordinary creative activity. Which opening would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "抓住一个最想试的点，集中做一小段，按约定时点停下。",
+            "en": "Take one appealing point and make a brief focused attempt with an agreed stopping time."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先看看当下材料和感受，再让做法逐步改变形状。",
+            "en": "Notice the current materials and response, then let the approach change shape gradually."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "准备容易重复的基础步骤，让这一次有清楚的依托。",
+            "en": "Prepare simple repeatable steps that give this attempt a clear practical base."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "留出多种开头，看看不同想法之间会出现什么联系。",
+            "en": "Leave several openings available and explore connections among different ideas."
+          },
+          "directionId": "air"
+        }
+      ]
+    },
+    {
+      "id": "ELEMENT_02",
+      "prompt": {
+        "zh": "自己的一个普通安排有了变动，你更愿意怎样调整？",
+        "en": "An ordinary arrangement of your own changes. How would you prefer to adjust?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "按已经变化的条件重新调节节奏，不要求维持原来的形状。",
+            "en": "Reshape the pace around changed conditions rather than preserve the original form."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先留下仍然合用的基础安排，让调整有个稳定起点。",
+            "en": "Retain useful basic arrangements so the revision has a steady starting point."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把变动当作另看几种路径的机会，比较新的组合。",
+            "en": "Use the change to consider several other routes and compare new combinations."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "保留这次最想完成的一点，把短时间集中用在那里。",
+            "en": "Keep the one part I most want to complete and concentrate a short period on it."
+          },
+          "directionId": "fire"
+        }
+      ]
+    },
+    {
+      "id": "ELEMENT_03",
+      "prompt": {
+        "zh": "为自己调整一个小工作角落，你更想突出哪种体验？",
+        "en": "You adjust a small work corner for yourself. Which experience would you prefer to emphasise?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "常用东西有易取的位置，基本操作可以自然接续。",
+            "en": "Accessible places for common objects so basic actions can continue simply."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "有开放空间摆放几种想法，让不同材料容易发生联系。",
+            "en": "Open space for several ideas and connections among different materials."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "有一个明确的关注点，方便短时间投入一件事。",
+            "en": "One clear focal point that supports a brief period devoted to a single activity."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "物件和使用方式能随当下需要移动，不必固定不变。",
+            "en": "Objects and uses that can move with current needs rather than remain fixed."
+          },
+          "directionId": "water"
+        }
+      ]
+    },
+    {
+      "id": "ELEMENT_04",
+      "prompt": {
+        "zh": "和愿意交流的朋友分享一个小点子，你更想怎样呈现？",
+        "en": "You share a small idea with a friend who wants to discuss it. How would you prefer to present it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把点子与几个相关想法放在一起，邀请不同角度。",
+            "en": "Place the idea beside related possibilities and invite different perspectives."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先给一个简短鲜明的示例，让交流有一个具体开头。",
+            "en": "Offer one brief vivid example that gives the conversation a concrete opening."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "听对方明确说出的需要，调整自己讲述的节奏和范围。",
+            "en": "Hear the needs they state and adjust the pace and scope of my explanation."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "说明已经有的材料和步骤，让点子怎样使用容易看见。",
+            "en": "Describe existing materials and steps so the possible use is easy to see."
+          },
+          "directionId": "earth"
+        }
+      ]
+    },
+    {
+      "id": "ELEMENT_05",
+      "prompt": {
+        "zh": "一件普通小事只剩少量可用时间，你更愿意怎样安排？",
+        "en": "Only a little time is available for an ordinary small task. Which arrangement would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "选一个边界清楚的小段，短时集中尝试后停下。",
+            "en": "Choose a clearly bounded part for a short focused attempt, then stop."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "随着实际进度调节计划，允许这次完成的形状不同。",
+            "en": "Adjust the plan as progress becomes clear and allow a different shape of completion."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "按简单步骤处理最基本的部分，保留可继续的位置。",
+            "en": "Follow simple steps for the basic part and leave a clear place to continue."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "快速看几种可行做法，保留最有启发的新联系。",
+            "en": "Consider several workable approaches and keep a useful new connection."
+          },
+          "directionId": "air"
+        }
+      ]
+    },
+    {
+      "id": "ELEMENT_06",
+      "prompt": {
+        "zh": "接触一项自己选的新爱好，你更想享受哪种过程？",
+        "en": "You explore a new hobby you chose. Which process would you most like to enjoy?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "按自己的实际反应调整速度，让过程不必照既定模式。",
+            "en": "Adjust speed to my actual response rather than follow a predetermined pattern."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "反复熟悉一个基础动作，让下一次能接着进行。",
+            "en": "Become familiar with one basic action so another attempt can build on it."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看看不同做法怎样相通，不急着固定自己只用一种。",
+            "en": "Explore how different methods connect without settling on only one immediately."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "为一个安全的小尝试投入短时间，体验开始的鲜明感。",
+            "en": "Give a safe small attempt a short period and enjoy a distinctive start."
+          },
+          "directionId": "fire"
+        }
+      ]
+    },
+    {
+      "id": "ELEMENT_07",
+      "prompt": {
+        "zh": "整理一小页个人照片记录，你更想先做哪件事？",
+        "en": "You organise a small page of personal photo notes. What would you prefer to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先放好日期和基本记录，让信息以后仍容易接续。",
+            "en": "Set out dates and basic notes so the information remains easy to continue later."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把不同时刻并置，看看会不会形成意想不到的联系。",
+            "en": "Place different moments together and look for unexpected connections."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "挑一个最想呈现的瞬间，用它带出这页的重点。",
+            "en": "Choose the moment I most want to present and make it the focus of the page."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "按这次看照片时的感觉调整顺序，让页面自然展开。",
+            "en": "Adjust the order to my present response and let the page develop gradually."
+          },
+          "directionId": "water"
+        }
+      ]
+    },
+    {
+      "id": "ELEMENT_08",
+      "prompt": {
+        "zh": "一个自愿小组邀请你提供一项贡献，你更想选哪一种？",
+        "en": "A voluntary group invites one contribution from you. Which would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "提出几种不同想法，让大家看到原来没有连接的可能。",
+            "en": "Offer varied ideas that reveal possibilities not previously connected."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "为当前最有兴趣的一小部分做一次明确的短尝试。",
+            "en": "Make one clear brief attempt at the part that interests me most now."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "根据参与者已经说明的需要，帮助调整活动节奏。",
+            "en": "Help adjust the pace around needs participants have actually expressed."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把普通基础事项安排得容易取用，方便活动接着进行。",
+            "en": "Make basic practical arrangements accessible so the activity can continue simply."
+          },
+          "directionId": "earth"
+        }
+      ]
+    },
+    {
+      "id": "ELEMENT_09",
+      "prompt": {
+        "zh": "自己的小作品收到一条具体反馈，你更想怎样回应？",
+        "en": "You receive specific feedback on a small piece of your work. How would you prefer to respond?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "选一处最想改的地方，马上安排一个短而集中的试改。",
+            "en": "Pick one part I want to revise and arrange a brief concentrated trial."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先理解反馈针对的实际需要，再按情况调整作品。",
+            "en": "Understand the practical need behind the feedback and reshape the piece accordingly."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "核对哪些基础部分仍可用，只把需要改的步骤接好。",
+            "en": "Check which basic parts remain useful and reconnect only the steps needing revision."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把反馈看作另一种视角，尝试一个以前没想到的关联。",
+            "en": "Treat it as another viewpoint and try a connection I had not considered."
+          },
+          "directionId": "air"
+        }
+      ]
+    },
+    {
+      "id": "ELEMENT_10",
+      "prompt": {
+        "zh": "要整理一小批自己的日常笔记，你更喜欢哪种方式？",
+        "en": "You organise a small set of everyday notes. Which approach would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "按笔记实际出现的内容调整分组，不强行塞进旧类别。",
+            "en": "Adjust groups to the material that appears rather than force existing categories."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "保留简明一致的入口，让以后添加和查找容易延续。",
+            "en": "Keep a simple consistent entry point so adding and finding notes remains straightforward."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "画出几个内容之间的联系，让检索不只靠一种分类。",
+            "en": "Sketch links among topics so retrieval does not depend on a single classification."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "选一个短时间段处理最想完成的一组，结束后就停。",
+            "en": "Use a short period for the group I most want to finish, then stop."
+          },
+          "directionId": "fire"
+        }
+      ]
+    },
+    {
+      "id": "ELEMENT_11",
+      "prompt": {
+        "zh": "一段自由晚间可以由自己选择，你更想保留什么？",
+        "en": "You can choose how to spend part of an evening. What would you prefer to keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个熟悉而可持续的小安排，让休息或活动容易接上。",
+            "en": "A familiar manageable arrangement that lets rest or activity continue simply."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "几个开放选项和一点变化空间，看看不同兴趣怎样连接。",
+            "en": "Several open options and room for variation among different interests."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一件现在确实想投入的小事，短时集中而不排满。",
+            "en": "One small activity I actually want to engage with briefly, without filling the evening."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "随当时需要调整的余地，不必照事先定好的节奏。",
+            "en": "Room to adjust to present needs rather than follow a pace fixed in advance."
+          },
+          "directionId": "water"
+        }
+      ]
+    },
+    {
+      "id": "ELEMENT_12",
+      "prompt": {
+        "zh": "为普通问候做一张小卡片，你更想强调什么？",
+        "en": "You make a small card for an ordinary greeting. What would you prefer to emphasise?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "组合两种有趣的表达，让熟悉的话出现新的联系。",
+            "en": "Combine two interesting forms so a familiar message has a new connection."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个简短而鲜明的重点，把自己想说的话集中呈现。",
+            "en": "One brief distinctive focus that concentrates what I want to express."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "按对方明确表达的喜好调整语气，不猜测隐藏心思。",
+            "en": "Adjust the tone to preferences they have expressed rather than guess hidden thoughts."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "简单清楚的文字与可用格式，让卡片容易阅读和保留。",
+            "en": "Simple clear words and a usable format that is easy to read and keep."
+          },
+          "directionId": "earth"
+        }
+      ]
+    },
+    {
+      "id": "ELEMENT_13",
+      "prompt": {
+        "zh": "一个低风险小尝试没有按预想进行，你更愿意接着做什么？",
+        "en": "A low-stakes attempt differs from what you expected. What would you prefer next?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "找一处仍想尝试的地方，给它一个有限的集中时段。",
+            "en": "Choose one part I still want to attempt and give it a limited focused period."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "重新看看现在需要什么，让下一步随实际情况改变。",
+            "en": "Reconsider current needs and let the next step change with the situation."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "回到仍然合用的基础条件，把可继续的部分留好。",
+            "en": "Return to useful basic conditions and retain the parts that can continue."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "换一个角度理解这次结果，比较另几种可行路线。",
+            "en": "Understand the outcome from another angle and compare other workable routes."
+          },
+          "directionId": "air"
+        }
+      ]
+    },
+    {
+      "id": "ELEMENT_14",
+      "prompt": {
+        "zh": "普通说明中有一处不清楚，你更想先怎样处理？",
+        "en": "One part of an ordinary instruction is unclear. How would you prefer to address it first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问清当前实际使用的需要，再调整理解和操作方式。",
+            "en": "Clarify present use needs and adjust my interpretation and approach."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "核对已有的基础步骤，标出缺少哪一项具体信息。",
+            "en": "Check the basic steps already given and identify the specific information missing."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "比较另一种解释或示例，寻找能把两者连接的线索。",
+            "en": "Compare another explanation or example and look for a connecting clue."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "确认权限与安全后，用一个最小例子短时试一下。",
+            "en": "After checking permission and safety, briefly try a minimal example."
+          },
+          "directionId": "fire"
+        }
+      ]
+    },
+    {
+      "id": "ELEMENT_15",
+      "prompt": {
+        "zh": "给一个普通个人计划预留少量精力，你更想怎样使用？",
+        "en": "You reserve a little effort for an ordinary personal plan. How would you prefer to use it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让简单基础得到维护，给下一次留下可继续的位置。",
+            "en": "Maintain simple basics and leave a workable place for another occasion."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "为不同想法留一点试探空间，不急着选唯一答案。",
+            "en": "Leave exploratory space for different ideas without choosing a single answer immediately."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "集中给最想尝试的一小点，不要求长时间持续。",
+            "en": "Concentrate it on one small attempt I want without requiring prolonged effort."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "根据当下状态和实际条件调节，不预定完全相同的形状。",
+            "en": "Adjust it to current response and conditions rather than prescribe an identical form."
+          },
+          "directionId": "water"
+        }
+      ]
+    },
+    {
+      "id": "ELEMENT_16",
+      "prompt": {
+        "zh": "新人自愿参加一项普通活动，你更想提供哪种开头？",
+        "en": "Someone new voluntarily joins an ordinary activity. Which opening would you prefer to offer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "几种不同的参与想法，让对方也能提出新的组合。",
+            "en": "Several participation ideas that leave room for another combination of their own."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个短而明确的展示，说明这次可以先尝试什么。",
+            "en": "A short clear demonstration of what can be tried first this time."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "询问对方愿意怎样参与，再按说出的需要调整节奏。",
+            "en": "Ask how they want to participate and adjust the pace to stated needs."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "清楚可访问的基本说明，让对方知道东西在哪里、怎样继续。",
+            "en": "Accessible basic information about where things are and how to continue."
+          },
+          "directionId": "earth"
+        }
+      ]
+    },
+    {
+      "id": "ELEMENT_17",
+      "prompt": {
+        "zh": "自己写一小段文字时，你更想怎样推进？",
+        "en": "When writing a short piece of your own, how would you prefer to proceed?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "抓住一个最想表达的重点，短时间集中写出一段。",
+            "en": "Hold one point I want to express and write a brief concentrated passage."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让文字随写下的感受改变，不要求照原来的形状。",
+            "en": "Let the text change with my response rather than keep its original shape."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先搭一个简单可续的顺序，把基本意思放清楚。",
+            "en": "Build a simple sequence that can continue and state the basic meaning clearly."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把几个不同想法放在一起，看看能出现什么新联系。",
+            "en": "Bring different ideas together and explore the new connections that appear."
+          },
+          "directionId": "air"
+        }
+      ]
+    },
+    {
+      "id": "ELEMENT_18",
+      "prompt": {
+        "zh": "一次普通自选活动将结束，你更想先处理什么？",
+        "en": "An ordinary activity you chose is ending. What would you prefer to attend to first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "按当下需要调整收尾，不为了形式保留所有原步骤。",
+            "en": "Adjust the ending to current needs rather than preserve every original step for form."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "收好基础材料和必要记录，让之后容易重新接上。",
+            "en": "Keep basic materials and necessary notes so another occasion can reconnect easily."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留下一个新的联系或问题，允许以后从不同角度再看。",
+            "en": "Leave a new connection or question that can be revisited from another angle."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "完成自己还愿意试的最后一小点，再明确停下。",
+            "en": "Complete one final small part I still want to try, then explicitly stop."
+          },
+          "directionId": "fire"
+        }
+      ]
+    },
+    {
+      "id": "ELEMENT_19",
+      "prompt": {
+        "zh": "回想一段普通经历，你更想记住哪种部分？",
+        "en": "Looking back at an ordinary experience, which part would you most like to remember?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "简单条件被好好保留，让事情可以延续的部分。",
+            "en": "Simple conditions retained in a way that let the activity continue."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "不同想法之间突然出现联系、让视角打开的部分。",
+            "en": "A connection among different ideas that opened another view."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "自己短时投入一个具体尝试、让事情开始的片刻。",
+            "en": "A moment of brief involvement in a concrete attempt that got something started."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "根据实际情境调节节奏，让过程变得适合的地方。",
+            "en": "Where the pace changed with the situation and made the process fit better."
+          },
+          "directionId": "water"
+        }
+      ]
+    },
+    {
+      "id": "ELEMENT_20",
+      "prompt": {
+        "zh": "准备下一次普通小选择，你更想给自己哪种余地？",
+        "en": "Preparing for another ordinary small choice, which room would you prefer to give yourself?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "保留不同可能与新的联系，不急着固定一种路线。",
+            "en": "Keep varied possibilities and new connections without fixing one route immediately."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "选一个愿意短时投入的点，允许尝试后就结束。",
+            "en": "Choose one point for brief involvement and allow the attempt to end afterwards."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "随明确的需要重新调整，不必始终维持同一种节奏。",
+            "en": "Readjust to stated needs without maintaining the same pace throughout."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "沿用仍合适的基础安排，让下一步容易继续。",
+            "en": "Reuse a basic arrangement that still fits and makes the next step straightforward."
+          },
+          "directionId": "earth"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "fire",
+      "directionIds": [
+        "fire"
+      ],
+      "title": {
+        "zh": "火：短时专注与尝试",
+        "en": "Fire: Brief Focus and an Attempt"
+      },
+      "headline": {
+        "zh": "四种当代偏好意象之一，不是身体、性格或能力结论。",
+        "en": "One of four contemporary preference metaphors, not a bodily, personality or ability verdict."
+      },
+      "summary": {
+        "zh": "把火读作一次有边界的集中尝试：有具体开头，也有停下和调整的空间；不判断能量、勇气、脾气或领导力。",
+        "en": "Read Fire as a bounded concentrated attempt, with a concrete opening and room to stop or adjust. It certifies neither energy, courage nor leadership."
+      },
+      "scoreReading": {
+        "zh": "20题全部各选一项，对应主题加1，总数固定20。四主题每题均提供，全卷各出现20次、每个位置5次。原始次数是本组可选做法中的相对分布，不是身体元素比例、相似度百分比、品质强弱或人口排名。所有最高计数都保留完整结果；全选第一项会四种各5次，四份完整显示。名单顺序不设主次，不自动指定第二元素；相差一次只是一项选择，不证明显著差异、某种品质消失或固定混合类型。近分可以比较，但不补造未并列的结论。情境和时间可能改变回答，没有常模、稀有度或科学分界。",
+        "en": "Choose one option for all 20 questions; each adds one to its theme and counts always sum to 20. All four themes appear in every question, 20 times each and five times in each position. Raw counts describe relative choices among these approaches, not bodily element proportions, similarity percentages, quality levels or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives five each and displays all four. List order establishes no priority or automatic secondary element. A one-choice gap proves neither significance, absent qualities nor a fixed mixed type. Compare close counts without inventing untied conclusions. Context and time may change answers. There are no norms, rarity estimates or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "火元素测试结果：专注尝试、例子与完整说明",
+          "en": "Fire Element Result: Focus, Examples and Full Guide"
+        },
+        "description": {
+          "zh": "把火读作一次有边界的集中尝试：有具体开头，也有停下和调整的空间；不判断能量、勇气、脾气或领导力。",
+          "en": "Explore Fire through a brief focused attempt, a practical example and comparisons. Read the full guide without claims about energy, courage or leadership."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "古典背景与本版意象",
+            "en": "Classical context and this edition’s metaphor"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版把火用作“短时专注与尝试”的当代意象：愿意给一个现在在意的小点，留一段边界清楚的投入。它不要求一直热烈、迅速或有激情；短暂尝试后停下也符合这个选择。古典元素名只是符号背景，不是身体成分、气质类型或心理能力的测量。",
+              "en": "Fire labels brief focus and an attempt in this edition: giving one point that matters now a clearly bounded period of involvement. It requires no permanent intensity, speed or passion. Stopping after a short attempt can fit the preference too. A classical name supplies symbolic context rather than a measure of bodily composition, temperament type or psychological capability."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "怎样把计数放回情境",
+            "en": "Reading counts in context"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择抓一个重点、先试一小段，或把有限时间集中用在愿意做的部分。可以问：我真正想试什么，愿意给多少时间，怎样知道这次够了？较少选择可能因为需要更多条件、休息或不同节奏，不说明不积极、不果断或没有勇气。",
+              "en": "A highest count means you more often chose a focal point, a brief attempt or concentrating limited time on a willing contribution. What do you actually want to try, for how long, and how will you know it is enough? Fewer choices may reflect conditions, rest or another pace rather than low initiative, indecision or absent courage."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个普通日常例子",
+            "en": "An ordinary everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，朋友们自愿办一次轻松的桌游聚会，你愿意准备一分钟开场。可以只写一个简短欢迎语和第一项安排，试着念一遍，再决定是否采用。不需要带动全场、让所有人兴奋或承担整晚主持；这个小开头有范围，之后也可以交给别人。",
+              "en": "Friends voluntarily arrange a relaxed board-game gathering and you want to prepare a one-minute opening. Write a brief greeting and first arrangement, try saying it once and decide whether to use it. You need not energise everyone or host the evening. The small opening has a scope, and someone else can take over afterwards without undermining your contribution."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想先试这一分钟的开头，之后就交给大家；不合适我们再换。”这样把尝试和长期职责分开。别人希望慢一点时，也可以重谈节奏；自己改变主意时同样可以停下，不必为了维护“火元素”形象一直保持动力。",
+              "en": "You could say, “I’d like to try this one-minute opening, then hand over; we can change it if it does not fit.” This separates an attempt from a continuing role. Discuss pace if others want more time, and stop if you change your mind. A Fire image creates no duty to maintain momentum or enthusiasm throughout an activity."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "和其他三主题比较",
+            "en": "Comparisons with the other three themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "火在本版偏一次集中的尝试，水偏按实际情境调节，土偏保留可继续的基础，风偏多种可能之间的联系。它们可以配合：先试一点，再调整、保留或打开其他路径。并列不是固定主副元素，更不把火换成胆汁质、DISC方向、MBTI偏好或某种职业。",
+              "en": "Here Fire emphasises a focused attempt, Water adjustment, Earth a base that can continue and Air connections among possibilities. They can work together: try a part, then adjust, retain or open other routes. A tie creates no fixed primary and secondary element and cannot convert Fire into Choleric temperament, DISC, MBTI or a career recommendation through a shared label."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与真实表现",
+            "en": "Counterexamples and actual performance"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，快速开始可能因为步骤熟悉、外部时间催促或刚好有资源；暂时不开始可能是在作合适取舍。问卷没有观察执行、风险判断、情绪或体力，不认证领导、吸引力、抗压或冲动程度，也不要求为符合标签去冒险、压过别人或忽略需要。",
+              "en": "Starting quickly may reflect familiarity, an external deadline or available resources; not starting may be a suitable tradeoff. No execution, risk judgement, emotion or physical energy is observed. Leadership, charisma, resilience and impulsiveness are not assessed. The label requires neither risk, overriding others nor ignoring needs to prove that your choices truly belong to an element."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：选一件本来就愿意试的低风险小事，写一处重点、一段可接受时间和一个停止点。可以只写不试。若试了，记下实际想继续、调整或结束中的哪一种；不以是否顺利验证天性，也不给意志或身体能量打分。",
+              "en": "For an optional observation, choose a low-stakes matter you already want to try and note a focal point, acceptable period and stopping point. Writing without trying is possible. If you attempt it, record whether you want to continue, adjust or end. An easy or difficult outcome validates no innate nature and grades neither willpower nor bodily energy."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "20题相对计数与全部最高并列",
+            "en": "20-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "20题全部各选一项，对应主题加1，总数固定20。四主题每题均提供，全卷各出现20次、每个位置5次。原始次数是本组可选做法中的相对分布，不是身体元素比例、相似度百分比、品质强弱或人口排名。所有最高计数都保留完整结果；全选第一项会四种各5次，四份完整显示。名单顺序不设主次，不自动指定第二元素；相差一次只是一项选择，不证明显著差异、某种品质消失或固定混合类型。近分可以比较，但不补造未并列的结论。情境和时间可能改变回答，没有常模、稀有度或科学分界。",
+              "en": "Choose one option for all 20 questions; each adds one to its theme and counts always sum to 20. All four themes appear in every question, 20 times each and five times in each position. Raw counts describe relative choices among these approaches, not bodily element proportions, similarity percentages, quality levels or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives five each and displays all four. List order establishes no priority or automatic secondary element. A one-choice gap proves neither significance, absent qualities nor a fixed mixed type. Compare close counts without inventing untied conclusions. Context and time may change answers. There are no norms, rarity estimates or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、背景与来源范围",
+            "en": "Original edition, background and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的四元素偏好意象问卷。Stanford哲学百科Empedocles条目用于核对古典火、水、土、气四根背景，不为本站心理题本、选择映射、计数或效度提供验证。20题、选项、当代主题、解释、示例和规则均为原创，没有采用JobCannon12题、竞品结果正文／代码／算法或受保护图片。古代自然哲学不等同现代化学或心理学，Love／Strife等古代解释不作现实人格原理。它不是生日星座计算、身体能量、五行／中医、体液、影视Avatar角色或科学人格分类，不转换气质、DISC、MBTI或职业。不认证健康、同理心、可靠性、智力、创造力、道德、吸引力或真实能力，也不预测命运；没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind four-element preference metaphor quiz. Stanford’s Empedocles entry checks the classical background of Fire, Water, Earth and Air as four roots, without validating this questionnaire, mapping, counts or interpretation. All 20 items, options, contemporary themes, explanations, examples and rules are original. No JobCannon 12-item bank, competitor result text, code, algorithm or protected image is used. Ancient natural philosophy is neither modern chemistry nor psychology; historical Love and Strife supply no personal principles. This is not a birthday or zodiac calculation, bodily energy, five-element or Chinese medical framework, humoural doctrine, Avatar character quiz or scientific personality taxonomy. It converts into no Temperament, DISC, MBTI or career result and certifies no health, empathy, reliability, intelligence, creativity, morality, attractiveness or ability. It predicts no destiny and has no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "water",
+      "directionIds": [
+        "water"
+      ],
+      "title": {
+        "zh": "水：按情境调整节奏",
+        "en": "Water: Adjusting Pace to Context"
+      },
+      "headline": {
+        "zh": "四种当代偏好意象之一，不是身体、性格或能力结论。",
+        "en": "One of four contemporary preference metaphors, not a bodily, personality or ability verdict."
+      },
+      "summary": {
+        "zh": "从实际需要与节奏变化看选择，包含一个把活动改小的例子；调整不等于无条件顺从，也不认证同理心或直觉。",
+        "en": "Explore stated needs and a change of pace through a smaller activity. Adjustment means neither unconditional compliance nor certified empathy or intuition."
+      },
+      "scoreReading": {
+        "zh": "20题全部各选一项，对应主题加1，总数固定20。四主题每题均提供，全卷各出现20次、每个位置5次。原始次数是本组可选做法中的相对分布，不是身体元素比例、相似度百分比、品质强弱或人口排名。所有最高计数都保留完整结果；全选第一项会四种各5次，四份完整显示。名单顺序不设主次，不自动指定第二元素；相差一次只是一项选择，不证明显著差异、某种品质消失或固定混合类型。近分可以比较，但不补造未并列的结论。情境和时间可能改变回答，没有常模、稀有度或科学分界。",
+        "en": "Choose one option for all 20 questions; each adds one to its theme and counts always sum to 20. All four themes appear in every question, 20 times each and five times in each position. Raw counts describe relative choices among these approaches, not bodily element proportions, similarity percentages, quality levels or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives five each and displays all four. List order establishes no priority or automatic secondary element. A one-choice gap proves neither significance, absent qualities nor a fixed mixed type. Compare close counts without inventing untied conclusions. Context and time may change answers. There are no norms, rarity estimates or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "水元素测试结果：情境节奏、例子与完整说明",
+          "en": "Water Element Result: Pace, Examples and Full Guide"
+        },
+        "description": {
+          "zh": "从实际需要与节奏变化看选择，包含一个把活动改小的例子；调整不等于无条件顺从，也不认证同理心或直觉。",
+          "en": "Read Water through stated needs, pace and a concrete adjustment example. Compare all four themes without certifying empathy, intuition or relationship fit."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "古典背景与本版意象",
+            "en": "Classical context and this edition’s metaphor"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版用水作“按情境调整节奏”的当代意象：看看条件和明确说出的需要，再决定是否改变做法的形状。它不把自己融入别人、一直照顾情绪或无条件顺从当成高分要求。调整可以包含缩小、暂停或拒绝，而不只是在原活动中继续投入。",
+              "en": "Water labels adjusting pace to context here: noticing conditions and stated needs before deciding whether to change an approach’s shape. Merging into others, managing feelings or complying unconditionally is not required. Adjustment may include reducing, pausing or declining an activity rather than continuing to contribute within it. The symbol supplies no assessment of someone’s actual emotional or interpersonal capabilities."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "怎样把计数放回情境",
+            "en": "Reading counts in context"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择按材料、反应或表达的需要重新调节，不要求过程保持原样。可以问：哪项需要已经说清，哪项只是我猜的？自己的条件也算条件。较少选择可能是原节奏已经合用，不说明冷漠、不灵活或不懂感受，更不能据此判断关系质量。",
+              "en": "A highest count means you more often chose adjustment to materials, responses or expressed needs rather than preserving the original form. Which need was stated and which is inferred? Your conditions count too. Fewer choices may mean the pace already fits, without establishing coldness, inflexibility, poor emotional understanding or anything about the actual quality of a relationship."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个普通日常例子",
+            "en": "An ordinary everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，原本想和朋友交流一小段读书笔记，对方明确说今天只方便十分钟文字交流。若你也愿意，可以把内容缩成一个问题，留其余以后再谈；不方便时也可以改天。例子关注双方实际说出的条件，不是靠水元素猜到对方真正需要什么。",
+              "en": "You planned a short exchange about reading notes and a friend states that only ten minutes by text works today. If you also want that, reduce it to one question and leave the rest for another occasion, or choose another day. Attend to stated conditions rather than an element supposedly revealing what the person really needs beneath their words."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我也愿意改成十分钟文字交流，这次只聊这一个问题，剩下以后再决定。”也可以说今天不适合。让对方知道实际范围，比猜测或不断补偿更清楚；如果条件又变，重新确认即可，不需要证明自己永远懂得体贴。",
+              "en": "You might say, “Ten minutes by text works for me too. Let’s discuss only this question and decide on the rest later.” Declining today is also possible. State the actual scope instead of guessing or repeatedly compensating. Reconfirm if conditions change without needing to demonstrate endless consideration or an ability to anticipate everything another person might need."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "和其他三主题比较",
+            "en": "Comparisons with the other three themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "水主题偏回应已出现的情境，风偏打开不同想法，土偏保留可延续的基础，火偏短时集中尝试。灵活和稳定不是好坏两边，一个安排可以同时需要两者。并列不推断直觉、依恋或读人能力，也不把水转换成黏液质、星座属性或任何健康框架。",
+              "en": "Water emphasises the context that has appeared, Air varied ideas, Earth a continuing base and Fire a brief focused attempt. Flexibility and stability form no good–bad divide; one arrangement may need both. A tie establishes no intuition, attachment or ability to read people, and Water cannot convert into Phlegmatic temperament, a zodiac property or a health framework through this quiz."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与真实表现",
+            "en": "Counterexamples and actual performance"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，表面上不断调整，可能是资源不足或难以拒绝，不一定是偏好；保持原安排也可能尊重所有人已经同意的需要。问卷没有检验照顾效果、同理心、沟通或心理状态，不保证别人会感到被理解。实际同意和支持仍需另外确认，不由元素次数替代。",
+              "en": "Frequent adjustment may reflect limited resources or difficulty declining rather than preference. Retaining an arrangement may respect needs already agreed. No caregiving outcome, empathy, communication skill or mental state is tested, and feeling understood by others is not guaranteed. Consent and support still need separate consideration rather than counts deciding whether an adjustment is welcome or useful in actual life."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：为一个本来就要调整的普通安排，列出现有条件、对方已说出的需要和自己的范围，再决定是否改动。可以保留原样，也可以暂缓。观察帮助把条件说清，不是训练吸收情绪、提高同理心或证明自己适合照顾别人。",
+              "en": "If useful, take an ordinary arrangement already needing consideration and list conditions, needs actually expressed and your own scope before deciding whether to change it. Keep or defer it if preferred. The observation clarifies conditions without training emotional absorption, improving empathy or proving suitability to care for other people because an element label suggests responsiveness or a flowing approach."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "20题相对计数与全部最高并列",
+            "en": "20-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "20题全部各选一项，对应主题加1，总数固定20。四主题每题均提供，全卷各出现20次、每个位置5次。原始次数是本组可选做法中的相对分布，不是身体元素比例、相似度百分比、品质强弱或人口排名。所有最高计数都保留完整结果；全选第一项会四种各5次，四份完整显示。名单顺序不设主次，不自动指定第二元素；相差一次只是一项选择，不证明显著差异、某种品质消失或固定混合类型。近分可以比较，但不补造未并列的结论。情境和时间可能改变回答，没有常模、稀有度或科学分界。",
+              "en": "Choose one option for all 20 questions; each adds one to its theme and counts always sum to 20. All four themes appear in every question, 20 times each and five times in each position. Raw counts describe relative choices among these approaches, not bodily element proportions, similarity percentages, quality levels or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives five each and displays all four. List order establishes no priority or automatic secondary element. A one-choice gap proves neither significance, absent qualities nor a fixed mixed type. Compare close counts without inventing untied conclusions. Context and time may change answers. There are no norms, rarity estimates or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、背景与来源范围",
+            "en": "Original edition, background and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的四元素偏好意象问卷。Stanford哲学百科Empedocles条目用于核对古典火、水、土、气四根背景，不为本站心理题本、选择映射、计数或效度提供验证。20题、选项、当代主题、解释、示例和规则均为原创，没有采用JobCannon12题、竞品结果正文／代码／算法或受保护图片。古代自然哲学不等同现代化学或心理学，Love／Strife等古代解释不作现实人格原理。它不是生日星座计算、身体能量、五行／中医、体液、影视Avatar角色或科学人格分类，不转换气质、DISC、MBTI或职业。不认证健康、同理心、可靠性、智力、创造力、道德、吸引力或真实能力，也不预测命运；没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind four-element preference metaphor quiz. Stanford’s Empedocles entry checks the classical background of Fire, Water, Earth and Air as four roots, without validating this questionnaire, mapping, counts or interpretation. All 20 items, options, contemporary themes, explanations, examples and rules are original. No JobCannon 12-item bank, competitor result text, code, algorithm or protected image is used. Ancient natural philosophy is neither modern chemistry nor psychology; historical Love and Strife supply no personal principles. This is not a birthday or zodiac calculation, bodily energy, five-element or Chinese medical framework, humoural doctrine, Avatar character quiz or scientific personality taxonomy. It converts into no Temperament, DISC, MBTI or career result and certifies no health, empathy, reliability, intelligence, creativity, morality, attractiveness or ability. It predicts no destiny and has no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "earth",
+      "directionIds": [
+        "earth"
+      ],
+      "title": {
+        "zh": "土：实际步骤与延续",
+        "en": "Earth: Tangible Steps and Continuity"
+      },
+      "headline": {
+        "zh": "四种当代偏好意象之一，不是身体、性格或能力结论。",
+        "en": "One of four contemporary preference metaphors, not a bodily, personality or ability verdict."
+      },
+      "summary": {
+        "zh": "用可取用的材料、简明步骤和可继续的位置理解土主题；实际例子与比较帮助读计数，不认证可靠性、财富或耐力。",
+        "en": "Read Earth through accessible materials, simple steps and a place to continue. Examples clarify counts without certifying reliability, wealth or endurance."
+      },
+      "scoreReading": {
+        "zh": "20题全部各选一项，对应主题加1，总数固定20。四主题每题均提供，全卷各出现20次、每个位置5次。原始次数是本组可选做法中的相对分布，不是身体元素比例、相似度百分比、品质强弱或人口排名。所有最高计数都保留完整结果；全选第一项会四种各5次，四份完整显示。名单顺序不设主次，不自动指定第二元素；相差一次只是一项选择，不证明显著差异、某种品质消失或固定混合类型。近分可以比较，但不补造未并列的结论。情境和时间可能改变回答，没有常模、稀有度或科学分界。",
+        "en": "Choose one option for all 20 questions; each adds one to its theme and counts always sum to 20. All four themes appear in every question, 20 times each and five times in each position. Raw counts describe relative choices among these approaches, not bodily element proportions, similarity percentages, quality levels or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives five each and displays all four. List order establishes no priority or automatic secondary element. A one-choice gap proves neither significance, absent qualities nor a fixed mixed type. Compare close counts without inventing untied conclusions. Context and time may change answers. There are no norms, rarity estimates or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "土元素测试结果：步骤延续、例子与完整说明",
+          "en": "Earth Element Result: Continuity and Full Guide"
+        },
+        "description": {
+          "zh": "用可取用的材料、简明步骤和可继续的位置理解土主题；实际例子与比较帮助读计数，不认证可靠性、财富或耐力。",
+          "en": "Explore Earth through practical steps, accessible materials and a place to continue. Full examples and comparisons without reliability or endurance claims."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "古典背景与本版意象",
+            "en": "Classical context and this edition’s metaphor"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版用土作“实际步骤与延续”的当代意象：愿意让一个普通安排有可取用的基础，之后容易重新接上。它不要求一直坚持、拒绝变化或承担所有杂事。古典名称不是人的身体成分，不说明脚踏实地的程度，也不把偏好等同稳定性格或现实中的可靠表现。",
+              "en": "Earth labels tangible steps and continuity in this edition: giving an ordinary arrangement an accessible base and a place to resume. It requires neither endless persistence, resistance to change nor responsibility for every practical task. The classical name does not describe bodily composition, establish how grounded someone is or equate a preference with stable personality or dependable performance in real circumstances."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "怎样把计数放回情境",
+            "en": "Reading counts in context"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择保留合用材料、说明基本步骤或为下次留下入口。可以问：哪些条件确实还合用，怎样继续会更容易，什么可以不保留？较少选择可能因为本次需要探索或调整，不说明不负责任、不踏实或没有执行能力；计数没有观察实际完成。",
+              "en": "A highest count means you more often chose to retain useful materials, clarify basic steps or leave an entry for another occasion. Which conditions remain useful, what makes continuing easier, and what need not be kept? Fewer choices may reflect exploration or adjustment rather than irresponsibility, impracticality or poor execution. Counts never observe whether a task is completed in practice."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个普通日常例子",
+            "en": "An ordinary everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你想偶尔做纸张拼贴，材料已经获得许可使用。可以用一个盒子放常用纸片，在里面留一张说明“下一次从这张小图开始”的便条。这样不必每次重搭全部条件；也可以随时清理或换项目。不需要做出好作品、每天练习，或证明自己比别人更能坚持。",
+              "en": "Suppose you occasionally want to make paper collages with materials you have permission to use. Keep common pieces in one box and leave a note suggesting a small image as a starting point next time. This avoids rebuilding every condition, while clearing the box or changing projects remains possible. No polished work, daily practice or superior persistence needs to result."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我把这次还能用的材料放在一起，下一次愿意继续时从这张便条接上。”如果是共同使用的东西，先确认对方是否也想这样存放；自己的整理习惯不自动变成大家的规则。保留基础是一个可修改安排，不是接下永久维护或照顾所有人的承诺。",
+              "en": "You might say, “I’ll keep the useful materials together and use this note if I want to continue.” For shared objects, ask whether others want that storage arrangement too. Your preferred organisation does not automatically become everyone’s rule. Keeping a base is a revisable choice rather than a promise of permanent maintenance or responsibility for supporting everybody else involved."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "和其他三主题比较",
+            "en": "Comparisons with the other three themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "土偏保留可继续的基础，火偏一次集中尝试，水偏按现有条件调整，风偏不同想法间的联系。基础可以服务探索，变化也可以让延续更容易。并列不表示某个元素压过另一个，不转换成黏液质、DISC或MBTI，也不推断职业、财务或居住安排适配。",
+              "en": "Earth emphasises a base that can continue, Fire a focused attempt, Water adjustment to present conditions and Air connections among ideas. Basics can support exploration, and change can make continuity easier. A tie creates no element dominating another and cannot convert into Phlegmatic temperament, DISC or MBTI. It predicts no suitable career, financial arrangement or living situation from these symbolic choices."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与真实表现",
+            "en": "Counterexamples and actual performance"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，沿用固定步骤可能因为时间、权限或材料限制，而不是个人愿意如此；打开新方案也可能更负责任。问卷没有核查守约、财务、体力、执行或工作表现，不授予可靠标签。现实中是否可依赖，需要结合具体承诺、条件和可观察行为另行判断，不能由土主题替代。",
+              "en": "Fixed steps may reflect time, permission or material constraints rather than preference; opening a new approach may be the more responsible action. No promise keeping, finances, stamina, execution or work performance is checked. The quiz awards no reliability credential. Assessing an actual commitment calls for its specific conditions and observable conduct rather than relying on an Earth label as assurance."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：为一个原本想继续的低风险小活动，留下一项材料、一句接续提示和一个可修改的存放位置；也可以只写想法。下次若不想继续，改变安排即可。观察的是入口是否方便，不是持久力测试，也不因为中断给自己贴懒散或不可靠的标签。",
+              "en": "For an optional observation, leave one material, a brief continuation note and a revisable storage place for a low-stakes activity you already want to revisit. Writing the idea alone is enough. Change the arrangement if you no longer want to continue. Notice whether the entry is convenient without testing endurance or labelling an interruption lazy, unreliable or contrary to your nature."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "20题相对计数与全部最高并列",
+            "en": "20-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "20题全部各选一项，对应主题加1，总数固定20。四主题每题均提供，全卷各出现20次、每个位置5次。原始次数是本组可选做法中的相对分布，不是身体元素比例、相似度百分比、品质强弱或人口排名。所有最高计数都保留完整结果；全选第一项会四种各5次，四份完整显示。名单顺序不设主次，不自动指定第二元素；相差一次只是一项选择，不证明显著差异、某种品质消失或固定混合类型。近分可以比较，但不补造未并列的结论。情境和时间可能改变回答，没有常模、稀有度或科学分界。",
+              "en": "Choose one option for all 20 questions; each adds one to its theme and counts always sum to 20. All four themes appear in every question, 20 times each and five times in each position. Raw counts describe relative choices among these approaches, not bodily element proportions, similarity percentages, quality levels or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives five each and displays all four. List order establishes no priority or automatic secondary element. A one-choice gap proves neither significance, absent qualities nor a fixed mixed type. Compare close counts without inventing untied conclusions. Context and time may change answers. There are no norms, rarity estimates or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、背景与来源范围",
+            "en": "Original edition, background and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的四元素偏好意象问卷。Stanford哲学百科Empedocles条目用于核对古典火、水、土、气四根背景，不为本站心理题本、选择映射、计数或效度提供验证。20题、选项、当代主题、解释、示例和规则均为原创，没有采用JobCannon12题、竞品结果正文／代码／算法或受保护图片。古代自然哲学不等同现代化学或心理学，Love／Strife等古代解释不作现实人格原理。它不是生日星座计算、身体能量、五行／中医、体液、影视Avatar角色或科学人格分类，不转换气质、DISC、MBTI或职业。不认证健康、同理心、可靠性、智力、创造力、道德、吸引力或真实能力，也不预测命运；没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind four-element preference metaphor quiz. Stanford’s Empedocles entry checks the classical background of Fire, Water, Earth and Air as four roots, without validating this questionnaire, mapping, counts or interpretation. All 20 items, options, contemporary themes, explanations, examples and rules are original. No JobCannon 12-item bank, competitor result text, code, algorithm or protected image is used. Ancient natural philosophy is neither modern chemistry nor psychology; historical Love and Strife supply no personal principles. This is not a birthday or zodiac calculation, bodily energy, five-element or Chinese medical framework, humoural doctrine, Avatar character quiz or scientific personality taxonomy. It converts into no Temperament, DISC, MBTI or career result and certifies no health, empathy, reliability, intelligence, creativity, morality, attractiveness or ability. It predicts no destiny and has no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "air",
+      "directionIds": [
+        "air"
+      ],
+      "title": {
+        "zh": "风（气）：开放与多种联系",
+        "en": "Air: Openness and Varied Connections"
+      },
+      "headline": {
+        "zh": "四种当代偏好意象之一，不是身体、性格或能力结论。",
+        "en": "One of four contemporary preference metaphors, not a bodily, personality or ability verdict."
+      },
+      "summary": {
+        "zh": "从不同想法之间的联系理解风（气）主题，包含整理普通笔记的例子与其他三主题比较；不判断智力、创造力或专注能力。",
+        "en": "Explore Air through connections among ideas, an everyday note example and comparisons. The guide makes no verdict on intelligence, creativity or attention."
+      },
+      "scoreReading": {
+        "zh": "20题全部各选一项，对应主题加1，总数固定20。四主题每题均提供，全卷各出现20次、每个位置5次。原始次数是本组可选做法中的相对分布，不是身体元素比例、相似度百分比、品质强弱或人口排名。所有最高计数都保留完整结果；全选第一项会四种各5次，四份完整显示。名单顺序不设主次，不自动指定第二元素；相差一次只是一项选择，不证明显著差异、某种品质消失或固定混合类型。近分可以比较，但不补造未并列的结论。情境和时间可能改变回答，没有常模、稀有度或科学分界。",
+        "en": "Choose one option for all 20 questions; each adds one to its theme and counts always sum to 20. All four themes appear in every question, 20 times each and five times in each position. Raw counts describe relative choices among these approaches, not bodily element proportions, similarity percentages, quality levels or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives five each and displays all four. List order establishes no priority or automatic secondary element. A one-choice gap proves neither significance, absent qualities nor a fixed mixed type. Compare close counts without inventing untied conclusions. Context and time may change answers. There are no norms, rarity estimates or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "风元素测试结果：开放联系、例子与完整说明",
+          "en": "Air Element Result: Connections and Full Guide"
+        },
+        "description": {
+          "zh": "从不同想法之间的联系理解风（气）主题，包含整理普通笔记的例子与其他三主题比较；不判断智力、创造力或专注能力。",
+          "en": "Read Air through varied ideas, a note-making example and comparisons. The complete guide makes no judgement of intelligence, creativity or attention."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "古典背景与本版意象",
+            "en": "Classical context and this edition’s metaphor"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版将古典Air写作风（气），用作“开放与多种联系”的当代意象：愿意给不同想法留空间，看看它们怎样相通。它不指呼吸、身体之气或自然元素成分，也不要求一直多想、变动或外向。开放是一种此刻选择的做法，不认证聪明、原创、自由或更高级的思考。",
+              "en": "Air, written as wind or air in the Chinese edition, labels openness and varied connections here: leaving room for ideas and considering how they relate. It concerns neither breathing, bodily energy nor elemental composition, and requires no endless thinking, change or sociability. Openness is a currently preferred approach rather than a certificate of intelligence, originality, freedom or superior reasoning."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "怎样把计数放回情境",
+            "en": "Reading counts in context"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择保留多种路径、并置材料，或让一个想法连接到另一个角度。可以问：哪些联系对这件事有用，什么时候愿意选一条，哪些可能可以放下？较少选择可能因为范围已经清楚，不说明保守、缺乏想象或理解慢，问卷没有实际认知任务。",
+              "en": "A highest count means you more often chose multiple routes, juxtaposed materials or a connection to another viewpoint. Which links are useful here, when would you want to choose one route, and which possibilities can be released? Fewer choices may reflect a clear scope rather than conservatism, poor imagination or slow understanding. No cognitive task establishes actual reasoning or creative performance."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个普通日常例子",
+            "en": "An ordinary everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你整理自己的少量读书笔记，发现“窗户”同时出现在一篇短文和一张照片的记录里。可以画一条连接，写下两者让你想到的不同场景，再决定是否继续。它不需要构成新理论、准确解释作者或产出好作品；一条个人联想也可以到此结束。",
+              "en": "While organising a few personal reading notes, you find a window in both a short text and a photograph note. Draw a connection, note the different scenes they suggest and decide whether to continue. It need not become a theory, accurately explain an author or produce good work. One personal association can simply end there without becoming an achievement to demonstrate."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我看到这两个材料有一处联系，想先并排放着；现在还不用定成一个结论。”若对方只想处理当前问题，也可以先把联想留在个人便条中。多种想法可以有范围和停止点，不需要让每次交流都开放到底，或要求别人跟上自己的跳转。",
+              "en": "You could say, “I notice a connection between these materials and would like to leave them side by side without deciding a conclusion yet.” Keep it in a personal note if another person wants to address only the current question. Varied ideas can have scope and stopping points, without every conversation remaining open or others following every change of direction."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "和其他三主题比较",
+            "en": "Comparisons with the other three themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "风偏连接不同可能，火偏聚焦一次尝试，水偏回应已出现的情境，土偏保留可接续的基础。它们可以交替使用：打开几条路径后，选择、调整和保留都有位置。并列不证明同时拥有多种才能，不换算多血质、MBTI直觉、DISC或学习类型，也不推断职业创新能力。",
+              "en": "Air emphasises links among possibilities, Fire a focused attempt, Water response to context and Earth a continuing base. They can alternate: after opening routes, choosing, adjusting and retaining each have a place. A tie proves no collection of talents and cannot convert into Sanguine temperament, MBTI Intuition, DISC or a learning type. Workplace innovation cannot be inferred from these choices."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与真实表现",
+            "en": "Counterexamples and actual performance"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，选择多种路径可能因为信息不全、要求含糊或尚不能决定，并非偏好；迅速选一条也可以有想象力。问卷没有测量创造力、智力、注意、记忆或神经状况，不把发散次数写成优势认证。实际联想是否准确、有用或适合别人，需要另外核对，不能因为风次数高就免于检验。",
+              "en": "Keeping options may reflect missing information, unclear requests or inability to decide rather than preference; selecting one quickly can still be imaginative. Creativity, intelligence, attention, memory and neurological conditions are not measured. Counts provide no strength credential. A real connection’s accuracy, usefulness and suitability for others still require examination, regardless of how often Air options were chosen in this quiz."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：把两个原本感兴趣、可自由使用的普通材料并排，写一个可能联系和一个尚不确定之处。可以不继续，也可以选一个小点再看。观察不要求联想越多越好，不训练智力或诊断注意力；如果没有联系，也不说明缺乏创造性或不属于某个元素。",
+              "en": "If useful, place two ordinary materials you already enjoy and may use freely side by side. Note one possible connection and one uncertainty. Stop or choose a small point to examine further. More associations are not automatically better, and the observation neither trains intelligence nor diagnoses attention. Finding no link establishes neither deficient creativity nor exclusion from an element identity."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "20题相对计数与全部最高并列",
+            "en": "20-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "20题全部各选一项，对应主题加1，总数固定20。四主题每题均提供，全卷各出现20次、每个位置5次。原始次数是本组可选做法中的相对分布，不是身体元素比例、相似度百分比、品质强弱或人口排名。所有最高计数都保留完整结果；全选第一项会四种各5次，四份完整显示。名单顺序不设主次，不自动指定第二元素；相差一次只是一项选择，不证明显著差异、某种品质消失或固定混合类型。近分可以比较，但不补造未并列的结论。情境和时间可能改变回答，没有常模、稀有度或科学分界。",
+              "en": "Choose one option for all 20 questions; each adds one to its theme and counts always sum to 20. All four themes appear in every question, 20 times each and five times in each position. Raw counts describe relative choices among these approaches, not bodily element proportions, similarity percentages, quality levels or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives five each and displays all four. List order establishes no priority or automatic secondary element. A one-choice gap proves neither significance, absent qualities nor a fixed mixed type. Compare close counts without inventing untied conclusions. Context and time may change answers. There are no norms, rarity estimates or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、背景与来源范围",
+            "en": "Original edition, background and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的四元素偏好意象问卷。Stanford哲学百科Empedocles条目用于核对古典火、水、土、气四根背景，不为本站心理题本、选择映射、计数或效度提供验证。20题、选项、当代主题、解释、示例和规则均为原创，没有采用JobCannon12题、竞品结果正文／代码／算法或受保护图片。古代自然哲学不等同现代化学或心理学，Love／Strife等古代解释不作现实人格原理。它不是生日星座计算、身体能量、五行／中医、体液、影视Avatar角色或科学人格分类，不转换气质、DISC、MBTI或职业。不认证健康、同理心、可靠性、智力、创造力、道德、吸引力或真实能力，也不预测命运；没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind four-element preference metaphor quiz. Stanford’s Empedocles entry checks the classical background of Fire, Water, Earth and Air as four roots, without validating this questionnaire, mapping, counts or interpretation. All 20 items, options, contemporary themes, explanations, examples and rules are original. No JobCannon 12-item bank, competitor result text, code, algorithm or protected image is used. Ancient natural philosophy is neither modern chemistry nor psychology; historical Love and Strife supply no personal principles. This is not a birthday or zodiac calculation, bodily energy, five-element or Chinese medical framework, humoural doctrine, Avatar character quiz or scientific personality taxonomy. It converts into no Temperament, DISC, MBTI or career result and certifies no health, empathy, reliability, intelligence, creativity, morality, attractiveness or ability. It predicts no destiny and has no psychometric validation."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "20题怎样形成四主题计数",
+        "en": "How 20 choices produce four-theme counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "20题全部各选一项，对应主题加1，总数固定20。四主题每题均提供，全卷各出现20次、每个位置5次。原始次数是本组可选做法中的相对分布，不是身体元素比例、相似度百分比、品质强弱或人口排名。所有最高计数都保留完整结果；全选第一项会四种各5次，四份完整显示。名单顺序不设主次，不自动指定第二元素；相差一次只是一项选择，不证明显著差异、某种品质消失或固定混合类型。近分可以比较，但不补造未并列的结论。情境和时间可能改变回答，没有常模、稀有度或科学分界。",
+          "en": "Choose one option for all 20 questions; each adds one to its theme and counts always sum to 20. All four themes appear in every question, 20 times each and five times in each position. Raw counts describe relative choices among these approaches, not bodily element proportions, similarity percentages, quality levels or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives five each and displays all four. List order establishes no priority or automatic secondary element. A one-choice gap proves neither significance, absent qualities nor a fixed mixed type. Compare close counts without inventing untied conclusions. Context and time may change answers. There are no norms, rarity estimates or scientific cutoffs."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "全部结果、并列与近分",
+        "en": "Full guides, ties and close counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "四份完整结果各自有古典背景与本站读法、具体例子、可用表达、三个相邻主题比较、反例、小观察、计分和来源。所有最高并列完整显示，不造主副型。近分可以一起读，但不是测量误差区间，也不补造混合元素。重测反映当前选择，不证明人格改变。",
+          "en": "Each full guide includes classical context, this edition’s reading, an example, possible wording, comparisons, counterexamples, an optional observation, scoring and sources. Every highest tie appears in full without primary–secondary types. Read close guides together without treating proximity as a measurement-error interval or creating mixed elements. Retaking reflects current choices rather than proven personality change."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "古典元素和其他体系的区别",
+        "en": "Classical elements and other frameworks"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版Air用风（气）帮助识别古典名称，不涉及呼吸、身体之气或能量。四元素不是化学元素表，不是五行／中医或生日星座，也不是Avatar角色题本。古典气质的历史关联不使本站两份题本等价，不能按火水土风换算气质、DISC或MBTI。",
+          "en": "Air is a classical name, not a claim about breathing, bodily energy or physical composition. The four elements are neither the chemical periodic table, five-element or Chinese medical framework, birthday astrology nor an Avatar character bank. Historical associations with temperament do not make our two questionnaires equivalent or permit conversion to Temperament, DISC or MBTI."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "zh": "原创内容与古典背景来源",
+        "en": "Original content and classical background"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是费马独立创作的四元素偏好意象问卷。Stanford哲学百科Empedocles条目用于核对古典火、水、土、气四根背景，不为本站心理题本、选择映射、计数或效度提供验证。20题、选项、当代主题、解释、示例和规则均为原创，没有采用JobCannon12题、竞品结果正文／代码／算法或受保护图片。古代自然哲学不等同现代化学或心理学，Love／Strife等古代解释不作现实人格原理。它不是生日星座计算、身体能量、五行／中医、体液、影视Avatar角色或科学人格分类，不转换气质、DISC、MBTI或职业。不认证健康、同理心、可靠性、智力、创造力、道德、吸引力或真实能力，也不预测命运；没有本站心理测量验证。",
+          "en": "This is an independently authored FermatMind four-element preference metaphor quiz. Stanford’s Empedocles entry checks the classical background of Fire, Water, Earth and Air as four roots, without validating this questionnaire, mapping, counts or interpretation. All 20 items, options, contemporary themes, explanations, examples and rules are original. No JobCannon 12-item bank, competitor result text, code, algorithm or protected image is used. Ancient natural philosophy is neither modern chemistry nor psychology; historical Love and Strife supply no personal principles. This is not a birthday or zodiac calculation, bodily energy, five-element or Chinese medical framework, humoural doctrine, Avatar character quiz or scientific personality taxonomy. It converts into no Temperament, DISC, MBTI or career result and certifies no health, empathy, reliability, intelligence, creativity, morality, attractiveness or ability. It predicts no destiny and has no psychometric validation."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "草稿、分享和可选下一步",
+        "en": "Drafts, sharing and optional next steps"
+      },
+      "paragraphs": [
+        {
+          "zh": "答案在浏览器内计分，不上传、不进网址或分析。草稿需主动开启，只在本标签页恢复，24小时失效，完成、重测、退出清除即删除。可选分享只含公开主题说明和链接，不含答案或次数。完整结果免费，不收邮箱、不先做其他测试；后续测评属于不同框架，需要另行作答，也可以到此结束。",
+          "en": "Answers are scored in your browser without uploading them or placing them in URLs or analytics. Drafts require opt-in, restore only in this tab, expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public theme guides and links without answers or counts. Full results are free without email or another test first. Further assessments use separate frameworks and new responses; you can stop here."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "四元素测试包括哪四种？",
+        "en": "Which four elements does this quiz include?"
+      },
+      "answer": {
+        "zh": "本版采用古典火、水、土、风（气）作为当代偏好意象：短时专注尝试、情境调节、实际步骤延续、开放联系。名称来自古典背景，题目与解释由费马独立创作，不声称古代已有这份心理问卷。",
+        "en": "This edition uses classical Fire, Water, Earth and Air as contemporary preference metaphors for brief focus, contextual adjustment, practical continuity and varied connections. Names supply historical context. FermatMind independently authored the questions and explanations, without claiming that this psychological questionnaire existed in antiquity."
+      }
+    },
+    {
+      "question": {
+        "zh": "需要生日或星座吗？和五行一样吗？",
+        "en": "Do I need a birthday or zodiac sign? Is this the five elements?"
+      },
+      "answer": {
+        "zh": "不需要。本版只按20道当前偏好选择计数，不使用出生日期、星座、抽签、身体能量或命运信息。四个古典名称不等同五行／中医，也不是现代化学或影视角色分类。",
+        "en": "No. Counts use only 20 current preference choices, with no birth date, zodiac sign, random draw, bodily energy or destiny information. The four classical names are not the five-element or Chinese medical framework, modern chemistry or a film character classification."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样计分、处理并列和近分？",
+        "en": "How are counts, ties and close results handled?"
+      },
+      "answer": {
+        "zh": "20题全部各选一项，对应主题加1，总数固定20。四主题每题均提供，全卷各出现20次、每个位置5次。原始次数是本组可选做法中的相对分布，不是身体元素比例、相似度百分比、品质强弱或人口排名。所有最高计数都保留完整结果；全选第一项会四种各5次，四份完整显示。名单顺序不设主次，不自动指定第二元素；相差一次只是一项选择，不证明显著差异、某种品质消失或固定混合类型。近分可以比较，但不补造未并列的结论。情境和时间可能改变回答，没有常模、稀有度或科学分界。",
+        "en": "Choose one option for all 20 questions; each adds one to its theme and counts always sum to 20. All four themes appear in every question, 20 times each and five times in each position. Raw counts describe relative choices among these approaches, not bodily element proportions, similarity percentages, quality levels or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives five each and displays all four. List order establishes no priority or automatic secondary element. A one-choice gap proves neither significance, absent qualities nor a fixed mixed type. Compare close counts without inventing untied conclusions. Context and time may change answers. There are no norms, rarity estimates or scientific cutoffs."
+      }
+    },
+    {
+      "question": {
+        "zh": "它能说明实际能力或人格吗？",
+        "en": "Does this establish ability or personality?"
+      },
+      "answer": {
+        "zh": "这是费马独立创作的四元素偏好意象问卷。Stanford哲学百科Empedocles条目用于核对古典火、水、土、气四根背景，不为本站心理题本、选择映射、计数或效度提供验证。20题、选项、当代主题、解释、示例和规则均为原创，没有采用JobCannon12题、竞品结果正文／代码／算法或受保护图片。古代自然哲学不等同现代化学或心理学，Love／Strife等古代解释不作现实人格原理。它不是生日星座计算、身体能量、五行／中医、体液、影视Avatar角色或科学人格分类，不转换气质、DISC、MBTI或职业。不认证健康、同理心、可靠性、智力、创造力、道德、吸引力或真实能力，也不预测命运；没有本站心理测量验证。",
+        "en": "This is an independently authored FermatMind four-element preference metaphor quiz. Stanford’s Empedocles entry checks the classical background of Fire, Water, Earth and Air as four roots, without validating this questionnaire, mapping, counts or interpretation. All 20 items, options, contemporary themes, explanations, examples and rules are original. No JobCannon 12-item bank, competitor result text, code, algorithm or protected image is used. Ancient natural philosophy is neither modern chemistry nor psychology; historical Love and Strife supply no personal principles. This is not a birthday or zodiac calculation, bodily energy, five-element or Chinese medical framework, humoural doctrine, Avatar character quiz or scientific personality taxonomy. It converts into no Temperament, DISC, MBTI or career result and certifies no health, empathy, reliability, intelligence, creativity, morality, attractiveness or ability. It predicts no destiny and has no psychometric validation."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果、重测和分享免费吗？",
+        "en": "Are full results, retaking and sharing free?"
+      },
+      "answer": {
+        "zh": "四份完整说明可以先读，20题完成后全部最高并列完整显示，无需注册或邮箱。重测清除当前答案，可选分享只含公开说明和链接，不带答卷或次数。后续测试自选，不能把元素直接转换成心理或职业结论。",
+        "en": "All four full guides can be read first, and every highest tie appears after all 20 choices without signup or email. Retaking clears current answers. Optional sharing contains public guides and links without responses or counts. Further tests are optional and cannot directly convert an element into psychological or career verdicts."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "Stanford哲学百科：Empedocles（古典四根背景，非心理题本验证）",
+        "en": "Stanford Encyclopedia of Philosophy: Empedocles (classical roots, not questionnaire validation)"
+      },
+      "url": "https://plato.stanford.edu/entries/empedocles/"
+    }
+  ]
+}

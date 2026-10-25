@@ -876,5 +876,30 @@
       "judgement",
       "world"
     ]
+  },
+  {
+    "slug": "what-element-am-i",
+    "code": "FOUR_ELEMENT_PREFERENCES",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "metaphor",
+    "title": {
+      "zh": "四元素测试",
+      "en": "What Element Am I?"
+    },
+    "description": {
+      "zh": "免费四元素测试：20道原创选择比较火、水、土、风（气）四种偏好意象。无需注册，直接读完整结果和所有最高并列；不是生日星座、五行或身体能量测试。",
+      "en": "What element am I? Compare Fire, Water, Earth and Air in 20 original choices. Read full results free, without signup, birthdays or zodiac calculations."
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_four_element_preferences_20",
+    "questionCount": 20,
+    "resultSlugs": [
+      "fire",
+      "water",
+      "earth",
+      "air"
+    ]
   }
 ]
