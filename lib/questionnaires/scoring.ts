@@ -106,10 +106,51 @@ export function scoreLikertQuestionnaire(quiz: Questionnaire, answers: unknown):
   return { status: "complete", answered, facets };
 }
 
+export type ArchetypeResult = { status: "incomplete" | "invalid" | "unavailable"; answered: number } | {
+  status: "complete"; answered: number; counts: Record<string, number>; profileIds: string[];
+};
+
+export function isArchetypeConfigurationValid(quiz: Questionnaire): boolean {
+  if (quiz.kind !== "archetype" || !quiz.instructions || !quiz.questions.length || quiz.directions.length < 2) return false;
+  const ids = new Set(quiz.directions.map(d => d.id));
+  if (ids.size !== quiz.directions.length || new Set(quiz.questions.map(q => q.id)).size !== quiz.questions.length) return false;
+  const exposure = Object.fromEntries(quiz.directions.map(d => [d.id, 0]));
+  for (const question of quiz.questions) {
+    if (question.options.length !== 4 || new Set(question.options.map(o => o.id)).size !== 4
+      || new Set(question.options.map(o => o.directionId)).size !== 4) return false;
+    for (const option of question.options) {
+      if (!ids.has(option.directionId) || option.score !== undefined) return false;
+      exposure[option.directionId]++;
+    }
+  }
+  const comparisons = quiz.directions[0].comparisons;
+  return Number.isInteger(comparisons) && comparisons! > 0
+    && quiz.directions.every(d => d.comparisons === comparisons && exposure[d.id] === comparisons)
+    && quiz.profiles.length === quiz.directions.length
+    && new Set(quiz.profiles.map(p => p.id)).size === quiz.profiles.length
+    && quiz.directions.every(d => quiz.profiles.filter(p => p.directionIds.length === 1 && p.directionIds[0] === d.id).length === 1);
+}
+
+export function scoreArchetypeQuestionnaire(quiz: Questionnaire, answers: unknown): ArchetypeResult {
+  if (!isArchetypeConfigurationValid(quiz)) return { status: "unavailable", answered: 0 };
+  if (!object(answers)) return { status: "invalid", answered: 0 };
+  const questions = new Map(quiz.questions.map(q => [q.id, q]));
+  const counts = Object.fromEntries(quiz.directions.map(d => [d.id, 0]));
+  let answered = 0;
+  for (const [id, value] of Object.entries(answers)) {
+    const option = questions.get(id)?.options.find(o => o.id === value);
+    if (!option) return { status: "invalid", answered };
+    counts[option.directionId]++; answered++;
+  }
+  if (answered !== quiz.questions.length) return { status: "incomplete", answered };
+  const highest = Math.max(...Object.values(counts));
+  return { status: "complete", answered, counts, profileIds: quiz.profiles.filter(p => counts[p.directionIds[0]] === highest).map(p => p.id) };
+}
+
 export const isQuestionnaireConfigurationValid = (quiz: Questionnaire) => quiz.kind === "likert"
-  ? isLikertConfigurationValid(quiz) : isDirectionalConfigurationValid(quiz);
+  ? isLikertConfigurationValid(quiz) : quiz.kind === "archetype" ? isArchetypeConfigurationValid(quiz) : isDirectionalConfigurationValid(quiz);
 export const scoreQuestionnaire = (quiz: Questionnaire, answers: unknown) => quiz.kind === "likert"
-  ? scoreLikertQuestionnaire(quiz, answers) : scoreDirectionalQuestionnaire(quiz, answers);
+  ? scoreLikertQuestionnaire(quiz, answers) : quiz.kind === "archetype" ? scoreArchetypeQuestionnaire(quiz, answers) : scoreDirectionalQuestionnaire(quiz, answers);
 
 export function readQuestionnaireDraft(quiz: Questionnaire, raw: string | null, now = Date.now()): QuestionnaireAnswers | null {
   if (!raw) return null;

@@ -95,5 +95,34 @@
       "quiet-recovery",
       "easy-company"
     ]
+  },
+  {
+    "slug": "spirit-animal",
+    "code": "SPIRIT_ANIMAL",
+    "version": "1.0.0",
+    "updated": "2026-10-25",
+    "category": "metaphor",
+    "title": {
+      "zh": "精神动物测试",
+      "en": "Spirit Animal Test"
+    },
+    "description": {
+      "zh": "免费完成16道原创情境题，比较狼、猫头鹰、狐狸、狮子、海豚、鹿、熊和鹰的匹配线索。全部8份解释可直接阅读，保留并列，说明计分和实际取舍，无需注册。",
+      "en": "What is my spirit animal? Take 16 original questions, see every tied match and read all eight animal profiles with examples and clear scoring. Free, no signup."
+    },
+    "minutes": 4,
+    "collection": "explore",
+    "formCode": "fm_spirit_animal_choices_16",
+    "questionCount": 16,
+    "resultSlugs": [
+      "wolf",
+      "owl",
+      "fox",
+      "lion",
+      "dolphin",
+      "deer",
+      "bear",
+      "eagle"
+    ]
   }
 ]

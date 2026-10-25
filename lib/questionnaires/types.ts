@@ -15,7 +15,7 @@ export type Questionnaire = {
   version: string;
   updated: string;
   category: string;
-  kind: "directional" | "likert";
+  kind: "directional" | "likert" | "archetype";
   references?: { title: Text; url: string }[];
   minimumRatedItems?: number;
   instructions?: Text;

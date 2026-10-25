@@ -1,8 +1,8 @@
 import type { QuestionnaireProfile } from "@/lib/questionnaires/types";
 import type { Locale } from "@/lib/i18n/locales";
 
-export function QuestionnaireReport({ profile, locale, headingLevel = 3, idPrefix = "report" }: { profile: QuestionnaireProfile; locale: Locale; headingLevel?: 3 | 4; idPrefix?: string }) {
-  const Heading = headingLevel === 4 ? "h4" : "h3";
+export function QuestionnaireReport({ profile, locale, headingLevel = 3, idPrefix = "report" }: { profile: QuestionnaireProfile; locale: Locale; headingLevel?: 2 | 3 | 4; idPrefix?: string }) {
+  const Heading = headingLevel === 2 ? "h2" : headingLevel === 4 ? "h4" : "h3";
   return <article className="space-y-7 leading-8 [overflow-wrap:anywhere]">
     <p className="font-semibold">{profile.headline[locale]}</p>
     <p>{profile.summary[locale]}</p>

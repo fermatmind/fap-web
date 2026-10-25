@@ -1,0 +1,2009 @@
+{
+  "slug": "spirit-animal",
+  "code": "SPIRIT_ANIMAL",
+  "version": "1.0.0",
+  "updated": "2026-10-25",
+  "category": "metaphor",
+  "kind": "archetype",
+  "minutes": 4,
+  "title": {
+    "zh": "精神动物测试",
+    "en": "Spirit Animal Test"
+  },
+  "seoTitle": {
+    "zh": "精神动物测试：16题找到你的动物比喻",
+    "en": "Spirit Animal Test: What Is My Spirit Animal? Free Quiz"
+  },
+  "description": {
+    "zh": "免费完成16道原创情境题，比较狼、猫头鹰、狐狸、狮子、海豚、鹿、熊和鹰的匹配线索。全部8份解释可直接阅读，保留并列，说明计分和实际取舍，无需注册。",
+    "en": "What is my spirit animal? Take 16 original questions, see every tied match and read all eight animal profiles with examples and clear scoring. Free, no signup."
+  },
+  "introduction": {
+    "zh": "遇到分歧时，你先核对依据、保护共同约定，还是换条路试一试？这里用八种动物作比喻，观察你在具体选择中偏向哪些做法。精神动物测试也常被叫作内在动物人格测试；本页用同一份实际问卷承接这类探索，不从生日、MBTI或随机数生成动物。",
+    "en": "When a plan stalls, do you check the evidence, protect a shared commitment or test another route? This quiz uses eight animal metaphors to reflect the approaches selected in everyday situations. Also looking for an inner animal personality test? The same questionnaire lets you compare those patterns here, without deriving an animal from a birthday, MBTI code or random number."
+  },
+  "instructions": {
+    "zh": "每题有四种都可能合理的做法，请选你在类似情境里更自然的一项，而不是最理想的一项。想起最近的具体经历再选；若几项都贴合，选更常先出现的做法。完成16题后显示全部计数和每个并列匹配的完整说明。",
+    "en": "Each question offers four responses that may all be reasonable. Choose what comes more naturally in a similar situation rather than what sounds ideal. Recall a recent example; if several fit, choose what you more often do first. After all 16 questions, you will see every count and the full explanation of every tied match."
+  },
+  "source": {
+    "kind": "FermatMind original website symbolic choice quiz",
+    "formCode": "fm_spirit_animal_choices_16",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "b22fb35b2d40f7927465f1d43055357e78503a6de24f3318b80a292fe3b02cf3",
+    "resultContentSha256": "2326d99dc31825df3acca2f15bd695a55b206b49dba8552ef136e4a6bc519d0a",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "wolf",
+      "title": {
+        "zh": "狼",
+        "en": "Wolf"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "owl",
+      "title": {
+        "zh": "猫头鹰",
+        "en": "Owl"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "fox",
+      "title": {
+        "zh": "狐狸",
+        "en": "Fox"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "lion",
+      "title": {
+        "zh": "狮子",
+        "en": "Lion"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "dolphin",
+      "title": {
+        "zh": "海豚",
+        "en": "Dolphin"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "deer",
+      "title": {
+        "zh": "鹿",
+        "en": "Deer"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "bear",
+      "title": {
+        "zh": "熊",
+        "en": "Bear"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "eagle",
+      "title": {
+        "zh": "鹰",
+        "en": "Eagle"
+      },
+      "comparisons": 8
+    }
+  ],
+  "questions": [
+    {
+      "id": "SPIRIT_01",
+      "prompt": {
+        "zh": "刚加入一个临时小组，大家还不熟悉。你通常先做什么？",
+        "en": "You have just joined a temporary group where nobody knows one another. What do you tend to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问清每个人负责什么，找到可以互相配合的位置。",
+            "en": "Find out what everyone is taking on and where we can support each other."
+          },
+          "directionId": "wolf"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "试一个小办法，看看大家对哪种做法有反应。",
+            "en": "Try a small approach and see what people respond to."
+          },
+          "directionId": "fox"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "提出一个明确的起点，让大家先动起来。",
+            "en": "Suggest a clear starting point so we can get moving."
+          },
+          "directionId": "lion"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先听几轮，弄清问题和已有的信息。",
+            "en": "Listen for a while to understand the problem and the information already available."
+          },
+          "directionId": "owl"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_02",
+      "prompt": {
+        "zh": "周末突然空出半天，你更想怎样安排？",
+        "en": "Half a day unexpectedly opens up at the weekend. What would you most like to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把这段时间留给一个一直想推进的方向。",
+            "en": "Use the space to move toward something I have been wanting to pursue."
+          },
+          "directionId": "eagle"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "慢慢做完一件熟悉的事，留出不被催促的时间。",
+            "en": "Settle into something familiar with no need to rush."
+          },
+          "directionId": "bear"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "找人一起做点轻松的事，边玩边聊。",
+            "en": "Invite someone to do something easy and enjoy the conversation along the way."
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "挑一件贴合自己和身边人当下感受的事。",
+            "en": "Choose something that fits how I and the people around me are feeling."
+          },
+          "directionId": "deer"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_03",
+      "prompt": {
+        "zh": "原定的共同计划临时行不通了，你更自然的反应是？",
+        "en": "A shared plan falls through at short notice. What is your more natural response?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "利用现成条件换条路，先试试能不能走通。",
+            "en": "Work with what is available and test a different route."
+          },
+          "directionId": "fox"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "想一个大家会觉得有意思的替代活动。",
+            "en": "Think of an alternative people would enjoy doing together."
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先和原来的伙伴确认，尽量让大家还能一起参与。",
+            "en": "Check in with the original group and try to keep everyone involved."
+          },
+          "directionId": "wolf"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "缩小安排，保留一件确定能完成的事。",
+            "en": "Simplify the plan and keep one thing we can reliably do."
+          },
+          "directionId": "bear"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_04",
+      "prompt": {
+        "zh": "你想开始一个新爱好，通常怎样选第一步？",
+        "en": "When starting a new hobby, how do you usually choose a first step?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "选一个能马上完成的挑战，动手再调整。",
+            "en": "Pick a challenge I can attempt straight away and adjust as I go."
+          },
+          "directionId": "lion"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先了解基本原理和常见误区，再决定怎么练。",
+            "en": "Learn the basics and common pitfalls before choosing how to practise."
+          },
+          "directionId": "owl"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看哪种练习环境让我自在，也留意同伴是否舒服。",
+            "en": "Look for a setting where I feel at ease and notice how comfortable others seem."
+          },
+          "directionId": "deer"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先想它能给生活带来什么，再安排阶段目标。",
+            "en": "Consider what I want it to add to my life and set a few milestones."
+          },
+          "directionId": "eagle"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_05",
+      "prompt": {
+        "zh": "朋友之间出现误会，你通常更先关注哪件事？",
+        "en": "When friends misunderstand each other, what do you tend to attend to first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "谁的感受没有被听见，谈话能否更温和。",
+            "en": "Whose feelings have gone unheard and how the conversation could feel gentler."
+          },
+          "directionId": "deer"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "哪些承诺和信任需要重新说清楚。",
+            "en": "Which commitments and expectations of trust need to be clarified."
+          },
+          "directionId": "wolf"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "大家真正希望保住的关系或共同目标是什么。",
+            "en": "What relationship or shared aim everyone is trying to preserve."
+          },
+          "directionId": "eagle"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "能不能换个沟通方式，打破现在的僵局。",
+            "en": "Whether a different way of talking could get us out of the deadlock."
+          },
+          "directionId": "fox"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_06",
+      "prompt": {
+        "zh": "小组完成了一件难事，庆祝时你更愿意？",
+        "en": "Your group has finished something difficult. During the celebration, what would you rather do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "找个空当聊聊这次到底是什么起了作用。",
+            "en": "Find a moment to discuss what actually made the difference."
+          },
+          "directionId": "owl"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "清楚说出这次的成果，也大方接受肯定。",
+            "en": "Name what we achieved and be comfortable acknowledging it."
+          },
+          "directionId": "lion"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "安静享受收尾，照顾好那些还没做完的小事。",
+            "en": "Enjoy the finish quietly and take care of the small loose ends."
+          },
+          "directionId": "bear"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让气氛轻松起来，把不太说话的人也邀请进来。",
+            "en": "Keep things relaxed and invite quieter people into the moment."
+          },
+          "directionId": "dolphin"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_07",
+      "prompt": {
+        "zh": "和别人一起安排短途出行，你最常补上的一环是？",
+        "en": "When planning a short trip with others, what do you most often contribute?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "落实时间和基本准备，避免一路赶来赶去。",
+            "en": "Sort out the practical timing and basics so we are not constantly rushing."
+          },
+          "directionId": "bear"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "决定这次最想体验什么，再让路线围绕它展开。",
+            "en": "Choose the experience we most want and build the route around it."
+          },
+          "directionId": "eagle"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "查清交通、费用或限制，免得重要信息遗漏。",
+            "en": "Check transport, costs or restrictions so important details are not missed."
+          },
+          "directionId": "owl"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "确认约定和分工，让伙伴之间能互相照应。",
+            "en": "Clarify arrangements so people can depend on one another."
+          },
+          "directionId": "wolf"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_08",
+      "prompt": {
+        "zh": "熟人聚会里来了一位新人，你更可能怎样回应？",
+        "en": "Someone new arrives at a gathering of people who know each other. How might you respond?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用一个轻松的话题把对方带入聊天。",
+            "en": "Offer an easy topic that gives them a way into the conversation."
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先留意对方想热闹还是想慢慢适应，再靠近。",
+            "en": "Notice whether they want company or time to settle in, then approach accordingly."
+          },
+          "directionId": "deer"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "找一个新旧成员都能参与的小活动。",
+            "en": "Find a small activity both newcomers and regulars could join."
+          },
+          "directionId": "fox"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "主动介绍大家，直接给对方一个参与的位置。",
+            "en": "Make introductions and offer a clear way to take part."
+          },
+          "directionId": "lion"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_09",
+      "prompt": {
+        "zh": "别人对你的决定提出异议，你更愿意先问？",
+        "en": "Someone challenges a decision you have made. What would you rather ask first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "你希望我具体改哪一步？",
+            "en": "Which specific step would you like me to change?"
+          },
+          "directionId": "lion"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "这个决定有没有违背我们之前说好的事？",
+            "en": "Does this go against something we previously agreed on?"
+          },
+          "directionId": "wolf"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "这个决定给你带来了什么感受或负担？",
+            "en": "How has this decision felt for you, or what burden has it created?"
+          },
+          "directionId": "deer"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有什么证据是我还没有考虑到的？",
+            "en": "What evidence have I not yet considered?"
+          },
+          "directionId": "owl"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_10",
+      "prompt": {
+        "zh": "一项自己的事情拖了很久，重新启动时你更倾向于？",
+        "en": "Something of your own has been unfinished for a while. How do you tend to restart it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "换工具或顺序，试一个不一样的小切口。",
+            "en": "Change the tool or sequence and test a different small entry point."
+          },
+          "directionId": "fox"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "重新确认它为什么重要，舍掉偏离目标的部分。",
+            "en": "Revisit why it matters and drop the parts that no longer serve the aim."
+          },
+          "directionId": "eagle"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "固定一小段时间，重复做同一个可完成步骤。",
+            "en": "Set aside a small regular slot for one manageable step."
+          },
+          "directionId": "bear"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "找个人一起做，靠互动让过程重新有意思。",
+            "en": "Do it alongside someone and let the interaction make it engaging again."
+          },
+          "directionId": "dolphin"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_11",
+      "prompt": {
+        "zh": "临近截止时间，团队还有几件事没完成。你更可能？",
+        "en": "A deadline is approaching and your team still has work left. What are you more likely to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "守住最必要的步骤，一件件稳妥收尾。",
+            "en": "Protect the essential steps and finish them steadily."
+          },
+          "directionId": "bear"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "保持沟通和士气，让大家敢及时说出卡点。",
+            "en": "Keep communication open so people feel able to say where they are stuck."
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "协调谁能接手哪一项，避免有人独自扛着。",
+            "en": "Work out who can take which part so nobody is left carrying it alone."
+          },
+          "directionId": "wolf"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "明确取舍并推动执行，不再让决定悬着。",
+            "en": "Make the tradeoffs explicit and move us into action."
+          },
+          "directionId": "lion"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_12",
+      "prompt": {
+        "zh": "一个新点子让你很感兴趣，什么最能说服你投入？",
+        "en": "A new idea catches your attention. What most persuades you to invest effort?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "它的依据和逻辑经得起追问。",
+            "en": "Its evidence and reasoning hold up when questioned."
+          },
+          "directionId": "owl"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "它能照顾到现实中容易被忽略的需要。",
+            "en": "It responds to needs that are easily overlooked in everyday life."
+          },
+          "directionId": "deer"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "它打开了一个值得长期追求的可能。",
+            "en": "It opens a possibility worth pursuing over time."
+          },
+          "directionId": "eagle"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有机会低成本试验，并随反馈改变做法。",
+            "en": "There is a low-cost way to try it and adapt to feedback."
+          },
+          "directionId": "fox"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_13",
+      "prompt": {
+        "zh": "一次意见不同的合作之后，你最希望留下什么？",
+        "en": "After a collaboration where people disagreed, what would you most want to carry forward?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "仍然说到做到、可以互相依靠的关系。",
+            "en": "Relationships where people keep their word and can still rely on one another."
+          },
+          "directionId": "wolf"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一套不透支、能稳定重复的工作节奏。",
+            "en": "A sustainable rhythm we can repeat without exhausting ourselves."
+          },
+          "directionId": "bear"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一个下次能灵活改进的方法，而不是死守流程。",
+            "en": "An approach we can adapt next time rather than a rigid process."
+          },
+          "directionId": "fox"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "大家的感受被承认，没有谁被随手贴上标签。",
+            "en": "Acknowledgment of people’s feelings without casually labelling anyone."
+          },
+          "directionId": "deer"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_14",
+      "prompt": {
+        "zh": "讨论变得很散，你更自然地怎样把它拉回来？",
+        "en": "A discussion has become scattered. How do you naturally bring it back?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让每个人轮流说一句，重新接上彼此的话。",
+            "en": "Give everyone a brief turn so people can reconnect with the conversation."
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把眼前必须决定的问题直接摆出来。",
+            "en": "Put the decision we need to make directly on the table."
+          },
+          "directionId": "lion"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "区分已经知道的事实和还没证实的猜测。",
+            "en": "Separate what we know from what is still an assumption."
+          },
+          "directionId": "owl"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提醒大家这次讨论想达到的整体目的。",
+            "en": "Remind us of the overall purpose of the discussion."
+          },
+          "directionId": "eagle"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_15",
+      "prompt": {
+        "zh": "日常安排里发现一个一直没人处理的小问题，你倾向于？",
+        "en": "You notice a small recurring problem that nobody has dealt with. What do you tend to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把它放进更大的安排里，判断是否该重排优先级。",
+            "en": "Look at how it fits the bigger picture and whether priorities need to change."
+          },
+          "directionId": "eagle"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先观察几次，弄清它通常在什么条件下出现。",
+            "en": "Observe it a few times to understand the conditions in which it happens."
+          },
+          "directionId": "owl"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "从轻松的提醒开始，让人愿意一起改善。",
+            "en": "Start with a friendly prompt that makes people willing to improve it together."
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "找相关的人一起商量，让处理办法有人共同维护。",
+            "en": "Bring the people involved together so the solution has shared support."
+          },
+          "directionId": "wolf"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_16",
+      "prompt": {
+        "zh": "忙碌告一段落，接下来的空闲你更想怎样使用？",
+        "en": "A busy period is over. How would you most like to use the space afterward?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问问自己现在需要什么，给感受一点缓冲。",
+            "en": "Check what I need now and give my feelings some room to settle."
+          },
+          "directionId": "deer"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "做件和刚才不同的小事，让思路换个方向。",
+            "en": "Try a small change of activity that lets my thinking take another route."
+          },
+          "directionId": "fox"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "完成一个短而明确的个人心愿，享受主动掌控。",
+            "en": "Do one short, clear thing of my own choosing and enjoy taking the initiative."
+          },
+          "directionId": "lion"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "回到熟悉、安稳的节奏，不急着开启下一件事。",
+            "en": "Return to a familiar, settled pace without rushing into the next thing."
+          },
+          "directionId": "bear"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "wolf",
+      "directionIds": [
+        "wolf"
+      ],
+      "title": {
+        "zh": "狼",
+        "en": "Wolf"
+      },
+      "headline": {
+        "zh": "把彼此的承诺连接起来",
+        "en": "Connect the commitments people make"
+      },
+      "summary": {
+        "zh": "你在本题组更常选择确认约定、维持合作与共同承担的做法。狼在这里是相互依靠的比喻；这不是忠诚度鉴定，也不要求你永远站在同一边。",
+        "en": "In this set, your choices more often favour clarifying commitments, sustaining cooperation and sharing responsibility. Wolf is a metaphor for mutual reliance here. It is not a loyalty rating or a requirement to stay on the same side forever."
+      },
+      "scoreReading": {
+        "zh": "本题组中，狼选项出现8次。每选中一次记1次，16题全部回答后才显示所有动物的计数。它与最高计数相同时，完整保留为本次匹配；并列不按名单顺序强行挑选。计数接近不代表已经验证的人格距离，分母8也不是相似度百分比。",
+        "en": "Wolf options appear eight times in this set. Each selected option adds one raw choice; all animal counts appear only after all 16 questions are answered. Any animal sharing the highest count remains a match, without a winner chosen by list order. Close counts are not validated personality distances, and the denominator of eight is not a match percentage."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这项结果在说什么",
+            "en": "What the match describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "比起独自决定或随时换方案，狼选项更重视“我们说好了什么”和“还有谁需要一起参与”。请找两道实际选过的题，检查这是否真是你当时的理由；同一种行动也可能出于责任、习惯或现实限制。",
+              "en": "Wolf options give weight to what people have agreed and who still needs to be included. Look at two choices you actually made and ask whether that was your reason. The same action can come from obligation, habit or practical constraints, so the label cannot establish your motivation."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能带来的帮助",
+            "en": "Where it may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "当合作容易出现遗漏时，把承诺和分工说清楚，能让交接更容易跟进。例如共同准备活动时，你可能会主动确认谁接送、谁带物品、谁还没收到通知。这是可观察的做法，不是天生优于其他人的品质。",
+              "en": "Clarifying promises and responsibilities can make handoffs easier to follow. For a shared event, that might mean checking who is giving lifts, bringing supplies or still waiting for an invitation. These are observable contributions rather than proof of an inborn quality that makes one person better than others."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "什么时候需要收一点",
+            "en": "When to loosen the approach"
+          },
+          "paragraphs": [
+            {
+              "zh": "维护关系有时会变成替大家承担、难以说不，或把改变主意理解成不够重视你。先问约定是否仍然合理、对方是否主动同意，再决定继续。互相依靠需要双向回应，不等于你必须把每个人都照顾到底。",
+              "en": "Keeping a group together can become carrying too much, struggling to decline or reading a changed plan as personal rejection. Check whether an agreement is still reasonable and freely shared. Mutual reliance requires responses in both directions; it does not require you to keep looking after everyone indefinitely."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "朋友临时取消约饭，你可以先说“我原本按这个时间安排了，能不能另约一个确定的时间？”如果对方没有余力，也允许这次不再继续协调。把感受和实际安排分开，比用“你根本不在乎我们”更容易讨论。",
+              "en": "If a friend cancels dinner, you could say, “I had planned around that time. Could we choose another definite slot?” If they cannot commit, let this attempt end. Separating disappointment from practical arrangements gives you more to discuss than treating a cancellation as a verdict on the friendship."
+            }
+          ]
+        },
+        {
+          "id": "shared-task",
+          "title": {
+            "zh": "放在共同任务里",
+            "en": "In a shared task"
+          },
+          "paragraphs": [
+            {
+              "zh": "项目推进时，把“我可以帮忙”说成明确范围，例如只检查一轮资料，并约定交回时间。这样既能支持同伴，也能看见原来不清楚的责任。动物结果不判断你适合管理、照护或任何职业；任务表现仍需真实证据。",
+              "en": "In a project, turn “I can help” into a bounded offer, such as checking one draft by an agreed time. That supports a colleague while making unclear responsibilities visible. An animal match cannot establish suitability for management, caring work or any career; actual task performance needs its own evidence."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近动物怎样区分",
+            "en": "How to compare nearby animals"
+          },
+          "paragraphs": [
+            {
+              "zh": "狼和海豚都可能主动联系别人，但狼选项更强调共同约定，海豚更强调互动是否轻松。狼与熊都可能稳定投入，熊选项则更关注可持续的节奏。若计数接近，请比较具体选项，而不是寻找哪种动物更好。",
+              "en": "Wolf and Dolphin may both reach out, but Wolf options emphasise shared commitments while Dolphin options emphasise ease of interaction. Wolf and Bear may both stay involved; Bear puts more weight on a sustainable pace. If counts are close, compare the actual options instead of deciding which animal is better."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "下次共同安排事情时，提出一项明确请求，同时说出自己能承担的上限。结束后记下：谁主动回应了、还有哪一步需要重新约定。目标不是证明自己像狼，而是找到更公平、可持续的合作方式。",
+              "en": "Next time you arrange something together, make one clear request and state the limit of what you can take on. Afterwards, note who responded and which agreement needs revisiting. The aim is not to prove that you are a Wolf, but to find cooperation that is fairer and easier to sustain."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "狼计数不高意味着什么",
+            "en": "What if my Wolf count is low?"
+          },
+          "paragraphs": [
+            {
+              "zh": "这只说明在这16道题的具体比较中，你更常选了别的做法，不代表冷漠、不可靠或不重视关系。你可能用更直接、细致或安静的方式支持别人。需要理解一次真实分歧时，请谈当时的行为，不给自己或别人贴动物标签。",
+              "en": "It only means that other responses were selected more often in these 16 comparisons. It does not mean coldness, unreliability or a lack of care. You might support people through direct action, careful attention or quiet steadiness. Discuss the behaviour in an actual disagreement rather than assigning anyone an animal label."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "这个比喻的边界",
+            "en": "Limits of the metaphor"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、动物对应和解释均为费马原创娱乐内容，没有建立信度、效度或人群常模。动物不是实际物种行为、精神向导或任何文化传统的鉴定，也不测能力、心理健康或职业适配。请用具体经历检验有用之处，忽略不贴合的部分。",
+              "en": "The questions, animal assignments and explanations are FermatMind’s original entertainment content, without established reliability, validity or population norms. The animal does not identify species behaviour, a spiritual guide or a cultural tradition, or measure ability, mental health or career fit. Test useful parts against actual experiences and leave aside what does not fit."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "owl",
+      "directionIds": [
+        "owl"
+      ],
+      "title": {
+        "zh": "猫头鹰",
+        "en": "Owl"
+      },
+      "headline": {
+        "zh": "先看清楚，再决定怎样行动",
+        "en": "Look closely before choosing a move"
+      },
+      "summary": {
+        "zh": "猫头鹰代表本题组里先观察、核对依据和区分已知未知的做法。匹配来自具体选择，不是智商、洞察力或比别人更理性的证明。",
+        "en": "Owl represents observing, checking evidence and separating knowns from unknowns within this quiz. The match comes from particular choices. It does not establish intelligence, insight or greater rationality than other people."
+      },
+      "scoreReading": {
+        "zh": "本题组中，猫头鹰选项出现8次。每选中一次记1次，16题全部回答后才显示所有动物的计数。它与最高计数相同时，完整保留为本次匹配；并列不按名单顺序强行挑选。计数接近不代表已经验证的人格距离，分母8也不是相似度百分比。",
+        "en": "Owl options appear eight times in this set. Each selected option adds one raw choice; all animal counts appear only after all 16 questions are answered. Any animal sharing the highest count remains a match, without a winner chosen by list order. Close counts are not validated personality distances, and the denominator of eight is not a match percentage."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这项结果在说什么",
+            "en": "What the match describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能更常选择先听清问题、查明限制、追问依据，而不是马上定方向。这种取向在信息不足时值得留意，但题本无法知道你是否真的获取了准确资料。请把想了解的事和已经核实的事分开。",
+              "en": "You may have favoured listening, checking constraints and questioning evidence over setting a direction immediately. That approach is worth noticing when information is incomplete. The quiz cannot tell whether the information you obtained was accurate, so keep what you want to understand separate from what you have actually verified."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能带来的帮助",
+            "en": "Where it may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "面对说法不一致的消息，先确认来源和适用条件，可以让讨论更具体。例如选择课程时，比较真实课时、费用与要求，而不是只看宣传词。有效的观察最后应能帮助一个决定，不必收集完所有信息才有价值。",
+              "en": "Checking sources and conditions can make a discussion more concrete when claims conflict. When choosing a course, for example, compare actual hours, costs and requirements rather than slogans alone. Useful observation should eventually support a decision; it does not need to collect every available detail to be worthwhile."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "什么时候需要收一点",
+            "en": "When to loosen the approach"
+          },
+          "paragraphs": [
+            {
+              "zh": "继续研究有时会推迟本来可以低成本尝试的事，也可能让同伴觉得每个提议都在被审问。给核查设一个结束条件：哪两条信息足够决定下一小步？无法确定的部分，可以明确标出来，而不是假装必须先消除。",
+              "en": "More research can delay a low-cost trial or make others feel that every suggestion is being interrogated. Set an end condition: which two pieces of information would be enough for the next small step? Mark what remains uncertain instead of assuming you must remove all uncertainty before doing anything."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "朋友推荐一个新活动，你可以先问时长、费用和是否能中途离开，再决定参加。若这些条件已经清楚，就不必把兴趣讨论变成全面风险报告。让对方知道你是在确认安排，而不是否定他们的体验。",
+              "en": "If a friend suggests an activity, ask about duration, cost and whether you can leave early, then decide. Once the practical conditions are clear, an interest does not need a complete risk report. Let your friend know that you are checking arrangements rather than dismissing what they enjoyed about it."
+            }
+          ]
+        },
+        {
+          "id": "shared-task",
+          "title": {
+            "zh": "放在共同任务里",
+            "en": "In a shared task"
+          },
+          "paragraphs": [
+            {
+              "zh": "在会议里可以用两栏记录“已证实”和“待核查”，然后为一个关键缺口约定负责人和截止时间。这比笼统说“信息还不够”更容易推进。结果不代表研究、技术或分析职业适配，也不代替具体能力练习。",
+              "en": "In a meeting, keep two columns for “verified” and “needs checking,” then assign an owner and deadline to one important gap. That is easier to act on than saying information is insufficient in general. This match does not establish suitability for research, technical or analytical careers, or replace practice in those skills."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近动物怎样区分",
+            "en": "How to compare nearby animals"
+          },
+          "paragraphs": [
+            {
+              "zh": "猫头鹰关注依据是否充分，鹰更关注事情指向什么整体目标。猫头鹰和熊都可能慢下来，但熊强调稳定节奏，猫头鹰强调弄清情况。接近的计数只提示多种做法都有出现，不能证明你兼具几个固定人格。",
+              "en": "Owl asks whether the evidence is sufficient; Eagle asks what wider aim it serves. Owl and Bear may both slow down, but Bear emphasises a steady pace while Owl emphasises understanding the situation. Close counts suggest several responses appeared in this set, not that you possess multiple fixed personalities."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "挑一件可撤回的小决定，先写下你真正需要知道的两件事，限时查完，再做一次小范围尝试。之后补记什么信息真正改变了决定。这样能看见观察是否在帮你行动，而不只是延长准备。",
+              "en": "Choose one reversible decision. Write down the two things you genuinely need to know, give yourself a limited time to check them, and try a small step. Afterwards, note what information actually changed the decision. This helps you see whether observation is supporting action rather than simply extending preparation."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "猫头鹰计数不高意味着什么",
+            "en": "What if my Owl count is low?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不代表不聪明、粗心或缺少思考。你可能在题目给出的情况下更愿意先行动、协调或照顾气氛。若你想改进核查习惯，可以直接练习一个真实任务，不需要先得到猫头鹰结果作为资格。",
+              "en": "It does not mean being unintelligent, careless or thoughtless. In the situations offered, you may have preferred action, coordination or attention to the atmosphere. If you want to improve how you check information, practise that in a real task; an Owl result is not a qualification you need first."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "这个比喻的边界",
+            "en": "Limits of the metaphor"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、动物对应和解释均为费马原创娱乐内容，没有建立信度、效度或人群常模。动物不是实际物种行为、精神向导或任何文化传统的鉴定，也不测能力、心理健康或职业适配。请用具体经历检验有用之处，忽略不贴合的部分。",
+              "en": "The questions, animal assignments and explanations are FermatMind’s original entertainment content, without established reliability, validity or population norms. The animal does not identify species behaviour, a spiritual guide or a cultural tradition, or measure ability, mental health or career fit. Test useful parts against actual experiences and leave aside what does not fit."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fox",
+      "directionIds": [
+        "fox"
+      ],
+      "title": {
+        "zh": "狐狸",
+        "en": "Fox"
+      },
+      "headline": {
+        "zh": "换个办法，先试一小步",
+        "en": "Change the approach and test a small step"
+      },
+      "summary": {
+        "zh": "狐狸在本题组代表利用现成条件、改变路径并按反馈调整。它是应对方式的比喻，不把灵活等同于狡猾，也不判断诚信或聪明程度。",
+        "en": "Fox stands for using what is available, changing routes and adjusting to feedback in this quiz. It is a metaphor for an approach, not an equation of flexibility with deception or a judgment of honesty or intelligence."
+      },
+      "scoreReading": {
+        "zh": "本题组中，狐狸选项出现8次。每选中一次记1次，16题全部回答后才显示所有动物的计数。它与最高计数相同时，完整保留为本次匹配；并列不按名单顺序强行挑选。计数接近不代表已经验证的人格距离，分母8也不是相似度百分比。",
+        "en": "Fox options appear eight times in this set. Each selected option adds one raw choice; all animal counts appear only after all 16 questions are answered. Any animal sharing the highest count remains a match, without a winner chosen by list order. Close counts are not validated personality distances, and the denominator of eight is not a match percentage."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这项结果在说什么",
+            "en": "What the match describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "狐狸选项反复提出一个问题：原来的路走不通时，是否还有可尝试的小切口？这可能让你更容易离开卡住的做法，但一次测试无法判断新办法是否真的有效。请以尝试后的结果，而不是新鲜感，来检查它。",
+              "en": "Fox options keep asking whether there is another small way in when the original route stalls. That may make it easier to leave a stuck approach. One quiz cannot establish whether an alternative works, so check what happens after a trial rather than treating novelty itself as evidence of usefulness."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能带来的帮助",
+            "en": "Where it may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "条件不完整时，先用现有材料做一个小样，常比一直等待理想准备更容易获得反馈。例如安排活动遇到场地限制，可以缩小人数或更换形式。关键是让尝试可撤回，并让相关的人知道改变了什么。",
+              "en": "When conditions are incomplete, a small trial with available materials can produce feedback sooner than waiting for an ideal setup. If a venue limits an event, you might reduce the group or change the format. Keep the trial reversible and tell the people involved what has changed."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "什么时候需要收一点",
+            "en": "When to loosen the approach"
+          },
+          "paragraphs": [
+            {
+              "zh": "换办法也可能变成频繁改计划，留下别人难以跟进的半成品。开始新尝试前先问：旧方法哪里失败、这次只改哪一点、什么时候判断是否继续？如果只是觉得无聊，先完成一个收尾再决定换路。",
+              "en": "Changing the approach can become changing plans so often that others cannot follow the unfinished work. Before a new trial, identify what failed, the one thing you will change and when to decide whether to continue. If the issue is boredom, finish one small piece before taking another route."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "原定聚会无法成行时，你可能很快提出散步、线上聊天或改时间。先确认大家最看重的是见面、聊天还是完成某件事，再给两种选择。这样，灵活不是替别人决定，而是为共同目的提供不同入口。",
+              "en": "When a gathering falls through, you might quickly suggest a walk, an online conversation or a new time. First check whether people most value meeting, talking or doing a particular activity, then offer two options. Flexibility becomes another way into a shared purpose rather than deciding on everyone else’s behalf."
+            }
+          ]
+        },
+        {
+          "id": "shared-task",
+          "title": {
+            "zh": "放在共同任务里",
+            "en": "In a shared task"
+          },
+          "paragraphs": [
+            {
+              "zh": "把一个新工具的试用限定在非关键的小任务上，保留原来的可用版本，并写清如何退回。让一次试验回答一个具体问题，比同时更换工具、目标和分工更容易看清效果。结果不说明创业、创意或商业能力。",
+              "en": "Try a new tool on a small, non-critical task, keep the working original and explain how to return to it. A trial that answers one question is easier to evaluate than changing the tools, aim and responsibilities at once. A Fox match does not measure entrepreneurial, creative or commercial ability."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近动物怎样区分",
+            "en": "How to compare nearby animals"
+          },
+          "paragraphs": [
+            {
+              "zh": "狐狸和狮子都可能很快行动：狐狸选项强调换路试验，狮子强调明确决定和推进。狐狸和鹰都可能提出新方向，但鹰更重视远处的目的。请比较动作的理由，不把“有点子”直接等同于任意一种动物。",
+              "en": "Fox and Lion may both act quickly: Fox options emphasise trying another route, while Lion options emphasise a clear decision and movement. Fox and Eagle may propose new directions, but Eagle puts more weight on the longer view. Compare the reason for an action rather than treating every idea as the same pattern."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "找一个反复卡住的小步骤，只改变一项条件，并保留原办法作为退路。事先写下你希望看到的可观察变化，结束后按这个标准决定保留或放弃。一次没有帮助的尝试也是信息，不必继续证明自己灵活。",
+              "en": "Choose one recurring sticking point, change a single condition and keep the old approach available. Write down an observable change you hope to see, then use it to decide whether to keep or drop the trial. An unhelpful attempt still supplies information; you do not need to keep proving your adaptability."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "狐狸会暗示不可靠吗",
+            "en": "Does Fox imply unreliability?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不会。这里的动物不是道德判断，也不推断你会不会欺骗别人。灵活和守约可以同时存在，前提是把变化及时告知相关的人。若真实合作出现问题，请讨论具体变更和影响，不把“狐狸”当解释或借口。",
+              "en": "No. The animal is not a moral judgment and does not infer whether you deceive others. Flexibility and keeping commitments can coexist when changes are communicated. If a real collaboration has gone wrong, discuss the specific change and its effects rather than using Fox as an explanation or an excuse."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "这个比喻的边界",
+            "en": "Limits of the metaphor"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、动物对应和解释均为费马原创娱乐内容，没有建立信度、效度或人群常模。动物不是实际物种行为、精神向导或任何文化传统的鉴定，也不测能力、心理健康或职业适配。请用具体经历检验有用之处，忽略不贴合的部分。",
+              "en": "The questions, animal assignments and explanations are FermatMind’s original entertainment content, without established reliability, validity or population norms. The animal does not identify species behaviour, a spiritual guide or a cultural tradition, or measure ability, mental health or career fit. Test useful parts against actual experiences and leave aside what does not fit."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lion",
+      "directionIds": [
+        "lion"
+      ],
+      "title": {
+        "zh": "狮子",
+        "en": "Lion"
+      },
+      "headline": {
+        "zh": "把决定说清楚，让行动有起点",
+        "en": "Make the decision clear enough to start"
+      },
+      "summary": {
+        "zh": "狮子对应本题组里主动表态、明确取舍和推进下一步的选择。它不授予领导身份，不代表地位更高，也不说明你应当替别人做主。",
+        "en": "Lion corresponds to taking initiative, stating tradeoffs and moving to a next step in these questions. It does not confer leadership, higher status or a right to decide on behalf of other people."
+      },
+      "scoreReading": {
+        "zh": "本题组中，狮子选项出现8次。每选中一次记1次，16题全部回答后才显示所有动物的计数。它与最高计数相同时，完整保留为本次匹配；并列不按名单顺序强行挑选。计数接近不代表已经验证的人格距离，分母8也不是相似度百分比。",
+        "en": "Lion options appear eight times in this set. Each selected option adds one raw choice; all animal counts appear only after all 16 questions are answered. Any animal sharing the highest count remains a match, without a winner chosen by list order. Close counts are not validated personality distances, and the denominator of eight is not a match percentage."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这项结果在说什么",
+            "en": "What the match describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "在几个需要开始、选择或收尾的情境里，你可能更常选了把问题直接摆出来。这个比喻关注的是行动的起点，不是音量、权威或控制别人。先核对自己的真实选择，再决定这个名称是否对你有帮助。",
+              "en": "In situations involving a start, a choice or a finish, you may have selected the response that puts the issue directly on the table. The metaphor concerns a starting point for action, not volume, authority or controlling others. Check your actual choices before deciding whether the name is useful to you."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能带来的帮助",
+            "en": "Where it may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "当讨论迟迟没有决定时，明确“现在需要选什么、谁来决定、下一步是什么”可以减少悬而未决。比如临时活动中提出先做哪一项，并邀请大家补充限制。主动推进的价值在于让行动更清楚，而不是让每个人接受你。",
+              "en": "When discussion has produced no decision, clarifying what must be chosen, who decides and what follows can reduce limbo. At an informal event, suggest a first activity while inviting people to name constraints. The value of initiative is making action clearer, not getting everyone to accept your preference."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "什么时候需要收一点",
+            "en": "When to loosen the approach"
+          },
+          "paragraphs": [
+            {
+              "zh": "迅速定下来有时会压过不容易开口的意见，或在信息还不足时过早收窄选择。决定前留一次明确的提问机会：“有没有谁会因此承担额外成本？”必要时改变方案，不会使主动性失去价值。",
+              "en": "A quick decision can crowd out quieter views or narrow the options before enough is known. Make room for an explicit question before settling: “Would this create an extra cost for anyone?” Changing the plan when needed does not make the original initiative worthless."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "朋友一直拿不定晚饭地点，你可以提出两家实际可行的店，并先问预算和饮食限制。若别人不愿意参加，也允许他们自己安排。直接表达是一种邀请协商的方式，不是为对方决定喜好。",
+              "en": "If friends cannot choose where to eat, offer two practical places after asking about budgets and dietary needs. If someone does not want to join, leave room for their own plans. Direct expression can invite a negotiation rather than decide what another person is supposed to enjoy."
+            }
+          ]
+        },
+        {
+          "id": "shared-task",
+          "title": {
+            "zh": "放在共同任务里",
+            "en": "In a shared task"
+          },
+          "paragraphs": [
+            {
+              "zh": "在截止时间前说清哪些内容本次必须完成、哪些暂缓，再确认谁拥有最终决定权。不要因为自己先开口，就默认所有人都已经同意。狮子结果不测管理胜任力、招聘表现或竞争优势，这些都需要单独的实际材料。",
+              "en": "Before a deadline, state what must be finished and what can wait, then confirm who owns the final decision. Speaking first does not establish everyone’s agreement. A Lion result does not measure management competence, hiring performance or competitive advantage; those questions require separate evidence from actual tasks."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近动物怎样区分",
+            "en": "How to compare nearby animals"
+          },
+          "paragraphs": [
+            {
+              "zh": "狮子和鹰都可能指向一个目标：狮子选项更强调此刻要决定和执行的事，鹰强调为什么值得往那里走。狮子和狼也都可能组织小组，狼更在意共同承诺。近分只说明这些选项在本次题组中被选得相近。",
+              "en": "Lion and Eagle may both point toward a goal: Lion options emphasise the decision and action needed now, while Eagle emphasises why the destination matters. Lion and Wolf may organise a group; Wolf puts more weight on shared commitments. Close counts only mean these options were chosen similar numbers of times here."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "下一次你提出行动前，先用一句话说清提议，再请一个不同意见的人补充限制。把最终决定与最初提议对照，看看有哪些调整。练习目标是兼顾清楚和参与，而不是一直抢先或证明自己能带头。",
+              "en": "The next time you propose an action, state it in one sentence and invite someone with a different view to add a constraint. Compare the final decision with the first proposal and notice what changed. Practise clarity with participation rather than always being first or proving that you can lead."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "狮子计数低就缺乏主见吗",
+            "en": "Does a low Lion count mean I lack a voice?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不意味着。先观察、支持他人、照顾关系或稳步完成都可能是主动选择。题目只给出四种有限做法，没法覆盖你所有表达方式。若想更清楚地提出需求，可以从一个低风险的小请求练习，不需要改变动物结果。",
+              "en": "No. Observing, supporting others, attending to relationships or finishing steadily can all be active choices. Each question offers only four responses and cannot cover every way you express yourself. If you want to state a need more clearly, practise one low-risk request without trying to change your animal result."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "这个比喻的边界",
+            "en": "Limits of the metaphor"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、动物对应和解释均为费马原创娱乐内容，没有建立信度、效度或人群常模。动物不是实际物种行为、精神向导或任何文化传统的鉴定，也不测能力、心理健康或职业适配。请用具体经历检验有用之处，忽略不贴合的部分。",
+              "en": "The questions, animal assignments and explanations are FermatMind’s original entertainment content, without established reliability, validity or population norms. The animal does not identify species behaviour, a spiritual guide or a cultural tradition, or measure ability, mental health or career fit. Test useful parts against actual experiences and leave aside what does not fit."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dolphin",
+      "directionIds": [
+        "dolphin"
+      ],
+      "title": {
+        "zh": "海豚",
+        "en": "Dolphin"
+      },
+      "headline": {
+        "zh": "让互动有空间，也有一点轻松",
+        "en": "Make room for connection and ease"
+      },
+      "summary": {
+        "zh": "海豚代表本题组里主动建立联系、改善互动气氛与邀请参与的做法。它不等于外向类型，也不证明别人喜欢你或你总能让人开心。",
+        "en": "Dolphin represents reaching out, easing interaction and inviting participation in this quiz. It is not an extraversion type or evidence that people like you, or that you can always make them happy."
+      },
+      "scoreReading": {
+        "zh": "本题组中，海豚选项出现8次。每选中一次记1次，16题全部回答后才显示所有动物的计数。它与最高计数相同时，完整保留为本次匹配；并列不按名单顺序强行挑选。计数接近不代表已经验证的人格距离，分母8也不是相似度百分比。",
+        "en": "Dolphin options appear eight times in this set. Each selected option adds one raw choice; all animal counts appear only after all 16 questions are answered. Any animal sharing the highest count remains a match, without a winner chosen by list order. Close counts are not validated personality distances, and the denominator of eight is not a match percentage."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这项结果在说什么",
+            "en": "What the match describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "你在几种情境中可能更愿意先接上彼此的对话，让人觉得可以参与，再推进任务。这种做法既可能出现在热闹聚会，也可能出现在安静的一对一交流。题本不根据音量、朋友数量或聚会时长给你分类。",
+              "en": "You may have preferred connecting people with the conversation and making participation feel possible before moving a task forward. That can happen in a busy gathering or a quiet one-to-one exchange. The quiz does not classify you by volume, number of friends or how long you stay at a party."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能带来的帮助",
+            "en": "Where it may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "当新人不知怎样加入，或团队不太敢承认卡点时，一个低压力的问题可能让真实信息更容易出现。例如问“哪一步最不好开始”，而不是要求大家立刻汇报成果。联系的价值在于对方有选择，不是每个人必须开朗。",
+              "en": "A low-pressure question can make useful information easier to share when newcomers cannot find a way in or a team hesitates to admit difficulties. Ask which step is hardest to start rather than demanding immediate achievements. Connection works best when people have choices, not when everyone is required to look cheerful."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "什么时候需要收一点",
+            "en": "When to loosen the approach"
+          },
+          "paragraphs": [
+            {
+              "zh": "照顾气氛可能变成替大家打圆场，绕过真正需要讨论的不满。笑一笑并不自动说明问题解决了。可以先承认紧张，再问愿不愿意继续谈；有人想暂停时，也不必马上用活动或玩笑把沉默填满。",
+              "en": "Looking after the atmosphere can turn into smoothing over a concern that needs discussion. A smile does not establish that the issue is resolved. Acknowledge the tension and ask whether people want to continue. If someone wants a pause, you do not need to fill it immediately with an activity or joke."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "聚会里有个人一直没接话，你可以单独问“想一起聊，还是先自己待一会儿？”而不是当众要求对方说点什么。邀请有退出空间，才更容易照顾不同参与方式。被拒绝也不表示你的好意没有价值。",
+              "en": "If someone stays quiet at a gathering, privately ask whether they want to join the conversation or have some time to themselves, instead of putting them on the spot. An invitation with an exit allows different ways of participating. A declined invitation does not make the offer of company worthless."
+            }
+          ]
+        },
+        {
+          "id": "shared-task",
+          "title": {
+            "zh": "放在共同任务里",
+            "en": "In a shared task"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以为讨论安排简短轮流发言，同时允许书面补充或不发言。气氛轻松之后仍要把决定、负责人和时间写清楚。海豚结果不说明销售、服务或沟通能力，也不预测你与同事的关系质量；这些都需要具体表现。",
+              "en": "Give people brief turns in a discussion while allowing written input or a choice not to speak. After easing the atmosphere, still record the decision, owner and timing. A Dolphin match does not measure sales, service or communication skill, or predict relationships with colleagues; those need evidence from actual interactions."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近动物怎样区分",
+            "en": "How to compare nearby animals"
+          },
+          "paragraphs": [
+            {
+              "zh": "海豚与鹿都留意别人：海豚选项更强调接上互动，鹿更强调感受和参与是否舒服。海豚与狼都可能组局，但狼更看重共同约定。一次行动可以同时有多个理由，接近计数不需要硬分成一个固定主型。",
+              "en": "Dolphin and Deer both attend to people: Dolphin options emphasise opening interaction, while Deer emphasises feelings and comfort. Dolphin and Wolf may organise company, but Wolf puts more weight on shared agreements. One action can have several reasons, so close counts do not need to become one fixed dominant type."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "下一次邀请别人参加时，给出两种参与方式和一个轻松拒绝的选项。结束后问自己：对方是否真的有选择，我有没有因为沉默而着急？练习的是留出连接空间，而不是为气氛承担全部责任。",
+              "en": "In your next invitation, offer two ways to participate and an easy way to decline. Afterwards, ask whether the person really had a choice and whether silence made you rush. Practise leaving space for connection rather than taking full responsibility for the atmosphere."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "海豚就应该一直喜欢社交吗",
+            "en": "Does Dolphin mean I should always enjoy company?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不用这样理解。选择改善互动，与需要休息、喜欢独处可以同时存在。本测试没有测社交电量或内外向，也没有要求你承担逗大家开心的工作。请按当时的精力和意愿决定参与，不用维护动物形象。",
+              "en": "No. Choosing to ease an interaction can coexist with needing rest and enjoying solitude. This quiz does not measure social battery or introversion and extraversion, and it does not assign you the job of entertaining people. Decide whether to participate from your current energy and wishes, without maintaining an animal image."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "这个比喻的边界",
+            "en": "Limits of the metaphor"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、动物对应和解释均为费马原创娱乐内容，没有建立信度、效度或人群常模。动物不是实际物种行为、精神向导或任何文化传统的鉴定，也不测能力、心理健康或职业适配。请用具体经历检验有用之处，忽略不贴合的部分。",
+              "en": "The questions, animal assignments and explanations are FermatMind’s original entertainment content, without established reliability, validity or population norms. The animal does not identify species behaviour, a spiritual guide or a cultural tradition, or measure ability, mental health or career fit. Test useful parts against actual experiences and leave aside what does not fit."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deer",
+      "directionIds": [
+        "deer"
+      ],
+      "title": {
+        "zh": "鹿",
+        "en": "Deer"
+      },
+      "headline": {
+        "zh": "让感受被听见，也让边界清楚",
+        "en": "Make room for feelings and clear boundaries"
+      },
+      "summary": {
+        "zh": "鹿对应本题组中留意细微需要、感受和相处舒适度的选择。这个比喻不把温和等同于脆弱，不测高敏感特质，也不要求你总迁就别人。",
+        "en": "Deer corresponds to noticing needs, feelings and comfort in the situations offered. The metaphor does not equate gentleness with weakness, measure high sensitivity or require you to accommodate everyone else."
+      },
+      "scoreReading": {
+        "zh": "本题组中，鹿选项出现8次。每选中一次记1次，16题全部回答后才显示所有动物的计数。它与最高计数相同时，完整保留为本次匹配；并列不按名单顺序强行挑选。计数接近不代表已经验证的人格距离，分母8也不是相似度百分比。",
+        "en": "Deer options appear eight times in this set. Each selected option adds one raw choice; all animal counts appear only after all 16 questions are answered. Any animal sharing the highest count remains a match, without a winner chosen by list order. Close counts are not validated personality distances, and the denominator of eight is not a match percentage."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这项结果在说什么",
+            "en": "What the match describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "鹿选项通常先问：谁的感受或需要还没进入讨论，眼前的参与方式是否合适？你可能在几道题里更常选这种入口。但一次自报选择不说明你能准确读心，也不能代替直接向当事人确认。",
+              "en": "Deer options tend to ask whose feelings or needs are missing from the discussion and whether the current way of participating fits. You may have chosen that starting point more often. A self-reported choice does not establish accurate mind-reading, so it cannot replace checking directly with the person involved."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能带来的帮助",
+            "en": "Where it may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "留意细节可以让安排更贴合现实，例如注意到有人需要更安静的位置，或一个讨论节奏让人来不及回应。把观察说成可核对的问题，而不是替人下结论：“这样坐会不会太吵？”比“你肯定受不了”更有空间。",
+              "en": "Attention to detail may help an arrangement fit real needs, such as a quieter seat or a pace that gives someone time to respond. Turn an observation into a checkable question rather than a conclusion about them. Asking whether a seat is too noisy leaves more room than deciding what they cannot tolerate."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "什么时候需要收一点",
+            "en": "When to loosen the approach"
+          },
+          "paragraphs": [
+            {
+              "zh": "你猜到的不适未必就是对方的真实感受，过度体谅也可能让自己的需要消失。可以先问一次，接受对方的回答，再说明自己的限制。温和不要求避免所有分歧，也不要求为别人的情绪负责到底。",
+              "en": "The discomfort you suspect may not be what someone actually feels, and accommodating others can make your own needs disappear. Ask once, accept their answer and state your limits. Gentleness does not require avoiding every disagreement or taking responsibility for another person’s feelings indefinitely."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "朋友聊天时显得疲惫，你可以问“想继续说，还是改天再聊？”如果你自己也累，可以直接说只能再聊十分钟。把双方的余力都放进安排，比一边勉强陪伴、一边期待对方猜到你的疲惫更清楚。",
+              "en": "If a friend seems tired while you talk, ask whether they want to continue or return another day. If you are tired too, say that you have ten more minutes. Including both people’s capacity makes the arrangement clearer than staying reluctantly and hoping the other person will infer your exhaustion."
+            }
+          ]
+        },
+        {
+          "id": "shared-task",
+          "title": {
+            "zh": "放在共同任务里",
+            "en": "In a shared task"
+          },
+          "paragraphs": [
+            {
+              "zh": "指出一项安排可能给谁增加负担，并邀请相关的人自己补充需求。把“我们照顾一下大家”转成具体调整，例如提前发材料或允许异步回应。这份动物结果不测共情能力、照护资格或心理状况，也不用于评价同事。",
+              "en": "Name who might carry an extra burden and invite them to state what they need. Turn a broad wish to be considerate into something concrete, such as sharing material early or allowing an asynchronous reply. This animal match does not measure empathy skill, caring qualifications or mental health, or assess your colleagues."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近动物怎样区分",
+            "en": "How to compare nearby animals"
+          },
+          "paragraphs": [
+            {
+              "zh": "鹿与海豚都可能照顾他人，但鹿选项重视是否舒服，海豚更重视互动能否接起来。鹿与猫头鹰都可能先观察，猫头鹰关注信息依据，鹿关注体验。别把安静自动等同于这几种动物，要回看所选做法的具体内容。",
+              "en": "Deer and Dolphin may both attend to others, but Deer options emphasise comfort while Dolphin emphasises opening interaction. Deer and Owl may observe first; Owl attends to evidence and Deer to experience. Quietness alone does not identify any of these animals. Look back at what the selected responses actually involved."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "在一次需要协调的小事上，分别写下自己的需要、对方明确说过的需要，以及仍在猜的部分。只就一个未知点提问，再提出双方都能调整的安排。这个练习用于减少猜测，不是证明自己比别人更细腻。",
+              "en": "For one small arrangement, write down your need, what the other person has explicitly requested and what you are still guessing. Ask about one unknown point, then propose a plan both people can adjust. Use the exercise to reduce assumptions, not to prove that you are more perceptive than someone else."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "鹿结果能说明我太敏感吗",
+            "en": "Does Deer mean I am too sensitive?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不能。题本不测感官敏感、疾病或承受能力。“太敏感”也不是本测试可以给出的判断。若一次互动让你不舒服，可以说明具体行为、影响和希望改变的事；不必用动物标签为自己的需要辩护。",
+              "en": "No. The quiz does not measure sensory sensitivity, illness or capacity to cope, and it cannot decide that you are too sensitive. If an interaction feels uncomfortable, describe the behaviour, its impact and what you would like to change. You do not need an animal label to justify a need."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "这个比喻的边界",
+            "en": "Limits of the metaphor"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、动物对应和解释均为费马原创娱乐内容，没有建立信度、效度或人群常模。动物不是实际物种行为、精神向导或任何文化传统的鉴定，也不测能力、心理健康或职业适配。请用具体经历检验有用之处，忽略不贴合的部分。",
+              "en": "The questions, animal assignments and explanations are FermatMind’s original entertainment content, without established reliability, validity or population norms. The animal does not identify species behaviour, a spiritual guide or a cultural tradition, or measure ability, mental health or career fit. Test useful parts against actual experiences and leave aside what does not fit."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bear",
+      "directionIds": [
+        "bear"
+      ],
+      "title": {
+        "zh": "熊",
+        "en": "Bear"
+      },
+      "headline": {
+        "zh": "守住可持续的节奏，把事情稳稳做完",
+        "en": "Keep a sustainable pace and finish steadily"
+      },
+      "summary": {
+        "zh": "熊在本题组代表重视稳定、熟悉步骤和可承受节奏的选择。它不表示懒惰、缺乏理想或情绪迟钝，也不能判断体力和韧性。",
+        "en": "Bear represents choosing stability, familiar steps and a manageable pace in this set. It does not imply laziness, a lack of ambition or emotional dullness, or establish physical stamina or resilience."
+      },
+      "scoreReading": {
+        "zh": "本题组中，熊选项出现8次。每选中一次记1次，16题全部回答后才显示所有动物的计数。它与最高计数相同时，完整保留为本次匹配；并列不按名单顺序强行挑选。计数接近不代表已经验证的人格距离，分母8也不是相似度百分比。",
+        "en": "Bear options appear eight times in this set. Each selected option adds one raw choice; all animal counts appear only after all 16 questions are answered. Any animal sharing the highest count remains a match, without a winner chosen by list order. Close counts are not validated personality distances, and the denominator of eight is not a match percentage."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这项结果在说什么",
+            "en": "What the match describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "面对变化和忙碌，熊选项更愿意保留一个可靠步骤，减少反复切换，把已经开始的事收好。请想一次最近的真实经历：你当时是在保护节奏，还是因为资源不足只能这样安排？同样的选择可能有不同原因。",
+              "en": "When plans shift or things become busy, Bear options keep one reliable step, reduce switching and finish what has begun. Think of a recent example: were you protecting a useful pace, or did limited resources leave no other option? The same choice can have different reasons that this quiz cannot distinguish."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能带来的帮助",
+            "en": "Where it may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "当任务容易越做越大时，明确基本范围并反复完成，有助于看见实际进展。例如把家务分成每天十分钟，而不是每次都重排整套计划。稳定是一种组织条件，不等于你必须接受所有现状或拒绝新方法。",
+              "en": "Defining a manageable scope and repeating it can make progress visible when a task keeps expanding. A ten-minute daily household step may be easier to sustain than redesigning the entire plan each time. Stability is a condition you can arrange, not a requirement to accept every situation or reject every new approach."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "什么时候需要收一点",
+            "en": "When to loosen the approach"
+          },
+          "paragraphs": [
+            {
+              "zh": "可靠的习惯也可能在条件改变后继续被保留，甚至让别人不敢提出调整。偶尔问：这个步骤仍在解决问题吗，还是只是因为熟悉？可以只试改一小部分，给自己退回原节奏的选择，不用一次推翻全部。",
+              "en": "A familiar habit can stay in place after conditions change, or make others hesitate to suggest an adjustment. Ask occasionally whether the step still solves the problem or simply feels familiar. Try changing a small part with an option to return, rather than treating improvement as an all-or-nothing overhaul."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "周末安排很多时，你可以先保留一件最重要的活动，给交通和休息留空隙，再决定是否加别的事。若朋友想更密集，可以分别参加部分行程。守住节奏不需要证明谁的生活方式更成熟或正确。",
+              "en": "When a weekend fills up, keep the one activity that matters most, leave room for travel and rest, and only then consider additions. If a friend wants a fuller schedule, you can join different parts. Protecting a pace does not require deciding whose way of living is more mature or correct."
+            }
+          ]
+        },
+        {
+          "id": "shared-task",
+          "title": {
+            "zh": "放在共同任务里",
+            "en": "In a shared task"
+          },
+          "paragraphs": [
+            {
+              "zh": "把重复工作写成简短步骤，约定可完成的量，并留意什么时候需要更新。交接时说明当前进度和剩余内容，避免“我会慢慢做完”变成不可见的等待。熊结果不测可靠程度、抗压水平，也不说明适合某类稳定职业。",
+              "en": "Write a recurring task as a short sequence, agree on a manageable amount and note when it needs updating. In a handoff, make progress and remaining work visible so that a steady pace does not become an unexplained wait. A Bear match does not measure reliability, pressure tolerance or suitability for a stable career."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近动物怎样区分",
+            "en": "How to compare nearby animals"
+          },
+          "paragraphs": [
+            {
+              "zh": "熊和狼都可能持续投入：熊选项优先保护可重复的节奏，狼优先维护共同约定。熊和猫头鹰都可能不急着开始，猫头鹰更在意信息是否足够。动物名称只是帮助比较这些选择，不能把慢或快当作固定人格。",
+              "en": "Bear and Wolf may both stay with something: Bear options protect a repeatable pace, while Wolf protects shared agreements. Bear and Owl may both delay a start, but Owl puts more weight on sufficient information. The animal names help compare these choices; neither speed nor slowness establishes a fixed personality."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一项总被打断的小任务，为它保留一个短时段和清楚的结束点。试几次后检查：是否真的更容易完成，有没有一个步骤该更新？同时观察稳定安排的收益与成本，不把坚持本身当成唯一目标。",
+              "en": "Choose one small task that is repeatedly interrupted and give it a short protected slot with a clear stopping point. After a few attempts, check whether it is easier to finish and whether a step needs updating. Notice the benefits and costs of the arrangement rather than making persistence the only aim."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "熊结果是不是缺少进取心",
+            "en": "Does Bear imply a lack of ambition?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不表示。一个人可以追求很大的目标，同时偏好稳定步骤和充分休息。题目没有测你的理想、成就或价值。若想推进某件重要的事，可以谈具体资源、时间和下一步，而不是要求自己表现得更像另一种动物。",
+              "en": "No. A person can pursue a large aim while preferring steady steps and adequate rest. The questions do not measure your ambitions, achievements or worth. To move something important forward, discuss the resources, time and next step instead of trying to behave like a different animal."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "这个比喻的边界",
+            "en": "Limits of the metaphor"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、动物对应和解释均为费马原创娱乐内容，没有建立信度、效度或人群常模。动物不是实际物种行为、精神向导或任何文化传统的鉴定，也不测能力、心理健康或职业适配。请用具体经历检验有用之处，忽略不贴合的部分。",
+              "en": "The questions, animal assignments and explanations are FermatMind’s original entertainment content, without established reliability, validity or population norms. The animal does not identify species behaviour, a spiritual guide or a cultural tradition, or measure ability, mental health or career fit. Test useful parts against actual experiences and leave aside what does not fit."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eagle",
+      "directionIds": [
+        "eagle"
+      ],
+      "title": {
+        "zh": "鹰",
+        "en": "Eagle"
+      },
+      "headline": {
+        "zh": "看见整体方向，再决定怎样取舍",
+        "en": "See the wider direction before choosing"
+      },
+      "summary": {
+        "zh": "鹰对应本题组里从目的、关联和长一些的时间尺度思考的选项。它不说明远见更强、比别人有格局，也不预测成功或领导能力。",
+        "en": "Eagle corresponds to considering purpose, connections and a longer time horizon in this set. It does not establish superior vision or perspective, or predict success or leadership ability."
+      },
+      "scoreReading": {
+        "zh": "本题组中，鹰选项出现8次。每选中一次记1次，16题全部回答后才显示所有动物的计数。它与最高计数相同时，完整保留为本次匹配；并列不按名单顺序强行挑选。计数接近不代表已经验证的人格距离，分母8也不是相似度百分比。",
+        "en": "Eagle options appear eight times in this set. Each selected option adds one raw choice; all animal counts appear only after all 16 questions are answered. Any animal sharing the highest count remains a match, without a winner chosen by list order. Close counts are not validated personality distances, and the denominator of eight is not a match percentage."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这项结果在说什么",
+            "en": "What the match describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "鹰选项常把眼前问题放回“我们想去哪里”或“这件事为什么值得做”。你可能比起马上选择步骤，更愿意先确定方向。但题本无法判断目标本身是否合适、现实或由你自主选择；这些仍需要单独检查。",
+              "en": "Eagle options place an immediate issue in the context of where you want to go and why it matters. You may have preferred clarifying a direction before choosing a step. The quiz cannot establish whether the aim is appropriate, realistic or freely chosen; those questions still need to be examined separately."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能带来的帮助",
+            "en": "Where it may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "当活动很多却不知道为什么忙时，回看目的可以帮助取舍。例如选课程前先想希望解决什么问题，再删掉与它无关的承诺。整体视角有用的地方是减少无谓负担，而不是给每件小事都安排宏大意义。",
+              "en": "Revisiting purpose can help when you are busy without knowing what the activity serves. Before choosing a course, identify the problem you hope to address and remove unrelated commitments. A wider view is useful when it reduces unnecessary effort, not when it demands a grand meaning for every small task."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "什么时候需要收一点",
+            "en": "When to loosen the approach"
+          },
+          "paragraphs": [
+            {
+              "zh": "一直谈方向可能遗漏眼前的费用、时间和他人的实际处境，也可能让目标永远停留在口头。请加问：下一步谁来做、需要什么、什么时候检查？愿意根据现实缩小目标，也是认真对待方向的一部分。",
+              "en": "Talking about direction can overlook immediate costs, timing and other people’s circumstances, or leave an aim permanently abstract. Add questions about who takes the next step, what it needs and when to check progress. Narrowing an aim in response to reality can be part of taking that direction seriously."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "安排假期时，先说最想得到的是休息、相聚还是体验新地方，再讨论路线。也听听同行人的目的，可能需要不同安排。知道自己想要什么，不等于所有人的行程都必须围绕你的目标。",
+              "en": "When planning time away, state whether you most want rest, company or a new experience before discussing routes. Listen to the aims of the people joining you, which may call for different plans. Knowing what you want does not require everyone else’s schedule to revolve around your purpose."
+            }
+          ]
+        },
+        {
+          "id": "shared-task",
+          "title": {
+            "zh": "放在共同任务里",
+            "en": "In a shared task"
+          },
+          "paragraphs": [
+            {
+              "zh": "把目标写成一条能核对的结果，再把一个小里程碑交给实际执行的人讨论。邀请他们指出限制，避免只从高处给方向。鹰结果不代表战略、管理或职业潜力；真实能力需要看任务、反馈和实际成果。",
+              "en": "Write the aim as an outcome you can check, then discuss a small milestone with the people who will do the work. Invite them to identify constraints instead of offering direction only from a distance. An Eagle match does not establish strategic, management or career potential; actual competence needs tasks, feedback and outcomes."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与相近动物怎样区分",
+            "en": "How to compare nearby animals"
+          },
+          "paragraphs": [
+            {
+              "zh": "鹰与猫头鹰都可能先想再做：鹰选项重视整体目的，猫头鹰重视依据和已知条件。鹰与狐狸都可能改变路线，狐狸更强调小范围试验。若两项并列，就完整阅读两份说明，不需要决定哪一种是“真正的你”。",
+              "en": "Eagle and Owl may both think before acting: Eagle options emphasise overall purpose, while Owl emphasises evidence and known conditions. Eagle and Fox may both change routes, but Fox puts more weight on small trials. If two animals tie, read both complete guides without deciding which is the real you."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "挑一个近期目标，写下它为什么重要，再列出一项本周能完成、结束后可核对的动作。问一个相关的人它是否实际可行。之后检查目标与动作是否仍一致，而不是只评价自己想得够不够远。",
+              "en": "Choose one near-term aim, write why it matters and name an action you can finish and check this week. Ask someone involved whether it is practical. Afterwards, compare the aim with the action rather than judging whether you have thought far enough ahead."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "鹰计数低就没有方向吗",
+            "en": "Does a low Eagle count mean I lack direction?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不能这样判断。你可能在这些情境里更优先照顾承诺、事实或当前需要，但仍有清楚的目标。动物计数不测人生规划水平。如果某个方向让你困惑，具体列出选择、限制和想保留的条件，比给自己贴标签更有用。",
+              "en": "No. You may have prioritised commitments, facts or immediate needs in these situations while still having clear aims. Animal counts do not measure life-planning ability. If a direction feels unclear, list the choices, constraints and conditions you want to preserve instead of drawing a conclusion from a label."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "这个比喻的边界",
+            "en": "Limits of the metaphor"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、动物对应和解释均为费马原创娱乐内容，没有建立信度、效度或人群常模。动物不是实际物种行为、精神向导或任何文化传统的鉴定，也不测能力、心理健康或职业适配。请用具体经历检验有用之处，忽略不贴合的部分。",
+              "en": "The questions, animal assignments and explanations are FermatMind’s original entertainment content, without established reliability, validity or population norms. The animal does not identify species behaviour, a spiritual guide or a cultural tradition, or measure ability, mental health or career fit. Test useful parts against actual experiences and leave aside what does not fit."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "答案怎样对应动物",
+        "en": "How answers map to animals"
+      },
+      "paragraphs": [
+        {
+          "zh": "16题各有4个选项，每个选项明确对应一只动物，选中加1次。八种动物各出现8次，且在A、B、C、D位置各出现2次。作答完整后展示全部原始计数；最高计数的每只动物都是本次匹配。计分不使用出生日期、隐藏抽签或外部人格结果。",
+          "en": "Each of the 16 questions has four options, each assigned to one animal and worth one raw choice. Every animal appears eight times, twice in each of positions A, B, C and D. A complete attempt shows all counts; every animal sharing the highest count is a match. Scoring uses no birth date, hidden draw or external personality result."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "并列与接近计数",
+        "en": "Ties and close counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "同样的最高计数会完整保留，不按动物名单先后挑一个。并列时逐份呈现完整报告，可自己比较情境。其他计数也同时显示；差1次仅代表本题组多选了一次，不能当作显著差异、稳定主次型或人群排名。",
+          "en": "Every highest-count tie is kept, rather than choosing the first animal in a list. Each tied animal gets its complete report for comparison. Other counts stay visible too. One extra choice in this set is not an established significant difference, a stable primary or secondary type, or a population rank."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "内在动物人格怎样理解",
+        "en": "Reading an inner animal personality result"
+      },
+      "paragraphs": [
+        {
+          "zh": "动物是这份原创问卷的表达工具，不是固定人格、真正的物种行为或精神身份。你可以在不同场合采取不同做法，也可以不认同这个名称。结果用于谈具体例子与取舍，不用于给别人判型或决定谁更值得喜欢。",
+          "en": "The animals are expressive devices in this original quiz, not fixed personalities, actual species behaviour or spiritual identities. Your approach may vary by situation, and you may disagree with the name. Use a result to discuss examples and tradeoffs, not to type other people or decide who deserves to be liked."
+        }
+      ]
+    },
+    {
+      "id": "edition",
+      "title": {
+        "zh": "题本、解释与研究边界",
+        "en": "Questions, explanations and evidence"
+      },
+      "paragraphs": [
+        {
+          "zh": "题目和八份报告为费马独立创作，不复刻竞品题库或结果正文，也不声称官方心理量表、文化传承或科学验证。这里不提供名人同型、招聘评价或职业适配分；想探索职业兴趣时，应使用独立的兴趣方法和真实职业信息。",
+          "en": "FermatMind independently authored the questions and eight reports rather than reproducing a competitor’s item bank or result text. This is not an official psychological instrument, a cultural tradition or a scientifically validated measure. It supplies no celebrity typing, hiring judgment or career-fit score. Career exploration needs a separate interest method and actual occupational information."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "我的精神动物是什么？",
+        "en": "What is my spirit animal?"
+      },
+      "answer": {
+        "zh": "在这份娱乐问卷里，是你选中次数最高的动物比喻；可能不止一只。完成16道情境题后，会同时显示八种计数和全部并列匹配的完整说明。它不声称识别真实精神向导或固定身份。",
+        "en": "In this entertainment quiz, it is the animal metaphor with the most selected options, and there may be more than one. Complete the 16 scenarios to see all eight counts and every tied match in full. This does not claim to identify a spiritual guide or fixed identity."
+      }
+    },
+    {
+      "question": {
+        "zh": "可以得到哪些动物？",
+        "en": "Which animals can I get?"
+      },
+      "answer": {
+        "zh": "狼、猫头鹰、狐狸、狮子、海豚、鹿、熊和鹰。每份公开说明都有具体情境、可能的帮助、取舍、相近结果比较和一次小尝试。你可以先阅读所有说明，再决定是否开始。",
+        "en": "Wolf, Owl, Fox, Lion, Dolphin, Deer, Bear and Eagle. Each public guide includes situations, possible contributions, tradeoffs, comparisons and a small experiment. You can read every guide before deciding whether to start."
+      }
+    },
+    {
+      "question": {
+        "zh": "这和按生日查动物或MBTI动物表一样吗？",
+        "en": "Is this a birthday animal calculator or an MBTI animal chart?"
+      },
+      "answer": {
+        "zh": "不是。本页只按实际选择累计动物选项次数，不需要生日，也不读取或换算MBTI。象征问卷、历法计算和人格量表有不同输入与用途，不因为用了动物名称就能互相代替。",
+        "en": "No. This page counts the animal options you actually choose. It needs no birthday and does not read or convert an MBTI result. A symbolic questionnaire, a calendar calculation and a personality instrument have different inputs and purposes; animal names do not make them interchangeable."
+      }
+    },
+    {
+      "question": {
+        "zh": "内在动物人格测试需要再做一份吗？",
+        "en": "Do I need another inner animal personality test?"
+      },
+      "answer": {
+        "zh": "如果你想找的是通过日常选择比较动物比喻，本页已经提供同一项任务，不需要重复作答一份换名版本。结果不是心理诊断，也不表示一种动物比另一种更成熟、聪明或有价值。",
+        "en": "If you mean comparing animal metaphors through everyday choices, that task is already available here. You do not need a renamed repeat questionnaire. Results are not a psychological diagnosis or a claim that one animal is more mature, intelligent or valuable than another."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么重测后可能变成别的动物？",
+        "en": "Why might my animal change when I retake?"
+      },
+      "answer": {
+        "zh": "相同答案会得到相同计数与并列结果。改变所参照的情境或选择，计数就可能变化，尤其原本差距很小时。本题本没有经过重测稳定性验证，不用一次名称定义自己。",
+        "en": "The same answers produce the same counts and ties. Different reference situations or choices can change the counts, especially when they were already close. This quiz has not established test–retest reliability, so avoid defining yourself by one result."
+      }
+    },
+    {
+      "question": {
+        "zh": "结果免费吗，分享会公开作答吗？",
+        "en": "Are results free, and does sharing reveal my answers?"
+      },
+      "answer": {
+        "zh": "16题、八份完整解释、并列结果均免费，无需注册或先做其他测评。仅主动选择时在本标签页保留24小时草稿，完成或清除即删除。复制分享只包含动物名称与公开入口／说明链接，不含答卷、原始计数或个人均分。",
+        "en": "All 16 questions, eight complete explanations and tied results are free, with no signup or prerequisite test. An optional tab draft lasts 24 hours and clears on completion or clearing. Copying shares only animal names and a public entry or guide link, never answers, raw counts or personal means."
+      }
+    }
+  ]
+}
