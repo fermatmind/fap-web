@@ -151,5 +151,32 @@
       "orchid",
       "daisy"
     ]
+  },
+  {
+    "slug": "what-dog-breed-am-i",
+    "code": "DOG_BREED_PERSONALITY",
+    "version": "1.0.0",
+    "updated": "2026-10-25",
+    "category": "metaphor",
+    "title": {
+      "zh": "犬系人格测试",
+      "en": "What Dog Breed Am I?"
+    },
+    "description": {
+      "zh": "免费完成12道原创相处与活动偏好题，比较金毛、边牧、哈士奇、德牧、巴哥和吉娃娃六种人类性格比喻。显示全部计数、完整并列结果、具体例子与计分；无需注册。",
+      "en": "What dog breed am I? Take 12 original questions about companionship and activity preferences. Get every tied result and all six full dog-personality guides, free with no signup."
+    },
+    "minutes": 3,
+    "collection": "explore",
+    "formCode": "fm_dog_companion_choices_12",
+    "questionCount": 12,
+    "resultSlugs": [
+      "golden-retriever",
+      "border-collie",
+      "husky",
+      "german-shepherd",
+      "pug",
+      "chihuahua"
+    ]
   }
 ]

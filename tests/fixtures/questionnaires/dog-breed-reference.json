@@ -1,0 +1,559 @@
+{
+  "formCode": "fm_dog_companion_choices_12",
+  "itemBankVersion": "1.0.0",
+  "scoringVersion": "1.0.0",
+  "kind": "archetype",
+  "directions": [
+    {
+      "id": "golden-retriever",
+      "title": {
+        "zh": "金毛寻回犬",
+        "en": "Golden Retriever"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "border-collie",
+      "title": {
+        "zh": "边境牧羊犬",
+        "en": "Border Collie"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "husky",
+      "title": {
+        "zh": "哈士奇",
+        "en": "Husky"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "german-shepherd",
+      "title": {
+        "zh": "德国牧羊犬",
+        "en": "German Shepherd"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "pug",
+      "title": {
+        "zh": "巴哥犬",
+        "en": "Pug"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "chihuahua",
+      "title": {
+        "zh": "吉娃娃",
+        "en": "Chihuahua"
+      },
+      "comparisons": 8
+    }
+  ],
+  "questions": [
+    {
+      "id": "DOG_01",
+      "prompt": {
+        "zh": "和熟人一起安排一段空闲时间，你更愿意从哪件事开始？",
+        "en": "You are planning some free time with people you know. Which starting point would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先让每个人都有容易加入的方式，吃点东西聊聊也好。",
+            "en": "Make it easy for everyone to join, even if we just share food and talk."
+          },
+          "directionId": "golden-retriever"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "选一个能一起练熟或完成的小挑战。",
+            "en": "Choose a small challenge we can practise or complete together."
+          },
+          "directionId": "border-collie"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留点临时改主意的空间，看到有趣的再决定。",
+            "en": "Leave room to change our minds and follow something interesting."
+          },
+          "directionId": "husky"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先确认时间、分工和大家已经答应的安排。",
+            "en": "First clarify the timing, responsibilities and arrangements people have agreed to."
+          },
+          "directionId": "german-shepherd"
+        }
+      ]
+    },
+    {
+      "id": "DOG_02",
+      "prompt": {
+        "zh": "准备开始一项新的休闲活动，什么最能让你想继续？",
+        "en": "When starting a leisure activity, what most makes you want to continue?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "能看见一点进步，也有下一步可以练。",
+            "en": "Noticing some progress and having a next step to practise."
+          },
+          "directionId": "border-collie"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "形式可以变化，不必一直照同一套方式来。",
+            "en": "Being able to vary the format instead of following one fixed way."
+          },
+          "directionId": "husky"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "知道怎样稳定参与，并把答应的部分做好。",
+            "en": "Knowing how to take part consistently and follow through on what I take on."
+          },
+          "directionId": "german-shepherd"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "节奏舒服、准备不复杂，做完不觉得又添了负担。",
+            "en": "A comfortable pace and simple preparation that do not turn it into another demand."
+          },
+          "directionId": "pug"
+        }
+      ]
+    },
+    {
+      "id": "DOG_03",
+      "prompt": {
+        "zh": "接下来几天安排太满，需要减少一点。你更想优先保留什么？",
+        "en": "The next few days are too full and something needs to go. What would you most want to preserve?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一段可以自己决定去做什么的空白。",
+            "en": "Some space where I can decide for myself what to do."
+          },
+          "directionId": "husky"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "已经明确答应别人、对方也在依赖的那一项。",
+            "en": "The clear commitment someone else is already relying on."
+          },
+          "directionId": "german-shepherd"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "基本的休息和轻松日常，不再把空隙都填满。",
+            "en": "Basic rest and easy routines instead of filling every gap."
+          },
+          "directionId": "pug"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把我的时间和接受范围直接说清楚的机会。",
+            "en": "A chance to state my time and limits directly."
+          },
+          "directionId": "chihuahua"
+        }
+      ]
+    },
+    {
+      "id": "DOG_04",
+      "prompt": {
+        "zh": "共同出门前大家迟迟定不下来，你更愿意怎样参与？",
+        "en": "People cannot settle the arrangements before going out together. How would you prefer to contribute?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "核对已有条件，明确谁负责最后确认。",
+            "en": "Check the known conditions and clarify who will confirm the plan."
+          },
+          "directionId": "german-shepherd"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先提出一个简单、负担小的选项。",
+            "en": "Offer a simple option that asks little of everyone."
+          },
+          "directionId": "pug"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "直接说出我能接受和不能接受的安排。",
+            "en": "State which arrangements work for me and which do not."
+          },
+          "directionId": "chihuahua"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问问谁还没说上话，让大家容易表达想法。",
+            "en": "Ask who has not had a say and make it easier to share a preference."
+          },
+          "directionId": "golden-retriever"
+        }
+      ]
+    },
+    {
+      "id": "DOG_05",
+      "prompt": {
+        "zh": "只空出一小时留给自己，你更可能怎样使用？",
+        "en": "You have just one hour to yourself. How would you most likely use it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "待在舒服的地方，做点熟悉又不费劲的事。",
+            "en": "Settle somewhere comfortable with something familiar and undemanding."
+          },
+          "directionId": "pug"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "优先做一件我明确想做的事，不再等别人拿主意。",
+            "en": "Do one thing I clearly want rather than waiting for someone else to decide."
+          },
+          "directionId": "chihuahua"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "找个愿意的人短短相处，让彼此知道近况。",
+            "en": "Spend a little time with willing company and catch up."
+          },
+          "directionId": "golden-retriever"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "拿来练一个感兴趣的小技能，看看能不能更顺一点。",
+            "en": "Practise a small skill I enjoy and see whether it becomes a little smoother."
+          },
+          "directionId": "border-collie"
+        }
+      ]
+    },
+    {
+      "id": "DOG_06",
+      "prompt": {
+        "zh": "你与同伴对接下来的活动意见不同，更愿意先做哪一步？",
+        "en": "You and a companion disagree about the next activity. Which first step would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把自己的理由和需要直说，不让对方猜。",
+            "en": "Say my reasons and needs directly rather than leaving them to guess."
+          },
+          "directionId": "chihuahua"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先维持可以好好说话的气氛，再听听彼此想要什么。",
+            "en": "Keep the conversation friendly enough to hear what each person wants."
+          },
+          "directionId": "golden-retriever"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看看哪种安排能让大家在共同目标上有所推进。",
+            "en": "Consider which plan could move us forward on the aim we share."
+          },
+          "directionId": "border-collie"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "想想能否换种玩法，或让彼此分开行动一会儿。",
+            "en": "Consider another way to do it, or spending part of the time separately."
+          },
+          "directionId": "husky"
+        }
+      ]
+    },
+    {
+      "id": "DOG_07",
+      "prompt": {
+        "zh": "参加一次熟人组织的小活动，你最想贡献哪一种参与？",
+        "en": "At a small activity organised by people you know, which contribution would you most enjoy making?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "主动接上新来的人，让他们容易融入。",
+            "en": "Welcome someone who has just arrived and help them find a way in."
+          },
+          "directionId": "golden-retriever"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "认真投入一个有挑战的环节，带着兴趣把它练好。",
+            "en": "Get absorbed in a challenging part and enjoy working at it."
+          },
+          "directionId": "border-collie"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "提出一个新花样，让活动不必完全按旧计划走。",
+            "en": "Suggest a new variation so the activity can depart from the usual plan."
+          },
+          "directionId": "husky"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把自己承诺的一项准备或收尾踏实做好。",
+            "en": "Take care of one preparation or finishing task I have committed to."
+          },
+          "directionId": "german-shepherd"
+        }
+      ]
+    },
+    {
+      "id": "DOG_08",
+      "prompt": {
+        "zh": "一件需要重复做的小事开始显得乏味，你更愿意怎样调整？",
+        "en": "A small recurring activity has started to feel dull. How would you prefer to adjust it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "加一个能检验进步的小目标，让练习更有抓手。",
+            "en": "Add a small goal that lets me check progress and gives practice a focus."
+          },
+          "directionId": "border-collie"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "换地方、换顺序，给过程一点不同。",
+            "en": "Change the place or sequence and bring some variety to the process."
+          },
+          "directionId": "husky"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先保住需要持续完成的基本部分，再适当调整。",
+            "en": "Keep the essential part I need to maintain, then make a limited adjustment."
+          },
+          "directionId": "german-shepherd"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把它简化到更轻松、容易继续的程度。",
+            "en": "Simplify it until continuing feels easier and more comfortable."
+          },
+          "directionId": "pug"
+        }
+      ]
+    },
+    {
+      "id": "DOG_09",
+      "prompt": {
+        "zh": "和别人一起度过一个没有工作的周末，你最希望安排里有？",
+        "en": "During a weekend without work, what would you most want a shared plan to include?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "可以临时探索新地方，也可以自己走一小段的自由。",
+            "en": "Room to explore somewhere new or take a little time on my own."
+          },
+          "directionId": "husky"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "彼此说清的时间和约定，不用不断等临时消息。",
+            "en": "Clear times and agreements instead of continually waiting for last-minute updates."
+          },
+          "directionId": "german-shepherd"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "足够的空隙，累了就能把行程放轻一点。",
+            "en": "Enough breathing room to ease the schedule if it feels tiring."
+          },
+          "directionId": "pug"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我可以清楚表达偏好，拒绝一项也不会被硬拉上。",
+            "en": "Space to state my preferences and decline something without being pressed to join."
+          },
+          "directionId": "chihuahua"
+        }
+      ]
+    },
+    {
+      "id": "DOG_10",
+      "prompt": {
+        "zh": "同伴误解了你的一个安排，你更想怎样回应？",
+        "en": "A companion has misunderstood one of your arrangements. How would you most like to respond?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "重新确认我们各自答应了什么，接下来谁来做。",
+            "en": "Reconfirm what each of us agreed to and who will do what next."
+          },
+          "directionId": "german-shepherd"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先把对话放慢一点，找一个双方负担小的调整。",
+            "en": "Slow the conversation down and look for an adjustment that asks less of both people."
+          },
+          "directionId": "pug"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "明确说出我的原意和现在需要对方知道的事。",
+            "en": "State what I meant and what I need them to understand now."
+          },
+          "directionId": "chihuahua"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先确认对方听到了什么，让交流重新接得上。",
+            "en": "Check what they heard so we can reconnect the conversation."
+          },
+          "directionId": "golden-retriever"
+        }
+      ]
+    },
+    {
+      "id": "DOG_11",
+      "prompt": {
+        "zh": "忙完之后决定怎样恢复自己的日常节奏，你更偏好？",
+        "en": "After a busy stretch, how would you prefer to return to everyday life?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "保留几个轻松、熟悉的日常片段，不急着增加目标。",
+            "en": "Keep a few easy, familiar routines without immediately adding more goals."
+          },
+          "directionId": "pug"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先说清接下来哪些邀请或要求我暂时不接。",
+            "en": "First make clear which invitations or requests I will not take on for now."
+          },
+          "directionId": "chihuahua"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "和熟悉的人简单相处一下，不需要特别安排。",
+            "en": "Have some simple time with familiar company without special arrangements."
+          },
+          "directionId": "golden-retriever"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "挑一个自己喜欢的小挑战，用可控的练习找回节奏。",
+            "en": "Choose a small challenge I enjoy and return through manageable practice."
+          },
+          "directionId": "border-collie"
+        }
+      ]
+    },
+    {
+      "id": "DOG_12",
+      "prompt": {
+        "zh": "一个共同计划需要改动时，你最希望大家先做到什么？",
+        "en": "When a shared plan needs to change, what would you most want people to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "允许每个人明确表达不满、需求或不同意。",
+            "en": "Let people state a concern, a need or disagreement clearly."
+          },
+          "directionId": "chihuahua"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让交流保持友好，给每个人参与调整的机会。",
+            "en": "Keep the conversation welcoming and give everyone a chance to help adjust it."
+          },
+          "directionId": "golden-retriever"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "找到仍值得完成的一小部分，并决定怎样推进。",
+            "en": "Identify one part still worth completing and decide how to move it forward."
+          },
+          "directionId": "border-collie"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "不要被原路线绑住，考虑一种新的参与方式。",
+            "en": "Avoid being tied to the original route and consider a new way to take part."
+          },
+          "directionId": "husky"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "option_rule": "Oneselectedoptionadds1rawchoicetoitsexplicitbreedmetaphor",
+    "completion": "All12responsesbeforeanypersonalcount/interpretation",
+    "tie_rule": "Keepallhighest-countbreedsandeachfullreport,noorder/randomtiebreaker",
+    "denominator": 8,
+    "positions": "Eachbreed2ineachposition",
+    "construct": "Originalhumancompanionship/activity-preferencequiz:welcoming,practice,autonomy,follow-through,comfortablepace,clearself-expression;notcanineC-BARQ/norm/skill/genetic/clinicalinstrument",
+    "scope": "Notpetbreedidentification,ownershipselector,dogbehaviorprediction,careerfit,likabilityorhumanworth. Noanimalgeneinference. Countsarechoiceswithinthisset,notpercentages."
+  }
+}

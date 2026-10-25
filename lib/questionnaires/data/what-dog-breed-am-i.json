@@ -1,0 +1,1611 @@
+{
+  "slug": "what-dog-breed-am-i",
+  "code": "DOG_BREED_PERSONALITY",
+  "version": "1.0.0",
+  "updated": "2026-10-25",
+  "category": "metaphor",
+  "kind": "archetype",
+  "minutes": 3,
+  "title": {
+    "zh": "犬系人格测试",
+    "en": "What Dog Breed Am I?"
+  },
+  "resultHeading": {
+    "zh": "你的完整犬系结果",
+    "en": "Your complete dog breed result"
+  },
+  "seoTitle": {
+    "zh": "我是什么犬种？12题犬系人格测试与完整结果",
+    "en": "What Dog Breed Am I? Free Dog Personality Quiz"
+  },
+  "description": {
+    "zh": "免费完成12道原创相处与活动偏好题，比较金毛、边牧、哈士奇、德牧、巴哥和吉娃娃六种人类性格比喻。显示全部计数、完整并列结果、具体例子与计分；无需注册。",
+    "en": "What dog breed am I? Take 12 original questions about companionship and activity preferences. Get every tied result and all six full dog-personality guides, free with no signup."
+  },
+  "introduction": {
+    "zh": "一起出门时，你更在意大家容易加入、有个小挑战，还是可以自己决定路线？这份犬系人格测试用六种犬作人类相处和活动偏好的比喻，根据12道具体情境题呈现本次选择。它不鉴定你家狗的品种，也不决定你适合养哪种狗。六份完整解释可在作答前直接阅读。",
+    "en": "When spending time together, would you make joining easier, choose a small challenge or leave room to choose your own route? This dog breed personality quiz uses six breeds as metaphors for human companionship and activity preferences across twelve situations. It does not identify your pet’s breed or decide which dog you should get. Read all six complete guides before answering if you prefer."
+  },
+  "instructions": {
+    "zh": "每题选择近期真实的自己更愿意采用的一种做法。四项都可能合理，几项贴合时选更自然的一项，不需要先挑喜欢的犬种。完成12题后查看全部计数和所有最高并列结果；没有正确答案。",
+    "en": "Choose the response you would more naturally prefer in your recent life. All four options may be reasonable; if several fit, choose what comes more easily. You do not need to pick a favourite breed first. After all twelve questions, see every count and all highest-count matches. There are no right answers."
+  },
+  "source": {
+    "kind": "FermatMind original human companionship preference quiz using dog metaphors",
+    "formCode": "fm_dog_companion_choices_12",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "2c8fd7b8806c25f2c5f9699958c2616d41afe02a467a373fec06870b5076cf46",
+    "resultContentSha256": "4a9d1f1ac4e81236e5f1851e5a2668becb6a556cd8119152bb18bf11771fdc5d",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "golden-retriever",
+      "title": {
+        "zh": "金毛寻回犬",
+        "en": "Golden Retriever"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "border-collie",
+      "title": {
+        "zh": "边境牧羊犬",
+        "en": "Border Collie"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "husky",
+      "title": {
+        "zh": "哈士奇",
+        "en": "Husky"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "german-shepherd",
+      "title": {
+        "zh": "德国牧羊犬",
+        "en": "German Shepherd"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "pug",
+      "title": {
+        "zh": "巴哥犬",
+        "en": "Pug"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "chihuahua",
+      "title": {
+        "zh": "吉娃娃",
+        "en": "Chihuahua"
+      },
+      "comparisons": 8
+    }
+  ],
+  "questions": [
+    {
+      "id": "DOG_01",
+      "prompt": {
+        "zh": "和熟人一起安排一段空闲时间，你更愿意从哪件事开始？",
+        "en": "You are planning some free time with people you know. Which starting point would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先让每个人都有容易加入的方式，吃点东西聊聊也好。",
+            "en": "Make it easy for everyone to join, even if we just share food and talk."
+          },
+          "directionId": "golden-retriever"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "选一个能一起练熟或完成的小挑战。",
+            "en": "Choose a small challenge we can practise or complete together."
+          },
+          "directionId": "border-collie"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留点临时改主意的空间，看到有趣的再决定。",
+            "en": "Leave room to change our minds and follow something interesting."
+          },
+          "directionId": "husky"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先确认时间、分工和大家已经答应的安排。",
+            "en": "First clarify the timing, responsibilities and arrangements people have agreed to."
+          },
+          "directionId": "german-shepherd"
+        }
+      ]
+    },
+    {
+      "id": "DOG_02",
+      "prompt": {
+        "zh": "准备开始一项新的休闲活动，什么最能让你想继续？",
+        "en": "When starting a leisure activity, what most makes you want to continue?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "能看见一点进步，也有下一步可以练。",
+            "en": "Noticing some progress and having a next step to practise."
+          },
+          "directionId": "border-collie"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "形式可以变化，不必一直照同一套方式来。",
+            "en": "Being able to vary the format instead of following one fixed way."
+          },
+          "directionId": "husky"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "知道怎样稳定参与，并把答应的部分做好。",
+            "en": "Knowing how to take part consistently and follow through on what I take on."
+          },
+          "directionId": "german-shepherd"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "节奏舒服、准备不复杂，做完不觉得又添了负担。",
+            "en": "A comfortable pace and simple preparation that do not turn it into another demand."
+          },
+          "directionId": "pug"
+        }
+      ]
+    },
+    {
+      "id": "DOG_03",
+      "prompt": {
+        "zh": "接下来几天安排太满，需要减少一点。你更想优先保留什么？",
+        "en": "The next few days are too full and something needs to go. What would you most want to preserve?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一段可以自己决定去做什么的空白。",
+            "en": "Some space where I can decide for myself what to do."
+          },
+          "directionId": "husky"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "已经明确答应别人、对方也在依赖的那一项。",
+            "en": "The clear commitment someone else is already relying on."
+          },
+          "directionId": "german-shepherd"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "基本的休息和轻松日常，不再把空隙都填满。",
+            "en": "Basic rest and easy routines instead of filling every gap."
+          },
+          "directionId": "pug"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把我的时间和接受范围直接说清楚的机会。",
+            "en": "A chance to state my time and limits directly."
+          },
+          "directionId": "chihuahua"
+        }
+      ]
+    },
+    {
+      "id": "DOG_04",
+      "prompt": {
+        "zh": "共同出门前大家迟迟定不下来，你更愿意怎样参与？",
+        "en": "People cannot settle the arrangements before going out together. How would you prefer to contribute?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "核对已有条件，明确谁负责最后确认。",
+            "en": "Check the known conditions and clarify who will confirm the plan."
+          },
+          "directionId": "german-shepherd"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先提出一个简单、负担小的选项。",
+            "en": "Offer a simple option that asks little of everyone."
+          },
+          "directionId": "pug"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "直接说出我能接受和不能接受的安排。",
+            "en": "State which arrangements work for me and which do not."
+          },
+          "directionId": "chihuahua"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问问谁还没说上话，让大家容易表达想法。",
+            "en": "Ask who has not had a say and make it easier to share a preference."
+          },
+          "directionId": "golden-retriever"
+        }
+      ]
+    },
+    {
+      "id": "DOG_05",
+      "prompt": {
+        "zh": "只空出一小时留给自己，你更可能怎样使用？",
+        "en": "You have just one hour to yourself. How would you most likely use it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "待在舒服的地方，做点熟悉又不费劲的事。",
+            "en": "Settle somewhere comfortable with something familiar and undemanding."
+          },
+          "directionId": "pug"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "优先做一件我明确想做的事，不再等别人拿主意。",
+            "en": "Do one thing I clearly want rather than waiting for someone else to decide."
+          },
+          "directionId": "chihuahua"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "找个愿意的人短短相处，让彼此知道近况。",
+            "en": "Spend a little time with willing company and catch up."
+          },
+          "directionId": "golden-retriever"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "拿来练一个感兴趣的小技能，看看能不能更顺一点。",
+            "en": "Practise a small skill I enjoy and see whether it becomes a little smoother."
+          },
+          "directionId": "border-collie"
+        }
+      ]
+    },
+    {
+      "id": "DOG_06",
+      "prompt": {
+        "zh": "你与同伴对接下来的活动意见不同，更愿意先做哪一步？",
+        "en": "You and a companion disagree about the next activity. Which first step would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把自己的理由和需要直说，不让对方猜。",
+            "en": "Say my reasons and needs directly rather than leaving them to guess."
+          },
+          "directionId": "chihuahua"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先维持可以好好说话的气氛，再听听彼此想要什么。",
+            "en": "Keep the conversation friendly enough to hear what each person wants."
+          },
+          "directionId": "golden-retriever"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看看哪种安排能让大家在共同目标上有所推进。",
+            "en": "Consider which plan could move us forward on the aim we share."
+          },
+          "directionId": "border-collie"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "想想能否换种玩法，或让彼此分开行动一会儿。",
+            "en": "Consider another way to do it, or spending part of the time separately."
+          },
+          "directionId": "husky"
+        }
+      ]
+    },
+    {
+      "id": "DOG_07",
+      "prompt": {
+        "zh": "参加一次熟人组织的小活动，你最想贡献哪一种参与？",
+        "en": "At a small activity organised by people you know, which contribution would you most enjoy making?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "主动接上新来的人，让他们容易融入。",
+            "en": "Welcome someone who has just arrived and help them find a way in."
+          },
+          "directionId": "golden-retriever"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "认真投入一个有挑战的环节，带着兴趣把它练好。",
+            "en": "Get absorbed in a challenging part and enjoy working at it."
+          },
+          "directionId": "border-collie"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "提出一个新花样，让活动不必完全按旧计划走。",
+            "en": "Suggest a new variation so the activity can depart from the usual plan."
+          },
+          "directionId": "husky"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把自己承诺的一项准备或收尾踏实做好。",
+            "en": "Take care of one preparation or finishing task I have committed to."
+          },
+          "directionId": "german-shepherd"
+        }
+      ]
+    },
+    {
+      "id": "DOG_08",
+      "prompt": {
+        "zh": "一件需要重复做的小事开始显得乏味，你更愿意怎样调整？",
+        "en": "A small recurring activity has started to feel dull. How would you prefer to adjust it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "加一个能检验进步的小目标，让练习更有抓手。",
+            "en": "Add a small goal that lets me check progress and gives practice a focus."
+          },
+          "directionId": "border-collie"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "换地方、换顺序，给过程一点不同。",
+            "en": "Change the place or sequence and bring some variety to the process."
+          },
+          "directionId": "husky"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先保住需要持续完成的基本部分，再适当调整。",
+            "en": "Keep the essential part I need to maintain, then make a limited adjustment."
+          },
+          "directionId": "german-shepherd"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把它简化到更轻松、容易继续的程度。",
+            "en": "Simplify it until continuing feels easier and more comfortable."
+          },
+          "directionId": "pug"
+        }
+      ]
+    },
+    {
+      "id": "DOG_09",
+      "prompt": {
+        "zh": "和别人一起度过一个没有工作的周末，你最希望安排里有？",
+        "en": "During a weekend without work, what would you most want a shared plan to include?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "可以临时探索新地方，也可以自己走一小段的自由。",
+            "en": "Room to explore somewhere new or take a little time on my own."
+          },
+          "directionId": "husky"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "彼此说清的时间和约定，不用不断等临时消息。",
+            "en": "Clear times and agreements instead of continually waiting for last-minute updates."
+          },
+          "directionId": "german-shepherd"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "足够的空隙，累了就能把行程放轻一点。",
+            "en": "Enough breathing room to ease the schedule if it feels tiring."
+          },
+          "directionId": "pug"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我可以清楚表达偏好，拒绝一项也不会被硬拉上。",
+            "en": "Space to state my preferences and decline something without being pressed to join."
+          },
+          "directionId": "chihuahua"
+        }
+      ]
+    },
+    {
+      "id": "DOG_10",
+      "prompt": {
+        "zh": "同伴误解了你的一个安排，你更想怎样回应？",
+        "en": "A companion has misunderstood one of your arrangements. How would you most like to respond?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "重新确认我们各自答应了什么，接下来谁来做。",
+            "en": "Reconfirm what each of us agreed to and who will do what next."
+          },
+          "directionId": "german-shepherd"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先把对话放慢一点，找一个双方负担小的调整。",
+            "en": "Slow the conversation down and look for an adjustment that asks less of both people."
+          },
+          "directionId": "pug"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "明确说出我的原意和现在需要对方知道的事。",
+            "en": "State what I meant and what I need them to understand now."
+          },
+          "directionId": "chihuahua"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先确认对方听到了什么，让交流重新接得上。",
+            "en": "Check what they heard so we can reconnect the conversation."
+          },
+          "directionId": "golden-retriever"
+        }
+      ]
+    },
+    {
+      "id": "DOG_11",
+      "prompt": {
+        "zh": "忙完之后决定怎样恢复自己的日常节奏，你更偏好？",
+        "en": "After a busy stretch, how would you prefer to return to everyday life?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "保留几个轻松、熟悉的日常片段，不急着增加目标。",
+            "en": "Keep a few easy, familiar routines without immediately adding more goals."
+          },
+          "directionId": "pug"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先说清接下来哪些邀请或要求我暂时不接。",
+            "en": "First make clear which invitations or requests I will not take on for now."
+          },
+          "directionId": "chihuahua"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "和熟悉的人简单相处一下，不需要特别安排。",
+            "en": "Have some simple time with familiar company without special arrangements."
+          },
+          "directionId": "golden-retriever"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "挑一个自己喜欢的小挑战，用可控的练习找回节奏。",
+            "en": "Choose a small challenge I enjoy and return through manageable practice."
+          },
+          "directionId": "border-collie"
+        }
+      ]
+    },
+    {
+      "id": "DOG_12",
+      "prompt": {
+        "zh": "一个共同计划需要改动时，你最希望大家先做到什么？",
+        "en": "When a shared plan needs to change, what would you most want people to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "允许每个人明确表达不满、需求或不同意。",
+            "en": "Let people state a concern, a need or disagreement clearly."
+          },
+          "directionId": "chihuahua"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让交流保持友好，给每个人参与调整的机会。",
+            "en": "Keep the conversation welcoming and give everyone a chance to help adjust it."
+          },
+          "directionId": "golden-retriever"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "找到仍值得完成的一小部分，并决定怎样推进。",
+            "en": "Identify one part still worth completing and decide how to move it forward."
+          },
+          "directionId": "border-collie"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "不要被原路线绑住，考虑一种新的参与方式。",
+            "en": "Avoid being tied to the original route and consider a new way to take part."
+          },
+          "directionId": "husky"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "golden-retriever",
+      "directionIds": [
+        "golden-retriever"
+      ],
+      "title": {
+        "zh": "金毛寻回犬",
+        "en": "Golden Retriever"
+      },
+      "headline": {
+        "zh": "让人容易加入，也保留自己的余力",
+        "en": "Make joining easier while keeping your own limits"
+      },
+      "summary": {
+        "zh": "本版金毛寻回犬比喻更常选择欢迎、接上交流和让人容易参与的做法。它不证明别人一定喜欢你，也不要求你总是友好或答应所有邀请。",
+        "en": "In this edition, Golden Retriever is a metaphor for choices that welcome people, reconnect a conversation and make participation easier. It does not establish that others like you or require you to remain friendly and accept every invitation."
+      },
+      "seo": {
+        "title": {
+          "zh": "金毛寻回犬结果解读：犬系人格测试",
+          "en": "Golden Retriever Result — Dog Breed Personality Quiz"
+        },
+        "description": {
+          "zh": "金毛寻回犬在本版犬系人格测试中代表欢迎与容易加入的相处方式。阅读具体情境、界限、与德牧及巴哥的比较，尝试一次清楚的邀请；完整说明免费。",
+          "en": "Read the Golden Retriever personality-quiz result: welcoming company, practical boundaries, examples and comparisons with German Shepherd and Pug. Full guide free."
+        }
+      },
+      "scoreReading": {
+        "zh": "金毛寻回犬选项在12题中出现8次，四个位置各2次。每选中一次计1次；完成全部题目后显示六种计数，保留所有同样最高的犬种及其完整报告。计数不是匹配百分比，近分不表示经过验证的人格距离。",
+        "en": "Golden Retriever options appear eight times across twelve questions, twice in each position. Selecting one adds one raw choice. All six counts appear after completion, with every highest-count breed and its full report retained. Counts are not match percentages, and nearby counts are not validated personality distances."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本次选择指向什么",
+            "en": "What these choices point to"
+          },
+          "paragraphs": [
+            {
+              "zh": "这些选项通常先考虑一起相处是否容易、谁还没接上话，以及怎样让交流继续。你可能在熟悉的人面前这样做，也可能只在某些活动里如此。请回看选中的具体做法，别让一个犬种名称替你解释所有关系。",
+              "en": "These options tend to ask whether spending time together is easy, who has not found a way into the conversation and how contact can continue. You might do this with familiar people or only in certain activities. Look back at the selected responses rather than asking a breed name to explain all your relationships."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能有帮助的地方",
+            "en": "Where the approach may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "把加入的方式说清楚，可以降低一次普通邀请的门槛。例如让同伴知道可以只待一小会儿，或不用准备特别内容。这样的欢迎可以具体、有限，也不需要你负责安排所有事情或把每个人的心情都照顾好。",
+              "en": "A clear way to join can lower the threshold for an ordinary invitation. Let someone know that a brief visit is welcome or that no special preparation is needed. Welcome can be specific and bounded, without making you responsible for every arrangement or everyone’s mood."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "为了维持好相处的气氛，有时可能先说了可以，后来才发现自己没有时间。可以把愿意接触和能承担多少分开：“我很想一起，但这次只方便半小时。”限制不会自动抵消善意，也不需要靠不断迁就来证明关系。",
+              "en": "Keeping an interaction easy can lead to agreeing before checking your time. Separate wanting contact from how much you can offer: being glad to join for half an hour is different from being available all evening. A limit does not cancel goodwill, and a relationship need not be proved through continual accommodation."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常情境",
+            "en": "An everyday situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "朋友带了新人来，你可以介绍一个共同话题，再给对方自己选择参与程度的空间。如果对方安静，也允许他们先听着。不要把是否立即聊起来，当作自己够不够热情或对方是否喜欢你的考试。",
+              "en": "If a friend brings someone new, offer a shared topic and let them choose how much to participate. They may prefer listening first. An immediate conversation is not an examination of how welcoming you are or evidence of whether the other person likes you."
+            }
+          ]
+        },
+        {
+          "id": "shared-activity",
+          "title": {
+            "zh": "放在共同活动里",
+            "en": "In a shared activity"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以用一个具体问题让交流更顺，例如问谁需要先了解规则、谁愿意搭伴。之后也把自己的安排说清楚，避免一直在接住别人却没人知道你的需要。这种选择不测社交技巧、服务能力或任何职业胜任力。",
+              "en": "Use a concrete question to make participation easier, such as asking who wants the rules explained or would like a partner. State your own plans too, so supporting others does not make your needs invisible. These choices do not measure social skill, service ability or competence for a career."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与德牧、巴哥怎样比较",
+            "en": "Comparing German Shepherd and Pug"
+          },
+          "paragraphs": [
+            {
+              "zh": "金毛选项更重视交流容易接上；德国牧羊犬选项更重视明确约定与后续落实。巴哥也可能喜欢轻松陪伴，但更看重节奏和负担。近分提示你在本题组采用了多种做法，不是一个类型出了错。",
+              "en": "Golden Retriever options emphasise easy contact, while German Shepherd options emphasise clear agreements and follow-through. Pug may also favour easy company but gives more weight to pace and demands. Nearby counts suggest several responses appeared in this set, not that one of the types is mistaken."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "下次发邀请时，同时说出欢迎的方式和自己的时间上限。结束后看看是否也给自己留下了舒服的空间。你不需要让所有人都参与；练习的目标是让善意和界限同时清楚，而不是得到更多肯定。",
+              "en": "In your next invitation, state both how someone can join and the limit of your time. Afterwards, notice whether you also left a comfortable amount of space for yourself. Not everyone needs to participate. Practise making goodwill and limits clear together rather than seeking more approval."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "这个结果等于讨好型或外向吗",
+            "en": "Does this mean people-pleasing or extraversion?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不能这样换算。本题本没有测讨好程度、内外向或别人怎样评价你。你可以欢迎相处，同时喜欢独处、拒绝一项安排或不想聊天。请直接讨论真实行为和需要，不用犬种标签给自己或朋友定型。",
+              "en": "No conversion like that is available. The quiz does not measure people-pleasing, extraversion or how others judge you. You can welcome company while enjoying solitude, declining a plan or not wanting to talk. Discuss actual behaviour and needs instead of using a breed label to type yourself or a friend."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、犬种对应和报告均为费马原创娱乐比喻，尚未建立信度、效度或人群常模。这里写的是人类相处与活动偏好，不把犬类行为量表、基因或训练研究当成人格测量证据，也不鉴定宠物、推荐养犬、判断职业适配或给人排价值高低。保留符合实际的描述，不必活成结果名称。",
+              "en": "The items, breed assignments and reports are FermatMind’s original entertainment metaphors, without established reliability, validity or population norms. They concern human companionship and activity preferences. Canine behaviour scales, genetic studies and training research are not evidence for this human quiz. It does not identify a pet, recommend dog ownership, assess career fit or rank human worth. Keep descriptions that fit experience without trying to live up to a result name."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "border-collie",
+      "directionIds": [
+        "border-collie"
+      ],
+      "title": {
+        "zh": "边境牧羊犬",
+        "en": "Border Collie"
+      },
+      "headline": {
+        "zh": "给兴趣一个可练习、可完成的小目标",
+        "en": "Give an interest a small goal you can practise"
+      },
+      "summary": {
+        "zh": "本版边境牧羊犬对应喜欢练习、挑战和看见进步的选择。它不是智商、学习速度、工作能力或“比别人更勤奋”的证明，也不要求休闲一定产生进步。",
+        "en": "Border Collie corresponds to choosing practice, challenge and visible progress in this edition. It does not establish intelligence, learning speed, work ability or greater diligence than other people, or require every leisure activity to produce improvement."
+      },
+      "seo": {
+        "title": {
+          "zh": "边境牧羊犬结果解读：犬系人格测试",
+          "en": "Border Collie Result — Dog Breed Personality Quiz"
+        },
+        "description": {
+          "zh": "边境牧羊犬结果关注练习、小挑战与看见进步，不测智商或能力。查看休闲与共同活动例子、取舍和相近结果比较；本版完整犬系人格说明免费可读。",
+          "en": "Explore the Border Collie quiz result: practice, small challenges and visible progress. Read examples, tradeoffs and comparisons without treating it as an IQ result."
+        }
+      },
+      "scoreReading": {
+        "zh": "边境牧羊犬选项在12题中出现8次，四个位置各2次。每选中一次计1次；完成全部题目后显示六种计数，保留所有同样最高的犬种及其完整报告。计数不是匹配百分比，近分不表示经过验证的人格距离。",
+        "en": "Border Collie options appear eight times across twelve questions, twice in each position. Selecting one adds one raw choice. All six counts appear after completion, with every highest-count breed and its full report retained. Counts are not match percentages, and nearby counts are not validated personality distances."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本次选择指向什么",
+            "en": "What these choices point to"
+          },
+          "paragraphs": [
+            {
+              "zh": "在几个休闲或合作情境里，你可能更常选择有明确抓手、可以再练一步的安排。你喜欢的也许是过程中的专注感，而不只是赢或完成。请区分想练习的兴趣，与因为外部压力而不得不追赶的目标。",
+              "en": "In several leisure or shared situations, you may have favoured a clear focus with a next step to practise. What you enjoy could be absorption in the process rather than winning or finishing. Distinguish an interest you want to practise from a target you feel pressured to keep pursuing."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能有帮助的地方",
+            "en": "Where the approach may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "把一个模糊愿望缩成可尝试的小步骤，可能更容易开始。例如想学一项爱好时，先选一个短练习，完成后记录哪里比上次顺一点。比较的对象是这项具体练习，不是别人的天赋或你作为一个人的价值。",
+              "en": "Turning a vague wish into a small attempt can make starting easier. With a new hobby, choose a short exercise and note what becomes smoother after trying it. The comparison concerns that particular exercise, not another person’s talent or your worth as a person."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果每次活动都必须有目标，原本轻松的相处也可能像训练。同伴可能只想享受过程，不想比较进步。可以先问这次大家想练习还是随便参与，也给自己保留不改进、不记录的时间。",
+              "en": "If every activity needs a target, easy company can begin to feel like training. A companion may want to enjoy the process without comparing progress. Check whether people want practice or informal participation this time, and keep some time in which you do not need to improve or record anything."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常情境",
+            "en": "An everyday situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "和朋友一起玩一个新游戏，你可以先了解一个小技巧，再问对方是否也想认真练。如果他们想随意玩，就不把整场变成教学。你可以另外留一段自己的练习时间，让不同期待不必相互否定。",
+              "en": "When trying a game with a friend, learn one small technique and ask whether they also want focused practice. If they prefer informal play, do not turn the whole occasion into a lesson. A separate practice slot can let different expectations coexist without either being dismissed."
+            }
+          ]
+        },
+        {
+          "id": "shared-activity",
+          "title": {
+            "zh": "放在共同活动里",
+            "en": "In a shared activity"
+          },
+          "paragraphs": [
+            {
+              "zh": "把“做得更好”说成一个大家能理解的具体目标，并允许参与者选择不同难度。结束后先问大家的体验，再谈是否继续加挑战。这份犬种结果不测技能、学习能力或职业潜力，真正水平仍需具体任务和反馈。",
+              "en": "State one concrete aim rather than an undefined wish to do better, and allow different levels of challenge. Ask about people’s experience before suggesting a harder next step. A breed result does not measure skill, learning ability or career potential; actual performance needs a task and feedback of its own."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与哈士奇、德牧怎样比较",
+            "en": "Comparing Husky and German Shepherd"
+          },
+          "paragraphs": [
+            {
+              "zh": "边牧选项强调练习和进步，哈士奇更强调变化与自主选择；德国牧羊犬更在意承诺和稳定落实。同一件事可以同时包含三种需要。若计数接近，可以看看你在不同场合把哪一种放在前面，而不是争一个更优秀的类型。",
+              "en": "Border Collie options emphasise practice and progress, Husky variety and autonomy, and German Shepherd commitments and dependable follow-through. One activity can involve all three. With nearby counts, consider which need came first in each situation rather than competing for a supposedly better type."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "选择一个你确实想练的小目标，同时预先约定停止时间。结束后只记录一项观察，再决定是否继续，不把没进步当作浪费。这样可以检查挑战是否仍然服务于兴趣，而不是让每次空闲都变成任务。",
+              "en": "Choose one small goal you genuinely want to practise and agree with yourself when to stop. Afterwards, record one observation and decide whether to continue without treating a lack of progress as wasted time. Check whether challenge still serves your interest rather than making every free moment another assignment."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "边牧计数高就更聪明吗",
+            "en": "Does a high Border Collie count mean greater intelligence?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不意味着。这里没有知识题、能力任务或人群常模，只有对几种做法的偏好选择。它也不判断真实犬只的智力或可训练程度。想了解某项能力，需要对应的实际任务，不能从本结果或犬种名直接推断。",
+              "en": "No. There are no knowledge questions, ability tasks or population norms here, only preferences between offered responses. The result also does not assess a real dog’s intelligence or trainability. Understanding a skill requires an appropriate task, not an inference from this result or a breed name."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、犬种对应和报告均为费马原创娱乐比喻，尚未建立信度、效度或人群常模。这里写的是人类相处与活动偏好，不把犬类行为量表、基因或训练研究当成人格测量证据，也不鉴定宠物、推荐养犬、判断职业适配或给人排价值高低。保留符合实际的描述，不必活成结果名称。",
+              "en": "The items, breed assignments and reports are FermatMind’s original entertainment metaphors, without established reliability, validity or population norms. They concern human companionship and activity preferences. Canine behaviour scales, genetic studies and training research are not evidence for this human quiz. It does not identify a pet, recommend dog ownership, assess career fit or rank human worth. Keep descriptions that fit experience without trying to live up to a result name."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "husky",
+      "directionIds": [
+        "husky"
+      ],
+      "title": {
+        "zh": "哈士奇",
+        "en": "Husky"
+      },
+      "headline": {
+        "zh": "为探索和自主决定留一点余地",
+        "en": "Leave some room to explore and choose freely"
+      },
+      "summary": {
+        "zh": "哈士奇在本版指向变化、探索和保留选择空间的偏好。它不说明你不可靠、无法合作或必须冒险，也不由一次选择推断现实中的胆量或风险承受力。",
+        "en": "Husky points to variety, exploration and room to choose in this edition. It does not establish unreliability, an inability to cooperate or a need to take risks, or infer real-world courage or risk tolerance from one response."
+      },
+      "seo": {
+        "title": {
+          "zh": "哈士奇结果解读：犬系人格测试",
+          "en": "Husky Result — Dog Breed Personality Quiz"
+        },
+        "description": {
+          "zh": "哈士奇在本版犬系人格测试中比喻变化与自主空间，不评价可靠程度。阅读日常安排、承诺的取舍、与边牧及吉娃娃的比较和一次小尝试；完整说明免费。",
+          "en": "Read the Husky personality-quiz result: variety, autonomy and room to choose, with everyday examples, tradeoffs and nearby profiles. Complete guide free."
+        }
+      },
+      "scoreReading": {
+        "zh": "哈士奇选项在12题中出现8次，四个位置各2次。每选中一次计1次；完成全部题目后显示六种计数，保留所有同样最高的犬种及其完整报告。计数不是匹配百分比，近分不表示经过验证的人格距离。",
+        "en": "Husky options appear eight times across twelve questions, twice in each position. Selecting one adds one raw choice. All six counts appear after completion, with every highest-count breed and its full report retained. Counts are not match percentages, and nearby counts are not validated personality distances."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本次选择指向什么",
+            "en": "What these choices point to"
+          },
+          "paragraphs": [
+            {
+              "zh": "这些选项更愿意问：有没有另一种路线，能不能保留一些自己决定的时间？你可能喜欢变化本身，也可能只是希望一项安排不把全部空间占满。这个比喻不能判断你在真实承诺上是否可靠，或是否愿意照顾同伴。",
+              "en": "These options ask whether another route is possible and whether some time can remain self-directed. You may enjoy variety itself, or simply prefer an arrangement that does not occupy all the available space. The metaphor cannot establish how dependable you are about actual commitments or whether you care for companions."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能有帮助的地方",
+            "en": "Where the approach may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "当一个活动已经僵化，试着换地点或顺序，可能帮助你重新发现兴趣。例如把固定聚会改成短散步，或让参与者有一段各自行动的时间。关键是先得到相关人的同意，不把自由建立在别人承担额外麻烦上。",
+              "en": "When an activity has become rigid, a different place or sequence may help you rediscover interest. A recurring gathering could become a short walk, or include some time to act separately. Seek agreement from the people involved instead of making your freedom depend on extra difficulty for someone else."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "保留灵活性有时会让同伴不知道你是否已经答应。可以把确定与未定的部分分开说：“我会按时到，但之后想自己走走。”清楚表达选择，通常比临时消失或期待别人理解所有变化更容易协调。",
+              "en": "Keeping options open can leave a companion unsure of what you have actually agreed to. Separate the fixed and open parts: you can commit to arriving on time while wanting some time alone afterwards. Stating the choice is easier to coordinate than disappearing or expecting others to understand every change."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常情境",
+            "en": "An everyday situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "短途出行时，你可能想走一段没去过的路。可以先确认集合时间、是否需要同伴一起，以及怎样保持联系，再决定探索哪一小段。问卷不推荐真实冒险或特定路线；场景只用于讨论自主安排与共同约定。",
+              "en": "On a short outing, you might want to try an unfamiliar path. Agree on meeting time, whether anyone wants to join and how to keep in contact before choosing a small detour. The quiz does not recommend an actual risk or route; the situation illustrates autonomy alongside shared arrangements."
+            }
+          ]
+        },
+        {
+          "id": "shared-activity",
+          "title": {
+            "zh": "放在共同活动里",
+            "en": "In a shared activity"
+          },
+          "paragraphs": [
+            {
+              "zh": "给一个共同活动保留一个可调整环节，同时说清哪些条件必须固定，例如结束时间或已承担的准备。这样可以让新鲜感和合作同时存在。哈士奇结果不测创新、创业能力或职业适配，也不替现实决定评估风险。",
+              "en": "Keep one adjustable part of a shared activity while stating what must remain fixed, such as the ending time or preparation already promised. Variety and cooperation can then coexist. A Husky result does not measure innovation, entrepreneurship or career fit, or assess the risks of an actual decision."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与边牧、吉娃娃怎样比较",
+            "en": "Comparing Border Collie and Chihuahua"
+          },
+          "paragraphs": [
+            {
+              "zh": "哈士奇选项更重视路线和选择空间，边牧更重视挑战与练习；吉娃娃更强调把自己的需要当场说清楚。拒绝一个安排不一定是想探索，愿意挑战也不一定是想自由。近分时回看具体理由，比直接套标签更有帮助。",
+              "en": "Husky options favour routes and choice, Border Collie challenge and practice, and Chihuahua clear expression of a need in the moment. Declining a plan need not mean wanting exploration, and enjoying a challenge need not mean seeking freedom. With close counts, examine the specific reasons rather than applying a label."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "在一次低负担、可调整的安排里，明确保留一小段自主时间，同时履行一个说好的集合或交接。之后观察：自由是否更清楚，同伴是否也知道该期待什么？目标不是永远打破计划，而是让选择与承诺容易共存。",
+              "en": "In a low-pressure, adjustable plan, explicitly keep a little self-directed time while following through on one agreed meeting or handoff. Afterwards, ask whether your choice was clearer and your companion knew what to expect. The aim is not constant disruption, but making choice and commitments easier to combine."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "哈士奇结果是否表示我讨厌约束",
+            "en": "Does Husky mean I dislike every constraint?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不表示。你可以在某些事情上重视灵活，也愿意在其他事情上保持规律。题目没有测反叛、责任感或控制需求。请直接讨论哪条约定合理、哪里需要空间，而不是用犬种名称解释所有分歧或逃避真实责任。",
+              "en": "No. You can value flexibility in some situations and welcome routine in others. The items do not measure rebelliousness, responsibility or a need for control. Discuss which agreement works and where space is needed rather than using a breed name to explain every disagreement or avoid actual responsibilities."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、犬种对应和报告均为费马原创娱乐比喻，尚未建立信度、效度或人群常模。这里写的是人类相处与活动偏好，不把犬类行为量表、基因或训练研究当成人格测量证据，也不鉴定宠物、推荐养犬、判断职业适配或给人排价值高低。保留符合实际的描述，不必活成结果名称。",
+              "en": "The items, breed assignments and reports are FermatMind’s original entertainment metaphors, without established reliability, validity or population norms. They concern human companionship and activity preferences. Canine behaviour scales, genetic studies and training research are not evidence for this human quiz. It does not identify a pet, recommend dog ownership, assess career fit or rank human worth. Keep descriptions that fit experience without trying to live up to a result name."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "german-shepherd",
+      "directionIds": [
+        "german-shepherd"
+      ],
+      "title": {
+        "zh": "德国牧羊犬",
+        "en": "German Shepherd"
+      },
+      "headline": {
+        "zh": "让约定清楚，也给变化留出商量的余地",
+        "en": "Make agreements clear and leave room to renegotiate"
+      },
+      "summary": {
+        "zh": "本版德国牧羊犬对应明确约定、确认责任和持续落实的选择。它不判断忠诚、服从、领导力或责任感高低，也不意味着你必须替别人承担所有事。",
+        "en": "German Shepherd represents choices about clear agreements, responsibility and follow-through in this edition. It does not judge loyalty, obedience, leadership or levels of conscientiousness, or require you to take responsibility for everyone."
+      },
+      "seo": {
+        "title": {
+          "zh": "德国牧羊犬结果解读：犬系人格测试",
+          "en": "German Shepherd Result — Dog Breed Personality Quiz"
+        },
+        "description": {
+          "zh": "德国牧羊犬结果关注明确约定与后续落实，不判断忠诚或领导力。查看共同安排例子、调整约定的取舍及与金毛和边牧的比较；完整犬系测试说明免费。",
+          "en": "Explore the German Shepherd quiz result: clear agreements, follow-through, renegotiation and comparisons with Golden Retriever and Border Collie. Full guide free."
+        }
+      },
+      "scoreReading": {
+        "zh": "德国牧羊犬选项在12题中出现8次，四个位置各2次。每选中一次计1次；完成全部题目后显示六种计数，保留所有同样最高的犬种及其完整报告。计数不是匹配百分比，近分不表示经过验证的人格距离。",
+        "en": "German Shepherd options appear eight times across twelve questions, twice in each position. Selecting one adds one raw choice. All six counts appear after completion, with every highest-count breed and its full report retained. Counts are not match percentages, and nearby counts are not validated personality distances."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本次选择指向什么",
+            "en": "What these choices point to"
+          },
+          "paragraphs": [
+            {
+              "zh": "在共同安排里，你可能更愿意先知道谁答应了什么、何时确认，以及接下来怎样落实。这里关注的是本次选中的做法，不是你在所有关系里的固定角色。你也可以喜欢明确约定，同时需要自由、休息或别人的支持。",
+              "en": "In shared arrangements, you may prefer knowing who agreed to what, when confirmation is due and how the next step will happen. This concerns responses selected here, not a fixed role in every relationship. Wanting clear agreements can coexist with needing freedom, rest or someone else’s support."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能有帮助的地方",
+            "en": "Where the approach may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个简短确认可以减少彼此等待。例如约好谁订位置、几点之前发消息，以及没订到时怎么办。让关键事实容易找到，通常比不断追问对方是否记得更具体。安排明确也可以很轻巧，不必把休闲活动变成复杂的管理任务。",
+              "en": "A short confirmation can reduce waiting: who will book a place, when they will send a message and what happens if booking is unavailable. Keeping key facts easy to find is more concrete than repeatedly asking whether someone remembers. Clarity can be light and need not turn leisure into a management exercise."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "当变化被当成没有守约的证据，讨论可能很快变紧。先区分已经承诺的部分与尚未确定的想法，再问变化影响了什么。你可以要求及时说明，也可以重新商量一个大家做得到的安排；调整不必等于谁不在乎谁。",
+              "en": "If a change is immediately treated as evidence of breaking a promise, a discussion can become tense. Separate a commitment from an idea still being explored, then identify the effect of the change. Ask for timely notice and renegotiate something workable without making the adjustment a verdict on how much someone cares."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常情境",
+            "en": "An everyday situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "大家准备周末出门，有人迟迟没回复。你可以先发一个有截止时间的确认，再给未回复者一个简单选择。如果到时仍没消息，就按事先说好的方案行动。这样不必反复猜对方的意图，也不需要独自补齐全部准备。",
+              "en": "For a weekend outing, someone has not replied. Send one confirmation with a deadline and a simple choice. If there is still no reply, follow the fallback already stated. This avoids continual guessing about intentions and does not require you to fill every gap in the preparations yourself."
+            }
+          ]
+        },
+        {
+          "id": "shared-activity",
+          "title": {
+            "zh": "放在共同活动里",
+            "en": "In a shared activity"
+          },
+          "paragraphs": [
+            {
+              "zh": "明确自己愿意负责的一小部分，也说出哪些需要别人确认。愿意落实不等于你必须成为默认负责人；如果已经超出余力，可以尽早提出调整。题目没有检验实际执行表现，所以不能据此推荐管理、安保或任何职业。",
+              "en": "Name one part you are willing to handle and what needs confirmation from someone else. Following through does not make you the default organiser. If the load exceeds your capacity, raise the need to adjust early. The items do not test actual performance and cannot recommend management, security or any other career."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与金毛、边牧怎样比较",
+            "en": "Comparing Golden Retriever and Border Collie"
+          },
+          "paragraphs": [
+            {
+              "zh": "德国牧羊犬选项更强调约定和后续落实；金毛寻回犬更强调让交流容易接上；边境牧羊犬更强调练习与进步。三者都可能认真参与，只是题目把注意点写在不同地方。不能把计数排成可靠、热情或聪明程度的高低。",
+              "en": "German Shepherd options emphasise agreements and follow-through; Golden Retriever emphasises making contact easy; Border Collie emphasises practice and progress. All can involve engaged participation, with attention placed differently in the questions. The counts cannot rank people’s dependability, warmth or intelligence."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "下一次共同安排，只写下一个负责人、一个确认时间和一个替代方案。问同伴是否同意，也检查自己是否承担得过多。结束后回看哪些确认真正有用，删掉没有帮助的追问，让清楚的约定服务于活动本身。",
+              "en": "For the next shared plan, write down one owner, one confirmation time and one fallback. Check that companions agree and that you have not taken on too much. Afterwards, keep the confirmations that helped and drop unhelpful chasing, so agreements support the activity rather than dominating it."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "这个结果表示忠诚或领导型吗",
+            "en": "Does this result mean loyal or a natural leader?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不能这样推断。犬种在这里是原创的人类偏好比喻，不把真实犬类的训练、护卫或服从特征移到人身上。是否信任一个人，应看具体承诺和实际行为，而不是让这份问卷替代相处证据。",
+              "en": "That inference is not supported. Breeds are original metaphors for human preferences here; training, guarding and obedience in real dogs are not transferred to people. Trust should be considered through actual commitments and behaviour rather than letting this quiz replace evidence from a relationship."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、犬种对应和报告均为费马原创娱乐比喻，尚未建立信度、效度或人群常模。这里写的是人类相处与活动偏好，不把犬类行为量表、基因或训练研究当成人格测量证据，也不鉴定宠物、推荐养犬、判断职业适配或给人排价值高低。保留符合实际的描述，不必活成结果名称。",
+              "en": "The items, breed assignments and reports are FermatMind’s original entertainment metaphors, without established reliability, validity or population norms. They concern human companionship and activity preferences. Canine behaviour scales, genetic studies and training research are not evidence for this human quiz. It does not identify a pet, recommend dog ownership, assess career fit or rank human worth. Keep descriptions that fit experience without trying to live up to a result name."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pug",
+      "directionIds": [
+        "pug"
+      ],
+      "title": {
+        "zh": "巴哥犬",
+        "en": "Pug"
+      },
+      "headline": {
+        "zh": "把日常放轻一点，也说出自己愿意投入的部分",
+        "en": "Keep everyday life manageable and name what you can offer"
+      },
+      "summary": {
+        "zh": "本版巴哥犬对应舒服的节奏、简单安排和减少不必要负担的选择。它不表示懒惰、体能不足、缺乏抱负或某种健康状态，也不要求你一直保持低活动量。",
+        "en": "Pug represents choices for a comfortable pace, simpler arrangements and fewer unnecessary demands. It does not mean laziness, low fitness, lack of ambition or a health condition, or require a consistently low level of activity."
+      },
+      "seo": {
+        "title": {
+          "zh": "巴哥犬结果解读：犬系人格测试",
+          "en": "Pug Result — Dog Breed Personality Quiz"
+        },
+        "description": {
+          "zh": "巴哥犬在本版犬系人格测试中代表舒服的节奏与简化安排，不表示懒惰或健康状况。阅读参与范围、具体情境及与金毛和哈士奇的比较；完整说明免费。",
+          "en": "Read the Pug quiz result: comfortable pace, manageable plans, participation and boundaries. Everyday examples and comparisons, without labels about laziness or health."
+        }
+      },
+      "scoreReading": {
+        "zh": "巴哥犬选项在12题中出现8次，四个位置各2次。每选中一次计1次；完成全部题目后显示六种计数，保留所有同样最高的犬种及其完整报告。计数不是匹配百分比，近分不表示经过验证的人格距离。",
+        "en": "Pug options appear eight times across twelve questions, twice in each position. Selecting one adds one raw choice. All six counts appear after completion, with every highest-count breed and its full report retained. Counts are not match percentages, and nearby counts are not validated personality distances."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本次选择指向什么",
+            "en": "What these choices point to"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能在几个情境里更愿意让安排容易持续，而不是不断增加内容。舒服可以是一段熟悉的日常，也可以是给变化留足空隙。请辨认哪些是你喜欢的节奏，哪些只是近期太忙后的需要，不把它们都变成固定性格。",
+              "en": "In several situations, you may prefer making an arrangement sustainable rather than continually adding more. Comfort might mean a familiar routine or leaving space around a change. Distinguish a pace you enjoy from a temporary need after a busy stretch instead of treating both as a permanent personality."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能有帮助的地方",
+            "en": "Where the approach may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "把一次相处简化，可以让没有太多余力的人也有机会参与。例如在附近短短散步，或允许大家各带一点简单食物。减少准备不等于相处不重要；有时把负担说清楚，反而更容易安排下一次。",
+              "en": "Simplifying time together can make participation possible when people have little capacity to spare. Try a short local walk or ask everyone to bring something simple. Less preparation does not mean the occasion matters less. Clear limits on demands can make another meeting easier to arrange."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果一直只说“随便”“都可以”，同伴可能不知道你其实需要更轻的安排。把舒适说成具体条件，例如结束时间、路程或准备量。同时也问对方这次最想保留什么，寻找能同时容纳两种期待的办法。",
+              "en": "Saying that anything is fine can leave companions unaware that you need a lighter plan. Describe comfort through conditions such as the finishing time, travel distance or preparation. Ask what they most want to preserve this time, then look for a way to make space for both expectations."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常情境",
+            "en": "An everyday situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "朋友提出排满一天的行程，你可以说自己愿意参加其中一个环节，之后先回去。不必先答应全程再临时消失，也不必让对方取消所有活动。把参与范围提前说明，可以让各自的节奏都更容易安排。",
+              "en": "A friend suggests a full day of activities. You can join one part and leave afterwards, rather than agreeing to everything and disappearing later or asking them to cancel the whole day. Stating your participation in advance makes different paces easier to accommodate."
+            }
+          ]
+        },
+        {
+          "id": "shared-activity",
+          "title": {
+            "zh": "放在共同活动里",
+            "en": "In a shared activity"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以贡献一个降低复杂度的办法：少一个步骤、缩短一次集合，或准备一个不用赶时间的备选。也说清自己愿意承担哪一部分，避免把轻松理解为由别人包办。这里没有评价效率、劳动意愿或真实生活中的投入程度。",
+              "en": "Offer one way to reduce complexity: remove a step, shorten a meeting or prepare an option without rushing. State which part you will take on so that ease is not assumed to mean someone else handles everything. The result does not evaluate efficiency, willingness to work or actual effort in life."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与金毛、哈士奇怎样比较",
+            "en": "Comparing Golden Retriever and Husky"
+          },
+          "paragraphs": [
+            {
+              "zh": "巴哥选项更关注节奏舒服、负担不过量；金毛寻回犬更关注轻松接上彼此；哈士奇更关注有变化和自主空间。你可以同时喜欢这几种安排。计数接近时，比较你在哪些情境里选择了它们，不必硬挑一个永久标签。",
+              "en": "Pug options focus on manageable pace and demands, Golden Retriever on easy contact, and Husky on variety and room to choose. You can enjoy several of these arrangements. With nearby counts, compare the situations in which you chose them rather than forcing a permanent label."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "挑一个近期安排，把其中一项要求减半，例如准备时间或活动时长。告诉相关的人调整原因，保留你真正想参与的部分。之后看它是否更容易持续，而不是用有没有完成更多事情来评价这次尝试。",
+              "en": "Choose an upcoming plan and halve one demand, such as preparation time or duration. Explain the adjustment to anyone involved and preserve the part you actually want to join. Afterwards, ask whether continuing became easier rather than judging the experiment by whether it produced more activity."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "这个结果表示懒或身体状况不好吗",
+            "en": "Does this mean lazy or physically unwell?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不表示。题目没有测健康、体能、睡眠或工作投入，也不能从偏好轻松推断懒惰。真实身体或情绪方面的持续困扰，需要按实际情况获得适当支持；犬种结果既不能诊断，也不能排除这些问题。",
+              "en": "No. The items do not assess health, fitness, sleep or work engagement, and preferring ease cannot establish laziness. Persistent physical or emotional difficulties should be considered on their own circumstances with appropriate support. A breed result can neither diagnose nor rule out such problems."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、犬种对应和报告均为费马原创娱乐比喻，尚未建立信度、效度或人群常模。这里写的是人类相处与活动偏好，不把犬类行为量表、基因或训练研究当成人格测量证据，也不鉴定宠物、推荐养犬、判断职业适配或给人排价值高低。保留符合实际的描述，不必活成结果名称。",
+              "en": "The items, breed assignments and reports are FermatMind’s original entertainment metaphors, without established reliability, validity or population norms. They concern human companionship and activity preferences. Canine behaviour scales, genetic studies and training research are not evidence for this human quiz. It does not identify a pet, recommend dog ownership, assess career fit or rank human worth. Keep descriptions that fit experience without trying to live up to a result name."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chihuahua",
+      "directionIds": [
+        "chihuahua"
+      ],
+      "title": {
+        "zh": "吉娃娃",
+        "en": "Chihuahua"
+      },
+      "headline": {
+        "zh": "把自己的需要说清楚，也让对方有回应空间",
+        "en": "State your needs clearly and give others room to respond"
+      },
+      "summary": {
+        "zh": "本版吉娃娃对应明确表达偏好、理由和接受范围的选择。它不表示易怒、攻击性、脆弱、身材特征或“难相处”，也不是对你或别人声音大小的评价。",
+        "en": "Chihuahua represents choices that state preferences, reasons and limits clearly. It does not imply irritability, aggression, fragility, body size or being difficult, and does not judge how loudly you or anyone else speaks."
+      },
+      "seo": {
+        "title": {
+          "zh": "吉娃娃结果解读：犬系人格测试",
+          "en": "Chihuahua Result — Dog Breed Personality Quiz"
+        },
+        "description": {
+          "zh": "吉娃娃结果关注清楚表达需要与接受范围，不表示攻击性或难相处。查看日常协商例子、取舍及与哈士奇和德牧的比较；本版完整犬系人格说明免费。",
+          "en": "Explore the Chihuahua quiz result: clear preferences, needs and limits, with examples and comparisons. A full free guide without claims about aggression or body size."
+        }
+      },
+      "scoreReading": {
+        "zh": "吉娃娃选项在12题中出现8次，四个位置各2次。每选中一次计1次；完成全部题目后显示六种计数，保留所有同样最高的犬种及其完整报告。计数不是匹配百分比，近分不表示经过验证的人格距离。",
+        "en": "Chihuahua options appear eight times across twelve questions, twice in each position. Selecting one adds one raw choice. All six counts appear after completion, with every highest-count breed and its full report retained. Counts are not match percentages, and nearby counts are not validated personality distances."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本次选择指向什么",
+            "en": "What these choices point to"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能更愿意直接说出自己想要什么、不接受什么，减少让别人猜的部分。清楚表达可以很平静，也可以先整理想法再开口。这里记录的是题目中的选择，不检验实际沟通技巧，更不能推断你在冲突里一定会怎样行动。",
+              "en": "You may prefer stating what you want and what does not work for you, leaving less for others to guess. Clear expression can be calm and can follow time to gather your thoughts. The result records selected responses; it does not test communication skill or predict what you will do in conflict."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能有帮助的地方",
+            "en": "Where the approach may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "把偏好说具体，可以让协商从猜测转向可讨论的条件。例如“我今晚只能待一小时，比起去远处，我更愿意在附近见面”。别人可以据此回应，你也更容易知道差异究竟在哪里，而不是只能表达整体的不舒服。",
+              "en": "A specific preference can move negotiation from guessing to conditions people can discuss: an hour available tonight and a preference to meet locally rather than travel far. Others can respond to something concrete, and you can locate the difference instead of expressing only a general sense of discomfort."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "说清自己之后，还需要知道对方听到了什么。直接并不自动等于双方理解一致，也不意味着对方必须接受。可以补一个问题，问有哪些部分可调整；若界限不能改，就平静说明接下来自己会怎样安排。",
+              "en": "After stating your position, check what the other person heard. Being direct does not guarantee shared understanding or require agreement. Ask which parts could be adjusted. If a limit cannot change, calmly explain how you will arrange your own participation next."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常情境",
+            "en": "An everyday situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "大家临时把聚会改到更远的地方，而你不方便前往。你可以说明路程对自己的影响，提出留在原地点或这次不参加。不用把拒绝包装成对朋友的评价，也不需要先让自己很勉强才允许说不。",
+              "en": "A gathering moves to somewhere harder for you to reach. Explain the effect of the journey and suggest keeping the original location or sitting this one out. Declining need not become a judgment about friends, and you do not have to become deeply uncomfortable before allowing yourself to say no."
+            }
+          ]
+        },
+        {
+          "id": "shared-activity",
+          "title": {
+            "zh": "放在共同活动里",
+            "en": "In a shared activity"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以把分歧拆成自己的需要、对方的需要和可变的方案。先说一项最重要的条件，再听对方回应，避免一次抛出太多推测。本题组不判断谁更会争取权益、谁更有勇气，也不把直说换算成任何职业适配。",
+              "en": "Separate your need, another person’s need and the options that can change. Start with one important condition and hear the response instead of adding many assumptions at once. These items do not judge who is better at advocacy or more courageous, and cannot convert directness into career fit."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与哈士奇、德牧怎样比较",
+            "en": "Comparing Husky and German Shepherd"
+          },
+          "paragraphs": [
+            {
+              "zh": "吉娃娃选项更强调把个人需求和接受范围讲明白；哈士奇更强调自主选择与变化；德国牧羊犬更强调确认约定与落实。三种做法可以在同一次安排里出现。请看具体选择，不把一个犬种当成冲突风格或亲密关系类型。",
+              "en": "Chihuahua options emphasise articulating needs and limits, Husky emphasises autonomy and variety, and German Shepherd emphasises agreements and follow-through. All three approaches can appear in one plan. Look at actual responses rather than turning a breed into a conflict style or attachment type."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "下次有一个小分歧时，用两句话说出自己的条件和一个可选方案，再停下来听。之后看看对方是否理解了你的意思，你是否也知道对方的顾虑。练习目标是更清楚的交流，不是让每次讨论都按自己的意愿结束。",
+              "en": "For a small disagreement, use two sentences to state one condition and one possible option, then pause to listen. Afterwards, check whether your point was understood and whether you learned the other person’s concern. Practise clearer communication rather than making every discussion end in your preferred outcome."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "这个结果表示凶或情绪化吗",
+            "en": "Does this result mean aggressive or emotional?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不能这样评价。题目没有测攻击、情绪稳定性或危险程度，也不从真实犬种的刻板印象判断人。表达明确可以同时尊重别人；如果某次互动让你不舒服，应讨论当时的行为和界限，而不是用结果名称解释一切。",
+              "en": "That judgment is unsupported. The items do not measure aggression, emotional stability or dangerousness, and real-breed stereotypes are not used to assess people. Clear expression can be respectful. If an interaction troubles you, discuss the behaviour and boundaries involved rather than explaining everything through the result name."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、犬种对应和报告均为费马原创娱乐比喻，尚未建立信度、效度或人群常模。这里写的是人类相处与活动偏好，不把犬类行为量表、基因或训练研究当成人格测量证据，也不鉴定宠物、推荐养犬、判断职业适配或给人排价值高低。保留符合实际的描述，不必活成结果名称。",
+              "en": "The items, breed assignments and reports are FermatMind’s original entertainment metaphors, without established reliability, validity or population norms. They concern human companionship and activity preferences. Canine behaviour scales, genetic studies and training research are not evidence for this human quiz. It does not identify a pet, recommend dog ownership, assess career fit or rank human worth. Keep descriptions that fit experience without trying to live up to a result name."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "计数如何产生结果",
+        "en": "How choices produce a result"
+      },
+      "paragraphs": [
+        {
+          "zh": "12题各有4个选项，每项对应一个犬种比喻，选中加1次。六种犬各出现8次，四个位置各2次。完整作答后展示所有原始计数，所有最高者均保留。不需要照片、生日、MBTI或随机抽签。",
+          "en": "Each of twelve questions has four options, each worth one raw choice for its assigned breed metaphor. Every breed appears eight times, twice in each position. Completion reveals every count and retains all highest-count breeds. No photo, birthday, MBTI result or random draw is used."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "并列与接近计数",
+        "en": "Ties and nearby counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "所有最高计数相同的结果均显示完整报告，不按名单顺序挑一个。差一次只表示这组题里多选了一次，不能视作显著人格差异或稳定主次型。你可以比较近分解释，再回到实际选择与情境。",
+          "en": "Every result sharing the highest count receives its full report, without choosing by list order. One extra selection in this set does not establish a significant personality difference or a stable primary and secondary type. Compare nearby guides and return to the actual responses and situations."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "人类偏好与犬种比喻",
+        "en": "Human preferences and breed metaphors"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版关注欢迎、练习、自主、落实、舒服节奏和明确表达。犬名是原创娱乐比喻，不是把真实犬类特征转移到人身上；犬类行为研究也不能直接证明这份人类问卷有效。不同生活阶段或安排下，你的选择可以变化。",
+          "en": "This edition concerns welcoming, practice, autonomy, follow-through, comfortable pace and clear expression. Breed names are original entertainment metaphors, not a transfer of real canine traits to humans. Canine behaviour research does not directly validate this human quiz. Your choices may vary across situations and stages of life."
+        }
+      ]
+    },
+    {
+      "id": "source-scope",
+      "title": {
+        "zh": "原创题本与免费范围",
+        "en": "Original content and free access"
+      },
+      "paragraphs": [
+        {
+          "zh": "题目和六份报告由费马独立创作，尚无信效度或常模研究，没有复制竞品题库、结果或插图。12题、全部计数、完整并列报告与公开说明均免费，不提供职业匹配、名人同型、宠物鉴定或养犬建议。",
+          "en": "FermatMind independently authored the items and six reports without established psychometric validation or norms. No competitor item bank, result text or illustration is reproduced. All twelve questions, counts, complete tied reports and public guides are free. There are no career matches, celebrity types, pet identification or dog-ownership recommendations."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "我是什么犬种？这份测试怎样回答？",
+        "en": "What dog breed am I, and how does this quiz decide?"
+      },
+      "answer": {
+        "zh": "通过12道相处与活动偏好题的选择，累计六种犬的原始次数，保留所有最高计数。结果是本版人类偏好的原创比喻，不是犬类行为测评、基因分析或固定人格分类。",
+        "en": "Your choices across twelve questions about companionship and activities add raw counts for six breeds. Every highest count stays. A result is an original metaphor for human preferences in this edition, not a canine behaviour assessment, genetic analysis or fixed personality classification."
+      }
+    },
+    {
+      "question": {
+        "zh": "会得到哪些犬系结果？",
+        "en": "Which dog breed results can I get?"
+      },
+      "answer": {
+        "zh": "金毛寻回犬、边境牧羊犬、哈士奇、德国牧羊犬、巴哥犬和吉娃娃。每份完整报告含具体例子、取舍、相近结果比较与一次小尝试，所有公开说明都可以先读。",
+        "en": "Golden Retriever, Border Collie, Husky, German Shepherd, Pug and Chihuahua. Each complete report includes examples, tradeoffs, comparisons and one small experiment. All public guides are available before you start."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是鉴定我家狗的品种或选犬建议吗？",
+        "en": "Does this identify my dog or tell me which breed to get?"
+      },
+      "answer": {
+        "zh": "本页回答人的犬系人格趣味问题，不上传照片或鉴定宠物，也不评估养犬条件。真正的宠物品种、健康、行为或照护问题，需要对应的专业资料和实际情况，不能用人的娱乐结果代替。",
+        "en": "This page answers a playful human dog-personality question. It does not accept pet photos, identify breeds or assess ownership conditions. Actual pet identity, health, behaviour and care need relevant expertise and circumstances rather than a human entertainment result."
+      }
+    },
+    {
+      "question": {
+        "zh": "边牧结果表示聪明，巴哥表示懒吗？",
+        "en": "Does Border Collie mean smart or Pug mean lazy?"
+      },
+      "answer": {
+        "zh": "不能这样推断。边牧选项关注愿意练习，巴哥关注安排轻松；本题本没有测智商、能力、投入程度或健康，也不给六种结果排高低。请比较具体做法，不把犬种刻板印象套在人身上。",
+        "en": "Those inferences are unsupported. Border Collie options concern practice; Pug concerns manageable plans. The quiz does not measure intelligence, ability, effort or health, or rank its results. Compare specific responses instead of applying breed stereotypes to people."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果免费吗？并列需要再做一次吗？",
+        "en": "Are full results free, and do ties need another attempt?"
+      },
+      "answer": {
+        "zh": "完整题本、全部计数、六份报告与并列结果均免费，无需注册或先做MBTI。并列会全部保留，不靠加题、随机数或付费才能确定。完成后可以自选其他框架，也可以直接结束。",
+        "en": "All questions, counts, six reports and tied results are free, without signup or prerequisite MBTI. Every highest tie stays, without extra questions, chance or payment to settle it. Another framework is optional after completion, and you may simply stop here."
+      }
+    },
+    {
+      "question": {
+        "zh": "草稿、重测与分享怎样处理？",
+        "en": "How do drafts, retaking and sharing work?"
+      },
+      "answer": {
+        "zh": "浏览器本地计算，主动开启时仅保存本标签页24小时草稿；刷新或换语言后可主动恢复。完成、退出清除或重测会删除草稿。分享只包含结果名称与公开链接，不包含答案、计数或内部ID；禁止存储时仍能完成。",
+        "en": "Scoring runs in your browser. An optional draft lasts 24 hours in this tab and can be resumed after refreshing or changing language. Completion, exit-and-clear or retaking deletes it. Sharing includes result names and public links, never answers, counts or internal IDs. You can finish with storage blocked."
+      }
+    }
+  ]
+}
