@@ -900,7 +900,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "狼精神动物结果：约定、合作与相互依靠",
+          "en": "Wolf Spirit Animal Result: Cooperation and Commitment"
+        },
+        "description": {
+          "zh": "狼在本测试代表确认约定、共同承担与持续合作。阅读完整象征解释、日常例子、边界和与其他动物的比较，不把结果当作忠诚度或狼的行为测量。",
+          "en": "Explore the Wolf spirit animal result: commitments, shared responsibility and mutual reliance. Full examples, tradeoffs and comparisons explain a metaphor rather than a loyalty rating."
+        }
+      }
     },
     {
       "id": "owl",
@@ -1041,7 +1051,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "猫头鹰精神动物结果：观察与核对依据",
+          "en": "Owl Spirit Animal Result: Observation and Evidence"
+        },
+        "description": {
+          "zh": "查看猫头鹰精神动物完整结果，了解先观察、核对依据和区分已知未知的情境、取舍与下一步。猫头鹰是本题组比喻，不是智商或洞察力证明。",
+          "en": "Read the Owl spirit animal guide on observing, checking evidence and separating knowns from unknowns. Full interpretation offers examples and next steps without claims about intelligence."
+        }
+      }
     },
     {
       "id": "fox",
@@ -1182,7 +1202,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "狐狸精神动物结果：调整路径与利用条件",
+          "en": "Fox Spirit Animal Result: Adaptation and Available Resources"
+        },
+        "description": {
+          "zh": "阅读狐狸精神动物完整说明，比较利用现成条件、改变路线和按反馈调整的具体情境。不把灵活等同狡猾，也不用动物结果判断诚信或聪明程度。",
+          "en": "Explore the Fox spirit animal result: using available resources, changing routes and responding to feedback. Read the full guide without equating flexibility with deception or intelligence."
+        }
+      }
     },
     {
       "id": "lion",
@@ -1323,7 +1353,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "狮子精神动物结果：主动表达与推进下一步",
+          "en": "Lion Spirit Animal Result: Initiative and Clear Choices"
+        },
+        "description": {
+          "zh": "狮子在本题组对应主动表态、明确取舍与推进下一步。查看完整结果、日常情境和沟通边界，不以狮子授予领导身份、地位或替别人做主的权利。",
+          "en": "Read the Lion spirit animal guide to initiative, clear tradeoffs and next steps. Full examples and boundaries explain the metaphor without granting leadership or authority over others."
+        }
+      }
     },
     {
       "id": "dolphin",
@@ -1464,7 +1504,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "海豚精神动物结果：联系、互动与邀请参与",
+          "en": "Dolphin Spirit Animal Result: Connection and Participation"
+        },
+        "description": {
+          "zh": "查看海豚精神动物完整解释，了解建立联系、改善互动和邀请参与的具体做法及取舍。海豚不是外向类型，也不证明别人喜欢你或你总能让人开心。",
+          "en": "Explore the Dolphin spirit animal result: reaching out, easing interaction and inviting participation. Full examples and tradeoffs avoid claims about extraversion or popularity."
+        }
+      }
     },
     {
       "id": "deer",
@@ -1605,7 +1655,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "鹿精神动物结果：留意需要与相处舒适度",
+          "en": "Deer Spirit Animal Result: Needs, Care and Comfort"
+        },
+        "description": {
+          "zh": "阅读鹿精神动物完整结果，比较留意细微需要、感受与舒适度的情境及边界。温和不等于脆弱，本测试不测高敏感，也不要求你总迁就别人。",
+          "en": "Read the Deer spirit animal guide on noticing needs, feelings and comfort. Full examples and boundaries neither equate gentleness with weakness nor measure high sensitivity."
+        }
+      }
     },
     {
       "id": "bear",
@@ -1746,7 +1806,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "熊精神动物结果：稳定步骤与可承受节奏",
+          "en": "Bear Spirit Animal Result: Stability and a Manageable Pace"
+        },
+        "description": {
+          "zh": "查看熊精神动物的完整解释，了解熟悉步骤、稳定条件与可承受节奏的取舍和小尝试。不用熊判断懒惰、理想、情绪迟钝、体力或韧性。",
+          "en": "Explore the Bear spirit animal result: stability, familiar steps and a manageable pace. Full examples and a small experiment avoid judgments about ambition, stamina or resilience."
+        }
+      }
     },
     {
       "id": "eagle",
@@ -1887,7 +1957,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "鹰精神动物结果：目的、关联与长远视角",
+          "en": "Eagle Spirit Animal Result: Purpose and a Longer View"
+        },
+        "description": {
+          "zh": "阅读鹰精神动物完整结果，比较从目的、关联和更长时间尺度看问题的具体情境。鹰是本题组象征，不证明远见更强，也不预测成功或领导能力。",
+          "en": "Read the Eagle spirit animal guide to purpose, connections and a longer time horizon. Full interpretation explains the metaphor without predicting success or superior leadership."
+        }
+      }
     }
   ],
   "guide": [

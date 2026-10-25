@@ -1000,7 +1000,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "红色性格测试结果：行动回应与沟通节奏",
+          "en": "Red Color Result: Action, Pace and Communication"
+        },
+        "description": {
+          "zh": "红色在本题组代表怎样的行动回应？阅读完整色彩结果、日常场景、容易忽略的细节与其他颜色比较。颜色是本站风格比喻，不代表气场、能力或固定人格。",
+          "en": "Read the Red color guide: action-oriented responses, everyday situations and communication tradeoffs. Compare other colors through a full report, using color as a style metaphor."
+        }
+      }
     },
     {
       "id": "yellow",
@@ -1333,7 +1343,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "黄色性格测试结果：开放联想与表达取舍",
+          "en": "Yellow Color Result: Ideas, Expression and Tradeoffs"
+        },
+        "description": {
+          "zh": "阅读黄色性格测试结果的完整说明，了解开放联想、互动表达、跟进细节及相邻颜色的区别。原始选择计数帮助自我观察，不是受欢迎程度或智力测量。",
+          "en": "Explore the Yellow color result: open associations, expression and follow-through. Full examples and comparisons explain this quiz’s choices without measuring intelligence or popularity."
+        }
+      }
     },
     {
       "id": "blue",
@@ -1666,7 +1686,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "蓝色性格测试结果：审慎整理与行动时机",
+          "en": "Blue Color Result: Careful Review and When to Act"
+        },
+        "description": {
+          "zh": "查看蓝色结果完整报告，比较核对依据、整理信息、明确标准与开始行动的具体情境。蓝色是本题组的风格比喻，不是情绪诊断或正确率评分。",
+          "en": "Read the Blue color guide on checking evidence, organising information and deciding when to act. Full interpretation uses a style metaphor rather than a mood diagnosis or accuracy score."
+        }
+      }
     },
     {
       "id": "green",
@@ -1999,7 +2029,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "绿色性格测试结果：稳定协调与变化应对",
+          "en": "Green Color Result: Steady Coordination and Change"
+        },
+        "description": {
+          "zh": "阅读绿色性格结果的完整解释：稳定协调、相处节奏、面对变化和表达需要。包含实际场景与颜色比较，不把绿色视为成熟度、善良程度或职业适配。",
+          "en": "Explore the Green color result: steady coordination, pace, change and expressing needs. Read full examples and comparisons without inferring maturity, virtue or career fit."
+        }
+      }
     },
     {
       "id": "tied-red-yellow",
@@ -2239,7 +2279,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "红黄并列结果：行动与开放联想怎样配合",
+          "en": "Red / Yellow Tie: Action and Open Ideas"
+        },
+        "description": {
+          "zh": "红与黄原始次数同时最高时，保留两种读法。查看行动回应与开放联想的完整情境、取舍和沟通建议；不按颜色顺序硬选一种，也不推断双倍优势。",
+          "en": "Red and Yellow share the highest count. Read the full guide to action and open ideas, compare situations and tradeoffs, and keep both readings without an arbitrary tie breaker."
+        }
+      }
     },
     {
       "id": "tied-red-blue",
@@ -2479,7 +2529,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "红蓝并列结果：先行动还是先核对",
+          "en": "Red / Blue Tie: Acting and Checking First"
+        },
+        "description": {
+          "zh": "阅读红蓝并列完整说明，比较推动行动与审慎核对在不同情境中的取舍。并列是本题组的原始计数结果，不代表矛盾人格、效率或判断能力高低。",
+          "en": "Explore the Red / Blue tie guide: acting, checking first and negotiating the tradeoff in context. Equal raw counts imply neither a contradictory personality nor superior judgment."
+        }
+      }
     },
     {
       "id": "tied-red-green",
@@ -2719,7 +2779,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "红绿并列结果：推进与稳定协调",
+          "en": "Red / Green Tie: Initiative and Coordination"
+        },
+        "description": {
+          "zh": "红绿并列最高怎样理解？查看推进下一步与维持稳定节奏的完整结果说明、情境例子和沟通建议。两个颜色共同领先，不构成人际或职业匹配结论。",
+          "en": "Read the full Red / Green guide on moving forward and keeping a steady pace. Concrete examples explain the tie without drawing conclusions about relationships or occupational fit."
+        }
+      }
     },
     {
       "id": "tied-yellow-blue",
@@ -2959,7 +3029,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "黄蓝并列结果：开放联想与审慎整理",
+          "en": "Yellow / Blue Tie: Open Ideas and Careful Review"
+        },
+        "description": {
+          "zh": "查看黄蓝并列完整报告，比较发散联想、核对信息和形成下一步时的具体选择。相同最高次数不等于全面发展，也不认证创造力或分析能力。",
+          "en": "Explore the Yellow / Blue tie: generating associations, checking information and choosing a next step. The full report does not turn equal counts into creativity or analytical ability."
+        }
+      }
     },
     {
       "id": "tied-yellow-green",
@@ -3199,7 +3279,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "黄绿并列结果：表达互动与稳定节奏",
+          "en": "Yellow / Green Tie: Expression and a Steady Pace"
+        },
+        "description": {
+          "zh": "阅读黄绿并列的完整解释，比较互动表达、维持节奏与照顾协作条件的场景和取舍。结果基于具体选择，不把两颜色推成固定组合人格。",
+          "en": "Read the full Yellow / Green tie guide to expression, interaction and maintaining a steady pace. Compare contexts and tradeoffs without assigning a fixed combined personality."
+        }
+      }
     },
     {
       "id": "tied-blue-green",
@@ -3439,7 +3529,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "蓝绿并列结果：审慎标准与稳定协调",
+          "en": "Blue / Green Tie: Careful Standards and Coordination"
+        },
+        "description": {
+          "zh": "蓝与绿并列领先时，怎样比较审慎整理和稳定协调？阅读完整结果、情境差异与下一步。颜色不评价情绪健康，也不证明更可靠或更有能力。",
+          "en": "Explore the Blue / Green tie through careful standards, steady coordination and practical situations. The full guide offers next steps without ranking reliability or emotional health."
+        }
+      }
     },
     {
       "id": "tied-red-yellow-blue",
@@ -3684,7 +3784,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "红黄蓝三方向并列：完整色彩结果读法",
+          "en": "Red / Yellow / Blue Tie: Reading Three Leading Colors"
+        },
+        "description": {
+          "zh": "红、黄、蓝三项同时最高，没有唯一领先颜色。完整报告比较行动、联想和整理的具体情境，并说明计数局限；较低绿色次数不代表缺少合作能力。",
+          "en": "Red, Yellow and Blue share the highest count. Compare action, ideas and review in the full guide. A lower Green tally does not establish poor cooperation or a missing trait."
+        }
+      }
     },
     {
       "id": "tied-red-yellow-green",
@@ -3929,7 +4039,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "红黄绿三方向并列：行动、联想与协调",
+          "en": "Red / Yellow / Green Tie: Action, Ideas and Coordination"
+        },
+        "description": {
+          "zh": "查看红黄绿三项并列完整报告，比较行动回应、开放联想与稳定协调。保留全部最高匹配并解释情境取舍，不从较低蓝色次数推断理性或智力不足。",
+          "en": "Read the Red / Yellow / Green tie guide on action, ideas and coordination. Every highest match remains; a lower Blue count is not evidence of weaker reasoning or intelligence."
+        }
+      }
     },
     {
       "id": "tied-red-blue-green",
@@ -4174,7 +4294,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "红蓝绿三方向并列：推进、整理与节奏",
+          "en": "Red / Blue / Green Tie: Action, Review and Pace"
+        },
+        "description": {
+          "zh": "红蓝绿三项并列时，完整解释推进、审慎整理与维持节奏的不同场景。并列无需加题或付费打破，也不把较低黄色次数解释为缺少创造力。",
+          "en": "Explore the Red / Blue / Green tie through action, review and pace. Read the full explanation without paying to break a tie or treating a lower Yellow tally as limited creativity."
+        }
+      }
     },
     {
       "id": "tied-yellow-blue-green",
@@ -4419,7 +4549,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "黄蓝绿三方向并列：联想、标准与协调",
+          "en": "Yellow / Blue / Green Tie: Ideas, Standards and Coordination"
+        },
+        "description": {
+          "zh": "阅读黄蓝绿三项并列完整结果，比较开放联想、审慎标准和稳定协调。没有唯一顶部方向，较低红色次数也不能证明缺乏行动力或领导能力。",
+          "en": "Yellow, Blue and Green tie at the top. Read the full guide to ideas, standards and coordination; a lower Red tally proves neither weak initiative nor limited leadership ability."
+        }
+      }
     },
     {
       "id": "tied-red-yellow-blue-green",
@@ -4669,7 +4809,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "四色次数相同：色彩测试完整并列说明",
+          "en": "Four-Color Tie: Reading Equal Choice Counts"
+        },
+        "description": {
+          "zh": "红、黄、蓝、绿的次数完全相同时，本次不指定领先颜色。查看完整说明、具体情境与下一步，不把四色并列当作完美平衡、全能人格或测试无效。",
+          "en": "All four colors have equal counts, so no leading color is assigned. Explore the full guide, practical contexts and next steps without assuming perfect balance or an invalid attempt."
+        }
+      }
     }
   ],
   "guide": [

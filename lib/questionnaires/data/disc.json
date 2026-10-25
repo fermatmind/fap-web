@@ -1008,7 +1008,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "DISC D型结果：推进方式、取舍与沟通",
+          "en": "DISC D Result: Action, Tradeoffs and Communication"
+        },
+        "description": {
+          "zh": "阅读DISC问卷中D方向领先的完整结果：主动推进的具体情境、容易遗漏的信息、沟通建议及与I/S/C的比较。原始选择次数不等于领导力或职业适配。",
+          "en": "Explore the DISC D guide: action-oriented choices, everyday examples, communication tradeoffs and comparisons with I, S and C. Full report, without a leadership verdict."
+        }
+      }
     },
     {
       "id": "single-i",
@@ -1349,7 +1359,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "DISC I型结果：表达互动与沟通边界",
+          "en": "DISC I Result: Expression, Interaction and Tradeoffs"
+        },
+        "description": {
+          "zh": "查看DISC I方向结果的完整解释：如何表达想法、邀请互动、处理细节与跟进，并比较其他方向。不以问卷次数判断受欢迎程度，结果免费可读。",
+          "en": "Read the DISC I result guide on expression, inviting participation, detail and follow-through. Compare nearby approaches through a full free report, without popularity claims."
+        }
+      }
     },
     {
       "id": "single-s",
@@ -1690,7 +1710,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "DISC S型结果：稳定协作与变化中的表达",
+          "en": "DISC S Result: Steadiness, Cooperation and Change"
+        },
+        "description": {
+          "zh": "阅读DISC S方向完整报告，了解稳定协作、维护节奏、面对变化和表达分歧的具体例子与取舍。结果描述本次选择，不定义固定性格或工作能力。",
+          "en": "Explore the DISC S guide: steady cooperation, pace, change and expressing disagreement. Read concrete examples and tradeoffs without treating the result as a fixed identity."
+        }
+      }
     },
     {
       "id": "single-c",
@@ -2031,7 +2061,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "DISC C型结果：审慎整理、标准与沟通",
+          "en": "DISC C Result: Careful Review, Standards and Communication"
+        },
+        "description": {
+          "zh": "查看DISC C方向领先时的完整结果：核对依据、整理细节、把握标准及行动时机。包含沟通情境与方向比较，不把审慎计数换算成智力或正确率。",
+          "en": "Read the DISC C guide to checking evidence, organising details and deciding when to act. Full examples and comparisons, without converting careful choices into intelligence."
+        }
+      }
     },
     {
       "id": "tied-d-i",
@@ -2288,7 +2328,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "DISC D/I并列：行动推进与表达互动",
+          "en": "DISC D/I Tie: Action and Expression"
+        },
+        "description": {
+          "zh": "D与I原始次数并列最高怎样读？比较推进决定与邀请互动的具体情境，阅读完整并列报告、沟通取舍和下一步。不按选项顺序强分主次。",
+          "en": "D and I share the highest raw count. Compare moving decisions forward with inviting interaction, read the full tied report and consider communication tradeoffs without forcing a winner."
+        }
+      }
     },
     {
       "id": "tied-d-s",
@@ -2545,7 +2595,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "DISC D/S并列：推进变化与稳定协作",
+          "en": "DISC D/S Tie: Initiative and Steady Cooperation"
+        },
+        "description": {
+          "zh": "阅读DISC D/S并列完整说明：主动推进与维持稳定如何在不同情境中出现，怎样表达节奏和分歧。并列保留两个方向，不推断固定组合型人格。",
+          "en": "Explore the full DISC D/S tie guide: initiative, a steady pace and expressing disagreement in context. Both highest directions remain, without certifying a combined personality type."
+        }
+      }
     },
     {
       "id": "tied-d-c",
@@ -2802,7 +2862,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "DISC D/C并列：行动节奏与审慎核对",
+          "en": "DISC D/C Tie: Action and Careful Review"
+        },
+        "description": {
+          "zh": "D与C次数相同且领先时，怎样比较先推进和先核对？查看完整情境解释、取舍与沟通建议；并列来自本题组，不代表两种能力都很强。",
+          "en": "Read the DISC D/C tie guide on acting and checking first. Compare practical situations, tradeoffs and communication choices; equal counts do not establish two exceptional abilities."
+        }
+      }
     },
     {
       "id": "tied-i-s",
@@ -3059,7 +3129,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "DISC I/S并列：互动表达与稳定陪伴",
+          "en": "DISC I/S Tie: Expression and Steadiness"
+        },
+        "description": {
+          "zh": "查看DISC I/S并列结果的完整解释，比较表达、互动和维持稳定节奏的具体做法。包括沟通场景与可尝试的下一步，不以并列判断关系匹配。",
+          "en": "I and S tie at the top. Explore expression, interaction and maintaining a steady pace through the full DISC guide, with examples and next steps rather than compatibility predictions."
+        }
+      }
     },
     {
       "id": "tied-i-c",
@@ -3316,7 +3396,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "DISC I/C并列：开放表达与细节整理",
+          "en": "DISC I/C Tie: Expression and Detail"
+        },
+        "description": {
+          "zh": "阅读DISC I/C并列完整报告：表达交流与核对细节各自何时有用，怎样协调沟通节奏和信息标准。原始次数并列不自动证明灵活或全面。",
+          "en": "Explore the DISC I/C tie: expressing ideas, checking details and agreeing on information needs. Read the full report without interpreting equal counts as proof of versatility."
+        }
+      }
     },
     {
       "id": "tied-s-c",
@@ -3573,7 +3663,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "DISC S/C并列：稳定节奏与审慎标准",
+          "en": "DISC S/C Tie: Steady Pace and Careful Standards"
+        },
+        "description": {
+          "zh": "DISC S与C并列最高是什么意思？比较稳定协作、细节标准与变化中的沟通，阅读完整说明及情境例子。不把两方向并列当作能力排名。",
+          "en": "Read the full DISC S/C guide: a steady pace, careful standards and communication during change. Examples explain equal highest counts without assigning an ability rank."
+        }
+      }
     },
     {
       "id": "tied-d-i-s",
@@ -3835,7 +3935,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "DISC D/I/S三方向并列：怎样比较不同情境",
+          "en": "DISC D/I/S Tie: Comparing Three Leading Directions"
+        },
+        "description": {
+          "zh": "D、I、S同时并列最高，没有唯一顶部方向。阅读完整报告，比较推进、表达与稳定协作的情境和取舍；较低C次数也不等于缺乏审慎能力。",
+          "en": "D, I and S share the highest count. Compare action, expression and steady cooperation through a full guide. A lower C tally does not establish a lack of carefulness or skill."
+        }
+      }
     },
     {
       "id": "tied-d-i-c",
@@ -4097,7 +4207,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "DISC D/I/C三方向并列：行动、表达与核对",
+          "en": "DISC D/I/C Tie: Action, Expression and Review"
+        },
+        "description": {
+          "zh": "查看DISC D/I/C三方向并列完整结果，分别理解行动、互动和核对依据的情境，并比较另一方向。并列不强排主次，也不认证全能人格。",
+          "en": "Explore the DISC D/I/C three-way tie: action, interaction and checking evidence. The full report keeps every leading direction without ordering them or certifying an all-round type."
+        }
+      }
     },
     {
       "id": "tied-d-s-c",
@@ -4359,7 +4479,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "DISC D/S/C三方向并列：推进、稳定与标准",
+          "en": "DISC D/S/C Tie: Initiative, Steadiness and Standards"
+        },
+        "description": {
+          "zh": "阅读DISC D/S/C完整并列报告，比较推进决定、维持节奏和检查标准时的具体选择。三项原始次数相同不等于人格平衡或职业更广。",
+          "en": "Read the full DISC D/S/C tie guide on initiative, pace and standards. Equal leading counts invite comparison of choices, not conclusions about personality balance or career range."
+        }
+      }
     },
     {
       "id": "tied-i-s-c",
@@ -4621,7 +4751,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "DISC I/S/C三方向并列：互动、节奏与细节",
+          "en": "DISC I/S/C Tie: Interaction, Pace and Detail"
+        },
+        "description": {
+          "zh": "I、S、C同时领先怎样解释？查看互动表达、稳定合作和细节核对的完整情境说明，以及沟通取舍和下一步。较低D次数不决定自信或领导能力。",
+          "en": "I, S and C share the lead. Read the full guide to interaction, steady cooperation and detail, with communication tradeoffs. A lower D tally determines neither confidence nor leadership."
+        }
+      }
     },
     {
       "id": "tied-d-i-s-c",
@@ -4888,7 +5028,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "DISC四方向次数相同：完整结果怎样读",
+          "en": "DISC Four-Way Tie: Reading Equal Counts"
+        },
+        "description": {
+          "zh": "DISC D/I/S/C四项次数完全相同时，不指定领先方向。阅读完整并列说明、具体情境、计分局限和下一步；这不是全能、完美平衡或测试失败的证明。",
+          "en": "All four DISC directions have equal counts, so no leader is assigned. Explore the full tie guide, context and scoring limits; equality proves neither perfect balance nor test failure."
+        }
+      }
     }
   ],
   "guide": [

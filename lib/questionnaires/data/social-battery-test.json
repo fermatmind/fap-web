@@ -1501,7 +1501,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "社交电量：交流后的负担怎样理解",
+          "en": "Social Battery: Understanding Interaction Load"
+        },
+        "description": {
+          "zh": "交流之后继续听、说或安排活动为何费力？阅读社交电量中交流负担部分的完整说明、均分读法和具体情境。与喜不喜欢他人、外向性和社交能力分开观察。",
+          "en": "Read the full Social Battery guide to interaction load: effort after social contact, mean-score interpretation and everyday contexts, separately from liking people or social skill."
+        }
+      }
     },
     {
       "id": "coordination-load",
@@ -1650,7 +1660,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "社交电量：协调、安排与跟进的负担",
+          "en": "Social Battery: Coordination and Planning Load"
+        },
+        "description": {
+          "zh": "查看社交电量协调负担的完整说明，区分安排、切换、跟进和真正相处的感受。包括反向题与资料不足的读法，以及可尝试的协调方式，不给出电量百分比。",
+          "en": "Explore Social Battery coordination load: arranging, switching and following up, separately from time together. Read the full guide to means, missing information and practical adjustments."
+        }
+      }
     },
     {
       "id": "quiet-recovery",
@@ -1799,7 +1819,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "社交电量：安静独处的恢复感",
+          "en": "Social Battery: Recovery Through Quiet"
+        },
+        "description": {
+          "zh": "安静独处是否让你更容易重新交流？阅读社交电量这一部分的完整解释、情境例子与小尝试。均分不代表所需独处时长，不把独处假定为人人有效的充电方式。",
+          "en": "Read the full Social Battery guide to recovery through quiet. Explore contexts, mean scores and a small experiment without prescribing solitude or estimating recovery time."
+        }
+      }
     },
     {
       "id": "easy-company",
@@ -1948,7 +1978,17 @@
             }
           ]
         }
-      ]
+      ],
+      "seo": {
+        "title": {
+          "zh": "社交电量：轻松陪伴怎样带来恢复感",
+          "en": "Social Battery: Recovery Through Easy Company"
+        },
+        "description": {
+          "zh": "查看轻松陪伴恢复感的完整说明，比较无需主持、表现或频繁解释的熟悉相处。包含均分和资料不足的读法；不据此推断外向性、朋友数量或关系匹配。",
+          "en": "Explore recovery through easy company: familiar interaction with fewer demands to host or perform. Read the full Social Battery guide without inferring extraversion or relationship fit."
+        }
+      }
     }
   ],
   "guide": [
