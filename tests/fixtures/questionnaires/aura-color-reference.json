@@ -1,0 +1,940 @@
+{
+  "formCode": "fm_aura_color_expression_21",
+  "origin": "FermatMindoriginal21ENZH4choice/seveneditorialsymbolicexpressionthemes/noenergydetection/psychometricvalidation",
+  "directions": [
+    {
+      "id": "red",
+      "title": {
+        "zh": "红：鲜明的自选表达",
+        "en": "Red: A Deliberate Visible Expression"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "orange",
+      "title": {
+        "zh": "橙：共同创作的玩心",
+        "en": "Orange: Play in Shared Making"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "yellow",
+      "title": {
+        "zh": "黄：提问与解释的兴趣",
+        "en": "Yellow: Interest in Questions and Explanations"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "green",
+      "title": {
+        "zh": "绿：留意身边的生活条件",
+        "en": "Green: Attending to Everyday Surroundings"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "blue",
+      "title": {
+        "zh": "蓝：把想说的话讲清",
+        "en": "Blue: Saying What You Mean Plainly"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "indigo",
+      "title": {
+        "zh": "靛：留给自己的细看",
+        "en": "Indigo: Looking Closely in Private"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "violet",
+      "title": {
+        "zh": "紫：赋予个人符号意义",
+        "en": "Violet: Giving Personal Meaning to Symbols"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "AURA_01",
+      "prompt": {
+        "zh": "给自己做一张象征当前状态的小卡，你更想从哪里开始？",
+        "en": "You make a small symbolic card about your present state. Where would you prefer to start?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "选一句自己愿意显眼写下的话，让这张卡有明确重点。",
+            "en": "Choose a sentence I want to write prominently as the card’s clear focus."
+          },
+          "directionId": "red"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "邀请愿意参加的朋友各添一个小图，看看共同作品的趣味。",
+            "en": "Invite willing friends to add a small drawing and enjoy the shared making."
+          },
+          "directionId": "orange"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留一处身边物件的记录，记下它怎样影响日常使用。",
+            "en": "Record an everyday object and how it affects ordinary use around me."
+          },
+          "directionId": "green"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先独自细看一个小细节，不急着解释给别人。",
+            "en": "First examine a small detail privately without explaining it to anyone yet."
+          },
+          "directionId": "indigo"
+        }
+      ]
+    },
+    {
+      "id": "AURA_02",
+      "prompt": {
+        "zh": "可以用少量空闲做一件自选小事，你更想怎样表达自己？",
+        "en": "A little free time allows one small activity you choose. How would you prefer to express yourself?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "和有兴趣的人共同拼一张轻松的图，不要求成品好看。",
+            "en": "Make a playful picture with interested people without requiring a polished result."
+          },
+          "directionId": "orange"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "写下一个好奇的问题，找一份可公开查阅的说明。",
+            "en": "Write a question I am curious about and find an explanation available to read."
+          },
+          "directionId": "yellow"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把想让别人知道的一点用简单句子写清。",
+            "en": "Put one thing I want others to know into a plain sentence."
+          },
+          "directionId": "blue"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "选一个只对自己有特别意义的符号，暂时留在便条里。",
+            "en": "Choose a symbol with personal meaning and leave it in a private note for now."
+          },
+          "directionId": "violet"
+        }
+      ]
+    },
+    {
+      "id": "AURA_03",
+      "prompt": {
+        "zh": "整理一页个人记录时，你更想留下哪一类内容？",
+        "en": "When arranging a page of personal notes, which content would you prefer to keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个尚未弄清的问题，以及自己现在知道的部分。",
+            "en": "An unresolved question alongside what I currently know."
+          },
+          "directionId": "yellow"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个普通环境细节，例如桌边光线或物件是否易取。",
+            "en": "An ordinary surrounding detail such as desk light or an object’s accessibility."
+          },
+          "directionId": "green"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一次独自观察中注意到、还不想归类的细节。",
+            "en": "A detail from private observation that I do not want to categorise yet."
+          },
+          "directionId": "indigo"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一句愿意由自己署名、清楚呈现立场的话。",
+            "en": "A statement I want to put my name to and present clearly."
+          },
+          "directionId": "red"
+        }
+      ]
+    },
+    {
+      "id": "AURA_04",
+      "prompt": {
+        "zh": "为自己的普通角落添一张便条，你更想写什么？",
+        "en": "You add a note to an ordinary corner of your own. What would you prefer to write?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "提醒自己留意这个地方怎样使用，哪些条件值得保留。",
+            "en": "A reminder to notice how the place is used and which conditions are useful."
+          },
+          "directionId": "green"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一句确实想对来访者说明、没有暗示的话。",
+            "en": "A direct message I actually want a visitor to understand, without hints."
+          },
+          "directionId": "blue"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一个属于自己的图形，让它承载一段个人回忆。",
+            "en": "A shape of my own that carries a personal memory."
+          },
+          "directionId": "violet"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "邀请自愿参加的人轮流添画，让这里留一点玩心。",
+            "en": "An invitation for willing participants to take turns adding playful drawings."
+          },
+          "directionId": "orange"
+        }
+      ]
+    },
+    {
+      "id": "AURA_05",
+      "prompt": {
+        "zh": "朋友愿意听你介绍一项普通兴趣，你更想怎样开头？",
+        "en": "A friend wants to hear about an ordinary interest of yours. How would you prefer to begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先说清自己想介绍什么、这次只聊到哪里。",
+            "en": "Say plainly what I want to introduce and how much I want to discuss now."
+          },
+          "directionId": "blue"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "带来一处自己细看过的细节，也允许先不作解释。",
+            "en": "Bring a detail I have examined closely, with room not to explain it yet."
+          },
+          "directionId": "indigo"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用一句自己愿意明确说出的话表明最在意的一点。",
+            "en": "Use a statement I want to voice clearly about the point that matters to me."
+          },
+          "directionId": "red"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "抛出一个自己也在好奇的问题，比较已有解释。",
+            "en": "Offer a question I am curious about too and compare available explanations."
+          },
+          "directionId": "yellow"
+        }
+      ]
+    },
+    {
+      "id": "AURA_06",
+      "prompt": {
+        "zh": "为一个自选小项目收尾，你更想保留哪种记录？",
+        "en": "You finish a small project you chose. Which record would you prefer to keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一段只供自己再看的细节记录，不要求别人评价。",
+            "en": "A close-detail record for myself without asking others to evaluate it."
+          },
+          "directionId": "indigo"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个与这次经历相连的个人符号，含义由自己决定。",
+            "en": "A personal symbol connected with this occasion, with meaning I choose."
+          },
+          "directionId": "violet"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一处共同创作留下的有趣变化，经参与者同意再留存。",
+            "en": "A playful change from shared making, retained with participants’ agreement."
+          },
+          "directionId": "orange"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "哪些普通条件帮助了使用，哪些以后愿意调整。",
+            "en": "Which ordinary conditions supported use and which I might change later."
+          },
+          "directionId": "green"
+        }
+      ]
+    },
+    {
+      "id": "AURA_07",
+      "prompt": {
+        "zh": "如果给近期经历配一个原创小标记，你更想怎么选？",
+        "en": "If you give a recent experience an original small emblem, how would you prefer to choose it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "赋予图形一个个人含义，不要求别人作同样理解。",
+            "en": "Give a shape personal meaning without asking others to share that interpretation."
+          },
+          "directionId": "violet"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "选一个自己愿意清楚展示的重点，让标记容易认出。",
+            "en": "Choose a point I want to display clearly so the emblem is recognisable."
+          },
+          "directionId": "red"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用一个问号或解释片段，提醒自己还有什么想知道。",
+            "en": "Use a question mark or explanation fragment for something I still want to know."
+          },
+          "directionId": "yellow"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用一句直接的话说明标记想表达什么，减少猜测。",
+            "en": "Explain the intended message in a plain sentence rather than leave it to guessing."
+          },
+          "directionId": "blue"
+        }
+      ]
+    },
+    {
+      "id": "AURA_08",
+      "prompt": {
+        "zh": "一次自愿的小型交流要准备桌面材料，你更想贡献什么？",
+        "en": "You prepare tabletop materials for a small voluntary exchange. What would you prefer to contribute?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一张重点清楚的开场卡，由自己决定愿意展示的范围。",
+            "en": "An opening card with a clear point and a scope I choose to display."
+          },
+          "directionId": "red"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "几张让参与者自由接画的小纸，不要求每人都参与。",
+            "en": "Small sheets for willing participants to continue each other’s playful drawings."
+          },
+          "directionId": "orange"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "容易取用的普通材料，并问问摆放是否合用。",
+            "en": "Accessible ordinary materials, with a check that their placement works for people."
+          },
+          "directionId": "green"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一页自己细看后留下的观察，不急着合成结论。",
+            "en": "A page of observations from looking closely, without rushing to combine them into a conclusion."
+          },
+          "directionId": "indigo"
+        }
+      ]
+    },
+    {
+      "id": "AURA_09",
+      "prompt": {
+        "zh": "为自己喜欢的普通物品做一段说明，你更想怎样组织？",
+        "en": "You describe an ordinary object you like. How would you prefer to organise the description?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "和愿意合作的人各添一个趣味用法，保留共同玩出的变化。",
+            "en": "Collect playful uses from willing collaborators and keep the variations we make together."
+          },
+          "directionId": "orange"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "从一个实际问题开始，说明自己查到和未查到的部分。",
+            "en": "Start with a practical question and distinguish what I found from what remains unknown."
+          },
+          "directionId": "yellow"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "写清它对自己的用途，让读者不用猜想我的意思。",
+            "en": "State what I use it for so readers do not have to guess my meaning."
+          },
+          "directionId": "blue"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "画一个只代表个人经历的记号，说明不必人人认同。",
+            "en": "Draw a sign for my own experience, noting that others need not agree with its meaning."
+          },
+          "directionId": "violet"
+        }
+      ]
+    },
+    {
+      "id": "AURA_10",
+      "prompt": {
+        "zh": "一段普通阅读结束后，你更想留下哪种回应？",
+        "en": "After an ordinary reading session, which response would you prefer to keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个具体追问和一处需要再核对的解释。",
+            "en": "A specific follow-up question and one explanation needing another check."
+          },
+          "directionId": "yellow"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "阅读地点怎样影响这次使用，例如书本是否容易放稳。",
+            "en": "How the reading place affected use, such as whether the book rested conveniently."
+          },
+          "directionId": "green"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "自己注意到的一小处措辞，留待独自慢慢再看。",
+            "en": "A small wording detail I noticed and want to revisit privately."
+          },
+          "directionId": "indigo"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一句愿意明确标成“这是我现在看法”的话。",
+            "en": "A sentence I want to mark clearly as my current view."
+          },
+          "directionId": "red"
+        }
+      ]
+    },
+    {
+      "id": "AURA_11",
+      "prompt": {
+        "zh": "自选活动中可以调整一个小地方，你更想先看什么？",
+        "en": "You can change one small part of an activity you chose. What would you prefer to consider first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "材料、位置或时间中，哪项普通条件影响大家实际使用。",
+            "en": "Which ordinary material, placement or timing condition affects actual use."
+          },
+          "directionId": "green"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "自己需要说清哪一点，怎样表达才不用别人推测。",
+            "en": "What I need to state and how to express it without relying on others’ guesses."
+          },
+          "directionId": "blue"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "能否加入一个属于自己的象征，让活动与个人经历相连。",
+            "en": "Whether a personal symbol could connect the activity with an experience of mine."
+          },
+          "directionId": "violet"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有没有自愿一起添一个有趣变化的空间，也允许别人不参加。",
+            "en": "Whether there is room for willing people to add a playful variation, with no pressure to join."
+          },
+          "directionId": "orange"
+        }
+      ]
+    },
+    {
+      "id": "AURA_12",
+      "prompt": {
+        "zh": "记录一个自己选的小目标，你更愿意采用哪种形式？",
+        "en": "How would you prefer to record a small goal you chose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用平实句子写清希望尝试什么，不留给暗示。",
+            "en": "Use plain wording for what I hope to try rather than leave it as a hint."
+          },
+          "directionId": "blue"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "独自留意它涉及的一处细节，暂不向外发表结论。",
+            "en": "Privately attend to one detail involved without publishing a conclusion yet."
+          },
+          "directionId": "indigo"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "以自己愿意突出的一句话作标题，范围清楚即可。",
+            "en": "Give it a heading I want to make prominent, within a clear scope."
+          },
+          "directionId": "red"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "写一个待回答的问题，区分现有依据与想象。",
+            "en": "Write a question to answer and separate available grounds from speculation."
+          },
+          "directionId": "yellow"
+        }
+      ]
+    },
+    {
+      "id": "AURA_13",
+      "prompt": {
+        "zh": "有机会重新看一件熟悉的小作品，你更想做什么？",
+        "en": "You revisit a small familiar piece of work. What would you prefer to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先安静细看一个以前略过的地方，不要求发现大意义。",
+            "en": "Look quietly at a previously overlooked part without needing a major insight."
+          },
+          "directionId": "indigo"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "选择一个与个人记忆相连的符号，允许含义与过去不同。",
+            "en": "Choose a symbol connected with a personal memory, allowing its meaning to change."
+          },
+          "directionId": "violet"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "邀请有兴趣的人一起做一个轻松改版，保留不同画法。",
+            "en": "Invite interested people to make a playful version while keeping different styles."
+          },
+          "directionId": "orange"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "看看存放和使用条件是否仍合用，愿意时做一处小调整。",
+            "en": "Check whether storage and use conditions still fit, adjusting one if I want."
+          },
+          "directionId": "green"
+        }
+      ]
+    },
+    {
+      "id": "AURA_14",
+      "prompt": {
+        "zh": "把一段普通经历放进私人手账，你更想强调什么？",
+        "en": "You add an ordinary experience to a private journal. What would you prefer to emphasise?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个由自己解释的记号，含义只需对这次经历有用。",
+            "en": "A sign I interpret myself, whose meaning need only fit this experience."
+          },
+          "directionId": "violet"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一句愿意清楚呈现的个人主张，不需要别人赞同。",
+            "en": "A personal statement I want to present clearly without needing agreement."
+          },
+          "directionId": "red"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "当时出现的一个问题和可供以后查阅的说明线索。",
+            "en": "A question that arose and an explanation lead I can consult later."
+          },
+          "directionId": "yellow"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一句把当时想说的事直接讲明的话。",
+            "en": "A plain sentence stating what I wanted to say at the time."
+          },
+          "directionId": "blue"
+        }
+      ]
+    },
+    {
+      "id": "AURA_15",
+      "prompt": {
+        "zh": "朋友自愿互换原创小卡，你更想在自己的卡上放什么？",
+        "en": "Friends voluntarily exchange original small cards. What would you prefer on yours?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个自己愿意展示的清楚焦点，不追求让所有人注意。",
+            "en": "A clear focus I want to display without trying to attract everyone’s attention."
+          },
+          "directionId": "red"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一处让愿意回应的人接着添画的空白。",
+            "en": "A blank space for a willing recipient to continue the drawing playfully."
+          },
+          "directionId": "orange"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一项实际可用的小提示，例如如何方便地收存这张卡。",
+            "en": "A practical note such as a convenient way to keep the card."
+          },
+          "directionId": "green"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个自己细看过的小细节，只分享这次愿意分享的部分。",
+            "en": "A detail I have examined, sharing only the part I want to offer this time."
+          },
+          "directionId": "indigo"
+        }
+      ]
+    },
+    {
+      "id": "AURA_16",
+      "prompt": {
+        "zh": "做一页属于自己的兴趣记录，你更想选择哪种过程？",
+        "en": "You make a page about an interest of yours. Which process would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "和自愿参与的人交替添一点，让作品保留共同游戏感。",
+            "en": "Take turns adding pieces with willing people and retain a sense of shared play."
+          },
+          "directionId": "orange"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "从一个好奇点查起，把能解释和不能解释的分开。",
+            "en": "Investigate one curiosity and separate what can and cannot yet be explained."
+          },
+          "directionId": "yellow"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用不绕弯的句子说明喜欢哪里，也允许只写很少。",
+            "en": "State plainly what I like, allowing the description to remain short."
+          },
+          "directionId": "blue"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用一个个人图案连起经历，不把图案解释成预兆。",
+            "en": "Connect experiences with a personal motif without reading it as an omen."
+          },
+          "directionId": "violet"
+        }
+      ]
+    },
+    {
+      "id": "AURA_17",
+      "prompt": {
+        "zh": "给普通活动留一条“下次再看”的笔记，你更想记什么？",
+        "en": "You leave a note to revisit an ordinary activity. What would you prefer to record?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个尚未有答案的问题，和下一份想读的说明。",
+            "en": "An unanswered question and the next explanation I might read."
+          },
+          "directionId": "yellow"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一项实际环境条件，例如下次怎样让材料更易取。",
+            "en": "A surrounding condition such as making materials easier to reach next time."
+          },
+          "directionId": "green"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一处想独自再看的具体细节，先不判断好坏。",
+            "en": "A detail I want to examine privately again, without judging it yet."
+          },
+          "directionId": "indigo"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一句明确想表达的重点，提醒自己愿意展示什么。",
+            "en": "A clear point I want to express as a reminder of what I choose to display."
+          },
+          "directionId": "red"
+        }
+      ]
+    },
+    {
+      "id": "AURA_18",
+      "prompt": {
+        "zh": "整理一小批自己可使用的材料时，你更想怎样留下个人痕迹？",
+        "en": "You arrange a few materials you may use. How would you prefer to leave a personal touch?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "按普通实际使用条件做一处安排，让以后容易取用。",
+            "en": "Arrange one part around ordinary use so it is accessible later."
+          },
+          "directionId": "green"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "附一句直白说明，让使用者知道自己想表达的意思。",
+            "en": "Add a plain explanation of what I want to communicate to a user."
+          },
+          "directionId": "blue"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "加一个与个人经历有关的符号，只把它当自己的解释。",
+            "en": "Add a symbol tied to my experience and keep its meaning as my interpretation."
+          },
+          "directionId": "violet"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "留一处共同涂画的位置，让自愿参与的人自由添加。",
+            "en": "Leave room for willing people to add their own playful marks."
+          },
+          "directionId": "orange"
+        }
+      ]
+    },
+    {
+      "id": "AURA_19",
+      "prompt": {
+        "zh": "如果只留下一句话介绍这次自选尝试，你更想怎样写？",
+        "en": "If you keep one sentence about an attempt you chose, how would you prefer to write it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "直接说清做了什么、愿意说到哪里，不让别人猜。",
+            "en": "State what I did and how much I want to say rather than rely on guessing."
+          },
+          "directionId": "blue"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "记录一处自己细看后才注意到的普通细节。",
+            "en": "Record an ordinary detail I noticed through looking closely."
+          },
+          "directionId": "indigo"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "突出一项自己愿意明确呈现的选择，不宣称别人也该如此。",
+            "en": "Highlight a choice I want to present clearly without claiming others should share it."
+          },
+          "directionId": "red"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "留一个可以继续追问的问题，并标明暂时不知道的部分。",
+            "en": "Leave a question to pursue and identify what I do not yet know."
+          },
+          "directionId": "yellow"
+        }
+      ]
+    },
+    {
+      "id": "AURA_20",
+      "prompt": {
+        "zh": "一段自由记录时间快结束，你更想把哪件事留下来？",
+        "en": "A period of free note-making is ending. What would you prefer to retain?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一处只供自己再看的观察，允许暂时没有解释。",
+            "en": "An observation to revisit privately, allowing it to have no explanation yet."
+          },
+          "directionId": "indigo"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个个人符号和这一次愿意赋予它的含义。",
+            "en": "A personal symbol and the meaning I choose to give it this time."
+          },
+          "directionId": "violet"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一次共同添画中出现的轻松变化，征得参与者同意再保留。",
+            "en": "A playful variation from shared drawing, kept with participants’ permission."
+          },
+          "directionId": "orange"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个使实际使用更方便的普通条件，下次再决定要不要沿用。",
+            "en": "An ordinary condition that made use easier, to reconsider next time."
+          },
+          "directionId": "green"
+        }
+      ]
+    },
+    {
+      "id": "AURA_21",
+      "prompt": {
+        "zh": "看完自己这段时间的普通记录，你更想怎样为它写个结尾？",
+        "en": "Looking over recent ordinary notes of your own, how would you prefer to close them?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "选一个个人符号概括此刻含义，允许以后改写。",
+            "en": "Choose a personal symbol for its meaning now, allowing later revision."
+          },
+          "directionId": "violet"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "明确写下一处自己愿意呈现的重点，不要求成为长期形象。",
+            "en": "State a point I want to present without turning it into a lasting persona."
+          },
+          "directionId": "red"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "列一个仍想弄清的问题和已经有的解释。",
+            "en": "List a question I still want to understand alongside an available explanation."
+          },
+          "directionId": "yellow"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用一句平实的话讲明自己想说的事，到这里结束也可以。",
+            "en": "Say plainly what I want to communicate and allow the record to end here."
+          },
+          "directionId": "blue"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "required": 21,
+    "total": 21,
+    "choice": "one option adds1 to offered symbolic expression theme",
+    "exposureEach": 12,
+    "perPosition": 3,
+    "highest": "allhighestcountsretainfullguides/noautomaticsecondary",
+    "allA": "sevencolors3each/all7fullguides",
+    "verificationPlan": "boundedall7uniquehighest+fourall7ties+4096deterministiccompleteanswersindependentsourceoracle/plannednotexecuted/not4^21orallcountvectors/psychvalidation"
+  },
+  "scope": "Originalsymbolicexpressionpreferences/sevenchosenlabelsnotuniversaltradition. Noobservedfield/camera/photoupload/DOB/zodiac/health/colourvisiontest/clinicalaura/rarity/gift/healing/empathy/intuition/creativityorintelligencecertification/careerfit;notresponse-colorTemperamentDISCMBTIconversion.",
+  "instructions": {
+    "zh": "本版把光环颜色用于七种自选表达的原创象征：红色鲜明表达、橙色共同玩心、黄色提问解释、绿色生活条件、蓝色平实沟通、靛色私下细看、紫色个人符号。它不观察或拍摄能量场，不用生日、星座、照片或身体信息。21题全部各选一个当前更愿意采用的普通做法；情境以自愿、可调整、可拒绝参与为前提，没有高低或正确答案。完成后比较原始次数，全部最高并列都保留完整说明；全选第一项会七种各3次。名称和映射由本版选定，不是统一传统、科学人格、真实能力、健康或灵性等级，也不换算色彩性格、气质、DISC或MBTI。",
+    "en": "This edition uses aura colors as original symbols for chosen expression: Red for visible expression, Orange shared play, Yellow questions and explanations, Green everyday surroundings, Blue plain communication, Indigo private close observation and Violet personal symbols. It observes or photographs no energy field and uses no birthday, zodiac, photo or bodily information. Choose one ordinary approach you currently prefer for all 21 questions. Situations assume voluntary, adjustable participation, including declining, without higher, lower or correct choices. Compare raw counts and read every highest-tied full guide; choosing the first option throughout gives three each. Names and mapping are this edition’s selection, not a unified tradition, scientific personality measure, ability, health or spiritual rank, and cannot convert into Color Personality, Temperament, DISC or MBTI."
+  }
+}

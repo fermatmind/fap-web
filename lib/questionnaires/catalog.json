@@ -901,5 +901,33 @@
       "earth",
       "air"
     ]
+  },
+  {
+    "slug": "aura-color",
+    "code": "AURA_COLOR_SYMBOLIC_EXPRESSION",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "metaphor",
+    "title": {
+      "zh": "光环颜色测试",
+      "en": "Aura Color Test"
+    },
+    "description": {
+      "zh": "免费光环颜色测试：21道原创选择比较七种自选表达意象，完整结果与所有最高并列直接读。无需注册、照片或生日；不探测能量、预测命运或认证灵性。",
+      "en": "Take a free aura color test with 21 original choices and seven symbolic guides. Full results without signup, photos, birthdays or energy-field claims."
+    },
+    "minutes": 7,
+    "collection": "explore",
+    "formCode": "fm_aura_color_expression_21",
+    "questionCount": 21,
+    "resultSlugs": [
+      "red",
+      "orange",
+      "yellow",
+      "green",
+      "blue",
+      "indigo",
+      "violet"
+    ]
   }
 ]

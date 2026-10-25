@@ -1,0 +1,2151 @@
+{
+  "slug": "aura-color",
+  "code": "AURA_COLOR_SYMBOLIC_EXPRESSION",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "metaphor",
+  "kind": "archetype",
+  "title": {
+    "zh": "光环颜色测试",
+    "en": "Aura Color Test"
+  },
+  "resultHeading": {
+    "zh": "七种颜色意象的本次选择与全部最高并列",
+    "en": "Your seven-colour choices and every highest tie"
+  },
+  "description": {
+    "zh": "免费光环颜色测试：21道原创选择比较七种自选表达意象，完整结果与所有最高并列直接读。无需注册、照片或生日；不探测能量、预测命运或认证灵性。",
+    "en": "Take a free aura color test with 21 original choices and seven symbolic guides. Full results without signup, photos, birthdays or energy-field claims."
+  },
+  "seoTitle": {
+    "zh": "光环颜色测试：21题、七种意象与完整结果",
+    "en": "Aura Color Test: Free Seven-Color Quiz & Full Results"
+  },
+  "minutes": 7,
+  "introduction": {
+    "zh": "如果用颜色作一张表达自己的小卡，你更愿意突出重点、共同玩出变化、提出问题、留意生活条件、把意思说清、私下细看，还是赋予符号个人意义？本版提供21道原创普通选择，七种颜色是当代编辑意象，不是拍到的光或身体能量。全部完成后看原始次数，所有最高并列完整保留；七份完整说明也可以先读。没有高低或稀有颜色，不收照片、生日或邮箱，也不把结果换成心理、健康、灵性或职业判断。",
+    "en": "If colour were a small card for expressing yourself, would you prefer a visible focus, shared play, a question, everyday conditions, plain wording, private observation or personal symbolic meaning? This edition offers 21 original ordinary choices. Its seven colours are contemporary editorial metaphors rather than photographed light or bodily energy. Compare raw counts after completion and read every highest-tied guide in full. All seven full guides are also available first. There are no higher or rare colours, and no photo, birthday or email is collected. Results do not become psychological, health, spiritual or career judgements."
+  },
+  "instructions": {
+    "zh": "本版把光环颜色用于七种自选表达的原创象征：红色鲜明表达、橙色共同玩心、黄色提问解释、绿色生活条件、蓝色平实沟通、靛色私下细看、紫色个人符号。它不观察或拍摄能量场，不用生日、星座、照片或身体信息。21题全部各选一个当前更愿意采用的普通做法；情境以自愿、可调整、可拒绝参与为前提，没有高低或正确答案。完成后比较原始次数，全部最高并列都保留完整说明；全选第一项会七种各3次。名称和映射由本版选定，不是统一传统、科学人格、真实能力、健康或灵性等级，也不换算色彩性格、气质、DISC或MBTI。",
+    "en": "This edition uses aura colors as original symbols for chosen expression: Red for visible expression, Orange shared play, Yellow questions and explanations, Green everyday surroundings, Blue plain communication, Indigo private close observation and Violet personal symbols. It observes or photographs no energy field and uses no birthday, zodiac, photo or bodily information. Choose one ordinary approach you currently prefer for all 21 questions. Situations assume voluntary, adjustable participation, including declining, without higher, lower or correct choices. Compare raw counts and read every highest-tied full guide; choosing the first option throughout gives three each. Names and mapping are this edition’s selection, not a unified tradition, scientific personality measure, ability, health or spiritual rank, and cannot convert into Color Personality, Temperament, DISC or MBTI."
+  },
+  "source": {
+    "kind": "FermatMindoriginalAuraColorSymbolicExpression21/seveneditorialthemes/noenergydetectionorpsychometricinstrument",
+    "formCode": "fm_aura_color_expression_21",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "7c4b13737b6954e4e05a5975c2922007f214d7d15b70ae88a2c744839f908f9e",
+    "resultContentSha256": "89d055c36d5ac3314b9c37cf3ce0f6bd784f82ab3cfce220ed22c673b8dff949",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "red",
+      "title": {
+        "zh": "红：鲜明的自选表达",
+        "en": "Red: A Deliberate Visible Expression"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "orange",
+      "title": {
+        "zh": "橙：共同创作的玩心",
+        "en": "Orange: Play in Shared Making"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "yellow",
+      "title": {
+        "zh": "黄：提问与解释的兴趣",
+        "en": "Yellow: Interest in Questions and Explanations"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "green",
+      "title": {
+        "zh": "绿：留意身边的生活条件",
+        "en": "Green: Attending to Everyday Surroundings"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "blue",
+      "title": {
+        "zh": "蓝：把想说的话讲清",
+        "en": "Blue: Saying What You Mean Plainly"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "indigo",
+      "title": {
+        "zh": "靛：留给自己的细看",
+        "en": "Indigo: Looking Closely in Private"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "violet",
+      "title": {
+        "zh": "紫：赋予个人符号意义",
+        "en": "Violet: Giving Personal Meaning to Symbols"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "AURA_01",
+      "prompt": {
+        "zh": "给自己做一张象征当前状态的小卡，你更想从哪里开始？",
+        "en": "You make a small symbolic card about your present state. Where would you prefer to start?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "选一句自己愿意显眼写下的话，让这张卡有明确重点。",
+            "en": "Choose a sentence I want to write prominently as the card’s clear focus."
+          },
+          "directionId": "red"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "邀请愿意参加的朋友各添一个小图，看看共同作品的趣味。",
+            "en": "Invite willing friends to add a small drawing and enjoy the shared making."
+          },
+          "directionId": "orange"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留一处身边物件的记录，记下它怎样影响日常使用。",
+            "en": "Record an everyday object and how it affects ordinary use around me."
+          },
+          "directionId": "green"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先独自细看一个小细节，不急着解释给别人。",
+            "en": "First examine a small detail privately without explaining it to anyone yet."
+          },
+          "directionId": "indigo"
+        }
+      ]
+    },
+    {
+      "id": "AURA_02",
+      "prompt": {
+        "zh": "可以用少量空闲做一件自选小事，你更想怎样表达自己？",
+        "en": "A little free time allows one small activity you choose. How would you prefer to express yourself?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "和有兴趣的人共同拼一张轻松的图，不要求成品好看。",
+            "en": "Make a playful picture with interested people without requiring a polished result."
+          },
+          "directionId": "orange"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "写下一个好奇的问题，找一份可公开查阅的说明。",
+            "en": "Write a question I am curious about and find an explanation available to read."
+          },
+          "directionId": "yellow"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把想让别人知道的一点用简单句子写清。",
+            "en": "Put one thing I want others to know into a plain sentence."
+          },
+          "directionId": "blue"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "选一个只对自己有特别意义的符号，暂时留在便条里。",
+            "en": "Choose a symbol with personal meaning and leave it in a private note for now."
+          },
+          "directionId": "violet"
+        }
+      ]
+    },
+    {
+      "id": "AURA_03",
+      "prompt": {
+        "zh": "整理一页个人记录时，你更想留下哪一类内容？",
+        "en": "When arranging a page of personal notes, which content would you prefer to keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个尚未弄清的问题，以及自己现在知道的部分。",
+            "en": "An unresolved question alongside what I currently know."
+          },
+          "directionId": "yellow"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个普通环境细节，例如桌边光线或物件是否易取。",
+            "en": "An ordinary surrounding detail such as desk light or an object’s accessibility."
+          },
+          "directionId": "green"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一次独自观察中注意到、还不想归类的细节。",
+            "en": "A detail from private observation that I do not want to categorise yet."
+          },
+          "directionId": "indigo"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一句愿意由自己署名、清楚呈现立场的话。",
+            "en": "A statement I want to put my name to and present clearly."
+          },
+          "directionId": "red"
+        }
+      ]
+    },
+    {
+      "id": "AURA_04",
+      "prompt": {
+        "zh": "为自己的普通角落添一张便条，你更想写什么？",
+        "en": "You add a note to an ordinary corner of your own. What would you prefer to write?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "提醒自己留意这个地方怎样使用，哪些条件值得保留。",
+            "en": "A reminder to notice how the place is used and which conditions are useful."
+          },
+          "directionId": "green"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一句确实想对来访者说明、没有暗示的话。",
+            "en": "A direct message I actually want a visitor to understand, without hints."
+          },
+          "directionId": "blue"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一个属于自己的图形，让它承载一段个人回忆。",
+            "en": "A shape of my own that carries a personal memory."
+          },
+          "directionId": "violet"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "邀请自愿参加的人轮流添画，让这里留一点玩心。",
+            "en": "An invitation for willing participants to take turns adding playful drawings."
+          },
+          "directionId": "orange"
+        }
+      ]
+    },
+    {
+      "id": "AURA_05",
+      "prompt": {
+        "zh": "朋友愿意听你介绍一项普通兴趣，你更想怎样开头？",
+        "en": "A friend wants to hear about an ordinary interest of yours. How would you prefer to begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先说清自己想介绍什么、这次只聊到哪里。",
+            "en": "Say plainly what I want to introduce and how much I want to discuss now."
+          },
+          "directionId": "blue"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "带来一处自己细看过的细节，也允许先不作解释。",
+            "en": "Bring a detail I have examined closely, with room not to explain it yet."
+          },
+          "directionId": "indigo"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用一句自己愿意明确说出的话表明最在意的一点。",
+            "en": "Use a statement I want to voice clearly about the point that matters to me."
+          },
+          "directionId": "red"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "抛出一个自己也在好奇的问题，比较已有解释。",
+            "en": "Offer a question I am curious about too and compare available explanations."
+          },
+          "directionId": "yellow"
+        }
+      ]
+    },
+    {
+      "id": "AURA_06",
+      "prompt": {
+        "zh": "为一个自选小项目收尾，你更想保留哪种记录？",
+        "en": "You finish a small project you chose. Which record would you prefer to keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一段只供自己再看的细节记录，不要求别人评价。",
+            "en": "A close-detail record for myself without asking others to evaluate it."
+          },
+          "directionId": "indigo"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个与这次经历相连的个人符号，含义由自己决定。",
+            "en": "A personal symbol connected with this occasion, with meaning I choose."
+          },
+          "directionId": "violet"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一处共同创作留下的有趣变化，经参与者同意再留存。",
+            "en": "A playful change from shared making, retained with participants’ agreement."
+          },
+          "directionId": "orange"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "哪些普通条件帮助了使用，哪些以后愿意调整。",
+            "en": "Which ordinary conditions supported use and which I might change later."
+          },
+          "directionId": "green"
+        }
+      ]
+    },
+    {
+      "id": "AURA_07",
+      "prompt": {
+        "zh": "如果给近期经历配一个原创小标记，你更想怎么选？",
+        "en": "If you give a recent experience an original small emblem, how would you prefer to choose it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "赋予图形一个个人含义，不要求别人作同样理解。",
+            "en": "Give a shape personal meaning without asking others to share that interpretation."
+          },
+          "directionId": "violet"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "选一个自己愿意清楚展示的重点，让标记容易认出。",
+            "en": "Choose a point I want to display clearly so the emblem is recognisable."
+          },
+          "directionId": "red"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用一个问号或解释片段，提醒自己还有什么想知道。",
+            "en": "Use a question mark or explanation fragment for something I still want to know."
+          },
+          "directionId": "yellow"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用一句直接的话说明标记想表达什么，减少猜测。",
+            "en": "Explain the intended message in a plain sentence rather than leave it to guessing."
+          },
+          "directionId": "blue"
+        }
+      ]
+    },
+    {
+      "id": "AURA_08",
+      "prompt": {
+        "zh": "一次自愿的小型交流要准备桌面材料，你更想贡献什么？",
+        "en": "You prepare tabletop materials for a small voluntary exchange. What would you prefer to contribute?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一张重点清楚的开场卡，由自己决定愿意展示的范围。",
+            "en": "An opening card with a clear point and a scope I choose to display."
+          },
+          "directionId": "red"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "几张让参与者自由接画的小纸，不要求每人都参与。",
+            "en": "Small sheets for willing participants to continue each other’s playful drawings."
+          },
+          "directionId": "orange"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "容易取用的普通材料，并问问摆放是否合用。",
+            "en": "Accessible ordinary materials, with a check that their placement works for people."
+          },
+          "directionId": "green"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一页自己细看后留下的观察，不急着合成结论。",
+            "en": "A page of observations from looking closely, without rushing to combine them into a conclusion."
+          },
+          "directionId": "indigo"
+        }
+      ]
+    },
+    {
+      "id": "AURA_09",
+      "prompt": {
+        "zh": "为自己喜欢的普通物品做一段说明，你更想怎样组织？",
+        "en": "You describe an ordinary object you like. How would you prefer to organise the description?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "和愿意合作的人各添一个趣味用法，保留共同玩出的变化。",
+            "en": "Collect playful uses from willing collaborators and keep the variations we make together."
+          },
+          "directionId": "orange"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "从一个实际问题开始，说明自己查到和未查到的部分。",
+            "en": "Start with a practical question and distinguish what I found from what remains unknown."
+          },
+          "directionId": "yellow"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "写清它对自己的用途，让读者不用猜想我的意思。",
+            "en": "State what I use it for so readers do not have to guess my meaning."
+          },
+          "directionId": "blue"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "画一个只代表个人经历的记号，说明不必人人认同。",
+            "en": "Draw a sign for my own experience, noting that others need not agree with its meaning."
+          },
+          "directionId": "violet"
+        }
+      ]
+    },
+    {
+      "id": "AURA_10",
+      "prompt": {
+        "zh": "一段普通阅读结束后，你更想留下哪种回应？",
+        "en": "After an ordinary reading session, which response would you prefer to keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个具体追问和一处需要再核对的解释。",
+            "en": "A specific follow-up question and one explanation needing another check."
+          },
+          "directionId": "yellow"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "阅读地点怎样影响这次使用，例如书本是否容易放稳。",
+            "en": "How the reading place affected use, such as whether the book rested conveniently."
+          },
+          "directionId": "green"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "自己注意到的一小处措辞，留待独自慢慢再看。",
+            "en": "A small wording detail I noticed and want to revisit privately."
+          },
+          "directionId": "indigo"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一句愿意明确标成“这是我现在看法”的话。",
+            "en": "A sentence I want to mark clearly as my current view."
+          },
+          "directionId": "red"
+        }
+      ]
+    },
+    {
+      "id": "AURA_11",
+      "prompt": {
+        "zh": "自选活动中可以调整一个小地方，你更想先看什么？",
+        "en": "You can change one small part of an activity you chose. What would you prefer to consider first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "材料、位置或时间中，哪项普通条件影响大家实际使用。",
+            "en": "Which ordinary material, placement or timing condition affects actual use."
+          },
+          "directionId": "green"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "自己需要说清哪一点，怎样表达才不用别人推测。",
+            "en": "What I need to state and how to express it without relying on others’ guesses."
+          },
+          "directionId": "blue"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "能否加入一个属于自己的象征，让活动与个人经历相连。",
+            "en": "Whether a personal symbol could connect the activity with an experience of mine."
+          },
+          "directionId": "violet"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有没有自愿一起添一个有趣变化的空间，也允许别人不参加。",
+            "en": "Whether there is room for willing people to add a playful variation, with no pressure to join."
+          },
+          "directionId": "orange"
+        }
+      ]
+    },
+    {
+      "id": "AURA_12",
+      "prompt": {
+        "zh": "记录一个自己选的小目标，你更愿意采用哪种形式？",
+        "en": "How would you prefer to record a small goal you chose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用平实句子写清希望尝试什么，不留给暗示。",
+            "en": "Use plain wording for what I hope to try rather than leave it as a hint."
+          },
+          "directionId": "blue"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "独自留意它涉及的一处细节，暂不向外发表结论。",
+            "en": "Privately attend to one detail involved without publishing a conclusion yet."
+          },
+          "directionId": "indigo"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "以自己愿意突出的一句话作标题，范围清楚即可。",
+            "en": "Give it a heading I want to make prominent, within a clear scope."
+          },
+          "directionId": "red"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "写一个待回答的问题，区分现有依据与想象。",
+            "en": "Write a question to answer and separate available grounds from speculation."
+          },
+          "directionId": "yellow"
+        }
+      ]
+    },
+    {
+      "id": "AURA_13",
+      "prompt": {
+        "zh": "有机会重新看一件熟悉的小作品，你更想做什么？",
+        "en": "You revisit a small familiar piece of work. What would you prefer to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先安静细看一个以前略过的地方，不要求发现大意义。",
+            "en": "Look quietly at a previously overlooked part without needing a major insight."
+          },
+          "directionId": "indigo"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "选择一个与个人记忆相连的符号，允许含义与过去不同。",
+            "en": "Choose a symbol connected with a personal memory, allowing its meaning to change."
+          },
+          "directionId": "violet"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "邀请有兴趣的人一起做一个轻松改版，保留不同画法。",
+            "en": "Invite interested people to make a playful version while keeping different styles."
+          },
+          "directionId": "orange"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "看看存放和使用条件是否仍合用，愿意时做一处小调整。",
+            "en": "Check whether storage and use conditions still fit, adjusting one if I want."
+          },
+          "directionId": "green"
+        }
+      ]
+    },
+    {
+      "id": "AURA_14",
+      "prompt": {
+        "zh": "把一段普通经历放进私人手账，你更想强调什么？",
+        "en": "You add an ordinary experience to a private journal. What would you prefer to emphasise?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个由自己解释的记号，含义只需对这次经历有用。",
+            "en": "A sign I interpret myself, whose meaning need only fit this experience."
+          },
+          "directionId": "violet"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一句愿意清楚呈现的个人主张，不需要别人赞同。",
+            "en": "A personal statement I want to present clearly without needing agreement."
+          },
+          "directionId": "red"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "当时出现的一个问题和可供以后查阅的说明线索。",
+            "en": "A question that arose and an explanation lead I can consult later."
+          },
+          "directionId": "yellow"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一句把当时想说的事直接讲明的话。",
+            "en": "A plain sentence stating what I wanted to say at the time."
+          },
+          "directionId": "blue"
+        }
+      ]
+    },
+    {
+      "id": "AURA_15",
+      "prompt": {
+        "zh": "朋友自愿互换原创小卡，你更想在自己的卡上放什么？",
+        "en": "Friends voluntarily exchange original small cards. What would you prefer on yours?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个自己愿意展示的清楚焦点，不追求让所有人注意。",
+            "en": "A clear focus I want to display without trying to attract everyone’s attention."
+          },
+          "directionId": "red"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一处让愿意回应的人接着添画的空白。",
+            "en": "A blank space for a willing recipient to continue the drawing playfully."
+          },
+          "directionId": "orange"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一项实际可用的小提示，例如如何方便地收存这张卡。",
+            "en": "A practical note such as a convenient way to keep the card."
+          },
+          "directionId": "green"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个自己细看过的小细节，只分享这次愿意分享的部分。",
+            "en": "A detail I have examined, sharing only the part I want to offer this time."
+          },
+          "directionId": "indigo"
+        }
+      ]
+    },
+    {
+      "id": "AURA_16",
+      "prompt": {
+        "zh": "做一页属于自己的兴趣记录，你更想选择哪种过程？",
+        "en": "You make a page about an interest of yours. Which process would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "和自愿参与的人交替添一点，让作品保留共同游戏感。",
+            "en": "Take turns adding pieces with willing people and retain a sense of shared play."
+          },
+          "directionId": "orange"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "从一个好奇点查起，把能解释和不能解释的分开。",
+            "en": "Investigate one curiosity and separate what can and cannot yet be explained."
+          },
+          "directionId": "yellow"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用不绕弯的句子说明喜欢哪里，也允许只写很少。",
+            "en": "State plainly what I like, allowing the description to remain short."
+          },
+          "directionId": "blue"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用一个个人图案连起经历，不把图案解释成预兆。",
+            "en": "Connect experiences with a personal motif without reading it as an omen."
+          },
+          "directionId": "violet"
+        }
+      ]
+    },
+    {
+      "id": "AURA_17",
+      "prompt": {
+        "zh": "给普通活动留一条“下次再看”的笔记，你更想记什么？",
+        "en": "You leave a note to revisit an ordinary activity. What would you prefer to record?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个尚未有答案的问题，和下一份想读的说明。",
+            "en": "An unanswered question and the next explanation I might read."
+          },
+          "directionId": "yellow"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一项实际环境条件，例如下次怎样让材料更易取。",
+            "en": "A surrounding condition such as making materials easier to reach next time."
+          },
+          "directionId": "green"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一处想独自再看的具体细节，先不判断好坏。",
+            "en": "A detail I want to examine privately again, without judging it yet."
+          },
+          "directionId": "indigo"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一句明确想表达的重点，提醒自己愿意展示什么。",
+            "en": "A clear point I want to express as a reminder of what I choose to display."
+          },
+          "directionId": "red"
+        }
+      ]
+    },
+    {
+      "id": "AURA_18",
+      "prompt": {
+        "zh": "整理一小批自己可使用的材料时，你更想怎样留下个人痕迹？",
+        "en": "You arrange a few materials you may use. How would you prefer to leave a personal touch?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "按普通实际使用条件做一处安排，让以后容易取用。",
+            "en": "Arrange one part around ordinary use so it is accessible later."
+          },
+          "directionId": "green"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "附一句直白说明，让使用者知道自己想表达的意思。",
+            "en": "Add a plain explanation of what I want to communicate to a user."
+          },
+          "directionId": "blue"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "加一个与个人经历有关的符号，只把它当自己的解释。",
+            "en": "Add a symbol tied to my experience and keep its meaning as my interpretation."
+          },
+          "directionId": "violet"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "留一处共同涂画的位置，让自愿参与的人自由添加。",
+            "en": "Leave room for willing people to add their own playful marks."
+          },
+          "directionId": "orange"
+        }
+      ]
+    },
+    {
+      "id": "AURA_19",
+      "prompt": {
+        "zh": "如果只留下一句话介绍这次自选尝试，你更想怎样写？",
+        "en": "If you keep one sentence about an attempt you chose, how would you prefer to write it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "直接说清做了什么、愿意说到哪里，不让别人猜。",
+            "en": "State what I did and how much I want to say rather than rely on guessing."
+          },
+          "directionId": "blue"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "记录一处自己细看后才注意到的普通细节。",
+            "en": "Record an ordinary detail I noticed through looking closely."
+          },
+          "directionId": "indigo"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "突出一项自己愿意明确呈现的选择，不宣称别人也该如此。",
+            "en": "Highlight a choice I want to present clearly without claiming others should share it."
+          },
+          "directionId": "red"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "留一个可以继续追问的问题，并标明暂时不知道的部分。",
+            "en": "Leave a question to pursue and identify what I do not yet know."
+          },
+          "directionId": "yellow"
+        }
+      ]
+    },
+    {
+      "id": "AURA_20",
+      "prompt": {
+        "zh": "一段自由记录时间快结束，你更想把哪件事留下来？",
+        "en": "A period of free note-making is ending. What would you prefer to retain?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一处只供自己再看的观察，允许暂时没有解释。",
+            "en": "An observation to revisit privately, allowing it to have no explanation yet."
+          },
+          "directionId": "indigo"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个个人符号和这一次愿意赋予它的含义。",
+            "en": "A personal symbol and the meaning I choose to give it this time."
+          },
+          "directionId": "violet"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一次共同添画中出现的轻松变化，征得参与者同意再保留。",
+            "en": "A playful variation from shared drawing, kept with participants’ permission."
+          },
+          "directionId": "orange"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个使实际使用更方便的普通条件，下次再决定要不要沿用。",
+            "en": "An ordinary condition that made use easier, to reconsider next time."
+          },
+          "directionId": "green"
+        }
+      ]
+    },
+    {
+      "id": "AURA_21",
+      "prompt": {
+        "zh": "看完自己这段时间的普通记录，你更想怎样为它写个结尾？",
+        "en": "Looking over recent ordinary notes of your own, how would you prefer to close them?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "选一个个人符号概括此刻含义，允许以后改写。",
+            "en": "Choose a personal symbol for its meaning now, allowing later revision."
+          },
+          "directionId": "violet"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "明确写下一处自己愿意呈现的重点，不要求成为长期形象。",
+            "en": "State a point I want to present without turning it into a lasting persona."
+          },
+          "directionId": "red"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "列一个仍想弄清的问题和已经有的解释。",
+            "en": "List a question I still want to understand alongside an available explanation."
+          },
+          "directionId": "yellow"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用一句平实的话讲明自己想说的事，到这里结束也可以。",
+            "en": "Say plainly what I want to communicate and allow the record to end here."
+          },
+          "directionId": "blue"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "red",
+      "directionIds": [
+        "red"
+      ],
+      "title": {
+        "zh": "红：鲜明的自选表达",
+        "en": "Red: A Deliberate Visible Expression"
+      },
+      "headline": {
+        "zh": "七种自选表达的编辑象征之一，不是可探测能量或真实能力。",
+        "en": "One of seven editorial symbols for chosen expression, not a detected field or ability verdict."
+      },
+      "summary": {
+        "zh": "把愿意呈现的一点说清，而不要求吸引全场。完整例子、对话与比较说明红色计数，不认证领导力、勇气或身体能量。",
+        "en": "Explore a point you choose to make visible without attracting a whole room. Examples explain Red counts without certifying leadership, courage or bodily energy."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应主题加1，总数固定21。每题提供七主题中的四个，全卷每主题12次、每位置3次；未提供的另外三种不记为拒绝。原始次数是这些可选做法中的相对分布，不是实际光环比例、能量强弱、匹配百分比或人口排名。所有最高计数完整保留；全选第一项会七种各3次、七份完整显示。名单顺序不设主次，不自动指定第二颜色或强造混色；相差一次不证明显著差异、品质消失或固定人格。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有颜色或科学分界。",
+        "en": "Choose one option for all 21 questions; each adds one to its theme and counts always sum to 21. A question offers four of seven themes. Every theme appears 12 times and three times in each position; the three absent themes are not counted as rejected. Raw counts describe relative choices among these approaches, not aura proportions, energy levels, match percentages or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all seven. List order establishes no priority, automatic secondary colour or mixed colour. A one-choice gap proves neither significance, missing qualities nor fixed personality. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare colours or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "红色光环结果：自选表达、例子与完整说明",
+          "en": "Red Aura Color Result: Expression and Full Guide"
+        },
+        "description": {
+          "zh": "把愿意呈现的一点说清，而不要求吸引全场。完整例子、对话与比较说明红色计数，不认证领导力、勇气或身体能量。",
+          "en": "Explore Red as chosen visible expression through a reading-card example and full comparisons. No leadership, courage or energy-field verdict."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本版颜色主题与象征范围",
+            "en": "This edition’s colour and symbolic scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版给红色的主题是“鲜明的自选表达”：挑一个愿意呈现的点，让它在自己的作品或说明中看得清楚。鲜明由本人决定，不是让所有人关注，也不意味着声音更大、更外向或更有力量。颜色是本版的编辑符号，不证明周围有红色光，也不代表真实精神或身体状态。",
+              "en": "Red labels a deliberate visible expression here: choosing a point you want to make clear in a piece or explanation of your own. You decide what visible means; it need not attract everyone, increase volume or display extraversion or power. The colour is an editorial symbol rather than evidence of red light surrounding you or a particular bodily or mental state."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "把计数放回当前处境",
+            "en": "Reading counts in the present context"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择明确写出愿意展示的重点，或者让个人主张有一个易识别的位置。可以问：这句话确实是我想说的吗，愿意向谁展示，范围到哪里？较少选择可能是在保护隐私或给自己时间，不说明胆小、没主见或没有存在感；题目没有观察真实表现。",
+              "en": "A highest count means you more often chose an identifiable place for a point or statement you want to display. Is it actually what you want to say, to whom, and within what scope? Fewer choices may reflect privacy or taking time rather than timidity, absent opinions or an unimpressive presence. No actual performance is observed through these choices."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你给自己做一张普通阅读卡，愿意把“这次我想慢慢读”写成标题。可以只把卡放在私人笔记里，也可以自愿给朋友看。不需要标语有感染力、别人赞同，或后来始终按这个节奏阅读；它表达这一次的选择，不承诺一种永久形象。",
+              "en": "You make an ordinary reading card and want “I’d like to read slowly this time” as its heading. Keep it in private notes or voluntarily show a friend. The sentence need not persuade others, win agreement or determine how you always read afterwards. It expresses this occasion’s choice rather than a permanent persona that later actions must confirm or defend."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我愿意把这一点写清楚，这次只代表我的选择，不要求你也一样。”这样把表达与要求别人跟随分开。暂时不展示、修改标题或收回分享都可以；红色次数不授予别人追问隐私的权利，也不要求你通过冒险、争强或领导别人来证明标签。",
+              "en": "You might say, “I want to make this point clear as my choice this time, without asking you to share it.” This separates expression from requiring followers. Keep it private, change the heading or withdraw a share if preferred. Red counts give others no right to private information and require no risk, competition or leadership as proof of belonging to the label."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六个主题比较",
+            "en": "Comparisons with the other six themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "红色偏让一点清楚显现，橙色偏共同玩出变化，蓝色偏把意思讲明；鲜明与平实可以同时存在。黄偏提问，绿偏生活条件，靛偏私下细看，紫偏个人符号。这七个编辑主题没有上下关系，不是身体能量或统一灵性传统，更不能把红色换算成本站色彩性格红方向、气质或MBTI。",
+              "en": "Red concerns making a point visible, Orange shared playful variation and Blue stating meaning plainly; clarity of focus and plain wording can coexist. Yellow concerns questions, Green surroundings, Indigo private detail and Violet personal symbols. These seven editorial themes form no hierarchy, bodily energy system or universal spiritual tradition. Red cannot convert into our Color Personality Red direction, Temperament or MBTI."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例和实际表现的区别",
+            "en": "Counterexamples and actual performance"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，文字显眼可能来自模板要求或活动安排，而不是本人偏好；不突出自己也可能是在明确做选择。问卷没有测量领导、吸引力、勇气、体力、侵略性或抗压，不因颜色判断别人怎样看你。实际影响需看具体处境和反馈，不能拿一个象征词替代观察。",
+              "en": "A prominent statement may come from a template or activity requirement rather than preference; remaining unobtrusive can be a deliberate choice. Leadership, attractiveness, courage, stamina, aggression and resilience are not measured. A colour cannot establish how others see you. Assess an expression’s actual effects through its circumstances and feedback rather than taking a symbolic word as an observation of your influence."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：为一张本来想做的私人便条，写一个愿意突出的重点和愿意保留的范围。可以只写不展示，或随后改掉。观察它是否表达了这次想说的事，不给勇气或魅力打分，不以别人的反应验证光环，也不要求为标签保持鲜明。",
+              "en": "For an optional observation, give a private note you already want to make one point to highlight and a scope you want to retain. Write without displaying it or change it afterwards. Notice whether it expresses what you meant this time, without grading courage or charm, treating reactions as aura verification or maintaining visibility for the sake of a label."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题相对计数与全部最高并列",
+            "en": "21-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应主题加1，总数固定21。每题提供七主题中的四个，全卷每主题12次、每位置3次；未提供的另外三种不记为拒绝。原始次数是这些可选做法中的相对分布，不是实际光环比例、能量强弱、匹配百分比或人口排名。所有最高计数完整保留；全选第一项会七种各3次、七份完整显示。名单顺序不设主次，不自动指定第二颜色或强造混色；相差一次不证明显著差异、品质消失或固定人格。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有颜色或科学分界。",
+              "en": "Choose one option for all 21 questions; each adds one to its theme and counts always sum to 21. A question offers four of seven themes. Every theme appears 12 times and three times in each position; the three absent themes are not counted as rejected. Raw counts describe relative choices among these approaches, not aura proportions, energy levels, match percentages or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all seven. List order establishes no priority, automatic secondary colour or mixed colour. A one-choice gap proves neither significance, missing qualities nor fixed personality. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare colours or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、术语背景与来源",
+            "en": "Original edition, word usage and sources"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的七色自选表达象征问卷。Merriam-Webster词典仅用于核对aura一词有氛围、被认为存在的能量场等不同用法，不为七色主题、映射、计分或解释提供验证；本站不采用其医学含义来评估症状。七种颜色与含义为本版编辑选取，不声称统一传统、脉轮体系或科学分类。21题、选项、报告、例子与计数规则均为原创，没有采用JobCannon10题、竞品正文／代码／算法、受保护图片或词典例句。本版不观察能量场，不拍照、扫码或使用生日星座，不认证健康、疗愈、同理心、直觉、智力、创造力、吸引力、灵性等级、天赋或职业；不预测命运，不从光环颜色换算色彩性格、气质、DISC或MBTI。没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind seven-colour symbolic quiz about chosen expression. Merriam-Webster checks only that aura has different usages, including atmosphere and a supposed energy field; it validates no seven-colour themes, mapping, counts or interpretations. This quiz does not use the word’s medical sense to assess symptoms. Colours and meanings are an editorial selection, not a unified tradition, chakra system or scientific taxonomy. All 21 items, options, reports, examples and counting rules are original. No JobCannon 10-item bank, competitor text, code, algorithm, protected image or dictionary example is used. This edition observes no energy field and uses no photography, scanning, birthday or zodiac. It certifies no health, healing, empathy, intuition, intelligence, creativity, attractiveness, spiritual rank, talent or career fit, predicts no destiny and converts into no Color Personality, Temperament, DISC or MBTI result. There is no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orange",
+      "directionIds": [
+        "orange"
+      ],
+      "title": {
+        "zh": "橙：共同创作的玩心",
+        "en": "Orange: Play in Shared Making"
+      },
+      "headline": {
+        "zh": "七种自选表达的编辑象征之一，不是可探测能量或真实能力。",
+        "en": "One of seven editorial symbols for chosen expression, not a detected field or ability verdict."
+      },
+      "summary": {
+        "zh": "用自愿接画的具体例子看共同玩心，包含对话、相邻比较和停止空间；橙色不认证受欢迎、创造力、社交或快乐程度。",
+        "en": "Explore shared play through a voluntary drawing example, wording and comparisons. Orange counts certify no popularity, creativity, sociability or happiness."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应主题加1，总数固定21。每题提供七主题中的四个，全卷每主题12次、每位置3次；未提供的另外三种不记为拒绝。原始次数是这些可选做法中的相对分布，不是实际光环比例、能量强弱、匹配百分比或人口排名。所有最高计数完整保留；全选第一项会七种各3次、七份完整显示。名单顺序不设主次，不自动指定第二颜色或强造混色；相差一次不证明显著差异、品质消失或固定人格。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有颜色或科学分界。",
+        "en": "Choose one option for all 21 questions; each adds one to its theme and counts always sum to 21. A question offers four of seven themes. Every theme appears 12 times and three times in each position; the three absent themes are not counted as rejected. Raw counts describe relative choices among these approaches, not aura proportions, energy levels, match percentages or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all seven. List order establishes no priority, automatic secondary colour or mixed colour. A one-choice gap proves neither significance, missing qualities nor fixed personality. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare colours or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "橙色光环结果：共同玩心、例子与完整说明",
+          "en": "Orange Aura Color Result: Shared Play and Full Guide"
+        },
+        "description": {
+          "zh": "用自愿接画的具体例子看共同玩心，包含对话、相邻比较和停止空间；橙色不认证受欢迎、创造力、社交或快乐程度。",
+          "en": "Read Orange through voluntary shared making, a drawing example and comparisons. Full guidance without judging popularity, creativity or happiness."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本版颜色主题与象征范围",
+            "en": "This edition’s colour and symbolic scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "橙色在本版表示“共同创作的玩心”：对一个普通小材料，愿意和有兴趣的人各添一点，看看会怎样变化。共同不等于人人参加，玩心不要求愉快、热闹、搞笑或产出好作品。它只是本次偏好的象征表达，不代表创作能力、情绪感染力或别人实际喜欢与你相处。",
+              "en": "Orange means play in shared making here: adding a little to an ordinary material with interested people and seeing how it changes. Shared participation need not include everyone, and play requires neither happiness, noise, jokes nor polished work. This is a symbol for current preference, not creative ability, emotional influence or evidence that others actually enjoy spending time with you."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "把计数放回当前处境",
+            "en": "Reading counts in the present context"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择轮流添画、自由改版或为愿意加入的人留下可玩空间。可以问：谁确实愿意，材料是否可使用，什么时候可以不继续？较少选择可能因为更想独自表达或不方便合作，不说明无趣、缺乏温暖或不合群；计数没有评价社交表现。",
+              "en": "A highest count means you more often chose turns, playful versions or room for willing participants to contribute. Who actually wants to join, may the materials be used and when can the activity end? Fewer choices may reflect private expression or practical limits rather than dullness, coldness or poor sociability. Counts do not evaluate how you perform in a group."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，两位朋友都愿意在一张废纸上接着画普通几何图形，每人加一处就可以停。你们可以保留不同画法，不设谁画得更好；若要拍照或分享，先确认双方愿意。例子关注共同做一点的兴趣，不要求带动气氛、修复关系或让疲惫的人开心。",
+              "en": "Two friends willingly continue simple geometric marks on scrap paper, with either free to stop after one addition. Keep different styles without judging whose drawing is better, and check agreement before photographing or sharing it. The example concerns interest in doing a little together, without duties to energise a room, repair a relationship or make a tired person feel happy."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“你愿意一起添一笔吗？不参加也没关系，我们随时可以停。”允许对方保留原作，也允许自己退出。邀请是可拒绝的建议，不以共同创作证明亲近；如果有人只想旁观或不想保留作品，另作安排即可，不给对方贴缺乏玩心的标签。",
+              "en": "You could ask, “Would you like to add a mark together? It is fine not to join, and we can stop whenever we want.” Respect an original piece and your own option to withdraw. An invitation is a rejectable suggestion rather than proof of closeness. Accommodate observing or not retaining the work without labelling someone deficient in playfulness or warmth."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六个主题比较",
+            "en": "Comparisons with the other six themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "橙偏共同玩出变化，红偏自选重点，黄偏追问解释；一张共同作品也可以有清楚重点或问题。绿留意实际条件，蓝说明意思，靛留私人细看，紫赋个人意义。独自与共同不是高低，也不据此判断外向或依恋；七种颜色与本站四方向色彩性格采用不同题本和规则。",
+              "en": "Orange emphasises shared playful variation, Red a chosen focus and Yellow questions and explanations; a shared piece can also contain a clear point or question. Green attends to conditions, Blue meaning, Indigo private detail and Violet personal symbolism. Private and shared approaches form no ranking or judgement of extraversion or attachment. This seven-colour edition differs from our four-direction Color Personality bank and rules."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例和实际表现的区别",
+            "en": "Counterexamples and actual performance"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，参与共同制作可能因为课程要求或配合他人，而不是本人愿意；一个人创作也可能很有玩心。问卷不测艺术天赋、朋友数量、受欢迎程度或情绪状态，不保证别人会被感染。实际同意与体验需要当事人表达，不能因橙色较高就推定一群人都会享受活动。",
+              "en": "Shared making may be required by a class or offered to accommodate someone rather than preferred, while solitary work can be playful. Artistic talent, friend counts, popularity and emotional states are not tested, and enthusiasm spreading to others is not guaranteed. Actual consent and experience need participants’ expression rather than assuming everyone will enjoy an activity because Orange counts are high."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：为一个原本就想做、材料许可清楚的小制作，先确认是否有人也愿意参加，再给出可停止的一小步。没人加入时可独自做或不做。记下自己是否喜欢这次共同变化，不把作品质量、人数或笑声当作光环强弱、社交能力或快乐的分数。",
+              "en": "If useful, take a small making activity you already want with materials you may use, ask whether someone also wants to join and offer one stoppable step. Work alone or skip it if nobody joins. Notice your interest in this occasion’s shared variation without treating quality, attendance or laughter as a score for aura strength, social capability or happiness."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题相对计数与全部最高并列",
+            "en": "21-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应主题加1，总数固定21。每题提供七主题中的四个，全卷每主题12次、每位置3次；未提供的另外三种不记为拒绝。原始次数是这些可选做法中的相对分布，不是实际光环比例、能量强弱、匹配百分比或人口排名。所有最高计数完整保留；全选第一项会七种各3次、七份完整显示。名单顺序不设主次，不自动指定第二颜色或强造混色；相差一次不证明显著差异、品质消失或固定人格。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有颜色或科学分界。",
+              "en": "Choose one option for all 21 questions; each adds one to its theme and counts always sum to 21. A question offers four of seven themes. Every theme appears 12 times and three times in each position; the three absent themes are not counted as rejected. Raw counts describe relative choices among these approaches, not aura proportions, energy levels, match percentages or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all seven. List order establishes no priority, automatic secondary colour or mixed colour. A one-choice gap proves neither significance, missing qualities nor fixed personality. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare colours or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、术语背景与来源",
+            "en": "Original edition, word usage and sources"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的七色自选表达象征问卷。Merriam-Webster词典仅用于核对aura一词有氛围、被认为存在的能量场等不同用法，不为七色主题、映射、计分或解释提供验证；本站不采用其医学含义来评估症状。七种颜色与含义为本版编辑选取，不声称统一传统、脉轮体系或科学分类。21题、选项、报告、例子与计数规则均为原创，没有采用JobCannon10题、竞品正文／代码／算法、受保护图片或词典例句。本版不观察能量场，不拍照、扫码或使用生日星座，不认证健康、疗愈、同理心、直觉、智力、创造力、吸引力、灵性等级、天赋或职业；不预测命运，不从光环颜色换算色彩性格、气质、DISC或MBTI。没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind seven-colour symbolic quiz about chosen expression. Merriam-Webster checks only that aura has different usages, including atmosphere and a supposed energy field; it validates no seven-colour themes, mapping, counts or interpretations. This quiz does not use the word’s medical sense to assess symptoms. Colours and meanings are an editorial selection, not a unified tradition, chakra system or scientific taxonomy. All 21 items, options, reports, examples and counting rules are original. No JobCannon 10-item bank, competitor text, code, algorithm, protected image or dictionary example is used. This edition observes no energy field and uses no photography, scanning, birthday or zodiac. It certifies no health, healing, empathy, intuition, intelligence, creativity, attractiveness, spiritual rank, talent or career fit, predicts no destiny and converts into no Color Personality, Temperament, DISC or MBTI result. There is no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yellow",
+      "directionIds": [
+        "yellow"
+      ],
+      "title": {
+        "zh": "黄：提问与解释的兴趣",
+        "en": "Yellow: Interest in Questions and Explanations"
+      },
+      "headline": {
+        "zh": "七种自选表达的编辑象征之一，不是可探测能量或真实能力。",
+        "en": "One of seven editorial symbols for chosen expression, not a detected field or ability verdict."
+      },
+      "summary": {
+        "zh": "从一个普通问题、已有解释与未知处读黄色主题。完整例子和比较不把好奇换成智力、乐观、教学能力或职业适配。",
+        "en": "Read Yellow through an ordinary question, available explanations and uncertainty. Full examples do not turn curiosity into intelligence, optimism or teaching ability."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应主题加1，总数固定21。每题提供七主题中的四个，全卷每主题12次、每位置3次；未提供的另外三种不记为拒绝。原始次数是这些可选做法中的相对分布，不是实际光环比例、能量强弱、匹配百分比或人口排名。所有最高计数完整保留；全选第一项会七种各3次、七份完整显示。名单顺序不设主次，不自动指定第二颜色或强造混色；相差一次不证明显著差异、品质消失或固定人格。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有颜色或科学分界。",
+        "en": "Choose one option for all 21 questions; each adds one to its theme and counts always sum to 21. A question offers four of seven themes. Every theme appears 12 times and three times in each position; the three absent themes are not counted as rejected. Raw counts describe relative choices among these approaches, not aura proportions, energy levels, match percentages or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all seven. List order establishes no priority, automatic secondary colour or mixed colour. A one-choice gap proves neither significance, missing qualities nor fixed personality. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare colours or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "黄色光环结果：提问解释、例子与完整说明",
+          "en": "Yellow Aura Color Result: Questions and Full Guide"
+        },
+        "description": {
+          "zh": "从一个普通问题、已有解释与未知处读黄色主题。完整例子和比较不把好奇换成智力、乐观、教学能力或职业适配。",
+          "en": "Explore Yellow through questions, explanations and an ordinary paper-box example. Read comparisons without intelligence, optimism or teaching claims."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本版颜色主题与象征范围",
+            "en": "This edition’s colour and symbolic scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版的黄色主题是“提问与解释的兴趣”：对一件普通小事，愿意写一个问题、看看现有说明，并容许仍然不知道。它不要求问题聪明、答案正确、反应快或始终乐观。颜色作为编辑符号，只标记一种当前选择，不把读过多少、理解速度或智力纳入结论。",
+              "en": "Yellow labels interest in questions and explanations: writing a question about an ordinary matter, looking at an available account and allowing uncertainty to remain. It requires neither clever questions, correct answers, quick responses nor constant optimism. The colour is an editorial symbol for a current choice rather than a conclusion about reading quantity, speed of understanding or intelligence in actual tasks."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "把计数放回当前处境",
+            "en": "Reading counts in the present context"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择把疑问写清、寻找说明或区分已知和未核实。可以问：我具体想知道什么，这份解释能回答到哪里，有什么还没证据？较少选择可能是本次更想体验或表达，不说明不爱学习、头脑不清或缺乏逻辑；没有认知测验支持这些推断。",
+              "en": "A highest count means you more often chose a stated question, an explanation or a distinction between known and unverified parts. What exactly do you want to know, how far does this explanation reach and what lacks evidence? Fewer choices may reflect experiencing or expressing something now rather than disliking learning, unclear thinking or poor logic. No cognitive test supports those inferences."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你看到自己常用的纸盒上有一处折痕，好奇它为什么放在那里。可以查看可公开阅读的包装说明，记下一个已有答案和一个还没弄清的地方。也可以到此结束，不必拆开或尝试危险操作。例子是一个可停止的问题，不要求发现新知识、纠正别人或证明自己懂得更多。",
+              "en": "You notice a fold in a paper box you use and wonder why it is there. Consult an openly available packaging explanation and note one answered point and one uncertainty. Stop there without dismantling anything or attempting hazardous actions. This is a stoppable question rather than a requirement to discover knowledge, correct someone else or prove that you know more."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我对这处设计有个问题，目前找到的说明只解释这一部分，其余还不知道。”不用把不确定包装成结论，也不要求别人一起研究。若对方只是想分享感受，可以先听其表达，再决定是否另找时间追问；黄色次数不授予纠错或教学职责。",
+              "en": "You might say, “I have a question about this detail. The explanation I found covers this part, and I do not know the rest yet.” Uncertainty need not become a conclusion, and others need not investigate with you. Hear an experience someone wants to share before choosing another time for questions. Yellow counts award no teaching role or duty to correct."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六个主题比较",
+            "en": "Comparisons with the other six themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "黄偏问题与解释，靛偏私下细看而可暂不解释，蓝偏把意思讲清。观察、提问和表达可以同时用，但不自动相等。红关注自选重点、橙共同玩心、绿生活条件、紫个人符号；不把七色排成聪明或灵性等级，也不把黄色换算成色彩性格黄方向、MBTI思考或某种职业。",
+              "en": "Yellow emphasises questions and explanations, Indigo private detail without requiring an account and Blue stating meaning plainly. Observation, questioning and expression can coexist without being equivalent. Red concerns a chosen focus, Orange shared play, Green surroundings and Violet personal symbols. These colours rank neither intelligence nor spirituality, and Yellow cannot convert into Color Personality Yellow, MBTI Thinking or a career category."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例和实际表现的区别",
+            "en": "Counterexamples and actual performance"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，频繁提问可能来自信息缺失、要求不清或需要重复确认，而不是乐于探索；暂不追问也可以是合适决定。问卷不测理解、记忆、注意、乐观或教学效果，不保证解释正确。实际知识仍需可核对的材料与任务，不由颜色替代，也不因为一次没理解就否定自己的价值。",
+              "en": "Frequent questions may reflect missing information, unclear requests or repeated checking rather than interest in exploration; not asking can be appropriate. Understanding, memory, attention, optimism and teaching outcomes are not tested, and explanations are not guaranteed correct. Actual knowledge calls for checkable material and tasks rather than a colour, without one misunderstanding becoming a judgement about someone’s worth or identity."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：对一个本来就好奇、可安全了解的普通对象，写一个问题、一条现有说明和一处未知。可以不继续查。观察的是自己是否喜欢这次追问，不按查到多少、速度或对错给智力和光环打分；需要准确判断时仍另行核实原始资料。",
+              "en": "For an optional observation, take an ordinary object you are already curious about and can safely investigate. Note one question, an available explanation and an uncertainty, then stop if preferred. Notice interest in this inquiry without grading intelligence or an aura by amount found, speed or correctness. When accuracy matters, separately verify the original evidence required for that particular judgement."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题相对计数与全部最高并列",
+            "en": "21-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应主题加1，总数固定21。每题提供七主题中的四个，全卷每主题12次、每位置3次；未提供的另外三种不记为拒绝。原始次数是这些可选做法中的相对分布，不是实际光环比例、能量强弱、匹配百分比或人口排名。所有最高计数完整保留；全选第一项会七种各3次、七份完整显示。名单顺序不设主次，不自动指定第二颜色或强造混色；相差一次不证明显著差异、品质消失或固定人格。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有颜色或科学分界。",
+              "en": "Choose one option for all 21 questions; each adds one to its theme and counts always sum to 21. A question offers four of seven themes. Every theme appears 12 times and three times in each position; the three absent themes are not counted as rejected. Raw counts describe relative choices among these approaches, not aura proportions, energy levels, match percentages or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all seven. List order establishes no priority, automatic secondary colour or mixed colour. A one-choice gap proves neither significance, missing qualities nor fixed personality. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare colours or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、术语背景与来源",
+            "en": "Original edition, word usage and sources"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的七色自选表达象征问卷。Merriam-Webster词典仅用于核对aura一词有氛围、被认为存在的能量场等不同用法，不为七色主题、映射、计分或解释提供验证；本站不采用其医学含义来评估症状。七种颜色与含义为本版编辑选取，不声称统一传统、脉轮体系或科学分类。21题、选项、报告、例子与计数规则均为原创，没有采用JobCannon10题、竞品正文／代码／算法、受保护图片或词典例句。本版不观察能量场，不拍照、扫码或使用生日星座，不认证健康、疗愈、同理心、直觉、智力、创造力、吸引力、灵性等级、天赋或职业；不预测命运，不从光环颜色换算色彩性格、气质、DISC或MBTI。没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind seven-colour symbolic quiz about chosen expression. Merriam-Webster checks only that aura has different usages, including atmosphere and a supposed energy field; it validates no seven-colour themes, mapping, counts or interpretations. This quiz does not use the word’s medical sense to assess symptoms. Colours and meanings are an editorial selection, not a unified tradition, chakra system or scientific taxonomy. All 21 items, options, reports, examples and counting rules are original. No JobCannon 10-item bank, competitor text, code, algorithm, protected image or dictionary example is used. This edition observes no energy field and uses no photography, scanning, birthday or zodiac. It certifies no health, healing, empathy, intuition, intelligence, creativity, attractiveness, spiritual rank, talent or career fit, predicts no destiny and converts into no Color Personality, Temperament, DISC or MBTI result. There is no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "green",
+      "directionIds": [
+        "green"
+      ],
+      "title": {
+        "zh": "绿：留意身边的生活条件",
+        "en": "Green: Attending to Everyday Surroundings"
+      },
+      "headline": {
+        "zh": "七种自选表达的编辑象征之一，不是可探测能量或真实能力。",
+        "en": "One of seven editorial symbols for chosen expression, not a detected field or ability verdict."
+      },
+      "summary": {
+        "zh": "通过材料摆放的小例子留意生活条件，含表达、比较和反例；绿色不证明疗愈、同理心、照顾能力或别人感到安全。",
+        "en": "Attend to everyday conditions through a material-placement example, wording and comparisons. Green establishes no healing, empathy, caregiving or others’ safety."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应主题加1，总数固定21。每题提供七主题中的四个，全卷每主题12次、每位置3次；未提供的另外三种不记为拒绝。原始次数是这些可选做法中的相对分布，不是实际光环比例、能量强弱、匹配百分比或人口排名。所有最高计数完整保留；全选第一项会七种各3次、七份完整显示。名单顺序不设主次，不自动指定第二颜色或强造混色；相差一次不证明显著差异、品质消失或固定人格。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有颜色或科学分界。",
+        "en": "Choose one option for all 21 questions; each adds one to its theme and counts always sum to 21. A question offers four of seven themes. Every theme appears 12 times and three times in each position; the three absent themes are not counted as rejected. Raw counts describe relative choices among these approaches, not aura proportions, energy levels, match percentages or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all seven. List order establishes no priority, automatic secondary colour or mixed colour. A one-choice gap proves neither significance, missing qualities nor fixed personality. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare colours or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "绿色光环结果：生活条件、例子与完整说明",
+          "en": "Green Aura Color Result: Surroundings and Full Guide"
+        },
+        "description": {
+          "zh": "通过材料摆放的小例子留意生活条件，含表达、比较和反例；绿色不证明疗愈、同理心、照顾能力或别人感到安全。",
+          "en": "Read Green through everyday surroundings and a postcard-placement example. Full comparisons without healing, empathy or caregiving certification."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本版颜色主题与象征范围",
+            "en": "This edition’s colour and symbolic scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "绿色在本版表示“留意身边的生活条件”：愿意看看一个普通地方怎样使用，哪些小条件方便自己或自愿参与的人。它不要求亲近自然、无条件照顾别人、承担环境中的所有问题或让人得到疗愈。编辑颜色标记一种当前偏好，不认证同理心、健康、耐心或实际照顾效果。",
+              "en": "Green means attending to everyday surroundings here: considering how an ordinary place is used and which small conditions are convenient for you or willing participants. It requires neither closeness to nature, unconditional care, responsibility for every environmental problem nor healing others. An editorial colour marks current preference without certifying empathy, health, patience or actual effectiveness in supporting another person."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "把计数放回当前处境",
+            "en": "Reading counts in the present context"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择留意物件位置、材料是否易取，或其他明确的实际条件。可以问：谁说这项安排合用，自己的需要是否也包括在内，什么不必由自己承担？较少选择可能是条件已经合适，不说明冷漠、不关心或不负责任；问卷没有观察真实支持。",
+              "en": "A highest count means you more often chose to notice object placement, access to materials or another stated practical condition. Who says an arrangement works, are your needs included and what need not be your responsibility? Fewer choices may mean conditions already fit rather than coldness, lack of care or irresponsibility. The quiz does not observe any support actually provided."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你准备和愿意参加的朋友一起看几张普通明信片，可以先问把它们平放桌上是否方便阅读，再按双方需要移动。也可以决定这次不一起看。不需要猜谁需要安抚、为别人制造安全感或负责所有体验；例子只涉及一处经确认、可调整的小安排。",
+              "en": "You prepare to look at ordinary postcards with a willing friend. Ask whether laying them flat on the table makes reading convenient and move them according to both people’s needs, or choose not to look together now. You need not guess who needs soothing, manufacture safety or manage every experience. The example involves one confirmed and revisable arrangement rather than a caregiving role."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“这样摆你方便看吗？我也想留出自己的位置，我们可以再调。”对方可以提出不同需要，你也可以说明范围。询问不保证安排适合所有人，实际反馈仍要听；若不能提供某种条件，可以明确说，不需要为了符合绿色形象而承诺持续照顾或吸收情绪。",
+              "en": "You might ask, “Does this placement work for you? I’d like room for myself too, and we can adjust it.” Hear another need and state your scope. Asking guarantees no arrangement works for everyone, so actual feedback still matters. Say when a condition cannot be provided without promising ongoing care or emotional absorption to maintain a Green image."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六个主题比较",
+            "en": "Comparisons with the other six themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "绿偏普通使用条件，蓝偏讲明意思，橙偏共同玩心；一次小活动可能同时涉及三者。红关注自选重点、黄提问解释、靛私下细看、紫个人符号。它们不代表照顾者和被照顾者，也不构成好人等级。绿不转换成色彩性格绿方向、依恋、DISC、MBTI或某种助人职业。",
+              "en": "Green concerns ordinary use conditions, Blue stated meaning and Orange shared play; one small activity may involve all three. Red concerns a chosen focus, Yellow questions, Indigo private detail and Violet personal symbols. These are neither caregiver–recipient categories nor a hierarchy of good people. Green cannot convert into Color Personality Green, attachment, DISC, MBTI or suitability for a helping occupation."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例和实际表现的区别",
+            "en": "Counterexamples and actual performance"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，安排材料可能来自场地要求或临时职责，不一定是偏好；拒绝照顾别人也可能尊重实际边界。问卷不判断健康、依赖、善良或照顾能力，不把颜色当治疗或安抚证明。别人是否觉得方便、被理解或受支持，需要另行确认，也不由绿色较高推定你的所有关系都和谐。",
+              "en": "Arranging materials may follow venue rules or a temporary responsibility rather than preference; declining care can respect real boundaries. Health, dependence, goodness and caregiving ability are not assessed, and colour is no treatment or soothing credential. Separately confirm whether someone finds an arrangement convenient, understandable or supportive rather than using higher Green counts to assume harmony throughout your relationships."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：挑一个自己原本想调整的普通使用条件，写明具体变化、自己的范围，以及若涉及别人需要怎样确认。可以保留原样，不用多做一项照顾。观察是否方便这一次使用，不验证疗愈能量，不给同理心、道德或关系质量打分。",
+              "en": "For an optional observation, choose one ordinary condition you already want to reconsider. Note a concrete change, your scope and how to confirm another person’s needs if relevant. Keep it unchanged if preferred, without adding a care obligation. Notice convenience on this occasion rather than verifying healing energy or grading empathy, morality or the quality of a relationship."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题相对计数与全部最高并列",
+            "en": "21-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应主题加1，总数固定21。每题提供七主题中的四个，全卷每主题12次、每位置3次；未提供的另外三种不记为拒绝。原始次数是这些可选做法中的相对分布，不是实际光环比例、能量强弱、匹配百分比或人口排名。所有最高计数完整保留；全选第一项会七种各3次、七份完整显示。名单顺序不设主次，不自动指定第二颜色或强造混色；相差一次不证明显著差异、品质消失或固定人格。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有颜色或科学分界。",
+              "en": "Choose one option for all 21 questions; each adds one to its theme and counts always sum to 21. A question offers four of seven themes. Every theme appears 12 times and three times in each position; the three absent themes are not counted as rejected. Raw counts describe relative choices among these approaches, not aura proportions, energy levels, match percentages or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all seven. List order establishes no priority, automatic secondary colour or mixed colour. A one-choice gap proves neither significance, missing qualities nor fixed personality. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare colours or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、术语背景与来源",
+            "en": "Original edition, word usage and sources"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的七色自选表达象征问卷。Merriam-Webster词典仅用于核对aura一词有氛围、被认为存在的能量场等不同用法，不为七色主题、映射、计分或解释提供验证；本站不采用其医学含义来评估症状。七种颜色与含义为本版编辑选取，不声称统一传统、脉轮体系或科学分类。21题、选项、报告、例子与计数规则均为原创，没有采用JobCannon10题、竞品正文／代码／算法、受保护图片或词典例句。本版不观察能量场，不拍照、扫码或使用生日星座，不认证健康、疗愈、同理心、直觉、智力、创造力、吸引力、灵性等级、天赋或职业；不预测命运，不从光环颜色换算色彩性格、气质、DISC或MBTI。没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind seven-colour symbolic quiz about chosen expression. Merriam-Webster checks only that aura has different usages, including atmosphere and a supposed energy field; it validates no seven-colour themes, mapping, counts or interpretations. This quiz does not use the word’s medical sense to assess symptoms. Colours and meanings are an editorial selection, not a unified tradition, chakra system or scientific taxonomy. All 21 items, options, reports, examples and counting rules are original. No JobCannon 10-item bank, competitor text, code, algorithm, protected image or dictionary example is used. This edition observes no energy field and uses no photography, scanning, birthday or zodiac. It certifies no health, healing, empathy, intuition, intelligence, creativity, attractiveness, spiritual rank, talent or career fit, predicts no destiny and converts into no Color Personality, Temperament, DISC or MBTI result. There is no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "blue",
+      "directionIds": [
+        "blue"
+      ],
+      "title": {
+        "zh": "蓝：把想说的话讲清",
+        "en": "Blue: Saying What You Mean Plainly"
+      },
+      "headline": {
+        "zh": "七种自选表达的编辑象征之一，不是可探测能量或真实能力。",
+        "en": "One of seven editorial symbols for chosen expression, not a detected field or ability verdict."
+      },
+      "summary": {
+        "zh": "从一段普通说明看平实表达，包含可用措辞和其他六主题比较；蓝色不认证诚实、沟通效果、平静、共情或真实光环。",
+        "en": "Explore plain expression through an ordinary explanation, wording and six-theme comparisons. Blue certifies no honesty, communication outcome, calmness or real aura."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应主题加1，总数固定21。每题提供七主题中的四个，全卷每主题12次、每位置3次；未提供的另外三种不记为拒绝。原始次数是这些可选做法中的相对分布，不是实际光环比例、能量强弱、匹配百分比或人口排名。所有最高计数完整保留；全选第一项会七种各3次、七份完整显示。名单顺序不设主次，不自动指定第二颜色或强造混色；相差一次不证明显著差异、品质消失或固定人格。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有颜色或科学分界。",
+        "en": "Choose one option for all 21 questions; each adds one to its theme and counts always sum to 21. A question offers four of seven themes. Every theme appears 12 times and three times in each position; the three absent themes are not counted as rejected. Raw counts describe relative choices among these approaches, not aura proportions, energy levels, match percentages or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all seven. List order establishes no priority, automatic secondary colour or mixed colour. A one-choice gap proves neither significance, missing qualities nor fixed personality. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare colours or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "蓝色光环结果：平实表达、例子与完整说明",
+          "en": "Blue Aura Color Result: Plain Expression and Full Guide"
+        },
+        "description": {
+          "zh": "从一段普通说明看平实表达，包含可用措辞和其他六主题比较；蓝色不认证诚实、沟通效果、平静、共情或真实光环。",
+          "en": "Explore Blue through a plain book-loan message, scope and comparisons. Full guidance without certifying honesty, communication skill or an energy field."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本版颜色主题与象征范围",
+            "en": "This edition’s colour and symbolic scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "蓝色在本版表示“把想说的话讲清”：愿意用平实句子说出自己的意思，不依赖对方猜测。它不要求分享所有想法、始终冷静、诚实无误或擅长沟通；保留隐私也可以说得清楚。颜色只是本站编辑主题，不说明喉轮、声音、身体或精神状态，也不读取别人真正想法。",
+              "en": "Blue labels saying what you mean plainly: preferring a straightforward sentence over depending on another person’s guess. It requires neither sharing everything, constant calm, flawless honesty nor communication skill. Privacy can be stated clearly too. The colour is an editorial theme, not a reading of a throat chakra, voice, bodily or mental state, or what another person really thinks."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "把计数放回当前处境",
+            "en": "Reading counts in the present context"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择直接说明用途、意思或愿意说到哪里。可以问：这句话表达的是自己还是猜测别人，是否说清了范围，有什么仍不想分享？较少选择可能因为适合用图形或需要时间，不说明虚假、难相处或表达差；次数没有检验对方是否真正理解。",
+              "en": "A highest count means you more often chose a direct account of a use, intended meaning or scope of disclosure. Does the sentence express you or guess someone else, is its scope clear and what remains private? Fewer choices may reflect pictures or time rather than dishonesty, difficulty relating or poor expression. Counts never check whether another person actually understood."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你借给朋友一本自己可借出的普通书，只希望下周再确认归还时间。可以直接写：“我愿意借这本，下周我们再约归还时间。”若有其他限制，也另外说清。例子不要求话术有说服力、借书顺利或关系更亲近；清楚表达与实际达成安排仍是两件事。",
+              "en": "You lend a friend an ordinary book you may lend and want to confirm its return next week. Write, “I’m willing to lend this one; let’s agree a return time next week,” adding any other limits. The example requires neither persuasive wording, a smooth loan nor greater closeness. Expressing an intention and reaching an actual agreement remain separate matters."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我这句话想表达的是这一点，其余我现在还不想谈。”也可以承认刚才说得不清再重说。平实表达不赋予追问或逼别人坦白的权利，也不要求自己成为调解者、老师或情绪支持者；别人可以有不同理解，仍需具体确认。",
+              "en": "You could say, “This is the point I mean; I do not want to discuss the rest now.” Acknowledge unclear wording and try again if useful. Plain expression gives no right to interrogate or demand disclosure and creates no duty to mediate, teach or provide emotional support. Different interpretations remain possible and still call for confirmation in their specific context."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六个主题比较",
+            "en": "Comparisons with the other six themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "蓝偏把意思说清，红偏让一个重点显现，靛偏私下细看而不急着说明；它们可以交替，不是坦率和隐藏的好坏两端。黄关注问题、橙共同玩心、绿生活条件、紫个人符号。相同蓝字不等于本站色彩性格中的审慎整理，不推断MBTI、依恋、情商或职业沟通能力。",
+              "en": "Blue concerns stated meaning, Red a visible focus and Indigo private close observation without an immediate explanation. They can alternate rather than form good–bad poles of openness and concealment. Yellow concerns questions, Orange shared play, Green surroundings and Violet personal symbols. A shared blue label is not our Color Personality careful-organisation direction and implies no MBTI, attachment, emotional intelligence or workplace communication skill."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例和实际表现的区别",
+            "en": "Counterexamples and actual performance"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，直白说明可能因为表格或工作要求，含蓄表达也可能在某个语境更清楚。问卷没有检验诚实、倾听、共情、冲突处理或说服效果，不认证天然沟通者。真实交流还涉及语言、条件、权利与对方回应，不能用蓝色替代反馈或把误会都归于个人性格。",
+              "en": "Direct wording may follow a form or work requirement, while an indirect expression may be clearer in a particular setting. Honesty, listening, empathy, conflict handling and persuasion are not tested; no natural communicator is certified. Real exchanges involve language, conditions, rights and another person’s response. Blue cannot replace feedback or make every misunderstanding a defect of someone’s personality."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：为一件本来就愿意说明的普通事，写一句意思、一句范围；不涉及别人时无需分享。若愿意发出，可再确认对方理解到哪里，也可以不继续谈。记录这次措辞是否合用，不按反应给沟通能力或光环打分，更不要求总是平静或公开私人内容。",
+              "en": "If useful, take an ordinary matter you already want to explain and write one sentence of meaning and one of scope. Keep it private if nobody else is involved. If you send it willingly, check what was understood or end the exchange. Notice whether wording fits this occasion without grading communication or an aura, requiring calm or disclosing private material."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题相对计数与全部最高并列",
+            "en": "21-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应主题加1，总数固定21。每题提供七主题中的四个，全卷每主题12次、每位置3次；未提供的另外三种不记为拒绝。原始次数是这些可选做法中的相对分布，不是实际光环比例、能量强弱、匹配百分比或人口排名。所有最高计数完整保留；全选第一项会七种各3次、七份完整显示。名单顺序不设主次，不自动指定第二颜色或强造混色；相差一次不证明显著差异、品质消失或固定人格。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有颜色或科学分界。",
+              "en": "Choose one option for all 21 questions; each adds one to its theme and counts always sum to 21. A question offers four of seven themes. Every theme appears 12 times and three times in each position; the three absent themes are not counted as rejected. Raw counts describe relative choices among these approaches, not aura proportions, energy levels, match percentages or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all seven. List order establishes no priority, automatic secondary colour or mixed colour. A one-choice gap proves neither significance, missing qualities nor fixed personality. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare colours or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、术语背景与来源",
+            "en": "Original edition, word usage and sources"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的七色自选表达象征问卷。Merriam-Webster词典仅用于核对aura一词有氛围、被认为存在的能量场等不同用法，不为七色主题、映射、计分或解释提供验证；本站不采用其医学含义来评估症状。七种颜色与含义为本版编辑选取，不声称统一传统、脉轮体系或科学分类。21题、选项、报告、例子与计数规则均为原创，没有采用JobCannon10题、竞品正文／代码／算法、受保护图片或词典例句。本版不观察能量场，不拍照、扫码或使用生日星座，不认证健康、疗愈、同理心、直觉、智力、创造力、吸引力、灵性等级、天赋或职业；不预测命运，不从光环颜色换算色彩性格、气质、DISC或MBTI。没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind seven-colour symbolic quiz about chosen expression. Merriam-Webster checks only that aura has different usages, including atmosphere and a supposed energy field; it validates no seven-colour themes, mapping, counts or interpretations. This quiz does not use the word’s medical sense to assess symptoms. Colours and meanings are an editorial selection, not a unified tradition, chakra system or scientific taxonomy. All 21 items, options, reports, examples and counting rules are original. No JobCannon 10-item bank, competitor text, code, algorithm, protected image or dictionary example is used. This edition observes no energy field and uses no photography, scanning, birthday or zodiac. It certifies no health, healing, empathy, intuition, intelligence, creativity, attractiveness, spiritual rank, talent or career fit, predicts no destiny and converts into no Color Personality, Temperament, DISC or MBTI result. There is no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "indigo",
+      "directionIds": [
+        "indigo"
+      ],
+      "title": {
+        "zh": "靛：留给自己的细看",
+        "en": "Indigo: Looking Closely in Private"
+      },
+      "headline": {
+        "zh": "七种自选表达的编辑象征之一，不是可探测能量或真实能力。",
+        "en": "One of seven editorial symbols for chosen expression, not a detected field or ability verdict."
+      },
+      "summary": {
+        "zh": "用独自留意细节的例子读靛色，允许没有结论或不向外解释；完整比较不认证洞察、读心、直觉或特殊天赋。",
+        "en": "Explore Indigo through private attention to a detail, with no duty to explain it. Full comparisons establish no insight, mind reading, intuition or special gift."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应主题加1，总数固定21。每题提供七主题中的四个，全卷每主题12次、每位置3次；未提供的另外三种不记为拒绝。原始次数是这些可选做法中的相对分布，不是实际光环比例、能量强弱、匹配百分比或人口排名。所有最高计数完整保留；全选第一项会七种各3次、七份完整显示。名单顺序不设主次，不自动指定第二颜色或强造混色；相差一次不证明显著差异、品质消失或固定人格。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有颜色或科学分界。",
+        "en": "Choose one option for all 21 questions; each adds one to its theme and counts always sum to 21. A question offers four of seven themes. Every theme appears 12 times and three times in each position; the three absent themes are not counted as rejected. Raw counts describe relative choices among these approaches, not aura proportions, energy levels, match percentages or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all seven. List order establishes no priority, automatic secondary colour or mixed colour. A one-choice gap proves neither significance, missing qualities nor fixed personality. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare colours or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "靛色光环结果：私下细看、例子与完整说明",
+          "en": "Indigo Aura Color Result: Observation and Full Guide"
+        },
+        "description": {
+          "zh": "用独自留意细节的例子读靛色，允许没有结论或不向外解释；完整比较不认证洞察、读心、直觉或特殊天赋。",
+          "en": "Read Indigo through private attention to a photo detail, wording and comparisons. No claims of prediction, mind reading, intuition or special gifts."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本版颜色主题与象征范围",
+            "en": "This edition’s colour and symbolic scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "靛色在本版表示“留给自己的细看”：愿意把一处普通细节放在私人注意中，不急着归类、发表或解释。它不要求独处、沉默、神秘或敏感，也不意味着看见别人没看见的真相。本站编辑颜色只标记一种自选做法，不把内在观察认证成读心、洞见或特殊能力。",
+              "en": "Indigo labels looking closely in private: attending to an ordinary detail without immediately categorising, publishing or explaining it. It requires neither solitude, silence, mystery nor sensitivity, and does not establish hidden truths others miss. The editorial colour marks a chosen approach rather than certifying private observation as mind reading, insight or a special capability that makes someone different from other people."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "把计数放回当前处境",
+            "en": "Reading counts in the present context"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择暂时保留自己的观察、细看一处措辞或允许还没有解释。可以问：我实际注意到了什么，哪些只是猜测，是否愿意继续看或分享？较少选择可能是本次更想共同交流，不说明肤浅、观察差或缺少内在生活；次数没有实际知觉任务作依据。",
+              "en": "A highest count means you more often chose to keep an observation private, examine wording or allow an explanation to remain open. What did you actually notice, what is a guess and do you want to continue or share? Fewer choices may reflect shared exchange rather than shallowness, poor observation or absent inner life. No perceptual task supports such judgements."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你重看自己可使用的一张普通照片，留意到边角有一处被光线照亮的物件，可以在私人笔记里写“我这次注意到这里”。不需要推断拍摄者心理、他人情绪或未来事情，也不要求从细节发现深刻意义；没有更多想法时，停在观察本身也足够。",
+              "en": "You revisit an ordinary photograph you may use and notice a lit object near its edge. Write “This is what I noticed today” in private notes. There is no need to infer a photographer’s psychology, another person’s feelings or future events, or discover profound meaning. An observation alone can be enough when no further idea follows, without proving or disproving perception."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想先自己看一会儿，现在还没有要分享的结论。”若后来愿意，可以只说确实观察到的部分，并把推测另列。别人不必认可一种隐藏能力，也不能要求你为靛色提供预知或读人证明；私人注意是可选择范围，不是必须维持的神秘身份。",
+              "en": "You might say, “I’d like to look at this privately for a while; I have no conclusion to share yet.” Later, offer only what you observed and distinguish guesses if you want. Nobody needs to accept a hidden ability or demand predictive proof. Private attention is a chosen scope rather than a mysterious identity you must preserve in every situation."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六个主题比较",
+            "en": "Comparisons with the other six themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "靛偏细看而允许不解释，黄偏提出问题与寻找说明，紫偏赋予个人符号意义；观察、解释和意义是不同动作。蓝讲明意思、红突出重点、橙共同玩心、绿生活条件，均可在另一时刻采用。靛不等于内向、MBTI直觉、高敏感、注意诊断或职业洞察力，也不是比其他颜色更高的等级。",
+              "en": "Indigo concerns close observation without requiring explanation, Yellow questions and accounts, and Violet personal symbolic meaning. Observing, explaining and assigning meaning are different actions. Blue states meaning, Red a focus, Orange shared play and Green conditions; any may fit another moment. Indigo is no measure of introversion, MBTI Intuition, sensitivity, attention disorders or professional insight, and ranks above no other colour."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例和实际表现的区别",
+            "en": "Counterexamples and actual performance"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，暂不解释可能来自信息不足、语言条件或需要隐私，而不是喜欢细看；公开交流也可以有深入观察。问卷不测知觉准确性、记忆、直觉或神经特征，不保证猜测会被验证。关于别人、健康或重要事情的判断仍需实际证据与合适渠道，不能以靛色替代核实。",
+              "en": "Withholding an explanation may reflect missing information, language or privacy rather than a preference for close looking; public exchange can involve careful observation too. Perceptual accuracy, memory, intuition and neurological features are not tested, and guesses are not guaranteed confirmation. Judgements about people, health or important matters still require actual evidence and appropriate channels rather than Indigo counts serving as verification."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：选一份本来愿意再看、许可清楚的普通材料，记一处直接看到的细节、一处尚未解释的地方。可以保持私密，也可以不再继续。记录不用于测试预感、给敏感度打分或证明别人不懂你；若要形成事实结论，另找可核实依据。",
+              "en": "For an optional observation, choose ordinary material you already want to revisit and may use. Note a directly observed detail and something unexplained. Keep it private or stop there. This neither tests premonitions, grades sensitivity nor proves that others fail to understand you. If a factual conclusion is needed, obtain checkable evidence separately rather than treating the observation as a special signal."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题相对计数与全部最高并列",
+            "en": "21-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应主题加1，总数固定21。每题提供七主题中的四个，全卷每主题12次、每位置3次；未提供的另外三种不记为拒绝。原始次数是这些可选做法中的相对分布，不是实际光环比例、能量强弱、匹配百分比或人口排名。所有最高计数完整保留；全选第一项会七种各3次、七份完整显示。名单顺序不设主次，不自动指定第二颜色或强造混色；相差一次不证明显著差异、品质消失或固定人格。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有颜色或科学分界。",
+              "en": "Choose one option for all 21 questions; each adds one to its theme and counts always sum to 21. A question offers four of seven themes. Every theme appears 12 times and three times in each position; the three absent themes are not counted as rejected. Raw counts describe relative choices among these approaches, not aura proportions, energy levels, match percentages or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all seven. List order establishes no priority, automatic secondary colour or mixed colour. A one-choice gap proves neither significance, missing qualities nor fixed personality. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare colours or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、术语背景与来源",
+            "en": "Original edition, word usage and sources"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的七色自选表达象征问卷。Merriam-Webster词典仅用于核对aura一词有氛围、被认为存在的能量场等不同用法，不为七色主题、映射、计分或解释提供验证；本站不采用其医学含义来评估症状。七种颜色与含义为本版编辑选取，不声称统一传统、脉轮体系或科学分类。21题、选项、报告、例子与计数规则均为原创，没有采用JobCannon10题、竞品正文／代码／算法、受保护图片或词典例句。本版不观察能量场，不拍照、扫码或使用生日星座，不认证健康、疗愈、同理心、直觉、智力、创造力、吸引力、灵性等级、天赋或职业；不预测命运，不从光环颜色换算色彩性格、气质、DISC或MBTI。没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind seven-colour symbolic quiz about chosen expression. Merriam-Webster checks only that aura has different usages, including atmosphere and a supposed energy field; it validates no seven-colour themes, mapping, counts or interpretations. This quiz does not use the word’s medical sense to assess symptoms. Colours and meanings are an editorial selection, not a unified tradition, chakra system or scientific taxonomy. All 21 items, options, reports, examples and counting rules are original. No JobCannon 10-item bank, competitor text, code, algorithm, protected image or dictionary example is used. This edition observes no energy field and uses no photography, scanning, birthday or zodiac. It certifies no health, healing, empathy, intuition, intelligence, creativity, attractiveness, spiritual rank, talent or career fit, predicts no destiny and converts into no Color Personality, Temperament, DISC or MBTI result. There is no psychometric validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "violet",
+      "directionIds": [
+        "violet"
+      ],
+      "title": {
+        "zh": "紫：赋予个人符号意义",
+        "en": "Violet: Giving Personal Meaning to Symbols"
+      },
+      "headline": {
+        "zh": "七种自选表达的编辑象征之一，不是可探测能量或真实能力。",
+        "en": "One of seven editorial symbols for chosen expression, not a detected field or ability verdict."
+      },
+      "summary": {
+        "zh": "从一个自选记号与个人经历的联系读紫色，包含具体表达和反例；不认证灵性、智慧、天命、预知或高于他人的意义。",
+        "en": "Read Violet through a chosen sign and personal experience, with wording and counterexamples. It establishes no spirituality, wisdom, destiny, prediction or superiority."
+      },
+      "scoreReading": {
+        "zh": "21题全部各选一项，对应主题加1，总数固定21。每题提供七主题中的四个，全卷每主题12次、每位置3次；未提供的另外三种不记为拒绝。原始次数是这些可选做法中的相对分布，不是实际光环比例、能量强弱、匹配百分比或人口排名。所有最高计数完整保留；全选第一项会七种各3次、七份完整显示。名单顺序不设主次，不自动指定第二颜色或强造混色；相差一次不证明显著差异、品质消失或固定人格。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有颜色或科学分界。",
+        "en": "Choose one option for all 21 questions; each adds one to its theme and counts always sum to 21. A question offers four of seven themes. Every theme appears 12 times and three times in each position; the three absent themes are not counted as rejected. Raw counts describe relative choices among these approaches, not aura proportions, energy levels, match percentages or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all seven. List order establishes no priority, automatic secondary colour or mixed colour. A one-choice gap proves neither significance, missing qualities nor fixed personality. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare colours or scientific cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "紫色光环结果：个人符号、例子与完整说明",
+          "en": "Violet Aura Color Result: Symbols and Full Guide"
+        },
+        "description": {
+          "zh": "从一个自选记号与个人经历的联系读紫色，包含具体表达和反例；不认证灵性、智慧、天命、预知或高于他人的意义。",
+          "en": "Explore Violet through a personal journal sign, chosen meaning and comparisons. A complete guide without spiritual ranks, destiny or superior wisdom."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本版颜色主题与象征范围",
+            "en": "This edition’s colour and symbolic scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "紫色在本版表示“赋予个人符号意义”：愿意用一个自选记号承载自己的经历，并允许解释随时间变化。意义由本人赋予，不自动对别人有效，也不是宇宙、神灵或未来发来的信息。编辑颜色不认证灵性、智慧、使命或独特天赋，更不把某类人放在他人之上。",
+              "en": "Violet labels giving personal meaning to symbols: choosing a sign for an experience and allowing its interpretation to change. You assign meaning; it is not automatically valid for others or a message from the universe, a deity or the future. The editorial colour certifies neither spirituality, wisdom, mission nor a unique gift, and places no category of people above another."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "把计数放回当前处境",
+            "en": "Reading counts in the present context"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择个人图形、回忆记号或一段由自己解释的象征。可以问：这个含义对我现在有什么用，哪些属于想象，什么时候愿意改写？较少选择可能更喜欢直接记录，不说明缺乏深度、信仰或意义感。问卷不判断个人信仰，也不要求接受任何灵性体系。",
+              "en": "A highest count means you more often chose a personal shape, memory sign or symbol you interpret yourself. What use does the meaning have now, which parts are imaginative and when might you revise it? Fewer choices may reflect direct records rather than absent depth, faith or meaning. Beliefs are not judged, and no spiritual framework needs to be accepted."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，一次普通搬动书架结束后，你想在私人手账里画一个开口方框，代表“暂时为新安排留位置”。含义只对这次记录有用，不预测新生活，也不代表书架、家人或未来给出指示。可以换图形、改解释，或者不再使用，不需守住一种永久象征。",
+              "en": "After moving a bookshelf, you draw an open square in a private journal to mean leaving room for a new arrangement. Its meaning need only fit this record. It predicts no new life and supplies no instruction from the shelf, family or future. Change the shape, reinterpret it or stop using it without defending a permanent symbolic identity."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我这次把这个图形当作一个私人记号，它不说明别人也该这样理解。”若愿意分享，可以同时说明实际经历与自己添加的含义，避免把比喻说成事实。别人可以有不同解释，也可以没有兴趣；紫色次数不给自己或别人设置寻求指引、转化或灵性成长的任务。",
+              "en": "You could say, “I’m using this shape as a private sign this time, without asking others to interpret it the same way.” When sharing, distinguish the actual experience from meaning you add rather than presenting metaphor as fact. Others may interpret differently or have no interest. Violet counts assign nobody a task of seeking guidance, transformation or spiritual growth to justify a result."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他六个主题比较",
+            "en": "Comparisons with the other six themes"
+          },
+          "paragraphs": [
+            {
+              "zh": "紫偏个人象征意义，靛偏实际细看而可暂不解释，黄偏提问并寻找可核对说明；不能把赋义当作观察或证据。红突出选择、橙共同玩心、绿生活条件、蓝平实表达，都可相容。七色没有稀有或高低等级，紫不换算人格、宗教身份、创造力、命运、健康或职业。",
+              "en": "Violet concerns personal symbolic meaning, Indigo close observation without required explanation and Yellow questions with checkable accounts. Assigning meaning is not observation or evidence. Red highlights a choice, Orange shared play, Green conditions and Blue plain wording; they can coexist. The colours establish neither rarity nor hierarchy, and Violet cannot convert into personality, religious identity, creativity, destiny, health or a career conclusion."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例和实际表现的区别",
+            "en": "Counterexamples and actual performance"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，使用符号可能只是排版习惯、文化场合或别人要求，不是个人偏好；不用符号也可以有丰富经历。问卷不验证预感、超常感知、精神境界或人生使命，不把困难解释为缺少灵性。如果一件现实事情需要决定，仍看具体事实与条件，不用颜色或符号代替判断。",
+              "en": "Symbols may follow layout habits, a cultural occasion or another person’s request rather than preference, while plain records can contain rich experience. Premonitions, extrasensory perception, spiritual attainment and life missions are not verified, and difficulties are not explained as spiritual deficiency. A real decision still calls for its facts and conditions rather than a colour or symbol replacing practical judgement."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选的小观察：为一段本来想记录的普通经历画一个记号，分别写“实际发生了什么”和“我暂时赋予什么含义”。可以只记录事实或完全不画。观察帮助区分经验与解释，不检验命运、吸引力法则或智慧等级；未来改写也不代表背离真实自我。",
+              "en": "If useful, give an ordinary experience you already want to record a sign and separate what actually happened from the meaning you temporarily assign. Record facts alone or skip drawing if preferred. The observation distinguishes experience from interpretation without testing destiny, manifestation or a level of wisdom. Revising it later does not mean betraying a true self or losing a personal power."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "21题相对计数与全部最高并列",
+            "en": "21-item relative counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "21题全部各选一项，对应主题加1，总数固定21。每题提供七主题中的四个，全卷每主题12次、每位置3次；未提供的另外三种不记为拒绝。原始次数是这些可选做法中的相对分布，不是实际光环比例、能量强弱、匹配百分比或人口排名。所有最高计数完整保留；全选第一项会七种各3次、七份完整显示。名单顺序不设主次，不自动指定第二颜色或强造混色；相差一次不证明显著差异、品质消失或固定人格。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有颜色或科学分界。",
+              "en": "Choose one option for all 21 questions; each adds one to its theme and counts always sum to 21. A question offers four of seven themes. Every theme appears 12 times and three times in each position; the three absent themes are not counted as rejected. Raw counts describe relative choices among these approaches, not aura proportions, energy levels, match percentages or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all seven. List order establishes no priority, automatic secondary colour or mixed colour. A one-choice gap proves neither significance, missing qualities nor fixed personality. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare colours or scientific cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、术语背景与来源",
+            "en": "Original edition, word usage and sources"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的七色自选表达象征问卷。Merriam-Webster词典仅用于核对aura一词有氛围、被认为存在的能量场等不同用法，不为七色主题、映射、计分或解释提供验证；本站不采用其医学含义来评估症状。七种颜色与含义为本版编辑选取，不声称统一传统、脉轮体系或科学分类。21题、选项、报告、例子与计数规则均为原创，没有采用JobCannon10题、竞品正文／代码／算法、受保护图片或词典例句。本版不观察能量场，不拍照、扫码或使用生日星座，不认证健康、疗愈、同理心、直觉、智力、创造力、吸引力、灵性等级、天赋或职业；不预测命运，不从光环颜色换算色彩性格、气质、DISC或MBTI。没有本站心理测量验证。",
+              "en": "This is an independently authored FermatMind seven-colour symbolic quiz about chosen expression. Merriam-Webster checks only that aura has different usages, including atmosphere and a supposed energy field; it validates no seven-colour themes, mapping, counts or interpretations. This quiz does not use the word’s medical sense to assess symptoms. Colours and meanings are an editorial selection, not a unified tradition, chakra system or scientific taxonomy. All 21 items, options, reports, examples and counting rules are original. No JobCannon 10-item bank, competitor text, code, algorithm, protected image or dictionary example is used. This edition observes no energy field and uses no photography, scanning, birthday or zodiac. It certifies no health, healing, empathy, intuition, intelligence, creativity, attractiveness, spiritual rank, talent or career fit, predicts no destiny and converts into no Color Personality, Temperament, DISC or MBTI result. There is no psychometric validation."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "21题怎样形成七色计数",
+        "en": "How 21 choices produce seven-colour counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "21题全部各选一项，对应主题加1，总数固定21。每题提供七主题中的四个，全卷每主题12次、每位置3次；未提供的另外三种不记为拒绝。原始次数是这些可选做法中的相对分布，不是实际光环比例、能量强弱、匹配百分比或人口排名。所有最高计数完整保留；全选第一项会七种各3次、七份完整显示。名单顺序不设主次，不自动指定第二颜色或强造混色；相差一次不证明显著差异、品质消失或固定人格。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有颜色或科学分界。",
+          "en": "Choose one option for all 21 questions; each adds one to its theme and counts always sum to 21. A question offers four of seven themes. Every theme appears 12 times and three times in each position; the three absent themes are not counted as rejected. Raw counts describe relative choices among these approaches, not aura proportions, energy levels, match percentages or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all seven. List order establishes no priority, automatic secondary colour or mixed colour. A one-choice gap proves neither significance, missing qualities nor fixed personality. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare colours or scientific cutoffs."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "完整结果、并列与近分",
+        "en": "Full guides, ties and close counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "七份完整说明各有本站主题、计数读法、普通例子、可用表达、六主题比较、反例、小观察、计分和来源。全部最高并列完整显示，不把名单第一位当主色，不把第二名自动设为辅助色。接近的说明可以一起读，但不因此造混色、误差区间或固定人格。重测显示当前选择，不证明光环或人格发生变化。",
+          "en": "Each full guide includes this edition’s theme, a count reading, example, wording, six-theme comparisons, counterexamples, an optional observation, scoring and sources. Every highest tie appears in full without treating the first listed as primary or the runner-up as an automatic supporting colour. Read close guides without creating mixed colours, error intervals or fixed personality types. Retaking reflects current choices, not proof of a changed aura or personality."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "问卷、照片与其他颜色测试的区别",
+        "en": "This quiz, photography and other colour tests"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版只计21题自选表达，不检测照片、皮肤、光线、能量或身体信息。红橙黄绿蓝靛紫是本版选取的七个编辑主题，不表示所有传统或网站统一这样解释。与本站四方向色彩性格24题不同，不能凭同一个颜色互相换算，也不从颜色推出MBTI或职业。",
+          "en": "This edition counts 21 choices about expression without detecting photographs, skin, light, energy or bodily information. Red, Orange, Yellow, Green, Blue, Indigo and Violet are seven editorial themes, not meanings shared by all traditions or websites. They differ from our four-direction, 24-item Color Personality quiz. A colour word permits no conversion between them or into MBTI or careers."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "zh": "原创内容与术语来源",
+        "en": "Original content and word usage"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是费马独立创作的七色自选表达象征问卷。Merriam-Webster词典仅用于核对aura一词有氛围、被认为存在的能量场等不同用法，不为七色主题、映射、计分或解释提供验证；本站不采用其医学含义来评估症状。七种颜色与含义为本版编辑选取，不声称统一传统、脉轮体系或科学分类。21题、选项、报告、例子与计数规则均为原创，没有采用JobCannon10题、竞品正文／代码／算法、受保护图片或词典例句。本版不观察能量场，不拍照、扫码或使用生日星座，不认证健康、疗愈、同理心、直觉、智力、创造力、吸引力、灵性等级、天赋或职业；不预测命运，不从光环颜色换算色彩性格、气质、DISC或MBTI。没有本站心理测量验证。",
+          "en": "This is an independently authored FermatMind seven-colour symbolic quiz about chosen expression. Merriam-Webster checks only that aura has different usages, including atmosphere and a supposed energy field; it validates no seven-colour themes, mapping, counts or interpretations. This quiz does not use the word’s medical sense to assess symptoms. Colours and meanings are an editorial selection, not a unified tradition, chakra system or scientific taxonomy. All 21 items, options, reports, examples and counting rules are original. No JobCannon 10-item bank, competitor text, code, algorithm, protected image or dictionary example is used. This edition observes no energy field and uses no photography, scanning, birthday or zodiac. It certifies no health, healing, empathy, intuition, intelligence, creativity, attractiveness, spiritual rank, talent or career fit, predicts no destiny and converts into no Color Personality, Temperament, DISC or MBTI result. There is no psychometric validation."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "草稿、分享与可选下一步",
+        "en": "Drafts, sharing and optional next steps"
+      },
+      "paragraphs": [
+        {
+          "zh": "答案在浏览器内计分，不上传、不进网址或分析。草稿需主动开启，只在本标签页恢复，24小时失效，完成、重测、退出清除即删除。可选分享只含公开颜色说明和链接，不含答案或次数。完整结果免费，不收邮箱、不先做其他测试；后续测评需要另外作答，也可以到此结束。",
+          "en": "Answers are scored in your browser without uploading them or placing them in URLs or analytics. Drafts require opt-in, restore only in this tab, expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public colour guides and links without answers or counts. Full results are free without email or another test first. Further assessments require separate responses; you can stop here."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "光环颜色测试的七种颜色是什么？",
+        "en": "What are the seven aura colors in this quiz?"
+      },
+      "answer": {
+        "zh": "本版选红、橙、黄、绿、蓝、靛、紫，分别用作鲜明表达、共同玩心、提问解释、生活条件、平实沟通、私下细看、个人符号的意象。名称与映射是本站独立选择，不是统一传统，也不表示真实身体能量。",
+        "en": "This edition selects Red, Orange, Yellow, Green, Blue, Indigo and Violet as metaphors for visible expression, shared play, questions, surroundings, plain wording, private observation and personal symbols. Names and mapping are independently chosen, not a unified tradition or evidence of bodily energy."
+      }
+    },
+    {
+      "question": {
+        "zh": "能从照片、生日或星座看出我的光环吗？",
+        "en": "Does this read my aura from a photo, birthday or zodiac?"
+      },
+      "answer": {
+        "zh": "不能，也不收这些信息。本版只按21道当前选择作象征计数，不观察、扫描或拍摄能量场，不预测命运、健康或灵性。网页中的颜色名是可读标签，不是对真实光的检验。",
+        "en": "No, and none of that information is collected. This edition uses 21 current choices for symbolic counts without observing, scanning or photographing an energy field, or predicting destiny, health or spirituality. Colour names are readable labels rather than a test of actual light."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样计分、处理并列与近分？",
+        "en": "How are counts, ties and close results handled?"
+      },
+      "answer": {
+        "zh": "21题全部各选一项，对应主题加1，总数固定21。每题提供七主题中的四个，全卷每主题12次、每位置3次；未提供的另外三种不记为拒绝。原始次数是这些可选做法中的相对分布，不是实际光环比例、能量强弱、匹配百分比或人口排名。所有最高计数完整保留；全选第一项会七种各3次、七份完整显示。名单顺序不设主次，不自动指定第二颜色或强造混色；相差一次不证明显著差异、品质消失或固定人格。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有颜色或科学分界。",
+        "en": "Choose one option for all 21 questions; each adds one to its theme and counts always sum to 21. A question offers four of seven themes. Every theme appears 12 times and three times in each position; the three absent themes are not counted as rejected. Raw counts describe relative choices among these approaches, not aura proportions, energy levels, match percentages or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all seven. List order establishes no priority, automatic secondary colour or mixed colour. A one-choice gap proves neither significance, missing qualities nor fixed personality. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare colours or scientific cutoffs."
+      }
+    },
+    {
+      "question": {
+        "zh": "哪种颜色更稀有、更高或更适合职业？",
+        "en": "Which color is rarer, higher or better for a career?"
+      },
+      "answer": {
+        "zh": "本版没有稀有度、灵性高低、人口常模或职业匹配。七种都可以单独最高，全部最高并列保留，计数不代表身体比例或品质。颜色不转换色彩性格、气质、DISC或MBTI，也不认证天赋与真实能力。",
+        "en": "There are no rarity estimates, spiritual ranks, population norms or career matches. Every colour can be a sole highest result, and all highest ties are retained. Counts describe neither bodily proportions nor personal qualities. Colours convert into no Color Personality, Temperament, DISC or MBTI result and certify no talent or actual ability."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果、重测和分享免费吗？",
+        "en": "Are full results, retaking and sharing free?"
+      },
+      "answer": {
+        "zh": "可以先读七份完整说明，完成21题后全部最高并列完整显示，无需注册或邮箱。重测会清除本次答案，可选分享只含公开说明和链接，不含答卷或次数。后续测评自选，需要另外作答。",
+        "en": "All seven full guides can be read first, and every highest tie appears after all 21 choices without signup or email. Retaking clears this attempt. Optional sharing contains public guides and links without responses or counts. Further assessments are optional and require new answers."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "Merriam-Webster：aura词义（术语背景，非七色题本验证）",
+        "en": "Merriam-Webster: aura (word usage, not seven-colour questionnaire validation)"
+      },
+      "url": "https://www.merriam-webster.com/dictionary/aura"
+    }
+  ]
+}

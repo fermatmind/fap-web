@@ -1,6 +1,7 @@
 import type { Questionnaire } from "./types";
 
 const loaders = {
+  "aura-color": async () => (await import("./data/aura-color.json")).default as Questionnaire,
   "what-element-am-i": async () => (await import("./data/what-element-am-i.json")).default as Questionnaire,
   "which-tarot-card-are-you": async () => (await import("./data/which-tarot-card-are-you.json")).default as Questionnaire,
   "greek-god": async () => (await import("./data/greek-god.json")).default as Questionnaire,
