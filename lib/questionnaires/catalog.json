@@ -370,5 +370,30 @@
       "time",
       "touch"
     ]
+  },
+  {
+    "slug": "attachment-styles",
+    "code": "ATTACHMENT_REFLECTION_24",
+    "version": "1.0.0",
+    "updated": "2026-10-25",
+    "category": "relationships",
+    "title": {
+      "zh": "依恋风格测试",
+      "en": "Attachment Style Quiz"
+    },
+    "description": {
+      "zh": "用24道原创情境频率题，分别观察关系中的反复担心与亲近退缩。两维均分和安全、焦虑、回避、恐惧回避四份完整解读免费，无需注册；不强派固定类型。",
+      "en": "Take 24 original situation ratings to explore relationship worry and distance from closeness. See two means and all four full attachment-style guides, free without signup or a fixed label."
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_attachment_context_frequency_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "secure",
+      "anxious",
+      "avoidant",
+      "fearful"
+    ]
   }
 ]

@@ -1,0 +1,1601 @@
+{
+  "code": "ATTACHMENT_REFLECTION_24",
+  "formCode": "fm_attachment_context_frequency_24",
+  "itemBankVersion": "1.0.0",
+  "origin": "FermatMind original bilingual adult close-relationship situation-frequency reflection,notECR/ECRR/ECRS/ECRRSortranslatedlicensedbank. Noitemsfromofficialauthororcompetitorbankadopted.",
+  "instructions": {
+    "zh": "选择一段你愿意回顾的成年亲密关系，围绕同一段关系考虑近三个月通常出现的情境。按出现频率选择1从不到5几乎总是；没有适用经历、无法判断或不愿回答请选择不计分项。无需填写对方名字或私人文字，也不要替对方作答。",
+    "en": "Choose one adult close relationship you are willing to reflect on, and consider typical situations in that same relationship over the past three months. Rate frequency from 1, never, to 5, almost always. Use the unscored option when no experience applies, you are unsure or you prefer not to answer. No name or private text is needed; do not answer for the other person."
+  },
+  "directions": [
+    {
+      "id": "anxiety",
+      "title": {
+        "zh": "关系中的反复担心",
+        "en": "Attachment-related worry"
+      },
+      "itemCount": 12
+    },
+    {
+      "id": "avoidance",
+      "title": {
+        "zh": "亲近时的退缩与距离",
+        "en": "Distance from closeness"
+      },
+      "itemCount": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "ATT_ANX_01",
+      "prompt": {
+        "zh": "一条消息暂时没有回复时，我会反复猜测我们之间是否出了问题。",
+        "en": "When a message goes unanswered for a while, I repeatedly wonder whether something is wrong between us."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "anxiety",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "anxiety",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "anxiety",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "anxiety",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "anxiety",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "anxiety",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_ANX_02",
+      "prompt": {
+        "zh": "一次约定因为明确的日程原因推迟后，我仍会担心这意味着对方想疏远我。",
+        "en": "After a plan is postponed for a clear scheduling reason, I still worry that the change means the other person wants distance from me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "anxiety",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "anxiety",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "anxiety",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "anxiety",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "anxiety",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "anxiety",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_ANX_03",
+      "prompt": {
+        "zh": "对方一次说话比平常简短时，我会持续留意他们是不是不再在意这段关系。",
+        "en": "When the other person speaks more briefly than usual once, I keep watching for signs that our connection no longer matters to them."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "anxiety",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "anxiety",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "anxiety",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "anxiety",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "anxiety",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "anxiety",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_ANX_04",
+      "prompt": {
+        "zh": "一次愉快的相处结束后，我仍很快想再次确认我们之间一切如常。",
+        "en": "Soon after an enjoyable time together, I want another confirmation that things between us are still all right."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "anxiety",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "anxiety",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "anxiety",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "anxiety",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "anxiety",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "anxiety",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_ANX_05",
+      "prompt": {
+        "zh": "出现一个小分歧时，我会把注意力转到这段关系能否继续，而不只是那件事本身。",
+        "en": "During a small disagreement, my attention shifts from the issue to whether our connection will continue."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "anxiety",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "anxiety",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "anxiety",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "anxiety",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "anxiety",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "anxiety",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_ANX_06",
+      "prompt": {
+        "zh": "对方已清楚解释一次短暂失联的原因后，我仍想多次确认他们对我的态度。",
+        "en": "Even after a clear explanation for a short break in contact, I want repeated confirmation of how the other person feels about me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "anxiety",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "anxiety",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "anxiety",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "anxiety",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "anxiety",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "anxiety",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_ANX_07",
+      "prompt": {
+        "zh": "对方投入自己的活动时，我会难以放下“我是不是已经不重要”的念头。",
+        "en": "When the other person is absorbed in their own activity, I find it hard to put aside the thought that I may no longer matter."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "anxiety",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "anxiety",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "anxiety",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "anxiety",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "anxiety",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "anxiety",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_ANX_08",
+      "prompt": {
+        "zh": "一次明确的关心让我放心的时间很短，随后我又开始找关系可能变淡的线索。",
+        "en": "A clear caring gesture reassures me only briefly before I start looking again for signs that our connection may be fading."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "anxiety",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "anxiety",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "anxiety",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "anxiety",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "anxiety",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "anxiety",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_ANX_09",
+      "prompt": {
+        "zh": "对方提前说好会忙一阵时，我能暂时把注意力放回自己的安排。",
+        "en": "When the other person has said they will be busy for a while, I can return my attention to my own plans."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "anxiety",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "anxiety",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "anxiety",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "anxiety",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "anxiety",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "anxiety",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_ANX_10",
+      "prompt": {
+        "zh": "下一次联系时间已经商量好后，我能让中间的空档自然过去，不反复求证关系。",
+        "en": "Once we have agreed on the next time to connect, I can let the interval pass without repeatedly checking our relationship."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "anxiety",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "anxiety",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "anxiety",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "anxiety",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "anxiety",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "anxiety",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_ANX_11",
+      "prompt": {
+        "zh": "我们对一件小事看法不同时，我能保留“这段关系未必因此改变”的想法。",
+        "en": "When we disagree about something small, I can keep in mind that the disagreement need not change our connection."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "anxiety",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "anxiety",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "anxiety",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "anxiety",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "anxiety",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "anxiety",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_ANX_12",
+      "prompt": {
+        "zh": "对方某次没有及时表达关心时，我能先留下疑问，而不立刻认定自己被放弃。",
+        "en": "When care is not expressed promptly on one occasion, I can leave the question open rather than immediately assume I have been given up on."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "anxiety",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "anxiety",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "anxiety",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "anxiety",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "anxiety",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "anxiety",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_AVD_01",
+      "prompt": {
+        "zh": "即使一项协助是我愿意得到的，让这位亲近的人参与进来仍让我想退回独自处理。",
+        "en": "Even when I would welcome help with something, involving this close person makes me want to return to handling it alone."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "avoidance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "avoidance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "avoidance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "avoidance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "avoidance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "avoidance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_AVD_02",
+      "prompt": {
+        "zh": "对话接近我在意的感受时，我会把话题转回事务，以拉开一点距离。",
+        "en": "As a conversation reaches feelings that matter to me, I move it back to practical matters to create some distance."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "avoidance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "avoidance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "avoidance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "avoidance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "avoidance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "avoidance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_AVD_03",
+      "prompt": {
+        "zh": "对方提出一种我可以自由拒绝的支持时，接受它仍让我觉得需要马上减少依靠。",
+        "en": "When support is offered and I am free to decline, accepting it still makes me feel I should quickly reduce my reliance."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "avoidance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "avoidance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "avoidance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "avoidance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "avoidance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "avoidance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_AVD_04",
+      "prompt": {
+        "zh": "即使一项共同安排给我保留了选择，我也会因彼此要更多协调而想退出。",
+        "en": "Even when a shared arrangement leaves me a choice, the prospect of coordinating more closely makes me want to withdraw."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "avoidance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "avoidance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "avoidance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "avoidance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "avoidance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "avoidance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_AVD_05",
+      "prompt": {
+        "zh": "有一件我本来想分享的小烦恼时，我会先把它说得不重要，以减少暴露自己的感觉。",
+        "en": "When I have a small concern I had wanted to share, I first minimise it to feel less exposed."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "avoidance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "avoidance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "avoidance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "avoidance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "avoidance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "avoidance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_AVD_06",
+      "prompt": {
+        "zh": "对方温和地想了解我时，即使当下没有不舒服的要求，我也会想缩短交流。",
+        "en": "When the other person gently wants to understand me, I want to shorten the exchange even without an uncomfortable demand."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "avoidance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "avoidance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "avoidance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "avoidance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "avoidance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "avoidance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_AVD_07",
+      "prompt": {
+        "zh": "一段相处让彼此更熟悉后，我会想减少下一次联系，恢复不必被了解的距离。",
+        "en": "After spending time that brings us closer, I want less contact next time to restore a distance at which I need not be known."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "avoidance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "avoidance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "avoidance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "avoidance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "avoidance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "avoidance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_AVD_08",
+      "prompt": {
+        "zh": "在我原本信任这位亲近的人、也愿意被倾听的事情上，我仍会把困扰完全留给自己。",
+        "en": "Even about something I would like this trusted close person to hear, I keep the concern entirely to myself."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "avoidance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "avoidance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "avoidance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "avoidance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "avoidance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "avoidance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_AVD_09",
+      "prompt": {
+        "zh": "一项帮助的范围已讲清楚时，我能接受协助，同时保留自己的决定权。",
+        "en": "When the scope of help is clear, I can accept it while keeping a say in my own decisions."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "avoidance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "avoidance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "avoidance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "avoidance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "avoidance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "avoidance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_AVD_10",
+      "prompt": {
+        "zh": "我能按自己舒服的节奏，向这位亲近的人谈一点尚未想清楚的感受。",
+        "en": "At a pace that feels comfortable, I can tell this close person a little about feelings I have not fully sorted out."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "avoidance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "avoidance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "avoidance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "avoidance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "avoidance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "avoidance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_AVD_11",
+      "prompt": {
+        "zh": "需要有限的一点支持时，我能提出具体请求，而不觉得必须立刻重新独自承担。",
+        "en": "When I need a limited amount of support, I can make a specific request without feeling I must immediately take everything back on alone."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "avoidance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "avoidance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "avoidance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "avoidance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "avoidance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "avoidance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_AVD_12",
+      "prompt": {
+        "zh": "彼此谈清边界的一次靠近，让我可以保留自主，也继续留在交流里。",
+        "en": "When boundaries are clear during a moment of closeness, I can keep my autonomy and remain in the exchange."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "avoidance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "avoidance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "avoidance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "avoidance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "avoidance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "avoidance",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "scoringVersion": "1.0.0",
+    "minimumRatedItems": 8,
+    "all24SelectionsRequired": true,
+    "scale": "Original1..5frequencyanchors,NAunscored",
+    "reverseItems": [
+      "ATT_ANX_09",
+      "ATT_ANX_10",
+      "ATT_ANX_11",
+      "ATT_ANX_12",
+      "ATT_AVD_09",
+      "ATT_AVD_10",
+      "ATT_AVD_11",
+      "ATT_AVD_12"
+    ],
+    "method": "Eachaxisusesraw1..5or6-responsefor4reverseditems,meanonlywith>=8of12rated,otherwiseexplicitinsufficient. Displayone decimalandvalidcount. Nooverallscore,norm,percentile,diagnosis,cutofforforcedcategory. All4fullconceptguidesalwaysshownandlinked;noautomatedclaimsecure/anxious/avoidant/fearfulastestedidentity.",
+    "minimumRuleScope": "Originalwebsiteinformationcompletenessrule,notpsychometriccutoff",
+    "psychometricValidationCompleted": false
+  },
+  "publicGuides": [
+    "secure",
+    "anxious",
+    "avoidant",
+    "fearful"
+  ],
+  "references": [
+    {
+      "url": "https://labs.psychology.illinois.edu/~rcfraley/attachment.htm",
+      "scope": "Adultattachmenttwo-dimensionalconceptbackground,readadultsections28-61;notitem/reportvalidationandnotinfantdiagnosis"
+    },
+    {
+      "url": "https://labs.psychology.illinois.edu/~rcfraley/measures/ecrr.htm",
+      "scope": "AuthorFAQtwoaxesandcontinuouscategorycaution127-138;ECRRcommercialpermissionrequired120-125,notobtainedorclaimed;ECRRitemsnotadopted"
+    }
+  ]
+}

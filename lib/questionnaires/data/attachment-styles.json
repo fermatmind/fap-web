@@ -1,0 +1,2342 @@
+{
+  "slug": "attachment-styles",
+  "code": "ATTACHMENT_REFLECTION_24",
+  "version": "1.0.0",
+  "updated": "2026-10-25",
+  "category": "relationships",
+  "kind": "attachment",
+  "minimumRatedItems": 8,
+  "title": {
+    "zh": "依恋风格测试",
+    "en": "Attachment Style Quiz"
+  },
+  "description": {
+    "zh": "用24道原创情境频率题，分别观察关系中的反复担心与亲近退缩。两维均分和安全、焦虑、回避、恐惧回避四份完整解读免费，无需注册；不强派固定类型。",
+    "en": "Take 24 original situation ratings to explore relationship worry and distance from closeness. See two means and all four full attachment-style guides, free without signup or a fixed label."
+  },
+  "seoTitle": {
+    "zh": "依恋风格测试：焦虑与回避两维，完整结果免费",
+    "en": "Attachment Style Quiz: Two Dimensions and Free Full Results"
+  },
+  "minutes": 6,
+  "resultHeading": {
+    "zh": "本次两维自评与四种风格完整说明",
+    "en": "Your two-dimensional reflection and four full style guides"
+  },
+  "instructions": {
+    "zh": "选择一段你愿意回顾的成年亲密关系，围绕同一段关系考虑近三个月通常出现的情境。按出现频率选择1从不到5几乎总是；没有适用经历、无法判断或不愿回答请选择不计分项。无需填写对方名字或私人文字，也不要替对方作答。",
+    "en": "Choose one adult close relationship you are willing to reflect on, and consider typical situations in that same relationship over the past three months. Rate frequency from 1, never, to 5, almost always. Use the unscored option when no experience applies, you are unsure or you prefer not to answer. No name or private text is needed; do not answer for the other person."
+  },
+  "introduction": {
+    "zh": "想了解自己是安全型、焦虑型还是回避型，可以先把“关系是否会持续的担心”和“对亲近与依靠的退缩”分开看。恐惧回避原型则讨论两者都较多的组合。本版使用独立题目，先呈现两项连续均分，再完整解释四个概念与具体情境；不把自己或伴侣塞进一个固定盒子。",
+    "en": "What is my attachment style? A useful starting point is to separate worry about a connection from distance from closeness and reliance. Secure, anxious, avoidant and fearful-avoidant prototypes describe combinations of those two experiences. This original edition shows two continuous means and all four full guides, with everyday examples and comparisons rather than a fixed box for you or a partner."
+  },
+  "source": {
+    "kind": "fermatmind-original-adult-attachment-reflection",
+    "formCode": "fm_attachment_context_frequency_24",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "42906345a4c312aae8c2db25f6fb36f6e14627374db20d8535270e06e114d693",
+    "resultContentSha256": "e3b395c226d5087d01e16961d04387ef722a50b0824188e678b3cecd4341da76",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "anxiety",
+      "title": {
+        "zh": "关系中的反复担心",
+        "en": "Attachment-related worry"
+      },
+      "itemCount": 12
+    },
+    {
+      "id": "avoidance",
+      "title": {
+        "zh": "亲近时的退缩与距离",
+        "en": "Distance from closeness"
+      },
+      "itemCount": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "ATT_ANX_01",
+      "prompt": {
+        "zh": "一条消息暂时没有回复时，我会反复猜测我们之间是否出了问题。",
+        "en": "When a message goes unanswered for a while, I repeatedly wonder whether something is wrong between us."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "anxiety",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "anxiety",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "anxiety",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "anxiety",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "anxiety",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "anxiety",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_ANX_02",
+      "prompt": {
+        "zh": "一次约定因为明确的日程原因推迟后，我仍会担心这意味着对方想疏远我。",
+        "en": "After a plan is postponed for a clear scheduling reason, I still worry that the change means the other person wants distance from me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "anxiety",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "anxiety",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "anxiety",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "anxiety",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "anxiety",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "anxiety",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_ANX_03",
+      "prompt": {
+        "zh": "对方一次说话比平常简短时，我会持续留意他们是不是不再在意这段关系。",
+        "en": "When the other person speaks more briefly than usual once, I keep watching for signs that our connection no longer matters to them."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "anxiety",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "anxiety",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "anxiety",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "anxiety",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "anxiety",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "anxiety",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_ANX_04",
+      "prompt": {
+        "zh": "一次愉快的相处结束后，我仍很快想再次确认我们之间一切如常。",
+        "en": "Soon after an enjoyable time together, I want another confirmation that things between us are still all right."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "anxiety",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "anxiety",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "anxiety",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "anxiety",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "anxiety",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "anxiety",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_ANX_05",
+      "prompt": {
+        "zh": "出现一个小分歧时，我会把注意力转到这段关系能否继续，而不只是那件事本身。",
+        "en": "During a small disagreement, my attention shifts from the issue to whether our connection will continue."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "anxiety",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "anxiety",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "anxiety",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "anxiety",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "anxiety",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "anxiety",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_ANX_06",
+      "prompt": {
+        "zh": "对方已清楚解释一次短暂失联的原因后，我仍想多次确认他们对我的态度。",
+        "en": "Even after a clear explanation for a short break in contact, I want repeated confirmation of how the other person feels about me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "anxiety",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "anxiety",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "anxiety",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "anxiety",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "anxiety",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "anxiety",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_ANX_07",
+      "prompt": {
+        "zh": "对方投入自己的活动时，我会难以放下“我是不是已经不重要”的念头。",
+        "en": "When the other person is absorbed in their own activity, I find it hard to put aside the thought that I may no longer matter."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "anxiety",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "anxiety",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "anxiety",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "anxiety",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "anxiety",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "anxiety",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_ANX_08",
+      "prompt": {
+        "zh": "一次明确的关心让我放心的时间很短，随后我又开始找关系可能变淡的线索。",
+        "en": "A clear caring gesture reassures me only briefly before I start looking again for signs that our connection may be fading."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "anxiety",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "anxiety",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "anxiety",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "anxiety",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "anxiety",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "anxiety",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_ANX_09",
+      "prompt": {
+        "zh": "对方提前说好会忙一阵时，我能暂时把注意力放回自己的安排。",
+        "en": "When the other person has said they will be busy for a while, I can return my attention to my own plans."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "anxiety",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "anxiety",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "anxiety",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "anxiety",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "anxiety",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "anxiety",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_ANX_10",
+      "prompt": {
+        "zh": "下一次联系时间已经商量好后，我能让中间的空档自然过去，不反复求证关系。",
+        "en": "Once we have agreed on the next time to connect, I can let the interval pass without repeatedly checking our relationship."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "anxiety",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "anxiety",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "anxiety",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "anxiety",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "anxiety",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "anxiety",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_ANX_11",
+      "prompt": {
+        "zh": "我们对一件小事看法不同时，我能保留“这段关系未必因此改变”的想法。",
+        "en": "When we disagree about something small, I can keep in mind that the disagreement need not change our connection."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "anxiety",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "anxiety",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "anxiety",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "anxiety",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "anxiety",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "anxiety",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_ANX_12",
+      "prompt": {
+        "zh": "对方某次没有及时表达关心时，我能先留下疑问，而不立刻认定自己被放弃。",
+        "en": "When care is not expressed promptly on one occasion, I can leave the question open rather than immediately assume I have been given up on."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "anxiety",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "anxiety",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "anxiety",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "anxiety",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "anxiety",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "anxiety",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_AVD_01",
+      "prompt": {
+        "zh": "即使一项协助是我愿意得到的，让这位亲近的人参与进来仍让我想退回独自处理。",
+        "en": "Even when I would welcome help with something, involving this close person makes me want to return to handling it alone."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "avoidance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "avoidance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "avoidance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "avoidance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "avoidance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "avoidance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_AVD_02",
+      "prompt": {
+        "zh": "对话接近我在意的感受时，我会把话题转回事务，以拉开一点距离。",
+        "en": "As a conversation reaches feelings that matter to me, I move it back to practical matters to create some distance."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "avoidance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "avoidance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "avoidance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "avoidance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "avoidance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "avoidance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_AVD_03",
+      "prompt": {
+        "zh": "对方提出一种我可以自由拒绝的支持时，接受它仍让我觉得需要马上减少依靠。",
+        "en": "When support is offered and I am free to decline, accepting it still makes me feel I should quickly reduce my reliance."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "avoidance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "avoidance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "avoidance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "avoidance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "avoidance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "avoidance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_AVD_04",
+      "prompt": {
+        "zh": "即使一项共同安排给我保留了选择，我也会因彼此要更多协调而想退出。",
+        "en": "Even when a shared arrangement leaves me a choice, the prospect of coordinating more closely makes me want to withdraw."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "avoidance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "avoidance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "avoidance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "avoidance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "avoidance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "avoidance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_AVD_05",
+      "prompt": {
+        "zh": "有一件我本来想分享的小烦恼时，我会先把它说得不重要，以减少暴露自己的感觉。",
+        "en": "When I have a small concern I had wanted to share, I first minimise it to feel less exposed."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "avoidance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "avoidance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "avoidance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "avoidance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "avoidance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "avoidance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_AVD_06",
+      "prompt": {
+        "zh": "对方温和地想了解我时，即使当下没有不舒服的要求，我也会想缩短交流。",
+        "en": "When the other person gently wants to understand me, I want to shorten the exchange even without an uncomfortable demand."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "avoidance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "avoidance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "avoidance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "avoidance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "avoidance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "avoidance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_AVD_07",
+      "prompt": {
+        "zh": "一段相处让彼此更熟悉后，我会想减少下一次联系，恢复不必被了解的距离。",
+        "en": "After spending time that brings us closer, I want less contact next time to restore a distance at which I need not be known."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "avoidance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "avoidance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "avoidance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "avoidance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "avoidance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "avoidance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_AVD_08",
+      "prompt": {
+        "zh": "在我原本信任这位亲近的人、也愿意被倾听的事情上，我仍会把困扰完全留给自己。",
+        "en": "Even about something I would like this trusted close person to hear, I keep the concern entirely to myself."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "avoidance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "avoidance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "avoidance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "avoidance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "avoidance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "avoidance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_AVD_09",
+      "prompt": {
+        "zh": "一项帮助的范围已讲清楚时，我能接受协助，同时保留自己的决定权。",
+        "en": "When the scope of help is clear, I can accept it while keeping a say in my own decisions."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "avoidance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "avoidance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "avoidance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "avoidance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "avoidance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "avoidance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_AVD_10",
+      "prompt": {
+        "zh": "我能按自己舒服的节奏，向这位亲近的人谈一点尚未想清楚的感受。",
+        "en": "At a pace that feels comfortable, I can tell this close person a little about feelings I have not fully sorted out."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "avoidance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "avoidance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "avoidance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "avoidance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "avoidance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "avoidance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_AVD_11",
+      "prompt": {
+        "zh": "需要有限的一点支持时，我能提出具体请求，而不觉得必须立刻重新独自承担。",
+        "en": "When I need a limited amount of support, I can make a specific request without feeling I must immediately take everything back on alone."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "avoidance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "avoidance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "avoidance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "avoidance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "avoidance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "avoidance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATT_AVD_12",
+      "prompt": {
+        "zh": "彼此谈清边界的一次靠近，让我可以保留自主，也继续留在交流里。",
+        "en": "When boundaries are clear during a moment of closeness, I can keep my autonomy and remain in the exchange."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "avoidance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "avoidance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "avoidance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "avoidance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "avoidance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有适用经历、无法判断或不愿回答",
+            "en": "No applicable experience, unsure or prefer not to answer"
+          },
+          "directionId": "avoidance",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "secure",
+      "directionIds": [
+        "anxiety",
+        "avoidance"
+      ],
+      "title": {
+        "zh": "安全型依恋：两维读法与情境",
+        "en": "Secure Attachment: Dimensions and Everyday Context"
+      },
+      "headline": {
+        "zh": "在靠近与自主之间保留选择",
+        "en": "Room for both closeness and autonomy"
+      },
+      "summary": {
+        "zh": "了解安全型在成人两维框架中的含义；它不是由本问卷认证的身份，也不证明关系没有问题。",
+        "en": "Explore security in an adult two-dimensional framework, without treating this questionnaire as certification or proof that a relationship has no problems."
+      },
+      "seo": {
+        "title": {
+          "zh": "安全型依恋：两维含义、相处例子与结果读法",
+          "en": "Secure Attachment: Meaning, Examples and Two Dimensions"
+        },
+        "description": {
+          "zh": "安全型依恋在成人两维框架中怎样理解？阅读关系担心与亲近退缩的比较、具体相处例子、边界和小尝试；不把均分当固定类型或关系健康证明。",
+          "en": "Explore secure attachment through worry and distance from closeness, everyday examples, comparisons and boundaries. A full guide without a fixed-type verdict."
+        }
+      },
+      "scoreReading": {
+        "zh": "先分别读两项1—5均分和有效题数，不合成总分或用固定阈值派类型。每轴12题，4条反向题按6减回答；至少8条有效评分才显示均分，全部24题选择后才呈现个人汇总。四种原型是比较两维的公开说明，不是你通过某条分数线得到的身份。",
+        "en": "Read the two 1–5 means and rated counts separately, without an overall total or fixed type cutoff. Each axis has 12 items, including four reversed as six minus the response. At least eight ratings are needed for an axis mean; all 24 selections are required before personal summaries. The four prototypes are public guides for comparing dimensions, not identities awarded by a score threshold."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这个概念怎样理解",
+            "en": "What the concept describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "成人依恋两维框架中的安全原型，通常指关系相关担心与对亲近的回避都较低的组合。这里的原型帮助理解两种体验如何同时出现，不是一个天然分界明确的人群类别。本版只呈现原创题组的两项均分，不通过某条分数线宣布“你就是安全型”，也不评定谁更值得被爱。",
+              "en": "In an adult two-dimensional framework, the secure prototype describes relatively little attachment-related worry together with relatively little avoidance of closeness. A prototype helps explain how two experiences combine; it is not a naturally separated group with a clear border. This edition presents two means from original items. It uses no cutoff to announce that you are secure and makes no judgment about who deserves love."
+            }
+          ]
+        },
+        {
+          "id": "two-dimensions",
+          "title": {
+            "zh": "先看两个方向",
+            "en": "Read both directions first"
+          },
+          "paragraphs": [
+            {
+              "zh": "关系相关担心侧观察一组情境中反复怀疑关系、寻求确认的出现频率；亲近退缩侧观察对依靠、被了解与交流靠近的退缩。低均分只能说本组对应说法较少出现，不说明从来不担心、总能沟通或对所有人都放心。反向题先按6减回答，两个均分分别读，不相加成安全程度。",
+              "en": "The worry side concerns repeated uncertainty and checking in the situations asked about. The distance side concerns withdrawing from reliance, being known or closer exchange. A lower mean says those keyed descriptions appeared less often in this item set, not that you never worry, communicate well or feel safe with everyone. Reversed items use six minus the response. Read the two means separately rather than adding them into a security score."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "双方说好晚上再联系，白天暂时没有消息。一个与安全原型相近的例子，是可以继续自己的事情，也保留晚上询问或调整安排的权利。若之后有不一致的情况，可以针对具体约定讨论，而不必立即把一次空档解释为抛弃，也不必为了显得独立而拒绝一切支持。",
+              "en": "Suppose you agree to reconnect in the evening and receive no message during the day. One example resembling this prototype is continuing your activities while retaining the option to ask or adjust the arrangement later. If the agreement becomes inconsistent, discuss that specific issue. You need neither interpret one interval as abandonment nor refuse all support in order to appear independent."
+            }
+          ]
+        },
+        {
+          "id": "helpful-conditions",
+          "title": {
+            "zh": "可讨论的相处条件",
+            "en": "Conditions worth discussing"
+          },
+          "paragraphs": [
+            {
+              "zh": "清楚的约定、可以拒绝的帮助和允许改变主意的边界，可以成为一次具体对话的内容。例如说明“今天比较忙，明天什么时候方便聊？”再听取对方是否合适。这些是可协商的安排，不是本测试验证过的干预，也不能保证对方回应、关系改善或某种依恋模式改变。",
+              "en": "Clear arrangements, optional help and boundaries that permit a change of mind can be topics for a concrete conversation. You might explain that today is busy and ask when a conversation would suit tomorrow, then listen to the answer. These are negotiable arrangements, not interventions validated by this test. They guarantee neither a response, relationship improvement nor a change in attachment orientation."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "取舍与盲点",
+            "en": "Tradeoffs and possible blind spots"
+          },
+          "paragraphs": [
+            {
+              "zh": "较少担心不自动等于察觉所有问题，愿意靠近也不等于该接受所有要求。若对方确实反复失约，或者某次交流让你不舒服，仍然可以指出事实、拒绝或离开。把“安全”当作必须永远平静、必须随时给支持的标准，反而可能遮住需要认真讨论的边界。",
+              "en": "Less worry does not ensure that every problem is noticed, and openness to closeness does not mean every request should be accepted. If an agreement is repeatedly broken or an exchange feels uncomfortable, you can still name the facts, decline or leave. Treating security as a duty to remain calm or provide support at all times can hide a boundary that deserves discussion."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "和相近原型比较",
+            "en": "Compare neighbouring prototypes"
+          },
+          "paragraphs": [
+            {
+              "zh": "焦虑原型更强调反复担心而较少退缩；回避原型更强调亲近退缩而较少担心；恐惧回避原型用来讨论两种体验都较强时的组合。它们是概念上的方向组合，不是四项独立能力、四个固定盒子或必须总和为100%的成分。接近中间的回答不需要硬选一个名称。",
+              "en": "The anxious prototype emphasises more worry with less distance; the avoidant prototype emphasises more distance with less worry. Fearful-avoidant describes a combination in which both experiences are stronger. These are conceptual combinations, not four separate abilities, fixed boxes or components adding to one hundred percent. Responses around the middle need no forced name."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个不能推出的结论",
+            "en": "A conclusion you cannot draw"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个人在这段关系的题目中较少担心，也可能在另一段关系中有不同体验；一次低均分不能确认童年经历、原生家庭、伴侣是否可靠或长期关系是否会持续。看起来平静也可能有许多原因，本问卷没有观察互动、判断安全环境或测量心理健康，不能替这些问题作答。",
+              "en": "Someone reporting little worry in one relationship may feel differently in another. One low mean establishes neither childhood experiences, family history, a partner’s reliability nor whether a relationship will last. Appearing calm can have many explanations. This questionnaire observes no interaction, assesses no safe environment and measures no mental-health condition, so it cannot answer those questions."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "选择一件双方愿意讨论的小安排，把自己的需要和可以接受的范围说清楚，再询问对方的范围。例如商量一次联系时间，并保留之后调整的可能。也可以记下一个符合本页描述和一个不符合的例子。目标是更具体地理解当下，而不是证明自己属于好类型或让均分下降。",
+              "en": "Choose a small arrangement both people want to discuss. State what you need and what range works for you, then ask about theirs. Agree on one time to reconnect while allowing later adjustment. You could also note one example that fits this guide and one that does not. The aim is a more specific understanding of the present, not proof of a good type or a lower mean."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与成人概念的范围",
+            "en": "Original items and the scope of adult concepts"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24道中英文情境频率题、键向与解释由费马独立编写，不是ECR、ECR-R、ECR-S、ECR-RS或其授权译本，没有本站信效度、常模或分类验证。研究来源用于介绍成人依恋两维与分类局限，不验证本站题目。四种原型不认证个人类型，不评估儿童依恋、心理障碍、创伤、家庭历史、伴侣意愿、关系安全或未来结局。资料不足如实显示；不把需要空间、保留隐私或拒绝接触当作缺陷。",
+              "en": "FermatMind independently authored these 24 bilingual situation-frequency items, keying and explanations. They are not the ECR, ECR-R, ECR-S, ECR-RS or an authorised translation, and have no established website validity, norms or classification evidence. Research sources explain adult attachment dimensions and limits of categories; they do not validate these items. The four prototypes certify no personal type and assess neither child attachment, psychological disorders, trauma, family history, a partner’s wishes, relationship safety nor future outcomes. Insufficient information remains explicit. Space, privacy and declining contact are not treated as defects."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "anxious",
+      "directionIds": [
+        "anxiety",
+        "avoidance"
+      ],
+      "title": {
+        "zh": "焦虑型依恋：担心、确认与两维读法",
+        "en": "Anxious Attachment: Worry, Reassurance and Dimensions"
+      },
+      "headline": {
+        "zh": "把反复担心放回具体情境",
+        "en": "Put recurring worry back in its context"
+      },
+      "summary": {
+        "zh": "理解焦虑原型怎样对应较多关系担心和较少亲近退缩，不把问卷均分当焦虑症、童年经历或伴侣态度的证据。",
+        "en": "Understand the anxious prototype as more relationship worry with less distance from closeness, without treating a mean as evidence of an anxiety disorder, childhood history or a partner’s feelings."
+      },
+      "seo": {
+        "title": {
+          "zh": "焦虑型依恋：担心、确认需求与两维结果解读",
+          "en": "Anxious Attachment: Worry, Reassurance and Full Guide"
+        },
+        "description": {
+          "zh": "阅读焦虑型依恋的完整说明，区分关系担心、亲近退缩与焦虑症，比较相近原型和具体联系请求。不由问卷推断童年、对方态度或配对命运。",
+          "en": "Read the anxious attachment guide: relationship worry, reassurance, comparisons and concrete requests. No diagnosis, childhood inference or compatibility prediction."
+        }
+      },
+      "scoreReading": {
+        "zh": "先分别读两项1—5均分和有效题数，不合成总分或用固定阈值派类型。每轴12题，4条反向题按6减回答；至少8条有效评分才显示均分，全部24题选择后才呈现个人汇总。四种原型是比较两维的公开说明，不是你通过某条分数线得到的身份。",
+        "en": "Read the two 1–5 means and rated counts separately, without an overall total or fixed type cutoff. Each axis has 12 items, including four reversed as six minus the response. At least eight ratings are needed for an axis mean; all 24 selections are required before personal summaries. The four prototypes are public guides for comparing dimensions, not identities awarded by a score threshold."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这个概念怎样理解",
+            "en": "What the concept describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "成人两维框架中的焦虑原型，也常称专注型，侧重对关系回应与持续性的担心，同时并不特别回避亲近。这里的“焦虑”是依恋研究中的概念用语，不等同焦虑症、缺陷或对人的诊断。本版两项均分描述原创情境题的回答，没有一条经过验证的分界线把你划成这种人。",
+              "en": "In an adult two-dimensional framework, the anxious or preoccupied prototype emphasises worry about responsiveness and continuity without strong avoidance of closeness. Anxiety here is a term within attachment theory, not an anxiety disorder, defect or diagnosis of a person. This edition’s two means describe responses to original situations. No validated cutoff divides you into this kind of person."
+            }
+          ]
+        },
+        {
+          "id": "two-dimensions",
+          "title": {
+            "zh": "先看两个方向",
+            "en": "Read both directions first"
+          },
+          "paragraphs": [
+            {
+              "zh": "先分别看反复担心和亲近退缩，不只找一个最高分。较多担心可能与想确认关系有关，但均分没有观察你做了什么，也不能判断担心是否有现实理由。若两个方向的相关情境都较常出现，可以比较恐惧回避原型；若回答接近中间或资料不足，就保留这种不确定，不硬选类型。",
+              "en": "Read worry and distance separately rather than searching for a winning score. More worry may concern wanting confirmation, but a mean observes no behaviour and cannot determine whether there are real reasons for concern. When both sets of experiences occur more often, compare the fearful-avoidant guide. Middle-range responses or insufficient information can remain uncertain without forcing a type."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "一条消息暂时没有回复，脑中不断出现“是不是不在意我了”，即使已经有一个普通的日程解释，也很难把注意力移开。这是本组题目会涉及的一类情境。若对方确实多次失约，情况又可能不同；问卷不知道真实经过，不能直接把你的担心判成想太多或合理结论。",
+              "en": "A message goes unanswered and the thought that you no longer matter keeps returning, even after an ordinary scheduling explanation. This is one situation the items address. Repeatedly broken agreements would introduce different context. The questionnaire does not know what happened and cannot automatically dismiss the concern as overthinking or endorse it as a correct conclusion."
+            }
+          ]
+        },
+        {
+          "id": "helpful-conditions",
+          "title": {
+            "zh": "把请求说得具体",
+            "en": "Make a request concrete"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果双方愿意，可以把“你总是不在乎”改成一次具体请求，例如“计划变了能不能告诉我？你觉得怎样的联系安排可行？”对方可以提出不同范围，你也可以决定是否接受。清楚请求不等于要求对方随时回应，更不是本题验证过的治疗、关系改善方法或改变依恋的保证。",
+              "en": "If both people want to discuss it, replace a global accusation with a specific request: could a changed plan be communicated, and what contact arrangement is workable? The other person can suggest a different range, and you can decide whether it works for you. A clear request creates no duty to answer constantly. It is not a treatment or guaranteed route to relationship improvement validated by this quiz."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "取舍与边界",
+            "en": "Tradeoffs and boundaries"
+          },
+          "paragraphs": [
+            {
+              "zh": "重视联系可以让需要更容易被提出，但反复确认也可能占用双方的注意。与其把次数当爱得深，不如讨论哪次确认有帮助、哪种安排令人疲惫。同时，减少担心不是必须容忍失约、控制或不舒服的接触；任何均分都不能要求你忽略自己的判断，或要求另一方放弃边界。",
+              "en": "Caring about connection can make a need easier to name, while repeated checking may occupy both people’s attention. Instead of treating its frequency as depth of love, discuss when confirmation helps and which arrangements feel tiring. Less worry must never mean tolerating broken agreements, control or unwanted contact. No mean requires you to ignore your judgment or another person to surrender a boundary."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "和相近原型比较",
+            "en": "Compare neighbouring prototypes"
+          },
+          "paragraphs": [
+            {
+              "zh": "焦虑原型与恐惧回避原型都涉及较多担心；后者还把较多亲近退缩放进讨论。安全原型讨论担心与回避都较少，回避原型更突出距离。这些对照用于理解情境，不用于推断谁是更好的伴侣、谁能治愈谁，或焦虑与回避的人一定互相吸引。",
+              "en": "Both anxious and fearful-avoidant prototypes involve more worry; the latter also brings greater distance from closeness into the picture. Security describes less of both, while the avoidant prototype places more emphasis on distance. These contrasts help discuss situations. They identify neither a better partner, who can heal whom nor an inevitable attraction between anxious and avoidant people."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个不能推出的结论",
+            "en": "A conclusion you cannot draw"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高的关系担心均分不能确认曾被抛弃、童年照顾不一致、某种创伤或焦虑症，也不能证明对方不爱你。它只来自你对这段关系、这段时间和本组题目的自评。生活变化、约定、文化表达和当前环境都可能影响回答；本测试没有把这些原因逐一测量或排除。",
+              "en": "A higher worry mean does not establish abandonment, inconsistent childhood care, trauma, an anxiety disorder or a lack of love from someone else. It comes only from your ratings about this relationship, period and item set. Life changes, arrangements, cultural expression and present circumstances may affect responses. This test has neither measured nor ruled out those explanations."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一次负担较小、双方都愿意回顾的情境，分别说清发生了什么、自己怎样理解、现在想提出什么请求。允许保留不知道对方当时在想什么，也允许对方不同意。无需用标签说服对方、反复证明爱或把得分变低；若不想讨论，也可以只为自己写下一个符合和一个不符合的例子。",
+              "en": "Choose a low-pressure situation both people want to revisit. Separate what happened, how you interpreted it and the request you would now like to make. Leave room not to know what the other person thought, and for disagreement. No label is needed to persuade them, prove love repeatedly or lower a score. If discussion is unwanted, simply note one fitting and one contrasting example for yourself."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与成人概念的范围",
+            "en": "Original items and the scope of adult concepts"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24道中英文情境频率题、键向与解释由费马独立编写，不是ECR、ECR-R、ECR-S、ECR-RS或其授权译本，没有本站信效度、常模或分类验证。研究来源用于介绍成人依恋两维与分类局限，不验证本站题目。四种原型不认证个人类型，不评估儿童依恋、心理障碍、创伤、家庭历史、伴侣意愿、关系安全或未来结局。资料不足如实显示；不把需要空间、保留隐私或拒绝接触当作缺陷。",
+              "en": "FermatMind independently authored these 24 bilingual situation-frequency items, keying and explanations. They are not the ECR, ECR-R, ECR-S, ECR-RS or an authorised translation, and have no established website validity, norms or classification evidence. Research sources explain adult attachment dimensions and limits of categories; they do not validate these items. The four prototypes certify no personal type and assess neither child attachment, psychological disorders, trauma, family history, a partner’s wishes, relationship safety nor future outcomes. Insufficient information remains explicit. Space, privacy and declining contact are not treated as defects."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "avoidant",
+      "directionIds": [
+        "anxiety",
+        "avoidance"
+      ],
+      "title": {
+        "zh": "回避型依恋：亲近、距离与两维读法",
+        "en": "Avoidant Attachment: Closeness, Distance and Dimensions"
+      },
+      "headline": {
+        "zh": "把需要空间和对亲近的退缩分开看",
+        "en": "Distinguish space from withdrawing from closeness"
+      },
+      "summary": {
+        "zh": "理解回避原型怎样对应较多亲近退缩与较少关系担心，不把独处、明确边界或本次均分直接当作回避型身份。",
+        "en": "Explore the avoidant prototype as more distance from closeness with less relationship worry, without equating solitude, clear boundaries or one mean with an avoidant identity."
+      },
+      "seo": {
+        "title": {
+          "zh": "回避型依恋：亲近退缩、独处与边界怎么区分",
+          "en": "Avoidant Attachment: Closeness, Space and Full Guide"
+        },
+        "description": {
+          "zh": "回避型依恋不等于喜欢独处。阅读亲近退缩与关系担心的两维读法、具体例子、边界和相近原型比较；不以自评判断冷漠、共情或职业适配。",
+          "en": "Understand avoidant attachment, the difference between space and withdrawal, everyday examples and neighbouring prototypes. Full guide without judgments about empathy or worth."
+        }
+      },
+      "scoreReading": {
+        "zh": "先分别读两项1—5均分和有效题数，不合成总分或用固定阈值派类型。每轴12题，4条反向题按6减回答；至少8条有效评分才显示均分，全部24题选择后才呈现个人汇总。四种原型是比较两维的公开说明，不是你通过某条分数线得到的身份。",
+        "en": "Read the two 1–5 means and rated counts separately, without an overall total or fixed type cutoff. Each axis has 12 items, including four reversed as six minus the response. At least eight ratings are needed for an axis mean; all 24 selections are required before personal summaries. The four prototypes are public guides for comparing dimensions, not identities awarded by a score threshold."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这个概念怎样理解",
+            "en": "What the concept describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "成人两维框架中的回避原型，也常称疏离型，着重讨论对依靠、被了解和情感靠近的退缩，同时关系相关担心相对较少。它不是“喜欢一个人待着”的同义词，也不说明冷漠、自私或不需要关系。本版没有用一条均分线认证这种身份；四份说明是用于比较的概念原型。",
+              "en": "In an adult two-dimensional framework, the avoidant or dismissing prototype emphasises distance from reliance, being known and emotional closeness, alongside relatively little relationship worry. It is not a synonym for enjoying time alone and does not establish coldness, selfishness or a lack of interest in relationships. This edition certifies no such identity through a mean cutoff. Its four guides describe prototypes for comparison."
+            }
+          ]
+        },
+        {
+          "id": "two-dimensions",
+          "title": {
+            "zh": "先看两个方向",
+            "en": "Read both directions first"
+          },
+          "paragraphs": [
+            {
+              "zh": "亲近退缩侧的题目尽量区分边界已经清楚、协助可自由选择时的退缩，与单纯需要空间。关系担心侧则是另一组情境，不能由前者补出。两侧都需要足够有效回答才有均分；反向题先按6减原回答。均分只概括这些题目，不观察真实行为，也不证明你对所有关系都如此。",
+              "en": "The distance items try to distinguish withdrawal when boundaries are clear and support is optional from simply needing space. Worry is a separate set of situations and cannot be inferred from distance. Each side needs enough rated responses for a mean; reversed items first use six minus the response. Means summarise these items, not observed behaviour or a pattern across every relationship."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "你想让一位信任的人听听小烦恼，对方也愿意听，但话题刚靠近真实感受，就不自觉把事情说成“没什么”，再转回事务。这是一种可以拿来回顾的退缩情境。相反，如果你只是不想在工作中或不合适的场合谈私事，这本身是边界选择，不应被问卷标签化。",
+              "en": "You want a trusted person to hear a small concern, and they are willing to listen. As the conversation reaches what it means to you, you minimise it and return to practical matters. That is a possible situation to reflect on. By contrast, choosing not to discuss private matters at work or in an unsuitable setting is a boundary choice and should not become a questionnaire label."
+            }
+          ]
+        },
+        {
+          "id": "helpful-conditions",
+          "title": {
+            "zh": "为靠近保留选择",
+            "en": "Keep closeness optional"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果你愿意分享，可以先说清一个很小的范围：“我想讲五分钟，只希望你先听，暂时不要替我决定。”对方也可以说明是否方便。这样的安排保留了自主和拒绝权。它只是可讨论的说法，不是必须暴露隐私的要求，不是经过本题验证的干预，更不承诺改变依恋模式。",
+              "en": "If you want to share, define a small scope: perhaps five minutes, with listening rather than decisions made for you. The other person can say whether that works. This keeps autonomy and the option to decline. It is a possible arrangement to discuss, not a demand to disclose private information, an intervention validated by these items or a promise to change attachment orientation."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "取舍与边界",
+            "en": "Tradeoffs and boundaries"
+          },
+          "paragraphs": [
+            {
+              "zh": "独立处理和保留隐私有时非常合适；如果本来想得到支持却总在最后退出，也可能值得看看具体卡在哪里。无需把独立当作必须坚持的表现，也不用为了降低均分接受不想要的靠近。一个有效的边界可以既明确又可沟通，但是否愿意继续联系始终由当事人决定。",
+              "en": "Handling something independently and keeping privacy can be entirely appropriate. If you wanted support but repeatedly withdrew at the last moment, the specific point of hesitation may be worth considering. Independence need not become a performance, nor must unwanted closeness be accepted to lower a mean. A boundary can be clear and communicable, while the decision to continue contact remains with the people involved."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "和相近原型比较",
+            "en": "Compare neighbouring prototypes"
+          },
+          "paragraphs": [
+            {
+              "zh": "回避与恐惧回避原型都讨论较多亲近退缩；后者还包括较多关系相关担心。安全原型讨论两者较少，焦虑原型更突出担心。这种两维对照不把内向、社交电量、爱情语言或沟通能力换算成依恋，也不说明某种职业、伴侣或生活方式更适合你。",
+              "en": "Avoidant and fearful-avoidant prototypes both concern more distance from closeness; the latter also includes more relationship worry. Security describes less of both, while the anxious prototype emphasises worry. This two-dimensional comparison converts neither introversion, social battery, love languages nor communication skill into attachment. It identifies no suitable occupation, partner or lifestyle for you."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个不能推出的结论",
+            "en": "A conclusion you cannot draw"
+          },
+          "paragraphs": [
+            {
+              "zh": "亲近退缩均分较高，不能确认你曾被忽视、害怕承诺、没有共情或不爱某个人，也不能推断性取向、创伤或心理障碍。某些距离可能与真实的不舒服、关系安排或当前处境有关，本问卷没有调查这些原因。伴侣也不能拿你的结果要求你证明爱或交出私人空间。",
+              "en": "A higher distance mean does not establish neglect, fear of commitment, missing empathy or a lack of love. It reveals neither sexuality, trauma nor a psychological disorder. Distance can relate to real discomfort, relationship arrangements or present circumstances; this questionnaire has not investigated those causes. A partner cannot use the result to demand proof of love or access to your private space."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "回顾一次自己本来想得到支持却缩回去的情境，写下当时愿意分享什么、希望保留什么、对方是否真的提出了要求。若愿意，可以提出一次小范围、可停止的交流；若不愿意，也可以到此为止。目标是把选择说得更清楚，而不是变得外向、增加披露量或证明自己不回避。",
+              "en": "Recall one situation in which you wanted support and then withdrew. Note what you wanted to share, what you wanted to keep private and whether a request was actually made of you. If you choose, propose a limited exchange that can stop. You can also stop at reflection. The aim is clearer choice, not greater extraversion, more disclosure or proof that you are not avoidant."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与成人概念的范围",
+            "en": "Original items and the scope of adult concepts"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24道中英文情境频率题、键向与解释由费马独立编写，不是ECR、ECR-R、ECR-S、ECR-RS或其授权译本，没有本站信效度、常模或分类验证。研究来源用于介绍成人依恋两维与分类局限，不验证本站题目。四种原型不认证个人类型，不评估儿童依恋、心理障碍、创伤、家庭历史、伴侣意愿、关系安全或未来结局。资料不足如实显示；不把需要空间、保留隐私或拒绝接触当作缺陷。",
+              "en": "FermatMind independently authored these 24 bilingual situation-frequency items, keying and explanations. They are not the ECR, ECR-R, ECR-S, ECR-RS or an authorised translation, and have no established website validity, norms or classification evidence. Research sources explain adult attachment dimensions and limits of categories; they do not validate these items. The four prototypes certify no personal type and assess neither child attachment, psychological disorders, trauma, family history, a partner’s wishes, relationship safety nor future outcomes. Insufficient information remains explicit. Space, privacy and declining contact are not treated as defects."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fearful",
+      "directionIds": [
+        "anxiety",
+        "avoidance"
+      ],
+      "title": {
+        "zh": "恐惧回避型依恋：担心与退缩的两维读法",
+        "en": "Fearful-Avoidant Attachment: Worry and Distance"
+      },
+      "headline": {
+        "zh": "两种体验可以同时出现，不必急着定型",
+        "en": "Two experiences can coexist without a fixed label"
+      },
+      "summary": {
+        "zh": "比较较多关系担心与较多亲近退缩同时出现的概念组合，不由本次自评推断创伤、混乱型诊断、伴侣命运或关系质量。",
+        "en": "Compare the conceptual combination of more relationship worry and more distance from closeness, without inferring trauma, a disorganised-attachment diagnosis, compatibility or relationship quality."
+      },
+      "seo": {
+        "title": {
+          "zh": "恐惧回避型依恋：担心与退缩的完整两维解读",
+          "en": "Fearful-Avoidant Attachment: Two Dimensions Explained"
+        },
+        "description": {
+          "zh": "了解恐惧回避型依恋的两维概念，比较担心与退缩、具体情境和可选择的小尝试。不把成人自评等同婴幼儿混乱型评估，不推断创伤、诊断或关系结局。",
+          "en": "Explore fearful-avoidant attachment as worry and distance together, with examples and comparisons. No trauma inference, infant classification or relationship-outcome verdict."
+        }
+      },
+      "scoreReading": {
+        "zh": "先分别读两项1—5均分和有效题数，不合成总分或用固定阈值派类型。每轴12题，4条反向题按6减回答；至少8条有效评分才显示均分，全部24题选择后才呈现个人汇总。四种原型是比较两维的公开说明，不是你通过某条分数线得到的身份。",
+        "en": "Read the two 1–5 means and rated counts separately, without an overall total or fixed type cutoff. Each axis has 12 items, including four reversed as six minus the response. At least eight ratings are needed for an axis mean; all 24 selections are required before personal summaries. The four prototypes are public guides for comparing dimensions, not identities awarded by a score threshold."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这个概念怎样理解",
+            "en": "What the concept describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "成人两维框架中的恐惧回避原型，用于讨论较多关系相关担心与较多亲近退缩同时出现的组合。一个人可能在意联系，又对被了解或依靠别人感到退缩。这种概念组合不等于“人格矛盾”，也不是由本版均分确认的固定类型；它不直接等同婴幼儿的混乱型分类或临床评估。",
+              "en": "The fearful-avoidant prototype in an adult two-dimensional framework concerns a combination of more relationship worry and more distance from closeness. Connection can matter while being known or relying on someone also prompts withdrawal. This conceptual combination is neither a contradictory personality nor a fixed type confirmed by these means. It is not automatically equivalent to an infant disorganised classification or a clinical assessment."
+            }
+          ]
+        },
+        {
+          "id": "two-dimensions",
+          "title": {
+            "zh": "先看两个方向",
+            "en": "Read both directions first"
+          },
+          "paragraphs": [
+            {
+              "zh": "两个方向分别计算，不能只看一个高值就补出另一个。均分也不知道担心和退缩是否在同一时刻发生：某些题可能让你想到不同场景。请围绕同一段成年关系、同一段近三个月经历作答；若仍无法概括，选择不计分项是允许的，资料不足会明确保留。",
+              "en": "Each direction is scored separately; one higher value cannot supply the other. Means also cannot establish whether worry and withdrawal occurred together, because different items may bring different situations to mind. Answer about the same adult relationship and recent three-month period. If an experience cannot be summarised, the unscored option is allowed and insufficient information remains explicit."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "你很想确认一次联系仍然重要，却在对方愿意认真听时，又把自己想说的事收回去。这个例子可以帮助区分“想得到回应”和“对靠近退缩”两个部分。它不是对所有人的概括，也不说明为什么会这样；现实中一次交流是否合适，需要看双方意愿、具体经过和当下边界。",
+              "en": "You want confirmation that a connection matters, yet withdraw what you wanted to say when the other person is ready to listen. This example separates wanting a response from moving away from closeness. It describes neither everyone nor the cause of an experience. Whether an exchange fits depends on both people’s wishes, what happened and the boundaries of that moment."
+            }
+          ]
+        },
+        {
+          "id": "helpful-conditions",
+          "title": {
+            "zh": "让表达可以分步",
+            "en": "Allow an exchange to be gradual"
+          },
+          "paragraphs": [
+            {
+              "zh": "在双方愿意且适合交流时，可以把需要说得很小：“我想确认一下安排，但现在还不想解释全部感受。”也可以先约一个暂停和重新讨论的方式。这样的说法让靠近与保留都能被讨论，不要求任何人证明信任。它不是本测试验证的治疗技术，也不承诺让关系变好。",
+              "en": "When both people want an exchange and the setting fits, a request can be small: you may want to confirm an arrangement without explaining every feeling yet. You can also agree on a pause and a way to revisit the discussion. This makes both closeness and privacy discussable without requiring proof of trust. It is not a treatment technique validated by the test or a promise of a better relationship."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "取舍与边界",
+            "en": "Tradeoffs and boundaries"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果一方面想联系，一方面又想退后，仓促逼自己选定“靠近还是离开”可能遗漏当时的具体需要。可以先弄清楚哪一部分愿意谈、哪一部分不愿意。但任何均分都不能要求你继续不想要或不舒服的联系，也不能让对方承担随时安抚、预测你想法或替你解决所有感受的义务。",
+              "en": "When wanting contact and wanting distance coexist, rushing into a choice between approaching and leaving may overlook a specific need. Consider what you do and do not want to discuss first. No mean obliges you to continue unwanted or uncomfortable contact, however. Nor does it oblige someone else to provide constant reassurance, predict your thoughts or resolve every feeling for you."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "和相近原型比较",
+            "en": "Compare neighbouring prototypes"
+          },
+          "paragraphs": [
+            {
+              "zh": "焦虑原型突出较多担心、较少退缩；回避原型突出较多退缩、较少担心；安全原型讨论两者较少。恐惧回避是在同一两维框架里理解两者较多，不是比其他人更复杂、更受伤、更有共情或更难相处。四份说明都可以读，答案接近中间时无需硬塞进其中一类。",
+              "en": "The anxious prototype emphasises more worry with less distance; the avoidant prototype emphasises more distance with less worry. Security concerns less of both. Fearful-avoidant combines more of both in the same framework. It means neither greater complexity, more injury, greater empathy nor being harder to relate to. All four guides are available, and middle-range answers need no forced category."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个不能推出的结论",
+            "en": "A conclusion you cannot draw"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版不能从两个均分确认虐待、忽视、PTSD、人格障碍、记忆或某段童年经历，也不能认定你会破坏关系、某位伴侣能治愈你，或关系注定失败。问卷只收集本组选择，没有核实过去、观察双方互动或进行临床访谈。不要用一个概念名称解释尚未核实的个人历史。",
+              "en": "Two means from this edition cannot establish abuse, neglect, PTSD, a personality disorder, memories or a childhood experience. They do not show that you will sabotage a relationship, that a partner can heal you or that a relationship is doomed. The quiz records item choices without verifying history, observing interactions or conducting a clinical interview. A conceptual name should not explain an unverified personal past."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一个小尝试",
+            "en": "A small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一次自己愿意回顾的小事，把“我想获得什么回应”和“我希望保留哪些距离”分别写成具体句子。它们可以同时存在，不必先给自己贴标签。如果双方愿意，再只讨论其中一件可安排的小事，并允许暂停。目标是弄清当下的选择，而不是通过问卷自我诊断、挖出原因或追求某个分区。",
+              "en": "Choose a small event you want to revisit. Write separate, concrete sentences about the response you wanted and the distance you wanted to keep. Both can exist without a label. If both people want to, discuss just one manageable arrangement and allow a pause. The aim is to clarify present choices, not to diagnose yourself, uncover a cause or pursue a particular region on a questionnaire."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与成人概念的范围",
+            "en": "Original items and the scope of adult concepts"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24道中英文情境频率题、键向与解释由费马独立编写，不是ECR、ECR-R、ECR-S、ECR-RS或其授权译本，没有本站信效度、常模或分类验证。研究来源用于介绍成人依恋两维与分类局限，不验证本站题目。四种原型不认证个人类型，不评估儿童依恋、心理障碍、创伤、家庭历史、伴侣意愿、关系安全或未来结局。资料不足如实显示；不把需要空间、保留隐私或拒绝接触当作缺陷。",
+              "en": "FermatMind independently authored these 24 bilingual situation-frequency items, keying and explanations. They are not the ECR, ECR-R, ECR-S, ECR-RS or an authorised translation, and have no established website validity, norms or classification evidence. Research sources explain adult attachment dimensions and limits of categories; they do not validate these items. The four prototypes certify no personal type and assess neither child attachment, psychological disorders, trauma, family history, a partner’s wishes, relationship safety nor future outcomes. Insufficient information remains explicit. Space, privacy and declining contact are not treated as defects."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "Fraley：成人依恋理论与两维研究概览",
+        "en": "Fraley: adult attachment theory and two-dimensional research"
+      },
+      "url": "https://labs.psychology.illinois.edu/~rcfraley/attachment.htm"
+    },
+    {
+      "title": {
+        "zh": "Fraley方法问答：连续维度、分类局限与量表使用条件",
+        "en": "Fraley’s methods FAQ: continuous dimensions, category limits and instrument terms"
+      },
+      "url": "https://labs.psychology.illinois.edu/~rcfraley/measures/ecrr.htm"
+    }
+  ],
+  "guide": [
+    {
+      "id": "attachment-context",
+      "title": {
+        "zh": "同一段成年关系与具体时间",
+        "en": "One adult relationship and a defined period"
+      },
+      "paragraphs": [
+        {
+          "zh": "围绕一段你愿意回顾的成年亲密关系，按近三个月出现频率回答，不替别人判型，也不把不同关系的经历混成对所有人的固定判断。没有适用经历、无法判断或不愿作答可以不计分，无需提供对方姓名或私人文字。",
+          "en": "Use one adult close relationship you want to reflect on and frequencies over the past three months. Do not answer for someone else or merge different relationships into a fixed judgment about everyone. No applicable experience, uncertainty or a wish not to answer can be unscored. No other person’s name or private text is required."
+        }
+      ]
+    },
+    {
+      "id": "attachment-scoring",
+      "title": {
+        "zh": "两项均分怎样复算",
+        "en": "How to reproduce the two means"
+      },
+      "paragraphs": [
+        {
+          "zh": "每轴12题，前8条按1—5原值，后4条反向题按6减原回答。全部24题选择后，各轴至少8条有效评分时按计分总和除以有效题数，四舍五入到一位小数；不足时明确显示。暂不作答不补0或中间值。8条最低数是本站信息完整度规则，不是研究或临床阈值。",
+          "en": "Each axis has 12 items: eight use the selected 1–5 value and four use six minus the response. After all 24 selections, an axis with at least eight ratings uses keyed sum divided by rated count, rounded to one decimal. Otherwise it shows insufficient information. Unscored items are neither zero nor midpoints. The eight-rating minimum is a website information-completeness rule, not a research or clinical cutoff."
+        }
+      ]
+    },
+    {
+      "id": "attachment-reading",
+      "title": {
+        "zh": "先看连续维度，再比较原型",
+        "en": "Read dimensions before comparing prototypes"
+      },
+      "paragraphs": [
+        {
+          "zh": "不设高低分类线、不用常模或百分位，不把两个均分合成安全总分。四种成人原型都完整呈现：安全讨论两种体验较少，焦虑突出担心，回避突出退缩，恐惧回避讨论两者较多。它们帮助读懂概念，不认证本次个人类型；资料不足或中间回答不强行定型。",
+          "en": "There are no high/low category cutoffs, norms, percentiles or combined security total. All four adult prototypes appear in full: security describes less of both experiences, anxious emphasises worry, avoidant emphasises distance and fearful-avoidant combines more of both. They explain concepts without certifying a personal type. Insufficient information or middle-range responses need no forced label."
+        }
+      ]
+    },
+    {
+      "id": "source-scope",
+      "title": {
+        "zh": "概念来源不等于本题验证",
+        "en": "Concept sources do not validate these items"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版题目与解释为独立创作，不施测ECR系列量表，也不借用其信效度、常模、授权或分数解释。研究来源说明成人依恋两维和类别局限；不能从本问卷推断儿童分类、童年、创伤、临床状况、伴侣真实意愿、关系安全或职业胜任。",
+          "en": "These independently authored items and explanations do not administer ECR-family instruments or borrow their validity, norms, permission or score interpretations. Sources discuss adult attachment dimensions and category limits. This quiz cannot establish infant classifications, childhood, trauma, clinical conditions, a partner’s actual wishes, relationship safety or job suitability."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "怎样知道自己的依恋风格？",
+        "en": "How can I explore my attachment style?"
+      },
+      "answer": {
+        "zh": "本版用24条原创情境频率题分别观察关系担心与亲近退缩，完成后呈现两维均分或资料不足，并完整展示四种成人原型。它是自我回顾的起点，不认证固定类型，也不替伴侣判型。",
+        "en": "This edition uses 24 original situation-frequency items to explore worry and distance from closeness. A complete attempt shows two means or insufficient-information states and all four adult prototypes in full. It starts reflection rather than certifying a fixed type or classifying a partner."
+      }
+    },
+    {
+      "question": {
+        "zh": "安全、焦虑、回避和恐惧回避怎样比较？",
+        "en": "How do secure, anxious, avoidant and fearful-avoidant compare?"
+      },
+      "answer": {
+        "zh": "在成人两维概念中，安全讨论担心与退缩都较少；焦虑更突出担心；回避更突出退缩；恐惧回避讨论两者较多。不是四项独立能力，不要求加起来100%，也不代表本测试找到了天然分类线。",
+        "en": "In an adult two-dimensional framework, security describes less worry and distance, anxious emphasises worry, avoidant emphasises distance and fearful-avoidant combines more of both. They are not four separate abilities or percentages adding to one hundred, and the quiz establishes no natural category border."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是ECR-R或经过验证的依恋量表吗？",
+        "en": "Is this the ECR-R or a validated attachment instrument?"
+      },
+      "answer": {
+        "zh": "不是。本题本、键向与说明均为费马独立编写，不是ECR、ECR-R、ECR-S、ECR-RS或授权译本，也没有本站信效度或常模验证。来源介绍理论与方法边界，不验证这些题目。",
+        "en": "No. FermatMind independently authored these items, keying and explanations. This is neither the ECR, ECR-R, ECR-S, ECR-RS nor an authorised translation, with no established website validity or norms. Sources explain theory and method limits, not validation of these items."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么不直接派一个类型？",
+        "en": "Why is no fixed type assigned?"
+      },
+      "answer": {
+        "zh": "两维是连续的，把分数硬切成一个类型会丢掉信息。本版没有已验证分类阈值，所以保留两项均分、有效题数与四份完整概念说明。不把中点3当人群平均、健康线或配对标准。",
+        "en": "Dimensions are continuous, and cutting scores into one type discards information. This edition has no validated category cutoff, so it retains two means, rated counts and four complete conceptual guides. A response-scale midpoint of three is neither a population average, health boundary nor compatibility rule."
+      }
+    },
+    {
+      "question": {
+        "zh": "结果能解释童年、创伤或伴侣吗？",
+        "en": "Can the result explain childhood, trauma or a partner?"
+      },
+      "answer": {
+        "zh": "不能。本次自评没有调查过去、观察双方互动或做临床访谈，也不评估关系安全。它不等同婴幼儿混乱型分类、不诊断焦虑症或其他状况，不预测配对、关系结局或工作表现。",
+        "en": "No. This reflection investigates no past, observes no interaction, conducts no clinical interview and assesses no relationship safety. It is not an infant disorganised classification or diagnosis of anxiety or another condition, and predicts neither compatibility, relationship outcomes nor work performance."
+      }
+    },
+    {
+      "question": {
+        "zh": "全部结果免费吗，草稿和分享包含什么？",
+        "en": "Are full results free, and what do drafts and sharing contain?"
+      },
+      "answer": {
+        "zh": "全部24题、两维汇总和四份完整说明免费，无需注册。可选草稿只在本标签页保存24小时，完成、重测或清除即删除。分享仅有名称与公开测试入口，不带答案、均分、对方姓名或内部ID；存储或复制受限仍可继续。",
+        "en": "All 24 items, two summaries and four full guides are free without signup. Optional drafts last 24 hours in this tab and clear on completion, retake or clearing. Sharing contains names and the public entry only, without answers, means, another person’s name or internal IDs. Blocked storage or copying still permits an attempt."
+      }
+    }
+  ]
+}
