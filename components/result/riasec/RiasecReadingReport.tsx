@@ -110,6 +110,30 @@ export function RiasecReadingReport({
           clean(slot.boundaries.userVisibleBoundary),
         )
       : [];
+  const nearTieState = vm.interpretationState?.nearTieState.state ?? "";
+  const alternate = vm.interpretationState?.alternateCode;
+  const tieDisplay = vm.interpretationState?.tieDisplay;
+  const nearTieReady = ["top1_top2_near_tie", "top2_top3_near_tie", "multi_near_tie"].includes(nearTieState) &&
+    (!alternate?.show || (tieDisplay?.kind === "near_tie" && tieDisplay.position === nearTieState &&
+      alternate.codes.length === tieDisplay.alternateCodes.length &&
+      alternate.codes.every((code, index) => code === tieDisplay.alternateCodes[index])));
+  const nearTieSlots =
+    !zh && vm.resultLocale === "en" && ["normal", "caution"].includes(qualityState) && nearTieReady &&
+    vm.interpretationState?.readingStrength !== "retake_recommended"
+      ? slots.filter((slot) =>
+          slot.slotKey === "near_tie_alternate_code_copy" &&
+          slot.slotGroup === "interpretation_state_copy" &&
+          slot.moduleKey === "result_reading_boundary" &&
+          (slot.state.slot_name === nearTieState || (slot.state.slot_name === "alternate_code_available" && alternate?.show)) &&
+          slot.state.near_tie_copy_state === slot.state.slot_name &&
+          slot.locale === "en" &&
+          slot.applicability.formCodes.includes(vm.formCode ?? "") &&
+          slot.applicability.qualityStates.includes(qualityState) &&
+          slot.applicability.profileShapes.includes(vm.interpretationState?.profileShape ?? "") &&
+          clean(slot.content.title) && clean(slot.content.summary) &&
+          clean(slot.boundaries.userVisibleBoundary),
+        )
+      : [];
   const aspirationsSlots =
     !zh && vm.resultLocale === "en" && ["normal", "caution"].includes(qualityState) &&
     vm.interpretationState?.readingStrength !== "retake_recommended"
@@ -455,6 +479,13 @@ export function RiasecReadingReport({
                 {lifecycle.faqItems.map((item, index) => <details className={styles.contentCard} key={index} data-testid="riasec-faq-item"><summary>{item.q}</summary><p>{item.a}</p></details>)}
               </section>
             ) : null}
+            {nearTieSlots.length ? (
+              <div className={styles.chapter} data-testid="riasec-neartie-reading">
+                {nearTieSlots.map((slot) => (
+                  <ContentCard key={slot.slotId} slot={slot} state={slotState(slot)} zh={zh} />
+                ))}
+              </div>
+            ) : null}
             {aspirationsSlots.length ? (
               <div className={styles.chapter} data-testid="riasec-aspirations-reading">
                 {aspirationsSlots.map((slot) => (
@@ -543,7 +574,7 @@ function ContentCard({
   const title =
     clean(content.title || content.pair_label || content.short_label) ||
     (zh ? "深入阅读" : "Further reading");
-  if (["disagree_path_copy", "aspirations_calibration_copy"].includes(slot.slotKey) && state === "collapsed") {
+  if (["disagree_path_copy", "aspirations_calibration_copy", "near_tie_alternate_code_copy"].includes(slot.slotKey) && state === "collapsed") {
     return (
       <details className={`${styles.contentCard} ${styles.disclosure}`} data-testid="riasec-deep-content-slot">
         <summary><h3 className={styles.contentTitle}>{title}</h3></summary>
@@ -552,6 +583,15 @@ function ContentCard({
           <p className={styles.boundary}>{slot.boundaries.userVisibleBoundary}</p>
         </div>
       </details>
+    );
+  }
+  if (slot.slotKey === "near_tie_alternate_code_copy") {
+    return (
+      <article className={styles.contentCard} data-testid="riasec-deep-content-slot">
+        <h3 className={styles.contentTitle}>{title}</h3>
+        <p>{clean(content.summary)}</p>
+        <p className={styles.boundary}>{slot.boundaries.userVisibleBoundary}</p>
+      </article>
     );
   }
   return (

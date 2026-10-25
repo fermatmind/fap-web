@@ -576,6 +576,7 @@ const KNOWN_RIASEC_DEEP_SLOT_GROUPS = new Set([
   "structural_difference_copy",
   "aspirations_copy",
   "feedback_response_copy",
+  "interpretation_state_copy",
 ]);
 const KNOWN_RIASEC_DEEP_SLOT_KEYS = new Set([
   "triad_blend_copy",
@@ -594,6 +595,7 @@ const KNOWN_RIASEC_DEEP_SLOT_KEYS = new Set([
   "structural_difference_copy",
   "aspirations_calibration_copy",
   "disagree_path_copy",
+  "near_tie_alternate_code_copy",
 ]);
 const RIASEC_ENGLISH_SELECTED_CONTENT_KEYS = new Set([
   "interest_activity_focus", "context_costs", "misread_guardrails", "validation_questions",
@@ -1137,6 +1139,10 @@ function buildDeepContentSlot(
   const status = normalizeText(rawSlot.status);
   const contentStatus = normalizeText(rawSlot.content_status);
   const slotId = normalizeText(rawSlot.slot_id);
+  if ((slotKey === "near_tie_alternate_code_copy" || slotGroup === "interpretation_state_copy") &&
+      (slotKey !== "near_tie_alternate_code_copy" || slotGroup !== "interpretation_state_copy" || context.requestedPageLocale !== "en")) {
+    return null;
+  }
   if (!KNOWN_RIASEC_DEEP_SLOT_KEYS.has(slotKey) || !KNOWN_RIASEC_DEEP_SLOT_GROUPS.has(slotGroup)) {
     return null;
   }
@@ -1158,6 +1164,19 @@ function buildDeepContentSlot(
   const content = buildDeepContentBody(asRecord(rawSlot.content), context.requestedPageLocale);
   if (Object.keys(content).length === 0) {
     return null;
+  }
+  if (slotKey === "near_tie_alternate_code_copy") {
+    const state = asRecord(rawSlot.state) ?? {};
+    const name = normalizeText(state.slot_name);
+    const rawCopy = asRecord(rawSlot.content)?.copy;
+    if (!["top1_top2_near_tie", "top2_top3_near_tie", "multi_near_tie", "alternate_code_available"].includes(name) ||
+        normalizeText(state.near_tie_copy_state) !== name || slotId !== `near_tie_alternate_code_copy:${name}` ||
+        normalizeText(rawSlot.module_key) !== "result_reading_boundary" ||
+        !normalizeText(content.title) || !normalizeText(content.summary) ||
+        content.body !== content.summary || typeof rawCopy !== "string" || normalizeText(rawCopy) !== content.summary ||
+        !normalizeText(asRecord(rawSlot.boundaries)?.user_visible_boundary)) {
+      return null;
+    }
   }
   const rawSelection = asRecord(rawSlot.selection_v1);
   let selection: RiasecDeepContentSlot["selection"] = null;
