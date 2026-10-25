@@ -686,5 +686,30 @@
       "crisis-maker",
       "over-doer"
     ]
+  },
+  {
+    "slug": "learning-style",
+    "code": "LEARNING_FORMAT_PREFERENCES",
+    "version": "1.0.0",
+    "updated": "2026-10-25",
+    "category": "everyday",
+    "title": {
+      "zh": "学习风格测试",
+      "en": "Learning Style Test"
+    },
+    "description": {
+      "zh": "用20条原创题观察你现在对图示、口头、读写与实例实践的使用意愿。四项均分和全部完整解释免费，无需注册；含同一内容示例、比较与反例，不测学习能力或保证按类型教学更有效。",
+      "en": "Explore four learning-format preferences with 20 original ratings and full free guides. No signup, fixed learner type, ability score or matched-teaching promise."
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "fm_learning_format_preferences_20",
+    "questionCount": 20,
+    "resultSlugs": [
+      "visual",
+      "auditory",
+      "reading-writing",
+      "kinesthetic"
+    ]
   }
 ]

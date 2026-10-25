@@ -1,0 +1,2111 @@
+{
+  "slug": "learning-style",
+  "code": "LEARNING_FORMAT_PREFERENCES",
+  "version": "1.0.0",
+  "updated": "2026-10-25",
+  "category": "everyday",
+  "kind": "likert",
+  "minimumRatedItems": 3,
+  "title": {
+    "zh": "学习风格测试",
+    "en": "Learning Style Test"
+  },
+  "resultHeading": {
+    "zh": "本次四种学习方式偏好",
+    "en": "Your four learning-format preferences"
+  },
+  "description": {
+    "zh": "用20条原创题观察你现在对图示、口头、读写与实例实践的使用意愿。四项均分和全部完整解释免费，无需注册；含同一内容示例、比较与反例，不测学习能力或保证按类型教学更有效。",
+    "en": "Explore four learning-format preferences with 20 original ratings and full free guides. No signup, fixed learner type, ability score or matched-teaching promise."
+  },
+  "seoTitle": {
+    "zh": "学习风格测试：20题、学习偏好与完整结果",
+    "en": "Learning Style Test: 20 Questions, Full Preference Guides"
+  },
+  "minutes": 5,
+  "introduction": {
+    "zh": "面对自己选择的新内容，你现在想先看关系图、听讲解、读写文字，还是看实例并试一小步？本版用20条原创情境描述整理四种形式的使用意愿，不做记忆、速度或理解测验。可以同时想用多种形式，也可以觉得目前都不适合；结果不会把你关进固定学习类型。实际材料、任务与可访问需要仍要分别考虑。",
+    "en": "For new material you chose, would you currently like a diagram, a spoken explanation, written steps or an example and a small trial? Twenty original situation descriptions organise desire for four formats without memory, speed or comprehension testing. You may want several formats or none of those currently available. The result assigns no fixed learner identity; material, task and access needs still matter separately."
+  },
+  "instructions": {
+    "zh": "想一项你自己选择、材料可访问、可安全开展的普通学习内容。对下面每种安排，回答你现在有多想采用，而不是它是否让你学得更快：1完全不想用至5很想用。没有条件判断、不适用或材料不可访问时选NA；不能访问不代表不喜欢或能力不足。全部20条先选择，每部分5条至少3条有效才显示均分；没有反向题，不测记忆、成绩、稳定脑类型或最佳教学方式。",
+    "en": "Think of ordinary learning material you chose, can access and can safely work with. For each arrangement, rate how much you currently want to use it, rather than whether it makes you learn faster: from 1 Not at all to 5 Very much. Use NA when you cannot judge, it is inapplicable or material is inaccessible; lack of access means neither dislike nor low ability. Complete all 20 selections; each five-item part needs three ratings for a mean. There are no reverse items, memory scores, grades, fixed brain types or best-instruction verdicts."
+  },
+  "source": {
+    "kind": "FermatMind originalcurrent-desirelearning-formatreflection/notVARKorKolbinstrument",
+    "formCode": "fm_learning_format_preferences_20",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "ebe115e3138e2d730f45574ba487408a1dd960ca80532fa133a370e1354ba775",
+    "resultContentSha256": "0329303c85abce9a6717fa5b42464a9884553c91ed4f1be1556c69b08bd6450d",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "visual",
+      "title": {
+        "zh": "图示与空间关系",
+        "en": "Diagrams and spatial layout"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "auditory",
+      "title": {
+        "zh": "口头解释与讨论",
+        "en": "Spoken explanation and discussion"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "reading-writing",
+      "title": {
+        "zh": "阅读与书写",
+        "en": "Reading and writing"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "kinesthetic",
+      "title": {
+        "zh": "实例与动手尝试",
+        "en": "Examples and practical trials"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "LEARN_01",
+      "prompt": {
+        "zh": "了解一个普通流程时，我想先看一张标出步骤关系的箭头图。",
+        "en": "For an ordinary process, I would like to begin with an arrow diagram showing how the steps connect."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "visual"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "visual"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "visual"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "visual"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "visual"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "visual"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_02",
+      "prompt": {
+        "zh": "比较几个普通方案时，我想把它们放在一张关系图里查看。",
+        "en": "When comparing ordinary options, I would like to lay them out in a diagram of their relationships."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "visual"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "visual"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "visual"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "visual"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "visual"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "visual"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_03",
+      "prompt": {
+        "zh": "接触一个新概念时，我想用位置和连线整理其中的关系。",
+        "en": "When approaching a new concept, I would like to organise its relationships using positions and connecting lines."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "visual"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "visual"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "visual"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "visual"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "visual"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "visual"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_04",
+      "prompt": {
+        "zh": "回看一段自选内容时，我想画出简略结构图作为自己的整理方式。",
+        "en": "When revisiting something I chose to study, I would like to sketch its structure as a way of organising it."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "visual"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "visual"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "visual"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "visual"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "visual"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "visual"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_05",
+      "prompt": {
+        "zh": "决定从哪里继续了解时，我想在一张概览图上标出已经看过和还想看的部分。",
+        "en": "When deciding what to explore next, I would like to mark visited and remaining parts on an overview diagram."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "visual"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "visual"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "visual"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "visual"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "visual"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "visual"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_06",
+      "prompt": {
+        "zh": "了解一个普通流程时，我想先听一段可以暂停的口头讲解。",
+        "en": "For an ordinary process, I would like to begin with a spoken explanation I can pause."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "auditory"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "auditory"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "auditory"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "auditory"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "auditory"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "auditory"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_07",
+      "prompt": {
+        "zh": "比较几个普通方案时，我想听人把差别说清，再决定是否追问。",
+        "en": "When comparing ordinary options, I would like to hear the differences explained and decide whether to ask more."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "auditory"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "auditory"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "auditory"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "auditory"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "auditory"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "auditory"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_08",
+      "prompt": {
+        "zh": "接触一个新概念时，我想和愿意讨论的人轮流说说各自的理解。",
+        "en": "When approaching a new concept, I would like to take turns discussing our understanding with someone willing to talk."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "auditory"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "auditory"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "auditory"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "auditory"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "auditory"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "auditory"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_09",
+      "prompt": {
+        "zh": "回看一段自选内容时，我想用自己的话口头概括，再决定哪里要重看。",
+        "en": "When revisiting something I chose to study, I would like to summarise it aloud in my own words and decide what to revisit."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "auditory"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "auditory"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "auditory"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "auditory"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "auditory"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "auditory"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_10",
+      "prompt": {
+        "zh": "决定从哪里继续了解时，我想先说出自己的问题，听一听对方的回应。",
+        "en": "When deciding what to explore next, I would like to voice my question and hear someone’s response."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "auditory"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "auditory"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "auditory"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "auditory"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "auditory"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "auditory"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_11",
+      "prompt": {
+        "zh": "了解一个普通流程时，我想先读一份可以自己控制速度的文字步骤。",
+        "en": "For an ordinary process, I would like to begin with written steps I can read at my own pace."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "reading-writing"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_12",
+      "prompt": {
+        "zh": "比较几个普通方案时，我想把每个方案的要点分别写成短句。",
+        "en": "When comparing ordinary options, I would like to write each option’s main points in short sentences."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "reading-writing"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_13",
+      "prompt": {
+        "zh": "接触一个新概念时，我想先读解释，再用自己的文字记下目前的理解。",
+        "en": "When approaching a new concept, I would like to read an explanation and write my current understanding in my own words."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "reading-writing"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_14",
+      "prompt": {
+        "zh": "回看一段自选内容时，我想整理一份文字提纲，而不只是重新复制原文。",
+        "en": "When revisiting something I chose to study, I would like to make a written outline rather than simply copy the original text."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "reading-writing"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_15",
+      "prompt": {
+        "zh": "决定从哪里继续了解时，我想先写下已知、疑问与下一步想查的内容。",
+        "en": "When deciding what to explore next, I would like to list what I know, my questions and what to look into next."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "reading-writing"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_16",
+      "prompt": {
+        "zh": "了解一个普通流程时，我想先看一个安全示例，再在可撤回的练习里试一小步。",
+        "en": "For an ordinary process, I would like to see a safe example and try a small step in a reversible practice task."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "kinesthetic"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_17",
+      "prompt": {
+        "zh": "比较几个普通方案时，我想用空白卡片或示例材料各试一次安排。",
+        "en": "When comparing ordinary options, I would like to try each arrangement with blank cards or sample material."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "kinesthetic"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_18",
+      "prompt": {
+        "zh": "接触一个新概念时，我想找一个普通实例，看看概念在其中怎么使用。",
+        "en": "When approaching a new concept, I would like to examine an ordinary example of how it is used."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "kinesthetic"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_19",
+      "prompt": {
+        "zh": "回看一段自选内容时，我想在一个低风险的小任务里尝试应用它。",
+        "en": "When revisiting something I chose to study, I would like to try using it in a low-risk small task."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "kinesthetic"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_20",
+      "prompt": {
+        "zh": "决定从哪里继续了解时，我想先观察一次安全尝试中哪个步骤还不清楚。",
+        "en": "When deciding what to explore next, I would like to notice which step remains unclear during a safe practical trial."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "kinesthetic"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "visual",
+      "directionIds": [
+        "visual"
+      ],
+      "title": {
+        "zh": "图示偏好：结构、位置与连线",
+        "en": "Visual Preference: Diagrams and Layout"
+      },
+      "headline": {
+        "zh": "这是对当前使用意愿的读法，不是学习效果测量。",
+        "en": "This reads current desire for a format, not measured learning effectiveness."
+      },
+      "summary": {
+        "zh": "本部分观察你现在想不想使用图示与空间布局来接触自选内容。它不测试看图、空间推理、视觉能力或记忆，不把“想用”当作“学得最好”，也不认定你是固定视觉型学习者。",
+        "en": "This part observes your current desire to use diagrams and spatial layout with material you chose. It tests neither diagram reading, spatial reasoning, vision nor memory, and does not turn wanting a format into learning best through it or a fixed visual-learner identity."
+      },
+      "scoreReading": {
+        "zh": "全部20条先选择。每部分5条，至少3条有效评分才计算1完全不想用至5很想用的一位小数均分。没有反向条目，NA排除不补零；最低条数只是本站完整度规则，不是验证过的缺失数据方案。四项分别显示，不合总分，不按最高、近分或并列派类型，不计算脑类型比例。相差0.1不证明显著、能力、效果或改变，有效题数不同也不宜精确比较。",
+        "en": "Complete all 20 selections. Each five-item part needs three ratings for a one-decimal mean from 1 Not at all to 5 Very much wanting to use the format. There are no reverse items; NA is excluded without zero-filling. The minimum is a website completeness rule, not a validated missing-data protocol. Four separate means create no total, highest, close-score or tied type, or brain-type percentages. A 0.1 difference establishes neither significance, ability, effectiveness nor change, and differing rated counts limit precise comparison."
+      },
+      "seo": {
+        "title": {
+          "zh": "图示学习偏好：结构、例子与完整结果",
+          "en": "Visual Learning Preference: Diagrams and Full Guide"
+        },
+        "description": {
+          "zh": "本部分观察你现在想不想使用图示与空间布局来接触自选内容。它不测试看图、空间推理、视觉能力或记忆，不把“想用”当作“学得最好”，也不认定你是固定视觉型学习者。",
+          "en": "Explore current desire for diagrams and layout with a worked example, comparisons and limits. Full free guide without spatial-ability or fixed-learner labels."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本部分描述什么",
+            "en": "What this part describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版把图示理解为用位置、连线、箭头与整体布局呈现关系。题目询问你是否愿意先看、整理或标注这些关系，而不是你实际能读对多少图形。文字也能出现在图里，但仅仅看见文字不自动等于本部分所说的图示；实际材料往往同时含多种形式。",
+              "en": "Diagrams here use position, links, arrows and overall layout to show relationships. Items ask whether you want to view, organise or mark those relationships, not how accurately you read shapes. A diagram can contain words, but seeing written text alone is not the diagrammatic format meant here. Real material often combines several forms."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "较高、较低与混合读法",
+            "en": "Higher, lower and mixed readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高均分只表示本次较想采用所列图示安排，较低表示较少想用，不代表视觉或空间能力高低。你可能在了解流程时想看图，在理解定义时更想读文字；相同或相近的四项均分都保留，不派主导脑类型。缺少可访问材料时的NA不补成不喜欢。",
+              "en": "A higher mean indicates more desire for the listed diagram arrangements in this attempt; a lower mean indicates less, without rating visual or spatial ability. You may want a diagram for a process and text for a definition. Equal or close means remain separate rather than producing a dominant brain type, and inaccessible material marked NA is not dislike."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "同一内容的一种呈现",
+            "en": "One presentation of the same content"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如了解一种虚构的文件命名流程，可在纸上写“草稿→核对日期→保留副本→添加版本名”，再用分支表示“日期未确认则先核对”。箭头展示先后与条件，不能因此证明看图比阅读或听讲更有效；这只是把同一普通内容改成一种可选择的呈现形式。",
+              "en": "For a fictional file-naming process, write “draft → check date → keep a copy → add version name” on paper, with a branch for checking an unconfirmed date. Arrows show order and conditions. This does not prove diagrams outperform reading or listening; it simply represents ordinary content in an optional form."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "选择材料时可以怎样说",
+            "en": "Discussing an arrangement"
+          },
+          "paragraphs": [
+            {
+              "zh": "选择材料时可以说：“我想先看步骤之间怎么连，再对照文字细节。”对方也可以提供文字说明或可访问的替代形式。这个表达例子不意味着你无法听课、不该读书或必须让别人为你重做所有材料；具体需求需要当场讨论，而不是由测试替你规定。",
+              "en": "When choosing material, you might say, “I’d like to see how the steps connect, then check the written details.” Written explanation or another accessible form can remain available. This example implies neither inability to follow speech nor a duty for someone to remake all material. Actual needs require discussion rather than a prescription from this test."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "比较与组合",
+            "en": "Comparisons and combinations"
+          },
+          "paragraphs": [
+            {
+              "zh": "图示侧重关系的布局，读写侧重词句与书面组织，口头侧重声音解释与讨论，实例侧重把内容放进可试的小情境。它们不是四种互斥能力：一个步骤图也可以被口头说明、转写成清单或用卡片演示。均分不能决定哪种组合在某门课程一定有效。",
+              "en": "Diagrams emphasise layout of relationships, writing emphasises words and written organisation, speech concerns explanations and discussion, and examples place content in a trial situation. These are not four exclusive abilities. A flowchart may be narrated, rewritten as a list or demonstrated with cards. Means cannot determine an effective combination for a particular course."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与实际条件",
+            "en": "Counterexamples and actual conditions"
+          },
+          "paragraphs": [
+            {
+              "zh": "喜欢美观图示不等于理解了关系，不喜欢颜色标记也不代表不会学习。某些内容本身需要图形，某些内容需要准确文字，材料形式应考虑任务与可访问需要。不要用本结果限制课程、职业或无障碍安排，也不因结果低就撤掉你实际需要的图示支持。",
+              "en": "Enjoying an attractive diagram does not establish understanding, and disliking colour coding does not establish poor learning. Some content calls for graphics and some for precise text; task and access needs matter. Do not use this result to restrict courses, careers or accommodations, or remove diagram support you actually need because the mean is lower."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，用已有纸张把一个普通小流程画成箭头，再写两句解释，分别记“我想采用哪种”和“哪里还没弄清”。可以只观察偏好，不做成绩比较，也可不做。一次尝试不能验证固定学习类型或匹配教学效果，不需要购买图表工具或公开自己的结果。",
+              "en": "If you wish, sketch an ordinary process with arrows on paper you already have, then write two explanatory sentences. Note separately which form you want to use and what remains unclear. Preference alone may be observed, or the activity skipped. One trial validates neither a fixed style nor matching instruction, and needs no purchase or public result."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "均分、NA与完整度",
+            "en": "Means, NA and completeness"
+          },
+          "paragraphs": [
+            {
+              "zh": "全部20条先选择。每部分5条，至少3条有效评分才计算1完全不想用至5很想用的一位小数均分。没有反向条目，NA排除不补零；最低条数只是本站完整度规则，不是验证过的缺失数据方案。四项分别显示，不合总分，不按最高、近分或并列派类型，不计算脑类型比例。相差0.1不证明显著、能力、效果或改变，有效题数不同也不宜精确比较。",
+              "en": "Complete all 20 selections. Each five-item part needs three ratings for a one-decimal mean from 1 Not at all to 5 Very much wanting to use the format. There are no reverse items; NA is excluded without zero-filling. The minimum is a website completeness rule, not a validated missing-data protocol. Four separate means create no total, highest, close-score or tied type, or brain-type percentages. A 0.1 difference establishes neither significance, ability, effectiveness nor change, and differing rated counts limit precise comparison."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "来源与适用范围",
+            "en": "Source and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版20条题目与四份完整解释由费马独立编写，观察对普通信息形式的当前使用意愿。没有采用、改写或托管VARK问卷、算法、翻译、报告或帮助材料，也不是Kolb等标准工具；常用形式名称不构成原版量表或验证承诺。研究区分表达偏好与按偏好匹配教学的效果，本版没有测实际成绩、记忆、神经类型或教学效果，没有本站信效度、常模或英中文等价验证。不要据此限制课程、无障碍安排、职业或固定分班。",
+              "en": "FermatMind independently authored these 20 items and four full guides about current desire for ordinary information formats. No VARK questionnaire, algorithm, translation, report or helpsheet is used, rewritten or hosted, and this is not a Kolb or other standard instrument. Familiar format names imply no official scale or validation. Expressed preference and the effects of matching instruction are separate questions. This edition measures no grades, memory, brain type or teaching effect and has no local validation, norms or established English–Chinese equivalence. It does not determine courses, accommodations, careers or fixed classroom groups."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "auditory",
+      "directionIds": [
+        "auditory"
+      ],
+      "title": {
+        "zh": "口头偏好：解释、讨论与暂停",
+        "en": "Auditory Preference: Speech and Discussion"
+      },
+      "headline": {
+        "zh": "这是对当前使用意愿的读法，不是学习效果测量。",
+        "en": "This reads current desire for a format, not measured learning effectiveness."
+      },
+      "summary": {
+        "zh": "本部分观察你现在想不想听口头解释、说出理解或参与自愿讨论。它不测听力、语言能力、讲解水平、外向性或记忆，不能从较高均分保证听讲更有效或不需文字支持。",
+        "en": "This part observes your current desire for spoken explanation, expressing understanding aloud or voluntary discussion. It measures neither hearing, language skill, explaining ability, extraversion nor memory, and a higher mean cannot guarantee better learning from speech or no need for written support."
+      },
+      "scoreReading": {
+        "zh": "全部20条先选择。每部分5条，至少3条有效评分才计算1完全不想用至5很想用的一位小数均分。没有反向条目，NA排除不补零；最低条数只是本站完整度规则，不是验证过的缺失数据方案。四项分别显示，不合总分，不按最高、近分或并列派类型，不计算脑类型比例。相差0.1不证明显著、能力、效果或改变，有效题数不同也不宜精确比较。",
+        "en": "Complete all 20 selections. Each five-item part needs three ratings for a one-decimal mean from 1 Not at all to 5 Very much wanting to use the format. There are no reverse items; NA is excluded without zero-filling. The minimum is a website completeness rule, not a validated missing-data protocol. Four separate means create no total, highest, close-score or tied type, or brain-type percentages. A 0.1 difference establishes neither significance, ability, effectiveness nor change, and differing rated counts limit precise comparison."
+      },
+      "seo": {
+        "title": {
+          "zh": "口头学习偏好：讲解、讨论与完整结果",
+          "en": "Auditory Learning Preference: Speech and Full Guide"
+        },
+        "description": {
+          "zh": "本部分观察你现在想不想听口头解释、说出理解或参与自愿讨论。它不测听力、语言能力、讲解水平、外向性或记忆，不能从较高均分保证听讲更有效或不需文字支持。",
+          "en": "Explore spoken explanations and discussion with a worked example and full comparisons. A preference reflection, not a hearing, memory or effectiveness score."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本部分描述什么",
+            "en": "What this part describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版口头偏好涵盖可暂停的讲解、愿意参与的讨论与用自己的话说出问题。重点是你是否想采用这种安排，不是你听一遍能记住多少，也不是别人是否觉得你善于表达。自己开口与听别人说是不同活动，五条题目只是选定范围，不能概括全部语言学习。",
+              "en": "Spoken preference here covers explanations you can pause, willing discussion and voicing a question in your own words. It concerns wanting that arrangement, not recall after one hearing or others’ judgment of your expression. Speaking and listening are different activities; five items cover selected situations rather than all verbal learning."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "较高、较低与混合读法",
+            "en": "Higher, lower and mixed readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高表示本次较想使用这些口头安排，较低表示较少想用，不说明听力或交流能力。可能喜欢和熟人讨论，却不想听长录音；也可能想听概览同时保留文字。所有四项分别显示，不能因一项较高就忽略其他形式，或把暂时无法听到的材料当作低偏好。",
+              "en": "A higher mean means more desire for these spoken arrangements now; a lower mean means less, not hearing or social skill. You may enjoy discussion with someone familiar but not a long recording, or want spoken overview with written detail. Read all four parts separately, without discarding other forms or scoring inaccessible audio as low preference."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "同一内容的一种呈现",
+            "en": "One presentation of the same content"
+          },
+          "paragraphs": [
+            {
+              "zh": "用同一虚构文件流程，可以先听一句：“先核日期，再保留副本，最后添加版本名；日期不清楚就停在核对。”再决定要不要追问步骤理由。这是一份口头呈现示例，不要求实际播放、录音或打开麦克风，也不能据此推断你已经理解或记得更牢。",
+              "en": "For the same fictional file process, a spoken version might be, “Check the date, keep a copy, then add the version name; if the date is unclear, stay at the check.” You may ask why. This example requires no playback, recording or microphone and establishes neither understanding nor stronger retention."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "选择材料时可以怎样说",
+            "en": "Discussing an arrangement"
+          },
+          "paragraphs": [
+            {
+              "zh": "选择安排时可以说：“我想先听简短概览，需要时暂停，再看文字核对。”也可以问讨论伙伴是否愿意、现在是否有空。这个例子不要求别人反复解释，更不代表独自学习做不到；口头偏好不赋予占用他人时间或记录他人声音的许可。",
+              "en": "You might say, “I’d like a short spoken overview, with pauses if needed, then written detail to check.” Ask whether a discussion partner is willing and available. This does not require repeated explanations or imply inability to study alone. A preference grants no right to others’ time or to record their voice."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "比较与组合",
+            "en": "Comparisons and combinations"
+          },
+          "paragraphs": [
+            {
+              "zh": "与读写相比，口头形式可能允许即时来回提问，文字则可自行控制阅读与回看；与图示相比，口头不自动把关系同时排在面前。实例也可以一边演示一边说。这里比较形式特点，不保证某种形式适合你，更不把听讲与真正检验理解当成同一件事。",
+              "en": "Speech may allow immediate questions, while written material can be read and revisited at your own pace. Unlike a diagram, speech need not display relationships simultaneously, and an example can also be narrated. These are format differences, not guarantees of personal suitability. Listening and checking understanding are separate activities."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与实际条件",
+            "en": "Counterexamples and actual conditions"
+          },
+          "paragraphs": [
+            {
+              "zh": "反复听到熟悉内容可能让人觉得容易，但感觉熟悉不等于能独立使用；这份问卷没有实际理解测验。环境噪声、语言、字幕、听觉与隐私需要都可能影响选择。不依据结果认定谁必须安静听课、谁适合讲授职业，或取消可访问的文字与字幕。",
+              "en": "Familiar audio may feel easy, but familiarity does not establish independent use; this questionnaire includes no comprehension task. Noise, language, captions, hearing and privacy needs may affect choice. Do not infer who must learn by listening, who belongs in a speaking career or whether written and caption support can be removed."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，选一段不含私人信息的小内容，先自己说两句，再保留一条文字要点，分别记下想用的形式与未清楚的地方。可完全不录音，不拉别人参与，也可以跳过。一次体验不是正式实验，不证明匹配你的风格就更有效，不需要把结果发给教师或雇主。",
+              "en": "If you wish, choose something small without private information, say two sentences to yourself and keep one written point. Note the desired format separately from remaining uncertainty. No recording, partner or participation is required. One experience is not a formal experiment or proof of matched-style effectiveness, and no teacher or employer needs your result."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "均分、NA与完整度",
+            "en": "Means, NA and completeness"
+          },
+          "paragraphs": [
+            {
+              "zh": "全部20条先选择。每部分5条，至少3条有效评分才计算1完全不想用至5很想用的一位小数均分。没有反向条目，NA排除不补零；最低条数只是本站完整度规则，不是验证过的缺失数据方案。四项分别显示，不合总分，不按最高、近分或并列派类型，不计算脑类型比例。相差0.1不证明显著、能力、效果或改变，有效题数不同也不宜精确比较。",
+              "en": "Complete all 20 selections. Each five-item part needs three ratings for a one-decimal mean from 1 Not at all to 5 Very much wanting to use the format. There are no reverse items; NA is excluded without zero-filling. The minimum is a website completeness rule, not a validated missing-data protocol. Four separate means create no total, highest, close-score or tied type, or brain-type percentages. A 0.1 difference establishes neither significance, ability, effectiveness nor change, and differing rated counts limit precise comparison."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "来源与适用范围",
+            "en": "Source and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版20条题目与四份完整解释由费马独立编写，观察对普通信息形式的当前使用意愿。没有采用、改写或托管VARK问卷、算法、翻译、报告或帮助材料，也不是Kolb等标准工具；常用形式名称不构成原版量表或验证承诺。研究区分表达偏好与按偏好匹配教学的效果，本版没有测实际成绩、记忆、神经类型或教学效果，没有本站信效度、常模或英中文等价验证。不要据此限制课程、无障碍安排、职业或固定分班。",
+              "en": "FermatMind independently authored these 20 items and four full guides about current desire for ordinary information formats. No VARK questionnaire, algorithm, translation, report or helpsheet is used, rewritten or hosted, and this is not a Kolb or other standard instrument. Familiar format names imply no official scale or validation. Expressed preference and the effects of matching instruction are separate questions. This edition measures no grades, memory, brain type or teaching effect and has no local validation, norms or established English–Chinese equivalence. It does not determine courses, accommodations, careers or fixed classroom groups."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reading-writing",
+      "directionIds": [
+        "reading-writing"
+      ],
+      "title": {
+        "zh": "读写偏好：文字、提纲与问题",
+        "en": "Read–Write Preference: Words and Outlines"
+      },
+      "headline": {
+        "zh": "这是对当前使用意愿的读法，不是学习效果测量。",
+        "en": "This reads current desire for a format, not measured learning effectiveness."
+      },
+      "summary": {
+        "zh": "本部分观察你现在想不想通过文字步骤、自己的笔记与书面问题来接触内容。它不测阅读理解、写作水平、学历或考试能力，不从喜欢文字推断学得更快，也不要求放弃图示、口头或实践形式。",
+        "en": "This part observes your current desire for written steps, your own notes and written questions. It measures neither reading comprehension, writing skill, education nor exam ability, and does not infer faster learning from liking text or require abandoning diagrams, speech or practice."
+      },
+      "scoreReading": {
+        "zh": "全部20条先选择。每部分5条，至少3条有效评分才计算1完全不想用至5很想用的一位小数均分。没有反向条目，NA排除不补零；最低条数只是本站完整度规则，不是验证过的缺失数据方案。四项分别显示，不合总分，不按最高、近分或并列派类型，不计算脑类型比例。相差0.1不证明显著、能力、效果或改变，有效题数不同也不宜精确比较。",
+        "en": "Complete all 20 selections. Each five-item part needs three ratings for a one-decimal mean from 1 Not at all to 5 Very much wanting to use the format. There are no reverse items; NA is excluded without zero-filling. The minimum is a website completeness rule, not a validated missing-data protocol. Four separate means create no total, highest, close-score or tied type, or brain-type percentages. A 0.1 difference establishes neither significance, ability, effectiveness nor change, and differing rated counts limit precise comparison."
+      },
+      "seo": {
+        "title": {
+          "zh": "读写学习偏好：文字、提纲与完整结果",
+          "en": "Read–Write Learning Preference: Words and Full Guide"
+        },
+        "description": {
+          "zh": "本部分观察你现在想不想通过文字步骤、自己的笔记与书面问题来接触内容。它不测阅读理解、写作水平、学历或考试能力，不从喜欢文字推断学得更快，也不要求放弃图示、口头或实践形式。",
+          "en": "Read about wanting written steps, notes and questions through a full example and comparisons. No literacy, grade, fixed-style or teaching-effect verdict."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本部分描述什么",
+            "en": "What this part describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版读写偏好包括按自己的速度读步骤、用短句比较方案、写出当前理解和待查问题。它关注是否想使用这些安排，不评定文章好坏或词汇量。读与写本来就是不同活动，五条描述不代表它们总会同时出现，也不是完整语言能力量表。",
+              "en": "Read–write preference here includes reading steps at your pace, comparing options in sentences, writing current understanding and listing questions. It concerns wanting these arrangements rather than prose quality or vocabulary. Reading and writing are different activities; five descriptions neither establish that they always occur together nor form a complete language-ability scale."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "较高、较低与混合读法",
+            "en": "Higher, lower and mixed readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高表示本次更想采用所列文字形式，较低表示较少想用，不等于识字、写作或学习能力高低。你可能喜欢读概览却不想长篇记笔记，也可能只在某个主题想写提纲。四项均分可以同时较高或较低，不靠最高项决定主类型；NA不当作否定文字。",
+              "en": "A higher mean indicates more desire for the listed written formats now, and a lower mean less, without rating literacy, writing or learning ability. You might want a short overview without extensive notes, or an outline only for one topic. All four means can be higher or lower together. No highest mean assigns a type, and NA is not rejection of text."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "同一内容的一种呈现",
+            "en": "One presentation of the same content"
+          },
+          "paragraphs": [
+            {
+              "zh": "同一虚构文件命名流程可以写成：“先确认日期；保留原稿副本；为副本增加版本名。”再写一个问题：“日期不明确时停在哪一步？”短句把顺序与不确定项留下来，但这只是示例内容；写过一遍不代表理解或记忆已被测量，也不要求真正操作任何文件。",
+              "en": "The same fictional naming process can be written as, “Confirm the date; keep an original copy; add a version name to the copy.” Add a question: “Where do I pause if the date is unclear?” Sentences preserve order and uncertainty, but writing them measures neither understanding nor memory and requires no actual file changes."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "选择材料时可以怎样说",
+            "en": "Discussing an arrangement"
+          },
+          "paragraphs": [
+            {
+              "zh": "选择资料时可以说：“我想要可回看的文字步骤，再按需要看演示。”如果你需要更易读的格式、替代文本或语言支持，也可以另行说明。这些需要不由均分批准或否定。报告不要求写完整笔记，也不让别人的学习方式成为你必须遵守的标准。",
+              "en": "You might ask for written steps you can revisit, with a demonstration if wanted. Accessible formatting, alternative text and language support can be requested separately; a mean neither approves nor denies those needs. This report requires no complete notes and does not make another person’s study arrangement your rule."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "比较与组合",
+            "en": "Comparisons and combinations"
+          },
+          "paragraphs": [
+            {
+              "zh": "与图示相比，读写侧重词句与顺序表达，图示侧重关系的空间布局；与口头相比，文字可能便于停下回看，但具体阅读负担因材料而异。实践中的动作也可能需要文字提醒。形式可以结合，不能由偏好把学习活动分成只属于四类人的固定路线。",
+              "en": "Read–write formats emphasise words and expressed sequence, while diagrams emphasise spatial relationships. Text may allow pausing and revisiting, but its demands vary by material. Practical actions may also need written reminders. Formats can combine without turning preferences into four exclusive paths for four kinds of person."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与实际条件",
+            "en": "Counterexamples and actual conditions"
+          },
+          "paragraphs": [
+            {
+              "zh": "觉得某段文字熟悉，不等于合上材料后能说明或使用；本测验没有实际回忆与理解考核。文字多也不必然比图示清楚，有些任务本来需要看位置或尝试操作。不要依据结果选学校、职业、考试安排或给孩子分班，也不要把低均分解释为阅读困难诊断。",
+              "en": "Familiar wording does not establish explaining or using it without the material; this questionnaire includes no recall or comprehension assessment. More text is not necessarily clearer, and some tasks require spatial information or practical trials. Do not use the result for school, career, exam arrangements or classroom grouping, or interpret a lower mean as a reading-difficulty diagnosis."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，用一段普通、不含私人信息的内容写三行自己的理解，再另写一处想继续核对的问题。分别记录是否想采用这种形式与内容是否仍不清楚，可以不进行成绩比较，也可以跳过。不要因记录偏好就认定方法已被验证，或为了更像“读写型”强迫自己持续记笔记。",
+              "en": "If you wish, write three lines of your understanding of ordinary, non-private material, plus one question to check. Record desire for the format separately from remaining uncertainty. No score comparison is needed, and you may skip it. A preference record validates no method and creates no duty to keep taking notes to resemble a read–write type."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "均分、NA与完整度",
+            "en": "Means, NA and completeness"
+          },
+          "paragraphs": [
+            {
+              "zh": "全部20条先选择。每部分5条，至少3条有效评分才计算1完全不想用至5很想用的一位小数均分。没有反向条目，NA排除不补零；最低条数只是本站完整度规则，不是验证过的缺失数据方案。四项分别显示，不合总分，不按最高、近分或并列派类型，不计算脑类型比例。相差0.1不证明显著、能力、效果或改变，有效题数不同也不宜精确比较。",
+              "en": "Complete all 20 selections. Each five-item part needs three ratings for a one-decimal mean from 1 Not at all to 5 Very much wanting to use the format. There are no reverse items; NA is excluded without zero-filling. The minimum is a website completeness rule, not a validated missing-data protocol. Four separate means create no total, highest, close-score or tied type, or brain-type percentages. A 0.1 difference establishes neither significance, ability, effectiveness nor change, and differing rated counts limit precise comparison."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "来源与适用范围",
+            "en": "Source and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版20条题目与四份完整解释由费马独立编写，观察对普通信息形式的当前使用意愿。没有采用、改写或托管VARK问卷、算法、翻译、报告或帮助材料，也不是Kolb等标准工具；常用形式名称不构成原版量表或验证承诺。研究区分表达偏好与按偏好匹配教学的效果，本版没有测实际成绩、记忆、神经类型或教学效果，没有本站信效度、常模或英中文等价验证。不要据此限制课程、无障碍安排、职业或固定分班。",
+              "en": "FermatMind independently authored these 20 items and four full guides about current desire for ordinary information formats. No VARK questionnaire, algorithm, translation, report or helpsheet is used, rewritten or hosted, and this is not a Kolb or other standard instrument. Familiar format names imply no official scale or validation. Expressed preference and the effects of matching instruction are separate questions. This edition measures no grades, memory, brain type or teaching effect and has no local validation, norms or established English–Chinese equivalence. It does not determine courses, accommodations, careers or fixed classroom groups."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kinesthetic",
+      "directionIds": [
+        "kinesthetic"
+      ],
+      "title": {
+        "zh": "实例实践偏好：示例、尝试与边界",
+        "en": "Practical Preference: Examples and Trials"
+      },
+      "headline": {
+        "zh": "这是对当前使用意愿的读法，不是学习效果测量。",
+        "en": "This reads current desire for a format, not measured learning effectiveness."
+      },
+      "summary": {
+        "zh": "本部分观察你现在想不想通过普通实例、可撤回的小尝试或示例材料来接触内容。它不测动作能力、动手天赋、注意力或职业适合，也不将喜欢实践解释为坐不住的原因。",
+        "en": "This part observes your current desire for ordinary examples, reversible small trials or sample material. It measures neither movement skill, practical talent, attention nor career fit, and does not interpret a preference for practice as the cause of restlessness."
+      },
+      "scoreReading": {
+        "zh": "全部20条先选择。每部分5条，至少3条有效评分才计算1完全不想用至5很想用的一位小数均分。没有反向条目，NA排除不补零；最低条数只是本站完整度规则，不是验证过的缺失数据方案。四项分别显示，不合总分，不按最高、近分或并列派类型，不计算脑类型比例。相差0.1不证明显著、能力、效果或改变，有效题数不同也不宜精确比较。",
+        "en": "Complete all 20 selections. Each five-item part needs three ratings for a one-decimal mean from 1 Not at all to 5 Very much wanting to use the format. There are no reverse items; NA is excluded without zero-filling. The minimum is a website completeness rule, not a validated missing-data protocol. Four separate means create no total, highest, close-score or tied type, or brain-type percentages. A 0.1 difference establishes neither significance, ability, effectiveness nor change, and differing rated counts limit precise comparison."
+      },
+      "seo": {
+        "title": {
+          "zh": "实例实践学习偏好：尝试、示例与完整结果",
+          "en": "Practical Learning Preference: Examples and Full Guide"
+        },
+        "description": {
+          "zh": "本部分观察你现在想不想通过普通实例、可撤回的小尝试或示例材料来接触内容。它不测动作能力、动手天赋、注意力或职业适合，也不将喜欢实践解释为坐不住的原因。",
+          "en": "Explore desire for examples and safe practical trials through a full worked example. No movement skill, attention, career or matched-instruction verdict."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本部分描述什么",
+            "en": "What this part describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "“动觉／实践”在本版仅指选定的实例与安全尝试形式，范围不限于身体运动，也不以运动多少计分。你可能想看具体案例、摆一摆示例卡片或试一个可撤回的小步骤。题目问是否想采用，不测实际操作质量，也不把喜欢实例当作所有内容都必须亲手做。",
+              "en": "“Kinesthetic/practical” refers here only to selected examples and safe trials, not simply bodily movement or an amount of exercise. You might want a concrete case, sample cards or a reversible step. Items ask whether you want these arrangements, not the quality of actual action or a need to perform every topic physically."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "较高、较低与混合读法",
+            "en": "Higher, lower and mixed readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高表示本次更想用这些实例与尝试，较低表示较少想用，不证明动手或学习能力。你可能喜欢先看演示但今天不想动手，也可能因材料不可访问而选NA。四部分全部保留，不把实践均分最高当作身体型脑身份，也不把低分当作不敢尝试。",
+              "en": "A higher mean indicates more desire for these examples and trials now; a lower mean less, without rating practical or learning skill. You may want a demonstration but not action today, or mark NA when material is inaccessible. All four parts remain available. A highest practical mean creates no bodily brain identity, and a lower one does not establish reluctance to try."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "同一内容的一种呈现",
+            "en": "One presentation of the same content"
+          },
+          "paragraphs": [
+            {
+              "zh": "同一虚构文件流程可以用两张空白纸卡模拟：一张写“原稿”，另一张写“副本”；只在副本卡片写日期与版本名，日期不明时先留空。这样能看见一次安排怎样展开，不涉及真实文件操作，也不能把完成纸卡例子当成已经掌握文件管理或适合相关职业。",
+              "en": "For the same fictional process, label two blank cards “original” and “copy.” Add a date and version name only to the copy card, leaving the date blank if unclear. This shows one arrangement without changing real files. Completing the card example establishes neither file-management competence nor suitability for a related career."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "选择材料时可以怎样说",
+            "en": "Discussing an arrangement"
+          },
+          "paragraphs": [
+            {
+              "zh": "选择安排时可以说：“我想先看一个普通例子，再决定要不要试一小步；需要的规则请保留给我。”这不要求跳过说明或安全指导，也不让别人必须提供器材。可撤回、能停止、材料可访问，都应先核对；不由测试结果替你作出活动安全判断。",
+              "en": "You might ask to see an ordinary example before deciding whether to try a small step, with the necessary rules retained. This does not ask to bypass instructions or safety guidance or require someone else to supply equipment. Reversibility, stopping and access need checking; the result does not decide an activity’s safety."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "比较与组合",
+            "en": "Comparisons and combinations"
+          },
+          "paragraphs": [
+            {
+              "zh": "实例可以同时包含图示、文字和口头说明，所以实践不必与另外三项竞争。图示展示关系，文字留下规则，口头允许提问，而尝试让你接触一个具体使用情境。这里比较参与形式，不宣称每个人都要混合到固定比例，也不从一次偏好计算最优教学配方。",
+              "en": "An example can include diagrams, text and speech, so practice need not compete with the other three parts. Diagrams display relationships, text preserves rules, speech permits questions and a trial supplies a concrete use context. These are participation formats, not a prescribed mixture or an optimal teaching formula calculated from one preference attempt."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与实际条件",
+            "en": "Counterexamples and actual conditions"
+          },
+          "paragraphs": [
+            {
+              "zh": "有些技能按真实任务需要练习，与个人偏好无关；另一些内容先要理解规则或获取资料，不能盲目试。坐着不舒服也可能有多种原因，这份题本没有测量原因。不要依据结果安排危险实践、否定休息与无障碍需要，或判断谁适合外科、运动、技工等职业。",
+              "en": "Some skills require practice because of the task, irrespective of preference. Other content needs rules or information before any trial. Discomfort sitting can have many causes that this questionnaire never measures. Do not use the result to assign hazardous practice, deny rest or access needs, or judge suitability for surgery, sport, trades or other work."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，只用纸卡或虚构材料摆一次简单步骤，再用一句话说明哪里还想了解。可以仅看示例、不操作，也可以不做。保持在自有纸卡和虚构材料里即可；一次安全体验只供观察想用的形式，不构成能力测试或验证按风格教学的实验。",
+              "en": "If you wish, arrange one simple sequence using cards or fictional material and name something you still want to understand. Looking only, taking no action or skipping it are all options. Keep it to your own cards and fictional material. One safe experience observes a desired format, not ability or experimentally validated matching instruction."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "均分、NA与完整度",
+            "en": "Means, NA and completeness"
+          },
+          "paragraphs": [
+            {
+              "zh": "全部20条先选择。每部分5条，至少3条有效评分才计算1完全不想用至5很想用的一位小数均分。没有反向条目，NA排除不补零；最低条数只是本站完整度规则，不是验证过的缺失数据方案。四项分别显示，不合总分，不按最高、近分或并列派类型，不计算脑类型比例。相差0.1不证明显著、能力、效果或改变，有效题数不同也不宜精确比较。",
+              "en": "Complete all 20 selections. Each five-item part needs three ratings for a one-decimal mean from 1 Not at all to 5 Very much wanting to use the format. There are no reverse items; NA is excluded without zero-filling. The minimum is a website completeness rule, not a validated missing-data protocol. Four separate means create no total, highest, close-score or tied type, or brain-type percentages. A 0.1 difference establishes neither significance, ability, effectiveness nor change, and differing rated counts limit precise comparison."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "来源与适用范围",
+            "en": "Source and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版20条题目与四份完整解释由费马独立编写，观察对普通信息形式的当前使用意愿。没有采用、改写或托管VARK问卷、算法、翻译、报告或帮助材料，也不是Kolb等标准工具；常用形式名称不构成原版量表或验证承诺。研究区分表达偏好与按偏好匹配教学的效果，本版没有测实际成绩、记忆、神经类型或教学效果，没有本站信效度、常模或英中文等价验证。不要据此限制课程、无障碍安排、职业或固定分班。",
+              "en": "FermatMind independently authored these 20 items and four full guides about current desire for ordinary information formats. No VARK questionnaire, algorithm, translation, report or helpsheet is used, rewritten or hosted, and this is not a Kolb or other standard instrument. Familiar format names imply no official scale or validation. Expressed preference and the effects of matching instruction are separate questions. This edition measures no grades, memory, brain type or teaching effect and has no local validation, norms or established English–Chinese equivalence. It does not determine courses, accommodations, careers or fixed classroom groups."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "zh": "当前意愿怎样计算",
+        "en": "Calculating current desire"
+      },
+      "paragraphs": [
+        {
+          "zh": "全部20条先选择。每部分5条，至少3条有效评分才计算1完全不想用至5很想用的一位小数均分。没有反向条目，NA排除不补零；最低条数只是本站完整度规则，不是验证过的缺失数据方案。四项分别显示，不合总分，不按最高、近分或并列派类型，不计算脑类型比例。相差0.1不证明显著、能力、效果或改变，有效题数不同也不宜精确比较。",
+          "en": "Complete all 20 selections. Each five-item part needs three ratings for a one-decimal mean from 1 Not at all to 5 Very much wanting to use the format. There are no reverse items; NA is excluded without zero-filling. The minimum is a website completeness rule, not a validated missing-data protocol. Four separate means create no total, highest, close-score or tied type, or brain-type percentages. A 0.1 difference establishes neither significance, ability, effectiveness nor change, and differing rated counts limit precise comparison."
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "zh": "偏好与学习效果分开",
+        "en": "Preference and learning effects differ"
+      },
+      "paragraphs": [
+        {
+          "zh": "本次“想用”不能证明哪种方法让你学得更快、记得更久或成绩更高。四份公开说明都可先读，全部结果保留高低与混合读法、同一内容的不同呈现和反例，不派主导或固定脑类型，也不把四项之和变成占比。",
+          "en": "Wanting a format here does not establish faster learning, longer retention or higher grades. All four public guides are available first, retaining higher, lower and mixed readings, alternative presentations of the same content and counterexamples. There is no dominant or fixed brain type or percentage based on summed means."
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "zh": "多种形式、情境与NA",
+        "en": "Multiple formats, context and NA"
+      },
+      "paragraphs": [
+        {
+          "zh": "图示、口头、读写和实例可能出现在同一份材料里。均分相同就如实显示，相近不强行归型；都较高不认证全面，都较低不代表不会学习。材料不可访问或无法判断时选NA，不把无障碍需要当低偏好；本测试不决定你应获得哪些支持。",
+          "en": "Diagrams, speech, text and examples can appear in one resource. Equal means remain equal and close means assign no type. All-high responses certify no all-round ability, and all-low responses imply no learning deficit. Use NA for inaccessible material or inability to judge; access needs are not low preferences, and this test does not decide support."
+        }
+      ]
+    },
+    {
+      "id": "evidence",
+      "title": {
+        "zh": "研究读到哪里，支持什么",
+        "en": "What the research reading supports"
+      },
+      "paragraphs": [
+        {
+          "zh": "Pashler等（2008）的正式摘要区分表达偏好与按类型匹配教学的效果，指出当时支持普遍教育应用的充分证据不足，也提醒不能据此断言所有可能版本都被检验。Brown（2023）的叙述综述所读摘要、部分证据与讨论继续未支持匹配假说。本次未全文复审两篇，不从中推导“所有人混合某比例最好”，更不把研究当本站20题有效的证明。",
+          "en": "The formal abstract by Pashler and colleagues (2008) distinguishes expressed preferences from instructional matching, finding insufficient evidence then for general educational application while cautioning that not every possible version had been tested. The abstract, selected evidence and discussion read in Brown’s 2023 narrative review likewise do not support the meshing hypothesis. Neither paper was fully reviewed here. They establish neither an ideal mixture for everyone nor validity of these 20 items."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "原创题目与版本范围",
+        "en": "Original items and edition scope"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版20条题目与四份完整解释由费马独立编写，观察对普通信息形式的当前使用意愿。没有采用、改写或托管VARK问卷、算法、翻译、报告或帮助材料，也不是Kolb等标准工具；常用形式名称不构成原版量表或验证承诺。研究区分表达偏好与按偏好匹配教学的效果，本版没有测实际成绩、记忆、神经类型或教学效果，没有本站信效度、常模或英中文等价验证。不要据此限制课程、无障碍安排、职业或固定分班。",
+          "en": "FermatMind independently authored these 20 items and four full guides about current desire for ordinary information formats. No VARK questionnaire, algorithm, translation, report or helpsheet is used, rewritten or hosted, and this is not a Kolb or other standard instrument. Familiar format names imply no official scale or validation. Expressed preference and the effects of matching instruction are separate questions. This edition measures no grades, memory, brain type or teaching effect and has no local validation, norms or established English–Chinese equivalence. It does not determine courses, accommodations, careers or fixed classroom groups."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "草稿、分享与选择",
+        "en": "Drafts, sharing and choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "答案在浏览器内计算，不上传答卷、不进入网址或分析事件。草稿仅在主动保存后留在当前标签页，24小时失效，完成、退出清除或重测即删除。分享可选，只含公开说明或入口，不含个人均分和答卷。完整内容无需注册、邮箱或先做MBTI；后续测评是另一套任务，不能换算本次学习偏好。",
+          "en": "Answers are calculated in your browser without uploading an answer sheet or placing answers in URLs or analytics. Drafts require opt-in, remain in the current tab for up to 24 hours and clear on completion, exit-and-clear or retake. Optional sharing contains only a public guide or entry, not means or answers. Full content needs no signup, email or prerequisite MBTI; later assessments are separate tasks and cannot convert these preferences."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "能测我怎样学最有效吗？",
+        "en": "Does this show how I learn most effectively?"
+      },
+      "answer": {
+        "zh": "不能。题目只询问你现在多想采用某些形式，没有实测理解、回忆、速度或成绩。偏好与有效性是不同问题，不能仅凭均分规定只用一种形式或承诺匹配教学能提升结果。",
+        "en": "No. Items ask how much you currently want particular formats, without testing comprehension, recall, speed or grades. Preference and effectiveness are different questions; a mean cannot prescribe a single format or promise benefits from matching instruction."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是VARK、VAK或Kolb原版测试吗？",
+        "en": "Is this the official VARK, VAK or Kolb test?"
+      },
+      "answer": {
+        "zh": "这是费马独立编写的20条普通学习形式偏好自评，不采用VARK或Kolb题本、算法、报告或译文。四种常用形式不能说明它与其他工具等价，也不将结果换算为其分类或分数。",
+        "en": "This is FermatMind’s original 20-item ordinary learning-format reflection, using no VARK or Kolb items, algorithms, reports or translations. Familiar formats do not establish equivalence with another instrument, and results do not convert to its categories or scores."
+      }
+    },
+    {
+      "question": {
+        "zh": "没有明显最高项、四项都低或资料不足怎么办？",
+        "en": "What if there is no clear highest mean, all are low or information is insufficient?"
+      },
+      "answer": {
+        "zh": "四项各5条、至少3条有效才显示均分，NA排除不补零。相同、相近、都高或都低都不强行派型；资料不足也保留全部四份完整说明。它不能诊断不会学习、缺少兴趣或学习障碍。",
+        "en": "Each five-item part needs three ratings for a mean, excluding NA without zero-filling. Equal, close, all-high or all-low means assign no type. Insufficient information still retains all four full guides and cannot diagnose inability to learn, lack of interest or a learning difficulty."
+      }
+    },
+    {
+      "question": {
+        "zh": "结果和全部说明免费吗？是否要提交学校或雇主？",
+        "en": "Are all guides free, and must I share with a school or employer?"
+      },
+      "answer": {
+        "zh": "20题、四项均分与所有完整说明全部免费，无需注册、邮箱或后续购买。可以不分享，也不用于分班、升学、录用、职业能力或无障碍安排决定。所有小观察都可跳过。",
+        "en": "All 20 items, four means and full guides are free, without signup, email or a later purchase. Sharing is optional. Results are not for classroom groups, admissions, hiring, work-ability or accommodation decisions, and every observation can be skipped."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "Pashler等（2008）：正式摘要，未全文复审",
+        "en": "Pashler and colleagues (2008): formal abstract, not full review"
+      },
+      "url": "https://www.psychologicalscience.org/journals/pspi/j.1539-6053.2009.01038.x/"
+    },
+    {
+      "title": {
+        "zh": "Brown（2023）：叙述综述，所读范围见说明",
+        "en": "Brown (2023): narrative review; reading scope stated above"
+      },
+      "url": "https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2023.1147498/full"
+    },
+    {
+      "title": {
+        "zh": "VARK官方材料使用条件；本版未采用其材料",
+        "en": "VARK material-use terms; no materials adopted here"
+      },
+      "url": "https://vark-learn.com/copyright-information/"
+    }
+  ]
+}

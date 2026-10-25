@@ -1,0 +1,1358 @@
+{
+  "formCode": "fm_learning_format_preferences_20",
+  "itemBankVersion": "1.0.0",
+  "origin": "20originalFermatMindENZHcurrentwanttouseordinarylearningformats;notVARKorKolbitems/algorithm",
+  "directions": [
+    {
+      "id": "visual",
+      "title": {
+        "zh": "图示与空间关系",
+        "en": "Diagrams and spatial layout"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "auditory",
+      "title": {
+        "zh": "口头解释与讨论",
+        "en": "Spoken explanation and discussion"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "reading-writing",
+      "title": {
+        "zh": "阅读与书写",
+        "en": "Reading and writing"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "kinesthetic",
+      "title": {
+        "zh": "实例与动手尝试",
+        "en": "Examples and practical trials"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "LEARN_01",
+      "prompt": {
+        "zh": "了解一个普通流程时，我想先看一张标出步骤关系的箭头图。",
+        "en": "For an ordinary process, I would like to begin with an arrow diagram showing how the steps connect."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "visual"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "visual"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "visual"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "visual"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "visual"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "visual"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_02",
+      "prompt": {
+        "zh": "比较几个普通方案时，我想把它们放在一张关系图里查看。",
+        "en": "When comparing ordinary options, I would like to lay them out in a diagram of their relationships."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "visual"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "visual"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "visual"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "visual"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "visual"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "visual"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_03",
+      "prompt": {
+        "zh": "接触一个新概念时，我想用位置和连线整理其中的关系。",
+        "en": "When approaching a new concept, I would like to organise its relationships using positions and connecting lines."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "visual"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "visual"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "visual"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "visual"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "visual"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "visual"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_04",
+      "prompt": {
+        "zh": "回看一段自选内容时，我想画出简略结构图作为自己的整理方式。",
+        "en": "When revisiting something I chose to study, I would like to sketch its structure as a way of organising it."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "visual"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "visual"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "visual"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "visual"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "visual"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "visual"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_05",
+      "prompt": {
+        "zh": "决定从哪里继续了解时，我想在一张概览图上标出已经看过和还想看的部分。",
+        "en": "When deciding what to explore next, I would like to mark visited and remaining parts on an overview diagram."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "visual"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "visual"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "visual"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "visual"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "visual"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "visual"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_06",
+      "prompt": {
+        "zh": "了解一个普通流程时，我想先听一段可以暂停的口头讲解。",
+        "en": "For an ordinary process, I would like to begin with a spoken explanation I can pause."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "auditory"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "auditory"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "auditory"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "auditory"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "auditory"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "auditory"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_07",
+      "prompt": {
+        "zh": "比较几个普通方案时，我想听人把差别说清，再决定是否追问。",
+        "en": "When comparing ordinary options, I would like to hear the differences explained and decide whether to ask more."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "auditory"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "auditory"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "auditory"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "auditory"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "auditory"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "auditory"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_08",
+      "prompt": {
+        "zh": "接触一个新概念时，我想和愿意讨论的人轮流说说各自的理解。",
+        "en": "When approaching a new concept, I would like to take turns discussing our understanding with someone willing to talk."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "auditory"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "auditory"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "auditory"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "auditory"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "auditory"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "auditory"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_09",
+      "prompt": {
+        "zh": "回看一段自选内容时，我想用自己的话口头概括，再决定哪里要重看。",
+        "en": "When revisiting something I chose to study, I would like to summarise it aloud in my own words and decide what to revisit."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "auditory"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "auditory"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "auditory"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "auditory"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "auditory"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "auditory"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_10",
+      "prompt": {
+        "zh": "决定从哪里继续了解时，我想先说出自己的问题，听一听对方的回应。",
+        "en": "When deciding what to explore next, I would like to voice my question and hear someone’s response."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "auditory"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "auditory"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "auditory"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "auditory"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "auditory"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "auditory"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_11",
+      "prompt": {
+        "zh": "了解一个普通流程时，我想先读一份可以自己控制速度的文字步骤。",
+        "en": "For an ordinary process, I would like to begin with written steps I can read at my own pace."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "reading-writing"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_12",
+      "prompt": {
+        "zh": "比较几个普通方案时，我想把每个方案的要点分别写成短句。",
+        "en": "When comparing ordinary options, I would like to write each option’s main points in short sentences."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "reading-writing"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_13",
+      "prompt": {
+        "zh": "接触一个新概念时，我想先读解释，再用自己的文字记下目前的理解。",
+        "en": "When approaching a new concept, I would like to read an explanation and write my current understanding in my own words."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "reading-writing"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_14",
+      "prompt": {
+        "zh": "回看一段自选内容时，我想整理一份文字提纲，而不只是重新复制原文。",
+        "en": "When revisiting something I chose to study, I would like to make a written outline rather than simply copy the original text."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "reading-writing"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_15",
+      "prompt": {
+        "zh": "决定从哪里继续了解时，我想先写下已知、疑问与下一步想查的内容。",
+        "en": "When deciding what to explore next, I would like to list what I know, my questions and what to look into next."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "reading-writing"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "reading-writing"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_16",
+      "prompt": {
+        "zh": "了解一个普通流程时，我想先看一个安全示例，再在可撤回的练习里试一小步。",
+        "en": "For an ordinary process, I would like to see a safe example and try a small step in a reversible practice task."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "kinesthetic"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_17",
+      "prompt": {
+        "zh": "比较几个普通方案时，我想用空白卡片或示例材料各试一次安排。",
+        "en": "When comparing ordinary options, I would like to try each arrangement with blank cards or sample material."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "kinesthetic"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_18",
+      "prompt": {
+        "zh": "接触一个新概念时，我想找一个普通实例，看看概念在其中怎么使用。",
+        "en": "When approaching a new concept, I would like to examine an ordinary example of how it is used."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "kinesthetic"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_19",
+      "prompt": {
+        "zh": "回看一段自选内容时，我想在一个低风险的小任务里尝试应用它。",
+        "en": "When revisiting something I chose to study, I would like to try using it in a low-risk small task."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "kinesthetic"
+        }
+      ]
+    },
+    {
+      "id": "LEARN_20",
+      "prompt": {
+        "zh": "决定从哪里继续了解时，我想先观察一次安全尝试中哪个步骤还不清楚。",
+        "en": "When deciding what to explore next, I would like to notice which step remains unclear during a safe practical trial."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不想用",
+            "en": "Not at all"
+          },
+          "score": 1,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不太想用",
+            "en": "Not much"
+          },
+          "score": 2,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "一般",
+            "en": "Moderately"
+          },
+          "score": 3,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较想用",
+            "en": "Quite a lot"
+          },
+          "score": 4,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很想用",
+            "en": "Very much"
+          },
+          "score": 5,
+          "directionId": "kinesthetic"
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断／不适用",
+            "en": "Cannot judge / not applicable"
+          },
+          "score": null,
+          "directionId": "kinesthetic"
+        }
+      ]
+    }
+  ],
+  "coverage": "4genericformats5itemseach/no reverse/currentdesirenotabilityorlearningeffectiveness",
+  "scoring": {
+    "minimumRatedItems": 3,
+    "itemCountEach": 5,
+    "round": "one decimal",
+    "NA": "excluded/notzero",
+    "all_items_required": true,
+    "no_reverse": true,
+    "no_total": true,
+    "no_type_or_winner": true,
+    "no_norm": true,
+    "no_effectiveness_inference": true
+  },
+  "references": [
+    {
+      "title": {
+        "zh": "Pashler等（2008）：正式摘要，未全文复审",
+        "en": "Pashler and colleagues (2008): formal abstract, not full review"
+      },
+      "url": "https://www.psychologicalscience.org/journals/pspi/j.1539-6053.2009.01038.x/"
+    },
+    {
+      "title": {
+        "zh": "Brown（2023）：叙述综述，所读范围见说明",
+        "en": "Brown (2023): narrative review; reading scope stated above"
+      },
+      "url": "https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2023.1147498/full"
+    },
+    {
+      "title": {
+        "zh": "VARK官方材料使用条件；本版未采用其材料",
+        "en": "VARK material-use terms; no materials adopted here"
+      },
+      "url": "https://vark-learn.com/copyright-information/"
+    }
+  ],
+  "licence_scope": "Originalitemsandguides;noVARKquestionnaire/translations/algorithms/reports/helpsheetsorotherstandardbankused"
+}
