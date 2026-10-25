@@ -1,0 +1,3450 @@
+{
+  "code": "LOVE_LANGUAGE_REFLECTION_50",
+  "formCode": "fm_love_languages_bidirectional_mean_50",
+  "itemBankVersion": "1.0.0",
+  "origin": "FermatMind independently authored bilingual meaningfulness ratings using five familiar conceptual categories discussed in GaryChapmanbook;notThe5LoveLanguagesofficialquiz/LLPPorlicenseditembank",
+  "directions": [
+    {
+      "id": "giving_words",
+      "title": {
+        "zh": "肯定言语 · 给予",
+        "en": "Words of affirmation · Giving"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "giving_acts",
+      "title": {
+        "zh": "行动支持 · 给予",
+        "en": "Acts of service · Giving"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "giving_gifts",
+      "title": {
+        "zh": "心意礼物 · 给予",
+        "en": "Gifts · Giving"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "giving_time",
+      "title": {
+        "zh": "专注陪伴 · 给予",
+        "en": "Quality time · Giving"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "giving_touch",
+      "title": {
+        "zh": "自愿身体接触 · 给予",
+        "en": "Welcome physical touch · Giving"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "receiving_words",
+      "title": {
+        "zh": "肯定言语 · 接收",
+        "en": "Words of affirmation · Receiving"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "receiving_acts",
+      "title": {
+        "zh": "行动支持 · 接收",
+        "en": "Acts of service · Receiving"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "receiving_gifts",
+      "title": {
+        "zh": "心意礼物 · 接收",
+        "en": "Gifts · Receiving"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "receiving_time",
+      "title": {
+        "zh": "专注陪伴 · 接收",
+        "en": "Quality time · Receiving"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "receiving_touch",
+      "title": {
+        "zh": "自愿身体接触 · 接收",
+        "en": "Welcome physical touch · Receiving"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "LL_G_WORDS_01",
+      "prompt": {
+        "zh": "表达关心时，下面的做法对我有意义：具体说出我感谢对方做过的一件小事。",
+        "en": "When expressing care, this would feel meaningful to me: Putting into words one specific small action I appreciate."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "giving_words",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "giving_words",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "giving_words",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "giving_words",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "giving_words",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "giving_words",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_G_WORDS_02",
+      "prompt": {
+        "zh": "表达关心时，下面的做法对我有意义：在对方投入一件事时，给出贴合实际情况的鼓励。",
+        "en": "When expressing care, this would feel meaningful to me: Offering encouragement that relates to what the other person is working on."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "giving_words",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "giving_words",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "giving_words",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "giving_words",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "giving_words",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "giving_words",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_G_WORDS_03",
+      "prompt": {
+        "zh": "表达关心时，下面的做法对我有意义：直接而真诚地告诉对方，我重视与他们的联系。",
+        "en": "When expressing care, this would feel meaningful to me: Saying directly and sincerely that my connection with them matters to me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "giving_words",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "giving_words",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "giving_words",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "giving_words",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "giving_words",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "giving_words",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_G_WORDS_04",
+      "prompt": {
+        "zh": "表达关心时，下面的做法对我有意义：留下一段自己写的短信息，表达对对方的记挂。",
+        "en": "When expressing care, this would feel meaningful to me: Writing a short personal message to express that I am thinking of them."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "giving_words",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "giving_words",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "giving_words",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "giving_words",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "giving_words",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "giving_words",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_G_WORDS_05",
+      "prompt": {
+        "zh": "表达关心时，下面的做法对我有意义：一件事结束后，说出我注意到的付出，而不只说“不错”。",
+        "en": "When expressing care, this would feel meaningful to me: Naming an effort I noticed after an activity, rather than giving a general compliment."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "giving_words",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "giving_words",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "giving_words",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "giving_words",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "giving_words",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "giving_words",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_G_ACTS_01",
+      "prompt": {
+        "zh": "表达关心时，下面的做法对我有意义：先问哪件具体小事能帮上忙，再提供实际协助。",
+        "en": "When expressing care, this would feel meaningful to me: Asking which small practical task would help before offering assistance."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "giving_acts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "giving_acts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "giving_acts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "giving_acts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "giving_acts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "giving_acts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_G_ACTS_02",
+      "prompt": {
+        "zh": "表达关心时，下面的做法对我有意义：用双方认可的方式，分担一项日常事务。",
+        "en": "When expressing care, this would feel meaningful to me: Sharing an everyday task in a way we have both agreed on."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "giving_acts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "giving_acts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "giving_acts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "giving_acts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "giving_acts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "giving_acts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_G_ACTS_03",
+      "prompt": {
+        "zh": "表达关心时，下面的做法对我有意义：对方忙碌时，询问能否接手一段他们希望减轻的事务。",
+        "en": "When expressing care, this would feel meaningful to me: Asking whether I can take on a task they would like help with during a busy period."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "giving_acts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "giving_acts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "giving_acts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "giving_acts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "giving_acts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "giving_acts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_G_ACTS_04",
+      "prompt": {
+        "zh": "表达关心时，下面的做法对我有意义：按对方说明的需要，提供一项具体帮助，而不自行替他们决定。",
+        "en": "When expressing care, this would feel meaningful to me: Offering practical help in the way they describe, without taking over their decisions."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "giving_acts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "giving_acts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "giving_acts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "giving_acts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "giving_acts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "giving_acts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_G_ACTS_05",
+      "prompt": {
+        "zh": "表达关心时，下面的做法对我有意义：陪对方处理一件他们想完成的小事，并尊重他们的做法。",
+        "en": "When expressing care, this would feel meaningful to me: Helping with something small they want to finish while respecting their approach."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "giving_acts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "giving_acts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "giving_acts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "giving_acts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "giving_acts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "giving_acts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_G_GIFTS_01",
+      "prompt": {
+        "zh": "表达关心时，下面的做法对我有意义：在可承受的预算内，挑一件符合对方兴趣的小心意。",
+        "en": "When expressing care, this would feel meaningful to me: Choosing a small token connected with their interests within a comfortable budget."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "giving_gifts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "giving_gifts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "giving_gifts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "giving_gifts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "giving_gifts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "giving_gifts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_G_GIFTS_02",
+      "prompt": {
+        "zh": "表达关心时，下面的做法对我有意义：做一件简单的小物件，用它表达自己想到了对方。",
+        "en": "When expressing care, this would feel meaningful to me: Making a simple small object to show that I had them in mind."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "giving_gifts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "giving_gifts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "giving_gifts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "giving_gifts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "giving_gifts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "giving_gifts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_G_GIFTS_03",
+      "prompt": {
+        "zh": "表达关心时，下面的做法对我有意义：看到适合对方的小东西时，先考虑他们会不会愿意收下。",
+        "en": "When expressing care, this would feel meaningful to me: Considering whether they would welcome a small item that reminded me of them."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "giving_gifts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "giving_gifts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "giving_gifts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "giving_gifts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "giving_gifts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "giving_gifts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_G_GIFTS_04",
+      "prompt": {
+        "zh": "表达关心时，下面的做法对我有意义：在一个双方在意的日子里，用象征心意的小物件作纪念。",
+        "en": "When expressing care, this would feel meaningful to me: Marking an occasion that matters to us with a small symbolic keepsake."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "giving_gifts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "giving_gifts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "giving_gifts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "giving_gifts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "giving_gifts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "giving_gifts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_G_GIFTS_05",
+      "prompt": {
+        "zh": "表达关心时，下面的做法对我有意义：挑选礼物时，优先考虑与对方有关的细节，而不是价格。",
+        "en": "When expressing care, this would feel meaningful to me: Choosing a gift for a detail that connects with them rather than for its price."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "giving_gifts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "giving_gifts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "giving_gifts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "giving_gifts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "giving_gifts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "giving_gifts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_G_TIME_01",
+      "prompt": {
+        "zh": "表达关心时，下面的做法对我有意义：留出一小段不同时处理其他事情的交流时间。",
+        "en": "When expressing care, this would feel meaningful to me: Making a short period for conversation without doing another task at the same time."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "giving_time",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "giving_time",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "giving_time",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "giving_time",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "giving_time",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "giving_time",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_G_TIME_02",
+      "prompt": {
+        "zh": "表达关心时，下面的做法对我有意义：一起挑选一个双方都想参与的小活动。",
+        "en": "When expressing care, this would feel meaningful to me: Choosing a small activity we would both like to take part in."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "giving_time",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "giving_time",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "giving_time",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "giving_time",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "giving_time",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "giving_time",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_G_TIME_03",
+      "prompt": {
+        "zh": "表达关心时，下面的做法对我有意义：在双方合适的时候，认真听完对方想分享的一件事。",
+        "en": "When expressing care, this would feel meaningful to me: Listening to something they want to share at a time that works for both of us."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "giving_time",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "giving_time",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "giving_time",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "giving_time",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "giving_time",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "giving_time",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_G_TIME_04",
+      "prompt": {
+        "zh": "表达关心时，下面的做法对我有意义：不在同一个地方时，约一段双方都愿意的专注连线。",
+        "en": "When expressing care, this would feel meaningful to me: Arranging a focused call we both want when we are in different places."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "giving_time",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "giving_time",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "giving_time",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "giving_time",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "giving_time",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "giving_time",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_G_TIME_05",
+      "prompt": {
+        "zh": "表达关心时，下面的做法对我有意义：按双方舒服的节奏一起散步或安静相处，不急着填满时间。",
+        "en": "When expressing care, this would feel meaningful to me: Sharing a walk or quiet company at a pace that feels comfortable to both of us."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "giving_time",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "giving_time",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "giving_time",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "giving_time",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "giving_time",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "giving_time",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_G_TOUCH_01",
+      "prompt": {
+        "zh": "表达关心时，下面的做法对我有意义：在双方都愿意且舒适时，用一个拥抱表达关心。",
+        "en": "When expressing care, this would feel meaningful to me: Offering a hug as an expression of care when it is welcome and comfortable for both of us."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "giving_touch",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "giving_touch",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "giving_touch",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "giving_touch",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "giving_touch",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "giving_touch",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_G_TOUCH_02",
+      "prompt": {
+        "zh": "表达关心时，下面的做法对我有意义：在对方也想这样的时候，通过牵手表达亲近。",
+        "en": "When expressing care, this would feel meaningful to me: Expressing closeness by holding hands when the other person also wants to."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "giving_touch",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "giving_touch",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "giving_touch",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "giving_touch",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "giving_touch",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "giving_touch",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_G_TOUCH_03",
+      "prompt": {
+        "zh": "表达关心时，下面的做法对我有意义：在彼此都愿意时，用轻靠肩膀的方式共享一段安静时间。",
+        "en": "When expressing care, this would feel meaningful to me: Sharing quiet time with gentle shoulder contact when both of us want to."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "giving_touch",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "giving_touch",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "giving_touch",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "giving_touch",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "giving_touch",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "giving_touch",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_G_TOUCH_04",
+      "prompt": {
+        "zh": "表达关心时，下面的做法对我有意义：重逢时，先确认对方是否愿意，再用短暂拥抱表示欢迎。",
+        "en": "When expressing care, this would feel meaningful to me: Checking whether a brief welcoming hug would be wanted when we meet again."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "giving_touch",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "giving_touch",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "giving_touch",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "giving_touch",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "giving_touch",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "giving_touch",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_G_TOUCH_05",
+      "prompt": {
+        "zh": "表达关心时，下面的做法对我有意义：倾听对方时，先询问轻触手臂之类的接触是否让他们舒服。",
+        "en": "When expressing care, this would feel meaningful to me: Asking whether a light touch on the arm would be welcome while I listen."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "giving_touch",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "giving_touch",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "giving_touch",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "giving_touch",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "giving_touch",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "giving_touch",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_R_WORDS_01",
+      "prompt": {
+        "zh": "接收关心时，下面的做法对我有意义：听到对方具体说出欣赏我的哪一点。",
+        "en": "When receiving care, this would feel meaningful to me: Hearing a specific thing the other person appreciates about me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "receiving_words",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "receiving_words",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "receiving_words",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "receiving_words",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "receiving_words",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "receiving_words",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_R_WORDS_02",
+      "prompt": {
+        "zh": "接收关心时，下面的做法对我有意义：事情不顺利时，收到贴合我实际处境的鼓励。",
+        "en": "When receiving care, this would feel meaningful to me: Receiving encouragement that relates to my actual situation when something has not gone well."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "receiving_words",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "receiving_words",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "receiving_words",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "receiving_words",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "receiving_words",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "receiving_words",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_R_WORDS_03",
+      "prompt": {
+        "zh": "接收关心时，下面的做法对我有意义：对方直接、真诚地说出他们重视与我的联系。",
+        "en": "When receiving care, this would feel meaningful to me: Being told directly and sincerely that our connection matters to them."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "receiving_words",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "receiving_words",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "receiving_words",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "receiving_words",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "receiving_words",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "receiving_words",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_R_WORDS_04",
+      "prompt": {
+        "zh": "接收关心时，下面的做法对我有意义：收到一段为我写的话，而不是随手转发的模板。",
+        "en": "When receiving care, this would feel meaningful to me: Receiving a message written personally for me rather than a forwarded template."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "receiving_words",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "receiving_words",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "receiving_words",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "receiving_words",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "receiving_words",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "receiving_words",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_R_WORDS_05",
+      "prompt": {
+        "zh": "接收关心时，下面的做法对我有意义：日常的一点付出被看见，并被清楚地表达感谢。",
+        "en": "When receiving care, this would feel meaningful to me: Having a small everyday effort noticed and acknowledged in words."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "receiving_words",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "receiving_words",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "receiving_words",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "receiving_words",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "receiving_words",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "receiving_words",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_R_ACTS_01",
+      "prompt": {
+        "zh": "接收关心时，下面的做法对我有意义：有人先问我的需要，再协助处理一件具体琐事。",
+        "en": "When receiving care, this would feel meaningful to me: Being asked what I need before someone helps with a particular practical task."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "receiving_acts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "receiving_acts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "receiving_acts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "receiving_acts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "receiving_acts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "receiving_acts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_R_ACTS_02",
+      "prompt": {
+        "zh": "接收关心时，下面的做法对我有意义：一项双方认可的日常事务得到实际分担。",
+        "en": "When receiving care, this would feel meaningful to me: Having an everyday task shared in a way we have both agreed on."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "receiving_acts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "receiving_acts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "receiving_acts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "receiving_acts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "receiving_acts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "receiving_acts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_R_ACTS_03",
+      "prompt": {
+        "zh": "接收关心时，下面的做法对我有意义：忙碌时，对方愿意接手我确实想得到帮助的一部分。",
+        "en": "When receiving care, this would feel meaningful to me: Being offered help with a part of a busy period that I actually want assistance with."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "receiving_acts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "receiving_acts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "receiving_acts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "receiving_acts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "receiving_acts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "receiving_acts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_R_ACTS_04",
+      "prompt": {
+        "zh": "接收关心时，下面的做法对我有意义：得到符合我所说需要的帮助，同时保留自己决定做法的空间。",
+        "en": "When receiving care, this would feel meaningful to me: Receiving help that fits the need I described while keeping a say in how things are done."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "receiving_acts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "receiving_acts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "receiving_acts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "receiving_acts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "receiving_acts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "receiving_acts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_R_ACTS_05",
+      "prompt": {
+        "zh": "接收关心时，下面的做法对我有意义：一件挂心的小事有人与我一起实际处理，而不只给建议。",
+        "en": "When receiving care, this would feel meaningful to me: Having someone work alongside me on a small practical concern, rather than only offering advice."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "receiving_acts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "receiving_acts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "receiving_acts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "receiving_acts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "receiving_acts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "receiving_acts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_R_GIFTS_01",
+      "prompt": {
+        "zh": "接收关心时，下面的做法对我有意义：收到一件能看出对方记得我兴趣的小物件。",
+        "en": "When receiving care, this would feel meaningful to me: Receiving a small item that shows the other person remembered an interest of mine."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "receiving_gifts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "receiving_gifts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "receiving_gifts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "receiving_gifts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "receiving_gifts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "receiving_gifts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_R_GIFTS_02",
+      "prompt": {
+        "zh": "接收关心时，下面的做法对我有意义：得到一件简单的手作小东西，知道对方为我花了心思。",
+        "en": "When receiving care, this would feel meaningful to me: Receiving a simple handmade object that someone put thought into for me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "receiving_gifts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "receiving_gifts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "receiving_gifts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "receiving_gifts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "receiving_gifts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "receiving_gifts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_R_GIFTS_03",
+      "prompt": {
+        "zh": "接收关心时，下面的做法对我有意义：对方分享一件让我想到彼此经历的小纪念物。",
+        "en": "When receiving care, this would feel meaningful to me: Being given a small keepsake connected with an experience we shared."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "receiving_gifts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "receiving_gifts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "receiving_gifts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "receiving_gifts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "receiving_gifts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "receiving_gifts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_R_GIFTS_04",
+      "prompt": {
+        "zh": "接收关心时，下面的做法对我有意义：在一个对我重要的日子里，收到不靠价格表达心意的礼物。",
+        "en": "When receiving care, this would feel meaningful to me: Receiving a thoughtful token on an occasion that matters to me, without its price being the point."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "receiving_gifts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "receiving_gifts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "receiving_gifts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "receiving_gifts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "receiving_gifts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "receiving_gifts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_R_GIFTS_05",
+      "prompt": {
+        "zh": "接收关心时，下面的做法对我有意义：对方按我喜欢和愿意收下的东西挑选礼物，而不是按排场挑选。",
+        "en": "When receiving care, this would feel meaningful to me: Being given something chosen around what I like and would welcome, rather than around display."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "receiving_gifts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "receiving_gifts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "receiving_gifts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "receiving_gifts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "receiving_gifts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "receiving_gifts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_R_TIME_01",
+      "prompt": {
+        "zh": "接收关心时，下面的做法对我有意义：对方留出一段专心听我说话、不同时处理其他事的时间。",
+        "en": "When receiving care, this would feel meaningful to me: Having a period in which the other person listens without doing another task at the same time."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "receiving_time",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "receiving_time",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "receiving_time",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "receiving_time",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "receiving_time",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "receiving_time",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_R_TIME_02",
+      "prompt": {
+        "zh": "接收关心时，下面的做法对我有意义：一起参加一个我们都想做的小活动。",
+        "en": "When receiving care, this would feel meaningful to me: Sharing a small activity that both of us want to do."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "receiving_time",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "receiving_time",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "receiving_time",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "receiving_time",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "receiving_time",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "receiving_time",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_R_TIME_03",
+      "prompt": {
+        "zh": "接收关心时，下面的做法对我有意义：我们在双方合适的时间，认真聊一件我想分享的事。",
+        "en": "When receiving care, this would feel meaningful to me: Talking attentively about something I want to share at a time that suits both of us."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "receiving_time",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "receiving_time",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "receiving_time",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "receiving_time",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "receiving_time",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "receiving_time",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_R_TIME_04",
+      "prompt": {
+        "zh": "接收关心时，下面的做法对我有意义：不能见面时，双方约好一段认真交流的通话。",
+        "en": "When receiving care, this would feel meaningful to me: Having an agreed, attentive conversation when we cannot meet in person."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "receiving_time",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "receiving_time",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "receiving_time",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "receiving_time",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "receiving_time",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "receiving_time",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_R_TIME_05",
+      "prompt": {
+        "zh": "接收关心时，下面的做法对我有意义：按彼此舒服的方式一起散步或安静待着，不要求一直说话。",
+        "en": "When receiving care, this would feel meaningful to me: Sharing a comfortable walk or quiet company without needing to keep talking."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "receiving_time",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "receiving_time",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "receiving_time",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "receiving_time",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "receiving_time",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "receiving_time",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_R_TOUCH_01",
+      "prompt": {
+        "zh": "接收关心时，下面的做法对我有意义：在彼此都愿意且舒服时，收到一个表达关心的拥抱。",
+        "en": "When receiving care, this would feel meaningful to me: Receiving a caring hug when it is wanted and comfortable for both of us."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "receiving_touch",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "receiving_touch",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "receiving_touch",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "receiving_touch",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "receiving_touch",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "receiving_touch",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_R_TOUCH_02",
+      "prompt": {
+        "zh": "接收关心时，下面的做法对我有意义：我与对方都愿意时，通过牵手感到亲近。",
+        "en": "When receiving care, this would feel meaningful to me: Sharing closeness through holding hands when both of us want to."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "receiving_touch",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "receiving_touch",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "receiving_touch",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "receiving_touch",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "receiving_touch",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "receiving_touch",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_R_TOUCH_03",
+      "prompt": {
+        "zh": "接收关心时，下面的做法对我有意义：在彼此都愿意时，通过轻靠肩膀共享安静时间。",
+        "en": "When receiving care, this would feel meaningful to me: Sharing quiet time with gentle shoulder contact when both of us want to."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "receiving_touch",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "receiving_touch",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "receiving_touch",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "receiving_touch",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "receiving_touch",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "receiving_touch",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_R_TOUCH_04",
+      "prompt": {
+        "zh": "接收关心时，下面的做法对我有意义：重逢时，得到一个事先确认我也愿意的短暂拥抱。",
+        "en": "When receiving care, this would feel meaningful to me: Receiving a brief welcoming hug on meeting again after checking that I would like it."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "receiving_touch",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "receiving_touch",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "receiving_touch",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "receiving_touch",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "receiving_touch",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "receiving_touch",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LL_R_TOUCH_05",
+      "prompt": {
+        "zh": "接收关心时，下面的做法对我有意义：对方先询问我是否愿意，再用轻触手臂之类的接触表达在意。",
+        "en": "When receiving care, this would feel meaningful to me: Being asked whether a light touch on the arm would feel welcome as an expression of care."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "对我完全没有意义",
+            "en": "Not meaningful to me"
+          },
+          "directionId": "receiving_touch",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "对我有一点意义",
+            "en": "Slightly meaningful to me"
+          },
+          "directionId": "receiving_touch",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "对我有中等意义",
+            "en": "Moderately meaningful to me"
+          },
+          "directionId": "receiving_touch",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "对我很有意义",
+            "en": "Quite meaningful to me"
+          },
+          "directionId": "receiving_touch",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "对我非常有意义",
+            "en": "Very meaningful to me"
+          },
+          "directionId": "receiving_touch",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答或无法判断",
+            "en": "Prefer not to answer or cannot judge"
+          },
+          "directionId": "receiving_touch",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "facetRoles": {
+    "giving_words": {
+      "role": "giving",
+      "category": "words",
+      "items": [
+        "LL_G_WORDS_01",
+        "LL_G_WORDS_02",
+        "LL_G_WORDS_03",
+        "LL_G_WORDS_04",
+        "LL_G_WORDS_05"
+      ]
+    },
+    "giving_acts": {
+      "role": "giving",
+      "category": "acts",
+      "items": [
+        "LL_G_ACTS_01",
+        "LL_G_ACTS_02",
+        "LL_G_ACTS_03",
+        "LL_G_ACTS_04",
+        "LL_G_ACTS_05"
+      ]
+    },
+    "giving_gifts": {
+      "role": "giving",
+      "category": "gifts",
+      "items": [
+        "LL_G_GIFTS_01",
+        "LL_G_GIFTS_02",
+        "LL_G_GIFTS_03",
+        "LL_G_GIFTS_04",
+        "LL_G_GIFTS_05"
+      ]
+    },
+    "giving_time": {
+      "role": "giving",
+      "category": "time",
+      "items": [
+        "LL_G_TIME_01",
+        "LL_G_TIME_02",
+        "LL_G_TIME_03",
+        "LL_G_TIME_04",
+        "LL_G_TIME_05"
+      ]
+    },
+    "giving_touch": {
+      "role": "giving",
+      "category": "touch",
+      "items": [
+        "LL_G_TOUCH_01",
+        "LL_G_TOUCH_02",
+        "LL_G_TOUCH_03",
+        "LL_G_TOUCH_04",
+        "LL_G_TOUCH_05"
+      ]
+    },
+    "receiving_words": {
+      "role": "receiving",
+      "category": "words",
+      "items": [
+        "LL_R_WORDS_01",
+        "LL_R_WORDS_02",
+        "LL_R_WORDS_03",
+        "LL_R_WORDS_04",
+        "LL_R_WORDS_05"
+      ]
+    },
+    "receiving_acts": {
+      "role": "receiving",
+      "category": "acts",
+      "items": [
+        "LL_R_ACTS_01",
+        "LL_R_ACTS_02",
+        "LL_R_ACTS_03",
+        "LL_R_ACTS_04",
+        "LL_R_ACTS_05"
+      ]
+    },
+    "receiving_gifts": {
+      "role": "receiving",
+      "category": "gifts",
+      "items": [
+        "LL_R_GIFTS_01",
+        "LL_R_GIFTS_02",
+        "LL_R_GIFTS_03",
+        "LL_R_GIFTS_04",
+        "LL_R_GIFTS_05"
+      ]
+    },
+    "receiving_time": {
+      "role": "receiving",
+      "category": "time",
+      "items": [
+        "LL_R_TIME_01",
+        "LL_R_TIME_02",
+        "LL_R_TIME_03",
+        "LL_R_TIME_04",
+        "LL_R_TIME_05"
+      ]
+    },
+    "receiving_touch": {
+      "role": "receiving",
+      "category": "touch",
+      "items": [
+        "LL_R_TOUCH_01",
+        "LL_R_TOUCH_02",
+        "LL_R_TOUCH_03",
+        "LL_R_TOUCH_04",
+        "LL_R_TOUCH_05"
+      ]
+    }
+  },
+  "profilePairs": {
+    "words": [
+      "giving_words",
+      "receiving_words"
+    ],
+    "acts": [
+      "giving_acts",
+      "receiving_acts"
+    ],
+    "gifts": [
+      "giving_gifts",
+      "receiving_gifts"
+    ],
+    "time": [
+      "giving_time",
+      "receiving_time"
+    ],
+    "touch": [
+      "giving_touch",
+      "receiving_touch"
+    ]
+  },
+  "scoring": {
+    "scoringVersion": "1.0.0",
+    "minimumRatedItems": 3,
+    "itemsPerFacet": 5,
+    "facetCount": 10,
+    "all50SelectionsRequired": true,
+    "method": "Independent1..5meaningfulnessratings;NAexcludednotzero/imputed;eachfacetmean=sum/rated,displayrounded1decimalonlywhenrated>=3of5;otherwiseexplicitinsufficient. All5categoryreportsalwaysshownwithbothgiving/receivingparts. Allfivecanbehigh. Nooveralltotal/primarysecondary/ranking/normalisedpercentages/role-differenceindex/compatibilityorpsychometricclaim.",
+    "minimumRuleScope": "Originalwebsiteinformation-completenessdisplayrule,notpsychometric/clinicalcutoff",
+    "reverseItems": [],
+    "norms": false,
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "url": "https://5lovelanguages.com/learn",
+      "scope": "Five-categoryconceptdefinitionsonly;noofficialquizitems/reports/artorlicenceclaimed"
+    },
+    {
+      "url": "https://journals.sagepub.com/doi/10.1177/09637214231217663",
+      "scope": "2024reviewrelevantmethods/evidencesectionsread;forced-choicezerocountlimitsandunsupportedprimary/matchingassumptionsnotadopted"
+    },
+    {
+      "url": "https://journals.sagepub.com/doi/10.1177/10888683261441653",
+      "scope": "2026abstract/introductionread;carefulcontextualstudyoflaytheoriesratherthanblanketdismissal,notfullreviewclaim"
+    }
+  ]
+}

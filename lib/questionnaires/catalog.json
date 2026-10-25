@@ -344,5 +344,31 @@
       "melancholic",
       "phlegmatic"
     ]
+  },
+  {
+    "slug": "love-languages",
+    "code": "LOVE_LANGUAGE_REFLECTION_50",
+    "version": "1.0.0",
+    "updated": "2026-10-25",
+    "category": "relationships",
+    "title": {
+      "zh": "五种爱的语言测试",
+      "en": "Love Language Test"
+    },
+    "description": {
+      "zh": "用50条原创自评，分别探索肯定言语、行动支持、心意礼物、专注陪伴与自愿身体接触在表达和接收关心时的意义。十项均分、五份完整解读免费，无需注册。",
+      "en": "Explore what five ways of caring mean to you when giving and receiving. Take 50 original ratings for ten separate means and five full free guides, with no signup."
+    },
+    "minutes": 10,
+    "collection": "explore",
+    "formCode": "fm_love_languages_bidirectional_mean_50",
+    "questionCount": 50,
+    "resultSlugs": [
+      "words",
+      "acts",
+      "gifts",
+      "time",
+      "touch"
+    ]
   }
 ]
