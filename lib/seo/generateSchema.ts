@@ -1,4 +1,5 @@
 import { canonicalUrl } from "@/lib/site";
+import { articleByline } from "@/lib/content/articleByline";
 
 export type FAQItem = {
   question: string;
@@ -170,9 +171,9 @@ export function buildArticleJsonLd(input: ArticleSchemaInput) {
     headline: input.title,
     description: input.description,
     inLanguage: input.locale === "zh" ? "zh-CN" : "en",
-    ...(["FermatMind", "费马测试"].includes(input.authorName) ? { author: {
+    ...(["FermatMind", "费马测试", "FermatMind Editorial", "费马测试编辑部"].includes(input.authorName) ? { author: {
       "@type": "Organization",
-      name: input.authorName,
+      name: articleByline(input.authorName, input.locale).name,
       url: canonicalUrl(input.locale === "zh" ? "/zh/brand" : "/en/brand"),
     } } : {}),
     publisher: {

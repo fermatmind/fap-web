@@ -11,6 +11,24 @@ import type { CmsArticle } from "@/lib/cms/articles";
 vi.hoisted(() => { process.env.NEXT_PUBLIC_SITE_URL = "https://fermatmind.com"; });
 
 describe("operator-selected blog brand and navigation", () => {
+  it("renders the localized editorial organization while keeping the publisher brand", () => {
+    for (const original of ["FermatMind Editorial", "费马测试编辑部"]) {
+      for (const locale of ["en", "zh"] as const) {
+        const name = locale === "zh" ? "费马测试编辑部" : "FermatMind Editorial";
+        const byline = articleByline(original, locale);
+        expect(byline).toEqual({ name, href: `/${locale}/brand`, brand: true });
+        const html = renderToStaticMarkup(<ArticleByline authorName={original} locale={locale} />);
+        expect(html).toContain(name);
+        expect(html).toContain(`href="/${locale}/brand"`);
+        const schema = buildArticleJsonLd({ path: `/${locale}/articles/existing-slug`, title: "Existing article",
+          description: "Existing summary", locale, authorName: original, datePublished: "2026-04-23", dateModified: "2026-10-25" });
+        expect(schema.author).toEqual({ "@type": "Organization", name, url: `https://fermatmind.com/${locale}/brand` });
+        expect(schema.publisher.name).toBe("FermatMind");
+        expect(schema.datePublished).toBe("2026-04-23");
+      }
+    }
+  });
+
   it("uses localized brand links without turning the brand into a person or claiming human review", () => {
     process.env.NEXT_PUBLIC_SITE_URL = "https://fermatmind.com";
     for (const locale of ["en", "zh"] as const) {
