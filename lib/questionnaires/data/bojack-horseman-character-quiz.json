@@ -1,0 +1,1799 @@
+{
+  "slug": "bojack-horseman-character-quiz",
+  "code": "BOJACK_FAN_EVERYDAY_RESPONSES",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "metaphor",
+  "kind": "archetype",
+  "title": {
+    "zh": "马男波杰克（BoJack Horseman）角色测试",
+    "en": "BoJack Horseman Character Quiz"
+  },
+  "resultHeading": {
+    "zh": "五位角色的本次选择与全部最高并列",
+    "en": "Your five character choices and every highest tie"
+  },
+  "description": {
+    "zh": "免费完成20道原创日常选择，比较波杰克、戴安、凯洛琳公主、陶德与花生酱先生，阅读全部最高并列的完整说明、例子和计分。非官方同人测试，不做临床判断。",
+    "en": "Take 20 original everyday questions and compare five BoJack Horseman characters. Full tied results, examples and scoring are free. An unofficial fan quiz."
+  },
+  "seoTitle": {
+    "zh": "马男波杰克角色测试：20题、五角色与完整结果",
+    "en": "BoJack Horseman Character Quiz: Free Test & Full Results"
+  },
+  "minutes": 6,
+  "introduction": {
+    "zh": "这不是剧情知识竞赛，也不要求你模仿角色。用20道普通表达、兴趣与共同安排题，看看本次选择更接近哪种同人阅读角度。五位各有完整说明，最高并列全部保留。",
+    "en": "This is not episode trivia or an invitation to imitate a character. Twenty ordinary expression, interest and shared-arrangement questions compare editorial fan readings. Each of five characters has a full guide and every highest tie is retained."
+  },
+  "instructions": {
+    "zh": "这份20题原创非官方同人问卷，比较你目前处理普通兴趣活动、表达与共同安排时的选择，借用《马男波杰克》五位角色作阅读角度。每题选四个做法里更接近自己的一个，不需要模仿剧情或角色伤害他人的行为；情境均以自愿、可改、可停止为前提。每选加1，五位各出现16次，所有最高并列显示完整说明。结果只对应本次选择与本版编辑读法，不表示你就是整个人物，也不判断疾病、成瘾、创伤、性取向、道德、关系或职业。未看全剧也能作答，人物背景只含少量基础设定。",
+    "en": "This original 20-question unofficial fan quiz compares current choices in ordinary interests, expression and shared arrangements, using five BoJack Horseman characters as reading angles. Choose the closer of four approaches without imitating episodes or harmful character behaviour; situations assume voluntary, revisable and stoppable participation. Each choice adds one, each character appears 16 times, and every highest tie receives its full explanation. A result refers only to this attempt and editorial reading, not the whole person in the series, illness, addiction, trauma, sexual orientation, morality, relationships or careers. You need not have watched the full series; context uses only basic character setup."
+  },
+  "source": {
+    "kind": "FermatMindoriginal20ENZH4choice/unofficialtextonlyfaninterpretation/fiveselectedcharacters/notclinicalpersonalityassessment",
+    "formCode": "fm_bojack_fan_choices_20",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "5f93d0420020e23875bd55c8f991cd3a356f3064787c7d63016d35f7d82f5f21",
+    "resultContentSha256": "c4a90c0062bd725cd7b5a0def6a3185e2937f2ab3f4327bde29af763c8694790",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "bojack-horseman",
+      "title": {
+        "zh": "波杰克：自我叙述与带刺表达",
+        "en": "BoJack Horseman: Self-Narrative and Barbed Expression"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "diane-nguyen",
+      "title": {
+        "zh": "戴安·阮：追问与文字澄清",
+        "en": "Diane Nguyen: Questions and Written Clarity"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "princess-carolyn",
+      "title": {
+        "zh": "凯洛琳公主：协调与具体约定",
+        "en": "Princess Carolyn: Coordination and Concrete Agreements"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "todd-chavez",
+      "title": {
+        "zh": "陶德：不寻常的共同尝试",
+        "en": "Todd Chavez: Unusual Shared Experiments"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "mr-peanutbutter",
+      "title": {
+        "zh": "花生酱先生：热情的共同体验",
+        "en": "Mr. Peanutbutter: Enthusiastic Shared Experiences"
+      },
+      "comparisons": 16
+    }
+  ],
+  "questions": [
+    {
+      "id": "BOJACK_01",
+      "prompt": {
+        "zh": "朋友请你为一份自制小刊提点意见，你通常先说什么？",
+        "en": "A friend asks for ideas on a homemade zine. What do you usually discuss first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问一句这期最想让读者明白什么",
+            "en": "Ask what this issue most wants readers to understand"
+          },
+          "directionId": "diane-nguyen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "商量谁负责哪一页、何时交换草稿",
+            "en": "Agree who handles each page and when to swap drafts"
+          },
+          "directionId": "princess-carolyn"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "试把两个毫不相关的小栏目放在一起",
+            "en": "Try combining two unlikely little features"
+          },
+          "directionId": "todd-chavez"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提议一起翻看成品，给这次合作留个时刻",
+            "en": "Suggest a shared look at the finished issue to mark the collaboration"
+          },
+          "directionId": "mr-peanutbutter"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_02",
+      "prompt": {
+        "zh": "你和几位熟人想录一段不公开的趣味音频，你容易先做哪件事？",
+        "en": "You and a few acquaintances want to record a private playful audio clip. What do you tend to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把录音顺序、所需物品和愿意承担的事列清",
+            "en": "List the recording order, materials and willing responsibilities"
+          },
+          "directionId": "princess-carolyn"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "用桌边普通物件试一种意料外的音效",
+            "en": "Try an unexpected sound using ordinary objects at hand"
+          },
+          "directionId": "todd-chavez"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问大家愿不愿意一起录个开场招呼",
+            "en": "Ask whether everyone wants to record an opening greeting"
+          },
+          "directionId": "mr-peanutbutter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "写一段略带自嘲的个人开场，再决定留多少",
+            "en": "Draft a mildly self-mocking introduction and decide how much to keep"
+          },
+          "directionId": "bojack-horseman"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_03",
+      "prompt": {
+        "zh": "一次自选的手工聚会还没定主题，你更可能提出？",
+        "en": "A voluntary craft gathering has no theme yet. What might you propose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让每个人拿两种普通材料，看看能拼出什么",
+            "en": "Let everyone choose two ordinary materials and see what emerges"
+          },
+          "directionId": "todd-chavez"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先找个大家都愿意参加的共同小环节",
+            "en": "Find a small shared activity that people actually want to join"
+          },
+          "directionId": "mr-peanutbutter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "从自己最近一件小经历做一个有点反讽的作品",
+            "en": "Make a slightly ironic piece from a recent minor personal experience"
+          },
+          "directionId": "bojack-horseman"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先讨论希望作品表达什么，哪些说法可能误导",
+            "en": "Discuss the intended meaning and wording that might mislead"
+          },
+          "directionId": "diane-nguyen"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_04",
+      "prompt": {
+        "zh": "熟人给你看一份普通活动的旧合照，你常怎样接话？",
+        "en": "An acquaintance shows you an old photo of an ordinary gathering. How do you tend to respond?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问当时有没有一个大家都觉得好玩的共同片段",
+            "en": "Ask about a shared moment people enjoyed at the time"
+          },
+          "directionId": "mr-peanutbutter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "讲自己记得的一个尴尬细节，也承认记忆有限",
+            "en": "Mention an awkward detail you remember while acknowledging uncertainty"
+          },
+          "directionId": "bojack-horseman"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "好奇照片外还有哪些没被记录的情况",
+            "en": "Wonder what happened outside the frame that was not recorded"
+          },
+          "directionId": "diane-nguyen"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问是否需要整理照片、给文件补时间或说明",
+            "en": "Ask whether the photos need sorting, dates or captions"
+          },
+          "directionId": "princess-carolyn"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_05",
+      "prompt": {
+        "zh": "你向朋友介绍一个没有成名的个人小作品，会倾向怎样开头？",
+        "en": "How might you introduce a small personal creation that has not become well known?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先讲自己为什么在意它，语气里带一点调侃",
+            "en": "Explain why it matters to you with a little wry humour"
+          },
+          "directionId": "bojack-horseman"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "说明想讨论的问题以及自己还拿不准的地方",
+            "en": "State the question it explores and what remains uncertain"
+          },
+          "directionId": "diane-nguyen"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "交代做到哪一步、哪些安排已经确认",
+            "en": "Explain the current stage and which arrangements are confirmed"
+          },
+          "directionId": "princess-carolyn"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先展示一次奇怪的小试验，邀请对方玩一会儿",
+            "en": "Show an odd little experiment and invite the person to try it"
+          },
+          "directionId": "todd-chavez"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_06",
+      "prompt": {
+        "zh": "一张共同制作的小海报有一句意思不明的话，你通常先？",
+        "en": "A jointly made small poster contains an unclear sentence. What do you usually do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问原本想说什么，再写两个更准确的版本",
+            "en": "Ask what it meant to say and write two clearer alternatives"
+          },
+          "directionId": "diane-nguyen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "确认谁有权修改，约好一个小范围修改时间",
+            "en": "Confirm who can edit it and agree a brief editing window"
+          },
+          "directionId": "princess-carolyn"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "换成一个不同的呈现办法，看看意思会不会出来",
+            "en": "Try a different presentation and see whether the meaning emerges"
+          },
+          "directionId": "todd-chavez"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "请几位愿意的人一起看看，把反馈当共同参与",
+            "en": "Invite a few willing people to look and contribute feedback"
+          },
+          "directionId": "mr-peanutbutter"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_07",
+      "prompt": {
+        "zh": "朋友约你协助一个很小的周末点子，你会怎样回应？",
+        "en": "A friend asks for help with a very small weekend idea. How do you respond?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说清自己能帮哪一段、需要哪些配合",
+            "en": "Specify which part you can help with and what cooperation it needs"
+          },
+          "directionId": "princess-carolyn"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "问能不能先玩一个与原计划稍有不同的版本",
+            "en": "Ask to try a slightly unusual version of the idea first"
+          },
+          "directionId": "todd-chavez"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "表达想一起参与，再确认对方希望怎样相聚",
+            "en": "Show enthusiasm for joining and confirm how they want to meet"
+          },
+          "directionId": "mr-peanutbutter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "坦白自己对这个点子的第一反应，可能夹一句干笑话",
+            "en": "Give your candid first reaction, perhaps with a dry little joke"
+          },
+          "directionId": "bojack-horseman"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_08",
+      "prompt": {
+        "zh": "一本私人笔记出现一页空白，你比较愿意拿它做什么？",
+        "en": "An empty page appears in your personal notebook. What would you rather do with it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "画一个没什么用途但有趣的新组合",
+            "en": "Sketch an interesting combination with no particular use"
+          },
+          "directionId": "todd-chavez"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "记下一次和别人一起开心参与的小事",
+            "en": "Record a small moment of shared enjoyment"
+          },
+          "directionId": "mr-peanutbutter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "写一小段自己怎样看待最近的普通失误",
+            "en": "Write how you see a recent ordinary mistake of your own"
+          },
+          "directionId": "bojack-horseman"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "梳理一句自己一直没想清楚的话到底是什么意思",
+            "en": "Explore what an unresolved sentence actually means to you"
+          },
+          "directionId": "diane-nguyen"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_09",
+      "prompt": {
+        "zh": "几个人愿意在休息时间玩一个自编小游戏，你通常先注意？",
+        "en": "A few people want to try a homemade game during a break. What do you notice first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "有没有一种开始方式能让愿意的人轻松加入",
+            "en": "Whether willing participants can join comfortably"
+          },
+          "directionId": "mr-peanutbutter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "游戏描述是不是有点夸张，能否拿这种夸张开玩笑",
+            "en": "Whether the description is inflated enough for a wry joke"
+          },
+          "directionId": "bojack-horseman"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "大家理解的规则是不是同一回事",
+            "en": "Whether everyone understands the rules in the same way"
+          },
+          "directionId": "diane-nguyen"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "人数、材料、收尾由谁照看是否已说明",
+            "en": "Whether numbers, materials and cleanup responsibilities are clear"
+          },
+          "directionId": "princess-carolyn"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_10",
+      "prompt": {
+        "zh": "你给一件旧日的小作品补写说明，更可能着重？",
+        "en": "You add a note to an old small creation. What would you emphasise?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "当时自己想证明什么，以及现在怎么看那种想法",
+            "en": "What you wanted to prove then and how you now see that wish"
+          },
+          "directionId": "bojack-horseman"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "哪些说法需要补充背景，避免读者误解",
+            "en": "Which claims need context to prevent misunderstanding"
+          },
+          "directionId": "diane-nguyen"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "材料来自哪里、哪些步骤实际完成了",
+            "en": "Where materials came from and which steps were actually finished"
+          },
+          "directionId": "princess-carolyn"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个出乎意料的过程细节，或后来冒出的玩法",
+            "en": "An unexpected process detail or a playful possibility discovered later"
+          },
+          "directionId": "todd-chavez"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_11",
+      "prompt": {
+        "zh": "一个轻松聊天里有人把两件不同的事混为一谈，你通常？",
+        "en": "In a casual conversation someone treats two different things as the same. What do you tend to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问一个具体问题，把区别说明白",
+            "en": "Ask a specific question to clarify the distinction"
+          },
+          "directionId": "diane-nguyen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "确认眼下要达成什么，再决定是否需要展开",
+            "en": "Clarify the immediate aim before deciding how far to discuss it"
+          },
+          "directionId": "princess-carolyn"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "举一个意料外的小例子，让差别变得可见",
+            "en": "Offer an unusual small example that makes the difference visible"
+          },
+          "directionId": "todd-chavez"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先保持大家愿意参与的气氛，再邀请对方解释",
+            "en": "Keep participation welcoming and invite the person to explain"
+          },
+          "directionId": "mr-peanutbutter"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_12",
+      "prompt": {
+        "zh": "你自愿帮忙整理一次普通兴趣交换，最先会想？",
+        "en": "You volunteer to help with an ordinary exchange of interests. What comes to mind first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "物品归属、交换条件和不想交换时怎么办",
+            "en": "Ownership, exchange terms and the option not to exchange"
+          },
+          "directionId": "princess-carolyn"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "有没有一种新奇的组合方式可供大家试试",
+            "en": "Whether people could try a surprising combination"
+          },
+          "directionId": "todd-chavez"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "如何让初次参加且愿意交流的人有个开口机会",
+            "en": "How willing newcomers might get a chance to join in"
+          },
+          "directionId": "mr-peanutbutter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "自己是不是也在期待被注意，以及要怎样坦白这种期待",
+            "en": "Whether you also want recognition and how to admit that honestly"
+          },
+          "directionId": "bojack-horseman"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_13",
+      "prompt": {
+        "zh": "一个自选的小计划突然多了空余空间，你会更想？",
+        "en": "A voluntary small plan suddenly has some extra room. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "留一段让现场的人试一种原本没想到的玩法",
+            "en": "Leave room for an unplanned playful experiment"
+          },
+          "directionId": "todd-chavez"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "加一个大家可自由加入或略过的共同体验",
+            "en": "Add a shared experience that people can join or skip"
+          },
+          "directionId": "mr-peanutbutter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "重新看看这件事和自己的旧期待有什么关系",
+            "en": "Reconsider how it connects to your earlier expectations"
+          },
+          "directionId": "bojack-horseman"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把原本想表达但还含糊的意思写得更清楚",
+            "en": "Clarify an intended meaning that was still vague"
+          },
+          "directionId": "diane-nguyen"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_14",
+      "prompt": {
+        "zh": "朋友提出的庆祝方式与你想象不同，你较常怎样接话？",
+        "en": "A friend suggests a different celebration from the one you imagined. How do you tend to respond?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "热情回应，再问对方愿意一起做的具体部分",
+            "en": "Respond warmly and ask what they would actually enjoy sharing"
+          },
+          "directionId": "mr-peanutbutter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "承认自己原先的想象，可能用一点自嘲缓和",
+            "en": "Admit your earlier picture, perhaps softening it with self-directed humour"
+          },
+          "directionId": "bojack-horseman"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问彼此想庆祝的究竟是什么，是否理解不同",
+            "en": "Ask what each person wants to mark and whether meanings differ"
+          },
+          "directionId": "diane-nguyen"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把可协调的时间、人数和各自责任谈清",
+            "en": "Clarify timing, numbers and each person’s responsibilities"
+          },
+          "directionId": "princess-carolyn"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_15",
+      "prompt": {
+        "zh": "你收到一份关于普通小作品的反馈，最容易先回应哪一点？",
+        "en": "You receive feedback on an ordinary small creation. Which part do you most readily respond to?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "它碰到了自己怎样看待这件作品的问题",
+            "en": "How it touches your own story about the creation"
+          },
+          "directionId": "bojack-horseman"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "反馈里的判断基于什么，哪些词需要具体化",
+            "en": "What supports the judgement and which words need precision"
+          },
+          "directionId": "diane-nguyen"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "哪些修改真的可行、谁愿意负责",
+            "en": "Which changes are feasible and who is willing to handle them"
+          },
+          "directionId": "princess-carolyn"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有没有一个不按常规的小改法值得试玩",
+            "en": "Whether an unconventional little change might be worth trying"
+          },
+          "directionId": "todd-chavez"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_16",
+      "prompt": {
+        "zh": "一段自编短文读起来和本意不太一致，你首先倾向？",
+        "en": "A paragraph you wrote does not convey quite what you intended. What is your first inclination?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "指出具体哪里偏离，试着把意思重新写出来",
+            "en": "Identify the specific mismatch and rewrite the meaning"
+          },
+          "directionId": "diane-nguyen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把修改范围和可用时间划小，先完成约定部分",
+            "en": "Set a small revision scope and finish the agreed portion"
+          },
+          "directionId": "princess-carolyn"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "改变叙述角度或排列，看看能否出现新效果",
+            "en": "Change the viewpoint or arrangement to discover a new effect"
+          },
+          "directionId": "todd-chavez"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "找愿意的伙伴一起读，让修改成为共享过程",
+            "en": "Read with a willing companion and make revision a shared process"
+          },
+          "directionId": "mr-peanutbutter"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_17",
+      "prompt": {
+        "zh": "一个共同兴趣项目要在你缺席时继续，你通常会？",
+        "en": "A shared hobby project needs to continue while you are absent. What do you usually do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "留下清楚的交接，也写明自己没有承诺的部分",
+            "en": "Leave a clear handover and state what you have not committed to"
+          },
+          "directionId": "princess-carolyn"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留一个可自由改动的趣味想法供别人接着玩",
+            "en": "Leave a playful idea others can freely change"
+          },
+          "directionId": "todd-chavez"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "向参与者表达期待，问他们想怎样一起继续",
+            "en": "Express interest and ask how participants want to continue together"
+          },
+          "directionId": "mr-peanutbutter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "承认自己对错过这件事的感受，而不假装完全无所谓",
+            "en": "Acknowledge how you feel about missing it rather than pretending indifference"
+          },
+          "directionId": "bojack-horseman"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_18",
+      "prompt": {
+        "zh": "你想给普通的私人收藏做个小目录，最想先试？",
+        "en": "You want a small catalogue for an ordinary personal collection. What would you most like to try first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "按一个不寻常的联系来分组，允许随时改",
+            "en": "Group by an unusual connection and allow it to change"
+          },
+          "directionId": "todd-chavez"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "和愿意的朋友各选一件，聊聊各自喜欢什么",
+            "en": "Each choose one item with a willing friend and discuss its appeal"
+          },
+          "directionId": "mr-peanutbutter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "写一段这些东西为何进入自己生活的小叙述",
+            "en": "Write how these things became part of your life"
+          },
+          "directionId": "bojack-horseman"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "确认名称和出处，分清知道与猜测的部分",
+            "en": "Check names and origins and separate knowledge from guesses"
+          },
+          "directionId": "diane-nguyen"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_19",
+      "prompt": {
+        "zh": "你参与的轻松讨论告一段落，较容易主动做什么？",
+        "en": "A casual discussion you joined is ending. What do you tend to initiate?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "感谢大家一起参与，问是否有人还想补充",
+            "en": "Thank people for joining and ask if anyone wants to add something"
+          },
+          "directionId": "mr-peanutbutter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "用一句略带反讽的自我总结结束自己的部分",
+            "en": "End your contribution with a mildly ironic personal reflection"
+          },
+          "directionId": "bojack-horseman"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把仍未说清的问题记下来，而非假装已有答案",
+            "en": "Note unresolved questions instead of pretending they are settled"
+          },
+          "directionId": "diane-nguyen"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "确认实际约定、谁做什么，以及可以不再继续",
+            "en": "Confirm actual agreements, responsibilities and the option to stop"
+          },
+          "directionId": "princess-carolyn"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_20",
+      "prompt": {
+        "zh": "回看一次自愿参加的小活动，你通常最在意哪种记录？",
+        "en": "Looking back on a voluntary small activity, which record matters most to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己当时想被怎样理解，后来有没有改变",
+            "en": "How you wanted to be understood and whether that changed"
+          },
+          "directionId": "bojack-horseman"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "自己从提问与解释中理清了什么",
+            "en": "What questions and explanations helped you clarify"
+          },
+          "directionId": "diane-nguyen"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "哪些约定起作用，哪些责任还需重新谈",
+            "en": "Which agreements worked and which responsibilities need discussion"
+          },
+          "directionId": "princess-carolyn"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "偶然冒出的古怪点子，是否还想再玩一次",
+            "en": "An odd idea that emerged by chance and whether to try it again"
+          },
+          "directionId": "todd-chavez"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "bojack-horseman",
+      "directionIds": [
+        "bojack-horseman"
+      ],
+      "title": {
+        "zh": "波杰克：自我叙述与带刺表达",
+        "en": "BoJack Horseman: Self-Narrative and Barbed Expression"
+      },
+      "headline": {
+        "zh": "波杰克：自我叙述与带刺表达",
+        "en": "BoJack Horseman: Self-Narrative and Barbed Expression"
+      },
+      "summary": {
+        "zh": "从个人作品说明看自我叙述、反讽与承认在意，含具体例子和四角色比较；匹配不把人物经历、伤害或临床状况赋给你。",
+        "en": "Explore self-narrative, irony and admitting what matters through a personal-project example and four character comparisons. The match assigns no character history or clinical condition."
+      },
+      "scoreReading": {
+        "zh": "20题全部各选一项，对应的本版角色方向加1，总数固定20。每题只提供五角色中的四个，全卷各角色16次、每位置4次；当题未提供的角色不记拒绝。所有最高计数都保留完整说明，全选第一项会五角色各4次，五份完整显示；顺序不设主次。不把次数除以20或16叫作相似度、真实人格比例或出现概率，也不自动指定第二角色。差一次只是一项选择，不证明显著差异、某种品质消失或人物定型。可读近分说明，但不补造并列或隐藏人格。情境、时间和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 20 items; each adds one to its editorial character direction and counts sum to 20. Four of five characters are offered per item. Each appears 16 times and four times in each position; an absent option is not a rejection. Every highest count keeps its full guide. Choosing the first option throughout gives four each and all five guides, without list-order priority. Neither division by 20 nor by 16 is a similarity percentage, actual personality proportion or probability. No second character is assigned automatically. One extra choice proves neither significance, absent qualities nor a fixed character. Read close guides without inventing ties or hidden personalities. Context, time and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "波杰克角色测试结果：自我叙述与完整说明",
+          "en": "BoJack Horseman Quiz Result: Self-Narrative & Full Guide"
+        },
+        "description": {
+          "zh": "用个人小作品的介绍理解自我叙述、反讽与承认在意，含表达和四角色比较；不把波杰克的经历、伤害或临床状况赋给你。",
+          "en": "Read BoJack through self-narrative and a personal-project example. Full wording and comparisons without assigning his history, harm or clinical conditions."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "人物基础与本版读法",
+            "en": "Character context and this edition’s reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "《马男波杰克》的基础设定是一位曾经出演情景喜剧的马男明星，尝试面对如今的生活。本版只借“自己怎样讲述自己、怎样用带刺表达保护在意的东西”这一阅读角度，不把他的完整经历压成一种好或坏的人格。你不需要认同人物的行为，也不因选中这个名字承担剧情里的责任。",
+              "en": "The basic setup follows a former sitcom star trying to navigate his present life. This edition borrows one reading angle: how someone narrates themselves and uses barbed expression around things that matter. It does not compress the character’s whole history into a good or bad personality. You need not approve of his behaviour or inherit responsibility for events in the story."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若计数最高，本次较常选择解释自己在意什么、承认想被怎样理解，或在个人叙述中使用一点反讽。它可能提醒你区分“我想表达什么”和“我怕别人怎么看”。这只是题目选项中的读法，不证明你总是防备、需要关注或有特定心理原因；少选同样不表示更坦率或更成熟。",
+              "en": "A highest count means you more often chose to explain personal investment, acknowledge how you want to be understood or use some irony in self-narration. You might distinguish what you want to convey from how you fear being seen. This describes offered choices without establishing persistent guardedness, attention needs or psychological causes. Fewer choices do not mean greater openness or maturity."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，给朋友看一张自己做的小卡时，你先说了一句“又是我那套不太像样的作品”。可以留意这句话是在玩笑、介绍风格，还是已经挡住了真正想说的内容。你可以随后补充“其实我想保留这次旅行的一个普通片段”。这个例子不要求停止幽默，只让笑话和具体意图都能被听见。",
+              "en": "Showing a friend a handmade card, you introduce it with a mildly dismissive remark about your own usual creations. Notice whether that is playfulness, a style cue or something blocking what you want to say. You could add that you wanted to keep one ordinary moment from a trip. The example leaves room for both humour and a concrete intention to be heard."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可用表达是：“我刚才那句有点自嘲；认真说，我在意的是这一小处。你可以不同意，也不用替我评价整个人。”如果对方被话刺到，解释本意不能替代听清影响、承认具体行为和停止。角色式的幽默不是免除责任的理由；对方也不承担读懂你、安慰你或陪你重演剧情的义务。",
+              "en": "You might say, “That was partly self-directed humour; what actually matters to me is this small detail. You can disagree without judging my whole self.” If a remark hurts someone, explaining intention does not replace hearing its impact, acknowledging the action and stopping it. Character-like humour grants no exemption from responsibility, and others need not decode, reassure or reenact a story with you."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他四位角色的读法比较",
+            "en": "Comparisons with the other four character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "与戴安的追问区别在于，这一读法更看自己怎样讲述与被理解，而非把一个问题说明白；与凯洛琳的协调不同，它不直接回答谁做什么。陶德偏共同试出意外玩法，花生酱先生偏共享参与的热情。你可以同时采用这些做法，计数不把任何角色设成反面，也不自动把第二高列为“隐藏人格”。",
+              "en": "Compared with Diane’s questioning, this angle attends to self-narration and being understood rather than clarifying a question. It does not directly settle responsibilities as Carolyn’s coordination does. Todd concerns unusual shared experiments, while Mr. Peanutbutter concerns enthusiastic participation. Approaches may coexist without making any character an opposite or turning the second-highest count into a hidden personality inside your actual self."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，开一句玩笑可能仅因为当时轻松；少说自己的事可能是隐私、语言、时间或安全条件，不等于波杰克式防备。最高计数不诊断抑郁、成瘾、自恋、创伤或危险性，也不能说你“注定伤害别人”。人物的复杂甚至有害行为属于剧情；本版的普通表达题不能测出或正当化这些事情。",
+              "en": "A joke may simply suit a relaxed moment. Saying little about yourself may reflect privacy, language, time or safety rather than guardedness. The count diagnoses no depression, addiction, narcissism, trauma or danger and predicts no harm to others. Complex or harmful fictional behaviour belongs to the story; these ordinary expression questions cannot detect it or provide a justification for it in actual life."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：给一个本来想展示的小东西写两句介绍，一句保留自己的语气，一句直说具体在意之处。不需要发布、请人评价或分享经历；也可以不做。只观察自己喜欢哪种表达安排，不给勇气、诚实、健康或改变能力打分，不把一次小练习当作治疗、救赎或必须完成的人生转折。",
+              "en": "For an optional observation, give something you already want to show two introductory sentences: one in your own voice and one stating the detail that matters. Publishing, feedback and personal disclosure are unnecessary; skip it if preferred. Notice the arrangement you like without grading courage, honesty, health or ability to change, or turning it into treatment, redemption or a compulsory life turning point."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "20题计数与全部最高并列",
+            "en": "20-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "20题全部各选一项，对应的本版角色方向加1，总数固定20。每题只提供五角色中的四个，全卷各角色16次、每位置4次；当题未提供的角色不记拒绝。所有最高计数都保留完整说明，全选第一项会五角色各4次，五份完整显示；顺序不设主次。不把次数除以20或16叫作相似度、真实人格比例或出现概率，也不自动指定第二角色。差一次只是一项选择，不证明显著差异、某种品质消失或人物定型。可读近分说明，但不补造并列或隐藏人格。情境、时间和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 20 items; each adds one to its editorial character direction and counts sum to 20. Four of five characters are offered per item. Each appears 16 times and four times in each position; an absent option is not a rejection. Every highest count keeps its full guide. Choosing the first option throughout gives four each and all five guides, without list-order priority. Neither division by 20 nor by 16 is a similarity percentage, actual personality proportion or probability. No second character is assigned automatically. One extra choice proves neither significance, absent qualities nor a fixed character. Read close guides without inventing ties or hidden personalities. Context, time and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的非官方同人问卷，使用五位《马男波杰克》角色作当前普通回应的编辑阅读角度。Netflix官方作品资料仅核基础人物与作品语境，不验证本题本、映射、计数或心理解释；本测验与Netflix、制作发行方及权利人无合作、隶属或认可关系，作品与角色权利归相应权利人。20题、选项、解释、例子与规则均由本站独立创作，未采用JobCannon10题、IDR35题、竞品结果正文／算法、剧集台词、字幕、截图、立绘或其他受保护素材。阅读只涉及少量基础设定，不是全剧人物结论，不把疾病、成瘾、创伤、性取向、危险性、道德、关系或职业赋给答题者，也不正当化剧情中的伤害。角色匹配不认证智力、创造力、领导力、抗压或心理健康，不转换MBTI、沟通、领导或傲娇类型，也不指导重大决定。",
+              "en": "This is an independently authored FermatMind unofficial fan quiz using five BoJack Horseman characters as editorial angles on current ordinary responses. Official Netflix material checks basic character and series context without validating these items, mappings, counts or psychology. There is no affiliation, partnership or endorsement by Netflix, producers, distributors or rights holders; series and character rights belong to their respective owners. All 20 items, options, explanations, examples and rules are independently authored. No JobCannon 10-item bank, IDR 35-item bank, competitor result text or algorithm, dialogue, subtitles, screenshots, character art or other protected material is used. Limited basic setup is not a verdict on the full series or its people. Results assign no illness, addiction, trauma, sexual orientation, danger, morality, relationship or career, justify no fictional harm and certify no intelligence, creativity, leadership, stress tolerance or mental health. They convert into no MBTI, communication, leadership or dere type and guide no major decision."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diane-nguyen",
+      "directionIds": [
+        "diane-nguyen"
+      ],
+      "title": {
+        "zh": "戴安·阮：追问与文字澄清",
+        "en": "Diane Nguyen: Questions and Written Clarity"
+      },
+      "headline": {
+        "zh": "戴安·阮：追问与文字澄清",
+        "en": "Diane Nguyen: Questions and Written Clarity"
+      },
+      "summary": {
+        "zh": "通过一段小刊说明看追问、语境与文字澄清，含表达、比较和反例；结果不认证聪明、道德、写作水平或心理状况。",
+        "en": "Explore questions, context and written clarity through a small-zine example, wording and comparisons. Results certify no intelligence, morality, writing skill or mental condition."
+      },
+      "scoreReading": {
+        "zh": "20题全部各选一项，对应的本版角色方向加1，总数固定20。每题只提供五角色中的四个，全卷各角色16次、每位置4次；当题未提供的角色不记拒绝。所有最高计数都保留完整说明，全选第一项会五角色各4次，五份完整显示；顺序不设主次。不把次数除以20或16叫作相似度、真实人格比例或出现概率，也不自动指定第二角色。差一次只是一项选择，不证明显著差异、某种品质消失或人物定型。可读近分说明，但不补造并列或隐藏人格。情境、时间和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 20 items; each adds one to its editorial character direction and counts sum to 20. Four of five characters are offered per item. Each appears 16 times and four times in each position; an absent option is not a rejection. Every highest count keeps its full guide. Choosing the first option throughout gives four each and all five guides, without list-order priority. Neither division by 20 nor by 16 is a similarity percentage, actual personality proportion or probability. No second character is assigned automatically. One extra choice proves neither significance, absent qualities nor a fixed character. Read close guides without inventing ties or hidden personalities. Context, time and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "戴安角色测试结果：追问、澄清与完整说明",
+          "en": "Diane Nguyen Quiz Result: Questions & Full Guide"
+        },
+        "description": {
+          "zh": "通过一份小刊的文字看追问、语境与澄清，含例子、表达和四角色比较；不认证聪明、道德、写作能力或心理状况。",
+          "en": "Explore Diane through questions, context and clearer wording in a small zine. Full comparisons without intelligence, morality or mental-health certification."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "人物基础与本版读法",
+            "en": "Character context and this edition’s reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "戴安·阮是《马男波杰克》的角色之一；官方中文剧集简介也涉及她的写作与人际故事。本版选取“追问一句话是什么意思，再尝试把语境写清楚”的同人阅读角度。这不是对完整人物、政治立场或心理经历的定论，也不要求你看过某一季，或把自己的现实经历解释成她的故事。",
+              "en": "Diane Nguyen is part of the series, and official episode descriptions include writing and interpersonal storylines involving her. This fan reading selects asking what a statement means and trying to make its context clear. It is not a verdict on the whole character, politics or psychological history, and requires neither a particular season nor treating your actual experiences as her storyline."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择提问、区分知道与猜测，或让自己的句子更贴近原本意思。可以问：现在想弄清哪个问题，哪里还没有依据，哪些词容易被误会？它不证明你的判断一定正确，也不认证逻辑、共情、原则或写作能力。别人选择先参与、先试做或先协调，同样可以认真且负责任。",
+              "en": "A highest count means you more often chose questions, separated knowledge from guesses or brought wording closer to intended meaning. Which question matters, where is support missing and which words might be misunderstood? This does not make your judgement correct or certify logic, empathy, principles or writing skill. Participation, experiments and coordination can also be thoughtful and responsible approaches to ordinary shared matters."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，一份自制小刊把“所有人都喜欢”写在封面上，你想先问这句话依据什么。可以把它改成“我们几位制作时很喜欢”，保留自己的感受而不代表别人。如果对方现在只想随意玩，你也可以先说明自己为什么在意这个词，再商量是否值得改；问得更清楚不等于必须让每次聊天都变成辩论。",
+              "en": "A homemade zine cover says that everyone likes it. You ask what supports that claim and suggest saying that the makers enjoyed creating it instead. This preserves a feeling without speaking for others. If a companion only wants to play casually, explain why that wording matters and discuss whether to change it. Clarity does not require turning every exchange into a debate."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我还不确定这里的意思，想先区分我知道的、猜测的和希望的。你现在愿意一起看一句吗？”对方可以不参与，你也可以暂时保留问题。若涉及别人生活，不以“求真”为由要求隐私或强行纠正；把问题限定在眼前文字和具体约定，有助于保留双方说不和不解释的空间。",
+              "en": "You might say, “I’m not certain what this means yet; I’d like to separate what I know, guess and hope. Would you like to look at one sentence together?” Others may decline and the question may remain open. Seeking clarity does not entitle anyone to private information or forced correction; keep the discussion specific while preserving the option not to explain."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他四位角色的读法比较",
+            "en": "Comparisons with the other four character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "戴安这一读法偏问题与意思，波杰克偏自我叙述和被理解；两者都可以使用文字或幽默。凯洛琳更看具体约定与协调，陶德更愿通过不寻常的小实验发现东西，花生酱先生更关注共享体验与欢迎。这里比较的是本版选项，不是五种互斥的大脑、智商、职业或道德等级；近分也不自动生成新类型。",
+              "en": "This Diane angle focuses on questions and meaning, while BoJack attends to self-narration and being understood; both can use writing or humour. Carolyn concerns agreements and coordination, Todd unusual experiments, and Mr. Peanutbutter welcome and shared experience. These are comparisons among editorial options rather than mutually exclusive brains, intelligence levels, professions or moral ranks. Close counts do not automatically create a new type."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，反复提问可能因为指令含糊或缺信息，写得简短可能因为时间有限；这些不直接等于某种角色。一次选择也看不出是否过度思考、焦虑、低落或有特定成长经历。你无须因为结果而把痛苦变成作品、替别人承担世界的问题，或证明自己始终有原则；现实需要具体条件与实际支持。",
+              "en": "Repeated questions may follow unclear instructions or missing information, while brief wording may reflect limited time. Neither necessarily implies a character theme. Choices establish no overthinking, anxiety, low mood or developmental history. You need not turn suffering into work, carry everyone’s problems or prove constant principles because of a result; actual circumstances and available support matter beyond this voluntary fan interpretation."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：从自己本来就在写的一句话里，标出一个确定信息和一个仍然不清楚的地方。可以只留给自己，不必追问他人或把所有空白填完。看看这种区分是否符合当前兴趣，而非检查自己够不够聪明、善良或严谨；不想分析时也可以去做别的普通活动，结果不要求维持戴安式表现。",
+              "en": "For an optional observation, mark one known detail and one uncertainty in a sentence you already want to write. Keep it private without questioning others or filling every gap. Notice whether that distinction suits your interest rather than testing intelligence, kindness or rigour. You may choose another ordinary activity instead; a result creates no obligation to keep performing a Diane-like approach for anyone."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "20题计数与全部最高并列",
+            "en": "20-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "20题全部各选一项，对应的本版角色方向加1，总数固定20。每题只提供五角色中的四个，全卷各角色16次、每位置4次；当题未提供的角色不记拒绝。所有最高计数都保留完整说明，全选第一项会五角色各4次，五份完整显示；顺序不设主次。不把次数除以20或16叫作相似度、真实人格比例或出现概率，也不自动指定第二角色。差一次只是一项选择，不证明显著差异、某种品质消失或人物定型。可读近分说明，但不补造并列或隐藏人格。情境、时间和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 20 items; each adds one to its editorial character direction and counts sum to 20. Four of five characters are offered per item. Each appears 16 times and four times in each position; an absent option is not a rejection. Every highest count keeps its full guide. Choosing the first option throughout gives four each and all five guides, without list-order priority. Neither division by 20 nor by 16 is a similarity percentage, actual personality proportion or probability. No second character is assigned automatically. One extra choice proves neither significance, absent qualities nor a fixed character. Read close guides without inventing ties or hidden personalities. Context, time and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的非官方同人问卷，使用五位《马男波杰克》角色作当前普通回应的编辑阅读角度。Netflix官方作品资料仅核基础人物与作品语境，不验证本题本、映射、计数或心理解释；本测验与Netflix、制作发行方及权利人无合作、隶属或认可关系，作品与角色权利归相应权利人。20题、选项、解释、例子与规则均由本站独立创作，未采用JobCannon10题、IDR35题、竞品结果正文／算法、剧集台词、字幕、截图、立绘或其他受保护素材。阅读只涉及少量基础设定，不是全剧人物结论，不把疾病、成瘾、创伤、性取向、危险性、道德、关系或职业赋给答题者，也不正当化剧情中的伤害。角色匹配不认证智力、创造力、领导力、抗压或心理健康，不转换MBTI、沟通、领导或傲娇类型，也不指导重大决定。",
+              "en": "This is an independently authored FermatMind unofficial fan quiz using five BoJack Horseman characters as editorial angles on current ordinary responses. Official Netflix material checks basic character and series context without validating these items, mappings, counts or psychology. There is no affiliation, partnership or endorsement by Netflix, producers, distributors or rights holders; series and character rights belong to their respective owners. All 20 items, options, explanations, examples and rules are independently authored. No JobCannon 10-item bank, IDR 35-item bank, competitor result text or algorithm, dialogue, subtitles, screenshots, character art or other protected material is used. Limited basic setup is not a verdict on the full series or its people. Results assign no illness, addiction, trauma, sexual orientation, danger, morality, relationship or career, justify no fictional harm and certify no intelligence, creativity, leadership, stress tolerance or mental health. They convert into no MBTI, communication, leadership or dere type and guide no major decision."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "princess-carolyn",
+      "directionIds": [
+        "princess-carolyn"
+      ],
+      "title": {
+        "zh": "凯洛琳公主：协调与具体约定",
+        "en": "Princess Carolyn: Coordination and Concrete Agreements"
+      },
+      "headline": {
+        "zh": "凯洛琳公主：协调与具体约定",
+        "en": "Princess Carolyn: Coordination and Concrete Agreements"
+      },
+      "summary": {
+        "zh": "用兴趣项目交接理解协调、范围与明确约定，含四角色比较和停止空间；不认证领导力、效率、韧性、职业或照料义务。",
+        "en": "Explore coordination, scope and agreements through a hobby-project handover and four character comparisons. No leadership, efficiency, resilience, career or care duty is certified."
+      },
+      "scoreReading": {
+        "zh": "20题全部各选一项，对应的本版角色方向加1，总数固定20。每题只提供五角色中的四个，全卷各角色16次、每位置4次；当题未提供的角色不记拒绝。所有最高计数都保留完整说明，全选第一项会五角色各4次，五份完整显示；顺序不设主次。不把次数除以20或16叫作相似度、真实人格比例或出现概率，也不自动指定第二角色。差一次只是一项选择，不证明显著差异、某种品质消失或人物定型。可读近分说明，但不补造并列或隐藏人格。情境、时间和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 20 items; each adds one to its editorial character direction and counts sum to 20. Four of five characters are offered per item. Each appears 16 times and four times in each position; an absent option is not a rejection. Every highest count keeps its full guide. Choosing the first option throughout gives four each and all five guides, without list-order priority. Neither division by 20 nor by 16 is a similarity percentage, actual personality proportion or probability. No second character is assigned automatically. One extra choice proves neither significance, absent qualities nor a fixed character. Read close guides without inventing ties or hidden personalities. Context, time and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "凯洛琳公主测试结果：协调、约定与完整说明",
+          "en": "Princess Carolyn Quiz Result: Agreements & Full Guide"
+        },
+        "description": {
+          "zh": "用兴趣项目交接理解协调、具体约定与范围，含表达、反例和四角色比较；不认证领导力、效率、职业或照料义务。",
+          "en": "Read Princess Carolyn through a hobby handover, scope and agreements. Full examples without leadership, efficiency, career or care-duty certification."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "人物基础与本版读法",
+            "en": "Character context and this edition’s reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "凯洛琳公主在官方作品介绍中是波杰克的经纪人。本站借用“把参与者、安排与具体约定放到一起”的同人阅读角度，不把人物职业直接当你的能力或适合行业。她的故事不等于永远多承担的榜样；读到这个名字，也不要求你像经纪人一样替周围所有人的事情负责。",
+              "en": "Official series material identifies Princess Carolyn as BoJack’s agent. This edition borrows bringing participants, arrangements and concrete agreements together as a fan reading rather than converting her job into your ability or suitable industry. Her story is not a model of carrying ever more, and receiving her name requires no agent-like responsibility for everyone and everything around you in actual daily life."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择把范围、时间、归属与谁愿意做什么讲清楚。可以问：究竟承诺了哪一段，需要谁同意，哪些并未答应？次数不观察真实执行、组织质量或压力反应，也不证明你比别人可靠。少选可能是任务不需要你协调，不表示不负责；协调本身也应当是自愿且可以重新谈的工作。",
+              "en": "A highest count means you more often chose to clarify scope, timing, ownership and willing responsibilities. What is actually promised, whose agreement is needed and what remains uncommitted? Counts observe no execution, organisational quality or stress response and establish no greater reliability. Fewer choices may mean coordination was unnecessary. Coordination itself should remain voluntary work whose terms can be discussed and revised."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，朋友想在你不在场时继续一本小刊，你留下一张交接：哪页已确认、哪些材料获准使用、哪个问题需要重新问作者。也注明自己不负责周末实时回复。这样把参与和边界放在同一张纸上，而不是用更密的日程证明自己能干；作品能否顺利完成，还取决于许多实际条件和其他参与者。",
+              "en": "Friends want to continue a small zine while you are absent. Leave a note identifying confirmed pages, permitted materials and a question that needs the author’s agreement, and state that you are not available for live weekend replies. Participation and limits belong on the same page. A fuller schedule proves no competence; actual completion also depends on conditions and the other willing participants."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我愿意负责这一段，到这里结束；另一部分需要另行商量，不能默认算在我这里。”如果别人没有明确同意，不能因为表格写了名字就把任务分给他。约定不等于控制对方的做法，退出或改变计划时需要重新沟通具体影响，不用以角色匹配为由硬撑、替别人承诺或压低自己的需要。",
+              "en": "You might say, “I can handle this part up to this point; the other part needs a separate agreement and is not automatically mine.” A name on a list does not assign work without consent. Agreements do not control another person’s method. Discuss concrete effects when plans change without using a character match to overextend yourself, promise on others’ behalf or suppress your needs."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他四位角色的读法比较",
+            "en": "Comparisons with the other four character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "这一凯洛琳读法偏协调和约定，戴安偏问题与文字的意思，波杰克偏自己的叙述如何被听见。陶德偏不同寻常的共同试验，花生酱先生偏愿意相聚的体验。五者可以一起出现：把约定写清不妨碍幽默和热情。原始计数不形成职场风格、主副人格或优劣排序，也不把本版换算成领导力或沟通测评。",
+              "en": "This Carolyn reading concerns coordination and agreements; Diane concerns questions and meaning, and BoJack how self-narration is heard. Todd concerns unusual shared experiments and Mr. Peanutbutter willing shared experiences. Clarity about commitments can coexist with humour and enthusiasm. Raw counts create no workplace style, primary or secondary personality, or quality ranking, and convert into neither a leadership nor a communication assessment result."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，一次把事情列清可能因为只有你知道资料在哪里，而不是持续偏好；别人没做清单也可能已经有共同理解。本版不判断是否擅长管理、是否抗压、是不是工作狂、是否应该照料别人。人物职业、亲密关系与家庭故事不是测验的评分依据；你也无需用完成量来换取休息或认可。",
+              "en": "A list may be necessary simply because you alone know where information is, rather than showing a lasting preference; others may already share an understanding without a list. The quiz establishes no management skill, stress tolerance, workaholism or care obligation. Fictional work, relationship and family stories are not scoring criteria, and neither rest nor recognition needs to be earned through output here."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：为一个本来愿意参与的小事情，写一条自己同意的责任和一条没有同意的责任，可以不交给别人。看看明确范围是否让表达更符合自己的意思，不检验效率或完成能力；也可以不做。发现需要重新谈时，处理的是实际约定，而不是证明自己够不够像凯洛琳或有没有“辜负角色”。",
+              "en": "For an optional observation, write one responsibility you have agreed to and one you have not for a small matter you already want to join. Sharing the note is optional. Notice whether explicit scope reflects your meaning without testing efficiency or execution, and skip the exercise if preferred. Renegotiation addresses an actual agreement rather than proving whether you sufficiently resemble or disappoint a character."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "20题计数与全部最高并列",
+            "en": "20-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "20题全部各选一项，对应的本版角色方向加1，总数固定20。每题只提供五角色中的四个，全卷各角色16次、每位置4次；当题未提供的角色不记拒绝。所有最高计数都保留完整说明，全选第一项会五角色各4次，五份完整显示；顺序不设主次。不把次数除以20或16叫作相似度、真实人格比例或出现概率，也不自动指定第二角色。差一次只是一项选择，不证明显著差异、某种品质消失或人物定型。可读近分说明，但不补造并列或隐藏人格。情境、时间和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 20 items; each adds one to its editorial character direction and counts sum to 20. Four of five characters are offered per item. Each appears 16 times and four times in each position; an absent option is not a rejection. Every highest count keeps its full guide. Choosing the first option throughout gives four each and all five guides, without list-order priority. Neither division by 20 nor by 16 is a similarity percentage, actual personality proportion or probability. No second character is assigned automatically. One extra choice proves neither significance, absent qualities nor a fixed character. Read close guides without inventing ties or hidden personalities. Context, time and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的非官方同人问卷，使用五位《马男波杰克》角色作当前普通回应的编辑阅读角度。Netflix官方作品资料仅核基础人物与作品语境，不验证本题本、映射、计数或心理解释；本测验与Netflix、制作发行方及权利人无合作、隶属或认可关系，作品与角色权利归相应权利人。20题、选项、解释、例子与规则均由本站独立创作，未采用JobCannon10题、IDR35题、竞品结果正文／算法、剧集台词、字幕、截图、立绘或其他受保护素材。阅读只涉及少量基础设定，不是全剧人物结论，不把疾病、成瘾、创伤、性取向、危险性、道德、关系或职业赋给答题者，也不正当化剧情中的伤害。角色匹配不认证智力、创造力、领导力、抗压或心理健康，不转换MBTI、沟通、领导或傲娇类型，也不指导重大决定。",
+              "en": "This is an independently authored FermatMind unofficial fan quiz using five BoJack Horseman characters as editorial angles on current ordinary responses. Official Netflix material checks basic character and series context without validating these items, mappings, counts or psychology. There is no affiliation, partnership or endorsement by Netflix, producers, distributors or rights holders; series and character rights belong to their respective owners. All 20 items, options, explanations, examples and rules are independently authored. No JobCannon 10-item bank, IDR 35-item bank, competitor result text or algorithm, dialogue, subtitles, screenshots, character art or other protected material is used. Limited basic setup is not a verdict on the full series or its people. Results assign no illness, addiction, trauma, sexual orientation, danger, morality, relationship or career, justify no fictional harm and certify no intelligence, creativity, leadership, stress tolerance or mental health. They convert into no MBTI, communication, leadership or dere type and guide no major decision."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "todd-chavez",
+      "directionIds": [
+        "todd-chavez"
+      ],
+      "title": {
+        "zh": "陶德：不寻常的共同尝试",
+        "en": "Todd Chavez: Unusual Shared Experiments"
+      },
+      "headline": {
+        "zh": "陶德：不寻常的共同尝试",
+        "en": "Todd Chavez: Unusual Shared Experiments"
+      },
+      "summary": {
+        "zh": "从一个可随时改动的私人小目录看意外组合、共同试验与确认约定，含四角色比较；不把角色身份或经历赋给你。",
+        "en": "Explore unexpected combinations, shared experiments and agreements through a changeable personal catalogue. Full comparisons assign no character identity or history to you."
+      },
+      "scoreReading": {
+        "zh": "20题全部各选一项，对应的本版角色方向加1，总数固定20。每题只提供五角色中的四个，全卷各角色16次、每位置4次；当题未提供的角色不记拒绝。所有最高计数都保留完整说明，全选第一项会五角色各4次，五份完整显示；顺序不设主次。不把次数除以20或16叫作相似度、真实人格比例或出现概率，也不自动指定第二角色。差一次只是一项选择，不证明显著差异、某种品质消失或人物定型。可读近分说明，但不补造并列或隐藏人格。情境、时间和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 20 items; each adds one to its editorial character direction and counts sum to 20. Four of five characters are offered per item. Each appears 16 times and four times in each position; an absent option is not a rejection. Every highest count keeps its full guide. Choosing the first option throughout gives four each and all five guides, without list-order priority. Neither division by 20 nor by 16 is a similarity percentage, actual personality proportion or probability. No second character is assigned automatically. One extra choice proves neither significance, absent qualities nor a fixed character. Read close guides without inventing ties or hidden personalities. Context, time and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "陶德角色测试结果：共同尝试与完整说明",
+          "en": "Todd Chavez Quiz Result: Experiments & Full Guide"
+        },
+        "description": {
+          "zh": "从一个私人小目录看意外组合、共同试验和约定，含表达与四角色比较；不赋角色身份，不认证天赋、注意力或生活成功。",
+          "en": "Explore Todd through unexpected combinations in a personal catalogue. Full comparisons without identity, talent, attention or life-success assignments."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "人物基础与本版读法",
+            "en": "Character context and this edition’s reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "陶德是官方作品介绍中波杰克身边的人类角色。本版选取“不按原来的分类走，和愿意的人试一点新组合”的同人阅读角度。这是一种对普通题目选项的编辑解释，不把整个人物缩成“随便”或“天才”，也不借剧情中的身份、性取向和人生经历解释答题者是谁。",
+              "en": "Official series material identifies Todd as a human character around BoJack. This edition selects departing from an existing category to try a new combination with willing people as a fan reading. It is an editorial interpretation of ordinary options rather than reducing the character to carelessness or genius, or using fictional identity, sexual orientation or life history to define an actual respondent."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若次数最高，本次较常选择一个意料外的小组合、改动玩法，或让共同试验保留可变化的空间。可以问：现在想尝试哪个不同，谁确实愿意参与，哪些东西仍需征得同意？次数不检验创造力、灵活性、友善或完成能力；比较少选也可能只是当时想照原来的方式做，并不表示无趣或封闭。",
+              "en": "A highest count means you more often chose an unexpected combination, altered play or room for shared experiments to change. What difference interests you, who actually wants to join and what still needs permission? Counts test no creativity, flexibility, kindness or completion skill. Fewer choices may simply reflect wanting an existing approach rather than being boring or closed to new possibilities in other contexts."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，给个人收藏做目录时，你想把几件东西按“让我想到同一个声音”放在一起，而不是原本的年份顺序。可以先给一页试用，保留原来的文件夹，不擅动别人的收藏。若别人觉得这个分法没有用，它仍可以是你喜欢的一次小玩意，而不必说服大家采用，或把偶然组合包装成更高明的系统。",
+              "en": "Making a personal catalogue, you group a few items by a sound they bring to mind instead of year. Try one page while keeping the original folders and leaving others’ collections untouched. If someone finds that grouping unhelpful, it may remain your enjoyable little experiment without persuading everyone to adopt it or presenting a chance combination as a superior system for all purposes."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我想到一个有点奇怪的小试法，你愿意一起玩吗？不喜欢可以直接停，原来的约定仍然有效。”新点子不等于别人已经同意改变计划，随性也不代表无需交接或承担已答应的责任。若自己不想继续，说清楚就好，不需要不断制造有趣内容来符合陶德的名字，也不用证明自己一定轻松。",
+              "en": "You might say, “I have an odd little experiment in mind; would you like to try it? We can stop, and the original agreement still stands.” An idea does not imply consent to change plans or cancel agreed duties. Say clearly if you no longer want to continue; the name Todd requires neither a constant supply of entertainment nor proof of effortless good spirits."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他四位角色的读法比较",
+            "en": "Comparisons with the other four character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "陶德这一读法偏共同试出不同组合，花生酱先生更偏欢迎与共享体验；前者可以独自试，后者也不一定需要新奇玩法。凯洛琳偏具体安排，戴安偏问题澄清，波杰克偏自我叙述。五种做法可同时用于同一件小事；结果不认证“自由灵魂”，也不自动把第二高命名为真实的另一半性格。",
+              "en": "This Todd reading concerns trying different combinations together, while Mr. Peanutbutter concerns welcome and shared experience. An experiment may be solitary and a shared experience need not be novel. Carolyn concerns arrangements, Diane clarification and BoJack self-narration. Approaches can coexist in one ordinary matter without certifying a free spirit or identifying the second-highest count as the other half of your actual personality."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，临时改玩法可能因为材料不足，不是偏好；按常规完成同样可以很有想象力。计数不判断懒惰、拖延、注意力、神经类型或生活是否成功，也不从角色匹配推断性取向。现实限制与不想参与应当被直接听见，不能用“来点陶德式疯狂”要求别人冒险、放弃权利或接下未同意的安排。",
+              "en": "Changing play may follow missing materials rather than preference, and conventional work can be imaginative. Counts establish no laziness, procrastination, attention pattern, neurotype, life success or sexual orientation. Actual limits and unwillingness deserve to be heard directly. Invoking character-like spontaneity cannot require someone to take risks, waive rights or accept an arrangement they never agreed to join or continue in the first place."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：给一件属于自己、原本就在玩的低风险小事，试一个可以立即撤回的不同组合。也可以只在纸上写一下、不动实物，或完全不做。留意是否喜欢这个试法，以及原有约定有没有被照顾到，不以是否惊艳、有用或被别人喜欢来证明天赋，更不把它变成持续创新任务。",
+              "en": "For an optional observation, try an immediately reversible combination in something low-stakes you own and already enjoy. You may write the idea without changing an object or skip it entirely. Notice whether the experiment appeals and existing agreements remain respected. Neither surprise, usefulness nor popularity proves talent here, and this small invitation creates no requirement to keep innovating or entertaining yourself and other people."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "20题计数与全部最高并列",
+            "en": "20-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "20题全部各选一项，对应的本版角色方向加1，总数固定20。每题只提供五角色中的四个，全卷各角色16次、每位置4次；当题未提供的角色不记拒绝。所有最高计数都保留完整说明，全选第一项会五角色各4次，五份完整显示；顺序不设主次。不把次数除以20或16叫作相似度、真实人格比例或出现概率，也不自动指定第二角色。差一次只是一项选择，不证明显著差异、某种品质消失或人物定型。可读近分说明，但不补造并列或隐藏人格。情境、时间和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 20 items; each adds one to its editorial character direction and counts sum to 20. Four of five characters are offered per item. Each appears 16 times and four times in each position; an absent option is not a rejection. Every highest count keeps its full guide. Choosing the first option throughout gives four each and all five guides, without list-order priority. Neither division by 20 nor by 16 is a similarity percentage, actual personality proportion or probability. No second character is assigned automatically. One extra choice proves neither significance, absent qualities nor a fixed character. Read close guides without inventing ties or hidden personalities. Context, time and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的非官方同人问卷，使用五位《马男波杰克》角色作当前普通回应的编辑阅读角度。Netflix官方作品资料仅核基础人物与作品语境，不验证本题本、映射、计数或心理解释；本测验与Netflix、制作发行方及权利人无合作、隶属或认可关系，作品与角色权利归相应权利人。20题、选项、解释、例子与规则均由本站独立创作，未采用JobCannon10题、IDR35题、竞品结果正文／算法、剧集台词、字幕、截图、立绘或其他受保护素材。阅读只涉及少量基础设定，不是全剧人物结论，不把疾病、成瘾、创伤、性取向、危险性、道德、关系或职业赋给答题者，也不正当化剧情中的伤害。角色匹配不认证智力、创造力、领导力、抗压或心理健康，不转换MBTI、沟通、领导或傲娇类型，也不指导重大决定。",
+              "en": "This is an independently authored FermatMind unofficial fan quiz using five BoJack Horseman characters as editorial angles on current ordinary responses. Official Netflix material checks basic character and series context without validating these items, mappings, counts or psychology. There is no affiliation, partnership or endorsement by Netflix, producers, distributors or rights holders; series and character rights belong to their respective owners. All 20 items, options, explanations, examples and rules are independently authored. No JobCannon 10-item bank, IDR 35-item bank, competitor result text or algorithm, dialogue, subtitles, screenshots, character art or other protected material is used. Limited basic setup is not a verdict on the full series or its people. Results assign no illness, addiction, trauma, sexual orientation, danger, morality, relationship or career, justify no fictional harm and certify no intelligence, creativity, leadership, stress tolerance or mental health. They convert into no MBTI, communication, leadership or dere type and guide no major decision."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mr-peanutbutter",
+      "directionIds": [
+        "mr-peanutbutter"
+      ],
+      "title": {
+        "zh": "花生酱先生：热情的共同体验",
+        "en": "Mr. Peanutbutter: Enthusiastic Shared Experiences"
+      },
+      "headline": {
+        "zh": "花生酱先生：热情的共同体验",
+        "en": "Mr. Peanutbutter: Enthusiastic Shared Experiences"
+      },
+      "summary": {
+        "zh": "从一次共同翻阅小作品看邀请、热情与听见不同意愿，含具体表达和四角色比较；不认证外向、快乐、受欢迎或关系质量。",
+        "en": "Explore invitations, enthusiasm and differing wishes through a shared look at a small creation. Full comparisons certify no extraversion, happiness, popularity or relationship quality."
+      },
+      "scoreReading": {
+        "zh": "20题全部各选一项，对应的本版角色方向加1，总数固定20。每题只提供五角色中的四个，全卷各角色16次、每位置4次；当题未提供的角色不记拒绝。所有最高计数都保留完整说明，全选第一项会五角色各4次，五份完整显示；顺序不设主次。不把次数除以20或16叫作相似度、真实人格比例或出现概率，也不自动指定第二角色。差一次只是一项选择，不证明显著差异、某种品质消失或人物定型。可读近分说明，但不补造并列或隐藏人格。情境、时间和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 20 items; each adds one to its editorial character direction and counts sum to 20. Four of five characters are offered per item. Each appears 16 times and four times in each position; an absent option is not a rejection. Every highest count keeps its full guide. Choosing the first option throughout gives four each and all five guides, without list-order priority. Neither division by 20 nor by 16 is a similarity percentage, actual personality proportion or probability. No second character is assigned automatically. One extra choice proves neither significance, absent qualities nor a fixed character. Read close guides without inventing ties or hidden personalities. Context, time and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      },
+      "seo": {
+        "title": {
+          "zh": "花生酱先生测试结果：共同体验与完整说明",
+          "en": "Mr. Peanutbutter Quiz Result: Shared Experiences & Guide"
+        },
+        "description": {
+          "zh": "从共同翻阅小作品看邀请、热情和不同意愿，含表达、反例与四角色比较；不认证外向、快乐、受欢迎或关系质量。",
+          "en": "Read Mr. Peanutbutter through invitations and a shared look at a small creation. Full comparisons without extraversion, happiness or relationship verdicts."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "人物基础与本版读法",
+            "en": "Character context and this edition’s reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "花生酱先生是《马男波杰克》的主要角色之一，官方作品介绍包含他与其他人物的共同故事。本版借“把一件普通小事变成愿意共享的体验”作同人阅读角度，不把整个角色定为永远阳光或没有复杂感受。角色名字只是帮助读者记住一种选项方向，不是快乐程度或好人认证。",
+              "en": "Mr. Peanutbutter is among the series’ central characters, and official material includes storylines connecting him with others. This fan reading selects turning an ordinary small matter into an experience people willingly share. It does not define the whole character as permanently sunny or without complex feelings. His name helps readers remember one offered approach rather than certifying happiness or being a good person in actual life."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数对应哪些当前选择",
+            "en": "Which current choices the count describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "若计数最高，本次较常选择欢迎参与、表达一起做的兴致，或为共同体验留一个时刻。可以问：对方真的想加入什么，想不想被公开庆祝，是否更愿意安静？热情只有放回对方的实际意愿才有具体含义。原始次数没有测你是否外向、受欢迎、乐观或擅长交友，也不证明大家确实喜欢你的安排。",
+              "en": "A highest count means you more often chose welcoming participation, expressing interest in doing something together or marking a shared experience. What does the other person actually want to join, and would they prefer quiet or public celebration? Enthusiasm needs those actual wishes for context. Counts measure neither extraversion, popularity, optimism nor friendship skill, and do not prove that others enjoy your proposed arrangements."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通例子",
+            "en": "A concrete ordinary example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，一份几人一起做的小刊完成了，你想邀请大家各挑一页翻看，分享当时喜欢的细节。可以先问是否愿意，允许只看不说、以后再看或不参加，也不把作品发到公开账号。共同体验不必很热闹或花钱；有人不加入，不等于拒绝你这个人，喜欢一起看也不证明关系亲密。",
+              "en": "A jointly made zine is ready, and you invite contributors to choose a page and share a detail they enjoyed. Ask first and allow silent reading, another time or no participation, without publishing their work publicly. A shared experience need be neither loud nor expensive. Declining does not reject your whole person, and enjoying a joint look proves no particular degree of closeness."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express the preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说：“我很想和你一起看看，你现在愿意吗？想安静看或以后再说也可以。”如果对方想认真谈一件事，别默认一个更热闹的计划能代替回应。你也可以承认自己没有兴致，不必为了符合花生酱先生而持续鼓舞别人；真实意愿比维持角色表演更值得直接说明。",
+              "en": "You might say, “I’d enjoy looking at this together; would you like to now? Quiet reading or another time is fine.” A livelier plan does not automatically answer someone who wants a serious conversation. You may also acknowledge lacking enthusiasm rather than constantly cheering others to fit the character. State actual wishes directly instead of maintaining a performance for a quiz result."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他四位角色的读法比较",
+            "en": "Comparisons with the other four character readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "这一花生酱先生读法偏欢迎和共享体验，陶德偏不寻常的共同尝试：聚在一起可以很普通，试验也可以独自完成。凯洛琳偏具体协调，戴安偏意义澄清，波杰克偏个人叙述。这些方向没有谁更适合朋友、伴侣或工作；热情不排除问题、约定和边界，近分也不自动变成某种社交混合型。",
+              "en": "This Mr. Peanutbutter angle concerns welcome and shared experience; Todd concerns unusual shared experiments. Togetherness may be ordinary and experimentation solitary. Carolyn concerns coordination, Diane clarification and BoJack personal narration. None is a better friend, partner or worker. Enthusiasm can coexist with questions, agreements and limits, while close counts create no automatic blended social type or relationship verdict for a real person."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的现实情况",
+            "en": "Counterexamples and actual circumstances not inferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，主动邀请可能因为当时轮到你联络，不是持续偏好；安静或独处也可以心情很好。最高次数不判断是否掩饰困难、不懂倾听、讨好、情绪不稳或有某种依恋模式。剧情里的关系问题也不成为你的标签。共同参与需要实际同意，而不是从对方的性格、角色或沉默推断愿意。",
+              "en": "Initiating an invitation may simply follow your turn to organise contact rather than a lasting preference; quiet or solitude can be enjoyable too. A high count establishes no hidden difficulty, poor listening, people pleasing, mood instability or attachment pattern. Fictional relationship problems do not become your labels. Shared participation needs actual agreement rather than an inference from someone’s personality, character match or silence."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：为一件本来想和别人一起看的小东西，写一个允许不同回应的邀请，也可以只留给自己、不发送。观察这句话有没有同时表达兴致与选择空间，不用真的举办活动、收到肯定或证明社交成功。不想邀请或对方没空时可以到此结束，问卷不规定谁负责让所有人开心。",
+              "en": "For an optional observation, write an invitation about something small you already want to share, allowing different responses. Keep it private and unsent if preferred. Notice whether it expresses interest and room to choose without holding an event, receiving approval or proving social success. If you do not want to invite or the person is unavailable, stop here; the quiz assigns no responsibility for everyone’s happiness."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "20题计数与全部最高并列",
+            "en": "20-item counts and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "20题全部各选一项，对应的本版角色方向加1，总数固定20。每题只提供五角色中的四个，全卷各角色16次、每位置4次；当题未提供的角色不记拒绝。所有最高计数都保留完整说明，全选第一项会五角色各4次，五份完整显示；顺序不设主次。不把次数除以20或16叫作相似度、真实人格比例或出现概率，也不自动指定第二角色。差一次只是一项选择，不证明显著差异、某种品质消失或人物定型。可读近分说明，但不补造并列或隐藏人格。情境、时间和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+              "en": "Choose one option for all 20 items; each adds one to its editorial character direction and counts sum to 20. Four of five characters are offered per item. Each appears 16 times and four times in each position; an absent option is not a rejection. Every highest count keeps its full guide. Choosing the first option throughout gives four each and all five guides, without list-order priority. Neither division by 20 nor by 16 is a similarity percentage, actual personality proportion or probability. No second character is assigned automatically. One extra choice proves neither significance, absent qualities nor a fixed character. Read close guides without inventing ties or hidden personalities. Context, time and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "非官方原创版本与来源边界",
+            "en": "Unofficial original edition and source scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马独立创作的非官方同人问卷，使用五位《马男波杰克》角色作当前普通回应的编辑阅读角度。Netflix官方作品资料仅核基础人物与作品语境，不验证本题本、映射、计数或心理解释；本测验与Netflix、制作发行方及权利人无合作、隶属或认可关系，作品与角色权利归相应权利人。20题、选项、解释、例子与规则均由本站独立创作，未采用JobCannon10题、IDR35题、竞品结果正文／算法、剧集台词、字幕、截图、立绘或其他受保护素材。阅读只涉及少量基础设定，不是全剧人物结论，不把疾病、成瘾、创伤、性取向、危险性、道德、关系或职业赋给答题者，也不正当化剧情中的伤害。角色匹配不认证智力、创造力、领导力、抗压或心理健康，不转换MBTI、沟通、领导或傲娇类型，也不指导重大决定。",
+              "en": "This is an independently authored FermatMind unofficial fan quiz using five BoJack Horseman characters as editorial angles on current ordinary responses. Official Netflix material checks basic character and series context without validating these items, mappings, counts or psychology. There is no affiliation, partnership or endorsement by Netflix, producers, distributors or rights holders; series and character rights belong to their respective owners. All 20 items, options, explanations, examples and rules are independently authored. No JobCannon 10-item bank, IDR 35-item bank, competitor result text or algorithm, dialogue, subtitles, screenshots, character art or other protected material is used. Limited basic setup is not a verdict on the full series or its people. Results assign no illness, addiction, trauma, sexual orientation, danger, morality, relationship or career, justify no fictional harm and certify no intelligence, creativity, leadership, stress tolerance or mental health. They convert into no MBTI, communication, leadership or dere type and guide no major decision."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "20题怎样形成五角色计数",
+        "en": "How 20 choices produce five character counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "20题全部各选一项，对应的本版角色方向加1，总数固定20。每题只提供五角色中的四个，全卷各角色16次、每位置4次；当题未提供的角色不记拒绝。所有最高计数都保留完整说明，全选第一项会五角色各4次，五份完整显示；顺序不设主次。不把次数除以20或16叫作相似度、真实人格比例或出现概率，也不自动指定第二角色。差一次只是一项选择，不证明显著差异、某种品质消失或人物定型。可读近分说明，但不补造并列或隐藏人格。情境、时间和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+          "en": "Choose one option for all 20 items; each adds one to its editorial character direction and counts sum to 20. Four of five characters are offered per item. Each appears 16 times and four times in each position; an absent option is not a rejection. Every highest count keeps its full guide. Choosing the first option throughout gives four each and all five guides, without list-order priority. Neither division by 20 nor by 16 is a similarity percentage, actual personality proportion or probability. No second character is assigned automatically. One extra choice proves neither significance, absent qualities nor a fixed character. Read close guides without inventing ties or hidden personalities. Context, time and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "完整角色结果与相近选择",
+        "en": "Full character guides and close choices"
+      },
+      "paragraphs": [
+        {
+          "zh": "五份说明各含基础人物背景、本版读法、例子、表达、四角色比较、反例、小观察、计分和来源。最高并列都完整显示；近分可另行阅读，不自动补造混合人格或第二身份。先读公开说明不会显示任何人的私有答卷或次数。",
+          "en": "Each of five guides includes basic context, the editorial reading, an example, wording, four-character comparisons, counterexamples, an observation, scoring and sources. Every highest tie appears in full. Close guides can be read without inventing mixed personalities or second identities. Public guides reveal no private attempt or counts."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "角色读法与现实中的你",
+        "en": "Character readings and your actual life"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版取五位角色的有限角度，不是全剧、所有角色或任何人的完整人格；无需看全剧，背景只涉及基础设定。人物的疾病、伤害和人生经历不随结果转给答题者，角色名字也不能用来替别人诊断或给现实行为免责。",
+          "en": "This edition selects limited angles on five characters rather than the whole series, every character or a complete real personality. Basic setup is enough without watching the full series. Fictional illness, harm and history are not transferred to respondents, and names provide neither diagnoses of others nor exemptions for actual conduct."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "zh": "非官方同人与原创内容",
+        "en": "Unofficial fan interpretation and original content"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是费马独立创作的非官方同人问卷，使用五位《马男波杰克》角色作当前普通回应的编辑阅读角度。Netflix官方作品资料仅核基础人物与作品语境，不验证本题本、映射、计数或心理解释；本测验与Netflix、制作发行方及权利人无合作、隶属或认可关系，作品与角色权利归相应权利人。20题、选项、解释、例子与规则均由本站独立创作，未采用JobCannon10题、IDR35题、竞品结果正文／算法、剧集台词、字幕、截图、立绘或其他受保护素材。阅读只涉及少量基础设定，不是全剧人物结论，不把疾病、成瘾、创伤、性取向、危险性、道德、关系或职业赋给答题者，也不正当化剧情中的伤害。角色匹配不认证智力、创造力、领导力、抗压或心理健康，不转换MBTI、沟通、领导或傲娇类型，也不指导重大决定。",
+          "en": "This is an independently authored FermatMind unofficial fan quiz using five BoJack Horseman characters as editorial angles on current ordinary responses. Official Netflix material checks basic character and series context without validating these items, mappings, counts or psychology. There is no affiliation, partnership or endorsement by Netflix, producers, distributors or rights holders; series and character rights belong to their respective owners. All 20 items, options, explanations, examples and rules are independently authored. No JobCannon 10-item bank, IDR 35-item bank, competitor result text or algorithm, dialogue, subtitles, screenshots, character art or other protected material is used. Limited basic setup is not a verdict on the full series or its people. Results assign no illness, addiction, trauma, sexual orientation, danger, morality, relationship or career, justify no fictional harm and certify no intelligence, creativity, leadership, stress tolerance or mental health. They convert into no MBTI, communication, leadership or dere type and guide no major decision."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "草稿、分享与可选下一步",
+        "en": "Drafts, sharing and optional next steps"
+      },
+      "paragraphs": [
+        {
+          "zh": "答案在浏览器内计分，不上传、不进网址或分析。草稿需主动开启，只在本标签页恢复，24小时失效，完成、重测、退出清除即删除。可选分享只含公开角色说明和链接，不含答案或次数。完整结果免费，无需邮箱或另一测试；后续测评自选且另行作答。",
+          "en": "Answers are scored in your browser without uploading them or placing them in URLs or analytics. Drafts require opt-in, restore only in this tab, expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public character guides and links without answers or counts. Full results are free without email or another test first; further assessments are optional and require new answers."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "马男波杰克角色测试有哪些结果？",
+        "en": "Which BoJack Horseman characters are included?"
+      },
+      "answer": {
+        "zh": "本版有波杰克、戴安·阮、凯洛琳公主、陶德和花生酱先生五份完整说明。每个只借有限角度解释当前普通选择，不代表所有角色或全剧结论；全部最高并列都显示完整结果。",
+        "en": "This edition includes full guides for BoJack Horseman, Diane Nguyen, Princess Carolyn, Todd Chavez and Mr. Peanutbutter. Each offers a limited angle on current ordinary choices rather than every character or a full-series verdict. Every highest tie appears in full."
+      }
+    },
+    {
+      "question": {
+        "zh": "需要看过全剧或回答剧情知识吗？",
+        "en": "Must I watch the series or answer trivia?"
+      },
+      "answer": {
+        "zh": "不需要。20题是普通表达、兴趣活动与共同安排，背景只含基础设定；不测试记忆、剧情知识或对角色的忠诚，也不采用台词或要求模仿伤害。",
+        "en": "No. Twenty items concern ordinary expression, interests and shared arrangements, with only basic setup in the guides. They test neither memory, episode knowledge nor loyalty to a character and use no dialogue or request to imitate harm."
+      }
+    },
+    {
+      "question": {
+        "zh": "计分、并列和相近结果怎么看？",
+        "en": "How do scoring, ties and close results work?"
+      },
+      "answer": {
+        "zh": "20题全部各选一项，对应的本版角色方向加1，总数固定20。每题只提供五角色中的四个，全卷各角色16次、每位置4次；当题未提供的角色不记拒绝。所有最高计数都保留完整说明，全选第一项会五角色各4次，五份完整显示；顺序不设主次。不把次数除以20或16叫作相似度、真实人格比例或出现概率，也不自动指定第二角色。差一次只是一项选择，不证明显著差异、某种品质消失或人物定型。可读近分说明，但不补造并列或隐藏人格。情境、时间和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
+        "en": "Choose one option for all 20 items; each adds one to its editorial character direction and counts sum to 20. Four of five characters are offered per item. Each appears 16 times and four times in each position; an absent option is not a rejection. Every highest count keeps its full guide. Choosing the first option throughout gives four each and all five guides, without list-order priority. Neither division by 20 nor by 16 is a similarity percentage, actual personality proportion or probability. No second character is assigned automatically. One extra choice proves neither significance, absent qualities nor a fixed character. Read close guides without inventing ties or hidden personalities. Context, time and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是官方或科学人格测验吗？",
+        "en": "Is this official or a scientific personality assessment?"
+      },
+      "answer": {
+        "zh": "这是费马独立创作的非官方同人问卷，使用五位《马男波杰克》角色作当前普通回应的编辑阅读角度。Netflix官方作品资料仅核基础人物与作品语境，不验证本题本、映射、计数或心理解释；本测验与Netflix、制作发行方及权利人无合作、隶属或认可关系，作品与角色权利归相应权利人。20题、选项、解释、例子与规则均由本站独立创作，未采用JobCannon10题、IDR35题、竞品结果正文／算法、剧集台词、字幕、截图、立绘或其他受保护素材。阅读只涉及少量基础设定，不是全剧人物结论，不把疾病、成瘾、创伤、性取向、危险性、道德、关系或职业赋给答题者，也不正当化剧情中的伤害。角色匹配不认证智力、创造力、领导力、抗压或心理健康，不转换MBTI、沟通、领导或傲娇类型，也不指导重大决定。",
+        "en": "This is an independently authored FermatMind unofficial fan quiz using five BoJack Horseman characters as editorial angles on current ordinary responses. Official Netflix material checks basic character and series context without validating these items, mappings, counts or psychology. There is no affiliation, partnership or endorsement by Netflix, producers, distributors or rights holders; series and character rights belong to their respective owners. All 20 items, options, explanations, examples and rules are independently authored. No JobCannon 10-item bank, IDR 35-item bank, competitor result text or algorithm, dialogue, subtitles, screenshots, character art or other protected material is used. Limited basic setup is not a verdict on the full series or its people. Results assign no illness, addiction, trauma, sexual orientation, danger, morality, relationship or career, justify no fictional harm and certify no intelligence, creativity, leadership, stress tolerance or mental health. They convert into no MBTI, communication, leadership or dere type and guide no major decision."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果、重测和分享收费吗？",
+        "en": "Are full results, retaking and sharing free?"
+      },
+      "answer": {
+        "zh": "免费，无需注册、邮箱或先做另一测试。五份公开说明可先读；完成20题后最高并列全显示。重测清除本次选择，可选分享不含答卷或次数。后续MBTI另行作答，不把角色次数换算成MBTI。",
+        "en": "They are free without signup, email or another test first. Read all five public guides before answering; all highest ties appear after 20 choices. Retaking clears this attempt, and optional sharing contains no answers or counts. Further MBTI questions require separate responses rather than converting character counts."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "Netflix官方作品介绍：基础人物语境（非测验验证）",
+        "en": "Netflix official series introduction: basic context, not quiz validation"
+      },
+      "url": "https://about.netflix.com/en/news/netflix-renews-acclaimed-animated-series-bojack-horseman-for-a-fifth-season"
+    },
+    {
+      "title": {
+        "zh": "Netflix中文作品页：剧名与基础简介",
+        "en": "Netflix Chinese series page: title and basic descriptions"
+      },
+      "url": "https://www.netflix.com/sg-zh/title/70300800"
+    }
+  ]
+}

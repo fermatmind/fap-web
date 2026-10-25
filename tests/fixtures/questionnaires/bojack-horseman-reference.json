@@ -1,0 +1,883 @@
+{
+  "formCode": "fm_bojack_fan_choices_20",
+  "origin": "FermatMindoriginal20ENZH4choice/unofficialtextonlyfaninterpretation/fiveselectedcharacters/notclinicalpersonalityassessment",
+  "directions": [
+    {
+      "id": "bojack-horseman",
+      "title": {
+        "zh": "波杰克：自我叙述与带刺表达",
+        "en": "BoJack Horseman: Self-Narrative and Barbed Expression"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "diane-nguyen",
+      "title": {
+        "zh": "戴安·阮：追问与文字澄清",
+        "en": "Diane Nguyen: Questions and Written Clarity"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "princess-carolyn",
+      "title": {
+        "zh": "凯洛琳公主：协调与具体约定",
+        "en": "Princess Carolyn: Coordination and Concrete Agreements"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "todd-chavez",
+      "title": {
+        "zh": "陶德：不寻常的共同尝试",
+        "en": "Todd Chavez: Unusual Shared Experiments"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "mr-peanutbutter",
+      "title": {
+        "zh": "花生酱先生：热情的共同体验",
+        "en": "Mr. Peanutbutter: Enthusiastic Shared Experiences"
+      },
+      "comparisons": 16
+    }
+  ],
+  "questions": [
+    {
+      "id": "BOJACK_01",
+      "prompt": {
+        "zh": "朋友请你为一份自制小刊提点意见，你通常先说什么？",
+        "en": "A friend asks for ideas on a homemade zine. What do you usually discuss first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问一句这期最想让读者明白什么",
+            "en": "Ask what this issue most wants readers to understand"
+          },
+          "directionId": "diane-nguyen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "商量谁负责哪一页、何时交换草稿",
+            "en": "Agree who handles each page and when to swap drafts"
+          },
+          "directionId": "princess-carolyn"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "试把两个毫不相关的小栏目放在一起",
+            "en": "Try combining two unlikely little features"
+          },
+          "directionId": "todd-chavez"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提议一起翻看成品，给这次合作留个时刻",
+            "en": "Suggest a shared look at the finished issue to mark the collaboration"
+          },
+          "directionId": "mr-peanutbutter"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_02",
+      "prompt": {
+        "zh": "你和几位熟人想录一段不公开的趣味音频，你容易先做哪件事？",
+        "en": "You and a few acquaintances want to record a private playful audio clip. What do you tend to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把录音顺序、所需物品和愿意承担的事列清",
+            "en": "List the recording order, materials and willing responsibilities"
+          },
+          "directionId": "princess-carolyn"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "用桌边普通物件试一种意料外的音效",
+            "en": "Try an unexpected sound using ordinary objects at hand"
+          },
+          "directionId": "todd-chavez"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问大家愿不愿意一起录个开场招呼",
+            "en": "Ask whether everyone wants to record an opening greeting"
+          },
+          "directionId": "mr-peanutbutter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "写一段略带自嘲的个人开场，再决定留多少",
+            "en": "Draft a mildly self-mocking introduction and decide how much to keep"
+          },
+          "directionId": "bojack-horseman"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_03",
+      "prompt": {
+        "zh": "一次自选的手工聚会还没定主题，你更可能提出？",
+        "en": "A voluntary craft gathering has no theme yet. What might you propose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让每个人拿两种普通材料，看看能拼出什么",
+            "en": "Let everyone choose two ordinary materials and see what emerges"
+          },
+          "directionId": "todd-chavez"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先找个大家都愿意参加的共同小环节",
+            "en": "Find a small shared activity that people actually want to join"
+          },
+          "directionId": "mr-peanutbutter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "从自己最近一件小经历做一个有点反讽的作品",
+            "en": "Make a slightly ironic piece from a recent minor personal experience"
+          },
+          "directionId": "bojack-horseman"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先讨论希望作品表达什么，哪些说法可能误导",
+            "en": "Discuss the intended meaning and wording that might mislead"
+          },
+          "directionId": "diane-nguyen"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_04",
+      "prompt": {
+        "zh": "熟人给你看一份普通活动的旧合照，你常怎样接话？",
+        "en": "An acquaintance shows you an old photo of an ordinary gathering. How do you tend to respond?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问当时有没有一个大家都觉得好玩的共同片段",
+            "en": "Ask about a shared moment people enjoyed at the time"
+          },
+          "directionId": "mr-peanutbutter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "讲自己记得的一个尴尬细节，也承认记忆有限",
+            "en": "Mention an awkward detail you remember while acknowledging uncertainty"
+          },
+          "directionId": "bojack-horseman"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "好奇照片外还有哪些没被记录的情况",
+            "en": "Wonder what happened outside the frame that was not recorded"
+          },
+          "directionId": "diane-nguyen"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问是否需要整理照片、给文件补时间或说明",
+            "en": "Ask whether the photos need sorting, dates or captions"
+          },
+          "directionId": "princess-carolyn"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_05",
+      "prompt": {
+        "zh": "你向朋友介绍一个没有成名的个人小作品，会倾向怎样开头？",
+        "en": "How might you introduce a small personal creation that has not become well known?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先讲自己为什么在意它，语气里带一点调侃",
+            "en": "Explain why it matters to you with a little wry humour"
+          },
+          "directionId": "bojack-horseman"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "说明想讨论的问题以及自己还拿不准的地方",
+            "en": "State the question it explores and what remains uncertain"
+          },
+          "directionId": "diane-nguyen"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "交代做到哪一步、哪些安排已经确认",
+            "en": "Explain the current stage and which arrangements are confirmed"
+          },
+          "directionId": "princess-carolyn"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先展示一次奇怪的小试验，邀请对方玩一会儿",
+            "en": "Show an odd little experiment and invite the person to try it"
+          },
+          "directionId": "todd-chavez"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_06",
+      "prompt": {
+        "zh": "一张共同制作的小海报有一句意思不明的话，你通常先？",
+        "en": "A jointly made small poster contains an unclear sentence. What do you usually do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问原本想说什么，再写两个更准确的版本",
+            "en": "Ask what it meant to say and write two clearer alternatives"
+          },
+          "directionId": "diane-nguyen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "确认谁有权修改，约好一个小范围修改时间",
+            "en": "Confirm who can edit it and agree a brief editing window"
+          },
+          "directionId": "princess-carolyn"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "换成一个不同的呈现办法，看看意思会不会出来",
+            "en": "Try a different presentation and see whether the meaning emerges"
+          },
+          "directionId": "todd-chavez"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "请几位愿意的人一起看看，把反馈当共同参与",
+            "en": "Invite a few willing people to look and contribute feedback"
+          },
+          "directionId": "mr-peanutbutter"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_07",
+      "prompt": {
+        "zh": "朋友约你协助一个很小的周末点子，你会怎样回应？",
+        "en": "A friend asks for help with a very small weekend idea. How do you respond?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说清自己能帮哪一段、需要哪些配合",
+            "en": "Specify which part you can help with and what cooperation it needs"
+          },
+          "directionId": "princess-carolyn"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "问能不能先玩一个与原计划稍有不同的版本",
+            "en": "Ask to try a slightly unusual version of the idea first"
+          },
+          "directionId": "todd-chavez"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "表达想一起参与，再确认对方希望怎样相聚",
+            "en": "Show enthusiasm for joining and confirm how they want to meet"
+          },
+          "directionId": "mr-peanutbutter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "坦白自己对这个点子的第一反应，可能夹一句干笑话",
+            "en": "Give your candid first reaction, perhaps with a dry little joke"
+          },
+          "directionId": "bojack-horseman"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_08",
+      "prompt": {
+        "zh": "一本私人笔记出现一页空白，你比较愿意拿它做什么？",
+        "en": "An empty page appears in your personal notebook. What would you rather do with it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "画一个没什么用途但有趣的新组合",
+            "en": "Sketch an interesting combination with no particular use"
+          },
+          "directionId": "todd-chavez"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "记下一次和别人一起开心参与的小事",
+            "en": "Record a small moment of shared enjoyment"
+          },
+          "directionId": "mr-peanutbutter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "写一小段自己怎样看待最近的普通失误",
+            "en": "Write how you see a recent ordinary mistake of your own"
+          },
+          "directionId": "bojack-horseman"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "梳理一句自己一直没想清楚的话到底是什么意思",
+            "en": "Explore what an unresolved sentence actually means to you"
+          },
+          "directionId": "diane-nguyen"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_09",
+      "prompt": {
+        "zh": "几个人愿意在休息时间玩一个自编小游戏，你通常先注意？",
+        "en": "A few people want to try a homemade game during a break. What do you notice first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "有没有一种开始方式能让愿意的人轻松加入",
+            "en": "Whether willing participants can join comfortably"
+          },
+          "directionId": "mr-peanutbutter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "游戏描述是不是有点夸张，能否拿这种夸张开玩笑",
+            "en": "Whether the description is inflated enough for a wry joke"
+          },
+          "directionId": "bojack-horseman"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "大家理解的规则是不是同一回事",
+            "en": "Whether everyone understands the rules in the same way"
+          },
+          "directionId": "diane-nguyen"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "人数、材料、收尾由谁照看是否已说明",
+            "en": "Whether numbers, materials and cleanup responsibilities are clear"
+          },
+          "directionId": "princess-carolyn"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_10",
+      "prompt": {
+        "zh": "你给一件旧日的小作品补写说明，更可能着重？",
+        "en": "You add a note to an old small creation. What would you emphasise?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "当时自己想证明什么，以及现在怎么看那种想法",
+            "en": "What you wanted to prove then and how you now see that wish"
+          },
+          "directionId": "bojack-horseman"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "哪些说法需要补充背景，避免读者误解",
+            "en": "Which claims need context to prevent misunderstanding"
+          },
+          "directionId": "diane-nguyen"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "材料来自哪里、哪些步骤实际完成了",
+            "en": "Where materials came from and which steps were actually finished"
+          },
+          "directionId": "princess-carolyn"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个出乎意料的过程细节，或后来冒出的玩法",
+            "en": "An unexpected process detail or a playful possibility discovered later"
+          },
+          "directionId": "todd-chavez"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_11",
+      "prompt": {
+        "zh": "一个轻松聊天里有人把两件不同的事混为一谈，你通常？",
+        "en": "In a casual conversation someone treats two different things as the same. What do you tend to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问一个具体问题，把区别说明白",
+            "en": "Ask a specific question to clarify the distinction"
+          },
+          "directionId": "diane-nguyen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "确认眼下要达成什么，再决定是否需要展开",
+            "en": "Clarify the immediate aim before deciding how far to discuss it"
+          },
+          "directionId": "princess-carolyn"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "举一个意料外的小例子，让差别变得可见",
+            "en": "Offer an unusual small example that makes the difference visible"
+          },
+          "directionId": "todd-chavez"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先保持大家愿意参与的气氛，再邀请对方解释",
+            "en": "Keep participation welcoming and invite the person to explain"
+          },
+          "directionId": "mr-peanutbutter"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_12",
+      "prompt": {
+        "zh": "你自愿帮忙整理一次普通兴趣交换，最先会想？",
+        "en": "You volunteer to help with an ordinary exchange of interests. What comes to mind first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "物品归属、交换条件和不想交换时怎么办",
+            "en": "Ownership, exchange terms and the option not to exchange"
+          },
+          "directionId": "princess-carolyn"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "有没有一种新奇的组合方式可供大家试试",
+            "en": "Whether people could try a surprising combination"
+          },
+          "directionId": "todd-chavez"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "如何让初次参加且愿意交流的人有个开口机会",
+            "en": "How willing newcomers might get a chance to join in"
+          },
+          "directionId": "mr-peanutbutter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "自己是不是也在期待被注意，以及要怎样坦白这种期待",
+            "en": "Whether you also want recognition and how to admit that honestly"
+          },
+          "directionId": "bojack-horseman"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_13",
+      "prompt": {
+        "zh": "一个自选的小计划突然多了空余空间，你会更想？",
+        "en": "A voluntary small plan suddenly has some extra room. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "留一段让现场的人试一种原本没想到的玩法",
+            "en": "Leave room for an unplanned playful experiment"
+          },
+          "directionId": "todd-chavez"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "加一个大家可自由加入或略过的共同体验",
+            "en": "Add a shared experience that people can join or skip"
+          },
+          "directionId": "mr-peanutbutter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "重新看看这件事和自己的旧期待有什么关系",
+            "en": "Reconsider how it connects to your earlier expectations"
+          },
+          "directionId": "bojack-horseman"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把原本想表达但还含糊的意思写得更清楚",
+            "en": "Clarify an intended meaning that was still vague"
+          },
+          "directionId": "diane-nguyen"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_14",
+      "prompt": {
+        "zh": "朋友提出的庆祝方式与你想象不同，你较常怎样接话？",
+        "en": "A friend suggests a different celebration from the one you imagined. How do you tend to respond?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "热情回应，再问对方愿意一起做的具体部分",
+            "en": "Respond warmly and ask what they would actually enjoy sharing"
+          },
+          "directionId": "mr-peanutbutter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "承认自己原先的想象，可能用一点自嘲缓和",
+            "en": "Admit your earlier picture, perhaps softening it with self-directed humour"
+          },
+          "directionId": "bojack-horseman"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问彼此想庆祝的究竟是什么，是否理解不同",
+            "en": "Ask what each person wants to mark and whether meanings differ"
+          },
+          "directionId": "diane-nguyen"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把可协调的时间、人数和各自责任谈清",
+            "en": "Clarify timing, numbers and each person’s responsibilities"
+          },
+          "directionId": "princess-carolyn"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_15",
+      "prompt": {
+        "zh": "你收到一份关于普通小作品的反馈，最容易先回应哪一点？",
+        "en": "You receive feedback on an ordinary small creation. Which part do you most readily respond to?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "它碰到了自己怎样看待这件作品的问题",
+            "en": "How it touches your own story about the creation"
+          },
+          "directionId": "bojack-horseman"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "反馈里的判断基于什么，哪些词需要具体化",
+            "en": "What supports the judgement and which words need precision"
+          },
+          "directionId": "diane-nguyen"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "哪些修改真的可行、谁愿意负责",
+            "en": "Which changes are feasible and who is willing to handle them"
+          },
+          "directionId": "princess-carolyn"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有没有一个不按常规的小改法值得试玩",
+            "en": "Whether an unconventional little change might be worth trying"
+          },
+          "directionId": "todd-chavez"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_16",
+      "prompt": {
+        "zh": "一段自编短文读起来和本意不太一致，你首先倾向？",
+        "en": "A paragraph you wrote does not convey quite what you intended. What is your first inclination?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "指出具体哪里偏离，试着把意思重新写出来",
+            "en": "Identify the specific mismatch and rewrite the meaning"
+          },
+          "directionId": "diane-nguyen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把修改范围和可用时间划小，先完成约定部分",
+            "en": "Set a small revision scope and finish the agreed portion"
+          },
+          "directionId": "princess-carolyn"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "改变叙述角度或排列，看看能否出现新效果",
+            "en": "Change the viewpoint or arrangement to discover a new effect"
+          },
+          "directionId": "todd-chavez"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "找愿意的伙伴一起读，让修改成为共享过程",
+            "en": "Read with a willing companion and make revision a shared process"
+          },
+          "directionId": "mr-peanutbutter"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_17",
+      "prompt": {
+        "zh": "一个共同兴趣项目要在你缺席时继续，你通常会？",
+        "en": "A shared hobby project needs to continue while you are absent. What do you usually do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "留下清楚的交接，也写明自己没有承诺的部分",
+            "en": "Leave a clear handover and state what you have not committed to"
+          },
+          "directionId": "princess-carolyn"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留一个可自由改动的趣味想法供别人接着玩",
+            "en": "Leave a playful idea others can freely change"
+          },
+          "directionId": "todd-chavez"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "向参与者表达期待，问他们想怎样一起继续",
+            "en": "Express interest and ask how participants want to continue together"
+          },
+          "directionId": "mr-peanutbutter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "承认自己对错过这件事的感受，而不假装完全无所谓",
+            "en": "Acknowledge how you feel about missing it rather than pretending indifference"
+          },
+          "directionId": "bojack-horseman"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_18",
+      "prompt": {
+        "zh": "你想给普通的私人收藏做个小目录，最想先试？",
+        "en": "You want a small catalogue for an ordinary personal collection. What would you most like to try first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "按一个不寻常的联系来分组，允许随时改",
+            "en": "Group by an unusual connection and allow it to change"
+          },
+          "directionId": "todd-chavez"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "和愿意的朋友各选一件，聊聊各自喜欢什么",
+            "en": "Each choose one item with a willing friend and discuss its appeal"
+          },
+          "directionId": "mr-peanutbutter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "写一段这些东西为何进入自己生活的小叙述",
+            "en": "Write how these things became part of your life"
+          },
+          "directionId": "bojack-horseman"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "确认名称和出处，分清知道与猜测的部分",
+            "en": "Check names and origins and separate knowledge from guesses"
+          },
+          "directionId": "diane-nguyen"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_19",
+      "prompt": {
+        "zh": "你参与的轻松讨论告一段落，较容易主动做什么？",
+        "en": "A casual discussion you joined is ending. What do you tend to initiate?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "感谢大家一起参与，问是否有人还想补充",
+            "en": "Thank people for joining and ask if anyone wants to add something"
+          },
+          "directionId": "mr-peanutbutter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "用一句略带反讽的自我总结结束自己的部分",
+            "en": "End your contribution with a mildly ironic personal reflection"
+          },
+          "directionId": "bojack-horseman"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把仍未说清的问题记下来，而非假装已有答案",
+            "en": "Note unresolved questions instead of pretending they are settled"
+          },
+          "directionId": "diane-nguyen"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "确认实际约定、谁做什么，以及可以不再继续",
+            "en": "Confirm actual agreements, responsibilities and the option to stop"
+          },
+          "directionId": "princess-carolyn"
+        }
+      ]
+    },
+    {
+      "id": "BOJACK_20",
+      "prompt": {
+        "zh": "回看一次自愿参加的小活动，你通常最在意哪种记录？",
+        "en": "Looking back on a voluntary small activity, which record matters most to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己当时想被怎样理解，后来有没有改变",
+            "en": "How you wanted to be understood and whether that changed"
+          },
+          "directionId": "bojack-horseman"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "自己从提问与解释中理清了什么",
+            "en": "What questions and explanations helped you clarify"
+          },
+          "directionId": "diane-nguyen"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "哪些约定起作用，哪些责任还需重新谈",
+            "en": "Which agreements worked and which responsibilities need discussion"
+          },
+          "directionId": "princess-carolyn"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "偶然冒出的古怪点子，是否还想再玩一次",
+            "en": "An odd idea that emerged by chance and whether to try it again"
+          },
+          "directionId": "todd-chavez"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "required": 20,
+    "choice": "one option adds1 to its offered editorial character theme",
+    "total": 20,
+    "exposureEach": 16,
+    "perPosition": 4,
+    "highest": "allhighestretainfullguides/noautomaticsecondary",
+    "allA": "fivecharacters4each/all5fullguides",
+    "verificationPlan": "independent source reachablecountvectorDP/allhighestsets plannednotexecuted/not4^20responseexhaustion/psychvalidation"
+  },
+  "scope": "Unofficial independently authored fan quiz/currentordinaryresponsesandeditorialcharacterreadingsonly/notwholecanonicalcharacter. Netflixcontextonly/notendorsementorvalidation. No illness/addiction/trauma/sexualorientation/morality/danger/relationshiporcareer inference;fictionalharmneverjustified. No screenshots/dialogue/art/competitorbank/body/scorerused. NoconversiontoMBTI/Leadership/Communication/Tsunderetypes.",
+  "instructions": {
+    "zh": "这份20题原创非官方同人问卷，比较你目前处理普通兴趣活动、表达与共同安排时的选择，借用《马男波杰克》五位角色作阅读角度。每题选四个做法里更接近自己的一个，不需要模仿剧情或角色伤害他人的行为；情境均以自愿、可改、可停止为前提。每选加1，五位各出现16次，所有最高并列显示完整说明。结果只对应本次选择与本版编辑读法，不表示你就是整个人物，也不判断疾病、成瘾、创伤、性取向、道德、关系或职业。未看全剧也能作答，人物背景只含少量基础设定。",
+    "en": "This original 20-question unofficial fan quiz compares current choices in ordinary interests, expression and shared arrangements, using five BoJack Horseman characters as reading angles. Choose the closer of four approaches without imitating episodes or harmful character behaviour; situations assume voluntary, revisable and stoppable participation. Each choice adds one, each character appears 16 times, and every highest tie receives its full explanation. A result refers only to this attempt and editorial reading, not the whole person in the series, illness, addiction, trauma, sexual orientation, morality, relationships or careers. You need not have watched the full series; context uses only basic character setup."
+  }
+}

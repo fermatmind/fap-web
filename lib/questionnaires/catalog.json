@@ -987,5 +987,31 @@
       "last-quarter",
       "waning-crescent"
     ]
+  },
+  {
+    "slug": "bojack-horseman-character-quiz",
+    "code": "BOJACK_FAN_EVERYDAY_RESPONSES",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "metaphor",
+    "title": {
+      "zh": "马男波杰克（BoJack Horseman）角色测试",
+      "en": "BoJack Horseman Character Quiz"
+    },
+    "description": {
+      "zh": "免费完成20道原创日常选择，比较波杰克、戴安、凯洛琳公主、陶德与花生酱先生，阅读全部最高并列的完整说明、例子和计分。非官方同人测试，不做临床判断。",
+      "en": "Take 20 original everyday questions and compare five BoJack Horseman characters. Full tied results, examples and scoring are free. An unofficial fan quiz."
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_bojack_fan_choices_20",
+    "questionCount": 20,
+    "resultSlugs": [
+      "bojack-horseman",
+      "diane-nguyen",
+      "princess-carolyn",
+      "todd-chavez",
+      "mr-peanutbutter"
+    ]
   }
 ]
