@@ -1,0 +1,1102 @@
+{
+  "formCode": "fm_dnd_srd_class_play_preferences_24",
+  "origin": "FermatMindoriginal24ENZH4choice/12SRD5.2.1baseclasses/unofficialfictionalplaypreferences/notrealpersonalitycareerorability",
+  "directions": [
+    {
+      "id": "barbarian",
+      "title": {
+        "zh": "野蛮人：原初力量与直接投入",
+        "en": "Barbarian: Primal Power and Direct Commitment"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "bard",
+      "title": {
+        "zh": "吟游诗人：表演与灵活支援",
+        "en": "Bard: Performance and Versatile Support"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "cleric",
+      "title": {
+        "zh": "牧师：神圣魔法与同伴支援",
+        "en": "Cleric: Divine Magic and Supporting Allies"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "druid",
+      "title": {
+        "zh": "德鲁伊：自然魔法与形态变化",
+        "en": "Druid: Nature Magic and Changing Forms"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "fighter",
+      "title": {
+        "zh": "战士：娴熟武技与清晰招式",
+        "en": "Fighter: Practised Technique and Clear Moves"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "monk",
+      "title": {
+        "zh": "武僧：徒手身法与灵活移动",
+        "en": "Monk: Unarmed Style and Agile Movement"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "paladin",
+      "title": {
+        "zh": "圣武士：誓言与守护",
+        "en": "Paladin: An Oath and Protection"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "ranger",
+      "title": {
+        "zh": "游侠：荒野路线与多样手段",
+        "en": "Ranger: Wilderness Routes and Mixed Approaches"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "rogue",
+      "title": {
+        "zh": "游荡者：巧妙切入与精细操作",
+        "en": "Rogue: Clever Openings and Precise Actions"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "sorcerer",
+      "title": {
+        "zh": "术士：天生魔法与力量塑形",
+        "en": "Sorcerer: Innate Magic and Shaping Power"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "warlock",
+      "title": {
+        "zh": "邪术师：契约故事与奇异魔法",
+        "en": "Warlock: Pact Stories and Unusual Magic"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "wizard",
+      "title": {
+        "zh": "法师：研习法术与事前准备",
+        "en": "Wizard: Studying Spells and Preparing Ahead"
+      },
+      "comparisons": 8
+    }
+  ],
+  "questions": [
+    {
+      "id": "DND_CLASS_01",
+      "prompt": {
+        "zh": "在一段虚构合作冒险里，古门前出现魔法阻碍，你更想扮演哪种处理方式？",
+        "en": "In a fictional cooperative adventure, a magical obstacle blocks an old gate. Which approach would you enjoy playing?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让角色以原初力量直接迎上挑战",
+            "en": "Have the character meet the challenge with primal power"
+          },
+          "directionId": "barbarian"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "用表演与灵活魔法给队伍创造机会",
+            "en": "Use performance and versatile magic to create an opening"
+          },
+          "directionId": "bard"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "借自然魔法或变化形态另找办法",
+            "en": "Use nature magic or another form to find an approach"
+          },
+          "directionId": "druid"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让誓言与守护同伴的行动成为这一幕重点",
+            "en": "Make an oath and protecting companions central to the scene"
+          },
+          "directionId": "paladin"
+        }
+      ]
+    },
+    {
+      "id": "DND_CLASS_02",
+      "prompt": {
+        "zh": "为一次想象中的队伍出发场景选戏份，你更愿意？",
+        "en": "Choosing a part in an imaginary party-departure scene, what appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用一段表演或故事为同伴提气",
+            "en": "Use a performance or story to encourage companions"
+          },
+          "directionId": "bard"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "以神圣魔法为队伍提供支援",
+            "en": "Offer the party support through divine magic"
+          },
+          "directionId": "cleric"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "展示练熟的武技与明确准备",
+            "en": "Show practised martial technique and clear preparation"
+          },
+          "directionId": "fighter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "读懂荒野路线，结合多种手段前行",
+            "en": "Read the wilderness route and combine approaches"
+          },
+          "directionId": "ranger"
+        }
+      ]
+    },
+    {
+      "id": "DND_CLASS_03",
+      "prompt": {
+        "zh": "虚构队伍穿过一片会变形的林地，你更想尝试？",
+        "en": "A fictional party crosses a forest that changes shape. What would you like to try?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用神圣力量支持需要帮助的同伴",
+            "en": "Use divine power to support companions who need it"
+          },
+          "directionId": "cleric"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让角色通过自然魔法或形态适应林地",
+            "en": "Adapt through nature magic or another form"
+          },
+          "directionId": "druid"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "以灵活身法穿过故事中的狭窄空隙",
+            "en": "Use agile movement through fictional narrow spaces"
+          },
+          "directionId": "monk"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "找准一个小机关或不起眼的切入口",
+            "en": "Spot a little mechanism or unobtrusive opening"
+          },
+          "directionId": "rogue"
+        }
+      ]
+    },
+    {
+      "id": "DND_CLASS_04",
+      "prompt": {
+        "zh": "你想让一场想象中的奇幻考验突出什么？",
+        "en": "What would you like an imaginary fantasy challenge to highlight?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "角色与自然力量、形态变化的联系",
+            "en": "The character’s nature magic and changing forms"
+          },
+          "directionId": "druid"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "练熟招式在明确时机派上用场",
+            "en": "A practised move used at a clear moment"
+          },
+          "directionId": "fighter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "角色选择遵守的誓言与保护行动",
+            "en": "A chosen oath and an act of protection"
+          },
+          "directionId": "paladin"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "天生魔法在当下被重新塑形",
+            "en": "Innate magic reshaped in the moment"
+          },
+          "directionId": "sorcerer"
+        }
+      ]
+    },
+    {
+      "id": "DND_CLASS_05",
+      "prompt": {
+        "zh": "为虚构冒险者选择最吸引你的解决问题画面，你更想看？",
+        "en": "Which problem-solving image appeals for a fictional adventurer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "凭练熟的武技稳稳执行一个招式",
+            "en": "Execute a practised martial move"
+          },
+          "directionId": "fighter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "以徒手身法和位置变化穿行",
+            "en": "Move through changing positions with unarmed style"
+          },
+          "directionId": "monk"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "结合荒野知识、路线与其他可用手段",
+            "en": "Combine wilderness knowledge, a route and other means"
+          },
+          "directionId": "ranger"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "使用角色契约带来的奇异魔法",
+            "en": "Use unusual magic arising from the character’s pact"
+          },
+          "directionId": "warlock"
+        }
+      ]
+    },
+    {
+      "id": "DND_CLASS_06",
+      "prompt": {
+        "zh": "在共同编写的奇幻故事里，角色的独特之处更想来自？",
+        "en": "In a jointly imagined fantasy story, what source of distinctiveness appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "灵活移动与徒手技巧的玩法",
+            "en": "Agile movement and an unarmed style of play"
+          },
+          "directionId": "monk"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个会影响角色选择的自选誓言",
+            "en": "A chosen oath that matters to the character"
+          },
+          "directionId": "paladin"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "精细技巧和巧妙切入的机会",
+            "en": "Precise skills and clever openings"
+          },
+          "directionId": "rogue"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "研习法术、记录知识和事先准备",
+            "en": "Studying spells, recording knowledge and preparing"
+          },
+          "directionId": "wizard"
+        }
+      ]
+    },
+    {
+      "id": "DND_CLASS_07",
+      "prompt": {
+        "zh": "虚构小队准备进入一处陌生遗迹，你更想扮演？",
+        "en": "An imaginary party prepares to enter unfamiliar ruins. Which part appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "以誓言和守护行动界定自己的角色",
+            "en": "A character defined through an oath and protection"
+          },
+          "directionId": "paladin"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "关注路线与环境，兼用不同手段",
+            "en": "A character reading routes and using varied approaches"
+          },
+          "directionId": "ranger"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用天生魔法应对当下变化",
+            "en": "A character responding with innate magic"
+          },
+          "directionId": "sorcerer"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "以原初力量投入眼前的冒险场面",
+            "en": "A character bringing primal power into the scene"
+          },
+          "directionId": "barbarian"
+        }
+      ]
+    },
+    {
+      "id": "DND_CLASS_08",
+      "prompt": {
+        "zh": "一场想象中的旅途插曲，你更想如何参与？",
+        "en": "How would you enjoy participating in an imaginary journey scene?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "寻找适合队伍的荒野通路",
+            "en": "Find a wilderness route for the party"
+          },
+          "directionId": "ranger"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "寻找可巧妙处理的细小切入口",
+            "en": "Find a small opening for a clever precise action"
+          },
+          "directionId": "rogue"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "让奇异契约魔法带来新的故事线索",
+            "en": "Let unusual pact magic introduce a story thread"
+          },
+          "directionId": "warlock"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用表演、故事或灵活支援参与",
+            "en": "Participate through performance, story or versatile support"
+          },
+          "directionId": "bard"
+        }
+      ]
+    },
+    {
+      "id": "DND_CLASS_09",
+      "prompt": {
+        "zh": "虚构藏书室里有一道奇幻谜题，你更想玩哪种角色处理？",
+        "en": "A fictional library contains a fantasy puzzle. Which character approach appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "通过细致观察与精细操作找到切口",
+            "en": "Find an opening through precise attention and action"
+          },
+          "directionId": "rogue"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把天生的魔法力量临场塑形成合适方式",
+            "en": "Shape innate magic into an approach for the moment"
+          },
+          "directionId": "sorcerer"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "查阅角色的法术知识，再选择准备好的办法",
+            "en": "Consult the character’s spell knowledge and prepared options"
+          },
+          "directionId": "wizard"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用神圣魔法支持队伍继续尝试",
+            "en": "Support the party’s attempts with divine magic"
+          },
+          "directionId": "cleric"
+        }
+      ]
+    },
+    {
+      "id": "DND_CLASS_10",
+      "prompt": {
+        "zh": "你更喜欢哪种虚构魔法场景的叙事重点？",
+        "en": "Which narrative focus appeals in a fictional magical scene?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "角色自身的魔力怎样灵活变化",
+            "en": "How the character’s own magic changes flexibly"
+          },
+          "directionId": "sorcerer"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "契约与异界联系怎样推动故事",
+            "en": "How a pact and otherworldly connection move the story"
+          },
+          "directionId": "warlock"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "原初力量带来的直接投入感",
+            "en": "The direct commitment of primal power"
+          },
+          "directionId": "barbarian"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "自然力量与变化形态带来的办法",
+            "en": "Approaches through nature and changing forms"
+          },
+          "directionId": "druid"
+        }
+      ]
+    },
+    {
+      "id": "DND_CLASS_11",
+      "prompt": {
+        "zh": "为想象中的冒险人物写一句设定，你更想写？",
+        "en": "Writing one premise for an imaginary adventurer, what appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "奇异魔法与一个契约故事相连",
+            "en": "Unusual magic is connected with a pact story"
+          },
+          "directionId": "warlock"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "法术来自持续研习与事前准备",
+            "en": "Spells come through study and preparation"
+          },
+          "directionId": "wizard"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "表演与故事也能成为支援的方式",
+            "en": "Performance and story can offer support"
+          },
+          "directionId": "bard"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "练熟的武技让招式与时机清晰",
+            "en": "Practised technique makes moves and timing clear"
+          },
+          "directionId": "fighter"
+        }
+      ]
+    },
+    {
+      "id": "DND_CLASS_12",
+      "prompt": {
+        "zh": "虚构冒险的一幕即将开始，你更想提前考虑？",
+        "en": "Before a fictional adventure scene, what would you like to consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "角色知道哪些法术、准备了哪些选择",
+            "en": "Which spells the character knows and has prepared"
+          },
+          "directionId": "wizard"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "怎样把原初力量投入这一幕",
+            "en": "How primal power enters this scene"
+          },
+          "directionId": "barbarian"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "神圣魔法怎样支持同伴的行动",
+            "en": "How divine magic supports companions"
+          },
+          "directionId": "cleric"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "徒手身法怎样与灵活移动结合",
+            "en": "How unarmed style combines with agile movement"
+          },
+          "directionId": "monk"
+        }
+      ]
+    },
+    {
+      "id": "DND_CLASS_13",
+      "prompt": {
+        "zh": "想象一场合作奇幻演出，入口被幻象遮住，你更愿意安排自己的角色？",
+        "en": "In a cooperative fantasy tale, an illusion hides an entrance. What would you enjoy having your character do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "带着原初力量直接迎接这场挑战",
+            "en": "Meet this challenge with committed primal power"
+          },
+          "directionId": "barbarian"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "以表演或灵活法术为大家创造机会",
+            "en": "Create an opportunity through performance or versatile spells"
+          },
+          "directionId": "bard"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "运用自然魔法或另一个形态观察入口",
+            "en": "Explore the entrance with nature magic or another form"
+          },
+          "directionId": "druid"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让保护队友的誓言成为行动依据",
+            "en": "Let an oath of protection guide the character’s action"
+          },
+          "directionId": "paladin"
+        }
+      ]
+    },
+    {
+      "id": "DND_CLASS_14",
+      "prompt": {
+        "zh": "你在共同想象的营地场景里更想获得哪种戏份？",
+        "en": "Which part appeals in a jointly imagined camp scene?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用故事与表演给同伴带来支援",
+            "en": "Support companions with storytelling and performance"
+          },
+          "directionId": "bard"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "以角色的神圣魔法照应队伍",
+            "en": "Attend to the party with the character’s divine magic"
+          },
+          "directionId": "cleric"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把练熟招式与装备准备讲清楚",
+            "en": "Describe practised moves and equipment preparation"
+          },
+          "directionId": "fighter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "结合环境线索考虑下一段荒野路线",
+            "en": "Use environmental clues for the next wilderness route"
+          },
+          "directionId": "ranger"
+        }
+      ]
+    },
+    {
+      "id": "DND_CLASS_15",
+      "prompt": {
+        "zh": "一段虚构溪谷旅程突然有了新变化，你更想？",
+        "en": "A fictional valley journey takes an unexpected turn. What would you like to play?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "以神圣魔法帮助同伴继续故事",
+            "en": "Help companions continue the story through divine magic"
+          },
+          "directionId": "cleric"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "借自然魔法与形态变化适应溪谷",
+            "en": "Adapt to the valley with nature magic and forms"
+          },
+          "directionId": "druid"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "让灵活位移与徒手技巧成为亮点",
+            "en": "Highlight agile repositioning and unarmed technique"
+          },
+          "directionId": "monk"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "通过一个精细的小动作找到机会",
+            "en": "Find an opportunity through a small precise action"
+          },
+          "directionId": "rogue"
+        }
+      ]
+    },
+    {
+      "id": "DND_CLASS_16",
+      "prompt": {
+        "zh": "你更想把哪种玩法写进自己的虚构人物介绍？",
+        "en": "Which style of play would you put in a fictional character introduction?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自然魔法、环境联系与多样形态",
+            "en": "Nature magic, environmental connections and varied forms"
+          },
+          "directionId": "druid"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "武技训练带来的清楚选择与招式",
+            "en": "Clear options and moves through martial training"
+          },
+          "directionId": "fighter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "以自选誓言和守护形成故事方向",
+            "en": "A story direction through a chosen oath and protection"
+          },
+          "directionId": "paladin"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把天生魔法塑形成不同效果的乐趣",
+            "en": "The appeal of shaping innate magic into different effects"
+          },
+          "directionId": "sorcerer"
+        }
+      ]
+    },
+    {
+      "id": "DND_CLASS_17",
+      "prompt": {
+        "zh": "假想队伍遇到一处只有故事里存在的机关厅，你更想发挥？",
+        "en": "An imaginary party enters a mechanism hall that exists only in the story. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让熟练武技在明确情境下发挥作用",
+            "en": "Bring practised martial technique to a clear situation"
+          },
+          "directionId": "fighter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让移动、身法与徒手技巧配合",
+            "en": "Combine movement, agility and unarmed style"
+          },
+          "directionId": "monk"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用环境与路线认识配合其他手段",
+            "en": "Combine environmental route knowledge with other approaches"
+          },
+          "directionId": "ranger"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "从契约故事获得一种奇异魔法选择",
+            "en": "Choose unusual magic from the character’s pact story"
+          },
+          "directionId": "warlock"
+        }
+      ]
+    },
+    {
+      "id": "DND_CLASS_18",
+      "prompt": {
+        "zh": "你更愿意让虚构角色的成长故事围绕？",
+        "en": "What would you like a fictional character’s development to centre on?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "徒手玩法与灵活移动的组合",
+            "en": "The combination of unarmed play and agile movement"
+          },
+          "directionId": "monk"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "角色怎样理解自己选定的誓言",
+            "en": "How the character understands a chosen oath"
+          },
+          "directionId": "paladin"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "精细技巧怎样创造新的切入机会",
+            "en": "How precise skills create new openings"
+          },
+          "directionId": "rogue"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "研习法术、整理知识与准备选择",
+            "en": "Studying spells, organising knowledge and preparing options"
+          },
+          "directionId": "wizard"
+        }
+      ]
+    },
+    {
+      "id": "DND_CLASS_19",
+      "prompt": {
+        "zh": "虚构团队计划一次没有固定答案的探索，你更想贡献？",
+        "en": "For a fictional exploration without one fixed answer, what would you enjoy contributing?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "围绕守护同伴与誓言作出的选择",
+            "en": "Choices around protecting companions and an oath"
+          },
+          "directionId": "paladin"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "对荒野通路的判断与多样手段",
+            "en": "Wilderness-route choices and varied approaches"
+          },
+          "directionId": "ranger"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "临场改变自身魔法的用法",
+            "en": "Changing how innate magic is used in the moment"
+          },
+          "directionId": "sorcerer"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "直接投入挑战的原初力量画面",
+            "en": "A scene of primal power committed to the challenge"
+          },
+          "directionId": "barbarian"
+        }
+      ]
+    },
+    {
+      "id": "DND_CLASS_20",
+      "prompt": {
+        "zh": "在一段想象中的新区域探索里，你最期待？",
+        "en": "What do you anticipate in an imaginary exploration of a new area?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "环境、通路与不同手段相互配合",
+            "en": "The combination of environment, routes and varied means"
+          },
+          "directionId": "ranger"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找到可由精细技巧打开的机会",
+            "en": "An opening for a precise clever action"
+          },
+          "directionId": "rogue"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "契约带来的奇异魔法与故事联系",
+            "en": "Unusual pact magic and its story connections"
+          },
+          "directionId": "warlock"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "借表演或多样法术参与队伍",
+            "en": "Contributing through performance or varied spells"
+          },
+          "directionId": "bard"
+        }
+      ]
+    },
+    {
+      "id": "DND_CLASS_21",
+      "prompt": {
+        "zh": "一个虚构谜题可以由多种角色解决，你更想体验？",
+        "en": "Several fictional classes could solve a puzzle. Which experience appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用精细技巧抓住不起眼的切入口",
+            "en": "Seizing an unobtrusive opening with precise skill"
+          },
+          "directionId": "rogue"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让天生魔法根据眼前情境改变形状",
+            "en": "Reshaping innate magic around the situation"
+          },
+          "directionId": "sorcerer"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "从已研习和准备的法术中选择",
+            "en": "Choosing among studied and prepared spells"
+          },
+          "directionId": "wizard"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "以神圣力量支援同伴找到办法",
+            "en": "Supporting companions’ attempts through divine power"
+          },
+          "directionId": "cleric"
+        }
+      ]
+    },
+    {
+      "id": "DND_CLASS_22",
+      "prompt": {
+        "zh": "你会更想为哪种虚构力量来源继续写故事？",
+        "en": "Which fictional source of power would you like to keep writing about?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自身魔法力量的觉察与塑形",
+            "en": "Discovering and shaping magic within the character"
+          },
+          "directionId": "sorcerer"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "契约与异界联系带来的奇异可能",
+            "en": "Unusual possibilities from a pact and otherworldly connection"
+          },
+          "directionId": "warlock"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "原初力量与直接面对挑战的场面",
+            "en": "Primal power and meeting a challenge directly"
+          },
+          "directionId": "barbarian"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "自然力量、环境与形态的变化",
+            "en": "Nature, environment and changing forms"
+          },
+          "directionId": "druid"
+        }
+      ]
+    },
+    {
+      "id": "DND_CLASS_23",
+      "prompt": {
+        "zh": "和伙伴讨论下一次虚构冒险的人物时，你更想介绍？",
+        "en": "Discussing a character for the next imaginary adventure, what would you introduce?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个契约故事与独特魔法的联系",
+            "en": "A connection between a pact story and unusual magic"
+          },
+          "directionId": "warlock"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一本研习记录与准备法术的办法",
+            "en": "A study record and a way to prepare spells"
+          },
+          "directionId": "wizard"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一段可表演的故事与多面支援",
+            "en": "A performable story and versatile support"
+          },
+          "directionId": "bard"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一套练熟招式与清楚的武技选择",
+            "en": "Practised moves and clear martial choices"
+          },
+          "directionId": "fighter"
+        }
+      ]
+    },
+    {
+      "id": "DND_CLASS_24",
+      "prompt": {
+        "zh": "回想你想玩的这位虚构冒险者，最想保留哪一面？",
+        "en": "Thinking about the fictional adventurer you want to play, which part would you keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "研习魔法后作出准备选择的过程",
+            "en": "The process of studying magic and preparing options"
+          },
+          "directionId": "wizard"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "原初力量投入故事挑战的感觉",
+            "en": "The feeling of primal power entering a story challenge"
+          },
+          "directionId": "barbarian"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用神圣魔法支持同伴的戏份",
+            "en": "A part supporting companions through divine magic"
+          },
+          "directionId": "cleric"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "以徒手技巧和灵活移动参与的玩法",
+            "en": "Play through unarmed technique and agile movement"
+          },
+          "directionId": "monk"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "required": 24,
+    "total": 24,
+    "exposureEach": 8,
+    "perPosition": 2,
+    "highest": "allhighestretainfullguides/noautomaticsecondary",
+    "allA": "12classes2each/all12fullguides",
+    "verificationPlan": "12uniquehighest+4all12ties+4096deterministiccompleteanswersplanned4112boundedsourceoraclecases/NOTexecuted/not4^24/globalDP/allhighestsets/psychvalidation"
+  },
+  "scope": "Selected12baseclassesfromSRD5.2.1/24originalfictionalfantasyplaypreferences/notallD&Dclasses/subclasses/Artificer/species/alignment/BG3builds/officialpersonalitytaxonomy/realcareer/health/ability/religion. No competitorbankbodyalgorithm/officialart/otherbookrules adopted. ExactSRD5.2.1requiredCCBY4.0attribution+source+license+changes in full package.",
+  "instructions": {
+    "zh": "24道原创奇幻游戏情境题，比较SRD5.2.1中的十二类基础职业游玩偏好：野蛮人、吟游诗人、牧师、德鲁伊、战士、武僧、圣武士、游侠、游荡者、术士、邪术师与法师。每题选一个更想在虚构合作故事里扮演的做法，不按现实里会不会、强不强回答；可以先读十二份完整说明。每选加1，每类出现8次、每位置2次，总数24；最高并列全部完整显示。职业指游戏职业，不是现实就业建议；不评属性、能力、善恶、信仰或心理，不是官方测验，也不从结果生成实际角色卡或换算MBTI。",
+    "en": "Twenty-four original fantasy-game situations compare play preferences for the twelve SRD 5.2.1 base classes: Barbarian, Bard, Cleric, Druid, Fighter, Monk, Paladin, Ranger, Rogue, Sorcerer, Warlock and Wizard. Choose an approach you would enjoy playing in a fictional cooperative story, rather than what you can actually do or how strong you are. Read all twelve full guides first if wanted. Each choice adds one; each class appears eight times, twice per position, and counts sum to twenty-four. Every highest tie appears in full. Class means a game class, not a real career. This unofficial quiz assesses no ability scores, skills, goodness, religious belief or psychology, produces no playable character sheet and converts into no MBTI type."
+  }
+}

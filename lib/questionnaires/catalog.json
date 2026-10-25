@@ -1215,5 +1215,38 @@
       "cinnamoroll",
       "pompompurin"
     ]
+  },
+  {
+    "slug": "dungeons-dragons-class",
+    "code": "DND_SRD_CLASS_PLAY_PREFERENCES",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "metaphor",
+    "title": {
+      "zh": "D&D 职业测试",
+      "en": "D&D Class Test"
+    },
+    "description": {
+      "zh": "免费完成24道原创奇幻游戏情境，比较SRD5.2.1十二类基础职业。完整说明、场景与计分直接读，最高并列全部保留；非官方测试，不是现实职业建议。",
+      "en": "Take 24 original fantasy-play questions and compare twelve SRD base classes. Full tied guides, examples and scoring are free; no real-career assessment."
+    },
+    "minutes": 8,
+    "collection": "explore",
+    "formCode": "fm_dnd_srd_class_play_preferences_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "barbarian",
+      "bard",
+      "cleric",
+      "druid",
+      "fighter",
+      "monk",
+      "paladin",
+      "ranger",
+      "rogue",
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ]
   }
 ]

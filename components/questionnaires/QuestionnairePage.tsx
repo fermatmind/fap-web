@@ -27,7 +27,7 @@ export default async function QuestionnairePage({ params }: Props) {
   if (!quiz) notFound();
   if (!isQuestionnaireConfigurationValid(quiz)) throw new Error("QUESTIONNAIRE_CONFIGURATION_UNAVAILABLE");
   const path = questionnairePath(locale, slug);
-  return <main className="bg-slate-50 py-10 text-slate-950"><Container className="max-w-3xl">
+  return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
     <nav aria-label={zh ? "面包屑" : "Breadcrumb"} className="mb-6 text-sm"><Link prefetch={false} className="underline" href={`/${locale}/tests#more-tests`}>{zh ? "全部测试 · 更多测试" : "All tests · More Tests"}</Link></nav>
