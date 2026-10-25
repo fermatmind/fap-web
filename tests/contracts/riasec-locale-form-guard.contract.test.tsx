@@ -185,6 +185,32 @@ describe("RIASEC locale, form, and safe-surface guard", () => {
     expect(screen.queryByTestId("riasec-deep-content-slots")).not.toBeInTheDocument();
   });
 
+  it("preserves selected English lifecycle text and unknown status while rejecting unavailable or mixed-locale copy", () => {
+    const lifecycle = {
+      locale: "en", status: "available", schema_version: "riasec.lifecycle_copy.v1",
+      frontend_fallback_allowed: false, measured_payload_mutation_allowed: false,
+      report_snapshot_mutation_allowed: false, raw_feedback_public_exposure_allowed: false,
+      internal_snapshot_id_public_exposure_allowed: false, life_stage_public_exposure_allowed: false,
+      organization_context_public_exposure_allowed: false,
+      faq_items: [{ q: "Can raw scores be compared?", a: "Different forms use different raw score spaces." }],
+      technical_note_summary_sections: [{ title: "Evidence", copy: "The English evidence status remains unknown.", data_status: null, source_data_status: "source_only", data_status_note: "Provenance only" }],
+      professional_method_boundary_sections: [{ key: "boundary", title: "Interpretation", body: "Interests do not establish qualifications." }],
+      method_boundaries: { scores: { label: "Score space", copy: "Do not compare raw score differences across forms." } },
+      disclaimers: [{ key: "hiring", label: "Employment", copy: "Do not use for employment screening." }],
+    };
+    const projection = { ...buildProjection("en", "riasec_60", []), lifecycle_copy_v1: lifecycle };
+    const vm = assembleRiasecResultViewModel(buildReport(projection, "riasec_60"), "en");
+    expect(vm.lifecycleCopy?.technicalSections?.[0].dataStatus).toBeNull();
+    expect(vm.lifecycleCopy?.faqItems).toEqual(lifecycle.faq_items);
+    render(<RiasecResultShell locale="en" viewModel={vm} />);
+    expect(screen.getByTestId("riasec-selected-method-copy")).toHaveTextContent(lifecycle.faq_items[0].a);
+    expect(screen.getByTestId("riasec-selected-method-copy")).toHaveTextContent(lifecycle.method_boundaries.scores.copy);
+    expect(screen.getByTestId("riasec-selected-method-copy")).not.toHaveTextContent("source_only");
+    for (const patch of [{ status: "unavailable" }, { locale: "zh-CN" }, { faq_items: [{ q: "中文", a: "Hidden" }] }]) {
+      expect(assembleRiasecResultViewModel(buildReport({ ...projection, lifecycle_copy_v1: { ...lifecycle, ...patch } }, "riasec_60"), "en").lifecycleCopy).toBeNull();
+    }
+  });
+
   it("keeps the public shell free of private result, report, and history URL enumeration", () => {
     const source = fs.readFileSync(path.join(process.cwd(), "components/result/riasec/RiasecResultShell.tsx"), "utf8");
 

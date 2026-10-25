@@ -325,6 +325,10 @@ export type RiasecLifecycleCopy = {
   organizationContextPublicExposureAllowed: false;
   surfaces: RiasecLifecycleCopySurface[];
   faqItems: RiasecLifecycleCopyFaqItem[];
+  technicalSections?: { title: string; copy: string; dataStatus: null; sourceDataStatus: string; dataStatusNote: string }[];
+  methodSections?: { key: string; title: string; body: string }[];
+  methodBoundaries?: { key: string; label: string; copy: string }[];
+  disclaimers?: { key: string; label: string; copy: string }[];
 };
 
 export type RiasecResultViewModel = {
@@ -574,6 +578,7 @@ const KNOWN_RIASEC_DEEP_SLOT_GROUPS = new Set([
   "feedback_response_copy",
 ]);
 const KNOWN_RIASEC_DEEP_SLOT_KEYS = new Set([
+  "triad_blend_copy",
   "dimension_deep_copy",
   "pair_blend_copy",
   "140q_task_card_copy",
@@ -591,6 +596,12 @@ const KNOWN_RIASEC_DEEP_SLOT_KEYS = new Set([
   "disagree_path_copy",
 ]);
 const KNOWN_RIASEC_DEEP_CONTENT_KEYS = new Set([
+  "interest_activity_focus", "context_costs", "misread_guardrails", "validation_questions",
+  "pair_tension", "micro_experiment", "result_page_teaser", "deep_report_extension_hint",
+  "strategy_label", "activity_chain", "core_reading", "first_experiment", "ordered_code_handling",
+  "low_risk_validation", "primary_activity_chain", "secondary_support_line", "tertiary_stabilizer",
+  "likely_tension", "activity_sequence", "when_to_use_140q", "when_not_to_overread",
+  "free_page_teaser", "deep_report_extension",
   "title",
   "summary",
   "body",
@@ -857,7 +868,7 @@ export function assembleRiasecResultViewModel(
     }),
     activityExplorer: buildActivityExplorer(v2ActivityExplorer),
     feedbackOverlay: buildFeedbackOverlay(v2FeedbackOverlay),
-    lifecycleCopy: buildLifecycleCopy(v2LifecycleCopy),
+    lifecycleCopy: buildLifecycleCopy(v2LifecycleCopy, requestedPageLocale),
     enhancedBreakdown: {
       activity: Object.fromEntries(Object.entries(asRecord(enhanced.activity) ?? {}).map(([key, value]) => [key, normalizeNumber(value)])),
       environment: Object.fromEntries(Object.entries(asRecord(enhanced.environment) ?? {}).map(([key, value]) => [key, normalizeNumber(value)])),
@@ -1446,7 +1457,7 @@ function buildActivityExplorer(rawExplorer: Record<string, unknown> | null): Ria
   };
 }
 
-function buildLifecycleCopy(rawLifecycleCopy: Record<string, unknown> | null): RiasecLifecycleCopy | null {
+function buildLifecycleCopy(rawLifecycleCopy: Record<string, unknown> | null, requestedPageLocale: Locale): RiasecLifecycleCopy | null {
   if (!rawLifecycleCopy) {
     return null;
   }
@@ -1462,6 +1473,25 @@ function buildLifecycleCopy(rawLifecycleCopy: Record<string, unknown> | null): R
     return null;
   }
 
+  const english = requestedPageLocale === "en";
+  if (english && (rawLifecycleCopy.locale !== "en" || rawLifecycleCopy.status !== "available")) return null;
+  if (english && /\p{Script=Han}/u.test(JSON.stringify([rawLifecycleCopy.surfaces, rawLifecycleCopy.faq_items, rawLifecycleCopy.technical_note_summary_sections, rawLifecycleCopy.professional_method_boundary_sections, rawLifecycleCopy.method_boundaries, rawLifecycleCopy.disclaimers]))) return null;
+  const technicalSections = (Array.isArray(rawLifecycleCopy.technical_note_summary_sections) ? rawLifecycleCopy.technical_note_summary_sections : []).flatMap(raw => {
+    const row = asRecord(raw);
+    return row && row.data_status === null && normalizeText(row.title) && normalizeText(row.copy)
+      ? [{ title: normalizeText(row.title), copy: normalizeText(row.copy), dataStatus: null, sourceDataStatus: normalizeText(row.source_data_status), dataStatusNote: normalizeText(row.data_status_note) }] : [];
+  });
+  const methodSections = (Array.isArray(rawLifecycleCopy.professional_method_boundary_sections) ? rawLifecycleCopy.professional_method_boundary_sections : []).flatMap(raw => {
+    const row = asRecord(raw);
+    return row && normalizeText(row.key) && normalizeText(row.title) && normalizeText(row.body)
+      ? [{ key: normalizeText(row.key), title: normalizeText(row.title), body: normalizeText(row.body) }] : [];
+  });
+  const boundaryRows = Object.entries(asRecord(rawLifecycleCopy.method_boundaries) ?? {}).map(([key, value]) => ({ ...asRecord(value), key }));
+  const readNotes = (rows: unknown[]) => rows.flatMap(raw => {
+    const row = asRecord(raw);
+    return row && normalizeText(row.key) && normalizeText(row.label) && normalizeText(row.copy)
+      ? [{ key: normalizeText(row.key), label: normalizeText(row.label), copy: normalizeText(row.copy) }] : [];
+  });
   const surfaces = (Array.isArray(rawLifecycleCopy.surfaces) ? rawLifecycleCopy.surfaces : [])
     .map((rawSurface) => {
       const surface = asRecord(rawSurface) ?? {};
@@ -1516,5 +1546,6 @@ function buildLifecycleCopy(rawLifecycleCopy: Record<string, unknown> | null): R
     organizationContextPublicExposureAllowed: false,
     surfaces,
     faqItems,
+    ...(english ? { technicalSections, methodSections, methodBoundaries: readNotes(boundaryRows), disclaimers: readNotes(Array.isArray(rawLifecycleCopy.disclaimers) ? rawLifecycleCopy.disclaimers : []) } : {}),
   };
 }

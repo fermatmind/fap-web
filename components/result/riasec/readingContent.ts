@@ -72,6 +72,7 @@ const RIASEC_DEEP_CONTENT_LABELS: Record<string, { zh: string; en: string }> = {
   context_costs: { zh: "情境成本", en: "Context costs" },
   misread_guardrails: { zh: "阅读边界", en: "Reading guardrails" },
   validation_questions: { zh: "验证问题", en: "Questions to explore" },
+  pair_tension: { zh: "组合张力", en: "Combination tension" },
   chemistry: { zh: "组合关系", en: "Combination pattern" },
   micro_experiment: { zh: "小实验", en: "Small experiment" },
   result_page_teaser: { zh: "结果提示", en: "Result note" },

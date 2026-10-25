@@ -8,6 +8,9 @@ import {
   type ReactNode,
   type Ref,
 } from "react";
+import Link from "next/link";
+import { buildRiasecTakeHref } from "@/lib/riasec/forms";
+import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import type { Locale } from "@/lib/i18n/locales";
 import {
   getRenderableRiasecDeepContentSlots,
@@ -47,6 +50,8 @@ const ANCHORS = {
   activities: "riasec-activities",
   context: "riasec-context",
   career: "riasec-career-next",
+  methods: "riasec-methods",
+  contextual: "riasec-contextual-clues",
 };
 
 export function RiasecReadingReport({
@@ -82,11 +87,13 @@ export function RiasecReadingReport({
     (slot) => slot.slotKey === "dimension_deep_copy",
   );
   const combinationSlots = slots.filter(
-    (slot) => slot.slotKey === "pair_blend_copy",
+    (slot) => slot.slotKey === "pair_blend_copy" || slot.slotKey === "triad_blend_copy",
   );
   const contextSlots = slots.filter(
     (slot) => slot.moduleKey === "140q_context_cards",
   );
+  const ctaSlots = slots.filter((slot) => slot.moduleKey === "140q_cta");
+  const lifecycle = !zh && vm.lifecycleCopy?.status === "available" ? vm.lifecycleCopy : null;
   const dimension =
     vm.dimensions.find((item) => item.code === selected) ||
     vm.dimensions.find((item) => item.code === vm.primaryType) ||
@@ -122,6 +129,7 @@ export function RiasecReadingReport({
     ...(hasContext
       ? [{ id: ANCHORS.context, label: t("工作偏好", "Work preferences") }]
       : []),
+    ...(lifecycle ? [{ id: ANCHORS.methods, label: "Methods and questions" }] : []),
     { id: ANCHORS.career, label: t("职业探索", "Career exploration") },
   ];
   const chapterKey = chapters.map((chapter) => chapter.id).join(",");
@@ -391,6 +399,28 @@ export function RiasecReadingReport({
                 </div>
               </section>
             ) : null}
+            {(contextSlots.length || ctaSlots.length) ? (
+              <section id={ANCHORS.contextual} className={styles.chapter}>
+                <h2>{t("情境线索", "Contextual clues")}</h2>
+                {[...contextSlots, ...ctaSlots].map(slot => <ContentCard key={slot.slotId} slot={slot} state={slotState(slot)} zh={zh} />)}
+              </section>
+            ) : null}
+            {lifecycle ? (
+              <section id={ANCHORS.methods} className={styles.chapter} data-testid="riasec-selected-method-copy">
+                <h2>Methods and questions</h2>
+                {lifecycle.technicalSections?.map((section, index) => (
+                  <article className={styles.contentCard} key={`technical-${index}`} data-testid="riasec-technical-section">
+                    <h3>{section.title}</h3><p>{section.copy}</p>
+                    <p>Evidence status: unknown</p>
+                  </article>
+                ))}
+                {lifecycle.methodSections?.map(section => <article className={styles.contentCard} key={section.key} data-testid="riasec-method-section"><h3>{section.title}</h3><p>{section.body}</p></article>)}
+                {[...(lifecycle.methodBoundaries ?? []), ...(lifecycle.disclaimers ?? [])].map((note, index) => <article className={styles.contentCard} key={`boundary-${index}`} data-testid="riasec-method-boundary"><h3>{note.label}</h3><p>{note.copy}</p></article>)}
+                {lifecycle.surfaces.map(surface => <p key={surface.surface}>{surface.copy}</p>)}
+                <h3>Frequently asked questions</h3>
+                {lifecycle.faqItems.map((item, index) => <details className={styles.contentCard} key={index} data-testid="riasec-faq-item"><summary>{item.q}</summary><p>{item.a}</p></details>)}
+              </section>
+            ) : null}
             <RiasecExploration
               locale={locale}
               showPreferences={hasContext}
@@ -487,6 +517,9 @@ function ContentCard({
           {Object.entries(content)
             .filter(([key]) => !["title", "summary", "body"].includes(key))
             .map(([key, value]) => {
+              if (!zh && key === "button_label" && slot.slotKey === "140q_cta_copy" && typeof value === "string") {
+                return <Link key={key} href={buildRiasecTakeHref(SCALE_CANONICAL_SLUG_MAP.RIASEC, "en", "riasec_140")}>{value}</Link>;
+              }
               const label = formatDeepContentKey(key, zh);
               const values = (Array.isArray(value) ? value : [value])
                 .map(formatRiasecDetailValue)
