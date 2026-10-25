@@ -108,3 +108,19 @@ test("@release Color public images and closed identities", async ({ request }, t
     if (locale === "zh" && profile === "red") await testInfo.attach("Color-Chinese-result-image", { body: bytes, contentType: "image/png" });
   }
 });
+
+for (const locale of ["en", "zh"] as const) {
+  test(`@release Color ${locale}: pre-hydration hub navigation replaces the document and has one canonical`, async ({ page }) => {
+    const session = await page.context().newCDPSession(page);
+    await session.send("Emulation.setCPUThrottlingRate", { rate: 4 });
+    await page.goto(`/${locale}/tests`, { waitUntil: "domcontentloaded" });
+    await page.evaluate(() => { document.documentElement.dataset.qaPreviousDocument = "hub"; });
+    await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
+    await expect(page).toHaveURL(new RegExp(`/${locale}/tests/play/response-color$`));
+    await expect(page.locator("html")).not.toHaveAttribute("data-qa-previous-document", "hub");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
+    await expect(page.locator('link[rel="canonical"]')).toHaveCount(1);
+    await expect(page.locator('head link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com/${locale}/tests/play/response-color`);
+    await expect(page.locator(`link[rel="canonical"][href="https://fermatmind.com/${locale}/tests"]`)).toHaveCount(0);
+  });
+}

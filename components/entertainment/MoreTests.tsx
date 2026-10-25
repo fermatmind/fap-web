@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { directoryQuizzes } from "@/lib/entertainment/directory";
 import questionnaires from "@/lib/questionnaires/catalog.json";
@@ -31,7 +30,7 @@ export function MoreTests({ locale }: { locale: Locale }) {
         <h3 id={`fun-heading-${key}`} className="mb-4 text-xl font-semibold">{label[locale]}</h3>
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {catalog.filter(q => q.category === key).map(q => <article key={q.slug} className="flex min-w-0 flex-col rounded-lg border border-slate-200 bg-white p-5">
-            <h4 className="text-lg font-semibold leading-snug [overflow-wrap:anywhere]"><Link className="underline decoration-slate-300 underline-offset-4 hover:decoration-slate-700" href={`/${locale}${q.pathname}`} prefetch={false}>{q.title[locale]}</Link></h4>
+            <h4 className="text-lg font-semibold leading-snug [overflow-wrap:anywhere]"><a className="underline decoration-slate-300 underline-offset-4 hover:decoration-slate-700" href={`/${locale}${q.pathname}`}>{q.title[locale]}</a></h4>
             <p className="mt-3 flex-1 text-sm leading-6 text-slate-600">{q.description[locale]}</p>
             <p className="mt-4 text-sm font-medium">{locale === "zh" ? `${q.minQuestionCount === q.questionCount ? q.questionCount : `${q.minQuestionCount}–${q.questionCount}`} 题 · 约 ${q.minutes} 分钟 · 全部免费` : `${q.minQuestionCount === q.questionCount ? q.questionCount : `${q.minQuestionCount}–${q.questionCount}`} questions · about ${q.minutes} min · fully free`}</p>
           </article>)}
