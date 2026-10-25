@@ -555,5 +555,29 @@
       "acoustic-folk",
       "country"
     ]
+  },
+  {
+    "slug": "people-pleaser",
+    "code": "PPS_PEOPLE_PLEASING",
+    "version": "1.0.0",
+    "updated": "2026-10-25",
+    "category": "relationships",
+    "title": {
+      "zh": "讨好型人格测试",
+      "en": "People Pleaser Test"
+    },
+    "description": {
+      "zh": "用10条PPS条目分别探索自身需要、照顾责任和他人期望，三项均分与完整双语解释免费，无需注册。含具体对话、反例和许可说明；日常讨好倾向自评，不诊断人格障碍。",
+      "en": "Explore own needs, responsibility and others’ expectations with ten PPS items. Three readings and full free guides, no signup, personality tiers or diagnosis."
+    },
+    "minutes": 4,
+    "collection": "explore",
+    "formCode": "fm_pps_2026_en_zh_10",
+    "questionCount": 10,
+    "resultSlugs": [
+      "needs",
+      "responsibility",
+      "expectations"
+    ]
   }
 ]

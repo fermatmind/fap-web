@@ -1,0 +1,786 @@
+{
+  "formCode": "fm_pps_2026_en_zh_10",
+  "itemBankVersion": "1.0.0",
+  "origin": "Blötner2026 final10PPS English wording verbatim frompublisherTable1/CCBY4;FermatMind independentZHtranslationnotvalidated. NoJobCannonbank/bodyadopted.",
+  "directions": [
+    {
+      "id": "needs",
+      "title": {
+        "zh": "搁置自身需要",
+        "en": "Setting aside own needs"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "responsibility",
+      "title": {
+        "zh": "照顾他人的责任感",
+        "en": "Felt responsibility for others"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "expectations",
+      "title": {
+        "zh": "迎合他人的期望",
+        "en": "Orientation to others’ expectations"
+      },
+      "itemCount": 3
+    }
+  ],
+  "questions": [
+    {
+      "id": "PPS01",
+      "prompt": {
+        "zh": "我常常忘记自己的需要。",
+        "en": "I often forget my own needs."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not apply at all"
+          },
+          "directionId": "needs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "有一点符合",
+            "en": "Applies a little"
+          },
+          "directionId": "needs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有些符合",
+            "en": "Applies somewhat"
+          },
+          "directionId": "needs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "大体符合",
+            "en": "Applies mostly"
+          },
+          "directionId": "needs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "完全符合",
+            "en": "Completely applies"
+          },
+          "directionId": "needs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答",
+            "en": "Unsure or prefer not to answer"
+          },
+          "directionId": "needs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PPS02",
+      "prompt": {
+        "zh": "我很难为自己的需要发声。",
+        "en": "It is difficult for me to stand up for my own needs."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not apply at all"
+          },
+          "directionId": "needs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "有一点符合",
+            "en": "Applies a little"
+          },
+          "directionId": "needs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有些符合",
+            "en": "Applies somewhat"
+          },
+          "directionId": "needs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "大体符合",
+            "en": "Applies mostly"
+          },
+          "directionId": "needs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "完全符合",
+            "en": "Completely applies"
+          },
+          "directionId": "needs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答",
+            "en": "Unsure or prefer not to answer"
+          },
+          "directionId": "needs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PPS03",
+      "prompt": {
+        "zh": "即使我自己状态不好，也更倾向于帮助别人而不是自己。",
+        "en": "Even when I am not well, I rather help others than myself."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not apply at all"
+          },
+          "directionId": "needs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "有一点符合",
+            "en": "Applies a little"
+          },
+          "directionId": "needs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有些符合",
+            "en": "Applies somewhat"
+          },
+          "directionId": "needs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "大体符合",
+            "en": "Applies mostly"
+          },
+          "directionId": "needs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "完全符合",
+            "en": "Completely applies"
+          },
+          "directionId": "needs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答",
+            "en": "Unsure or prefer not to answer"
+          },
+          "directionId": "needs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PPS04",
+      "prompt": {
+        "zh": "为了帮助别人，我会忽略自己的需要。",
+        "en": "I neglect my needs to help other people."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not apply at all"
+          },
+          "directionId": "needs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "有一点符合",
+            "en": "Applies a little"
+          },
+          "directionId": "needs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有些符合",
+            "en": "Applies somewhat"
+          },
+          "directionId": "needs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "大体符合",
+            "en": "Applies mostly"
+          },
+          "directionId": "needs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "完全符合",
+            "en": "Completely applies"
+          },
+          "directionId": "needs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答",
+            "en": "Unsure or prefer not to answer"
+          },
+          "directionId": "needs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PPS05",
+      "prompt": {
+        "zh": "我觉得自己有责任让别人过得好。",
+        "en": "I feel responsible that others are fine."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not apply at all"
+          },
+          "directionId": "responsibility",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "有一点符合",
+            "en": "Applies a little"
+          },
+          "directionId": "responsibility",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有些符合",
+            "en": "Applies somewhat"
+          },
+          "directionId": "responsibility",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "大体符合",
+            "en": "Applies mostly"
+          },
+          "directionId": "responsibility",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "完全符合",
+            "en": "Completely applies"
+          },
+          "directionId": "responsibility",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答",
+            "en": "Unsure or prefer not to answer"
+          },
+          "directionId": "responsibility",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PPS06",
+      "prompt": {
+        "zh": "我觉得自己对别人的福祉负有责任。",
+        "en": "I feel responsible for others’ well-being."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not apply at all"
+          },
+          "directionId": "responsibility",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "有一点符合",
+            "en": "Applies a little"
+          },
+          "directionId": "responsibility",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有些符合",
+            "en": "Applies somewhat"
+          },
+          "directionId": "responsibility",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "大体符合",
+            "en": "Applies mostly"
+          },
+          "directionId": "responsibility",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "完全符合",
+            "en": "Completely applies"
+          },
+          "directionId": "responsibility",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答",
+            "en": "Unsure or prefer not to answer"
+          },
+          "directionId": "responsibility",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PPS07",
+      "prompt": {
+        "zh": "我有强烈的愿望去照顾别人。",
+        "en": "I have a strong desire to care for others."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not apply at all"
+          },
+          "directionId": "responsibility",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "有一点符合",
+            "en": "Applies a little"
+          },
+          "directionId": "responsibility",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有些符合",
+            "en": "Applies somewhat"
+          },
+          "directionId": "responsibility",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "大体符合",
+            "en": "Applies mostly"
+          },
+          "directionId": "responsibility",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "完全符合",
+            "en": "Completely applies"
+          },
+          "directionId": "responsibility",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答",
+            "en": "Unsure or prefer not to answer"
+          },
+          "directionId": "responsibility",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PPS08",
+      "prompt": {
+        "zh": "我努力满足别人的期望。",
+        "en": "I try to fulfill other people’s expectations."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not apply at all"
+          },
+          "directionId": "expectations",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "有一点符合",
+            "en": "Applies a little"
+          },
+          "directionId": "expectations",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有些符合",
+            "en": "Applies somewhat"
+          },
+          "directionId": "expectations",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "大体符合",
+            "en": "Applies mostly"
+          },
+          "directionId": "expectations",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "完全符合",
+            "en": "Completely applies"
+          },
+          "directionId": "expectations",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答",
+            "en": "Unsure or prefer not to answer"
+          },
+          "directionId": "expectations",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PPS09",
+      "prompt": {
+        "zh": "我有强烈的冲动去取悦别人。",
+        "en": "I have a strong urge to please others."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not apply at all"
+          },
+          "directionId": "expectations",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "有一点符合",
+            "en": "Applies a little"
+          },
+          "directionId": "expectations",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有些符合",
+            "en": "Applies somewhat"
+          },
+          "directionId": "expectations",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "大体符合",
+            "en": "Applies mostly"
+          },
+          "directionId": "expectations",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "完全符合",
+            "en": "Completely applies"
+          },
+          "directionId": "expectations",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答",
+            "en": "Unsure or prefer not to answer"
+          },
+          "directionId": "expectations",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PPS10",
+      "prompt": {
+        "zh": "我很难拒绝别人的请求。",
+        "en": "I have difficulty to refuse a request from others."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not apply at all"
+          },
+          "directionId": "expectations",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "有一点符合",
+            "en": "Applies a little"
+          },
+          "directionId": "expectations",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有些符合",
+            "en": "Applies somewhat"
+          },
+          "directionId": "expectations",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "大体符合",
+            "en": "Applies mostly"
+          },
+          "directionId": "expectations",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "完全符合",
+            "en": "Completely applies"
+          },
+          "directionId": "expectations",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答",
+            "en": "Unsure or prefer not to answer"
+          },
+          "directionId": "expectations",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "PPS01": {
+      "part": "needs",
+      "website_item_id": "PPS01",
+      "published_Table1_row_order": 1,
+      "English": "verbatimTable1",
+      "Chinese": "independenttranslation"
+    },
+    "PPS02": {
+      "part": "needs",
+      "website_item_id": "PPS02",
+      "published_Table1_row_order": 2,
+      "English": "verbatimTable1",
+      "Chinese": "independenttranslation"
+    },
+    "PPS03": {
+      "part": "needs",
+      "website_item_id": "PPS03",
+      "published_Table1_row_order": 3,
+      "English": "verbatimTable1",
+      "Chinese": "independenttranslation"
+    },
+    "PPS04": {
+      "part": "needs",
+      "website_item_id": "PPS04",
+      "published_Table1_row_order": 4,
+      "English": "verbatimTable1",
+      "Chinese": "independenttranslation"
+    },
+    "PPS05": {
+      "part": "responsibility",
+      "website_item_id": "PPS05",
+      "published_Table1_row_order": 5,
+      "English": "verbatimTable1",
+      "Chinese": "independenttranslation"
+    },
+    "PPS06": {
+      "part": "responsibility",
+      "website_item_id": "PPS06",
+      "published_Table1_row_order": 6,
+      "English": "verbatimTable1",
+      "Chinese": "independenttranslation"
+    },
+    "PPS07": {
+      "part": "responsibility",
+      "website_item_id": "PPS07",
+      "published_Table1_row_order": 7,
+      "English": "verbatimTable1",
+      "Chinese": "independenttranslation"
+    },
+    "PPS08": {
+      "part": "expectations",
+      "website_item_id": "PPS08",
+      "published_Table1_row_order": 8,
+      "English": "verbatimTable1",
+      "Chinese": "independenttranslation"
+    },
+    "PPS09": {
+      "part": "expectations",
+      "website_item_id": "PPS09",
+      "published_Table1_row_order": 9,
+      "English": "verbatimTable1",
+      "Chinese": "independenttranslation"
+    },
+    "PPS10": {
+      "part": "expectations",
+      "website_item_id": "PPS10",
+      "published_Table1_row_order": 10,
+      "English": "verbatimTable1",
+      "Chinese": "independenttranslation"
+    }
+  },
+  "scoring": {
+    "scoringVersion": "1.0.0",
+    "kind": "likert",
+    "minimumValidPerDirection": 3,
+    "allSelectionsRequired": 10,
+    "validRatingRange": [
+      1,
+      5
+    ],
+    "reverseItems": [],
+    "na": "websiteaddition/excludednotzeroormean-imputed",
+    "rounding": "website1decimalpartmean",
+    "changes_from_study": "Germanonlyadministeredinpublishedstudies;authorprovidedEnglishinTable1notvalidatedEnglishsample. ZHindependenttranslation;websiteintermediateanchorlabels2-4/NAandminimum3rule/roundedmeansandall3guidesoriginaldisplayadaptations,notpublishedmissing-data/clinicalcutoffs. needs3of4possible/other3of3;all10first. Notautomaticallyvalidatedinstrumentequivalence.",
+    "reading": "3continuouspartmeansorinsufficientstates/all3fullguides;NOtotal/winner/quartiletiers/percentile/popnorm/clinicalrating/partnerdiagnosis/abuseprediction/childhoodcause/career/relationshipfate. Higherresponsibilityitemscannotaloneproveunhealthiness;practicalduties/voluntarycare/contextmustreadseparately."
+  },
+  "licence": {
+    "author": "Christian Blötner",
+    "year": 2026,
+    "title": "Valuing others over oneself: development and validation of a people pleasing scale in two German samples",
+    "doi": "10.1007/s12144-026-09519-2",
+    "url": "https://link.springer.com/article/10.1007/s12144-026-09519-2",
+    "item_table": "https://link.springer.com/article/10.1007/s12144-026-09519-2/tables/1",
+    "licence": "CC BY 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+    "verification": "PublisherRightsandpermissions353-355read/adaptationpermittedwithcreditlinkchanges;Table1actualpublicHTTPS200full10ENDErows/loadingsread/noexclusioncreditseen. Notlicensecompetitorreports/art.",
+    "required_runtime_credit": "Author/title/year/DOI/table+CCBY4links andexactadaptations onentryandALL3guides;noendorsementclaim."
+  },
+  "references": [
+    {
+      "url": "https://link.springer.com/article/10.1007/s12144-026-09519-2",
+      "scope": "Abstract43-46/methods106-120/results154-190/licence352-355read;NOTentirepaper/resultsfulltables/OSFsupplement.2GermanadultsamplevalidationnotlocalENZHpsychometrics."
+    },
+    {
+      "url": "https://health.clevelandclinic.org/how-to-stop-being-a-people-pleaser",
+      "scope": "27-84readordinarychoice/selfneedsdistinctionandcontext;notbank/causation/clinicalcutoff/prognosis/effectivenesstreatmentclaim."
+    },
+    {
+      "url": "https://health.clevelandclinic.org/how-to-set-boundaries",
+      "scope": "27-136readselfneeds/directrespectfulcommunication/smallsteps/background;noverbatimdialoguecopy/noguarantyboundaryforcesotherstobehave/nosafetydiagnosis."
+    }
+  ]
+}
