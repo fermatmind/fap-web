@@ -205,5 +205,31 @@
       "mermaid",
       "kraken"
     ]
+  },
+  {
+    "slug": "superpower-test",
+    "code": "SUPERPOWER",
+    "version": "1.0.0",
+    "updated": "2026-10-25",
+    "category": "fantasy",
+    "title": {
+      "zh": "超能力测试",
+      "en": "Superpower Test"
+    },
+    "description": {
+      "zh": "免费完成20道原创日常偏好题，比较心灵感应、飞行、时间控制、隐身和超强力量五种趣味比喻。显示全部计数与完整并列报告，附具体例子、相近结果和计分；无需注册。",
+      "en": "What superpower would you have? Take 20 original everyday questions and compare Telepathy, Flight, Time Control, Invisibility and Super Strength. Full results free, no signup."
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "fm_superpower_choices_20",
+    "questionCount": 20,
+    "resultSlugs": [
+      "telepathy",
+      "flight",
+      "time-control",
+      "invisibility",
+      "super-strength"
+    ]
   }
 ]

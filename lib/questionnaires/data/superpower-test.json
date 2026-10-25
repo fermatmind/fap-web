@@ -1,0 +1,1780 @@
+{
+  "slug": "superpower-test",
+  "code": "SUPERPOWER",
+  "version": "1.0.0",
+  "updated": "2026-10-25",
+  "category": "fantasy",
+  "kind": "archetype",
+  "minutes": 5,
+  "title": {
+    "zh": "超能力测试",
+    "en": "Superpower Test"
+  },
+  "resultHeading": {
+    "zh": "你的完整超能力结果",
+    "en": "Your complete superpower result"
+  },
+  "seoTitle": {
+    "zh": "我会有什么超能力？20题趣味测试与完整结果",
+    "en": "Superpower Test: What Power Would You Have? Free Quiz"
+  },
+  "description": {
+    "zh": "免费完成20道原创日常偏好题，比较心灵感应、飞行、时间控制、隐身和超强力量五种趣味比喻。显示全部计数与完整并列报告，附具体例子、相近结果和计分；无需注册。",
+    "en": "What superpower would you have? Take 20 original everyday questions and compare Telepathy, Flight, Time Control, Invisibility and Super Strength. Full results free, no signup."
+  },
+  "introduction": {
+    "zh": "如果把日常偏好想象成一种超能力，你会更接近认真询问、换个视角、调整节奏、安静了解，还是做一件具体的小帮忙？这份超能力测试通过20道原创情境题，让五种虚构能力成为谈论这些选择的比喻。它不检测真实能力；你可以先读所有完整解释，再决定是否作答。",
+    "en": "If an everyday preference became a fictional power, would you ask and listen, try another viewpoint, adjust the pace, observe quietly or offer practical help? This Superpower Test uses twenty original situations and five fictional powers as metaphors for those choices. It does not detect actual abilities. You can read all complete guides before deciding whether to answer."
+  },
+  "instructions": {
+    "zh": "每题四种做法都可能合理，选择近期真实的自己更愿意采用的一项。几项都贴合时，想一个相似的具体情境；不需要按最想拥有的超能力作答。完成20题后显示全部五种计数与所有最高并列结果，没有正确答案。",
+    "en": "All four responses may be reasonable. Choose what you would more naturally prefer in your recent life; if several fit, think of a specific similar situation. You need not answer according to the power you most want. After twenty questions, see all five counts and every highest-count match. There are no right answers."
+  },
+  "source": {
+    "kind": "FermatMind original everyday preference quiz with fictional power metaphors",
+    "formCode": "fm_superpower_choices_20",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "8116d31bfb8f3bf7eec77527ac0e73094bdb132af3edd928d21c31ad9e4de09d",
+    "resultContentSha256": "0069fd2a40fca9d6c057302cabf7acee9f9428de37109db36bedc61e7f87c59c",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "telepathy",
+      "title": {
+        "zh": "心灵感应",
+        "en": "Telepathy"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "flight",
+      "title": {
+        "zh": "飞行",
+        "en": "Flight"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "time-control",
+      "title": {
+        "zh": "时间控制",
+        "en": "Time Control"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "invisibility",
+      "title": {
+        "zh": "隐身",
+        "en": "Invisibility"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "super-strength",
+      "title": {
+        "zh": "超强力量",
+        "en": "Super Strength"
+      },
+      "comparisons": 16
+    }
+  ],
+  "questions": [
+    {
+      "id": "POWER_01",
+      "prompt": {
+        "zh": "同伴请你一起商量怎样度过一个空闲下午，你更想先？",
+        "en": "A companion asks you to help decide how to spend a free afternoon. What would you first prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "认领一项具体的小准备，让安排容易开始。",
+            "en": "Take on one small preparation that makes starting easier."
+          },
+          "directionId": "super-strength"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先安静了解各个选项，再补上自己的意见。",
+            "en": "Take in the options quietly before adding my view."
+          },
+          "directionId": "invisibility"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先看看有哪些不同的去处，不必马上选定一种。",
+            "en": "Look at several different places without settling on one immediately."
+          },
+          "directionId": "flight"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问清可用的时段，给行程留一点缓冲。",
+            "en": "Check the available time and leave a buffer in the plan."
+          },
+          "directionId": "time-control"
+        }
+      ]
+    },
+    {
+      "id": "POWER_02",
+      "prompt": {
+        "zh": "和熟人讨论一件有不同意见的小事，你更愿意怎样加入？",
+        "en": "People you know have different views on a small issue. How would you prefer to join the discussion?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "建议先给每个人一点时间，不急着立刻定案。",
+            "en": "Suggest some time for each person rather than settling it immediately."
+          },
+          "directionId": "time-control"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "问有什么已经明确、我可以实际帮忙的部分。",
+            "en": "Ask what is already clear and could use practical help from me."
+          },
+          "directionId": "super-strength"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先听完整个讨论，留意还没被提到的具体信息。",
+            "en": "Hear the discussion through and notice information not yet mentioned."
+          },
+          "directionId": "invisibility"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "请各自说清最在意什么，再确认我听到的意思。",
+            "en": "Ask what matters most to each person and check what I understood."
+          },
+          "directionId": "telepathy"
+        }
+      ]
+    },
+    {
+      "id": "POWER_03",
+      "prompt": {
+        "zh": "开始整理一个拥挤的角落，你更想采用哪种做法？",
+        "en": "You are starting to organise a crowded corner. Which approach would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先看清目前怎样使用，再决定是否调整。",
+            "en": "Observe how it is currently used before deciding what to change."
+          },
+          "directionId": "invisibility"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "若与别人共用，先问哪些物品对他们有特别意义。",
+            "en": "If it is shared, ask which objects have particular meaning for the other person."
+          },
+          "directionId": "telepathy"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "选一个容易处理的小区域，先动手整理好。",
+            "en": "Choose one manageable small area and begin organising it."
+          },
+          "directionId": "super-strength"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先换一个角度看看，这个地方还能有什么用途。",
+            "en": "Consider a different angle on what the space could be used for."
+          },
+          "directionId": "flight"
+        }
+      ]
+    },
+    {
+      "id": "POWER_04",
+      "prompt": {
+        "zh": "收到一份不太熟悉的活动介绍，你更可能先关注什么？",
+        "en": "You receive details of an unfamiliar activity. What would you first pay attention to?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "它有没有让我接触不同地方或新视角的机会。",
+            "en": "Whether it offers a different place or a new perspective."
+          },
+          "directionId": "flight"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "开始结束时间，以及前后需要多少准备。",
+            "en": "The start and finish times and the preparation around them."
+          },
+          "directionId": "time-control"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "参加的人想获得什么，是否方便交流期待。",
+            "en": "What people want from taking part and whether expectations can be discussed."
+          },
+          "directionId": "telepathy"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有没有一项具体、我愿意协助的工作。",
+            "en": "Whether there is a concrete task I would like to help with."
+          },
+          "directionId": "super-strength"
+        }
+      ]
+    },
+    {
+      "id": "POWER_05",
+      "prompt": {
+        "zh": "你想给自己留一段不被打扰的时间，最希望用来？",
+        "en": "You want some uninterrupted time to yourself. What would you most like to use it for?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "回想一次谈话，分清自己的理解和还需要确认的部分。",
+            "en": "Revisit a conversation and distinguish my interpretation from what needs checking."
+          },
+          "directionId": "telepathy"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "走一段不同的路线，看看平常没留意的地方。",
+            "en": "Take a different route and notice somewhere I usually miss."
+          },
+          "directionId": "flight"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "放慢手头的节奏，让下一件事不必紧接着开始。",
+            "en": "Slow my pace so the next activity does not need to begin immediately."
+          },
+          "directionId": "time-control"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "安静做自己的事，不需要随时展示或回应。",
+            "en": "Do something privately without needing to display or respond continuously."
+          },
+          "directionId": "invisibility"
+        }
+      ]
+    },
+    {
+      "id": "POWER_06",
+      "prompt": {
+        "zh": "一次小组活动刚开始，你更想怎样找到自己的位置？",
+        "en": "At the beginning of a small group activity, how would you prefer to find your place?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问一件当前需要做的小事，从实际协助开始。",
+            "en": "Ask for one small task needed now and start with practical assistance."
+          },
+          "directionId": "super-strength"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先在旁边熟悉流程，有想法时再加入。",
+            "en": "Become familiar with the process from the side and contribute when ready."
+          },
+          "directionId": "invisibility"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先了解整体可以怎样参与，再选一种有空间的方式。",
+            "en": "Look at the different ways to join and choose one with room to move."
+          },
+          "directionId": "flight"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "看看活动怎样分段，安排自己能参加的部分。",
+            "en": "Check the activity’s stages and arrange the parts I can attend."
+          },
+          "directionId": "time-control"
+        }
+      ]
+    },
+    {
+      "id": "POWER_07",
+      "prompt": {
+        "zh": "一位朋友说自己暂时不确定想怎么做，你更愿意？",
+        "en": "A friend says they are not sure what they want to do yet. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "商量何时再聊，让对方有一段不必立刻决定的时间。",
+            "en": "Agree when to return to it and leave time without an immediate decision."
+          },
+          "directionId": "time-control"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "问是否有一件小事可以帮忙，决定仍由对方来做。",
+            "en": "Ask whether one small practical task would help, leaving the decision with them."
+          },
+          "directionId": "super-strength"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "不追问全部细节，允许对方先自己想一想。",
+            "en": "Avoid seeking every detail and let them think privately first."
+          },
+          "directionId": "invisibility"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问现在最纠结的是什么，听听对方自己的说法。",
+            "en": "Ask what feels most unresolved and hear their own account."
+          },
+          "directionId": "telepathy"
+        }
+      ]
+    },
+    {
+      "id": "POWER_08",
+      "prompt": {
+        "zh": "准备让一个常用空间更顺手，你更看重哪种起点？",
+        "en": "You want to make a frequently used space easier to use. Which starting point appeals to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "观察几次实际使用的过程，找到一个容易忽略的细节。",
+            "en": "Watch how it is used a few times and notice an overlooked detail."
+          },
+          "directionId": "invisibility"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先问共用的人哪里最不方便，别只按自己习惯改。",
+            "en": "Ask others sharing it what is awkward instead of changing it only to my habits."
+          },
+          "directionId": "telepathy"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先完成一项已经确定有帮助的小调整。",
+            "en": "Complete one small adjustment already known to be useful."
+          },
+          "directionId": "super-strength"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把物品换个布局，看看是否能打开新的使用方式。",
+            "en": "Try another arrangement to open up a different way to use it."
+          },
+          "directionId": "flight"
+        }
+      ]
+    },
+    {
+      "id": "POWER_09",
+      "prompt": {
+        "zh": "为近期的一次短途外出做准备，你更愿意先？",
+        "en": "You are preparing for a short outing. What would you prefer to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "找一种和平常不同的路线或观看角度。",
+            "en": "Find a route or viewpoint different from the usual one."
+          },
+          "directionId": "flight"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "在必要安排之间留足时间，不把每一段排满。",
+            "en": "Leave enough time between essentials instead of filling every interval."
+          },
+          "directionId": "time-control"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问同行者最期待和最不想遇到什么。",
+            "en": "Ask companions what they most look forward to and want to avoid."
+          },
+          "directionId": "telepathy"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把一项需要完成的准备落实，让其他人少操一点心。",
+            "en": "Take care of one necessary preparation to reduce a practical burden."
+          },
+          "directionId": "super-strength"
+        }
+      ]
+    },
+    {
+      "id": "POWER_10",
+      "prompt": {
+        "zh": "结束一个信息很多的上午，你更偏好怎样过渡？",
+        "en": "After an information-heavy morning, how would you prefer to transition?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用几句话理清自己的感受，若要聊就先问对方方便吗。",
+            "en": "Find a few words for my response and check availability before talking to someone."
+          },
+          "directionId": "telepathy"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "换个地点走走，让注意力暂时离开原来的画面。",
+            "en": "Change location for a while and see something outside the same scene."
+          },
+          "directionId": "flight"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给下一项安排前留一个短暂停顿。",
+            "en": "Leave a short pause before the next activity."
+          },
+          "directionId": "time-control"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "自己安静待一会儿，不急着汇报刚才发生的事。",
+            "en": "Spend some time quietly without immediately reporting what happened."
+          },
+          "directionId": "invisibility"
+        }
+      ]
+    },
+    {
+      "id": "POWER_11",
+      "prompt": {
+        "zh": "你在一项共同安排里发现一个小遗漏，更可能怎样处理？",
+        "en": "You notice a small omission in a shared arrangement. How would you prefer to respond?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先问是否需要我来补上一项具体工作。",
+            "en": "Ask whether I should handle one concrete task that would fill the gap."
+          },
+          "directionId": "super-strength"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "核对已有信息，确定自己看到的是否真是遗漏。",
+            "en": "Check the available information before deciding that it is an omission."
+          },
+          "directionId": "invisibility"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "退一步看看整体，确认是否还有另一种安排办法。",
+            "en": "Step back and consider whether the overall arrangement could work differently."
+          },
+          "directionId": "flight"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先确认遗漏何时需要处理，再留出一段合适时间。",
+            "en": "Check when it needs attention and allocate suitable time."
+          },
+          "directionId": "time-control"
+        }
+      ]
+    },
+    {
+      "id": "POWER_12",
+      "prompt": {
+        "zh": "别人对你的一句话反应和预期不同，你更想先？",
+        "en": "Someone responds differently than you expected to something you said. What would you prefer to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先缓一缓，找一个双方都方便的时机再说。",
+            "en": "Pause and find a time that suits both of us to discuss it."
+          },
+          "directionId": "time-control"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "若有一项明确需要修正的小事，主动提出把它做好。",
+            "en": "Offer to correct a specific practical issue if one is clear."
+          },
+          "directionId": "super-strength"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "回看当时具体说了什么，不急着给对方下判断。",
+            "en": "Review what was actually said without immediately judging them."
+          },
+          "directionId": "invisibility"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问他们怎样理解那句话，避免只靠自己猜。",
+            "en": "Ask how they understood it rather than relying only on my guess."
+          },
+          "directionId": "telepathy"
+        }
+      ]
+    },
+    {
+      "id": "POWER_13",
+      "prompt": {
+        "zh": "学习一个新爱好之前，你更喜欢哪种准备？",
+        "en": "Before starting a new hobby, which preparation would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先独自了解基本过程，再决定何时请人指点。",
+            "en": "Learn about the basic process privately before deciding when to ask for guidance."
+          },
+          "directionId": "invisibility"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "如果和人一起学，先聊各自期待怎样互相支持。",
+            "en": "If learning together, discuss what support each person wants."
+          },
+          "directionId": "telepathy"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把必要材料和位置准备好，让开始少一点阻力。",
+            "en": "Prepare the essential materials and space to make starting easier."
+          },
+          "directionId": "super-strength"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "看看几种不同的玩法，再挑想探索的一种。",
+            "en": "Look at different ways to approach it and choose one to explore."
+          },
+          "directionId": "flight"
+        }
+      ]
+    },
+    {
+      "id": "POWER_14",
+      "prompt": {
+        "zh": "和家人安排一件普通日常事，你最愿意贡献什么？",
+        "en": "When arranging an ordinary household task, what would you most like to contribute?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "提出一个不同于惯例、可能更合适的整体方案。",
+            "en": "Suggest an overall option different from the routine that may suit the situation."
+          },
+          "directionId": "flight"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把时间与先后顺序说清楚，留出可调整的余地。",
+            "en": "Clarify timing and order while leaving room to adjust."
+          },
+          "directionId": "time-control"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问清各自觉得麻烦的点，避免误解彼此的需要。",
+            "en": "Clarify what each person finds awkward and avoid guessing their needs."
+          },
+          "directionId": "telepathy"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "承担一项自己愿意、也确实能做的小工作。",
+            "en": "Take on one small task I am willing and able to handle."
+          },
+          "directionId": "super-strength"
+        }
+      ]
+    },
+    {
+      "id": "POWER_15",
+      "prompt": {
+        "zh": "朋友邀请你分享最近的生活，你更希望怎样开始？",
+        "en": "A friend invites you to talk about recent life. How would you prefer to begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先问彼此现在最想聊哪一部分，再认真听。",
+            "en": "Ask which part each of us wants to discuss and listen carefully."
+          },
+          "directionId": "telepathy"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先一起换个环境，让谈话有一点新的感觉。",
+            "en": "Change the setting together to give the conversation a different feel."
+          },
+          "directionId": "flight"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "选一段不用赶着结束的时间，避免两头都很紧。",
+            "en": "Choose some time without a rushed finish or tightly packed commitments."
+          },
+          "directionId": "time-control"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "从自己愿意说的一小部分开始，其余先保留。",
+            "en": "Begin with a small part I want to share and keep the rest private for now."
+          },
+          "directionId": "invisibility"
+        }
+      ]
+    },
+    {
+      "id": "POWER_16",
+      "prompt": {
+        "zh": "安排一次自己主导的小尝试，你更愿意先保证？",
+        "en": "You are arranging a small experiment of your own. What would you first want to ensure?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一项基本准备已经就位，可以实际做起来。",
+            "en": "One essential preparation is in place so I can begin in practice."
+          },
+          "directionId": "super-strength"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "可以先自己试，不用一开始就公开过程。",
+            "en": "I can try privately instead of making the process public from the start."
+          },
+          "directionId": "invisibility"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "路线可以调整，不必一直停留在第一个设想。",
+            "en": "The route can change rather than staying with the first idea throughout."
+          },
+          "directionId": "flight"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有明确开始和结束的时段，之后还能停下来。",
+            "en": "A clear beginning and ending, with room to stop afterwards."
+          },
+          "directionId": "time-control"
+        }
+      ]
+    },
+    {
+      "id": "POWER_17",
+      "prompt": {
+        "zh": "听到同伴对一个方案有顾虑，你更可能先回应？",
+        "en": "A companion raises a concern about a proposal. Which response would you most naturally prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先确认是否需要马上决定，还是可以留点时间。",
+            "en": "Check whether a decision is needed immediately or whether there is time."
+          },
+          "directionId": "time-control"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "问是否有一个具体调整能减轻实际负担。",
+            "en": "Ask whether a concrete adjustment would reduce a practical burden."
+          },
+          "directionId": "super-strength"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把已经知道和还不知道的信息分清楚。",
+            "en": "Separate what is known from information that is still missing."
+          },
+          "directionId": "invisibility"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "请对方说出具体顾虑，再复述确认是否理解。",
+            "en": "Invite the specific concern and check whether I have understood it."
+          },
+          "directionId": "telepathy"
+        }
+      ]
+    },
+    {
+      "id": "POWER_18",
+      "prompt": {
+        "zh": "你想让一个熟悉的周末有一点变化，更偏好？",
+        "en": "You want a familiar weekend to feel a little different. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "找一个安静的公共地方观察细节，不急着发动态。",
+            "en": "Notice details in a quiet public place without immediately posting updates."
+          },
+          "directionId": "invisibility"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "邀请一个人谈谈最近真正在意的事，先问是否愿意。",
+            "en": "Invite someone to discuss what matters to them lately, checking willingness first."
+          },
+          "directionId": "telepathy"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "完成一件自己愿意做的小帮忙，再享受剩余时间。",
+            "en": "Do one small favour I willingly choose, then enjoy the time left."
+          },
+          "directionId": "super-strength"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "从平常没走过的街道或没看过的角度开始。",
+            "en": "Start with an unfamiliar street or a viewpoint I have not tried."
+          },
+          "directionId": "flight"
+        }
+      ]
+    },
+    {
+      "id": "POWER_19",
+      "prompt": {
+        "zh": "为一次共同活动收尾时，你更想把注意放在哪里？",
+        "en": "While finishing a shared activity, where would you most like to put your attention?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "从整体回看，还有没有值得下次换一种方式的地方。",
+            "en": "Look at the whole occasion and consider a different way to approach it next time."
+          },
+          "directionId": "flight"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "确认后续安排和何时结束，让休息时间不再被挤占。",
+            "en": "Clarify any follow-up and the finishing point so rest does not keep being displaced."
+          },
+          "directionId": "time-control"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问问大家的感受，确认是否还有想说而没说的部分。",
+            "en": "Ask how people found it and whether there is something they still want to say."
+          },
+          "directionId": "telepathy"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把自己答应的最后一项小事处理好，再明确交接。",
+            "en": "Finish the last small task I agreed to and make the handover clear."
+          },
+          "directionId": "super-strength"
+        }
+      ]
+    },
+    {
+      "id": "POWER_20",
+      "prompt": {
+        "zh": "面对一个暂时没有答案的小问题，你更愿意怎样留出空间？",
+        "en": "For a small question without an answer yet, how would you prefer to leave some room?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把涉及人的理解向当事人确认，不替他们作结论。",
+            "en": "Check interpretations involving another person with them instead of deciding on their behalf."
+          },
+          "directionId": "telepathy"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先去看看别的方向，允许出现原来没想到的可能。",
+            "en": "Explore another direction and allow a possibility I had not considered."
+          },
+          "directionId": "flight"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给它一个之后再看的时间，暂时不一直催自己。",
+            "en": "Set a time to return to it and avoid continually pressing myself meanwhile."
+          },
+          "directionId": "time-control"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先把已知细节留在自己的笔记里，等愿意时再讨论。",
+            "en": "Keep the known details in a private note and discuss them when I choose."
+          },
+          "directionId": "invisibility"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "telepathy",
+      "directionIds": [
+        "telepathy"
+      ],
+      "title": {
+        "zh": "心灵感应",
+        "en": "Telepathy"
+      },
+      "headline": {
+        "zh": "用认真询问代替猜心，让彼此更容易说明白",
+        "en": "Replace guessing with questions people can answer"
+      },
+      "summary": {
+        "zh": "本版心灵感应是认真倾听、确认理解的趣味比喻。它不表示真的能读心、直觉总准确或情商高；别人对自己经历的解释，仍由本人决定。",
+        "en": "Telepathy is a playful metaphor for listening and checking understanding in this edition. It does not mean reading minds, consistently accurate intuition or high EQ. People retain the authority to describe their own experience."
+      },
+      "seo": {
+        "title": {
+          "zh": "心灵感应结果解读：超能力测试",
+          "en": "Telepathy Result — Superpower Test"
+        },
+        "description": {
+          "zh": "心灵感应在本版超能力测试中比喻认真询问与确认理解，不代表读心或情商分数。阅读日常例子、倾听界限及与隐身和时间控制的比较；完整结果说明免费。",
+          "en": "Read the Telepathy result from our Superpower Test: asking, listening and checking understanding. Full examples and comparisons without mind-reading or EQ claims."
+        }
+      },
+      "scoreReading": {
+        "zh": "心灵感应选项在20题中出现16次，四个位置各4次。每选中一次加1次；完成后显示五种计数，保留所有同样最高的超能力及其完整报告。原始计数不是匹配百分比，近分不表示稳定主次型或经过验证的人格距离。",
+        "en": "Telepathy options appear sixteen times across twenty questions, four times in each position. Each selection adds one raw choice. Completion reveals all five counts and the full report for every highest-count power. Counts are not match percentages, and nearby counts do not establish stable primary and secondary types or validated personality distances."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本次选择指向什么",
+            "en": "What these choices point to"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能更愿意先问别人怎样理解一件事、最在意什么，再回应具体需要。这样的注意可以发生在很短的日常交流里，不需要成为所有人的情绪顾问。请看你选中的问法，不把一组偏好变成“我总能看穿别人”的结论。",
+              "en": "You may prefer asking how someone understands a situation and what matters to them before responding to a need. This attention can happen in a short everyday exchange without becoming everyone’s emotional adviser. Look at the questions you selected rather than concluding that you can always see through people."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能有帮助的地方",
+            "en": "Where the approach may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "把猜测变成可回答的问题，能让误解有机会被修正。例如问“你刚才更在意时间，还是这件事的安排方式？”对方可以补充、否认或暂时不答。你不必一次问中，真正有用的是给了对方说明自己意思的机会。",
+              "en": "A question gives an interpretation a chance to be corrected. Ask whether timing or the arrangement itself matters more, for example. The person can add information, disagree or not answer yet. You need not get it right on the first attempt; the useful part is making clarification possible."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "不断追问“你真正怎么想”，也可能让别人觉得需要交代所有心情。先问是否方便聊，并接受“现在不想说”。你也可以把注意转回自己，说明目前能听多久。理解不要求无限投入，也不要求对方提供你满意的答案。",
+              "en": "Continually asking what someone really thinks can make them feel obliged to disclose every feeling. Check whether they want to talk and accept a refusal. State how long you can listen too. Understanding does not require unlimited attention or an answer that satisfies your curiosity."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常情境",
+            "en": "An everyday situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "约好的见面临时变动，你可能担心是不是对方不重视。可以先问实际发生了什么，再说变化对自己的影响。若对方不想说明私人细节，也可以只商量下一次怎样确认，不把未知部分填成关系结论。",
+              "en": "A meeting changes unexpectedly and you wonder whether it mattered to the other person. Ask what happened and state the effect on you. If private details are not available, discuss how to confirm next time instead of filling the unknown space with a verdict about the relationship."
+            }
+          ]
+        },
+        {
+          "id": "shared-plans",
+          "title": {
+            "zh": "放在共同安排里",
+            "en": "In a shared arrangement"
+          },
+          "paragraphs": [
+            {
+              "zh": "把各自的需要与可选方案分开说，会更容易找到可以调整的部分。先确认你听到的条件，再提出自己的想法；不替对方答应，也不需要只顾别人。这里记录愿意这样做的选择，没有检验真实倾听表现或判断能力。",
+              "en": "Separate people’s needs from possible arrangements. Confirm the conditions you heard before offering your own idea, without agreeing on someone’s behalf or ignoring yourself. These choices record a preferred response. They do not test actual listening performance or the accuracy of your judgments."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与隐身、时间控制怎样比较",
+            "en": "Comparing Invisibility and Time Control"
+          },
+          "paragraphs": [
+            {
+              "zh": "心灵感应选项更重视向当事人确认；隐身更重视先了解细节与保留私下空间；时间控制更重视何时谈和留多少时间。三种做法可以连在一起，不是共情、冷静或沟通能力的高低排名。",
+              "en": "Telepathy options emphasise checking with the person involved, Invisibility observing details and preserving private space, and Time Control deciding when to talk and how much time is available. The approaches can work together. They do not rank empathy, composure or communication ability."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "下一次发现自己在猜别人意思时，只挑一个具体问题询问，并允许对方修正。之后记住哪部分是对方说的、哪部分仍是自己的解释。无需记录或上传私人对话；练习的目的只是少一点未经确认的代入。",
+              "en": "When you notice yourself guessing, ask one specific question and allow a correction. Afterwards, distinguish what the person said from what remains your interpretation. No private conversation needs to be recorded or uploaded. Practise reducing assumptions rather than collecting information about someone."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "这表示我真的能感知别人想法吗",
+            "en": "Does this mean I can sense someone’s thoughts?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不能这样判断。题目没有检验读心、情商、情绪识别或直觉准确率。即使你很有把握，也应向当事人确认，而不是用测试结果替别人定义感受。结果只反映本题组选中的询问与倾听偏好。",
+              "en": "It does not. The items do not test mind reading, EQ, emotional recognition or intuitive accuracy. Even a confident impression should be checked with the person rather than using a result to define their feelings. The result reflects selected preferences for asking and listening within this set."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、超能力对应和报告均为费马原创娱乐比喻，尚未建立信度、效度或人群常模。本版记录询问、换视角、安排节奏、私下观察和具体帮助的偏好，不检测真实超能力、心理健康、情商、智力、身体力量或职业适配。结果不赋予观察他人隐私或替别人决定的权利，也不要求按名称行动。",
+              "en": "The items, power assignments and reports are FermatMind’s original entertainment metaphors, without established reliability, validity or population norms. This edition records preferences for asking, changing perspective, pacing, private observation and practical help. It does not detect actual powers, mental health, EQ, intelligence, physical strength or career fit. A result gives no right to access someone’s private information or decide for them, and does not require acting by the label."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flight",
+      "directionIds": [
+        "flight"
+      ],
+      "title": {
+        "zh": "飞行",
+        "en": "Flight"
+      },
+      "headline": {
+        "zh": "换一个观看角度，同时照顾眼前的安排",
+        "en": "Try another viewpoint while attending to the plan at hand"
+      },
+      "summary": {
+        "zh": "本版飞行关注转换视角、探索不同路线与留出选择空间。它不测冒险能力、自由程度或对现实的逃避，也不意味着你应该放弃现有承诺去追求变化。",
+        "en": "Flight concerns changing perspective, exploring another route and leaving room to choose. It does not measure risk-taking ability, freedom or avoidance of reality, or imply that you should abandon commitments to seek change."
+      },
+      "seo": {
+        "title": {
+          "zh": "飞行结果解读：超能力测试",
+          "en": "Flight Result — Superpower Test"
+        },
+        "description": {
+          "zh": "飞行结果关注转换视角与探索不同路线，不推荐冒险或重大生活改变。查看具体安排、取舍和相近超能力比较，尝试一个小变化；完整报告免费可读。",
+          "en": "Explore the Flight superpower-quiz result: another viewpoint, alternative routes, practical limits and comparisons. Full free guide with one small experiment."
+        }
+      },
+      "scoreReading": {
+        "zh": "飞行选项在20题中出现16次，四个位置各4次。每选中一次加1次；完成后显示五种计数，保留所有同样最高的超能力及其完整报告。原始计数不是匹配百分比，近分不表示稳定主次型或经过验证的人格距离。",
+        "en": "Flight options appear sixteen times across twenty questions, four times in each position. Each selection adds one raw choice. Completion reveals all five counts and the full report for every highest-count power. Counts are not match percentages, and nearby counts do not establish stable primary and secondary types or validated personality distances."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本次选择指向什么",
+            "en": "What these choices point to"
+          },
+          "paragraphs": [
+            {
+              "zh": "在几道关于空间、活动和问题的题目里，你可能更愿意退一步看看整体，再考虑别的方向。新的视角可以很小，例如换一段步行路线或重新看布局；不必远行、做重大决定，或不断寻找更刺激的体验。",
+              "en": "Across questions about spaces, activities and problems, you may prefer stepping back to view the whole and considering another direction. A different perspective can be as small as another walking route or a revised layout. It need not involve travel, major decisions or continually seeking stronger stimulation."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能有帮助的地方",
+            "en": "Where the approach may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "当安排似乎只剩一种做法时，列出另一个选项能让讨论松动一点。例如换地点、缩短范围或改变参与方式。新方案需要看实际条件，不是只要更新鲜就更好；原来的办法仍然可以是合适的选择。",
+              "en": "When a plan appears to have only one possible form, another option can create room for discussion. Change the location, reduce the scope or vary participation. Check the conditions rather than assuming novelty is better. The original approach can still be an appropriate choice."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果每次刚定好又想换方向，同行者可能不知哪些还算确定。可以说明哪些部分保持、哪些希望试着变化，并提前沟通。给探索一个小范围，让好奇与已有约定并存，不需要把稳定安排描述成束缚。",
+              "en": "If a direction changes whenever it has just been agreed, companions may not know what remains settled. State which parts stay and which you want to vary. Give exploration a limited scope so curiosity can coexist with agreements, without describing every stable arrangement as a restriction."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常情境",
+            "en": "An everyday situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "想让周末不那么重复，可以先选一条附近的新路线，而不是一下排满陌生活动。告诉同行者大致时间与可以调整的地方，回头看看新视角是否有趣。你不需要从这次散步得出“应该换一种人生”的结论。",
+              "en": "To vary a familiar weekend, choose a different local route rather than filling the day with unfamiliar activities. Tell companions the approximate timing and what can change. Notice whether the view was interesting without requiring a walk to produce a conclusion about changing your life."
+            }
+          ]
+        },
+        {
+          "id": "shared-plans",
+          "title": {
+            "zh": "放在问题讨论里",
+            "en": "In discussing a problem"
+          },
+          "paragraphs": [
+            {
+              "zh": "把问题从“只能这样”改成“还有哪一个可行选项”，可以帮助大家区分事实与习惯。也问问改变会增加谁的准备和负担。这里没有测试创新表现、战略眼光或职业能力，只是记录你更愿意注意哪一类做法。",
+              "en": "Asking for one other workable option can help distinguish a real constraint from a habit. Also ask whose preparation or workload would increase. These questions do not test innovation, strategic vision or professional ability. They record which kind of response you prefer to notice."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与时间控制、超强力量怎样比较",
+            "en": "Comparing Time Control and Super Strength"
+          },
+          "paragraphs": [
+            {
+              "zh": "飞行选项更强调路线和视角可以变化；时间控制更强调安排节奏；超强力量更强调一项具体协助。一个新方案也需要时间和实际准备。结果没有把自由与可靠、想象与执行分成互相排斥的两类。",
+              "en": "Flight options emphasise changing routes and perspective, Time Control arranging pace, and Super Strength concrete help. A new option still needs time and preparation. These results do not divide freedom and dependability, or imagination and implementation, into mutually exclusive groups."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "为一个重复的小安排写出第二种版本，只改变一个条件。先核是否影响别人，愿意的话再试一次。之后比较具体感受和负担，而不是判哪一种更高级；也允许自己仍然更喜欢原来熟悉的方式。",
+              "en": "Write a second version of a small routine, changing only one condition. Check its effects on others before trying it. Compare the actual experience and demands rather than deciding which version is superior. You may still prefer the familiar original approach."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "飞行结果说明我爱逃避或一定要冒险吗",
+            "en": "Does Flight imply avoidance or a need to take risks?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不说明。题目没有测回避、冒险、身心状况或现实适应。喜欢换个视角不等于不愿承担，也不是重大生活建议。若某件具体事困扰你，请直接看当时的条件与行动，不用超能力名称推断动机。",
+              "en": "It does not. The items do not measure avoidance, risk-taking, health or adjustment. Enjoying another perspective does not establish unwillingness to follow through or recommend a major life change. Consider the conditions and actions of a specific concern rather than inferring motives from a power name."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、超能力对应和报告均为费马原创娱乐比喻，尚未建立信度、效度或人群常模。本版记录询问、换视角、安排节奏、私下观察和具体帮助的偏好，不检测真实超能力、心理健康、情商、智力、身体力量或职业适配。结果不赋予观察他人隐私或替别人决定的权利，也不要求按名称行动。",
+              "en": "The items, power assignments and reports are FermatMind’s original entertainment metaphors, without established reliability, validity or population norms. This edition records preferences for asking, changing perspective, pacing, private observation and practical help. It does not detect actual powers, mental health, EQ, intelligence, physical strength or career fit. A result gives no right to access someone’s private information or decide for them, and does not require acting by the label."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "time-control",
+      "directionIds": [
+        "time-control"
+      ],
+      "title": {
+        "zh": "时间控制",
+        "en": "Time Control"
+      },
+      "headline": {
+        "zh": "给事情留出前后，也允许计划改变",
+        "en": "Leave room around activities and allow a plan to change"
+      },
+      "summary": {
+        "zh": "本版时间控制比喻注意时段、过渡和缓冲的选择。它不证明时间管理能力、守时程度或压力承受力，也不意味着每一分钟都需要安排。",
+        "en": "Time Control is a metaphor for attending to time slots, transitions and buffers. It does not establish time-management ability, punctuality or capacity under pressure, or imply that every minute needs an arrangement."
+      },
+      "seo": {
+        "title": {
+          "zh": "时间控制结果解读：超能力测试",
+          "en": "Time Control Result — Superpower Test"
+        },
+        "description": {
+          "zh": "时间控制在本版超能力测试中关注时段、过渡与缓冲，不测自律或时间管理能力。阅读日常情境、共同安排与近分结果比较；完整说明免费，无需注册。",
+          "en": "Read the Time Control result: pacing, transitions, buffers and shared arrangements. Complete examples and comparisons without a time-management ability score."
+        }
+      },
+      "scoreReading": {
+        "zh": "时间控制选项在20题中出现16次，四个位置各4次。每选中一次加1次；完成后显示五种计数，保留所有同样最高的超能力及其完整报告。原始计数不是匹配百分比，近分不表示稳定主次型或经过验证的人格距离。",
+        "en": "Time Control options appear sixteen times across twenty questions, four times in each position. Each selection adds one raw choice. Completion reveals all five counts and the full report for every highest-count power. Counts are not match percentages, and nearby counts do not establish stable primary and secondary types or validated personality distances."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本次选择指向什么",
+            "en": "What these choices point to"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能更愿意先知道一件事何时开始、何时结束，或在前后留一段不用赶的空隙。节奏也可以包含暂停、休息与晚点再决定，不只是排得更满。请看这次选择的时段条件，不把结果当成自己是否自律的评价。",
+              "en": "You may prefer knowing when something starts and finishes or leaving an interval without rushing. Pace can include pauses, rest and a later decision instead of a fuller schedule. Look at the timing conditions you selected rather than treating the result as a judgment about self-discipline."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能有帮助的地方",
+            "en": "Where the approach may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "把准备和过渡也算进安排，有时能让活动更容易参与。例如见面前留一点路程余量，结束后不立刻接下一项。可用时间需要向相关的人确认；一个简单时段通常比假设大家随时有空更容易协商。",
+              "en": "Allowing for preparation and transitions can make participation easier. Leave some travel margin before a meeting and avoid attaching the next commitment immediately afterwards. Check availability with those involved. A simple proposed time slot is usually easier to discuss than assuming everyone is always available."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "计划过细可能让一次小变动看起来影响整天。试着区分固定条件与可调整部分，再决定需要改哪里。你可以要求及时说明，也允许时间估计有误；不必用一次迟到或改变，判断自己或别人是否可靠。",
+              "en": "An overly detailed plan can make a small change feel as though it affects the entire day. Separate fixed conditions from adjustable parts before deciding what to revise. Ask for timely notice while allowing estimates to be wrong. One delay or change need not determine anyone’s dependability."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常情境",
+            "en": "An everyday situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "下午有两件想做的事，可以先给第一件设一个结束提醒，并留一点过渡，再开始第二件。提醒到了若还没做完，就决定延后哪一项。这样的练习不是速度测试，也不是要求无论状态怎样都必须照表完成。",
+              "en": "For two afternoon activities, set a finishing reminder for the first and leave a transition before the second. If the first remains unfinished, decide what to move. This is not a speed test or a requirement to complete a schedule regardless of how you feel."
+            }
+          ]
+        },
+        {
+          "id": "shared-plans",
+          "title": {
+            "zh": "放在共同安排里",
+            "en": "In shared arrangements"
+          },
+          "paragraphs": [
+            {
+              "zh": "提前说出自己方便的时段，以及需要结束的时间，让别人能据此安排。若变化影响了对方，就说明并重新确认，而不是只默默更新自己的日历。结果不衡量实际执行表现，也不能据此推荐需要时间规划的职业。",
+              "en": "State your available interval and necessary finish so others can arrange around it. If a change affects someone, explain it and reconfirm rather than silently editing your calendar. The result does not measure execution or recommend a profession requiring scheduling."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与飞行、隐身怎样比较",
+            "en": "Comparing Flight and Invisibility"
+          },
+          "paragraphs": [
+            {
+              "zh": "时间控制选项更重视何时做、留多久；飞行更重视可以换哪些路线或视角；隐身更重视安静了解和分享边界。空白时段可能同时满足探索和私下整理，不需要把结果解释成严格与随意的对立。",
+              "en": "Time Control options emphasise when and how long, Flight alternative routes and viewpoints, and Invisibility quiet observation and sharing boundaries. An open interval can support exploration or private processing. The results need not be framed as opposing strict and spontaneous personalities."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "在一项普通安排前后各留十分钟，提前告诉相关的人。结束后看缓冲是否有用，或其实只需要其中一段。把它当作可调整的安排实验，不靠完成更多任务评价效果，也不必把休息变成又一项考核。",
+              "en": "Leave ten minutes on either side of an ordinary activity and tell anyone affected. Afterwards, see whether both buffers helped or only one was needed. Treat this as an adjustable arrangement, without evaluating it by extra tasks completed or turning rest into another performance requirement."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "时间控制结果表示我很自律吗",
+            "en": "Does Time Control mean I am disciplined?"
+          },
+          "paragraphs": [
+            {
+              "zh": "没有这样的结论。偏好关注时段与实际管理时间是不同问题；本题本未检验守时、执行力、焦虑或任何健康状态。结果也不能把人分成高效与低效，请依据具体行为与条件讨论需要的调整。",
+              "en": "That conclusion is unsupported. Preferring to attend to time is different from managing it in practice. The items test neither punctuality nor follow-through, anxiety or health. Do not divide people into efficient and inefficient groups from the result; discuss adjustments through actual behaviour and conditions."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、超能力对应和报告均为费马原创娱乐比喻，尚未建立信度、效度或人群常模。本版记录询问、换视角、安排节奏、私下观察和具体帮助的偏好，不检测真实超能力、心理健康、情商、智力、身体力量或职业适配。结果不赋予观察他人隐私或替别人决定的权利，也不要求按名称行动。",
+              "en": "The items, power assignments and reports are FermatMind’s original entertainment metaphors, without established reliability, validity or population norms. This edition records preferences for asking, changing perspective, pacing, private observation and practical help. It does not detect actual powers, mental health, EQ, intelligence, physical strength or career fit. A result gives no right to access someone’s private information or decide for them, and does not require acting by the label."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "invisibility",
+      "directionIds": [
+        "invisibility"
+      ],
+      "title": {
+        "zh": "隐身",
+        "en": "Invisibility"
+      },
+      "headline": {
+        "zh": "先看清细节，也让自己的界限被听见",
+        "en": "Notice the details and make your boundaries audible"
+      },
+      "summary": {
+        "zh": "本版隐身关注先了解情况、保留私下空间和选择分享范围。它不表示社交障碍、缺乏存在感或比别人更敏锐，也不鼓励窥探任何人的隐私。",
+        "en": "Invisibility concerns understanding a situation first, keeping private space and choosing what to share. It does not imply a social difficulty, lack of presence or superior perceptiveness, and does not encourage invading anyone’s privacy."
+      },
+      "seo": {
+        "title": {
+          "zh": "隐身结果解读：超能力测试",
+          "en": "Invisibility Result — Superpower Test"
+        },
+        "description": {
+          "zh": "隐身结果关注了解细节、私下空间与分享边界，不表示社交问题，也不鼓励窥探隐私。查看具体情境、取舍及与心灵感应和飞行的比较；完整报告免费。",
+          "en": "Explore the Invisibility superpower result: quiet observation, private space and sharing boundaries. Full free guide without social diagnoses or privacy intrusions."
+        }
+      },
+      "scoreReading": {
+        "zh": "隐身选项在20题中出现16次，四个位置各4次。每选中一次加1次；完成后显示五种计数，保留所有同样最高的超能力及其完整报告。原始计数不是匹配百分比，近分不表示稳定主次型或经过验证的人格距离。",
+        "en": "Invisibility options appear sixteen times across twenty questions, four times in each position. Each selection adds one raw choice. Completion reveals all five counts and the full report for every highest-count power. Counts are not match percentages, and nearby counts do not establish stable primary and secondary types or validated personality distances."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本次选择指向什么",
+            "en": "What these choices point to"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能更愿意先观察公开细节、整理已知信息，再决定要不要加入讨论或展示过程。这样的选择也可以很主动，例如说明自己需要先看材料。它不要求始终安静，更不意味着你没有意见或应该让别人替你决定。",
+              "en": "You may prefer observing available details and organising known information before joining a discussion or showing a process. This can be active, such as stating that you want to review material first. It does not require permanent quiet or imply that you have no opinion or should let someone decide for you."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能有帮助的地方",
+            "en": "Where the approach may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "先区分看到了什么与猜到了什么，可以让之后的问题更具体。例如活动中发现流程不清楚，先核对介绍，再询问尚未说明的部分。观察不等于偷偷收集他人信息；对私人内容没有得到同意时，就保留不知道的空间。",
+              "en": "Separating what you observed from what you inferred can make a later question more specific. If an activity’s process is unclear, check the introduction before asking what remains unexplained. Observation is not covert information gathering. Where private material has not been offered, allow it to remain unknown."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果一直等完全看明白才开口，别人可能不知道你正在认真参与。可以说出一个已经明确的问题，或说明何时愿意回应。你不必把所有思考过程公开，但需要共同确认的部分，也不宜让同伴只能猜测。",
+              "en": "Waiting for complete understanding before speaking can leave others unaware of your engagement. Share one question you are clear about or say when you want to respond. Your whole thinking process need not be public, while parts requiring shared confirmation should not leave companions guessing."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常情境",
+            "en": "An everyday situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "参加一个新兴趣活动时，可以先看一轮公开示范，再向组织者问一个具体问题。如果有人催你立刻展示，就说明想先熟悉。之后按自己的意愿试一个小环节，不需要把是否站到前面当成勇气或价值的考试。",
+              "en": "At a new hobby activity, watch a public demonstration and ask the organiser one specific question. If pressed to demonstrate immediately, say you want familiarity first. Try a small part when willing, without making standing at the front a test of courage or worth."
+            }
+          ]
+        },
+        {
+          "id": "shared-plans",
+          "title": {
+            "zh": "放在信息交流里",
+            "en": "In sharing information"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以只分享自己愿意讨论的一段笔记，并说明哪些还在整理。别人也有同样的选择权，不应因你愿意观察而被要求交出全部细节。本页不提供监视、试探或绕过边界的建议，关注的是自己的参与与表达节奏。",
+              "en": "Share a section of notes you want to discuss and state what remains unfinished. Others have the same choice and do not owe every detail because you are interested in observing. The guide concerns your participation and expression, without suggestions for surveillance, testing people or bypassing boundaries."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与心灵感应、飞行怎样比较",
+            "en": "Comparing Telepathy and Flight"
+          },
+          "paragraphs": [
+            {
+              "zh": "隐身选项更关注安静了解与私下空间；心灵感应更关注直接询问和确认理解；飞行更关注换个路线或视角。观察后询问、独处后探索都可以发生，不是内向与外向、被动与主动的固定分类。",
+              "en": "Invisibility options emphasise quiet understanding and private space, Telepathy direct questions and checked understanding, and Flight another route or viewpoint. Observation can lead to a question and solitude to exploration. These are not fixed divisions between introverted and extraverted, or passive and active, people."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "下一次面对不熟悉的安排，先写下两个已经知道的事实和一个想问的问题，再只询问那个问题。若还需要时间，就明确说明。看看这样是否让参与更容易，不用强迫自己多说话，也不把少说视为自动更有洞察。",
+              "en": "For an unfamiliar arrangement, note two known facts and one question, then ask that question. State if you still need time. Notice whether participation becomes easier without forcing yourself to speak more or assuming that speaking less automatically gives you greater insight."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "隐身结果说明我有社交问题吗",
+            "en": "Does Invisibility imply a social problem?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不能据此判断。本题本没有评估焦虑、孤独、社交能力、内外向或心理健康。选择私下空间可以只是当时的偏好；若某种真实困扰持续影响生活，应按实际情况寻找支持，不用娱乐名称诊断或否定自己的需要。",
+              "en": "That conclusion is unsupported. The items do not assess anxiety, loneliness, social skill, introversion or mental health. Wanting private space can simply be a preference at the time. Address any persistent real-life difficulty on its circumstances with suitable support rather than diagnosing or dismissing needs through an entertainment label."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、超能力对应和报告均为费马原创娱乐比喻，尚未建立信度、效度或人群常模。本版记录询问、换视角、安排节奏、私下观察和具体帮助的偏好，不检测真实超能力、心理健康、情商、智力、身体力量或职业适配。结果不赋予观察他人隐私或替别人决定的权利，也不要求按名称行动。",
+              "en": "The items, power assignments and reports are FermatMind’s original entertainment metaphors, without established reliability, validity or population norms. This edition records preferences for asking, changing perspective, pacing, private observation and practical help. It does not detect actual powers, mental health, EQ, intelligence, physical strength or career fit. A result gives no right to access someone’s private information or decide for them, and does not require acting by the label."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "super-strength",
+      "directionIds": [
+        "super-strength"
+      ],
+      "title": {
+        "zh": "超强力量",
+        "en": "Super Strength"
+      },
+      "headline": {
+        "zh": "把帮助落在一件做得到的事上，也说清上限",
+        "en": "Make help concrete and state what you can offer"
+      },
+      "summary": {
+        "zh": "本版超强力量比喻愿意承担一项明确的小协助。它不测肌肉、体能、能力高低或可靠程度，也不意味着你必须替别人扛下所有负担。",
+        "en": "Super Strength is a metaphor for willingly taking on one clear practical contribution. It does not measure muscle, fitness, ability or dependability, or require you to carry everyone else’s demands."
+      },
+      "seo": {
+        "title": {
+          "zh": "超强力量结果解读：超能力测试",
+          "en": "Super Strength Result — Superpower Test"
+        },
+        "description": {
+          "zh": "超强力量在本版超能力测试中比喻具体而有边界的帮助，不评体能或要求多承担。阅读日常协助例子、取舍和相近结果比较；完整报告免费可读。",
+          "en": "Read the Super Strength result: practical help, consent and clear limits. Full examples and comparisons without claims about fitness, ability or career fit."
+        }
+      },
+      "scoreReading": {
+        "zh": "超强力量选项在20题中出现16次，四个位置各4次。每选中一次加1次；完成后显示五种计数，保留所有同样最高的超能力及其完整报告。原始计数不是匹配百分比，近分不表示稳定主次型或经过验证的人格距离。",
+        "en": "Super Strength options appear sixteen times across twenty questions, four times in each position. Each selection adds one raw choice. Completion reveals all five counts and the full report for every highest-count power. Counts are not match percentages, and nearby counts do not establish stable primary and secondary types or validated personality distances."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "本次选择指向什么",
+            "en": "What these choices point to"
+          },
+          "paragraphs": [
+            {
+              "zh": "在几道日常安排题里，你可能更愿意把支持落到一个能实际完成的小动作。帮助可以是整理资料、准备位置或确认交接，不需要承担危险、沉重或超出余力的任务。你自己的意愿与条件也属于这次安排的一部分。",
+              "en": "Across several everyday arrangements, you may prefer turning support into a small action that can be completed. Help can mean organising information, preparing a space or confirming a handover, without dangerous, heavy or excessive tasks. Your willingness and circumstances belong in the arrangement too."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能有帮助的地方",
+            "en": "Where the approach may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "“我可以做这一项”比笼统说随时找我更容易安排。例如愿意把公开资料按要求整理成一页，就把内容和时间说清楚。先问对方是否需要，再行动；实际帮助由双方确认，不只是你认为最有用的事。",
+              "en": "A specific offer is easier to arrange than unlimited availability. If you can organise public information onto one page, clarify the content and timing. Ask whether it is wanted before acting. Practical help is agreed together rather than defined solely by what you believe would be useful."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "需要留意的取舍",
+            "en": "A tradeoff to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "看到空缺就补上，可能慢慢变成默认由你负责。可以在答应前检查余力，说清这次做到哪里。若不能完成，就尽早说明并重新交接。拒绝一项工作不自动等于不关心，也不需要靠过量付出证明可靠。",
+              "en": "Filling every gap can gradually make you the assumed owner. Check capacity before agreeing and state the limit of this contribution. If completion is no longer possible, explain early and arrange a handover. Declining a task does not cancel care or require proof of dependability through excessive effort."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常情境",
+            "en": "An everyday situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "朋友准备一次小聚，你可以主动问是否需要整理桌面或确认用品。选一项愿意做的，完成后告诉对方已经做到哪一步。不要因为自己开始帮忙，就默认整个活动都由自己收尾；需要更多协助时再明确商量。",
+              "en": "For a friend’s gathering, ask whether arranging a surface or checking supplies would help. Choose one willing contribution and state what is finished. Starting to assist does not make you responsible for closing the whole occasion. Discuss any additional help explicitly rather than letting it become assumed."
+            }
+          ]
+        },
+        {
+          "id": "shared-plans",
+          "title": {
+            "zh": "放在共同安排里",
+            "en": "In shared arrangements"
+          },
+          "paragraphs": [
+            {
+              "zh": "把可完成的部分、需要他人决定的部分和不承担的部分分清，能让协助更顺畅。对方也可以拒绝你的方案，或选择自己处理。这里不测执行质量、服务能力或团队价值，不能用结果安排岗位或决定谁该多做。",
+              "en": "Distinguish what you can complete, what needs someone else’s decision and what you are not taking on. The other person can decline or handle it themselves. These items do not measure execution, service skill or value to a team, and cannot allocate jobs or decide who should do more."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与心灵感应、时间控制怎样比较",
+            "en": "Comparing Telepathy and Time Control"
+          },
+          "paragraphs": [
+            {
+              "zh": "超强力量选项更重视一项具体行动；心灵感应更重视听清需要；时间控制更重视安排节奏。帮助可能先需要询问和留时间，而不是越快接手越好。计数不评价谁更无私、能干或值得依赖。",
+              "en": "Super Strength options emphasise a concrete action, Telepathy hearing a need clearly, and Time Control arranging pace. Help may need a question and some time before action rather than the fastest possible takeover. Counts do not judge who is more selfless, capable or worthy of reliance."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "提出一次有范围的小帮助：做什么、何时完成、最多投入多少时间，并先得到对方同意。结束后看双方是否理解一致，自己是否留有余力。练习的是把善意安排清楚，不是增加工作量或统计别人欠了多少人情。",
+              "en": "Offer one bounded contribution: the task, finishing time and maximum time you can give, with agreement first. Afterwards, check shared understanding and your remaining capacity. Practise arranging goodwill clearly rather than increasing workload or tracking how much someone now owes you."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "超强力量结果表示我能力强或该多承担吗",
+            "en": "Does Super Strength mean I am more able or should carry more?"
+          },
+          "paragraphs": [
+            {
+              "zh": "不表示。选择愿意帮忙不等于已经测得体能、技能或实际表现，更不能成为别人要求你多承担的理由。任务应按同意、能力与现实条件安排；本结果不是能力证书、关系义务或职业推荐。",
+              "en": "It does not. Choosing to help is not evidence of measured fitness, skill or actual performance, and does not justify demands for more responsibility. Arrange tasks through agreement, relevant ability and circumstances. The result is not an ability certificate, relationship obligation or career recommendation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "解释范围",
+            "en": "Scope of interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、超能力对应和报告均为费马原创娱乐比喻，尚未建立信度、效度或人群常模。本版记录询问、换视角、安排节奏、私下观察和具体帮助的偏好，不检测真实超能力、心理健康、情商、智力、身体力量或职业适配。结果不赋予观察他人隐私或替别人决定的权利，也不要求按名称行动。",
+              "en": "The items, power assignments and reports are FermatMind’s original entertainment metaphors, without established reliability, validity or population norms. This edition records preferences for asking, changing perspective, pacing, private observation and practical help. It does not detect actual powers, mental health, EQ, intelligence, physical strength or career fit. A result gives no right to access someone’s private information or decide for them, and does not require acting by the label."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "计数如何产生结果",
+        "en": "How choices produce a result"
+      },
+      "paragraphs": [
+        {
+          "zh": "20题各有4个选项，每项明确对应一种超能力，选中加1次。五种能力各出现16次，四个位置各4次。全部回答后展示所有原始计数与所有最高者；不用生日、MBTI、随机抽签或隐藏加分。",
+          "en": "Each of twenty questions has four options, each worth one raw choice for its assigned power. Every power appears sixteen times, four times in each position. Completion reveals every count and all highest-count matches. No birthday, MBTI conversion, random draw or hidden bonus is used."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "并列与相近计数",
+        "en": "Ties and nearby counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "最高计数相同就全部保留，逐份显示完整报告，不靠顺序挑一个。差一次只是本题组里多选了一次，不能证明稳定主次型、显著人格差异或人群排名。你可以比较其他能力说明，再回到实际情境。",
+          "en": "Equal highest counts are all retained with their complete reports, without selecting by order. One extra choice here does not establish a stable primary and secondary type, significant personality difference or population rank. Compare other guides and return to the situations you had in mind."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "本版的五种比喻",
+        "en": "Five metaphors in this edition"
+      },
+      "paragraphs": [
+        {
+          "zh": "心灵感应对应询问与确认，飞行对应换视角，时间控制对应节奏，隐身对应私下观察与分享边界，超强力量对应具体且有范围的帮助。这是本版原创对应，不是实际超能力、读心、情商或体能测试，也不把每个人固定成一种。",
+          "en": "Telepathy corresponds to asking and checking, Flight another viewpoint, Time Control pacing, Invisibility private observation and sharing boundaries, and Super Strength concrete bounded help. These are original assignments in this edition, not tests of actual powers, mind reading, EQ or fitness, or fixed categories for people."
+        }
+      ]
+    },
+    {
+      "id": "source-scope",
+      "title": {
+        "zh": "原创内容与免费范围",
+        "en": "Original content and free access"
+      },
+      "paragraphs": [
+        {
+          "zh": "题目与五份报告由费马独立创作，尚无信效度或常模研究，没有复制竞品题库、报告或插图。20题、全部计数、完整并列结果和公开说明均免费。结果不用于招聘、岗位安排、健康判断、关系义务或未经测量的稀有度排名。",
+          "en": "FermatMind independently authored the items and five reports without established psychometric validation or norms. No competitor items, reports or illustrations are reproduced. All twenty questions, counts, complete tied results and public guides are free. Results do not support hiring, job assignment, health judgments, relationship obligations or unmeasured rarity rankings."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "我会有什么超能力？测试怎样回答？",
+        "en": "What superpower would I have, and how does the test decide?"
+      },
+      "answer": {
+        "zh": "本页根据20道日常偏好题的选择，累计五种虚构能力的次数，保留所有最高计数。结果是本版的原创比喻，不检测真实超能力，也不把选择换算成心理或身体能力分数。",
+        "en": "The quiz counts selections across twenty everyday preference questions for five fictional powers, retaining every highest count. A result is an original metaphor in this edition, not detection of an actual power or a psychological or physical ability score."
+      }
+    },
+    {
+      "question": {
+        "zh": "有哪些完整超能力结果？",
+        "en": "Which complete superpower results are available?"
+      },
+      "answer": {
+        "zh": "心灵感应、飞行、时间控制、隐身和超强力量。每份报告都有具体情境、可能的帮助、取舍、相近能力比较与一次小尝试。五份公开说明都能在作答前直接阅读。",
+        "en": "Telepathy, Flight, Time Control, Invisibility and Super Strength. Every report includes situations, possible contributions, tradeoffs, comparisons and one small experiment. All five public guides are readable before taking the quiz."
+      }
+    },
+    {
+      "question": {
+        "zh": "心灵感应和隐身有什么区别？",
+        "en": "How do Telepathy and Invisibility differ here?"
+      },
+      "answer": {
+        "zh": "本版心灵感应更重视向当事人询问、确认自己是否听懂；隐身更重视先了解细节、保留私下空间和决定分享范围。两种做法可以一起出现，都不代表真的读心、窥探隐私或某种社交能力等级。",
+        "en": "Telepathy emphasises asking the person involved and checking understanding. Invisibility emphasises understanding details first, preserving private space and choosing what to share. Both can occur together, without implying mind reading, private surveillance or a level of social ability."
+      }
+    },
+    {
+      "question": {
+        "zh": "并列需要额外题目才能确定吗？",
+        "en": "Do ties need extra questions to settle them?"
+      },
+      "answer": {
+        "zh": "不用。所有同样最高的计数都显示完整解释，不按名单顺序、随机数或付费选一个。其他计数也可见；接近不代表经过验证的人格距离，可以结合题目与实际情境比较。",
+        "en": "No. Every result sharing the highest count receives its complete explanation without selecting through list order, chance or payment. Other counts remain visible. Nearby counts are not validated personality distances; compare them with the questions and actual situations."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整题本与报告免费吗，需要先做MBTI吗？",
+        "en": "Are the full quiz and reports free, and is MBTI required?"
+      },
+      "answer": {
+        "zh": "20题、全部计数、五份报告与所有并列结果均免费，无需注册、邮箱或前置测试。完整结果之后才提供自选框架入口，不把超能力换成MBTI类型、职业匹配或成功概率。",
+        "en": "All twenty questions, counts, five reports and ties are free, without signup, email or prerequisite tests. Other frameworks are optional after the full result. A power is not converted into an MBTI type, career match or probability of success."
+      }
+    },
+    {
+      "question": {
+        "zh": "草稿、重测与分享会包含答案吗？",
+        "en": "Do drafts, retaking or sharing include my answers?"
+      },
+      "answer": {
+        "zh": "答案在浏览器计算；主动开启时，只保留本标签页24小时草稿，可在刷新或换语言后主动恢复。完成、退出清除或重测会删除。分享只有能力名称与公开链接，没有答卷、计数或内部ID；禁止存储时仍能完成。",
+        "en": "Scoring runs in your browser. An optional draft lasts 24 hours in this tab and can be resumed after refreshing or changing language. Completion, exit-and-clear or retaking removes it. Sharing includes power names and public links, never answers, counts or internal IDs. You can finish with storage blocked."
+      }
+    }
+  ]
+}

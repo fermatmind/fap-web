@@ -1,0 +1,879 @@
+{
+  "formCode": "fm_superpower_choices_20",
+  "itemBankVersion": "1.0.0",
+  "scoringVersion": "1.0.0",
+  "kind": "archetype",
+  "directions": [
+    {
+      "id": "telepathy",
+      "title": {
+        "zh": "心灵感应",
+        "en": "Telepathy"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "flight",
+      "title": {
+        "zh": "飞行",
+        "en": "Flight"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "time-control",
+      "title": {
+        "zh": "时间控制",
+        "en": "Time Control"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "invisibility",
+      "title": {
+        "zh": "隐身",
+        "en": "Invisibility"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "super-strength",
+      "title": {
+        "zh": "超强力量",
+        "en": "Super Strength"
+      },
+      "comparisons": 16
+    }
+  ],
+  "questions": [
+    {
+      "id": "POWER_01",
+      "prompt": {
+        "zh": "同伴请你一起商量怎样度过一个空闲下午，你更想先？",
+        "en": "A companion asks you to help decide how to spend a free afternoon. What would you first prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "认领一项具体的小准备，让安排容易开始。",
+            "en": "Take on one small preparation that makes starting easier."
+          },
+          "directionId": "super-strength"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先安静了解各个选项，再补上自己的意见。",
+            "en": "Take in the options quietly before adding my view."
+          },
+          "directionId": "invisibility"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先看看有哪些不同的去处，不必马上选定一种。",
+            "en": "Look at several different places without settling on one immediately."
+          },
+          "directionId": "flight"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问清可用的时段，给行程留一点缓冲。",
+            "en": "Check the available time and leave a buffer in the plan."
+          },
+          "directionId": "time-control"
+        }
+      ]
+    },
+    {
+      "id": "POWER_02",
+      "prompt": {
+        "zh": "和熟人讨论一件有不同意见的小事，你更愿意怎样加入？",
+        "en": "People you know have different views on a small issue. How would you prefer to join the discussion?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "建议先给每个人一点时间，不急着立刻定案。",
+            "en": "Suggest some time for each person rather than settling it immediately."
+          },
+          "directionId": "time-control"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "问有什么已经明确、我可以实际帮忙的部分。",
+            "en": "Ask what is already clear and could use practical help from me."
+          },
+          "directionId": "super-strength"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先听完整个讨论，留意还没被提到的具体信息。",
+            "en": "Hear the discussion through and notice information not yet mentioned."
+          },
+          "directionId": "invisibility"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "请各自说清最在意什么，再确认我听到的意思。",
+            "en": "Ask what matters most to each person and check what I understood."
+          },
+          "directionId": "telepathy"
+        }
+      ]
+    },
+    {
+      "id": "POWER_03",
+      "prompt": {
+        "zh": "开始整理一个拥挤的角落，你更想采用哪种做法？",
+        "en": "You are starting to organise a crowded corner. Which approach would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先看清目前怎样使用，再决定是否调整。",
+            "en": "Observe how it is currently used before deciding what to change."
+          },
+          "directionId": "invisibility"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "若与别人共用，先问哪些物品对他们有特别意义。",
+            "en": "If it is shared, ask which objects have particular meaning for the other person."
+          },
+          "directionId": "telepathy"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "选一个容易处理的小区域，先动手整理好。",
+            "en": "Choose one manageable small area and begin organising it."
+          },
+          "directionId": "super-strength"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先换一个角度看看，这个地方还能有什么用途。",
+            "en": "Consider a different angle on what the space could be used for."
+          },
+          "directionId": "flight"
+        }
+      ]
+    },
+    {
+      "id": "POWER_04",
+      "prompt": {
+        "zh": "收到一份不太熟悉的活动介绍，你更可能先关注什么？",
+        "en": "You receive details of an unfamiliar activity. What would you first pay attention to?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "它有没有让我接触不同地方或新视角的机会。",
+            "en": "Whether it offers a different place or a new perspective."
+          },
+          "directionId": "flight"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "开始结束时间，以及前后需要多少准备。",
+            "en": "The start and finish times and the preparation around them."
+          },
+          "directionId": "time-control"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "参加的人想获得什么，是否方便交流期待。",
+            "en": "What people want from taking part and whether expectations can be discussed."
+          },
+          "directionId": "telepathy"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有没有一项具体、我愿意协助的工作。",
+            "en": "Whether there is a concrete task I would like to help with."
+          },
+          "directionId": "super-strength"
+        }
+      ]
+    },
+    {
+      "id": "POWER_05",
+      "prompt": {
+        "zh": "你想给自己留一段不被打扰的时间，最希望用来？",
+        "en": "You want some uninterrupted time to yourself. What would you most like to use it for?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "回想一次谈话，分清自己的理解和还需要确认的部分。",
+            "en": "Revisit a conversation and distinguish my interpretation from what needs checking."
+          },
+          "directionId": "telepathy"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "走一段不同的路线，看看平常没留意的地方。",
+            "en": "Take a different route and notice somewhere I usually miss."
+          },
+          "directionId": "flight"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "放慢手头的节奏，让下一件事不必紧接着开始。",
+            "en": "Slow my pace so the next activity does not need to begin immediately."
+          },
+          "directionId": "time-control"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "安静做自己的事，不需要随时展示或回应。",
+            "en": "Do something privately without needing to display or respond continuously."
+          },
+          "directionId": "invisibility"
+        }
+      ]
+    },
+    {
+      "id": "POWER_06",
+      "prompt": {
+        "zh": "一次小组活动刚开始，你更想怎样找到自己的位置？",
+        "en": "At the beginning of a small group activity, how would you prefer to find your place?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问一件当前需要做的小事，从实际协助开始。",
+            "en": "Ask for one small task needed now and start with practical assistance."
+          },
+          "directionId": "super-strength"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先在旁边熟悉流程，有想法时再加入。",
+            "en": "Become familiar with the process from the side and contribute when ready."
+          },
+          "directionId": "invisibility"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先了解整体可以怎样参与，再选一种有空间的方式。",
+            "en": "Look at the different ways to join and choose one with room to move."
+          },
+          "directionId": "flight"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "看看活动怎样分段，安排自己能参加的部分。",
+            "en": "Check the activity’s stages and arrange the parts I can attend."
+          },
+          "directionId": "time-control"
+        }
+      ]
+    },
+    {
+      "id": "POWER_07",
+      "prompt": {
+        "zh": "一位朋友说自己暂时不确定想怎么做，你更愿意？",
+        "en": "A friend says they are not sure what they want to do yet. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "商量何时再聊，让对方有一段不必立刻决定的时间。",
+            "en": "Agree when to return to it and leave time without an immediate decision."
+          },
+          "directionId": "time-control"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "问是否有一件小事可以帮忙，决定仍由对方来做。",
+            "en": "Ask whether one small practical task would help, leaving the decision with them."
+          },
+          "directionId": "super-strength"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "不追问全部细节，允许对方先自己想一想。",
+            "en": "Avoid seeking every detail and let them think privately first."
+          },
+          "directionId": "invisibility"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问现在最纠结的是什么，听听对方自己的说法。",
+            "en": "Ask what feels most unresolved and hear their own account."
+          },
+          "directionId": "telepathy"
+        }
+      ]
+    },
+    {
+      "id": "POWER_08",
+      "prompt": {
+        "zh": "准备让一个常用空间更顺手，你更看重哪种起点？",
+        "en": "You want to make a frequently used space easier to use. Which starting point appeals to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "观察几次实际使用的过程，找到一个容易忽略的细节。",
+            "en": "Watch how it is used a few times and notice an overlooked detail."
+          },
+          "directionId": "invisibility"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先问共用的人哪里最不方便，别只按自己习惯改。",
+            "en": "Ask others sharing it what is awkward instead of changing it only to my habits."
+          },
+          "directionId": "telepathy"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先完成一项已经确定有帮助的小调整。",
+            "en": "Complete one small adjustment already known to be useful."
+          },
+          "directionId": "super-strength"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把物品换个布局，看看是否能打开新的使用方式。",
+            "en": "Try another arrangement to open up a different way to use it."
+          },
+          "directionId": "flight"
+        }
+      ]
+    },
+    {
+      "id": "POWER_09",
+      "prompt": {
+        "zh": "为近期的一次短途外出做准备，你更愿意先？",
+        "en": "You are preparing for a short outing. What would you prefer to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "找一种和平常不同的路线或观看角度。",
+            "en": "Find a route or viewpoint different from the usual one."
+          },
+          "directionId": "flight"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "在必要安排之间留足时间，不把每一段排满。",
+            "en": "Leave enough time between essentials instead of filling every interval."
+          },
+          "directionId": "time-control"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问同行者最期待和最不想遇到什么。",
+            "en": "Ask companions what they most look forward to and want to avoid."
+          },
+          "directionId": "telepathy"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把一项需要完成的准备落实，让其他人少操一点心。",
+            "en": "Take care of one necessary preparation to reduce a practical burden."
+          },
+          "directionId": "super-strength"
+        }
+      ]
+    },
+    {
+      "id": "POWER_10",
+      "prompt": {
+        "zh": "结束一个信息很多的上午，你更偏好怎样过渡？",
+        "en": "After an information-heavy morning, how would you prefer to transition?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用几句话理清自己的感受，若要聊就先问对方方便吗。",
+            "en": "Find a few words for my response and check availability before talking to someone."
+          },
+          "directionId": "telepathy"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "换个地点走走，让注意力暂时离开原来的画面。",
+            "en": "Change location for a while and see something outside the same scene."
+          },
+          "directionId": "flight"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给下一项安排前留一个短暂停顿。",
+            "en": "Leave a short pause before the next activity."
+          },
+          "directionId": "time-control"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "自己安静待一会儿，不急着汇报刚才发生的事。",
+            "en": "Spend some time quietly without immediately reporting what happened."
+          },
+          "directionId": "invisibility"
+        }
+      ]
+    },
+    {
+      "id": "POWER_11",
+      "prompt": {
+        "zh": "你在一项共同安排里发现一个小遗漏，更可能怎样处理？",
+        "en": "You notice a small omission in a shared arrangement. How would you prefer to respond?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先问是否需要我来补上一项具体工作。",
+            "en": "Ask whether I should handle one concrete task that would fill the gap."
+          },
+          "directionId": "super-strength"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "核对已有信息，确定自己看到的是否真是遗漏。",
+            "en": "Check the available information before deciding that it is an omission."
+          },
+          "directionId": "invisibility"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "退一步看看整体，确认是否还有另一种安排办法。",
+            "en": "Step back and consider whether the overall arrangement could work differently."
+          },
+          "directionId": "flight"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先确认遗漏何时需要处理，再留出一段合适时间。",
+            "en": "Check when it needs attention and allocate suitable time."
+          },
+          "directionId": "time-control"
+        }
+      ]
+    },
+    {
+      "id": "POWER_12",
+      "prompt": {
+        "zh": "别人对你的一句话反应和预期不同，你更想先？",
+        "en": "Someone responds differently than you expected to something you said. What would you prefer to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先缓一缓，找一个双方都方便的时机再说。",
+            "en": "Pause and find a time that suits both of us to discuss it."
+          },
+          "directionId": "time-control"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "若有一项明确需要修正的小事，主动提出把它做好。",
+            "en": "Offer to correct a specific practical issue if one is clear."
+          },
+          "directionId": "super-strength"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "回看当时具体说了什么，不急着给对方下判断。",
+            "en": "Review what was actually said without immediately judging them."
+          },
+          "directionId": "invisibility"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问他们怎样理解那句话，避免只靠自己猜。",
+            "en": "Ask how they understood it rather than relying only on my guess."
+          },
+          "directionId": "telepathy"
+        }
+      ]
+    },
+    {
+      "id": "POWER_13",
+      "prompt": {
+        "zh": "学习一个新爱好之前，你更喜欢哪种准备？",
+        "en": "Before starting a new hobby, which preparation would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先独自了解基本过程，再决定何时请人指点。",
+            "en": "Learn about the basic process privately before deciding when to ask for guidance."
+          },
+          "directionId": "invisibility"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "如果和人一起学，先聊各自期待怎样互相支持。",
+            "en": "If learning together, discuss what support each person wants."
+          },
+          "directionId": "telepathy"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把必要材料和位置准备好，让开始少一点阻力。",
+            "en": "Prepare the essential materials and space to make starting easier."
+          },
+          "directionId": "super-strength"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "看看几种不同的玩法，再挑想探索的一种。",
+            "en": "Look at different ways to approach it and choose one to explore."
+          },
+          "directionId": "flight"
+        }
+      ]
+    },
+    {
+      "id": "POWER_14",
+      "prompt": {
+        "zh": "和家人安排一件普通日常事，你最愿意贡献什么？",
+        "en": "When arranging an ordinary household task, what would you most like to contribute?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "提出一个不同于惯例、可能更合适的整体方案。",
+            "en": "Suggest an overall option different from the routine that may suit the situation."
+          },
+          "directionId": "flight"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把时间与先后顺序说清楚，留出可调整的余地。",
+            "en": "Clarify timing and order while leaving room to adjust."
+          },
+          "directionId": "time-control"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问清各自觉得麻烦的点，避免误解彼此的需要。",
+            "en": "Clarify what each person finds awkward and avoid guessing their needs."
+          },
+          "directionId": "telepathy"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "承担一项自己愿意、也确实能做的小工作。",
+            "en": "Take on one small task I am willing and able to handle."
+          },
+          "directionId": "super-strength"
+        }
+      ]
+    },
+    {
+      "id": "POWER_15",
+      "prompt": {
+        "zh": "朋友邀请你分享最近的生活，你更希望怎样开始？",
+        "en": "A friend invites you to talk about recent life. How would you prefer to begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先问彼此现在最想聊哪一部分，再认真听。",
+            "en": "Ask which part each of us wants to discuss and listen carefully."
+          },
+          "directionId": "telepathy"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先一起换个环境，让谈话有一点新的感觉。",
+            "en": "Change the setting together to give the conversation a different feel."
+          },
+          "directionId": "flight"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "选一段不用赶着结束的时间，避免两头都很紧。",
+            "en": "Choose some time without a rushed finish or tightly packed commitments."
+          },
+          "directionId": "time-control"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "从自己愿意说的一小部分开始，其余先保留。",
+            "en": "Begin with a small part I want to share and keep the rest private for now."
+          },
+          "directionId": "invisibility"
+        }
+      ]
+    },
+    {
+      "id": "POWER_16",
+      "prompt": {
+        "zh": "安排一次自己主导的小尝试，你更愿意先保证？",
+        "en": "You are arranging a small experiment of your own. What would you first want to ensure?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一项基本准备已经就位，可以实际做起来。",
+            "en": "One essential preparation is in place so I can begin in practice."
+          },
+          "directionId": "super-strength"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "可以先自己试，不用一开始就公开过程。",
+            "en": "I can try privately instead of making the process public from the start."
+          },
+          "directionId": "invisibility"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "路线可以调整，不必一直停留在第一个设想。",
+            "en": "The route can change rather than staying with the first idea throughout."
+          },
+          "directionId": "flight"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有明确开始和结束的时段，之后还能停下来。",
+            "en": "A clear beginning and ending, with room to stop afterwards."
+          },
+          "directionId": "time-control"
+        }
+      ]
+    },
+    {
+      "id": "POWER_17",
+      "prompt": {
+        "zh": "听到同伴对一个方案有顾虑，你更可能先回应？",
+        "en": "A companion raises a concern about a proposal. Which response would you most naturally prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先确认是否需要马上决定，还是可以留点时间。",
+            "en": "Check whether a decision is needed immediately or whether there is time."
+          },
+          "directionId": "time-control"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "问是否有一个具体调整能减轻实际负担。",
+            "en": "Ask whether a concrete adjustment would reduce a practical burden."
+          },
+          "directionId": "super-strength"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把已经知道和还不知道的信息分清楚。",
+            "en": "Separate what is known from information that is still missing."
+          },
+          "directionId": "invisibility"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "请对方说出具体顾虑，再复述确认是否理解。",
+            "en": "Invite the specific concern and check whether I have understood it."
+          },
+          "directionId": "telepathy"
+        }
+      ]
+    },
+    {
+      "id": "POWER_18",
+      "prompt": {
+        "zh": "你想让一个熟悉的周末有一点变化，更偏好？",
+        "en": "You want a familiar weekend to feel a little different. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "找一个安静的公共地方观察细节，不急着发动态。",
+            "en": "Notice details in a quiet public place without immediately posting updates."
+          },
+          "directionId": "invisibility"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "邀请一个人谈谈最近真正在意的事，先问是否愿意。",
+            "en": "Invite someone to discuss what matters to them lately, checking willingness first."
+          },
+          "directionId": "telepathy"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "完成一件自己愿意做的小帮忙，再享受剩余时间。",
+            "en": "Do one small favour I willingly choose, then enjoy the time left."
+          },
+          "directionId": "super-strength"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "从平常没走过的街道或没看过的角度开始。",
+            "en": "Start with an unfamiliar street or a viewpoint I have not tried."
+          },
+          "directionId": "flight"
+        }
+      ]
+    },
+    {
+      "id": "POWER_19",
+      "prompt": {
+        "zh": "为一次共同活动收尾时，你更想把注意放在哪里？",
+        "en": "While finishing a shared activity, where would you most like to put your attention?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "从整体回看，还有没有值得下次换一种方式的地方。",
+            "en": "Look at the whole occasion and consider a different way to approach it next time."
+          },
+          "directionId": "flight"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "确认后续安排和何时结束，让休息时间不再被挤占。",
+            "en": "Clarify any follow-up and the finishing point so rest does not keep being displaced."
+          },
+          "directionId": "time-control"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问问大家的感受，确认是否还有想说而没说的部分。",
+            "en": "Ask how people found it and whether there is something they still want to say."
+          },
+          "directionId": "telepathy"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把自己答应的最后一项小事处理好，再明确交接。",
+            "en": "Finish the last small task I agreed to and make the handover clear."
+          },
+          "directionId": "super-strength"
+        }
+      ]
+    },
+    {
+      "id": "POWER_20",
+      "prompt": {
+        "zh": "面对一个暂时没有答案的小问题，你更愿意怎样留出空间？",
+        "en": "For a small question without an answer yet, how would you prefer to leave some room?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把涉及人的理解向当事人确认，不替他们作结论。",
+            "en": "Check interpretations involving another person with them instead of deciding on their behalf."
+          },
+          "directionId": "telepathy"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先去看看别的方向，允许出现原来没想到的可能。",
+            "en": "Explore another direction and allow a possibility I had not considered."
+          },
+          "directionId": "flight"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给它一个之后再看的时间，暂时不一直催自己。",
+            "en": "Set a time to return to it and avoid continually pressing myself meanwhile."
+          },
+          "directionId": "time-control"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先把已知细节留在自己的笔记里，等愿意时再讨论。",
+            "en": "Keep the known details in a private note and discuss them when I choose."
+          },
+          "directionId": "invisibility"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "option_rule": "Eachselectedoptionadds1rawchoicetoitsexplicitpowermetaphor",
+    "completion": "All20responsesbeforepersonalcounts/interpretation",
+    "tie_rule": "Keepallhighest-countpowersandeachfullreport,noorder/randomtiebreaker",
+    "denominator": 16,
+    "positions": "Eachpower4ineachposition",
+    "construct": "Original human preference reflection about attentive listening/checking,broad perspective/autonomy,pacing,private observation,concrete bounded help. No actualsupernaturalabilities,psychometricEQ/IQ/strength/health/norms/careerfit.",
+    "scope": "Independently authored items/reports, not competitor questions/scoring or actual abilities. Counts notpercentages or populationrank. Safe everyday examples only."
+  }
+}
