@@ -71,6 +71,8 @@ describe("T061 public-domain IPIP twenty-item total locus of control", () => {
       const missing = locale === "zh" ? "资料不足" : "Insufficient information";
       expect(dom.querySelectorAll("[data-locus-facet]")).toHaveLength(1); expect(dom.querySelectorAll("[data-locus-profile]")).toHaveLength(1); expect(dom.querySelectorAll("h4")).toHaveLength(9);
       expect(dom.querySelectorAll("[data-locus-insufficient]")).toHaveLength(value === "na" ? 1 : 0);
+      const count = dom.querySelector("[data-locus-rated]"); expect(count?.tagName).toBe("DD"); expect(count?.parentElement?.querySelector("dt")?.textContent).toBe(locale === "zh" ? "本次有效条目" : "Ratings supplied"); expect(count?.textContent).toContain(`${value === "na" ? 0 : 20} / 20`);
+      for (const group of Array.from(dom.querySelectorAll("dl > div"))) { expect(group.querySelector("dt")).not.toBeNull(); expect(group.querySelector("dd")).not.toBeNull(); }
       expect(dom.querySelector("[data-locus-total]")?.textContent).toBe(value === "na" ? missing : value === "exact41" ? "41" : String(Number(value) * 20));
       expect(dom.querySelector("[data-locus-mean]")?.textContent).toBe(value === "na" ? missing : value === "exact41" ? "2.05 / 5" : `${value}.00 / 5`);
       const ids = Array.from(dom.querySelectorAll("[id]"), e => e.id); expect(new Set(ids).size).toBe(ids.length); expect(dom.querySelector("[data-growth-facet], [data-facet-score], [data-sdt-needs-facet]")).toBeNull();
