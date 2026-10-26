@@ -1920,5 +1920,32 @@
       "third-eye",
       "crown"
     ]
+  },
+  {
+    "slug": "my-hero-academia-character-quiz",
+    "code": "MY_HERO_ACADEMIA_FAN",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "fantasy",
+    "title": {
+      "en": "My Hero Academia Character Quiz",
+      "zh": "我的英雄学院（My Hero Academia）角色测试"
+    },
+    "description": {
+      "en": "Answer 24 original everyday questions and compare Deku, Bakugo, Todoroki, Uraraka, Iida and Kirishima. Explore learning and shared challenges, keep every highest tie and read all six complete guides. Free, no signup.",
+      "zh": "完成24道原创日常情境题，比较绿谷、爆豪、轰、丽日、饭田与切岛六个角度。从学习和共同挑战阅读本次选择，保留全部最高并列，六份完整说明免费可读，无需注册。"
+    },
+    "minutes": 6,
+    "formCode": "fermatmind_mha_original_24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "izuku-midoriya",
+      "katsuki-bakugo",
+      "shoto-todoroki",
+      "ochaco-uraraka",
+      "tenya-iida",
+      "eijiro-kirishima"
+    ],
+    "collection": "explore"
   }
 ]

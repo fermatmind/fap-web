@@ -1,0 +1,992 @@
+{
+  "id": "T113",
+  "version": "1.0.0",
+  "form": "fermatmind_mha_original_24_v1",
+  "method": "Onecount per explicitly mappedchoice; sixdirections16exposures/4perposition; allhighestties; no ability/norms/diagnosis/MBTIconversion.",
+  "questions": [
+    {
+      "id": "MHA_01",
+      "prompt": {
+        "en": "You are learning a new tabletop game with friends. What would you most like to do first?",
+        "zh": "和朋友学一款新桌游时，你最想先做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "izuku-midoriya",
+          "label": {
+            "en": "Notice how an experienced player makes decisions, then ask a question.",
+            "zh": "观察熟手怎样决定，再问一个具体问题。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "katsuki-bakugo",
+          "label": {
+            "en": "Pick a small challenge I want to master during the first round.",
+            "zh": "先选一个自己想在首轮掌握的小挑战。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "shoto-todoroki",
+          "label": {
+            "en": "Try a way of playing that feels like my own rather than copy a favourite player.",
+            "zh": "找一种适合自己的玩法，不急着照搬喜欢的玩家。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ochaco-uraraka",
+          "label": {
+            "en": "Make the first round easy enough for everyone to get into it.",
+            "zh": "让第一轮好上手，大家都能进入状态。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MHA_02",
+      "prompt": {
+        "en": "Your hobby group has an optional mini-challenge. Which approach appeals most?",
+        "zh": "兴趣小组有一个可选小挑战，你更喜欢哪种参与方式？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "katsuki-bakugo",
+          "label": {
+            "en": "Set a clear personal target and give it a serious attempt.",
+            "zh": "给自己定个清楚目标，认真试一次。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "shoto-todoroki",
+          "label": {
+            "en": "Choose the part that interests me even if others choose differently.",
+            "zh": "选真正吸引自己的部分，即使和别人不同。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ochaco-uraraka",
+          "label": {
+            "en": "Find a manageable version that fits the time and materials we have.",
+            "zh": "找一个符合现有时间和材料的小版本。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "tenya-iida",
+          "label": {
+            "en": "Agree on the same starting conditions before comparing attempts.",
+            "zh": "先约好共同起点，再比较各次尝试。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MHA_03",
+      "prompt": {
+        "en": "A popular tutorial recommends one creative method. What do you prefer to do?",
+        "zh": "一份热门教程推荐了一种创作方法，你更愿意怎么学？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "shoto-todoroki",
+          "label": {
+            "en": "Try the method but keep the freedom to choose another route.",
+            "zh": "试试它，但保留换一条路的自由。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ochaco-uraraka",
+          "label": {
+            "en": "Adapt it to a small useful thing someone actually wants.",
+            "zh": "改成一件别人真能用到的小东西。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "tenya-iida",
+          "label": {
+            "en": "Follow the steps in order so the example is comparable.",
+            "zh": "先按步骤来，让示例之间能对得上。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "eijiro-kirishima",
+          "label": {
+            "en": "Try it alongside a friend and keep encouraging each other.",
+            "zh": "和朋友并肩试，互相打气。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MHA_04",
+      "prompt": {
+        "en": "A shared craft task is taking longer than expected. Which contribution attracts you?",
+        "zh": "共同做的一件手工比预计耗时，你更愿意贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ochaco-uraraka",
+          "label": {
+            "en": "Reduce the immediate load so people can continue comfortably.",
+            "zh": "减轻眼前负担，让大家能舒服一点地继续。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "tenya-iida",
+          "label": {
+            "en": "Clarify the remaining steps and make the handovers predictable.",
+            "zh": "说清剩余步骤，让衔接有数。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "eijiro-kirishima",
+          "label": {
+            "en": "Stay with the agreed part and let the others know I am still in.",
+            "zh": "守住约好的那部分，让大家知道自己仍在一起做。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "izuku-midoriya",
+          "label": {
+            "en": "Work out what is slowing the task and ask what help would actually fit.",
+            "zh": "看看慢在哪里，再问怎样帮忙才合适。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MHA_05",
+      "prompt": {
+        "en": "Your group wants to compare two versions of a game rule. What is your first preference?",
+        "zh": "小组想比较两版游戏规则，你首先偏向哪种做法？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "tenya-iida",
+          "label": {
+            "en": "Keep the trial conditions clear and give both versions a fair turn.",
+            "zh": "把试用条件说清，让两版都得到公平机会。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "eijiro-kirishima",
+          "label": {
+            "en": "Commit to one trial role and support the others while they try theirs.",
+            "zh": "接下一份试用角色，也支持其他人试自己的部分。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "izuku-midoriya",
+          "label": {
+            "en": "Observe the differences and write down a few useful questions.",
+            "zh": "观察差别，记下几个有用的问题。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "katsuki-bakugo",
+          "label": {
+            "en": "Choose a specific performance target for my own trial.",
+            "zh": "给自己的试用选一个具体挑战目标。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MHA_06",
+      "prompt": {
+        "en": "A friend is unsure about joining a beginner activity you both chose. What would you prefer?",
+        "zh": "朋友对共同选好的入门活动有点犹豫，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "eijiro-kirishima",
+          "label": {
+            "en": "Offer to take the first attempt together, if they still want to join.",
+            "zh": "如果对方仍愿意，就提出第一遍一起试。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "izuku-midoriya",
+          "label": {
+            "en": "Ask what part feels unclear and help them find relevant information.",
+            "zh": "问是哪一部分不清楚，帮着找相应信息。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "katsuki-bakugo",
+          "label": {
+            "en": "Suggest a small target we could each try for ourselves.",
+            "zh": "建议各自选一个可以尝试的小目标。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "shoto-todoroki",
+          "label": {
+            "en": "Make clear they can choose their own version or another activity.",
+            "zh": "说明对方可以选自己的版本，也可以换活动。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MHA_07",
+      "prompt": {
+        "en": "You can keep one note from a practice session. Which would you rather record?",
+        "zh": "一次练习结束后只记一条，你更想记下什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "izuku-midoriya",
+          "label": {
+            "en": "A detail I noticed that could help with the next attempt.",
+            "zh": "一个能帮助下次尝试的观察细节。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "katsuki-bakugo",
+          "label": {
+            "en": "The next standard I would like to aim for.",
+            "zh": "下一次自己想够到的标准。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "shoto-todoroki",
+          "label": {
+            "en": "What I liked about the approach I chose for myself.",
+            "zh": "自己选的做法里，真正喜欢什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ochaco-uraraka",
+          "label": {
+            "en": "One change that would make practice more manageable for the group.",
+            "zh": "一处能让大家练起来更轻松的调整。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MHA_08",
+      "prompt": {
+        "en": "A friend suggests a friendly building contest using spare materials. What sounds most appealing?",
+        "zh": "朋友提议用剩余材料来个友好搭建赛，你更被什么吸引？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "katsuki-bakugo",
+          "label": {
+            "en": "An exact challenge that gives me something to push toward.",
+            "zh": "有明确挑战，自己能朝着它努力。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "shoto-todoroki",
+          "label": {
+            "en": "Room to build something that follows my own idea.",
+            "zh": "有空间按自己的想法搭。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ochaco-uraraka",
+          "label": {
+            "en": "A format where the materials are easy for everyone to handle.",
+            "zh": "材料和形式都便于大家使用。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "tenya-iida",
+          "label": {
+            "en": "Rules we all understand before anyone starts.",
+            "zh": "在开始前大家都明白规则。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MHA_09",
+      "prompt": {
+        "en": "People expect you to take the same role you had last time. What would you choose?",
+        "zh": "大家希望你继续上次的角色，你会更倾向什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "shoto-todoroki",
+          "label": {
+            "en": "Decide whether that role still fits what I want to try.",
+            "zh": "先决定这个角色是否仍符合自己想试的事。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ochaco-uraraka",
+          "label": {
+            "en": "Check which role would make the current task easier in practice.",
+            "zh": "看看哪种分工能减轻这次任务的实际负担。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "tenya-iida",
+          "label": {
+            "en": "Make sure the role and its responsibilities are explicitly agreed.",
+            "zh": "确认角色和责任是经过明确约定的。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "eijiro-kirishima",
+          "label": {
+            "en": "Take a part I can genuinely stand behind and follow through on.",
+            "zh": "接下自己真愿意投入、也能跟到底的一部分。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MHA_10",
+      "prompt": {
+        "en": "A group activity has a complicated preparation list. Which change would you favour?",
+        "zh": "小组活动的准备清单有点复杂，你更喜欢怎样调整？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ochaco-uraraka",
+          "label": {
+            "en": "Simplify what people need to bring or do so joining is less burdensome.",
+            "zh": "简化要带的东西和要做的事，让参加少一点负担。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "tenya-iida",
+          "label": {
+            "en": "Put the steps and responsibilities in a clear sequence.",
+            "zh": "把步骤和责任排成清楚的顺序。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "eijiro-kirishima",
+          "label": {
+            "en": "Agree to cover a manageable part and make that commitment visible.",
+            "zh": "接一部分能做完的活，并让大家知道自己会跟进。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "izuku-midoriya",
+          "label": {
+            "en": "Ask which preparation actually solves the problem before doing more.",
+            "zh": "先问哪项准备真能解决问题，再决定要不要增加。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MHA_11",
+      "prompt": {
+        "en": "Two people want to try the same equipment during a casual practice. What response appeals most?",
+        "zh": "轻松练习时，两个人都想用同一件设备，你更想怎样处理？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "tenya-iida",
+          "label": {
+            "en": "Agree a turn-taking arrangement they both understand.",
+            "zh": "商量双方都明白的轮流方式。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "eijiro-kirishima",
+          "label": {
+            "en": "Offer a practical part in keeping the session going while they take turns.",
+            "zh": "在他们轮流时承担一部分实际工作，让练习继续。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "izuku-midoriya",
+          "label": {
+            "en": "Ask what each needs the equipment for before proposing a solution.",
+            "zh": "先问两人具体想用它做什么，再提办法。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "katsuki-bakugo",
+          "label": {
+            "en": "Use my own waiting time to work toward a different personal target.",
+            "zh": "等待时先练另一个自己的小目标。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MHA_12",
+      "prompt": {
+        "en": "A practice partner has a disappointing attempt. Which reply would you prefer to offer?",
+        "zh": "一起练习的伙伴这次不太顺利，你更愿意怎样回应？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "eijiro-kirishima",
+          "label": {
+            "en": "Say I am willing to try the next round alongside them.",
+            "zh": "说自己愿意陪着再试下一轮。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "izuku-midoriya",
+          "label": {
+            "en": "Ask whether they want to examine one useful detail together.",
+            "zh": "问要不要一起看一个有帮助的细节。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "katsuki-bakugo",
+          "label": {
+            "en": "Suggest a smaller concrete target for the next attempt.",
+            "zh": "建议下次选一个更小、更具体的目标。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "shoto-todoroki",
+          "label": {
+            "en": "Ask whether they want a different approach rather than another identical attempt.",
+            "zh": "问想不想换一种做法，而不是原样再来一次。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MHA_13",
+      "prompt": {
+        "en": "You are helping someone understand a new puzzle. What feels most natural?",
+        "zh": "帮别人理解一道新谜题时，你更接近哪种做法？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "izuku-midoriya",
+          "label": {
+            "en": "Ask what they have already noticed and add one relevant clue.",
+            "zh": "问已经注意到了什么，再补一条相关线索。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "katsuki-bakugo",
+          "label": {
+            "en": "Try to solve a challenging part myself, then show the route I used.",
+            "zh": "自己先挑战难一点的部分，再说明走过的路。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "shoto-todoroki",
+          "label": {
+            "en": "Offer more than one route so they can choose how to approach it.",
+            "zh": "提供不止一条路，让对方选怎么入手。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ochaco-uraraka",
+          "label": {
+            "en": "Remove unnecessary pieces from the first example so it is easier to handle.",
+            "zh": "在第一个例子里去掉不必要的部分，让它好处理一点。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MHA_14",
+      "prompt": {
+        "en": "Your first model does not work as you hoped. What would you like to do next?",
+        "zh": "自己做的第一版模型不太如愿，你更想接着怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "katsuki-bakugo",
+          "label": {
+            "en": "Choose one measurable feature to improve in the next version.",
+            "zh": "选一处能看见进展的地方，下一版集中改进。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "shoto-todoroki",
+          "label": {
+            "en": "Reconsider whether I still want to use this method at all.",
+            "zh": "重新想想自己是否仍想采用这套方法。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ochaco-uraraka",
+          "label": {
+            "en": "Make a simpler version that can serve the immediate purpose.",
+            "zh": "先做能满足眼前用途的简版。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "tenya-iida",
+          "label": {
+            "en": "Check whether I followed the agreed test conditions before comparing results.",
+            "zh": "比较结果前，先核对是否按约好的测试条件做了。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MHA_15",
+      "prompt": {
+        "en": "You are invited to demonstrate a skill you are still learning. Which response fits best?",
+        "zh": "别人邀请你展示一项还在学的技能，你更倾向怎样回应？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "shoto-todoroki",
+          "label": {
+            "en": "Choose the part I actually want to show, rather than perform an expected persona.",
+            "zh": "选自己真想展示的部分，不必扮演大家期待的样子。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ochaco-uraraka",
+          "label": {
+            "en": "Show a small practical use instead of a demanding display.",
+            "zh": "展示一个小用途，不把场面做得很难。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "tenya-iida",
+          "label": {
+            "en": "Clarify the demonstration conditions and what is still a work in progress.",
+            "zh": "说明展示条件，以及哪些地方还在学习中。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "eijiro-kirishima",
+          "label": {
+            "en": "Join a shared demonstration where we support one another’s attempts.",
+            "zh": "参加共同展示，让彼此的尝试都有支持。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MHA_16",
+      "prompt": {
+        "en": "A group project has an ambitious idea but very limited supplies. What would you prefer?",
+        "zh": "小组项目想法很大，但材料很有限，你更想怎么参与？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ochaco-uraraka",
+          "label": {
+            "en": "Find a modest version that fits the available supplies.",
+            "zh": "找一个符合现有材料的小版本。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "tenya-iida",
+          "label": {
+            "en": "Agree the priorities and distribution of materials before building.",
+            "zh": "动手前约好重点和材料分配。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "eijiro-kirishima",
+          "label": {
+            "en": "Take a part I can carry through with the materials we have.",
+            "zh": "接下用现有材料也能跟到底的一部分。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "izuku-midoriya",
+          "label": {
+            "en": "Study which constraint matters most and ask a targeted question.",
+            "zh": "看看最关键的限制是什么，再问一个针对性问题。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MHA_17",
+      "prompt": {
+        "en": "A friendly contest is being planned. Which feature matters most to you?",
+        "zh": "要办一次友好比赛，你最在意哪一处设计？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "tenya-iida",
+          "label": {
+            "en": "Participants understand the conditions and have a fair opportunity.",
+            "zh": "参与者都理解条件，也有公平机会。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "eijiro-kirishima",
+          "label": {
+            "en": "People can support one another even while trying to do well.",
+            "zh": "大家认真争取好表现，也能互相支持。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "izuku-midoriya",
+          "label": {
+            "en": "There is something interesting to learn by observing different attempts.",
+            "zh": "能从不同尝试里观察到有意思的东西。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "katsuki-bakugo",
+          "label": {
+            "en": "The challenge gives me a clear standard to aim beyond my previous attempt.",
+            "zh": "挑战能给自己一个超越上次的清楚标准。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MHA_18",
+      "prompt": {
+        "en": "A shared practice routine is becoming repetitive. Which contribution would you choose?",
+        "zh": "共同练习有点重复了，你更愿意贡献哪种改变？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "eijiro-kirishima",
+          "label": {
+            "en": "Stay openly involved and help the group take another reasonable step.",
+            "zh": "继续明确参与，陪小组迈一小步。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "izuku-midoriya",
+          "label": {
+            "en": "Investigate what we have learned and what remains unclear.",
+            "zh": "看看已经学到什么，还有哪里不明白。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "katsuki-bakugo",
+          "label": {
+            "en": "Set a fresh personal challenge within the routine.",
+            "zh": "在原练习里给自己加一个新挑战。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "shoto-todoroki",
+          "label": {
+            "en": "Choose a different route that makes the practice feel like my own again.",
+            "zh": "换条路，让练习重新有自己的意思。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MHA_19",
+      "prompt": {
+        "en": "You have a few minutes to prepare for trying something unfamiliar. What do you favour?",
+        "zh": "尝试陌生活动前只有几分钟准备，你更偏向什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "izuku-midoriya",
+          "label": {
+            "en": "Look for one useful example and note what I want to ask.",
+            "zh": "找一个有用示例，记下自己想问什么。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "katsuki-bakugo",
+          "label": {
+            "en": "Decide on one personal target for this first try.",
+            "zh": "为第一次尝试定一个自己的目标。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "shoto-todoroki",
+          "label": {
+            "en": "Select a way of participating that I genuinely want.",
+            "zh": "选一种自己真想采用的参与方式。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ochaco-uraraka",
+          "label": {
+            "en": "Make the materials and first step easy to manage.",
+            "zh": "让材料和第一步都容易处理。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MHA_20",
+      "prompt": {
+        "en": "Your group is choosing what to improve after a small event. Which idea attracts you?",
+        "zh": "小活动结束后，小组要选一处改进，你更被哪种想法吸引？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "katsuki-bakugo",
+          "label": {
+            "en": "Raise one standard we could realistically aim for next time.",
+            "zh": "提高一项下次真能争取的标准。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "shoto-todoroki",
+          "label": {
+            "en": "Allow people to choose a different role or style next time.",
+            "zh": "下次让大家能选不同角色或风格。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ochaco-uraraka",
+          "label": {
+            "en": "Reduce one practical burden that made participation harder.",
+            "zh": "减掉一处让参与变难的实际负担。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "tenya-iida",
+          "label": {
+            "en": "Clarify one shared rule that was understood differently.",
+            "zh": "把一条各人理解不同的共同规则说清。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MHA_21",
+      "prompt": {
+        "en": "Someone compares your way of learning with another person’s. What response would you prefer?",
+        "zh": "有人拿你的学习方式和另一个人比较，你更想怎样回应？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "shoto-todoroki",
+          "label": {
+            "en": "Decide which parts of that comparison fit my own aims.",
+            "zh": "自己判断比较中的哪些部分符合自己的目标。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ochaco-uraraka",
+          "label": {
+            "en": "Bring the conversation back to what would help with the actual task.",
+            "zh": "把话题拉回眼前任务需要什么帮助。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "tenya-iida",
+          "label": {
+            "en": "Ask whether the situations are comparable before judging the difference.",
+            "zh": "先问情境是否可比，再讨论差异。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "eijiro-kirishima",
+          "label": {
+            "en": "Keep taking the part I chose and support others taking theirs.",
+            "zh": "继续做自己选的那部分，也支持别人做他们的。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MHA_22",
+      "prompt": {
+        "en": "A beginner activity needs one last adjustment. Which would you enjoy most?",
+        "zh": "入门活动还可以做最后一处调整，你更愿意做哪项？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ochaco-uraraka",
+          "label": {
+            "en": "Make the next step more comfortable and less demanding to access.",
+            "zh": "让下一步更舒服、更容易参与。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "tenya-iida",
+          "label": {
+            "en": "Make the instructions and turn-taking clear.",
+            "zh": "把说明和轮流方式讲清。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "eijiro-kirishima",
+          "label": {
+            "en": "Ensure people know who is committed to helping with each part.",
+            "zh": "让大家知道每部分有哪些人会一起做。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "izuku-midoriya",
+          "label": {
+            "en": "Add a useful clue based on what beginners found confusing.",
+            "zh": "根据新手觉得困惑的地方补一条有用线索。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MHA_23",
+      "prompt": {
+        "en": "A group is reviewing a trial that produced mixed results. What would you prefer to focus on?",
+        "zh": "一次试用结果有好有坏，小组回顾时你更想看什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "tenya-iida",
+          "label": {
+            "en": "Whether the agreed conditions were followed consistently.",
+            "zh": "约好的条件有没有被一致地执行。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "eijiro-kirishima",
+          "label": {
+            "en": "Which commitments we followed through on and what support remains possible.",
+            "zh": "哪些承诺跟到了底，接下来还能怎样支持。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "izuku-midoriya",
+          "label": {
+            "en": "What the observations show and which question they leave open.",
+            "zh": "观察说明了什么，还有哪个问题没回答。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "katsuki-bakugo",
+          "label": {
+            "en": "Which clear target would make the next attempt worth trying.",
+            "zh": "下次设什么清楚目标，才值得再试。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MHA_24",
+      "prompt": {
+        "en": "Your group is finishing a shared learning project. What contribution would you like to leave?",
+        "zh": "一个共同学习项目要收尾了，你最想留下些什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "eijiro-kirishima",
+          "label": {
+            "en": "A clear sign that I stood with the group through my agreed part.",
+            "zh": "让大家知道，约定的那部分自己确实一起跟过了。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "izuku-midoriya",
+          "label": {
+            "en": "A short record of observations and useful unanswered questions.",
+            "zh": "一份简短的观察和仍有用的待答问题。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "katsuki-bakugo",
+          "label": {
+            "en": "A specific challenge I would like to take further.",
+            "zh": "一个自己想继续往前试的具体挑战。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "shoto-todoroki",
+          "label": {
+            "en": "An account of the approach I chose and may keep developing.",
+            "zh": "说明自己选过的路径，以及还想怎样发展。"
+          }
+        }
+      ]
+    }
+  ]
+}
