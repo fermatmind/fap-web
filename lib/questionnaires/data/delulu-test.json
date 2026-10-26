@@ -1,0 +1,1879 @@
+{
+  "slug": "delulu-test",
+  "code": "PLAYFUL_HOPE_NARRATIVES_ORIGINAL_18",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "framework",
+  "kind": "archetype",
+  "title": {
+    "zh": "Delulu测试",
+    "en": "Delulu Test"
+  },
+  "resultHeading": {
+    "zh": "六种玩笑期待：次数与完整趣味读法",
+    "en": "Six playful anticipations: counts and full guides"
+  },
+  "description": {
+    "zh": "免费Delulu测试：18道原创日常脑补情境，探索愿望预演、日常片场等六种玩笑期待。全部最高并列和六份完整说明免费，不测信念或预测未来。",
+    "en": "A free Delulu Test: 18 original situations, six playful anticipation guides and full readings for every highest tie, without predicting your future."
+  },
+  "seoTitle": {
+    "zh": "Delulu测试：六种日常脑补与免费完整结果",
+    "en": "Delulu Test: Six Playful Styles & Free Full Results"
+  },
+  "minutes": 5,
+  "introduction": {
+    "zh": "自动确认信也能被配上片头音乐，旧书签也可以让脑内小故事眨一下眼。这份18题原创趣味测试邀请你给普通小情境选一句自知只是玩笑的期待：愿望预演、日常片场、线索火花、未来明信片、第二章期待或幸运绕路。每次菜单呈现四组，轮流省略其他两组；各组出现12次、在四个位置各3次。完成后看原始选择次数，所有最高并列都保留九节全文；六份公开说明也能先读。它们是编辑给句子安排的入口，不是六种真实信念、人格或现实判断水平。全选同一位置会六组各3，不代表理想平衡。想象可以鲜明，后续仍未确定；本版不要求你相信巧合、宇宙安排或显化因果，也不收集真实关系、财务或私人经历。你可以只读全文，也可以作答、编辑、重测，按需保存本标签页24小时草稿，免费分享只含结果名称和公开链接。",
+    "en": "An automatic confirmation can acquire opening music; an old bookmark can give a small imagined story a wink. This original 18-item playful quiz offers knowingly humorous anticipations for ordinary situations: Wish Rehearsal, Everyday Cinema, Signal Spark, Future Postcard, Second-Chapter Hope and Lucky Detour. Each menu offers four groups, rotating the two omissions. Every group appears twelve times, three in each position. Complete the bank to see raw choice counts and the nine-section guide for every highest tie, or read all six public guides first. These are editorial entry points for sentences, not six actual beliefs, personalities or levels of reality testing. Choosing the same position throughout gives each group three counts without implying ideal balance. An imagined scene may be vivid while its next event remains unsettled. No belief in coincidences, cosmic arrangements or manifestation causality is required, and no actual relationships, finances or private experiences are collected. Reading, answering, editing and retaking are free, with optional 24-hour tab drafts and sharing limited to result names and public links."
+  },
+  "instructions": {
+    "zh": "把每个普通小情境当成一个自知只是玩笑的脑补时刻，选更容易先冒出的那句期待，不是表示它真的会发生，也不要求相信巧合或宇宙安排。每题提供六组想象入口中的四组，轮流呈现；每组出现12次、在每个位置各3次、省略6次。每选一项该组加1，无反向或对错分；全部18题完成才比较，所有最高并列逐份保留全文，不硬派主副型。菜单不穷尽真实想法；若都不像，可以退出，六份公开全文仍免费。不要输入真实关系、财务、私人经历或他人资料。",
+    "en": "Treat each ordinary situation as a knowingly playful moment of anticipation. Choose the hopeful thought that comes first, without saying it will happen or requiring belief in coincidences or cosmic arrangements. A menu offers four of six editorial entry points: each appears twelve times, three in each position, and is omitted six times. One choice adds one count without reversals or correctness points. A complete eighteen-item attempt retains the full guide for every highest tie without forced primary or secondary types. Menus do not exhaust real thoughts; leave if none fits and all six public guides remain free. Enter no actual relationships, finances, private experiences or another person’s information."
+  },
+  "source": {
+    "kind": "Eighteen original bilingual ordinary situations and seventy-two original playful thought options, organised into six original editorial hope-narrative readings. Inspired by the broad slang topic, not a competitor bank, a standard personality taxonomy, actual belief test or clinical assessment.",
+    "formCode": "fm_playful_hope_narratives_18",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "2372f1e6540fbd5f6dc3a3cf300e176c71741b2ec29e488906a4558de18a22f2",
+    "resultContentSha256": "8f1005e456890c4a4e18fb2b841a503d85e886293436a31b1ca15ec2710645ef",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "wish-rehearsal",
+      "title": {
+        "zh": "愿望预演",
+        "en": "Wish Rehearsal"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "cinematic-moment",
+      "title": {
+        "zh": "日常片场",
+        "en": "Everyday Cinema"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "signal-spark",
+      "title": {
+        "zh": "线索火花",
+        "en": "Signal Spark"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "future-postcard",
+      "title": {
+        "zh": "未来明信片",
+        "en": "Future Postcard"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "second-chapter",
+      "title": {
+        "zh": "第二章期待",
+        "en": "Second-Chapter Hope"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "lucky-detour",
+      "title": {
+        "zh": "幸运绕路",
+        "en": "Lucky Detour"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "DELULU_01",
+      "prompt": {
+        "zh": "你报了一个手作体验课，只收到自动确认信。明知还不知道当天怎样，你更容易冒出哪句玩笑脑补？",
+        "en": "An automatic email confirms your craft workshop booking. You do not know how the day will go. Which playful hopeful thought comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我已经在脑中预演作品摆上桌的那一刻。",
+            "en": "I am already rehearsing the moment my finished piece reaches the table."
+          },
+          "directionId": "wish-rehearsal"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "这封普通回执被我配上了新一集的开场音乐。",
+            "en": "I give this ordinary receipt the opening music of a new episode."
+          },
+          "directionId": "cinematic-moment"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "邮件里那颗小星星，被我偷偷编成了一个好兆头。",
+            "en": "I privately turn the email’s little star into a promising hint."
+          },
+          "directionId": "signal-spark"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我先给未来相册留一格，想象那天会留下什么画面。",
+            "en": "I reserve a future album square and imagine the picture that might fill it."
+          },
+          "directionId": "future-postcard"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_02",
+      "prompt": {
+        "zh": "你给朋友发了一个周末小提议，对方回“好呀”，细节还没谈。你会先怎样给这一刻加一点想象？",
+        "en": "A friend replies “sounds nice” to your small weekend idea; details are still undecided. How do you first add a little imagination?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我把这两个字读成了小短片的片头对白。",
+            "en": "I hear those words as the opening line of a tiny film."
+          },
+          "directionId": "cinematic-moment"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我忍不住给那个语气加一层亮闪闪的隐藏含义。",
+            "en": "I cannot resist adding a sparkling extra meaning to the tone."
+          },
+          "directionId": "signal-spark"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我已经想好日后回忆这个周末时的明信片标题。",
+            "en": "I am already inventing the postcard title for remembering that weekend."
+          },
+          "directionId": "future-postcard"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "上次没约成的小活动，好像可以有第二章了。",
+            "en": "The little plan that never happened last time might get a second chapter."
+          },
+          "directionId": "second-chapter"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_03",
+      "prompt": {
+        "zh": "逛小市集时你走错一条巷子，看到一个没见过的小书摊。除了实际看路，你的脑内旁白更像哪句？",
+        "en": "A wrong turn at a small market brings an unfamiliar bookstall into view. Alongside checking your route, which inner caption sounds like yours?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "摊上刚好有我喜欢的颜色，我给这个巧合加一朵小烟花。",
+            "en": "A favourite colour on the stall gives this coincidence a little firework in my head."
+          },
+          "directionId": "signal-spark"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我开始想象下次带一本自己的小作品来交换的画面。",
+            "en": "I picture bringing a little creation of my own to exchange another time."
+          },
+          "directionId": "future-postcard"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "搁了很久的阅读小计划，忽然像翻到了续页。",
+            "en": "A reading idea I shelved long ago seems to have found a continuation."
+          },
+          "directionId": "second-chapter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我把走错路暂时编成了“幸运绕路”的标题。",
+            "en": "For fun, I title the wrong turn “a lucky detour.”"
+          },
+          "directionId": "lucky-detour"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_04",
+      "prompt": {
+        "zh": "新建的出游相册还是空白，行程也没确定。你更想先放进哪种期待？",
+        "en": "A newly created outing album is empty and the plan is undecided. Which kind of anticipation do you add first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "给未来某张照片先写一句“那时的我们”。",
+            "en": "I draft a “there we were” caption for a future photograph."
+          },
+          "directionId": "future-postcard"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "想象以前没完成的一次小愿望，这回有了后半段。",
+            "en": "I imagine an unfinished little wish from before getting a later chapter."
+          },
+          "directionId": "second-chapter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把未知空白当作可以突然捡到惊喜的位置。",
+            "en": "I treat an empty square as a place an unexpected pleasant surprise could land."
+          },
+          "directionId": "lucky-detour"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "在心里反复播放最想拍到的一幅画面。",
+            "en": "I replay the one picture I most want to make in my imagination."
+          },
+          "directionId": "wish-rehearsal"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_05",
+      "prompt": {
+        "zh": "你把一个旧读书活动的草案重新打开，还没有决定要不要举办。哪种玩笑式期待先出现？",
+        "en": "You reopen an old draft for a reading activity without deciding whether to hold it. Which playful expectation appears first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "这份旧草案也许只是一直在等第二幕。",
+            "en": "Perhaps this old draft has simply been waiting for its second act."
+          },
+          "directionId": "second-chapter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "中间的耽搁，被我想象成通往新版本的小岔路。",
+            "en": "I imagine the delay as a side road toward a different version."
+          },
+          "directionId": "lucky-detour"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我又在脑内排练大家围坐读书的画面。",
+            "en": "I rehearse a picture of people gathering around books in my head."
+          },
+          "directionId": "wish-rehearsal"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我给重新点开文件的动作加了“故事继续”的字幕。",
+            "en": "I subtitle the act of reopening the file “the story continues.”"
+          },
+          "directionId": "cinematic-moment"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_06",
+      "prompt": {
+        "zh": "拼了一半的纸模型缺少一小片，你又在桌边找到了一张合适颜色的纸。你更像怎样脑补？",
+        "en": "A half-built paper model is missing a piece, and you find paper of a suitable colour nearby. Which imaginative thought fits first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我给这个普通发现起名“绕了一圈刚刚好”。",
+            "en": "I nickname this ordinary find “a detour that landed neatly.”"
+          },
+          "directionId": "lucky-detour"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我先在脑内看一遍模型完成的样子。",
+            "en": "I first watch the completed model take shape in my mind."
+          },
+          "directionId": "wish-rehearsal"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "这成了手作电影里一个配着音乐的小转场。",
+            "en": "It becomes a musical transition in my imaginary craft film."
+          },
+          "directionId": "cinematic-moment"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "这个颜色碰巧对上，被我当成小小的期待线索。",
+            "en": "The matching colour becomes a tiny cue for a hopeful story."
+          },
+          "directionId": "signal-spark"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_07",
+      "prompt": {
+        "zh": "生日聚会还没确定时间，你在纸上试写了一个小标题。你最容易给它加哪种想象？",
+        "en": "A birthday gathering has no confirmed date, and you try a small title on paper. Which addition comes most naturally?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "反复预演大家看见这个标题时的那一秒。",
+            "en": "I repeatedly picture the second people might see this title."
+          },
+          "directionId": "wish-rehearsal"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把试写标题当成庆生小电影的第一镜。",
+            "en": "I treat the draft title as the first shot of a birthday mini-film."
+          },
+          "directionId": "cinematic-moment"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一个随手画的符号，好像能装下一点特别的期待。",
+            "en": "A casually drawn symbol seems able to hold a special little expectation."
+          },
+          "directionId": "signal-spark"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先想象以后翻回这页时会怎样回忆。",
+            "en": "I imagine how I might remember this page when looking back later."
+          },
+          "directionId": "future-postcard"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_08",
+      "prompt": {
+        "zh": "你翻到很久没用的速写本，还有几页空着。你更容易对自己开哪种玩笑？",
+        "en": "An old sketchbook has several blank pages left. Which playful line do you tell yourself first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "镜头推进：失踪的画手重新登场。",
+            "en": "Camera in: the missing sketcher returns to the scene."
+          },
+          "directionId": "cinematic-moment"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "恰好翻开的那页，被我编成了一个值得期待的提示。",
+            "en": "I turn the page I happened to open into a promising little prompt."
+          },
+          "directionId": "signal-spark"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我已经想象它放满新画、摆在未来书架上的样子。",
+            "en": "I picture it full of new sketches on a future shelf."
+          },
+          "directionId": "future-postcard"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "前半本没有画完，不妨幻想后半本的续集。",
+            "en": "The first half stayed unfinished; I imagine a sequel in the second half."
+          },
+          "directionId": "second-chapter"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_09",
+      "prompt": {
+        "zh": "原本想在晴天进行的小散步遇到雨，还没决定改期还是换地方。哪句脑补先冒出来？",
+        "en": "Rain interrupts a little walk planned for sunshine. Neither rescheduling nor a different place is decided. Which thought appears first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "雨点刚好敲出一个节奏，我给它加了好消息的想象。",
+            "en": "The rain happens to make a rhythm, and I add an imagined good-news meaning."
+          },
+          "directionId": "signal-spark"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我先给未来某次晴天散步写了一张脑内明信片。",
+            "en": "I draft an imaginary postcard from a possible sunny walk ahead."
+          },
+          "directionId": "future-postcard"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "今天没成，也许只是这一小段故事还有下一回。",
+            "en": "Today did not happen; perhaps this little story has another instalment."
+          },
+          "directionId": "second-chapter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我把这场雨暂时写成通往意外小发现的岔路。",
+            "en": "For fun, I write this rain as a turn toward an unexpected little discovery."
+          },
+          "directionId": "lucky-detour"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_10",
+      "prompt": {
+        "zh": "一本新笔记本的第一页还没写，你只知道想留下点喜欢的事。你先想象哪一种开头？",
+        "en": "The first page of a new notebook is blank. You only know you want to keep things you like. Which beginning do you imagine first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "未来的我翻到这一页，会认出某段刚起步的小日子。",
+            "en": "A future me turns to this page and recognises the beginning of a small chapter."
+          },
+          "directionId": "future-postcard"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "之前断掉的记录习惯，在这里重新接上一句。",
+            "en": "A paused habit of keeping notes gets another sentence here."
+          },
+          "directionId": "second-chapter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留白像一个还没揭晓的小惊喜口袋。",
+            "en": "The blank space feels like a pocket for an undisclosed little surprise."
+          },
+          "directionId": "lucky-detour"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先在脑内演一遍把这页写得很合心意的画面。",
+            "en": "I rehearse a picture of completing this page just as I would like."
+          },
+          "directionId": "wish-rehearsal"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_11",
+      "prompt": {
+        "zh": "一个小型合唱活动发来“下次有机会再一起”的普通留言，没有具体约定。你更容易怎样添一点期待？",
+        "en": "A small singing group sends an ordinary “perhaps another time” message without a commitment. How do you first add a little anticipation?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我把这次没接上的安排想象成还可能续上的一页。",
+            "en": "I imagine this unfinished arrangement as a page that could have a continuation."
+          },
+          "directionId": "second-chapter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我把这句普通留言暂时编成一次尚未揭晓的小转弯。",
+            "en": "For fun, I write the ordinary message as a small turn whose outcome is still unknown."
+          },
+          "directionId": "lucky-detour"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我又预演了一次大家合唱某个片段的画面。",
+            "en": "I rehearse a picture of everyone singing one passage together."
+          },
+          "directionId": "wish-rehearsal"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我给这条简短留言配上一段轻快的片尾音乐。",
+            "en": "I give the short message some light end-credit music."
+          },
+          "directionId": "cinematic-moment"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_12",
+      "prompt": {
+        "zh": "你在日历上圈了一天，打算给爱好留时间，计划尚未落实。你先会有什么玩笑脑补？",
+        "en": "You circle a day on a calendar for a hobby, with no firm plan yet. Which playful thought comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "这一天周围空白挺多，我把它编成可能有惊喜的好位置。",
+            "en": "The empty space around the date becomes a possible landing place for a surprise."
+          },
+          "directionId": "lucky-detour"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我在脑内反复看那天做成一个小东西的画面。",
+            "en": "I repeatedly picture making one little thing that day."
+          },
+          "directionId": "wish-rehearsal"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "圈日期这个动作，也能被我拍成准备篇的一个镜头。",
+            "en": "Even circling a date becomes a shot in an imaginary preparation sequence."
+          },
+          "directionId": "cinematic-moment"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "日历上相邻的一个小图案，被我借来装一点期待。",
+            "en": "A small nearby calendar illustration becomes a vessel for a little anticipation."
+          },
+          "directionId": "signal-spark"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_13",
+      "prompt": {
+        "zh": "旧书里掉出一张忘记的书签，写着一个你曾想试的小活动。你先偏向哪句脑补？",
+        "en": "A forgotten bookmark falls from an old book, noting an activity you once wanted to try. Which hopeful caption comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我又开始预演亲手试到它的那一刻。",
+            "en": "I start rehearsing the moment of trying it myself again."
+          },
+          "directionId": "wish-rehearsal"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "这像小电影里主线任务忽然出现的一镜。",
+            "en": "It feels like a shot where the small film’s main thread suddenly appears."
+          },
+          "directionId": "cinematic-moment"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "碰巧掉出的是这一页，我给巧合加一点特别的意味。",
+            "en": "I add a little special meaning to the coincidence of this particular page."
+          },
+          "directionId": "signal-spark"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我先想象以后给这次尝试留下怎样的一张小卡片。",
+            "en": "I first imagine the little card I might keep from a future attempt."
+          },
+          "directionId": "future-postcard"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_14",
+      "prompt": {
+        "zh": "一次业余开放舞台把你列进候补名单，是否轮到还不知道。你更容易冒出哪种自觉夸张的想象？",
+        "en": "An amateur open stage places you on a waiting list; an opening is uncertain. Which knowingly exaggerated thought appears first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "脑内镜头已经给等待区加上开演前的光。",
+            "en": "My inner camera gives the waiting area some pre-show lighting."
+          },
+          "directionId": "cinematic-moment"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "名单上一个巧合的编号，被我偷偷写进期待的小故事。",
+            "en": "I privately write a coincidental list number into a hopeful little story."
+          },
+          "directionId": "signal-spark"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我在想象未来回忆这段等待时会怎样讲。",
+            "en": "I imagine how I might recount this wait in the future."
+          },
+          "directionId": "future-postcard"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "之前没轮到的小舞台，仿佛又翻开了候选的第二章。",
+            "en": "A small stage I missed before seems to have opened a possible second chapter."
+          },
+          "directionId": "second-chapter"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_15",
+      "prompt": {
+        "zh": "一枚旧纸徽章重新出现在抽屉里，你不确定还会不会参加同类活动。你先怎样脑补？",
+        "en": "An old paper badge reappears in a drawer, and another similar activity is uncertain. Which imaginative thought comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我把它重新出现的小巧合加上一点期待的火花。",
+            "en": "I give the coincidence of its return a little spark of anticipation."
+          },
+          "directionId": "signal-spark"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我想象未来又把一枚新徽章放在它旁边。",
+            "en": "I picture placing a new badge beside it in the future."
+          },
+          "directionId": "future-postcard"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "这个旧道具像是在提醒我：故事还可以有续页。",
+            "en": "This old prop seems to suggest that the story could have another page."
+          },
+          "directionId": "second-chapter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "整理抽屉绕出来的小发现，被我叫作幸运支线。",
+            "en": "I call this discovery during tidying a lucky side quest."
+          },
+          "directionId": "lucky-detour"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_16",
+      "prompt": {
+        "zh": "你在云里看到一个像舞台的形状，知道只是形状相似。哪种玩笑想象先出现？",
+        "en": "A cloud resembles a stage; you know it is only a resemblance. Which playful thought appears first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我给未来一次小表演留了一张脑内明信片。",
+            "en": "I make an imaginary postcard for a possible little performance ahead."
+          },
+          "directionId": "future-postcard"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "搁下的小兴趣，好像可以被我想象出下一幕。",
+            "en": "I imagine another act for a small interest I put aside."
+          },
+          "directionId": "second-chapter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我把抬头这件普通事，编成意外小惊喜的路口。",
+            "en": "I turn the ordinary act of looking up into a junction for a little surprise."
+          },
+          "directionId": "lucky-detour"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我顺势预演了一遍站在那个想象舞台上的画面。",
+            "en": "I use it to rehearse standing on that imaginary stage."
+          },
+          "directionId": "wish-rehearsal"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_17",
+      "prompt": {
+        "zh": "你们曾放下的手工交换点子又在群里被提起，大家还没表态。你最先怎样给它加一点期待？",
+        "en": "Someone mentions a shelved craft-exchange idea in a group again; others have not responded. What anticipation do you add first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我把它当成旧点子还可能得到的第二段标题。",
+            "en": "I give the old idea a possible second-chapter title."
+          },
+          "directionId": "second-chapter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "中间这些弯路，被我暂时写成通往不同玩法的支线。",
+            "en": "I playfully write the delays as side paths toward a different version."
+          },
+          "directionId": "lucky-detour"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我先在脑中预演大家把小作品摆在一起的样子。",
+            "en": "I first rehearse a picture of the little creations gathered together."
+          },
+          "directionId": "wish-rehearsal"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "群里重新提起这句话，被我配成续集预告的旁白。",
+            "en": "The renewed mention becomes the voiceover of an imaginary sequel trailer."
+          },
+          "directionId": "cinematic-moment"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_18",
+      "prompt": {
+        "zh": "社区活动室临时换到另一间，你还没看到新空间。哪种自觉只是玩笑的脑补更像你？",
+        "en": "A community activity moves to a different room that you have not seen. Which knowingly playful thought sounds most like you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我把换房间当成也许会遇到意外小亮点的绕路。",
+            "en": "I treat the room change as a detour that might hold an unexpected little bright spot."
+          },
+          "directionId": "lucky-detour"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我已经在脑里演了一次把小活动办得很合心意。",
+            "en": "I have already rehearsed the activity turning out just as I would like."
+          },
+          "directionId": "wish-rehearsal"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "这成了日常小电影里“换个布景继续拍”的镜头。",
+            "en": "It becomes a “new set, keep filming” shot in my ordinary-day mini-film."
+          },
+          "directionId": "cinematic-moment"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "新的门牌号被我借来当一点期待的小线索。",
+            "en": "I borrow the new room number as a tiny cue for anticipation."
+          },
+          "directionId": "signal-spark"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "wish-rehearsal",
+      "directionIds": [
+        "wish-rehearsal"
+      ],
+      "title": {
+        "zh": "愿望预演：脑内先放一遍小预告",
+        "en": "Wish Rehearsal: Your Imagined Preview"
+      },
+      "headline": {
+        "zh": "先看见期待的画面，也知道预告还不是现场。",
+        "en": "See an anticipated scene while knowing a preview is not an event."
+      },
+      "summary": {
+        "zh": "Delulu测试的愿望预演完整读法：题目中的画面、手作课例子、反例、并列与可选小玩法，不把想象当信念或实现保证。",
+        "en": "Read Wish Rehearsal in the Delulu Test: imagined scenes, examples, ties and optional play, without belief or manifestation guarantees."
+      },
+      "scoreReading": {
+        "zh": "只读给定菜单里的玩笑期待选择次数，所有最高并列保留全文，不证明真实信念或未来。",
+        "en": "Counts offered playful anticipations selected; every highest tie retains its guide without proving actual beliefs or future outcomes."
+      },
+      "seo": {
+        "title": {
+          "zh": "Delulu测试结果：愿望预演的完整趣味说明",
+          "en": "Delulu Test Result: Wish Rehearsal Full Guide"
+        },
+        "description": {
+          "zh": "Delulu测试的愿望预演完整读法：题目中的画面、手作课例子、反例、并列与可选小玩法，不把想象当信念或实现保证。",
+          "en": "Read Wish Rehearsal in the Delulu Test: imagined scenes, examples, ties and optional play, without belief or manifestation guarantees."
+        }
+      },
+      "sections": [
+        {
+          "id": "lens",
+          "title": {
+            "zh": "愿望预演：先把期待放成一段小预告",
+            "en": "Wish Rehearsal: anticipation as a little preview"
+          },
+          "paragraphs": [
+            {
+              "zh": "在这份趣味菜单里，愿望预演把期待写成可以在脑中先看一遍的画面：作品摆上桌、纸模型完成、某次活动围坐在一起。若这组次数最高，可以把它当作本次较常选中的想象入口，而不是“只要相信就会实现”的认证。小预告的主角是你想象的场面，现场的人、时间和条件仍没有因此确定。你可以喜欢这种预告感，也可以只认出某几题；它不要求把生活里的所有愿望都处理成同一种风格。",
+              "en": "In this playful menu, Wish Rehearsal turns anticipation into a scene you can preview: a creation on a table, a finished paper model or people gathered for an activity. If it has a highest count, read it as an imaginative entry point you selected more often here, not a certificate that believing makes things happen. The preview stars an imagined scene; people, timing and conditions remain unconfirmed. You can enjoy the preview feeling or recognise it in only a few items. No result requires every wish in your life to follow the same style or proves that you hold the imagined outcome as a fact."
+            }
+          ]
+        },
+        {
+          "id": "menus",
+          "title": {
+            "zh": "这组在题目里怎样出现",
+            "en": "How this group appears in the situations"
+          },
+          "paragraphs": [
+            {
+              "zh": "回执来了，脑内已经把作品摆好；找到一张合适的纸，先看见模型完工；翻开旧书签，又演一遍亲手试到小活动的瞬间。这几种选项的共同点是先把想要的场面具体化，不是对成功概率作计算，也不比较谁更努力。情境里仍保留“尚未确定”：邮件只是确认、材料只是材料、想起活动也不等于已经安排好。选中这些句子，可以读出你在这个菜单里愿意给画面一点位置，不能反推你会采取多少行动。",
+              "en": "A confirmation arrives and your mind already places the creation on a table; suitable paper appears and you see the model finished; an old bookmark prompts another preview of trying an activity. These options make a wanted scene concrete rather than calculate success odds or compare effort. The situations retain their unknowns: an email is a confirmation, materials are materials and remembering an activity does not arrange it. Selecting the sentences can indicate that you gave a preview room in this menu, without showing how much action you take, what opportunities exist or whether the preview will ever become an event."
+            }
+          ]
+        },
+        {
+          "id": "enjoy",
+          "title": {
+            "zh": "把脑内预告当作它自己的小作品",
+            "en": "Let the preview be a small creation of its own"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个脑内预告可以很有画面：桌布是什么颜色、纸模型站在哪里、第一声笑从哪个方向传来。你可以把这种细节当作玩笑期待的一部分，不必为它补上“所以一定会发生”。这份读法邀请你保留想象与已知的两栏：画面可以鲜明，事实也可以仍然很少。它没有证明预演更能促成行动、提高勇气或改善心情；也不要求每次想象都必须立刻变成任务。单纯喜欢一个小画面，不需要用结果为它交作业。",
+              "en": "An inner preview can have texture: the tablecloth’s colour, where a paper model stands or the direction of the first laugh. Enjoying those details need not add “therefore it must happen.” This reading keeps imagination and what is known in separate columns: a scene can be vivid while the facts remain sparse. The quiz establishes no greater action, courage or improved mood from rehearsing and requires no immediate conversion of every image into a task. Enjoying a small imagined scene does not need an outcome report to justify it, and an unfulfilled preview does not make its maker responsible for circumstances beyond their control."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "例子：手作课回执之后",
+            "en": "Example: after the workshop confirmation"
+          },
+          "paragraphs": [
+            {
+              "zh": "你收到手作课回执，脑内先把一件喜欢的小作品放在桌上，这就是一个愿望预演式片段。已经知道的是报名确认；还不知道的是当天材料、作品模样、自己的感受和其他人的安排。可以让预告停留在“我在期待这个画面”，不把它说成组织者已承诺的结果。这个例子不要求你购买更多材料、向别人保证作品质量或展示私人计划；网页也不会根据这个选择判断你能否完成作品。想象与实际条件各自保留，故事才不用替事实做担保。",
+              "en": "You receive a workshop confirmation and first imagine a small creation you would like on the table. That is a Wish Rehearsal moment. The known fact is the booking; materials, the finished object, your experience and others’ arrangements remain unknown. The preview can stay “I look forward to this picture” rather than become an organiser’s promised outcome. No extra purchase, quality guarantee or disclosure of a private plan is required. The webpage cannot judge whether you will finish the creation from this choice. Keeping scene and conditions separate lets the story exist without making it a warranty for the facts."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与日常片场、未来明信片一起看",
+            "en": "Compare Everyday Cinema and Future Postcard"
+          },
+          "paragraphs": [
+            {
+              "zh": "愿望预演把尚未发生的具体场面放在眼前；日常片场更像给正在发生的一秒加镜头、字幕或音乐；未来明信片则把自己放到以后回望此刻的位置。三者可以在同一个小念头里轮流出现，不用争谁更真实。比如想象作品完成既可能是预演，也可能顺手成为未来相册的一格。菜单为了可读给句子分组，不代表真实想法天然只有一个标签。并列时逐份阅读差别即可，少一次或多一次不需要解释成稳定的心理次序。",
+              "en": "Wish Rehearsal brings a particular not-yet-happened scene into view. Everyday Cinema adds a shot, subtitle or soundtrack to a current moment. Future Postcard imagines looking back from later. They can take turns within one thought without competing over which is more real. A finished creation may be previewed and also become an imagined album square. Our menu groups sentences for a readable game; real thoughts do not naturally have only one label. If readings tie, compare their accents without turning an extra or missing selection into a stable hierarchy of mental habits or a claim about how you approach all uncertainty."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：画面鲜明，不等于深信不疑",
+            "en": "Counterexample: a vivid picture need not be a firm belief"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个人能把未来场面想得很清楚，仍知道它可能不会发生；另一个人几乎没有画面，也可能对某件事非常笃定。画面的细节与信念的把握不是同一件事。本题也没有核对现实中的坚持、执行、技能或经济结果。若你某天不想预演，只想看眼前条件，不代表失去乐观或“显化失败”。这段反例帮助把一个趣味选择留在合适范围，不会要求你纠正自己的想象方式或通过重测把某组降下来。",
+              "en": "Someone can picture a future scene clearly while knowing it may never happen. Someone with little imagery may be very certain about a belief. Scene detail and confidence are not the same thing, and the quiz has checked no persistence, execution, skill or financial outcome. On a day when you prefer present conditions to a preview, that does not mean lost optimism or failed manifestation. This counterexample keeps a playful choice within its limits rather than asks you to correct your imagination or lower a particular count through retaking. A different menu or moment can produce a different result without an inferred personal improvement or decline."
+            }
+          ]
+        },
+        {
+          "id": "play",
+          "title": {
+            "zh": "可选小玩法：给预告加一句“还没开拍”",
+            "en": "Optional play: add “not filmed yet” to the preview"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，可以在心里给一个普通小愿望配两行字幕：一行写想象的画面，一行写目前确实知道的事，再添一句“还没开拍”。不用在网站记录，不联系任何人，也不为练习消费、承诺或改变安排。这个小玩法不是改善行为或心情的方法，做不做都不影响结果。它只让预告有一个轻松的边框：画面可以先在，现实不用配合证明它。你也可以什么都不做，读完六种入口的差别就结束。",
+              "en": "If you like, privately give an ordinary little wish two caption lines: one for the imagined scene and one for what is currently known, then add “not filmed yet.” Record nothing on the website, contact no one and make no purchase, promise or rearrangement for an exercise. This is no method for improving behaviour or mood and has no effect on the result. It merely gives the preview a light frame: the scene can exist without reality having to cooperate as proof. You can skip the activity, read the differences among the six entry points and finish without turning a playful quiz into work."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "十八次选择与全部最高并列",
+            "en": "Eighteen choices and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18个情境每次呈现六组入口中的四组；每组出现12次、在四个位置各3次、省略6次。选一次加1，无反向或正确答案，全部18题选择后才比次数；所有最高并列都保留各自九节全文，不按顺序硬挑一个，也不派次高。全A六组各3次，会显示六份54模块，不叫理想平衡。计数不是乐观份额、人格相似度、现实判断或信念强度，不用12作百分比。一次差异没有验证的心理意义；少选某组也不代表你缺少那种想法。菜单有限，若都不像可退出，公开全文仍免费。",
+              "en": "Each of eighteen situations offers four of six editorial entry points. Every group appears twelve times, three in each position, and is omitted six times. One choice adds one count without reversals or correct answers. Only a complete attempt compares counts, retaining the nine-section guide for every highest tie without a fixed-order winner or secondary type. Choosing A throughout gives three per group and six full guides with fifty-four sections, not an ideal balance. Counts are no shares of optimism, personality-match percentages, reality testing or belief strength, and twelve is not a percentage denominator. A one-choice gap has no validated psychological meaning. Fewer selections establish no absence of an idea. Menus are limited; leave if none fits while public guides remain free."
+            }
+          ]
+        },
+        {
+          "id": "privacy",
+          "title": {
+            "zh": "轻松阅读、重测与分享",
+            "en": "Reading, retakes and sharing"
+          },
+          "paragraphs": [
+            {
+              "zh": "Delulu在本版是网络俚语的趣味用法，六个名称是原创编辑入口，不是标准人格或医学标签。字典只提供词义背景，不验证题目。六份全文、作答、重测与分享免费，不需另一测试或邮箱解锁。作答在本设备处理；草稿主动开启，仅本标签页最多24小时，完成、退出清除或重测删除。分享只带测试名、匹配读法名称和公开链接，不带答案或次数，不输入真实关系、收入、私人经历或他人资料。完整读完后可直接结束，也可另选测评；本结果不会换算成MBTI或任何其他分数。",
+              "en": "Delulu is playful internet slang here. Our six original editorial names are neither standard personalities nor medical labels; a dictionary supplies word background, not item validation. All six guides, questions, retakes and sharing are free without another test or email. Answers are processed on this device. Drafts require opt-in, last at most twenty-four hours in this tab and clear on completion, exit-and-clear or retake. Sharing carries only test and matched reading names and a public link, without answers or counts. No actual relationships, income, private experiences or other people’s information are entered. Finish after reading or choose another assessment separately; no result converts into MBTI or another score."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cinematic-moment",
+      "directionIds": [
+        "cinematic-moment"
+      ],
+      "title": {
+        "zh": "日常片场：给普通一刻配上镜头",
+        "en": "Everyday Cinema: A Shot for an Ordinary Moment"
+      },
+      "headline": {
+        "zh": "音乐和字幕是你的讲述，不替现实写剧本。",
+        "en": "Music and captions tell a moment without scripting reality."
+      },
+      "summary": {
+        "zh": "Delulu测试日常片场完整说明：十二个音乐与字幕选项、候补等待例子、相邻结果差异及反例，保留事实与玩笑的边界。",
+        "en": "Explore Everyday Cinema in the Delulu Test: captions, waiting-room examples, neighbouring readings and limits, without turning imagination into prediction."
+      },
+      "scoreReading": {
+        "zh": "只读给定菜单里的玩笑期待选择次数，所有最高并列保留全文，不证明真实信念或未来。",
+        "en": "Counts offered playful anticipations selected; every highest tie retains its guide without proving actual beliefs or future outcomes."
+      },
+      "seo": {
+        "title": {
+          "zh": "Delulu测试结果：日常片场的完整趣味说明",
+          "en": "Delulu Test Result: Everyday Cinema Full Guide"
+        },
+        "description": {
+          "zh": "Delulu测试日常片场完整说明：十二个音乐与字幕选项、候补等待例子、相邻结果差异及反例，保留事实与玩笑的边界。",
+          "en": "Explore Everyday Cinema in the Delulu Test: captions, waiting-room examples, neighbouring readings and limits, without turning imagination into prediction."
+        }
+      },
+      "sections": [
+        {
+          "id": "lens",
+          "title": {
+            "zh": "日常片场：给眼前这一秒一个镜头",
+            "en": "Everyday Cinema: give this moment a shot"
+          },
+          "paragraphs": [
+            {
+              "zh": "日常片场关注的是怎样讲述正在发生的一个小片段。自动回执可以有开场音乐，圈日期的动作可以成为准备篇的一镜，重新翻开速写本也可以配上夸张的登场字幕。这个名字描述的是题目里的修辞入口：你挑了给日常加镜头的句子，不表示你认为别人正在观看自己，也不表示生活必须有主角。画面可以完全留在心里，人物也可以只有一张桌子、一页纸或一个普通动作。读这份结果时，可以先想想哪句比喻让你觉得好玩，再看其他并列全文有没有不同的趣味。",
+              "en": "Everyday Cinema attends to how a small present moment is narrated. An automatic confirmation can receive opening music, circling a calendar date can become a preparation shot, and reopening a sketchbook can get an exaggerated entrance caption. The name describes a rhetorical doorway in the offered questions: selecting a sentence that gives ordinary life a camera angle. It establishes no belief that other people are watching you or that life requires a central character. The scene can stay entirely private and feature only a table, a sheet of paper or a simple action. Start with the particular metaphor you enjoyed, then compare any tied guides for a different accent."
+            }
+          ]
+        },
+        {
+          "id": "menu",
+          "title": {
+            "zh": "题目把音乐、字幕与转场放在同一组",
+            "en": "What joins music, captions and transitions"
+          },
+          "paragraphs": [
+            {
+              "zh": "这一组的十二个选项并不是同一种场景反复换名。它包括给朋友的简短回应配片头对白、给纸模型补片配转场音乐、给候补等待区加灯光，以及把活动室临时更换想成换布景。共同点是为已发生的一刻添一种讲述方式，尚未确定的后续仍保持未确定。选择“故事继续”的字幕，也不要求旧读书活动真的重启。每道题同时只呈现四组菜单，所以一次没有选日常片场，可能只是别的句子当时更合拍；少选也不代表没有幽默感、画面感或表达能力。",
+              "en": "The twelve options in this group do more than rename one repeated scene. They include treating a friend’s short reply as opening dialogue, adding transition music to a missing paper-model piece, lighting an uncertain waiting area and imagining a room change as a change of set. Their connection is a way of telling what has already happened while leaving an unsettled next step unsettled. A “story continues” caption does not require an abandoned reading event to restart. Each question offers only four groups, so another sentence may simply fit better on that occasion. Choosing this group less often establishes no lack of humour, imagery or expressive skill."
+            }
+          ]
+        },
+        {
+          "id": "enjoy",
+          "title": {
+            "zh": "一段小配乐，不需要变成观众的任务",
+            "en": "A little soundtrack needs no audience"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果这个读法有共鸣，可以把它理解成日常语言里的一个剪辑按钮：同样是打开文件，加一句字幕会让这个动作多一层个人趣味。字幕不必漂亮，也不必积极；“今天先拍到这里”同样可以是一个轻松收尾。你不用把每个普通时刻拍成值得分享的内容，更不用把朋友放进自己安排的剧情。这里的玩笑首先属于你选择的句子，而不是别人必须接住的角色。测试也没有测量创作水平、社交吸引力或注意力需求，无法由这个次数推断你更适合哪种工作或关系位置。",
+              "en": "If this reading resonates, imagine an editing button in everyday language: adding a caption gives the same act of opening a file a personal layer of amusement. The caption need not be polished or positive; “that is enough filming for today” can be an equally light ending. No ordinary moment must become material worth posting, and friends need not become characters in a plot arranged for them. The joke first belongs to the sentence you selected, rather than a role someone else must accept. This questionnaire measures no creative achievement, social appeal or need for attention and cannot infer a suitable job or relationship position from the count."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "例子：候补名单上的等待区",
+            "en": "Example: the waiting area on a reserve list"
+          },
+          "paragraphs": [
+            {
+              "zh": "开放舞台把你列入候补名单，你想象等待区有一点开演前的光，这可以是日常片场的例子。已知事实是候补身份；是否轮到、何时通知、现场安排都还没有答案。灯光是你给这一刻的比喻，不是主办方已经留出舞台的证据。这个小镜头也可以以“今天没有轮到”结束，仍然不影响你当时觉得它有画面。网页不会根据这个选项推断你能否演好、是否值得登台或会不会坚持。若不想给等待配任何字幕，直接等通知也是完整而普通的选择。",
+              "en": "An open stage places you on a reserve list, and you imagine a little pre-show light around the waiting area. That can be an Everyday Cinema example. The known fact is reserve status; whether a place opens, when a message arrives and how the event runs remain unanswered. The lighting is your metaphor for this moment, not evidence that an organiser has reserved a stage. The small scene can end with “no opening today” without cancelling its earlier visual amusement. Nothing in this option predicts performance, deservedness or persistence. Simply waiting for information without captions is also a complete and ordinary choice, with no poorer result implied."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与愿望预演、线索火花的差别",
+            "en": "Compare Wish Rehearsal and Signal Spark"
+          },
+          "paragraphs": [
+            {
+              "zh": "愿望预演先想象一个尚未发生的具体画面；日常片场更偏向为眼前动作加讲述形式；线索火花则围绕一条小回应或细节，开一个“会不会有后续”的玩笑。比如一句“好呀”可以被听成片头对白，也可以被拿来想象后续，两种趣味可以重叠。菜单为了阅读把这些句子分组，并不是发现了互斥的心理结构。最高并列时，可以分别找出各组在句子里强调的部分，不需要用分数裁定哪一个才是“真正的你”。这也不是主角与配角、现实与幻想的两极排序。",
+              "en": "Wish Rehearsal first pictures a particular scene that has not happened. Everyday Cinema adds a narrative form to a current action. Signal Spark plays with a small reply or detail as an opening for “might there be more?” A brief “sounds good” can therefore become opening dialogue or a playful hint about a next chapter; those amusements can overlap. Grouping makes the menu readable rather than discovering mutually exclusive mental structures. When the highest counts tie, look at what each sentence emphasises instead of using numbers to decide which guide is the real you. This is no ranking from leading to supporting character or from reality to fantasy."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：会配字幕，不等于想被围观",
+            "en": "Counterexample: captions do not imply wanting an audience"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个人可能喜欢在心里给洗杯子的动作配旁白，却从不拍视频或公开生活；另一个人常做公开表演，也可能只想把回执当作回执。私人比喻、公开创作和希望被注意是不同的问题，这份菜单没有分别测量它们。日常片场次数较多也不说明你忽略事实、夸大自己或对别人缺少关心。反过来，某天只想用朴素语言描述日程，不代表失去创造力。反例的作用是让结果停在选项本身，不把一个轻巧的修辞偏好扩成性格判决，也不要求通过重测换一个更“正常”的名称。",
+              "en": "Someone may privately narrate washing a cup yet never film or publish daily life. Another person may perform publicly and still prefer to treat a confirmation as just a confirmation. Private metaphor, public creative work and wanting attention are different questions that this menu has not separately measured. More Everyday Cinema selections establish no disregard for facts, inflated self-importance or lack of concern for others. Conversely, describing a schedule plainly one day does not mean losing creativity. This counterexample keeps the result close to the offered options rather than expands a light rhetorical preference into a personality verdict or asks you to retake the quiz for a more acceptable label."
+            }
+          ]
+        },
+        {
+          "id": "play",
+          "title": {
+            "zh": "可选小玩法：同一动作，两种字幕",
+            "en": "Optional play: two captions for one action"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，可以拿一个不涉及他人隐私的普通动作，心里先给它一句电影式字幕，再用一句事实描述替换它。例如“准备篇开机”和“我在日历上圈了一天”。两句可以同时成立：前一句是讲述形式，后一句说明实际发生的事。无需录制、发布、购买道具或请别人配合，也不用把这个练习当作调节心情的方法。你可以只读例子就结束。这个小玩法的趣味在于看见比喻怎样增加一层声音，同时给日程、约定和他人的选择保留原来的边界。",
+              "en": "If you like, choose an ordinary action involving no one else’s private information. Give it a film-style caption privately, then replace that with a factual sentence. “Preparation episode begins” and “I circled a day on the calendar” can coexist: the first offers a narrative form, while the second states what occurred. No recording, posting, prop purchase or participation from anyone else is needed, and the activity is no method for managing mood. Reading the example and stopping is equally fine. The small amusement is noticing how metaphor adds a voice while leaving schedules, agreements and other people’s choices with their existing boundaries."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "十八次选择与全部最高并列",
+            "en": "Eighteen choices and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18个情境每次呈现六组入口中的四组；每组出现12次、在四个位置各3次、省略6次。选一次加1，无反向或正确答案，全部18题选择后才比次数；所有最高并列都保留各自九节全文，不按顺序硬挑一个，也不派次高。全A六组各3次，会显示六份54模块，不叫理想平衡。计数不是乐观份额、人格相似度、现实判断或信念强度，不用12作百分比。一次差异没有验证的心理意义；少选某组也不代表你缺少那种想法。菜单有限，若都不像可退出，公开全文仍免费。",
+              "en": "Each of eighteen situations offers four of six editorial entry points. Every group appears twelve times, three in each position, and is omitted six times. One choice adds one count without reversals or correct answers. Only a complete attempt compares counts, retaining the nine-section guide for every highest tie without a fixed-order winner or secondary type. Choosing A throughout gives three per group and six full guides with fifty-four sections, not an ideal balance. Counts are no shares of optimism, personality-match percentages, reality testing or belief strength, and twelve is not a percentage denominator. A one-choice gap has no validated psychological meaning. Fewer selections establish no absence of an idea. Menus are limited; leave if none fits while public guides remain free."
+            }
+          ]
+        },
+        {
+          "id": "privacy",
+          "title": {
+            "zh": "轻松阅读、重测与分享",
+            "en": "Reading, retakes and sharing"
+          },
+          "paragraphs": [
+            {
+              "zh": "Delulu在本版是网络俚语的趣味用法，六个名称是原创编辑入口，不是标准人格或医学标签。字典只提供词义背景，不验证题目。六份全文、作答、重测与分享免费，不需另一测试或邮箱解锁。作答在本设备处理；草稿主动开启，仅本标签页最多24小时，完成、退出清除或重测删除。分享只带测试名、匹配读法名称和公开链接，不带答案或次数，不输入真实关系、收入、私人经历或他人资料。完整读完后可直接结束，也可另选测评；本结果不会换算成MBTI或任何其他分数。",
+              "en": "Delulu is playful internet slang here. Our six original editorial names are neither standard personalities nor medical labels; a dictionary supplies word background, not item validation. All six guides, questions, retakes and sharing are free without another test or email. Answers are processed on this device. Drafts require opt-in, last at most twenty-four hours in this tab and clear on completion, exit-and-clear or retake. Sharing carries only test and matched reading names and a public link, without answers or counts. No actual relationships, income, private experiences or other people’s information are entered. Finish after reading or choose another assessment separately; no result converts into MBTI or another score."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "signal-spark",
+      "directionIds": [
+        "signal-spark"
+      ],
+      "title": {
+        "zh": "线索火花：让小细节暂借一点期待",
+        "en": "Signal Spark: A Detail Borrowed for Anticipation"
+      },
+      "headline": {
+        "zh": "火花是你添的讲述，不是后续已经许诺。",
+        "en": "A spark is an added story, not a promised next event."
+      },
+      "summary": {
+        "zh": "Delulu测试线索火花完整读法：邮件星星、书签巧合与十二个细节选项，区分玩笑添彩、实际信息、相邻结果和反例。",
+        "en": "Read Signal Spark in the Delulu Test: small-detail options, a bookmark example, nearby readings and the line between playful meaning and actual information."
+      },
+      "scoreReading": {
+        "zh": "只读给定菜单里的玩笑期待选择次数，所有最高并列保留全文，不证明真实信念或未来。",
+        "en": "Counts offered playful anticipations selected; every highest tie retains its guide without proving actual beliefs or future outcomes."
+      },
+      "seo": {
+        "title": {
+          "zh": "Delulu测试结果：线索火花的完整趣味说明",
+          "en": "Delulu Test Result: Signal Spark Full Guide"
+        },
+        "description": {
+          "zh": "Delulu测试线索火花完整读法：邮件星星、书签巧合与十二个细节选项，区分玩笑添彩、实际信息、相邻结果和反例。",
+          "en": "Read Signal Spark in the Delulu Test: small-detail options, a bookmark example, nearby readings and the line between playful meaning and actual information."
+        }
+      },
+      "sections": [
+        {
+          "id": "lens",
+          "title": {
+            "zh": "线索火花：给一个小细节添一点期待",
+            "en": "Signal Spark: a little detail, a little anticipation"
+          },
+          "paragraphs": [
+            {
+              "zh": "线索火花的玩笑常从很小的东西开始：邮件上的星星、碰巧合适的纸片颜色、书里掉出的旧书签，或名单上的一个编号。你知道这些细节本身没有承诺后续，却可以暂时借它们装一点期待。这个结果名称强调“添”的动作，而不是发现了客观暗号；火花属于想象的讲述，不是事情将会顺利的证据。读到这一组时，可以回想哪一个细节让你觉得轻巧、有趣或刚好合拍。网页没有据此判断你在日常怎样解释信息，更不会把选择次数变成对现实判断或信念的评价。",
+              "en": "Signal Spark often starts with something small: a star in an email, a conveniently coloured paper scrap, an old bookmark falling from a book or a number on a list. The detail promises no particular next event, but it can briefly hold some playful anticipation. The result name emphasises the act of adding meaning rather than discovering an objective code. Its spark belongs to an imagined telling, not evidence that things will go well. Remember which detail felt light, amusing or momentarily fitting. The webpage has not established how you interpret information elsewhere and does not turn these choices into a judgement about beliefs or reality testing."
+            }
+          ]
+        },
+        {
+          "id": "menu",
+          "title": {
+            "zh": "十二处细节，都是菜单中的玩笑入口",
+            "en": "Twelve details offered as playful openings"
+          },
+          "paragraphs": [
+            {
+              "zh": "这一组十二次出现在不同情境里：从自动确认信和朋友短回复，到雨点节奏、日历图案、旧纸徽章以及新活动室门牌。共同点不是它们真的具有相同的意义，而是选项主动给普通细节加了一层期待。对朋友语气的亮闪闪想象，也只是题目里的修辞，不会替对方补上尚未表达的心意。每道题只有四组选项，各组出现机会虽然相同，句子的具体内容仍会影响选择。因此这十二次曝光不是十二次现实行为观察，更不是“捕捉信号能力”的满分分母。",
+              "en": "This group appears twelve times across different situations: an automated confirmation and a short reply, rain tapping a rhythm, a calendar decoration, an old paper badge and a new activity-room number. Their connection is not that they objectively share a meaning. The offered sentences actively add anticipation to ordinary details. A sparkling interpretation of a friend’s tone remains a rhetorical option and supplies no unspoken intention on that person’s behalf. Each question contains four groups; equal exposure does not remove the influence of its particular wording. Twelve appearances therefore mean neither twelve observations of actual behaviour nor a maximum score for an ability to detect signals."
+            }
+          ]
+        },
+        {
+          "id": "enjoy",
+          "title": {
+            "zh": "火花可以很短，不必连成一条预言",
+            "en": "A spark can be brief without becoming a forecast"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个读法的趣味可以停在很小的尺度：颜色刚好对上，心里开一朵小烟花，然后继续做手里的纸模型。你无需为那朵烟花寻找更多巧合，也不用把后来不顺利的事解释成自己读错了提示。想象没有义务替未来担保。一点临时意义也可以只属于当时的讲述，过一会儿不再重要。测试没有证明这样想会更快乐、更勇敢或更容易实现计划；结果只是帮你看见自己在这些给定句子中选了哪种写法，不为任何生活决定提供额外依据。",
+              "en": "The amusement can stay very small: a colour happens to match, a little private firework appears in your narration, and you continue assembling the paper model. No further coincidence needs to support that firework, and a later difficulty need not become evidence that you read a message incorrectly. Imagination owes the future no guarantee. A temporary meaning can belong only to that moment’s telling and matter little a few minutes later. This quiz establishes no greater happiness, courage or chance of completing plans. It helps identify a way of wording the offered situations rather than providing additional grounds for decisions outside them."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "例子：书里掉出的旧书签",
+            "en": "Example: the bookmark that fell from a book"
+          },
+          "paragraphs": [
+            {
+              "zh": "你翻旧书，掉出一张写着某个小活动的书签，心里想“偏偏是这一页，好像故事在眨眼”。这是一个线索火花式句子。实际知道的是书签现在掉出来、上面有旧记录；活动是否还在、你是否愿意参加、时间是否合适都仍需另看。书签不替你发出邀请，也不证明这次应该去。你可以喜欢这个巧合，随后把书签放回去，什么也不安排。若后来真的有活动，那来自后来获得的信息和选择，不是测试已经从这次脑补推算出来的结果。",
+              "en": "You open an old book, a bookmark mentioning a small activity falls out, and you think, “this page of all pages; the story seems to wink.” That is a Signal Spark sentence. The known facts are that the bookmark fell out now and carries an old note. Whether the activity still exists, whether you want to join and whether the timing works remain separate questions. The bookmark issues no invitation and proves no obligation to attend. Enjoying the coincidence and putting it back without arranging anything is sufficient. Any later activity depends on later information and choices, not an outcome this quiz has predicted from your imagined wink."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与幸运绕路、日常片场的差别",
+            "en": "Compare Lucky Detour and Everyday Cinema"
+          },
+          "paragraphs": [
+            {
+              "zh": "线索火花把意义添在一个细节上；幸运绕路更关心计划偏转后出现了什么新的小可能；日常片场则偏向用镜头、字幕或音乐讲述当前片段。走错巷子看到书摊，可能先让你觉得颜色巧合很有意思，也可能让你想象这条绕路有了新故事。两种写法可以共存，不必用最高次数排除另一种。题目分组是编辑安排，不是证明了心理机制互相独立。若几组最高并列，就分别阅读它们把注意放在哪里，保留差别，也保留同一念头里可能有多种讲述。",
+              "en": "Signal Spark adds meaning to a particular detail. Lucky Detour attends to a small possibility that appears when a plan changes direction. Everyday Cinema uses shots, captions or music to tell the current scene. Turning into the wrong alley and finding a bookstall might first make an amusing colour coincidence noticeable, or might suggest a story about the detour itself. Both tellings can coexist; a highest count need not exclude the other. Grouping is an editorial arrangement, not evidence of independent psychological mechanisms. With a highest tie, read where each guide places its emphasis while allowing a single thought to contain more than one narrative move."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：喜欢巧合，不等于把它当决定依据",
+            "en": "Counterexample: enjoying coincidence is not relying on it"
+          },
+          "paragraphs": [
+            {
+              "zh": "有人会对恰好的颜色开玩笑，做实际安排时仍只看时间、地点和明确回复；也有人不喜欢巧合梗，但遇到重要问题照样需要更多信息。是否选择线索火花句子，无法替代对真实判断过程的观察。一个普通“好呀”也不能从测试里变成承诺、亲密程度或同意的证明。结果不判断你容易受骗、缺乏理性或需要纠正；较少选择这一组同样不证明更客观。把反例留在这里，是为了让趣味名称只解释给定菜单，不从一个小玩笑延伸出对整个人的结论。",
+              "en": "A person may joke about a matching colour while using schedules, locations and explicit replies for actual arrangements. Someone who dislikes coincidence jokes may still need more information about an important question. Selecting a Signal Spark sentence cannot replace observing a real decision process. Nor can an ordinary “sounds good” become a promise, intimacy measure or evidence of consent through a quiz result. The guide judges no gullibility, irrationality or need for correction; fewer choices in this group do not prove greater objectivity either. Keeping the counterexample here lets the playful name explain the offered menu without stretching one small joke into a conclusion about a whole person."
+            }
+          ]
+        },
+        {
+          "id": "play",
+          "title": {
+            "zh": "可选小玩法：事实一行，添彩一行",
+            "en": "Optional play: one fact line, one story line"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以只在心里拿一个无关紧要的小细节写两行：第一行“纸片颜色碰巧合适”，第二行“我给这一幕加一朵小烟花”。前一行是观察，后一行是你的讲述，谁也不需要替谁提供证明。无需记录私人信念、把巧合发给别人或寻找更多征兆，也不用据此改变任何安排。这个小玩法没有治疗、训练或改善判断的目标，做不做都不影响结果。它只是给玩笑留一个清楚的署名：这是我此刻添上的趣味，关于后续的事实仍等后续信息。",
+              "en": "Privately take an inconsequential detail and give it two lines: “the paper colour happens to fit” and “I add a little firework to the scene.” One is an observation and the other your telling; neither must serve as proof of the other. Record no private beliefs, send no coincidence to anyone, look for no additional signs and change no arrangement on this basis. The activity has no therapeutic, training or judgement-improvement target, and skipping it changes no result. It simply gives the joke a clear authorship: this is the amusement I added now, while facts about a next event still await further information."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "十八次选择与全部最高并列",
+            "en": "Eighteen choices and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18个情境每次呈现六组入口中的四组；每组出现12次、在四个位置各3次、省略6次。选一次加1，无反向或正确答案，全部18题选择后才比次数；所有最高并列都保留各自九节全文，不按顺序硬挑一个，也不派次高。全A六组各3次，会显示六份54模块，不叫理想平衡。计数不是乐观份额、人格相似度、现实判断或信念强度，不用12作百分比。一次差异没有验证的心理意义；少选某组也不代表你缺少那种想法。菜单有限，若都不像可退出，公开全文仍免费。",
+              "en": "Each of eighteen situations offers four of six editorial entry points. Every group appears twelve times, three in each position, and is omitted six times. One choice adds one count without reversals or correct answers. Only a complete attempt compares counts, retaining the nine-section guide for every highest tie without a fixed-order winner or secondary type. Choosing A throughout gives three per group and six full guides with fifty-four sections, not an ideal balance. Counts are no shares of optimism, personality-match percentages, reality testing or belief strength, and twelve is not a percentage denominator. A one-choice gap has no validated psychological meaning. Fewer selections establish no absence of an idea. Menus are limited; leave if none fits while public guides remain free."
+            }
+          ]
+        },
+        {
+          "id": "privacy",
+          "title": {
+            "zh": "轻松阅读、重测与分享",
+            "en": "Reading, retakes and sharing"
+          },
+          "paragraphs": [
+            {
+              "zh": "Delulu在本版是网络俚语的趣味用法，六个名称是原创编辑入口，不是标准人格或医学标签。字典只提供词义背景，不验证题目。六份全文、作答、重测与分享免费，不需另一测试或邮箱解锁。作答在本设备处理；草稿主动开启，仅本标签页最多24小时，完成、退出清除或重测删除。分享只带测试名、匹配读法名称和公开链接，不带答案或次数，不输入真实关系、收入、私人经历或他人资料。完整读完后可直接结束，也可另选测评；本结果不会换算成MBTI或任何其他分数。",
+              "en": "Delulu is playful internet slang here. Our six original editorial names are neither standard personalities nor medical labels; a dictionary supplies word background, not item validation. All six guides, questions, retakes and sharing are free without another test or email. Answers are processed on this device. Drafts require opt-in, last at most twenty-four hours in this tab and clear on completion, exit-and-clear or retake. Sharing carries only test and matched reading names and a public link, without answers or counts. No actual relationships, income, private experiences or other people’s information are entered. Finish after reading or choose another assessment separately; no result converts into MBTI or another score."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "future-postcard",
+      "directionIds": [
+        "future-postcard"
+      ],
+      "title": {
+        "zh": "未来明信片：先借一个以后的视角",
+        "en": "Future Postcard: Borrowing a Later View"
+      },
+      "headline": {
+        "zh": "想象以后怎样回看，让今天仍保留空白。",
+        "en": "Imagine a later look back while leaving today open."
+      },
+      "summary": {
+        "zh": "Delulu测试未来明信片完整读法：相册、速写本与回望式期待，附具体例子、三种时间视角比较、反例及计分说明。",
+        "en": "Read Future Postcard in the Delulu Test: imagined albums, a sketchbook example, time viewpoints, counterexamples and the meaning of choice counts."
+      },
+      "scoreReading": {
+        "zh": "只读给定菜单里的玩笑期待选择次数，所有最高并列保留全文，不证明真实信念或未来。",
+        "en": "Counts offered playful anticipations selected; every highest tie retains its guide without proving actual beliefs or future outcomes."
+      },
+      "seo": {
+        "title": {
+          "zh": "Delulu测试结果：未来明信片的完整趣味说明",
+          "en": "Delulu Test Result: Future Postcard Full Guide"
+        },
+        "description": {
+          "zh": "Delulu测试未来明信片完整读法：相册、速写本与回望式期待，附具体例子、三种时间视角比较、反例及计分说明。",
+          "en": "Read Future Postcard in the Delulu Test: imagined albums, a sketchbook example, time viewpoints, counterexamples and the meaning of choice counts."
+        }
+      },
+      "sections": [
+        {
+          "id": "lens",
+          "title": {
+            "zh": "未来明信片：想象以后怎样回看此刻",
+            "en": "Future Postcard: imagine looking back at now"
+          },
+          "paragraphs": [
+            {
+              "zh": "未来明信片把讲述的位置轻轻挪到以后：你不是只想当天会怎样，而是先想象未来翻到一张照片、一页速写或一枚徽章时，会怎样称呼这段刚开始的小日子。明信片是一个比喻，可以没有真实收件人，也不需要真的拍照或寄出。这个结果只描述你在给定菜单里选择了较多这种回望式句子，不表示你更长远、更怀旧或更擅长规划。未来并没有因此写好；你只是暂时借了一个以后的视角，为今天的普通片段加上一种温柔或好玩的标题。",
+              "en": "Future Postcard gently moves the narrator to a later point. Rather than picturing only how an occasion might unfold, you imagine finding a photograph, sketchbook page or badge later and naming this small period that has just begun. The postcard is a metaphor with no required recipient, photograph or delivery. This result describes choosing more of those imagined-looking-back sentences within the offered menu, not being more farsighted, nostalgic or skilled at planning. The future has not been written as a result. You have briefly borrowed a later viewpoint to give an ordinary present fragment an affectionate, amusing or simply interesting title."
+            }
+          ]
+        },
+        {
+          "id": "menu",
+          "title": {
+            "zh": "照片、书架与旧物：给时间留一个想象位置",
+            "en": "Photos, shelves and keepsakes: an imagined place in time"
+          },
+          "paragraphs": [
+            {
+              "zh": "十二个相关选项里，有为未来相册留一格、想象速写本放满新画后摆上书架、给等待写回忆标题，也有把新徽章放在旧徽章旁边。它们共同强调此刻与以后之间的叙述联系，而非承诺一定积累多少作品或发生什么活动。有的句子想象下一次交换小作品，也只是借一个未来画面看今天的开端。每组曝光机会相同，具体物件仍会影响你的选择；偏爱纸本或相册的措辞不等同于一个稳定的时间观。测试也没有检查现实中的记忆、计划落实或对未来的把握。",
+              "en": "The twelve related options leave a space in a future album, picture a sketchbook filled with new drawings on a shelf, give a waiting period a retrospective title or place a new badge beside an old one. They connect now and later through narration rather than promise an amount of creative work or a particular event. Imagining a future exchange of small creations likewise offers a later picture from which to view today’s opening. Equal group exposure does not erase the influence of these particular objects. Enjoying album or paper imagery establishes no stable time perspective, actual memory quality, planning follow-through or confidence about the future."
+            }
+          ]
+        },
+        {
+          "id": "enjoy",
+          "title": {
+            "zh": "明信片可以先空着，也可以换一个标题",
+            "en": "A postcard may stay blank or receive a new title"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个读法可以让一个还很小的开始有地方放：一个只画了几笔的本子，也可以暂时被想象成以后会认出的那一本。它不需要马上变成成长故事，更不要求今天的自己为未来交出成果。你可以换标题、留空白，甚至忘记这张脑内明信片。事情后来与想象不同，不代表当时的期待做错了。网页没有证明回望式想象能增加坚持、幸福或创造力，也不要求你记录生活。这里的趣味是改变一下叙述距离，让普通日子多一种可读的画面，而不是提前替它确定意义。",
+              "en": "This reading can give a very small beginning somewhere to sit: a notebook with only a few marks can temporarily become the one you imagine recognising later. It need not immediately turn into a story of personal growth or require today’s self to deliver achievements to a future reader. Change the title, leave the card blank or forget the imagined postcard altogether. A later event differing from the picture does not make the earlier anticipation wrong. The webpage establishes no increased persistence, happiness or creativity and requires no life documentation. The amusement lies in changing narrative distance, rather than assigning an ordinary day its final meaning in advance."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "例子：还没画满的速写本",
+            "en": "Example: a sketchbook not yet filled"
+          },
+          "paragraphs": [
+            {
+              "zh": "你翻到一本久未使用、还剩空页的速写本，先想象未来它放满新画、摆在书架上的样子。已知的是今天翻开了本子，未来画多少、是否继续使用、内容会不会改变都没有确定。可以把这个画面当作一张借来的明信片，不把它说成完成承诺。后来只添了一张画，或转去别的爱好，都不需要解释成辜负未来的自己。网页没有记录练习次数，也无法根据这个选择推断技能或意志。这个例子里的书架是想象的场景，不是你必须达到的终点。",
+              "en": "You find a long-unused sketchbook with blank pages and picture it later, filled with new drawings on a shelf. The known fact is opening it today. How much you draw, whether you keep using it and whether its contents change are unsettled. Treating the picture as a borrowed postcard need not turn it into a completion promise. Adding only one drawing later or moving to another hobby need not mean disappointing a future self. The webpage records no practice history and infers no skill or willpower from this selection. The shelf in the example is an imagined setting, not a destination you must eventually reach."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与愿望预演、第二章期待的差别",
+            "en": "Compare Wish Rehearsal and Second Chapter"
+          },
+          "paragraphs": [
+            {
+              "zh": "愿望预演把尚未发生的场面放到眼前；未来明信片更像站到以后回看这个开端；第二章期待则常围绕曾经放下的事又出现一个入口。一本旧速写本可以同时装下三种写法：预演下一张画、想象以后翻页、或给重新拿起笔开一个续篇玩笑。菜单用不同句子突出这些重心，并不是把真实想法切成不能交叠的盒子。最高并列时，可以看看每份全文各自借了哪个时间位置，不用决定哪个才配作你的唯一标签，也不需要把次数差解释成长期取向。",
+              "en": "Wish Rehearsal brings a not-yet-happened scene into present view. Future Postcard borrows a later position from which to look at this beginning. Second Chapter often centres on something set aside receiving another opening. An old sketchbook can hold all three tellings: previewing the next drawing, imagining turning its pages later or joking about a sequel when picking up a pencil again. The menu emphasises those accents rather than dividing real thoughts into sealed boxes. With a highest tie, notice the time position each guide borrows without deciding which deserves to become your only label or treating a count difference as a lasting orientation."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：想象未来回忆，不等于想逃开现在",
+            "en": "Counterexample: imagining a future memory is not escaping now"
+          },
+          "paragraphs": [
+            {
+              "zh": "有人会开玩笑说“以后这就是一张老照片”，同时很清楚今天还要确认地点和时间；另一个人只描述当前细节，也可能有很明确的长期计划。是否喜欢未来明信片的句子，无法说明谁更活在当下、谁更会规划或谁更珍惜关系。想象的照片也不能替别人决定将来还会不会一起出现。次数较少不意味着缺少期待，次数较多也不表示需要调整关注点。这个反例把名称留在修辞游戏的范围，让你可以享受一种时间视角，而不必接受一整套关于自己的心理解释。",
+              "en": "Someone may joke that “one day this will be an old photograph” while remembering that today’s place and time still need confirming. Someone who describes only current details may have very definite long-term plans. Enjoying Future Postcard sentences establishes neither presence in the moment, planning ability nor how much a relationship is valued. An imagined photo also cannot decide who will appear together later. Fewer selections do not mean lacking anticipation, and more do not suggest a need to change focus. The counterexample keeps the name within a rhetorical game so you can enjoy a time viewpoint without accepting a larger psychological account of yourself."
+            }
+          ]
+        },
+        {
+          "id": "play",
+          "title": {
+            "zh": "可选小玩法：给空白明信片写一个暂定标题",
+            "en": "Optional play: a provisional title for a blank postcard"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，可以在心里给今天一个普通片段写一句“暂定标题”，再添一句目前知道的事实。例如“未来书架上的那本”旁边放“今天只翻开了两页”。标题允许有想象，事实保留自己的大小。无需真实照片、日记、长期承诺或让别人同意出现在故事里，也不用以后回来核对有没有实现。这不是记忆或规划训练，跳过也完全可以。小玩法只是让脑内明信片保持可改：今天可以有一个标题，未来仍然可以选择新的说法，包括发现它其实不需要被讲成一个故事。",
+              "en": "If you like, privately give an ordinary fragment of today a provisional title and add one currently known fact. Beside “the one on a future bookshelf,” put “I opened only two pages today.” The title may imagine while the fact keeps its actual size. No photograph, diary, long-term commitment or agreement from anyone to appear in a story is needed, and there is no later achievement check. This is no memory or planning exercise; skipping it is equally fine. The small activity merely keeps the imagined postcard editable. Today can have a title while the future remains free to choose another wording, including discovering that no story is needed."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "十八次选择与全部最高并列",
+            "en": "Eighteen choices and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18个情境每次呈现六组入口中的四组；每组出现12次、在四个位置各3次、省略6次。选一次加1，无反向或正确答案，全部18题选择后才比次数；所有最高并列都保留各自九节全文，不按顺序硬挑一个，也不派次高。全A六组各3次，会显示六份54模块，不叫理想平衡。计数不是乐观份额、人格相似度、现实判断或信念强度，不用12作百分比。一次差异没有验证的心理意义；少选某组也不代表你缺少那种想法。菜单有限，若都不像可退出，公开全文仍免费。",
+              "en": "Each of eighteen situations offers four of six editorial entry points. Every group appears twelve times, three in each position, and is omitted six times. One choice adds one count without reversals or correct answers. Only a complete attempt compares counts, retaining the nine-section guide for every highest tie without a fixed-order winner or secondary type. Choosing A throughout gives three per group and six full guides with fifty-four sections, not an ideal balance. Counts are no shares of optimism, personality-match percentages, reality testing or belief strength, and twelve is not a percentage denominator. A one-choice gap has no validated psychological meaning. Fewer selections establish no absence of an idea. Menus are limited; leave if none fits while public guides remain free."
+            }
+          ]
+        },
+        {
+          "id": "privacy",
+          "title": {
+            "zh": "轻松阅读、重测与分享",
+            "en": "Reading, retakes and sharing"
+          },
+          "paragraphs": [
+            {
+              "zh": "Delulu在本版是网络俚语的趣味用法，六个名称是原创编辑入口，不是标准人格或医学标签。字典只提供词义背景，不验证题目。六份全文、作答、重测与分享免费，不需另一测试或邮箱解锁。作答在本设备处理；草稿主动开启，仅本标签页最多24小时，完成、退出清除或重测删除。分享只带测试名、匹配读法名称和公开链接，不带答案或次数，不输入真实关系、收入、私人经历或他人资料。完整读完后可直接结束，也可另选测评；本结果不会换算成MBTI或任何其他分数。",
+              "en": "Delulu is playful internet slang here. Our six original editorial names are neither standard personalities nor medical labels; a dictionary supplies word background, not item validation. All six guides, questions, retakes and sharing are free without another test or email. Answers are processed on this device. Drafts require opt-in, last at most twenty-four hours in this tab and clear on completion, exit-and-clear or retake. Sharing carries only test and matched reading names and a public link, without answers or counts. No actual relationships, income, private experiences or other people’s information are entered. Finish after reading or choose another assessment separately; no result converts into MBTI or another score."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "second-chapter",
+      "directionIds": [
+        "second-chapter"
+      ],
+      "title": {
+        "zh": "第二章期待：旧片段也可以有续页",
+        "en": "Second Chapter: Another Page for a Paused Fragment"
+      },
+      "headline": {
+        "zh": "续篇先是一种讲述，继续与结束都保留选择。",
+        "en": "A sequel is a telling; continuing and ending remain choices."
+      },
+      "summary": {
+        "zh": "Delulu测试第二章期待完整读法：旧草案、停下的小兴趣与续页玩笑，附例子、相邻结果比较、反例和全部计分边界。",
+        "en": "Explore Second Chapter in the Delulu Test: paused ideas, a reopened draft, nearby readings and the difference between a playful sequel and a commitment."
+      },
+      "scoreReading": {
+        "zh": "只读给定菜单里的玩笑期待选择次数，所有最高并列保留全文，不证明真实信念或未来。",
+        "en": "Counts offered playful anticipations selected; every highest tie retains its guide without proving actual beliefs or future outcomes."
+      },
+      "seo": {
+        "title": {
+          "zh": "Delulu测试结果：第二章期待的完整趣味说明",
+          "en": "Delulu Test Result: Second Chapter Full Guide"
+        },
+        "description": {
+          "zh": "Delulu测试第二章期待完整读法：旧草案、停下的小兴趣与续页玩笑，附例子、相邻结果比较、反例和全部计分边界。",
+          "en": "Explore Second Chapter in the Delulu Test: paused ideas, a reopened draft, nearby readings and the difference between a playful sequel and a commitment."
+        }
+      },
+      "sections": [
+        {
+          "id": "lens",
+          "title": {
+            "zh": "第二章期待：给放下的片段想象一页续篇",
+            "en": "Second Chapter: imagine another page for a paused fragment"
+          },
+          "paragraphs": [
+            {
+              "zh": "第二章期待常围绕一个没有接下去的小片段：没约成的活动、停了几页的速写本、旧草案或搁下的兴趣。你在菜单里给它加一句“也许还有下一幕”，让没完成暂时不必成为唯一标题。这里的第二章是一种玩笑式叙述，不是必须重来的义务，更不是挫折之后一定成功的保证。名称也不说明你经历了重大困难、恢复能力更强或比别人更坚持。它只是把注意放在这些给定句子怎样为旧片段保留一种想象空间，而真实的下一步仍然可以是继续、调整或结束。",
+              "en": "Second Chapter often concerns a small fragment that did not continue: an outing never arranged, a sketchbook paused after a few pages, an old draft or a hobby set aside. The offered sentence adds “perhaps there is another scene,” so unfinished need not temporarily be its only title. A second chapter here is playful narration rather than a duty to restart or a guarantee of success after disappointment. The name establishes no major adversity, greater resilience or stronger persistence. It attends to how these particular sentences leave imaginative room around a paused fragment, while the actual next step can still be continuing, changing direction or ending it."
+            }
+          ]
+        },
+        {
+          "id": "menu",
+          "title": {
+            "zh": "从旧草案到小舞台：十二个续页句子",
+            "en": "From old drafts to small stages: twelve sequel sentences"
+          },
+          "paragraphs": [
+            {
+              "zh": "这一组十二次出现，写法并不都在说“再努力一次”。读书活动草案可以被叫作等第二幕，雨天没成的散步可以想成还有下一回，普通合唱留言也可以被讲成没有接上的一页仍有续篇。它们把旧片段与新的可能并排放着，不代表外界已经发来新机会。尤其是候补舞台和未明确约定的活动，后续仍取决于实际安排与相关人的选择。每组出现机会一样，但你可能只喜欢某些物件或措辞；次数不能变成恢复速度、抗压能力或执行习惯的分数。",
+              "en": "These twelve appearances do not all mean “try harder again.” A reading-event draft can be waiting for a second act, a walk interrupted by rain can have another instalment, and an ordinary choir message can become an imagined page not yet joined to the next. The sentences place a past fragment beside a possibility rather than show that the outside world has supplied an opportunity. A reserve stage place or unconfirmed activity still depends on actual arrangements and other people’s choices. Equal exposure leaves room for liking particular objects or wording. The count cannot become a score for recovery speed, stress tolerance or habits of execution."
+            }
+          ]
+        },
+        {
+          "id": "enjoy",
+          "title": {
+            "zh": "续篇可以很小，也可以没有开拍日期",
+            "en": "A sequel may be small and have no filming date"
+          },
+          "paragraphs": [
+            {
+              "zh": "一份旧点子重新被提起，可以先只获得一句轻松的“续集待定”。你不必立刻证明自己这次能坚持，也不用把过去没有完成的部分解释成铺垫。续篇甚至可以只是想象一种不同的讲法：那个片段当时停了，而今天你看见它仍会想到一些有趣的东西。它不要求联系旧伙伴、重启安排或投入资源。网页没有把第二章期待定义为更健康的态度，也没有证明这样想会改善表现或心情。这个名字的用途是给一段小叙述留一个开放的页角，实际是否翻页依然由你决定。",
+              "en": "An old idea mentioned again can first receive only a light “sequel date undecided.” You need not immediately demonstrate that you will persist this time or reinterpret an unfinished past as necessary preparation. The sequel may be only a different telling: the fragment stopped then, and encountering it today still suggests something amusing. No former collaborator must be contacted, arrangement restarted or resource committed. The webpage has not defined Second Chapter as a healthier attitude or established improvements in performance or mood from it. The name merely leaves an open corner on a small narrative page; whether to turn that page remains a separate choice."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "例子：重新点开的读书活动草案",
+            "en": "Example: reopening a reading-event draft"
+          },
+          "paragraphs": [
+            {
+              "zh": "你再次打开一个旧读书活动草案，想“它也许一直在等第二幕”。已知的是文件还在、今天被打开；是否举办、谁愿意参加、场地和时间都仍未确定。第二幕可以是心里的一句玩笑，并不自动恢复旧承诺。你也可以看完后决定不办，或把其中一个点子留给完全不同的用途。这样不等于第二章失败，因为测试从未把它定义成计划。这个例子只说明如何给旧文本换一个临时标题，不推断你是否适合组织活动、是否能重新开始或将来会不会把事情做完。",
+              "en": "You reopen an old reading-event draft and think, “perhaps it has been waiting for a second act.” The known facts are that the file remains and you opened it today. Whether an event happens, who wants to join and what place or time works are unsettled. A second act may be a private joke rather than automatic renewal of old commitments. After reading, you can decide against holding it or keep one idea for an entirely different use. That is no failed second chapter, because the quiz never defined one as a plan. The example illustrates a provisional title, not organising ability, restarting capacity or eventual completion."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与幸运绕路、未来明信片一起看",
+            "en": "Compare Lucky Detour and Future Postcard"
+          },
+          "paragraphs": [
+            {
+              "zh": "第二章期待重在一个旧片段又被想起；幸运绕路重在计划偏转后出现新角度；未来明信片重在借以后的视角回看现在。雨天散步没成，既可以被说成等待下一回，也可以变成换路线后发现一点新趣味，还可以被预先写进未来回忆。三种句子有不同重心，但真实想法完全可以交叠。最高并列并不是打分失败，不用强选“最能代表你”的一个。逐份读它们在哪里转动了故事的时间或方向，比把次数换成持久人格标签更符合这套菜单的用途。",
+              "en": "Second Chapter emphasises a paused fragment being encountered again. Lucky Detour emphasises a new angle after a plan changes. Future Postcard borrows a later viewpoint on the present. A walk prevented by rain can wait for another instalment, become a different route with a small discovery, or receive an imagined retrospective caption. Those sentences have different accents while actual thoughts can overlap. A highest tie is no scoring failure and needs no forced choice of the one that represents you best. Reading where each guide turns a story’s time or direction fits this menu better than converting the counts into a lasting personality label."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：给故事留续页，不等于必须重来",
+            "en": "Counterexample: leaving a page open does not require a restart"
+          },
+          "paragraphs": [
+            {
+              "zh": "有人会给旧速写本开一句续集玩笑，最后仍选择新的兴趣；另一个人不用任何第二章比喻，也可以踏实地恢复一个小安排。讲述方式与实际坚持不是同一件事。结果也不能把别人尚未回应的活动说成“总会再约成”，或要求对方配合你的续篇。结束一个旧片段不表示不够乐观，重新尝试也不证明更强大。把这条反例放在全文里，是为了让玩笑保持可退出：你可以喜欢“还可能有下一页”的声音，也可以随时合上本子，不必用现实成果来维护结果名称。",
+              "en": "Someone may joke about a sketchbook sequel and ultimately choose a new interest. Someone using no second-chapter metaphor may calmly resume a small arrangement. Narrative style and actual persistence are different matters. A result also cannot turn an unanswered activity suggestion into “it will happen eventually” or require someone to join your sequel. Ending an old fragment is no lack of optimism, and trying again proves no greater strength. This counterexample keeps the joke easy to leave. Enjoying the sound of “there might be another page” can coexist with closing the notebook at any time, without producing achievements to defend a result name."
+            }
+          ]
+        },
+        {
+          "id": "play",
+          "title": {
+            "zh": "可选小玩法：为第二章写一个“也可以不继续”",
+            "en": "Optional play: add “it may also stop here”"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，可以在心里给一个无关紧要的旧点子加两句并排标题：“也许还有第二章”和“也可以停在这里”。两句无需分出输赢，前一句保留想象，后一句保留选择。不要拿这个小玩法替别人决定关系、承诺或活动安排，也不需要联系任何人、翻出私人经历或为了练习重启项目。这不是恢复力训练，网页不会记录你选了哪句。只读完两句也足够；趣味在于让续篇成为一种可用的讲述方式，而不是新的待办或必须兑现的保证。",
+              "en": "If you like, privately give an inconsequential old idea two neighbouring titles: “perhaps there is a second chapter” and “it may also stop here.” They need no winner; one keeps imagination available while the other keeps choice available. Use neither sentence to decide another person’s relationship, promise or activity arrangements. Contact no one, retrieve no private experiences and restart no project for an exercise. This is no resilience training, and the webpage records no selection between the two titles. Reading them is enough. The amusement is allowing a sequel to remain one available way of telling a fragment rather than another task or guarantee to fulfil."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "十八次选择与全部最高并列",
+            "en": "Eighteen choices and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18个情境每次呈现六组入口中的四组；每组出现12次、在四个位置各3次、省略6次。选一次加1，无反向或正确答案，全部18题选择后才比次数；所有最高并列都保留各自九节全文，不按顺序硬挑一个，也不派次高。全A六组各3次，会显示六份54模块，不叫理想平衡。计数不是乐观份额、人格相似度、现实判断或信念强度，不用12作百分比。一次差异没有验证的心理意义；少选某组也不代表你缺少那种想法。菜单有限，若都不像可退出，公开全文仍免费。",
+              "en": "Each of eighteen situations offers four of six editorial entry points. Every group appears twelve times, three in each position, and is omitted six times. One choice adds one count without reversals or correct answers. Only a complete attempt compares counts, retaining the nine-section guide for every highest tie without a fixed-order winner or secondary type. Choosing A throughout gives three per group and six full guides with fifty-four sections, not an ideal balance. Counts are no shares of optimism, personality-match percentages, reality testing or belief strength, and twelve is not a percentage denominator. A one-choice gap has no validated psychological meaning. Fewer selections establish no absence of an idea. Menus are limited; leave if none fits while public guides remain free."
+            }
+          ]
+        },
+        {
+          "id": "privacy",
+          "title": {
+            "zh": "轻松阅读、重测与分享",
+            "en": "Reading, retakes and sharing"
+          },
+          "paragraphs": [
+            {
+              "zh": "Delulu在本版是网络俚语的趣味用法，六个名称是原创编辑入口，不是标准人格或医学标签。字典只提供词义背景，不验证题目。六份全文、作答、重测与分享免费，不需另一测试或邮箱解锁。作答在本设备处理；草稿主动开启，仅本标签页最多24小时，完成、退出清除或重测删除。分享只带测试名、匹配读法名称和公开链接，不带答案或次数，不输入真实关系、收入、私人经历或他人资料。完整读完后可直接结束，也可另选测评；本结果不会换算成MBTI或任何其他分数。",
+              "en": "Delulu is playful internet slang here. Our six original editorial names are neither standard personalities nor medical labels; a dictionary supplies word background, not item validation. All six guides, questions, retakes and sharing are free without another test or email. Answers are processed on this device. Drafts require opt-in, last at most twenty-four hours in this tab and clear on completion, exit-and-clear or retake. Sharing carries only test and matched reading names and a public link, without answers or counts. No actual relationships, income, private experiences or other people’s information are entered. Finish after reading or choose another assessment separately; no result converts into MBTI or another score."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lucky-detour",
+      "directionIds": [
+        "lucky-detour"
+      ],
+      "title": {
+        "zh": "幸运绕路：给小转弯起一个临时标题",
+        "en": "Lucky Detour: A Temporary Title for a Small Turn"
+      },
+      "headline": {
+        "zh": "支线可以有趣，也可以只是回到原来的路。",
+        "en": "A side path can amuse, or simply return to the original route."
+      },
+      "summary": {
+        "zh": "Delulu测试幸运绕路完整读法：市集书摊、雨天和意外留白的十二个选项，附具体例子、比较、反例与可选小玩法。",
+        "en": "Read Lucky Detour in the Delulu Test: a market-bookstall example, changed plans, nearby readings and the limits of giving uncertainty a playful title."
+      },
+      "scoreReading": {
+        "zh": "只读给定菜单里的玩笑期待选择次数，所有最高并列保留全文，不证明真实信念或未来。",
+        "en": "Counts offered playful anticipations selected; every highest tie retains its guide without proving actual beliefs or future outcomes."
+      },
+      "seo": {
+        "title": {
+          "zh": "Delulu测试结果：幸运绕路的完整趣味说明",
+          "en": "Delulu Test Result: Lucky Detour Full Guide"
+        },
+        "description": {
+          "zh": "Delulu测试幸运绕路完整读法：市集书摊、雨天和意外留白的十二个选项，附具体例子、比较、反例与可选小玩法。",
+          "en": "Read Lucky Detour in the Delulu Test: a market-bookstall example, changed plans, nearby readings and the limits of giving uncertainty a playful title."
+        }
+      },
+      "sections": [
+        {
+          "id": "lens",
+          "title": {
+            "zh": "幸运绕路：给未定的小转弯起个轻松标题",
+            "en": "Lucky Detour: a light title for an unsettled turn"
+          },
+          "paragraphs": [
+            {
+              "zh": "幸运绕路从计划旁边的一点空白开始：走错巷子、临时换房间、整理抽屉多发现一枚旧徽章，或某个安排暂时没有接上。你给它加一个“也许会捡到小亮点”的标题，知道这只是自己的脑补，不是已经发生的好运。这个结果描述给定句子中的讲述方向，不说你命好、总能化险为夷或比别人更积极。绕路仍然可以只是绕路，空白也不必装进任何惊喜。它提供的是一张趣味地图上的支线名称，不是现实中的导航建议或对未来结果的估计。",
+              "en": "Lucky Detour begins with a small blank beside a plan: entering the wrong alley, changing rooms, finding an old badge while sorting a drawer or having an arrangement fail to connect for now. You add a title such as “perhaps there will be a little bright spot,” knowing it is your imagined telling rather than good fortune already delivered. This result describes a narrative direction in the offered sentences, not a lucky life, reliable escapes or greater positivity than others. A detour may remain only a detour, and a blank need contain no surprise. It names a side path on a playful map rather than offering navigation advice or an estimate of future outcomes."
+            }
+          ]
+        },
+        {
+          "id": "menu",
+          "title": {
+            "zh": "十二条支线，重点是偏转与留白",
+            "en": "Twelve side paths about changes and blanks"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目里的幸运绕路包括给走错的路起名字、把雨天改写成小发现的岔路、把日历空白叫作惊喜口袋，以及想象更换活动室也许多一个亮点。有的选项只围绕一次普通抬头或一句普通留言，转弯发生在讲述里，并非真的改变行程。共同点是把未知当成可以暂放想象的位置，而不是证明所有耽搁都有好处。每组十二次曝光、位置均衡，仍然只是这些编辑句子的菜单机会；它没有记录你面对真正损失、风险或紧急情况时会怎样处理，也不比较谁更会应变。",
+              "en": "The Lucky Detour options name a wrong turn, recast a rainy-day change as a route to a small discovery, call calendar space a surprise pocket and imagine one new bright spot in a replacement activity room. Some concern only looking up or receiving an ordinary message; the turn occurs in narration rather than in a changed itinerary. Their connection is treating the unknown as a temporary place for imagination, not proving that every delay is beneficial. Twelve balanced appearances are opportunities within an edited menu. They record no response to real loss, risk or emergencies and make no comparison of who adapts better when circumstances change."
+            }
+          ]
+        },
+        {
+          "id": "enjoy",
+          "title": {
+            "zh": "惊喜不必补偿原来的不方便",
+            "en": "A surprise need not compensate for inconvenience"
+          },
+          "paragraphs": [
+            {
+              "zh": "临时换房间可能确实麻烦，同时也可以容下一句“换个布景，也许有个小亮点”。两种描述可以并排，不必要求惊喜抵消原来的不便。你也无需为任何不喜欢的改变寻找积极意义。幸运绕路在这里像一个可以随手擦掉的小标题：若觉得有趣就保留，若不合拍就让事情按普通名字存在。测试没有证明这套讲述能提高适应力、减少压力或增加实际机会；更不会把没有发现惊喜解释成态度不够好。允许小故事存在，也允许现实保留它原来的感受和条件。",
+              "en": "A room change may be inconvenient and still allow “new scenery; perhaps a small bright spot.” Those descriptions can sit together without requiring a surprise to compensate for the inconvenience. No disliked change needs a positive meaning found for it. Lucky Detour here resembles an erasable small title: keep it if amusing, or let an event retain its ordinary name if it does not fit. The quiz establishes no increase in adaptability, reduction in stress or additional opportunity from this telling. Finding no surprise is not a failure of attitude. A small story can exist while actual conditions and your own experience keep their original shape."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "例子：走错巷子看到一个书摊",
+            "en": "Example: a bookstall down the wrong alley"
+          },
+          "paragraphs": [
+            {
+              "zh": "逛市集走错巷子，看到一个没有见过的书摊，你在心里叫它“幸运绕路”。已知的是走错路和发现书摊；这里有没有喜欢的书、是否值得停留、原本的安排会不会受影响仍需现场决定。趣味标题不要求你购买、继续走陌生路线或忽略时间和实际情况。你可以看一眼就返回，也可以觉得书摊很普通，这都不取消当时那句轻松的脑补。网页没有从这个选项推断你擅长冒险、具有发现商机的能力或总会在错误里得到好结果。",
+              "en": "At a market, you turn into the wrong alley and notice an unfamiliar bookstall, privately calling it a Lucky Detour. The known facts are the wrong turn and the stall. Whether it has a book you like, whether to stop and whether your original arrangements are affected remain practical questions. The playful title requires no purchase, further unfamiliar route or disregard for time and actual circumstances. You can glance and return, or find the stall ordinary, without cancelling the earlier light narration. This option establishes no talent for risk, business opportunities or reliably obtaining good outcomes from mistakes; those are different questions the menu has not examined."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与线索火花、第二章期待的差别",
+            "en": "Compare Signal Spark and Second Chapter"
+          },
+          "paragraphs": [
+            {
+              "zh": "线索火花常从一个微小细节添意义；幸运绕路更关心偏转、空白或意外位置；第二章期待更关心一个曾放下的片段能否被想成续页。整理抽屉找到旧徽章，可以是巧合的火花、意外发现的支线，也可以给旧兴趣开一个续篇玩笑。菜单通过句子区分重心，真实想法不必只用一种写法。最高并列时不删掉其他全文，也不派一个折中的新人格。分别看看每组从哪里开始讲，就能理解差别，而无需把次数变成对乐观程度、信念强度或判断水平的排序。",
+              "en": "Signal Spark adds meaning to a small detail. Lucky Detour attends to a turn, blank or unexpected position. Second Chapter centres on a paused fragment being imagined with another page. Finding an old badge while sorting a drawer can therefore be a coincidence spark, a side-path discovery or a sequel joke about an old interest. The menu distinguishes sentence emphasis without requiring actual thoughts to use only one form. A highest tie keeps every relevant guide and invents no compromise personality. Noticing where each telling begins explains the difference without ranking optimism, strength of belief or quality of judgement from its count."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：开绕路玩笑，不等于偏好冒险",
+            "en": "Counterexample: a detour joke is not a preference for risk"
+          },
+          "paragraphs": [
+            {
+              "zh": "有人只对一张合适颜色的纸开“绕了一圈刚刚好”的玩笑，在实际安排上仍希望确定和简单；另一个人喜欢探索新地点，也可能完全不爱给变化写故事。是否选择幸运绕路句子，无法区分安全偏好、冒险意愿或处理问题的能力。对真实的不便感到失望，也不代表没有这一组的趣味。结果尤其不应被用来要求别人感谢耽搁、把损失说成礼物或接受不想要的改变。反例让名称停在普通小场景里，而不是变成一条必须套用到所有生活经验的乐观规则。",
+              "en": "Someone may joke “around the loop and just right” about a matching paper scrap while preferring actual arrangements to be certain and simple. Someone who enjoys new places may dislike writing stories around changes. Selecting Lucky Detour sentences distinguishes no safety preference, appetite for risk or problem-solving ability. Disappointment about inconvenience also removes no entitlement to enjoy this group’s jokes. A result should never require someone else to thank a delay, call a loss a gift or accept an unwanted change. The counterexample keeps the name in ordinary small scenes instead of making it an optimism rule that must fit every life experience."
+            }
+          ]
+        },
+        {
+          "id": "play",
+          "title": {
+            "zh": "可选小玩法：给支线一个可撤回的名字",
+            "en": "Optional play: an erasable side-path title"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，可以给一个无关紧要的普通发现起两个名字，例如“整理抽屉时找到纸徽章”和“今天的幸运支线”。前一个交代发生了什么，后一个标明你此刻添的趣味。标题可以随时撤回，不需要去制造更多意外、改变路线、花钱或证明后来真的有好运。这个小玩法也不用分享给任何人，网页没有地方提交私人经历。它不是提升应变或调节情绪的方法；你可以完全跳过。留一个可擦掉的标题，只是让想象轻一点，让是否停留、继续或结束仍回到实际选择。",
+              "en": "If you like, give an inconsequential discovery two names: “found a paper badge while sorting a drawer” and “today’s lucky side path.” One states what happened; the other marks the amusement you added now. Withdraw the title whenever you like. Create no further surprise, change no route, spend nothing and prove no later good fortune for it. Share the activity with no one if you prefer; the webpage has no place to submit a private experience. This is no adaptability or mood-management method, and skipping it is fine. An erasable title simply keeps imagination light while practical choices remain available, including stopping or returning to an earlier plan."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "十八次选择与全部最高并列",
+            "en": "Eighteen choices and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18个情境每次呈现六组入口中的四组；每组出现12次、在四个位置各3次、省略6次。选一次加1，无反向或正确答案，全部18题选择后才比次数；所有最高并列都保留各自九节全文，不按顺序硬挑一个，也不派次高。全A六组各3次，会显示六份54模块，不叫理想平衡。计数不是乐观份额、人格相似度、现实判断或信念强度，不用12作百分比。一次差异没有验证的心理意义；少选某组也不代表你缺少那种想法。菜单有限，若都不像可退出，公开全文仍免费。",
+              "en": "Each of eighteen situations offers four of six editorial entry points. Every group appears twelve times, three in each position, and is omitted six times. One choice adds one count without reversals or correct answers. Only a complete attempt compares counts, retaining the nine-section guide for every highest tie without a fixed-order winner or secondary type. Choosing A throughout gives three per group and six full guides with fifty-four sections, not an ideal balance. Counts are no shares of optimism, personality-match percentages, reality testing or belief strength, and twelve is not a percentage denominator. A one-choice gap has no validated psychological meaning. Fewer selections establish no absence of an idea. Menus are limited; leave if none fits while public guides remain free."
+            }
+          ]
+        },
+        {
+          "id": "privacy",
+          "title": {
+            "zh": "轻松阅读、重测与分享",
+            "en": "Reading, retakes and sharing"
+          },
+          "paragraphs": [
+            {
+              "zh": "Delulu在本版是网络俚语的趣味用法，六个名称是原创编辑入口，不是标准人格或医学标签。字典只提供词义背景，不验证题目。六份全文、作答、重测与分享免费，不需另一测试或邮箱解锁。作答在本设备处理；草稿主动开启，仅本标签页最多24小时，完成、退出清除或重测删除。分享只带测试名、匹配读法名称和公开链接，不带答案或次数，不输入真实关系、收入、私人经历或他人资料。完整读完后可直接结束，也可另选测评；本结果不会换算成MBTI或任何其他分数。",
+              "en": "Delulu is playful internet slang here. Our six original editorial names are neither standard personalities nor medical labels; a dictionary supplies word background, not item validation. All six guides, questions, retakes and sharing are free without another test or email. Answers are processed on this device. Drafts require opt-in, last at most twenty-four hours in this tab and clear on completion, exit-and-clear or retake. Sharing carries only test and matched reading names and a public link, without answers or counts. No actual relationships, income, private experiences or other people’s information are entered. Finish after reading or choose another assessment separately; no result converts into MBTI or another score."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "十八次选择与全部最高并列",
+        "en": "Eighteen choices and every highest tie"
+      },
+      "paragraphs": [
+        {
+          "zh": "18个情境每次呈现六组入口中的四组；每组出现12次、在四个位置各3次、省略6次。选一次加1，无反向或正确答案，全部18题选择后才比次数；所有最高并列都保留各自九节全文，不按顺序硬挑一个，也不派次高。全A六组各3次，会显示六份54模块，不叫理想平衡。计数不是乐观份额、人格相似度、现实判断或信念强度，不用12作百分比。一次差异没有验证的心理意义；少选某组也不代表你缺少那种想法。菜单有限，若都不像可退出，公开全文仍免费。",
+          "en": "Each of eighteen situations offers four of six editorial entry points. Every group appears twelve times, three in each position, and is omitted six times. One choice adds one count without reversals or correct answers. Only a complete attempt compares counts, retaining the nine-section guide for every highest tie without a fixed-order winner or secondary type. Choosing A throughout gives three per group and six full guides with fifty-four sections, not an ideal balance. Counts are no shares of optimism, personality-match percentages, reality testing or belief strength, and twelve is not a percentage denominator. A one-choice gap has no validated psychological meaning. Fewer selections establish no absence of an idea. Menus are limited; leave if none fits while public guides remain free."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "每个最高并列都保留全文",
+        "en": "Every highest tie retains its full guide"
+      },
+      "paragraphs": [
+        {
+          "zh": "18次选择合计18，各组曝光相同；只比较最高次数，不派次高或强行决胜。六组各3时显示六份54模块。计数不换成脑补百分比、信念强度或人群排名，一题差异没有验证的心理意义。",
+          "en": "Eighteen choices total eighteen, with equal exposure for each group. Only highest counts are compared, with no secondary result or forced winner. Six groups of three show all six guides and 54 sections. Counts become no fantasy percentages, belief strength or population ranks; a one-item gap has no validated psychological meaning."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "名字是编辑入口，不是六种人",
+        "en": "Editorial entry points, not six kinds of people"
+      },
+      "paragraphs": [
+        {
+          "zh": "同一个念头可以有预演、配乐、回望或续篇，分组为了让菜单可读，不证明这些想法互斥或独立。没有合适选项可退出；缺答不出个人结果，六份公开全文仍可读。",
+          "en": "One thought can contain a preview, soundtrack, later look back or sequel. Grouping makes a menu readable without proving independent or exclusive categories. Leave if no option fits; partial answers produce no personal result while all six public guides remain available."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "俚语背景与原创版本边界",
+        "en": "Slang background and this original edition"
+      },
+      "paragraphs": [
+        {
+          "zh": "Delulu在本版作为网络俚语的趣味用法，不是医学术语。本版六组名称由编辑原创，只读给定菜单里的脑补与期待选择，不测现实判断、真实信念、智力、健康、稳定人格或乐观程度，也不证明勇敢、韧性、机会、关系、金钱或愿望会实现。脑补不是证据，不能推断别人心意或替别人同意。字典词义只提供语言背景，不验证题目；未复制竞品题本、六个人设正文或图像，不作占卜、显化因果或心理诊断。",
+          "en": "Delulu is used here as playful internet slang, not a medical term. Our six original editorial names describe choices among offered anticipations, not reality testing, actual beliefs, intelligence, health, stable personality or optimism strength. Choices establish neither courage, resilience, opportunity, relationships, money nor fulfilled wishes. An imagined scene is not evidence of another person’s feelings or consent. A dictionary supplies language background, not item validation. No competitor bank, six persona texts or artwork is reproduced, and no divination, manifestation causality or diagnosis is offered."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "轻松阅读、重测与分享",
+        "en": "Reading, retakes and sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "Delulu在本版是网络俚语的趣味用法，六个名称是原创编辑入口，不是标准人格或医学标签。字典只提供词义背景，不验证题目。六份全文、作答、重测与分享免费，不需另一测试或邮箱解锁。作答在本设备处理；草稿主动开启，仅本标签页最多24小时，完成、退出清除或重测删除。分享只带测试名、匹配读法名称和公开链接，不带答案或次数，不输入真实关系、收入、私人经历或他人资料。完整读完后可直接结束，也可另选测评；本结果不会换算成MBTI或任何其他分数。",
+          "en": "Delulu is playful internet slang here. Our six original editorial names are neither standard personalities nor medical labels; a dictionary supplies word background, not item validation. All six guides, questions, retakes and sharing are free without another test or email. Answers are processed on this device. Drafts require opt-in, last at most twenty-four hours in this tab and clear on completion, exit-and-clear or retake. Sharing carries only test and matched reading names and a public link, without answers or counts. No actual relationships, income, private experiences or other people’s information are entered. Finish after reading or choose another assessment separately; no result converts into MBTI or another score."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "Delulu在这项测试里是什么意思？",
+        "en": "What does Delulu mean in this quiz?"
+      },
+      "answer": {
+        "zh": "这里只取网络俚语的玩笑用法：明知只是脑补，给普通小事添一点期待。它不是医学用语，不检测妄想、真实信念或现实判断。字典只提供语言背景，不验证题本。",
+        "en": "Here it is a playful slang use: knowingly adding a little imagined anticipation to an ordinary event. It is no medical term or assessment of delusions, actual beliefs or reality testing. A dictionary provides language background rather than validation of the bank."
+      }
+    },
+    {
+      "question": {
+        "zh": "六种结果分别在看什么？",
+        "en": "What do the six readings describe?"
+      },
+      "answer": {
+        "zh": "愿望预演看尚未发生的画面，日常片场看当前片段的镜头语言，线索火花给细节添彩，未来明信片借以后回望，第二章期待给旧片段续页，幸运绕路为转弯留个趣味标题。它们可以交叠，不是六种人格。",
+        "en": "Wish Rehearsal previews an event, Everyday Cinema narrates the current shot, Signal Spark adds meaning to a detail, Future Postcard borrows a later view, Second Chapter revisits a paused fragment, and Lucky Detour titles a turn. These can overlap and are not six personalities."
+      }
+    },
+    {
+      "question": {
+        "zh": "每题只有四个选项，结果怎样计？",
+        "en": "How is a result counted with four options per question?"
+      },
+      "answer": {
+        "zh": "18个情境每次呈现六组入口中的四组；每组出现12次、在四个位置各3次、省略6次。选一次加1，无反向或正确答案，全部18题选择后才比次数；所有最高并列都保留各自九节全文，不按顺序硬挑一个，也不派次高。全A六组各3次，会显示六份54模块，不叫理想平衡。计数不是乐观份额、人格相似度、现实判断或信念强度，不用12作百分比。一次差异没有验证的心理意义；少选某组也不代表你缺少那种想法。菜单有限，若都不像可退出，公开全文仍免费。",
+        "en": "Each of eighteen situations offers four of six editorial entry points. Every group appears twelve times, three in each position, and is omitted six times. One choice adds one count without reversals or correct answers. Only a complete attempt compares counts, retaining the nine-section guide for every highest tie without a fixed-order winner or secondary type. Choosing A throughout gives three per group and six full guides with fifty-four sections, not an ideal balance. Counts are no shares of optimism, personality-match percentages, reality testing or belief strength, and twelve is not a percentage denominator. A one-choice gap has no validated psychological meaning. Fewer selections establish no absence of an idea. Menus are limited; leave if none fits while public guides remain free."
+      }
+    },
+    {
+      "question": {
+        "zh": "会判断我更乐观、勇敢或容易受骗吗？",
+        "en": "Does it judge optimism, courage or gullibility?"
+      },
+      "answer": {
+        "zh": "不会。次数只描述给定菜单里的选择，没有核对实际信念、行为、智力、健康、风险判断或未来。不能据此判断别人心意，也不能代替他人的同意。",
+        "en": "No. Counts describe offered-menu choices and check no actual beliefs, behaviour, intelligence, health, risk judgements or future. They establish no other person’s feelings and cannot replace consent."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是JobCannon题本或标准心理量表吗？",
+        "en": "Is this a JobCannon bank or a standard psychological scale?"
+      },
+      "answer": {
+        "zh": "不是。18个情境、72个选项和六组名称与全文均为本站原创。只对齐俚语主题的趣味需求，不复制竞品题库、结果正文或图像，也没有本站效度、常模或跨语言等价验证。",
+        "en": "No. All 18 situations, 72 options and six editorial names and guides are original. The edition addresses a broad playful slang topic without copying competitor items, result text or artwork. It has no local validity, norms or established language equivalence."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果、恢复、重测和分享需要付费吗？",
+        "en": "Are full results, drafts, retakes and sharing paid?"
+      },
+      "answer": {
+        "zh": "Delulu在本版是网络俚语的趣味用法，六个名称是原创编辑入口，不是标准人格或医学标签。字典只提供词义背景，不验证题目。六份全文、作答、重测与分享免费，不需另一测试或邮箱解锁。作答在本设备处理；草稿主动开启，仅本标签页最多24小时，完成、退出清除或重测删除。分享只带测试名、匹配读法名称和公开链接，不带答案或次数，不输入真实关系、收入、私人经历或他人资料。完整读完后可直接结束，也可另选测评；本结果不会换算成MBTI或任何其他分数。",
+        "en": "Delulu is playful internet slang here. Our six original editorial names are neither standard personalities nor medical labels; a dictionary supplies word background, not item validation. All six guides, questions, retakes and sharing are free without another test or email. Answers are processed on this device. Drafts require opt-in, last at most twenty-four hours in this tab and clear on completion, exit-and-clear or retake. Sharing carries only test and matched reading names and a public link, without answers or counts. No actual relationships, income, private experiences or other people’s information are entered. Finish after reading or choose another assessment separately; no result converts into MBTI or another score."
+      }
+    }
+  ],
+  "references": [
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/delulu",
+      "title": {
+        "zh": "Cambridge词典：delulu俚语词义（语言背景）",
+        "en": "Cambridge Dictionary: delulu slang meaning (language background)"
+      }
+    }
+  ]
+}

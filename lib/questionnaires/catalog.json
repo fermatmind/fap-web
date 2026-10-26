@@ -2052,5 +2052,32 @@
       "sharing",
       "response"
     ]
+  },
+  {
+    "slug": "delulu-test",
+    "code": "PLAYFUL_HOPE_NARRATIVES_ORIGINAL_18",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "framework",
+    "title": {
+      "zh": "Delulu测试",
+      "en": "Delulu Test"
+    },
+    "description": {
+      "zh": "免费Delulu测试：18道原创日常脑补情境，探索愿望预演、日常片场等六种玩笑期待。全部最高并列和六份完整说明免费，不测信念或预测未来。",
+      "en": "A free Delulu Test: 18 original situations, six playful anticipation guides and full readings for every highest tie, without predicting your future."
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "fm_playful_hope_narratives_18",
+    "questionCount": 18,
+    "resultSlugs": [
+      "wish-rehearsal",
+      "cinematic-moment",
+      "signal-spark",
+      "future-postcard",
+      "second-chapter",
+      "lucky-detour"
+    ]
   }
 ]

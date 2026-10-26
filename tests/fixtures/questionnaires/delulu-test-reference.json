@@ -1,0 +1,816 @@
+{
+  "formCode": "fm_playful_hope_narratives_18",
+  "origin": "Eighteen original bilingual ordinary situations and seventy-two original playful thought options, organised into six original editorial hope-narrative readings. Inspired by the broad slang topic, not a competitor bank, a standard personality taxonomy, actual belief test or clinical assessment.",
+  "directions": [
+    {
+      "id": "wish-rehearsal",
+      "title": {
+        "zh": "愿望预演",
+        "en": "Wish Rehearsal"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "cinematic-moment",
+      "title": {
+        "zh": "日常片场",
+        "en": "Everyday Cinema"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "signal-spark",
+      "title": {
+        "zh": "线索火花",
+        "en": "Signal Spark"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "future-postcard",
+      "title": {
+        "zh": "未来明信片",
+        "en": "Future Postcard"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "second-chapter",
+      "title": {
+        "zh": "第二章期待",
+        "en": "Second-Chapter Hope"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "lucky-detour",
+      "title": {
+        "zh": "幸运绕路",
+        "en": "Lucky Detour"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "DELULU_01",
+      "prompt": {
+        "zh": "你报了一个手作体验课，只收到自动确认信。明知还不知道当天怎样，你更容易冒出哪句玩笑脑补？",
+        "en": "An automatic email confirms your craft workshop booking. You do not know how the day will go. Which playful hopeful thought comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我已经在脑中预演作品摆上桌的那一刻。",
+            "en": "I am already rehearsing the moment my finished piece reaches the table."
+          },
+          "directionId": "wish-rehearsal"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "这封普通回执被我配上了新一集的开场音乐。",
+            "en": "I give this ordinary receipt the opening music of a new episode."
+          },
+          "directionId": "cinematic-moment"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "邮件里那颗小星星，被我偷偷编成了一个好兆头。",
+            "en": "I privately turn the email’s little star into a promising hint."
+          },
+          "directionId": "signal-spark"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我先给未来相册留一格，想象那天会留下什么画面。",
+            "en": "I reserve a future album square and imagine the picture that might fill it."
+          },
+          "directionId": "future-postcard"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_02",
+      "prompt": {
+        "zh": "你给朋友发了一个周末小提议，对方回“好呀”，细节还没谈。你会先怎样给这一刻加一点想象？",
+        "en": "A friend replies “sounds nice” to your small weekend idea; details are still undecided. How do you first add a little imagination?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我把这两个字读成了小短片的片头对白。",
+            "en": "I hear those words as the opening line of a tiny film."
+          },
+          "directionId": "cinematic-moment"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我忍不住给那个语气加一层亮闪闪的隐藏含义。",
+            "en": "I cannot resist adding a sparkling extra meaning to the tone."
+          },
+          "directionId": "signal-spark"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我已经想好日后回忆这个周末时的明信片标题。",
+            "en": "I am already inventing the postcard title for remembering that weekend."
+          },
+          "directionId": "future-postcard"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "上次没约成的小活动，好像可以有第二章了。",
+            "en": "The little plan that never happened last time might get a second chapter."
+          },
+          "directionId": "second-chapter"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_03",
+      "prompt": {
+        "zh": "逛小市集时你走错一条巷子，看到一个没见过的小书摊。除了实际看路，你的脑内旁白更像哪句？",
+        "en": "A wrong turn at a small market brings an unfamiliar bookstall into view. Alongside checking your route, which inner caption sounds like yours?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "摊上刚好有我喜欢的颜色，我给这个巧合加一朵小烟花。",
+            "en": "A favourite colour on the stall gives this coincidence a little firework in my head."
+          },
+          "directionId": "signal-spark"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我开始想象下次带一本自己的小作品来交换的画面。",
+            "en": "I picture bringing a little creation of my own to exchange another time."
+          },
+          "directionId": "future-postcard"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "搁了很久的阅读小计划，忽然像翻到了续页。",
+            "en": "A reading idea I shelved long ago seems to have found a continuation."
+          },
+          "directionId": "second-chapter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我把走错路暂时编成了“幸运绕路”的标题。",
+            "en": "For fun, I title the wrong turn “a lucky detour.”"
+          },
+          "directionId": "lucky-detour"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_04",
+      "prompt": {
+        "zh": "新建的出游相册还是空白，行程也没确定。你更想先放进哪种期待？",
+        "en": "A newly created outing album is empty and the plan is undecided. Which kind of anticipation do you add first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "给未来某张照片先写一句“那时的我们”。",
+            "en": "I draft a “there we were” caption for a future photograph."
+          },
+          "directionId": "future-postcard"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "想象以前没完成的一次小愿望，这回有了后半段。",
+            "en": "I imagine an unfinished little wish from before getting a later chapter."
+          },
+          "directionId": "second-chapter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把未知空白当作可以突然捡到惊喜的位置。",
+            "en": "I treat an empty square as a place an unexpected pleasant surprise could land."
+          },
+          "directionId": "lucky-detour"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "在心里反复播放最想拍到的一幅画面。",
+            "en": "I replay the one picture I most want to make in my imagination."
+          },
+          "directionId": "wish-rehearsal"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_05",
+      "prompt": {
+        "zh": "你把一个旧读书活动的草案重新打开，还没有决定要不要举办。哪种玩笑式期待先出现？",
+        "en": "You reopen an old draft for a reading activity without deciding whether to hold it. Which playful expectation appears first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "这份旧草案也许只是一直在等第二幕。",
+            "en": "Perhaps this old draft has simply been waiting for its second act."
+          },
+          "directionId": "second-chapter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "中间的耽搁，被我想象成通往新版本的小岔路。",
+            "en": "I imagine the delay as a side road toward a different version."
+          },
+          "directionId": "lucky-detour"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我又在脑内排练大家围坐读书的画面。",
+            "en": "I rehearse a picture of people gathering around books in my head."
+          },
+          "directionId": "wish-rehearsal"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我给重新点开文件的动作加了“故事继续”的字幕。",
+            "en": "I subtitle the act of reopening the file “the story continues.”"
+          },
+          "directionId": "cinematic-moment"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_06",
+      "prompt": {
+        "zh": "拼了一半的纸模型缺少一小片，你又在桌边找到了一张合适颜色的纸。你更像怎样脑补？",
+        "en": "A half-built paper model is missing a piece, and you find paper of a suitable colour nearby. Which imaginative thought fits first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我给这个普通发现起名“绕了一圈刚刚好”。",
+            "en": "I nickname this ordinary find “a detour that landed neatly.”"
+          },
+          "directionId": "lucky-detour"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我先在脑内看一遍模型完成的样子。",
+            "en": "I first watch the completed model take shape in my mind."
+          },
+          "directionId": "wish-rehearsal"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "这成了手作电影里一个配着音乐的小转场。",
+            "en": "It becomes a musical transition in my imaginary craft film."
+          },
+          "directionId": "cinematic-moment"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "这个颜色碰巧对上，被我当成小小的期待线索。",
+            "en": "The matching colour becomes a tiny cue for a hopeful story."
+          },
+          "directionId": "signal-spark"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_07",
+      "prompt": {
+        "zh": "生日聚会还没确定时间，你在纸上试写了一个小标题。你最容易给它加哪种想象？",
+        "en": "A birthday gathering has no confirmed date, and you try a small title on paper. Which addition comes most naturally?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "反复预演大家看见这个标题时的那一秒。",
+            "en": "I repeatedly picture the second people might see this title."
+          },
+          "directionId": "wish-rehearsal"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把试写标题当成庆生小电影的第一镜。",
+            "en": "I treat the draft title as the first shot of a birthday mini-film."
+          },
+          "directionId": "cinematic-moment"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一个随手画的符号，好像能装下一点特别的期待。",
+            "en": "A casually drawn symbol seems able to hold a special little expectation."
+          },
+          "directionId": "signal-spark"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先想象以后翻回这页时会怎样回忆。",
+            "en": "I imagine how I might remember this page when looking back later."
+          },
+          "directionId": "future-postcard"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_08",
+      "prompt": {
+        "zh": "你翻到很久没用的速写本，还有几页空着。你更容易对自己开哪种玩笑？",
+        "en": "An old sketchbook has several blank pages left. Which playful line do you tell yourself first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "镜头推进：失踪的画手重新登场。",
+            "en": "Camera in: the missing sketcher returns to the scene."
+          },
+          "directionId": "cinematic-moment"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "恰好翻开的那页，被我编成了一个值得期待的提示。",
+            "en": "I turn the page I happened to open into a promising little prompt."
+          },
+          "directionId": "signal-spark"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我已经想象它放满新画、摆在未来书架上的样子。",
+            "en": "I picture it full of new sketches on a future shelf."
+          },
+          "directionId": "future-postcard"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "前半本没有画完，不妨幻想后半本的续集。",
+            "en": "The first half stayed unfinished; I imagine a sequel in the second half."
+          },
+          "directionId": "second-chapter"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_09",
+      "prompt": {
+        "zh": "原本想在晴天进行的小散步遇到雨，还没决定改期还是换地方。哪句脑补先冒出来？",
+        "en": "Rain interrupts a little walk planned for sunshine. Neither rescheduling nor a different place is decided. Which thought appears first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "雨点刚好敲出一个节奏，我给它加了好消息的想象。",
+            "en": "The rain happens to make a rhythm, and I add an imagined good-news meaning."
+          },
+          "directionId": "signal-spark"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我先给未来某次晴天散步写了一张脑内明信片。",
+            "en": "I draft an imaginary postcard from a possible sunny walk ahead."
+          },
+          "directionId": "future-postcard"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "今天没成，也许只是这一小段故事还有下一回。",
+            "en": "Today did not happen; perhaps this little story has another instalment."
+          },
+          "directionId": "second-chapter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我把这场雨暂时写成通往意外小发现的岔路。",
+            "en": "For fun, I write this rain as a turn toward an unexpected little discovery."
+          },
+          "directionId": "lucky-detour"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_10",
+      "prompt": {
+        "zh": "一本新笔记本的第一页还没写，你只知道想留下点喜欢的事。你先想象哪一种开头？",
+        "en": "The first page of a new notebook is blank. You only know you want to keep things you like. Which beginning do you imagine first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "未来的我翻到这一页，会认出某段刚起步的小日子。",
+            "en": "A future me turns to this page and recognises the beginning of a small chapter."
+          },
+          "directionId": "future-postcard"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "之前断掉的记录习惯，在这里重新接上一句。",
+            "en": "A paused habit of keeping notes gets another sentence here."
+          },
+          "directionId": "second-chapter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留白像一个还没揭晓的小惊喜口袋。",
+            "en": "The blank space feels like a pocket for an undisclosed little surprise."
+          },
+          "directionId": "lucky-detour"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先在脑内演一遍把这页写得很合心意的画面。",
+            "en": "I rehearse a picture of completing this page just as I would like."
+          },
+          "directionId": "wish-rehearsal"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_11",
+      "prompt": {
+        "zh": "一个小型合唱活动发来“下次有机会再一起”的普通留言，没有具体约定。你更容易怎样添一点期待？",
+        "en": "A small singing group sends an ordinary “perhaps another time” message without a commitment. How do you first add a little anticipation?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我把这次没接上的安排想象成还可能续上的一页。",
+            "en": "I imagine this unfinished arrangement as a page that could have a continuation."
+          },
+          "directionId": "second-chapter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我把这句普通留言暂时编成一次尚未揭晓的小转弯。",
+            "en": "For fun, I write the ordinary message as a small turn whose outcome is still unknown."
+          },
+          "directionId": "lucky-detour"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我又预演了一次大家合唱某个片段的画面。",
+            "en": "I rehearse a picture of everyone singing one passage together."
+          },
+          "directionId": "wish-rehearsal"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我给这条简短留言配上一段轻快的片尾音乐。",
+            "en": "I give the short message some light end-credit music."
+          },
+          "directionId": "cinematic-moment"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_12",
+      "prompt": {
+        "zh": "你在日历上圈了一天，打算给爱好留时间，计划尚未落实。你先会有什么玩笑脑补？",
+        "en": "You circle a day on a calendar for a hobby, with no firm plan yet. Which playful thought comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "这一天周围空白挺多，我把它编成可能有惊喜的好位置。",
+            "en": "The empty space around the date becomes a possible landing place for a surprise."
+          },
+          "directionId": "lucky-detour"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我在脑内反复看那天做成一个小东西的画面。",
+            "en": "I repeatedly picture making one little thing that day."
+          },
+          "directionId": "wish-rehearsal"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "圈日期这个动作，也能被我拍成准备篇的一个镜头。",
+            "en": "Even circling a date becomes a shot in an imaginary preparation sequence."
+          },
+          "directionId": "cinematic-moment"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "日历上相邻的一个小图案，被我借来装一点期待。",
+            "en": "A small nearby calendar illustration becomes a vessel for a little anticipation."
+          },
+          "directionId": "signal-spark"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_13",
+      "prompt": {
+        "zh": "旧书里掉出一张忘记的书签，写着一个你曾想试的小活动。你先偏向哪句脑补？",
+        "en": "A forgotten bookmark falls from an old book, noting an activity you once wanted to try. Which hopeful caption comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我又开始预演亲手试到它的那一刻。",
+            "en": "I start rehearsing the moment of trying it myself again."
+          },
+          "directionId": "wish-rehearsal"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "这像小电影里主线任务忽然出现的一镜。",
+            "en": "It feels like a shot where the small film’s main thread suddenly appears."
+          },
+          "directionId": "cinematic-moment"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "碰巧掉出的是这一页，我给巧合加一点特别的意味。",
+            "en": "I add a little special meaning to the coincidence of this particular page."
+          },
+          "directionId": "signal-spark"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我先想象以后给这次尝试留下怎样的一张小卡片。",
+            "en": "I first imagine the little card I might keep from a future attempt."
+          },
+          "directionId": "future-postcard"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_14",
+      "prompt": {
+        "zh": "一次业余开放舞台把你列进候补名单，是否轮到还不知道。你更容易冒出哪种自觉夸张的想象？",
+        "en": "An amateur open stage places you on a waiting list; an opening is uncertain. Which knowingly exaggerated thought appears first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "脑内镜头已经给等待区加上开演前的光。",
+            "en": "My inner camera gives the waiting area some pre-show lighting."
+          },
+          "directionId": "cinematic-moment"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "名单上一个巧合的编号，被我偷偷写进期待的小故事。",
+            "en": "I privately write a coincidental list number into a hopeful little story."
+          },
+          "directionId": "signal-spark"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我在想象未来回忆这段等待时会怎样讲。",
+            "en": "I imagine how I might recount this wait in the future."
+          },
+          "directionId": "future-postcard"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "之前没轮到的小舞台，仿佛又翻开了候选的第二章。",
+            "en": "A small stage I missed before seems to have opened a possible second chapter."
+          },
+          "directionId": "second-chapter"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_15",
+      "prompt": {
+        "zh": "一枚旧纸徽章重新出现在抽屉里，你不确定还会不会参加同类活动。你先怎样脑补？",
+        "en": "An old paper badge reappears in a drawer, and another similar activity is uncertain. Which imaginative thought comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我把它重新出现的小巧合加上一点期待的火花。",
+            "en": "I give the coincidence of its return a little spark of anticipation."
+          },
+          "directionId": "signal-spark"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我想象未来又把一枚新徽章放在它旁边。",
+            "en": "I picture placing a new badge beside it in the future."
+          },
+          "directionId": "future-postcard"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "这个旧道具像是在提醒我：故事还可以有续页。",
+            "en": "This old prop seems to suggest that the story could have another page."
+          },
+          "directionId": "second-chapter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "整理抽屉绕出来的小发现，被我叫作幸运支线。",
+            "en": "I call this discovery during tidying a lucky side quest."
+          },
+          "directionId": "lucky-detour"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_16",
+      "prompt": {
+        "zh": "你在云里看到一个像舞台的形状，知道只是形状相似。哪种玩笑想象先出现？",
+        "en": "A cloud resembles a stage; you know it is only a resemblance. Which playful thought appears first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我给未来一次小表演留了一张脑内明信片。",
+            "en": "I make an imaginary postcard for a possible little performance ahead."
+          },
+          "directionId": "future-postcard"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "搁下的小兴趣，好像可以被我想象出下一幕。",
+            "en": "I imagine another act for a small interest I put aside."
+          },
+          "directionId": "second-chapter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我把抬头这件普通事，编成意外小惊喜的路口。",
+            "en": "I turn the ordinary act of looking up into a junction for a little surprise."
+          },
+          "directionId": "lucky-detour"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我顺势预演了一遍站在那个想象舞台上的画面。",
+            "en": "I use it to rehearse standing on that imaginary stage."
+          },
+          "directionId": "wish-rehearsal"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_17",
+      "prompt": {
+        "zh": "你们曾放下的手工交换点子又在群里被提起，大家还没表态。你最先怎样给它加一点期待？",
+        "en": "Someone mentions a shelved craft-exchange idea in a group again; others have not responded. What anticipation do you add first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我把它当成旧点子还可能得到的第二段标题。",
+            "en": "I give the old idea a possible second-chapter title."
+          },
+          "directionId": "second-chapter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "中间这些弯路，被我暂时写成通往不同玩法的支线。",
+            "en": "I playfully write the delays as side paths toward a different version."
+          },
+          "directionId": "lucky-detour"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我先在脑中预演大家把小作品摆在一起的样子。",
+            "en": "I first rehearse a picture of the little creations gathered together."
+          },
+          "directionId": "wish-rehearsal"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "群里重新提起这句话，被我配成续集预告的旁白。",
+            "en": "The renewed mention becomes the voiceover of an imaginary sequel trailer."
+          },
+          "directionId": "cinematic-moment"
+        }
+      ]
+    },
+    {
+      "id": "DELULU_18",
+      "prompt": {
+        "zh": "社区活动室临时换到另一间，你还没看到新空间。哪种自觉只是玩笑的脑补更像你？",
+        "en": "A community activity moves to a different room that you have not seen. Which knowingly playful thought sounds most like you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我把换房间当成也许会遇到意外小亮点的绕路。",
+            "en": "I treat the room change as a detour that might hold an unexpected little bright spot."
+          },
+          "directionId": "lucky-detour"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我已经在脑里演了一次把小活动办得很合心意。",
+            "en": "I have already rehearsed the activity turning out just as I would like."
+          },
+          "directionId": "wish-rehearsal"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "这成了日常小电影里“换个布景继续拍”的镜头。",
+            "en": "It becomes a “new set, keep filming” shot in my ordinary-day mini-film."
+          },
+          "directionId": "cinematic-moment"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "新的门牌号被我借来当一点期待的小线索。",
+            "en": "I borrow the new room number as a tiny cue for anticipation."
+          },
+          "directionId": "signal-spark"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "kind": "archetype",
+    "questions": 18,
+    "directionCount": 6,
+    "optionsEach": 4,
+    "exposureEach": 12,
+    "positionsEach": 3,
+    "omittedEach": 6,
+    "reverseItems": [],
+    "meaning": "Counts of offered playful anticipations selected, not realitytesting,credulity,optimismstrength,romance,financialormentalhealthmeasure. Everyhighesttie retained/noforcedsolewinner/secondary/percent;allA3eachall6FULL,noidealbalance.",
+    "runtime_comparison_completed": false
+  },
+  "scope": {
+    "zh": "Delulu在本版作为网络俚语的趣味用法，不是医学术语。本版六组名称由编辑原创，只读给定菜单里的脑补与期待选择，不测现实判断、真实信念、智力、健康、稳定人格或乐观程度，也不证明勇敢、韧性、机会、关系、金钱或愿望会实现。脑补不是证据，不能推断别人心意或替别人同意。字典词义只提供语言背景，不验证题目；未复制竞品题本、六个人设正文或图像，不作占卜、显化因果或心理诊断。",
+    "en": "Delulu is used here as playful internet slang, not a medical term. Our six original editorial names describe choices among offered anticipations, not reality testing, actual beliefs, intelligence, health, stable personality or optimism strength. Choices establish neither courage, resilience, opportunity, relationships, money nor fulfilled wishes. An imagined scene is not evidence of another person’s feelings or consent. A dictionary supplies language background, not item validation. No competitor bank, six persona texts or artwork is reproduced, and no divination, manifestation causality or diagnosis is offered."
+  },
+  "instructions": {
+    "zh": "把每个普通小情境当成一个自知只是玩笑的脑补时刻，选更容易先冒出的那句期待，不是表示它真的会发生，也不要求相信巧合或宇宙安排。每题提供六组想象入口中的四组，轮流呈现；每组出现12次、在每个位置各3次、省略6次。每选一项该组加1，无反向或对错分；全部18题完成才比较，所有最高并列逐份保留全文，不硬派主副型。菜单不穷尽真实想法；若都不像，可以退出，六份公开全文仍免费。不要输入真实关系、财务、私人经历或他人资料。",
+    "en": "Treat each ordinary situation as a knowingly playful moment of anticipation. Choose the hopeful thought that comes first, without saying it will happen or requiring belief in coincidences or cosmic arrangements. A menu offers four of six editorial entry points: each appears twelve times, three in each position, and is omitted six times. One choice adds one count without reversals or correctness points. A complete eighteen-item attempt retains the full guide for every highest tie without forced primary or secondary types. Menus do not exhaust real thoughts; leave if none fits and all six public guides remain free. Enter no actual relationships, finances, private experiences or another person’s information."
+  },
+  "sourceUrl": "https://dictionary.cambridge.org/dictionary/english/delulu",
+  "sourceRead": "Cambridge current search definition of informal often-humorous slang reviewed; direct entry returned403, not a full-entry reading. Language background only, not an item/scoring source. All eighteen situations,seventy-two options and six names/guides are original. Job current EN122ZH92 visible and six EN173selected20-80/about55/entry0-70sample65 reviewed; twelve-item competitor runtime not read or copied."
+}
