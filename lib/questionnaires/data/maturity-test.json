@@ -1,0 +1,2357 @@
+{
+  "slug": "maturity-test",
+  "code": "MATURITY_CONTEXT_REFLECTION_24",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "framework",
+  "kind": "likert",
+  "minimumRatedItems": 4,
+  "title": {
+    "zh": "成熟度测试",
+    "en": "Maturity Test"
+  },
+  "resultHeading": {
+    "zh": "成熟度自我观察：四部分完整结果",
+    "en": "Maturity self-reflection: four complete parts"
+  },
+  "description": {
+    "zh": "免费成熟度测试：24道原创频率题，分别回看情绪回应、承诺修订、视角核对和自主选择。四份完整结果直接可读，资料不足明确保留，不估年龄或判断是否足够成熟。",
+    "en": "A free maturity reflection: 24 original frequency items and four full guides. Explore everyday practices with explicit missing information and no age labels."
+  },
+  "seoTitle": {
+    "zh": "成熟度测试：24道原创题与四部分免费完整结果",
+    "en": "Maturity Test: 24 Questions and Full Free Results"
+  },
+  "minutes": 6,
+  "introduction": {
+    "zh": "一次不快后的回应、一项承诺怎样调整、对不同说法怎样核对、接受帮助时怎样保留自己的选择，这些具体做法可以分开回看，不必先把自己判成成熟或不成熟。本版使用24条费马原创近四周频率题，四部分各6条，至少4条有效评分才显示该部分均分；其他部分和全部说明独立保留。四部分是本站为自我观察组织的主题，不是标准成熟度量表或统一发展阶段。心理社会成熟度研究有责任、视角、节制等不同概念与模型，不能替本题本验证，也不能由自报频率推年龄、脑发育、健康、智慧或品德。完整结果免费，无需先做另一测试，四份九模块说明也可以直接先读。",
+    "en": "Responses after an unpleasant moment, revising a commitment, checking another account and retaining choice while accepting help can be reviewed separately, without first declaring yourself mature or immature. This edition uses twenty-four original FermatMind four-week frequency items in four six-item parts. Each needs four ratings for its own mean; other parts and all guides remain independently available. The parts are this site’s organisation for self-observation rather than a standard maturity instrument or universal developmental stages. Research discusses responsibility, perspective, temperance and other models; that supplies no validation of this bank, nor age, brain-development, health, wisdom or moral conclusions from frequencies. Complete results are free without another test, and all four full nine-section guides can be read first."
+  },
+  "instructions": {
+    "zh": "回想近四周，在出现相关机会时，这种具体做法出现得多频繁。按从不到几乎总是选择；没有相关机会、资料不足或不愿回答，选对应选项，不当零分。24题选完才生成四部分结果；每部分6条至少4条有效评分才显示均分，其他部分可以独立保留。这里不判断你的年龄、好坏或是否足够成熟。",
+    "en": "Think about the past four weeks and how often the specific response occurred when there was a relevant opportunity. Choose Never through Almost always. Select the separate option for no relevant opportunity, insufficient information or preferring not to answer; it is not zero. All twenty-four selections are required for a result. Each six-item part needs at least four ratings for its own mean; other parts can remain available independently. This does not judge your age, worth or whether you are mature enough."
+  },
+  "source": {
+    "kind": "FermatMind independently authored four-topic behaviour-frequency reflection; not a standard maturity instrument or competitor bank",
+    "formCode": "fm_maturity_context_frequency_24",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "02f47cbc2e46bc47bf61c20781a937c46932be0b04632b9852b3a8c763ff3c32",
+    "resultContentSha256": "3310c7c056af85523e6313627917dd595249be57f8b07a97ff739414ea09428e",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "emotion-pause",
+      "title": {
+        "zh": "情绪与回应之间",
+        "en": "Between a feeling and a response"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "commitment-repair",
+      "title": {
+        "zh": "承诺、跟进与修订",
+        "en": "Commitments, follow-through and revision"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "perspective-checking",
+      "title": {
+        "zh": "核对视角与影响",
+        "en": "Checking perspectives and effects"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "self-directed-choice",
+      "title": {
+        "zh": "自主选择与适当求助",
+        "en": "Self-directed choice and appropriate help"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "MATURITY_01",
+      "prompt": {
+        "zh": "近四周，有机会回应一条让我不快的普通消息时，我先辨认自己的感受，再决定怎样回复。",
+        "en": "Over the past four weeks, when an ordinary message upset me, I identified my feeling before deciding how to reply."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "emotion-pause",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "emotion-pause",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "emotion-pause",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "emotion-pause",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "emotion-pause",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "emotion-pause",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_02",
+      "prompt": {
+        "zh": "近四周，日常小延误让我烦躁时，我会把当下感受与下一步要做的事分开想。",
+        "en": "Over the past four weeks, when a small everyday delay frustrated me, I considered my feeling separately from my next action."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "emotion-pause",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "emotion-pause",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "emotion-pause",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "emotion-pause",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "emotion-pause",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "emotion-pause",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_03",
+      "prompt": {
+        "zh": "近四周，在不紧急的讨论里需要一点时间时，我会说出想稍后再回应。",
+        "en": "Over the past four weeks, when I needed time in a non-urgent discussion, I said that I wanted to respond later."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "emotion-pause",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "emotion-pause",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "emotion-pause",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "emotion-pause",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "emotion-pause",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "emotion-pause",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_04",
+      "prompt": {
+        "zh": "近四周，普通分歧让我有强烈反应时，我会先决定现在是否适合继续讨论。",
+        "en": "Over the past four weeks, when an ordinary disagreement brought a strong reaction, I considered whether this was a suitable time to continue."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "emotion-pause",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "emotion-pause",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "emotion-pause",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "emotion-pause",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "emotion-pause",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "emotion-pause",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_05",
+      "prompt": {
+        "zh": "近四周，计划变化使我失望时，我会留意立刻回应与稍后处理各有什么影响。",
+        "en": "Over the past four weeks, when a changed plan disappointed me, I considered the effects of responding immediately or dealing with it later."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "emotion-pause",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "emotion-pause",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "emotion-pause",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "emotion-pause",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "emotion-pause",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "emotion-pause",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_06",
+      "prompt": {
+        "zh": "近四周，需要表达不满时，我会把感受说清，同时选择自己愿意采取的具体回应。",
+        "en": "Over the past four weeks, when expressing dissatisfaction, I named my feeling while choosing a concrete response I was willing to make."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "emotion-pause",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "emotion-pause",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "emotion-pause",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "emotion-pause",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "emotion-pause",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "emotion-pause",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_07",
+      "prompt": {
+        "zh": "近四周，答应一项普通任务之前，我会估计自己实际能投入的时间和精力。",
+        "en": "Over the past four weeks, before accepting an ordinary task, I estimated the time and effort I could actually offer."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "commitment-repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "commitment-repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "commitment-repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "commitment-repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "commitment-repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "commitment-repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_08",
+      "prompt": {
+        "zh": "近四周，发现一项约定难以按时完成时，我会向受影响的人说明目前情况。",
+        "en": "Over the past four weeks, when an agreement became difficult to complete on time, I explained the current situation to those affected."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "commitment-repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "commitment-repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "commitment-repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "commitment-repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "commitment-repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "commitment-repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_09",
+      "prompt": {
+        "zh": "近四周，普通协作出了差错时，我会区分自己能处理的部分与需要共同解决的部分。",
+        "en": "Over the past four weeks, when an ordinary collaboration went wrong, I distinguished what I could address from what needed a shared response."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "commitment-repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "commitment-repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "commitment-repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "commitment-repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "commitment-repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "commitment-repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_10",
+      "prompt": {
+        "zh": "近四周，接下一项安排时，我会确认彼此对完成范围的理解是否相同。",
+        "en": "Over the past four weeks, when taking on an arrangement, I checked whether we understood its scope in the same way."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "commitment-repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "commitment-repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "commitment-repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "commitment-repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "commitment-repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "commitment-repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_11",
+      "prompt": {
+        "zh": "近四周，在自己仍愿意承担的约定里，我会跟进一个已经说好的小步骤。",
+        "en": "Over the past four weeks, in an agreement I still wished to undertake, I followed up one small step we had agreed."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "commitment-repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "commitment-repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "commitment-repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "commitment-repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "commitment-repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "commitment-repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_12",
+      "prompt": {
+        "zh": "近四周，条件发生变化时，我会重新商量承诺的范围或时间。",
+        "en": "Over the past four weeks, when conditions changed, I renegotiated the scope or timing of a commitment."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "commitment-repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "commitment-repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "commitment-repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "commitment-repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "commitment-repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "commitment-repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_13",
+      "prompt": {
+        "zh": "近四周，听到一句有不同解释的话时，我会区分原话与自己推测的意思。",
+        "en": "Over the past four weeks, when a remark had several possible meanings, I distinguished the words from the meaning I inferred."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "perspective-checking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "perspective-checking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "perspective-checking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "perspective-checking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "perspective-checking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "perspective-checking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_14",
+      "prompt": {
+        "zh": "近四周，在普通分歧里，我会核对自己是否准确理解了对方的说法。",
+        "en": "Over the past four weeks, in an ordinary disagreement, I checked whether I had understood the other person’s account accurately."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "perspective-checking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "perspective-checking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "perspective-checking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "perspective-checking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "perspective-checking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "perspective-checking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_15",
+      "prompt": {
+        "zh": "近四周，共同安排遇到困难时，我会询问对方有哪些实际限制，而不只按自己的情况判断。",
+        "en": "Over the past four weeks, when a shared arrangement was difficult, I asked about the other person’s practical constraints rather than judging only from my own circumstances."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "perspective-checking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "perspective-checking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "perspective-checking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "perspective-checking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "perspective-checking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "perspective-checking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_16",
+      "prompt": {
+        "zh": "近四周，准备评价一件普通事情时，我会留意自己是否只知道其中一方的信息。",
+        "en": "Over the past four weeks, before evaluating an ordinary situation, I noticed whether I had information from only one side."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "perspective-checking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "perspective-checking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "perspective-checking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "perspective-checking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "perspective-checking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "perspective-checking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_17",
+      "prompt": {
+        "zh": "近四周，一项日常决定会影响别人时，我会考虑需要让哪些受影响的人参与商量。",
+        "en": "Over the past four weeks, when an everyday decision affected others, I considered who needed a chance to join the discussion."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "perspective-checking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "perspective-checking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "perspective-checking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "perspective-checking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "perspective-checking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "perspective-checking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_18",
+      "prompt": {
+        "zh": "近四周，遇到不同观点时，我会试着理解其理由，同时保留自己同意或不同意的选择。",
+        "en": "Over the past four weeks, when encountering another view, I tried to understand its reasons while retaining my choice to agree or disagree."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "perspective-checking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "perspective-checking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "perspective-checking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "perspective-checking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "perspective-checking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "perspective-checking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_19",
+      "prompt": {
+        "zh": "近四周，作一项普通选择时，我能说出自己愿意这样选的具体理由。",
+        "en": "Over the past four weeks, when making an ordinary choice, I could state a concrete reason why I wanted that option."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "self-directed-choice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "self-directed-choice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "self-directed-choice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "self-directed-choice",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "self-directed-choice",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "self-directed-choice",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_20",
+      "prompt": {
+        "zh": "近四周，向别人征求建议后，我会分辨哪些建议符合自己这次的目的。",
+        "en": "Over the past four weeks, after seeking advice, I considered which suggestions fitted my purpose this time."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "self-directed-choice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "self-directed-choice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "self-directed-choice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "self-directed-choice",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "self-directed-choice",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "self-directed-choice",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_21",
+      "prompt": {
+        "zh": "近四周，集体提出一个安排时，我会先确认自己愿意承担到什么范围。",
+        "en": "Over the past four weeks, when a group proposed an arrangement, I checked the extent of involvement I actually wanted."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "self-directed-choice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "self-directed-choice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "self-directed-choice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "self-directed-choice",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "self-directed-choice",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "self-directed-choice",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_22",
+      "prompt": {
+        "zh": "近四周，获得新信息后，我会依据新的理由决定是否改变原来的选择。",
+        "en": "Over the past four weeks, after receiving new information, I used the new reasons to decide whether to revise my earlier choice."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "self-directed-choice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "self-directed-choice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "self-directed-choice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "self-directed-choice",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "self-directed-choice",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "self-directed-choice",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_23",
+      "prompt": {
+        "zh": "近四周，在可以坦诚表达的普通讨论里，我会说出自己更想采取的办法。",
+        "en": "Over the past four weeks, in ordinary discussions where I could speak candidly, I stated the approach I preferred."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "self-directed-choice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "self-directed-choice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "self-directed-choice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "self-directed-choice",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "self-directed-choice",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "self-directed-choice",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_24",
+      "prompt": {
+        "zh": "近四周，接受实际帮助时，我会分清哪些决定想自己保留，哪些部分愿意请人协助。",
+        "en": "Over the past four weeks, when accepting practical help, I distinguished decisions I wanted to keep from parts where I welcomed assistance."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "self-directed-choice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "self-directed-choice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "self-directed-choice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "self-directed-choice",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "self-directed-choice",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "self-directed-choice",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "emotion-pause",
+      "directionIds": [
+        "emotion-pause"
+      ],
+      "title": {
+        "zh": "情绪回应：看感受与下一步之间",
+        "en": "Feeling and Response: Reading the Space Before a Next Step"
+      },
+      "headline": {
+        "zh": "近四周具体做法的自报读法，不是成熟程度鉴定。",
+        "en": "A reading of reported practices over four weeks rather than a maturity assessment."
+      },
+      "summary": {
+        "zh": "本部分回看近四周有机会时，你怎样辨认感受并选择回应。均分描述六条自报频率，不评情绪是否足够平静，也不据此判断成熟年龄。",
+        "en": "This part reviews identifying a feeling and choosing a response when opportunities arose over four weeks. Its mean describes six reported frequencies, not calmness or an age of maturity."
+      },
+      "scoreReading": {
+        "zh": "24条各选从不1、很少2、有时3、经常4、几乎总是5，或没有相关机会／资料不足／不愿回答。四部分各6条，全部直接键向，0条反向；较高数值只表示在这些表述上选择了较高频率，不评成熟、好坏或能力。每部分至少4条有效评分才显示其和÷有效条数的简单均分，四舍五入到一位小数，同时显示有效条数；不适用不记零分，不足4条明确显示资料不足。24个选项都选完才呈现本次结果，但某部分不足不抹掉其他部分。四份完整说明无论均分或不足都可读，不挑最高、不分等级、不计算总分、整体均分、年龄或常模百分位。频率标签是有序自报类别，平均值为本站呈现约定，不证明等距测量；同均分可来自不同条目组合，不能跨人排名或据小数差断定显著变化。",
+        "en": "Each of twenty-four items offers Never 1, Rarely 2, Sometimes 3, Often 4, Almost always 5, or no relevant opportunity, insufficient information or preferring not to answer. Four parts each contain six directly keyed items, with zero reversals. Higher numbers mean higher reported frequency on these statements, not maturity, worth or ability. A part needs at least four ratings for a simple sum-divided-by-rated-count mean, rounded to one decimal, alongside its rated count. Non-applicable responses are not zero; fewer than four remain explicitly insufficient. All twenty-four selections are needed before a result, but one insufficient part does not erase others. All four full guides remain readable regardless of means or insufficiency. There is no highest type, band, total, overall mean, age or normative percentile. Frequency labels are ordered self-report categories; averaging is this site’s display convention, not established interval measurement. Identical means may represent different item patterns, without interpersonal rankings or significance inferred from a decimal difference."
+      },
+      "seo": {
+        "title": {
+          "zh": "成熟度测试情绪回应结果：频率与完整说明",
+          "en": "Maturity Test: Feeling and Response Full Guide"
+        },
+        "description": {
+          "zh": "本部分回看近四周有机会时，你怎样辨认感受并选择回应。均分描述六条自报频率，不评情绪是否足够平静，也不据此判断成熟年龄。",
+          "en": "Read feeling-and-response frequencies with everyday examples, contextual limits and all four comparisons. No calmness, age or clinical verdict."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "有感受，也保留回应的选择",
+            "en": "Having a feeling while retaining a choice of response"
+          },
+          "paragraphs": [
+            {
+              "zh": "本部分关注日常不快、计划变化或普通分歧时，你有没有把感受与准备做的事分开看。它没有要求先不生气、完全平静或把情绪藏好；表达不满、要求稍后讨论、直接结束一次不合适的对话，都可能是你选择的回应。题目也没有观察当时发生了什么，不能从自报频率推断你已具备某种情绪调节能力。",
+              "en": "This part asks about noticing a feeling separately from an intended response during ordinary disappointment, changed plans or disagreements. It requires neither absence of anger, complete calm nor concealing emotion. Expressing dissatisfaction, asking to discuss later or ending an unsuitable conversation can all be chosen responses. The bank did not observe what happened. Reported frequencies therefore establish no measured emotion-regulation ability, and the presence of a strong feeling is not by itself evidence that you failed to retain a choice."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "读频率和机会，不读年龄",
+            "en": "Read frequency and opportunity rather than age"
+          },
+          "paragraphs": [
+            {
+              "zh": "本部分六条至少四条有效评分，才显示1到5的简单均分与有效条数。较高只表示你在本组选项里更多报告较高频率，不能换成更成熟、更健康或比同龄人更稳定。较低需要回看有哪些机会、怎样理解题目、当时哪些条件限制了选择。即使两个均分相同，也可能由不同条目组合形成；没有机会或不愿回答不当零分。",
+              "en": "At least four of six items need ratings before a simple mean from one to five and a rated count appear. A higher mean means more higher-frequency selections within this bank, not greater maturity, health or stability relative to peers. A lower mean needs the opportunities, wording and conditions that limited choice. Identical means can come from different item patterns. No opportunity or preferring not to answer is excluded rather than scored zero, and this reading supplies no maturity band or threshold."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一条让人不快的普通消息",
+            "en": "An ordinary message that feels unpleasant"
+          },
+          "paragraphs": [
+            {
+              "zh": "假设朋友临时改了见面地点，你感到烦躁，先看见自己不喜欢被临时打乱，再决定回复“我需要确认交通，稍后告诉你能不能去”。这不是把烦躁消灭，也不保证对方一定理解；它只是把感受和下一步分开。若当时情况需要立刻说明不能去，及时直接回应也可能更合适，题目没有规定等待越久越成熟。",
+              "en": "Suppose a friend changes a meeting location at short notice. You notice frustration about the disruption, then decide to say that you need to check transport before confirming whether you can attend. The feeling need not disappear and the friend may not understand. The example separates a feeling from a next step. If you already know you cannot go, a direct immediate reply may fit better. The questionnaire does not define a longer delay as greater maturity or prescribe a waiting period."
+            }
+          ]
+        },
+        {
+          "id": "voice",
+          "title": {
+            "zh": "把暂停或表达说成具体需要",
+            "en": "Making a pause or expression a concrete request"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说“我现在有些不快，想先弄清安排，再决定怎么回应”，也可以说“这个安排不适合我，我这次不参加”。你不需要用温和语气换取表达的资格，更不必承诺之后一定恢复讨论。是否继续、何时回应、是否寻求帮助，都要结合你的意愿和现实条件。本读法不要求为了显得成熟而忍受冒犯、保持联系或替别人管理感受。",
+              "en": "You could name feeling upset and wanting clarity before deciding how to respond, or state directly that the arrangement does not suit you and you will not attend. A gentle tone is not the price of permission to speak, and a pause creates no duty to reopen the discussion. Whether to continue, when to reply and whether to seek help depend on willingness and conditions. This guide requires neither tolerating mistreatment nor managing someone else’s feelings to appear mature."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与另外三部分分开理解",
+            "en": "Distinguishing the other three parts"
+          },
+          "paragraphs": [
+            {
+              "zh": "承诺跟进与修订关心一项仍愿承担的约定怎样被确认、说明和调整；它不等同回复前有没有暂停。视角核对关心原话、推测和不同条件，自主选择与求助关心自己的理由与可保留的决定。四部分可以同时常见，也可以因机会不同出现不同均分。没有最低项必须优先训练的规则，也不把四项相加生成一个人是否成熟的总判定。",
+              "en": "Commitments and revision concern confirming, communicating and adjusting an agreement you still wish to undertake, rather than whether you paused before replying. Perspective checking distinguishes words, inferences and conditions. Self-directed choice concerns your reasons, retained decisions and accepted help. All four may be frequent or have different means because opportunities differ. There is no rule that the lowest part must be trained first, and the means are not added into a judgment of whether you are a mature person."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "没有明显暂停不等于没有选择",
+            "en": "No visible pause does not mean no choice"
+          },
+          "paragraphs": [
+            {
+              "zh": "熟悉情境里，你可能很快就知道想怎样回应，不需要额外停下来。也可能近四周没有相关分歧，资料不足比假设自己总能做到更准确。较少报告暂停不能推出冲动、脑发育阶段或心理健康问题；较多也不能解释为压抑情绪、承担过多或有早年创伤。六条自报没有识别这些原因，更不能拿来评判别人的成熟程度。",
+              "en": "In a familiar situation you may know your preferred response quickly without an extra pause. There may also have been few relevant disagreements recently, making insufficient information more accurate than assuming you would always manage. Less reported pausing establishes neither impulsivity, brain-development stage nor a mental-health problem. More establishes neither suppression, over-responsibility nor childhood trauma. Six self-reports identify none of these causes and provide no basis for judging someone else’s maturity or explaining their history."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "只回看一次普通回应",
+            "en": "Reviewing one ordinary response"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，回想一个普通、可谈而不涉及私人痛苦的情境：当时感受是什么，你有哪些可行选择，最后为什么这样回应？也可以找一次无需暂停就能清楚表达的例子。无需每天记录、追求更高均分或公开故事。这个回顾不是治疗练习或承诺多久能改变；四部分全文已经可读，继续其他测评由你自行决定。",
+              "en": "If useful, recall one ordinary situation you can consider without revisiting private distress: what you felt, which responses were feasible and why you chose one. Compare a time when you could express yourself clearly without pausing. No daily log, higher target mean or public story is required. This is neither a treatment exercise nor a promise about time to change. All four full guides are already available, and any further assessment remains optional."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "有效条数、均分与资料不足",
+            "en": "Rated counts, means and insufficient information"
+          },
+          "paragraphs": [
+            {
+              "zh": "24条各选从不1、很少2、有时3、经常4、几乎总是5，或没有相关机会／资料不足／不愿回答。四部分各6条，全部直接键向，0条反向；较高数值只表示在这些表述上选择了较高频率，不评成熟、好坏或能力。每部分至少4条有效评分才显示其和÷有效条数的简单均分，四舍五入到一位小数，同时显示有效条数；不适用不记零分，不足4条明确显示资料不足。24个选项都选完才呈现本次结果，但某部分不足不抹掉其他部分。四份完整说明无论均分或不足都可读，不挑最高、不分等级、不计算总分、整体均分、年龄或常模百分位。频率标签是有序自报类别，平均值为本站呈现约定，不证明等距测量；同均分可来自不同条目组合，不能跨人排名或据小数差断定显著变化。",
+              "en": "Each of twenty-four items offers Never 1, Rarely 2, Sometimes 3, Often 4, Almost always 5, or no relevant opportunity, insufficient information or preferring not to answer. Four parts each contain six directly keyed items, with zero reversals. Higher numbers mean higher reported frequency on these statements, not maturity, worth or ability. A part needs at least four ratings for a simple sum-divided-by-rated-count mean, rounded to one decimal, alongside its rated count. Non-applicable responses are not zero; fewer than four remain explicitly insufficient. All twenty-four selections are needed before a result, but one insufficient part does not erase others. All four full guides remain readable regardless of means or insufficiency. There is no highest type, band, total, overall mean, age or normative percentile. Frequency labels are ordered self-report categories; averaging is this site’s display convention, not established interval measurement. Identical means may represent different item patterns, without interpersonal rankings or significance inferred from a decimal difference."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创四部分的使用范围",
+            "en": "Scope of the four original parts"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24条和四部分均为费马原创自我观察组织，不是临床或发展评估、标准成熟度量表、智力或EQ能力测量；不估心理年龄、脑发育、智者类型、健康、创伤原因、品德、关系质量或职业。研究中的责任、视角和节制等概念只提供背景，三因素研究并不验证本站四部分、题目、均分或解释，也不把特定年龄与司法样本的结果迁移到个体。频率高低受机会、情境、记忆和表述影响，不是能力或人群排名；支持、求助、拒绝和改变约定不等于不成熟。",
+              "en": "These twenty-four items and four parts are FermatMind’s original organisation for self-observation, not a clinical or developmental assessment, standard maturity instrument, intelligence test or EQ ability measure. They estimate no mental age, brain development, wise type, health, trauma cause, morality, relationship quality or career. Research concepts such as responsibility, perspective and temperance provide background only: three-factor research validates neither these four parts, items, means nor interpretations, and results from specific age or justice samples are not transferred to individuals. Frequency depends on opportunity, context, recall and wording, not ability or population rank. Receiving support, seeking help, declining and revising agreements establish no immaturity."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "commitment-repair",
+      "directionIds": [
+        "commitment-repair"
+      ],
+      "title": {
+        "zh": "承诺修订：把能承担的部分说清",
+        "en": "Commitment and Revision: Making Your Available Part Clear"
+      },
+      "headline": {
+        "zh": "近四周具体做法的自报读法，不是成熟程度鉴定。",
+        "en": "A reading of reported practices over four weeks rather than a maturity assessment."
+      },
+      "summary": {
+        "zh": "本部分回看近四周怎样确认约定、说明变化并跟进愿承担的部分。频率不是责任心、道德或可靠性鉴定，改变承诺也可以是如实处理条件。",
+        "en": "This part reviews confirming agreements, explaining changes and following up what you willingly undertake. Frequency certifies neither morality nor reliability, and revising an agreement can accurately reflect changed conditions."
+      },
+      "scoreReading": {
+        "zh": "24条各选从不1、很少2、有时3、经常4、几乎总是5，或没有相关机会／资料不足／不愿回答。四部分各6条，全部直接键向，0条反向；较高数值只表示在这些表述上选择了较高频率，不评成熟、好坏或能力。每部分至少4条有效评分才显示其和÷有效条数的简单均分，四舍五入到一位小数，同时显示有效条数；不适用不记零分，不足4条明确显示资料不足。24个选项都选完才呈现本次结果，但某部分不足不抹掉其他部分。四份完整说明无论均分或不足都可读，不挑最高、不分等级、不计算总分、整体均分、年龄或常模百分位。频率标签是有序自报类别，平均值为本站呈现约定，不证明等距测量；同均分可来自不同条目组合，不能跨人排名或据小数差断定显著变化。",
+        "en": "Each of twenty-four items offers Never 1, Rarely 2, Sometimes 3, Often 4, Almost always 5, or no relevant opportunity, insufficient information or preferring not to answer. Four parts each contain six directly keyed items, with zero reversals. Higher numbers mean higher reported frequency on these statements, not maturity, worth or ability. A part needs at least four ratings for a simple sum-divided-by-rated-count mean, rounded to one decimal, alongside its rated count. Non-applicable responses are not zero; fewer than four remain explicitly insufficient. All twenty-four selections are needed before a result, but one insufficient part does not erase others. All four full guides remain readable regardless of means or insufficiency. There is no highest type, band, total, overall mean, age or normative percentile. Frequency labels are ordered self-report categories; averaging is this site’s display convention, not established interval measurement. Identical means may represent different item patterns, without interpersonal rankings or significance inferred from a decimal difference."
+      },
+      "seo": {
+        "title": {
+          "zh": "成熟度测试承诺修订结果：频率与完整说明",
+          "en": "Maturity Test: Commitment and Revision Full Guide"
+        },
+        "description": {
+          "zh": "本部分回看近四周怎样确认约定、说明变化并跟进愿承担的部分。频率不是责任心、道德或可靠性鉴定，改变承诺也可以是如实处理条件。",
+          "en": "Explore commitment and revision frequencies through scope, changed conditions and full examples. No morality, trustworthiness or career verdict."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "承诺包含范围，也包含修订",
+            "en": "An agreement includes scope and revision"
+          },
+          "paragraphs": [
+            {
+              "zh": "这里的题目把答应前估计时间、核对范围、说明困难、跟进小步与重新商量都列为可观察的做法。它不把无条件做完一切当成熟，也不要求承担并非你造成的全部问题。你可以负责自己愿意且实际能处理的部分，同时说明哪些需要共同安排。自报更频繁不代表别人一定满意，也不保证真实协作里的任务已经完成。",
+              "en": "These items cover estimating availability before agreeing, checking scope, explaining difficulties, following up a small step and renegotiating. They do not define completing everything unconditionally as maturity or require accepting all responsibility for a shared problem. You may address the part you willingly and practically can handle while naming what needs a shared arrangement. More frequent self-report guarantees neither others’ satisfaction nor completion of an actual task. This part concerns the described practices, not a certificate of trustworthiness."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "均分不替一项具体约定下结论",
+            "en": "A mean cannot decide what one agreement requires"
+          },
+          "paragraphs": [
+            {
+              "zh": "六条中至少四条有效评分才显示本部分均分，未答适用内容保留资料不足；其他三部分独立处理。均分较高只表示更多报告这些做法，不能推人品、职业表现或谁值得信任。均分较低也可能涉及近期没有协作、条件突变或对题目的理解不同。它不说明某一次承诺应不应该履行，更没有替参与者决定约定是否仍有效。",
+              "en": "This part needs four of six ratings for a mean; fewer remain explicitly insufficient, independently of the other three parts. A higher mean means more reported practices, not character, work performance or whom to trust. A lower mean may involve few recent collaborations, changed conditions or a different understanding of the statements. It cannot determine whether one particular promise should be fulfilled or decide for participants whether an agreement remains valid. Read the count and context rather than treating a mean as a verdict."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "不能按原计划交付一小段整理",
+            "en": "When a small sorting task cannot follow the original plan"
+          },
+          "paragraphs": [
+            {
+              "zh": "你答应帮朋友整理一部分公开活动照片，后来发现能投入的时间少了。你说明已整理到哪里、还能处理哪一部分，并询问要缩小范围还是调整时间。这里的关键不是先责备自己或补做所有人的任务，而是让真实条件进入共同安排。对方可能不同意你的提议，仍需要进一步商量；一个清楚说明并不自动保证关系或结果顺利。",
+              "en": "You agreed to help sort photographs from a public event, then discover you have less time available. You explain what is done, what remains feasible and ask whether to reduce the scope or change the timing. The example brings actual conditions into the arrangement rather than blaming yourself first or completing everyone’s work. The other person may disagree, requiring further discussion. A clear explanation guarantees neither a smooth relationship nor a successful outcome and does not erase the need to hear affected people."
+            }
+          ]
+        },
+        {
+          "id": "voice",
+          "title": {
+            "zh": "分清能做、不能做与需要商量",
+            "en": "Separating what is available from what needs discussion"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说“我目前能完成这十张，剩余部分需要缩小或另找时间；我们重新确认哪一项最重要”。如果发现此前理解不同，也可以先把不同之处说清，而非立即决定谁有错。你无需提供私人原因来证明自己有资格调整安排。本读法不要求永远兑现超出能力的约定，也不把求助、拒绝或退出不合适的任务当不成熟。",
+              "en": "You could state the ten photos you can complete and ask whether to reduce the remaining scope or find another time. If earlier understandings differ, name that difference before deciding who was wrong. Private reasons are not required to earn permission to discuss a change. This reading demands no permanent commitment beyond your capacity and does not define seeking help, declining or leaving an unsuitable task as immature. Clear limits and an honest account of available effort can belong in the same conversation."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "把行动跟进与其他观察分开",
+            "en": "Separating follow-through from the other observations"
+          },
+          "paragraphs": [
+            {
+              "zh": "情绪回应关注感受与下一步怎样分开，视角核对关注信息和他人条件，自主选择关注自己为何愿意承担以及怎样接受帮助。承诺修订集中在共同约定如何被确认和调整，不等同把所有事情独自完成。四项均分没有固定高低顺序；一个部分常见、另一个资料不足可以同时出现，也没有最低项拖累总分的说法，因为本版不生成总分。",
+              "en": "Feeling and response concerns the space between an emotion and an action. Perspective checking concerns information and others’ conditions; self-directed choice concerns why you accept an arrangement and how help fits. Commitments and revision focus on confirming and adjusting shared expectations rather than completing everything alone. The means have no prescribed order. Frequent practice in one part and insufficient information in another can coexist, and no lowest part drags down a total because this edition produces no overall score."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "意外和边界不能由分数抹掉",
+            "en": "A score cannot erase changed conditions or limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "一项安排可能因资源、健康状况、他人决定或实际不可行而需要改变。题目没有收集这些私人资料，也不能分辨每次困难的原因。均分较低不等于不负责任，较高不说明你承担过多或受到早期经历影响；两种因果都没有被测到。不要拿这份结果要求别人兑现承诺，也不要把它用于筛选同伴、雇员或判断关系质量。",
+              "en": "Resources, health circumstances, other people’s decisions or practical impossibility can change an arrangement. The bank collects none of that private information and identifies no cause of a particular difficulty. A lower mean establishes no irresponsibility; a higher one establishes neither over-responsibility nor an effect of early experience. Neither causal account was measured. Do not use the result to demand that someone fulfil a promise, screen collaborators or employees, or judge the quality of a relationship."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "回看一次范围有没有被共同理解",
+            "en": "Reviewing whether a scope was understood together"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，选一次普通而可修改的约定，问自己：最初范围有没有说清，后来哪些条件改变，谁需要知道变化？也可以找一次你决定不答应的例子，看看当时怎样说明。无需评价自己的道德分数或公开他人的隐私。回顾不保证下一次一定顺利，只帮助理解这次均分没有包含的具体条件；继续测评不是必要步骤。",
+              "en": "If useful, choose an ordinary revisable agreement and ask whether its initial scope was clear, which conditions changed and who needed to know. Compare an occasion when you declined and how you explained that decision. No moral rating or disclosure of someone else’s private circumstances is required. The review guarantees no smoother outcome next time; it adds conditions missing from this mean. Taking another assessment is not a necessary step or a way to determine whether you are responsible enough."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "有效条数、均分与资料不足",
+            "en": "Rated counts, means and insufficient information"
+          },
+          "paragraphs": [
+            {
+              "zh": "24条各选从不1、很少2、有时3、经常4、几乎总是5，或没有相关机会／资料不足／不愿回答。四部分各6条，全部直接键向，0条反向；较高数值只表示在这些表述上选择了较高频率，不评成熟、好坏或能力。每部分至少4条有效评分才显示其和÷有效条数的简单均分，四舍五入到一位小数，同时显示有效条数；不适用不记零分，不足4条明确显示资料不足。24个选项都选完才呈现本次结果，但某部分不足不抹掉其他部分。四份完整说明无论均分或不足都可读，不挑最高、不分等级、不计算总分、整体均分、年龄或常模百分位。频率标签是有序自报类别，平均值为本站呈现约定，不证明等距测量；同均分可来自不同条目组合，不能跨人排名或据小数差断定显著变化。",
+              "en": "Each of twenty-four items offers Never 1, Rarely 2, Sometimes 3, Often 4, Almost always 5, or no relevant opportunity, insufficient information or preferring not to answer. Four parts each contain six directly keyed items, with zero reversals. Higher numbers mean higher reported frequency on these statements, not maturity, worth or ability. A part needs at least four ratings for a simple sum-divided-by-rated-count mean, rounded to one decimal, alongside its rated count. Non-applicable responses are not zero; fewer than four remain explicitly insufficient. All twenty-four selections are needed before a result, but one insufficient part does not erase others. All four full guides remain readable regardless of means or insufficiency. There is no highest type, band, total, overall mean, age or normative percentile. Frequency labels are ordered self-report categories; averaging is this site’s display convention, not established interval measurement. Identical means may represent different item patterns, without interpersonal rankings or significance inferred from a decimal difference."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创四部分的使用范围",
+            "en": "Scope of the four original parts"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24条和四部分均为费马原创自我观察组织，不是临床或发展评估、标准成熟度量表、智力或EQ能力测量；不估心理年龄、脑发育、智者类型、健康、创伤原因、品德、关系质量或职业。研究中的责任、视角和节制等概念只提供背景，三因素研究并不验证本站四部分、题目、均分或解释，也不把特定年龄与司法样本的结果迁移到个体。频率高低受机会、情境、记忆和表述影响，不是能力或人群排名；支持、求助、拒绝和改变约定不等于不成熟。",
+              "en": "These twenty-four items and four parts are FermatMind’s original organisation for self-observation, not a clinical or developmental assessment, standard maturity instrument, intelligence test or EQ ability measure. They estimate no mental age, brain development, wise type, health, trauma cause, morality, relationship quality or career. Research concepts such as responsibility, perspective and temperance provide background only: three-factor research validates neither these four parts, items, means nor interpretations, and results from specific age or justice samples are not transferred to individuals. Frequency depends on opportunity, context, recall and wording, not ability or population rank. Receiving support, seeking help, declining and revising agreements establish no immaturity."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "perspective-checking",
+      "directionIds": [
+        "perspective-checking"
+      ],
+      "title": {
+        "zh": "视角核对：分开事实、推测与不同条件",
+        "en": "Perspective Checking: Separating Facts, Inferences and Conditions"
+      },
+      "headline": {
+        "zh": "近四周具体做法的自报读法，不是成熟程度鉴定。",
+        "en": "A reading of reported practices over four weeks rather than a maturity assessment."
+      },
+      "summary": {
+        "zh": "本部分回看怎样核对理解、信息范围与受影响者的条件。均分不测读心或共情能力，理解另一种说法也不要求同意它。",
+        "en": "This part reviews checking understanding, available information and affected people’s conditions. Its mean measures neither mind-reading nor empathy ability, and understanding another account requires no agreement with it."
+      },
+      "scoreReading": {
+        "zh": "24条各选从不1、很少2、有时3、经常4、几乎总是5，或没有相关机会／资料不足／不愿回答。四部分各6条，全部直接键向，0条反向；较高数值只表示在这些表述上选择了较高频率，不评成熟、好坏或能力。每部分至少4条有效评分才显示其和÷有效条数的简单均分，四舍五入到一位小数，同时显示有效条数；不适用不记零分，不足4条明确显示资料不足。24个选项都选完才呈现本次结果，但某部分不足不抹掉其他部分。四份完整说明无论均分或不足都可读，不挑最高、不分等级、不计算总分、整体均分、年龄或常模百分位。频率标签是有序自报类别，平均值为本站呈现约定，不证明等距测量；同均分可来自不同条目组合，不能跨人排名或据小数差断定显著变化。",
+        "en": "Each of twenty-four items offers Never 1, Rarely 2, Sometimes 3, Often 4, Almost always 5, or no relevant opportunity, insufficient information or preferring not to answer. Four parts each contain six directly keyed items, with zero reversals. Higher numbers mean higher reported frequency on these statements, not maturity, worth or ability. A part needs at least four ratings for a simple sum-divided-by-rated-count mean, rounded to one decimal, alongside its rated count. Non-applicable responses are not zero; fewer than four remain explicitly insufficient. All twenty-four selections are needed before a result, but one insufficient part does not erase others. All four full guides remain readable regardless of means or insufficiency. There is no highest type, band, total, overall mean, age or normative percentile. Frequency labels are ordered self-report categories; averaging is this site’s display convention, not established interval measurement. Identical means may represent different item patterns, without interpersonal rankings or significance inferred from a decimal difference."
+      },
+      "seo": {
+        "title": {
+          "zh": "成熟度测试视角核对结果：频率与完整说明",
+          "en": "Maturity Test: Perspective Checking Full Guide"
+        },
+        "description": {
+          "zh": "本部分回看怎样核对理解、信息范围与受影响者的条件。均分不测读心或共情能力，理解另一种说法也不要求同意它。",
+          "en": "Read perspective-checking frequencies through facts, inferences and contextual examples. No mind-reading, empathy ability or maturity band."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "理解之前先承认信息有限",
+            "en": "Acknowledging limited information before interpreting"
+          },
+          "paragraphs": [
+            {
+              "zh": "这里关注你有没有区分听见的原话与自己的解释，核对是否只知道一方信息，或让受影响的人有机会说明条件。它不要求替别人找到善意理由，也不鼓励猜测隐藏动机。你可以听懂一种解释，仍认为它不适合自己或选择不继续讨论。题目记录的是近四周自报的具体做法，不能判断你是否比别人更有同理心或看得更全面。",
+              "en": "This part asks whether you distinguished words from interpretation, noticed having information from only one side or gave affected people room to explain conditions. It requires neither finding a benevolent explanation for someone nor guessing a hidden motive. You can understand an account and still find it unsuitable for you or decline further discussion. The items record specific reported practices over four weeks, not whether you have more empathy or a more complete understanding than someone else."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "简单均分不能表示理解准确率",
+            "en": "A simple mean is not an accuracy rate"
+          },
+          "paragraphs": [
+            {
+              "zh": "六条中至少四条有效评分才显示均分与条数，没有相关机会可以保留资料不足。数值较高只表示更常报告核对的做法，不说明每次理解都准确；较低也不等于不愿理解别人。询问次数、信息可得性、表达方式和所想到的情境都会影响回答。同样均分可能掩盖不同条目的差别，所以不能把它当识别他人意图的准确率或群体比较。",
+              "en": "At least four of six items need ratings for a mean and rated count; no relevant opportunity can remain explicitly insufficient. A higher mean means more reported checking, not accurate understanding every time. A lower mean establishes no unwillingness to understand. Chances to ask, access to information, wording and imagined situations may affect responses. Equal means can conceal different item patterns, so the number is neither an accuracy rate for interpreting intentions nor a basis for population comparisons."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一句简短回复的不同解释",
+            "en": "Different readings of a brief reply"
+          },
+          "paragraphs": [
+            {
+              "zh": "一起安排活动时，对方只回“我再看看”，你注意到自己把它读成“不想参加”，但原话也可能只是尚未确认时间。若合适，你可以问需要什么时候再确定，同时接受对方不解释私人原因。这个例子不是要求你始终作最乐观解释，也没有证明哪一种猜测正确；它只展示怎样把已知文字和未核实推测分开。",
+              "en": "While arranging an activity, someone replies that they will see. You notice reading this as not wanting to join, although the words may simply mean the timing is unconfirmed. If appropriate, ask when they might know, without requiring private reasons. This does not require the most optimistic interpretation or prove that one guess is correct. It illustrates separating available words from an unverified inference while allowing the other person to decline, remain unsure or leave the matter unexplained."
+            }
+          ]
+        },
+        {
+          "id": "voice",
+          "title": {
+            "zh": "核对理解时保留不同意的空间",
+            "en": "Checking understanding while retaining disagreement"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说“我听到你担心时间不够，我理解得对吗？我这边仍需要保留原来的结束时间”。你先核对对方的意思，再说明自己的限制，而不是用理解换取必须妥协。若不适合继续交流，可以结束讨论；没有义务为了证明成熟而持续接触。视角核对也不意味着把每个人的解释都视为同样充分，具体信息仍需按情境判断。",
+              "en": "You could check whether someone is concerned about insufficient time while stating that you still need the agreed finish time. Understanding and your own limit then appear together instead of making understanding the price of obligatory compromise. You may end an unsuitable exchange, without maintaining contact to demonstrate maturity. Perspective checking also does not make every explanation equally adequate. Particular information still needs to be assessed in context, and no questionnaire score can settle a disagreement for its participants."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与情绪、承诺和自主选择的关系",
+            "en": "Relations with feelings, commitments and self-directed choice"
+          },
+          "paragraphs": [
+            {
+              "zh": "情绪回应关心感受与下一步之间，承诺修订关心共同约定怎样确认与调整，自主选择关心自己的理由和帮助的范围。视角核对主要看你怎样处理理解和信息，不等于在冲突里更平静或更愿让步。四项可以在同一件事情里前后出现，也可能因机会不同而有不同均分；本版没有用某一项抵消另一项或计算成熟总分。",
+              "en": "Feeling and response concerns the space before an action; commitments and revision concern shared agreements; self-directed choice concerns personal reasons and the scope of help. Perspective checking focuses on understanding and information rather than calmness in conflict or willingness to concede. All four can occur at different stages of one situation or have different means because opportunities differ. One part neither cancels another nor contributes to an overall maturity score, and a high score in checking cannot certify a whole interaction as appropriate."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "有时不再追问也是合适的选择",
+            "en": "Sometimes not asking further is appropriate"
+          },
+          "paragraphs": [
+            {
+              "zh": "当对方已经表达拒绝、信息属于隐私或你决定结束交流时，可以不再追问。也可能你们已有共同理解，不需要每次重复确认。较少报告核对不表示冷漠，较多不证明看人准确、关系良好或某种专业能力；这些内容没有被观察。结果更不能解释你童年的经历、脑发育或精神健康，也不能用于要求别人听你解释。",
+              "en": "You can stop asking when someone has declined, the information is private or you choose to end an exchange. Shared understanding may already make another check unnecessary. Less checking establishes no coldness, and more proves neither accurate insight, a good relationship nor a professional skill. Those outcomes were not observed. The result cannot explain childhood experience, brain development or mental health, and it should not be used to demand that someone continue hearing your explanation."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "回看一个推测怎样被核实或保留",
+            "en": "Reviewing how one inference was checked or left open"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，回想一次普通的信息误会，分开写或想：你实际知道什么，推测了什么，哪些后来核实，哪些仍不知道？也可以找一个你选择不问的例子，看看隐私或边界是否更重要。无需重谈不想重谈的经历，也不用把猜中次数计成分数。回顾只是补充均分没有包含的情境，不是共情训练或必须继续测评的任务。",
+              "en": "If useful, recall an ordinary misunderstanding and distinguish what you knew, inferred, later checked and still do not know. Compare an occasion when you chose not to ask because privacy or a boundary mattered more. There is no need to revisit an unwanted experience or score how many guesses were right. This review adds context missing from a mean; it is not empathy training or an assignment requiring another assessment. The complete public guide remains available without sharing any observation."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "有效条数、均分与资料不足",
+            "en": "Rated counts, means and insufficient information"
+          },
+          "paragraphs": [
+            {
+              "zh": "24条各选从不1、很少2、有时3、经常4、几乎总是5，或没有相关机会／资料不足／不愿回答。四部分各6条，全部直接键向，0条反向；较高数值只表示在这些表述上选择了较高频率，不评成熟、好坏或能力。每部分至少4条有效评分才显示其和÷有效条数的简单均分，四舍五入到一位小数，同时显示有效条数；不适用不记零分，不足4条明确显示资料不足。24个选项都选完才呈现本次结果，但某部分不足不抹掉其他部分。四份完整说明无论均分或不足都可读，不挑最高、不分等级、不计算总分、整体均分、年龄或常模百分位。频率标签是有序自报类别，平均值为本站呈现约定，不证明等距测量；同均分可来自不同条目组合，不能跨人排名或据小数差断定显著变化。",
+              "en": "Each of twenty-four items offers Never 1, Rarely 2, Sometimes 3, Often 4, Almost always 5, or no relevant opportunity, insufficient information or preferring not to answer. Four parts each contain six directly keyed items, with zero reversals. Higher numbers mean higher reported frequency on these statements, not maturity, worth or ability. A part needs at least four ratings for a simple sum-divided-by-rated-count mean, rounded to one decimal, alongside its rated count. Non-applicable responses are not zero; fewer than four remain explicitly insufficient. All twenty-four selections are needed before a result, but one insufficient part does not erase others. All four full guides remain readable regardless of means or insufficiency. There is no highest type, band, total, overall mean, age or normative percentile. Frequency labels are ordered self-report categories; averaging is this site’s display convention, not established interval measurement. Identical means may represent different item patterns, without interpersonal rankings or significance inferred from a decimal difference."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创四部分的使用范围",
+            "en": "Scope of the four original parts"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24条和四部分均为费马原创自我观察组织，不是临床或发展评估、标准成熟度量表、智力或EQ能力测量；不估心理年龄、脑发育、智者类型、健康、创伤原因、品德、关系质量或职业。研究中的责任、视角和节制等概念只提供背景，三因素研究并不验证本站四部分、题目、均分或解释，也不把特定年龄与司法样本的结果迁移到个体。频率高低受机会、情境、记忆和表述影响，不是能力或人群排名；支持、求助、拒绝和改变约定不等于不成熟。",
+              "en": "These twenty-four items and four parts are FermatMind’s original organisation for self-observation, not a clinical or developmental assessment, standard maturity instrument, intelligence test or EQ ability measure. They estimate no mental age, brain development, wise type, health, trauma cause, morality, relationship quality or career. Research concepts such as responsibility, perspective and temperance provide background only: three-factor research validates neither these four parts, items, means nor interpretations, and results from specific age or justice samples are not transferred to individuals. Frequency depends on opportunity, context, recall and wording, not ability or population rank. Receiving support, seeking help, declining and revising agreements establish no immaturity."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "self-directed-choice",
+      "directionIds": [
+        "self-directed-choice"
+      ],
+      "title": {
+        "zh": "自主选择：自己的理由与愿意接受的帮助",
+        "en": "Self-directed Choice: Your Reasons and the Help You Welcome"
+      },
+      "headline": {
+        "zh": "近四周具体做法的自报读法，不是成熟程度鉴定。",
+        "en": "A reading of reported practices over four weeks rather than a maturity assessment."
+      },
+      "summary": {
+        "zh": "本部分回看怎样说明自己的选择、接受建议并保留决定空间。自主不等于凡事独自完成，所需帮助和现实依赖不能被均分解释成不成熟。",
+        "en": "This part reviews explaining choices, considering advice and retaining room to decide. Autonomy does not mean doing everything alone, and needed help or practical dependence is not immaturity inferred from a mean."
+      },
+      "scoreReading": {
+        "zh": "24条各选从不1、很少2、有时3、经常4、几乎总是5，或没有相关机会／资料不足／不愿回答。四部分各6条，全部直接键向，0条反向；较高数值只表示在这些表述上选择了较高频率，不评成熟、好坏或能力。每部分至少4条有效评分才显示其和÷有效条数的简单均分，四舍五入到一位小数，同时显示有效条数；不适用不记零分，不足4条明确显示资料不足。24个选项都选完才呈现本次结果，但某部分不足不抹掉其他部分。四份完整说明无论均分或不足都可读，不挑最高、不分等级、不计算总分、整体均分、年龄或常模百分位。频率标签是有序自报类别，平均值为本站呈现约定，不证明等距测量；同均分可来自不同条目组合，不能跨人排名或据小数差断定显著变化。",
+        "en": "Each of twenty-four items offers Never 1, Rarely 2, Sometimes 3, Often 4, Almost always 5, or no relevant opportunity, insufficient information or preferring not to answer. Four parts each contain six directly keyed items, with zero reversals. Higher numbers mean higher reported frequency on these statements, not maturity, worth or ability. A part needs at least four ratings for a simple sum-divided-by-rated-count mean, rounded to one decimal, alongside its rated count. Non-applicable responses are not zero; fewer than four remain explicitly insufficient. All twenty-four selections are needed before a result, but one insufficient part does not erase others. All four full guides remain readable regardless of means or insufficiency. There is no highest type, band, total, overall mean, age or normative percentile. Frequency labels are ordered self-report categories; averaging is this site’s display convention, not established interval measurement. Identical means may represent different item patterns, without interpersonal rankings or significance inferred from a decimal difference."
+      },
+      "seo": {
+        "title": {
+          "zh": "成熟度测试自主选择结果：频率与完整说明",
+          "en": "Maturity Test: Self-directed Choice Full Guide"
+        },
+        "description": {
+          "zh": "本部分回看怎样说明自己的选择、接受建议并保留决定空间。自主不等于凡事独自完成，所需帮助和现实依赖不能被均分解释成不成熟。",
+          "en": "Explore self-directed choices and welcomed help with full examples and contextual limits. No independence rank, age or clinical conclusion."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "自主可以与依靠别人同时存在",
+            "en": "Self-direction can coexist with relying on others"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目关注普通决定里你愿意采用什么、理由是什么，以及哪些部分想保留、哪些愿意接受帮助。它不测经济独立、生活自理或拒绝建议的能力，也不把求助当作较低层级。你可以在需要支持的条件下仍表达自己的偏好；有些时候也可能暂不方便表达。一次频率自报不能据此判断你的成熟程度、个人价值或是否有资格作决定。",
+              "en": "These items concern what you willingly choose, your reasons and which parts you retain or welcome help with. They measure neither financial independence, daily living skills nor an ability to reject advice, and seeking help is not a lower developmental level. A preference can remain yours while you rely on support. Conditions may also limit when you can express it. One frequency report supplies no judgment of maturity, worth or whether you are entitled to make decisions."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "把频率放回实际选择空间",
+            "en": "Putting frequency back into actual room to choose"
+          },
+          "paragraphs": [
+            {
+              "zh": "本部分至少四条有效评分才显示均分，六条里未适用的内容不记零分。数值较高只表示更多报告这些做法，不说明你总能自由选择或从不受影响；较低可能与可表达空间、近期机会、材料或措辞有关。不同生活条件不能靠同一个均分拉平。这里没有独立性总等级、同龄人比较或把接受照料换成成熟度扣分的规则。",
+              "en": "A mean requires four ratings, with non-applicable items excluded rather than scored zero. A higher mean means more reported practices, not unlimited choice or freedom from influence. A lower one may involve room to speak, opportunities, resources or wording. A common mean cannot equalise different living conditions. There is no overall independence level, peer comparison or rule that subtracts maturity for receiving care. The number cannot distinguish a constrained setting from a preference without information this edition does not collect."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "借助建议作一项自己的选择",
+            "en": "Using advice to make a choice of your own"
+          },
+          "paragraphs": [
+            {
+              "zh": "你准备选一门休闲课，听朋友介绍几种形式后，说明自己这次更在意时间灵活，因此愿意先选可单次参加的一种。朋友也许替你查交通，你仍可保留是否报名的决定。例子不要求拒绝所有建议，也不把选得不同当作更独立。若目前没有合适课程，可以决定暂不参加；这同样可能是你基于条件作出的选择。",
+              "en": "Choosing a leisure class, you hear a friend’s suggestions and explain that flexible timing matters this time, so a single-session option appeals. The friend may check transport while you retain whether to enrol. Independence does not require rejecting advice, and choosing differently does not prove greater autonomy. If no class fits, not attending may also be a considered choice. The example concerns reasons and the scope of assistance, not the quality of a decision or how little help you used."
+            }
+          ]
+        },
+        {
+          "id": "voice",
+          "title": {
+            "zh": "说清想保留的决定与需要的帮助",
+            "en": "Naming retained decisions and useful help"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说“我想自己决定是否参加，交通信息希望请你帮我查一下”，也可以说“这些建议我会考虑，但今天还不想决定”。你把帮助与决定分开，保留改变主意或请求更多支持的可能。若某个讨论不适合坦诚表达，可以先不说明私人理由。本读法不要求在任何环境里都坚持表达，更不把困难条件造成的限制归咎于个人不成熟。",
+              "en": "You could retain the decision to attend while requesting help with transport information, or consider suggestions without deciding today. Help and decision making then have distinguishable scopes, with room to change your mind or request more support. Where candid discussion is unsuitable, you may leave private reasons unstated. This guide requires no insistence on self-expression in every environment and does not attribute limits created by difficult conditions to personal immaturity or a failure to stand on your own."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "自主选择不同于拒绝所有影响",
+            "en": "Self-direction differs from rejecting every influence"
+          },
+          "paragraphs": [
+            {
+              "zh": "承诺修订关注共同约定如何落实与调整，不等于你是否愿意作出这个选择；情绪回应关注感受与下一步，视角核对关注理解与信息。自主选择把注意力放在自己的理由、边界与帮助范围。你可以同时认真听别人、改变原决定、承担适当承诺并保留自主，四项不是互斥类型，也没有加总成一个“足够独立”的结论。",
+              "en": "Commitments and revision concern implementing and adjusting a shared arrangement, not simply whether you want the choice. Feeling and response concerns an emotional moment; perspective checking concerns understanding and information. Self-directed choice focuses on reasons, limits and the scope of help. Listening, revising a decision, accepting an appropriate commitment and retaining self-direction can coexist. Four parts are not mutually exclusive types and are not added into a conclusion that you are sufficiently independent or ought to need less support."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "无法选择与不愿表达不能混为一谈",
+            "en": "Limited choice and an unexpressed preference are different"
+          },
+          "paragraphs": [
+            {
+              "zh": "有些决定需要共同协商，或受时间、资源、照料安排等限制；你不一定能马上按偏好行动。也可能只是近四周没有需要征求建议的机会。较低均分不能推出依赖性格，较高不能证明自信、健康、成熟年龄或职业适配。题目没有收集具体原因，更不支持由一次选择推断别人应该离开支持系统或承担超出能力的生活要求。",
+              "en": "Some decisions require agreement or are limited by time, resources and care arrangements, so immediate action on a preference may be unavailable. There may simply have been no recent occasion for advice. A lower mean establishes no dependent personality, and a higher one proves neither confidence, health, maturity age nor occupational fit. The bank collects no specific cause and cannot imply that someone should leave a support system or accept living demands beyond their capacity based on one set of choices."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "回看一次帮助与决定怎样分工",
+            "en": "Reviewing how help and decision making were shared"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，回想一项普通选择：你愿意什么、哪些条件重要、谁提供了帮助、哪些决定仍由你保留？也找一个你愿意共同决定或暂不决定的例子。无需减少求助次数、追求更高均分或公开家庭情况。回顾只帮助理解自己的具体选择空间；完整结果免费，后续框架自选且需要独立作答，不从本均分换算任何类型。",
+              "en": "If useful, recall an ordinary choice: what you wanted, relevant conditions, who helped and which decisions you retained. Compare a case where you preferred a shared or postponed decision. There is no need to seek less help, target a higher mean or disclose family circumstances. This review concerns actual room to choose. Complete results are free; another framework is optional and requires its own answers rather than a type converted from this mean. You can also stop the reflection here."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "有效条数、均分与资料不足",
+            "en": "Rated counts, means and insufficient information"
+          },
+          "paragraphs": [
+            {
+              "zh": "24条各选从不1、很少2、有时3、经常4、几乎总是5，或没有相关机会／资料不足／不愿回答。四部分各6条，全部直接键向，0条反向；较高数值只表示在这些表述上选择了较高频率，不评成熟、好坏或能力。每部分至少4条有效评分才显示其和÷有效条数的简单均分，四舍五入到一位小数，同时显示有效条数；不适用不记零分，不足4条明确显示资料不足。24个选项都选完才呈现本次结果，但某部分不足不抹掉其他部分。四份完整说明无论均分或不足都可读，不挑最高、不分等级、不计算总分、整体均分、年龄或常模百分位。频率标签是有序自报类别，平均值为本站呈现约定，不证明等距测量；同均分可来自不同条目组合，不能跨人排名或据小数差断定显著变化。",
+              "en": "Each of twenty-four items offers Never 1, Rarely 2, Sometimes 3, Often 4, Almost always 5, or no relevant opportunity, insufficient information or preferring not to answer. Four parts each contain six directly keyed items, with zero reversals. Higher numbers mean higher reported frequency on these statements, not maturity, worth or ability. A part needs at least four ratings for a simple sum-divided-by-rated-count mean, rounded to one decimal, alongside its rated count. Non-applicable responses are not zero; fewer than four remain explicitly insufficient. All twenty-four selections are needed before a result, but one insufficient part does not erase others. All four full guides remain readable regardless of means or insufficiency. There is no highest type, band, total, overall mean, age or normative percentile. Frequency labels are ordered self-report categories; averaging is this site’s display convention, not established interval measurement. Identical means may represent different item patterns, without interpersonal rankings or significance inferred from a decimal difference."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创四部分的使用范围",
+            "en": "Scope of the four original parts"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版24条和四部分均为费马原创自我观察组织，不是临床或发展评估、标准成熟度量表、智力或EQ能力测量；不估心理年龄、脑发育、智者类型、健康、创伤原因、品德、关系质量或职业。研究中的责任、视角和节制等概念只提供背景，三因素研究并不验证本站四部分、题目、均分或解释，也不把特定年龄与司法样本的结果迁移到个体。频率高低受机会、情境、记忆和表述影响，不是能力或人群排名；支持、求助、拒绝和改变约定不等于不成熟。",
+              "en": "These twenty-four items and four parts are FermatMind’s original organisation for self-observation, not a clinical or developmental assessment, standard maturity instrument, intelligence test or EQ ability measure. They estimate no mental age, brain development, wise type, health, trauma cause, morality, relationship quality or career. Research concepts such as responsibility, perspective and temperance provide background only: three-factor research validates neither these four parts, items, means nor interpretations, and results from specific age or justice samples are not transferred to individuals. Frequency depends on opportunity, context, recall and wording, not ability or population rank. Receiving support, seeking help, declining and revising agreements establish no immaturity."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "zh": "四部分独立均分，不生成成熟总分",
+        "en": "Four separate means without an overall maturity score"
+      },
+      "paragraphs": [
+        {
+          "zh": "24条各选从不1、很少2、有时3、经常4、几乎总是5，或没有相关机会／资料不足／不愿回答。四部分各6条，全部直接键向，0条反向；较高数值只表示在这些表述上选择了较高频率，不评成熟、好坏或能力。每部分至少4条有效评分才显示其和÷有效条数的简单均分，四舍五入到一位小数，同时显示有效条数；不适用不记零分，不足4条明确显示资料不足。24个选项都选完才呈现本次结果，但某部分不足不抹掉其他部分。四份完整说明无论均分或不足都可读，不挑最高、不分等级、不计算总分、整体均分、年龄或常模百分位。频率标签是有序自报类别，平均值为本站呈现约定，不证明等距测量；同均分可来自不同条目组合，不能跨人排名或据小数差断定显著变化。",
+          "en": "Each of twenty-four items offers Never 1, Rarely 2, Sometimes 3, Often 4, Almost always 5, or no relevant opportunity, insufficient information or preferring not to answer. Four parts each contain six directly keyed items, with zero reversals. Higher numbers mean higher reported frequency on these statements, not maturity, worth or ability. A part needs at least four ratings for a simple sum-divided-by-rated-count mean, rounded to one decimal, alongside its rated count. Non-applicable responses are not zero; fewer than four remain explicitly insufficient. All twenty-four selections are needed before a result, but one insufficient part does not erase others. All four full guides remain readable regardless of means or insufficiency. There is no highest type, band, total, overall mean, age or normative percentile. Frequency labels are ordered self-report categories; averaging is this site’s display convention, not established interval measurement. Identical means may represent different item patterns, without interpersonal rankings or significance inferred from a decimal difference."
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "zh": "机会、情境与资料不足",
+        "en": "Opportunity, context and missing information"
+      },
+      "paragraphs": [
+        {
+          "zh": "请按近四周出现相关机会时的实际做法回答，而非想成为怎样的人。没有机会、资料不足与不愿回答共用明确选项，无法由缺失原因推个人状态。每部分6条至少4条才显示均分，条数少时保留不足，不拿零分替代。频率受机会、记忆、措辞和现实选择空间影响，较低不等于不成熟，较高也不保证适当或健康。",
+          "en": "Answer about actual practices when relevant opportunities arose over four weeks, rather than who you hope to become. No opportunity, insufficient information and preferring not to answer share an explicit option; the reason for missingness cannot reveal a personal state. Each six-item part needs four ratings; fewer remain insufficient without zero substitution. Opportunity, recall, wording and actual room to choose affect frequency. Lower is not immature, and higher guarantees neither appropriateness nor health."
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "zh": "四份全文同时可读，不派年龄或人设",
+        "en": "Four full guides without age or persona assignment"
+      },
+      "paragraphs": [
+        {
+          "zh": "情绪回应、承诺修订、视角核对和自主选择不是四种互斥人格。完成24个选择后，各部分独立显示均分和有效条数或资料不足，四份完整正文都在；不按最高排序，不用最低项拖累总分。正文含具体含义、均分读法、独立日常例子、可选表达、另外三部分比较、反例、回顾、计分和范围，不要求其他测评补全。",
+          "en": "Feeling and response, commitment and revision, perspective checking and self-directed choice are not mutually exclusive personalities. After twenty-four selections, each separately shows a mean and rated count or insufficient information, with all four full texts. There is no highest ranking or lowest part reducing a total. Guides include meaning, mean interpretation, an independent example, optional wording, three comparisons, counterexamples, review, scoring and scope, without another assessment needed to complete them."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "原创观察与研究背景的界限",
+        "en": "Original observation and the limits of research background"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版24条和四部分均为费马原创自我观察组织，不是临床或发展评估、标准成熟度量表、智力或EQ能力测量；不估心理年龄、脑发育、智者类型、健康、创伤原因、品德、关系质量或职业。研究中的责任、视角和节制等概念只提供背景，三因素研究并不验证本站四部分、题目、均分或解释，也不把特定年龄与司法样本的结果迁移到个体。频率高低受机会、情境、记忆和表述影响，不是能力或人群排名；支持、求助、拒绝和改变约定不等于不成熟。",
+          "en": "These twenty-four items and four parts are FermatMind’s original organisation for self-observation, not a clinical or developmental assessment, standard maturity instrument, intelligence test or EQ ability measure. They estimate no mental age, brain development, wise type, health, trauma cause, morality, relationship quality or career. Research concepts such as responsibility, perspective and temperance provide background only: three-factor research validates neither these four parts, items, means nor interpretations, and results from specific age or justice samples are not transferred to individuals. Frequency depends on opportunity, context, recall and wording, not ability or population rank. Receiving support, seeking help, declining and revising agreements establish no immaturity."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "完整免费、草稿与安全分享",
+        "en": "Full free access, drafts and safe sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "24题、四部分结果和四份九模块全文免费，不收邮箱，不要求注册或另一测评解锁。答案只在浏览器计算，不上传、不进入网址或分析；不收私人故事、年龄、家庭经历或临床资料。主动开启才保存本标签页24小时草稿，完成、重测或退出清除即删除。分享自选，只含测试名称与公开链接，不含答案、均分、条数或成熟标签。其他测评需另行完整作答，不把均分兑换类型；也可以直接阅读或在这里结束。",
+          "en": "All twenty-four items, four-part results and four full nine-section guides are free without email, signup or another assessment. Answers stay in browser calculations without uploading or entering URLs or analytics; private stories, ages, family histories and clinical information are not collected. Drafts require opt-in, last twenty-four hours in this tab and clear on completion, retake or exit-and-clear. Optional sharing includes the test name and public link without answers, means, counts or maturity labels. Other assessments require separate complete answers rather than a type converted from a mean. You can read directly or stop here."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这个测试会告诉我多大或够不够成熟吗？",
+        "en": "Will this tell me my age or whether I am mature enough?"
+      },
+      "answer": {
+        "zh": "本版24条和四部分均为费马原创自我观察组织，不是临床或发展评估、标准成熟度量表、智力或EQ能力测量；不估心理年龄、脑发育、智者类型、健康、创伤原因、品德、关系质量或职业。研究中的责任、视角和节制等概念只提供背景，三因素研究并不验证本站四部分、题目、均分或解释，也不把特定年龄与司法样本的结果迁移到个体。频率高低受机会、情境、记忆和表述影响，不是能力或人群排名；支持、求助、拒绝和改变约定不等于不成熟。",
+        "en": "These twenty-four items and four parts are FermatMind’s original organisation for self-observation, not a clinical or developmental assessment, standard maturity instrument, intelligence test or EQ ability measure. They estimate no mental age, brain development, wise type, health, trauma cause, morality, relationship quality or career. Research concepts such as responsibility, perspective and temperance provide background only: three-factor research validates neither these four parts, items, means nor interpretations, and results from specific age or justice samples are not transferred to individuals. Frequency depends on opportunity, context, recall and wording, not ability or population rank. Receiving support, seeking help, declining and revising agreements establish no immaturity."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样计算均分和资料不足？",
+        "en": "How are means and insufficient information calculated?"
+      },
+      "answer": {
+        "zh": "24条各选从不1、很少2、有时3、经常4、几乎总是5，或没有相关机会／资料不足／不愿回答。四部分各6条，全部直接键向，0条反向；较高数值只表示在这些表述上选择了较高频率，不评成熟、好坏或能力。每部分至少4条有效评分才显示其和÷有效条数的简单均分，四舍五入到一位小数，同时显示有效条数；不适用不记零分，不足4条明确显示资料不足。24个选项都选完才呈现本次结果，但某部分不足不抹掉其他部分。四份完整说明无论均分或不足都可读，不挑最高、不分等级、不计算总分、整体均分、年龄或常模百分位。频率标签是有序自报类别，平均值为本站呈现约定，不证明等距测量；同均分可来自不同条目组合，不能跨人排名或据小数差断定显著变化。",
+        "en": "Each of twenty-four items offers Never 1, Rarely 2, Sometimes 3, Often 4, Almost always 5, or no relevant opportunity, insufficient information or preferring not to answer. Four parts each contain six directly keyed items, with zero reversals. Higher numbers mean higher reported frequency on these statements, not maturity, worth or ability. A part needs at least four ratings for a simple sum-divided-by-rated-count mean, rounded to one decimal, alongside its rated count. Non-applicable responses are not zero; fewer than four remain explicitly insufficient. All twenty-four selections are needed before a result, but one insufficient part does not erase others. All four full guides remain readable regardless of means or insufficiency. There is no highest type, band, total, overall mean, age or normative percentile. Frequency labels are ordered self-report categories; averaging is this site’s display convention, not established interval measurement. Identical means may represent different item patterns, without interpersonal rankings or significance inferred from a decimal difference."
+      }
+    },
+    {
+      "question": {
+        "zh": "四项能合成总分、类型或排名吗？",
+        "en": "Do the four parts form a total, type or rank?"
+      },
+      "answer": {
+        "zh": "不能。本版四部分只分别组织具体做法的自报频率，没有成熟度总分、年龄、人群常模、临床发展阶段或固定类型。四份全文同时可读，不挑最高或把低均分叫缺点；其他框架需要独立完整作答。",
+        "en": "No. Four parts separately organise reported frequencies of specific practices, without a maturity total, age, population norm, clinical developmental stage or fixed type. All four full guides remain readable; no highest part is selected and a low mean is not called a flaw. Other frameworks require separate complete answers."
+      }
+    },
+    {
+      "question": {
+        "zh": "求助、拒绝或改约定意味着不成熟吗？",
+        "en": "Do seeking help, declining or revising an agreement mean immaturity?"
+      },
+      "answer": {
+        "zh": "不能这样推断。实际条件、意愿和边界都很重要，自主可与支持同时存在，承诺也可能需要重新商量。本题没有观察行为质量或私人条件，不能用一次均分评好坏、要求别人顺从或决定谁值得信任。",
+        "en": "No such inference follows. Conditions, willingness and limits matter; self-direction can coexist with support and agreements may need renegotiation. The bank observes neither quality of conduct nor private conditions. One mean cannot rate worth, demand compliance or decide whom to trust."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果、重测与分享免费吗？",
+        "en": "Are full results, retaking and sharing free?"
+      },
+      "answer": {
+        "zh": "24题、四部分结果和四份九模块全文免费，不收邮箱，不要求注册或另一测评解锁。答案只在浏览器计算，不上传、不进入网址或分析；不收私人故事、年龄、家庭经历或临床资料。主动开启才保存本标签页24小时草稿，完成、重测或退出清除即删除。分享自选，只含测试名称与公开链接，不含答案、均分、条数或成熟标签。其他测评需另行完整作答，不把均分兑换类型；也可以直接阅读或在这里结束。",
+        "en": "All twenty-four items, four-part results and four full nine-section guides are free without email, signup or another assessment. Answers stay in browser calculations without uploading or entering URLs or analytics; private stories, ages, family histories and clinical information are not collected. Drafts require opt-in, last twenty-four hours in this tab and clear on completion, retake or exit-and-clear. Optional sharing includes the test name and public link without answers, means, counts or maturity labels. Other assessments require separate complete answers rather than a type converted from a mean. You can read directly or stop here."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "Cauffman与Steinberg：判断成熟度的研究摘要（概念背景，非本版验证）",
+        "en": "Cauffman and Steinberg: maturity-of-judgment research abstract, conceptual background rather than validation"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11180420/"
+    },
+    {
+      "title": {
+        "zh": "心理社会成熟度概念研究摘要（不同模型的背景）",
+        "en": "Toward a concept of psychosocial maturity: abstract and background to another model"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24414373/"
+    }
+  ]
+}

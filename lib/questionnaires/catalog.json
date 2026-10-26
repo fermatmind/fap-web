@@ -1519,5 +1519,30 @@
       "west-north",
       "west-south"
     ]
+  },
+  {
+    "slug": "maturity-test",
+    "code": "MATURITY_CONTEXT_REFLECTION_24",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "framework",
+    "title": {
+      "zh": "成熟度测试",
+      "en": "Maturity Test"
+    },
+    "description": {
+      "zh": "免费成熟度测试：24道原创频率题，分别回看情绪回应、承诺修订、视角核对和自主选择。四份完整结果直接可读，资料不足明确保留，不估年龄或判断是否足够成熟。",
+      "en": "A free maturity reflection: 24 original frequency items and four full guides. Explore everyday practices with explicit missing information and no age labels."
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_maturity_context_frequency_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "emotion-pause",
+      "commitment-repair",
+      "perspective-checking",
+      "self-directed-choice"
+    ]
   }
 ]

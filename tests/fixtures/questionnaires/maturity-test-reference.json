@@ -1,0 +1,1594 @@
+{
+  "formCode": "fm_maturity_context_frequency_24",
+  "origin": "FermatMind independently authored four-topic behaviour-frequency reflection; not a standard maturity instrument or competitor bank",
+  "directions": [
+    {
+      "id": "emotion-pause",
+      "title": {
+        "zh": "情绪与回应之间",
+        "en": "Between a feeling and a response"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "commitment-repair",
+      "title": {
+        "zh": "承诺、跟进与修订",
+        "en": "Commitments, follow-through and revision"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "perspective-checking",
+      "title": {
+        "zh": "核对视角与影响",
+        "en": "Checking perspectives and effects"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "self-directed-choice",
+      "title": {
+        "zh": "自主选择与适当求助",
+        "en": "Self-directed choice and appropriate help"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "MATURITY_01",
+      "prompt": {
+        "zh": "近四周，有机会回应一条让我不快的普通消息时，我先辨认自己的感受，再决定怎样回复。",
+        "en": "Over the past four weeks, when an ordinary message upset me, I identified my feeling before deciding how to reply."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "emotion-pause",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "emotion-pause",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "emotion-pause",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "emotion-pause",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "emotion-pause",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "emotion-pause",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_02",
+      "prompt": {
+        "zh": "近四周，日常小延误让我烦躁时，我会把当下感受与下一步要做的事分开想。",
+        "en": "Over the past four weeks, when a small everyday delay frustrated me, I considered my feeling separately from my next action."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "emotion-pause",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "emotion-pause",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "emotion-pause",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "emotion-pause",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "emotion-pause",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "emotion-pause",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_03",
+      "prompt": {
+        "zh": "近四周，在不紧急的讨论里需要一点时间时，我会说出想稍后再回应。",
+        "en": "Over the past four weeks, when I needed time in a non-urgent discussion, I said that I wanted to respond later."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "emotion-pause",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "emotion-pause",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "emotion-pause",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "emotion-pause",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "emotion-pause",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "emotion-pause",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_04",
+      "prompt": {
+        "zh": "近四周，普通分歧让我有强烈反应时，我会先决定现在是否适合继续讨论。",
+        "en": "Over the past four weeks, when an ordinary disagreement brought a strong reaction, I considered whether this was a suitable time to continue."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "emotion-pause",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "emotion-pause",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "emotion-pause",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "emotion-pause",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "emotion-pause",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "emotion-pause",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_05",
+      "prompt": {
+        "zh": "近四周，计划变化使我失望时，我会留意立刻回应与稍后处理各有什么影响。",
+        "en": "Over the past four weeks, when a changed plan disappointed me, I considered the effects of responding immediately or dealing with it later."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "emotion-pause",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "emotion-pause",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "emotion-pause",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "emotion-pause",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "emotion-pause",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "emotion-pause",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_06",
+      "prompt": {
+        "zh": "近四周，需要表达不满时，我会把感受说清，同时选择自己愿意采取的具体回应。",
+        "en": "Over the past four weeks, when expressing dissatisfaction, I named my feeling while choosing a concrete response I was willing to make."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "emotion-pause",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "emotion-pause",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "emotion-pause",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "emotion-pause",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "emotion-pause",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "emotion-pause",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_07",
+      "prompt": {
+        "zh": "近四周，答应一项普通任务之前，我会估计自己实际能投入的时间和精力。",
+        "en": "Over the past four weeks, before accepting an ordinary task, I estimated the time and effort I could actually offer."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "commitment-repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "commitment-repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "commitment-repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "commitment-repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "commitment-repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "commitment-repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_08",
+      "prompt": {
+        "zh": "近四周，发现一项约定难以按时完成时，我会向受影响的人说明目前情况。",
+        "en": "Over the past four weeks, when an agreement became difficult to complete on time, I explained the current situation to those affected."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "commitment-repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "commitment-repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "commitment-repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "commitment-repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "commitment-repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "commitment-repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_09",
+      "prompt": {
+        "zh": "近四周，普通协作出了差错时，我会区分自己能处理的部分与需要共同解决的部分。",
+        "en": "Over the past four weeks, when an ordinary collaboration went wrong, I distinguished what I could address from what needed a shared response."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "commitment-repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "commitment-repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "commitment-repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "commitment-repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "commitment-repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "commitment-repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_10",
+      "prompt": {
+        "zh": "近四周，接下一项安排时，我会确认彼此对完成范围的理解是否相同。",
+        "en": "Over the past four weeks, when taking on an arrangement, I checked whether we understood its scope in the same way."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "commitment-repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "commitment-repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "commitment-repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "commitment-repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "commitment-repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "commitment-repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_11",
+      "prompt": {
+        "zh": "近四周，在自己仍愿意承担的约定里，我会跟进一个已经说好的小步骤。",
+        "en": "Over the past four weeks, in an agreement I still wished to undertake, I followed up one small step we had agreed."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "commitment-repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "commitment-repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "commitment-repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "commitment-repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "commitment-repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "commitment-repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_12",
+      "prompt": {
+        "zh": "近四周，条件发生变化时，我会重新商量承诺的范围或时间。",
+        "en": "Over the past four weeks, when conditions changed, I renegotiated the scope or timing of a commitment."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "commitment-repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "commitment-repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "commitment-repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "commitment-repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "commitment-repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "commitment-repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_13",
+      "prompt": {
+        "zh": "近四周，听到一句有不同解释的话时，我会区分原话与自己推测的意思。",
+        "en": "Over the past four weeks, when a remark had several possible meanings, I distinguished the words from the meaning I inferred."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "perspective-checking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "perspective-checking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "perspective-checking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "perspective-checking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "perspective-checking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "perspective-checking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_14",
+      "prompt": {
+        "zh": "近四周，在普通分歧里，我会核对自己是否准确理解了对方的说法。",
+        "en": "Over the past four weeks, in an ordinary disagreement, I checked whether I had understood the other person’s account accurately."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "perspective-checking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "perspective-checking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "perspective-checking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "perspective-checking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "perspective-checking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "perspective-checking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_15",
+      "prompt": {
+        "zh": "近四周，共同安排遇到困难时，我会询问对方有哪些实际限制，而不只按自己的情况判断。",
+        "en": "Over the past four weeks, when a shared arrangement was difficult, I asked about the other person’s practical constraints rather than judging only from my own circumstances."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "perspective-checking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "perspective-checking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "perspective-checking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "perspective-checking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "perspective-checking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "perspective-checking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_16",
+      "prompt": {
+        "zh": "近四周，准备评价一件普通事情时，我会留意自己是否只知道其中一方的信息。",
+        "en": "Over the past four weeks, before evaluating an ordinary situation, I noticed whether I had information from only one side."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "perspective-checking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "perspective-checking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "perspective-checking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "perspective-checking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "perspective-checking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "perspective-checking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_17",
+      "prompt": {
+        "zh": "近四周，一项日常决定会影响别人时，我会考虑需要让哪些受影响的人参与商量。",
+        "en": "Over the past four weeks, when an everyday decision affected others, I considered who needed a chance to join the discussion."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "perspective-checking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "perspective-checking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "perspective-checking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "perspective-checking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "perspective-checking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "perspective-checking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_18",
+      "prompt": {
+        "zh": "近四周，遇到不同观点时，我会试着理解其理由，同时保留自己同意或不同意的选择。",
+        "en": "Over the past four weeks, when encountering another view, I tried to understand its reasons while retaining my choice to agree or disagree."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "perspective-checking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "perspective-checking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "perspective-checking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "perspective-checking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "perspective-checking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "perspective-checking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_19",
+      "prompt": {
+        "zh": "近四周，作一项普通选择时，我能说出自己愿意这样选的具体理由。",
+        "en": "Over the past four weeks, when making an ordinary choice, I could state a concrete reason why I wanted that option."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "self-directed-choice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "self-directed-choice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "self-directed-choice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "self-directed-choice",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "self-directed-choice",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "self-directed-choice",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_20",
+      "prompt": {
+        "zh": "近四周，向别人征求建议后，我会分辨哪些建议符合自己这次的目的。",
+        "en": "Over the past four weeks, after seeking advice, I considered which suggestions fitted my purpose this time."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "self-directed-choice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "self-directed-choice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "self-directed-choice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "self-directed-choice",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "self-directed-choice",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "self-directed-choice",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_21",
+      "prompt": {
+        "zh": "近四周，集体提出一个安排时，我会先确认自己愿意承担到什么范围。",
+        "en": "Over the past four weeks, when a group proposed an arrangement, I checked the extent of involvement I actually wanted."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "self-directed-choice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "self-directed-choice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "self-directed-choice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "self-directed-choice",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "self-directed-choice",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "self-directed-choice",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_22",
+      "prompt": {
+        "zh": "近四周，获得新信息后，我会依据新的理由决定是否改变原来的选择。",
+        "en": "Over the past four weeks, after receiving new information, I used the new reasons to decide whether to revise my earlier choice."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "self-directed-choice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "self-directed-choice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "self-directed-choice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "self-directed-choice",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "self-directed-choice",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "self-directed-choice",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_23",
+      "prompt": {
+        "zh": "近四周，在可以坦诚表达的普通讨论里，我会说出自己更想采取的办法。",
+        "en": "Over the past four weeks, in ordinary discussions where I could speak candidly, I stated the approach I preferred."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "self-directed-choice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "self-directed-choice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "self-directed-choice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "self-directed-choice",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "self-directed-choice",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "self-directed-choice",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MATURITY_24",
+      "prompt": {
+        "zh": "近四周，接受实际帮助时，我会分清哪些决定想自己保留，哪些部分愿意请人协助。",
+        "en": "Over the past four weeks, when accepting practical help, I distinguished decisions I wanted to keep from parts where I welcomed assistance."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "self-directed-choice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "self-directed-choice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "self-directed-choice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "self-directed-choice",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "self-directed-choice",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／资料不足／不愿回答",
+            "en": "No relevant opportunity / insufficient information / prefer not to answer"
+          },
+          "directionId": "self-directed-choice",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "questions": 24,
+    "facets": 4,
+    "itemsEach": 6,
+    "minimumRatedEach": 4,
+    "reverseItems": 0,
+    "reverseRule": "NONE; all24directlykeyedopportunity-conditionedfrequencyitems",
+    "mean": "sum/rated rounded1decimal independently per part; at least4validof6;NAexcludednotzero; everyfourFULLreadingalways/nooveralltotal,norm,maturityband,highesttype,age,clinical,moralorjobjudgment",
+    "verificationPlan": "ActualsourceDP91reachable(rated,sum)states per6item part;364individualfacetwitnesses planned runtimecomparisonNOTdone;NOT6^24jointorpsychvalidation"
+  },
+  "scope": {
+    "zh": "本版24条和四部分均为费马原创自我观察组织，不是临床或发展评估、标准成熟度量表、智力或EQ能力测量；不估心理年龄、脑发育、智者类型、健康、创伤原因、品德、关系质量或职业。研究中的责任、视角和节制等概念只提供背景，三因素研究并不验证本站四部分、题目、均分或解释，也不把特定年龄与司法样本的结果迁移到个体。频率高低受机会、情境、记忆和表述影响，不是能力或人群排名；支持、求助、拒绝和改变约定不等于不成熟。",
+    "en": "These twenty-four items and four parts are FermatMind’s original organisation for self-observation, not a clinical or developmental assessment, standard maturity instrument, intelligence test or EQ ability measure. They estimate no mental age, brain development, wise type, health, trauma cause, morality, relationship quality or career. Research concepts such as responsibility, perspective and temperance provide background only: three-factor research validates neither these four parts, items, means nor interpretations, and results from specific age or justice samples are not transferred to individuals. Frequency depends on opportunity, context, recall and wording, not ability or population rank. Receiving support, seeking help, declining and revising agreements establish no immaturity."
+  },
+  "instructions": {
+    "zh": "回想近四周，在出现相关机会时，这种具体做法出现得多频繁。按从不到几乎总是选择；没有相关机会、资料不足或不愿回答，选对应选项，不当零分。24题选完才生成四部分结果；每部分6条至少4条有效评分才显示均分，其他部分可以独立保留。这里不判断你的年龄、好坏或是否足够成熟。",
+    "en": "Think about the past four weeks and how often the specific response occurred when there was a relevant opportunity. Choose Never through Almost always. Select the separate option for no relevant opportunity, insufficient information or preferring not to answer; it is not zero. All twenty-four selections are required for a result. Each six-item part needs at least four ratings for its own mean; other parts can remain available independently. This does not judge your age, worth or whether you are mature enough."
+  }
+}
