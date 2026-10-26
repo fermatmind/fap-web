@@ -1,0 +1,1959 @@
+{
+  "slug": "jujutsu-kaisen-character",
+  "code": "JJK_FAN",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "fantasy",
+  "kind": "archetype",
+  "title": {
+    "en": "Jujutsu Kaisen Character Test",
+    "zh": "《咒术回战》角色测试"
+  },
+  "description": {
+    "en": "Try 24 original everyday learning and creative situations. Compare Yuji, Megumi, Nobara, Gojo, Maki and Toge with every highest tie and six complete bilingual guides free, without signup. Unofficial fan edition.",
+    "zh": "完成24道原创日常学习与创作情境题，比较悠仁、惠、野蔷薇、悟、真希和棘。全部最高并列、六份完整双语说明免费，无需注册。非官方同人版，不推断超能力、创伤或真实技能。"
+  },
+  "seoTitle": {
+    "en": "Jujutsu Kaisen Character Test: Free Quiz & All 6 Results",
+    "zh": "《咒术回战》角色测试：免费作答与6种完整结果"
+  },
+  "resultHeading": {
+    "en": "Your Jujutsu Kaisen character readings",
+    "zh": "本次《咒术回战》角色读法"
+  },
+  "minutes": 6,
+  "introduction": {
+    "en": "Which Jujutsu Kaisen character comes to mind from your ordinary creative choices? This independent fan edition uses six limited angles: joining a next step, choosing a commitment, preserving personal expression, reframing a task, practising a technique and considering a message. Twenty-four original situations involve harmless, voluntary activities rather than battles or episode trivia. All six complete public guides are available before starting. A match assigns neither supernatural powers nor the character’s traumatic experiences or harmful actions to you.",
+    "zh": "普通创作选择让你想到《咒术回战》的哪位角色？本独立同人版取六个有限角度：陪下一步、选承诺、留个人表达、换任务框架、练具体技法和考虑消息。24个原创情境均为无害自愿活动，不设战斗，也不考剧情。开测前可读六份全文；匹配既不赋予超能力，也不把角色创伤经历或伤害行为归给你。"
+  },
+  "instructions": {
+    "en": "Think about an optional learning or creative activity you would choose now. For each of 24 situations, choose one of four responses even if none fits perfectly. There are no correct answers, bravery points or moral rankings. A missing character option is not a rejection. Finish every choice before counts appear; every highest tie receives its complete guide.",
+    "zh": "想象现在愿意参加的可选学习或创作活动，24个情境，每题四选一，即使都不完全合适。没有正确答案、勇气分或道德排名。没提供的角色不算被拒绝。全部完成才显示计数，每个最高并列都有完整说明。"
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Jujutsu Kaisen: official first-season character guide",
+        "zh": "《咒术回战》官方第一季人物页"
+      },
+      "url": "https://jujutsukaisen.jp/character/index_1st.php"
+    }
+  ],
+  "source": {
+    "kind": "original_unofficial_fan_quiz",
+    "formCode": "fermatmind_jjk_original_24_v1",
+    "itemBankVersion": "jjk_original_24_v1",
+    "scoringVersion": "jjk_all_highest_counts_v1",
+    "resultContentVersion": "jjk_full_guides_v1",
+    "itemBankSha256": "ac8ecdda42d2f2238a4531c046995e7b6ee8655e985f6673135d82b623c107b0",
+    "resultContentSha256": "91978a238a7e0c5213d5de95dcc3b6669c8adf1cc9aff846cb077c4cc9782e6e",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "yuji-itadori",
+      "title": {
+        "en": "Yuji Itadori",
+        "zh": "虎杖悠仁（Yuji Itadori）"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "megumi-fushiguro",
+      "title": {
+        "en": "Megumi Fushiguro",
+        "zh": "伏黑惠（Megumi Fushiguro）"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "nobara-kugisaki",
+      "title": {
+        "en": "Nobara Kugisaki",
+        "zh": "钉崎野蔷薇（Nobara Kugisaki）"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "satoru-gojo",
+      "title": {
+        "en": "Satoru Gojo",
+        "zh": "五条悟（Satoru Gojo）"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "maki-zenin",
+      "title": {
+        "en": "Maki Zenin",
+        "zh": "禅院真希（Maki Zenin）"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "toge-inumaki",
+      "title": {
+        "en": "Toge Inumaki",
+        "zh": "狗卷棘（Toge Inumaki）"
+      },
+      "comparisons": 16
+    }
+  ],
+  "questions": [
+    {
+      "id": "JJK_01",
+      "prompt": {
+        "en": "A friend is trying a simple cardboard model and would welcome company. What would you most like to do?",
+        "zh": "朋友在试做简单纸板模型，也欢迎有人一起，你最想做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Join them for the next small step so they do not have to figure it out alone.",
+            "zh": "加入下一个小步骤，不让对方独自摸索。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Ask which part matters most before deciding what I can commit to.",
+            "zh": "先问哪部分最重要，再决定自己能承担什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Suggest a version that leaves room for my own visual choices.",
+            "zh": "提一个能保留自己视觉选择的版本。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "Turn one confusing part into a playful demonstration we can try.",
+            "zh": "把一个难懂部分变成可一起试的趣味演示。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_02",
+      "prompt": {
+        "en": "An optional workshop offers several roles, but you cannot take them all. What would you prefer?",
+        "zh": "可选工作坊提供几种分工，你无法全接，更愿意怎样选？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Choose the role that connects with a responsibility I actually want to take.",
+            "zh": "选择和自己真愿承担的责任相连的分工。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Pick the role that lets me keep a distinctive personal approach.",
+            "zh": "选能保留鲜明个人做法的分工。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "Try a role that lets me explain or reframe something for newcomers.",
+            "zh": "试一个能给新人解释或换角度说明的分工。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Work on one practical technique I would enjoy getting more familiar with.",
+            "zh": "练一种自己愿意逐渐熟悉的实际做法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_03",
+      "prompt": {
+        "en": "A shared illustration project asks everyone to use one style. What would attract you most?",
+        "zh": "共同插画项目请大家用一种风格，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Find a detail that can still express my own taste within the agreement.",
+            "zh": "在约定里找仍能表达自己口味的细节。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "Show a playful alternative that helps people see the idea differently.",
+            "zh": "展示一个趣味替代，让大家换角度看想法。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Practise a small part of the agreed technique until it feels more workable.",
+            "zh": "练约定技法的一小部分，直到更顺手。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Clarify the wording of the instruction so nobody reads it as a personal criticism.",
+            "zh": "说清说明的措辞，免得被读成对人的批评。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_04",
+      "prompt": {
+        "en": "Someone understands the instructions but cannot picture the next step. Which contribution appeals most?",
+        "zh": "有人看懂说明却想象不出下一步，你最想贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "Make a quick, unexpected example that shows another way to see it.",
+            "zh": "做个迅速、意想不到的例子，展示另一种看法。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Demonstrate the small movement slowly and let them try it themselves.",
+            "zh": "慢慢示范小动作，再让对方亲手试。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Check which words are unclear and replace them with a concrete description.",
+            "zh": "问哪些词不清楚，换成具体描述。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Work alongside them for the next attempt, if they would like company.",
+            "zh": "如果对方愿意，就陪着一起做下一次。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_05",
+      "prompt": {
+        "en": "You have ten minutes to explore a new paper-folding technique. What would feel most satisfying?",
+        "zh": "有十分钟探索新折纸做法，什么最让你满足？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Repeat one small fold and notice what makes it easier to control.",
+            "zh": "重复一个小折法，留意怎样更好控制。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Find a short, careful explanation that avoids a misleading instruction.",
+            "zh": "找一段简短、仔细、不会误导的说明。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Try it beside someone else so we can help each other through the awkward bit.",
+            "zh": "和别人并排试，互相帮过不顺手的部分。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Decide which part is worth my limited time before beginning.",
+            "zh": "开始前决定哪部分值得投入这点时间。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_06",
+      "prompt": {
+        "en": "A group is about to post a short announcement about its hobby work. What would you most like to check?",
+        "zh": "小组要发一则兴趣成果短通知，你最想核对什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Whether the words say what we mean without putting pressure on someone.",
+            "zh": "文字是否讲清原意，又不对某人施压。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Whether someone needs a hand finishing the small practical step before posting.",
+            "zh": "发出前是否有人需要帮忙完成一个实际小步骤。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Whether I am comfortable with the part of the plan I have agreed to own.",
+            "zh": "自己是否愿意承担已经约好的那部分计划。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Whether my contribution still sounds like a choice I made for myself.",
+            "zh": "自己的贡献是否仍像亲自选的表达。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_07",
+      "prompt": {
+        "en": "A newcomer is trying a hobby task that most of the group already knows. What would you prefer to offer?",
+        "zh": "新人在试小组多数人已熟悉的兴趣任务，你更愿意提供什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "A little company while we work through the first attempt together.",
+            "zh": "第一次尝试时陪一陪，一起做过去。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "A clear offer of the part I can help with, without promising everything.",
+            "zh": "明确说能帮哪部分，不承诺包办全部。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Permission to choose a version that feels like their own, as I would want.",
+            "zh": "像自己也希望的那样，让对方能选有自己味道的版本。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "A playful demonstration that makes the unfamiliar part less mysterious.",
+            "zh": "一个趣味示范，让陌生部分没那么神秘。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_08",
+      "prompt": {
+        "en": "Two small projects ask for your help on the same afternoon. What would you most like to do first?",
+        "zh": "两个小项目都在同一下午请你帮忙，你最想先做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Think through which commitment I can genuinely keep and tell people plainly.",
+            "zh": "想清能真做到哪项承诺，再明白告诉大家。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Choose the contribution in which I can express something I care about.",
+            "zh": "选能表达自己在意之处的贡献。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "Find a different format that may let the group approach the work more flexibly.",
+            "zh": "找一种不同形式，也许能让小组更灵活地做。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Select one concrete skill-sized task I can focus on practising.",
+            "zh": "选一项大小明确、可以专心练的具体任务。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_09",
+      "prompt": {
+        "en": "You are invited to decorate a shared notebook cover. What would appeal most?",
+        "zh": "有人请你装饰共同笔记本封面，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Make one visual choice that I can honestly say is mine.",
+            "zh": "作一个自己能坦然认领的视觉选择。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "Play with an unusual example that changes how the cover could work.",
+            "zh": "试一个不寻常例子，改变封面的可能做法。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Spend time getting one line or small shape steadier.",
+            "zh": "花时间把一条线或一个小形状做稳一点。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Choose wording that makes the shared purpose clear without claiming to speak for everyone.",
+            "zh": "选能讲清共同用途、又不冒充代表所有人的措辞。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_10",
+      "prompt": {
+        "en": "A practice session feels stuck because everyone is explaining the task the same way. What would you choose?",
+        "zh": "练习卡住了，大家一直用同一种办法解释，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "Invent a different example that lets people look at it from a fresh angle.",
+            "zh": "编一个不同例子，让大家换角度看。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Break one part into a small repetition that can be tried directly.",
+            "zh": "把一部分拆成可以直接重复试的小练习。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Ask which phrase is being misunderstood and make it more precise.",
+            "zh": "问哪句话被误解，再说得准确些。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Join someone for an ordinary attempt rather than leave them watching alone.",
+            "zh": "陪一个人实际做一次，不让对方只是独自在旁看。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_11",
+      "prompt": {
+        "en": "After one imperfect attempt at a craft, what would you most enjoy trying next?",
+        "zh": "手作第一次不完美，接下来最想试什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Repeat the particular movement that I want to become more familiar with.",
+            "zh": "重复自己想更熟悉的那个具体动作。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Describe what happened carefully before deciding how to ask for feedback.",
+            "zh": "先仔细描述发生什么，再决定怎样请人反馈。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Have another go alongside a willing friend and help each other.",
+            "zh": "和愿意的朋友一起再做一次，互相帮一帮。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Check whether this is still a task I want to spend time on today.",
+            "zh": "确认今天是否仍想把时间放在这项任务上。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_12",
+      "prompt": {
+        "en": "A helpful suggestion could easily sound harsher than intended in a message. What would you prefer?",
+        "zh": "一条本想帮忙的建议，写成消息容易比原意生硬，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Say exactly what I noticed and ask whether suggestions are welcome.",
+            "zh": "说清具体看见什么，再问是否欢迎建议。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Offer to try the next small part together instead of only commenting.",
+            "zh": "不只评论，提议一起试下一个小部分。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Be clear about what help I am actually willing and able to provide.",
+            "zh": "说清自己真愿意、真能提供什么帮助。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "State my preference as my own rather than making it a rule for them.",
+            "zh": "把偏好说成自己的选择，不变成给对方的规则。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_13",
+      "prompt": {
+        "en": "Your group has one unfinished prop for a casual performance. What contribution would you prefer?",
+        "zh": "轻松表演还差一个道具没做完，你更愿意贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Join the person finishing it and take the next manageable piece of work.",
+            "zh": "加入正在做的人，接下一块可完成的工作。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Agree on the part I can take responsibility for and where it stops.",
+            "zh": "约清自己负责哪部分，以及做到哪里为止。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Keep a personal design detail that makes my part feel chosen.",
+            "zh": "留一个让自己这部分有亲自选择感的设计细节。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "Try a playful substitute that changes how the prop could be used.",
+            "zh": "试一个趣味替代，换一种道具用法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_14",
+      "prompt": {
+        "en": "An invitation assumes you will take the same role you took last time. What would you most like to do?",
+        "zh": "一次邀请默认你还会接上回的角色，你最想怎样回应？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Choose deliberately whether I want that responsibility again.",
+            "zh": "认真决定自己是否还愿接这项责任。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Say which version or role I would actually prefer for myself.",
+            "zh": "说清自己真正喜欢哪个版本或角色。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "Suggest a different arrangement that lets people discover another approach.",
+            "zh": "提另一种安排，让大家发现不同做法。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Pick a bounded practical part that I would like to practise more.",
+            "zh": "选一块范围明确、还想多练的实际部分。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_15",
+      "prompt": {
+        "en": "A shared hobby piece is becoming polished but no longer feels like your contribution. What appeals most?",
+        "zh": "共同兴趣作品越来越精致，却不太像自己的贡献了，你最想做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Explain the particular personal choice I would like to keep visible.",
+            "zh": "说明自己想保留可见的那个具体选择。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "Show an unexpected alternative that may open the piece up again.",
+            "zh": "展示一个意想不到的替代，也许重新打开作品。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Work carefully on a specific detail I still enjoy making.",
+            "zh": "认真做自己仍喜欢制作的一处细节。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Find words that explain the concern without making it an accusation.",
+            "zh": "找能说明顾虑、又不构成指责的说法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_16",
+      "prompt": {
+        "en": "You can help explain a simple technique to willing beginners. What sounds most appealing?",
+        "zh": "可以给愿意的新手讲一个简单技法，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "Use an imaginative comparison, then let people test whether it helps.",
+            "zh": "用一个想象比较，再让大家试是否有用。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Practise the demonstration beforehand so the small action is easier to see.",
+            "zh": "提前练示范，让小动作更容易看清。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Choose concise words that describe the action without judging the learner.",
+            "zh": "用简明词语描述动作，不评价学习者。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Work next to someone for a first try and follow their pace.",
+            "zh": "陪一个人第一次试，跟着对方节奏。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_17",
+      "prompt": {
+        "en": "A hobby skill has one detail you cannot yet do the way you intend. What would you most like to try?",
+        "zh": "某项兴趣技能有个细节，暂时做不成自己想要的样子，你最想试什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Give that one detail a short, deliberate round of practice.",
+            "zh": "给那个细节一轮短而专注的练习。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Ask a specific question that makes the difficulty easier to understand.",
+            "zh": "问一个具体问题，让困难更容易说清。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Invite a willing partner to try the step with me.",
+            "zh": "请愿意的伙伴陪自己试这个步骤。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Check how much of my time I want to commit to this today.",
+            "zh": "确认今天愿意给它投入多少时间。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_18",
+      "prompt": {
+        "en": "Someone asks you to write a short note on behalf of a project. What would you prefer to do?",
+        "zh": "有人请你代表项目写一张短便条，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Check what I can accurately say and avoid adding an unintended promise.",
+            "zh": "确认能准确说什么，不添无意中的承诺。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Ask who needs practical support after the note is sent.",
+            "zh": "问便条发出后，谁还需要实际支持。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Clarify whether I am agreeing to the responsibility that the note implies.",
+            "zh": "说清是否同意便条暗含的那项责任。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Keep my own voice where the group has left room for it.",
+            "zh": "在小组留出的空间里保留自己的声音。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_19",
+      "prompt": {
+        "en": "A friend is nervous about joining a harmless creative trial. What would you most like to offer?",
+        "zh": "朋友对参加无害的小创作尝试有些犹豫，你最想提供什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Company for one small, optional first attempt.",
+            "zh": "陪一次小小、可选的初次尝试。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "A clear account of what I can help with and what remains their choice.",
+            "zh": "讲清自己能帮什么、哪些仍由对方选择。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Space to adapt the trial to a style they would actually choose.",
+            "zh": "给调整为对方真愿意选择的风格留空间。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "A playful way to look at the trial as an experiment rather than a performance.",
+            "zh": "用趣味角度把尝试看作小实验，而非表演。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_20",
+      "prompt": {
+        "en": "Your available time changes halfway through an optional project. What would you prefer?",
+        "zh": "可选项目做到一半，可用时间变了，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Renegotiate the part I can responsibly continue instead of silently promising too much.",
+            "zh": "重新约定能继续负责哪部分，不默默答应过多。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Choose which personal contribution I still want to keep in the smaller version.",
+            "zh": "选出缩小版本里仍想保留的个人贡献。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "Reframe the plan so the group can see a different workable route.",
+            "zh": "换个框架，让小组看到另一条能走的路。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Focus on a small technique-sized piece that can still be practised well.",
+            "zh": "专注一块虽小、仍可认真练的具体技法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_21",
+      "prompt": {
+        "en": "You can choose a theme for your own page in a collaborative zine. What attracts you most?",
+        "zh": "合编小刊中，自己的那页可自选主题，你最被什么吸引？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "A choice of subject and style I would genuinely like to stand behind.",
+            "zh": "一个主题与风格都真愿认领的选择。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "An unusual example that invites readers to see the theme differently.",
+            "zh": "一个邀请读者换角度看主题的特别例子。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "A chance to refine one practical aspect of how the page is made.",
+            "zh": "一个打磨页面制作具体做法的机会。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "A way to phrase the page so its meaning is clear and considerate.",
+            "zh": "一种让页面意思清楚又体贴的表达。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_22",
+      "prompt": {
+        "en": "A group has treated one hobby method as the only way to begin. What would you prefer to contribute?",
+        "zh": "小组把一种兴趣做法当成唯一入门方式，你更愿意贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "A different demonstration that people can compare without committing to it.",
+            "zh": "另一个可自由比较、不必承诺采用的演示。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "A short practice step that makes the existing method easier to try.",
+            "zh": "一个让现有方法更好试的短练习步骤。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "A careful explanation of what the method does and does not require.",
+            "zh": "仔细说清这种方法要求什么、不要求什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "A friendly offer to attempt the first part alongside anyone who wants company.",
+            "zh": "友好提议，愿意有人陪的可以一起做第一部分。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_23",
+      "prompt": {
+        "en": "There is one extra practice round before a voluntary creative showcase. What would you most enjoy?",
+        "zh": "自愿创作展示前还有一轮额外练习，你最喜欢做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Repeat a specific technique and notice one small adjustment.",
+            "zh": "重复一个具体技法，留意一处小调整。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Refine the words introducing the work so they promise no more than it does.",
+            "zh": "打磨介绍措辞，不承诺作品做不到的东西。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Help a willing partner through the next attempt while doing my own.",
+            "zh": "自己也做的时候，陪愿意的伙伴过下一次尝试。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Decide which responsibility I can still take on comfortably.",
+            "zh": "决定自己还愿意接哪项责任。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_24",
+      "prompt": {
+        "en": "Before sharing a group project publicly, what would you most like to make clear?",
+        "zh": "共同项目公开分享前，你最想说清什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "What the message means, whom it represents and whether those people agree.",
+            "zh": "消息是什么意思、代表谁、那些人是否同意。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Who would like a hand with the next small step of sharing.",
+            "zh": "谁希望在分享的下一个小步骤里有人帮一把。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Which follow-up commitments I have actually chosen to accept.",
+            "zh": "自己实际选择接受了哪些后续承诺。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Which part of the contribution expresses a choice that is personally mine.",
+            "zh": "哪部分贡献表达的是属于自己亲自作的选择。"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "yuji-itadori",
+      "directionIds": [
+        "yuji-itadori"
+      ],
+      "title": {
+        "en": "Yuji Itadori",
+        "zh": "虎杖悠仁（Yuji Itadori）"
+      },
+      "headline": {
+        "en": "Join someone for the next small step",
+        "zh": "陪人做下一小步"
+      },
+      "summary": {
+        "en": "Read Yuji Itadori through join someone for the next small step: an ordinary creative scene, five character comparisons, a small experiment and transparent scoring. Complete unofficial fan result guide.",
+        "zh": "从“陪人做下一小步”阅读虎杖悠仁（Yuji Itadori）：含普通创作情境、五角色比较、小尝试和透明计数。非官方原创同人结果全文，不定义超能力或真实经历。"
+      },
+      "seo": {
+        "title": {
+          "en": "Yuji Itadori Test Result: Join someone for the next small step | Jujutsu Kaisen",
+          "zh": "虎杖悠仁（Yuji Itadori）测试结果：陪人做下一小步｜咒术回战"
+        },
+        "description": {
+          "en": "Read Yuji Itadori through join someone for the next small step: an ordinary creative scene, five character comparisons, a small experiment and transparent scoring. Complete unofficial fan result guide.",
+          "zh": "从“陪人做下一小步”阅读虎杖悠仁（Yuji Itadori）：含普通创作情境、五角色比较、小尝试和透明计数。非官方原创同人结果全文，不定义超能力或真实经历。"
+        }
+      },
+      "scoreReading": {
+        "en": "Answer all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts altogether. Every character appears 16 times, four times in each option position. An absent character option is not a rejection. All highest counts receive complete guides; all A produces four each and six full guides. Counts are not similarity percentages, ability levels, clinical scales or population ranks. Small gaps have no validated psychological meaning.",
+        "zh": "24题全部作答，每个选择按明确映射给六位角色之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。所有最高计数都有完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、能力等级、临床量表或人群排名，微小差距没有经验证的心理意义。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Yuji’s limited everyday angle",
+            "zh": "悠仁的有限日常角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Yuji is a first-year student at Tokyo Jujutsu High in the first-season setting. This edition takes a narrow editorial angle of joining someone for a manageable next step. It does not translate his supernatural situation or dramatic responsibilities into a statement about you. A preference for working alongside someone cannot establish selflessness, courage, empathy or willingness to sacrifice your own needs.",
+              "zh": "第一季背景里的悠仁是东京咒术高专一年级学生。本版只取“陪人做可完成的下一步”这个窄编辑角度，不把超自然处境或戏剧责任变成对你的陈述。喜欢并排做事，不能确立无私、勇气、共情或牺牲自身需要的意愿。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A cardboard model and one willing partner",
+            "zh": "纸板模型与一位自愿伙伴"
+          },
+          "paragraphs": [
+            {
+              "en": "A friend wants company while trying a cardboard model. You sit beside them, take one small piece of work and compare what happens on the next attempt. You need not finish the whole model or take over the difficult parts. Company can make trying something feel shared when the other person wants it; help that was not invited may be less useful.",
+              "zh": "朋友试纸板模型想有人陪，你坐在旁边接一小块工作，比较下一次怎么做。不必完成整个模型，也不必接管难处。对方愿意时，陪伴能让尝试有共同感；未经邀请的帮助可能没那么有用。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Company alongside five other contributions",
+            "zh": "陪伴与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Megumi chooses which responsibility to accept, Nobara preserves a personal choice and Gojo tries a different way of seeing the task. Maki practises a concrete technique while Toge considers the effect of the words being used. Yuji’s angle joins the next attempt. These contributions can coexist, and several close guides do not reveal a hidden self or a ranking of who cares most.",
+              "zh": "惠选择承担哪项责任，野蔷薇保留个人选择，悟换角度看任务；真希练具体技法，棘考虑所用词语的影响。悠仁角度加入下一次尝试。贡献可共存，几份近分说明不揭示隐藏自我，也不排名谁更关心别人。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Company still needs consent and limits",
+            "zh": "陪伴也要意愿和范围"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone may want quiet space rather than a partner, and you may only have time for one attempt. Ask what would help and describe what you can offer. It is reasonable to stop or ask someone else to continue. A high count does not make you responsible for another person’s progress, and a lower count cannot establish indifference or a lack of loyalty.",
+              "zh": "有人可能更想安静做，你也可能只够陪一次。问什么有帮助，说清能提供什么；停下或请别人接力都合理。高计数不让你负责别人的进度，低计数也不确立冷漠或不忠诚。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try a one-step offer",
+            "zh": "试一次只约一步的帮助"
+          },
+          "paragraphs": [
+            {
+              "en": "For one harmless hobby task, offer to try the next step together and let the other person decide. Agree what the step includes and when you will pause. Afterwards, ask whether the company was useful and notice your own experience too. This is feedback on a specific offer, not a test of goodness, resilience or how much you should give.",
+              "zh": "一次无害兴趣任务，提议只陪下一步，让对方选择。约好包含什么、何时暂停；之后问陪伴是否有用，也留意自己感受。这是具体帮助的反馈，不测善良、韧性，也不决定你该付出多少。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-four choices and every highest tie",
+            "zh": "24次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts altogether. Every character appears 16 times, four times in each option position. An absent character option is not a rejection. All highest counts receive complete guides; all A produces four each and six full guides. Counts are not similarity percentages, ability levels, clinical scales or population ranks. Small gaps have no validated psychological meaning.",
+              "zh": "24题全部作答，每个选择按明确映射给六位角色之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。所有最高计数都有完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、能力等级、临床量表或人群排名，微小差距没有经验证的心理意义。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: all questions, mappings, everyday examples and complete results. Jujutsu Kaisen and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. The official first-season character guide provides limited fictional context, not questionnaire validation or claims about later plot outcomes. No dialogue, character art, screenshots or competitor text is reproduced. Editorial angles do not assign supernatural powers, traumatic experiences or harmful fictional actions to you. Choices infer no diagnosis, resilience, intelligence, gender standard, moral rank, real skill, MBTI or career suitability. You may disagree with any part of the comparison.",
+              "zh": "费马独立创作本非官方同人版的全部题目、映射、日常例子和完整结果。《咒术回战》及角色权利归相应权利人，无隶属或认可关系。官方第一季人物页只提供有限虚构背景，不验证题本，也不主张后续剧情结局。不复制台词、人物图像、截图或竞品正文。编辑角度不把超能力、创伤经历或虚构伤害行为赋给你。选择不推断诊断、韧性、智力、性别标准、道德等级、真实技能、MBTI或职业适配；任何不合适的比较都可不同意。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "megumi-fushiguro",
+      "directionIds": [
+        "megumi-fushiguro"
+      ],
+      "title": {
+        "en": "Megumi Fushiguro",
+        "zh": "伏黑惠（Megumi Fushiguro）"
+      },
+      "headline": {
+        "en": "Choose the commitment you can own",
+        "zh": "选择自己能认领的承诺"
+      },
+      "summary": {
+        "en": "Read Megumi Fushiguro through choose the commitment you can own: an ordinary creative scene, five character comparisons, a small experiment and transparent scoring. Complete unofficial fan result guide.",
+        "zh": "从“选择自己能认领的承诺”阅读伏黑惠（Megumi Fushiguro）：含普通创作情境、五角色比较、小尝试和透明计数。非官方原创同人结果全文，不定义超能力或真实经历。"
+      },
+      "seo": {
+        "title": {
+          "en": "Megumi Fushiguro Test Result: Choose the commitment you can own | Jujutsu Kaisen",
+          "zh": "伏黑惠（Megumi Fushiguro）测试结果：选择自己能认领的承诺｜咒术回战"
+        },
+        "description": {
+          "en": "Read Megumi Fushiguro through choose the commitment you can own: an ordinary creative scene, five character comparisons, a small experiment and transparent scoring. Complete unofficial fan result guide.",
+          "zh": "从“选择自己能认领的承诺”阅读伏黑惠（Megumi Fushiguro）：含普通创作情境、五角色比较、小尝试和透明计数。非官方原创同人结果全文，不定义超能力或真实经历。"
+        }
+      },
+      "scoreReading": {
+        "en": "Answer all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts altogether. Every character appears 16 times, four times in each option position. An absent character option is not a rejection. All highest counts receive complete guides; all A produces four each and six full guides. Counts are not similarity percentages, ability levels, clinical scales or population ranks. Small gaps have no validated psychological meaning.",
+        "zh": "24题全部作答，每个选择按明确映射给六位角色之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。所有最高计数都有完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、能力等级、临床量表或人群排名，微小差距没有经验证的心理意义。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Megumi’s limited everyday angle",
+            "zh": "惠的有限日常角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Megumi is a first-year student in the official first-season character setting, with protecting people he values part of his fictional motivation. This edition independently selects deliberation about a chosen commitment. It does not judge who deserves help or infer your self-worth, emotional life or history. A choice in an optional hobby task cannot establish the difficult beliefs or experiences attributed to a dramatic character.",
+              "zh": "官方第一季背景里的惠是一年级学生，保护自己重视的人是其虚构动机之一。本版独立选“考虑亲自选择的承诺”，不评谁值得帮助，也不推断你的自我价值、情绪生活或经历。可选兴趣任务里的选择，无法确立戏剧人物的艰难信念或体验。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "Two invitations on one afternoon",
+            "zh": "同一下午的两份邀请"
+          },
+          "paragraphs": [
+            {
+              "en": "Two creative projects ask for help, and you cannot comfortably do both. You consider what each commitment involves and tell people which part you genuinely want to take. A smaller, explicit offer can be more useful than an uncertain promise to do everything. You can choose neither if the available time does not fit; the result does not supply a duty to accept.",
+              "zh": "两个创作项目同时请帮忙，你无法舒服地全做。想清每项包含什么，再说真正愿接哪部分。小而明确的帮助，可能比含糊答应包办更有用。时间不合也可都不选；结果不提供必须接下的义务。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Deliberation beside five other contributions",
+            "zh": "斟酌与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Yuji joins a next step, Nobara keeps a personal expression and Gojo offers another frame for the task. Maki focuses on practice and Toge makes the message more deliberate. Megumi’s selected angle asks which responsibility you will actually own. These can improve the same plan without dividing people into caring and uncaring groups or turning an equal count into a hidden personality.",
+              "zh": "悠仁陪下一步，野蔷薇保留个人表达，悟换框架；真希专注练习，棘让表达更仔细。惠的选定角度问实际愿认领哪项责任。都可改善同一计划，不把人分成关心与不关心两类，也不把并列变成隐藏人格。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "A careful choice can be communicated plainly",
+            "zh": "认真选择，也可明白说出"
+          },
+          "paragraphs": [
+            {
+              "en": "Thinking through a commitment need not mean keeping everyone waiting for an answer. Say what information you need and when you can decide. If circumstances change, revise the agreement openly. A high count cannot establish reserve, indecision, pessimism or strategic ability, and it is not permission to treat your own time or needs as less important than anyone else’s.",
+              "zh": "考虑承诺不必让所有人一直等。说需要哪些信息、何时可决定；情况变了，公开改约。高计数不确立内敛、犹豫、悲观或战略能力，也不允许把自己的时间需要看得比别人低。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try naming a bounded responsibility",
+            "zh": "试着说清有范围的责任"
+          },
+          "paragraphs": [
+            {
+              "en": "Before accepting one optional task, write what you are choosing to do, what is outside the offer and when you will check back. Ask the other person whether that matches what they need. Afterwards, compare the agreement with the actual work. This is an experiment in clarity, not a measure of moral seriousness or a requirement to take on harder responsibilities.",
+              "zh": "接一次可选任务前，写愿做什么、哪些不包含、何时回看。问对方是否符合所需，之后比较约定与实际工作。这是在试清楚程度，不测道德认真，也不要求承担更难责任。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-four choices and every highest tie",
+            "zh": "24次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts altogether. Every character appears 16 times, four times in each option position. An absent character option is not a rejection. All highest counts receive complete guides; all A produces four each and six full guides. Counts are not similarity percentages, ability levels, clinical scales or population ranks. Small gaps have no validated psychological meaning.",
+              "zh": "24题全部作答，每个选择按明确映射给六位角色之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。所有最高计数都有完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、能力等级、临床量表或人群排名，微小差距没有经验证的心理意义。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: all questions, mappings, everyday examples and complete results. Jujutsu Kaisen and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. The official first-season character guide provides limited fictional context, not questionnaire validation or claims about later plot outcomes. No dialogue, character art, screenshots or competitor text is reproduced. Editorial angles do not assign supernatural powers, traumatic experiences or harmful fictional actions to you. Choices infer no diagnosis, resilience, intelligence, gender standard, moral rank, real skill, MBTI or career suitability. You may disagree with any part of the comparison.",
+              "zh": "费马独立创作本非官方同人版的全部题目、映射、日常例子和完整结果。《咒术回战》及角色权利归相应权利人，无隶属或认可关系。官方第一季人物页只提供有限虚构背景，不验证题本，也不主张后续剧情结局。不复制台词、人物图像、截图或竞品正文。编辑角度不把超能力、创伤经历或虚构伤害行为赋给你。选择不推断诊断、韧性、智力、性别标准、道德等级、真实技能、MBTI或职业适配；任何不合适的比较都可不同意。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nobara-kugisaki",
+      "directionIds": [
+        "nobara-kugisaki"
+      ],
+      "title": {
+        "en": "Nobara Kugisaki",
+        "zh": "钉崎野蔷薇（Nobara Kugisaki）"
+      },
+      "headline": {
+        "en": "Keep a choice that feels like yours",
+        "zh": "保留属于自己的选择"
+      },
+      "summary": {
+        "en": "Read Nobara Kugisaki through keep a choice that feels like yours: an ordinary creative scene, five character comparisons, a small experiment and transparent scoring. Complete unofficial fan result guide.",
+        "zh": "从“保留属于自己的选择”阅读钉崎野蔷薇（Nobara Kugisaki）：含普通创作情境、五角色比较、小尝试和透明计数。非官方原创同人结果全文，不定义超能力或真实经历。"
+      },
+      "seo": {
+        "title": {
+          "en": "Nobara Kugisaki Test Result: Keep a choice that feels like yours | Jujutsu Kaisen",
+          "zh": "钉崎野蔷薇（Nobara Kugisaki）测试结果：保留属于自己的选择｜咒术回战"
+        },
+        "description": {
+          "en": "Read Nobara Kugisaki through keep a choice that feels like yours: an ordinary creative scene, five character comparisons, a small experiment and transparent scoring. Complete unofficial fan result guide.",
+          "zh": "从“保留属于自己的选择”阅读钉崎野蔷薇（Nobara Kugisaki）：含普通创作情境、五角色比较、小尝试和透明计数。非官方原创同人结果全文，不定义超能力或真实经历。"
+        }
+      },
+      "scoreReading": {
+        "en": "Answer all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts altogether. Every character appears 16 times, four times in each option position. An absent character option is not a rejection. All highest counts receive complete guides; all A produces four each and six full guides. Counts are not similarity percentages, ability levels, clinical scales or population ranks. Small gaps have no validated psychological meaning.",
+        "zh": "24题全部作答，每个选择按明确映射给六位角色之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。所有最高计数都有完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、能力等级、临床量表或人群排名，微小差距没有经验证的心理意义。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Nobara’s limited everyday angle",
+            "zh": "野蔷薇的有限日常角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Nobara is a first-year student who comes to Tokyo in the first-season story setting. This edition chooses a limited angle of keeping a personal preference visible in shared work. It does not infer confidence, gender expression, appearance or how you respond to social pressure. A fictional comparison can invite a choice about a notebook cover without assigning an identity or a life decision to you.",
+              "zh": "第一季背景里的野蔷薇是一位来到东京的一年级学生。本版只选“在共同作品里保留可见的个人偏好”，不推断自信、性别表达、外貌或对社会压力的反应。人物比较可启发笔记本封面上的一个选择，不给你分派身份或人生决定。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "The shared cover with one personal detail",
+            "zh": "共同封面上的一个个人细节"
+          },
+          "paragraphs": [
+            {
+              "en": "A group agrees on a style for a notebook cover. Within that agreement, you choose a colour, a small shape or a subject you genuinely like. You explain why you want to keep it and ask how it can fit with the other contributions. Personal expression can work inside a shared plan; it does not require rejecting the whole plan or winning every design choice.",
+              "zh": "小组约定笔记本封面风格，你在其中选真喜欢的颜色、小形状或主题。说明为什么想留，并问怎样与其他贡献配合。个人表达可以在共同计划内成立，不必拒绝整个计划，也不必赢每个设计选择。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Expression beside five other contributions",
+            "zh": "表达与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Yuji joins an attempt, Megumi selects a responsibility and Gojo changes the frame. Maki refines a technique and Toge clarifies wording and its effect. Nobara’s selected angle makes a personally chosen detail visible. These contributions can be combined without ranking originality, strength or authenticity. Another full guide can offer a useful comparison without becoming a more true or less true version of you.",
+              "zh": "悠仁加入尝试，惠选责任，悟换框架；真希打磨技法，棘说清措辞与影响。野蔷薇角度让亲自选的细节可见。可结合，不排名原创、力量或真实性。另一份全文可帮助比较，不成为更真或更假的你。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "A preference is an offer, not a rule",
+            "zh": "偏好是提议，不是规则"
+          },
+          "paragraphs": [
+            {
+              "en": "A detail can matter to you while other people prefer a different version. State what you want without claiming everyone should share it, and ask where there is room to adapt. You may also decide a project is not for you. A high count does not prove stubbornness, self-esteem, independence or a particular gender role; a low count does not erase your individuality.",
+              "zh": "一个细节可对你重要，别人也可喜欢另一版。说想要什么，不主张人人都应同样，再问哪里可调整；也可决定不参加。高计数不证明固执、自尊、独立或某种性别角色，低计数不抹去个人差异。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try naming one personal choice",
+            "zh": "试着认领一个个人选择"
+          },
+          "paragraphs": [
+            {
+              "en": "In one small creative task, name a choice you would enjoy keeping and one part you are happy to adapt. Invite a collaborator to do the same. Afterwards, notice whether both contributions remained recognisable. The exercise concerns the design agreement, not whether you are authentic enough, confident enough or obliged to resist someone else’s expectations.",
+              "zh": "一次小创作，说一个想保留的选择和一个愿调整的部分，请伙伴也这样做。之后看看双方贡献是否仍认得出。这关乎设计约定，不评是否够真实、够自信，也不要求反抗别人期待。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-four choices and every highest tie",
+            "zh": "24次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts altogether. Every character appears 16 times, four times in each option position. An absent character option is not a rejection. All highest counts receive complete guides; all A produces four each and six full guides. Counts are not similarity percentages, ability levels, clinical scales or population ranks. Small gaps have no validated psychological meaning.",
+              "zh": "24题全部作答，每个选择按明确映射给六位角色之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。所有最高计数都有完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、能力等级、临床量表或人群排名，微小差距没有经验证的心理意义。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: all questions, mappings, everyday examples and complete results. Jujutsu Kaisen and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. The official first-season character guide provides limited fictional context, not questionnaire validation or claims about later plot outcomes. No dialogue, character art, screenshots or competitor text is reproduced. Editorial angles do not assign supernatural powers, traumatic experiences or harmful fictional actions to you. Choices infer no diagnosis, resilience, intelligence, gender standard, moral rank, real skill, MBTI or career suitability. You may disagree with any part of the comparison.",
+              "zh": "费马独立创作本非官方同人版的全部题目、映射、日常例子和完整结果。《咒术回战》及角色权利归相应权利人，无隶属或认可关系。官方第一季人物页只提供有限虚构背景，不验证题本，也不主张后续剧情结局。不复制台词、人物图像、截图或竞品正文。编辑角度不把超能力、创伤经历或虚构伤害行为赋给你。选择不推断诊断、韧性、智力、性别标准、道德等级、真实技能、MBTI或职业适配；任何不合适的比较都可不同意。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "satoru-gojo",
+      "directionIds": [
+        "satoru-gojo"
+      ],
+      "title": {
+        "en": "Satoru Gojo",
+        "zh": "五条悟（Satoru Gojo）"
+      },
+      "headline": {
+        "en": "Open another way to see the task",
+        "zh": "打开另一种看法"
+      },
+      "summary": {
+        "en": "Read Satoru Gojo through open another way to see the task: an ordinary creative scene, five character comparisons, a small experiment and transparent scoring. Complete unofficial fan result guide.",
+        "zh": "从“打开另一种看法”阅读五条悟（Satoru Gojo）：含普通创作情境、五角色比较、小尝试和透明计数。非官方原创同人结果全文，不定义超能力或真实经历。"
+      },
+      "seo": {
+        "title": {
+          "en": "Satoru Gojo Test Result: Open another way to see the task | Jujutsu Kaisen",
+          "zh": "五条悟（Satoru Gojo）测试结果：打开另一种看法｜咒术回战"
+        },
+        "description": {
+          "en": "Read Satoru Gojo through open another way to see the task: an ordinary creative scene, five character comparisons, a small experiment and transparent scoring. Complete unofficial fan result guide.",
+          "zh": "从“打开另一种看法”阅读五条悟（Satoru Gojo）：含普通创作情境、五角色比较、小尝试和透明计数。非官方原创同人结果全文，不定义超能力或真实经历。"
+        }
+      },
+      "scoreReading": {
+        "en": "Answer all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts altogether. Every character appears 16 times, four times in each option position. An absent character option is not a rejection. All highest counts receive complete guides; all A produces four each and six full guides. Counts are not similarity percentages, ability levels, clinical scales or population ranks. Small gaps have no validated psychological meaning.",
+        "zh": "24题全部作答，每个选择按明确映射给六位角色之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。所有最高计数都有完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、能力等级、临床量表或人群排名，微小差距没有经验证的心理意义。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Gojo’s limited everyday angle",
+            "zh": "悟的有限日常角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Gojo is a teacher at Tokyo Jujutsu High in the official first-season guide. This edition takes a limited editorial angle of showing an unfamiliar task through a different, sometimes playful example. It does not assess intelligence, power, teaching ability or charisma. Nothing in a craft preference establishes exceptional talent, superiority or the character’s supernatural position in the story.",
+              "zh": "官方第一季人物页里的悟是东京咒术高专教师。本版只取“用不同、有时带趣味的例子呈现陌生任务”的有限编辑角度，不评智力、力量、教学能力或魅力。手作偏好无法确立特殊天才、优越，或人物在剧情里的超自然地位。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A demonstration after the explanation stalls",
+            "zh": "解释停住后的一个演示"
+          },
+          "paragraphs": [
+            {
+              "en": "Everyone keeps explaining the same paper construction in the same words, but it still feels obscure. You try a different example that makes one relationship visible. Then you ask people to test it rather than admire the explanation. A useful reframe helps the learner engage with the task; it does not require an elaborate performance or a claim that the old method was foolish.",
+              "zh": "同一种纸结构一直用同样词解释，仍不清楚。你换例子，让其中一个关系可见，再请大家试，而不是欣赏讲解。好用的新角度帮助参与，不需要华丽表演，也不宣称旧方法愚蠢。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Reframing beside five other contributions",
+            "zh": "换角度与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Yuji offers company, Megumi clarifies a chosen commitment and Nobara keeps a personal expression. Maki gives a concrete technique time, while Toge attends to the meaning and effect of words. Gojo’s selected angle opens another route into understanding. All can support the same activity, without creating a hierarchy of teachers, learners, talent or potential from these raw counts.",
+              "zh": "悠仁陪伴，惠约清选择的承诺，野蔷薇保留个人表达；真希给具体技法时间，棘关注词语意思与影响。悟角度打开另一条理解路径。都可支持同一活动，不从原始次数构造教师、学习者、天分或潜力等级。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Check whether the new angle helps",
+            "zh": "确认新角度真有用"
+          },
+          "paragraphs": [
+            {
+              "en": "A clever comparison can entertain without clarifying anything. Ask which part became easier to see, and return to a plain demonstration if needed. People can prefer a familiar method or decline your help. A high count cannot establish creativity, unconventional thinking or professional teaching competence, and a lower count does not mean you lack imagination.",
+              "zh": "巧妙比较可以有趣，却没讲清任何事。问哪部分更明白，需要时回到平实示范。别人可喜欢熟悉方法，也可拒绝帮助。高计数不确立创造力、非常规思维或专业教学能力，低计数不表示没想象。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try one alternative and compare it",
+            "zh": "试一个替代，再作比较"
+          },
+          "paragraphs": [
+            {
+              "en": "For one harmless task, show a brief alternative example and invite a willing person to try both explanations. Ask what each made clear and what remained confusing. Keep the simpler version if it works better. This is feedback on examples in one situation, not evidence of a superior mind, a fixed learning style or a duty to lead others.",
+              "zh": "一次无害任务，展示简短替代例子，请愿意的人试两种说明。问各讲清了什么、还困惑什么；简单版本更好就保留简单版。这是具体例子的反馈，不证明头脑更优、固定学习风格，也不要求领导别人。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-four choices and every highest tie",
+            "zh": "24次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts altogether. Every character appears 16 times, four times in each option position. An absent character option is not a rejection. All highest counts receive complete guides; all A produces four each and six full guides. Counts are not similarity percentages, ability levels, clinical scales or population ranks. Small gaps have no validated psychological meaning.",
+              "zh": "24题全部作答，每个选择按明确映射给六位角色之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。所有最高计数都有完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、能力等级、临床量表或人群排名，微小差距没有经验证的心理意义。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: all questions, mappings, everyday examples and complete results. Jujutsu Kaisen and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. The official first-season character guide provides limited fictional context, not questionnaire validation or claims about later plot outcomes. No dialogue, character art, screenshots or competitor text is reproduced. Editorial angles do not assign supernatural powers, traumatic experiences or harmful fictional actions to you. Choices infer no diagnosis, resilience, intelligence, gender standard, moral rank, real skill, MBTI or career suitability. You may disagree with any part of the comparison.",
+              "zh": "费马独立创作本非官方同人版的全部题目、映射、日常例子和完整结果。《咒术回战》及角色权利归相应权利人，无隶属或认可关系。官方第一季人物页只提供有限虚构背景，不验证题本，也不主张后续剧情结局。不复制台词、人物图像、截图或竞品正文。编辑角度不把超能力、创伤经历或虚构伤害行为赋给你。选择不推断诊断、韧性、智力、性别标准、道德等级、真实技能、MBTI或职业适配；任何不合适的比较都可不同意。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maki-zenin",
+      "directionIds": [
+        "maki-zenin"
+      ],
+      "title": {
+        "en": "Maki Zenin",
+        "zh": "禅院真希（Maki Zenin）"
+      },
+      "headline": {
+        "en": "Give one technique a deliberate practice round",
+        "zh": "给一个技法一轮专注练习"
+      },
+      "summary": {
+        "en": "Read Maki Zenin through give one technique a deliberate practice round: an ordinary creative scene, five character comparisons, a small experiment and transparent scoring. Complete unofficial fan result guide.",
+        "zh": "从“给一个技法一轮专注练习”阅读禅院真希（Maki Zenin）：含普通创作情境、五角色比较、小尝试和透明计数。非官方原创同人结果全文，不定义超能力或真实经历。"
+      },
+      "seo": {
+        "title": {
+          "en": "Maki Zenin Test Result: Give one technique a deliberate practice round | Jujutsu Kaisen",
+          "zh": "禅院真希（Maki Zenin）测试结果：给一个技法一轮专注练习｜咒术回战"
+        },
+        "description": {
+          "en": "Read Maki Zenin through give one technique a deliberate practice round: an ordinary creative scene, five character comparisons, a small experiment and transparent scoring. Complete unofficial fan result guide.",
+          "zh": "从“给一个技法一轮专注练习”阅读禅院真希（Maki Zenin）：含普通创作情境、五角色比较、小尝试和透明计数。非官方原创同人结果全文，不定义超能力或真实经历。"
+        }
+      },
+      "scoreReading": {
+        "en": "Answer all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts altogether. Every character appears 16 times, four times in each option position. An absent character option is not a rejection. All highest counts receive complete guides; all A produces four each and six full guides. Counts are not similarity percentages, ability levels, clinical scales or population ranks. Small gaps have no validated psychological meaning.",
+        "zh": "24题全部作答，每个选择按明确映射给六位角色之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。所有最高计数都有完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、能力等级、临床量表或人群排名，微小差距没有经验证的心理意义。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Maki’s limited everyday angle",
+            "zh": "真希的有限日常角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Maki is a second-year student associated with using cursed tools in the first-season character setting. This edition independently selects the ordinary idea of practising a concrete technique. It does not infer physical strength, discipline, resilience, talent or a family history like hers. A count from preference questions cannot establish how well you perform, what training you need or what limits you can overcome.",
+              "zh": "第一季人物背景中的真希是与咒具使用有关的二年级学生。本版独立选练具体技法这个普通想法，不推断体力、自律、韧性、天分或相同家庭经历。偏好题计数无法确立实际做得多好、需何种训练、能克服哪些限制。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "The one fold you want to understand",
+            "zh": "想弄明白的那一道折法"
+          },
+          "paragraphs": [
+            {
+              "en": "A paper model has one awkward fold. You give that small movement a short practice round, changing one detail and observing the result. You can stop, ask for a demonstration or choose another activity. Deliberate practice in this example is about a bounded hobby attempt, not proving that effort always succeeds or that someone should endure discomfort to earn a place.",
+              "zh": "纸模型有一道不顺手的折法。你给小动作一轮短练习，每次改一个细节，看结果。也可停、请人示范或换活动。这里的专注练习只是有范围的兴趣尝试，不证明努力总成功，也不要求忍受不适来争取位置。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Practice beside five other contributions",
+            "zh": "练习与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Yuji joins the attempt, Megumi chooses a responsibility and Nobara preserves a personal detail. Gojo tries another frame while Toge clarifies the message. Maki’s selected angle works directly on one concrete action. These roles can move between people as the activity changes. A higher count does not make practice your only useful contribution or rank your actual skill above anyone else’s.",
+              "zh": "悠仁加入尝试，惠选责任，野蔷薇留个人细节；悟换框架，棘讲清表达。真希角度直接练一个具体动作。活动变化，分工可在人之间转移。高计数不让练习成为唯一有用贡献，也不把实际技能排在别人上面。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Effort needs a useful limit",
+            "zh": "投入也需要好用的上限"
+          },
+          "paragraphs": [
+            {
+              "en": "Repeating a step is not automatically helpful when the instructions are unclear or the materials do not fit. Change the setup, ask for information or take a break. You can enjoy practising without making persistence a moral obligation. A high count cannot establish grit, perfectionism or a real ability level, and a lower count is not evidence of laziness or lack of potential.",
+              "zh": "说明不清或材料不合时，重复未必有用。换准备、补信息或休息；可享受练习，不把坚持变成道德义务。高计数不确立毅力、完美主义或真实能力等级，低计数不证明懒惰或没潜力。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try a small change you can observe",
+            "zh": "试一个能观察的小改动"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one harmless hobby action and give it a few minutes. Change only one small part, then describe what happened without turning it into a judgement about yourself. Decide whether another attempt would be enjoyable or useful. The exercise concerns this action and setup; it is not a performance assessment, training prescription or guarantee that practice will remove every barrier.",
+              "zh": "选一个无害兴趣动作，给几分钟，只改一处，再描述发生什么，不转成对自己的评价。决定再试是否愉快、有用。这只关乎动作与准备，不是表现评估、训练处方，也不保证练习能移除所有障碍。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-four choices and every highest tie",
+            "zh": "24次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts altogether. Every character appears 16 times, four times in each option position. An absent character option is not a rejection. All highest counts receive complete guides; all A produces four each and six full guides. Counts are not similarity percentages, ability levels, clinical scales or population ranks. Small gaps have no validated psychological meaning.",
+              "zh": "24题全部作答，每个选择按明确映射给六位角色之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。所有最高计数都有完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、能力等级、临床量表或人群排名，微小差距没有经验证的心理意义。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: all questions, mappings, everyday examples and complete results. Jujutsu Kaisen and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. The official first-season character guide provides limited fictional context, not questionnaire validation or claims about later plot outcomes. No dialogue, character art, screenshots or competitor text is reproduced. Editorial angles do not assign supernatural powers, traumatic experiences or harmful fictional actions to you. Choices infer no diagnosis, resilience, intelligence, gender standard, moral rank, real skill, MBTI or career suitability. You may disagree with any part of the comparison.",
+              "zh": "费马独立创作本非官方同人版的全部题目、映射、日常例子和完整结果。《咒术回战》及角色权利归相应权利人，无隶属或认可关系。官方第一季人物页只提供有限虚构背景，不验证题本，也不主张后续剧情结局。不复制台词、人物图像、截图或竞品正文。编辑角度不把超能力、创伤经历或虚构伤害行为赋给你。选择不推断诊断、韧性、智力、性别标准、道德等级、真实技能、MBTI或职业适配；任何不合适的比较都可不同意。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "toge-inumaki",
+      "directionIds": [
+        "toge-inumaki"
+      ],
+      "title": {
+        "en": "Toge Inumaki",
+        "zh": "狗卷棘（Toge Inumaki）"
+      },
+      "headline": {
+        "en": "Choose words for their meaning and effect",
+        "zh": "为意思与影响选择措辞"
+      },
+      "summary": {
+        "en": "Read Toge Inumaki through choose words for their meaning and effect: an ordinary creative scene, five character comparisons, a small experiment and transparent scoring. Complete unofficial fan result guide.",
+        "zh": "从“为意思与影响选择措辞”阅读狗卷棘（Toge Inumaki）：含普通创作情境、五角色比较、小尝试和透明计数。非官方原创同人结果全文，不定义超能力或真实经历。"
+      },
+      "seo": {
+        "title": {
+          "en": "Toge Inumaki Test Result: Choose words for their meaning and effect | Jujutsu Kaisen",
+          "zh": "狗卷棘（Toge Inumaki）测试结果：为意思与影响选择措辞｜咒术回战"
+        },
+        "description": {
+          "en": "Read Toge Inumaki through choose words for their meaning and effect: an ordinary creative scene, five character comparisons, a small experiment and transparent scoring. Complete unofficial fan result guide.",
+          "zh": "从“为意思与影响选择措辞”阅读狗卷棘（Toge Inumaki）：含普通创作情境、五角色比较、小尝试和透明计数。非官方原创同人结果全文，不定义超能力或真实经历。"
+        }
+      },
+      "scoreReading": {
+        "en": "Answer all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts altogether. Every character appears 16 times, four times in each option position. An absent character option is not a rejection. All highest counts receive complete guides; all A produces four each and six full guides. Counts are not similarity percentages, ability levels, clinical scales or population ranks. Small gaps have no validated psychological meaning.",
+        "zh": "24题全部作答，每个选择按明确映射给六位角色之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。所有最高计数都有完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、能力等级、临床量表或人群排名，微小差距没有经验证的心理意义。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Toge’s limited everyday angle",
+            "zh": "棘的有限日常角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Toge is a second-year student whose fictional cursed speech shapes how he communicates in the first-season setting. This edition selects a separate, ordinary angle of considering what a message means and how it may land. It does not equate your words with supernatural danger or infer silence, a communication disorder, self-sacrifice or any private reason for speaking in a particular way.",
+              "zh": "第一季背景里的棘是二年级学生，虚构咒言影响其交流方式。本版另选普通角度：考虑消息是什么意思、可能怎样被接收。不把你的话等同超自然危险，也不推断沉默、沟通障碍、自我牺牲或某种说话方式背后的私人原因。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A suggestion that could sound like an order",
+            "zh": "可能听起来像命令的建议"
+          },
+          "paragraphs": [
+            {
+              "en": "You want to suggest a change to a shared craft, but a short message could sound like an instruction everyone must obey. You describe what you noticed, mark the idea as a suggestion and ask whether feedback is welcome. Clear wording gives people a way to respond. It cannot ensure the message will be received exactly as intended, and disagreement need not mean the words were harmful.",
+              "zh": "你想给共同手作提改动，但短消息可能像人人必须服从的指令。说具体看见什么，标明只是建议，再问是否欢迎反馈。清楚措辞给人回应办法，却不能保证完全按原意接收；不同意也未必表示话有害。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Words beside five other contributions",
+            "zh": "词语与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Yuji offers company for a next step, Megumi clarifies a commitment and Nobara keeps a personal choice. Gojo finds another frame and Maki works on a concrete technique. Toge’s selected angle attends to what is said and what it promises. All can support the same project without ranking compassion, restraint or communication ability, and every highest tie retains its full comparison.",
+              "zh": "悠仁陪下一步，惠约承诺，野蔷薇留个人选择；悟换框架，真希练具体技法。棘角度关注说了什么、承诺什么。都可支持同一项目，不排名慈悲、克制或沟通能力；每个最高并列保留完整比较。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Careful does not have to mean wordless",
+            "zh": "仔细不等于必须不说"
+          },
+          "paragraphs": [
+            {
+              "en": "You can be direct and considerate at the same time. Ask for clarification when a message is ambiguous rather than assuming you know another person’s reaction. You do not have to review every ordinary sentence endlessly. A high count cannot establish fear of conflict, sensitivity or moral purity, and a lower count does not prove that your words are careless or unsafe.",
+              "zh": "直接和体贴可同时成立。消息含糊时问清，不假设知道别人反应；也不用无尽审查每句日常话。高计数不确立害怕冲突、敏感或道德纯洁，低计数不证明措辞粗心或不安全。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try checking one concrete message",
+            "zh": "试着核对一条具体消息"
+          },
+          "paragraphs": [
+            {
+              "en": "Before sending one optional project note, check what it asks, whom it represents and whether it makes a promise you intend to keep. If needed, ask a collaborator how they read it. Afterwards, compare the response with your intended meaning. This is feedback about one message, not an assessment of speech, empathy or responsibility for everyone’s feelings.",
+              "zh": "发一次可选项目便条前，检查要求什么、代表谁、是否作了真打算履行的承诺。需要时问伙伴怎样读，之后比较回应和原意。这是一条消息的反馈，不评言语、共情，也不要求对所有人感受负责。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-four choices and every highest tie",
+            "zh": "24次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts altogether. Every character appears 16 times, four times in each option position. An absent character option is not a rejection. All highest counts receive complete guides; all A produces four each and six full guides. Counts are not similarity percentages, ability levels, clinical scales or population ranks. Small gaps have no validated psychological meaning.",
+              "zh": "24题全部作答，每个选择按明确映射给六位角色之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。所有最高计数都有完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、能力等级、临床量表或人群排名，微小差距没有经验证的心理意义。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: all questions, mappings, everyday examples and complete results. Jujutsu Kaisen and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. The official first-season character guide provides limited fictional context, not questionnaire validation or claims about later plot outcomes. No dialogue, character art, screenshots or competitor text is reproduced. Editorial angles do not assign supernatural powers, traumatic experiences or harmful fictional actions to you. Choices infer no diagnosis, resilience, intelligence, gender standard, moral rank, real skill, MBTI or career suitability. You may disagree with any part of the comparison.",
+              "zh": "费马独立创作本非官方同人版的全部题目、映射、日常例子和完整结果。《咒术回战》及角色权利归相应权利人，无隶属或认可关系。官方第一季人物页只提供有限虚构背景，不验证题本，也不主张后续剧情结局。不复制台词、人物图像、截图或竞品正文。编辑角度不把超能力、创伤经历或虚构伤害行为赋给你。选择不推断诊断、韧性、智力、性别标准、道德等级、真实技能、MBTI或职业适配；任何不合适的比较都可不同意。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "en": "Six raw choice counts",
+        "zh": "六项原始选择次数"
+      },
+      "paragraphs": [
+        {
+          "en": "Answer all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts altogether. Every character appears 16 times, four times in each option position. An absent character option is not a rejection. All highest counts receive complete guides; all A produces four each and six full guides. Counts are not similarity percentages, ability levels, clinical scales or population ranks. Small gaps have no validated psychological meaning.",
+          "zh": "24题全部作答，每个选择按明确映射给六位角色之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。所有最高计数都有完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、能力等级、临床量表或人群排名，微小差距没有经验证的心理意义。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "en": "Every highest match keeps the complete reading",
+        "zh": "每个最高匹配保留完整读法"
+      },
+      "paragraphs": [
+        {
+          "en": "All highest counts appear together without choosing a favourite by fixed ordering. Read each complete guide and compare close readings through the public pages. A small count difference is not an established difference in ability or personality. Several contributions can coexist within one activity without becoming a hidden type or ranking people’s worth.",
+          "zh": "最高计数一起显示，不按固定顺序偏爱某位。可读每份全文，通过公开页比较近分。微小次数差不是已确立的能力或人格差异；同一活动可共用几种贡献，不变成隐藏类型或人的价值排名。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "en": "Six selected characters and limited everyday angles",
+        "zh": "六位选定人物与有限日常角度"
+      },
+      "paragraphs": [
+        {
+          "en": "This edition includes Yuji Itadori, Megumi Fushiguro, Nobara Kugisaki, Satoru Gojo, Maki Zenin and Toge Inumaki. Geto, Nanami, Sukuna and other characters are outside this set. The questions and mappings are independently authored and not interchangeable with another site’s questionnaire. The guides are not complete biographies, plot predictions or a test of supernatural energy.",
+          "zh": "本版包括虎杖悠仁、伏黑惠、钉崎野蔷薇、五条悟、禅院真希和狗卷棘；夏油、七海、宿傩等不在集合。题目与映射独立创作，不能与其他网站题本互换。说明不是完整传记、剧情预测或咒力测量。"
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Unofficial original edition",
+        "zh": "非官方原创版"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind independently authored this unofficial fan edition: all questions, mappings, everyday examples and complete results. Jujutsu Kaisen and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. The official first-season character guide provides limited fictional context, not questionnaire validation or claims about later plot outcomes. No dialogue, character art, screenshots or competitor text is reproduced. Editorial angles do not assign supernatural powers, traumatic experiences or harmful fictional actions to you. Choices infer no diagnosis, resilience, intelligence, gender standard, moral rank, real skill, MBTI or career suitability. You may disagree with any part of the comparison.",
+          "zh": "费马独立创作本非官方同人版的全部题目、映射、日常例子和完整结果。《咒术回战》及角色权利归相应权利人，无隶属或认可关系。官方第一季人物页只提供有限虚构背景，不验证题本，也不主张后续剧情结局。不复制台词、人物图像、截图或竞品正文。编辑角度不把超能力、创伤经历或虚构伤害行为赋给你。选择不推断诊断、韧性、智力、性别标准、道德等级、真实技能、MBTI或职业适配；任何不合适的比较都可不同意。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Private choices and optional sharing",
+        "zh": "私密选择与可选分享"
+      },
+      "paragraphs": [
+        {
+          "en": "Choices are scored in your browser without uploads or answer data in URLs or analytics. Optional tab drafts expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public character names and a link, never answers or counts. Every complete guide is free without an account, email or a previous assessment. Further assessments are optional and require separate questions.",
+          "zh": "选择在浏览器计分，不上传，不把答案放进网址或分析。可选标签页草稿24小时失效，完成、重测或退出清除即删除。可选分享只含公开人物名称和链接，不含答案或次数。每份全文免费，无需账号、邮箱或前置测评。后续测评可选，须另行作答。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Which Jujutsu Kaisen characters are included?",
+        "zh": "本版包含哪些《咒术回战》角色？"
+      },
+      "answer": {
+        "en": "Yuji Itadori, Megumi Fushiguro, Nobara Kugisaki, Satoru Gojo, Maki Zenin and Toge Inumaki. Each has a complete bilingual public guide. The cast is deliberately limited; Geto, Nanami, Sukuna and other characters are not scored in this edition.",
+        "zh": "虎杖悠仁、伏黑惠、钉崎野蔷薇、五条悟、禅院真希和狗卷棘，各有完整双语公开说明。集合有明确范围，本版不为夏油、七海、宿傩等计数。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this official or scientifically validated?",
+        "zh": "这是官方或科学验证版吗？"
+      },
+      "answer": {
+        "en": "FermatMind independently authored this unofficial fan edition: all questions, mappings, everyday examples and complete results. Jujutsu Kaisen and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. The official first-season character guide provides limited fictional context, not questionnaire validation or claims about later plot outcomes. No dialogue, character art, screenshots or competitor text is reproduced. Editorial angles do not assign supernatural powers, traumatic experiences or harmful fictional actions to you. Choices infer no diagnosis, resilience, intelligence, gender standard, moral rank, real skill, MBTI or career suitability. You may disagree with any part of the comparison.",
+        "zh": "费马独立创作本非官方同人版的全部题目、映射、日常例子和完整结果。《咒术回战》及角色权利归相应权利人，无隶属或认可关系。官方第一季人物页只提供有限虚构背景，不验证题本，也不主张后续剧情结局。不复制台词、人物图像、截图或竞品正文。编辑角度不把超能力、创伤经历或虚构伤害行为赋给你。选择不推断诊断、韧性、智力、性别标准、道德等级、真实技能、MBTI或职业适配；任何不合适的比较都可不同意。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a match reveal my power, trauma or actual ability?",
+        "zh": "匹配能揭示咒力、创伤或真实能力吗？"
+      },
+      "answer": {
+        "en": "No. Ordinary hobby choices cannot establish supernatural powers, traumatic experiences, a diagnosis, resilience, moral worth or real skill. The six angles are editorial comparisons with fictional names. They do not assign harmful conduct to you, excuse it or predict a plot outcome.",
+        "zh": "不能。普通兴趣选择无法确立超能力、创伤经历、诊断、韧性、道德价值或真实技能。六个角度是借虚构名称的编辑比较，不把伤害行为赋给你，不为它免责，也不预测剧情结局。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need episode knowledge, and is there a time limit?",
+        "zh": "需要记得剧集吗，有时间限制吗？"
+      },
+      "answer": {
+        "en": "No episode knowledge is needed. The 24 original situations concern harmless optional learning and creative work, with four choices each. Around six minutes is an editorial estimate, not a measured human benchmark or speed requirement. You may take your time.",
+        "zh": "不需要剧情知识。24个原创情境均为无害、可选的学习与创作，每题四选一。约6分钟是编辑估计，不是实测人类基准，也无速度要求，可以慢慢选。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are all questions and full results free in English and Chinese?",
+        "zh": "中英文全部题目和完整结果都免费吗？"
+      },
+      "answer": {
+        "en": "Yes. Both languages include every question, option and full guide without signup, email or an MBTI result. Identities and mappings remain stable across languages; psychometric equivalence has not been established. Optional next assessments serve separate purposes and require their own answers.",
+        "zh": "是。两语都有每题、每项与全部全文，无需注册、邮箱或MBTI结果。身份与映射跨语言一致，尚未建立心理测量等价证据。可选后续测评目的另行，须独立作答。"
+      }
+    }
+  ]
+}

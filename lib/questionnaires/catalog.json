@@ -2212,5 +2212,32 @@
       "deductive",
       "patterns"
     ]
+  },
+  {
+    "slug": "jujutsu-kaisen-character",
+    "code": "JJK_FAN",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "fantasy",
+    "title": {
+      "en": "Jujutsu Kaisen Character Test",
+      "zh": "《咒术回战》角色测试"
+    },
+    "description": {
+      "en": "Try 24 original everyday learning and creative situations. Compare Yuji, Megumi, Nobara, Gojo, Maki and Toge with every highest tie and six complete bilingual guides free, without signup. Unofficial fan edition.",
+      "zh": "完成24道原创日常学习与创作情境题，比较悠仁、惠、野蔷薇、悟、真希和棘。全部最高并列、六份完整双语说明免费，无需注册。非官方同人版，不推断超能力、创伤或真实技能。"
+    },
+    "minutes": 6,
+    "formCode": "fermatmind_jjk_original_24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "yuji-itadori",
+      "megumi-fushiguro",
+      "nobara-kugisaki",
+      "satoru-gojo",
+      "maki-zenin",
+      "toge-inumaki"
+    ],
+    "collection": "explore"
   }
 ]

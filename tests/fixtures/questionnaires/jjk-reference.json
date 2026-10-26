@@ -1,0 +1,992 @@
+{
+  "id": "T119",
+  "version": "1.0.0",
+  "form": "fermatmind_jjk_original_24_v1",
+  "method": "Ownselectedsixcast;24originalordinarylearning/collaborationitems,16exp4eachposition.Oneexplicitrawcount/allhighestties.Nohumannorm/clinical/trauma/moralrank/actualskill/fictionalharmassignment.",
+  "questions": [
+    {
+      "id": "JJK_01",
+      "prompt": {
+        "en": "A friend is trying a simple cardboard model and would welcome company. What would you most like to do?",
+        "zh": "朋友在试做简单纸板模型，也欢迎有人一起，你最想做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Join them for the next small step so they do not have to figure it out alone.",
+            "zh": "加入下一个小步骤，不让对方独自摸索。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Ask which part matters most before deciding what I can commit to.",
+            "zh": "先问哪部分最重要，再决定自己能承担什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Suggest a version that leaves room for my own visual choices.",
+            "zh": "提一个能保留自己视觉选择的版本。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "Turn one confusing part into a playful demonstration we can try.",
+            "zh": "把一个难懂部分变成可一起试的趣味演示。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_02",
+      "prompt": {
+        "en": "An optional workshop offers several roles, but you cannot take them all. What would you prefer?",
+        "zh": "可选工作坊提供几种分工，你无法全接，更愿意怎样选？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Choose the role that connects with a responsibility I actually want to take.",
+            "zh": "选择和自己真愿承担的责任相连的分工。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Pick the role that lets me keep a distinctive personal approach.",
+            "zh": "选能保留鲜明个人做法的分工。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "Try a role that lets me explain or reframe something for newcomers.",
+            "zh": "试一个能给新人解释或换角度说明的分工。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Work on one practical technique I would enjoy getting more familiar with.",
+            "zh": "练一种自己愿意逐渐熟悉的实际做法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_03",
+      "prompt": {
+        "en": "A shared illustration project asks everyone to use one style. What would attract you most?",
+        "zh": "共同插画项目请大家用一种风格，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Find a detail that can still express my own taste within the agreement.",
+            "zh": "在约定里找仍能表达自己口味的细节。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "Show a playful alternative that helps people see the idea differently.",
+            "zh": "展示一个趣味替代，让大家换角度看想法。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Practise a small part of the agreed technique until it feels more workable.",
+            "zh": "练约定技法的一小部分，直到更顺手。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Clarify the wording of the instruction so nobody reads it as a personal criticism.",
+            "zh": "说清说明的措辞，免得被读成对人的批评。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_04",
+      "prompt": {
+        "en": "Someone understands the instructions but cannot picture the next step. Which contribution appeals most?",
+        "zh": "有人看懂说明却想象不出下一步，你最想贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "Make a quick, unexpected example that shows another way to see it.",
+            "zh": "做个迅速、意想不到的例子，展示另一种看法。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Demonstrate the small movement slowly and let them try it themselves.",
+            "zh": "慢慢示范小动作，再让对方亲手试。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Check which words are unclear and replace them with a concrete description.",
+            "zh": "问哪些词不清楚，换成具体描述。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Work alongside them for the next attempt, if they would like company.",
+            "zh": "如果对方愿意，就陪着一起做下一次。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_05",
+      "prompt": {
+        "en": "You have ten minutes to explore a new paper-folding technique. What would feel most satisfying?",
+        "zh": "有十分钟探索新折纸做法，什么最让你满足？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Repeat one small fold and notice what makes it easier to control.",
+            "zh": "重复一个小折法，留意怎样更好控制。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Find a short, careful explanation that avoids a misleading instruction.",
+            "zh": "找一段简短、仔细、不会误导的说明。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Try it beside someone else so we can help each other through the awkward bit.",
+            "zh": "和别人并排试，互相帮过不顺手的部分。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Decide which part is worth my limited time before beginning.",
+            "zh": "开始前决定哪部分值得投入这点时间。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_06",
+      "prompt": {
+        "en": "A group is about to post a short announcement about its hobby work. What would you most like to check?",
+        "zh": "小组要发一则兴趣成果短通知，你最想核对什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Whether the words say what we mean without putting pressure on someone.",
+            "zh": "文字是否讲清原意，又不对某人施压。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Whether someone needs a hand finishing the small practical step before posting.",
+            "zh": "发出前是否有人需要帮忙完成一个实际小步骤。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Whether I am comfortable with the part of the plan I have agreed to own.",
+            "zh": "自己是否愿意承担已经约好的那部分计划。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Whether my contribution still sounds like a choice I made for myself.",
+            "zh": "自己的贡献是否仍像亲自选的表达。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_07",
+      "prompt": {
+        "en": "A newcomer is trying a hobby task that most of the group already knows. What would you prefer to offer?",
+        "zh": "新人在试小组多数人已熟悉的兴趣任务，你更愿意提供什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "A little company while we work through the first attempt together.",
+            "zh": "第一次尝试时陪一陪，一起做过去。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "A clear offer of the part I can help with, without promising everything.",
+            "zh": "明确说能帮哪部分，不承诺包办全部。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Permission to choose a version that feels like their own, as I would want.",
+            "zh": "像自己也希望的那样，让对方能选有自己味道的版本。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "A playful demonstration that makes the unfamiliar part less mysterious.",
+            "zh": "一个趣味示范，让陌生部分没那么神秘。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_08",
+      "prompt": {
+        "en": "Two small projects ask for your help on the same afternoon. What would you most like to do first?",
+        "zh": "两个小项目都在同一下午请你帮忙，你最想先做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Think through which commitment I can genuinely keep and tell people plainly.",
+            "zh": "想清能真做到哪项承诺，再明白告诉大家。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Choose the contribution in which I can express something I care about.",
+            "zh": "选能表达自己在意之处的贡献。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "Find a different format that may let the group approach the work more flexibly.",
+            "zh": "找一种不同形式，也许能让小组更灵活地做。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Select one concrete skill-sized task I can focus on practising.",
+            "zh": "选一项大小明确、可以专心练的具体任务。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_09",
+      "prompt": {
+        "en": "You are invited to decorate a shared notebook cover. What would appeal most?",
+        "zh": "有人请你装饰共同笔记本封面，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Make one visual choice that I can honestly say is mine.",
+            "zh": "作一个自己能坦然认领的视觉选择。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "Play with an unusual example that changes how the cover could work.",
+            "zh": "试一个不寻常例子，改变封面的可能做法。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Spend time getting one line or small shape steadier.",
+            "zh": "花时间把一条线或一个小形状做稳一点。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Choose wording that makes the shared purpose clear without claiming to speak for everyone.",
+            "zh": "选能讲清共同用途、又不冒充代表所有人的措辞。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_10",
+      "prompt": {
+        "en": "A practice session feels stuck because everyone is explaining the task the same way. What would you choose?",
+        "zh": "练习卡住了，大家一直用同一种办法解释，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "Invent a different example that lets people look at it from a fresh angle.",
+            "zh": "编一个不同例子，让大家换角度看。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Break one part into a small repetition that can be tried directly.",
+            "zh": "把一部分拆成可以直接重复试的小练习。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Ask which phrase is being misunderstood and make it more precise.",
+            "zh": "问哪句话被误解，再说得准确些。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Join someone for an ordinary attempt rather than leave them watching alone.",
+            "zh": "陪一个人实际做一次，不让对方只是独自在旁看。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_11",
+      "prompt": {
+        "en": "After one imperfect attempt at a craft, what would you most enjoy trying next?",
+        "zh": "手作第一次不完美，接下来最想试什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Repeat the particular movement that I want to become more familiar with.",
+            "zh": "重复自己想更熟悉的那个具体动作。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Describe what happened carefully before deciding how to ask for feedback.",
+            "zh": "先仔细描述发生什么，再决定怎样请人反馈。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Have another go alongside a willing friend and help each other.",
+            "zh": "和愿意的朋友一起再做一次，互相帮一帮。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Check whether this is still a task I want to spend time on today.",
+            "zh": "确认今天是否仍想把时间放在这项任务上。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_12",
+      "prompt": {
+        "en": "A helpful suggestion could easily sound harsher than intended in a message. What would you prefer?",
+        "zh": "一条本想帮忙的建议，写成消息容易比原意生硬，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Say exactly what I noticed and ask whether suggestions are welcome.",
+            "zh": "说清具体看见什么，再问是否欢迎建议。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Offer to try the next small part together instead of only commenting.",
+            "zh": "不只评论，提议一起试下一个小部分。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Be clear about what help I am actually willing and able to provide.",
+            "zh": "说清自己真愿意、真能提供什么帮助。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "State my preference as my own rather than making it a rule for them.",
+            "zh": "把偏好说成自己的选择，不变成给对方的规则。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_13",
+      "prompt": {
+        "en": "Your group has one unfinished prop for a casual performance. What contribution would you prefer?",
+        "zh": "轻松表演还差一个道具没做完，你更愿意贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Join the person finishing it and take the next manageable piece of work.",
+            "zh": "加入正在做的人，接下一块可完成的工作。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Agree on the part I can take responsibility for and where it stops.",
+            "zh": "约清自己负责哪部分，以及做到哪里为止。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Keep a personal design detail that makes my part feel chosen.",
+            "zh": "留一个让自己这部分有亲自选择感的设计细节。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "Try a playful substitute that changes how the prop could be used.",
+            "zh": "试一个趣味替代，换一种道具用法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_14",
+      "prompt": {
+        "en": "An invitation assumes you will take the same role you took last time. What would you most like to do?",
+        "zh": "一次邀请默认你还会接上回的角色，你最想怎样回应？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Choose deliberately whether I want that responsibility again.",
+            "zh": "认真决定自己是否还愿接这项责任。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Say which version or role I would actually prefer for myself.",
+            "zh": "说清自己真正喜欢哪个版本或角色。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "Suggest a different arrangement that lets people discover another approach.",
+            "zh": "提另一种安排，让大家发现不同做法。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Pick a bounded practical part that I would like to practise more.",
+            "zh": "选一块范围明确、还想多练的实际部分。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_15",
+      "prompt": {
+        "en": "A shared hobby piece is becoming polished but no longer feels like your contribution. What appeals most?",
+        "zh": "共同兴趣作品越来越精致，却不太像自己的贡献了，你最想做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Explain the particular personal choice I would like to keep visible.",
+            "zh": "说明自己想保留可见的那个具体选择。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "Show an unexpected alternative that may open the piece up again.",
+            "zh": "展示一个意想不到的替代，也许重新打开作品。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Work carefully on a specific detail I still enjoy making.",
+            "zh": "认真做自己仍喜欢制作的一处细节。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Find words that explain the concern without making it an accusation.",
+            "zh": "找能说明顾虑、又不构成指责的说法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_16",
+      "prompt": {
+        "en": "You can help explain a simple technique to willing beginners. What sounds most appealing?",
+        "zh": "可以给愿意的新手讲一个简单技法，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "Use an imaginative comparison, then let people test whether it helps.",
+            "zh": "用一个想象比较，再让大家试是否有用。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Practise the demonstration beforehand so the small action is easier to see.",
+            "zh": "提前练示范，让小动作更容易看清。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Choose concise words that describe the action without judging the learner.",
+            "zh": "用简明词语描述动作，不评价学习者。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Work next to someone for a first try and follow their pace.",
+            "zh": "陪一个人第一次试，跟着对方节奏。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_17",
+      "prompt": {
+        "en": "A hobby skill has one detail you cannot yet do the way you intend. What would you most like to try?",
+        "zh": "某项兴趣技能有个细节，暂时做不成自己想要的样子，你最想试什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Give that one detail a short, deliberate round of practice.",
+            "zh": "给那个细节一轮短而专注的练习。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Ask a specific question that makes the difficulty easier to understand.",
+            "zh": "问一个具体问题，让困难更容易说清。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Invite a willing partner to try the step with me.",
+            "zh": "请愿意的伙伴陪自己试这个步骤。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Check how much of my time I want to commit to this today.",
+            "zh": "确认今天愿意给它投入多少时间。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_18",
+      "prompt": {
+        "en": "Someone asks you to write a short note on behalf of a project. What would you prefer to do?",
+        "zh": "有人请你代表项目写一张短便条，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Check what I can accurately say and avoid adding an unintended promise.",
+            "zh": "确认能准确说什么，不添无意中的承诺。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Ask who needs practical support after the note is sent.",
+            "zh": "问便条发出后，谁还需要实际支持。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Clarify whether I am agreeing to the responsibility that the note implies.",
+            "zh": "说清是否同意便条暗含的那项责任。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Keep my own voice where the group has left room for it.",
+            "zh": "在小组留出的空间里保留自己的声音。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_19",
+      "prompt": {
+        "en": "A friend is nervous about joining a harmless creative trial. What would you most like to offer?",
+        "zh": "朋友对参加无害的小创作尝试有些犹豫，你最想提供什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Company for one small, optional first attempt.",
+            "zh": "陪一次小小、可选的初次尝试。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "A clear account of what I can help with and what remains their choice.",
+            "zh": "讲清自己能帮什么、哪些仍由对方选择。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Space to adapt the trial to a style they would actually choose.",
+            "zh": "给调整为对方真愿意选择的风格留空间。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "A playful way to look at the trial as an experiment rather than a performance.",
+            "zh": "用趣味角度把尝试看作小实验，而非表演。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_20",
+      "prompt": {
+        "en": "Your available time changes halfway through an optional project. What would you prefer?",
+        "zh": "可选项目做到一半，可用时间变了，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Renegotiate the part I can responsibly continue instead of silently promising too much.",
+            "zh": "重新约定能继续负责哪部分，不默默答应过多。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Choose which personal contribution I still want to keep in the smaller version.",
+            "zh": "选出缩小版本里仍想保留的个人贡献。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "Reframe the plan so the group can see a different workable route.",
+            "zh": "换个框架，让小组看到另一条能走的路。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Focus on a small technique-sized piece that can still be practised well.",
+            "zh": "专注一块虽小、仍可认真练的具体技法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_21",
+      "prompt": {
+        "en": "You can choose a theme for your own page in a collaborative zine. What attracts you most?",
+        "zh": "合编小刊中，自己的那页可自选主题，你最被什么吸引？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "A choice of subject and style I would genuinely like to stand behind.",
+            "zh": "一个主题与风格都真愿认领的选择。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "An unusual example that invites readers to see the theme differently.",
+            "zh": "一个邀请读者换角度看主题的特别例子。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "A chance to refine one practical aspect of how the page is made.",
+            "zh": "一个打磨页面制作具体做法的机会。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "A way to phrase the page so its meaning is clear and considerate.",
+            "zh": "一种让页面意思清楚又体贴的表达。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_22",
+      "prompt": {
+        "en": "A group has treated one hobby method as the only way to begin. What would you prefer to contribute?",
+        "zh": "小组把一种兴趣做法当成唯一入门方式，你更愿意贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "satoru-gojo",
+          "label": {
+            "en": "A different demonstration that people can compare without committing to it.",
+            "zh": "另一个可自由比较、不必承诺采用的演示。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "A short practice step that makes the existing method easier to try.",
+            "zh": "一个让现有方法更好试的短练习步骤。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "A careful explanation of what the method does and does not require.",
+            "zh": "仔细说清这种方法要求什么、不要求什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "A friendly offer to attempt the first part alongside anyone who wants company.",
+            "zh": "友好提议，愿意有人陪的可以一起做第一部分。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_23",
+      "prompt": {
+        "en": "There is one extra practice round before a voluntary creative showcase. What would you most enjoy?",
+        "zh": "自愿创作展示前还有一轮额外练习，你最喜欢做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "maki-zenin",
+          "label": {
+            "en": "Repeat a specific technique and notice one small adjustment.",
+            "zh": "重复一个具体技法，留意一处小调整。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "Refine the words introducing the work so they promise no more than it does.",
+            "zh": "打磨介绍措辞，不承诺作品做不到的东西。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Help a willing partner through the next attempt while doing my own.",
+            "zh": "自己也做的时候，陪愿意的伙伴过下一次尝试。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Decide which responsibility I can still take on comfortably.",
+            "zh": "决定自己还愿意接哪项责任。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "JJK_24",
+      "prompt": {
+        "en": "Before sharing a group project publicly, what would you most like to make clear?",
+        "zh": "共同项目公开分享前，你最想说清什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "toge-inumaki",
+          "label": {
+            "en": "What the message means, whom it represents and whether those people agree.",
+            "zh": "消息是什么意思、代表谁、那些人是否同意。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "yuji-itadori",
+          "label": {
+            "en": "Who would like a hand with the next small step of sharing.",
+            "zh": "谁希望在分享的下一个小步骤里有人帮一把。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "megumi-fushiguro",
+          "label": {
+            "en": "Which follow-up commitments I have actually chosen to accept.",
+            "zh": "自己实际选择接受了哪些后续承诺。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nobara-kugisaki",
+          "label": {
+            "en": "Which part of the contribution expresses a choice that is personally mine.",
+            "zh": "哪部分贡献表达的是属于自己亲自作的选择。"
+          }
+        }
+      ]
+    }
+  ]
+}
