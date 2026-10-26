@@ -1812,5 +1812,32 @@
       "instrumental-influence",
       "impact-distance"
     ]
+  },
+  {
+    "slug": "next-life",
+    "code": "FM_NEXT_LIFE",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "fantasy",
+    "title": {
+      "en": "Next Life Quiz",
+      "zh": "来世之路测试"
+    },
+    "description": {
+      "en": "Take an original 18-question next life quiz. Explore six imagined paths, keep every tied result and read full explanations for free. No birth date, account or prediction.",
+      "zh": "免费完成18道原创未来生活选择题，比较跨海旅人、四季园丁等六条想象路径，阅读全部最高并列的完整结果。无需生日或注册，不作来世预测。"
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "fm_next_life_priorities_18_v1",
+    "questionCount": 18,
+    "resultSlugs": [
+      "traveller",
+      "gardener",
+      "host",
+      "maker",
+      "chronicler",
+      "investigator"
+    ]
   }
 ]

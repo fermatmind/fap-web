@@ -1,0 +1,1590 @@
+{
+  "slug": "next-life",
+  "code": "FM_NEXT_LIFE",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "fantasy",
+  "kind": "archetype",
+  "title": {
+    "en": "Next Life Quiz",
+    "zh": "来世之路测试"
+  },
+  "description": {
+    "en": "Take an original 18-question next life quiz. Explore six imagined paths, keep every tied result and read full explanations for free. No birth date, account or prediction.",
+    "zh": "免费完成18道原创未来生活选择题，比较跨海旅人、四季园丁等六条想象路径，阅读全部最高并列的完整结果。无需生日或注册，不作来世预测。"
+  },
+  "seoTitle": {
+    "en": "Next Life Quiz: 18 Questions & Six Full Results",
+    "zh": "来世之路测试：18题与六条完整想象路径"
+  },
+  "minutes": 5,
+  "introduction": {
+    "en": "If you could begin a life again, what would you make room for in an ordinary week? These original situations explore first-hand discovery, continuity, belonging, useful making, expression and understanding. They turn future-life imagination into a conversation about present wishes. This is a choice quiz, not a date calculator, religious teaching or evidence about reincarnation. No scientific validation or prediction is claimed.",
+    "zh": "如果可以重新开始，你想给普通的一周留下什么？18个原创情境比较亲身发现、持续照看、共同生活、实用制作、表达和理解六种侧重。用下一生的想象，聊聊眼下想给什么留空间。这是选择问卷，不是生日计算器、宗教教义或转世证据；没有本站科学验证，也不作预测。"
+  },
+  "instructions": {
+    "en": "Choose what you would most want in an imagined new lifetime, while remembering that it would still have everyday limits. Pick one of four options in each situation. There are no right answers and no timer. All 18 choices are required; every highest-count path receives its full report.",
+    "zh": "设想可以重新开始一生，但日常仍有条件和限制。每个情境选一个最想保留的选项，没有标准答案，也不限时。18题全部选择后，呈现所有最高计数路径的完整说明。"
+  },
+  "resultHeading": {
+    "en": "Your imagined fresh-start paths",
+    "zh": "这一次想象的新生活路径"
+  },
+  "directions": [
+    {
+      "id": "traveller",
+      "title": {
+        "en": "Sea-route Traveller",
+        "zh": "跨海旅人"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "gardener",
+      "title": {
+        "en": "Seasonal Gardener",
+        "zh": "四季园丁"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "host",
+      "title": {
+        "en": "Long-table Host",
+        "zh": "长桌主人"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "maker",
+      "title": {
+        "en": "Repair Workshop Maker",
+        "zh": "修补工匠"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "chronicler",
+      "title": {
+        "en": "Street-corner Chronicler",
+        "zh": "街角记录者"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "investigator",
+      "title": {
+        "en": "Night-window Investigator",
+        "zh": "夜窗研究者"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "NEXT_01",
+      "prompt": {
+        "en": "You can begin a new lifetime with one guaranteed part of an ordinary week. What would you choose?",
+        "zh": "假想可以重新开始一生，每周能保留一件确定的事，你会选什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A journey through a place I have never visited.",
+            "zh": "去一个从未到过的地方走走。"
+          },
+          "directionId": "traveller"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Time to tend the same patch of growing things.",
+            "zh": "照看一小块会慢慢生长的地方。"
+          },
+          "directionId": "gardener"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "A meal with people who gradually become familiar.",
+            "zh": "和渐渐熟悉的人一起吃顿饭。"
+          },
+          "directionId": "host"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A few hours repairing something people still need.",
+            "zh": "留出几小时修好仍有人需要的东西。"
+          },
+          "directionId": "maker"
+        }
+      ]
+    },
+    {
+      "id": "NEXT_02",
+      "prompt": {
+        "en": "The new life comes with a small room. Which feature matters most?",
+        "zh": "新生活有一个小房间，哪项布置对你最重要？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A window beside a pot I can watch through the seasons.",
+            "zh": "窗边能放一盆植物，看它走过四季。"
+          },
+          "directionId": "gardener"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Enough spare chairs to welcome an unexpected guest.",
+            "zh": "多放几把椅子，临时来客也有地方坐。"
+          },
+          "directionId": "host"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "A sturdy workbench where unfinished pieces can stay.",
+            "zh": "一张结实工作台，可以放着没做完的物件。"
+          },
+          "directionId": "maker"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A corner where I can collect voices, images and sentences.",
+            "zh": "留一角存放声音、画面和没写完的句子。"
+          },
+          "directionId": "chronicler"
+        }
+      ]
+    },
+    {
+      "id": "NEXT_03",
+      "prompt": {
+        "en": "A free afternoon opens up in your imagined next life. What draws you?",
+        "zh": "假想的下一生突然空出一个下午，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Invite someone new and someone familiar to the same table.",
+            "zh": "请一位新朋友和一位老相识同桌坐坐。"
+          },
+          "directionId": "host"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Find out why a useful object stopped working.",
+            "zh": "弄清一件实用物品为什么坏了。"
+          },
+          "directionId": "maker"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Record a small detail of the neighbourhood before it changes.",
+            "zh": "记下街区变化前的一个小细节。"
+          },
+          "directionId": "chronicler"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Follow a question I have been unable to put down.",
+            "zh": "继续琢磨那个一直放不下的问题。"
+          },
+          "directionId": "investigator"
+        }
+      ]
+    },
+    {
+      "id": "NEXT_04",
+      "prompt": {
+        "en": "You must choose one kind of difficulty to accept in that life. Which feels most worth it?",
+        "zh": "那一生也有麻烦。如果必须接受一种，你觉得哪种最值得？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Trying several repairs before one finally holds.",
+            "zh": "反复试修几次，才终于修得牢靠。"
+          },
+          "directionId": "maker"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Revising a piece until it says what I meant.",
+            "zh": "反复修改，直到作品表达出本意。"
+          },
+          "directionId": "chronicler"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Having no clear answer after a long investigation.",
+            "zh": "查了很久，答案仍然不明朗。"
+          },
+          "directionId": "investigator"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Feeling like a beginner whenever I reach a new place.",
+            "zh": "每到一处陌生地方，都得重新当新手。"
+          },
+          "directionId": "traveller"
+        }
+      ]
+    },
+    {
+      "id": "NEXT_05",
+      "prompt": {
+        "en": "At the end of a year there, what would make it feel well spent?",
+        "zh": "在那里过完一年，哪件事最让你觉得这一年没有白过？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "I made a record that captures something otherwise overlooked.",
+            "zh": "留下了一份记录，让容易忽略的东西被看见。"
+          },
+          "directionId": "chronicler"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "I changed my mind because I understood something better.",
+            "zh": "因为真正多懂了一点，愿意修正原来的想法。"
+          },
+          "directionId": "investigator"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "I know a place from being there, rather than only reading about it.",
+            "zh": "有一个地方，是亲自去过才了解的。"
+          },
+          "directionId": "traveller"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "I noticed the results of caring for one place over time.",
+            "zh": "持续照看同一处地方，终于看见了变化。"
+          },
+          "directionId": "gardener"
+        }
+      ]
+    },
+    {
+      "id": "NEXT_06",
+      "prompt": {
+        "en": "You are allowed to keep one recurring promise in your new life. Which one?",
+        "zh": "新生活里，你愿意持续守住哪一个约定？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Leave time each week for a question without an immediate use.",
+            "zh": "每周给一个暂时没用的问题留点时间。"
+          },
+          "directionId": "investigator"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Try an unfamiliar route whenever it is practical.",
+            "zh": "条件允许时，试走一条不熟悉的路线。"
+          },
+          "directionId": "traveller"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Return regularly to care for the same living space.",
+            "zh": "定期回来，照看同一个有生命的空间。"
+          },
+          "directionId": "gardener"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Make it easy for someone to ask for company.",
+            "zh": "让需要陪伴的人容易开口找自己。"
+          },
+          "directionId": "host"
+        }
+      ]
+    },
+    {
+      "id": "NEXT_07",
+      "prompt": {
+        "en": "An imagined town offers you a month to spend as you wish. What would you arrange first?",
+        "zh": "一个假想小镇给你一个月自由安排，你先安排什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A route through streets and nearby places I do not know.",
+            "zh": "串起不熟悉的街巷和周边地方，慢慢去探访。"
+          },
+          "directionId": "traveller"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "A small daily routine outdoors, returning to notice changes.",
+            "zh": "每天有一小段户外日常，回来看看细微变化。"
+          },
+          "directionId": "gardener"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "A recurring open invitation to eat or talk together.",
+            "zh": "约定一个固定时段，欢迎大家来吃饭聊天。"
+          },
+          "directionId": "host"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A corner where neighbours can bring small repair projects.",
+            "zh": "腾出一角，让邻居拿些小物件来修补。"
+          },
+          "directionId": "maker"
+        }
+      ]
+    },
+    {
+      "id": "NEXT_08",
+      "prompt": {
+        "en": "Which loss would you most want to prevent when designing that new life?",
+        "zh": "如果可以安排那一生，你最想避免哪一种遗憾？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Moving on so often that I never see anything grow.",
+            "zh": "总在赶往下一处，从没看见什么慢慢长成。"
+          },
+          "directionId": "gardener"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Having plenty of plans but nobody to share ordinary days with.",
+            "zh": "计划很多，却没有人一起过普通日子。"
+          },
+          "directionId": "host"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Always consuming finished things without learning how to make or mend them.",
+            "zh": "只会用成品，从未学会亲手做或修。"
+          },
+          "directionId": "maker"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Letting meaningful moments pass without finding a way to express them.",
+            "zh": "重要时刻过去了，却没有找到表达它的方法。"
+          },
+          "directionId": "chronicler"
+        }
+      ]
+    },
+    {
+      "id": "NEXT_09",
+      "prompt": {
+        "en": "A visitor asks what you would show them from your next life. What do you bring out?",
+        "zh": "有人来参观你假想的下一生，你最想拿什么给他看？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A place at the table and introductions to the people around it.",
+            "zh": "先留个座位，再介绍常来同桌的人。"
+          },
+          "directionId": "host"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "An object I changed so it works better for its user.",
+            "zh": "一件被我改得更合使用者需要的物品。"
+          },
+          "directionId": "maker"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "A short piece that makes a familiar scene feel newly visible.",
+            "zh": "一段能让熟悉场景重新被看见的作品。"
+          },
+          "directionId": "chronicler"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "My notes on a question, including where I am still unsure.",
+            "zh": "关于一个问题的笔记，也包括没想清的部分。"
+          },
+          "directionId": "investigator"
+        }
+      ]
+    },
+    {
+      "id": "NEXT_10",
+      "prompt": {
+        "en": "A plan in that life has gone wrong. Which part would you still want to preserve?",
+        "zh": "那一生里的一个计划落空了，你仍然最想留下哪一部分？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The hands-on practice and a better understanding of the materials.",
+            "zh": "亲手尝试的经验，以及对材料更具体的认识。"
+          },
+          "directionId": "maker"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The freedom to try another form of expression.",
+            "zh": "换一种表达方式再试的自由。"
+          },
+          "directionId": "chronicler"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The chance to understand why my explanation failed.",
+            "zh": "弄清原来的解释为什么行不通的机会。"
+          },
+          "directionId": "investigator"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The possibility of taking a different route somewhere unexpected.",
+            "zh": "换条路，走到意料之外地方的可能。"
+          },
+          "directionId": "traveller"
+        }
+      ]
+    },
+    {
+      "id": "NEXT_11",
+      "prompt": {
+        "en": "If that life had a notebook, what would fill its first pages?",
+        "zh": "如果给那一生准备一本手账，前几页会写什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Fragments of conversations, sketches and possible stories.",
+            "zh": "谈话片段、速写和还没展开的故事。"
+          },
+          "directionId": "chronicler"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Questions, competing explanations and things to check.",
+            "zh": "问题、不同解释，以及还要核对的事情。"
+          },
+          "directionId": "investigator"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Places I want to encounter in person and routes between them.",
+            "zh": "想亲眼见见的地方，以及连接它们的路线。"
+          },
+          "directionId": "traveller"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Small changes in weather, growth and the rhythm of a place.",
+            "zh": "天气、生长和一处地方节奏的细小变化。"
+          },
+          "directionId": "gardener"
+        }
+      ]
+    },
+    {
+      "id": "NEXT_12",
+      "prompt": {
+        "en": "Which permission would you give yourself earlier in a new lifetime?",
+        "zh": "如果重来一次，你想更早允许自己做哪件事？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Spend time understanding something without producing a quick answer.",
+            "zh": "花时间理解一件事，不急着交出答案。"
+          },
+          "directionId": "investigator"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Be new somewhere without needing to look experienced.",
+            "zh": "去陌生地方当新手，不必装作熟门熟路。"
+          },
+          "directionId": "traveller"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Choose a steady rhythm even when it looks unremarkable.",
+            "zh": "选择稳定的日常，即使它看起来不特别。"
+          },
+          "directionId": "gardener"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Ask for a place in other people’s lives as well as offering one.",
+            "zh": "给别人留位置，也开口请求别人给自己留位置。"
+          },
+          "directionId": "host"
+        }
+      ]
+    },
+    {
+      "id": "NEXT_13",
+      "prompt": {
+        "en": "There are practical limits in your imagined new life. What would you protect in a modest version?",
+        "zh": "假想的新生活也有现实限制。缩小规模后，你仍最想守住什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A nearby unfamiliar place I can explore without a grand trip.",
+            "zh": "不用远行，也能探索附近一个不熟悉的地方。"
+          },
+          "directionId": "traveller"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "A few minutes caring for a plant or shared patch of ground.",
+            "zh": "每天几分钟，照看一盆植物或一小块公共绿地。"
+          },
+          "directionId": "gardener"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "A simple shared meal that does not need to impress anyone.",
+            "zh": "一顿不用招待得体面，也能一起吃的便饭。"
+          },
+          "directionId": "host"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "One basic tool and enough time to learn a useful repair.",
+            "zh": "一件基础工具，加上一点学习实用修补的时间。"
+          },
+          "directionId": "maker"
+        }
+      ]
+    },
+    {
+      "id": "NEXT_14",
+      "prompt": {
+        "en": "Which ordinary sound would you welcome as part of that life?",
+        "zh": "哪一种普通声音，你愿意让它经常出现在那一生里？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Rain on the same sill, changing with the season.",
+            "zh": "同一处窗台上的雨声，随季节慢慢变化。"
+          },
+          "directionId": "gardener"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "People settling into a conversation after the food is served.",
+            "zh": "饭端上桌后，大家逐渐聊开来的声音。"
+          },
+          "directionId": "host"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "A tool working, followed by something fitting into place.",
+            "zh": "工具工作一阵，物件终于装合到位的声音。"
+          },
+          "directionId": "maker"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Someone reading back a sentence or tune I made.",
+            "zh": "有人念出我写的句子，或哼起我编的调子。"
+          },
+          "directionId": "chronicler"
+        }
+      ]
+    },
+    {
+      "id": "NEXT_15",
+      "prompt": {
+        "en": "You could be remembered for one small contribution in that life. Which would you choose?",
+        "zh": "那一生里，人们会记得你做过的一件小事。你希望是哪件？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "People felt they had someone to sit beside.",
+            "zh": "让人觉得，身边总能有个可以坐下的位置。"
+          },
+          "directionId": "host"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Something useful stayed in use instead of being discarded.",
+            "zh": "让一件有用的物品继续使用，没有马上被丢掉。"
+          },
+          "directionId": "maker"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "An everyday experience found a form others could recognise.",
+            "zh": "替一种日常经历找到了别人也能认出的表达。"
+          },
+          "directionId": "chronicler"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A confusing claim became clearer, including its limits.",
+            "zh": "把一个混乱的说法解释清楚，也说清它的限度。"
+          },
+          "directionId": "investigator"
+        }
+      ]
+    },
+    {
+      "id": "NEXT_16",
+      "prompt": {
+        "en": "What would you rather practise slowly than receive instantly in your imagined life?",
+        "zh": "在假想的下一生里，什么事你宁愿慢慢练，也不想直接得到现成结果？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Making an object reliable with my own hands.",
+            "zh": "用自己的手，让一件东西变得可靠。"
+          },
+          "directionId": "maker"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Finding an original way to describe what I notice.",
+            "zh": "找到一种自己的表达，说出注意到的东西。"
+          },
+          "directionId": "chronicler"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Distinguishing a good explanation from an attractive guess.",
+            "zh": "分清什么是好解释，什么只是动听的猜测。"
+          },
+          "directionId": "investigator"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Learning to navigate unfamiliar surroundings respectfully.",
+            "zh": "学着带着尊重，在陌生环境里找到自己的路。"
+          },
+          "directionId": "traveller"
+        }
+      ]
+    },
+    {
+      "id": "NEXT_17",
+      "prompt": {
+        "en": "After a satisfying day there, what unfinished thing would you look forward to?",
+        "zh": "在那里过了充实的一天，哪件没做完的事会让你期待明天？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A scene or idea that still needs the right words, image or sound.",
+            "zh": "一个场景或念头，还在等合适的文字、画面或声音。"
+          },
+          "directionId": "chronicler"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "A loose end that could change how I understand a question.",
+            "zh": "一条未查清的线索，可能改变对问题的理解。"
+          },
+          "directionId": "investigator"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "A turning in the road I have not yet followed.",
+            "zh": "路上有一个转弯，今天还没来得及走过去。"
+          },
+          "directionId": "traveller"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A slow change I will only see by coming back.",
+            "zh": "一件只有再次回来，才能发现的缓慢变化。"
+          },
+          "directionId": "gardener"
+        }
+      ]
+    },
+    {
+      "id": "NEXT_18",
+      "prompt": {
+        "en": "Your next life can leave one kind of space deliberately unfilled. Which space do you want?",
+        "zh": "假想的下一生，可以刻意留一处空白。你最想留下什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Time for questions that are still genuinely open.",
+            "zh": "给那些确实还没有答案的问题留时间。"
+          },
+          "directionId": "investigator"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "An unplanned day in a place I am still getting to know.",
+            "zh": "在尚不熟悉的地方，留出没有排程的一天。"
+          },
+          "directionId": "traveller"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "A quiet stretch without pressure to turn it into an achievement.",
+            "zh": "一段不必变成成果的安静日常。"
+          },
+          "directionId": "gardener"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A place at a gathering for someone not yet included.",
+            "zh": "聚会时留个位置，给还没被邀请进来的人。"
+          },
+          "directionId": "host"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "traveller",
+      "directionIds": [
+        "traveller"
+      ],
+      "title": {
+        "en": "Sea-route Traveller",
+        "zh": "跨海旅人"
+      },
+      "headline": {
+        "en": "A new beginning with room to encounter the unfamiliar.",
+        "zh": "重新开始时，想给陌生的世界留一条路。"
+      },
+      "summary": {
+        "en": "The Sea-route Traveller imagines a life with first-hand encounters and new surroundings. Read the appeal, the practical cost and a small local experiment without treating it as a prediction.",
+        "zh": "跨海旅人想象的是能亲自接触陌生环境的生活。完整读法包括吸引力、现实代价和附近可做的小尝试，不把计数当来世预告。"
+      },
+      "seo": {
+        "title": {
+          "en": "Sea-route Traveller · Next Life Quiz Result",
+          "zh": "跨海旅人：来世之路测试完整结果"
+        },
+        "description": {
+          "en": "The Sea-route Traveller imagines a life with first-hand encounters and new surroundings. Read the appeal, the practical cost and a small local experiment without treating it as a prediction.",
+          "zh": "跨海旅人想象的是能亲自接触陌生环境的生活。完整读法包括吸引力、现实代价和附近可做的小尝试，不把计数当来世预告。"
+        }
+      },
+      "scoreReading": {
+        "en": "Each choice pointing here adds one count. This path appears in 12 of 18 situations. All highest counts receive their full guides; a tie is not broken by name order.",
+        "zh": "选中指向本路径的选项就记1次。18个情境中有12次可选择本路径；所有最高计数都给出完整说明，不按名字顺序打破并列。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What this imagined life protects",
+            "zh": "这条想象之路想保留什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The important part of this path is first-hand encounter. You want a new beginning to include places and ways of living you cannot fully understand from a familiar room. The sea route is a metaphor for crossing the edge of your usual experience; it does not require expensive travel or a permanently moving life.",
+              "zh": "这条路看重亲身接触：如果可以重新开始，希望生活中仍有机会见到不熟悉的地方和过日子的方式。跨海只是越过经验边界的比喻，不要求远途旅行、花很多钱，或永远漂泊。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A day that makes the path concrete",
+            "zh": "把它放进一天里"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine arriving in a neighbourhood with no impressive itinerary. You learn how to ask where a street ends, notice how people use a small square, and leave time to revise your route. The satisfying part is contact with something you did not already know, rather than collecting proof that you went somewhere remarkable.",
+              "zh": "假想来到一个没去过的街区，不急着打卡。问问一条街通向哪里，看看人们怎样使用小广场，并允许路线临时改变。满足感来自接触原来不知道的生活，而不是证明自己到过多了不起的地方。"
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "en": "The cost of always seeking elsewhere",
+            "zh": "总想走向别处的代价"
+          },
+          "paragraphs": [
+            {
+              "en": "Being new can mean mistakes, fatigue and dependence on people who know the place. A change of scene also does not settle a difficulty carried with you. If every ordinary week feels like a failure beside the next departure, the image may be asking for a smaller dose of novelty, not a larger escape.",
+              "zh": "到了陌生环境，会犯错、会累，也会需要熟悉当地的人帮忙。换风景不能自动解决随身带着的问题。如果普通的一周总输给下一次出发，或许需要的是少量新鲜感，不是把逃离的规模越做越大。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Traveller, Gardener or Investigator?",
+            "zh": "和园丁、研究者哪里不同"
+          },
+          "paragraphs": [
+            {
+              "en": "The Gardener wants to return and notice what grows; the Traveller wants to encounter what lies beyond the known route. The Investigator can stay in one room and still follow a question somewhere new. Equal counts may describe wanting both a dependable home and occasional discovery. They do not cancel one another.",
+              "zh": "园丁想回来，看同一处地方怎样变化；旅人想知道熟悉路线之外有什么。研究者即使留在原地，也可以顺着一个问题走到新地方。同分可能表示既想有稳定落脚点，也想偶尔发现未知，两者并不互相否定。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "Try the smallest version now",
+            "zh": "现在试一个最小版本"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose a nearby place you can reach safely and affordably. Allow twenty minutes without a checklist, follow local access rules, and write down one assumption that changed. Afterwards ask whether the experience itself restored your interest or whether only the idea of leaving appealed. Neither answer obliges you to redesign your life.",
+              "zh": "找一个安全、负担得起的附近去处，留出二十分钟，不列打卡清单，遵守当地开放规则。回来记下一条改变了的预想，再问：真正让我有兴趣的是这次接触，还是仅仅想离开原处？两种答案都不要求立刻重排人生。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What the result cannot establish",
+            "zh": "这份结果不能确认什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher count means you selected more of this edition’s options. It does not show courage, cultural knowledge, an ideal occupation or a future reincarnation. Read any tied guides in full and keep only the details that help you describe what you would like more room for today.",
+              "zh": "计数较高，只说明这一次选中本版这类选项较多；它不能证明勇敢、文化见识、适合的职业或转世身份。并列时完整比较各份说明，只留下能帮助描述眼下想给什么多一点空间的部分。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gardener",
+      "directionIds": [
+        "gardener"
+      ],
+      "title": {
+        "en": "Seasonal Gardener",
+        "zh": "四季园丁"
+      },
+      "headline": {
+        "en": "A new beginning that stays long enough to notice growth.",
+        "zh": "重新开始时，想留久一点，看见慢慢长成。"
+      },
+      "summary": {
+        "en": "The Seasonal Gardener imagines a steady relationship with one living place. Explore patience, routine, limits and the difference between rootedness and simply needing a rest.",
+        "zh": "四季园丁向往和同一处生活空间慢慢熟悉。这里解释稳定节奏、持续照看及其代价，也区分扎根的偏好和暂时需要休息。"
+      },
+      "seo": {
+        "title": {
+          "en": "Seasonal Gardener · Next Life Quiz Result",
+          "zh": "四季园丁：来世之路测试完整结果"
+        },
+        "description": {
+          "en": "The Seasonal Gardener imagines a steady relationship with one living place. Explore patience, routine, limits and the difference between rootedness and simply needing a rest.",
+          "zh": "四季园丁向往和同一处生活空间慢慢熟悉。这里解释稳定节奏、持续照看及其代价，也区分扎根的偏好和暂时需要休息。"
+        }
+      },
+      "scoreReading": {
+        "en": "Each choice pointing here adds one count. This path appears in 12 of 18 situations. All highest counts receive their full guides; a tie is not broken by name order.",
+        "zh": "选中指向本路径的选项就记1次。18个情境中有12次可选择本路径；所有最高计数都给出完整说明，不按名字顺序打破并列。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Continuity is the attraction",
+            "zh": "吸引你的是持续相处"
+          },
+          "paragraphs": [
+            {
+              "en": "This path gives value to returning. In an imagined new lifetime, a familiar window, a small garden or a repeated walk becomes richer because you see it change. The garden is a symbol of attention over time, not a claim that you are naturally patient or that everyone should live close to nature.",
+              "zh": "这条路看重回来：在想象的新人生里，同一扇窗、一小块绿地、一条常走的路，会因为持续看见它的变化而变丰富。园丁象征时间里的照看，不证明天生有耐心，也不要求每个人都住到自然里。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "An ordinary week with a rhythm",
+            "zh": "有节奏的普通一周"
+          },
+          "paragraphs": [
+            {
+              "en": "You water what needs water, notice a leaf changing, and make room for a task whose result cannot be hurried. Some weeks very little appears to happen. The imagined reward is participation in that rhythm, rather than a stream of visible achievements or a life with no demands.",
+              "zh": "该浇水时浇水，发现一片叶子的变化，给不能催快的事情留一点位置。有时一周看不出明显进展。它的吸引力是参与这种节奏，而不是成果不断，也不是完全没有责任的生活。"
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "en": "Staying also takes resources",
+            "zh": "留下来也需要条件"
+          },
+          "paragraphs": [
+            {
+              "en": "Continuity can become obligation when the care is larger than your time or energy. Weather, health, housing and other people can change a routine you hoped to keep. A useful version of this image allows missed days and shared care. It does not turn consistency into another standard you must meet perfectly.",
+              "zh": "持续照看超过时间和精力时，也会变成负担。天气、身体、居住条件和身边的人，都可能打乱原本想守住的节奏。可用的园丁意象允许漏掉几天、允许一起分担，不把稳定又变成必须完美完成的标准。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Rootedness is not the same as isolation",
+            "zh": "扎根不等于独处"
+          },
+          "paragraphs": [
+            {
+              "en": "The Host also returns to a familiar place, but puts the gathering at its centre. The Gardener puts the continuing relationship with the place at the centre. A Traveller tie can mean you want a base to return to after exploring. Also ask whether you want this rhythm generally or mostly because this week was exhausting.",
+              "zh": "长桌主人也会回到熟悉地方，不过核心是相聚；园丁的核心是和这个地方持续相处。和旅人并列，可能是想出去探索，也想有地方可回。另外可以区分：平时就喜欢这样的节奏，还是这周太累，特别需要缓一缓。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "A manageable return",
+            "zh": "做一次负担得起的返回"
+          },
+          "paragraphs": [
+            {
+              "en": "For one week, return to the same window, short walk or cared-for plant for five minutes. Notice one difference without requiring a photo or a useful lesson. Choose something you can stop without harm if circumstances change. Afterwards consider whether repetition made the place more meaningful or felt like one more chore.",
+              "zh": "选窗边、短步道或已有的盆栽，连续一周每天回来五分钟，发现一点不同，不要求拍照，也不要求有所收获。选择即使中断也不会造成伤害的安排。再看重复让这处地方更有意思，还是又多了一件家务。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Read a wish, not a forecast",
+            "zh": "读一种向往，不读命运"
+          },
+          "paragraphs": [
+            {
+              "en": "A count here describes selected options in a fictional fresh-start exercise. It cannot establish wellbeing, environmental virtue or your ability to care for living things. All tied paths stay available because an interest in continuity can coexist with making, expression or company. There is no spiritually superior path.",
+              "zh": "这里的次数描述的是重新开始的虚构练习里选过什么，不证明身心状态、环保程度或照顾生命的能力。并列路径都保留，因为稳定可以和制作、表达、陪伴同时重要；没有哪条路在精神上更高等。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "host",
+      "directionIds": [
+        "host"
+      ],
+      "title": {
+        "en": "Long-table Host",
+        "zh": "长桌主人"
+      },
+      "headline": {
+        "en": "A new beginning with places for people to belong.",
+        "zh": "重新开始时，想让人与人之间有地方坐下。"
+      },
+      "summary": {
+        "en": "The Long-table Host imagines everyday belonging built through shared time. Read the welcome, the work behind it, reciprocal boundaries and a small invitation you can actually sustain.",
+        "zh": "长桌主人想象用共同度过的时间建立归属。完整解释包含邀请背后的劳动、互相照应的边界，以及真正负担得起的小型相聚。"
+      },
+      "seo": {
+        "title": {
+          "en": "Long-table Host · Next Life Quiz Result",
+          "zh": "长桌主人：来世之路测试完整结果"
+        },
+        "description": {
+          "en": "The Long-table Host imagines everyday belonging built through shared time. Read the welcome, the work behind it, reciprocal boundaries and a small invitation you can actually sustain.",
+          "zh": "长桌主人想象用共同度过的时间建立归属。完整解释包含邀请背后的劳动、互相照应的边界，以及真正负担得起的小型相聚。"
+        }
+      },
+      "scoreReading": {
+        "en": "Each choice pointing here adds one count. This path appears in 12 of 18 situations. All highest counts receive their full guides; a tie is not broken by name order.",
+        "zh": "选中指向本路径的选项就记1次。18个情境中有12次可选择本路径；所有最高计数都给出完整说明，不按名字顺序打破并列。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "A place in an ordinary day",
+            "zh": "在普通日子里有个位置"
+          },
+          "paragraphs": [
+            {
+              "en": "The table represents repeated, low-pressure contact. You are imagining a life where people do not need a special achievement or crisis to come together. This is about the appeal of belonging, not proof of sociability, popularity or an obligation to become everyone’s emotional support.",
+              "zh": "长桌代表可以反复出现、压力不大的相处。你想象的生活里，人们不必有重大成果或遇到危机，才有理由聚在一起。这是在说归属感的吸引力，不证明外向、受欢迎，也不要求成为所有人的情绪支持者。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "The meal is deliberately simple",
+            "zh": "一顿刻意简单的饭"
+          },
+          "paragraphs": [
+            {
+              "en": "In this next-life scene, someone brings rice, another clears the table, and a newcomer can listen before speaking. What matters is not an impressive event but knowing a place remains available. A quiet pair sharing tea can express this path just as well as a crowded dinner.",
+              "zh": "在这个下一生的情境里，有人带饭，有人收桌子，新来的人可以先听、不急着讲话。重要的不是办得精彩，而是知道有个位置愿意留着。两个人安静喝茶，也可以和热闹的一桌饭一样表达这条路。"
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "en": "Hospitality needs reciprocity",
+            "zh": "邀请也需要互相分担"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone must arrange time, food, access and cleaning. If that work always falls to one person, a welcoming image can conceal unequal effort. A sustainable table allows invitations to be declined, dietary needs to be discussed and the host to be tired. Being needed is not the same as being cared for.",
+              "zh": "时间、食物、空间和清理都需要有人安排。如果总落到一个人身上，温暖的意象就可能遮住不均等的劳动。可以持续的长桌允许拒绝邀请、讨论饮食需要，也允许主人疲惫；被需要和被关心不是同一件事。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Company, care or expression?",
+            "zh": "陪伴、照看与表达的不同"
+          },
+          "paragraphs": [
+            {
+              "en": "The Gardener favours ongoing care for a place; the Host favours a dependable point of contact between people. The Chronicler might record a gathering, while the Host mainly wants it to happen. Equal counts can reflect wanting both shared life and something of your own to make or explore.",
+              "zh": "园丁更看重和地方持续相处；主人更看重人与人之间稳定的联结点。记录者可能想留下聚会的一幕，主人主要盼望聚会真的发生。同分可以表示既想共同生活，也想有自己的制作或探索，不必选出唯一正确的身份。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "Make a bounded invitation",
+            "zh": "发一份有边界的邀请"
+          },
+          "paragraphs": [
+            {
+              "en": "Invite one person to a short, simple activity and name a clear ending time. Share the practical work rather than quietly taking all of it on. Afterwards ask whether you enjoyed the company itself, felt free to have needs, and could comfortably decline next time. That tells you more than how many people accepted.",
+              "zh": "请一个人参加简单、短时的活动，把结束时间说清。实际准备一起分担，不悄悄全包。结束后问自己：有没有享受陪伴，能不能表达需要，下次不方便时是否能安心拒绝？这比来了多少人更能帮助理解这个向往。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "A wish for connection is not a social score",
+            "zh": "向往联结，不是社交评分"
+          },
+          "paragraphs": [
+            {
+              "en": "The result only counts this edition’s choices. It cannot tell whether other people feel welcome with you, whether a relationship is healthy or what role you should play in a family. Read the other tied paths too, and keep the table as an optional image rather than a duty.",
+              "zh": "结果只统计本版选择，不能判断别人和你相处是否自在、关系是否健康，或你在家庭中应该担任什么角色。也读一读并列的其他路径，把长桌当成可选的想象，不把它变成责任书。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maker",
+      "directionIds": [
+        "maker"
+      ],
+      "title": {
+        "en": "Repair Workshop Maker",
+        "zh": "修补工匠"
+      },
+      "headline": {
+        "en": "A new beginning with tools, attempts and useful things that last.",
+        "zh": "重新开始时，想亲手把一些东西做好、用久。"
+      },
+      "summary": {
+        "en": "The Repair Workshop Maker imagines a life with tangible practice and useful improvements. Explore the appeal of making, unfinished attempts, the difference from expression, and a safe small trial.",
+        "zh": "修补工匠向往能亲手实践、看见实用改善的生活。这里解释动手的吸引力、做不好的时候、和表达创作的区别，以及安全的小尝试。"
+      },
+      "seo": {
+        "title": {
+          "en": "Repair Workshop Maker · Next Life Quiz Result",
+          "zh": "修补工匠：来世之路测试完整结果"
+        },
+        "description": {
+          "en": "The Repair Workshop Maker imagines a life with tangible practice and useful improvements. Explore the appeal of making, unfinished attempts, the difference from expression, and a safe small trial.",
+          "zh": "修补工匠向往能亲手实践、看见实用改善的生活。这里解释动手的吸引力、做不好的时候、和表达创作的区别，以及安全的小尝试。"
+        }
+      },
+      "scoreReading": {
+        "en": "Each choice pointing here adds one count. This path appears in 12 of 18 situations. All highest counts receive their full guides; a tie is not broken by name order.",
+        "zh": "选中指向本路径的选项就记1次。18个情境中有12次可选择本路径；所有最高计数都给出完整说明，不按名字顺序打破并列。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Making a difference you can handle",
+            "zh": "能摸到的改变"
+          },
+          "paragraphs": [
+            {
+              "en": "This path protects contact with the process, not just the finished purchase. In a fresh-start life you want time to learn how something fits, fails and can be improved. The workshop is an image of tangible participation. It does not say you already have technical talent or should earn a living from a craft.",
+              "zh": "这条路想保留的是参与过程，不只是得到成品。如果重新开始，希望有时间知道东西怎样装合、哪里失灵、能怎样改善。工坊象征能摸到的参与，不证明已经有技术天赋，也不建议靠某种手艺谋生。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "An object earns another week of use",
+            "zh": "让物件再用一阵"
+          },
+          "paragraphs": [
+            {
+              "en": "Picture a drawer that sticks. You observe when it catches, check what you can safely adjust, try a small change and test it again. The pleasure is a modest, visible improvement for a real user. Sometimes the right result is recognising that a repair needs someone with suitable training.",
+              "zh": "设想抽屉总卡住：先观察哪里不顺，确认什么能安全调整，做一点小修改，再试一遍。满足感是实际使用的人确实方便了一点。有时真正有用的结果，是认识到这项修理需要具备相应训练的人来做。"
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "en": "An unfinished bench has a cost",
+            "zh": "没做完的工作台也占地方"
+          },
+          "paragraphs": [
+            {
+              "en": "Materials, tools, space and failed attempts all cost something. Wanting every object fixed can consume time needed elsewhere. This image works better with a limit: which project matters, what is safe to attempt, and when will you stop? A purchased replacement is not a personal failure.",
+              "zh": "材料、工具、空间和试错都有成本。样样都想修好，可能占走别处需要的时间。给这个意象配上边界才更可用：这次做哪件，什么能安全尝试，到哪里就停？购买替代品并不是个人失败。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Usefulness and expression can overlap",
+            "zh": "实用和表达可以重叠"
+          },
+          "paragraphs": [
+            {
+              "en": "The Chronicler centres what a piece communicates; the Maker centres how it works in use. A hand-bound notebook can satisfy both. The Investigator may want to explain the failure without rebuilding the object, while the Maker especially wants to test a change. Tied guides can show why a project attracts you in several ways.",
+              "zh": "记录者更关心作品传达了什么；工匠更关心它用起来怎样。一本手工装订的本子可能同时满足两者。研究者可能想解释故障，而工匠特别想亲手测试改变。并列读法可以说明同一个项目为什么在几方面都吸引你。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "One safe and reversible improvement",
+            "zh": "做一个安全可撤的小改善"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose a low-risk task such as repairing a loose paper folder or improving a storage label. Avoid electrical, structural or other work beyond your training. Set a short time limit and test the result in actual use. Notice whether you enjoyed the process, the usefulness, or mainly finishing an item on a list.",
+              "zh": "选一个低风险的小事，例如修补松掉的纸文件夹、改善收纳标签；不尝试超出训练的电气、结构等修理。限定一小段时间，做好后真的使用一下，再看喜欢的是过程、实用改善，还是仅仅少了一项待办。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "No aptitude is certified here",
+            "zh": "这里不认证动手能力"
+          },
+          "paragraphs": [
+            {
+              "en": "These counts describe imagined choices, not skill, accuracy, employability or environmental impact. No practical performance was observed. Keep every highest tie and decide whether one small hands-on activity belongs in your current week, without treating a fictional new lifetime as a required career change.",
+              "zh": "计数描述想象中的选择，不测技能、准确性、就业能力或环保成效；这里没有观察实际操作表现。保留所有最高并列，只考虑这周是否想放进一件小小的动手活动，不把虚构的新一生读成必须转行的指令。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chronicler",
+      "directionIds": [
+        "chronicler"
+      ],
+      "title": {
+        "en": "Street-corner Chronicler",
+        "zh": "街角记录者"
+      },
+      "headline": {
+        "en": "A new beginning where noticed things find a form.",
+        "zh": "重新开始时，想让看到的、感到的东西有处表达。"
+      },
+      "summary": {
+        "en": "The Street-corner Chronicler imagines giving everyday experience a voice, image or sound. Read about making something specific, editing fairly, sharing by choice and separating expression from applause.",
+        "zh": "街角记录者想给日常经历找到文字、画面或声音。完整读法包含具体创作、尊重他人的记录、自愿分享，以及表达与喝彩的区别。"
+      },
+      "seo": {
+        "title": {
+          "en": "Street-corner Chronicler · Next Life Quiz Result",
+          "zh": "街角记录者：来世之路测试完整结果"
+        },
+        "description": {
+          "en": "The Street-corner Chronicler imagines giving everyday experience a voice, image or sound. Read about making something specific, editing fairly, sharing by choice and separating expression from applause.",
+          "zh": "街角记录者想给日常经历找到文字、画面或声音。完整读法包含具体创作、尊重他人的记录、自愿分享，以及表达与喝彩的区别。"
+        }
+      },
+      "scoreReading": {
+        "en": "Each choice pointing here adds one count. This path appears in 12 of 18 situations. All highest counts receive their full guides; a tie is not broken by name order.",
+        "zh": "选中指向本路径的选项就记1次。18个情境中有12次可选择本路径；所有最高计数都给出完整说明，不按名字顺序打破并列。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Expression rather than a grand biography",
+            "zh": "表达不必宏大"
+          },
+          "paragraphs": [
+            {
+              "en": "In this imagined lifetime, you want more than to pass through a moment. You want to find a form that carries what you noticed into another day or another person’s attention. A two-line description can do that. The chronicler is a metaphor for expression, not a claim that your memories are more accurate than someone else’s.",
+              "zh": "在想象的一生里，你不只想经历一个时刻，还想给注意到的东西找一种形式，让它在另一天、或另一个人的眼前继续存在。两行描写就可以做到。记录者象征表达，不代表你的记忆比别人更准确。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A small detail gets a second life",
+            "zh": "让小细节再活一次"
+          },
+          "paragraphs": [
+            {
+              "en": "A street is changing. Rather than recording everything, you choose the sound of a shop opening or the shape of an old doorway and make a short piece around it. Your choice of frame inevitably leaves things out. That selection is part of authorship, and it asks for care when other people’s lives are involved.",
+              "zh": "一条街正在变化。你不求全记下来，而是选店门打开的声音、旧门洞的形状，围绕它做一小段作品。取景总会留下空白，这正是创作的一部分；涉及别人的生活时，也需要认真对待这种选择。"
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "en": "A record is not the whole event",
+            "zh": "记录不是事情的全部"
+          },
+          "paragraphs": [
+            {
+              "en": "The wish to capture can interrupt participation. You may also postpone making anything because the imagined audience is too demanding. A workable version allows private drafts, imperfect forms and consent before using identifiable stories or images. An event does not become less valuable because you made nothing from it.",
+              "zh": "想捕捉一切，可能打断当下的参与；脑中观众太挑剔，也可能让作品迟迟开始不了。可持续的版本允许私人草稿、不完美的形式；使用能识别他人的故事或影像前先取得同意。没产出作品，也不降低事件本身的价值。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Chronicler, Maker or Host?",
+            "zh": "记录者、工匠与主人的不同"
+          },
+          "paragraphs": [
+            {
+              "en": "The Maker asks whether the thing works; the Chronicler asks whether the form conveys what matters. The Host might care most that people meet, while the Chronicler is drawn to expressing a feature of that meeting. A tie can suggest a shared project, but it never grants permission to publish someone else’s experience.",
+              "zh": "工匠问东西是否好用；记录者问形式有没有传达重要的部分。主人可能最在乎大家见面，记录者则被其中某一幕的表达吸引。同分可以启发一个共同项目，却绝不等于自动获得公开他人经历的许可。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "Make one small piece, with no audience required",
+            "zh": "做一个不必给人看的小作品"
+          },
+          "paragraphs": [
+            {
+              "en": "Give yourself fifteen minutes to describe, sketch or record a non-private detail from your own day. Choose one thing you want the piece to convey. Read or view it the next day before deciding whether to share. Ask whether shaping it helped you notice more, rather than whether it looks worthy of a public feed.",
+              "zh": "给自己十五分钟，描写、速写或录下自己一天中不涉隐私的小细节。只选一件想传达的东西。第二天再看，随后决定要不要分享；先问制作有没有让自己多看见一点，不急着问它值不值得发动态。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "A creative wish is not an ability ranking",
+            "zh": "创作愿望不是水平排名"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher count means more of these options appealed today. It establishes no artistic talent, audience response or future calling. You may prefer several forms, or simply want a little room to express yourself after a crowded week. Read all tied paths and let the image remain provisional.",
+              "zh": "较高计数只说明今天较多选择了这类选项，不确认艺术天赋、观众反应或未来使命。可能喜欢几种形式，也可能只是忙了一周，想有一点表达空间。完整阅读并列路径，让意象保持可修改。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "investigator",
+      "directionIds": [
+        "investigator"
+      ],
+      "title": {
+        "en": "Night-window Investigator",
+        "zh": "夜窗研究者"
+      },
+      "headline": {
+        "en": "A new beginning with time to stay with a real question.",
+        "zh": "重新开始时，想给真正没想明白的事留时间。"
+      },
+      "summary": {
+        "en": "The Night-window Investigator imagines unhurried understanding. Explore open questions, useful uncertainty, the cost of endless checking and a bounded experiment without an intelligence label.",
+        "zh": "夜窗研究者向往不被催促的理解。这里解释开放问题、有用的不确定、无尽查证的代价和有边界的小尝试，不贴智力标签。"
+      },
+      "seo": {
+        "title": {
+          "en": "Night-window Investigator · Next Life Quiz Result",
+          "zh": "夜窗研究者：来世之路测试完整结果"
+        },
+        "description": {
+          "en": "The Night-window Investigator imagines unhurried understanding. Explore open questions, useful uncertainty, the cost of endless checking and a bounded experiment without an intelligence label.",
+          "zh": "夜窗研究者向往不被催促的理解。这里解释开放问题、有用的不确定、无尽查证的代价和有边界的小尝试，不贴智力标签。"
+        }
+      },
+      "scoreReading": {
+        "en": "Each choice pointing here adds one count. This path appears in 12 of 18 situations. All highest counts receive their full guides; a tie is not broken by name order.",
+        "zh": "选中指向本路径的选项就记1次。18个情境中有12次可选择本路径；所有最高计数都给出完整说明，不按名字顺序打破并列。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Room not to know yet",
+            "zh": "给还不知道留位置"
+          },
+          "paragraphs": [
+            {
+              "en": "The night window stands for a quiet interval in which a question can remain open. In a new lifetime, you want the freedom to compare explanations, revisit a mistake and learn without immediately producing something impressive. It is the appeal of understanding, not evidence that you are wiser or more intelligent than other people.",
+              "zh": "夜窗代表一小段安静时间，让问题可以暂时开放。若重新开始，希望能比较解释、回头看错误，也能学习而不马上交出令人满意的成果。它表达理解的吸引力，不证明比别人更有智慧或智力更高。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "An explanation changes",
+            "zh": "一个解释被修正"
+          },
+          "paragraphs": [
+            {
+              "en": "You notice a familiar claim does not fit a small example. Instead of defending it immediately, you look for where the mismatch begins and write two possible explanations. One may remain unresolved. The imagined reward is a clearer account, including the parts you cannot yet support.",
+              "zh": "发现一个熟悉说法解释不了眼前的小例子，不急着替它辩护，而是找差异从哪里开始，写下两种可能解释。也许仍有一点无法解决。想象中的满足感来自说明更清楚，包括知道哪些部分暂时没有依据。"
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "en": "Understanding needs a stopping point too",
+            "zh": "理解也需要暂时停下"
+          },
+          "paragraphs": [
+            {
+              "en": "Further checking can displace sleep, action or conversation. Not every everyday decision needs an investigation. A helpful version states what you need to know for the present purpose and when you will pause. Leaving a question open can be responsible; it is different from being unable to stop revisiting it.",
+              "zh": "继续核对可能挤占睡眠、行动或交流。不是每个日常决定都需要研究。可用的版本会先说清：为眼前这件事需要知道多少，什么时候暂停。负责任地保留开放问题，和停不下来的反复琢磨并不一样。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Inquiry is not the same as movement",
+            "zh": "追问和走远不是同一件事"
+          },
+          "paragraphs": [
+            {
+              "en": "The Traveller seeks contact with unfamiliar surroundings; the Investigator may explore while staying in one place. The Maker wants to test an improvement in use, while the Investigator especially wants to know why the explanation holds. A tie can mean that observation, making and understanding belong in the same small project.",
+              "zh": "旅人寻找陌生环境里的接触；研究者留在原地也能探索。工匠想测试改变是否好用，研究者特别关心解释为何成立。并列时，观察、制作和理解可能可以放进同一个小项目，不必彼此竞争。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "One question and a pause",
+            "zh": "一个问题，加一个暂停点"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose a low-stakes question about something in your own day. Spend twenty minutes comparing two reliable accounts, note what each actually supports and write what remains unknown. Stop at the time you set. Later ask whether you gained useful clarity or mostly extended the search; use that distinction to set a smaller next step.",
+              "zh": "选自己日常中一件后果很小的问题，花二十分钟比较两份可靠说明，记下它们各自支持什么、还有什么未知。到点就停。之后再看得到的是可用的清楚，还是主要把搜索延长了；据此把下一步做得更小。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "No intelligence, diagnosis or destiny score",
+            "zh": "没有智力、诊断或命运分数"
+          },
+          "paragraphs": [
+            {
+              "en": "No reasoning performance or health information is assessed here. A count only summarises the options you selected in this original imagined-life exercise. All highest paths are presented in full; uncertainty about which image fits is an acceptable result, not a problem to solve by repeatedly retaking the quiz.",
+              "zh": "这里没有评估推理表现或健康信息，次数只概括本版想象练习中选中的选项。所有最高路径都完整呈现；不确定哪个意象更贴切，也可以是可接受的结果，不必靠不断重测消除。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "en": "One choice, one count",
+        "zh": "一次选择，计一次"
+      },
+      "paragraphs": [
+        {
+          "en": "Each option belongs to one path and adds exactly one count to it. Every path appears 12 times, three times in each option position. The 18 counts add to 18. A result such as 5, 4, 3, 2, 2, 2 selects the path with 5; 4, 4, 3, 3, 2, 2 keeps both paths with 4. The denominator 12 shows available options, not a percentage of who you are.",
+          "zh": "每个选项只指向一条路径，选中记1次。每条路径共出现12次，在四个位置各出现3次；18题的总计数为18。例如5、4、3、2、2、2，呈现计5次的路径；4、4、3、3、2、2，则把两个计4次的路径都保留。分母12表示可选择次数，不是人格百分比。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "en": "Ties and nearby counts",
+        "zh": "并列和接近的次数"
+      },
+      "paragraphs": [
+        {
+          "en": "Every highest tie gets its full guide. A difference of one choice has no established statistical meaning, and no rule assigns a secondary type. All six public guides stay available for comparison. Repeating the same option position throughout produces a six-way tie of three counts each.",
+          "zh": "所有最高并列都给完整说明。差一次选择没有已验证的统计含义，也不派固定副型。六份公开说明始终可读；全程选择同一位置，会得到六条路径各3次的完整并列。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "en": "Original symbolic scope",
+        "zh": "原创象征版的范围"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind wrote these situations, paths and explanations independently. They are not JobCannon’s question bank or results and are not a validated psychological instrument. The images describe possible wishes, not an actual afterlife, spiritual status, ability, relationship compatibility or career suitability.",
+          "zh": "这些情境、路径和解释由费马独立编写，不是JobCannon题库或结果，也不是经验证的心理量表。意象描述可能的向往，不确认来世、灵性等级、能力、关系匹配或职业适合度。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does this predict my next life?",
+        "zh": "能预测下一生会成为什么吗？"
+      },
+      "answer": {
+        "en": "No. It is a fictional fresh-start choice quiz. No date, birth time, name or spiritual belief is needed, and the six paths make no claim about what happens after death.",
+        "zh": "不能。这是虚构的重新开始选择问卷，不需要生日、出生时间、名字或信仰；六条路径不对死亡之后的事情作断言。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are close or tied results handled?",
+        "zh": "接近或并列时怎么看？"
+      },
+      "answer": {
+        "en": "One chosen option gives one count. All highest ties keep their complete guides, without a fixed-order winner. A one-count gap is not a validated difference; you can compare every guide before or after answering.",
+        "zh": "选中一个选项记1次。所有最高并列都保留完整说明，不按顺序挑唯一赢家；差1次不是经验证的差异，作答前后都可以比较全部结果。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is everything free, and what is saved?",
+        "zh": "是否全部免费，会保存什么？"
+      },
+      "answer": {
+        "en": "All 18 questions, counts and six full guides are free, with no account required. Answers stay in the browser. Optional tab drafts expire after 24 hours and clear on completion, clear or retake. A refresh without a draft loses the attempt; result sharing contains a public guide link, not your answers or counts.",
+        "zh": "18题、计数和六份完整说明全部免费，无需注册。答案留在浏览器；自愿启用的本标签页草稿24小时失效，完成、清除或重测即删除。不保存时刷新会丢失本次进度；结果分享只含公开说明链接，不含答案或次数。"
+      }
+    },
+    {
+      "question": {
+        "en": "How is this different from the Past Life Quiz?",
+        "zh": "和前世测试有什么不同？"
+      },
+      "answer": {
+        "en": "The existing Past Life Quiz imagines historical activities. This edition asks what you would protect in a new ordinary life, including the costs you would accept. It has its own 18 situations and six fresh-start paths; neither test establishes a real past or future identity.",
+        "zh": "已有前世测试围绕历史活动想象；本版问重新开始时想守住什么日常，也问愿意接受什么代价。18个情境和六条新生活路径独立编写；两者都不确认真实前世或来世身份。"
+      }
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_symbolic",
+    "formCode": "fm_next_life_priorities_18_v1",
+    "itemBankVersion": "fm_next_life_priorities_18_v1",
+    "scoringVersion": "archetype_raw_choice_all_highest_v1",
+    "resultContentVersion": "fm_next_life_six_full_guides_v1",
+    "itemBankSha256": "e5009846cae01e316577d3da84f29d399fe0ceddc1bd40068dda25478bca32a1",
+    "resultContentSha256": "6183bb4c17d72bad94b226e1f8034265c77072e13aa965186689f4034908c2bc",
+    "psychometricValidationCompleted": false
+  }
+}
