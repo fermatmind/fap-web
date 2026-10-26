@@ -62,6 +62,19 @@ const answer = (counts = [6, 6, 6, 6]) => {
 };
 
 describe("T159 original mixed-reasoning practice", () => {
+  it("also serves T166 cognitive practice through the same bank and canonical", () => {
+    expect(quiz.slug).toBe("aptitude-test");
+    expect(quiz.title).toEqual({ en: "Aptitude & Cognitive Ability Test", zh: "能力倾向与认知能力测试" });
+    expect(quiz.introduction.en).toContain("does not estimate general cognitive ability");
+    expect(quiz.faq.some(item => item.question.en === "How does this relate to a cognitive ability test?" && item.answer.en.includes("no calibrated cognitive-ability scores"))).toBe(true);
+    const catalog = JSON.parse(readFileSync("lib/questionnaires/catalog.json", "utf8")) as { slug: string; code: string; title: Questionnaire["title"]; description: Questionnaire["description"] }[];
+    const entries = catalog.filter(item => item.code === quiz.code);
+    expect(entries).toHaveLength(1);
+    expect(entries[0]).toMatchObject({ slug: quiz.slug, title: quiz.title, description: quiz.description });
+    expect(catalog.some(item => item.slug === "cognitive-aptitude")).toBe(false);
+    expect(quiz.questions).toEqual(source.questions);
+    expect(quiz.profiles).toEqual(source.profiles);
+  });
   it("binds24bilingual tasks and4fullrevisionguides to independently recomputed source keys", () => {
     expect(isPracticeConfigurationValid(quiz)).toBe(true); expect(quiz.questions).toHaveLength(24); expect(quiz.profiles).toHaveLength(4);
     expect(quiz.questions).toEqual(source.questions); expect(quiz.profiles).toEqual(source.profiles);

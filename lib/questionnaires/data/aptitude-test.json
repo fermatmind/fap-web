@@ -6,16 +6,16 @@
   "category": "everyday",
   "kind": "practice",
   "title": {
-    "en": "Aptitude Test",
-    "zh": "能力倾向测试"
+    "en": "Aptitude & Cognitive Ability Test",
+    "zh": "能力倾向与认知能力测试"
   },
   "seoTitle": {
-    "en": "Aptitude Test: 24 Practice Questions & Worked Answers",
-    "zh": "能力倾向测试：24题推理练习、答案与解析"
+    "en": "Aptitude & Cognitive Ability Test: 24 Practice Questions",
+    "zh": "能力倾向与认知能力测试：24题练习、答案与解析"
   },
   "description": {
-    "en": "Try 24 original numerical, reading, deductive and symbol tasks. Get every answer and four complete revision guides free. No timer, signup or ability band.",
-    "zh": "用24道原创任务练习数值、阅读、演绎与符号规则，查看四分项答对题数、全部答案和解析，附四份完整复习说明。免费、不计时、无需注册，不派能力等级。"
+    "en": "Practise numerical, reading, deductive and symbol reasoning with 24 original tasks, all worked answers and four full guides. No IQ or ability band.",
+    "zh": "通过24道原创任务练习数值、阅读、演绎和符号推理，查看全部答案、逐题解析与四份完整复习指南。免费、不计时、无需注册，正确数不换算智商或认知能力等级。"
   },
   "minutes": 10,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "24道任务，每题四个选项，在题定资料或规则下恰有一个正确答案。全部作答后显示所选、答案、完整解析和四份指南。不计时，允许纸笔或计算器，符号题按明示规则处理。这是原创混合推理练习，不是智商测验、雇主授权考试或招聘通过结论。"
   },
   "introduction": {
-    "en": "Practise six tasks each in numerical reasoning, reading and evidence, deduction, and symbol patterns. The questions use independently written quantities, short passages and explicit puzzle rules; every key has a separate arithmetic, fact or finite-model check. Your report shows correctness on this edition, every worked answer and four complete revision guides. It does not estimate general intelligence, diagnose a learning difficulty or compare you with a population. Reading tasks are localized in English and Chinese, without established measurement equivalence.",
-    "zh": "分别用六道任务练习数值推理、阅读证据、演绎及符号模式。数量、短文和逻辑规则均独立编写，每个答案键另有算术、事实或有限模型核对。报告给本版正确题数、全部题解和四份完整复习指南，不估计一般智力、不诊断学习困难，也不与人群比较。阅读题按中英文分别组织，未建立跨语言测量等价。"
+    "en": "Use 24 original tasks for cognitive and aptitude practice: six each in numerical reasoning, reading and evidence, deduction, and explicit symbol rules. Each answer key has a separate arithmetic, fact or finite-model check. Your report shows correctness on this edition, every worked answer and four complete revision guides. This practice does not estimate general cognitive ability or intelligence, diagnose a learning difficulty, predict job performance or compare you with a population. Reading tasks are localized in English and Chinese, without established measurement equivalence.",
+    "zh": "这份能力倾向与认知推理练习有24道原创任务：数值、阅读证据、演绎和明示符号规则各六题，每个答案键另有算术、事实或有限模型核对。结果给本版正确题数、全部题解和四份完整复习指南，不估计一般认知能力或智力、不诊断学习困难、不预测工作表现，也不与人群比较。阅读题按中英文分别组织，未建立跨语言测量等价。"
   },
   "resultHeading": {
     "en": "Your mixed-reasoning results and every worked answer",
@@ -1631,6 +1631,16 @@
       "answer": {
         "en": "It is an original 24-item practice set spanning numerical, reading, deductive and explicit-rule symbol tasks. Correct counts and worked explanations help you review this edition; it does not supply a standardized aptitude or IQ score.",
         "zh": "它是24题原创练习，覆盖数值、阅读、演绎和明示规则的符号任务，用正确题数与完整解析帮助复习本版，不提供标准化能力或智商成绩。"
+      }
+    },
+    {
+      "question": {
+        "en": "How does this relate to a cognitive ability test?",
+        "zh": "这与认知能力测试有什么关系？"
+      },
+      "answer": {
+        "en": "It offers original cognitive reasoning practice across numerical, reading, deductive and symbol tasks. The count only shows matched answers on this bank. There are no calibrated cognitive-ability scores, population norms, job-performance predictions or CCAT/Wonderlic equivalents. All answers and four full guides remain free.",
+        "zh": "本页提供数值、阅读、演绎和符号任务组成的原创认知推理练习，正确数只表示本题库中与答案匹配的题数。没有校准后的认知能力分数、人群常模、工作表现预测或CCAT/Wonderlic等价换算；全部题解和四份完整指南免费开放。"
       }
     },
     {

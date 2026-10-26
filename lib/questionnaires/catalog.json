@@ -2195,12 +2195,12 @@
     "updated": "2026-10-26",
     "category": "everyday",
     "title": {
-      "en": "Aptitude Test",
-      "zh": "能力倾向测试"
+      "en": "Aptitude & Cognitive Ability Test",
+      "zh": "能力倾向与认知能力测试"
     },
     "description": {
-      "en": "Try 24 original numerical, reading, deductive and symbol tasks. Get every answer and four complete revision guides free. No timer, signup or ability band.",
-      "zh": "用24道原创任务练习数值、阅读、演绎与符号规则，查看四分项答对题数、全部答案和解析，附四份完整复习说明。免费、不计时、无需注册，不派能力等级。"
+      "en": "Practise numerical, reading, deductive and symbol reasoning with 24 original tasks, all worked answers and four full guides. No IQ or ability band.",
+      "zh": "通过24道原创任务练习数值、阅读、演绎和符号推理，查看全部答案、逐题解析与四份完整复习指南。免费、不计时、无需注册，正确数不换算智商或认知能力等级。"
     },
     "minutes": 10,
     "collection": "explore",
