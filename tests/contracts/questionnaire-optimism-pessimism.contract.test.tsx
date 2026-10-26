@@ -28,7 +28,7 @@ describe("T052 public-domain IPIP single-construct Optimism reflection", () => {
     for (const item of reference.upstreamItems) {
       const sourceItem = quiz.questions.find(q => q.prompt.en === item.english)!;
       expect(sourceItem).toBeTruthy(); expect(sourceItem.reverse).toBe(item.reverse);
-      
+
     }
     expect(reference.upstreamItems.filter(i => i.reverse)).toHaveLength(6);
     expect(quiz.references!.map(r => r.url)).toContain("https://ipip.ori.org/newPermission.htm");
