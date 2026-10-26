@@ -1,6 +1,7 @@
 import type { Questionnaire } from "./types";
 
 const loaders = {
+  "project-management": async () => (await import("./data/project-management.json")).default as Questionnaire,
   "word-skills": async () => (await import("./data/word-skills.json")).default as Questionnaire,
   "problem-solving-critical-thinking": async () => (await import("./data/problem-solving-critical-thinking.json")).default as Questionnaire,
   "sql-test": async () => (await import("./data/sql-test.json")).default as Questionnaire,

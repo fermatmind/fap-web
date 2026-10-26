@@ -1,0 +1,2226 @@
+{
+  "slug": "project-management",
+  "code": "FM_PROJECT_CASE_PRACTICE",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "everyday",
+  "kind": "practice",
+  "title": {
+    "en": "Project Management Test",
+    "zh": "项目管理测试"
+  },
+  "seoTitle": {
+    "en": "Project Management Test: 30 Free Cases & Answers",
+    "zh": "项目管理测试：30道原创情境、全部解析与五篇指南"
+  },
+  "description": {
+    "en": "Practise 30 original project cases on scope, schedule, risk, communication and budget. Free explanations and five full guides. No certification or hiring tier.",
+    "zh": "30道原创项目情境，范围变更、排程容量、风险响应、沟通决策、预算数量各六题。免费查看全部答案解析与五篇完整指南；按题内规则复算正确数，不派招聘档位、PMP或PRINCE2认证。"
+  },
+  "minutes": 18,
+  "instructions": {
+    "en": "Choose one answer using each case’s stated agreement, authority, record, quantities and exclusions. Five six-item groups are interleaved. Complete all 30 to read every key, explanation and full guide. Cases and amounts are fictional. No timer runs; 18 minutes is a rough planning estimate, not measured performance. For unaided practice, leave references and calculators until afterwards. Do not input confidential project records or change a real project to answer.",
+    "zh": "每题单选，依据题定约定、权限、记录、数量与排除项。五组各六题交错呈现，完成30题可读全部答案解析和完整指南。情境金额均虚构。不计时，18分钟只是粗略安排参考，非实测表现。若练无辅助作答，可完成后再查资料和计算器。无需输入保密项目记录或更改真实项目。"
+  },
+  "introduction": {
+    "en": "Work through 30 independently written fictional cases on scope and change, schedule and capacity, risk and response, communication and decisions, and budget quantities. Each limited task gives explicit rules or a declared model so that its keyed choice is reproducible. Recognizing that choice does not establish universally best professional judgment, organizational authority or real delivery success. All correct counts open 30 explanations and five complete seven-section review guides. Selected PMI and Microsoft concepts provide background; no published exam bank, manual case, template or proprietary standard is adapted. This untimed fixed practice has no population norms, hiring tier, certification, qualifying hours or validated English–Chinese score equivalence.",
+    "zh": "30道独立编写的虚构情境，范围变更、排程容量、风险响应、沟通决策、预算数量各六题。每道有限任务明示规则或模型，使答案可复算；识别它不证明普遍最佳职业判断、真实组织权限或实际交付成功。任意正确数都开放30题解析和五篇各七节完整复习指南。选定PMI与Microsoft概念只作背景，不改编已发表考题、手册情境、模板或专有标准。本固定、不计时练习无人群常模、招聘档位、认证、资格时数或经验证的英中分数等价。"
+  },
+  "resultHeading": {
+    "en": "Your project practice and every explanation",
+    "zh": "本次项目管理练习与全部解析"
+  },
+  "directions": [
+    {
+      "id": "scope-and-change",
+      "title": {
+        "en": "Scope and Change Review",
+        "zh": "范围与变更复习"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "schedule-and-capacity",
+      "title": {
+        "en": "Schedule and Capacity Review",
+        "zh": "排程与容量复习"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "risk-and-response",
+      "title": {
+        "en": "Risk and Response Review",
+        "zh": "风险与响应复习"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "communication-and-decisions",
+      "title": {
+        "en": "Communication and Decision Review",
+        "zh": "沟通与决策复习"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "budget-and-quantities",
+      "title": {
+        "en": "Project Budget Review",
+        "zh": "项目预算与数量复习"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "prompt": {
+        "en": "A fictional archive project accepts its delivery only when it contains both a CSV index and a PDF reading guide. Which package meets this stated pair?",
+        "zh": "虚构档案项目须同时交付CSV索引和PDF阅读指南才验收。哪个包满足这两项？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "CSV index plus a slide deck",
+            "zh": "CSV索引与幻灯片"
+          },
+          "directionId": "scope-and-change",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "PDF reading guide alone",
+            "zh": "仅PDF阅读指南"
+          },
+          "directionId": "scope-and-change",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "Slide deck plus a video",
+            "zh": "幻灯片与视频"
+          },
+          "directionId": "scope-and-change",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "CSV index plus PDF reading guide",
+            "zh": "CSV索引与PDF阅读指南"
+          },
+          "directionId": "scope-and-change",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The rule names two deliverables. The first package supplies both; an attractive substitute is not an agreed replacement.",
+        "zh": "规则点名两项交付物，首项包同时具备；好看的替代品不自动成为约定替代。"
+      },
+      "id": "PROJECT_01"
+    },
+    {
+      "prompt": {
+        "en": "In a fictional dependency model, A takes three days. After A, B takes five and C takes seven in parallel. D takes two days and starts only after both B and C finish. With unlimited resources, no gaps and these fixed durations, how many days from A starting to D finishing?",
+        "zh": "虚构依赖模型：A三天；A后B五天、C七天并行；D两天且须B、C都完才开始。资源无限、无间隔、时长固定，从A开工到D结束几天？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "10 days",
+            "zh": "10天"
+          },
+          "directionId": "schedule-and-capacity",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "12 days",
+            "zh": "12天"
+          },
+          "directionId": "schedule-and-capacity",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "15 days",
+            "zh": "15天"
+          },
+          "directionId": "schedule-and-capacity",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "17 days",
+            "zh": "17天"
+          },
+          "directionId": "schedule-and-capacity",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "A finishes at day 3; the longer branch C ends at day 10; D then ends at day 12. Adding parallel branch durations would double-count elapsed time.",
+        "zh": "A第3天完，较长C支路第10天完，D第12天完；把并行支路时长相加会重复累计历时。"
+      },
+      "id": "PROJECT_02"
+    },
+    {
+      "prompt": {
+        "en": "A fictional log labels an event “uncertain” until it happens and “occurred” once observed. A planned shipment has not left yet and may arrive late. Which entry preserves that uncertainty?",
+        "zh": "虚构台账把未发生事件记为“不确定”，观测发生后记为“已发生”。计划货物尚未发出，可能晚到。哪项保留不确定性？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Possible late arrival; not yet observed",
+            "zh": "可能晚到，尚未观测发生"
+          },
+          "directionId": "risk-and-response",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "Late arrival has already occurred",
+            "zh": "已发生晚到"
+          },
+          "directionId": "risk-and-response",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "On-time arrival is guaranteed",
+            "zh": "保证准时到"
+          },
+          "directionId": "risk-and-response",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "The shipment has definitely been cancelled",
+            "zh": "货物肯定已取消"
+          },
+          "directionId": "risk-and-response",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "May arrive late does not establish an actual delay, guarantee or cancellation. The entry should track what the evidence currently supports.",
+        "zh": "可能晚到不证明已延误、保证准时或已取消，记录须贴合当前证据。"
+      },
+      "id": "PROJECT_03"
+    },
+    {
+      "prompt": {
+        "en": "A fictional decision table assigns layout approval to Jo and cost approval to Ren. A question concerns layout only. Which routing follows that table?",
+        "zh": "虚构决策表把版式批准分给Jo、费用批准分给Ren。本次只问版式。哪项路由服从此表？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Send it only to Ren as the cost approver",
+            "zh": "只送费用批准人Ren"
+          },
+          "directionId": "communication-and-decisions",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "Let the newest message sender approve it",
+            "zh": "让最新发消息者批准"
+          },
+          "directionId": "communication-and-decisions",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "Mark it approved without a decision",
+            "zh": "没有决策就记已批准"
+          },
+          "directionId": "communication-and-decisions",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "Send the layout decision to Jo",
+            "zh": "把版式决策送Jo"
+          },
+          "directionId": "communication-and-decisions",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The table names Jo for this domain. The exercise does not infer authority from seniority or prescribe one universal organizational structure.",
+        "zh": "表内明确Jo负责该领域，本题不凭级别猜权限，也不规定普遍组织结构。"
+      },
+      "id": "PROJECT_04"
+    },
+    {
+      "prompt": {
+        "en": "A fictional project has a 90-token allocation and has spent 18 on materials and 27 on printing, with no other spend. How much allocation remains?",
+        "zh": "虚构项目分配90代币，材料花18、印刷花27，无其他支出。余下多少？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "45 tokens",
+            "zh": "45代币"
+          },
+          "directionId": "budget-and-quantities",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "63 tokens",
+            "zh": "63代币"
+          },
+          "directionId": "budget-and-quantities",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "72 tokens",
+            "zh": "72代币"
+          },
+          "directionId": "budget-and-quantities",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "135 tokens",
+            "zh": "135代币"
+          },
+          "directionId": "budget-and-quantities",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "90−18−27=45 tokens. Remaining allocation is not proof that no other obligation exists outside the stated model.",
+        "zh": "90−18−27=45代币；题定余额不证明模型外不存在其他义务。"
+      },
+      "id": "PROJECT_05"
+    },
+    {
+      "prompt": {
+        "en": "A fictional project policy says a requested addition is ready for a decision only after its effort estimate and named decision owner are recorded. Which change note is ready under this policy?",
+        "zh": "虚构项目规定，新增请求先记录工作量估计与明确决策人，再进入决策。哪份记录已满足？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Estimated three workdays; decision owner: Mara",
+            "zh": "估计三个工作日；决策人Mara"
+          },
+          "directionId": "scope-and-change",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "Estimated three workdays; owner still unknown",
+            "zh": "估计三个工作日；决策人待定"
+          },
+          "directionId": "scope-and-change",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "Decision owner Mara; estimate not yet made",
+            "zh": "决策人Mara；尚未估计"
+          },
+          "directionId": "scope-and-change",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "Requester likes the idea; no estimate or owner",
+            "zh": "请求者喜欢；无估计或决策人"
+          },
+          "directionId": "scope-and-change",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Both prerequisite fields are present in the first note. Ready for a decision does not mean the addition has been approved or should be implemented.",
+        "zh": "首份记录具备两项前置字段。可进入决策不等于已批准或应立即实施。"
+      },
+      "id": "PROJECT_06"
+    },
+    {
+      "prompt": {
+        "en": "A fictional model starts branches L and M together: L takes four days and M takes seven. The final task waits for both. No other constraints apply. By how many days may L finish later without delaying that final task’s start?",
+        "zh": "虚构模型L、M同时开始，L四天、M七天；最终任务等两者结束，无其他限制。L最多晚几天结束而不推迟最终任务开工？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "0 days",
+            "zh": "0天"
+          },
+          "directionId": "schedule-and-capacity",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "3 days",
+            "zh": "3天"
+          },
+          "directionId": "schedule-and-capacity",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "4 days",
+            "zh": "4天"
+          },
+          "directionId": "schedule-and-capacity",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "7 days",
+            "zh": "7天"
+          },
+          "directionId": "schedule-and-capacity",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The final start is controlled by day 7. L can move from day 4 to day 7, a three-day allowance in this model.",
+        "zh": "最终开工由第7天控制，L可从第4天移至第7天，题定模型内余量三天。"
+      },
+      "id": "PROJECT_07"
+    },
+    {
+      "prompt": {
+        "en": "A fictional response is ready only when a named monitor and a measurable trigger are recorded. Which note meets both?",
+        "zh": "虚构响应须记录指定监测者和可测触发条件才算备妥。哪份记录满足？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Anyone watches the queue when possible",
+            "zh": "有空时谁都可看队列"
+          },
+          "directionId": "risk-and-response",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "Imani checks the counter; alert when the queue exceeds 12",
+            "zh": "Imani检查计数，队列超过12则告警"
+          },
+          "directionId": "risk-and-response",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "Imani watches; alert when things feel wrong",
+            "zh": "Imani观察，感觉不对就告警"
+          },
+          "directionId": "risk-and-response",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "Alert above 12; monitor not assigned",
+            "zh": "超过12告警，未分配监测者"
+          },
+          "directionId": "risk-and-response",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The first note identifies who checks and a concrete threshold. It does not prove the chosen threshold is optimal outside this fictional plan.",
+        "zh": "首项有监测人和具体阈值，不证明该阈值在虚构计划之外最优。"
+      },
+      "id": "PROJECT_08"
+    },
+    {
+      "prompt": {
+        "en": "A fictional update plan requires the trial owner to receive the queue count by email every Friday. Which update follows its recipient, content, channel and cadence?",
+        "zh": "虚构更新计划要求每周五用邮件把队列计数发试验负责人。哪项满足收件人、内容、渠道、频率？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Send the count to the owner only once, by email",
+            "zh": "只邮件发一次计数给负责人"
+          },
+          "directionId": "communication-and-decisions",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "Email a logo file each Friday to the owner",
+            "zh": "每周五邮件发标志文件给负责人"
+          },
+          "directionId": "communication-and-decisions",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "Post the count publicly on Friday without emailing the owner",
+            "zh": "周五公开贴计数但不给负责人邮件"
+          },
+          "directionId": "communication-and-decisions",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "Email the queue count to the trial owner each Friday",
+            "zh": "每周五邮件发队列计数给试验负责人"
+          },
+          "directionId": "communication-and-decisions",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The first choice matches all four declared fields. A communication plan should be applied to the case’s actual needs, not used to require unnecessary reports everywhere.",
+        "zh": "首项匹配四个题定字段，沟通计划应服务实际需求，不应变成到处强制无用报告。"
+      },
+      "id": "PROJECT_09"
+    },
+    {
+      "prompt": {
+        "en": "A fictional order costs eight tokens per kit for seven kits plus one six-token setup fee. There are no other charges. What is the order total?",
+        "zh": "虚构订单七套，每套八代币，另收一次六代币设置费，无其他收费。总额多少？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "56 tokens",
+            "zh": "56代币"
+          },
+          "directionId": "budget-and-quantities",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "104 tokens",
+            "zh": "104代币"
+          },
+          "directionId": "budget-and-quantities",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "62 tokens",
+            "zh": "62代币"
+          },
+          "directionId": "budget-and-quantities",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "20 tokens",
+            "zh": "20代币"
+          },
+          "directionId": "budget-and-quantities",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "7×8+6=62 tokens. The one-time fee is not charged seven times.",
+        "zh": "7×8+6=62代币，一次性费用不重复收七次。"
+      },
+      "id": "PROJECT_10"
+    },
+    {
+      "prompt": {
+        "en": "The fictional team has authorization to test a paper prototype once, but no authorization to produce the final batch. Which action stays within that authorization?",
+        "zh": "虚构团队只获准试一次纸质原型，未获准生产最终批次。哪项行动在此授权内？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Run the single paper-prototype trial and record observations",
+            "zh": "运行一次纸质原型试验并记观察"
+          },
+          "directionId": "scope-and-change",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "Order the final batch because the prototype looks promising",
+            "zh": "因原型看好而订最终批次"
+          },
+          "directionId": "scope-and-change",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "Run five production batches as further trials",
+            "zh": "把五批生产称作进一步试验"
+          },
+          "directionId": "scope-and-change",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "Treat trial permission as approval of the finished product",
+            "zh": "把试验许可当成成品批准"
+          },
+          "directionId": "scope-and-change",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Only the single specified trial is authorized. Its findings may inform a later decision; they do not extend the present permission.",
+        "zh": "只授权题定的一次试验。观察可支持后续决策，不扩张本次权限。"
+      },
+      "id": "PROJECT_11"
+    },
+    {
+      "prompt": {
+        "en": "A fictional team recorded 9, 12 and 15 completed size-units over three equal-length iterations. What is their arithmetic mean, without claiming the next iteration will equal it?",
+        "zh": "虚构团队三个等长迭代完成9、12、15个规模单位。算术平均多少？不据此断言下次必完成同数。"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "9 size-units",
+            "zh": "9个规模单位"
+          },
+          "directionId": "schedule-and-capacity",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "12 size-units",
+            "zh": "12个规模单位"
+          },
+          "directionId": "schedule-and-capacity",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "15 size-units",
+            "zh": "15个规模单位"
+          },
+          "directionId": "schedule-and-capacity",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "36 size-units",
+            "zh": "36个规模单位"
+          },
+          "directionId": "schedule-and-capacity",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "(9+12+15)/3=12. A descriptive average is not a delivery promise or a comparison of productivity between teams.",
+        "zh": "(9+12+15)/3=12。描述平均不等于交付承诺，也不据此比较团队生产力。"
+      },
+      "id": "PROJECT_12"
+    },
+    {
+      "prompt": {
+        "en": "A fictional plan says: if room access is still unconfirmed at 10:00, ask the venue owner for the backup room. At 10:00 access is unconfirmed. Which action matches this supplied trigger-response pair?",
+        "zh": "虚构计划：10点若仍未确认入场，向场地方申请备用房。10点尚未确认。哪项匹配题定触发与响应？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Mark access as confirmed without evidence",
+            "zh": "无证据标记已确认"
+          },
+          "directionId": "risk-and-response",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "Wait until the event ends before responding",
+            "zh": "等活动结束再响应"
+          },
+          "directionId": "risk-and-response",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "Ask the venue owner for the backup room now",
+            "zh": "此时向场地方申请备用房"
+          },
+          "directionId": "risk-and-response",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "Book a different service without following the stated response",
+            "zh": "不按约定响应另订服务"
+          },
+          "directionId": "risk-and-response",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The specified condition is true at the specified time, so the named response follows. The question does not authorize spending or override a venue’s actual rules.",
+        "zh": "指定时间条件成立，故执行指定响应；本题不授权花费或覆盖真实场地规则。"
+      },
+      "id": "PROJECT_13"
+    },
+    {
+      "prompt": {
+        "en": "A fictional decision record is complete only with the chosen option, decision owner and date. Which record is complete under that rule?",
+        "zh": "虚构决策记录须有选中方案、决策人、日期才完整。哪份满足？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Option Cedar; date 12 May; owner missing",
+            "zh": "Cedar方案；5月12日；缺决策人"
+          },
+          "directionId": "communication-and-decisions",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "Option Cedar; owner Esi; 12 May",
+            "zh": "Cedar方案；决策人Esi；5月12日"
+          },
+          "directionId": "communication-and-decisions",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "Owner Esi; 12 May; option undecided",
+            "zh": "决策人Esi；5月12日；方案未定"
+          },
+          "directionId": "communication-and-decisions",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "Option Cedar; owner Esi; no date",
+            "zh": "Cedar方案；决策人Esi；无日期"
+          },
+          "directionId": "communication-and-decisions",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "All required fields are present only in the first record. Presence of fields is not proof that the decision was wise or that its owner had unstated authority.",
+        "zh": "只有首项具备所有必填字段；字段齐全不证明决策明智，也不凭空赋予权限。"
+      },
+      "id": "PROJECT_14"
+    },
+    {
+      "prompt": {
+        "en": "For this fictional worksheet only, spend difference means actual minus planned. Planned spend is 80 tokens and actual spend is 86. What is this defined difference?",
+        "zh": "只在本虚构工作表中，支出差定义为实际减计划。计划80代币、实际86。题定差额多少？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "-6 tokens",
+            "zh": "-6代币"
+          },
+          "directionId": "budget-and-quantities",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "80 tokens",
+            "zh": "80代币"
+          },
+          "directionId": "budget-and-quantities",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "6 tokens",
+            "zh": "6代币"
+          },
+          "directionId": "budget-and-quantities",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "166 tokens",
+            "zh": "166代币"
+          },
+          "directionId": "budget-and-quantities",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "86−80=6. This positive difference means actual spend is six above plan under the stated convention; it is not an earned-value cost-variance formula.",
+        "zh": "86−80=6，按题定符号实际比计划多六；这不是挣值法成本偏差公式。"
+      },
+      "id": "PROJECT_15"
+    },
+    {
+      "prompt": {
+        "en": "A fictional iteration rule keeps new requests in the next-planning queue unless the named iteration owner explicitly agrees a trade. No trade has been agreed. What follows for a new display idea?",
+        "zh": "虚构迭代规则：新请求先入下次规划队列，除非指定迭代负责人明确同意交换。本次尚未同意交换。新展示点子应怎样处理？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Insert it into the current iteration without a trade",
+            "zh": "未经交换插入当前迭代"
+          },
+          "directionId": "scope-and-change",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "Remove an existing item without telling the owner",
+            "zh": "不告知负责人就删旧项"
+          },
+          "directionId": "scope-and-change",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "Record it in the next-planning queue",
+            "zh": "记入下次规划队列"
+          },
+          "directionId": "scope-and-change",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "Call it a bug so that the rule need not apply",
+            "zh": "称其为故障以绕过规则"
+          },
+          "directionId": "scope-and-change",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The stated exception has not occurred, so the supplied default applies. This is a fictional local rule, not a claim that every agile team must freeze all iteration content.",
+        "zh": "题定例外未发生，故走该默认路径。这是虚构本地规则，不宣称所有敏捷团队都须冻结迭代内容。"
+      },
+      "id": "PROJECT_16"
+    },
+    {
+      "prompt": {
+        "en": "Three fictional tasks must run strictly one after another for four, six and two hours. No overlap or breaks are allowed. What is their total elapsed duration?",
+        "zh": "三项虚构任务须严格依次运行四、六、两小时，不重叠也无间隔。总历时多少？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "12 hours",
+            "zh": "12小时"
+          },
+          "directionId": "schedule-and-capacity",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "6 hours",
+            "zh": "6小时"
+          },
+          "directionId": "schedule-and-capacity",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "10 hours",
+            "zh": "10小时"
+          },
+          "directionId": "schedule-and-capacity",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "24 hours",
+            "zh": "24小时"
+          },
+          "directionId": "schedule-and-capacity",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The fixed sequential durations add:4+6+2=12 hours. This is elapsed model time, not an estimate of a real worker’s capacity.",
+        "zh": "固定串行时长相加4+6+2=12小时，这是模型历时，不估计真实人员产能。"
+      },
+      "id": "PROJECT_17"
+    },
+    {
+      "prompt": {
+        "en": "A fictional comparison defines prevention as an action before an outage that reduces its chance, and recovery as restoring service after an outage. Which example fits its prevention definition?",
+        "zh": "虚构比较把预防定义为停机前降低其发生机会，把恢复定义为停机后复原服务。哪例符合题定预防？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Before use, test and replace a loose connector that could cause an outage",
+            "zh": "使用前检查并更换可能致停机的松动接头"
+          },
+          "directionId": "risk-and-response",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "After an outage, restore the saved session",
+            "zh": "停机后恢复已存会话"
+          },
+          "directionId": "risk-and-response",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "After an outage, count affected sessions",
+            "zh": "停机后统计受影响会话"
+          },
+          "directionId": "risk-and-response",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "Write the outage’s end time after service returns",
+            "zh": "服务恢复后记停机结束时刻"
+          },
+          "directionId": "risk-and-response",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The first action occurs before the event and targets its stated possible cause. This classification is defined by the case, not a full engineering risk assessment.",
+        "zh": "首项发生在事件前并针对题定可能原因；分类只依本题，不构成完整工程风险评估。"
+      },
+      "id": "PROJECT_18"
+    },
+    {
+      "prompt": {
+        "en": "A fictional review rule says silence is not approval; an explicit yes from the named reviewer is needed. A message has no reply yet. Which status can the team record?",
+        "zh": "虚构评审规则明确沉默不算批准，须指定评审者明确答是。消息仍未回复。团队能记哪种状态？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Approved because no objection arrived",
+            "zh": "没反对所以已批准"
+          },
+          "directionId": "communication-and-decisions",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "Rejected because the reviewer dislikes it",
+            "zh": "评审者不喜欢所以已拒绝"
+          },
+          "directionId": "communication-and-decisions",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "Awaiting the reviewer’s explicit decision",
+            "zh": "等待评审者明确决策"
+          },
+          "directionId": "communication-and-decisions",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "Completed review with no evidence needed",
+            "zh": "已完成评审且无需证据"
+          },
+          "directionId": "communication-and-decisions",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "No reply establishes neither approval nor rejection under the supplied rule. Record the unresolved state and use the agreed follow-up process.",
+        "zh": "题定规则下无回复既不等于批准也不等于拒绝，应记未决并按约定跟进。"
+      },
+      "id": "PROJECT_19"
+    },
+    {
+      "prompt": {
+        "en": "A fictional forecast adds 55 tokens spent to 40 estimated remaining, against a 100-token limit. What headroom does that forecast show, without guaranteeing the estimate?",
+        "zh": "虚构预测把已花55代币加预计余下40，与100上限相比。该预测显示多少余量？不保证估计准确。"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "45 tokens",
+            "zh": "45代币"
+          },
+          "directionId": "budget-and-quantities",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "5 tokens",
+            "zh": "5代币"
+          },
+          "directionId": "budget-and-quantities",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "60 tokens",
+            "zh": "60代币"
+          },
+          "directionId": "budget-and-quantities",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "95 tokens",
+            "zh": "95代币"
+          },
+          "directionId": "budget-and-quantities",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "100−(55+40)=5 tokens. This is conditional on the 40-token estimate, not a guarantee that the project will finish within budget.",
+        "zh": "100−(55+40)=5代币，结论以40估计为条件，不保证最终不超支。"
+      },
+      "id": "PROJECT_20"
+    },
+    {
+      "prompt": {
+        "en": "A fictional acceptance checklist requires a working export, readable labels and a passed restore trial. Export and labels pass; the restore trial has not run. Which status is supported?",
+        "zh": "虚构验收清单要求导出可用、标签可读、恢复试验通过。前两项已通过，恢复尚未试。哪种状态有依据？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Two checks pass; the remaining required trial is unverified",
+            "zh": "两项通过；余下必需试验未核"
+          },
+          "directionId": "scope-and-change",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "All acceptance criteria pass",
+            "zh": "全部验收标准通过"
+          },
+          "directionId": "scope-and-change",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "The restore trial has failed",
+            "zh": "恢复试验已失败"
+          },
+          "directionId": "scope-and-change",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "Readable labels prove restore will work",
+            "zh": "标签可读证明恢复会成功"
+          },
+          "directionId": "scope-and-change",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Not run is distinct from failed and from passed. The checklist is incomplete until the required evidence exists.",
+        "zh": "未试不同于失败或通过，必要证据尚缺时清单未完成。"
+      },
+      "id": "PROJECT_21"
+    },
+    {
+      "prompt": {
+        "en": "A fictional planning rule permits whole tasks only, no dependencies, and at most ten size-units. Available task sizes are two, three and six. What is the largest total that can be selected without exceeding ten?",
+        "zh": "虚构规划只允许整项选择，无依赖，容量最多十单位。三项大小为二、三、六。能选而不超十的最大总量多少？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "10 size-units",
+            "zh": "10个规模单位"
+          },
+          "directionId": "schedule-and-capacity",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "11 size-units",
+            "zh": "11个规模单位"
+          },
+          "directionId": "schedule-and-capacity",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "8 size-units",
+            "zh": "8个规模单位"
+          },
+          "directionId": "schedule-and-capacity",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "9 size-units",
+            "zh": "9个规模单位"
+          },
+          "directionId": "schedule-and-capacity",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Enumerating subsets gives0,2,3,5,6,8,9,11. Nine is the largest allowed total; ten is not a reachable combination.",
+        "zh": "枚举子集得0、2、3、5、6、8、9、11，九是最大可行量；十不是可组合总量。"
+      },
+      "id": "PROJECT_22"
+    },
+    {
+      "prompt": {
+        "en": "A fictional trial actually lost its room booking today. Under the local rule, observed problems go in the issue list; only uncertain future events go in the risk list. Where does today’s observed loss belong?",
+        "zh": "虚构试验今天实际丢失房间预约。本地规则把已观察问题放问题清单，只有未确定未来事件放风险清单。今天的已发生丢失应放哪？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Only the future-risk list, as if it has not happened",
+            "zh": "只放未来风险清单，当作未发生"
+          },
+          "directionId": "risk-and-response",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "A completed-success list",
+            "zh": "已成功完成清单"
+          },
+          "directionId": "risk-and-response",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "No record because it is inconvenient",
+            "zh": "因为麻烦不记"
+          },
+          "directionId": "risk-and-response",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "The issue list, with today’s observed event",
+            "zh": "问题清单，记今天已观察事件"
+          },
+          "directionId": "risk-and-response",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The event has occurred, so the supplied classification selects the issue list. It may create additional future risks, but that does not erase the observed problem.",
+        "zh": "事件已发生，依题定分类放问题清单；它可带来新未来风险，但不抹去已观察问题。"
+      },
+      "id": "PROJECT_23"
+    },
+    {
+      "prompt": {
+        "en": "A fictional report is intended to help a reader decide whether to arrange another trial. Which first clarification directly identifies the report information needed for that decision?",
+        "zh": "虚构报告为帮助读者决定是否安排另一次试验。哪项首个澄清直接确定所需信息？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Ask only which font colour the reader prefers",
+            "zh": "只问读者喜欢哪种字体颜色"
+          },
+          "directionId": "communication-and-decisions",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "Send every raw message without identifying the decision",
+            "zh": "不明确决策就发送全部原始消息"
+          },
+          "directionId": "communication-and-decisions",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "Ask which trial outcomes and constraints the reader will use for that decision",
+            "zh": "问读者将依哪些试验结果与限制决策"
+          },
+          "directionId": "communication-and-decisions",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "Assume the longest report must be the most useful",
+            "zh": "假定越长越有用"
+          },
+          "directionId": "communication-and-decisions",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The first clarification connects information to the named decision. The case does not equate less reporting with better communication in every project.",
+        "zh": "首项把信息连到指定决策，本题不把少写报告普遍等同于沟通更好。"
+      },
+      "id": "PROJECT_24"
+    },
+    {
+      "prompt": {
+        "en": "A fictional purchase must cost at most 25 tokens and arrive within four days. Quote Ash is 24/four days, Birch 26/three, Cove 20/five, Dune 27/six. Which is eligible under both stated limits?",
+        "zh": "虚构采购最多25代币且四天内到。Ash为24/四天，Birch为26/三天，Cove为20/五天，Dune为27/六天。哪个同时合格？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Birch",
+            "zh": "Birch"
+          },
+          "directionId": "budget-and-quantities",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "Cove",
+            "zh": "Cove"
+          },
+          "directionId": "budget-and-quantities",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "Ash",
+            "zh": "Ash"
+          },
+          "directionId": "budget-and-quantities",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "Dune",
+            "zh": "Dune"
+          },
+          "directionId": "budget-and-quantities",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Only Ash meets both the price and arrival limits. Eligibility under these two fields does not assess supplier reliability or every procurement requirement.",
+        "zh": "只有Ash同时满足价格与到货限制；两字段合格不评估可靠性或所有采购要求。"
+      },
+      "id": "PROJECT_25"
+    },
+    {
+      "prompt": {
+        "en": "The approved fictional brief includes a text-only event directory and excludes photography. Which proposed delivery is inside that stated boundary without a change?",
+        "zh": "获准的虚构简报含纯文字活动目录，明确排除摄影。不变更时哪项交付在边界内？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "A new photo shoot for the directory",
+            "zh": "为目录新拍照片"
+          },
+          "directionId": "scope-and-change",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "A portrait collection instead of the directory",
+            "zh": "用人像集替代目录"
+          },
+          "directionId": "scope-and-change",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "A video package with a shorter directory",
+            "zh": "视频包加缩短版目录"
+          },
+          "directionId": "scope-and-change",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "The agreed text-only event directory",
+            "zh": "约定的纯文字活动目录"
+          },
+          "directionId": "scope-and-change",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The first choice matches the declared inclusion and exclusion. Whether a photo package would be valuable is a separate change decision.",
+        "zh": "首项匹配题定包含与排除，照片包有无价值属于另一变更决策。"
+      },
+      "id": "PROJECT_26"
+    },
+    {
+      "prompt": {
+        "en": "A fictional checkpoint was planned for day 18. A fixed two-day delay affects its controlling chain, with no spare time or other change in this model. On which day does the checkpoint now finish?",
+        "zh": "虚构检查点原定第18天完成。控制链固定延误两天，模型无余量也无其他变化。现在第几天完成？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "18",
+            "zh": "18"
+          },
+          "directionId": "schedule-and-capacity",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "16",
+            "zh": "16"
+          },
+          "directionId": "schedule-and-capacity",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "36",
+            "zh": "36"
+          },
+          "directionId": "schedule-and-capacity",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "20",
+            "zh": "20"
+          },
+          "directionId": "schedule-and-capacity",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The stated no-float model moves the checkpoint by two days:18+2=20. Real schedules require checking dependencies rather than applying this addition blindly.",
+        "zh": "题定无余量模型顺延两天，18+2=20；真实排程仍须核依赖，不能盲加。"
+      },
+      "id": "PROJECT_27"
+    },
+    {
+      "prompt": {
+        "en": "A fictional risk note was based on a single planned supplier. A second supplier is now confirmed available, but no delivery has occurred. Which update keeps the record current without guaranteeing an outcome?",
+        "zh": "虚构风险记录原依单一计划供应商。现确认第二家可用，但尚未交付。哪项更新既及时又不保证结果？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Record the confirmed alternative and reassess the remaining uncertainty",
+            "zh": "记已确认备选，重新评估余下不确定性"
+          },
+          "directionId": "risk-and-response",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "Keep the single-supplier assumption unchanged",
+            "zh": "原样保留单一供应商假设"
+          },
+          "directionId": "risk-and-response",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "Declare all delivery uncertainty impossible",
+            "zh": "宣称一切交付不确定性不可能"
+          },
+          "directionId": "risk-and-response",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "Record that delivery has already succeeded",
+            "zh": "记录交付已成功"
+          },
+          "directionId": "risk-and-response",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The assumption changed; update that fact and revisit the assessment. An available alternative is not completed delivery or a guarantee.",
+        "zh": "假设已变，更新事实并复核评估；有备选不同于已交付或有保证。"
+      },
+      "id": "PROJECT_28"
+    },
+    {
+      "prompt": {
+        "en": "A fictional contact plan permits a public summary of aggregate trial counts but excludes participant names and personal contact details. Which summary follows that boundary?",
+        "zh": "虚构联系计划允许公开试验汇总计数，但排除参与者姓名及私人联系方式。哪份摘要服从该边界？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Aggregate counts plus everyone’s personal email",
+            "zh": "汇总计数加所有人的私人邮箱"
+          },
+          "directionId": "communication-and-decisions",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "Aggregate counts, without names or personal contact details",
+            "zh": "仅汇总计数，不含姓名及私人联系方式"
+          },
+          "directionId": "communication-and-decisions",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "A list of names with no counts",
+            "zh": "姓名列表，无计数"
+          },
+          "directionId": "communication-and-decisions",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "Personal phone numbers plus the project logo",
+            "zh": "私人电话号码加项目标志"
+          },
+          "directionId": "communication-and-decisions",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Only the first option respects both the permitted content and exclusions. Use fictional records here; this is a supplied policy exercise, not a statement of legal compliance.",
+        "zh": "只有首项同时服从允许内容与排除项。本题用虚构记录，只练给定政策，不判定法律合规。"
+      },
+      "id": "PROJECT_29"
+    },
+    {
+      "prompt": {
+        "en": "A fictional reserve assigned to a named delivery risk contains ten tokens. Three have been used for that risk and no other movement occurred. What remains in this assigned reserve?",
+        "zh": "虚构已指定交付风险储备十代币，该风险用去三，无其他变动。该笔储备余多少？"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "10 tokens",
+            "zh": "10代币"
+          },
+          "directionId": "budget-and-quantities",
+          "id": "A"
+        },
+        {
+          "label": {
+            "en": "7 tokens",
+            "zh": "7代币"
+          },
+          "directionId": "budget-and-quantities",
+          "id": "B"
+        },
+        {
+          "label": {
+            "en": "13 tokens",
+            "zh": "13代币"
+          },
+          "directionId": "budget-and-quantities",
+          "id": "C"
+        },
+        {
+          "label": {
+            "en": "3 tokens",
+            "zh": "3代币"
+          },
+          "directionId": "budget-and-quantities",
+          "id": "D"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "10−3=7 tokens remain in the stated reserve. The exercise does not authorize moving money between reserves or define organization-wide reserve policy.",
+        "zh": "10−3=7代币；本题不授权转移储备，也不定义全组织储备政策。"
+      },
+      "id": "PROJECT_30"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "scope-and-change",
+      "directionIds": [
+        "scope-and-change"
+      ],
+      "title": {
+        "en": "Scope and Change Review",
+        "zh": "范围与变更复习"
+      },
+      "headline": {
+        "en": "Make the agreed boundary and the next decision visible.",
+        "zh": "看清约定边界与下一项决策。"
+      },
+      "summary": {
+        "en": "Review deliverables, exclusions, acceptance evidence and fictional change rules. Correct counts do not establish certification or hiring readiness.",
+        "zh": "复习交付物、排除项、验收证据和虚构变更规则。正确数不代表认证或招聘准备度。"
+      },
+      "scoreReading": {
+        "en": "The count describes six selected tasks under their stated rules. Read the missed item and its explanation before choosing a revision step; it is not a professional level.",
+        "zh": "正确数描述六道选定题在题定规则下的匹配情况。先看错题及解析，再选复习行动；它不是职业等级。"
+      },
+      "sections": [
+        {
+          "id": "scope-and-change-1",
+          "title": {
+            "en": "Read the count as a case record",
+            "zh": "把正确数当作本题记录"
+          },
+          "paragraphs": [
+            {
+              "en": "These six questions sample explicit boundaries rather than every kind of project judgment. A matching answer may come from careful reading; a mismatch may reflect an overlooked condition, ambiguous personal assumptions or a calculation elsewhere. The count cannot identify one cause, label a person as a beginner or predict a real delivery. Use each explanation to find the specific condition you missed.",
+              "zh": "六题只抽取明确边界，不涵盖全部项目判断。选中答案可能源于细读，选错可能漏条件、带入个人假设或误解其他信息。计数不能定位唯一原因、把人分成初学者或预测实际交付。逐题解析才帮助找漏掉的具体条件。"
+            }
+          ]
+        },
+        {
+          "id": "scope-and-change-2",
+          "title": {
+            "en": "Separate the output from its purpose",
+            "zh": "区分交付物与目的"
+          },
+          "paragraphs": [
+            {
+              "en": "A project may aim to make records easier to find, while its agreed output is an index and a reading guide. The purpose explains why the work matters; it does not authorize every useful extra. Record what must be delivered, what is excluded and what evidence will show acceptance. An attractive substitute needs an actual change decision when the agreement does not already permit it.",
+              "zh": "项目可为让记录更易检索，而约定输出是索引与阅读指南。目的说明价值，不自动授权所有有用附加项。分别记必交付什么、排除什么、用什么证据验收；协议未允许的漂亮替代品仍须实际变更决策。"
+            }
+          ]
+        },
+        {
+          "id": "scope-and-change-3",
+          "title": {
+            "en": "Ready to decide is not approved",
+            "zh": "可决策不等于已批准"
+          },
+          "paragraphs": [
+            {
+              "en": "An estimate and a named decision owner can make a request ready to consider. They do not establish that the owner said yes, that funding exists or that implementation has started. Keep proposed, assessed, decided and delivered states distinct. Follow the authority and process actually supplied in the case, rather than assuming the most senior title always owns every decision or that every request requires the same committee.",
+              "zh": "估计与明确决策人可让请求进入考虑，不证明已答是、已有经费或已开始实现。提议、评估、决定、交付分开记。按本题实际权限与流程走，不假定级别最高者负责所有决定，也不把所有请求都交同一委员会。"
+            }
+          ]
+        },
+        {
+          "id": "scope-and-change-4",
+          "title": {
+            "en": "Use an iteration rule as a local rule",
+            "zh": "把迭代规则放回本地约定"
+          },
+          "paragraphs": [
+            {
+              "en": "The practice gives one fictional queue-and-trade rule so that a keyed answer is possible. Actual adaptive teams may renegotiate work as they learn, subject to their goals, authority and agreements. Recognize the stated exception and ask whether it occurred. Calling new scope a defect or silently removing another item does not establish an agreed trade. A methodology name alone cannot settle a disputed change.",
+              "zh": "本练习给出一条虚构排队与交换规则，才能设定答案。真实自适应团队可随学习重新协商，仍受目标、权限及约定限制。先核题定例外是否发生；把新增范围称作故障，或悄悄删旧项，都不构成已同意交换。方法论名称本身不能裁定争议变更。"
+            }
+          ]
+        },
+        {
+          "id": "scope-and-change-5",
+          "title": {
+            "en": "Keep acceptance evidence specific",
+            "zh": "让验收证据具体"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional visitor map that must show an entrance and an exit and pass one printed readability check. The two labels are present, but the print check has not run. Report two visible labels and one unverified check. Do not infer a failed print test, and do not mark the map accepted because it looks plausible on screen. This fresh example separates missing evidence from evidence of failure.",
+              "zh": "设想虚构访客地图须标入口、出口，并通过一次印刷可读性检查。两处标记已有，但尚未印刷核查。应记两标记可见、一项未核；别推断印刷失败，也别因屏上看似不错就验收。这个新例区分缺证与失败证据。"
+            }
+          ]
+        },
+        {
+          "id": "scope-and-change-6",
+          "title": {
+            "en": "Try a bounded next exercise",
+            "zh": "做一次有限的后续练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Write a fictional brief with two outputs, one exclusion and one acceptance check. Add a proposed extra and state who may decide it. Ask a peer to identify what is already agreed and what remains proposed, without seeing your intended answer. If they need hidden context, rewrite the brief. This exercise tests clarity of the record, not the peer’s professional ability or your project’s future success.",
+              "zh": "写虚构简报：两项输出、一项排除、一项验收检查。再添新提议并写谁能决定。让同伴在不知预期答案时辨认哪些已约定、哪些仍提议；若需隐藏上下文，改写简报。练的是记录清晰度，不测同伴职业能力或项目未来成功。"
+            }
+          ]
+        },
+        {
+          "id": "scope-and-change-7",
+          "title": {
+            "en": "Use the free explanation carefully",
+            "zh": "使用免费解析的边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Every count opens all thirty item explanations and all five guides. Public guides contain methods and fictional examples, not anyone’s responses or private count. Retaking the same fixed bank after reading keys may raise the count through familiarity. These original cases do not reproduce PMP, CAPM or PRINCE2 items, award training hours, certify standards mastery or supply an employer selection threshold.",
+              "zh": "任意正确数都开放三十题解析及五篇指南。公开页含方法和虚构例子，不含任何人的答卷或私有正确数。看答案后重测同一固定题组，计数可能因熟悉而提高。原创情境不复制PMP、CAPM、PRINCE2题，不授培训时数、标准掌握认证或雇主录用线。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Scope and Change Review | Practice Guide",
+          "zh": "范围与变更复习：完整复习指南"
+        },
+        "description": {
+          "en": "Review deliverables, exclusions, acceptance evidence and fictional change rules. Correct counts do not establish certification or hiring readiness.",
+          "zh": "复习交付物、排除项、验收证据和虚构变更规则。正确数不代表认证或招聘准备度。"
+        }
+      }
+    },
+    {
+      "id": "schedule-and-capacity",
+      "directionIds": [
+        "schedule-and-capacity"
+      ],
+      "title": {
+        "en": "Schedule and Capacity Review",
+        "zh": "排程与容量复习"
+      },
+      "headline": {
+        "en": "Trace dependencies before adding durations.",
+        "zh": "先追依赖，再算时长。"
+      },
+      "summary": {
+        "en": "Review parallel branches, slack, whole-task capacity and descriptive averages. The fictional models do not promise actual project dates.",
+        "zh": "复习并行支路、余量、整项容量和描述平均。虚构模型不承诺真实项目日期。"
+      },
+      "scoreReading": {
+        "en": "The count describes six selected tasks under their stated rules. Read the missed item and its explanation before choosing a revision step; it is not a professional level.",
+        "zh": "正确数描述六道选定题在题定规则下的匹配情况。先看错题及解析，再选复习行动；它不是职业等级。"
+      },
+      "sections": [
+        {
+          "id": "schedule-and-capacity-1",
+          "title": {
+            "en": "What the six tasks cover",
+            "zh": "六题覆盖什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The selected tasks use fixed durations, stated dependencies and declared arithmetic. They can reveal a missed maximum, an incorrect sum or an unreachable combination in those models. They do not measure your whole scheduling skill or explain why a real team missed a date. Read the assumptions beside the numbers before using the result to choose practice. No speed score is computed here.",
+              "zh": "选定任务使用固定时长、明示依赖与算术，能暴露这些模型内漏取最大值、加法出错或组合不可达，不测完整排程能力，也不解释真实团队失期原因。先看数字旁的假设再选复习，本题不计算速度分数。"
+            }
+          ]
+        },
+        {
+          "id": "schedule-and-capacity-2",
+          "title": {
+            "en": "Walk a fresh dependency example",
+            "zh": "走一个新的依赖例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose preparation takes two days. Afterwards, translation takes four and diagram work takes six in parallel. A one-day check waits for both. Under fixed durations, unlimited resources and no gaps, completion is 2+max(4,6)+1=9 days. The sum of all four durations is thirteen, which describes combined task duration, not elapsed completion time when two tasks overlap. Write the waiting condition explicitly.",
+              "zh": "设准备两天，之后翻译四天、制图六天并行；一天检查须等两者。固定时长、资源无限、无间隔时完成时间为2+max(4,6)+1=9天。四项相加十三表示任务时长合计，不是并行时的完成历时，须明确等待条件。"
+            }
+          ]
+        },
+        {
+          "id": "schedule-and-capacity-3",
+          "title": {
+            "en": "Slack belongs to a model",
+            "zh": "余量属于具体模型"
+          },
+          "paragraphs": [
+            {
+              "en": "In that example the shorter four-day branch can finish two days later without moving the final check, provided no other constraint changes. That allowance disappears or changes when resources, calendars or dependencies differ. A task is not harmless to delay simply because it was once called noncritical. Recompute against the current model and distinguish a late finish from a late start when the question specifies one.",
+              "zh": "上述四天短支路可晚两天结束而不移动最终检查，前提是其他限制不变。资源、日历、依赖一变，余量也可改变或消失。任务曾被称为非关键，不代表延误永远无害。应依当前模型重算，并按题意区分晚结束与晚开始。"
+            }
+          ]
+        },
+        {
+          "id": "schedule-and-capacity-4",
+          "title": {
+            "en": "Distinguish capacity from combinations",
+            "zh": "区分容量上限与可组合量"
+          },
+          "paragraphs": [
+            {
+              "en": "A ten-unit limit does not mean every integer up to ten can be assembled from whole tasks. With sizes one, four and eight, the available totals are zero, one, four, five, eight, nine, twelve and thirteen. Nine is the largest feasible total. Enumerating this small set avoids assuming an unavailable two-unit fragment. Real plans also need value, dependencies and risks; filling capacity is only the objective supplied in this exercise.",
+              "zh": "十单位上限不代表整项任务可凑出十以内所有整数。大小一、四、八的总量可为零、一、四、五、八、九、十二、十三，最大可行量九。枚举小集合可免于虚构两单位碎片。真实规划还要价值、依赖、风险，填容量只是该练习指定目标。"
+            }
+          ]
+        },
+        {
+          "id": "schedule-and-capacity-5",
+          "title": {
+            "en": "An average describes past records",
+            "zh": "平均描述过去记录"
+          },
+          "paragraphs": [
+            {
+              "en": "Add comparable observations and divide by their count to compute a mean. Check equal iteration lengths and consistent unit definitions before interpreting it. The arithmetic mean is not a guarantee for the next iteration, and size-units from different teams are not automatically comparable. A future commitment also depends on available people, the actual work and uncertainty. This practice asks for a descriptive calculation, not a universal velocity policy.",
+              "zh": "算术平均是可比观测相加除以个数。解释前核迭代等长及单位一致；平均不保证下次同数，不同团队规模单位也不自动可比。未来承诺还取决于人员、实际工作、不确定性。本题要描述计算，不规定普遍速率政策。"
+            }
+          ]
+        },
+        {
+          "id": "schedule-and-capacity-6",
+          "title": {
+            "en": "Change one assumption at a time",
+            "zh": "一次改变一条假设"
+          },
+          "paragraphs": [
+            {
+              "en": "Redraw the fresh example and change the diagram branch from six days to three. The four-day translation now controls the join and total completion becomes seven days. Explain why the controlling branch changed rather than memorizing the original answer. Then add a shared-resource restriction and identify what information is missing before claiming a new completion date. A correct formula cannot repair an underspecified model.",
+              "zh": "重画新例，把制图从六天改三天。四天翻译改为控制汇合，总完成时间为七天。解释控制支路为何变化，不背原答案。再加入共享资源限制，先列还缺哪些资料再报新日期。公式算对也不能弥补模型缺信息。"
+            }
+          ]
+        },
+        {
+          "id": "schedule-and-capacity-7",
+          "title": {
+            "en": "Keep the learning claim bounded",
+            "zh": "限制学习结论"
+          },
+          "paragraphs": [
+            {
+              "en": "All explanations and all five guides remain available at zero, partial and perfect counts. Repeating this bank can improve familiarity with its exact networks and numbers, without proving transfer to an unseen project. Use fictional schedules, not private team commitments, in follow-up examples. These author-checked models are not a scheduling certification, independent bilingual validation, a real resource plan or a probability estimate of finishing on time.",
+              "zh": "零对、部分、全对均可看全部解析与五篇指南。重测可熟悉本题网络和数字，不证明迁移到未知项目。后续例子用虚构排程，不用团队私有承诺。作者核模型不等于排程认证、独立双语验证、真实资源方案或准时概率估计。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Schedule and Capacity Review | Practice Guide",
+          "zh": "排程与容量复习：完整复习指南"
+        },
+        "description": {
+          "en": "Review parallel branches, slack, whole-task capacity and descriptive averages. The fictional models do not promise actual project dates.",
+          "zh": "复习并行支路、余量、整项容量和描述平均。虚构模型不承诺真实项目日期。"
+        }
+      }
+    },
+    {
+      "id": "risk-and-response",
+      "directionIds": [
+        "risk-and-response"
+      ],
+      "title": {
+        "en": "Risk and Response Review",
+        "zh": "风险与响应复习"
+      },
+      "headline": {
+        "en": "Keep uncertainty, triggers and observed events distinct.",
+        "zh": "分清不确定性、触发条件与已发生事件。"
+      },
+      "summary": {
+        "en": "Review fictional risk records, named monitors and trigger-response pairs. Correct counts do not validate a real risk assessment or a professional tier.",
+        "zh": "复习虚构风险记录、指定监测人和触发响应。正确数不验证真实风险评估，也不派职业等级。"
+      },
+      "scoreReading": {
+        "en": "The count describes six selected tasks under their stated rules. Read the missed item and its explanation before choosing a revision step; it is not a professional level.",
+        "zh": "正确数描述六道选定题在题定规则下的匹配情况。先看错题及解析，再选复习行动；它不是职业等级。"
+      },
+      "sections": [
+        {
+          "id": "risk-and-response-1",
+          "title": {
+            "en": "Read the explanation before the label",
+            "zh": "先看解析再谈标签"
+          },
+          "paragraphs": [
+            {
+              "en": "These six cases test supplied record rules and limited evidence. A mismatch can help you notice that you treated a possible event as certain, missed a trigger or kept a stale assumption. The count does not establish that you are careless, risk-seeking or ready to own a major project. Follow the wording of the individual case instead of assigning a personality explanation to a small number.",
+              "zh": "六题检验给定记录规则和有限证据。错题可提示把可能事件当确定、漏触发条件或沿用旧假设，计数不证明粗心、偏好冒险或已能负责大项目。应看个别题意，不给小数量套人格原因。"
+            }
+          ]
+        },
+        {
+          "id": "risk-and-response-2",
+          "title": {
+            "en": "Preserve what is known now",
+            "zh": "保留目前已知状态"
+          },
+          "paragraphs": [
+            {
+              "en": "A shipment that might be late is not the same record as a shipment that missed its agreed arrival. Once an event is observed, record that fact rather than continuing to describe it only as hypothetical. An observed issue can also create new future uncertainties. The practice supplies its classification rule explicitly; it does not claim every organization uses identical terminology or that all risks are negative events.",
+              "zh": "可能晚到与已错过约定到货的记录不同。观察到事件后应记事实，不继续只当假设；已发生问题也可产生新未来不确定性。本题明示分类规则，不宣称各组织术语相同，也不把所有风险都定义为负面事件。"
+            }
+          ]
+        },
+        {
+          "id": "risk-and-response-3",
+          "title": {
+            "en": "Connect an owner to an action",
+            "zh": "把责任人与动作连接"
+          },
+          "paragraphs": [
+            {
+              "en": "A useful fictional response note states who observes, what is observed and when a response is due. Naming someone without a task leaves ambiguity; a numerical trigger without a monitor may never be checked. Still, a complete note is not proof that a response works. The person needs the agreed role and a feasible way to act. Do not infer authority merely from who first noticed a concern.",
+              "zh": "有用的虚构响应记录写谁观察、观察什么、何时响应。只点名不写任务仍含糊，只写阈值没人监测可能无人核。记录完整也不证明响应有效，责任人还须约定角色与可行动方式，不因最早发现就推断其拥有权限。"
+            }
+          ]
+        },
+        {
+          "id": "risk-and-response-4",
+          "title": {
+            "en": "Apply the actual trigger",
+            "zh": "依据实际触发条件"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional rehearsal plan: if fewer than four sample badges are readable at 09:00, ask the print owner for a larger-label trial. At 09:00 only three are readable, so the named response follows. This does not prove that larger labels will solve every problem. Keep the trigger evidence, the requested trial and the later observation as separate parts of the record.",
+              "zh": "设虚构彩排规则：9点可读样牌不足四张，就向印刷负责人申请大标签试验。9点仅三张可读，故走指定响应；这不证明大标签解决所有问题。触发证据、请求试验、后续观察应分开记录。"
+            }
+          ]
+        },
+        {
+          "id": "risk-and-response-5",
+          "title": {
+            "en": "Update an assumption without declaring victory",
+            "zh": "更新假设而不提前报成功"
+          },
+          "paragraphs": [
+            {
+              "en": "A confirmed backup changes a single-source assumption. It does not demonstrate that the backup will deliver, that switching is free or that every consequence disappeared. Record the new fact and reconsider what remains uncertain. Conversely, keeping an old assessment unchanged after its basis has changed can conceal useful information. The correct amount of reassessment depends on the real project; this bank does not supply that full context.",
+              "zh": "确认备选会改变单一来源假设，不证明备选必交付、切换无成本或全部后果消失。记录新事实并复核余下未知；基础已变仍原样保留旧评估，也可能掩盖有用信息。真实复核多少取决于项目，本题组没有完整上下文。"
+            }
+          ]
+        },
+        {
+          "id": "risk-and-response-6",
+          "title": {
+            "en": "Practice the record, then test the response",
+            "zh": "先练记录，再试响应"
+          },
+          "paragraphs": [
+            {
+              "en": "Create one fictional uncertainty with an observable trigger, a monitor and a permitted next action. Give it a new observation and ask whether the trigger is met. Afterwards identify how you would evaluate the response rather than assuming it succeeded because it was documented. For actual safety-critical work, this small worksheet is not a substitute for the relevant expertise, required process or evidence.",
+              "zh": "自拟一项虚构不确定性，写可观察触发、监测人、获准下一步。加入新观察并判断触发是否满足，再说明如何评价响应，而不因写进文档就假定有效。真实安全关键工作不能用这张小练习替代相关专业能力、必要流程和证据。"
+            }
+          ]
+        },
+        {
+          "id": "risk-and-response-7",
+          "title": {
+            "en": "Keep the result within the bank",
+            "zh": "把结果限制在本题组"
+          },
+          "paragraphs": [
+            {
+              "en": "Every correct count opens the full explanations and five complete guides. The bilingual cases and declared checks were reviewed by the author, without independent professional or psychometric validation. No norm, certification, hiring cutoff or forecast of actual project failure is attached. Share a general public guide if useful, and keep private risk registers, supplier records and personal details out of practice drafts and examples.",
+              "zh": "任意正确数都开放全部解析与五篇指南。双语情境和声明核查由作者检查，未获独立专业或心理测量验证；无常模、认证、录用线或实际项目失败预测。需要时分享通用公开指南，练习草稿及例子不放私有风险台账、供应记录或个人资料。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Risk and Response Review | Practice Guide",
+          "zh": "风险与响应复习：完整复习指南"
+        },
+        "description": {
+          "en": "Review fictional risk records, named monitors and trigger-response pairs. Correct counts do not validate a real risk assessment or a professional tier.",
+          "zh": "复习虚构风险记录、指定监测人和触发响应。正确数不验证真实风险评估，也不派职业等级。"
+        }
+      }
+    },
+    {
+      "id": "communication-and-decisions",
+      "directionIds": [
+        "communication-and-decisions"
+      ],
+      "title": {
+        "en": "Communication and Decision Review",
+        "zh": "沟通与决策复习"
+      },
+      "headline": {
+        "en": "Route a defined decision with the evidence its owner needs.",
+        "zh": "把明确决策与所需证据送达对应负责人。"
+      },
+      "summary": {
+        "en": "Review decision authority, audience needs, explicit status and bounded sharing. Six task counts do not rate leadership or communication as a whole.",
+        "zh": "复习决策权限、受众需求、明确状态与分享边界。六题计数不评价完整领导力或沟通能力。"
+      },
+      "scoreReading": {
+        "en": "The count describes six selected tasks under their stated rules. Read the missed item and its explanation before choosing a revision step; it is not a professional level.",
+        "zh": "正确数描述六道选定题在题定规则下的匹配情况。先看错题及解析，再选复习行动；它不是职业等级。"
+      },
+      "sections": [
+        {
+          "id": "communication-and-decisions-1",
+          "title": {
+            "en": "Six cases are not a social verdict",
+            "zh": "六题不是社交裁决"
+          },
+          "paragraphs": [
+            {
+              "en": "The selected questions ask whether a response matches an explicit table, communication plan or evidence state. They do not observe tone, listening, negotiation or the reader’s actual relationships. A wrong choice can reflect one missed condition rather than poor leadership. Look at which field was required and which field was absent before deciding what to practise next. This keeps the feedback actionable and proportionate.",
+              "zh": "选题问回应是否匹配明确表格、沟通计划或证据状态，不观察语气、倾听、协商及真实关系。选错可能只漏一条件，不等于领导力差。先看要求哪个字段、缺哪个字段，再选练习，让反馈可行动且与证据相称。"
+            }
+          ]
+        },
+        {
+          "id": "communication-and-decisions-2",
+          "title": {
+            "en": "Authority has a domain",
+            "zh": "权限有对应领域"
+          },
+          "paragraphs": [
+            {
+              "en": "A fictional table may give one person layout decisions and another spending decisions. Route the question according to that domain, not to whoever sounds most confident or sends the latest message. In a real organization, delegated authority and escalation paths must be checked rather than invented. A budget title alone does not automatically settle every user requirement, technical decision or quality judgment.",
+              "zh": "虚构表可把版式与支出分别交不同人。按领域路由，不凭谁更自信或最后发消息。真实组织须核委派权限与上报路径，不能自造。预算头衔本身不自动裁定所有用户需求、技术决定和质量判断。"
+            }
+          ]
+        },
+        {
+          "id": "communication-and-decisions-3",
+          "title": {
+            "en": "Start with the decision the report supports",
+            "zh": "先问报告支持什么决策"
+          },
+          "paragraphs": [
+            {
+              "en": "A reader choosing whether to repeat a trial may need outcome counts, conditions and unresolved constraints rather than every chat message. Ask what will change the decision, then provide information at the agreed cadence and through the agreed channel. Shorter is not always better: a detailed explanation may be necessary. The aim is a useful record, not a universal rule to eliminate status reports or meetings.",
+              "zh": "决定是否再试的读者可能需要结果计数、条件和未解限制，而非全部聊天。先问什么会改变决策，再按约定频率、渠道提供信息。短不总更好，详细解释有时必要；目标是有用记录，不是普遍取消报告或会议。"
+            }
+          ]
+        },
+        {
+          "id": "communication-and-decisions-4",
+          "title": {
+            "en": "Do not read intent into silence",
+            "zh": "别从沉默读取意图"
+          },
+          "paragraphs": [
+            {
+              "en": "When a case requires an explicit response, an unanswered message is unresolved. It does not prove agreement, rejection, indifference or hostility. A useful follow-up names the decision needed and the actual consequence of waiting, using the supplied route. The appropriate next step depends on authority and urgency; this practice does not endorse escalating every unanswered note or bypassing a necessary reviewer.",
+              "zh": "若题定须明确回复，未答消息就是未决，不证明同意、拒绝、冷漠或敌意。有用跟进点明所需决策及等待的实际影响，并走给定路径。下一步取决于权限与紧急度，本题不支持所有未回消息都上报或绕过必要评审。"
+            }
+          ]
+        },
+        {
+          "id": "communication-and-decisions-5",
+          "title": {
+            "en": "Work a fresh decision-record example",
+            "zh": "做一个新决策记录例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose a fictional workshop needs a choice between two sign designs. The delegated design owner chooses Elm on 7 June. A concise record states the choice, owner and date, with the relevant rationale if required. “We discussed the signs” is not equivalent evidence of a choice. Nor does a complete record establish that Elm is objectively best; it establishes what was decided and by whom.",
+              "zh": "设虚构工作坊须在两种标牌间选择，获委派的设计负责人6月7日选Elm。简记应含方案、决策人、日期，若要求再记依据。“讨论过标牌”不等于已选择的证据。完整记录也不证明Elm客观最优，只明确谁在何时作何决定。"
+            }
+          ]
+        },
+        {
+          "id": "communication-and-decisions-6",
+          "title": {
+            "en": "Share the minimum appropriate context",
+            "zh": "分享适当且有限的上下文"
+          },
+          "paragraphs": [
+            {
+              "en": "The practice’s fictional sharing rule allows aggregate trial counts and excludes names and private contact details. Check both what is allowed and what is excluded; removing one identifier does not automatically satisfy every privacy requirement. For a follow-up exercise, use invented participants and quantities. Public guides explain general methods without embedding visitors’ answers, correct counts, employer records or stakeholder contact lists.",
+              "zh": "本题虚构分享规则允许汇总试验计数，排除姓名和私人联系方式。允许与排除都核，删一个标识不自动满足所有隐私要求。后续用虚构参与者、数量。公开指南讲通用方法，不嵌访客答卷、正确数、雇主记录或利益相关者联系表。"
+            }
+          ]
+        },
+        {
+          "id": "communication-and-decisions-7",
+          "title": {
+            "en": "Try one clear request",
+            "zh": "练一份清晰请求"
+          },
+          "paragraphs": [
+            {
+              "en": "Write a fictional request with a decision owner, the exact choice needed, a relevant observation and the agreed response point. Ask another person which decision is still open, without telling them what to infer. Revise any hidden assumptions. Recognizing a good multiple-choice response is different from conducting a difficult conversation. Retaking this fixed bank does not independently validate negotiation skill, workplace outcomes, certification readiness or a hiring tier.",
+              "zh": "写虚构请求，含决策人、具体选择、相关观察、约定回复点。让他人在不知预期推断时指出哪项仍未决，改掉隐藏假设。单选认出回应不同于开展困难对话。重测固定题组不独立验证协商能力、职场效果、认证准备度或录用档位。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Communication and Decision Review | Practice Guide",
+          "zh": "沟通与决策复习：完整复习指南"
+        },
+        "description": {
+          "en": "Review decision authority, audience needs, explicit status and bounded sharing. Six task counts do not rate leadership or communication as a whole.",
+          "zh": "复习决策权限、受众需求、明确状态与分享边界。六题计数不评价完整领导力或沟通能力。"
+        }
+      }
+    },
+    {
+      "id": "budget-and-quantities",
+      "directionIds": [
+        "budget-and-quantities"
+      ],
+      "title": {
+        "en": "Project Budget Review",
+        "zh": "项目预算与数量复习"
+      },
+      "headline": {
+        "en": "Keep units, sign conventions and uncertainty visible.",
+        "zh": "明确单位、符号约定和不确定性。"
+      },
+      "summary": {
+        "en": "Review fictional costs, remaining allocation, declared differences and conditional forecasts. Counts do not establish a professional qualification.",
+        "zh": "复习虚构成本、分配余额、题定差额与条件预测，不给会计、投资或职业资格判断。"
+      },
+      "scoreReading": {
+        "en": "The count describes six selected tasks under their stated rules. Read the missed item and its explanation before choosing a revision step; it is not a professional level.",
+        "zh": "正确数描述六道选定题在题定规则下的匹配情况。先看错题及解析，再选复习行动；它不是职业等级。"
+      },
+      "sections": [
+        {
+          "id": "budget-and-quantities-1",
+          "title": {
+            "en": "Read a quantity, not a professional grade",
+            "zh": "读数量，不派职业等级"
+          },
+          "paragraphs": [
+            {
+              "en": "The six selected tasks ask for arithmetic and explicit eligibility rules. Their count can help locate a fee charged twice, a reversed subtraction or a forgotten condition. It cannot establish accounting competence, cost-management experience or why a real project overspent. Every correct count opens the worked explanations and all five guides, so you can review a method without earning a particular score first.",
+              "zh": "六题练算术和明示合格规则，计数可帮助找费用重复、减法颠倒或漏条件，不建立会计能力、成本管理经验或真实超支原因。任何正确数都开放逐题解析和五篇指南，无需先考某分才能复习。"
+            }
+          ]
+        },
+        {
+          "id": "budget-and-quantities-2",
+          "title": {
+            "en": "Make the unit and period explicit",
+            "zh": "明确单位与期间"
+          },
+          "paragraphs": [
+            {
+              "en": "Write down whether a price is per kit, per month or one-time. A fictional order of five folders at nine tokens each plus one four-token setup fee totals 49, not 65. Multiplying the fee by every folder changes the agreement. When comparing offers, bring them to the same quantity and period before deciding which is eligible; a low headline price alone does not establish lower total cost.",
+              "zh": "先写每套、每月还是一次性。虚构五份文件夹每份九代币，加一次四代币设置费，合计49而非65；把设置费逐份乘改变了约定。比报价先统一数量与期间，再判合格，低标价本身不证明总成本低。"
+            }
+          ]
+        },
+        {
+          "id": "budget-and-quantities-3",
+          "title": {
+            "en": "A sign convention belongs to its formula",
+            "zh": "符号约定属于具体公式"
+          },
+          "paragraphs": [
+            {
+              "en": "One practice worksheet defines spend difference as actual minus planned. A positive result then means spend above that plan. Do not silently substitute the opposite convention or call this the earned-value cost-variance formula, which uses different quantities. Name the formula before calculating. A number with the correct magnitude but an unexplained sign can lead a reader to the opposite conclusion about the stated comparison.",
+              "zh": "本练习一张工作表定义支出差为实际减计划，正数即高于该计划。别悄悄换成反向符号，也别称它为使用其他量的挣值成本偏差公式。计算前点明公式，数值绝对值虽对，符号未解释仍可让读者作相反判断。"
+            }
+          ]
+        },
+        {
+          "id": "budget-and-quantities-4",
+          "title": {
+            "en": "Remaining allocation is not every obligation",
+            "zh": "余额不代表所有义务"
+          },
+          "paragraphs": [
+            {
+              "en": "Subtract the recorded costs from the supplied allocation to find the model’s remainder. Before using such a figure in reality, identify commitments not yet paid, excluded charges and the period covered. The exercise deliberately states no other movements so that its answer is determinate. That limited assumption should not become a belief that unrecorded obligations cannot exist or that the remainder is automatically available for any new purchase.",
+              "zh": "用给定分配减记录成本得到模型余额。真实使用前还要找未付承诺、排除收费及覆盖期间。本题为使答案确定而明确无其他变动，不能推广成未记义务不存在，或余额可随意用于任何新采购。"
+            }
+          ]
+        },
+        {
+          "id": "budget-and-quantities-5",
+          "title": {
+            "en": "A forecast remains conditional",
+            "zh": "预测仍有条件"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose a fictional plan has a 120-token limit, 48 spent and 60 estimated to finish. Its forecast total is 108 and headroom is 12, conditional on that remaining estimate. If later work is missing from the estimate, the arithmetic can stay correct while the forecast becomes incomplete. Report the estimate and uncertainty alongside the headroom instead of promising a final underspend from one subtraction.",
+              "zh": "设虚构上限120代币，已花48，预计完成还需60。预测总108、余量12，以余下估计为条件。若估计漏后续工作，算术仍对但预测不全。报告余量时保留估计及不确定性，不凭一次减法承诺最终节余。"
+            }
+          ]
+        },
+        {
+          "id": "budget-and-quantities-6",
+          "title": {
+            "en": "Check the supplied constraints together",
+            "zh": "同时核给定限制"
+          },
+          "paragraphs": [
+            {
+              "en": "A quote meeting a price ceiling may still miss the required arrival date. Evaluate both fields, using the comparison rule supplied. A reserve assigned to one fictional risk also has its own stated boundary: calculating what remains does not authorize moving it elsewhere. These questions do not assess supplier reliability, legal procurement compliance, tax, investment decisions or every accounting treatment associated with a real purchase.",
+              "zh": "报价符合价格上限仍可能错过到货日期，按题定规则同时核两字段。分配给某虚构风险的储备也有边界，算余额不授权转去别处。本题不评估供应可靠性、采购法律合规、税务、投资或真实采购涉及的所有会计处理。"
+            }
+          ]
+        },
+        {
+          "id": "budget-and-quantities-7",
+          "title": {
+            "en": "Try a small reconciliation",
+            "zh": "做一次小型勾稽"
+          },
+          "paragraphs": [
+            {
+              "en": "Create a fictional allocation, two item costs and one clearly labelled fee. Recompute the remainder, then change the quantity while holding the one-time fee fixed. Explain each movement in words and units so another reader can reproduce it. Use invented figures rather than confidential budgets. Familiarity with this bank after seeing its answers is not independent evidence of transfer, a certification, a normed professional tier or readiness for an employer’s financial responsibilities.",
+              "zh": "自拟分配、两项成本和一笔标明费用。重算余额，再改数量而固定一次性费，用文字与单位解释每项变动，让他人能复算。用虚构数字，不用保密预算。看答案后熟悉本题，不是迁移能力、认证、常模职业档位或承担雇主财务职责准备度的独立证据。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Project Budget Review | Practice Guide",
+          "zh": "项目预算与数量复习：完整复习指南"
+        },
+        "description": {
+          "en": "Review fictional costs, remaining allocation, declared differences and conditional forecasts. Counts do not establish a professional qualification.",
+          "zh": "复习虚构成本、分配余额、题定差额与条件预测，不给会计、投资或职业资格判断。"
+        }
+      }
+    }
+  ],
+  "guide": [
+    {
+      "id": "practice-scoring",
+      "title": {
+        "en": "Five groups of six, with equal correct counts",
+        "zh": "五组各六题，等额记正确数"
+      },
+      "paragraphs": [
+        {
+          "en": "A keyed answer contributes one correct count and another valid answer contributes zero. Five six-item groups add to a total out of 30. There are no weights, reversed agreement items or speed bonuses. Missing or invalid choices are not filled in; all 30 must have valid choices before a complete result appears.",
+          "zh": "答对记1、其他有效选择记0，五组各六题合计正确数/30。不加权，无反向同意度题或速度奖励；缺答和无效选择不代填，30题均有效作答才出完整结果。"
+        }
+      ]
+    },
+    {
+      "id": "practice-reading",
+      "title": {
+        "en": "Read the missed condition before choosing revision",
+        "zh": "先看漏了什么条件再选复习"
+      },
+      "paragraphs": [
+        {
+          "en": "A count of 4/6 means four matching choices on six selected tasks. It does not show one underlying cause or a professional level. Zero, partial and perfect attempts receive all keys, explanations and all five full guides. Public guides carry general methods and fictional worked examples without visitors’ responses or private counts.",
+          "zh": "4/6只表示六道选定题四项匹配答案，不定位唯一原因或职业等级。零对、部分、全对均可读全部答案解析及五篇完整指南。公开指南只有通用方法和虚构例子，不含访客答卷或私有正确数。"
+        }
+      ]
+    },
+    {
+      "id": "practice-limits",
+      "title": {
+        "en": "A local rule does not become universal project policy",
+        "zh": "本地规则不等于普遍项目政策"
+      },
+      "paragraphs": [
+        {
+          "en": "The task’s stated agreement or model makes a limited answer possible. Actual authority, dependencies, resource constraints, procurement and risk work need their own evidence. Counting correct choices does not establish leadership, hiring suitability, certification readiness or a real project outcome. Retake uses the same bank; after seeing answers, higher counts can reflect familiarity.",
+          "zh": "题定约定或模型使有限答案成立。真实权限、依赖、资源限制、采购和风险工作须各自证据。正确数不证明领导力、招聘适任、认证准备度或真实项目结果。重测同一题组，看答案后提高可反映熟悉。"
+        }
+      ]
+    },
+    {
+      "id": "source-context",
+      "title": {
+        "en": "Original cases and bounded answer checks",
+        "zh": "原创情境与有边界的答案核查"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind authored the bilingual cases, choices, quantities, explanations and guides. General project-management concepts provide background, without copying or adapting published questions, textbook cases, official standards, templates or figures. Declared criteria, schedule assumptions, subsets and exact quantities are checked, with author review of bilingual meanings. This is not independent professional or language review, psychometric validation, PMI or PRINCE2 endorsement.",
+          "zh": "费马编写双语情境、选项、数量、解析和指南。通用项目管理概念仅作背景，不复制或改编已发表考题、教材情境、官方标准、模板或图。程序核声明标准、排程假设、子集和精确数量，作者核双语含义；不构成独立专业或语言审稿、心理测量验证、PMI或PRINCE2背书。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "What does the Project Management Test report?",
+        "zh": "项目管理测试报告什么？"
+      },
+      "answer": {
+        "en": "Correct counts on 30 original fictional cases, split across five six-item groups, with every explanation and five complete guides. It does not assign a project-manager level, percentile, predicted delivery outcome or hiring recommendation.",
+        "zh": "报告30道原创虚构题及五组各六题的正确数，附全部解析与五篇完整指南；不派项目经理等级、百分位、交付结果预测或录用建议。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this a PMP, CAPM or PRINCE2 exam or qualification?",
+        "zh": "这是PMP、CAPM、PRINCE2考试或资格吗？"
+      },
+      "answer": {
+        "en": "No. This original practice does not reproduce or adapt their licensed questions or proprietary standards, and does not award certification, training hours, PDUs, exam-readiness estimates or provider endorsement.",
+        "zh": "不是。此原创练习不复制或改编其授权考题和专有标准，不授认证、培训时数、PDU、备考准备度估计或机构背书。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why do fictional project scenarios have keyed answers?",
+        "zh": "虚构项目情境为什么能设答案？"
+      },
+      "answer": {
+        "en": "Each task supplies its decision rule, evidence, authority or numerical assumptions. The key follows that limited task, not a claim of universally optimal behaviour for every real project. Actual project work needs context not measured here.",
+        "zh": "每题给定决策规则、证据、权限或数量假设。答案服从有限任务，不普遍裁定所有真实项目的最佳行为；真实工作还须本题未测的上下文。"
+      }
+    },
+    {
+      "question": {
+        "en": "How were the answers checked?",
+        "zh": "答案怎样核查？"
+      },
+      "answer": {
+        "en": "The author reviewed bilingual meanings against explicit fictional criteria. Calculations use exact quantities; schedule joins, slack, averages and all eight subsets in the capacity task are recomputed. These checks do not independently validate professional judgment, language interpretation, population norms or real delivery performance.",
+        "zh": "作者对照虚构明示标准核双语含义，按精确数量复算排程汇合、余量、平均及容量题的全部八个子集；这些核查不独立验证职业判断、语言解释、人群常模或真实交付表现。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is it timed, and are all answers free?",
+        "zh": "是否计时，答案是否都免费？"
+      },
+      "answer": {
+        "en": "No timer runs; 18 minutes is a rough planning estimate. All 30 keys and explanations and five full guides are free without account, email or payment. Retake uses the same fixed original bank, not a newly calibrated exam form.",
+        "zh": "不计时，18分钟只是粗略安排参考。30题答案解析与五篇指南免费，无需账户、邮箱或付款。重测同一固定原创题组，不是新校准考试卷。"
+      }
+    },
+    {
+      "question": {
+        "en": "What is saved or shared?",
+        "zh": "会保存和分享什么？"
+      },
+      "answer": {
+        "en": "Answers stay in the browser. Optional tab drafts expire after 24 hours and clear on completion, exit-and-clear or retake; without a draft, refresh loses progress. Sharing copies a public test link without answers, correct counts or private identifiers. Use fictional project records.",
+        "zh": "答案留在浏览器；可选标签页草稿24小时失效，完成、退出并清除或重测即删除；未存草稿刷新会丢进度。分享只复制公开测试链接，不含答卷、正确数或私有标识。使用虚构项目记录。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "PMI: general project-management context",
+        "zh": "PMI：项目管理一般背景"
+      },
+      "url": "https://www.pmi.org/about/what-is-project-management"
+    },
+    {
+      "title": {
+        "en": "Microsoft: scope boundaries and change-impact concepts",
+        "zh": "Microsoft：范围边界与变更影响概念"
+      },
+      "url": "https://support.microsoft.com/en-us/project/best-practices-for-managing-project-scope-in-project-online"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_project_case_practice",
+    "formCode": "fm_project_case_practice_30_v1",
+    "itemBankVersion": "fm_project_case_practice_30_v1",
+    "scoringVersion": "practice_equal_correct_counts_v1",
+    "resultContentVersion": "fm_project_five_review_guides_v1",
+    "itemBankSha256": "dd5037d92134f7c0dd788b218ccb3c0e8f27ff8d00c16c4236b410605c7bc19b",
+    "resultContentSha256": "5ee0afb88b326bb54ff116b91d2bea044825ee288eb26351d1ed90624167c9a2",
+    "psychometricValidationCompleted": false
+  }
+}

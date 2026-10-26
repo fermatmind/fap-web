@@ -3282,5 +3282,31 @@
       "review-and-templates"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "project-management",
+    "code": "FM_PROJECT_CASE_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Project Management Test",
+      "zh": "项目管理测试"
+    },
+    "description": {
+      "en": "Practise 30 original project cases on scope, schedule, risk, communication and budget. Free explanations and five full guides. No certification or hiring tier.",
+      "zh": "30道原创项目情境，范围变更、排程容量、风险响应、沟通决策、预算数量各六题。免费查看全部答案解析与五篇完整指南；按题内规则复算正确数，不派招聘档位、PMP或PRINCE2认证。"
+    },
+    "minutes": 18,
+    "formCode": "fm_project_case_practice_30_v1",
+    "questionCount": 30,
+    "resultSlugs": [
+      "scope-and-change",
+      "schedule-and-capacity",
+      "risk-and-response",
+      "communication-and-decisions",
+      "budget-and-quantities"
+    ],
+    "collection": "explore"
   }
 ]
