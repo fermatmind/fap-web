@@ -1689,5 +1689,30 @@
       "profession",
       "vocation"
     ]
+  },
+  {
+    "slug": "male-archetype-test",
+    "code": "FOUR_ROLE_METAPHOR_FOCUS_20",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "framework",
+    "title": {
+      "zh": "男性原型测试",
+      "en": "Male Archetype Test"
+    },
+    "description": {
+      "zh": "免费男性原型测试四角色专门版：20道原创情境，读国王、战士、魔法师与情人的四份完整说明。任何人都可参与，最高并列全部保留，不测性别或成熟度。",
+      "en": "A free Male Archetype Test: 20 original scenarios and four full role-metaphor guides. Anyone can explore; every highest tie stays, without gender or maturity scores."
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_four_role_metaphor_focus_20",
+    "questionCount": 20,
+    "resultSlugs": [
+      "king",
+      "warrior",
+      "magician",
+      "lover"
+    ]
   }
 ]

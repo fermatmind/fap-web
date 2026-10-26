@@ -1,0 +1,1617 @@
+{
+  "slug": "male-archetype-test",
+  "code": "FOUR_ROLE_METAPHOR_FOCUS_20",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "framework",
+  "kind": "archetype",
+  "title": {
+    "zh": "男性原型测试",
+    "en": "Male Archetype Test"
+  },
+  "resultHeading": {
+    "zh": "四角色隐喻：完整结果",
+    "en": "Four role metaphors: your complete result"
+  },
+  "description": {
+    "zh": "免费男性原型测试四角色专门版：20道原创情境，读国王、战士、魔法师与情人的四份完整说明。任何人都可参与，最高并列全部保留，不测性别或成熟度。",
+    "en": "A free Male Archetype Test: 20 original scenarios and four full role-metaphor guides. Anyone can explore; every highest tie stays, without gender or maturity scores."
+  },
+  "seoTitle": {
+    "zh": "男性原型测试：四角色隐喻与免费完整结果",
+    "en": "Male Archetype Test: Four Roles & Free Full Results"
+  },
+  "minutes": 6,
+  "introduction": {
+    "zh": "你更愿意先商量共同条件、完成一个有边界的小环节、提出问题做小试验，还是留意体验里值得欣赏的细节？本版用国王、战士、魔法师、情人四个文学角色名，把20道普通假想情境中的选择组织成四份完整说明。名字来自四角色讨论的文化背景，题目与解释为本站另写，不测书中的男性本质、成熟能量或普遍心理结构。任何人都可参与，不填写性别或私人经历，也不用按理想男人作答。这是四角色专门版本，与十二原型的一些主题交叠；题目与范围不同，不把分数互换。所有最高并列都呈现全文，低计数不叫阴影或缺陷，四项同计数不认证理想平衡。四份正文全部免费，也可以先读再决定是否作答。",
+    "en": "Would you first discuss shared conditions, complete a bounded task, ask questions through a small test or attend to an experience’s details? This edition uses King, Warrior, Magician and Lover as literary names to organise choices across twenty ordinary hypothetical situations, with four full guides. Names have a four-role cultural background; items and interpretations are separately written rather than measuring a book’s masculine essence, mature energies or universal structures. Anyone may participate without providing gender or private experience or aiming for an ideal man. This focused four-role edition overlaps some themes in the twelve-archetype entry, without interchangeable scores. Every highest tie receives its full text, lower counts establish no shadow or deficit, and equal counts certify no ideal balance. All guides are free to read before deciding to answer."
+  },
+  "instructions": {
+    "zh": "把每题当作一个普通的假想小情境，四种做法都可以有价值。选你此刻更愿意先参与的一项，不按理想的男性或成熟角色作答。无需提供性别、身份或私人经历。20题全部选择后显示四项计数与所有最高并列全文；全选A各5次不认证理想平衡。没有合适选项可以退出，本版不解释未完成作答。",
+    "en": "Treat each item as an ordinary hypothetical situation in which all four practices can have value. Choose the part you would like to take first now, without aiming for an ideal male or mature role. No gender, identity or private experience is supplied. All twenty selections show four counts and the full guide for every highest tie. Choosing A throughout gives five each without certifying ideal balance. You may exit if nothing fits; incomplete attempts are not interpreted."
+  },
+  "source": {
+    "kind": "FermatMind original twenty-choice four-role literary metaphor focused edition. Four names reference public Moore/Gillette book background, not a validated instrument or reproduction of book or JobCannon banks. Themes relate to the existing twelve-archetype entry without score equivalence.",
+    "formCode": "fm_four_role_metaphor_focus_20",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "d3eda5ad675533cc318ab160d8654adf5ff1b713507ba9058010f61bafe36f8e",
+    "resultContentSha256": "38294809b7f0e592c5818bc1cc19980d4183df9045d022eb4bb49ade4921e86f",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "king",
+      "title": {
+        "zh": "国王隐喻：协调共同条件",
+        "en": "King: Coordinating Shared Conditions"
+      },
+      "comparisons": 20
+    },
+    {
+      "id": "warrior",
+      "title": {
+        "zh": "战士隐喻：有边界地推进",
+        "en": "Warrior: Bounded Follow-through"
+      },
+      "comparisons": 20
+    },
+    {
+      "id": "magician",
+      "title": {
+        "zh": "魔法师隐喻：提问与试验",
+        "en": "Magician: Questions and Experiments"
+      },
+      "comparisons": 20
+    },
+    {
+      "id": "lover",
+      "title": {
+        "zh": "情人隐喻：留意与欣赏",
+        "en": "Lover: Attention and Appreciation"
+      },
+      "comparisons": 20
+    }
+  ],
+  "questions": [
+    {
+      "id": "ROLE_01",
+      "prompt": {
+        "zh": "社区准备摆一个种子交换小桌，你更愿意先参与哪部分？",
+        "en": "A neighbourhood is setting up a small seed-exchange table. Which part would you like to take first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "king",
+          "label": {
+            "zh": "把参与时段与每个人愿意负责的部分对齐",
+            "en": "Coordinate the time slots and the parts each person wants to handle"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "warrior",
+          "label": {
+            "zh": "认领一个有明确范围的小环节并按约定完成",
+            "en": "Take one clearly bounded task and follow through on the agreement"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "magician",
+          "label": {
+            "zh": "用几个样例试试标签怎样更容易被理解",
+            "en": "Try a few examples to explore which labels are easier to understand"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lover",
+          "label": {
+            "zh": "留意大家带来的小故事和种子各自的细节",
+            "en": "Give attention to the stories people bring and the details of their seeds"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_02",
+      "prompt": {
+        "zh": "有人提议做一张共享工具的借还提示板，你更愿意先做？",
+        "en": "Someone proposes a noticeboard for borrowing and returning shared tools. What would you like to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "warrior",
+          "label": {
+            "zh": "选定一块自己能负责的区域，按清楚范围补齐",
+            "en": "Choose an area you can handle and complete it within a clear scope"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "magician",
+          "label": {
+            "zh": "用一次模拟借还检验提示是否容易误解",
+            "en": "Use a simulated loan and return to test where the notice could be misunderstood"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lover",
+          "label": {
+            "zh": "留意使用者在工具和习惯上的个人偏好",
+            "en": "Notice users’ individual attachments to tools and routines"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "king",
+          "label": {
+            "zh": "商量谁维护哪些信息，让参与者知道怎样加入",
+            "en": "Agree who maintains which information and how people can participate"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_03",
+      "prompt": {
+        "zh": "朋友们要整理一箱旧明信片，你更想贡献？",
+        "en": "Friends are sorting a box of old postcards. What would you most like to contribute?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "magician",
+          "label": {
+            "zh": "比较几张卡片，试一种能解释例外的分类方法",
+            "en": "Compare several cards and try a grouping method that accounts for exceptions"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lover",
+          "label": {
+            "zh": "读一读手写文字，留意这些卡片为何让人珍惜",
+            "en": "Read the handwriting and attend to why the cards matter to people"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "king",
+          "label": {
+            "zh": "让分类、保管和最后放在哪里由大家说清",
+            "en": "Help everyone agree on grouping, custody and the eventual location"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "warrior",
+          "label": {
+            "zh": "负责一叠可完成的整理，说明自己能做到哪里",
+            "en": "Take a manageable stack and state the limits of what you can complete"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_04",
+      "prompt": {
+        "zh": "一个小型纸艺活动需要准备，你更愿意先接触？",
+        "en": "A small paper-craft session needs preparation. What would you like to approach first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lover",
+          "label": {
+            "zh": "感受纸张、颜色和参与者想表达的小想法",
+            "en": "Attend to the paper, colours and small ideas participants want to express"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "king",
+          "label": {
+            "zh": "把材料、时间和可选择的参与方式安排清楚",
+            "en": "Clarify materials, timing and the ways people can choose to participate"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "warrior",
+          "label": {
+            "zh": "完成一个约定的小样任务，保留自己能承担的边界",
+            "en": "Complete an agreed sample task while keeping a manageable boundary"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "magician",
+          "label": {
+            "zh": "折几种小样，看看哪一步让结构发生变化",
+            "en": "Fold a few samples to explore which step changes the structure"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_05",
+      "prompt": {
+        "zh": "有人想给楼道的植物做一组小牌子，你更愿意先？",
+        "en": "Someone wants to make small signs for plants in a shared hallway. What would you like to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "king",
+          "label": {
+            "zh": "商量谁确认内容、谁制作、谁愿意日后更新",
+            "en": "Agree who checks content, makes signs and wants to update them"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "warrior",
+          "label": {
+            "zh": "选几块自己能完成的牌子，依约做好再交回",
+            "en": "Choose a few signs you can finish and return them as agreed"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "magician",
+          "label": {
+            "zh": "比较字号、位置与遮挡，试试信息怎样更清楚",
+            "en": "Compare lettering, position and obstruction to test clarity"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lover",
+          "label": {
+            "zh": "观察植物与周围空间的细节，留下有温度的表达",
+            "en": "Notice details of the plants and space and give them an attentive expression"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_06",
+      "prompt": {
+        "zh": "一场免费小讲解准备结束，你更愿意承担哪部分？",
+        "en": "A free short explanation session is ending. Which part would you like to take?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "warrior",
+          "label": {
+            "zh": "把自己答应的收尾环节做完，并说明未完成的部分",
+            "en": "Finish the closing task you agreed to and state what remains undone"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "magician",
+          "label": {
+            "zh": "找一个还没理解的环节，用小例子再核对一次",
+            "en": "Take an unclear point and check it through a small example"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lover",
+          "label": {
+            "zh": "听一听参加者记住的片段，认真回应他们的体验",
+            "en": "Listen to what participants remember and respond attentively to their experience"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "king",
+          "label": {
+            "zh": "让资料、后续联系与未处理的问题都有清楚去向",
+            "en": "Clarify where materials, follow-up and unanswered questions will go"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_07",
+      "prompt": {
+        "zh": "你与朋友想给一段短音频配上文字，你更想先？",
+        "en": "You and a friend want to add text to a short audio passage. What would you like to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "magician",
+          "label": {
+            "zh": "对照几处停顿，试试哪些转写方式更贴近内容",
+            "en": "Compare pauses and try transcription choices that fit the content"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lover",
+          "label": {
+            "zh": "留意声音里的语气与细节，让文字保留那份感觉",
+            "en": "Attend to tone and details so the text retains something of the experience"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "king",
+          "label": {
+            "zh": "明确选段、核对和完成时间怎样由双方分担",
+            "en": "Agree how to share selecting, checking and completion timing"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "warrior",
+          "label": {
+            "zh": "先做好一段有明确起止的文字，按约定核对",
+            "en": "Complete a clearly bounded segment of text and check it as agreed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_08",
+      "prompt": {
+        "zh": "共享角落要移动几件小家具，你更愿意先参与？",
+        "en": "A shared corner needs a few small furnishings moved. What would you like to handle first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lover",
+          "label": {
+            "zh": "留意人们喜欢在这里怎样停留，以及哪些细节值得保留",
+            "en": "Attend to how people enjoy spending time there and the details they want retained"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "king",
+          "label": {
+            "zh": "让使用者说明需要，再一起确定谁动哪些物品",
+            "en": "Invite users’ needs and agree who will move which objects"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "warrior",
+          "label": {
+            "zh": "认领能承担的一小段搬动，清楚说明范围",
+            "en": "Take a manageable moving task and make its scope clear"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "magician",
+          "label": {
+            "zh": "用小物做替代布局，试试通道与间距",
+            "en": "Use small stand-ins to test access and spacing"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_09",
+      "prompt": {
+        "zh": "朋友准备做一个关于家乡的小展示，你更愿意先帮？",
+        "en": "A friend is preparing a small display about their hometown. How would you like to help first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "king",
+          "label": {
+            "zh": "把展示的范围、安排和每个人想参与的部分理清",
+            "en": "Clarify the scope, arrangements and parts people want to contribute"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "warrior",
+          "label": {
+            "zh": "完成一项已经说好的小任务，不替朋友扩大目标",
+            "en": "Complete one agreed small task without expanding the friend’s aim"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "magician",
+          "label": {
+            "zh": "用两个不同顺序试排，看看理解会怎样变化",
+            "en": "Try two sequences to explore how the understanding changes"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lover",
+          "label": {
+            "zh": "认真听朋友说哪些细节有个人意义，并保留那份感受",
+            "en": "Listen for personally meaningful details and make room for that feeling"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_10",
+      "prompt": {
+        "zh": "你们想做一套简单的桌面游戏提示卡，你更愿意先做？",
+        "en": "You are making simple tabletop-game cue cards together. What would you like to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "warrior",
+          "label": {
+            "zh": "选一小组卡片负责到底，清楚交接已做内容",
+            "en": "Take responsibility for a small set and hand over what is completed"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "magician",
+          "label": {
+            "zh": "模拟一轮游戏，找出提示卡还没解释清的地方",
+            "en": "Simulate one round to identify what the cards fail to explain"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lover",
+          "label": {
+            "zh": "留意试玩中的乐趣和个人反应，让提示不过度生硬",
+            "en": "Attend to enjoyment and individual reactions so cues retain some warmth"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "king",
+          "label": {
+            "zh": "把规则确认、制作和试用的分工对齐",
+            "en": "Coordinate checking rules, making cards and trying them"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_11",
+      "prompt": {
+        "zh": "一批公开照片要放进小型线上相册，你更愿意先？",
+        "en": "Public photographs will be placed in a small online album. What would you like to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "magician",
+          "label": {
+            "zh": "试两种排列，看看标题与顺序如何影响理解",
+            "en": "Try two arrangements to explore how titles and order affect understanding"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lover",
+          "label": {
+            "zh": "留意照片中的气氛与人们想记住的细节",
+            "en": "Attend to the atmosphere and details people want remembered"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "king",
+          "label": {
+            "zh": "确认选择、说明和最后核对分别由谁处理",
+            "en": "Agree who handles selection, captions and the final check"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "warrior",
+          "label": {
+            "zh": "完成一组自己能负责的上传和核对，不扩展到其他材料",
+            "en": "Complete a manageable set of uploads and checks without expanding into other material"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_12",
+      "prompt": {
+        "zh": "几个人要把旧活动用品重新分装，你更愿意先参与？",
+        "en": "Several people are repacking supplies from an earlier activity. What would you like to handle first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lover",
+          "label": {
+            "zh": "留意哪些物品承载共同记忆，不把它们只当数量",
+            "en": "Notice which objects hold shared memories rather than treating them only as quantities"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "king",
+          "label": {
+            "zh": "说明下一次谁会使用，让分类与保管有共同依据",
+            "en": "Clarify who will use them next so grouping and storage have a shared basis"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "warrior",
+          "label": {
+            "zh": "认领一箱可处理的物品，按约定做好并标明状态",
+            "en": "Take one manageable box and mark its state after the agreed work"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "magician",
+          "label": {
+            "zh": "比较几种打包方式，试试怎样减少寻找时的误解",
+            "en": "Compare packing methods to test how to reduce confusion when finding things"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_13",
+      "prompt": {
+        "zh": "你们想给一个小读书角增加提示，你更愿意先？",
+        "en": "You want to add cues to a small reading corner. What would you like to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "king",
+          "label": {
+            "zh": "把借阅、归还与自愿维护的规则说清",
+            "en": "Clarify borrowing, returns and voluntary maintenance arrangements"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "warrior",
+          "label": {
+            "zh": "完成一个范围清楚的提示样例，再依约放好",
+            "en": "Complete one clearly bounded cue example and place it as agreed"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "magician",
+          "label": {
+            "zh": "找一位愿意试读的人，核对哪句话容易误解",
+            "en": "Ask a willing reader to test which sentence could be misunderstood"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lover",
+          "label": {
+            "zh": "留意这里让人愿意坐下的细节与氛围",
+            "en": "Attend to the details and atmosphere that make people want to sit there"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_14",
+      "prompt": {
+        "zh": "一次小型交换活动结束后，你更想留下哪类贡献？",
+        "en": "After a small exchange activity, which contribution would you like to leave?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "warrior",
+          "label": {
+            "zh": "自己答应的一段工作已按边界完成并交接",
+            "en": "The bounded part you agreed to is completed and handed over"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "magician",
+          "label": {
+            "zh": "一次试验解释了原来不清楚的步骤或规则",
+            "en": "A small test has clarified a previously confusing step or rule"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lover",
+          "label": {
+            "zh": "有人感到自己的故事或偏好被认真听见",
+            "en": "Someone’s story or preference has been heard attentively"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "king",
+          "label": {
+            "zh": "资料和后续安排有清楚负责人，大家知道怎样继续",
+            "en": "Materials and follow-up have clear owners and people know how to continue"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_15",
+      "prompt": {
+        "zh": "朋友邀请你尝试一个短小的共同创作，你更愿意先？",
+        "en": "A friend invites you into a short shared creative activity. What would you like to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "magician",
+          "label": {
+            "zh": "试一个可撤回的小改动，看看组合会发生什么",
+            "en": "Try a reversible change to see what happens to the combination"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lover",
+          "label": {
+            "zh": "感受作品里的情绪与细节，回应朋友想表达的东西",
+            "en": "Attend to the piece’s feeling and details and the friend’s intended expression"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "king",
+          "label": {
+            "zh": "确认双方想保留什么、怎样决定和怎样分担",
+            "en": "Agree what each person wants retained and how to decide and share the work"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "warrior",
+          "label": {
+            "zh": "承担一个能完成的小片段，认真按约定推进",
+            "en": "Take one manageable fragment and follow through on the agreement"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_16",
+      "prompt": {
+        "zh": "一个日常小流程总让人停下来猜下一步，你更愿意先？",
+        "en": "An everyday process leaves people guessing what comes next. What would you like to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lover",
+          "label": {
+            "zh": "听使用者描述哪里让体验变得生硬或不被照顾",
+            "en": "Listen to where users find the experience impersonal or inattentive"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "king",
+          "label": {
+            "zh": "让使用者与维护者共同说清步骤责任和决定方式",
+            "en": "Help users and maintainers clarify responsibilities and decisions together"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "warrior",
+          "label": {
+            "zh": "认领一处明确的问题，按能承担的范围完成修订",
+            "en": "Take one defined issue and revise it within a manageable scope"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "magician",
+          "label": {
+            "zh": "跟着一个样例走一遍，找出猜测从哪里开始",
+            "en": "Walk through an example to locate where the guessing begins"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_17",
+      "prompt": {
+        "zh": "你们想为一段共同经历做一个小纪念，你更愿意先？",
+        "en": "You are making a small keepsake of a shared experience. What would you like to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "king",
+          "label": {
+            "zh": "让每个人有机会决定保留什么以及怎样参与",
+            "en": "Make room for everyone to decide what is retained and how to participate"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "warrior",
+          "label": {
+            "zh": "完成一项明确答应的制作或整理，不替别人决定",
+            "en": "Complete an agreed making or organising task without deciding for others"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "magician",
+          "label": {
+            "zh": "试几种表达形式，比较哪一种更能解释这段经历",
+            "en": "Try several forms and compare which makes the experience clearer"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lover",
+          "label": {
+            "zh": "认真留意最有个人意味的瞬间、声音或物品",
+            "en": "Attend carefully to personally meaningful moments, sounds or objects"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_18",
+      "prompt": {
+        "zh": "一份共享清单准备重新开放给大家使用，你更愿意先？",
+        "en": "A shared list is about to reopen for use. What would you like to handle first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "warrior",
+          "label": {
+            "zh": "补完一段自己愿意负责的内容，清楚写出边界",
+            "en": "Finish a section you are willing to handle and state its limits"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "magician",
+          "label": {
+            "zh": "拿一个实际例子试查，找出名称或归类的不清楚处",
+            "en": "Test a lookup example to find unclear names or groupings"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lover",
+          "label": {
+            "zh": "留意使用者对名称和表达的个人感受",
+            "en": "Attend to users’ individual responses to the wording and names"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "king",
+          "label": {
+            "zh": "确定谁可以怎样更新、谁核对，保留大家的参与空间",
+            "en": "Agree how people can update it and who checks, while retaining participation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_19",
+      "prompt": {
+        "zh": "临时的小展台准备让别人来体验，你更愿意先？",
+        "en": "A temporary small display is being opened for people to try. What would you like to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "magician",
+          "label": {
+            "zh": "模拟一次体验，找出可以小范围调整的连接点",
+            "en": "Simulate an experience to find a connection that could be adjusted"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lover",
+          "label": {
+            "zh": "留意材料、颜色与人与物相遇时的具体感受",
+            "en": "Attend to materials, colours and the experience of encountering the objects"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "king",
+          "label": {
+            "zh": "对齐迎接、讲解、收尾和自愿接替的安排",
+            "en": "Coordinate welcoming, explaining, closing and voluntary handovers"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "warrior",
+          "label": {
+            "zh": "完成一个明确的准备任务，依约交代完成情况",
+            "en": "Complete one defined preparation task and report its state as agreed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_20",
+      "prompt": {
+        "zh": "一段共同的小计划走完后，你更愿意怎样回看？",
+        "en": "After a small shared plan has run its course, how would you like to review it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lover",
+          "label": {
+            "zh": "回想值得珍惜的细节和被认真回应的感受",
+            "en": "Recall details worth appreciating and moments of attentive response"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "king",
+          "label": {
+            "zh": "看看分担与决定是否让每个人有清楚的位置",
+            "en": "Consider whether shared work and decisions gave people a clear place"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "warrior",
+          "label": {
+            "zh": "核对自己答应的部分怎样完成，哪些需要重新约定",
+            "en": "Check how your agreed part was completed and what needs renegotiating"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "magician",
+          "label": {
+            "zh": "找一个前后变化，理解哪次试验带来了新信息",
+            "en": "Trace a change and understand which small experiment supplied new information"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "king",
+      "directionIds": [
+        "king"
+      ],
+      "title": {
+        "zh": "国王隐喻：协调共同条件",
+        "en": "King: Coordinating Shared Conditions"
+      },
+      "summary": {
+        "zh": "把国王读作商量范围、分担和参与条件的文学隐喻；不证明领导力、权威、成熟度或应该替别人决定。",
+        "en": "Read King as a metaphor for agreeing scope, shared work and participation, without certifying leadership, authority, maturity or a right to decide for others."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "把国王看作哪一种提醒",
+            "en": "Reading the King as a reminder"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版的国王不是身份、职位或高人一等，而是一个关于共同条件的文学提醒：活动要怎样安排，每个人愿意承担哪部分，哪些决定需要一起商量。你在这些情境里更愿意先看这些条件，就会为这份读法增加一次计数。它不证明你有权管理别人，也不评你是否有领导才能。名字借用四角色讨论的文化背景，题目与解释是本站另写的日常隐喻，不测书中所谓男性能量或成熟阶段。",
+              "en": "King in this edition is neither a title nor a superior rank. It is a literary reminder about shared conditions: how an activity is arranged, which parts people want to handle and which decisions need discussion. Choosing to look first at those conditions adds a count to this guide. It proves no right to manage people and assesses no leadership talent. The name references the cultural background of the four-role discussion, while these everyday choices and explanations are separately authored. They do not measure the book’s proposed masculine energies or developmental stages."
+            }
+          ]
+        },
+        {
+          "id": "what-it-selects",
+          "title": {
+            "zh": "选择协调，不等于已经协调得好",
+            "en": "Choosing coordination is not demonstrated coordination"
+          },
+          "paragraphs": [
+            {
+              "zh": "国王计数较多，只表示20个假想小情境中，协调范围与分担这一类选项被你选得更多。没有观察真实过程，也没有其他参与者的评价，不能推出你总是公平、让别人安心或能照顾整个团队。你可能只是此刻想更清楚地了解安排，原因未被题目询问。计数少也不表示缺乏责任或所谓国王能量；现实中你可能已经有安排，或者根本不愿承担协调，这些都需要另看。",
+              "en": "More King selections indicate only that coordination-and-sharing options were chosen more often in twenty hypothetical situations. No actual process or participant ratings were observed, so fairness, reassurance or care for an entire group cannot be inferred. You might simply want arrangements clarified now, but the items do not ask why. Fewer selections establish neither irresponsibility nor a lack of King energy. An arrangement might already exist, or coordinating might be a role you do not want. Such circumstances remain unknown, and a count cannot convert a preferred starting point into proven conduct or a general trait."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "共同条件可以从一张小桌开始",
+            "en": "Shared conditions can begin with a small table"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，一个种子交换小桌要开放给邻居。协调可以是先商量谁愿意留在哪个时段、交换信息怎样确认、遇到不清楚的事由谁一起核对。这样的问题与“我替大家做决定”不同，也不保证活动一定顺利。本问卷没有检查你做过什么，只提供可以回看的情境。即使一次安排没有得到预期效果，也不能据此宣布你不适合协调；结果的名字不替代实际参与者的意愿和信息。",
+              "en": "A seed-exchange table might prompt questions about who wants to be present at which time, how exchange information is checked and who joins a discussion when something is unclear. Those questions differ from deciding for everyone and guarantee no smooth event. The questionnaire has not checked what you have actually done; it offers a situation to consider. An arrangement that disappoints people does not, by itself, establish that coordination is unsuitable for you. A result’s name cannot replace participants’ preferences, relevant information or their ability to decline a role. The example needs no real names or neighbourhood details."
+            }
+          ]
+        },
+        {
+          "id": "optional-try",
+          "title": {
+            "zh": "可选地问清谁愿意承担什么",
+            "en": "An optional question about willing participation"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，可以在一项普通小活动里先问：“哪部分你愿意负责，哪部分还需要一起决定？”把自愿、范围和后续怎么交接留在安排里，而不是用角色名称要求别人配合。你也可以说明自己不愿或不能承担的部分。这个尝试不保证提高领导力、减少冲突或让他人满意，也不要求你组织任何人。只是把“共同条件”变成一个可讨论的问题；不尝试，也可以把这份说明读完后结束。",
+              "en": "If useful, ask during a small ordinary activity: “Which part would you like to handle, and what still needs a shared decision?” Keep willingness, scope and handovers visible rather than using a role label to demand cooperation. You may also state what you cannot or do not want to take on. This promises neither improved leadership, reduced conflict nor satisfied participants, and requires organising no one. It merely turns shared conditions into a discussable question. You may leave it as a reading without an experiment, and no score should overrule someone’s choice to decline."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "四个角色怎样分开读",
+            "en": "Reading the four roles separately"
+          },
+          "paragraphs": [
+            {
+              "zh": "国王提醒共同条件，战士提醒有边界的推进，魔法师提醒提问与小试验，情人提醒留意与欣赏。一件小事可能同时需要这些问题，不能把最高计数叫作唯一真实身份。与十二原型问卷中的统治者、英雄、魔法师或恋人也有主题交叠，但这里使用另一组专门情境，没有逐题等价或分数换算。最高并列时四份中匹配的每份都完整保留，不按照先后顺序让国王自动胜出。",
+              "en": "King highlights shared conditions, Warrior bounded follow-through, Magician questions and small experiments, and Lover attention and appreciation. One activity might involve all of them, so a highest count is no sole true identity. Themes also overlap Ruler, Hero, Magician and Lover in the twelve-archetype questionnaire, without item equivalence or score conversion between forms. Every highest tie receives its full guide, and King does not win automatically through its position in a list. Lower counts establish no missing psychological resource. Nor does selecting all four equally certify balance, maturity or a complete model of the person."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "有边界不等于缺少责任",
+            "en": "Limits are not a lack of responsibility"
+          },
+          "paragraphs": [
+            {
+              "zh": "拒绝协调、让别人处理安排、接受帮助或承认不知道，都不能被低计数叫作没有责任感。相反，高计数也不许可控制、替人决定或把所有工作揽在身上。本版不区分好男人与坏男人，不收性别，不判断谁更成熟或配得上权威。协调是否适合，需要具体活动、选择空间和参与者意愿；文学隐喻不能用于招聘、团队分配或评价别人，也不要求任何人接受某个自称国王的安排。",
+              "en": "Declining coordination, allowing someone else to arrange things, accepting support or admitting uncertainty is not irresponsibility inferred from fewer selections. More selections likewise permit neither control nor taking decisions or work away from others. This edition distinguishes no good and bad men, collects no gender and decides neither maturity nor entitlement to authority. Suitability for coordination depends on the activity, room to choose and participants’ wishes. A literary metaphor is not a hiring or team-allocation tool, and nobody is required to accept an arrangement from someone who adopts the King label."
+            }
+          ]
+        },
+        {
+          "id": "evidence",
+          "title": {
+            "zh": "来源与一次有限的回顾",
+            "en": "Sources and a bounded review"
+          },
+          "paragraphs": [
+            {
+              "zh": "四角色名称的背景可在作者公开介绍中找到；其中关于心理结构的说法不是本测验已验证的事实。本版不复制书本、题库或竞品关于稳定公平的推断，也不把专门版本算成性别带来的新构念。想回顾时，可以只选一次普通安排，看看哪些事由大家说清、哪些仍未知，不必给自己定性或输入私人资料。下一次选项改变，可能只是场景或关注点不同，不证明稳定的领导力或成熟度改变。",
+              "en": "The linked author overview supplies background for four names; its psychological-structure claims are not findings validated by this quiz. Book text, banks and competitor inferences about steadiness or fairness are not copied. A focused edition does not establish a new construct through a gendered title. For a small review, consider one ordinary arrangement and distinguish what people agreed from what remained unknown, without a personal label or private data. Different later selections may reflect another situation or focus. They do not establish a change in stable leadership, maturity or psychological integration."
+            }
+          ]
+        },
+        {
+          "id": "archetype-counts",
+          "title": {
+            "zh": "二十次选择与每一份最高并列",
+            "en": "Twenty choices and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "20题每题四个选项各对应一个角色隐喻，只选一项，给该角色加1次。四角色各出现20次，每个位置各5次，0条反向；计数范围0—20，不是能量、能力、成熟度、性别特征强度或百分比。全部20题选择后才比较最高计数，所有最高并列都保留完整报告，不按国王、战士、魔法师、情人的顺序破并列，也不派次高。全选A四项各5，四份全文全部呈现，不认证理想心理平衡。低计数不叫阴影或缺陷，1次差异不证明固定主次。未完成或无效作答不解释，重测变化不认证稳定性格或成长效果。",
+              "en": "Each of twenty items has four options, one per role metaphor. A choice adds one count. Every role appears twenty times, five times in each option position, with zero reversals. Counts range from 0–20 and are neither energy, ability, maturity or gender-strength scales nor percentages. Only a complete attempt compares counts, retaining the full guide for every highest tie. No King-Warrior-Magician-Lover order breaks ties, and no secondary type is assigned. Choosing A throughout gives five each and four full guides, without certifying ideal psychological balance. Lower counts establish no shadow or deficit, and one choice proves no stable hierarchy. Incomplete or invalid input is not interpreted; retake differences certify no stable personality or growth effect."
+            }
+          ]
+        },
+        {
+          "id": "scope-privacy",
+          "title": {
+            "zh": "专门版本、文学背景与隐私",
+            "en": "Focused edition, literary background and privacy"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是本站原创四角色专门情境与解释，名称借四角色讨论的文学背景，不复制书本、标准题库或竞品，也不测所谓男性本质、成熟能量、智力、关系能力或健康。任何人都可以参与，不输入性别或私人经历。与十二原型有主题交叠，问卷范围和题目不同，不自动等价或换算分数。全文免费，无另一测评解锁。草稿主动开启，仅本设备24小时，完成、退出或重测清除；不保存也能完成。分享只测试名、匹配名称和公开链接，不带答卷或计数。你可以先读任何一份，不必承担与角色名相符的义务。",
+              "en": "These original focused situations and guides use four names with a literary background, without reproducing a book, standard bank or competitor content. They measure no masculine essence, mature energy, intelligence, relationship ability or health. Anyone may participate without entering gender or private experiences. Themes overlap the twelve-archetype entry, with different scope and items and no automatic equivalence or score conversion. Full text is free without another assessment. Drafts require opt-in, remain on this device for twenty-four hours and clear on completion, exit or retake; storage is optional. Sharing includes only the test name, matched guide names and public links, without answers or counts. You may read any guide first without accepting obligations attached to its name."
+            }
+          ]
+        }
+      ],
+      "headline": {
+        "zh": "把国王读作商量范围、分担和参与条件的文学隐喻；不证明领导力、权威、成熟度或应该替别人决定。",
+        "en": "Read King as a metaphor for agreeing scope, shared work and participation, without certifying leadership, authority, maturity or a right to decide for others."
+      },
+      "scoreReading": {
+        "zh": "本角色选项被选择的次数，不是心理能量、性别或能力分数；所有最高并列保留全文。",
+        "en": "Selections of this role’s options, not energy, gender or ability scores; every highest tie keeps its full guide."
+      },
+      "seo": {
+        "title": {
+          "zh": "国王隐喻：男性原型测试的共同条件完整说明",
+          "en": "King Male Archetype Result: Shared Conditions"
+        },
+        "description": {
+          "zh": "阅读国王隐喻完整结果：协调范围、分担、意愿、具体例子和反例。不认证领导力、权威、成熟度，也不要求替别人决定。",
+          "en": "Read the full King guide: shared conditions, scope, willingness, examples and limits. No leadership, authority or maturity certification."
+        }
+      }
+    },
+    {
+      "id": "warrior",
+      "directionIds": [
+        "warrior"
+      ],
+      "title": {
+        "zh": "战士隐喻：有边界地推进",
+        "en": "Warrior: Bounded Follow-through"
+      },
+      "summary": {
+        "zh": "把战士读作清楚约定、可承担范围与交接的文学隐喻；不证明意志、忠诚、能力，不把休息或停止说成软弱。",
+        "en": "Read Warrior through agreements, manageable scope and handovers, without proving willpower, loyalty or ability or classifying rest and stopping as weakness."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "战士不需要对抗某个人",
+            "en": "Warrior does not require an opponent"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版的战士是一种关于有边界行动的文学隐喻：认领一件能承担的小事，把约定说清，在范围里推进并交接。它没有要求对抗、攻击或克服别人，也不以牺牲休息作为值得赞赏的答案。你在假想情境里选这一类做法，会增加战士计数，但这不是测量勇气或意志的量表。四角色名称有书本背景，本站题目不测试书中的男性心理能量，也不从选择推成熟或未成熟。",
+              "en": "Warrior here is a literary metaphor for bounded action: taking a manageable task, making an agreement clear, proceeding within its scope and handing it over. It requires no opponent, aggression or victory over another person and treats no sacrifice of rest as an admirable answer. Selecting such practices in hypothetical situations adds Warrior counts without measuring courage or willpower. The four names have a book background, but this bank does not test its proposed masculine energies or infer maturity. A useful question is what you would willingly undertake, not how much pressure you could endure."
+            }
+          ]
+        },
+        {
+          "id": "what-it-selects",
+          "title": {
+            "zh": "计数不检验现实中的完成能力",
+            "en": "Counts do not test real completion ability"
+          },
+          "paragraphs": [
+            {
+              "zh": "计数较多表示你在这组情境里较常把有范围的推进放在前面，并不能证明你现实中说到做到、比别人更忠诚或技能更强。问卷没有观察实际交付、时间安排和资源，也没问别人是否同意这个任务。较少选择也不代表懒惰或意志不足；你可能更想先核对条件或感受，而不是马上行动。四项只在本题的选项数量上可比较，不是可用于跨人排名的可靠性分数。",
+              "en": "More selections indicate that bounded follow-through was put first more often in this set of situations. They establish neither real delivery, loyalty nor stronger skill. No actual output, schedule or resource was observed, and others’ agreement to a task was not checked. Fewer selections establish neither laziness nor deficient will; you might prefer first to understand conditions or experiences rather than act. The four counts are comparable only as selections within this bank. They are not reliability scores for ranking people or evidence that the more frequently chosen practice will suit an actual task."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "完成一个小范围，也包括说明边界",
+            "en": "A small completed scope includes its limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，一批旧活动用品需要分装。你愿意负责一箱，而不是替大家保证所有物品都能处理完。可以把这一箱的范围、完成状态和仍需别人决定的部分交代清楚；遇到新情况，也可以重新商量约定。这个例子不要求你接下任务，更不把中途调整叫作不守信用。本问卷没有采集你处理物品的记录，只用情境帮助区分有边界地推进与不问条件地硬撑。",
+              "en": "Suppose old activity supplies need repacking. You might volunteer for one box rather than promise that every object will be handled. Its scope, completed state and matters requiring another decision can be stated clearly; changed circumstances may call for a new agreement. This example requires taking on no task and does not equate adjustment with broken trust. The questionnaire records no actual repacking. It helps distinguish bounded follow-through from pushing on without checking conditions, rather than proving that you can complete the work or that continuing is necessarily appropriate."
+            }
+          ]
+        },
+        {
+          "id": "optional-try",
+          "title": {
+            "zh": "可选地把约定缩到可承担的一步",
+            "en": "Optionally narrowing an agreement to a manageable step"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，可以说：“我能先处理这一小部分，之后把完成和未完成的状态告诉你。”再考虑时间、选择空间与需要另商量的条件。你可以拒绝、缩小范围、暂停或寻求帮助，不必为了符合战士名字而继续。这个小尝试不保证效率提高、意志增强或让别人更信任你。它只是让愿意承担与实际承诺之间多一层清楚的说明，不要求把所有任务都转成一次对自己的考验。",
+              "en": "If useful, try: “I can handle this small part first and then tell you what is and is not complete.” Consider timing, room to choose and conditions requiring another discussion. Refusal, a smaller scope, pausing or support remain options; the Warrior name cannot require continuation. This small experiment promises neither efficiency, stronger will nor increased trust. It adds clarity between a willing contribution and an actual promise, rather than turning every task into a personal test. You may decide that no experiment is appropriate and simply retain the distinction while reading."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "推进与其他三种提醒可以并存",
+            "en": "Action can coexist with the other reminders"
+          },
+          "paragraphs": [
+            {
+              "zh": "战士关注具体承诺与边界，国王关注共同条件，魔法师关注问题与小试验，情人关注体验与欣赏。先问清再推进、推进时保留感受、需要时让大家重新商量，都不违背任何一份读法。本版不把一个计数的优势写成其他三个心理资源不足；计数差1也不证明稳定主次。十二原型里的英雄有相关主题，但问卷范围与选项不同，不能自动换成这里的战士，也不能因名称变化计算一种新性别人格。",
+              "en": "Warrior concerns concrete commitments and limits, King shared conditions, Magician questions and experiments, and Lover experience and appreciation. Asking before proceeding, noticing experience while acting and renegotiating together can coexist. A higher count establishes no shortage of the other three psychological resources, and one selection creates no stable primary-secondary hierarchy. Hero in the twelve-archetype entry has related themes, but its scope and options differ and cannot automatically be converted into Warrior here. A changed name or narrower form does not establish a new gender-based personality or justify treating forms as equivalent measures."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "休息、怀疑与停止不是软弱",
+            "en": "Rest, doubt and stopping are not weakness"
+          },
+          "paragraphs": [
+            {
+              "zh": "适当休息、承认难以完成、改变计划或不愿参与，都不能由这份结果叫作软弱。需要专门技能或现实风险的任务，也不因高计数就适合你。本版不判断你会不会履约、是否攻击性强或能不能在压力下表现，也不评价谁更像“真正的男人”。他人是否应该信任、雇用或把工作交给你，不能以这20个假想选择决定。边界和实际信息比角色名字更有决定意义。",
+              "en": "Appropriate rest, acknowledging difficulty, changing a plan or declining participation is not weakness established by this result. A high count makes no task requiring skills or involving real risks suitable for you. This edition predicts neither fulfilment of promises, aggression nor performance under pressure and judges nobody as a real man. Trust, hiring and allocation of work cannot be decided through twenty imagined selections. Actual information and boundaries matter more than a role’s name, and neither admiration for the metaphor nor an unexpectedly low count removes your choice to stop."
+            }
+          ]
+        },
+        {
+          "id": "evidence",
+          "title": {
+            "zh": "从一次普通约定回看",
+            "en": "Reviewing one ordinary agreement"
+          },
+          "paragraphs": [
+            {
+              "zh": "作者公开介绍提供四角色讨论的背景，不验证本站计分，也不是复制书中训练或成长路径的许可。本版全部情境与正文另写，不移植竞品对意志、忠诚或休息风险的判断。读完可以只回看一次普通约定：我愿意承担什么，实际约定了什么，哪些条件后来改变？不需要输入隐私或再证明自己坚强。重测换了关注点，计数可以不同，而这不认证意志、可靠性或成熟程度已经发生改变。",
+              "en": "The author’s public overview supplies background for the four-role discussion, not validation of this scoring or permission to reproduce a book’s training or growth pathway. These situations and guides are separately written without competitor conclusions about will, loyalty or risks of resting. After reading, consider one ordinary agreement: what you wanted to take on, what was actually agreed and which conditions later changed. No private data or proof of strength is needed. A different focus can produce different counts on a retake without certifying changed willpower, reliability or maturity."
+            }
+          ]
+        },
+        {
+          "id": "archetype-counts",
+          "title": {
+            "zh": "二十次选择与每一份最高并列",
+            "en": "Twenty choices and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "20题每题四个选项各对应一个角色隐喻，只选一项，给该角色加1次。四角色各出现20次，每个位置各5次，0条反向；计数范围0—20，不是能量、能力、成熟度、性别特征强度或百分比。全部20题选择后才比较最高计数，所有最高并列都保留完整报告，不按国王、战士、魔法师、情人的顺序破并列，也不派次高。全选A四项各5，四份全文全部呈现，不认证理想心理平衡。低计数不叫阴影或缺陷，1次差异不证明固定主次。未完成或无效作答不解释，重测变化不认证稳定性格或成长效果。",
+              "en": "Each of twenty items has four options, one per role metaphor. A choice adds one count. Every role appears twenty times, five times in each option position, with zero reversals. Counts range from 0–20 and are neither energy, ability, maturity or gender-strength scales nor percentages. Only a complete attempt compares counts, retaining the full guide for every highest tie. No King-Warrior-Magician-Lover order breaks ties, and no secondary type is assigned. Choosing A throughout gives five each and four full guides, without certifying ideal psychological balance. Lower counts establish no shadow or deficit, and one choice proves no stable hierarchy. Incomplete or invalid input is not interpreted; retake differences certify no stable personality or growth effect."
+            }
+          ]
+        },
+        {
+          "id": "scope-privacy",
+          "title": {
+            "zh": "专门版本、文学背景与隐私",
+            "en": "Focused edition, literary background and privacy"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是本站原创四角色专门情境与解释，名称借四角色讨论的文学背景，不复制书本、标准题库或竞品，也不测所谓男性本质、成熟能量、智力、关系能力或健康。任何人都可以参与，不输入性别或私人经历。与十二原型有主题交叠，问卷范围和题目不同，不自动等价或换算分数。全文免费，无另一测评解锁。草稿主动开启，仅本设备24小时，完成、退出或重测清除；不保存也能完成。分享只测试名、匹配名称和公开链接，不带答卷或计数。你可以先读任何一份，不必承担与角色名相符的义务。",
+              "en": "These original focused situations and guides use four names with a literary background, without reproducing a book, standard bank or competitor content. They measure no masculine essence, mature energy, intelligence, relationship ability or health. Anyone may participate without entering gender or private experiences. Themes overlap the twelve-archetype entry, with different scope and items and no automatic equivalence or score conversion. Full text is free without another assessment. Drafts require opt-in, remain on this device for twenty-four hours and clear on completion, exit or retake; storage is optional. Sharing includes only the test name, matched guide names and public links, without answers or counts. You may read any guide first without accepting obligations attached to its name."
+            }
+          ]
+        }
+      ],
+      "headline": {
+        "zh": "把战士读作清楚约定、可承担范围与交接的文学隐喻；不证明意志、忠诚、能力，不把休息或停止说成软弱。",
+        "en": "Read Warrior through agreements, manageable scope and handovers, without proving willpower, loyalty or ability or classifying rest and stopping as weakness."
+      },
+      "scoreReading": {
+        "zh": "本角色选项被选择的次数，不是心理能量、性别或能力分数；所有最高并列保留全文。",
+        "en": "Selections of this role’s options, not energy, gender or ability scores; every highest tie keeps its full guide."
+      },
+      "seo": {
+        "title": {
+          "zh": "战士隐喻：男性原型测试的边界推进完整说明",
+          "en": "Warrior Male Archetype Result: Bounded Action"
+        },
+        "description": {
+          "zh": "阅读战士隐喻完整结果：清楚约定、可承担范围、交接与反例。不证明意志、忠诚或能力，也不把休息或停止当软弱。",
+          "en": "Read the full Warrior guide: agreements, manageable scope, handovers and limits. No willpower or loyalty verdict; rest and stopping are not weakness."
+        }
+      }
+    },
+    {
+      "id": "magician",
+      "directionIds": [
+        "magician"
+      ],
+      "title": {
+        "zh": "魔法师隐喻：提问与试验",
+        "en": "Magician: Questions and Experiments"
+      },
+      "summary": {
+        "zh": "把魔法师读作区分未知、提出问题与可撤回小试验的文学隐喻；不测试智力、洞察力或预测别人动机。",
+        "en": "Read Magician through unknowns, questions and reversible small experiments, without testing intelligence, insight or the ability to infer someone’s motives."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "魔法师不是特殊能力的认证",
+            "en": "Magician certifies no special power"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版借魔法师这个文学名称，提醒你留意一个问题怎样被提出、哪些部分还不知道，以及能不能用一个可撤回的小试验看清一点。它不是神秘能力、智商或比别人更聪明的认证。20个情境里选择这一类做法，会增加这份读法的计数，但不能说明你总能找到更高效的路径。作者公开介绍中的认知与转化主题只提供背景，本站没有测试书本的心理结构或某种成熟能量。",
+              "en": "This edition uses Magician as a literary name for noticing how a question is framed, what remains unknown and whether a reversible small test could clarify something. It certifies neither unusual powers, IQ nor superior intelligence. Selecting such practices among twenty situations adds counts without establishing that you reliably find an efficient route. The cognitive and transformational themes in the author’s public overview provide background only. This bank tests neither the book’s psychological structures nor a mature energy. A question can remain unanswered; the name is an invitation to examine information, not a promise of insight."
+            }
+          ]
+        },
+        {
+          "id": "what-it-selects",
+          "title": {
+            "zh": "偏好核对，不等于核对已正确",
+            "en": "Choosing to check does not establish correctness"
+          },
+          "paragraphs": [
+            {
+              "zh": "较多计数只表示在这些假想情境中，提问和小试验的选项被你选得更多；真实的知识、操作效果、判断准确度和他人反馈都没有被收集。你可能是好奇，也可能因为某处不清楚而想先问，原因未测。较少选择同样不等于不善思考或容易受骗；题目安排每次只能先选一项，其他做法也有价值。不要用这个数量把自己或别人排成聪明与不聪明，或替任何尚未核实的结论背书。",
+              "en": "More selections indicate only that question-and-experiment options were chosen more often in imagined situations. Actual knowledge, effects, accuracy and feedback were not collected. Curiosity or uncertainty might explain wanting to ask first, but reasons were not assessed. Fewer selections establish neither poor thinking nor gullibility: each item permits only one starting point, and other practices can matter too. The number cannot rank intelligence or support a conclusion that has not been checked. Wanting to investigate is distinct from having investigated well, and a test label supplies no evidence missing from the actual question."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "让一个小样例提供新信息",
+            "en": "Letting a small example supply information"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，几张借还提示总让人猜下一步。你可以在纸上模拟一次借出和归还，看猜测从哪句话开始，而不是先宣布自己已经知道根因。模拟给出的信息也有限，真实使用者可能遇到别的情况，仍需保留未知。这个例子不是一项能力测试，不要求你收集别人的聊天、个人数据或工作内容，也不说明选择魔法师就擅长解决系统问题。它只是把抽象的“想弄清楚”变成一个小问题。",
+              "en": "Suppose borrowing-and-return cues repeatedly leave the next step unclear. A paper simulation of one loan and return could show where guessing begins instead of assuming that you already know the cause. Its information remains limited; actual users may encounter different circumstances. This is no ability test and asks for no messages, personal data or work material from others. Selecting Magician does not establish expertise in solving system problems. The example makes a wish to understand into a small question while retaining the possibility that the test will be uninformative or that another approach is needed."
+            }
+          ]
+        },
+        {
+          "id": "optional-try",
+          "title": {
+            "zh": "可选地分开已知、猜测和可试之处",
+            "en": "Optionally separating known, guessed and testable parts"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，可以挑一个普通、低成本的问题，在心里区分已知、猜测与可小范围试的部分。不需要制造复杂方案，也不要求一定找到答案；看出“目前不知道”本身可以保留。你还可以决定暂不试验，或先请愿意的人说明他们怎么看。这个回顾不保证提高判断力、创造力或效率，不适用于替代需要专门资格的判断。文字里的小试验只是一个可选入口，不是必须完成的成长任务。",
+              "en": "If useful, choose an ordinary low-cost question and separate what is known, guessed and suitable for a small test. No elaborate plan or definite answer is required; recognising “currently unknown” can remain the outcome. You can decline the experiment or ask a willing person how they see the issue first. This reflection promises no increased judgment, creativity or efficiency and cannot replace decisions requiring specific qualifications. A small experiment is an optional entry into thinking, not a required growth assignment, and its result should not be generalised beyond the conditions actually explored."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "提问与行动、协调和感受并不对立",
+            "en": "Questions need not oppose action, coordination or feeling"
+          },
+          "paragraphs": [
+            {
+              "zh": "魔法师关注未知和试验，战士关注有边界的推进，国王关注共同条件，情人关注留意与欣赏。提出问题可以是推进的一部分，试验也需要考虑参与者和体验，并不是四种互斥的人。现有十二原型中的智者和魔法师有相关主题，但这里不作自动等价或分数换算。最高并列全部呈现，不把问题较多的人排在行动者之上；全四项并列只说明20次选择的计数相同，不认证完整心理平衡。",
+              "en": "Magician concerns unknowns and tests, Warrior bounded action, King shared conditions and Lover attention and appreciation. A question can be part of action, and a test can consider participants and their experience; these are not mutually exclusive kinds of people. Sage and Magician in the twelve-archetype entry have related themes without automatic equivalence or score conversion here. Every highest tie remains, without ranking questioners above people who act. Four equal counts reflect only twenty selections, not complete psychological balance, and no unselected role becomes a deficit to be repaired."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "不知道、求助与直接表达都可以",
+            "en": "Uncertainty, support and direct expression remain possible"
+          },
+          "paragraphs": [
+            {
+              "zh": "不知道答案、向别人请教、先做一个约定的步骤或直接表达感受，都不能由本项低计数叫作缺少智慧。高计数也不说明你会操纵、藏知识或活在头脑里，那些都没有被测量。这个隐喻不授权你解读别人的潜意识、情绪或动机，也不给治疗、专业判断或重大决定背书。角色名称可以帮助你记住一个问题，但不能代替证据、资格、同意或具体情境，更不需要据此判断谁更像成熟男性。",
+              "en": "Not knowing, asking for support, following an agreed step or expressing a feeling directly is not a lack of wisdom inferred from fewer selections. More selections likewise establish no manipulation, concealed knowledge or tendency to live in your head; none was measured. The metaphor authorises no interpretation of someone else’s unconscious processes, feelings or motives and supports no therapy, expert judgment or major decision. A role name may help retain a question, but it cannot replace evidence, qualifications, consent or circumstances, or decide who represents mature masculinity more successfully."
+            }
+          ]
+        },
+        {
+          "id": "evidence",
+          "title": {
+            "zh": "把来源背景与个人推断分开",
+            "en": "Separating background and personal inference"
+          },
+          "paragraphs": [
+            {
+              "zh": "四个名字在作者公开介绍中有明确背景，但本版20题与正文全部另写，不复制书本训练、竞品题目或“你看得比别人深”的断言。读完可以回想一次普通核对：当时知道了什么，还有哪些只是猜测？不必把自己的生活当案例上传，也不用证明自己属于某个角色。下次更想先行动或留意体验，计数可能改变；它不证明智力、洞察、稳定性格或某种心理结构发生变化。",
+              "en": "The author overview identifies a background for four names, while these twenty items and guides are separately written without book exercises, competitor items or claims of deeper-than-others insight. After reading, recall one ordinary check: what became known, and what remained a guess? No personal case needs uploading and no role membership needs proving. Preferring action or attention to experience next time can change the counts without establishing altered intelligence, insight, stable personality or psychological structure. It is enough to retain a useful distinction between wanting an answer and having evidence for it."
+            }
+          ]
+        },
+        {
+          "id": "archetype-counts",
+          "title": {
+            "zh": "二十次选择与每一份最高并列",
+            "en": "Twenty choices and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "20题每题四个选项各对应一个角色隐喻，只选一项，给该角色加1次。四角色各出现20次，每个位置各5次，0条反向；计数范围0—20，不是能量、能力、成熟度、性别特征强度或百分比。全部20题选择后才比较最高计数，所有最高并列都保留完整报告，不按国王、战士、魔法师、情人的顺序破并列，也不派次高。全选A四项各5，四份全文全部呈现，不认证理想心理平衡。低计数不叫阴影或缺陷，1次差异不证明固定主次。未完成或无效作答不解释，重测变化不认证稳定性格或成长效果。",
+              "en": "Each of twenty items has four options, one per role metaphor. A choice adds one count. Every role appears twenty times, five times in each option position, with zero reversals. Counts range from 0–20 and are neither energy, ability, maturity or gender-strength scales nor percentages. Only a complete attempt compares counts, retaining the full guide for every highest tie. No King-Warrior-Magician-Lover order breaks ties, and no secondary type is assigned. Choosing A throughout gives five each and four full guides, without certifying ideal psychological balance. Lower counts establish no shadow or deficit, and one choice proves no stable hierarchy. Incomplete or invalid input is not interpreted; retake differences certify no stable personality or growth effect."
+            }
+          ]
+        },
+        {
+          "id": "scope-privacy",
+          "title": {
+            "zh": "专门版本、文学背景与隐私",
+            "en": "Focused edition, literary background and privacy"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是本站原创四角色专门情境与解释，名称借四角色讨论的文学背景，不复制书本、标准题库或竞品，也不测所谓男性本质、成熟能量、智力、关系能力或健康。任何人都可以参与，不输入性别或私人经历。与十二原型有主题交叠，问卷范围和题目不同，不自动等价或换算分数。全文免费，无另一测评解锁。草稿主动开启，仅本设备24小时，完成、退出或重测清除；不保存也能完成。分享只测试名、匹配名称和公开链接，不带答卷或计数。你可以先读任何一份，不必承担与角色名相符的义务。",
+              "en": "These original focused situations and guides use four names with a literary background, without reproducing a book, standard bank or competitor content. They measure no masculine essence, mature energy, intelligence, relationship ability or health. Anyone may participate without entering gender or private experiences. Themes overlap the twelve-archetype entry, with different scope and items and no automatic equivalence or score conversion. Full text is free without another assessment. Drafts require opt-in, remain on this device for twenty-four hours and clear on completion, exit or retake; storage is optional. Sharing includes only the test name, matched guide names and public links, without answers or counts. You may read any guide first without accepting obligations attached to its name."
+            }
+          ]
+        }
+      ],
+      "headline": {
+        "zh": "把魔法师读作区分未知、提出问题与可撤回小试验的文学隐喻；不测试智力、洞察力或预测别人动机。",
+        "en": "Read Magician through unknowns, questions and reversible small experiments, without testing intelligence, insight or the ability to infer someone’s motives."
+      },
+      "scoreReading": {
+        "zh": "本角色选项被选择的次数，不是心理能量、性别或能力分数；所有最高并列保留全文。",
+        "en": "Selections of this role’s options, not energy, gender or ability scores; every highest tie keeps its full guide."
+      },
+      "seo": {
+        "title": {
+          "zh": "魔法师隐喻：男性原型测试的提问试验完整说明",
+          "en": "Magician Male Archetype Result: Inquiry & Experiments"
+        },
+        "description": {
+          "zh": "阅读魔法师隐喻完整结果：未知、问题、小样例和可选试验。不是智力、洞察、判断准确度或解释别人动机的认证。",
+          "en": "Read the full Magician guide: unknowns, questions, examples and optional tests. No intelligence, insight, accuracy or motive-reading certification."
+        }
+      }
+    },
+    {
+      "id": "lover",
+      "directionIds": [
+        "lover"
+      ],
+      "title": {
+        "zh": "情人隐喻：留意与欣赏",
+        "en": "Lover: Attention and Appreciation"
+      },
+      "summary": {
+        "zh": "把情人读作认真留意人、事物与体验细节的文学隐喻；不推断恋爱身份、亲密能力、情绪敏感度或同理心。",
+        "en": "Read Lover through attention to people, objects and experience, without inferring relationship status, intimacy skills, emotional sensitivity or empathy."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "情人是文学名称，不是关系身份",
+            "en": "Lover is a literary name, not relationship status"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版的情人并不说明你正在恋爱、应该开放多少情绪，或拥有怎样的亲密能力。它是一个关于留意与欣赏的文学提醒：一个人说的话、物品承载的记忆、声音和颜色、一次活动的具体体验。选择这些做法会增加计数，不等于已经准确理解别人。名字有四角色讨论的背景，本站把它用于普通情境的阅读，不测书中关于男性心理能量的说法，也不要求任何人符合某一种性别表达。",
+              "en": "Lover in this edition establishes neither a romantic relationship nor a required degree of emotional openness or intimacy skill. It is a literary reminder about attention and appreciation: someone’s words, an object’s memories, sound and colour, or the experience of an activity. Selecting such practices adds counts without establishing accurate understanding of another person. The name has a four-role background, while this bank uses ordinary situations rather than testing proposed masculine energies. No particular gender expression is required. Attention can remain small, private and bounded rather than becoming a performance of warmth or closeness."
+            }
+          ]
+        },
+        {
+          "id": "what-it-selects",
+          "title": {
+            "zh": "留意的选择，不是读懂别人的证据",
+            "en": "Attention choices do not prove understanding"
+          },
+          "paragraphs": [
+            {
+              "zh": "较多情人计数，表示在20个假想情境中，留意体验和个人细节的选项被你选得更多，不证明同理心更强、情感更丰富或别人更愿意向你敞开。你可能只是当时觉得那个细节值得看，题目没问原因，也没有别人的反馈。较少选择也不代表冷漠或没有乐趣，其他起点同样可能让人被尊重。计数不描述你的恋爱关系、感情状态或审美水平，更不能据此给他人配对或判断相处是否合适。",
+              "en": "More Lover selections mean that attention-to-experience options were chosen more often among twenty situations. They establish neither stronger empathy, richer emotion nor other people’s willingness to open up. A detail may simply have seemed worth noticing; reasons and feedback were not collected. Fewer selections establish no coldness or absence of enjoyment, and other starting points can also respect people. The count describes neither relationship status, emotional condition nor aesthetic proficiency. It cannot pair people, determine compatibility or show whether an attentive gesture was welcomed or understood in an actual interaction."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "从一张明信片的细节开始",
+            "en": "Beginning with a postcard’s details"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，大家整理一箱明信片，你愿意读读手写文字，听朋友讲哪一张值得保留。这可以是有边界的留意，不必追问私人经历，也不要求对方把情绪说出来。朋友不想讲时，尊重那个选择也很重要。这个例子不是测量温暖或关系质量的题目，本问卷没有看见真实的互动，更不能从选择它推断你总会照顾别人感受。它只是说明这个角色名可以怎样连接一个具体而普通的注意动作。",
+              "en": "Suppose people are sorting postcards and you would like to read the handwriting or hear which card a friend wants retained. This can be bounded attention without asking for private experiences or requiring feelings to be spoken. A wish not to explain also deserves respect. The example measures neither warmth nor relationship quality; the questionnaire observes no actual interaction and cannot infer consistent care for feelings from choosing it. It shows how a role name could connect to a concrete ordinary act of noticing, while leaving the person’s actual experience and wishes unknown."
+            }
+          ]
+        },
+        {
+          "id": "optional-try",
+          "title": {
+            "zh": "可选地回应一个愿意分享的细节",
+            "en": "Optionally responding to a willingly shared detail"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，可以在普通交流里回应一个对方已经愿意分享的细节，而不是猜他心里真正想什么。比如说“你提到这一张卡片很重要，我可以把它单独放好吗？”对方可以拒绝，你也可以不继续展开。这个尝试不保证亲密、快乐或被信任，也不要求你吸收别人的情绪、提供照护或放下自己的边界。审美和体验的留意可以很简单，不需要把每次互动都变成深刻的情感时刻。",
+              "en": "If useful, respond to a detail someone has willingly shared rather than guessing what they really think: “You mentioned that this card matters; would you like it kept separately?” The person may decline and you need not expand the exchange. This promises neither intimacy, joy nor trust and requires absorbing no one’s emotions, providing care or abandoning boundaries. Attention to experience can remain simple without making every interaction a profound emotional moment. You may also prefer quiet appreciation of an object or place, with no audience, disclosure or task to complete."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "留意与其他三种做法可以一起出现",
+            "en": "Attention can appear with the other three practices"
+          },
+          "paragraphs": [
+            {
+              "zh": "情人关注体验，国王关注共同条件，战士关注有边界推进，魔法师关注问题与试验。整理物品时，既可以说明分担，也可以完成一箱、试一种分类并保留珍贵细节，不需要把自己分成只能做一种事的人。十二原型的恋人与这里主题相关，形式与计分却不同，不自动换算或证明一种新性别人格。最高并列逐份保留全文；四项各5次不是理想的人格配方，而只是这20次选择的同计数。",
+              "en": "Lover concerns experience, King shared conditions, Warrior bounded action and Magician questions and tests. Sorting objects could involve agreeing responsibilities, finishing one box, trying a grouping and retaining valued details together; nobody must become a person capable of only one practice. The twelve-archetype Lover has related themes without equivalent forms or score conversion, and a gendered title establishes no new personality construct. Every highest tie retains its full guide. Four counts of five supply no ideal personality recipe; they are simply equal counts from twenty selections, with actual wishes and capabilities still unmeasured."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "隐私、拒绝与不想分享都不是缺陷",
+            "en": "Privacy and declining to share are not deficits"
+          },
+          "paragraphs": [
+            {
+              "zh": "不愿谈感受、喜欢独处、保持距离、拒绝一段交流或专注任务，都不能据本项低计数叫作冷漠。高计数也不证明你会被情绪淹没、没有边界或容易失去计划，这些都没有被测量。你不需要为了符合情人名称而表达喜欢、接受亲近或承担别人情绪。这个隐喻不判断性别、情感身份或谁有资格被爱，也不用于招聘、配对或评价别人；真实意愿和边界始终需要在现实里被尊重。",
+              "en": "Keeping feelings private, solitude, distance, declining an exchange or focusing on a task is not coldness inferred from fewer selections. More selections likewise establish no emotional overwhelm, poor boundaries or lost plans; none was measured. You need not express affection, accept closeness or take responsibility for emotions to match a label. The metaphor judges neither gender, emotional identity nor who deserves love and is not for hiring, matching or evaluating others. Actual wishes and boundaries still need respect in the situation, regardless of a guide’s name or how many times an option was chosen."
+            }
+          ]
+        },
+        {
+          "id": "evidence",
+          "title": {
+            "zh": "把文学背景留在合适的范围",
+            "en": "Keeping literary background within its scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "作者公开文字可说明四个角色的背景，不代表本站已经验证情绪能力或某种普遍心理结构。题目与说明另写，不复制书本或竞品关于读懂情绪、关系亲近、情绪感染的判断。读完可以只记住一个问题：这个细节是对方愿意分享的吗，我是否也愿意继续？不需要向网站提交关系和私人经历。重测时若想先处理安排，计数可能不同；它不证明你变得更冷漠、亲密能力改变或男性气质发生变化。",
+              "en": "Public author material supplies a literary background without establishing emotional skill or a universal psychological structure in this edition. Items and guides are separately written, without book text or competitor judgments about reading feelings, closeness or emotional contagion. One question is enough to retain: was this detail willingly shared, and do I also want to continue? No relationship or private experience needs submitting. Preferring to handle arrangements on a retake can change counts without establishing coldness, changed intimacy skills or altered masculinity. The guide can remain a limited reminder rather than an identity to maintain."
+            }
+          ]
+        },
+        {
+          "id": "archetype-counts",
+          "title": {
+            "zh": "二十次选择与每一份最高并列",
+            "en": "Twenty choices and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "20题每题四个选项各对应一个角色隐喻，只选一项，给该角色加1次。四角色各出现20次，每个位置各5次，0条反向；计数范围0—20，不是能量、能力、成熟度、性别特征强度或百分比。全部20题选择后才比较最高计数，所有最高并列都保留完整报告，不按国王、战士、魔法师、情人的顺序破并列，也不派次高。全选A四项各5，四份全文全部呈现，不认证理想心理平衡。低计数不叫阴影或缺陷，1次差异不证明固定主次。未完成或无效作答不解释，重测变化不认证稳定性格或成长效果。",
+              "en": "Each of twenty items has four options, one per role metaphor. A choice adds one count. Every role appears twenty times, five times in each option position, with zero reversals. Counts range from 0–20 and are neither energy, ability, maturity or gender-strength scales nor percentages. Only a complete attempt compares counts, retaining the full guide for every highest tie. No King-Warrior-Magician-Lover order breaks ties, and no secondary type is assigned. Choosing A throughout gives five each and four full guides, without certifying ideal psychological balance. Lower counts establish no shadow or deficit, and one choice proves no stable hierarchy. Incomplete or invalid input is not interpreted; retake differences certify no stable personality or growth effect."
+            }
+          ]
+        },
+        {
+          "id": "scope-privacy",
+          "title": {
+            "zh": "专门版本、文学背景与隐私",
+            "en": "Focused edition, literary background and privacy"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是本站原创四角色专门情境与解释，名称借四角色讨论的文学背景，不复制书本、标准题库或竞品，也不测所谓男性本质、成熟能量、智力、关系能力或健康。任何人都可以参与，不输入性别或私人经历。与十二原型有主题交叠，问卷范围和题目不同，不自动等价或换算分数。全文免费，无另一测评解锁。草稿主动开启，仅本设备24小时，完成、退出或重测清除；不保存也能完成。分享只测试名、匹配名称和公开链接，不带答卷或计数。你可以先读任何一份，不必承担与角色名相符的义务。",
+              "en": "These original focused situations and guides use four names with a literary background, without reproducing a book, standard bank or competitor content. They measure no masculine essence, mature energy, intelligence, relationship ability or health. Anyone may participate without entering gender or private experiences. Themes overlap the twelve-archetype entry, with different scope and items and no automatic equivalence or score conversion. Full text is free without another assessment. Drafts require opt-in, remain on this device for twenty-four hours and clear on completion, exit or retake; storage is optional. Sharing includes only the test name, matched guide names and public links, without answers or counts. You may read any guide first without accepting obligations attached to its name."
+            }
+          ]
+        }
+      ],
+      "headline": {
+        "zh": "把情人读作认真留意人、事物与体验细节的文学隐喻；不推断恋爱身份、亲密能力、情绪敏感度或同理心。",
+        "en": "Read Lover through attention to people, objects and experience, without inferring relationship status, intimacy skills, emotional sensitivity or empathy."
+      },
+      "scoreReading": {
+        "zh": "本角色选项被选择的次数，不是心理能量、性别或能力分数；所有最高并列保留全文。",
+        "en": "Selections of this role’s options, not energy, gender or ability scores; every highest tie keeps its full guide."
+      },
+      "seo": {
+        "title": {
+          "zh": "情人隐喻：男性原型测试的留意欣赏完整说明",
+          "en": "Lover Male Archetype Result: Attention & Appreciation"
+        },
+        "description": {
+          "zh": "阅读情人隐喻完整结果：体验细节、愿意分享、审美与边界。不推断恋爱身份、亲密能力、情绪敏感度或同理心。",
+          "en": "Read the full Lover guide: details, willingly shared experience, appreciation and boundaries. No relationship-status, intimacy or empathy verdict."
+        }
+      }
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "二十次选择与每一份最高并列",
+        "en": "Twenty choices and every highest tie"
+      },
+      "paragraphs": [
+        {
+          "zh": "20题每题四个选项各对应一个角色隐喻，只选一项，给该角色加1次。四角色各出现20次，每个位置各5次，0条反向；计数范围0—20，不是能量、能力、成熟度、性别特征强度或百分比。全部20题选择后才比较最高计数，所有最高并列都保留完整报告，不按国王、战士、魔法师、情人的顺序破并列，也不派次高。全选A四项各5，四份全文全部呈现，不认证理想心理平衡。低计数不叫阴影或缺陷，1次差异不证明固定主次。未完成或无效作答不解释，重测变化不认证稳定性格或成长效果。",
+          "en": "Each of twenty items has four options, one per role metaphor. A choice adds one count. Every role appears twenty times, five times in each option position, with zero reversals. Counts range from 0–20 and are neither energy, ability, maturity or gender-strength scales nor percentages. Only a complete attempt compares counts, retaining the full guide for every highest tie. No King-Warrior-Magician-Lover order breaks ties, and no secondary type is assigned. Choosing A throughout gives five each and four full guides, without certifying ideal psychological balance. Lower counts establish no shadow or deficit, and one choice proves no stable hierarchy. Incomplete or invalid input is not interpreted; retake differences certify no stable personality or growth effect."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "所有最高并列逐份呈现",
+        "en": "Every highest tie gets its full guide"
+      },
+      "paragraphs": [
+        {
+          "zh": "四份九模块说明分别包含含义、实际选中什么、原创例子、可选尝试、其他角色比较、反例、来源回顾、完整计分与隐私。所有最高并列逐份保留，不以额外题或固定顺序制造唯一赢家。",
+          "en": "Each nine-section guide covers meaning, what was selected, original examples, optional reflection, comparisons, counterexamples, source scope, full scoring and privacy. Every highest tie remains without extra items or a fixed-order winner."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "文学角色与现实能力分开",
+        "en": "Separating literary roles and actual capability"
+      },
+      "paragraphs": [
+        {
+          "zh": "四个角色是记住问题的文学入口，不是四类真实男人、能力层级或潜意识诊断。原作者说法不验证本版题本，低计数也不能决定你的边界、健康或关系。",
+          "en": "Four roles are literary reminders rather than kinds of real men, capability levels or unconscious diagnoses. Author claims do not validate this bank, and lower counts cannot decide boundaries, health or relationships."
+        }
+      ]
+    },
+    {
+      "id": "scope-privacy",
+      "title": {
+        "zh": "专门版本、文学背景与隐私",
+        "en": "Focused edition, literary background and privacy"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是本站原创四角色专门情境与解释，名称借四角色讨论的文学背景，不复制书本、标准题库或竞品，也不测所谓男性本质、成熟能量、智力、关系能力或健康。任何人都可以参与，不输入性别或私人经历。与十二原型有主题交叠，问卷范围和题目不同，不自动等价或换算分数。全文免费，无另一测评解锁。草稿主动开启，仅本设备24小时，完成、退出或重测清除；不保存也能完成。分享只测试名、匹配名称和公开链接，不带答卷或计数。你可以先读任何一份，不必承担与角色名相符的义务。",
+          "en": "These original focused situations and guides use four names with a literary background, without reproducing a book, standard bank or competitor content. They measure no masculine essence, mature energy, intelligence, relationship ability or health. Anyone may participate without entering gender or private experiences. Themes overlap the twelve-archetype entry, with different scope and items and no automatic equivalence or score conversion. Full text is free without another assessment. Drafts require opt-in, remain on this device for twenty-four hours and clear on completion, exit or retake; storage is optional. Sharing includes only the test name, matched guide names and public links, without answers or counts. You may read any guide first without accepting obligations attached to its name."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这会测量我的男性气质或成熟度吗？",
+        "en": "Does this measure masculinity or maturity?"
+      },
+      "answer": {
+        "zh": "不会。名称来自文学与四角色讨论，本版只组织普通假想选择，不测性别、成熟度、能力、心理能量或健康。",
+        "en": "No. Names have a literary four-role background; this edition organises ordinary imagined choices without measuring gender, maturity, ability, psychological energy or health."
+      }
+    },
+    {
+      "question": {
+        "zh": "只有男性可以参与吗？",
+        "en": "Can only men participate?"
+      },
+      "answer": {
+        "zh": "任何人都可参与，不填写性别，不按理想男人或成熟角色选答案，也不要求情绪开放、攻击、服从或承担关系责任。",
+        "en": "Anyone may participate without providing gender or aiming for an ideal man or mature role. No openness, aggression, obedience or relationship obligation is required."
+      }
+    },
+    {
+      "question": {
+        "zh": "与十二原型问卷有什么关系？",
+        "en": "How does this relate to the twelve-archetype questionnaire?"
+      },
+      "answer": {
+        "zh": "这里聚焦四角色，主题与十二原型有交叠，范围和题目不同，没有逐题等价或分数换算，也不以名称或短版证明新性别人格。",
+        "en": "This focuses on four related role themes with different scope and items. There is no item equivalence or score conversion, and a name or shorter form establishes no new gender-based personality."
+      }
+    },
+    {
+      "question": {
+        "zh": "四角色并列时会只给国王吗？",
+        "en": "Does a tie automatically select King?"
+      },
+      "answer": {
+        "zh": "不会。所有最高并列都给完整说明；全选A时四项各5次，四份全文均保留，不认证理想平衡。全文免费。",
+        "en": "No. Every highest tie gets its full guide. Choosing A throughout gives five each and all four full guides, without ideal balance. Full text is free."
+      }
+    }
+  ],
+  "references": [
+    {
+      "url": "https://robertmoore-phd.com/index.cfm?fuseaction=page.display&page_id=48",
+      "title": {
+        "zh": "Robert Moore Media：四角色书目与公开背景（非本站量表验证）",
+        "en": "Robert Moore Media: four-role book background, not validation of this quiz"
+      }
+    },
+    {
+      "url": "https://robertmoore-phd.com/index.cfm?fuseaction=page.display&page_id=32",
+      "title": {
+        "zh": "作者公开四角色讨论：文学背景，不采为性别或成熟度事实",
+        "en": "Author’s public four-role discussion: background, not established gender or maturity facts"
+      }
+    }
+  ]
+}

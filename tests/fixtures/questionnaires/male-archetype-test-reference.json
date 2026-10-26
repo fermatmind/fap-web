@@ -1,0 +1,876 @@
+{
+  "formCode": "fm_four_role_metaphor_focus_20",
+  "origin": "FermatMind original twenty-choice four-role literary metaphor focused edition. Four names reference public Moore/Gillette book background, not a validated instrument or reproduction of book or JobCannon banks. Themes relate to the existing twelve-archetype entry without score equivalence.",
+  "directions": [
+    {
+      "id": "king",
+      "title": {
+        "zh": "国王隐喻：协调共同条件",
+        "en": "King: Coordinating Shared Conditions"
+      }
+    },
+    {
+      "id": "warrior",
+      "title": {
+        "zh": "战士隐喻：有边界地推进",
+        "en": "Warrior: Bounded Follow-through"
+      }
+    },
+    {
+      "id": "magician",
+      "title": {
+        "zh": "魔法师隐喻：提问与试验",
+        "en": "Magician: Questions and Experiments"
+      }
+    },
+    {
+      "id": "lover",
+      "title": {
+        "zh": "情人隐喻：留意与欣赏",
+        "en": "Lover: Attention and Appreciation"
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "ROLE_01",
+      "prompt": {
+        "zh": "社区准备摆一个种子交换小桌，你更愿意先参与哪部分？",
+        "en": "A neighbourhood is setting up a small seed-exchange table. Which part would you like to take first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "king",
+          "label": {
+            "zh": "把参与时段与每个人愿意负责的部分对齐",
+            "en": "Coordinate the time slots and the parts each person wants to handle"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "warrior",
+          "label": {
+            "zh": "认领一个有明确范围的小环节并按约定完成",
+            "en": "Take one clearly bounded task and follow through on the agreement"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "magician",
+          "label": {
+            "zh": "用几个样例试试标签怎样更容易被理解",
+            "en": "Try a few examples to explore which labels are easier to understand"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lover",
+          "label": {
+            "zh": "留意大家带来的小故事和种子各自的细节",
+            "en": "Give attention to the stories people bring and the details of their seeds"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_02",
+      "prompt": {
+        "zh": "有人提议做一张共享工具的借还提示板，你更愿意先做？",
+        "en": "Someone proposes a noticeboard for borrowing and returning shared tools. What would you like to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "warrior",
+          "label": {
+            "zh": "选定一块自己能负责的区域，按清楚范围补齐",
+            "en": "Choose an area you can handle and complete it within a clear scope"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "magician",
+          "label": {
+            "zh": "用一次模拟借还检验提示是否容易误解",
+            "en": "Use a simulated loan and return to test where the notice could be misunderstood"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lover",
+          "label": {
+            "zh": "留意使用者在工具和习惯上的个人偏好",
+            "en": "Notice users’ individual attachments to tools and routines"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "king",
+          "label": {
+            "zh": "商量谁维护哪些信息，让参与者知道怎样加入",
+            "en": "Agree who maintains which information and how people can participate"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_03",
+      "prompt": {
+        "zh": "朋友们要整理一箱旧明信片，你更想贡献？",
+        "en": "Friends are sorting a box of old postcards. What would you most like to contribute?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "magician",
+          "label": {
+            "zh": "比较几张卡片，试一种能解释例外的分类方法",
+            "en": "Compare several cards and try a grouping method that accounts for exceptions"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lover",
+          "label": {
+            "zh": "读一读手写文字，留意这些卡片为何让人珍惜",
+            "en": "Read the handwriting and attend to why the cards matter to people"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "king",
+          "label": {
+            "zh": "让分类、保管和最后放在哪里由大家说清",
+            "en": "Help everyone agree on grouping, custody and the eventual location"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "warrior",
+          "label": {
+            "zh": "负责一叠可完成的整理，说明自己能做到哪里",
+            "en": "Take a manageable stack and state the limits of what you can complete"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_04",
+      "prompt": {
+        "zh": "一个小型纸艺活动需要准备，你更愿意先接触？",
+        "en": "A small paper-craft session needs preparation. What would you like to approach first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lover",
+          "label": {
+            "zh": "感受纸张、颜色和参与者想表达的小想法",
+            "en": "Attend to the paper, colours and small ideas participants want to express"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "king",
+          "label": {
+            "zh": "把材料、时间和可选择的参与方式安排清楚",
+            "en": "Clarify materials, timing and the ways people can choose to participate"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "warrior",
+          "label": {
+            "zh": "完成一个约定的小样任务，保留自己能承担的边界",
+            "en": "Complete an agreed sample task while keeping a manageable boundary"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "magician",
+          "label": {
+            "zh": "折几种小样，看看哪一步让结构发生变化",
+            "en": "Fold a few samples to explore which step changes the structure"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_05",
+      "prompt": {
+        "zh": "有人想给楼道的植物做一组小牌子，你更愿意先？",
+        "en": "Someone wants to make small signs for plants in a shared hallway. What would you like to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "king",
+          "label": {
+            "zh": "商量谁确认内容、谁制作、谁愿意日后更新",
+            "en": "Agree who checks content, makes signs and wants to update them"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "warrior",
+          "label": {
+            "zh": "选几块自己能完成的牌子，依约做好再交回",
+            "en": "Choose a few signs you can finish and return them as agreed"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "magician",
+          "label": {
+            "zh": "比较字号、位置与遮挡，试试信息怎样更清楚",
+            "en": "Compare lettering, position and obstruction to test clarity"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lover",
+          "label": {
+            "zh": "观察植物与周围空间的细节，留下有温度的表达",
+            "en": "Notice details of the plants and space and give them an attentive expression"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_06",
+      "prompt": {
+        "zh": "一场免费小讲解准备结束，你更愿意承担哪部分？",
+        "en": "A free short explanation session is ending. Which part would you like to take?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "warrior",
+          "label": {
+            "zh": "把自己答应的收尾环节做完，并说明未完成的部分",
+            "en": "Finish the closing task you agreed to and state what remains undone"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "magician",
+          "label": {
+            "zh": "找一个还没理解的环节，用小例子再核对一次",
+            "en": "Take an unclear point and check it through a small example"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lover",
+          "label": {
+            "zh": "听一听参加者记住的片段，认真回应他们的体验",
+            "en": "Listen to what participants remember and respond attentively to their experience"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "king",
+          "label": {
+            "zh": "让资料、后续联系与未处理的问题都有清楚去向",
+            "en": "Clarify where materials, follow-up and unanswered questions will go"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_07",
+      "prompt": {
+        "zh": "你与朋友想给一段短音频配上文字，你更想先？",
+        "en": "You and a friend want to add text to a short audio passage. What would you like to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "magician",
+          "label": {
+            "zh": "对照几处停顿，试试哪些转写方式更贴近内容",
+            "en": "Compare pauses and try transcription choices that fit the content"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lover",
+          "label": {
+            "zh": "留意声音里的语气与细节，让文字保留那份感觉",
+            "en": "Attend to tone and details so the text retains something of the experience"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "king",
+          "label": {
+            "zh": "明确选段、核对和完成时间怎样由双方分担",
+            "en": "Agree how to share selecting, checking and completion timing"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "warrior",
+          "label": {
+            "zh": "先做好一段有明确起止的文字，按约定核对",
+            "en": "Complete a clearly bounded segment of text and check it as agreed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_08",
+      "prompt": {
+        "zh": "共享角落要移动几件小家具，你更愿意先参与？",
+        "en": "A shared corner needs a few small furnishings moved. What would you like to handle first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lover",
+          "label": {
+            "zh": "留意人们喜欢在这里怎样停留，以及哪些细节值得保留",
+            "en": "Attend to how people enjoy spending time there and the details they want retained"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "king",
+          "label": {
+            "zh": "让使用者说明需要，再一起确定谁动哪些物品",
+            "en": "Invite users’ needs and agree who will move which objects"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "warrior",
+          "label": {
+            "zh": "认领能承担的一小段搬动，清楚说明范围",
+            "en": "Take a manageable moving task and make its scope clear"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "magician",
+          "label": {
+            "zh": "用小物做替代布局，试试通道与间距",
+            "en": "Use small stand-ins to test access and spacing"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_09",
+      "prompt": {
+        "zh": "朋友准备做一个关于家乡的小展示，你更愿意先帮？",
+        "en": "A friend is preparing a small display about their hometown. How would you like to help first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "king",
+          "label": {
+            "zh": "把展示的范围、安排和每个人想参与的部分理清",
+            "en": "Clarify the scope, arrangements and parts people want to contribute"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "warrior",
+          "label": {
+            "zh": "完成一项已经说好的小任务，不替朋友扩大目标",
+            "en": "Complete one agreed small task without expanding the friend’s aim"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "magician",
+          "label": {
+            "zh": "用两个不同顺序试排，看看理解会怎样变化",
+            "en": "Try two sequences to explore how the understanding changes"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lover",
+          "label": {
+            "zh": "认真听朋友说哪些细节有个人意义，并保留那份感受",
+            "en": "Listen for personally meaningful details and make room for that feeling"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_10",
+      "prompt": {
+        "zh": "你们想做一套简单的桌面游戏提示卡，你更愿意先做？",
+        "en": "You are making simple tabletop-game cue cards together. What would you like to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "warrior",
+          "label": {
+            "zh": "选一小组卡片负责到底，清楚交接已做内容",
+            "en": "Take responsibility for a small set and hand over what is completed"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "magician",
+          "label": {
+            "zh": "模拟一轮游戏，找出提示卡还没解释清的地方",
+            "en": "Simulate one round to identify what the cards fail to explain"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lover",
+          "label": {
+            "zh": "留意试玩中的乐趣和个人反应，让提示不过度生硬",
+            "en": "Attend to enjoyment and individual reactions so cues retain some warmth"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "king",
+          "label": {
+            "zh": "把规则确认、制作和试用的分工对齐",
+            "en": "Coordinate checking rules, making cards and trying them"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_11",
+      "prompt": {
+        "zh": "一批公开照片要放进小型线上相册，你更愿意先？",
+        "en": "Public photographs will be placed in a small online album. What would you like to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "magician",
+          "label": {
+            "zh": "试两种排列，看看标题与顺序如何影响理解",
+            "en": "Try two arrangements to explore how titles and order affect understanding"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lover",
+          "label": {
+            "zh": "留意照片中的气氛与人们想记住的细节",
+            "en": "Attend to the atmosphere and details people want remembered"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "king",
+          "label": {
+            "zh": "确认选择、说明和最后核对分别由谁处理",
+            "en": "Agree who handles selection, captions and the final check"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "warrior",
+          "label": {
+            "zh": "完成一组自己能负责的上传和核对，不扩展到其他材料",
+            "en": "Complete a manageable set of uploads and checks without expanding into other material"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_12",
+      "prompt": {
+        "zh": "几个人要把旧活动用品重新分装，你更愿意先参与？",
+        "en": "Several people are repacking supplies from an earlier activity. What would you like to handle first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lover",
+          "label": {
+            "zh": "留意哪些物品承载共同记忆，不把它们只当数量",
+            "en": "Notice which objects hold shared memories rather than treating them only as quantities"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "king",
+          "label": {
+            "zh": "说明下一次谁会使用，让分类与保管有共同依据",
+            "en": "Clarify who will use them next so grouping and storage have a shared basis"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "warrior",
+          "label": {
+            "zh": "认领一箱可处理的物品，按约定做好并标明状态",
+            "en": "Take one manageable box and mark its state after the agreed work"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "magician",
+          "label": {
+            "zh": "比较几种打包方式，试试怎样减少寻找时的误解",
+            "en": "Compare packing methods to test how to reduce confusion when finding things"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_13",
+      "prompt": {
+        "zh": "你们想给一个小读书角增加提示，你更愿意先？",
+        "en": "You want to add cues to a small reading corner. What would you like to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "king",
+          "label": {
+            "zh": "把借阅、归还与自愿维护的规则说清",
+            "en": "Clarify borrowing, returns and voluntary maintenance arrangements"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "warrior",
+          "label": {
+            "zh": "完成一个范围清楚的提示样例，再依约放好",
+            "en": "Complete one clearly bounded cue example and place it as agreed"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "magician",
+          "label": {
+            "zh": "找一位愿意试读的人，核对哪句话容易误解",
+            "en": "Ask a willing reader to test which sentence could be misunderstood"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lover",
+          "label": {
+            "zh": "留意这里让人愿意坐下的细节与氛围",
+            "en": "Attend to the details and atmosphere that make people want to sit there"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_14",
+      "prompt": {
+        "zh": "一次小型交换活动结束后，你更想留下哪类贡献？",
+        "en": "After a small exchange activity, which contribution would you like to leave?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "warrior",
+          "label": {
+            "zh": "自己答应的一段工作已按边界完成并交接",
+            "en": "The bounded part you agreed to is completed and handed over"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "magician",
+          "label": {
+            "zh": "一次试验解释了原来不清楚的步骤或规则",
+            "en": "A small test has clarified a previously confusing step or rule"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lover",
+          "label": {
+            "zh": "有人感到自己的故事或偏好被认真听见",
+            "en": "Someone’s story or preference has been heard attentively"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "king",
+          "label": {
+            "zh": "资料和后续安排有清楚负责人，大家知道怎样继续",
+            "en": "Materials and follow-up have clear owners and people know how to continue"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_15",
+      "prompt": {
+        "zh": "朋友邀请你尝试一个短小的共同创作，你更愿意先？",
+        "en": "A friend invites you into a short shared creative activity. What would you like to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "magician",
+          "label": {
+            "zh": "试一个可撤回的小改动，看看组合会发生什么",
+            "en": "Try a reversible change to see what happens to the combination"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lover",
+          "label": {
+            "zh": "感受作品里的情绪与细节，回应朋友想表达的东西",
+            "en": "Attend to the piece’s feeling and details and the friend’s intended expression"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "king",
+          "label": {
+            "zh": "确认双方想保留什么、怎样决定和怎样分担",
+            "en": "Agree what each person wants retained and how to decide and share the work"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "warrior",
+          "label": {
+            "zh": "承担一个能完成的小片段，认真按约定推进",
+            "en": "Take one manageable fragment and follow through on the agreement"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_16",
+      "prompt": {
+        "zh": "一个日常小流程总让人停下来猜下一步，你更愿意先？",
+        "en": "An everyday process leaves people guessing what comes next. What would you like to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lover",
+          "label": {
+            "zh": "听使用者描述哪里让体验变得生硬或不被照顾",
+            "en": "Listen to where users find the experience impersonal or inattentive"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "king",
+          "label": {
+            "zh": "让使用者与维护者共同说清步骤责任和决定方式",
+            "en": "Help users and maintainers clarify responsibilities and decisions together"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "warrior",
+          "label": {
+            "zh": "认领一处明确的问题，按能承担的范围完成修订",
+            "en": "Take one defined issue and revise it within a manageable scope"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "magician",
+          "label": {
+            "zh": "跟着一个样例走一遍，找出猜测从哪里开始",
+            "en": "Walk through an example to locate where the guessing begins"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_17",
+      "prompt": {
+        "zh": "你们想为一段共同经历做一个小纪念，你更愿意先？",
+        "en": "You are making a small keepsake of a shared experience. What would you like to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "king",
+          "label": {
+            "zh": "让每个人有机会决定保留什么以及怎样参与",
+            "en": "Make room for everyone to decide what is retained and how to participate"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "warrior",
+          "label": {
+            "zh": "完成一项明确答应的制作或整理，不替别人决定",
+            "en": "Complete an agreed making or organising task without deciding for others"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "magician",
+          "label": {
+            "zh": "试几种表达形式，比较哪一种更能解释这段经历",
+            "en": "Try several forms and compare which makes the experience clearer"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lover",
+          "label": {
+            "zh": "认真留意最有个人意味的瞬间、声音或物品",
+            "en": "Attend carefully to personally meaningful moments, sounds or objects"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_18",
+      "prompt": {
+        "zh": "一份共享清单准备重新开放给大家使用，你更愿意先？",
+        "en": "A shared list is about to reopen for use. What would you like to handle first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "warrior",
+          "label": {
+            "zh": "补完一段自己愿意负责的内容，清楚写出边界",
+            "en": "Finish a section you are willing to handle and state its limits"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "magician",
+          "label": {
+            "zh": "拿一个实际例子试查，找出名称或归类的不清楚处",
+            "en": "Test a lookup example to find unclear names or groupings"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lover",
+          "label": {
+            "zh": "留意使用者对名称和表达的个人感受",
+            "en": "Attend to users’ individual responses to the wording and names"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "king",
+          "label": {
+            "zh": "确定谁可以怎样更新、谁核对，保留大家的参与空间",
+            "en": "Agree how people can update it and who checks, while retaining participation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_19",
+      "prompt": {
+        "zh": "临时的小展台准备让别人来体验，你更愿意先？",
+        "en": "A temporary small display is being opened for people to try. What would you like to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "magician",
+          "label": {
+            "zh": "模拟一次体验，找出可以小范围调整的连接点",
+            "en": "Simulate an experience to find a connection that could be adjusted"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lover",
+          "label": {
+            "zh": "留意材料、颜色与人与物相遇时的具体感受",
+            "en": "Attend to materials, colours and the experience of encountering the objects"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "king",
+          "label": {
+            "zh": "对齐迎接、讲解、收尾和自愿接替的安排",
+            "en": "Coordinate welcoming, explaining, closing and voluntary handovers"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "warrior",
+          "label": {
+            "zh": "完成一个明确的准备任务，依约交代完成情况",
+            "en": "Complete one defined preparation task and report its state as agreed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROLE_20",
+      "prompt": {
+        "zh": "一段共同的小计划走完后，你更愿意怎样回看？",
+        "en": "After a small shared plan has run its course, how would you like to review it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lover",
+          "label": {
+            "zh": "回想值得珍惜的细节和被认真回应的感受",
+            "en": "Recall details worth appreciating and moments of attentive response"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "king",
+          "label": {
+            "zh": "看看分担与决定是否让每个人有清楚的位置",
+            "en": "Consider whether shared work and decisions gave people a clear place"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "warrior",
+          "label": {
+            "zh": "核对自己答应的部分怎样完成，哪些需要重新约定",
+            "en": "Check how your agreed part was completed and what needs renegotiating"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "magician",
+          "label": {
+            "zh": "找一个前后变化，理解哪次试验带来了新信息",
+            "en": "Trace a change and understand which small experiment supplied new information"
+          }
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "questions": 20,
+    "directions": 4,
+    "optionsEach": 4,
+    "exposureEach": 20,
+    "positionEach": 5,
+    "reverseItems": [],
+    "rule": "Onechoiceaddsonecounttoitsrolemetaphor/allglobalhighesttiesreceiveallFULLguides/no fixedorderwinner-secondary-percentage. Counts0..20notgenderenergy,maturity,capability,moralityortraitstrength.",
+    "allA": "fourroles5each/all4FULL/notidealbalancedpsychology",
+    "independentCountIncrement": 0,
+    "countingScope": "Focusedfour-roleeditionwithrelatedJung12themes;notnewindependentproductestablishedbyform-nameorquestioncount. FinalFJconstructdeduprequired."
+  },
+  "scope": {
+    "zh": "四个角色是本版原创文学隐喻读法，不测男性本质、性别、性取向、成熟度、潜意识能量、能力、健康或职业。任何人都可使用，不要求服从、攻击、情绪开放或承担关系责任；边界、求助、休息、拒绝都不能被低计数叫作缺陷。与十二原型的主题有关联，不互换分数或自动派出等价原型。",
+    "en": "The four roles are original literary-metaphor readings, not measurements of masculinity, gender, sexual orientation, maturity, unconscious energy, ability, health or career. Anyone may use them without demands for obedience, aggression, emotional openness or relationship responsibility. Boundaries, support, rest and refusal cannot become deficits from lower counts. Themes relate to the twelve-archetype entry without interchangeable scores or automatically equivalent archetypes."
+  },
+  "instructions": {
+    "zh": "把每题当作一个普通的假想小情境，四种做法都可以有价值。选你此刻更愿意先参与的一项，不按理想的男性或成熟角色作答。无需提供性别、身份或私人经历。20题全部选择后显示四项计数与所有最高并列全文；全选A各5次不认证理想平衡。没有合适选项可以退出，本版不解释未完成作答。",
+    "en": "Treat each item as an ordinary hypothetical situation in which all four practices can have value. Choose the part you would like to take first now, without aiming for an ideal male or mature role. No gender, identity or private experience is supplied. All twenty selections show four counts and the full guide for every highest tie. Choosing A throughout gives five each without certifying ideal balance. You may exit if nothing fits; incomplete attempts are not interpreted."
+  }
+}
