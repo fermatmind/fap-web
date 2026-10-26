@@ -29,6 +29,10 @@
 .fq-options label { display:flex; align-items:center; gap:14px; border:2px solid #e4deee; padding:20px; border-radius:16px; cursor:pointer; font-size:1.2rem; min-height:84px; }
 .fq-options label.fq-selected { border-color:var(--fq-accent); background:#f4efff; }
 .fq-actions { display:flex; flex-wrap:wrap; gap:10px; margin:16px 0; }
+.fq-share textarea { width:100%; min-height:120px; padding:12px; border:1px solid #d9d2ed; border-radius:12px; font:inherit; resize:vertical; }
+.fq-share textarea:focus-visible { outline:3px solid #a78bfa; outline-offset:4px; }
+.fq-share .fq-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
+.fq-share .fq-actions>* { min-width:0; margin-left:0; padding:12px; text-align:center; }
 .fq-actions .fq-primary { margin-left:auto; }
 .fq-section { border-top:1px solid #e7e1f0; padding-top:24px; margin-top:32px; }
 .fq-muted { color:#675e7d; font-size:.88rem; }
