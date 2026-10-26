@@ -3382,5 +3382,38 @@
       "privacy-and-judgement"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "chinese-zodiac",
+    "code": "FM_CHINESE_ZODIAC_STORY",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "fantasy",
+    "title": {
+      "en": "Chinese Zodiac",
+      "zh": "中国十二生肖测试"
+    },
+    "description": {
+      "en": "Choose 12 original fictional scenes and read all 12 free animal portraits. Transparent counts keep every highest tie. No birth-year or element calculation.",
+      "zh": "12道原创虚构情境，看看本次选择更接近哪些生肖象征镜头。公开原始计数，保留所有最高并列，十二篇完整双语画像免费；不收生日、不算出生年或五行，不预测运势、关系或职业。"
+    },
+    "minutes": 5,
+    "formCode": "fm_chinese_zodiac_story_choices_12_v1",
+    "questionCount": 12,
+    "resultSlugs": [
+      "rat",
+      "ox",
+      "tiger",
+      "rabbit",
+      "dragon",
+      "snake",
+      "horse",
+      "goat",
+      "monkey",
+      "rooster",
+      "dog",
+      "pig"
+    ],
+    "collection": "explore"
   }
 ]
