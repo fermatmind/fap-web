@@ -1,0 +1,1551 @@
+{
+  "formCode": "fm_compass_original_choices_36",
+  "origin": {
+    "zh": "费马独立编写的四向情境反思；非PCTI或原书题本，非竞品题本。",
+    "en": "FermatMind independently authored four-direction situation reflection; not PCTI, the book’s instrument or a competitor bank."
+  },
+  "directions": [
+    {
+      "id": "north",
+      "title": {
+        "zh": "北向：推动一步",
+        "en": "North: moving a step forward"
+      },
+      "comparisons": 36
+    },
+    {
+      "id": "south",
+      "title": {
+        "zh": "南向：顾及参与",
+        "en": "South: supporting participation"
+      },
+      "comparisons": 36
+    },
+    {
+      "id": "east",
+      "title": {
+        "zh": "东向：厘清顺序",
+        "en": "East: clarifying the sequence"
+      },
+      "comparisons": 36
+    },
+    {
+      "id": "west",
+      "title": {
+        "zh": "西向：尝试别法",
+        "en": "West: trying another way"
+      },
+      "comparisons": 36
+    }
+  ],
+  "questions": [
+    {
+      "id": "COMP_01",
+      "prompt": {
+        "zh": "几位朋友想办一次带菜聚餐，还没有人牵头。你通常先做什么？",
+        "en": "Friends want a bring-a-dish meal, with no organiser yet. What do you usually do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先提一个日期，并承担确认这一步。",
+            "en": "Suggest a date and take responsibility for confirming it."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先问每个人怎样参加会轻松些。",
+            "en": "Ask what would make taking part easier for each person."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先列清人数、餐具和需要带的东西。",
+            "en": "List the headcount, tableware and things to bring."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先试一个大家可以各自添加菜名的小玩法。",
+            "en": "Try a playful way for everyone to add dish ideas."
+          },
+          "directionId": "west"
+        }
+      ]
+    },
+    {
+      "id": "COMP_02",
+      "prompt": {
+        "zh": "社区想交换闲置书，讨论还很散。你的下一步更像哪项？",
+        "en": "A community book exchange is being discussed without a clear plan. Which step sounds most like yours?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "找出不熟悉流程的人需要怎样被接住。",
+            "en": "Find out what would help people unfamiliar with the process feel included."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "写清借换、归还与遗留书的处理办法。",
+            "en": "Write down how exchanges, returns and leftover books will work."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "想一个盲选书袋的试验环节。",
+            "en": "Imagine an experimental round of mystery book bags."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "确定一次小规模交换的结束目标。",
+            "en": "Set a concrete outcome for one small exchange."
+          },
+          "directionId": "north"
+        }
+      ]
+    },
+    {
+      "id": "COMP_03",
+      "prompt": {
+        "zh": "一起出游的预算有些紧，你更先关注什么？",
+        "en": "The budget for a shared outing is tight. What draws your attention first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把固定开销和可调整开销分开算。",
+            "en": "Separate fixed costs from adjustable costs."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找一个不用照旧行程走的新方案。",
+            "en": "Look for a new arrangement beyond the usual itinerary."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "选定这次最值得保留的一件事。",
+            "en": "Choose the one outcome most worth preserving this time."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "了解谁可能不好意思说自己负担不起。",
+            "en": "Check who might find it difficult to say the cost is too high."
+          },
+          "directionId": "south"
+        }
+      ]
+    },
+    {
+      "id": "COMP_04",
+      "prompt": {
+        "zh": "你要安排阳台上几盆植物的日常照料。哪种起手方式更自然？",
+        "en": "You are arranging everyday care for several balcony plants. Which starting approach feels natural?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先尝试一种可以调整位置的新摆法。",
+            "en": "Try a new arrangement that can be repositioned."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先选定这周会完成的一项照料任务。",
+            "en": "Choose one care task to complete this week."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先问共同照料的人哪些时间方便。",
+            "en": "Ask fellow carers which times fit their routines."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先标明各盆的照料记录和检查顺序。",
+            "en": "Label care notes and a checking sequence for each pot."
+          },
+          "directionId": "east"
+        }
+      ]
+    },
+    {
+      "id": "COMP_05",
+      "prompt": {
+        "zh": "共用房间要挪动几张桌子，你通常怎样参与？",
+        "en": "Several desks need moving in a shared room. How do you usually contribute?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "明确这次搬完后最需要腾出的区域。",
+            "en": "Identify the area that most needs to be clear after the move."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "听听各使用者最在意的空间需求。",
+            "en": "Listen to the space needs that matter most to each user."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "量好通道，再按步骤安排移动。",
+            "en": "Measure the walkways and order the moving steps."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "画两种不同布局，先用纸片试摆。",
+            "en": "Sketch two different layouts and test them with paper pieces."
+          },
+          "directionId": "west"
+        }
+      ]
+    },
+    {
+      "id": "COMP_06",
+      "prompt": {
+        "zh": "下雨打乱了原定见面安排，你更想先做什么？",
+        "en": "Rain disrupts a planned meetup. What would you first want to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "确认谁已经在路上，别让人白等。",
+            "en": "Check who is already travelling so nobody waits unnecessarily."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "核对室内地点的时间和交通条件。",
+            "en": "Check opening times and travel details for indoor locations."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把见面改成一种没试过的活动。",
+            "en": "Turn the meetup into an activity you have not tried together."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "尽快敲定一个今天仍能实现的安排。",
+            "en": "Settle on something achievable today."
+          },
+          "directionId": "north"
+        }
+      ]
+    },
+    {
+      "id": "COMP_07",
+      "prompt": {
+        "zh": "你收到一条不太清楚的预约通知，你通常如何处理？",
+        "en": "An appointment message is unclear. How do you usually handle it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "逐项核对日期、地点和需要准备的材料。",
+            "en": "Check the date, location and preparation requirements one by one."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "想一种更直观的方式把安排重新表示出来。",
+            "en": "Find a more visual way to represent the arrangement."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "直接提出需要对方确认的一个关键决定。",
+            "en": "Ask directly for the one decision that needs confirming."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用不让对方难堪的方式询问具体意思。",
+            "en": "Ask what was meant in a way that avoids embarrassing the sender."
+          },
+          "directionId": "south"
+        }
+      ]
+    },
+    {
+      "id": "COMP_08",
+      "prompt": {
+        "zh": "朋友为晚上的休闲安排拿不定主意，你更常怎么帮忙？",
+        "en": "A friend cannot settle on an evening activity. How are you more likely to help?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "提一个与原来几个选项都不同的轻巧尝试。",
+            "en": "Suggest a light experiment unlike any option already considered."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "缩小选择，约好什么时候作决定。",
+            "en": "Narrow the options and agree when to decide."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先听这位朋友今天想要怎样的陪伴。",
+            "en": "Listen to what kind of company your friend wants today."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把可用时间和每个选项的条件对一下。",
+            "en": "Match the available time against the requirements of each option."
+          },
+          "directionId": "east"
+        }
+      ]
+    },
+    {
+      "id": "COMP_09",
+      "prompt": {
+        "zh": "你们刚拿到一款不熟悉的桌游，你通常先怎样加入？",
+        "en": "Your group has an unfamiliar board game. How do you usually join in?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先约定这一轮要玩到哪一步。",
+            "en": "Agree how far to play in the first round."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留意谁可能跟不上，让大家一起开始。",
+            "en": "Notice who might be left behind so everyone can start together."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先把回合顺序和关键规则弄清楚。",
+            "en": "Clarify the turn sequence and essential rules."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用一个示范小局试出可能的玩法。",
+            "en": "Explore possible moves through a short demonstration round."
+          },
+          "directionId": "west"
+        }
+      ]
+    },
+    {
+      "id": "COMP_10",
+      "prompt": {
+        "zh": "讨论结束后，大家对下一步记得不一样。你更先做什么？",
+        "en": "After a discussion, people remember different next steps. What do you do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让每个人说说自己听到的安排。",
+            "en": "Invite each person to explain what they understood."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "按记录核对决定、负责人和时间。",
+            "en": "Check decisions, owners and dates against the notes."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "试用一张图来重组大家零散的理解。",
+            "en": "Try reorganising the scattered interpretations into a diagram."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把当前最需要落实的一件事重新定下来。",
+            "en": "Re-establish the one action that most needs doing now."
+          },
+          "directionId": "north"
+        }
+      ]
+    },
+    {
+      "id": "COMP_11",
+      "prompt": {
+        "zh": "家里有一项拖着没做的小修整，你通常怎样开始？",
+        "en": "A small household improvement has been left unfinished. How do you usually start?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "确认所需材料与先后步骤。",
+            "en": "Confirm the materials and order of operations."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找一种不照旧办法也能解决的小试验。",
+            "en": "Look for a small experiment that could solve it differently."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "圈定一个今天能收尾的小部分。",
+            "en": "Mark out one small part that can be finished today."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先商量施工会怎样影响同住的人。",
+            "en": "Discuss how the work will affect other people at home."
+          },
+          "directionId": "south"
+        }
+      ]
+    },
+    {
+      "id": "COMP_12",
+      "prompt": {
+        "zh": "社区公告栏显得杂乱，你更愿意先贡献什么？",
+        "en": "A community noticeboard is cluttered. What would you prefer to contribute first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "尝试一种新的展示形式，让内容容易被发现。",
+            "en": "Experiment with a different display format that makes items easier to discover."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "提出本次整理完成后应看见的重点。",
+            "en": "Propose the key improvement this round of tidying should achieve."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问问不同使用者怎样找信息更方便。",
+            "en": "Ask how different users would find information more easily."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "建立日期、类别和过期公告的处理顺序。",
+            "en": "Set an order for dates, categories and expired notices."
+          },
+          "directionId": "east"
+        }
+      ]
+    },
+    {
+      "id": "COMP_13",
+      "prompt": {
+        "zh": "大家轮流借用一件设备，最近有点混乱。你更先想到哪项？",
+        "en": "A group shares equipment, and borrowing has become confusing. Which idea comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先指定今天谁来完成交接。",
+            "en": "Name who will complete the handover today."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先听彼此借用时间冲突的实际困难。",
+            "en": "Hear the practical difficulties behind conflicting borrowing times."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把预约、取用和归还顺序写明。",
+            "en": "Write down the booking, collection and return sequence."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "试做一种一眼能看出空闲状态的标记。",
+            "en": "Try a marker that shows availability at a glance."
+          },
+          "directionId": "west"
+        }
+      ]
+    },
+    {
+      "id": "COMP_14",
+      "prompt": {
+        "zh": "准备短住几天时，你更常从哪一步开始整理？",
+        "en": "When preparing for a short stay away, where do you usually begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先确认同行者有没有特别需要照应的安排。",
+            "en": "Check whether companions have arrangements that need consideration."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "按天数和使用场合列物品清单。",
+            "en": "List items by number of days and occasions of use."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "尝试把行李收成一种更灵活的组合。",
+            "en": "Experiment with a more adaptable packing combination."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先确定必须顺利完成的那件主要事情。",
+            "en": "Identify the main thing that must go smoothly."
+          },
+          "directionId": "north"
+        }
+      ]
+    },
+    {
+      "id": "COMP_15",
+      "prompt": {
+        "zh": "你要把一件进行中的小任务交给同事，你更先准备什么？",
+        "en": "You are handing an ongoing small task to a colleague. What do you prepare first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "整理当前状态、依赖条件与具体步骤。",
+            "en": "Organise the current status, dependencies and steps."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "提一种可能让后续处理更省事的新方式。",
+            "en": "Suggest a different approach that might simplify the remaining work."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "写明对方接下来最需要完成的成果。",
+            "en": "State the next outcome the colleague needs to deliver."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先问对方接手时最担心哪里。",
+            "en": "Ask what most concerns the colleague about taking over."
+          },
+          "directionId": "south"
+        }
+      ]
+    },
+    {
+      "id": "COMP_16",
+      "prompt": {
+        "zh": "志愿活动需要重新安排轮值，你通常怎样参加讨论？",
+        "en": "A volunteer activity needs a new rota. How do you usually join the discussion?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "试一个不同于以往的轮换组合。",
+            "en": "Try a rotation pattern different from the previous one."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先让大家确定这一轮必须覆盖的时段。",
+            "en": "Help establish which time slots must be covered this round."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先听谁最近的生活安排比较吃紧。",
+            "en": "Listen for whose circumstances make participation difficult just now."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把可用时段和空缺逐格对齐。",
+            "en": "Match available slots against gaps systematically."
+          },
+          "directionId": "east"
+        }
+      ]
+    },
+    {
+      "id": "COMP_17",
+      "prompt": {
+        "zh": "一门自选课程学到一半停下了，你更想怎样重新开始？",
+        "en": "You paused halfway through a course you chose. How would you prefer to restart?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "设定一个近期能完成的小学习成果。",
+            "en": "Set a small learning outcome you can finish soon."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找人聊聊学习中的卡点，恢复参与感。",
+            "en": "Talk through the sticking point with someone to feel engaged again."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "检查已有笔记，再排出剩下内容的次序。",
+            "en": "Review existing notes and sequence the remaining material."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "换一种练习形式试着进入同一主题。",
+            "en": "Try entering the same topic through a different exercise format."
+          },
+          "directionId": "west"
+        }
+      ]
+    },
+    {
+      "id": "COMP_18",
+      "prompt": {
+        "zh": "你们想整理一批家庭旧照片，你通常先做什么？",
+        "en": "Your household wants to organise old family photos. What do you usually do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先邀请愿意的人讲讲照片背后的故事。",
+            "en": "Invite willing people to share stories behind the photos."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先设计日期、人物和备份的分类方法。",
+            "en": "Design a method for dates, people and backups."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先试一种与普通相册不同的呈现方式。",
+            "en": "Try a presentation different from an ordinary album."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先选一个这次可以完成的整理范围。",
+            "en": "Choose a manageable portion to finish this time."
+          },
+          "directionId": "north"
+        }
+      ]
+    },
+    {
+      "id": "COMP_19",
+      "prompt": {
+        "zh": "你有空散步，面前有几条可以走的路。哪种考虑更先出现？",
+        "en": "You have time for a walk and several possible routes. Which consideration comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先看路程、路况和返回时间。",
+            "en": "Check distance, conditions and return time."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "走一条能看看陌生街角的路线。",
+            "en": "Take a route that lets you explore an unfamiliar corner."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "选一条能到达今天想去之处的路线。",
+            "en": "Choose a route that reaches somewhere you want to get to today."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "若有同行者，先协调彼此想要的节奏。",
+            "en": "If walking with someone, first coordinate the pace each person wants."
+          },
+          "directionId": "south"
+        }
+      ]
+    },
+    {
+      "id": "COMP_20",
+      "prompt": {
+        "zh": "几个人共用厨房，做饭时间常撞在一起。你通常先怎样回应？",
+        "en": "Several people share a kitchen and cooking times clash. How do you usually respond first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "试一个不同于轮流排队的共享办法。",
+            "en": "Experiment with a sharing arrangement beyond simply taking turns."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "提出本周就能开始执行的一项安排。",
+            "en": "Propose one arrangement that can begin this week."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问清各人的固定需求和不方便之处。",
+            "en": "Ask about each person’s fixed needs and difficulties."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把时间段、空间和清理步骤列清楚。",
+            "en": "Clarify time slots, space and clearing-up steps."
+          },
+          "directionId": "east"
+        }
+      ]
+    },
+    {
+      "id": "COMP_21",
+      "prompt": {
+        "zh": "一个不紧急的讨论反复绕回原点，你更常做什么？",
+        "en": "A non-urgent discussion keeps returning to its starting point. What do you more often do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "请大家说出此刻愿意落定的一个决定。",
+            "en": "Ask which one decision people are ready to settle now."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留意是否有人一直没机会表达顾虑。",
+            "en": "Notice whether someone has lacked a chance to express a concern."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把已同意与未澄清的部分分开。",
+            "en": "Separate what is agreed from what remains unclear."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "换个提问方式，看看会不会出现新选项。",
+            "en": "Reframe the question to see whether new options appear."
+          },
+          "directionId": "west"
+        }
+      ]
+    },
+    {
+      "id": "COMP_22",
+      "prompt": {
+        "zh": "你想重新捡起一个搁置的爱好，第一步更像什么？",
+        "en": "You want to return to a hobby you put aside. What does your first step resemble?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "联系一个能让重新开始更轻松的同好。",
+            "en": "Contact someone who could make restarting feel easier."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "盘点已有材料，再安排一个可重复的步骤。",
+            "en": "Review available materials and arrange a repeatable sequence."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给旧爱好加一个没试过的小变化。",
+            "en": "Add an untried variation to the old hobby."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "定一个这周能完成的具体小作品或练习。",
+            "en": "Set a concrete small piece or exercise to complete this week."
+          },
+          "directionId": "north"
+        }
+      ]
+    },
+    {
+      "id": "COMP_23",
+      "prompt": {
+        "zh": "几位邻居准备合用一件工具，你更先关注什么？",
+        "en": "Neighbours plan to share a tool. What concerns you first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "核对规格、保管和归还办法。",
+            "en": "Check specifications, storage and returns."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "想想租借或组合使用是否提供了新选择。",
+            "en": "Consider whether borrowing or combining resources opens another option."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "明确买来之后首先要解决的实际任务。",
+            "en": "Clarify the first practical task the purchase should solve."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "确认不同使用者能否舒适地提出需求。",
+            "en": "Check that different users can comfortably express their needs."
+          },
+          "directionId": "south"
+        }
+      ]
+    },
+    {
+      "id": "COMP_24",
+      "prompt": {
+        "zh": "临时多出半天空闲，你更常怎样安排？",
+        "en": "You unexpectedly gain half a day free. How do you more often arrange it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "试一件平时日程里没有的小活动。",
+            "en": "Try a small activity outside the usual schedule."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "选一件想推进的事，给它留一段完整时间。",
+            "en": "Choose something to move forward and give it an uninterrupted block."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问问自己或身边的人现在需要怎样的休息与陪伴。",
+            "en": "Ask what rest or company you or someone nearby needs now."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "看清已有安排，再把空闲放进合适的位置。",
+            "en": "Review existing commitments and fit the free time around them."
+          },
+          "directionId": "east"
+        }
+      ]
+    },
+    {
+      "id": "COMP_25",
+      "prompt": {
+        "zh": "大家一起做一大锅食物，口味意见不一。你先怎么参与？",
+        "en": "People cooking one large dish disagree about flavour. How do you first take part?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "推动大家选一个这次能做成的共同版本。",
+            "en": "Help the group choose one shared version it can finish this time."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先确认有哪些需要认真照顾的饮食需求。",
+            "en": "First check which dietary needs require consideration."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "对照食材和步骤，看哪些调整实际可行。",
+            "en": "Check ingredients and steps to see which changes are feasible."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "试着分出一小份，探索另一种调味。",
+            "en": "Set aside a small portion to explore another seasoning."
+          },
+          "directionId": "west"
+        }
+      ]
+    },
+    {
+      "id": "COMP_26",
+      "prompt": {
+        "zh": "共享播放列表出现分歧，你更自然的回应是什么？",
+        "en": "There is disagreement over a shared playlist. Which response feels more natural?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让不同喜好的人都有机会说出感受。",
+            "en": "Give people with different tastes room to explain how they feel."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "按场合、长度和轮次整理可选曲目。",
+            "en": "Organise possible tracks by occasion, length and turn."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "试一个把不同风格穿插起来的新组合。",
+            "en": "Try a new sequence that alternates the different styles."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提议这次先确定一个大家愿意执行的选择。",
+            "en": "Suggest settling one choice everyone can follow this time."
+          },
+          "directionId": "north"
+        }
+      ]
+    },
+    {
+      "id": "COMP_27",
+      "prompt": {
+        "zh": "一周里收到的邀请有点多，你更先怎样处理？",
+        "en": "You receive more invitations than comfortably fit in one week. What do you do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把时间和往返成本列出来再筛选。",
+            "en": "List timing and travel costs before choosing."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "想一种合并或替换活动的新安排。",
+            "en": "Think of a different arrangement that combines or replaces activities."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先选出这周真正想落实的一两项。",
+            "en": "Choose the one or two commitments you most want to follow through this week."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "考虑怎样坦诚回应，既说明边界又顾及对方。",
+            "en": "Consider how to respond honestly with boundaries and consideration."
+          },
+          "directionId": "south"
+        }
+      ]
+    },
+    {
+      "id": "COMP_28",
+      "prompt": {
+        "zh": "小型公开活动结束后，大家要收集反馈。你更先做什么？",
+        "en": "After a small public event, the group wants feedback. What do you do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "试一种比普通问卷更容易引出想法的形式。",
+            "en": "Try a format that may prompt ideas beyond a conventional form."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "明确这次反馈要帮助决定的下一件事。",
+            "en": "Clarify the next decision the feedback should help make."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "让不太愿意公开发言的人也有表达办法。",
+            "en": "Make room for people who prefer not to speak publicly."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把反馈分成流程、信息和后续处理等类别。",
+            "en": "Sort feedback into categories such as process, information and follow-up."
+          },
+          "directionId": "east"
+        }
+      ]
+    },
+    {
+      "id": "COMP_29",
+      "prompt": {
+        "zh": "一份入门说明有个步骤说不明白，你通常先怎么办？",
+        "en": "A beginner’s guide leaves one step unclear. What do you usually do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先找出完成当前任务所需确认的关键点。",
+            "en": "Identify the key clarification needed to finish the present task."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找一个能一起讨论而不会让人尴尬的人。",
+            "en": "Find someone to discuss it with without making anyone feel awkward."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "逐项检查前提、材料和步骤之间的关系。",
+            "en": "Check how prerequisites, materials and steps connect."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用一个小例子试出另外一种理解方式。",
+            "en": "Use a small example to explore another interpretation."
+          },
+          "directionId": "west"
+        }
+      ]
+    },
+    {
+      "id": "COMP_30",
+      "prompt": {
+        "zh": "共享花园准备换季，你更想先负责哪一部分？",
+        "en": "A shared garden is preparing for a new season. Which part would you first prefer to handle?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "了解参与者想投入多少精力以及需要什么支持。",
+            "en": "Ask how much effort participants want to contribute and what support they need."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "整理现有记录，排出准备与维护的先后。",
+            "en": "Organise existing records and order preparation and maintenance."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留一小块地方尝试不同的种植组合。",
+            "en": "Reserve a small area to try a different planting combination."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提出这一季最想完成的一个可见成果。",
+            "en": "Propose one visible outcome to work toward this season."
+          },
+          "directionId": "north"
+        }
+      ]
+    },
+    {
+      "id": "COMP_31",
+      "prompt": {
+        "zh": "一个协作任务需要压缩范围，你更先坚持什么？",
+        "en": "A collaborative task needs a smaller scope. What do you first want to preserve?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "讲清删减与保留之间的依赖关系。",
+            "en": "Clarify dependencies between what is removed and what remains."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "换一种组织办法，看看能否用更小投入完成。",
+            "en": "Try reorganising the task to see whether less input can suffice."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留下能直接实现本轮目的的那一部分。",
+            "en": "Keep the part that directly achieves this round’s purpose."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让受影响的人有机会参与重新商量。",
+            "en": "Give affected people a chance to help renegotiate."
+          },
+          "directionId": "south"
+        }
+      ]
+    },
+    {
+      "id": "COMP_32",
+      "prompt": {
+        "zh": "一位熟人要第一次参加你熟悉的小组，你更常怎样帮忙？",
+        "en": "An acquaintance is joining a group you know well for the first time. How do you more often help?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "想一个让新旧成员自然互动的小方式。",
+            "en": "Think of a fresh way for new and existing members to interact."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "说明这次活动最主要要完成什么。",
+            "en": "Explain what this meeting mainly aims to accomplish."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "介绍容易交谈的人，留意对方是否自在。",
+            "en": "Introduce approachable people and notice whether the newcomer feels at ease."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把时间、地点和参与步骤解释清楚。",
+            "en": "Explain the time, place and participation steps."
+          },
+          "directionId": "east"
+        }
+      ]
+    },
+    {
+      "id": "COMP_33",
+      "prompt": {
+        "zh": "你要处理一堆零散笔记，你更先怎样动手？",
+        "en": "You have scattered notes to deal with. How do you begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先决定整理后要支持哪项具体行动。",
+            "en": "Decide which concrete action the organised notes should support."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先找出与别人约定、需要回应的部分。",
+            "en": "Find commitments involving other people that need a response."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "按主题和使用顺序归类。",
+            "en": "Classify the notes by topic and order of use."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把零散片段换一种连接方式排开。",
+            "en": "Lay out the fragments to explore different connections."
+          },
+          "directionId": "west"
+        }
+      ]
+    },
+    {
+      "id": "COMP_34",
+      "prompt": {
+        "zh": "一次小尝试没有按预想进行，下一轮你更先改变什么？",
+        "en": "A small trial did not go as expected. What do you change first for the next round?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先听参与者哪里不舒服或不容易配合。",
+            "en": "Hear where participants felt uncomfortable or found coordination difficult."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "核查实际执行和原计划在哪一步分开。",
+            "en": "Check where the actual sequence departed from the plan."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "换一个假设，设计不同的小尝试。",
+            "en": "Try a different assumption and design another small experiment."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把下一轮要验证的目标收得更具体。",
+            "en": "Make the next round’s intended outcome more specific."
+          },
+          "directionId": "north"
+        }
+      ]
+    },
+    {
+      "id": "COMP_35",
+      "prompt": {
+        "zh": "你们准备把一个常做的小活动交给新人，你更先留下什么？",
+        "en": "You are passing a recurring activity to a newcomer. What do you leave first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "整理一份清楚的检查次序和注意事项。",
+            "en": "Prepare a clear checking sequence and practical notes."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留下一个可以自行改动的小空间。",
+            "en": "Leave room for one element the newcomer can redesign."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "说明最值得持续做到的一项成果。",
+            "en": "Explain the one outcome most worth continuing."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "告诉对方可以向谁求助，并确认支持仍在。",
+            "en": "Explain whom to ask for help and confirm support remains available."
+          },
+          "directionId": "south"
+        }
+      ]
+    },
+    {
+      "id": "COMP_36",
+      "prompt": {
+        "zh": "回看这周的一项安排，你更愿意先问自己什么？",
+        "en": "Looking back on one arrangement from this week, what would you first ask yourself?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "哪种新尝试值得换个条件再试一次？",
+            "en": "Which experiment is worth trying again under different conditions?"
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我把原先想推动的哪一步真正做成了？",
+            "en": "Which intended step did I actually move forward?"
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "这次安排有没有让参与者容易表达需要？",
+            "en": "Did this arrangement make it easy for participants to express their needs?"
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "哪项细节或顺序让过程更容易重复？",
+            "en": "Which detail or sequence made the process easier to repeat?"
+          },
+          "directionId": "east"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "version": "fm_compass_counts_cross_axis_v1",
+    "kind": "compass",
+    "required": 36,
+    "reverseItems": [],
+    "points": "selected direction +1; all four share a fixed budget of 36",
+    "leaderRule": "retain EVERY global highest direction",
+    "neighborRule": "For each highest direction, compare its two perpendicular directions; retain the uniquely greater neighbor as an ordered reading. If perpendicular counts tie, use the base direction reading and explicitly explain that no neighbor was distinguished. No forced opposite-as-blend; opposite highest directions are still both retained.",
+    "profileIds": [
+      "north",
+      "south",
+      "east",
+      "west",
+      "north-east",
+      "north-west",
+      "south-east",
+      "south-west",
+      "east-north",
+      "east-south",
+      "west-north",
+      "west-south"
+    ],
+    "norms": false
+  },
+  "scope": {
+    "zh": "四向仅是独立原创的日常观察隐喻；不提供官方Personality Compass／PCTI量表、原书类型鉴定、阿语题本或阿拉伯文化常模；Arabic为所对照的通俗搜索名称背景，不用于族群性格判断。最高与邻向读法为本站明确编写的组织规则，不是原书计分或经验证的心理类型，不换算DISC、MBTI、大五、血型、脑化学、健康或职业。",
+    "en": "Four directions are metaphors for independently authored everyday reflection. This is not the official Personality Compass or PCTI instrument, the book’s type identification, an Arabic-language bank or Arab cultural norms. Arabic supplies the common search-name context, never an ethnic personality inference. Highest and neighbouring readings use this site’s explicit editorial rule rather than the book’s scoring or validated psychological types, and are not converted into DISC, MBTI, Big Five, blood types, brain chemistry, health or career."
+  },
+  "instructions": {
+    "zh": "回想近期普通安排中自己更常先做的事，每题选四项里最贴近的一项。36题是固定选择预算，四个次数只能在本次作答内比较。不是正确答案、能力或群体排名；没有合适选项时可退出，公开说明仍可直接阅读。",
+    "en": "Think about what you more often do first in recent everyday arrangements. Pick the closest of four options for each question. The 36 choices form a fixed budget, so four counts compare only within this attempt. These are not correct answers, abilities or population ranks. If none fits, you may leave and still read the public guides."
+  }
+}

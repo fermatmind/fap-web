@@ -1,0 +1,3506 @@
+{
+  "slug": "arabic-personality-compass",
+  "code": "COMPASS_ORIGINAL_CROSS_AXIS",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "framework",
+  "kind": "compass",
+  "title": {
+    "zh": "性格罗盘测试",
+    "en": "Arabic Personality Compass Test"
+  },
+  "resultHeading": {
+    "zh": "四向计数、最高并列与相邻读法",
+    "en": "Four compass counts, every highest tie and neighbouring readings"
+  },
+  "description": {
+    "zh": "免费性格罗盘测试：36道原创情境题，查看北南东西原始次数、全部最高并列与12份完整读法。中英双语反思版，非官方PCTI，不由方向判断能力、族群或职业。",
+    "en": "Take 36 original compass questions. Read four raw counts, all highest ties and 12 full guides. A bilingual reflection, separate from the official PCTI."
+  },
+  "seoTitle": {
+    "zh": "性格罗盘测试：36道情境题与12份免费完整结果",
+    "en": "Arabic Personality Compass Test: Full Free Results"
+  },
+  "minutes": 10,
+  "instructions": {
+    "zh": "回想近期普通安排中自己更常先做的事，每题选四项里最贴近的一项。36题是固定选择预算，四个次数只能在本次作答内比较。不是正确答案、能力或群体排名；没有合适选项时可退出，公开说明仍可直接阅读。",
+    "en": "Think about what you more often do first in recent everyday arrangements. Pick the closest of four options for each question. The 36 choices form a fixed budget, so four counts compare only within this attempt. These are not correct answers, abilities or population ranks. If none fits, you may leave and still read the public guides."
+  },
+  "introduction": {
+    "zh": "安排一次聚餐、接手一个小任务或给活动换个办法时，你较常先推进一步、顾及参与、厘清顺序，还是尝试别法？本版以北、南、东、西作四种日常起手方式的隐喻，使用36道费马原创情境题和明确的固定预算计数。保留全部最高方向，再按显式规则区分相邻读法；12份九模块说明都可直接先读，完整免费。通俗四向罗盘框架的来源包括Diane Turner与Thelma Greco的The Personality Compass；本版不是该书或官方PCTI题本、译本或类型鉴定，没有复制其条目、描述或计分。Arabic是本项所对照的通俗搜索名称背景，此处提供中文与英文，不判断阿拉伯族群性格，也不声称阿语支持、文化常模或跨框架换算。",
+    "en": "When arranging a shared meal, taking over a small task or changing an activity, do you more often begin by moving a step forward, supporting participation, clarifying sequence or trying another approach? This edition uses North, South, East and West as metaphors for those everyday starts, with thirty-six original FermatMind situations and explicit fixed-budget counts. Every highest direction remains before neighbouring readings are distinguished by a stated rule. All twelve full nine-section guides are free and readable first. Background to popular four-direction framing includes The Personality Compass by Diane Turner and Thelma Greco. This is not that book’s or the official PCTI bank, translation or type identification, and reproduces none of its items, descriptions or scoring. Arabic supplies the common search-name context: this edition is in English and Chinese, without ethnic personality conclusions, Arabic-language support, cultural norms or cross-framework conversions."
+  },
+  "source": {
+    "kind": "fermatmind_original_compass_choices",
+    "formCode": "fm_compass_original_choices_36",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "dc4fbfa83a74af31fcab8794c812427ece6628d82abe117177a55d78b3779dde",
+    "resultContentSha256": "e2ec08dc31c7d4fb75bd640d767a6b48cac42183f648f28b3b8ff8d1b9e8e984",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "north",
+      "title": {
+        "zh": "北向：推动一步",
+        "en": "North: moving a step forward"
+      },
+      "comparisons": 36
+    },
+    {
+      "id": "south",
+      "title": {
+        "zh": "南向：顾及参与",
+        "en": "South: supporting participation"
+      },
+      "comparisons": 36
+    },
+    {
+      "id": "east",
+      "title": {
+        "zh": "东向：厘清顺序",
+        "en": "East: clarifying the sequence"
+      },
+      "comparisons": 36
+    },
+    {
+      "id": "west",
+      "title": {
+        "zh": "西向：尝试别法",
+        "en": "West: trying another way"
+      },
+      "comparisons": 36
+    }
+  ],
+  "questions": [
+    {
+      "id": "COMP_01",
+      "prompt": {
+        "zh": "几位朋友想办一次带菜聚餐，还没有人牵头。你通常先做什么？",
+        "en": "Friends want a bring-a-dish meal, with no organiser yet. What do you usually do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先提一个日期，并承担确认这一步。",
+            "en": "Suggest a date and take responsibility for confirming it."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先问每个人怎样参加会轻松些。",
+            "en": "Ask what would make taking part easier for each person."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先列清人数、餐具和需要带的东西。",
+            "en": "List the headcount, tableware and things to bring."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先试一个大家可以各自添加菜名的小玩法。",
+            "en": "Try a playful way for everyone to add dish ideas."
+          },
+          "directionId": "west"
+        }
+      ]
+    },
+    {
+      "id": "COMP_02",
+      "prompt": {
+        "zh": "社区想交换闲置书，讨论还很散。你的下一步更像哪项？",
+        "en": "A community book exchange is being discussed without a clear plan. Which step sounds most like yours?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "找出不熟悉流程的人需要怎样被接住。",
+            "en": "Find out what would help people unfamiliar with the process feel included."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "写清借换、归还与遗留书的处理办法。",
+            "en": "Write down how exchanges, returns and leftover books will work."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "想一个盲选书袋的试验环节。",
+            "en": "Imagine an experimental round of mystery book bags."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "确定一次小规模交换的结束目标。",
+            "en": "Set a concrete outcome for one small exchange."
+          },
+          "directionId": "north"
+        }
+      ]
+    },
+    {
+      "id": "COMP_03",
+      "prompt": {
+        "zh": "一起出游的预算有些紧，你更先关注什么？",
+        "en": "The budget for a shared outing is tight. What draws your attention first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把固定开销和可调整开销分开算。",
+            "en": "Separate fixed costs from adjustable costs."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找一个不用照旧行程走的新方案。",
+            "en": "Look for a new arrangement beyond the usual itinerary."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "选定这次最值得保留的一件事。",
+            "en": "Choose the one outcome most worth preserving this time."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "了解谁可能不好意思说自己负担不起。",
+            "en": "Check who might find it difficult to say the cost is too high."
+          },
+          "directionId": "south"
+        }
+      ]
+    },
+    {
+      "id": "COMP_04",
+      "prompt": {
+        "zh": "你要安排阳台上几盆植物的日常照料。哪种起手方式更自然？",
+        "en": "You are arranging everyday care for several balcony plants. Which starting approach feels natural?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先尝试一种可以调整位置的新摆法。",
+            "en": "Try a new arrangement that can be repositioned."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先选定这周会完成的一项照料任务。",
+            "en": "Choose one care task to complete this week."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先问共同照料的人哪些时间方便。",
+            "en": "Ask fellow carers which times fit their routines."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先标明各盆的照料记录和检查顺序。",
+            "en": "Label care notes and a checking sequence for each pot."
+          },
+          "directionId": "east"
+        }
+      ]
+    },
+    {
+      "id": "COMP_05",
+      "prompt": {
+        "zh": "共用房间要挪动几张桌子，你通常怎样参与？",
+        "en": "Several desks need moving in a shared room. How do you usually contribute?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "明确这次搬完后最需要腾出的区域。",
+            "en": "Identify the area that most needs to be clear after the move."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "听听各使用者最在意的空间需求。",
+            "en": "Listen to the space needs that matter most to each user."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "量好通道，再按步骤安排移动。",
+            "en": "Measure the walkways and order the moving steps."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "画两种不同布局，先用纸片试摆。",
+            "en": "Sketch two different layouts and test them with paper pieces."
+          },
+          "directionId": "west"
+        }
+      ]
+    },
+    {
+      "id": "COMP_06",
+      "prompt": {
+        "zh": "下雨打乱了原定见面安排，你更想先做什么？",
+        "en": "Rain disrupts a planned meetup. What would you first want to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "确认谁已经在路上，别让人白等。",
+            "en": "Check who is already travelling so nobody waits unnecessarily."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "核对室内地点的时间和交通条件。",
+            "en": "Check opening times and travel details for indoor locations."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把见面改成一种没试过的活动。",
+            "en": "Turn the meetup into an activity you have not tried together."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "尽快敲定一个今天仍能实现的安排。",
+            "en": "Settle on something achievable today."
+          },
+          "directionId": "north"
+        }
+      ]
+    },
+    {
+      "id": "COMP_07",
+      "prompt": {
+        "zh": "你收到一条不太清楚的预约通知，你通常如何处理？",
+        "en": "An appointment message is unclear. How do you usually handle it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "逐项核对日期、地点和需要准备的材料。",
+            "en": "Check the date, location and preparation requirements one by one."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "想一种更直观的方式把安排重新表示出来。",
+            "en": "Find a more visual way to represent the arrangement."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "直接提出需要对方确认的一个关键决定。",
+            "en": "Ask directly for the one decision that needs confirming."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用不让对方难堪的方式询问具体意思。",
+            "en": "Ask what was meant in a way that avoids embarrassing the sender."
+          },
+          "directionId": "south"
+        }
+      ]
+    },
+    {
+      "id": "COMP_08",
+      "prompt": {
+        "zh": "朋友为晚上的休闲安排拿不定主意，你更常怎么帮忙？",
+        "en": "A friend cannot settle on an evening activity. How are you more likely to help?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "提一个与原来几个选项都不同的轻巧尝试。",
+            "en": "Suggest a light experiment unlike any option already considered."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "缩小选择，约好什么时候作决定。",
+            "en": "Narrow the options and agree when to decide."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先听这位朋友今天想要怎样的陪伴。",
+            "en": "Listen to what kind of company your friend wants today."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把可用时间和每个选项的条件对一下。",
+            "en": "Match the available time against the requirements of each option."
+          },
+          "directionId": "east"
+        }
+      ]
+    },
+    {
+      "id": "COMP_09",
+      "prompt": {
+        "zh": "你们刚拿到一款不熟悉的桌游，你通常先怎样加入？",
+        "en": "Your group has an unfamiliar board game. How do you usually join in?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先约定这一轮要玩到哪一步。",
+            "en": "Agree how far to play in the first round."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留意谁可能跟不上，让大家一起开始。",
+            "en": "Notice who might be left behind so everyone can start together."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先把回合顺序和关键规则弄清楚。",
+            "en": "Clarify the turn sequence and essential rules."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用一个示范小局试出可能的玩法。",
+            "en": "Explore possible moves through a short demonstration round."
+          },
+          "directionId": "west"
+        }
+      ]
+    },
+    {
+      "id": "COMP_10",
+      "prompt": {
+        "zh": "讨论结束后，大家对下一步记得不一样。你更先做什么？",
+        "en": "After a discussion, people remember different next steps. What do you do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让每个人说说自己听到的安排。",
+            "en": "Invite each person to explain what they understood."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "按记录核对决定、负责人和时间。",
+            "en": "Check decisions, owners and dates against the notes."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "试用一张图来重组大家零散的理解。",
+            "en": "Try reorganising the scattered interpretations into a diagram."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把当前最需要落实的一件事重新定下来。",
+            "en": "Re-establish the one action that most needs doing now."
+          },
+          "directionId": "north"
+        }
+      ]
+    },
+    {
+      "id": "COMP_11",
+      "prompt": {
+        "zh": "家里有一项拖着没做的小修整，你通常怎样开始？",
+        "en": "A small household improvement has been left unfinished. How do you usually start?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "确认所需材料与先后步骤。",
+            "en": "Confirm the materials and order of operations."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找一种不照旧办法也能解决的小试验。",
+            "en": "Look for a small experiment that could solve it differently."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "圈定一个今天能收尾的小部分。",
+            "en": "Mark out one small part that can be finished today."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先商量施工会怎样影响同住的人。",
+            "en": "Discuss how the work will affect other people at home."
+          },
+          "directionId": "south"
+        }
+      ]
+    },
+    {
+      "id": "COMP_12",
+      "prompt": {
+        "zh": "社区公告栏显得杂乱，你更愿意先贡献什么？",
+        "en": "A community noticeboard is cluttered. What would you prefer to contribute first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "尝试一种新的展示形式，让内容容易被发现。",
+            "en": "Experiment with a different display format that makes items easier to discover."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "提出本次整理完成后应看见的重点。",
+            "en": "Propose the key improvement this round of tidying should achieve."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问问不同使用者怎样找信息更方便。",
+            "en": "Ask how different users would find information more easily."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "建立日期、类别和过期公告的处理顺序。",
+            "en": "Set an order for dates, categories and expired notices."
+          },
+          "directionId": "east"
+        }
+      ]
+    },
+    {
+      "id": "COMP_13",
+      "prompt": {
+        "zh": "大家轮流借用一件设备，最近有点混乱。你更先想到哪项？",
+        "en": "A group shares equipment, and borrowing has become confusing. Which idea comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先指定今天谁来完成交接。",
+            "en": "Name who will complete the handover today."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先听彼此借用时间冲突的实际困难。",
+            "en": "Hear the practical difficulties behind conflicting borrowing times."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把预约、取用和归还顺序写明。",
+            "en": "Write down the booking, collection and return sequence."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "试做一种一眼能看出空闲状态的标记。",
+            "en": "Try a marker that shows availability at a glance."
+          },
+          "directionId": "west"
+        }
+      ]
+    },
+    {
+      "id": "COMP_14",
+      "prompt": {
+        "zh": "准备短住几天时，你更常从哪一步开始整理？",
+        "en": "When preparing for a short stay away, where do you usually begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先确认同行者有没有特别需要照应的安排。",
+            "en": "Check whether companions have arrangements that need consideration."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "按天数和使用场合列物品清单。",
+            "en": "List items by number of days and occasions of use."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "尝试把行李收成一种更灵活的组合。",
+            "en": "Experiment with a more adaptable packing combination."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先确定必须顺利完成的那件主要事情。",
+            "en": "Identify the main thing that must go smoothly."
+          },
+          "directionId": "north"
+        }
+      ]
+    },
+    {
+      "id": "COMP_15",
+      "prompt": {
+        "zh": "你要把一件进行中的小任务交给同事，你更先准备什么？",
+        "en": "You are handing an ongoing small task to a colleague. What do you prepare first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "整理当前状态、依赖条件与具体步骤。",
+            "en": "Organise the current status, dependencies and steps."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "提一种可能让后续处理更省事的新方式。",
+            "en": "Suggest a different approach that might simplify the remaining work."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "写明对方接下来最需要完成的成果。",
+            "en": "State the next outcome the colleague needs to deliver."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先问对方接手时最担心哪里。",
+            "en": "Ask what most concerns the colleague about taking over."
+          },
+          "directionId": "south"
+        }
+      ]
+    },
+    {
+      "id": "COMP_16",
+      "prompt": {
+        "zh": "志愿活动需要重新安排轮值，你通常怎样参加讨论？",
+        "en": "A volunteer activity needs a new rota. How do you usually join the discussion?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "试一个不同于以往的轮换组合。",
+            "en": "Try a rotation pattern different from the previous one."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先让大家确定这一轮必须覆盖的时段。",
+            "en": "Help establish which time slots must be covered this round."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先听谁最近的生活安排比较吃紧。",
+            "en": "Listen for whose circumstances make participation difficult just now."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把可用时段和空缺逐格对齐。",
+            "en": "Match available slots against gaps systematically."
+          },
+          "directionId": "east"
+        }
+      ]
+    },
+    {
+      "id": "COMP_17",
+      "prompt": {
+        "zh": "一门自选课程学到一半停下了，你更想怎样重新开始？",
+        "en": "You paused halfway through a course you chose. How would you prefer to restart?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "设定一个近期能完成的小学习成果。",
+            "en": "Set a small learning outcome you can finish soon."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找人聊聊学习中的卡点，恢复参与感。",
+            "en": "Talk through the sticking point with someone to feel engaged again."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "检查已有笔记，再排出剩下内容的次序。",
+            "en": "Review existing notes and sequence the remaining material."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "换一种练习形式试着进入同一主题。",
+            "en": "Try entering the same topic through a different exercise format."
+          },
+          "directionId": "west"
+        }
+      ]
+    },
+    {
+      "id": "COMP_18",
+      "prompt": {
+        "zh": "你们想整理一批家庭旧照片，你通常先做什么？",
+        "en": "Your household wants to organise old family photos. What do you usually do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先邀请愿意的人讲讲照片背后的故事。",
+            "en": "Invite willing people to share stories behind the photos."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先设计日期、人物和备份的分类方法。",
+            "en": "Design a method for dates, people and backups."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先试一种与普通相册不同的呈现方式。",
+            "en": "Try a presentation different from an ordinary album."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先选一个这次可以完成的整理范围。",
+            "en": "Choose a manageable portion to finish this time."
+          },
+          "directionId": "north"
+        }
+      ]
+    },
+    {
+      "id": "COMP_19",
+      "prompt": {
+        "zh": "你有空散步，面前有几条可以走的路。哪种考虑更先出现？",
+        "en": "You have time for a walk and several possible routes. Which consideration comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先看路程、路况和返回时间。",
+            "en": "Check distance, conditions and return time."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "走一条能看看陌生街角的路线。",
+            "en": "Take a route that lets you explore an unfamiliar corner."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "选一条能到达今天想去之处的路线。",
+            "en": "Choose a route that reaches somewhere you want to get to today."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "若有同行者，先协调彼此想要的节奏。",
+            "en": "If walking with someone, first coordinate the pace each person wants."
+          },
+          "directionId": "south"
+        }
+      ]
+    },
+    {
+      "id": "COMP_20",
+      "prompt": {
+        "zh": "几个人共用厨房，做饭时间常撞在一起。你通常先怎样回应？",
+        "en": "Several people share a kitchen and cooking times clash. How do you usually respond first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "试一个不同于轮流排队的共享办法。",
+            "en": "Experiment with a sharing arrangement beyond simply taking turns."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "提出本周就能开始执行的一项安排。",
+            "en": "Propose one arrangement that can begin this week."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问清各人的固定需求和不方便之处。",
+            "en": "Ask about each person’s fixed needs and difficulties."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把时间段、空间和清理步骤列清楚。",
+            "en": "Clarify time slots, space and clearing-up steps."
+          },
+          "directionId": "east"
+        }
+      ]
+    },
+    {
+      "id": "COMP_21",
+      "prompt": {
+        "zh": "一个不紧急的讨论反复绕回原点，你更常做什么？",
+        "en": "A non-urgent discussion keeps returning to its starting point. What do you more often do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "请大家说出此刻愿意落定的一个决定。",
+            "en": "Ask which one decision people are ready to settle now."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留意是否有人一直没机会表达顾虑。",
+            "en": "Notice whether someone has lacked a chance to express a concern."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把已同意与未澄清的部分分开。",
+            "en": "Separate what is agreed from what remains unclear."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "换个提问方式，看看会不会出现新选项。",
+            "en": "Reframe the question to see whether new options appear."
+          },
+          "directionId": "west"
+        }
+      ]
+    },
+    {
+      "id": "COMP_22",
+      "prompt": {
+        "zh": "你想重新捡起一个搁置的爱好，第一步更像什么？",
+        "en": "You want to return to a hobby you put aside. What does your first step resemble?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "联系一个能让重新开始更轻松的同好。",
+            "en": "Contact someone who could make restarting feel easier."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "盘点已有材料，再安排一个可重复的步骤。",
+            "en": "Review available materials and arrange a repeatable sequence."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给旧爱好加一个没试过的小变化。",
+            "en": "Add an untried variation to the old hobby."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "定一个这周能完成的具体小作品或练习。",
+            "en": "Set a concrete small piece or exercise to complete this week."
+          },
+          "directionId": "north"
+        }
+      ]
+    },
+    {
+      "id": "COMP_23",
+      "prompt": {
+        "zh": "几位邻居准备合用一件工具，你更先关注什么？",
+        "en": "Neighbours plan to share a tool. What concerns you first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "核对规格、保管和归还办法。",
+            "en": "Check specifications, storage and returns."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "想想租借或组合使用是否提供了新选择。",
+            "en": "Consider whether borrowing or combining resources opens another option."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "明确买来之后首先要解决的实际任务。",
+            "en": "Clarify the first practical task the purchase should solve."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "确认不同使用者能否舒适地提出需求。",
+            "en": "Check that different users can comfortably express their needs."
+          },
+          "directionId": "south"
+        }
+      ]
+    },
+    {
+      "id": "COMP_24",
+      "prompt": {
+        "zh": "临时多出半天空闲，你更常怎样安排？",
+        "en": "You unexpectedly gain half a day free. How do you more often arrange it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "试一件平时日程里没有的小活动。",
+            "en": "Try a small activity outside the usual schedule."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "选一件想推进的事，给它留一段完整时间。",
+            "en": "Choose something to move forward and give it an uninterrupted block."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问问自己或身边的人现在需要怎样的休息与陪伴。",
+            "en": "Ask what rest or company you or someone nearby needs now."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "看清已有安排，再把空闲放进合适的位置。",
+            "en": "Review existing commitments and fit the free time around them."
+          },
+          "directionId": "east"
+        }
+      ]
+    },
+    {
+      "id": "COMP_25",
+      "prompt": {
+        "zh": "大家一起做一大锅食物，口味意见不一。你先怎么参与？",
+        "en": "People cooking one large dish disagree about flavour. How do you first take part?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "推动大家选一个这次能做成的共同版本。",
+            "en": "Help the group choose one shared version it can finish this time."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先确认有哪些需要认真照顾的饮食需求。",
+            "en": "First check which dietary needs require consideration."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "对照食材和步骤，看哪些调整实际可行。",
+            "en": "Check ingredients and steps to see which changes are feasible."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "试着分出一小份，探索另一种调味。",
+            "en": "Set aside a small portion to explore another seasoning."
+          },
+          "directionId": "west"
+        }
+      ]
+    },
+    {
+      "id": "COMP_26",
+      "prompt": {
+        "zh": "共享播放列表出现分歧，你更自然的回应是什么？",
+        "en": "There is disagreement over a shared playlist. Which response feels more natural?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让不同喜好的人都有机会说出感受。",
+            "en": "Give people with different tastes room to explain how they feel."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "按场合、长度和轮次整理可选曲目。",
+            "en": "Organise possible tracks by occasion, length and turn."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "试一个把不同风格穿插起来的新组合。",
+            "en": "Try a new sequence that alternates the different styles."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提议这次先确定一个大家愿意执行的选择。",
+            "en": "Suggest settling one choice everyone can follow this time."
+          },
+          "directionId": "north"
+        }
+      ]
+    },
+    {
+      "id": "COMP_27",
+      "prompt": {
+        "zh": "一周里收到的邀请有点多，你更先怎样处理？",
+        "en": "You receive more invitations than comfortably fit in one week. What do you do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把时间和往返成本列出来再筛选。",
+            "en": "List timing and travel costs before choosing."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "想一种合并或替换活动的新安排。",
+            "en": "Think of a different arrangement that combines or replaces activities."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先选出这周真正想落实的一两项。",
+            "en": "Choose the one or two commitments you most want to follow through this week."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "考虑怎样坦诚回应，既说明边界又顾及对方。",
+            "en": "Consider how to respond honestly with boundaries and consideration."
+          },
+          "directionId": "south"
+        }
+      ]
+    },
+    {
+      "id": "COMP_28",
+      "prompt": {
+        "zh": "小型公开活动结束后，大家要收集反馈。你更先做什么？",
+        "en": "After a small public event, the group wants feedback. What do you do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "试一种比普通问卷更容易引出想法的形式。",
+            "en": "Try a format that may prompt ideas beyond a conventional form."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "明确这次反馈要帮助决定的下一件事。",
+            "en": "Clarify the next decision the feedback should help make."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "让不太愿意公开发言的人也有表达办法。",
+            "en": "Make room for people who prefer not to speak publicly."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把反馈分成流程、信息和后续处理等类别。",
+            "en": "Sort feedback into categories such as process, information and follow-up."
+          },
+          "directionId": "east"
+        }
+      ]
+    },
+    {
+      "id": "COMP_29",
+      "prompt": {
+        "zh": "一份入门说明有个步骤说不明白，你通常先怎么办？",
+        "en": "A beginner’s guide leaves one step unclear. What do you usually do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先找出完成当前任务所需确认的关键点。",
+            "en": "Identify the key clarification needed to finish the present task."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找一个能一起讨论而不会让人尴尬的人。",
+            "en": "Find someone to discuss it with without making anyone feel awkward."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "逐项检查前提、材料和步骤之间的关系。",
+            "en": "Check how prerequisites, materials and steps connect."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用一个小例子试出另外一种理解方式。",
+            "en": "Use a small example to explore another interpretation."
+          },
+          "directionId": "west"
+        }
+      ]
+    },
+    {
+      "id": "COMP_30",
+      "prompt": {
+        "zh": "共享花园准备换季，你更想先负责哪一部分？",
+        "en": "A shared garden is preparing for a new season. Which part would you first prefer to handle?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "了解参与者想投入多少精力以及需要什么支持。",
+            "en": "Ask how much effort participants want to contribute and what support they need."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "整理现有记录，排出准备与维护的先后。",
+            "en": "Organise existing records and order preparation and maintenance."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留一小块地方尝试不同的种植组合。",
+            "en": "Reserve a small area to try a different planting combination."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提出这一季最想完成的一个可见成果。",
+            "en": "Propose one visible outcome to work toward this season."
+          },
+          "directionId": "north"
+        }
+      ]
+    },
+    {
+      "id": "COMP_31",
+      "prompt": {
+        "zh": "一个协作任务需要压缩范围，你更先坚持什么？",
+        "en": "A collaborative task needs a smaller scope. What do you first want to preserve?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "讲清删减与保留之间的依赖关系。",
+            "en": "Clarify dependencies between what is removed and what remains."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "换一种组织办法，看看能否用更小投入完成。",
+            "en": "Try reorganising the task to see whether less input can suffice."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留下能直接实现本轮目的的那一部分。",
+            "en": "Keep the part that directly achieves this round’s purpose."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让受影响的人有机会参与重新商量。",
+            "en": "Give affected people a chance to help renegotiate."
+          },
+          "directionId": "south"
+        }
+      ]
+    },
+    {
+      "id": "COMP_32",
+      "prompt": {
+        "zh": "一位熟人要第一次参加你熟悉的小组，你更常怎样帮忙？",
+        "en": "An acquaintance is joining a group you know well for the first time. How do you more often help?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "想一个让新旧成员自然互动的小方式。",
+            "en": "Think of a fresh way for new and existing members to interact."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "说明这次活动最主要要完成什么。",
+            "en": "Explain what this meeting mainly aims to accomplish."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "介绍容易交谈的人，留意对方是否自在。",
+            "en": "Introduce approachable people and notice whether the newcomer feels at ease."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把时间、地点和参与步骤解释清楚。",
+            "en": "Explain the time, place and participation steps."
+          },
+          "directionId": "east"
+        }
+      ]
+    },
+    {
+      "id": "COMP_33",
+      "prompt": {
+        "zh": "你要处理一堆零散笔记，你更先怎样动手？",
+        "en": "You have scattered notes to deal with. How do you begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先决定整理后要支持哪项具体行动。",
+            "en": "Decide which concrete action the organised notes should support."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先找出与别人约定、需要回应的部分。",
+            "en": "Find commitments involving other people that need a response."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "按主题和使用顺序归类。",
+            "en": "Classify the notes by topic and order of use."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把零散片段换一种连接方式排开。",
+            "en": "Lay out the fragments to explore different connections."
+          },
+          "directionId": "west"
+        }
+      ]
+    },
+    {
+      "id": "COMP_34",
+      "prompt": {
+        "zh": "一次小尝试没有按预想进行，下一轮你更先改变什么？",
+        "en": "A small trial did not go as expected. What do you change first for the next round?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先听参与者哪里不舒服或不容易配合。",
+            "en": "Hear where participants felt uncomfortable or found coordination difficult."
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "核查实际执行和原计划在哪一步分开。",
+            "en": "Check where the actual sequence departed from the plan."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "换一个假设，设计不同的小尝试。",
+            "en": "Try a different assumption and design another small experiment."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把下一轮要验证的目标收得更具体。",
+            "en": "Make the next round’s intended outcome more specific."
+          },
+          "directionId": "north"
+        }
+      ]
+    },
+    {
+      "id": "COMP_35",
+      "prompt": {
+        "zh": "你们准备把一个常做的小活动交给新人，你更先留下什么？",
+        "en": "You are passing a recurring activity to a newcomer. What do you leave first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "整理一份清楚的检查次序和注意事项。",
+            "en": "Prepare a clear checking sequence and practical notes."
+          },
+          "directionId": "east"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留下一个可以自行改动的小空间。",
+            "en": "Leave room for one element the newcomer can redesign."
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "说明最值得持续做到的一项成果。",
+            "en": "Explain the one outcome most worth continuing."
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "告诉对方可以向谁求助，并确认支持仍在。",
+            "en": "Explain whom to ask for help and confirm support remains available."
+          },
+          "directionId": "south"
+        }
+      ]
+    },
+    {
+      "id": "COMP_36",
+      "prompt": {
+        "zh": "回看这周的一项安排，你更愿意先问自己什么？",
+        "en": "Looking back on one arrangement from this week, what would you first ask yourself?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "哪种新尝试值得换个条件再试一次？",
+            "en": "Which experiment is worth trying again under different conditions?"
+          },
+          "directionId": "west"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我把原先想推动的哪一步真正做成了？",
+            "en": "Which intended step did I actually move forward?"
+          },
+          "directionId": "north"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "这次安排有没有让参与者容易表达需要？",
+            "en": "Did this arrangement make it easy for participants to express their needs?"
+          },
+          "directionId": "south"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "哪项细节或顺序让过程更容易重复？",
+            "en": "Which detail or sequence made the process easier to repeat?"
+          },
+          "directionId": "east"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "north",
+      "directionIds": [
+        "north"
+      ],
+      "title": {
+        "zh": "北向：先推动一个明确步骤",
+        "en": "North Reading: Moving One Clear Step Forward"
+      },
+      "headline": {
+        "zh": "本组选择中的方向读法，不是官方类型或能力结论。",
+        "en": "A reading of choices in this bank rather than an official type or ability conclusion."
+      },
+      "summary": {
+        "zh": "北向次数处于最高，东与西的次数相同，本次没有区分出明确邻向。这不表示你只有推动力，而是先读推进这件事，再保留未分出的部分。",
+        "en": "North is among your highest counts, while East and West are equal, so this attempt distinguishes no neighbouring direction. Read the preference for moving a step forward without treating the other possibilities as absent."
+      },
+      "scoreReading": {
+        "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+        "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "北向性格罗盘测试结果：例子、并列与完整说明",
+          "en": "North Compass Result: Examples & Full Guide"
+        },
+        "description": {
+          "zh": "北向次数处于最高，东与西的次数相同，本次没有区分出明确邻向。这不表示你只有推动力，而是先读推进这件事，再保留未分出的部分。",
+          "en": "Read the base North compass result: equal neighbours, a concrete example and full comparisons. No leadership, ability or career verdict."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "方向是一种起手方式",
+            "en": "A direction describes a starting approach"
+          },
+          "paragraphs": [
+            {
+              "zh": "这里的北向不是出生地、文化身份、领导能力或“强势性格”，而是本版情境里先把一件事推进一步的选项。你可能愿意明确聚餐日期、圈定整理范围，或把讨论变成当前能落实的决定。那些选择只说明在给出的四种起手方式中，推进较常被你选中；没有观察你之后是否采纳他人意见、把事情做好或愿意改变方向。",
+              "en": "North here means choosing an offered step that moves an arrangement forward. It means neither geographical origin, cultural identity, leadership ability nor a forceful personality. You may have preferred confirming a meal date, limiting a sorting task or turning a discussion into a workable decision. These choices show what you selected among four starting approaches, not how well you later executed it, listened to others or revised the plan. A direction is a reading device rather than a finding about your whole character."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "为什么出现基础北向读法",
+            "en": "Why the base North reading appears"
+          },
+          "paragraphs": [
+            {
+              "zh": "本读法的出现条件是北向为全部最高方向之一，同时东与西次数相等。邻向未分出高低，就不替你指定“北东”或“北西”，也不把平分叫作纯北型。如果南向也与北向同为最高，完整结果会同时保留南向；若四向同分，则四份基础说明都呈现。请先看四个原始次数，分清“北向最高”和“只有北向值得看”是两回事。",
+              "en": "The base North guide appears when North shares the global maximum and East equals West. The rule therefore assigns neither a North-East nor North-West reading. Equal neighbours do not make you a pure North personality. If South also shares the maximum, its full reading remains; if all four counts are equal, all four base guides appear. Begin with the four raw tallies. Being highest is different from being the only perspective worth reading, and a one-choice change may produce a neighbouring guide without establishing personal transformation."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "把聚餐从愿望变成一次安排",
+            "en": "Moving a shared meal from an idea to an arrangement"
+          },
+          "paragraphs": [
+            {
+              "zh": "几位朋友一直说想聚餐，你先提出周六晚，并愿意在周三确认人数。这是让共同愿望获得一个可以回应的时间点，不等于替所有人决定。有人表示不方便时，你仍可以修改日期，或先确认一个较小的安排。这个例子只刻画推进如何开始；同一行为若没有询问他人的时间，也可能造成压力，所以不能单凭“先行动”判断做法是否合适。",
+              "en": "Friends repeatedly mention a shared meal. You suggest Saturday evening and offer to confirm numbers on Wednesday. This gives a shared wish a point people can respond to without entitling you to decide for everyone. If someone cannot attend, you might revise the date or agree on a smaller gathering. The example concerns how movement begins. Acting without asking about others’ availability could instead create pressure, so choosing action first does not establish that a decision was appropriate or that you are the group’s natural leader."
+            }
+          ]
+        },
+        {
+          "id": "voice",
+          "title": {
+            "zh": "把决定写成可协商的提议",
+            "en": "Making a decision a negotiable proposal"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说“我想先把时间定下来，暂提周六；请告诉我哪里不方便，我们再一起调整”。你说明自己想推进的部分，也给别人留下真实改变安排的机会。若当前缺少重要事实，可以先完成确认事实这一小步，而非一定立刻选方案。北向读法没有要求你加快所有事情；是否值得现在推进，仍要看目的、参与者的意愿和实际条件。",
+              "en": "You could say that you would like to settle a time, propose Saturday provisionally and invite people to explain what does not work. That names an intended step while giving others a real chance to change the arrangement. Where an important fact is missing, confirming it can itself be the next step rather than immediately choosing a solution. This reading does not require making everything faster. Whether to proceed now depends on the purpose, people’s willingness and practical conditions rather than loyalty to a compass label."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "和相邻及相对读法一起看",
+            "en": "Reading neighbours and the opposite direction"
+          },
+          "paragraphs": [
+            {
+              "zh": "北东读法多了先澄清顺序的邻向，北西读法多了尝试别法的邻向；本次两者次数相等，所以不判哪一个更能描述你。东北和西北则把东或西放在最高位置，推进居邻向，顺序与本读法不同。南向关注参与者是否容易表达需要，南东、南西也从参与起步；东南、西南由顺序或尝试起步而顾及参与。四向可以在真实安排中接续出现，几份结果并列也不表示彼此冲突。",
+              "en": "North-East adds a clearer sequencing preference and North-West an alternative approach; their neighbouring counts are equal here. East-North and West-North begin with East or West as highest, so reversing the order changes the reading. South begins with participation, with South-East and South-West adding their respective neighbours; East-South and West-South reverse that order. The East, West and South base guides leave their own neighbour undecided. These approaches can follow one another in a real activity, and multiple full results do not establish conflicting personalities."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "先等待也可能是有理由的决定",
+            "en": "Waiting can also be a reasoned choice"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能常主动确定活动安排，却在不熟悉的任务里先学习；也可能平时很会推进，只是本次更想尝试其他选项。等待同意、了解条件或放弃一个不合适的安排，不是北向失效。较少选中推进不能推出缺乏担当，较多选中也不能推出工作成绩、支配倾向或职业适配。题目没有记录行动质量，也没有询问别人如何评价你。",
+              "en": "You might initiate familiar arrangements but learn first in unfamiliar tasks. You might also act readily in ordinary life while finding other offered options more relevant today. Waiting for consent, checking conditions or abandoning an unsuitable arrangement does not represent a failure of North. Lower counts establish no lack of responsibility, and higher counts establish no work performance, dominance or career fit. The bank records choices rather than the quality of subsequent action or other people’s evaluations of you."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "只回看一个普通的小步骤",
+            "en": "Reviewing one ordinary step"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，回想一次普通而可修改的安排：你想推进什么，提出了哪一步，谁有机会修改它？再找一个你决定暂不推进的例子，比较两次的条件。无需每天记录，也不需要把自己训练成北向。观察可以留在个人手边，不必提交到网站。之后想用另一个框架了解偏好，需要重新作答，而不是把北向名称兑换为DISC或MBTI。",
+              "en": "If useful, recall one ordinary arrangement you could change: what you wanted to move forward, the step proposed and who could revise it. Compare a case where you chose not to proceed, paying attention to the different conditions. No daily record or training toward North is required. Any observation can remain private and need not be submitted here. A separate framework would require its own answers; this compass name cannot be exchanged for a DISC or MBTI result."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "36次固定预算、最高与邻向并列",
+            "en": "Thirty-six choices, highest directions and neighbour ties"
+          },
+          "paragraphs": [
+            {
+              "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+              "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创读法与正式工具的边界",
+            "en": "Original reflection and the official-instrument boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "四向仅是独立原创的日常观察隐喻；不提供官方Personality Compass／PCTI量表、原书类型鉴定、阿语题本或阿拉伯文化常模；Arabic为所对照的通俗搜索名称背景，不用于族群性格判断。最高与邻向读法为本站明确编写的组织规则，不是原书计分或经验证的心理类型，不换算DISC、MBTI、大五、血型、脑化学、健康或职业。",
+              "en": "Four directions are metaphors for independently authored everyday reflection. This is not the official Personality Compass or PCTI instrument, the book’s type identification, an Arabic-language bank or Arab cultural norms. Arabic supplies the common search-name context, never an ethnic personality inference. Highest and neighbouring readings use this site’s explicit editorial rule rather than the book’s scoring or validated psychological types, and are not converted into DISC, MBTI, Big Five, blood types, brain chemistry, health or career."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "south",
+      "directionIds": [
+        "south"
+      ],
+      "title": {
+        "zh": "南向：先让参与变得容易",
+        "en": "South Reading: Making Participation Easier First"
+      },
+      "headline": {
+        "zh": "本组选择中的方向读法，不是官方类型或能力结论。",
+        "en": "A reading of choices in this bank rather than an official type or ability conclusion."
+      },
+      "summary": {
+        "zh": "南向次数处于最高，北与南并非能力高低；东与西相同使本次没有明确邻向。先读你怎样顾及参与，同时保留自己的意愿和边界。",
+        "en": "South is among the highest counts and East equals West, leaving no distinguished neighbour. Read how you attend to participation while preserving your own wishes and boundaries; North and South are not levels of ability."
+      },
+      "scoreReading": {
+        "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+        "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "南向性格罗盘测试结果：例子、并列与完整说明",
+          "en": "South Compass Result: Examples & Full Guide"
+        },
+        "description": {
+          "zh": "南向次数处于最高，北与南并非能力高低；东与西相同使本次没有明确邻向。先读你怎样顾及参与，同时保留自己的意愿和边界。",
+          "en": "Explore the base South compass result: participation, personal limits and equal neighbours, with full examples and comparisons."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "关注参与，不承担所有人的感受",
+            "en": "Attending to participation without owning everyone’s feelings"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版南向是先了解参与者需要、给不易表达的人留空间或让协作容易加入，不是好人程度、依恋类型或照顾者身份。你可能选择先听轮值困难，或在厨房冲突里问清时间需求。这不表示你愿意承担所有协调，也不能推出你总能理解别人。是否同意继续、需要多少个人空间，仍由你自己决定；照顾参与不能替代双方真实的意愿。",
+              "en": "South describes offered actions that make participation easier: asking what people need, leaving room to speak or helping someone join an arrangement. It is not a goodness score, attachment type or caregiver identity. You may have preferred hearing rota difficulties or asking about timing in a kitchen conflict. That establishes neither a willingness to coordinate everything nor an ability to understand everyone. You still decide whether to participate and how much space you need. Consideration cannot replace anyone’s actual agreement, including your own."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "同分的邻向保持未分出",
+            "en": "Equal neighbouring counts remain undecided"
+          },
+          "paragraphs": [
+            {
+              "zh": "南向为全局最高之一，而东与西次数相等时，显示这份基础南向说明。这里没有给体贴分等级，也不把邻向同分解释成南向特别纯。若北向也同为最高，完整北向说明保留；四向都为九次时，四份基础读法都可比较。即使只差一次，邻向文字也可能切换，因此相邻结果是组织本次选择的方式，不是发现了隐藏的人格本质。",
+              "en": "This base South guide appears when South shares the global maximum and East and West are equal. It grades neither consideration nor personal purity. A tied highest North retains its full guide; four counts of nine retain all four base readings. One changed choice can alter a neighbouring label, which is why those labels organise an attempt rather than reveal a hidden essence. Inspect the actual tallies before treating a changed guide as a change in yourself or comparing results from different situations."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "轮值表先容纳实际生活",
+            "en": "Letting a rota account for real circumstances"
+          },
+          "paragraphs": [
+            {
+              "zh": "一次自愿活动重新排轮值，你先问大家最近能投入哪些时段。有人不方便公开解释，你提供只报可用时间的办法，也说明自己这周只能参加一小时。最后安排可能需要缩小活动，而不是让最愿意帮忙的人多承担。这展示的是把参与条件带进讨论；它不保证所有人满意，也没有要求你替别人决定什么对他们最好。",
+              "en": "When an optional activity needs a new rota, you first ask which slots people can realistically offer. Someone prefers not to explain personal circumstances, so you provide a way to state availability without giving reasons. You also name your own one-hour limit. The outcome might be a smaller activity rather than extra work for the most willing helper. This brings participation conditions into a discussion without guaranteeing satisfaction or making you the person who decides what is best for everyone."
+            }
+          ]
+        },
+        {
+          "id": "voice",
+          "title": {
+            "zh": "把关心和个人边界一起表达",
+            "en": "Expressing consideration alongside a personal limit"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说“我想先听大家方便的时段；我这周只能承担这一小时，剩下的需要另作安排”。前半句给他人空间，后半句让你的时间也被看见。对方不愿解释时，可以尊重不说明的选择，不用追问来证明关系亲近。若讨论不适合继续，可以退出或改到其他时间；南向读法不要求接受冒犯、承担无偿情绪劳动或维持任何不愿维持的联系。",
+              "en": "You could invite people to share workable times while stating that you can offer only this hour and the remaining slots need another arrangement. Consideration and your own limits then appear in the same proposal. If someone declines to explain, respect that without demanding details as proof of closeness. You can leave an unsuitable conversation or move it to another time. A South reading creates no obligation to tolerate mistreatment, provide emotional labour or maintain contact you do not want."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "相同顾及参与，可以有不同起手点",
+            "en": "Participation can be considered from different starting points"
+          },
+          "paragraphs": [
+            {
+              "zh": "南东把南向放在最高位置，东向为明确邻向，可能先听需要再厘清安排；南西可能先听需要再试不同方式。本次没有在东与西之间分出高低。东南和西南分别从厘清顺序或尝试别法起步，再顾及参与；北向先推进明确一步，北东、北西再带各自邻向，东北、西北从邻向顺序倒转。基础北、东、西读法也可出现，不代表它们缺少关心。",
+              "en": "South-East begins with participation and has a distinguished East neighbour; South-West adds a West neighbour. This attempt separates neither. East-South and West-South reverse the order, starting with sequencing or alternatives before attending to participation. North begins with moving a step forward; North-East and North-West add their neighbours, while East-North and West-North reverse those arrangements. The base North, East and West guides also occur without a distinguished neighbour. None of these other readings establishes a lack of consideration or a poorer relationship style."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "独处和拒绝不是反证",
+            "en": "Solitude and refusal are not disproof"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能重视参与者的需要，同时很喜欢独处，也不愿组织聚会；这并不矛盾。你也可能在陌生小组里先问流程，熟悉后才愿意照顾他人的参与。题目没有测同理心能力、人缘、亲密程度或别人是否喜欢你。南向次数较低不表示冷漠，较高也不保证关系顺利。把一次具体行为与当时条件一起看，比拿方向判断自己或别人更有帮助。",
+              "en": "You can care about participation while enjoying solitude and declining to organise gatherings. You might first ask about procedures in an unfamiliar group and consider others’ participation only once you understand the setting. These items measure neither empathy ability, popularity, intimacy nor whether others like you. Lower South counts establish no coldness, and higher counts guarantee no smooth relationship. Considering a particular action alongside its conditions is more informative than judging yourself or someone else from a direction."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "回顾一次有边界的参与",
+            "en": "Reviewing one bounded act of participation"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，回顾一次普通协作：谁有机会表达需要，你有没有说明自己的可用时间，最后哪些部分真的可行？再想一个你选择不加入的例子，看看是什么条件让决定不同。无需向网站提交故事或评价任何人的性格，也不用把所有人的满意当成果。后续测评由你选择，需独立作答；本次南向不换算爱语、依恋、EQ、MBTI或职业。",
+              "en": "If useful, review one ordinary collaboration: who could express a need, whether you named your own available time and which parts were workable. Compare an occasion when you declined to join, noting what changed the decision. There is no need to submit a story, evaluate anyone’s personality or treat universal satisfaction as the outcome. Further assessments are optional and require separate answers. South is not converted into love languages, attachment, EQ, MBTI or a career recommendation."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "36次固定预算、最高与邻向并列",
+            "en": "Thirty-six choices, highest directions and neighbour ties"
+          },
+          "paragraphs": [
+            {
+              "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+              "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创读法与正式工具的边界",
+            "en": "Original reflection and the official-instrument boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "四向仅是独立原创的日常观察隐喻；不提供官方Personality Compass／PCTI量表、原书类型鉴定、阿语题本或阿拉伯文化常模；Arabic为所对照的通俗搜索名称背景，不用于族群性格判断。最高与邻向读法为本站明确编写的组织规则，不是原书计分或经验证的心理类型，不换算DISC、MBTI、大五、血型、脑化学、健康或职业。",
+              "en": "Four directions are metaphors for independently authored everyday reflection. This is not the official Personality Compass or PCTI instrument, the book’s type identification, an Arabic-language bank or Arab cultural norms. Arabic supplies the common search-name context, never an ethnic personality inference. Highest and neighbouring readings use this site’s explicit editorial rule rather than the book’s scoring or validated psychological types, and are not converted into DISC, MBTI, Big Five, blood types, brain chemistry, health or career."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "east",
+      "directionIds": [
+        "east"
+      ],
+      "title": {
+        "zh": "东向：先把条件和顺序说清",
+        "en": "East Reading: Clarifying Conditions and Sequence"
+      },
+      "headline": {
+        "zh": "本组选择中的方向读法，不是官方类型或能力结论。",
+        "en": "A reading of choices in this bank rather than an official type or ability conclusion."
+      },
+      "summary": {
+        "zh": "东向处于最高，北与南同分，尚未分出明确邻向。可以先看你如何整理条件与步骤，不由此推断智力、严谨程度或偏好是否更正确。",
+        "en": "East shares the highest count while North and South are equal, leaving no distinguished neighbour. Explore how you clarify conditions and steps without inferring intelligence, meticulousness or a more correct preference."
+      },
+      "scoreReading": {
+        "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+        "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "东向性格罗盘测试结果：例子、并列与完整说明",
+          "en": "East Compass Result: Examples & Full Guide"
+        },
+        "description": {
+          "zh": "东向处于最高，北与南同分，尚未分出明确邻向。可以先看你如何整理条件与步骤，不由此推断智力、严谨程度或偏好是否更正确。",
+          "en": "Read the base East compass result: clearer conditions, equal neighbours and a handover example. Full guide without intelligence or career claims."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "把安排变得可理解",
+            "en": "Making an arrangement understandable"
+          },
+          "paragraphs": [
+            {
+              "zh": "这里的东向指先把日期、材料、分类或先后次序弄清的选项，不是智力、理性或完美主义测量。比如整理照片时先想分类，或接手任务前先核对当前状态。你可以喜欢弄清步骤，同时很愿意变通；也可能有时只想获得足够信息就开始。计数没有测你记录的准确性，也没观察一份清单在实际生活里是否有用。",
+              "en": "East describes options that begin by clarifying dates, materials, categories or order. It measures neither intelligence, rationality nor perfectionism. You might first consider categories for old photos or check the state of a task before taking it over. Wanting a clearer sequence can coexist with flexibility or a willingness to begin with sufficient rather than exhaustive information. The tally does not assess the accuracy of your notes or whether a checklist proved useful in ordinary life. It records the offered starting point you chose."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "没有分出的邻向保持开放",
+            "en": "Keeping an undistinguished neighbour open"
+          },
+          "paragraphs": [
+            {
+              "zh": "当东向为全部最高方向之一，而北与南的次数相等，系统显示这份基础说明。它不替你在推进与参与之间挑一个，也不把两者相同说成你没有这两种做法。西向若也达到最高，会保留完整西向；四向同分时四份基础说明全在。请对照原始次数和具体选项，不把“最高”当作绝对程度，更不要跨人比较谁更有条理。",
+              "en": "This base reading appears when East shares the global maximum and North and South are equal. It chooses neither moving forward nor supporting participation as your neighbour, without suggesting you lack either approach. A tied highest West keeps its full guide, and four equal counts keep all four base guides. Consult the raw tallies and choices rather than treating highest as an absolute level. A fixed budget of choices cannot establish that you are more organised than another person whose count is lower."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "借用工具前厘清交接",
+            "en": "Clarifying a shared-tool handover"
+          },
+          "paragraphs": [
+            {
+              "zh": "邻居共同使用一件工具，你先把取用时间、放回位置和交接方式写在一张短卡片上。这样大家知道怎样完成一次借用，也容易发现还缺什么约定。卡片不必很细，更不意味着你负责追踪所有人；如果实际流程简单，一句约定可能已经够用。例子说明清晰如何帮助共同安排，不保证写下来就能避免全部分歧。",
+              "en": "Neighbours share a tool. You make a short card explaining collection time, storage location and handover. People can see what borrowing involves and identify an agreement still missing. The card need not be exhaustive and does not make you responsible for monitoring everyone. Where the process is simple, one spoken agreement may be enough. This example shows clarity contributing to a shared arrangement without claiming that documentation prevents every disagreement or that a longer procedure is necessarily better."
+            }
+          ]
+        },
+        {
+          "id": "voice",
+          "title": {
+            "zh": "说明哪些信息已经足够",
+            "en": "Naming what information is sufficient"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说“我需要确认归还时间和放置位置，其他部分可以边用边调整”。这把需要弄清的范围说小，让讨论不至于被无限细节占满。别人采用更简短的办法时，你可以比较它是否同样满足当前目的，而不把不同表达当作不认真。东向读法提供一种起手点，不要求你成为检查员，也不把不确定性看成必须消灭的错误。",
+              "en": "You could explain that return time and storage location need confirming while other details can be adjusted through use. Bounding the required information prevents an arrangement from expanding into endless detail. If someone proposes a shorter method, compare whether it serves the current purpose rather than interpreting a different style as carelessness. East offers one starting approach without appointing you an inspector or defining every uncertainty as an error that must be removed before anyone can act."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "起手顺序不同，结果含义也不同",
+            "en": "Different starting orders produce different readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "东北是在东向最高时，北向高于南向；东南是在东向最高时，南向高于北向。北东与南东则由推进或参与先起步，再带厘清顺序的邻向。本次北南相同，系统没有在这几种解释之间替你补出倾向。西向关注试别法，西北与西南分别带推进或参与，北西和南西从相反次序进入；基础北、南、西也保留其邻向未分出的含义。",
+              "en": "East-North requires highest East and more North than South; East-South reverses the neighbouring comparison. North-East and South-East begin with a different global leader and then add sequencing. Equal North and South here leave those alternatives undecided rather than inventing a tendency. West concerns another way of approaching the task; West-North and West-South add their neighbours, while North-West and South-West reverse the order. The base North, South and West readings likewise leave their own neighbour undistinguished. These are editorial arrangements, not twelve ranks of competence."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "熟悉的事情可以不列清单",
+            "en": "A familiar activity may need no checklist"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以在新任务里先读说明，在熟悉活动里直接动手；也可能用图像、口头约定而不是表格来厘清关系。较少选东向不代表混乱，较多也不保证准确、安全或工作表现。信息不足有时来自材料缺失，而不是某个人不够仔细。请把具体条件带回解释，避免由一个方向给同事、家人或自己贴上“讲理”与“不讲理”的标签。",
+              "en": "You might read instructions for a new task and act immediately in a familiar activity. A diagram or spoken agreement can clarify relationships as effectively as a table. Fewer East choices establish no disorder, and more guarantee neither accuracy, safety nor work performance. Missing information may reflect unavailable material rather than someone’s lack of care. Bringing conditions back into the reading helps avoid labelling colleagues, relatives or yourself as rational or irrational from a compass direction."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "检查一份说明是否真的有帮助",
+            "en": "Checking whether one explanation helped"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，找一次普通交接，回顾当时真正需要确认的两件事、你怎样表达、对方是否容易照着做。也找一个信息已经足够、无需再整理的例子。你可以改短一份说明，也可以决定不改；不用测试自己是否越来越东向。个人记录不必上传，公开结果页不含你的原始次数，后续任何框架都需要独立完整作答。",
+              "en": "If useful, review one ordinary handover: two things that needed confirming, how you explained them and whether the other person could use the explanation. Compare a case where the available information was already sufficient. You might shorten a note or leave it unchanged; there is no need to test whether you are becoming more East. Keep any record privately. Public guides contain no personal tallies, and another framework requires its own complete answers rather than a conversion from this reading."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "36次固定预算、最高与邻向并列",
+            "en": "Thirty-six choices, highest directions and neighbour ties"
+          },
+          "paragraphs": [
+            {
+              "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+              "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创读法与正式工具的边界",
+            "en": "Original reflection and the official-instrument boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "四向仅是独立原创的日常观察隐喻；不提供官方Personality Compass／PCTI量表、原书类型鉴定、阿语题本或阿拉伯文化常模；Arabic为所对照的通俗搜索名称背景，不用于族群性格判断。最高与邻向读法为本站明确编写的组织规则，不是原书计分或经验证的心理类型，不换算DISC、MBTI、大五、血型、脑化学、健康或职业。",
+              "en": "Four directions are metaphors for independently authored everyday reflection. This is not the official Personality Compass or PCTI instrument, the book’s type identification, an Arabic-language bank or Arab cultural norms. Arabic supplies the common search-name context, never an ethnic personality inference. Highest and neighbouring readings use this site’s explicit editorial rule rather than the book’s scoring or validated psychological types, and are not converted into DISC, MBTI, Big Five, blood types, brain chemistry, health or career."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "west",
+      "directionIds": [
+        "west"
+      ],
+      "title": {
+        "zh": "西向：先试一种不同的办法",
+        "en": "West Reading: Trying a Different Approach First"
+      },
+      "headline": {
+        "zh": "本组选择中的方向读法，不是官方类型或能力结论。",
+        "en": "A reading of choices in this bank rather than an official type or ability conclusion."
+      },
+      "summary": {
+        "zh": "西向处于最高，北与南同分，未分出明确邻向。这里可以读尝试替代办法的偏好，不等于创造力、冒险能力或某种职业天赋。",
+        "en": "West shares the highest count while North and South are equal, leaving no distinguished neighbour. This is a reading of offered alternative approaches rather than creativity, risk-taking ability or vocational talent."
+      },
+      "scoreReading": {
+        "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+        "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "西向性格罗盘测试结果：例子、并列与完整说明",
+          "en": "West Compass Result: Examples & Full Guide"
+        },
+        "description": {
+          "zh": "西向处于最高，北与南同分，未分出明确邻向。这里可以读尝试替代办法的偏好，不等于创造力、冒险能力或某种职业天赋。",
+          "en": "Explore the base West compass result: trying alternatives, equal neighbours and a small display experiment. Full guide without creativity scores."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "另一种办法不必惊人",
+            "en": "Another approach need not be spectacular"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版西向是先换个提问、试一个小组合或给惯常活动加点变化的选项，不测创造力产量，也不要求追求新奇。比如把杂乱笔记重新连起来，或给旧爱好换一种练习形式。不同做法可能很小，也可能最后发现原方法更适合。你选中的是一种开始探索的方式，题目没有评价点子质量、勇气或实际采用后的成效。",
+              "en": "West describes an offered step such as reframing a question, trying a combination or varying a familiar activity. It assesses neither creative output nor an obligation to seek novelty. You might reconnect scattered notes or change the practice format for an old hobby. The alternative can be small, and the original approach may ultimately fit better. Choosing an exploratory start does not establish the quality of an idea, courage or the consequences of putting it into practice."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "基础西向不替邻向作选择",
+            "en": "The base West guide does not choose a neighbour"
+          },
+          "paragraphs": [
+            {
+              "zh": "本读法需要西向处于最高，同时北与南次数相同。邻向相同不是自由、散漫或独立的证据，只表示本次计数没有把两者分开。东向若也达到最高，会保留完整东向；四向全部相同则四份基础说明一起呈现。不要因为出现西向就忽略其余次数，也不要把自己在某次作答里的选择份额当成在人群中的创造力排名。",
+              "en": "The base West guide requires West among the highest counts and equal North and South. Equal neighbours establish neither freedom, disorder nor independence; the counts simply have not separated them. A tied highest East retains its full guide, and four equal counts retain all four base guides. Do not discard the other tallies because West appears. Your share of a fixed choice budget is not a creativity rank in a population or evidence that you possess more originality than someone else."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "用小样尝试另一种展示",
+            "en": "Trying a different display through a small sample"
+          },
+          "paragraphs": [
+            {
+              "zh": "整理社区公告时，你先拿两条已经公开的信息试做一张不同版式的小样，看看别人是否更容易找到日期。小样可以被否定，也不必马上替换整个公告栏。若有些使用者不方便阅读新格式，可以回到原方案或继续调整。例子把新办法放在可修改的小范围里，不把别人愿意接受变化当作检验他们是否开放的标准。",
+              "en": "While tidying a community noticeboard, you use two already public items to test a different layout and see whether dates are easier to find. The sample can be rejected without replacing the entire board. If the new format is harder for some users, returning to the old one or revising the sample remains possible. This keeps a different approach small and changeable instead of judging other people’s openness by whether they accept your proposed change."
+            }
+          ]
+        },
+        {
+          "id": "voice",
+          "title": {
+            "zh": "让试验保留停止的出口",
+            "en": "Giving an experiment an exit"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说“先用这一小块试一次，不方便就换回去；你们看有没有漏掉谁的需要”。这既说明想探索，也把范围、反馈和停止条件留在大家手里。你也可以只提出想法，不承担组织或说服所有人的任务。西向读法没有要求不断突破，重复一个好用的办法同样合理；是否改变应由具体目的与条件决定。",
+              "en": "You could propose trying the idea in one small area, returning to the old arrangement if it is inconvenient and asking whose needs may have been overlooked. Scope, feedback and an exit then remain available to everyone. You can also offer an idea without taking responsibility for organising it or persuading all participants. West requires no constant reinvention. Repeating an approach that already works is reasonable; whether to change depends on the purpose and conditions, not on preserving an inventive identity."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "邻向与最高方向不能互换",
+            "en": "A neighbour and the highest direction are not interchangeable"
+          },
+          "paragraphs": [
+            {
+              "zh": "西北由西向最高、北高于南产生，西南由西向最高、南高于北产生；本次两者没有分出高低。北西和南西分别从推进或参与起步，西只是邻向，不能当作完全相同的读法。东向先厘清顺序，东北与东南带相应邻向，北东与南东顺序相反；基础北、南、东同样保持邻向未分出的状态。几种做法在同一活动里先后出现很正常，不必选一个身份长期坚持。",
+              "en": "West-North requires highest West and more North than South; West-South reverses that neighbour. This attempt distinguishes neither. North-West and South-West start with moving forward or participation, making West the neighbour rather than an interchangeable result. East clarifies sequence, with East-North and East-South adding neighbours; North-East and South-East reverse those orders. Base North, South and East also leave their neighbour undistinguished. Several approaches can occur in sequence within one activity without requiring a permanent identity choice."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "选择熟悉方案不等于没有想法",
+            "en": "Choosing a familiar approach does not mean lacking ideas"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能在休闲活动喜欢试新办法，在重要交接中更想使用清楚流程。也可能只是当前时间、材料或参与条件不适合尝试。较少选西向不能推出僵化，较多不能推出创新能力、冲动倾向、创业适配或工作表现。题目没有观察长期行为，更没比较不同人的成果。一个你没有采用的想法，也可能是经过认真判断后放下的。",
+              "en": "You might try alternatives in leisure activities and prefer a clear familiar process for an important handover. Time, materials or participation conditions may simply make experimentation unsuitable now. Fewer West choices establish no rigidity, and more establish no innovation ability, impulsiveness, entrepreneurial suitability or work performance. The questionnaire observes neither long-term behaviour nor comparative achievements. An idea you did not adopt may have been set aside after careful judgment rather than because you lacked imagination."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "回看一个可撤回的小改变",
+            "en": "Reviewing one reversible small change"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，回想一次普通的小改变：你想解决什么，改变了哪一部分，怎样知道保留还是换回去？再记一个沿用旧办法更合适的例子。无需让每周都充满新尝试，也无需公开私人经历。结果说明不是训练计划或职业建议；可以在这里结束，若继续做其他测评，需要重新回答它本身的问题。",
+              "en": "If useful, recall one ordinary small change: what it was meant to address, what changed and how you decided whether to keep it or return to the old approach. Compare a case where retaining the familiar method fitted better. Your week need not be full of experiments, and no private experience needs to be shared. This reading is neither a training plan nor career advice. You may stop here; another assessment would require new answers to its own questions."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "36次固定预算、最高与邻向并列",
+            "en": "Thirty-six choices, highest directions and neighbour ties"
+          },
+          "paragraphs": [
+            {
+              "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+              "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创读法与正式工具的边界",
+            "en": "Original reflection and the official-instrument boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "四向仅是独立原创的日常观察隐喻；不提供官方Personality Compass／PCTI量表、原书类型鉴定、阿语题本或阿拉伯文化常模；Arabic为所对照的通俗搜索名称背景，不用于族群性格判断。最高与邻向读法为本站明确编写的组织规则，不是原书计分或经验证的心理类型，不换算DISC、MBTI、大五、血型、脑化学、健康或职业。",
+              "en": "Four directions are metaphors for independently authored everyday reflection. This is not the official Personality Compass or PCTI instrument, the book’s type identification, an Arabic-language bank or Arab cultural norms. Arabic supplies the common search-name context, never an ethnic personality inference. Highest and neighbouring readings use this site’s explicit editorial rule rather than the book’s scoring or validated psychological types, and are not converted into DISC, MBTI, Big Five, blood types, brain chemistry, health or career."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "north-east",
+      "directionIds": [
+        "north",
+        "east"
+      ],
+      "title": {
+        "zh": "北东：把要推进的一步排清楚",
+        "en": "North-East Reading: Giving the Next Step a Clear Sequence"
+      },
+      "headline": {
+        "zh": "本组选择中的方向读法，不是官方类型或能力结论。",
+        "en": "A reading of choices in this bank rather than an official type or ability conclusion."
+      },
+      "summary": {
+        "zh": "北向处于最高，东向多于西向，形成推进在前、顺序为邻的读法。它不保证效率或执行能力，也不要求把关系与其他考虑排除在外。",
+        "en": "North is among the highest counts and East exceeds West, producing a reading with movement first and sequence as its neighbour. This guarantees neither efficiency nor execution ability and excludes no other concern."
+      },
+      "scoreReading": {
+        "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+        "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "北东性格罗盘测试结果：例子、并列与完整说明",
+          "en": "North-East Compass Result: Examples & Full Guide"
+        },
+        "description": {
+          "zh": "北向处于最高，东向多于西向，形成推进在前、顺序为邻的读法。它不保证效率或执行能力，也不要求把关系与其他考虑排除在外。",
+          "en": "Read the North-East compass result: movement first, sequence as neighbour, exact tie rules and a full handover example."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "推进的愿望带上清楚的步骤",
+            "en": "A wish to move forward with clearer steps"
+          },
+          "paragraphs": [
+            {
+              "zh": "北东不是一个原书认证类型，而是本版把两项计数关系组织成的阅读入口。北向较常选择“先推进”，东向在东西两个邻向里较多，提示你也曾选择澄清条件与次序。可以把它想成先问这次要做成什么，再问下一步怎样说清。这不等于你总是计划周全或行动果断；那些是本题没有观察的表现。",
+              "en": "North-East is an editorial reading of two count relationships rather than a type certified by the original book. North more often selected moving an arrangement forward, while East exceeded West among its perpendicular neighbours. You can explore beginning with what to accomplish and then making the next step clearer. The combination establishes no consistently thorough planning or decisiveness. Actual conduct may involve other considerations, and the quiz has not observed how well you plan, execute or adapt after your initial choice."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "邻向不是全局第二名",
+            "en": "A neighbour is not necessarily the overall runner-up"
+          },
+          "paragraphs": [
+            {
+              "zh": "出现条件是北向达到四项最高，且东向严格多于西向。只比较东与西来确定邻向，并不要求东向在四项里第二高；南向仍可能比东向高。若北东与东北同时出现，是北和东同为最高，两种起手顺序都保留。若东与西相同，则改为基础北向，明确没有分出邻向，而不随机指定或使用隐藏阈值。",
+              "en": "This guide requires North at the four-way maximum and East strictly above West. East need not be second overall: South may still exceed it. If North-East and East-North both appear, North and East share the maximum and both starting orders remain. Equal East and West lead instead to the base North guide, explicitly leaving the neighbour undecided. There is no random tie breaker or hidden cutoff, and close counts describe small differences in this attempt rather than a strong personality distinction."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "让一次交接既有目标也有落点",
+            "en": "Giving a handover an outcome and a usable route"
+          },
+          "paragraphs": [
+            {
+              "zh": "你准备把一个小活动交给新人，先说明下次活动最需要完成的成果，再把开门、材料摆放和收尾的顺序压成三步。新人可以据此提出不合适的地方，你们也可一起修改成果。例子中的清楚服务于推进，不是为每件事增加流程；若对方已有熟悉方法，说明需要更短，或者直接听取对方的做法，也可能更合适。",
+              "en": "Passing a small activity to a newcomer, you first explain the outcome that matters for the next meeting, then reduce opening, materials and closing into three steps. The newcomer can question what does not fit, and you can revise the outcome together. Clarity here serves movement rather than adding procedure to everything. If the other person already has a workable method, a shorter explanation or listening to their approach may fit better than insisting on the sequence you prepared."
+            }
+          ]
+        },
+        {
+          "id": "voice",
+          "title": {
+            "zh": "讲清目标，也允许改步骤",
+            "en": "Naming the purpose while allowing revised steps"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说“这次先把借书活动办成一小轮，暂按这三步准备；若有人用起来不方便，我们一起改”。你把成果和步骤都摆出来，别人能分辨是目的需要讨论，还是实现方式需要调整。若缺少参与者同意，清楚流程不能代替同意；若条件变化，缩小或暂停安排也可以。北东读法不是把所有事情变成必须按表完成的任务。",
+              "en": "You might propose one small round of a book exchange, offer three preparation steps and invite changes if they are inconvenient. People can then distinguish a disagreement about the purpose from a problem with the method. A clear procedure cannot substitute for participants’ agreement, and changed conditions may call for reducing or pausing the arrangement. This reading does not turn every activity into a duty to complete a schedule or require others to accept your preferred route."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "北东和东北为何分别写",
+            "en": "Why North-East and East-North have separate guides"
+          },
+          "paragraphs": [
+            {
+              "zh": "北东以推进为最高起手点，东北以厘清条件为最高起手点，即使同一人可能两者并列，也不把名称顺序当装饰。北西在同样的北向前提下，西比东高；南东先顾及参与，东南先理清顺序再带参与邻向。其余组合也以各自最高向和垂直邻向区别，基础四向则不指定平分的邻向。你可以阅读其他完整说明，不需要把它们当作自己不允许采用的做法。",
+              "en": "North-East begins with movement as highest; East-North begins with clarification as highest, so their order has a purpose even when both tie. North-West requires the same North leader but more West than East. South-East begins with participation, whereas East-South begins with sequence before its participation neighbour. Other ordered readings likewise differ by the highest direction and perpendicular neighbour; four base readings leave equal neighbours open. Reading another full guide does not commit you to a type or prohibit using that approach."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "没有清单也能认真推进",
+            "en": "Movement can be considered without a checklist"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能喜欢给一次交接排顺序，却愿意在休闲聚会里边走边安排；也可能题目中的步骤选项更适合当时想到的场景，而非稳定偏好。北东不能推出管理潜力、生产力、职业适配或优于北西。较低的南向不表示不顾他人，因为四个选项共享36次预算，未被选中的内容也可能在你真实行为的后续出现。",
+              "en": "You may sequence a handover but improvise a leisure gathering, or find a procedural option suitable for the situation you happened to imagine. North-East predicts neither management potential, productivity nor career fit, and is not better than North-West. Fewer South choices establish no disregard for others: four approaches compete for thirty-six selections, while an unselected approach may appear later in your actual conduct. The reading cannot infer the quality of a whole activity from its preferred starting step."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "回看目标与步骤是否相称",
+            "en": "Reviewing whether a sequence fitted its purpose"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，选一次普通交接，分别写下目的和最少需要的步骤，再回顾哪些步骤真正有帮助。若顺序写得太细，可以删短；若目的并非大家共同想要，可以先改目的。无需把改进幅度计分或上传个人经历。这个观察只是检验一次具体安排，不是证明你符合北东，也没有把另一个测评作为补全人格的必需步骤。",
+              "en": "If useful, choose one ordinary handover and note its purpose separately from the minimum steps needed. Review which steps actually helped. You might shorten excessive detail or revise a purpose that people did not share. No improvement score or upload of personal experiences is required. This observes one arrangement rather than proving that you match North-East, and no further assessment is necessary to complete your personality. Any next test remains an optional, separate attempt."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "36次固定预算、最高与邻向并列",
+            "en": "Thirty-six choices, highest directions and neighbour ties"
+          },
+          "paragraphs": [
+            {
+              "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+              "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创读法与正式工具的边界",
+            "en": "Original reflection and the official-instrument boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "四向仅是独立原创的日常观察隐喻；不提供官方Personality Compass／PCTI量表、原书类型鉴定、阿语题本或阿拉伯文化常模；Arabic为所对照的通俗搜索名称背景，不用于族群性格判断。最高与邻向读法为本站明确编写的组织规则，不是原书计分或经验证的心理类型，不换算DISC、MBTI、大五、血型、脑化学、健康或职业。",
+              "en": "Four directions are metaphors for independently authored everyday reflection. This is not the official Personality Compass or PCTI instrument, the book’s type identification, an Arabic-language bank or Arab cultural norms. Arabic supplies the common search-name context, never an ethnic personality inference. Highest and neighbouring readings use this site’s explicit editorial rule rather than the book’s scoring or validated psychological types, and are not converted into DISC, MBTI, Big Five, blood types, brain chemistry, health or career."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "north-west",
+      "directionIds": [
+        "north",
+        "west"
+      ],
+      "title": {
+        "zh": "北西：为要推进的事试一条新路",
+        "en": "North-West Reading: Trying Another Route Toward the Next Step"
+      },
+      "headline": {
+        "zh": "本组选择中的方向读法，不是官方类型或能力结论。",
+        "en": "A reading of choices in this bank rather than an official type or ability conclusion."
+      },
+      "summary": {
+        "zh": "北向处于最高，西向多于东向，推进与尝试别法组成这份读法。新路可以很小，也可以随时放弃，不意味着冒险、创新能力或创业适配。",
+        "en": "North is among the highest counts and West exceeds East, joining movement with an offered alternative approach. A different route can be small or abandoned; it establishes no risk-taking, innovation ability or entrepreneurial fit."
+      },
+      "scoreReading": {
+        "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+        "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "北西性格罗盘测试结果：例子、并列与完整说明",
+          "en": "North-West Compass Result: Examples & Full Guide"
+        },
+        "description": {
+          "zh": "北向处于最高，西向多于东向，推进与尝试别法组成这份读法。新路可以很小，也可以随时放弃，不意味着冒险、创新能力或创业适配。",
+          "en": "Explore the North-West compass result: movement first with an alternative route, photo-sorting examples, ties and a complete guide."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "先有要推进的事，再试别法",
+            "en": "A step to move forward, with another way to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "这里读的是北向较常被选中，同时西向在它的东西邻向中更多。你可能希望事情有进展，也愿意换一个提问或小组合来开始。不同做法未必很新，更不必打破既有约定；它可以只是把原本一大件事拆成一个小样。题目没有评估想法的原创程度、承担风险的能力，也没有证明你在现实里会坚持或完成它。",
+              "en": "This reading combines highest North with more West than East among its perpendicular neighbours. You may want an arrangement to progress and consider reframing a question or trying a small combination. The route need not be novel or break an agreement; it might simply turn a large task into a sample. The questionnaire assesses neither originality nor capacity to take risks and does not establish that you would persist with or complete the idea in ordinary life."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "只按显式计数比较，不补冒险标签",
+            "en": "Explicit count comparisons without an added risk label"
+          },
+          "paragraphs": [
+            {
+              "zh": "北西要求北向达到全局最高，且西向严格多于东向。南向可能比西向更高，所以西是按本版规则选出的垂直邻向，不一定是总次数第二。若西也处于最高，完整西北读法同时保留；若东西相同，系统只给基础北向并说明邻向未分出。这里没有为近似并列设强弱阈值，更没有把一次之差写成明显的性格优势。",
+              "en": "North-West requires North at the global maximum and West strictly above East. South may exceed West, so West is the perpendicular neighbour selected by this edition’s rule rather than necessarily the overall runner-up. A tied highest West also retains the full West-North guide. Equal East and West produce base North with an undistinguished neighbour. There is no strength threshold for a close pair and no justification for calling a one-choice difference a marked personality advantage or a risk preference."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "把停滞的整理改成一个小样",
+            "en": "Turning stalled sorting into a small sample"
+          },
+          "paragraphs": [
+            {
+              "zh": "家庭照片整理迟迟没开始，你先约定这次只完成十张，再提议用一页“当时发生了什么”的小卡片代替整本相册。这个新入口是为了让一次整理真正开始，大家仍可改回普通日期分类。有人不愿讲照片故事时，可以只整理已同意使用的材料。例子不是由你推动就能省略别人的意愿，也不保证换形式会更有成效。",
+              "en": "A household photo project has stalled. You propose finishing only ten photos this time and trying a page of brief event cards instead of building an entire album. The different entry point serves one manageable step; ordinary date categories remain an option. If someone does not want to tell a photo’s story, use only material people agree to include. Initiating the arrangement cannot replace consent, and a different format does not guarantee a better outcome or make every delay a lack of initiative."
+            }
+          ]
+        },
+        {
+          "id": "voice",
+          "title": {
+            "zh": "让新办法服务于可修改的目的",
+            "en": "Letting a different method serve a revisable purpose"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说“先用十张试试这个形式，看看是否帮我们开始整理；不合适就换回原来的办法”。你说明了尝试服务的目的，也保留停止和修改的出口。如果大家并不想整理，目的本身就需要重新讨论，不应靠新鲜感绕过分歧。北西不要求你成为带头创新的人，也不把沿用旧方法看作失败或缺乏动力。",
+              "en": "You could propose trying the format with ten photos, seeing whether it helps sorting begin and returning to the familiar approach if it does not. That gives the experiment a purpose and an exit. If people do not want the sorting project, the purpose itself needs discussion; novelty should not bypass disagreement. North-West does not appoint you the person responsible for innovation or define using an older method as failure, rigidity or a lack of drive."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "推进为先和尝试为先的区别",
+            "en": "Movement first differs from alternatives first"
+          },
+          "paragraphs": [
+            {
+              "zh": "西北同样涉及推进与尝试，但西向是它的最高起手点；北西则先有一个想推进的步骤。北东在邻向上偏向厘清顺序，西南从尝试起步而顾及参与，南西从参与起步而带尝试。其余有序组合遵循同样的最高与垂直邻向规则，四份基础说明保留邻向平分。结果之间没有能力等级，你也不需要因为某份没出现就回避它的具体办法。",
+              "en": "West-North involves the same pair but begins with alternatives as highest; North-West begins with a step to move forward. North-East favours clarification as its neighbour. West-South starts with alternatives and adds participation, while South-West reverses that order. Other ordered readings follow their respective highest and perpendicular neighbour, and four base guides leave neighbours equal. These differences are not ability levels, and a guide’s absence does not make its practical approach unavailable or unsuitable for you."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "保留旧办法也能推进",
+            "en": "A familiar method can also move things forward"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能在安排一次休闲活动时愿意换法，在设备借还时坚持清楚的旧流程。时间、资源或参与者的需要都会影响哪种办法更合适。较多西向不表示冲动，较少东向不表示忽略细节；先试别法之后也可能认真检查。固定36次选择没有记录这些后续，因此不能据此评价工作的稳定性、责任感或职业前景。",
+              "en": "You may welcome a different leisure arrangement while keeping an established equipment-return process. Time, resources and participants’ needs change which method fits. More West does not establish impulsiveness, and fewer East choices do not establish neglect of detail; an alternative start can be followed by careful checking. A fixed budget of thirty-six choices does not record those later steps and cannot evaluate work reliability, responsibility or career prospects. Keeping a familiar method can itself be the most workable way to progress."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "比较一条新路和一次保留",
+            "en": "Comparing an alternative with a deliberate retention"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，回看一个你换了办法的小安排：当时想推进什么，改变范围多大，怎样知道应继续还是恢复？再找一个保留原方法的例子，比较实际条件。无需制造一次新的冒险或向别人证明自己有想法。个人观察可以不记录、更不必上传；公开报告只是阅读材料，是否继续其他测评由你自己决定。",
+              "en": "If useful, review one small arrangement where you changed the method: what needed progress, the size of the change and how you decided whether to continue or restore the old way. Compare an occasion when retaining the method fitted better. There is no need to create a risk or prove to others that you have ideas. The observation can remain unrecorded and private. Public reports are reading material, and you decide whether any separate assessment is worth taking."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "36次固定预算、最高与邻向并列",
+            "en": "Thirty-six choices, highest directions and neighbour ties"
+          },
+          "paragraphs": [
+            {
+              "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+              "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创读法与正式工具的边界",
+            "en": "Original reflection and the official-instrument boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "四向仅是独立原创的日常观察隐喻；不提供官方Personality Compass／PCTI量表、原书类型鉴定、阿语题本或阿拉伯文化常模；Arabic为所对照的通俗搜索名称背景，不用于族群性格判断。最高与邻向读法为本站明确编写的组织规则，不是原书计分或经验证的心理类型，不换算DISC、MBTI、大五、血型、脑化学、健康或职业。",
+              "en": "Four directions are metaphors for independently authored everyday reflection. This is not the official Personality Compass or PCTI instrument, the book’s type identification, an Arabic-language bank or Arab cultural norms. Arabic supplies the common search-name context, never an ethnic personality inference. Highest and neighbouring readings use this site’s explicit editorial rule rather than the book’s scoring or validated psychological types, and are not converted into DISC, MBTI, Big Five, blood types, brain chemistry, health or career."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "south-east",
+      "directionIds": [
+        "south",
+        "east"
+      ],
+      "title": {
+        "zh": "南东：让参与需要有清楚的位置",
+        "en": "South-East Reading: Giving Participation Needs a Clear Place"
+      },
+      "headline": {
+        "zh": "本组选择中的方向读法，不是官方类型或能力结论。",
+        "en": "A reading of choices in this bank rather than an official type or ability conclusion."
+      },
+      "summary": {
+        "zh": "南向处于最高，东向多于西向，先顾及参与，再带厘清安排的邻向。它不等于更体贴、更可靠，也不要求你承担大家的协调工作。",
+        "en": "South shares the maximum and East exceeds West: participation first, with clarification as its neighbour. This establishes neither greater consideration nor reliability and creates no obligation to coordinate everyone."
+      },
+      "scoreReading": {
+        "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+        "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "南东性格罗盘测试结果：例子、并列与完整说明",
+          "en": "South-East Compass Result: Examples & Full Guide"
+        },
+        "description": {
+          "zh": "南向处于最高，东向多于西向，先顾及参与，再带厘清安排的邻向。它不等于更体贴、更可靠，也不要求你承担大家的协调工作。",
+          "en": "Read the South-East compass result: participation first, sequence as neighbour, a bounded rota example and full comparisons."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "先听需要，再把安排说清",
+            "en": "Hearing needs before clarifying the arrangement"
+          },
+          "paragraphs": [
+            {
+              "zh": "南东把本版顾及参与的选项放在最高位置，东西邻向中厘清顺序的选择更多。你可能希望人们容易表达可用时间，再把回应整理成可理解的安排。这里没有测组织能力、耐心或照顾别人的天赋；同一张表也可能让人更难参与，所以是否有用仍取决于当事人和具体使用方式。你自己的需要同样属于应被看见的条件。",
+              "en": "South-East places participation among the highest choices and clarification above alternatives among its neighbours. You might want people to express their availability, then turn responses into an understandable arrangement. This measures neither organisational skill, patience nor a talent for caring. The same table could make participation harder, depending on how it is used. Its usefulness needs actual participants and conditions rather than a label. Your own needs belong among those conditions rather than becoming less important because this guide appears."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数怎样走到南东",
+            "en": "How the counts produce South-East"
+          },
+          "paragraphs": [
+            {
+              "zh": "系统先找全部最高，南向必须在其中，再比较东与西，东严格更多才显示南东。北向可能比东向更高，东并不必然是全局第二；它只是本规则在垂直邻向里的选择。南向与东向同为最高时，会同时呈现东南全文；东西相同则只保留基础南向并解释未分出邻向。几个次数相近，不支持把任一读法当作确定的心理分类。",
+              "en": "The rule first retains all global highest directions. South must be one of them, and East must then strictly exceed West. North may still exceed East; East is not necessarily second overall, only the neighbour chosen from the perpendicular pair. If East also shares the maximum, the full East-South reading appears too. Equal East and West produce base South with no distinguished neighbour. Close counts offer no basis for treating one guide as a definite psychological classification or suppressing another highest result."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "轮值安排不收集多余理由",
+            "en": "A rota that needs no unnecessary explanation"
+          },
+          "paragraphs": [
+            {
+              "zh": "一次志愿轮值里，你先让大家只报可用时间，不必公开不方便的原因，再把空缺整理出来共同商量。你也写明自己能承担的范围，而不自动填满剩余格子。表格帮助大家看见参与条件，却不能把不能来的人排成不负责。若格式让某人难以使用，可以用口头方式补充；这里的清楚应服务于参与，不是把形式本身当成果。",
+              "en": "For a volunteer rota, you invite people to state available times without publicly explaining why other slots do not work. You organise the remaining gaps for discussion and state your own limit rather than automatically filling them. The table makes conditions visible without ranking unavailable people as irresponsible. If someone finds the format difficult, a spoken contribution may work instead. Clarity serves participation here; producing a complete-looking grid is not itself evidence that the arrangement is fair or workable."
+            }
+          ]
+        },
+        {
+          "id": "voice",
+          "title": {
+            "zh": "把可用条件讲明，而非替人安排",
+            "en": "Naming availability rather than arranging other people"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说“大家只填愿意承担的时段就好，不需要解释私人安排；我会把空缺列出来，再一起看活动能做多大”。你让流程与个人边界同时明确，保留缩小活动而非增加个人负担的选项。别人不愿参加时，不应靠更细的表格逼出同意。南东读法也不要求你维持长期协调角色，更不意味着必须记住每个人的所有偏好。",
+              "en": "You could invite people to enter only slots they wish to offer, without explaining private circumstances, and propose discussing how large an activity the remaining availability supports. Process and personal boundaries then become explicit together. A smaller activity remains an alternative to increasing someone’s burden. A more detailed table should not pressure a reluctant person into agreement. South-East does not assign you a lasting coordination role or require remembering every preference of everyone who takes part."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "参与在前与顺序在前",
+            "en": "Participation first and sequence first"
+          },
+          "paragraphs": [
+            {
+              "zh": "东南先由东向最高，再带南向邻向；南东先关注参与，再带厘清顺序。南西在同样的南向前提下，尝试别法的次数多于厘清顺序，基础南向则两邻向相等。北东和东北可以先从推进或顺序进入，未必不顾参与；其他西向组合也可能让参与更容易，只是起手点不同。这些是固定预算下的读法差异，不能排出谁更适合照顾人。",
+              "en": "East-South begins with clarification as highest and participation as neighbour; South-East reverses that order. South-West requires more alternatives than clarification, while base South leaves those neighbours equal. North-East and East-North can begin with movement or sequence without disregarding participation. West-based readings may also make joining easier through a different starting point. Other base guides likewise leave their neighbours undecided. These are distinctions within a fixed choice budget, not a ranking of who is better suited to looking after people."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "拒绝协调和改变流程都可以",
+            "en": "Declining to coordinate or changing a process is allowed"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能先听他人需要，却不愿做这次记录；也可能因为已有表格够用，直接按它安排。较多东向不意味着僵化，较少西向不意味着没有想法。南东也不能推出关系质量、工作表现、共情水平或照顾职业适配。题目只收集你在四种选项中的选择，没有评估一份安排是否让所有人满意，更没有把他人的满意变成你的义务。",
+              "en": "You can listen to others’ needs and still decline to take notes. An existing table may already be adequate, making immediate use more sensible than redesign. More East establishes no rigidity, and fewer West choices establish no lack of ideas. South-East predicts neither relationship quality, work performance, empathy nor suitability for a caring profession. The items collect choices among four options rather than satisfaction with an actual arrangement, and other people’s satisfaction does not become your obligation."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "查看一份安排有没有容纳边界",
+            "en": "Checking whether an arrangement accommodated limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，回看一次普通协作，问自己：需要是怎样被表达的，哪些条件被写清，我自己的可用范围有没有保留？也找一次无需新流程、直接沟通已经足够的例子。可以只观察，不必写下私人故事。你不需要把所有空缺补齐才算运用了这份读法；后续测评可选，不能由南东兑换成EQ、依恋或MBTI。",
+              "en": "If useful, review an ordinary collaboration: how needs were expressed, which conditions became clear and whether your own availability remained bounded. Compare a case where direct conversation was enough without another process. Observation need not involve writing a private story. You do not have to fill every gap to have used this reading. Further assessment is optional, and South-East cannot be exchanged for an EQ, attachment or MBTI result."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "36次固定预算、最高与邻向并列",
+            "en": "Thirty-six choices, highest directions and neighbour ties"
+          },
+          "paragraphs": [
+            {
+              "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+              "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创读法与正式工具的边界",
+            "en": "Original reflection and the official-instrument boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "四向仅是独立原创的日常观察隐喻；不提供官方Personality Compass／PCTI量表、原书类型鉴定、阿语题本或阿拉伯文化常模；Arabic为所对照的通俗搜索名称背景，不用于族群性格判断。最高与邻向读法为本站明确编写的组织规则，不是原书计分或经验证的心理类型，不换算DISC、MBTI、大五、血型、脑化学、健康或职业。",
+              "en": "Four directions are metaphors for independently authored everyday reflection. This is not the official Personality Compass or PCTI instrument, the book’s type identification, an Arabic-language bank or Arab cultural norms. Arabic supplies the common search-name context, never an ethnic personality inference. Highest and neighbouring readings use this site’s explicit editorial rule rather than the book’s scoring or validated psychological types, and are not converted into DISC, MBTI, Big Five, blood types, brain chemistry, health or career."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "south-west",
+      "directionIds": [
+        "south",
+        "west"
+      ],
+      "title": {
+        "zh": "南西：换个办法让人容易加入",
+        "en": "South-West Reading: Trying Another Way to Help People Join"
+      },
+      "headline": {
+        "zh": "本组选择中的方向读法，不是官方类型或能力结论。",
+        "en": "A reading of choices in this bank rather than an official type or ability conclusion."
+      },
+      "summary": {
+        "zh": "南向处于最高，西向多于东向，形成参与在前、尝试别法为邻的读法。重点是具体安排能否被接受，不是你是否擅长社交或总能让人开心。",
+        "en": "South shares the maximum and West exceeds East: participation first, with another approach as its neighbour. The question is whether an arrangement works for people, not whether you are socially skilled or can make everyone happy."
+      },
+      "scoreReading": {
+        "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+        "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "南西性格罗盘测试结果：例子、并列与完整说明",
+          "en": "South-West Compass Result: Examples & Full Guide"
+        },
+        "description": {
+          "zh": "南向处于最高，西向多于东向，形成参与在前、尝试别法为邻的读法。重点是具体安排能否被接受，不是你是否擅长社交或总能让人开心。",
+          "en": "Explore the South-West compass result: participation first with alternative entrances, optional feedback examples and a complete guide."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "变化服务于参与的可能",
+            "en": "Change in service of possible participation"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版南西把先了解参与需要的选择放在最高，同时西向在东西邻向里更多。你可能想给不爱公开发言的人另一种表达方式，或换一种活动组合让初来者更容易加入。这不是社交能力、开放性或善意程度的测量。另一种办法是否更容易参与，需要由当事人回应；你提出变化，并不能代替他们表示愿意。",
+              "en": "South-West places participation among the highest choices, with alternatives exceeding clarification among its neighbours. You may consider another way for someone to contribute without public speaking or a different activity that a newcomer can join more easily. The tally measures neither social ability, openness nor kindness. Whether the alternative improves participation depends on people’s responses. Proposing a change cannot substitute for their willingness, and choosing a considerate option does not establish what anyone else needs."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "邻向高低没有取消其他最高",
+            "en": "Neighbour comparisons do not cancel another leader"
+          },
+          "paragraphs": [
+            {
+              "zh": "显示南西需要南向达到四项最高，且西向严格多于东向。北向即使高于西向，也不改变本规则只在东西里选择邻向；因此别把西向误读成全局第二。西向若同为最高，西南的完整说明也会呈现，南北同为最高时也都保留相应读法。东西相等则用基础南向，不暗自指定邻向，更不把平分看作参与需求消失。",
+              "en": "South-West requires South at the global maximum and West strictly above East. North may exceed West without changing the perpendicular comparison, so West should not be mistaken for second overall. If West also shares the maximum, West-South retains its full guide; a highest North-South tie likewise retains both applicable readings. Equal East and West lead to base South without inventing a neighbour. A tie does not erase participation needs or justify deciding which result you should regard as your sole identity."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "让反馈不必只有公开发言",
+            "en": "Feedback need not require public speaking"
+          },
+          "paragraphs": [
+            {
+              "zh": "小型活动结束后，你先注意到有人没有发言，便提议另留匿名短条或一对一补充的方式。对方也可以选择不反馈，而不是因为多了一种渠道就必须回应。你不需要承诺读取一切，更可以说明本次反馈的用途和时间边界。这个例子探索表达入口的变化，不从选择匿名或沉默推断内向、焦虑或对活动的态度。",
+              "en": "After a small event, you notice that some people have not spoken and suggest optional anonymous notes or a later one-to-one contribution. They can still decline feedback; another channel creates no duty to respond. You need not promise to read everything and can explain the purpose and time limit for this feedback. The example explores a different entrance for participation without inferring introversion, anxiety or an attitude toward the event from silence or a preference for anonymity."
+            }
+          ]
+        },
+        {
+          "id": "voice",
+          "title": {
+            "zh": "把另一个入口真正做成可选",
+            "en": "Making the alternative entrance optional in practice"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说“如果公开说不方便，也可以用这个小纸条；不想回应同样没关系，我们只把收到的内容用于这次活动回顾”。你让不同方式并存，而非用新方式追着人回应。若没人需要这个入口，就可以不做；若它带来额外负担，可以撤回或改小。南西读法不是要求你把每个沉默的人都动员起来，也不保证关系会因此改善。",
+              "en": "You could offer a note for anyone who prefers not to speak, explicitly permit no response and limit the use of feedback to reviewing this activity. Different entrances then coexist rather than becoming another way to pursue someone for an answer. If nobody needs the alternative, you can leave it unused; if it adds burden, reduce or withdraw it. South-West does not require mobilising every quiet participant or guarantee that relationships improve because another format was offered."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "参与起步和探索起步分别看",
+            "en": "Distinguishing participation first from exploration first"
+          },
+          "paragraphs": [
+            {
+              "zh": "西南以试别法为最高、参与为邻向，可能先发现另一种活动形式再考虑怎样邀请；南西先问参与是否方便，再考虑换法。南东则在同样的南向最高下，东比西多；基础南向保留东西同分。北西与西北从推进或尝试进入，东南与南东从顺序或参与进入，都不比本读法缺少善意。其余基础与有序读法也只是不同起手点，不对应社交价值高低。",
+              "en": "West-South starts with an alternative and adds participation, perhaps noticing a different format before considering invitations. South-West begins with the ease of participation and then considers another way. South-East requires more East than West under the same highest South, while base South leaves those neighbours equal. North-West and West-North start with movement or alternatives; East-South and South-East with sequence or participation. None is less well-intentioned because another guide appears. Base and ordered readings describe starting points rather than levels of social value."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "沿用熟悉形式也可能更体贴",
+            "en": "A familiar format may be more considerate"
+          },
+          "paragraphs": [
+            {
+              "zh": "有时参与者已经熟悉原来的方式，改动反而需要更多精力；你可以直接保留它。你也可能重视参与，却不愿组织或陪伴这次活动，这不反驳南西。次数没有测创造力、讨好程度、外向性或关系质量，不能判断你适合哪种职业。较少东向也不表示安排没有条理，因为你可能在先听需要之后，再用很清楚的步骤实现它。",
+              "en": "Participants may already know the familiar format, making a change more demanding rather than more considerate. Keeping it remains possible. You can value participation and still decline to organise or accompany an activity without contradicting South-West. Counts establish neither creativity, people-pleasing, extraversion, relationship quality nor occupational suitability. Fewer East choices do not mean your arrangement lacks order; you might listen to needs first and then use clear steps that the questionnaire did not observe."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "回顾一次入口是否合适",
+            "en": "Reviewing whether an entrance fitted"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，回看一次你调整参与方式的小安排：你听到了什么需要，提供了什么选择，对方是否真能拒绝？再想一个没有改动也很合适的例子。不要为了验证南西而询问别人的私人经历，或把参与人数当作善意分数。观察只需留在自己手边；完整结果已免费可读，不需要另一测试来解释你是否值得被喜欢。",
+              "en": "If useful, review a small change to participation: what need you heard, what choice you offered and whether the person could actually decline. Compare a case where leaving the format unchanged fitted well. Do not solicit private experiences to verify South-West or treat attendance as a kindness score. The observation can remain private. Complete results are freely readable without another test to determine whether you deserve to be liked, and you may end the reflection here."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "36次固定预算、最高与邻向并列",
+            "en": "Thirty-six choices, highest directions and neighbour ties"
+          },
+          "paragraphs": [
+            {
+              "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+              "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创读法与正式工具的边界",
+            "en": "Original reflection and the official-instrument boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "四向仅是独立原创的日常观察隐喻；不提供官方Personality Compass／PCTI量表、原书类型鉴定、阿语题本或阿拉伯文化常模；Arabic为所对照的通俗搜索名称背景，不用于族群性格判断。最高与邻向读法为本站明确编写的组织规则，不是原书计分或经验证的心理类型，不换算DISC、MBTI、大五、血型、脑化学、健康或职业。",
+              "en": "Four directions are metaphors for independently authored everyday reflection. This is not the official Personality Compass or PCTI instrument, the book’s type identification, an Arabic-language bank or Arab cultural norms. Arabic supplies the common search-name context, never an ethnic personality inference. Highest and neighbouring readings use this site’s explicit editorial rule rather than the book’s scoring or validated psychological types, and are not converted into DISC, MBTI, Big Five, blood types, brain chemistry, health or career."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "east-north",
+      "directionIds": [
+        "east",
+        "north"
+      ],
+      "title": {
+        "zh": "东北：理清以后确定下一步",
+        "en": "East-North Reading: Clarifying Before Choosing the Next Step"
+      },
+      "headline": {
+        "zh": "本组选择中的方向读法，不是官方类型或能力结论。",
+        "en": "A reading of choices in this bank rather than an official type or ability conclusion."
+      },
+      "summary": {
+        "zh": "东向处于最高，北向多于南向，先厘清条件、再带推进邻向。它描述本组选项的起手顺序，不评判断力、可靠程度或做事是否高效。",
+        "en": "East shares the maximum and North exceeds South: clarification first, with movement as its neighbour. This describes a starting order in the offered choices rather than judgment, reliability or efficiency."
+      },
+      "scoreReading": {
+        "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+        "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "东北性格罗盘测试结果：例子、并列与完整说明",
+          "en": "East-North Compass Result: Examples & Full Guide"
+        },
+        "description": {
+          "zh": "东向处于最高，北向多于南向，先厘清条件、再带推进邻向。它描述本组选项的起手顺序，不评判断力、可靠程度或做事是否高效。",
+          "en": "Read the East-North compass result: clarification first, movement as neighbour, a kitchen-arrangement example and all tie rules."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "先知道怎样接上，再决定推进",
+            "en": "Understanding how things connect before proceeding"
+          },
+          "paragraphs": [
+            {
+              "zh": "东北把厘清条件与步骤放在最高位置，同时北向在南北邻向里较多。你可能先确认通知里的日期、地点和材料，再提出当前需要落定的决定。这里重视的是让下一步有清楚依据，而非收集所有可能信息。题目没有检验你的判断是否正确，也没有记录你真的等到全部条件明确才行动；它只是提供一个可以回想具体安排的读法。",
+              "en": "East-North places clarification among the highest choices, with movement exceeding participation among its neighbours. You might check an appointment’s date, place and requirements before asking for the decision that now needs settling. The reading concerns making a next step understandable rather than collecting every possible fact. The bank neither tests the correctness of your judgment nor observes whether you actually wait for complete information. It offers a way to recall an arrangement, not a reliable account of everything you do."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "东北的顺序来自哪两项比较",
+            "en": "The two comparisons behind East-North"
+          },
+          "paragraphs": [
+            {
+              "zh": "系统先确认东向为四项最高之一，再确认北向严格多于南向；西向即使比北向高，也不改变本规则的邻向比较。若北向也达到最高，北东全文同时呈现，不能靠列表顺序取消其中一个。若北与南相同，则使用基础东向，明确没有分出的邻向。你看到的是整数次数之间的关系，没有隐藏的显著性、能力或人群界线。",
+              "en": "The rule requires East at the four-way maximum and North strictly above South. West may exceed North without changing this neighbour comparison. If North also shares the maximum, the full North-East reading remains, regardless of list order. Equal North and South produce the base East guide and explicitly leave the neighbour undistinguished. These are relations between integer counts, without a hidden boundary for significance, ability or population status. A close result can change after one choice without establishing that a personal trait changed."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "把厨房冲突拆成可安排的条件",
+            "en": "Turning a kitchen conflict into workable conditions"
+          },
+          "paragraphs": [
+            {
+              "zh": "几个人的做饭时间撞在一起，你先列清谁需要哪个时段、哪些设备不能同时用，再提出这一周先试一个短安排。先列条件让大家知道冲突出在哪里，接着落实一步则避免只留下表格。有人说明新条件时，你可以改表或缩小试行范围；并不是因为已经排好顺序，就要求所有人照办。例子只说明一种处理入口，不证明它优于直接沟通。",
+              "en": "When cooking times clash in a shared kitchen, you first identify needed slots and equipment that cannot be used simultaneously, then propose a short arrangement for this week. Conditions make the conflict visible; a next step keeps the table from becoming the entire outcome. If someone adds a condition, you can revise the sequence or reduce the trial. Preparing an order does not entitle you to require compliance. The example illustrates one entrance rather than proving it superior to a direct conversation."
+            }
+          ]
+        },
+        {
+          "id": "voice",
+          "title": {
+            "zh": "把不确定处和可开始处都说出",
+            "en": "Naming uncertainty alongside what can begin"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说“目前能确认的是这两个时段，晚间那部分还没弄清；我们先安排已经明确的一小段，其他再商量”。你不必假装信息完整，也不必因为还有未知就停止所有可行部分。若未知关系到参与者是否同意，就应先听取回应，而不是把它当成可忽略的细节。东北读法允许等待、求助和改目的，不要求你扮演总能作出决定的人。",
+              "en": "You could distinguish two confirmed slots from an evening period still unclear, proposing to arrange the known portion and discuss the rest later. You need neither pretend to have complete information nor stop every workable part because something remains unknown. If the missing information concerns people’s agreement, seek a response rather than dismissing it as a minor detail. East-North permits waiting, asking for help and revising the purpose; it does not require acting as the person who always knows what to decide."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "同样两向，谁先起步很重要",
+            "en": "The same pair can have a different starting point"
+          },
+          "paragraphs": [
+            {
+              "zh": "北东先有推进的最高选择，再带厘清顺序；东北先厘清，再带推进。东南在同样的东向最高下，南多于北，关注把顺序用于参与；基础东向则南北平分。西北从尝试别法起步而带推进，北西从推进起步而带尝试；其他南向和有序读法也各自保留起手条件。这些顺序不对应高低能力，真实活动里也可以从一种转到另一种。",
+              "en": "North-East begins with movement as highest and then clarification; East-North reverses the order. East-South requires more South than North under the same highest East, while base East leaves those neighbours equal. West-North begins with alternatives and adds movement, whereas North-West reverses that pair. Other South-led, base and ordered readings retain their own starting conditions. These arrangements are not levels of ability, and an actual activity can move between approaches without needing to resolve your identity into one label."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "不先整理也可能是熟练",
+            "en": "Acting without preliminary sorting may reflect familiarity"
+          },
+          "paragraphs": [
+            {
+              "zh": "熟悉的任务可能不需要再列步骤，直接做并不表示缺乏思考。你也可能在休闲活动乐于即兴，只在重要交接里先核对细节。较少南向不能推出冷漠，较多北向不能推出控制欲或工作成绩；这些内容没有被题目测量。若一份说明过时或材料本来不全，困难可能在信息条件，而不是你的风格。不要把结果当作给别人分派工作的依据。",
+              "en": "A familiar task may need no fresh sequence, and starting directly does not establish a lack of thought. You might improvise in leisure and check details only for a handover that matters. Fewer South choices establish no coldness, and more North no controlling tendency or work achievement; the items measure none of these. Outdated instructions or incomplete material can create difficulty independently of personal approach. This result supplies no basis for assigning someone else a role or comparing candidates for a task."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "回看一个足够清楚的起点",
+            "en": "Reviewing a sufficiently clear starting point"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，回顾一项普通安排：哪些信息必须先知道，哪些可以边做边补，什么时候你决定已经足够清楚？再想一个先询问参与者更合适的例子。观察不用变成长期记录，也不需计算自己达到了几分。你可以只读公开说明；若接着探索其他框架，需要重新完整作答，不能把东北换算为DISC或MBTI字母。",
+              "en": "If useful, review an ordinary arrangement: what needed to be known first, what could be added later and when you considered it sufficiently clear to begin. Compare a case where asking participants first fitted better. The observation needs neither a long-term log nor a score for your progress. You can simply read the public guide. Exploring another framework would require its own complete answers, rather than converting East-North into a DISC category or MBTI letters."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "36次固定预算、最高与邻向并列",
+            "en": "Thirty-six choices, highest directions and neighbour ties"
+          },
+          "paragraphs": [
+            {
+              "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+              "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创读法与正式工具的边界",
+            "en": "Original reflection and the official-instrument boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "四向仅是独立原创的日常观察隐喻；不提供官方Personality Compass／PCTI量表、原书类型鉴定、阿语题本或阿拉伯文化常模；Arabic为所对照的通俗搜索名称背景，不用于族群性格判断。最高与邻向读法为本站明确编写的组织规则，不是原书计分或经验证的心理类型，不换算DISC、MBTI、大五、血型、脑化学、健康或职业。",
+              "en": "Four directions are metaphors for independently authored everyday reflection. This is not the official Personality Compass or PCTI instrument, the book’s type identification, an Arabic-language bank or Arab cultural norms. Arabic supplies the common search-name context, never an ethnic personality inference. Highest and neighbouring readings use this site’s explicit editorial rule rather than the book’s scoring or validated psychological types, and are not converted into DISC, MBTI, Big Five, blood types, brain chemistry, health or career."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "east-south",
+      "directionIds": [
+        "east",
+        "south"
+      ],
+      "title": {
+        "zh": "东南：把清楚的安排做得容易参与",
+        "en": "East-South Reading: Making a Clear Arrangement Easier to Join"
+      },
+      "headline": {
+        "zh": "本组选择中的方向读法，不是官方类型或能力结论。",
+        "en": "A reading of choices in this bank rather than an official type or ability conclusion."
+      },
+      "summary": {
+        "zh": "东向处于最高，南向多于北向，先理清顺序、再带参与邻向。说明清楚并不保证别人容易加入，需要回到实际使用者的回应。",
+        "en": "East shares the maximum and South exceeds North: sequence first, with participation as its neighbour. Clarity alone does not guarantee that people can join easily; their actual responses still matter."
+      },
+      "scoreReading": {
+        "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+        "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "东南性格罗盘测试结果：例子、并列与完整说明",
+          "en": "East-South Compass Result: Examples & Full Guide"
+        },
+        "description": {
+          "zh": "东向处于最高，南向多于北向，先理清顺序、再带参与邻向。说明清楚并不保证别人容易加入，需要回到实际使用者的回应。",
+          "en": "Explore the East-South compass result: sequence first with participation, a newcomer example, boundaries and a complete guide."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "清楚的步骤需要有人用得上",
+            "en": "Clear steps need to be usable by someone"
+          },
+          "paragraphs": [
+            {
+              "zh": "东南从先理清条件与次序的选项起步，再由南北比较带出参与邻向。你可能习惯先说明活动时间、入口和流程，也愿意问初来者哪里难理解。这不是服务能力或细心程度的测量，更不意味着你应该成为大家的说明书。安排是否容易使用，不能只靠编写者觉得清楚；不同人的实际条件可能需要另一种表达。",
+              "en": "East-South starts with clarification choices and adds participation from the North-South neighbour comparison. You might explain times, entry points and steps, then ask a newcomer what remains unclear. This measures neither service skill nor attentiveness and does not make you everyone’s instruction manual. Usability cannot be established by the writer’s sense of clarity alone. People’s conditions may call for another form of explanation, and this questionnaire has not observed how anyone actually used an arrangement you prepared."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "东南不表示东与南独占全部选择",
+            "en": "East-South does not exclude the other choices"
+          },
+          "paragraphs": [
+            {
+              "zh": "东向必须为全局最高之一，南向严格多于北向，才会显示本读法。西向仍可能高于南向，所以邻向不等于全局第二；所有最高方向及相应读法都会保留。南向也同为最高时，南东全文同时呈现；南北相等则使用基础东向，不额外推断你更愿意推进还是顾及参与。四项合计36次，未选中的起手方式并非你生活中不会发生的行为。",
+              "en": "East must share the global maximum and South must strictly exceed North. West may still exceed South, so the neighbour is not necessarily second overall. Every highest direction retains its applicable reading. If South also shares the maximum, its full South-East guide appears; equal South and North lead to base East without inventing a preference between participation and movement. Four counts share thirty-six selections. An unselected starting approach is not a behaviour absent from your ordinary life."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "新人拿到的活动说明",
+            "en": "An activity note received by a newcomer"
+          },
+          "paragraphs": [
+            {
+              "zh": "熟人第一次来你熟悉的小组，你先把地点、时间和进门步骤整理成三行，再问对方这份说明够不够用。对方也许只需要你在门口接一下，而不需要更多文字。你可以按实际需要改成见面带路，而不是继续加细说明。例子中，清楚与参与相互校验，没有要求新人为了证明自己认真而读完一长串规则。",
+              "en": "An acquaintance is joining a familiar group for the first time. You give three lines covering location, time and entry, then ask whether the note is useful. They may need someone to meet them at the door rather than more text. You can change to a brief welcome instead of adding increasingly detailed instructions. Clarity and participation then check one another. The newcomer does not have to read a long rule list to demonstrate seriousness or earn the right to join."
+            }
+          ]
+        },
+        {
+          "id": "voice",
+          "title": {
+            "zh": "邀请对方指出不好用的部分",
+            "en": "Inviting feedback about what is hard to use"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说“我先写了这三步，哪一处不方便可以直接告诉我；你不用解释私人原因，我们也可换种方式”。你允许说明被修改，也允许对方不提供额外信息。如果你没有时间继续协助，可以坦诚说明可提供的范围，再共同找其他办法。东南读法不要求无限耐心，也不把别人没理解当作谁的性格问题。",
+              "en": "You could offer three steps, invite the person to identify anything inconvenient and make clear that no private explanation is required before trying another format. The note remains revisable without demanding extra disclosure. If you lack time for further help, state what you can offer and consider another arrangement together. East-South creates no duty of unlimited patience and treats neither a misunderstanding nor a request for help as evidence of someone’s personality defect."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "先听需要和先给说明可以互补",
+            "en": "Hearing needs and offering a sequence can complement each other"
+          },
+          "paragraphs": [
+            {
+              "zh": "南东先从参与需要起步，再带厘清顺序；东南先把安排理清，再带参与邻向，二者同最高时都保留。东北在同样东向最高下更偏向推进邻向，基础东向则南北同次。西南与南西分别从尝试或参与起步，未必比东南更灵活或更关心人。北向相关组合也可能在后续认真顾及参与；结果只记录本组提供的起手选择。",
+              "en": "South-East begins with participation needs and then clarification, while East-South begins with sequence and adds participation; both remain when tied highest. East-North requires the other neighbour, and base East leaves North and South equal. West-South and South-West begin with alternatives or participation without being inherently more flexible or more considerate. North-related readings may also attend carefully to participation later. Base and ordered guides describe offered starting choices rather than complete accounts of people’s conduct."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "简短约定也可以足够清楚",
+            "en": "A short agreement may be clear enough"
+          },
+          "paragraphs": [
+            {
+              "zh": "有些熟悉活动只需一句约定，不需要再做说明；你可以选择少写一点。也可能对方不想参加，而不是看不懂流程，这时更多步骤无法解决意愿问题。较多南向不保证共情能力，较少北向不表示行动慢；题目没有计时或记录任务完成。别把东南拿来预测关系质量、服务表现或某种职业是否适合你。",
+              "en": "Some familiar activities need only one short agreement rather than another set of instructions. You may choose to write less. Someone may also not want to participate, making more explanation irrelevant to the real issue. More South guarantees no empathy ability, and fewer North choices establish no slow action: the test neither times responses nor records completed tasks. East-South cannot predict relationship quality, service performance or occupational fit, and a clear explanation does not create an obligation for someone to accept the invitation."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "看说明与实际需要是否对上",
+            "en": "Checking the fit between an explanation and a need"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，回看一次你给别人说明流程的经历：对方实际需要知道什么，你用了多少步骤，哪一部分可以省掉？再比较一次先听需要更合适的情形。无需评价自己是不是足够体贴，也不必公开对方的私人情况。观察只服务于下一次具体安排；完整报告不依赖继续测评，你可以就此结束。",
+              "en": "If useful, review an occasion when you explained a process: what the person actually needed, how many steps you used and what could be omitted. Compare a case where hearing the need first would have fitted better. There is no need to judge whether you are considerate enough or disclose someone else’s circumstances. The observation serves a later concrete arrangement, not proof of a type. Your complete report does not depend on taking another assessment, and you can stop here."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "36次固定预算、最高与邻向并列",
+            "en": "Thirty-six choices, highest directions and neighbour ties"
+          },
+          "paragraphs": [
+            {
+              "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+              "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创读法与正式工具的边界",
+            "en": "Original reflection and the official-instrument boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "四向仅是独立原创的日常观察隐喻；不提供官方Personality Compass／PCTI量表、原书类型鉴定、阿语题本或阿拉伯文化常模；Arabic为所对照的通俗搜索名称背景，不用于族群性格判断。最高与邻向读法为本站明确编写的组织规则，不是原书计分或经验证的心理类型，不换算DISC、MBTI、大五、血型、脑化学、健康或职业。",
+              "en": "Four directions are metaphors for independently authored everyday reflection. This is not the official Personality Compass or PCTI instrument, the book’s type identification, an Arabic-language bank or Arab cultural norms. Arabic supplies the common search-name context, never an ethnic personality inference. Highest and neighbouring readings use this site’s explicit editorial rule rather than the book’s scoring or validated psychological types, and are not converted into DISC, MBTI, Big Five, blood types, brain chemistry, health or career."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "west-north",
+      "directionIds": [
+        "west",
+        "north"
+      ],
+      "title": {
+        "zh": "西北：从一个新办法找到下一步",
+        "en": "West-North Reading: Finding a Next Step Through Another Approach"
+      },
+      "headline": {
+        "zh": "本组选择中的方向读法，不是官方类型或能力结论。",
+        "en": "A reading of choices in this bank rather than an official type or ability conclusion."
+      },
+      "summary": {
+        "zh": "西向处于最高，北向多于南向，先探索另一种办法，再带推进邻向。它不证明点子能成功，也不表示你必须不断改变原有安排。",
+        "en": "West shares the maximum and North exceeds South: another approach first, with movement as its neighbour. This proves neither an idea’s success nor an obligation to keep changing an existing arrangement."
+      },
+      "scoreReading": {
+        "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+        "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "西北性格罗盘测试结果：例子、并列与完整说明",
+          "en": "West-North Compass Result: Examples & Full Guide"
+        },
+        "description": {
+          "zh": "西向处于最高，北向多于南向，先探索另一种办法，再带推进邻向。它不证明点子能成功，也不表示你必须不断改变原有安排。",
+          "en": "Read the West-North compass result: alternatives first, movement as neighbour, a small hobby example and full comparisons."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "探索先打开一个入口",
+            "en": "Exploration opens an entrance first"
+          },
+          "paragraphs": [
+            {
+              "zh": "西北从尝试别法的选项起步，再由南北邻向比较带出推进。你可能先给旧爱好换一种练习形式，然后为它定下这周能完成的一小段；也可能把散乱笔记换种连法，再决定它能支持哪项行动。这里没有测想象力、执行力或创新潜力，真正出现了什么新办法、是否值得采用，仍需看具体情况。",
+              "en": "West-North begins with an offered alternative and adds movement through the North-South neighbour comparison. You might first vary a hobby’s practice format, then choose a small piece to finish this week. You might reconnect scattered notes before deciding which action the arrangement could support. The tally measures neither imagination, execution skill nor innovation potential. What an alternative actually was and whether it merited use still require the situation, and a preference for exploring does not imply that every activity needs a redesign."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "西向最高，再比较南北",
+            "en": "Highest West, followed by the North-South comparison"
+          },
+          "paragraphs": [
+            {
+              "zh": "显示本读法时，西向必须处于四项最高，北向严格多于南向；东向仍可能比北向高，因此邻向不是全局第二的保证。北向也同为最高时，北西的完整说明会同时保留，列表顺序没有裁决作用。若南北相等，则回到基础西向，明确本次未分出邻向。你看到的差别只有选择次数，不包含能力百分比、稳定性或统计显著性。",
+              "en": "West must share the four-way maximum and North strictly exceed South. East may still exceed North, so the neighbour is not guaranteed to be second overall. A tied highest North keeps its full North-West reading, without list order deciding between them. Equal North and South return to base West and explicitly leave the neighbour undistinguished. Differences consist of choice counts, without an ability percentage, demonstrated stability or statistical significance. Reading a close pair as uncertain remains more faithful than treating one extra selection as decisive evidence."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "给旧爱好换一种练习入口",
+            "en": "Changing the entrance to a familiar hobby"
+          },
+          "paragraphs": [
+            {
+              "zh": "想重新开始画画时，你先想到用几张便签做一组很小的颜色记录，再选择本周完成其中两张。新形式让开始变得可想象，推进只是为这次试验留一个落点。若便签形式没意思，可以换回熟悉的练习，也可以暂时不做。例子没有规定完成数量越多越好，更不能从这种小安排推论你有艺术天赋或适合相关职业。",
+              "en": "Returning to drawing, you first imagine making tiny colour notes on a few cards, then choose two to finish this week. The different format makes an entrance imaginable; a next step gives this particular experiment a stopping point. You can return to familiar practice or leave it aside if the cards do not interest you. More completed cards are not necessarily better, and this small arrangement supplies no evidence of artistic talent or suitability for an artistic occupation."
+            }
+          ]
+        },
+        {
+          "id": "voice",
+          "title": {
+            "zh": "把点子与小范围行动连接",
+            "en": "Connecting an idea to a bounded action"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说“这个组合我想试一下，先做一个小样再决定是否继续”。你无需证明这是最好的点子，也不必把每个想法都变成任务。若活动涉及别人，可以先征求愿意参与的意见，不能因为小试验就省略同意。西北读法允许探索没有下文，也允许换回旧办法；推进是可选择的一步，不是用来证明自己有行动力的考试。",
+              "en": "You could propose trying one sample of a combination before deciding whether to continue. You need neither prove it is the best idea nor turn every thought into a task. Where an activity involves others, ask whether they want to take part rather than treating a small trial as exempt from agreement. West-North allows an exploration to end without a larger project or return to a familiar approach. Movement is an optional step, not an examination in which you must demonstrate initiative."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与北西及西南的差别",
+            "en": "Distinguishing North-West and West-South"
+          },
+          "paragraphs": [
+            {
+              "zh": "北西先有要推进的最高选择，再带尝试邻向；西北先探索另一种办法，再带推进。西南同样以西向最高，但南向高于北向；基础西向则南北相同。东北与北东涉及厘清顺序和推进的不同起点，东南与南东涉及顺序和参与，其他基础与有序读法也各自保留条件。它们可以描述同一活动的不同阶段，不要求你长期站在一个方向。",
+              "en": "North-West begins with movement as highest and alternatives as neighbour; West-North reverses that order. West-South also requires highest West but more South than North, while base West leaves those neighbours equal. East-North and North-East combine clarification and movement from different starting points; East-South and South-East do the same with participation. Other base and ordered guides keep their own conditions. These approaches can describe different stages of one activity without requiring a permanent allegiance to one compass point."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "没有把点子落实也可能很合理",
+            "en": "Leaving an idea unimplemented can be reasonable"
+          },
+          "paragraphs": [
+            {
+              "zh": "有些想法只是聊天或休息的一部分，不需要完成；有些安排沿用旧方法更省心。你也可能喜欢试新形式，但因时间和材料不足暂不开始。较多北向不保证坚持，较少南向不能推出忽略别人；本版没有观察这些后续行为，也没有收集他人评价。西北不能预测创业、项目成效、职业收入或你是否比别人更有创造力。",
+              "en": "Some ideas belong to conversation or rest and need no completion. Familiar methods may also make an arrangement easier. You might like another format but lack time or materials to begin. More North guarantees no persistence, and fewer South choices establish no disregard for others; the edition observes neither later conduct nor other people’s evaluations. West-North cannot predict entrepreneurship, project outcomes, occupational income or whether you are more creative than someone else. Deliberately leaving an idea unused can itself fit the circumstances."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "回看从想法到一步行动的距离",
+            "en": "Reviewing the distance from an idea to one action"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，找一次普通的小尝试，想想新办法从哪里来，下一步为什么选得那么大或那么小，以及什么时候停止也合适。再找一个只保留想法、没有行动的例子，看看它是否本就不需要落实。无需追踪所有想法或向网站提交记录。公开报告已完整呈现；其他测评只是可选的新框架，不是给这份结果加盖准确印章。",
+              "en": "If useful, review one ordinary small trial: where the alternative came from, why the next step was that large or small and when stopping would fit. Compare an idea you kept without acting on it and consider whether action was needed at all. There is no need to track every thought or submit a record. The public report is already complete; another assessment is an optional framework rather than a way to certify the accuracy of this reading."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "36次固定预算、最高与邻向并列",
+            "en": "Thirty-six choices, highest directions and neighbour ties"
+          },
+          "paragraphs": [
+            {
+              "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+              "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创读法与正式工具的边界",
+            "en": "Original reflection and the official-instrument boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "四向仅是独立原创的日常观察隐喻；不提供官方Personality Compass／PCTI量表、原书类型鉴定、阿语题本或阿拉伯文化常模；Arabic为所对照的通俗搜索名称背景，不用于族群性格判断。最高与邻向读法为本站明确编写的组织规则，不是原书计分或经验证的心理类型，不换算DISC、MBTI、大五、血型、脑化学、健康或职业。",
+              "en": "Four directions are metaphors for independently authored everyday reflection. This is not the official Personality Compass or PCTI instrument, the book’s type identification, an Arabic-language bank or Arab cultural norms. Arabic supplies the common search-name context, never an ethnic personality inference. Highest and neighbouring readings use this site’s explicit editorial rule rather than the book’s scoring or validated psychological types, and are not converted into DISC, MBTI, Big Five, blood types, brain chemistry, health or career."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "west-south",
+      "directionIds": [
+        "west",
+        "south"
+      ],
+      "title": {
+        "zh": "西南：给新办法留出共同参与的空间",
+        "en": "West-South Reading: Leaving Room for Participation in an Alternative"
+      },
+      "headline": {
+        "zh": "本组选择中的方向读法，不是官方类型或能力结论。",
+        "en": "A reading of choices in this bank rather than an official type or ability conclusion."
+      },
+      "summary": {
+        "zh": "西向处于最高，南向多于北向，先试别法、再带参与邻向。这里探索一种安排怎样被共同使用，不测共情、社交或合作能力。",
+        "en": "West shares the maximum and South exceeds North: another approach first, with participation as its neighbour. Explore how an arrangement might be shared without treating the result as empathy, social or cooperation ability."
+      },
+      "scoreReading": {
+        "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+        "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+      },
+      "seo": {
+        "title": {
+          "zh": "西南性格罗盘测试结果：例子、并列与完整说明",
+          "en": "West-South Compass Result: Examples & Full Guide"
+        },
+        "description": {
+          "zh": "西向处于最高，南向多于北向，先试别法、再带参与邻向。这里探索一种安排怎样被共同使用，不测共情、社交或合作能力。",
+          "en": "Explore the West-South compass result: alternatives first with participation, an optional book-exchange example and full tie rules."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "新办法需要被实际参与者看见",
+            "en": "An alternative needs actual participants’ responses"
+          },
+          "paragraphs": [
+            {
+              "zh": "西南从尝试不同方式的选项起步，再由南北比较带出参与邻向。你可能先想到一种新的书籍交换形式，再问谁愿意参加、怎样加入更方便。这里没有把新鲜感自动等同好办法，也没有把顾及参与当作你总能理解别人。一个方案是否值得共同使用，需要由实际条件和参与者回应来决定，而不是由方向标签替他们作主。",
+              "en": "West-South starts with another way of approaching an activity and adds participation through the North-South comparison. You might imagine a different book-exchange format before asking who would enjoy taking part and what would make joining easier. Novelty is not automatically a good method, and attention to participation establishes no universal understanding of others. Whether a proposal merits shared use depends on practical conditions and people’s responses. A direction cannot decide on their behalf or turn your invitation into their agreement."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "西南的邻向比较有明确范围",
+            "en": "The neighbour comparison has a defined scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "西向须达到全局最高，且南向严格多于北向，才显示西南；东向可以仍高于南向，邻向并非总次数第二。南向也达到最高时，南西完整说明同时呈现；若南北同分，只显示基础西向并说明未分出邻向。所有其他最高也保留对应读法，不用一个最先列出的标签覆盖它们。一次作答不能判断这些偏好是否会长期保持。",
+              "en": "West must reach the global maximum and South strictly exceed North. East can still exceed South, so the neighbour is not necessarily the overall runner-up. If South also shares the maximum, its full South-West guide appears. Equal South and North produce base West with no distinguished neighbour. Other highest directions retain their applicable guides rather than being replaced by the first label listed. One attempt cannot establish how long these preferences will persist or whether a small difference will survive a changed setting."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "交换书籍的玩法怎样被共同修改",
+            "en": "How a book-exchange idea can be revised together"
+          },
+          "paragraphs": [
+            {
+              "zh": "社区准备交换闲置书，你先提议做一轮“只看一句介绍”的挑选，再请参与者说是否愿意，也保留直接看书名的普通交换。有人不喜欢盲选，就不必参加这一轮；没有参加也不表示不合群。你可以根据回应把新环节缩短或取消。例子把尝试当作共同讨论的提议，而不是为了维护创意就要求别人配合。",
+              "en": "For a community book exchange, you suggest a round where people choose from one-sentence descriptions, then ask whether they want it and keep an ordinary title-visible exchange available. Someone who dislikes the format need not join that round, and declining establishes no lack of sociability. Responses may lead you to shorten or cancel it. The experiment remains a shared proposal rather than something others must support to protect your idea or prove that they are cooperative."
+            }
+          ]
+        },
+        {
+          "id": "voice",
+          "title": {
+            "zh": "让修改点子不伤及人的选择",
+            "en": "Keeping revision separate from judging a person"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说“我想到这个小玩法，愿意的人可以试，不合适就按原方式；如果有哪里不方便，我们可以直接改”。你不把点子被拒绝当作对自己的否定，也不把他人不同意当作缺少开放性。你同样可以拒绝承担活动组织，只贡献一个想法。西南读法没有规定你要让每个人满意，真实的选择空间比参与形式看起来热闹更重要。",
+              "en": "You could offer the format to willing people, keep the familiar version available and invite changes wherever it is inconvenient. Rejection of an idea need not become rejection of you, and disagreement need not become a judgment of someone’s openness. You can also contribute an idea while declining to organise the activity. West-South requires no universal satisfaction. Actual room to choose matters more than making participation look lively, and another format should remain open to being left unused."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "西南与南西不是交换名字",
+            "en": "West-South and South-West are not renamed copies"
+          },
+          "paragraphs": [
+            {
+              "zh": "南西先关注参与需要，再带尝试邻向；西南先出现另一种办法，再把参与放进邻向读法。西北在同样西向最高下，北向比南向高；基础西向则两者相同。南东与东南从参与或顺序起步，北西与西北从推进或尝试起步，其他有序与基础读法也沿自己的条件。某份未出现不表示缺少对应做法，真实生活里的先后也不必固定。",
+              "en": "South-West begins with participation needs and adds an alternative; West-South begins with another approach and then reads participation as its neighbour. West-North requires more North than South under highest West, while base West leaves them equal. South-East and East-South start with participation or sequence; North-West and West-North with movement or alternatives. Other ordered and base guides keep their own conditions. An absent guide does not establish an absent approach, and the order of real behaviour need not remain fixed."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "不提供新形式也可以尊重参与",
+            "en": "Participation can be respected without another format"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果大家已经喜欢现有活动，保留它可能比增加新环节更合适。你也可以在陌生小组先听安排，不立即提点子；这不反驳你的其他选择。较多南向不证明共情水平，较少北向不表示缺乏推进能力；题目没有评这些能力。西南不能判断关系是否健康、谁更受欢迎或你适合什么工作，也没有要求你为了照顾参与而一直陪伴。",
+              "en": "If people already enjoy the activity, keeping it can fit better than adding another round. You may listen first in an unfamiliar group rather than immediately offering ideas, without contradicting your other choices. More South proves no empathy level, and fewer North choices establish no lack of initiative; those abilities are not assessed. West-South cannot judge relationship health, popularity or occupational fit and creates no obligation to provide ongoing company for the sake of participation."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "回看一个提议是否真的可拒绝",
+            "en": "Reviewing whether a proposal could actually be declined"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，回想一次你提出的小变化：有没有保留原办法，参与者能否说不，回应怎样改变了提议？再想一个你没有提出新点子却相处顺畅的例子。无需评价任何人的开放程度或向网站提交私人故事。观察是可选的，结果正文已经完整免费；继续其他测评需要独立作答，也可以在这里结束。",
+              "en": "If useful, recall a small change you proposed: whether the familiar method remained available, whether people could decline and how responses changed the proposal. Compare a comfortable interaction where you offered no new idea. There is no need to rate anyone’s openness or submit a private story. The observation is optional and the result text is already complete and free. Continuing with another assessment requires separate answers, and you can end the reflection here."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "36次固定预算、最高与邻向并列",
+            "en": "Thirty-six choices, highest directions and neighbour ties"
+          },
+          "paragraphs": [
+            {
+              "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+              "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创读法与正式工具的边界",
+            "en": "Original reflection and the official-instrument boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "四向仅是独立原创的日常观察隐喻；不提供官方Personality Compass／PCTI量表、原书类型鉴定、阿语题本或阿拉伯文化常模；Arabic为所对照的通俗搜索名称背景，不用于族群性格判断。最高与邻向读法为本站明确编写的组织规则，不是原书计分或经验证的心理类型，不换算DISC、MBTI、大五、血型、脑化学、健康或职业。",
+              "en": "Four directions are metaphors for independently authored everyday reflection. This is not the official Personality Compass or PCTI instrument, the book’s type identification, an Arabic-language bank or Arab cultural norms. Arabic supplies the common search-name context, never an ethnic personality inference. Highest and neighbouring readings use this site’s explicit editorial rule rather than the book’s scoring or validated psychological types, and are not converted into DISC, MBTI, Big Five, blood types, brain chemistry, health or career."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "compass-counts",
+      "title": {
+        "zh": "36次选择怎样形成四向计数",
+        "en": "How thirty-six choices produce four counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+          "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+        }
+      ]
+    },
+    {
+      "id": "compass-ties",
+      "title": {
+        "zh": "12份说明怎样处理最高与邻向",
+        "en": "How twelve guides handle highest directions and neighbours"
+      },
+      "paragraphs": [
+        {
+          "zh": "四份基础北、南、东、西说明用于某最高向的两个邻向次数相同；八份有序读法为北东、北西、南东、南西、东北、东南、西北、西南。名称顺序对应最高向与邻向，不相互替换。所有最高方向都保留各自全文，列表顺序不定主副；其他说明始终公开。每份有专属含义、计数读法、独立例子、可选表达、其他读法比较、反例、回顾，以及完整计分与范围。",
+          "en": "Four base North, South, East and West guides apply when a highest direction’s neighbours are equal. Eight ordered guides are North-East, North-West, South-East, South-West, East-North, East-South, West-North and West-South. Order identifies the highest and neighbouring direction rather than interchangeable names. Every highest direction retains its full guide without list-order primary or secondary types; all other guides remain public. Each contains its meaning, count reading, independent example, optional wording, comparisons, counterexamples, review, complete scoring and scope."
+        }
+      ]
+    },
+    {
+      "id": "compass-scope",
+      "title": {
+        "zh": "框架来源与独立原创版本",
+        "en": "Framework background and this independently authored edition"
+      },
+      "paragraphs": [
+        {
+          "zh": "四向仅是独立原创的日常观察隐喻；不提供官方Personality Compass／PCTI量表、原书类型鉴定、阿语题本或阿拉伯文化常模；Arabic为所对照的通俗搜索名称背景，不用于族群性格判断。最高与邻向读法为本站明确编写的组织规则，不是原书计分或经验证的心理类型，不换算DISC、MBTI、大五、血型、脑化学、健康或职业。",
+          "en": "Four directions are metaphors for independently authored everyday reflection. This is not the official Personality Compass or PCTI instrument, the book’s type identification, an Arabic-language bank or Arab cultural norms. Arabic supplies the common search-name context, never an ethnic personality inference. Highest and neighbouring readings use this site’s explicit editorial rule rather than the book’s scoring or validated psychological types, and are not converted into DISC, MBTI, Big Five, blood types, brain chemistry, health or career."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "完整免费、草稿与安全分享",
+        "en": "Full free access, drafts and safe sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "36题、四向原始次数和12份九模块全文免费，无需注册、邮箱或另一测试解锁。答案在浏览器计数，不上传、不进入网址或分析；不询问私人经历、族群或阿拉伯文化身份。草稿需主动开启，仅本标签页保留24小时，完成、重测或退出清除即删。可选分享只含公开读法名称与链接，不含答案、次数或个人排行。其他框架需要重新完整作答，不由方向换算；你可以直接阅读，也可以在此结束。",
+          "en": "All thirty-six questions, four raw tallies and twelve full nine-section guides are free without signup, email or another test. Answers are counted in the browser without uploading or entering URLs or analytics; no private history, ethnicity or Arab cultural identity is requested. Opted-in drafts remain in this tab for twenty-four hours and clear on completion, retake or exit-and-clear. Optional sharing includes public reading names and links without answers, counts or personal ranks. Other frameworks require separate complete answers rather than direction conversion. You can read directly or stop here."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这是官方Personality Compass或PCTI吗？",
+        "en": "Is this the official Personality Compass or PCTI?"
+      },
+      "answer": {
+        "zh": "四向仅是独立原创的日常观察隐喻；不提供官方Personality Compass／PCTI量表、原书类型鉴定、阿语题本或阿拉伯文化常模；Arabic为所对照的通俗搜索名称背景，不用于族群性格判断。最高与邻向读法为本站明确编写的组织规则，不是原书计分或经验证的心理类型，不换算DISC、MBTI、大五、血型、脑化学、健康或职业。",
+        "en": "Four directions are metaphors for independently authored everyday reflection. This is not the official Personality Compass or PCTI instrument, the book’s type identification, an Arabic-language bank or Arab cultural norms. Arabic supplies the common search-name context, never an ethnic personality inference. Highest and neighbouring readings use this site’s explicit editorial rule rather than the book’s scoring or validated psychological types, and are not converted into DISC, MBTI, Big Five, blood types, brain chemistry, health or career."
+      }
+    },
+    {
+      "question": {
+        "zh": "Arabic表示阿语题本或族群判断吗？",
+        "en": "Does Arabic mean an Arabic bank or an ethnic assessment?"
+      },
+      "answer": {
+        "zh": "不是。这里保留所对照的通俗英文搜索名称，实际提供中文与英文原创版。方向不是国家、族群、出生地、文化优劣或人口分组，也没有阿拉伯地区常模。框架背景来自通俗四向罗盘讨论，不从名称推古老阿拉伯理论或测量效度。",
+        "en": "No. This retains the common English search-name context while offering an original English and Chinese edition. Directions are not nations, ethnicities, birthplaces, cultural rankings or demographic groups, and no Arab population norms are used. Popular compass framing supplies background, without inferring an ancient Arabic theory or measurement validity from the name."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样计分，邻向是不是第二高？",
+        "en": "How is it scored, and is the neighbour second highest?"
+      },
+      "answer": {
+        "zh": "36题每题选四项之一，所选方向加1，四项原始次数合计36；每个方向出现36次，在四个位置各9次。次数只比较本次作答，不是能力、人格占比或人群排名。先找四项的全部最高，再分别看每个最高方向的两个垂直邻向：北南比较东西，东西比较南北。邻向有唯一较多者时，显示“最高向—邻向”的有序读法；邻向同分则显示该最高向基础说明，并明确未分出邻向，不称纯人格。邻向不必为全局第二。相对方向同为最高也都保留，只是不把它们组成相邻读法。全选同一位置，四向各9次，四份基础说明全文同时呈现。一道选择的差距没有已验证的显著性、稳定性或强度含义，近分可一起读；不随机指定主型，也没有隐藏阈值。",
+        "en": "Choose one of four options in each of thirty-six questions. Each adds one count to its direction; the four raw counts sum to thirty-six. Each direction appears thirty-six times and nine times in each position. Counts compare only within this attempt, not ability, personality proportions or population ranks. Retain EVERY highest direction, then compare its two perpendicular neighbours: North or South compares East with West, and East or West compares North with South. A uniquely greater neighbour produces an ordered highest-neighbour guide. Equal neighbours produce that highest direction’s base guide with no distinguished neighbour, not a pure personality. The neighbour need not be second overall. Opposite highest directions both remain without becoming an adjacent blend. Choosing one position throughout gives nine each and all four base guides in full. One choice establishes no significant, stable or strong difference. Read close guides without random primary types or hidden cutoffs."
+      }
+    },
+    {
+      "question": {
+        "zh": "能判断谁更有能力或适合什么工作吗？",
+        "en": "Can it compare ability or recommend occupations?"
+      },
+      "answer": {
+        "zh": "不能。四向共享36次选择，只能比较同一次作答里的相对次数，没有独立能力测量、人群常模、预测效度或稳定类型验证。不能据此筛选、给别人分派角色、作关系或健康判断，也不换算DISC、MBTI、大五、血型或脑化学。",
+        "en": "No. Four directions share thirty-six choices, allowing relative counts only within one attempt. There is no independent ability measurement, population norm, predictive validity or stable-type validation. Do not use it for selection, assigning others roles, relationship or health judgments, or conversion into DISC, MBTI, Big Five, blood types or brain chemistry."
+      }
+    },
+    {
+      "question": {
+        "zh": "全部结果、恢复、重测和分享免费吗？",
+        "en": "Are full results, resuming, retaking and sharing free?"
+      },
+      "answer": {
+        "zh": "36题、四向原始次数和12份九模块全文免费，无需注册、邮箱或另一测试解锁。答案在浏览器计数，不上传、不进入网址或分析；不询问私人经历、族群或阿拉伯文化身份。草稿需主动开启，仅本标签页保留24小时，完成、重测或退出清除即删。可选分享只含公开读法名称与链接，不含答案、次数或个人排行。其他框架需要重新完整作答，不由方向换算；你可以直接阅读，也可以在此结束。",
+        "en": "All thirty-six questions, four raw tallies and twelve full nine-section guides are free without signup, email or another test. Answers are counted in the browser without uploading or entering URLs or analytics; no private history, ethnicity or Arab cultural identity is requested. Opted-in drafts remain in this tab for twenty-four hours and clear on completion, retake or exit-and-clear. Optional sharing includes public reading names and links without answers, counts or personal ranks. Other frameworks require separate complete answers rather than direction conversion. You can read directly or stop here."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "The Personality Compass创作者官网：框架身份背景（不验证本版题目）",
+        "en": "The Personality Compass founders’ site: framework identity, not validation of this edition"
+      },
+      "url": "https://www.personalitycompass.com/"
+    },
+    {
+      "title": {
+        "zh": "创作者公开书籍介绍：Diane Turner与Thelma Greco",
+        "en": "The founders’ public book description: Diane Turner and Thelma Greco"
+      },
+      "url": "https://www.personalitycompass.com/thebook.php"
+    },
+    {
+      "title": {
+        "zh": "官方PCTI公开介绍：与本原创反思版区分",
+        "en": "Official PCTI public description: distinct from this original reflection"
+      },
+      "url": "https://www.personalitycompass.com/PCTI.php"
+    }
+  ]
+}

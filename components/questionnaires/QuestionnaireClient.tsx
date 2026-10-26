@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
+import { QuestionnaireCompassReport } from "./QuestionnaireCompassReport";
 import { QuestionnaireInkblotStimulus } from "./QuestionnaireInkblotStimulus";
 import { getInkblotStimulus } from "@/lib/questionnaires/inkblotStimuli";
 import { QuestionnaireLtsReport } from "./QuestionnaireLtsReport";
@@ -57,6 +58,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
   const directional = result.status === "complete" && "profileId" in result ? result : undefined;
   const facets = result.status === "complete" && "facets" in result ? result : undefined;
   const archetypes = result.status === "complete" && "profileIds" in result ? result : undefined;
+  const compass = result.status === "complete" && "compassProfileIds" in result ? result : undefined;
   const alignment = result.status === "complete" && "alignmentIds" in result ? result : undefined;
   const optimism = result.status === "complete" && "outlookProfileIds" in result ? result : undefined;
   const extraversion = result.status === "complete" && "scaleProfileIds" in result ? result : undefined;
@@ -111,7 +113,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
   }
   async function copy() {
     if (!hasCompleteResult) return;
-    const matchedIds = alignment?.alignmentIds ?? optimism?.outlookProfileIds ?? extraversion?.scaleProfileIds ?? archetypes?.profileIds;
+    const matchedIds = compass?.compassProfileIds ?? alignment?.alignmentIds ?? optimism?.outlookProfileIds ?? extraversion?.scaleProfileIds ?? archetypes?.profileIds;
     const single = profile ?? (matchedIds?.length === 1 ? quiz.profiles.find(p => p.id === matchedIds[0]) : undefined);
     const label = single?.title[locale] ?? (matchedIds?.length ? matchedIds.map(id => quiz.profiles.find(p => p.id === id)!.title[locale]).join(zh ? "、" : ", ") : (extraversion || optimism) ? quiz.title[locale] : (zh ? "完整自我观察" : "Complete self-reflection"));
     const text = `${quiz.title[locale]}\n${label}\nhttps://fermatmind.com${single ? questionnaireGuidePath(locale, quiz.slug, single.id) : questionnairePath(locale, quiz.slug)}`;
@@ -148,6 +150,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
       </>}
       {facets && (quiz.slug === "light-triad-test" ? <QuestionnaireLtsReport quiz={quiz} result={facets} locale={locale} /> : quiz.slug === "values" ? <QuestionnaireValuesReport quiz={quiz} result={facets} locale={locale} /> : quiz.slug === "sdt-motivation" ? <QuestionnaireSdtNeedsReport quiz={quiz} result={facets} locale={locale} /> : quiz.slug === "type-ab" ? <QuestionnaireTypeAbReport quiz={quiz} result={facets} locale={locale} /> : quiz.slug === "character-strengths" ? <QuestionnaireCharacterStrengthsReport quiz={quiz} result={facets} locale={locale} /> : quiz.slug === "learning-style" ? <QuestionnaireLearningPreferenceReport quiz={quiz} result={facets} locale={locale} /> : quiz.slug === "procrastinator-type-test" ? <QuestionnaireProcrastinationReport quiz={quiz} result={facets} locale={locale} /> : quiz.slug === "difficult-person-test" ? <QuestionnaireFrictionReport quiz={quiz} result={facets} locale={locale} /> : quiz.slug === "people-pleaser" ? <QuestionnairePpsReport quiz={quiz} result={facets} locale={locale} /> : quiz.slug === "music-taste-test" ? <QuestionnaireMusicReport quiz={quiz} result={facets} locale={locale} /> : quiz.slug === "humor-style-test" ? <QuestionnaireHumorReport quiz={quiz} result={facets} locale={locale} /> : quiz.slug === "communication-style" ? <QuestionnaireCommunicationReport quiz={quiz} result={facets} locale={locale} /> : <QuestionnaireFacetReport quiz={quiz} result={facets} locale={locale} />)}
       {archetypes && <QuestionnaireArchetypeReport quiz={quiz} result={archetypes} locale={locale} />}
+      {compass && <QuestionnaireCompassReport quiz={quiz} result={compass} locale={locale} />}
       {alignment && <QuestionnaireAlignmentReport quiz={quiz} result={alignment} locale={locale} />}
       {optimism && <QuestionnaireOptimismReport quiz={quiz} result={optimism} locale={locale} />}
       {extraversion && <QuestionnaireExtraversionReport quiz={quiz} result={extraversion} locale={locale} />}

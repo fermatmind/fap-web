@@ -1486,5 +1486,38 @@
       "contrast-noticing",
       "scene-imagining"
     ]
+  },
+  {
+    "slug": "arabic-personality-compass",
+    "code": "COMPASS_ORIGINAL_CROSS_AXIS",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "framework",
+    "title": {
+      "zh": "性格罗盘测试",
+      "en": "Arabic Personality Compass Test"
+    },
+    "description": {
+      "zh": "免费性格罗盘测试：36道原创情境题，查看北南东西原始次数、全部最高并列与12份完整读法。中英双语反思版，非官方PCTI，不由方向判断能力、族群或职业。",
+      "en": "Take 36 original compass questions. Read four raw counts, all highest ties and 12 full guides. A bilingual reflection, separate from the official PCTI."
+    },
+    "minutes": 10,
+    "collection": "explore",
+    "formCode": "fm_compass_original_choices_36",
+    "questionCount": 36,
+    "resultSlugs": [
+      "north",
+      "south",
+      "east",
+      "west",
+      "north-east",
+      "north-west",
+      "south-east",
+      "south-west",
+      "east-north",
+      "east-south",
+      "west-north",
+      "west-south"
+    ]
   }
 ]
