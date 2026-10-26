@@ -2026,5 +2026,31 @@
       "npc"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "cybersecurity-awareness",
+    "code": "FM_CYBERSECURITY_AWARENESS",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "everyday",
+    "title": {
+      "en": "Cyber Security Test",
+      "zh": "网络安全意识测试"
+    },
+    "description": {
+      "en": "Try 20 original cyber security scenarios. Get correct counts, every answer and five complete revision guides for free. No timer, signup or certification.",
+      "zh": "用20道原创情境练习识别钓鱼、保护账户、维护设备、分享资料及事件响应，免费查看五分项答对数、全部答案和解析。无需注册，不限时，不提供认证或招聘通过线。"
+    },
+    "minutes": 7,
+    "collection": "explore",
+    "formCode": "fm_cybersecurity_daily_scenarios_20_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "phishing",
+      "accounts",
+      "devices",
+      "sharing",
+      "response"
+    ]
   }
 ]

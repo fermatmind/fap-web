@@ -1,0 +1,1660 @@
+{
+  "slug": "cybersecurity-awareness",
+  "code": "FM_CYBERSECURITY_AWARENESS",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "everyday",
+  "kind": "practice",
+  "title": {
+    "en": "Cyber Security Test",
+    "zh": "网络安全意识测试"
+  },
+  "seoTitle": {
+    "en": "Cyber Security Test: Free Practice, Answers & Explanations",
+    "zh": "网络安全意识测试：20题在线练习、答案与解析"
+  },
+  "description": {
+    "en": "Try 20 original cyber security scenarios. Get correct counts, every answer and five complete revision guides for free. No timer, signup or certification.",
+    "zh": "用20道原创情境练习识别钓鱼、保护账户、维护设备、分享资料及事件响应，免费查看五分项答对数、全部答案和解析。无需注册，不限时，不提供认证或招聘通过线。"
+  },
+  "minutes": 7,
+  "instructions": {
+    "en": "Choose one of four actions for each of 20 scenarios. Each item has one supported answer. Read any fictional team rule supplied in the question. There is no timer. Finish every item to see all selected answers, keys, explanations and five complete guides. Do not enter real passwords, codes or personal information. This is knowledge practice, not a security audit or professional certification.",
+    "zh": "20道情境题，每题从四种行动中选一个有依据的答案。涉及虚构团队规则时，以题面明示条件为准。不计时，全部作答后显示所选、答案、解析和五份完整复习说明。不要输入真实密码、验证码或个人资料。这是知识练习，不是安全审计或专业认证。"
+  },
+  "introduction": {
+    "en": "Practise everyday decisions about unexpected messages, passwords and MFA, device maintenance, information sharing and responding to possible exposure. These are 20 independently written scenarios with public-source reasoning and explicit fictional policies where context matters. The result counts correct choices in this edition. It does not inspect your devices, certify workplace readiness or predict whether an account will be attacked. All answers and five full revision guides are free.",
+    "zh": "把网络安全知识放进日常决定：收到意外消息怎样核实，密码和MFA如何区分，设备怎样维护，资料怎样分享，以及可能暴露信息后如何响应。20题独立编写，事实参考公开来源；依赖制度的情境在题面明示虚构规则。成绩只计本版答对数，不检查你的设备，不认证上岗能力，也不预测账户是否遇袭。全部题解和五份完整复习说明免费开放。"
+  },
+  "resultHeading": {
+    "en": "Your scenario results and every explanation",
+    "zh": "本次情境练习成绩与全部解析"
+  },
+  "directions": [
+    {
+      "id": "phishing",
+      "title": {
+        "en": "Phishing and independent verification",
+        "zh": "钓鱼识别与独立核实"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "accounts",
+      "title": {
+        "en": "Passwords and authentication",
+        "zh": "密码与身份核验"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "devices",
+      "title": {
+        "en": "Device updates, backups and disposal",
+        "zh": "设备更新、备份与移交"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "sharing",
+      "title": {
+        "en": "Information sharing and explicit rules",
+        "zh": "信息分享与明示规则"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "response",
+      "title": {
+        "en": "Reporting and account recovery",
+        "zh": "事件报告与账户恢复"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "CYBER_01",
+      "prompt": {
+        "en": "An unexpected delivery text says your parcel will be returned unless you sign in through its link. What is the safest way to check the claim?",
+        "zh": "突然收到快递短信，称不点链接登录就会退件。怎样核实更稳妥？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Open the delivery company’s known app or independently found official site.",
+            "zh": "使用已知的快递官方应用，或自行找到的官方网站。"
+          },
+          "directionId": "phishing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Use the text’s link because it includes a parcel number.",
+            "zh": "短信有运单号，直接用其中链接。"
+          },
+          "directionId": "phishing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Reply with your account password.",
+            "zh": "回复自己的账户密码。"
+          },
+          "directionId": "phishing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Ask the sender to send the same link again.",
+            "zh": "让发信人再发一次相同链接。"
+          },
+          "directionId": "phishing"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Use a channel you already know or find independently. A plausible parcel number does not establish the sender’s identity; following the supplied link keeps verification inside the untrusted message.",
+        "zh": "用原本可信或独立找到的渠道核实。运单号看起来合理，并不能证明发信人身份；沿短信链接验证，仍受同一不可信消息控制。"
+      }
+    },
+    {
+      "id": "CYBER_02",
+      "prompt": {
+        "en": "A message bearing your bank’s logo asks you to confirm your password immediately. Which detail actually supports a safer next step?",
+        "zh": "一封带银行标志的消息要求立即确认密码。以下哪一步有助于安全核实？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Trust the logo as proof of the bank.",
+            "zh": "把标志本身当作银行证明。"
+          },
+          "directionId": "phishing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Contact the bank through a number from your own bank card or known app.",
+            "zh": "通过自己银行卡上的电话或已知官方应用联系银行。"
+          },
+          "directionId": "phishing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Send the password but omit your name.",
+            "zh": "发送密码，只是不写姓名。"
+          },
+          "directionId": "phishing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Forward the password request to friends to vote on.",
+            "zh": "把索要密码的请求转给朋友投票。"
+          },
+          "directionId": "phishing"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "A copied logo and urgent language are not reliable authentication. A contact route independently tied to your bank lets you check without supplying credentials to the message’s sender.",
+        "zh": "标志可以复制，催促措辞也不是身份认证。使用独立确认属于银行的渠道，可以核实情况而不把凭据交给消息发送者。"
+      }
+    },
+    {
+      "id": "CYBER_03",
+      "prompt": {
+        "en": "You were not expecting an invoice attachment from a company you sometimes use. What should come before opening it?",
+        "zh": "常用商家发来一个事先未约定的发票附件。打开前应先做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Open it to discover whether it is genuine.",
+            "zh": "先打开，看看是否真实。"
+          },
+          "directionId": "phishing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Enable any requested security exceptions.",
+            "zh": "按要求开启所有安全例外。"
+          },
+          "directionId": "phishing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Verify the invoice through the company’s known contact route.",
+            "zh": "通过商家已知的联系渠道核实这张发票。"
+          },
+          "directionId": "phishing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Disable updates so the document opens faster.",
+            "zh": "关闭更新，让文件开得更快。"
+          },
+          "directionId": "phishing"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Unexpected attachments can be part of a phishing attempt. Checking with the company through a separate trusted channel comes before interacting with the file; opening it is not an identity check.",
+        "zh": "意外附件可能属于钓鱼尝试。先用独立可信渠道联系商家，再考虑与文件交互；打开文件本身不构成身份核实。"
+      }
+    },
+    {
+      "id": "CYBER_04",
+      "prompt": {
+        "en": "An email’s display name matches a colleague, but it unexpectedly asks you to buy gift cards. Which response is best supported?",
+        "zh": "邮件显示名和同事一致，却突然让你买礼品卡。哪种处理更合适？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Buy the cards because a display name cannot be copied.",
+            "zh": "立即购买，因为显示名无法仿冒。"
+          },
+          "directionId": "phishing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Send the card codes in reply before checking.",
+            "zh": "先回复礼品卡兑换码，再核实。"
+          },
+          "directionId": "phishing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Use only the new phone number inside that email.",
+            "zh": "只拨这封邮件提供的新号码。"
+          },
+          "directionId": "phishing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Check with the colleague through a contact route you already trust.",
+            "zh": "用自己原本可信的渠道向同事核实。"
+          },
+          "directionId": "phishing"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Display names can be imitated. An independently established contact route tests the request without relying on the sender’s new details or making an irreversible payment first.",
+        "zh": "显示名可以仿冒。通过独立建立的联系渠道核实请求，无需依赖邮件新增的联系方式，也不必先付款再验证。"
+      }
+    },
+    {
+      "id": "CYBER_05",
+      "prompt": {
+        "en": "You learn that a password used on two unrelated accounts was exposed in a breach. Which response addresses the reuse problem?",
+        "zh": "你得知自己在两个无关账户共用的密码已泄露。哪种处理直接应对重复使用的风险？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Change the affected passwords to different, strong passwords and enable MFA where available.",
+            "zh": "为受影响账户改设各不相同的强密码，并在支持时开启多因素认证。"
+          },
+          "directionId": "accounts"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Keep it on the second account because the services are unrelated.",
+            "zh": "两个服务无关，所以第二个账户继续用原密码。"
+          },
+          "directionId": "accounts"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Add the same one digit to both passwords.",
+            "zh": "给两个密码都加上同一个数字。"
+          },
+          "directionId": "accounts"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Publish the old password to warn others.",
+            "zh": "公开旧密码来提醒别人。"
+          },
+          "directionId": "accounts"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "A stolen password can be tried on another service. Different strong passwords limit reuse across accounts; MFA adds a separate check. Neither step guarantees that an account can never be compromised.",
+        "zh": "泄露密码可能被拿去尝试登录其他服务。不同强密码减少跨账户重复使用，多因素认证再增加一道核验；两者都不保证账户永远不会被攻破。"
+      }
+    },
+    {
+      "id": "CYBER_06",
+      "prompt": {
+        "en": "Which login arrangement uses two different authentication factors?",
+        "zh": "哪种登录安排使用了两种不同类别的认证因素？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A password followed by typing the same password again.",
+            "zh": "输入密码，再输入同一个密码。"
+          },
+          "directionId": "accounts"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "A password plus a registered security key.",
+            "zh": "密码，加已登记的安全密钥。"
+          },
+          "directionId": "accounts"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "A username plus an email address.",
+            "zh": "用户名，加邮箱地址。"
+          },
+          "directionId": "accounts"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Two recovery questions with public answers.",
+            "zh": "两个答案公开可查的找回问题。"
+          },
+          "directionId": "accounts"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "A password is something you know; a security key is something you have. Repeating knowledge checks is not the same combination of factors, and a username or email address identifies an account rather than proving a second factor.",
+        "zh": "密码是你知道的信息，安全密钥是你持有的物件。重复知识问题不等于这两类因素的组合；用户名或邮箱用于识别账户，并不构成第二因素。"
+      }
+    },
+    {
+      "id": "CYBER_07",
+      "prompt": {
+        "en": "A caller says they need the sign-in code just sent to your phone to stop fraud. What should you do with the code?",
+        "zh": "来电者称，要阻止诈骗就必须告诉他刚发到你手机的登录验证码。怎样处理验证码？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Read it aloud because the caller says they are support.",
+            "zh": "对方自称客服，照读验证码。"
+          },
+          "directionId": "accounts"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Post it in a public group to ask for help.",
+            "zh": "发到公开群里求助。"
+          },
+          "directionId": "accounts"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Do not share it; contact the service through your own known channel.",
+            "zh": "不向来电者提供，通过自己已知的渠道联系服务方。"
+          },
+          "directionId": "accounts"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Send half now and half after the call.",
+            "zh": "通话时先给一半，结束后给另一半。"
+          },
+          "directionId": "accounts"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "An attacker may ask for a one-time code while trying to sign in. Do not give it to an unexpected caller. Check through your own route to the service instead of accepting the caller’s explanation.",
+        "zh": "攻击者尝试登录时可能向你索要一次性码。不要把验证码交给意外来电者，应沿自己的可信渠道核实，不能只信对方的说法。"
+      }
+    },
+    {
+      "id": "CYBER_08",
+      "prompt": {
+        "en": "You want different long passwords for many accounts without memorizing every string. Which option helps with that task?",
+        "zh": "你希望多个账户使用不同长密码，又不逐个死记。哪种工具适合这个任务？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Use your birth date for every account.",
+            "zh": "所有账户使用生日。"
+          },
+          "directionId": "accounts"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Use one short password everywhere.",
+            "zh": "所有地方共用一个短密码。"
+          },
+          "directionId": "accounts"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Put all passwords in a public profile.",
+            "zh": "把密码写进公开个人资料。"
+          },
+          "directionId": "accounts"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Use a reputable password manager to generate and store unique passwords.",
+            "zh": "用可信的密码管理器生成并保存不同密码。"
+          },
+          "directionId": "accounts"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "A password manager can help create and keep track of unique strong credentials. Protect the manager account carefully and follow the provider’s setup instructions; using a manager does not make publicly sharing passwords safe.",
+        "zh": "密码管理器可帮助生成并管理不同强凭据。仍需保护管理器账户，按提供方说明设置；使用管理器也不会让公开密码变得安全。"
+      }
+    },
+    {
+      "id": "CYBER_09",
+      "prompt": {
+        "en": "Your device’s settings show a legitimate operating-system security update. What is the best routine?",
+        "zh": "设备自身设置里出现了正规的系统安全更新。怎样安排更合适？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Install legitimate updates promptly and use automatic updates when practical.",
+            "zh": "及时安装正规更新，在适合时启用自动更新。"
+          },
+          "directionId": "devices"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Ignore every update as long as the screen works.",
+            "zh": "只要屏幕能用，就忽略全部更新。"
+          },
+          "directionId": "devices"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Replace the update with a link from an unexpected text.",
+            "zh": "改用陌生短信里的更新链接。"
+          },
+          "directionId": "devices"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Assume a strong password repairs software vulnerabilities.",
+            "zh": "认为强密码可以修补软件漏洞。"
+          },
+          "directionId": "devices"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Updates can correct security weaknesses in software. A password does not replace those fixes. Use the device or software provider’s trusted update mechanism rather than an unsolicited message’s link.",
+        "zh": "更新可能修补软件安全弱点，密码不能替代这些修复。应使用设备或软件提供方可信的更新机制，而不是意外消息里的链接。"
+      }
+    },
+    {
+      "id": "CYBER_10",
+      "prompt": {
+        "en": "Which action directly reduces the chance that losing one computer also loses your only copy of important files?",
+        "zh": "哪种做法直接降低“一台电脑丢失，重要文件唯一副本也丢失”的风险？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Rename the computer.",
+            "zh": "给电脑改名。"
+          },
+          "directionId": "devices"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Keep a separate backup of important files and check that it can be read.",
+            "zh": "为重要文件保留独立备份，并检查能否读取。"
+          },
+          "directionId": "devices"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Save another shortcut on the same desktop.",
+            "zh": "在同一桌面再放一个快捷方式。"
+          },
+          "directionId": "devices"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Use the computer’s name as its password.",
+            "zh": "把电脑名称设为密码。"
+          },
+          "directionId": "devices"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "A separate backup preserves another copy. A shortcut is only a pointer and a second folder on the same lost device is not independent. A backup is useful only if the needed files are actually present and readable.",
+        "zh": "独立备份保留另一份资料。快捷方式只是指向文件，同一台丢失设备上的另一个文件夹也不独立；备份里确实有需要的文件且可读，才有帮助。"
+      }
+    },
+    {
+      "id": "CYBER_11",
+      "prompt": {
+        "en": "Before giving away an old personal computer, which sequence best protects files you still need and data left on the device?",
+        "zh": "送出旧私人电脑前，哪种顺序兼顾自己仍需的文件和留在设备上的资料？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Hand it over while still signed in.",
+            "zh": "保持登录状态直接交出。"
+          },
+          "directionId": "devices"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Delete only the desktop shortcuts.",
+            "zh": "只删除桌面快捷方式。"
+          },
+          "directionId": "devices"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Back up needed files, then follow the manufacturer’s instructions to erase personal information.",
+            "zh": "先备份需要的文件，再按制造商说明清除个人资料。"
+          },
+          "directionId": "devices"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Tell the next owner not to look at your files.",
+            "zh": "请下一任使用者不要看文件。"
+          },
+          "directionId": "devices"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Preserve files you need before erasing the device. Then use the appropriate manufacturer instructions to remove personal information. Deleting shortcuts or relying on a promise does not perform that removal.",
+        "zh": "清除前先保留仍需文件，再依据相应制造商说明移除个人资料。删除快捷方式或只靠对方承诺，并没有完成这一步。"
+      }
+    },
+    {
+      "id": "CYBER_12",
+      "prompt": {
+        "en": "A web page unexpectedly claims your computer is infected and tells you to install its unknown tool. Which response fits a trusted-software routine?",
+        "zh": "网页突然宣称电脑中毒，要求安装来历不明的工具。哪种回应符合可信软件的处理方式？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Install it because a warning always proves an infection.",
+            "zh": "警告一定证明中毒，立即安装。"
+          },
+          "directionId": "devices"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Give the page your account password.",
+            "zh": "向网页提供账户密码。"
+          },
+          "directionId": "devices"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Turn off all security software permanently.",
+            "zh": "永久关闭全部安全软件。"
+          },
+          "directionId": "devices"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Avoid the unsolicited download and use your device’s known security tools or trusted support route.",
+            "zh": "不下载该工具，改用设备已知安全工具或可信支持渠道核查。"
+          },
+          "directionId": "devices"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "An unsolicited warning does not authenticate a download. Use security tools and support routes you have independently established. This question does not determine whether the device is actually infected.",
+        "zh": "突然出现的警告不能证明下载来源可信。使用独立确认的安全工具和支持渠道；这道题也不能判断设备实际上是否感染。"
+      }
+    },
+    {
+      "id": "CYBER_13",
+      "prompt": {
+        "en": "For this exercise, a team policy says payroll files may be shared only with named, authorized recipients. Which sharing setting follows that policy?",
+        "zh": "本题团队规则：工资文件只能分享给明确获授权的收件人。哪种设置符合规则？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Grant access only to the named authorized accounts.",
+            "zh": "只向指定且获授权的账户开放访问。"
+          },
+          "directionId": "sharing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Use “anyone with the link” and post it in a public chat.",
+            "zh": "设为“任何有链接的人”，再发到公开聊天。"
+          },
+          "directionId": "sharing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Publish the file and delete it tomorrow.",
+            "zh": "先公开文件，明天再删。"
+          },
+          "directionId": "sharing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Rename it “private” but leave it public.",
+            "zh": "改名叫“私密”，同时保持公开。"
+          },
+          "directionId": "sharing"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The supplied policy names the allowed recipients. Limit access to those accounts rather than relying on a filename or temporary publication. This is an explicit fictional policy exercise, not a statement of a particular employer’s rules.",
+        "zh": "题目规则已明确允许的收件人，应把权限限制给这些账户。文件名或短暂公开都不能替代权限限制；这是明示的虚构规则，不代表某个雇主的规定。"
+      }
+    },
+    {
+      "id": "CYBER_14",
+      "prompt": {
+        "en": "A profile page asks for optional details that will be visible to everyone. You do not need those details for the service. Which choice reveals the least information?",
+        "zh": "个人资料页询问所有人可见的可选信息，而使用服务不需要填写。哪种选择披露最少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Fill in your full home address for completeness.",
+            "zh": "为完整起见写下详细家庭住址。"
+          },
+          "directionId": "sharing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Leave unnecessary optional fields blank.",
+            "zh": "不填写不必要的可选字段。"
+          },
+          "directionId": "sharing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Add your password as a contact note.",
+            "zh": "把密码加到联系备注。"
+          },
+          "directionId": "sharing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Post identity documents to prove the profile is real.",
+            "zh": "公开证件来证明资料真实。"
+          },
+          "directionId": "sharing"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Leaving an unnecessary public field blank discloses less than filling it with private details. Decide what an audience actually needs; making a profile complete is not itself a reason to publish sensitive information.",
+        "zh": "不填写不必要的公开字段，比填入私人细节披露更少。应根据受众实际需要决定信息量，“资料完整”本身不是公开敏感内容的理由。"
+      }
+    },
+    {
+      "id": "CYBER_15",
+      "prompt": {
+        "en": "An account-recovery question asks for your school, and your public profile already names that school. What is the concern?",
+        "zh": "账户找回问题询问学校，而你的公开资料已经写了学校名称。主要问题是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A public answer becomes a secret if written in capitals.",
+            "zh": "把公开答案改成大写就变成秘密。"
+          },
+          "directionId": "sharing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The question can replace every other account protection.",
+            "zh": "这个问题可以替代其他全部账户保护。"
+          },
+          "directionId": "sharing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Someone may find the answer without knowing you personally.",
+            "zh": "别人可能不认识你，也能查到答案。"
+          },
+          "directionId": "sharing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The school name automatically encrypts the account.",
+            "zh": "学校名称会自动加密账户。"
+          },
+          "directionId": "sharing"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Recovery answers that are easy to find or guess are weak secrets. Follow the service’s secure recovery options and avoid relying on a public biographical fact as proof that only you can answer.",
+        "zh": "容易查到或猜到的找回答案不够保密。应按服务方安全找回选项设置，不应把公开经历当作只有自己能答的证明。"
+      }
+    },
+    {
+      "id": "CYBER_16",
+      "prompt": {
+        "en": "In this practice task, a support form explicitly says “Never include passwords or sign-in codes.” You need help with a failed login. Which submission complies?",
+        "zh": "本题支持表单明确写着“不要填写密码或登录验证码”。你要反馈登录失败。哪种提交符合要求？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Your password and a screenshot of the code.",
+            "zh": "填写密码，并附验证码截图。"
+          },
+          "directionId": "sharing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Your password only, because it is not a code.",
+            "zh": "只填密码，因为它不是验证码。"
+          },
+          "directionId": "sharing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Your code only, because it expires.",
+            "zh": "只填验证码，因为它会过期。"
+          },
+          "directionId": "sharing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The error message and time, with passwords and codes omitted.",
+            "zh": "填写报错信息和时间，省去密码与验证码。"
+          },
+          "directionId": "sharing"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The form’s stated rule excludes both credentials. Error details can describe the problem without transmitting those secrets. Do not paste unrelated sensitive content into a support request.",
+        "zh": "表单明示排除这两类凭据。报错信息可以描述问题，无需传送这些秘密，也不要把其他无关敏感内容粘贴进支持请求。"
+      }
+    },
+    {
+      "id": "CYBER_17",
+      "prompt": {
+        "en": "You entered an account password into a page reached from a suspicious message. You can still access the real service. Which response addresses the exposed credential?",
+        "zh": "你在可疑消息链接打开的页面输入过账户密码，目前仍能登录真实服务。哪种处理针对已暴露的凭据？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Go independently to the real service, change the password, and change it on any accounts that reused it.",
+            "zh": "独立进入真实服务修改密码，并修改其他复用该密码的账户。"
+          },
+          "directionId": "response"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Wait for the sender to say whether it was a scam.",
+            "zh": "等发信人说明是不是诈骗。"
+          },
+          "directionId": "response"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Send the sender an MFA code to reverse the action.",
+            "zh": "给发信人验证码来撤回操作。"
+          },
+          "directionId": "response"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Assume closing the browser revokes the password.",
+            "zh": "认为关闭浏览器就会让密码失效。"
+          },
+          "directionId": "response"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Treat the entered password as exposed. Use the real service’s own recovery or security instructions, change reused credentials too, and enable MFA where available. Closing a page does not revoke a secret that has already been sent.",
+        "zh": "把输入过的密码视为已暴露，按真实服务的找回或安全说明处理，同时修改复用密码，在支持时开启MFA。关闭页面不会撤销已经发出的秘密。"
+      }
+    },
+    {
+      "id": "CYBER_18",
+      "prompt": {
+        "en": "A suspicious attachment was opened and the computer now behaves oddly. Which step is supported by the source guidance?",
+        "zh": "打开可疑附件后，电脑出现异常。哪一步符合参考来源的处理建议？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Send more files to the suspicious sender for inspection.",
+            "zh": "再给可疑发信人发更多文件来检查。"
+          },
+          "directionId": "response"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Update trusted security software, run a scan, and follow its instructions.",
+            "zh": "更新可信安全软件，运行扫描并按其说明处理。"
+          },
+          "directionId": "response"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Declare the device safe because the attachment closed.",
+            "zh": "附件已关，所以宣布设备安全。"
+          },
+          "directionId": "response"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Publish the device’s passwords to ask strangers to log in.",
+            "zh": "公开设备密码，请陌生人登录。"
+          },
+          "directionId": "response"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Trusted security software and its instructions provide a grounded next step after a potentially harmful download. An odd symptom does not by itself prove a particular infection or guarantee that one scan solves every case.",
+        "zh": "可疑下载后，可信安全软件及其说明提供有依据的下一步。异常现象本身不能证明某种特定感染，也不能保证一次扫描解决所有情况。"
+      }
+    },
+    {
+      "id": "CYBER_19",
+      "prompt": {
+        "en": "A team’s written incident rule says to report suspected work-account compromise immediately to its established security contact, without sending passwords. What should you do?",
+        "zh": "团队书面事件规则要求：怀疑工作账户被盗时，立即向既定安全联系人报告，不发送密码。应该怎样处理？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Keep it secret until you can prove every detail.",
+            "zh": "先保密，等所有细节都证明后再说。"
+          },
+          "directionId": "response"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Send your password to every colleague.",
+            "zh": "把密码发给所有同事。"
+          },
+          "directionId": "response"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Report the suspected event through the established contact with relevant non-secret details.",
+            "zh": "通过既定渠道报告疑似事件，提供相关但非秘密的信息。"
+          },
+          "directionId": "response"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Ask the suspicious sender to investigate the team account.",
+            "zh": "请可疑发送者调查团队账户。"
+          },
+          "directionId": "response"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The task supplies the reporting rule, so report suspicion rather than waiting for certainty. Use the established channel and describe what happened without sharing credentials. Real organizations’ response procedures may differ.",
+        "zh": "题目已给出报告规则，应报告疑似情况而非等到完全确定。通过既定渠道描述经过，不分享凭据；真实组织的响应流程可能不同。"
+      }
+    },
+    {
+      "id": "CYBER_20",
+      "prompt": {
+        "en": "You send a suspicious message to an organization’s established reporting channel. Which conclusion is justified about your own accounts?",
+        "zh": "你已把可疑消息报给某组织的既定渠道。关于自己的账户，可以得出什么结论？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Reporting automatically resets every account password.",
+            "zh": "报告会自动重置所有账户密码。"
+          },
+          "directionId": "response"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Reporting guarantees nobody read any exposed data.",
+            "zh": "报告保证无人看过已暴露资料。"
+          },
+          "directionId": "response"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Reporting means reused passwords can remain unchanged.",
+            "zh": "报告后复用密码就无需修改。"
+          },
+          "directionId": "response"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Reporting is one step; any exposed account still needs the service’s own security and recovery actions.",
+            "zh": "报告只是一步；已暴露账户仍需按服务方安全和找回流程处理。"
+          },
+          "directionId": "response"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Sending a report does not itself revoke credentials or undo disclosure. Separate reporting from account recovery and follow the affected service’s instructions for what was exposed. The exact response depends on the event.",
+        "zh": "发送报告本身不会撤销凭据或逆转信息泄露。应把报告和账户恢复分开，针对暴露内容按受影响服务说明处理；具体响应取决于事件。"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "phishing",
+      "directionIds": [
+        "phishing"
+      ],
+      "title": {
+        "en": "Phishing and independent verification",
+        "zh": "钓鱼识别与独立核实"
+      },
+      "headline": {
+        "en": "Verify through a route the message does not control.",
+        "zh": "用不受该消息控制的渠道核实。"
+      },
+      "summary": {
+        "en": "Review suspicious delivery, banking, invoice and gift-card requests. Practise independent verification rather than trusting a logo, display name or urgent wording.",
+        "zh": "复习快递、银行、发票和礼品卡请求，练习独立核实渠道；标志、显示名或催促都不足以确认身份。"
+      },
+      "seo": {
+        "title": {
+          "en": "Phishing practice: explanations and safer checks",
+          "zh": "钓鱼识别练习：逐题解析与核实方法"
+        },
+        "description": {
+          "en": "Practise independent checks for delivery, bank, invoice and gift-card messages. Read answers, a separate example and revision steps without a safety guarantee.",
+          "zh": "复习快递、银行、发票和礼品卡请求，练习独立核实渠道；标志、显示名或催促都不足以确认身份。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original scenarios each count one correct answer. Your count out of four describes this edition only; it is not a security certification, percentile, or prediction that an account is safe.",
+        "zh": "本分项4道原创情境，每题答对记1题。答对数/4只描述本版练习，不是安全认证、人群百分位，也不预测账户是否安全。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "What these four scenarios examine",
+            "zh": "四道题检查什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The requests use familiar settings because imitation can look ordinary: a parcel, a bank notice, an invoice and a colleague’s display name. The decision is where to verify the request before providing information, opening a file or paying. The exercise does not ask you to diagnose a message by typography or award safety merely because a logo looks convincing.",
+              "zh": "四道题分别用快递、银行通知、发票和同事显示名制造熟悉感，重点是提供信息、打开文件或付款前去哪里核实。练习不靠字体好坏鉴定消息，也不因为标志逼真就判定安全。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Build an independent route",
+            "zh": "另建一条核实路径"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a text about a missed parcel. Instead of following its link, open the delivery app you already use or locate the company’s official contact independently. Check the actual order there. Calling a new number supplied by the same text is still using the text’s route. A repeated story from that number is not independent confirmation.",
+              "zh": "例如短信说包裹未送达：先打开原本使用的快递官方应用，或独立找到官方联系方法，在那里核对订单。若拨打的仍是同一短信提供的新号码，就没有脱离消息控制；对方重复一遍说法，也不算独立确认。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Read the error behind a missed item",
+            "zh": "从错题找到判断缺口"
+          },
+          "paragraphs": [
+            {
+              "en": "Return to the selected option and explanation. Did the option treat appearance as identity, urgency as permission, or opening an attachment as a way to verify it? Those are different reasoning errors. Four correct choices show the expected decisions here; they do not establish that you will notice every convincing message in a busy day.",
+              "zh": "结合所选答案和解析，看自己是否把外观当身份、催促当授权，或把打开附件当核实方法。三者是不同的判断缺口。四题全对只说明这次选中了预期步骤，不保证忙碌时能识别每条逼真消息。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "A small rehearsal",
+            "zh": "做一次小演练"
+          },
+          "paragraphs": [
+            {
+              "en": "Without contacting a suspicious sender, identify the trusted app or saved contact you would use for a fictional claim. Say what you need to verify before taking action. If this is a work account, follow the organization’s established reporting route. Do not send a real password or open a real suspicious attachment to practise.",
+              "zh": "不用联系可疑发送者，为一个虚构请求找出自己会用的可信应用或已存联系方式，并说清行动前要核实什么。涉及工作账户时，遵循组织既有报告渠道；不要为了练习发送真实密码或打开可疑附件。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Scope and sources",
+            "zh": "范围与来源"
+          },
+          "paragraphs": [
+            {
+              "en": "The original scenarios apply public FTC guidance about phishing and independent contact. They are not copied FTC questions or an endorsement. Real organizations can have additional procedures, and this short practice cannot authenticate an actual message. Use the service’s own trusted support route when an event needs investigation.",
+              "zh": "题目原创，应用FTC关于钓鱼及独立联系的公开建议，并非复制FTC题目或获得其背书。真实组织可能有额外流程，短练习也不能鉴定一条真实消息；实际事件应通过服务方可信支持渠道调查。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "accounts",
+      "directionIds": [
+        "accounts"
+      ],
+      "title": {
+        "en": "Passwords and authentication",
+        "zh": "密码与身份核验"
+      },
+      "headline": {
+        "en": "Protect each account without sharing its secrets.",
+        "zh": "保护每个账户，不交出核验秘密。"
+      },
+      "summary": {
+        "en": "Practise unique passwords, MFA factors, private sign-in codes and password-manager use. Counts reflect four scenarios, without certifying account security.",
+        "zh": "练习不同密码、MFA因素、验证码保密和密码管理器使用；四题答对数不构成账户安全认证。"
+      },
+      "seo": {
+        "title": {
+          "en": "Password and MFA practice: answers and revision",
+          "zh": "密码与MFA练习：答案与复习说明"
+        },
+        "description": {
+          "en": "Review unique passwords, MFA factors, sign-in codes and password managers. Get answers and revision steps; this practice does not inspect account security.",
+          "zh": "练习不同密码、MFA因素、验证码保密和密码管理器使用；四题答对数不构成账户安全认证。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original scenarios each count one correct answer. Your count out of four describes this edition only; it is not a security certification, percentile, or prediction that an account is safe.",
+        "zh": "本分项4道原创情境，每题答对记1题。答对数/4只描述本版练习，不是安全认证、人群百分位，也不预测账户是否安全。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Four distinct account decisions",
+            "zh": "四种不同的账户决定"
+          },
+          "paragraphs": [
+            {
+              "en": "This group separates password reuse, authentication factors, one-time codes and managing many credentials. A password identifies a secret you know; a registered security key supplies a possession factor. A username or email address normally names the account. Saying these roles aloud can clarify why two text fields are not automatically two-factor authentication.",
+              "zh": "本组区分密码复用、认证因素、一次性码和多账户凭据管理。密码是你知道的秘密，已登记安全密钥提供持有因素；用户名或邮箱通常用于标识账户。把作用说清，有助于理解两个文本框并不自动等于双因素认证。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Separate reused credentials",
+            "zh": "把复用的凭据分开"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose one exposed password is also used for a second service. Changing only the first leaves the reused secret active elsewhere. Go independently to each affected service, set different strong passwords, and enable supported MFA. A password manager can help create and track unique credentials. Protect the manager itself and follow its provider’s setup instructions.",
+              "zh": "假设泄露密码也用于第二个服务，只修改第一个账户，另一个地方仍保留同一秘密。应独立进入受影响服务，设置不同强密码，并在支持时启用MFA。密码管理器可帮助生成和管理不同凭据，但管理器本身也需保护并按提供方说明设置。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Locate the mistaken assumption",
+            "zh": "找出错误假设"
+          },
+          "paragraphs": [
+            {
+              "en": "If you missed the code scenario, check whether the caller’s claimed job title substituted for verification. A code can complete an attacker’s login, even if it expires soon. If you missed the MFA scenario, distinguish different factor categories from repeating knowledge checks. Use the explanation to correct that specific model rather than assigning yourself a broad weak-security label.",
+              "zh": "验证码题若答错，检查是否因为对方自称客服就跳过核实。验证码即使很快过期，也可能帮攻击者完成登录。MFA题若答错，区分不同因素类别和重复知识核验；根据解析修正具体理解，不给自己贴笼统的“安全很弱”标签。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Review a fictional account setup",
+            "zh": "检查一个虚构账户方案"
+          },
+          "paragraphs": [
+            {
+              "en": "Describe a setup with a unique password and a separate supported authentication factor. Rehearse declining an unexpected request for a code, then identify the service’s trusted support route. Keep all real secrets out of the exercise. For actual accounts, review available recovery options using the provider’s instructions so you do not lock yourself out.",
+              "zh": "描述一个“独立密码加另一类受支持因素”的方案，演练拒绝意外索码请求，再找到服务方可信支持入口。练习不使用真实秘密。若调整实际账户，还需按提供方说明核对找回选项，避免把自己锁在账户外。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What the result cannot prove",
+            "zh": "结果不能证明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The FTC sources support unique credentials, password managers and MFA principles, but this is a new practice bank. No account settings are inspected and no password strength is measured. Four correct responses do not guarantee resistance to every attack. A real breach needs the affected service’s security and recovery process, not a quiz result.",
+              "zh": "FTC来源支持不同凭据、密码管理器及MFA原则，但本题库独立编写。它不检查账户设置，也不测实际密码强度；四题全对不能保证抵御所有攻击。真实泄露需按受影响服务安全和恢复流程处理，不能用练习结果代替。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "devices",
+      "directionIds": [
+        "devices"
+      ],
+      "title": {
+        "en": "Device updates, backups and disposal",
+        "zh": "设备更新、备份与移交"
+      },
+      "headline": {
+        "en": "Use trusted maintenance paths and preserve needed copies.",
+        "zh": "沿可信维护路径处理，保留仍需副本。"
+      },
+      "summary": {
+        "en": "Review updates, independent backups, preparing an old computer and unsolicited download warnings. Learn the action behind each answer without diagnosing a device.",
+        "zh": "复习更新、独立备份、旧电脑移交和突然出现的下载警告；理解每题行动依据，不把题目当设备诊断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Device security practice: updates, backup and disposal",
+          "zh": "设备安全练习：更新、备份与移交"
+        },
+        "description": {
+          "en": "Review trusted updates, separate backups, device disposal and suspicious download prompts. Read worked answers without a diagnosis or security guarantee.",
+          "zh": "复习更新、独立备份、旧电脑移交和突然出现的下载警告；理解每题行动依据，不把题目当设备诊断。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original scenarios each count one correct answer. Your count out of four describes this edition only; it is not a security certification, percentile, or prediction that an account is safe.",
+        "zh": "本分项4道原创情境，每题答对记1题。答对数/4只描述本版练习，不是安全认证、人群百分位，也不预测账户是否安全。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Maintenance decisions in this group",
+            "zh": "本组的维护决定"
+          },
+          "paragraphs": [
+            {
+              "en": "The questions distinguish maintaining software, preserving another copy, removing personal data before transfer and choosing a trusted tool. These actions solve different problems. A password does not patch a software flaw, and a second shortcut does not create another file copy. The practice describes choices rather than testing a device for vulnerabilities.",
+              "zh": "四题分别涉及软件维护、保留副本、转交前清除资料和选择可信工具。这些行动解决不同问题：密码不能修补软件漏洞，多一个快捷方式也不会多出文件副本。练习呈现的是选择，不是在检测设备漏洞。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Preserve, then remove",
+            "zh": "先保留，再清除"
+          },
+          "paragraphs": [
+            {
+              "en": "Before giving away a computer, identify the files you still need, make a separate backup and check that the needed files can be read. Then follow the manufacturer’s instructions for removing personal information from that device. Deleting a desktop shortcut only removes a pointer. The source guidance concerns the full disposal preparation, not a universal single-button procedure for every system.",
+              "zh": "送出电脑前，先确认还需要哪些文件，另存备份并检查所需内容能否读取，再按该设备制造商说明清除个人资料。删掉桌面快捷方式只是删除指向。来源建议的是完整移交准备，并不提供适用于所有系统的万能单按钮流程。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Distinguish the purpose of each action",
+            "zh": "区分每项行动的目的"
+          },
+          "paragraphs": [
+            {
+              "en": "For an update error, ask whether the option actually fixes software or merely changes an unrelated setting. For a backup error, ask whether another usable copy survives losing the device. For a download warning, check who controls the proposed tool. Correct answers here do not show that your own updates, backups or erasure settings have actually been checked.",
+              "zh": "更新题要问：选项是否真正维护软件，还是只改变无关设置？备份题要问：设备丢失后是否仍有可用副本？下载警告题要看推荐工具由谁控制。选对这些题不表示你的真实更新、备份或清除设置已经被检查。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Write a maintenance checklist for a fictional device",
+            "zh": "为虚构设备写维护清单"
+          },
+          "paragraphs": [
+            {
+              "en": "List the trusted update route, where an independent backup would live and which official instructions would apply before transfer. Rehearse on an invented file list. Do not erase a real device just to complete a quiz exercise. A work device may require your organization’s process rather than a personal disposal routine.",
+              "zh": "列出可信更新入口、独立备份位置以及转交前应查的官方说明，用虚构文件清单演练。不要为了完成练习而清除真实设备；工作设备可能必须遵循组织流程，不能照搬私人电脑移交步骤。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Bounded source use",
+            "zh": "来源的使用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The FTC sources cover current software, backups and preparing a computer for disposal. The extra read-check is a practical exercise routine, not an attributed product guarantee. This page cannot determine whether a warning is real, whether malware is present, or whether erasure has succeeded. Use trusted tools and appropriate support for actual events.",
+              "zh": "FTC来源涵盖软件更新、备份和电脑移交准备；额外的可读性检查是本练习步骤，不是归给来源的产品保证。本页不能判断警告真伪、是否感染或清除是否成功，真实事件需使用可信工具和适当支持。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sharing",
+      "directionIds": [
+        "sharing"
+      ],
+      "title": {
+        "en": "Information sharing and explicit rules",
+        "zh": "信息分享与明示规则"
+      },
+      "headline": {
+        "en": "Control who receives information and which details are needed.",
+        "zh": "核对接收者，再决定必要信息。"
+      },
+      "summary": {
+        "en": "Practise restricted recipients, optional public fields, recovery answers and support forms. Two scenarios supply fictional policies; no employer policy is invented.",
+        "zh": "练习受限收件人、可选公开字段、找回答案及支持表单；两题明示虚构制度，不替真实雇主编造规则。"
+      },
+      "seo": {
+        "title": {
+          "en": "Information sharing practice: rules and worked answers",
+          "zh": "信息分享练习：规则与完整题解"
+        },
+        "description": {
+          "en": "Practise recipient restrictions, public fields, recovery answers and support forms. Read explanations using explicit fictional policies, not employer claims.",
+          "zh": "练习受限收件人、可选公开字段、找回答案及支持表单；两题明示虚构制度，不替真实雇主编造规则。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original scenarios each count one correct answer. Your count out of four describes this edition only; it is not a security certification, percentile, or prediction that an account is safe.",
+        "zh": "本分项4道原创情境，每题答对记1题。答对数/4只描述本版练习，不是安全认证、人群百分位，也不预测账户是否安全。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Read audience and sensitivity together",
+            "zh": "一起核对受众和敏感性"
+          },
+          "paragraphs": [
+            {
+              "en": "This group asks who is allowed to receive a file, whether a public field is necessary, whether a recovery answer is already public and what a support form excludes. The payroll and support scenarios explicitly supply their rules. The correct answer follows those supplied constraints; it is not a claim that every organization uses the same policy.",
+              "zh": "本组关注文件谁能接收、公开字段是否必要、找回答案是否已经公开，以及支持表单排除哪些内容。工资文件和表单题都明示规则，正确选项依据这些条件，不声称所有组织都采用同一制度。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A name does not set access permissions",
+            "zh": "文件名不会设置权限"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a file named private-notes that is visible to anyone with its link. Renaming it does not restrict access. If a task says only two named accounts may receive it, select a sharing configuration that limits access to those authorized accounts. Before any real sharing, use the actual organization’s rules and the service’s documented permission controls.",
+              "zh": "假设文件叫“私人笔记”，但任何有链接的人都能看。重命名不会收紧权限。若任务限定只有两个指定账户能接收，就选择只对这两个获授权账户开放的配置。真实分享仍需遵循所属组织规则和服务方权限说明。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "What a missed item may reveal",
+            "zh": "错题可能漏看了哪一层"
+          },
+          "paragraphs": [
+            {
+              "en": "A wrong choice might overlook the audience, confuse a label with a control, treat a public biography fact as a secret, or assume an expiring code is harmless. Identify that one assumption in the worked answer. A four-item count does not measure how much sensitive information you have disclosed in real life or determine whether any legal duty applies.",
+              "zh": "错误可能是漏看受众、把标签当控制、把公开经历当秘密，或认为过期很快的验证码无害。结合解析找到具体假设。四题答对数不测你实际披露过多少敏感资料，也不判断是否涉及法律义务。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Rehearse with invented data",
+            "zh": "用虚构数据演练"
+          },
+          "paragraphs": [
+            {
+              "en": "For a fictional support request, write a short error description while excluding passwords and sign-in codes. For an invented public profile, mark fields as required or optional and identify the audience. Then explain why each detail needs to be included. This exercise needs no real credentials, identity documents or payroll file.",
+              "zh": "为虚构支持请求写一段报错描述，剔除密码和登录验证码；为虚构公开资料标注必填、选填和受众，再解释每项信息为何需要。练习无需真实凭据、证件或工资文件。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "A rule-following practice, not a policy service",
+            "zh": "规则练习的适用范围"
+          },
+          "paragraphs": [
+            {
+              "en": "Public FTC guidance supplies background on protecting personal information and authentication secrets. The explicit fictional policies make context-dependent answers testable. This page cannot review a real permission configuration or substitute for an organization’s security and privacy instructions. All four revision guides remain readable even when a section count is zero.",
+              "zh": "FTC公开建议提供个人信息和认证秘密保护的背景；题目明示虚构制度，让依赖情境的答案可核对。本页不能检查真实权限配置，也不替代组织安全和隐私说明。本组即使0题答对，完整复习说明仍可阅读。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "response",
+      "directionIds": [
+        "response"
+      ],
+      "title": {
+        "en": "Reporting and account recovery",
+        "zh": "事件报告与账户恢复"
+      },
+      "headline": {
+        "en": "Match the next action to what may have been exposed.",
+        "zh": "针对可能暴露的内容选择下一步。"
+      },
+      "summary": {
+        "en": "Review exposed passwords, suspicious downloads, a stated work-reporting rule and the difference between reporting and recovery. No incident diagnosis is supplied.",
+        "zh": "复习密码暴露、可疑下载、明示工作报告规则及报告和恢复的区别；不提供实际事件诊断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Security response practice: reporting and recovery",
+          "zh": "安全响应练习：报告与账户恢复"
+        },
+        "description": {
+          "en": "Review exposed passwords, suspicious downloads and reporting versus recovery. Read answers and bounded next steps, without an incident diagnosis.",
+          "zh": "复习密码暴露、可疑下载、明示工作报告规则及报告和恢复的区别；不提供实际事件诊断。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original scenarios each count one correct answer. Your count out of four describes this edition only; it is not a security certification, percentile, or prediction that an account is safe.",
+        "zh": "本分项4道原创情境，每题答对记1题。答对数/4只描述本版练习，不是安全认证、人群百分位，也不预测账户是否安全。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Separate four response tasks",
+            "zh": "分开四类响应任务"
+          },
+          "paragraphs": [
+            {
+              "en": "This group distinguishes changing exposed credentials, checking a potentially harmful download, reporting under a supplied work rule and recognizing what reporting alone does not do. Each scenario states what is known. Do not add a claim that every unusual symptom proves malware or that sending a report automatically secures all accounts.",
+              "zh": "本组区分修改暴露凭据、检查可能有害下载、依据题定工作规则报告，以及理解报告本身不能完成什么。每题都交代已知情况，不额外假定异常一定是恶意软件，也不认为发出报告就自动保护了所有账户。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Reporting does not revoke a password",
+            "zh": "报告不会自动撤销密码"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose a password was typed into a suspicious page and you report the message. The report can help others investigate, but it does not itself change the password. Independently reach the real service and follow its recovery or security instructions, including changing reused credentials. What else is needed depends on the information exposed and the affected service.",
+              "zh": "假设你在可疑页面输入了密码，随后报告了消息。报告可能帮助调查，却没有修改密码。仍需独立进入真实服务，按其恢复或安全说明处理，包括修改其他复用凭据；还要做什么取决于暴露内容和受影响服务。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Avoid certainty that the scenario does not provide",
+            "zh": "不添加题目没有给的确定性"
+          },
+          "paragraphs": [
+            {
+              "en": "Look for a selected answer that waits for the suspicious sender’s reassurance, assumes closing a browser reverses disclosure, or declares a device clean without a check. The worked explanations give bounded next steps. A correct count here is not evidence that a real incident is contained, that funds are recoverable or that all unauthorized access has stopped.",
+              "zh": "检查自己是否选择了等待可疑发送者保证、认为关浏览器能撤回泄露，或未经检查就宣布设备安全。解析提供有边界的下一步；这里的答对数不能证明真实事件已控制、款项能追回或所有未授权访问都已停止。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Write a fictional response note",
+            "zh": "写一份虚构响应记录"
+          },
+          "paragraphs": [
+            {
+              "en": "Use an invented event and record what happened, when, which type of information may have been exposed and which established contact should receive the report. Keep passwords and codes out of the note. Then distinguish reporting from the affected service’s recovery actions. For work systems, use the actual organization’s instructions rather than improvising intrusive checks.",
+              "zh": "用虚构事件记录经过、时间、可能暴露的信息类别及应联系的既定渠道，记录里不放密码或验证码。再区分报告和受影响服务的恢复步骤。工作系统应遵循真实组织说明，不自行设计侵入性检查。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Use trusted help for a real event",
+            "zh": "真实事件使用可信支持"
+          },
+          "paragraphs": [
+            {
+              "en": "The FTC phishing guidance informs the credential and download examples. The work-reporting rule is explicitly fictional, so its timing is not presented as a universal legal requirement. The practice gives no forensic diagnosis or recovery guarantee. If an actual event occurs, follow the affected service’s trusted support and the relevant organization’s established response process.",
+              "zh": "凭据和下载情境参考FTC钓鱼建议；工作报告规则明确是虚构题设，其时限不是普遍法律要求。本练习不做取证诊断或恢复保证。发生真实事件时，应按受影响服务可信支持及相关组织既定响应流程处理。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "practice-scoring",
+      "title": {
+        "en": "How the practice is scored",
+        "zh": "怎样计分"
+      },
+      "paragraphs": [
+        {
+          "en": "Every correct choice adds one; an incorrect choice adds zero. Five groups of four items add to a count out of 20. There is no reverse scoring, weighting, timer or speed bonus. All items must have a valid answer before a result appears. Missing answers are not treated as errors or silently filled in.",
+          "zh": "每题答对记1题，答错记0题。五组各四题，相加得到答对题数/20。不反向、不加权、不计时，也没有速度加分。所有题目都有有效选择后才给结果，缺答不会被当作答错或暗中补齐。"
+        }
+      ]
+    },
+    {
+      "id": "practice-reading",
+      "title": {
+        "en": "Read the rule behind each choice",
+        "zh": "读懂每个选择背后的规则"
+      },
+      "paragraphs": [
+        {
+          "en": "A group count such as 3/4 means three correct decisions on those four scenarios. It is not a percentile, security level, vulnerability count or hiring cutoff. The report shows your selected answer, the key and a complete explanation for every item. Every group guide stays readable at zero, partial or perfect counts.",
+          "zh": "某组3/4表示这四道情境有三题答对，不是百分位、安全等级、漏洞数量或招聘线。报告逐题显示所选、答案与完整解析。不论零分、部分答对还是全对，都可读到每组完整复习说明。"
+        }
+      ]
+    },
+    {
+      "id": "sources",
+      "title": {
+        "en": "Source basis and independent authorship",
+        "zh": "来源依据与独立编写"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind wrote the scenarios, options, explanations and guides independently. Public FTC consumer guidance informs phishing verification, credentials, MFA, updates, backups, disposal and recovery. The payroll, support-form and work-reporting rules are fictional and supplied explicitly. Optional public-field disclosure is an original comparison of the stated choices. These checks establish source consistency, not validation of a new security ability scale.",
+          "zh": "情境、选项、解析和指南均由费马独立编写。钓鱼核实、凭据、MFA、更新、备份、移交和恢复参考FTC面向消费者的公开建议。工资文件、支持表单及工作报告制度是题面明确给出的虚构规则；公开可选字段题则比较各选项的信息披露量。核对的是来源与答案一致性，不是给新安全能力量表做效度验证。"
+        }
+      ]
+    },
+    {
+      "id": "practice-limits",
+      "title": {
+        "en": "Conditions and interpretation limits",
+        "zh": "条件与解释边界"
+      },
+      "paragraphs": [
+        {
+          "en": "No professional certificate, hiring pass, population norm or real-system security verdict is supplied. Device settings and real incidents are not inspected. Looking up an answer or repeating the same bank changes what the count means; higher repeated scores can reflect memory. For an actual event, follow the affected provider’s trusted support and your organization’s established instructions.",
+          "zh": "不提供专业证书、招聘通过结论、常模或真实系统安全判断，也不检查设备设置和实际事件。查答案或重复做同一题库会改变成绩含义，重做提高可能来自记忆。真实事件应遵循受影响提供方的可信支持和所属组织既定说明。"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": {
+        "en": "Public source links",
+        "zh": "公开来源链接"
+      },
+      "paragraphs": [
+        {
+          "en": "The following public consumer guides were read for this edition. They are reference material, not endorsement of this practice bank. Their account and device instructions take priority for a real event.",
+          "zh": "本版实读下列公开消费者指南作为参考，并非获得其背书。处理真实事件时，应以相关账户和设备的正式说明为准。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "What does this cyber security test measure?",
+        "zh": "这份网络安全意识测试具体测什么？"
+      },
+      "answer": {
+        "en": "It checks 20 original knowledge decisions in five everyday topics, using correct counts and explanations. It does not scan devices, measure professional competence or predict attacks. Read any scenario-specific fictional rule before choosing.",
+        "zh": "它核对五类日常主题中的20个原创知识选择，用答对数和解析反馈。不扫描设备，不测专业胜任力，也不预测攻击；依赖情境的虚构规则会在题面给出。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are the answers and all guides free?",
+        "zh": "答案和全部复习说明都免费吗？"
+      },
+      "answer": {
+        "en": "Yes. Complete all 20 choices to see every selected answer, correct answer and explanation. Five complete public revision guides are also available before starting. No signup, email, payment or certificate purchase is needed.",
+        "zh": "是。完成20个选择后，就能看每题所选、正确答案和解析；五份完整公开复习说明开始前也可读。无需注册、邮箱、付款或购买证书。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this an official FTC or employer assessment?",
+        "zh": "这是FTC或雇主官方测验吗？"
+      },
+      "answer": {
+        "en": "No. It is an independent FermatMind practice bank informed by public guidance. It does not reproduce an official examination, claim a source endorsement or establish an employer’s policy. Fictional team rules are stated inside the relevant scenarios.",
+        "zh": "不是。它是费马参考公开指南独立编写的练习，不复刻官方考试、不声称来源背书，也不替雇主制定政策。需要虚构团队规则时，会在相应情境里明示。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a perfect score mean my accounts are safe?",
+        "zh": "满分是否意味着账户安全？"
+      },
+      "answer": {
+        "en": "No. A perfect score means all answers in this edition matched its keys. Real settings, exposure and responses require their own checks. Use the actual service’s security and recovery instructions rather than treating a quiz score as an audit.",
+        "zh": "不是。满分表示本版所有选择和答案键一致。实际设置、暴露情况及响应都需各自检查，应遵循真实服务的安全和恢复说明，不能把练习成绩当安全审计。"
+      }
+    },
+    {
+      "question": {
+        "en": "What happens if I refresh or share?",
+        "zh": "刷新和分享时会怎样？"
+      },
+      "answer": {
+        "en": "Answers stay in the browser. Optional tab drafts expire after 24 hours and clear on completion, exit-and-clear or retake. Without a draft, refresh loses progress. Sharing copies a public test link, not your answers, correctness counts or authentication data.",
+        "zh": "答案留在浏览器，可自愿保存本标签页临时草稿，24小时失效，完成、退出并清除或重测后删除。未存草稿时刷新会丢失进度。分享复制公开测试链接，不包含答卷、答对数或认证资料。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "url": "https://consumer.ftc.gov/articles/how-recognize-avoid-phishing-scams",
+      "title": {
+        "en": "FTC: How To Recognize and Avoid Phishing Scams",
+        "zh": "FTC：识别与避免钓鱼诈骗"
+      }
+    },
+    {
+      "url": "https://consumer.ftc.gov/articles/use-two-factor-authentication-protect-your-accounts",
+      "title": {
+        "en": "FTC: Use Two-factor Authentication To Protect Your Accounts",
+        "zh": "FTC：使用双因素认证保护账户"
+      }
+    },
+    {
+      "url": "https://consumer.ftc.gov/articles/protect-your-personal-information-hackers-and-scammers",
+      "title": {
+        "en": "FTC: Protect Your Personal Information From Hackers and Scammers",
+        "zh": "FTC：防范黑客和诈骗者获取个人资料"
+      }
+    },
+    {
+      "url": "https://consumer.ftc.gov/articles/how-remove-your-personal-information-you-get-rid-your-computer",
+      "title": {
+        "en": "FTC: Remove Your Personal Information Before You Get Rid of a Computer",
+        "zh": "FTC：处置电脑前清除个人资料"
+      }
+    },
+    {
+      "url": "https://consumer.ftc.gov/articles/how-recover-your-hacked-email-or-social-media-account",
+      "title": {
+        "en": "FTC: Recover Your Hacked Email or Social Media Account",
+        "zh": "FTC：恢复被盗邮箱或社交账户"
+      }
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_knowledge_practice",
+    "formCode": "fm_cybersecurity_daily_scenarios_20_v1",
+    "itemBankVersion": "fm_cybersecurity_daily_scenarios_20_v1",
+    "scoringVersion": "practice_equal_correct_counts_v1",
+    "resultContentVersion": "fm_cybersecurity_five_revision_guides_v1",
+    "itemBankSha256": "00448d96f68c47acee35f404d04b560fb6c181dea905c659f729f6197bb1c9c6",
+    "resultContentSha256": "b1c5748bd93001a7e1d75e7a25ec0c9e74db2ab9d8afe0f8f4a01e10c40766d5",
+    "psychometricValidationCompleted": false
+  }
+}
