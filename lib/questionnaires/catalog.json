@@ -2107,5 +2107,30 @@
       "yasushi-takagi"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "workplace-technology",
+    "code": "FM_WORKPLACE_TECH",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "everyday",
+    "title": {
+      "en": "Workplace Tech & Collaboration Test",
+      "zh": "职场技术与协作测试"
+    },
+    "description": {
+      "en": "Try 16 original workplace tech and collaboration tasks. See every answer, explanation and four revision guides for free. No timer, signup or certificate.",
+      "zh": "用16道原创任务练习交接、协作方式、共享规则与技术变化，查看四分项答对题数、全部答案和解析，附四份完整复习说明。全部免费，无需注册，不计时，不发能力认证。"
+    },
+    "minutes": 8,
+    "collection": "explore",
+    "formCode": "fm_workplace_tech_tasks_16_v1",
+    "questionCount": 16,
+    "resultSlugs": [
+      "handover",
+      "settings",
+      "shared-work",
+      "work-change"
+    ]
   }
 ]

@@ -1,0 +1,1328 @@
+{
+  "slug": "workplace-technology",
+  "code": "FM_WORKPLACE_TECH",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "everyday",
+  "kind": "practice",
+  "title": {
+    "en": "Workplace Tech & Collaboration Test",
+    "zh": "职场技术与协作测试"
+  },
+  "seoTitle": {
+    "en": "Workplace Tech & Collaboration Test: Practice & Answers",
+    "zh": "职场技术与协作测试：16题练习、答案与解析"
+  },
+  "description": {
+    "en": "Try 16 original workplace tech and collaboration tasks. See every answer, explanation and four revision guides for free. No timer, signup or certificate.",
+    "zh": "用16道原创任务练习交接、协作方式、共享规则与技术变化，查看四分项答对题数、全部答案和解析，附四份完整复习说明。全部免费，无需注册，不计时，不发能力认证。"
+  },
+  "minutes": 8,
+  "instructions": {
+    "en": "Each of 16 tasks supplies the record, constraints or fictional capability table you need. Choose one of four answers; exactly one meets the stated conditions. There is no timer. Paper or a calculator is welcome. Complete every task to see all selected answers, keys, explanations and four guides. Do not enter real work documents or confidential information.",
+    "zh": "16道任务都给出所需记录、约束或虚构能力表，四选一，恰有一个答案满足题定条件。不计时，可使用纸笔或计算器。完成全部任务后显示所选、正确答案、完整解析和四份指南。不要输入真实工作文档或机密信息。"
+  },
+  "introduction": {
+    "en": "Work through practical handover records, collaboration settings, shared-work rules and before-and-after task data. These 16 independently written cases make every necessary condition visible, including fictional tool features and project policies. Your result is correct counts on this edition, with every answer and four complete revision guides. It is not a self-rating of teamwork, an official software exam, an employer screening cutoff or a prediction about future jobs.",
+    "zh": "实际核对交接记录、协作场景、共享工作规则和前后任务数据。16道独立编写的案例把必要条件都写在题面，包括虚构工具功能与项目制度。结果是本版答对题数，附全部答案和四份完整复习说明。它不是自报团队合作程度，不是官方软件考试或雇主筛选线，也不预测未来岗位。"
+  },
+  "resultHeading": {
+    "en": "Your work-task results and every explanation",
+    "zh": "本次工作任务练习结果与全部解析"
+  },
+  "directions": [
+    {
+      "id": "handover",
+      "title": {
+        "en": "Handover records and references",
+        "zh": "交接记录与引用"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "settings",
+      "title": {
+        "en": "Matching collaboration to constraints",
+        "zh": "匹配协作条件"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "shared-work",
+      "title": {
+        "en": "Shared work and access rules",
+        "zh": "共享工作与权限规则"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "work-change",
+      "title": {
+        "en": "Reasoning about technology and work changes",
+        "zh": "推理技术与工作变化"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "WORKTECH_01",
+      "prompt": {
+        "en": "The handover record says: task H7; owner Mira; due Tuesday 14:00; blocked while waiting for data; source D3. Which update preserves every field?",
+        "zh": "交接原记录：任务H7；负责人米拉；周二14:00到期；因等待数据而阻塞；来源D3。哪条更新保留全部字段？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "H7 — Mira — Tuesday 14:00 — blocked, waiting for data — D3",
+            "zh": "H7—米拉—周二14:00—阻塞，等数据—D3"
+          },
+          "directionId": "handover"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "H7 — Noah — Tuesday 14:00 — blocked, waiting for data — D3",
+            "zh": "H7—诺亚—周二14:00—阻塞，等数据—D3"
+          },
+          "directionId": "handover"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "H7 — Mira — Tuesday 16:00 — blocked, waiting for data — D3",
+            "zh": "H7—米拉—周二16:00—阻塞，等数据—D3"
+          },
+          "directionId": "handover"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "H7 — Mira — Tuesday 14:00 — completed — D3",
+            "zh": "H7—米拉—周二14:00—已完成—D3"
+          },
+          "directionId": "handover"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The first update preserves task, owner, deadline, status and source. A change to the owner, time or blocked state changes the handover, even when the task identifier stays the same.",
+        "zh": "第一条保留任务、负责人、期限、状态和来源。即使任务编号相同，改了负责人、时间或阻塞状态，也改变了交接内容。"
+      }
+    },
+    {
+      "id": "WORKTECH_02",
+      "prompt": {
+        "en": "A fictional team needs comments attached to one shared reference version. Tool capabilities are: Mail copies = separate attachments; Review room = comments plus one version link; Phone bridge = audio only; Paper wall = physical notes only. Which meets both requirements?",
+        "zh": "虚构团队要求：评论附着于同一份参考版本。工具能力表：邮件副本=各自附件；评阅室=评论加同一版本链接；电话桥=只有语音；纸墙=只有实体便签。哪个同时满足两项要求？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Mail copies",
+            "zh": "邮件副本"
+          },
+          "directionId": "handover"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Review room",
+            "zh": "评阅室"
+          },
+          "directionId": "handover"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Phone bridge",
+            "zh": "电话桥"
+          },
+          "directionId": "handover"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Paper wall",
+            "zh": "纸墙"
+          },
+          "directionId": "handover"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Review room supplies both comments and a common version link. The other tools lack one or both stated features. This answer follows the supplied fictional capability table, not a claim about a named real product.",
+        "zh": "评阅室同时提供评论和共同版本链接，其余工具缺少题定功能。这依据虚构能力表，不是对某个真实软件的功能断言。"
+      }
+    },
+    {
+      "id": "WORKTECH_03",
+      "prompt": {
+        "en": "This project requires a decision note with four fields: decision, owner, due date and source link. Which note is complete under that rule?",
+        "zh": "本项目要求决定记录包含四项：决定、负责人、到期日和来源链接。哪份记录符合这条完整性规则？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Use layout B; urgent.",
+            "zh": "采用布局B；紧急。"
+          },
+          "directionId": "handover"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Use layout B; owner Chen; due Friday.",
+            "zh": "采用布局B；负责人陈；周五到期。"
+          },
+          "directionId": "handover"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Use layout B; owner Chen; due Friday; source /plan/R2.",
+            "zh": "采用布局B；负责人陈；周五到期；来源/plan/R2。"
+          },
+          "directionId": "handover"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Owner Chen; due Friday; source /plan/R2.",
+            "zh": "负责人陈；周五到期；来源/plan/R2。"
+          },
+          "directionId": "handover"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Only the third note includes all four required fields. Urgency does not substitute for an owner, deadline or reference, and a record without the decision itself is incomplete. The requirement is supplied by this exercise.",
+        "zh": "只有第三份包含四项字段。“紧急”不能替代负责人、期限或参考资料，缺少决定本身也不完整。这是本题给定的记录要求。"
+      }
+    },
+    {
+      "id": "WORKTECH_04",
+      "prompt": {
+        "en": "The team rule is to cite the latest approved version, ignoring newer drafts. The log is U1 approved at 09:00, U2 draft at 10:00, U3 approved at 11:00, U4 draft at 12:00. Which version belongs in the handover?",
+        "zh": "团队规则：交接引用最新已批准版本，不引用更新的草稿。日志为U1于09:00批准、U2于10:00为草稿、U3于11:00批准、U4于12:00为草稿。该引用哪一版？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "U1",
+            "zh": "U1"
+          },
+          "directionId": "handover"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "U2",
+            "zh": "U2"
+          },
+          "directionId": "handover"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "U4",
+            "zh": "U4"
+          },
+          "directionId": "handover"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "U3",
+            "zh": "U3"
+          },
+          "directionId": "handover"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "U3 is the later of the two approved versions. U4 has a later time but fails the approval condition. Apply approval first, then compare time within the eligible versions.",
+        "zh": "已批准版本中，U3比U1更新。U4虽然时间更晚，却不满足批准条件。先筛选已批准版本，再在其中比较时间。"
+      }
+    },
+    {
+      "id": "WORKTECH_05",
+      "prompt": {
+        "en": "A 30-minute live session must fit both people’s availability. All times are UTC: Ana is free 09:00–10:00; Bo is free 09:30–10:15. Which slot fits both without exceeding either window?",
+        "zh": "一场30分钟在线会需要同时落在两人空闲时段内，时间均为UTC：安娜09:00—10:00，博09:30—10:15。哪个时段符合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "09:30–10:00 UTC",
+            "zh": "09:30–10:00 UTC"
+          },
+          "directionId": "settings"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "09:00–09:30 UTC",
+            "zh": "09:00–09:30 UTC"
+          },
+          "directionId": "settings"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "09:45–10:15 UTC",
+            "zh": "09:45–10:15 UTC"
+          },
+          "directionId": "settings"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "10:00–10:30 UTC",
+            "zh": "10:00–10:30 UTC"
+          },
+          "directionId": "settings"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The shared window is 09:30–10:00 UTC, exactly 30 minutes. The other slots extend outside at least one person’s availability. The task already uses one time standard, so no location or daylight-saving assumption is needed.",
+        "zh": "交集为09:30—10:00 UTC，恰好30分钟。其余选项至少超出一人的空闲窗口。题面已统一时间标准，无需猜地点或夏令时。"
+      }
+    },
+    {
+      "id": "WORKTECH_06",
+      "prompt": {
+        "en": "For this hybrid exercise, every attendee must hear the discussion, read the current document and ask questions. Setup A offers audio only; B offers audio, shared document and a question channel; C offers the document only; D offers an in-room board hidden from remote attendees. Which meets all requirements?",
+        "zh": "本次混合会议练习要求每人都能听到讨论、阅读当前文档并提问。方案A只有语音；B有语音、共享文档和提问渠道；C只有文档；D是远端看不到的现场白板。哪个满足全部要求？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Setup A",
+            "zh": "方案A"
+          },
+          "directionId": "settings"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Setup B",
+            "zh": "方案B"
+          },
+          "directionId": "settings"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Setup C",
+            "zh": "方案C"
+          },
+          "directionId": "settings"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Setup D",
+            "zh": "方案D"
+          },
+          "directionId": "settings"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Setup B supplies all three required forms of participation. The answer is determined by the listed capabilities, not by a rule that one meeting platform or location is always superior.",
+        "zh": "方案B提供全部三种题定参与方式。答案取决于列出的能力，不表示某个会议平台或地点在所有情况下都更优。"
+      }
+    },
+    {
+      "id": "WORKTECH_07",
+      "prompt": {
+        "en": "A team has no overlapping working hours. Its task needs a written record with owner and status, but no immediate live discussion. Which offered workflow meets those constraints?",
+        "zh": "团队工作时间没有交集，任务需要包含负责人和状态的书面记录，不要求即时讨论。哪个备选流程符合条件？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A compulsory live call at the same instant for everyone.",
+            "zh": "要求所有人在同一时刻参加实时通话。"
+          },
+          "directionId": "settings"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Only an unrecorded phone conversation.",
+            "zh": "只靠没有记录的电话讨论。"
+          },
+          "directionId": "settings"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "A shared task board updated asynchronously with owner and status.",
+            "zh": "在共享任务板异步更新负责人和状态。"
+          },
+          "directionId": "settings"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Private notes that no teammate can read.",
+            "zh": "各写队友看不到的私人笔记。"
+          },
+          "directionId": "settings"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The shared board provides a team-readable record and works without simultaneous attendance. A required live call conflicts with the no-overlap condition; an unrecorded call or private notes do not supply the required common record.",
+        "zh": "共享任务板提供团队可读的记录，也无需同时在线。强制实时通话与无时间交集冲突；未记录电话或私人笔记不满足共同记录要求。"
+      }
+    },
+    {
+      "id": "WORKTECH_08",
+      "prompt": {
+        "en": "All participants are at one workshop. The task requires handling a physical prototype together and preserving written feedback. Which offered setup includes both?",
+        "zh": "所有参加者都在同一工作坊，任务要求一起操作实体原型，并保留书面反馈。哪个备选方案同时具备这两点？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Audio-only call with no access to the prototype.",
+            "zh": "只有语音且无法接触原型的通话。"
+          },
+          "directionId": "settings"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "A physical inspection with no notes retained.",
+            "zh": "只做现场查看，不保留任何记录。"
+          },
+          "directionId": "settings"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Reading old notes without handling the prototype.",
+            "zh": "只读旧笔记，不操作原型。"
+          },
+          "directionId": "settings"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A prototype bench session with a shared written feedback log.",
+            "zh": "在原型工作台共同操作，同时填写共享反馈记录。"
+          },
+          "directionId": "settings"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The bench session supplies physical access and a retained feedback record. This is a match to the supplied task, not a claim that all brainstorming or collaboration should happen in person.",
+        "zh": "工作台方案同时提供实体接触和保留的反馈记录。这只匹配本题任务，不表示所有头脑风暴或协作都应在线下完成。"
+      }
+    },
+    {
+      "id": "WORKTECH_09",
+      "prompt": {
+        "en": "A fictional access policy says to grant the least capability needed. Roles are Viewer = read; Reviewer = read and comment; Editor = read, comment and edit; Manager = all three plus sharing control. A colleague needs to read and comment, but not edit. Which role follows the policy?",
+        "zh": "虚构权限规则要求授予满足任务所需的最少能力。角色表：查看者=阅读；评阅者=阅读和评论；编辑者=阅读、评论和编辑；管理者=上述能力加分享控制。同事需要阅读和评论，不需要编辑，应选哪个角色？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Reviewer",
+            "zh": "评阅者"
+          },
+          "directionId": "shared-work"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Editor",
+            "zh": "编辑者"
+          },
+          "directionId": "shared-work"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Viewer",
+            "zh": "查看者"
+          },
+          "directionId": "shared-work"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Manager",
+            "zh": "管理者"
+          },
+          "directionId": "shared-work"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Reviewer covers both required actions without adding editing or sharing control. Viewer lacks commenting; Editor and Manager add unnecessary capabilities under the supplied least-capability rule. These are fictional roles, not the defaults of a real service.",
+        "zh": "评阅者覆盖所需两项，不额外提供编辑或分享控制。查看者缺少评论，编辑者和管理者则超出题定最少能力。角色是本题虚构设定，不代表真实服务默认权限。"
+      }
+    },
+    {
+      "id": "WORKTECH_10",
+      "prompt": {
+        "en": "Compare the two shared-board snapshots. Before: T7 todo, T8 done, T9 blocked. After: T7 done, T8 done, T9 todo. Which tasks changed status?",
+        "zh": "比较共享任务板快照：原先T7待办、T8完成、T9阻塞；之后T7完成、T8完成、T9待办。哪些任务状态改变了？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "T7 only",
+            "zh": "只有T7"
+          },
+          "directionId": "shared-work"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "T7 and T9",
+            "zh": "T7和T9"
+          },
+          "directionId": "shared-work"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "T8 and T9",
+            "zh": "T8和T9"
+          },
+          "directionId": "shared-work"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "T7, T8 and T9",
+            "zh": "T7、T8和T9"
+          },
+          "directionId": "shared-work"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "T7 changes from todo to done and T9 from blocked to todo. T8 remains done. Compare the same task identifier across snapshots rather than counting how many status words appear.",
+        "zh": "T7从待办变为完成，T9从阻塞变为待办，T8仍为完成。应按相同任务编号对照，不是数出现了几个状态词。"
+      }
+    },
+    {
+      "id": "WORKTECH_11",
+      "prompt": {
+        "en": "Follow up Sam’s tasks that are not done; blocked tasks still count. Board: X = Sam, todo; Y = Sam, done; Z = Mira, todo; W = Sam, blocked. Which set should you follow up?",
+        "zh": "跟进萨姆尚未完成的任务，阻塞也算未完成。任务板：X=萨姆/待办；Y=萨姆/完成；Z=米拉/待办；W=萨姆/阻塞。应跟进哪一组？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "X and Y",
+            "zh": "X和Y"
+          },
+          "directionId": "shared-work"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "X and Z",
+            "zh": "X和Z"
+          },
+          "directionId": "shared-work"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "X and W",
+            "zh": "X和W"
+          },
+          "directionId": "shared-work"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "W only",
+            "zh": "只有W"
+          },
+          "directionId": "shared-work"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "X and W belong to Sam and are not done. Y fails the status condition and Z fails the owner condition. Apply both filters; blocked is explicitly included by the task rule.",
+        "zh": "X和W同时满足“属于萨姆”和“尚未完成”。Y不满足状态条件，Z不满足负责人条件，需同时应用两个筛选；题面明确把阻塞纳入。"
+      }
+    },
+    {
+      "id": "WORKTECH_12",
+      "prompt": {
+        "en": "Chris may add comments but may not resolve another reviewer’s thread. The open date-check thread is assigned to Pat. Chris notices a possible issue. Which action follows the stated rule while contributing?",
+        "zh": "克里斯可以发表评论，但不能解决其他评阅者负责的讨论。未结的日期核对讨论分配给帕特，克里斯发现了一个可能的问题。哪种行动既能贡献信息又符合规则？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Resolve Pat’s thread without asking.",
+            "zh": "不询问就把帕特的讨论标成已解决。"
+          },
+          "directionId": "shared-work"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Delete the thread so nobody sees it.",
+            "zh": "删除讨论，让别人看不到。"
+          },
+          "directionId": "shared-work"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Edit the final date despite having comment-only permission.",
+            "zh": "虽然只有评论权限，仍修改正式日期。"
+          },
+          "directionId": "shared-work"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Add the observation as a comment and ask Pat to review it.",
+            "zh": "把观察写成评论，请帕特核对。"
+          },
+          "directionId": "shared-work"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Adding a comment uses Chris’s allowed capability and leaves resolution with Pat. The other actions require permissions or responsibility the prompt withholds. This follows the fictional project rule rather than a universal rule for every document tool.",
+        "zh": "发表评论使用了克里斯已有能力，并把解决责任留给帕特。其他选项都需要题面未授予的权限或责任。这依据虚构项目规则，不是所有文档工具的通用制度。"
+      }
+    },
+    {
+      "id": "WORKTECH_13",
+      "prompt": {
+        "en": "A fictional role used 30 minutes for transcription and 15 for checking. After a tool change it uses 10 for transcription, 20 for checking and 5 for a new audit step. Based only on this task log, how does the total change?",
+        "zh": "虚构岗位原先抄录用30分钟、核对15分钟。工具改变后，抄录10分钟、核对20分钟，新增审查5分钟。仅据这份任务日志，总时长怎样变化？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "45 to 35 minutes: 10 fewer minutes.",
+            "zh": "45变为35分钟，减少10分钟。"
+          },
+          "directionId": "work-change"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "45 to 30 minutes: 15 fewer minutes.",
+            "zh": "45变为30分钟，减少15分钟。"
+          },
+          "directionId": "work-change"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "30 to 35 minutes: 5 more minutes.",
+            "zh": "30变为35分钟，增加5分钟。"
+          },
+          "directionId": "work-change"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "45 to 25 minutes: 20 fewer minutes.",
+            "zh": "45变为25分钟，减少20分钟。"
+          },
+          "directionId": "work-change"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Before: 30 + 15 = 45. After: 10 + 20 + 5 = 35. The difference is 10 fewer minutes. Include the changed checking work and new audit step; the log alone says nothing about headcount or all other work.",
+        "zh": "原先30+15=45，之后10+20+5=35，减少10分钟。必须计入改变后的核对和新增审查；日志本身不说明人数或其他全部工作。"
+      }
+    },
+    {
+      "id": "WORKTECH_14",
+      "prompt": {
+        "en": "A before-and-after note says that a tool now performs one data-entry step and staff now check exceptions. It gives no workload, demand or staffing figures. Which staffing conclusion is supported by that note alone?",
+        "zh": "前后对照只说：工具现在执行一个录入步骤，员工改为核对异常；没有业务量、需求或人员数字。仅凭这份记录，哪种人数结论有依据？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Every role must disappear.",
+            "zh": "所有岗位必定消失。"
+          },
+          "directionId": "work-change"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Staffing change cannot be determined from the supplied note.",
+            "zh": "现有记录无法确定人员数量怎样变化。"
+          },
+          "directionId": "work-change"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Exactly two new jobs must be created.",
+            "zh": "必定新设两个岗位。"
+          },
+          "directionId": "work-change"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The workforce must double.",
+            "zh": "员工人数必定翻倍。"
+          },
+          "directionId": "work-change"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The note supports a task change, not a headcount calculation. It lacks the quantities needed for any specific staffing claim. Do not turn one changed task into a guaranteed forecast about an entire occupation.",
+        "zh": "记录支持任务发生变化，却没有计算人数所需的数量依据。不能把一个步骤的变化变成整个职业的保证性预测。"
+      }
+    },
+    {
+      "id": "WORKTECH_15",
+      "prompt": {
+        "en": "A new workflow requires two skills: checking imported data and routing exceptions. Training A covers shortcuts only; B covers visual themes only; C covers imported-data checks and exception routing; D covers old manual copying only. Which covers both new requirements?",
+        "zh": "新流程要求两项技能：核对导入数据、分流异常。课程A只教快捷键；B只教视觉主题；C教导入数据核对和异常分流；D只教旧式手动抄录。哪项覆盖两种新要求？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Training A",
+            "zh": "课程A"
+          },
+          "directionId": "work-change"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Training B",
+            "zh": "课程B"
+          },
+          "directionId": "work-change"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Training C",
+            "zh": "课程C"
+          },
+          "directionId": "work-change"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Training D",
+            "zh": "课程D"
+          },
+          "directionId": "work-change"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Training C matches both stated skill needs. The other courses may have uses elsewhere but do not meet this task’s full requirements. The exercise asks for a match to supplied needs, not a prediction about a real person’s training success.",
+        "zh": "课程C匹配两项明示需求。其他课程在别处可能有用，却不满足本题全部要求。这里核对题定需求，不预测某个人培训是否成功。"
+      }
+    },
+    {
+      "id": "WORKTECH_16",
+      "prompt": {
+        "en": "A small pilot log has week A: 10 cases, 2 errors; week B: 20 cases, 2 errors. No comparable control or other conditions are supplied. Which statement respects both arithmetic and the evidence limit?",
+        "zh": "小规模试用日志：A周10例、2次错误；B周20例、2次错误。没有给出可比对照或其他条件。哪句话同时符合算术和证据边界？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The errors fell from 2 to 0.",
+            "zh": "错误数从2降为0。"
+          },
+          "directionId": "work-change"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The error rate rose from 20% to 40%.",
+            "zh": "错误率从20%升到40%。"
+          },
+          "directionId": "work-change"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The tool alone is proven to cause every improvement.",
+            "zh": "已证明全部改善都由工具单独造成。"
+          },
+          "directionId": "work-change"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Both weeks had 2 errors; rates were 20% and 10%, without proving the tool caused the difference.",
+            "zh": "两周都是2次错误，错误率为20%和10%；这不能证明差异由工具造成。"
+          },
+          "directionId": "work-change"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "2/10 = 20% and 2/20 = 10%; the error count itself stays two. Different denominators matter. With the supplied log alone, a numerical change does not establish which factor caused it or predict a large-scale outcome.",
+        "zh": "2/10=20%，2/20=10%，错误次数仍为2，分母不同很重要。只凭日志中的数值变化，不能确定由哪个因素造成，也不能预测大规模结果。"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "handover",
+      "directionIds": [
+        "handover"
+      ],
+      "title": {
+        "en": "Handover records and references",
+        "zh": "交接记录与引用"
+      },
+      "headline": {
+        "en": "Make the next person’s source and responsibility explicit.",
+        "zh": "让接手者看清来源与责任。"
+      },
+      "summary": {
+        "en": "Practise faithful handover fields, comments on one version, complete decision notes and citing the latest approved source. Use the supplied project rules.",
+        "zh": "练习交接字段、同版评论、完整决定记录和最新批准来源引用，按题面项目规则逐项核对。"
+      },
+      "seo": {
+        "title": {
+          "en": "Handover practice: records, versions and worked answers",
+          "zh": "交接协作练习：记录、版本与完整题解"
+        },
+        "description": {
+          "en": "Review handover fields, common references, decision notes and approved versions with a separate worked example. Four-task counts do not certify job readiness.",
+          "zh": "结合另一个算例复习交接字段、共同参考、决定记录与批准版本。四题答对数不构成上岗认证。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four tasks each count one correct answer. Your count out of four describes these supplied cases, not a fixed collaboration ability, software certificate or employment prediction. Every worked answer and guide remains available.",
+        "zh": "本部分4道任务，每题答对记1题。答对数/4只描述这些题定情境，不是固定协作能力、软件认证或就业预测；全部题解和说明始终可读。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "What these four tasks require",
+            "zh": "这四题具体要求什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The tasks ask whether the next person receives the same owner, deadline, status and source; whether comments attach to a common reference; whether a decision note contains required fields; and which approved version is eligible. They give the necessary project rule or capability table. No particular employer’s private process or named software default is assumed.",
+              "zh": "四题分别检查接手者收到的负责人、期限、状态和来源是否一致，评论是否附着于共同参考，决定记录是否含所需字段，以及哪版已批准资料可引用。题目提供必要规则或能力表，不假定某个雇主私有流程或真实软件默认行为。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Approval before recency",
+            "zh": "先看批准，再看新旧"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose R5 is an approved plan at 10:00 and R6 is a draft at 11:00. Under a rule requiring the latest approved plan, the later draft is not eligible. Filter to approved versions first, then compare time. If a real project uses a different publication rule, follow that actual rule rather than importing this exercise’s fictional requirement.",
+              "zh": "例如R5在10:00批准，R6在11:00仍是草稿。若规则要求最新已批准计划，时间更晚的草稿并不合格。先筛已批准版本，再比较时间。真实项目若另有发布规则，应使用实际规定，而非套用本练习虚构要求。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Find the missing condition",
+            "zh": "找到漏看的条件"
+          },
+          "paragraphs": [
+            {
+              "en": "A missed item may come from checking only the task code, treating an urgent label as complete instructions, or selecting the newest timestamp without approval. Read your selected answer beside the full key and explanation. Identify the exact field or condition that differs. A four-item count cannot show how consistently you perform handovers during interruptions or across unfamiliar systems.",
+              "zh": "错误可能来自只看任务编号、把“紧急”当完整说明，或只看最新时间而忽略批准状态。把所选和完整答案解析并排看，找出具体哪个字段或条件不同。四题答对数不能说明你在被打断或陌生系统中交接是否一直稳定。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Write a fictional handover",
+            "zh": "写一份虚构交接"
+          },
+          "paragraphs": [
+            {
+              "en": "Invent a small task and record its owner, deadline, current state, blocker and reference. Ask whether another person could locate the same source without asking which attachment you meant. Then change one field and compare the copies. Use invented names and links; this practice needs no real project documents or confidential work details.",
+              "zh": "自拟小任务，写出负责人、期限、当前状态、阻塞和参考资料，再问接手者能否找到同一来源，而不用追问你指哪个附件。改变一个字段后核对两份记录。使用虚构姓名和链接，不需要真实项目文档或工作秘密。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Task consistency, not a universal workflow",
+            "zh": "核对题定条件的范围"
+          },
+          "paragraphs": [
+            {
+              "en": "These are original checking tasks with independently recomputed keys. Public curriculum material provides background on collaboration, not validation of this bank or a promise of workplace outcomes. Reading the answers before repeating the test can improve recall; a higher repeat count alone does not establish a transferable collaboration gain.",
+              "zh": "题目原创，答案键已独立复算。公开课程资料只提供协作主题背景，不验证本题库，也不保证工作结果。读过答案再重做会提高记忆，单凭重做答对数提高，不能证明可迁移的协作能力提升。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "settings",
+      "directionIds": [
+        "settings"
+      ],
+      "title": {
+        "en": "Matching collaboration to constraints",
+        "zh": "匹配协作条件"
+      },
+      "headline": {
+        "en": "Start with the task and attendance constraints.",
+        "zh": "先读任务与参与条件。"
+      },
+      "summary": {
+        "en": "Work with a common time window, hybrid participation needs, asynchronous records and physical prototype access. No setting is declared best for every team.",
+        "zh": "练习共同时间窗口、混合参与要求、异步记录和实体原型接触；不宣称某种协作场景适合所有团队。"
+      },
+      "seo": {
+        "title": {
+          "en": "Collaboration settings: practice, examples and answers",
+          "zh": "协作方式练习：场景、算例与答案"
+        },
+        "description": {
+          "en": "Practise choosing a collaboration setup from explicit attendance and task constraints. Read examples and explanations without a universal remote-work verdict.",
+          "zh": "依据明示参与条件和任务约束选择协作安排，结合例子与解析复习，不给远程工作的普遍优劣结论。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four tasks each count one correct answer. Your count out of four describes these supplied cases, not a fixed collaboration ability, software certificate or employment prediction. Every worked answer and guide remains available.",
+        "zh": "本部分4道任务，每题答对记1题。答对数/4只描述这些题定情境，不是固定协作能力、软件认证或就业预测；全部题解和说明始终可读。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Read what the setting must support",
+            "zh": "读出场景必须支持什么"
+          },
+          "paragraphs": [
+            {
+              "en": "One task asks for an interval that fits two schedules. Others require remote participants to hear, read and ask questions; a record that works without overlapping hours; or access to a physical prototype plus retained feedback. The answer is the offered setup that meets every supplied requirement, not the tool you personally like best.",
+              "zh": "一题要求找出同时适合两人日程的区间，另几题分别要求远端成员能听、读、问，无同时在线也能使用的记录，以及接触实体原型并保留反馈。答案是满足全部明示条件的备选安排，不是自己最喜欢的工具。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Compute the actual overlap",
+            "zh": "算出真实交集"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine two UTC windows: 13:00–14:00 and 13:20–14:20. Their intersection is 13:20–14:00, so a 30-minute session starting at 13:20 fits; one ending at 14:20 does not fit the first window. The time standard is already supplied. Do not invent participants’ locations, commuting limits or daylight-saving changes that the exercise never states.",
+              "zh": "例如两个UTC窗口是13:00—14:00、13:20—14:20，交集为13:20—14:00。13:20开始的30分钟会能放下，14:20才结束的会则超出第一个窗口。时间标准已给出，不要另猜地点、通勤或题面没有说的夏令时变化。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Check all requirements together",
+            "zh": "把条件一起核对"
+          },
+          "paragraphs": [
+            {
+              "en": "If you missed a setup question, list the required features and cross off any option missing one. Audio alone does not meet a task that also demands a readable document and question channel. Yet that does not make audio unsuitable for every other purpose. Correct choices in these four cases do not reveal how a real team will feel or perform in that arrangement.",
+              "zh": "安排题答错时，先列所需功能，缺一项的选项就排除。只提供语音，无法满足同时要读文档和提问渠道的任务，但这不表示语音不适合所有其他用途。四题选对，也不说明真实团队在该安排下的感受和表现。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Make a task-to-feature table",
+            "zh": "做一张任务与功能对照表"
+          },
+          "paragraphs": [
+            {
+              "en": "For an invented task, list who must participate, whether simultaneous work is necessary, which objects or records must be accessible and what must be retained afterward. Compare two fictional setups against that list. If both meet the requirements, identify what additional constraint would be needed before choosing a unique answer. This prevents a preference from masquerading as a rule.",
+              "zh": "为虚构任务列出参加者、是否必须同时工作、哪些物件或资料要可访问，以及事后需保留什么，再对照两个虚构方案。若两者都满足，说明还缺什么条件才能唯一选择，避免把个人偏好包装成规则。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "No universal ranking of locations",
+            "zh": "不把地点排成通用高低"
+          },
+          "paragraphs": [
+            {
+              "en": "The curriculum background distinguishes in-person, hybrid and virtual settings, but it does not validate these questions. This original bank deliberately supplies constraints to make each key checkable. Actual arrangements also depend on accessibility, local resources and organizational rules. The practice cannot inspect those conditions or declare a general remote-work readiness level.",
+              "zh": "课程背景区分现场、混合和虚拟场景，但不验证本题。这份原创题库特意给出约束，使每个答案可核对。实际安排还取决于可访问性、当地资源和组织规则，本练习不检查这些条件，也不给远程工作准备度等级。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shared-work",
+      "directionIds": [
+        "shared-work"
+      ],
+      "title": {
+        "en": "Shared work and access rules",
+        "zh": "共享工作与权限规则"
+      },
+      "headline": {
+        "en": "Match permissions, owners and changes to the written rule.",
+        "zh": "把权限、负责人和改动与规则逐项匹配。"
+      },
+      "summary": {
+        "en": "Review minimum capabilities, changed task states, owner-and-status filters and assigned review threads. Each case supplies its own fictional work rule.",
+        "zh": "复习最少能力、任务状态变化、负责人加状态筛选和评阅责任；每个情境都提供自己的虚构规则。"
+      },
+      "seo": {
+        "title": {
+          "en": "Shared-work practice: permissions, tasks and review rules",
+          "zh": "共享协作练习：权限、任务与评阅规则"
+        },
+        "description": {
+          "en": "Practise permission matching, task changes, filters and reviewer responsibilities with explicit fictional rules and complete worked explanations.",
+          "zh": "依据明确虚构规则练习权限匹配、任务变化、筛选和评阅责任，查看完整题解与复习步骤。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four tasks each count one correct answer. Your count out of four describes these supplied cases, not a fixed collaboration ability, software certificate or employment prediction. Every worked answer and guide remains available.",
+        "zh": "本部分4道任务，每题答对记1题。答对数/4只描述这些题定情境，不是固定协作能力、软件认证或就业预测；全部题解和说明始终可读。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Four different checks on shared work",
+            "zh": "共享工作中的四种核对"
+          },
+          "paragraphs": [
+            {
+              "en": "The tasks cover which role has enough but not excessive capability, which identifiers changed status, which tasks meet both an owner and state filter, and what a commenter may do on another reviewer’s thread. All relevant roles, snapshots and project rules are supplied. No access setting is inferred from a real product’s role name alone.",
+              "zh": "四题检查角色是否足够而不过量、哪些编号状态改变、哪些任务同时满足负责人和状态条件，以及评论者对其他评阅者讨论能做什么。相关角色、快照和项目规则均在题面，不能仅凭真实产品的角色名称猜权限。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Apply both filters",
+            "zh": "同时应用两个筛选"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a board with P = Lee, open; Q = Lee, done; R = Noor, open. A request for Lee’s unfinished tasks includes P only. Q has the correct owner but the wrong state; R has the right state but the wrong owner. Writing the two conditions separately makes the intersection visible instead of relying on a quick impression of the board.",
+              "zh": "假设任务板上P=李/待办，Q=李/完成，R=诺尔/待办。要求跟进李的未完成任务时，只包括P。Q负责人对但状态不符，R状态对但负责人不符。把两个条件分别写出，才能看清交集，而非凭任务板的第一印象。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "A missing capability differs from an excessive one",
+            "zh": "缺少能力和权限过量不同"
+          },
+          "paragraphs": [
+            {
+              "en": "In the permission task, a role that cannot comment is insufficient, while one that can edit adds a capability the stated policy does not allow you to grant unnecessarily. In the review-thread task, noticing an issue does not itself transfer resolution responsibility. Use each explanation to identify whether the error concerned capability, ownership or a changed state.",
+              "zh": "权限题中，不能评论是能力不足；能编辑的角色则增加了题定规则不允许无必要授予的能力。讨论题中，发现问题也不自动转移解决责任。用各题解析分清错误涉及能力、责任归属还是状态变化。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Make a small fictional board",
+            "zh": "做一张小型虚构任务板"
+          },
+          "paragraphs": [
+            {
+              "en": "Write three invented tasks with owner and state, then define one explicit follow-up rule. Calculate the eligible set before looking at any offered choices. Separately list a fictional role’s allowed actions and an assigned reviewer. Describe one contribution that stays within both constraints. Do not change real permissions or resolve real colleagues’ threads just to practise.",
+              "zh": "写三个虚构任务的负责人和状态，再定义一条明确跟进规则，先计算符合的集合，再看备选答案。另列某虚构角色可做的动作和指定评阅者，描述一个同时守住两项约束的贡献方式。不要为了练习修改真实权限或解决同事的真实讨论。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Explicit rules keep the answer checkable",
+            "zh": "明示规则使答案可核对"
+          },
+          "paragraphs": [
+            {
+              "en": "The fictional constraints make each answer unique, and the source proof checks that uniqueness. They do not replace a real organization’s permission policy or approval chain. This short bank cannot inspect access, infer trustworthiness or establish professional collaboration competence. Even a perfect count should be read as correctness on these supplied cases.",
+              "zh": "虚构约束让每题有唯一答案，源证明核对这种唯一性，但不替代真实组织的权限制度和批准流程。短题库不能检查权限、推断是否可信或认定专业协作胜任力。即使全对，也只表示这些题定案例作答正确。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "work-change",
+      "directionIds": [
+        "work-change"
+      ],
+      "title": {
+        "en": "Reasoning about technology and work changes",
+        "zh": "推理技术与工作变化"
+      },
+      "headline": {
+        "en": "Separate changed tasks from claims the data cannot support.",
+        "zh": "区分任务变化与资料不支持的结论。"
+      },
+      "summary": {
+        "en": "Use before-and-after time logs, staffing evidence limits, new skill requirements and pilot rates. Calculate the stated changes without forecasting an occupation.",
+        "zh": "依据前后时长日志、人数证据边界、新技能要求和试用比例计算变化，不把小案例变成职业预测。"
+      },
+      "seo": {
+        "title": {
+          "en": "Technology and work changes: practice with data and answers",
+          "zh": "技术与工作变化练习：资料推理与题解"
+        },
+        "description": {
+          "en": "Work through task-time changes, staffing limits, training matches and pilot error rates. Read full answers without a headcount or causal prediction.",
+          "zh": "复习任务时长变化、人数推断边界、培训匹配和试用错误率，查看完整答案，不给人数或因果预测。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four tasks each count one correct answer. Your count out of four describes these supplied cases, not a fixed collaboration ability, software certificate or employment prediction. Every worked answer and guide remains available.",
+        "zh": "本部分4道任务，每题答对记1题。答对数/4只描述这些题定情境，不是固定协作能力、软件认证或就业预测；全部题解和说明始终可读。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "What the four cases actually supply",
+            "zh": "四个案例实际提供什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The cases supply task durations, a description with no staffing figures, a training capability table and two small pilot counts. They ask for the total time, the limit on a headcount conclusion, the course covering both stated needs and the difference between an error count and rate. They do not ask you to guess which real careers will disappear.",
+              "zh": "案例提供任务时长、一份没有人数数字的描述、课程能力表和两组小试用计数，分别问总时长、人数结论的边界、覆盖两项需求的课程，以及错误次数和比例的区别。它们不要求猜哪些真实职业会消失。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Include new work in a time comparison",
+            "zh": "比较时长时计入新增工作"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose a fictional process changes from 20 minutes copying plus 10 checking to 5 copying, 15 checking and 5 logging. The total moves from 30 to 25 minutes, not to five. The tool reduces one task while other tasks remain or expand. This arithmetic alone cannot reveal staffing, customer demand or whether the new process is better in every respect.",
+              "zh": "例如虚构流程原来抄录20分钟、核对10分钟，之后抄录5分钟、核对15分钟、记录5分钟，总计从30变为25分钟，而不是变成5分钟。工具减少一个步骤，其他工作仍存在或增加。这种算术本身不能说明人员、客户需求或新流程所有方面是否更好。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Check denominators and missing evidence",
+            "zh": "核对分母与缺失证据"
+          },
+          "paragraphs": [
+            {
+              "en": "For a missed rate item, keep the numerator and denominator visible: two errors among ten cases differs from two among twenty. For a staffing item, ask whether headcount and demand were supplied at all. A changed task or smaller rate is a supported observation; a definite job-loss count or causal claim needs evidence the exercise does not provide.",
+              "zh": "比例题要同时看分子和分母：10例中2次错误与20例中2次错误不同。人数题则先问是否提供了人数和需求。任务改变、比例变小可以是有据观察，确定的裁员数或因果结论则需要题面没有提供的证据。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Explain one change without overclaiming",
+            "zh": "解释一项变化而不过度推断"
+          },
+          "paragraphs": [
+            {
+              "en": "Build an invented before-and-after task list, include any added checking or exception work, and sum both sides. Then list what cannot be inferred. For a fictional training choice, compare required skills with the course features one by one. If using a real workplace example later, verify its actual data and rules rather than treating this illustrative task log as a benchmark.",
+              "zh": "自拟前后任务清单，计入新增核对和异常工作后分别求和，再列出不能推断的内容。对虚构培训选择，把所需技能和课程内容逐项比对。之后若讨论真实工作案例，应核实真实数据和规则，不把这里的示例日志当标杆。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Background is not a forecast or credential",
+            "zh": "背景资料不是预测或认证"
+          },
+          "paragraphs": [
+            {
+              "en": "Public career-exploration curriculum provides a background interest in technology’s workplace effects. It neither validates this bank nor supplies our fictional numbers. These original tasks check constrained reasoning, without population norms, a recruitment cutoff or a guaranteed training outcome. Repeated answers after studying the guide may reflect memory rather than a newly demonstrated work skill.",
+              "zh": "公开职业探索课程提供关注技术如何影响工作的背景，但既不验证本题库，也不提供我们的虚构数字。题目核对有限条件下的推理，没有常模、招聘线或培训结果保证。读完指南再答对，可能来自记忆，不等于新证明了一项工作技能。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "practice-scoring",
+      "title": {
+        "en": "One task, one correct answer",
+        "zh": "每题一个正确答案"
+      },
+      "paragraphs": [
+        {
+          "en": "A correct choice adds one; an incorrect choice adds zero. Four groups of four add to the count out of 16. There is no weighting, reverse scoring, timer or speed bonus. Unknown or missing responses do not produce a result. The keys were separately recomputed from explicit fields, feature sets, intervals, filters and arithmetic.",
+          "zh": "答对记1题，答错记0题，四组各四题相加得到答对题数/16。不加权、不反向、不计时，也没有速度加分；未知或缺失回答不产生结果。答案键已根据明示字段、功能集合、时间区间、筛选和算术另行复算。"
+        }
+      ]
+    },
+    {
+      "id": "practice-reading",
+      "title": {
+        "en": "Read the condition you missed",
+        "zh": "复习漏看的具体条件"
+      },
+      "paragraphs": [
+        {
+          "en": "A count such as 2/4 means two of those four tasks were answered correctly. It does not place you in a population band or establish a stable work ability. Every selected answer, key and explanation appears, and all four complete guides remain available at zero, partial or perfect counts. Use them to revisit the exact missed requirement or calculation.",
+          "zh": "2/4表示本组四题答对两题，不把你放进某个人群档位，也不认定稳定工作能力。逐题显示所选、答案和解析；零分、部分答对或满分均能看四份完整指南，用来复习具体漏看的条件或计算。"
+        }
+      ]
+    },
+    {
+      "id": "practice-limits",
+      "title": {
+        "en": "Conditions and interpretation limits",
+        "zh": "条件与解释边界"
+      },
+      "paragraphs": [
+        {
+          "en": "No norms, professional certificate, recruitment pass, productivity benchmark or job-loss forecast is supplied. Fictional roles and tool features are defined for each task; actual organizations and products may work differently. Reading answers before repeating the bank may improve memory rather than demonstrate transferable skill. Real work still requires checking its own data, permissions and rules.",
+          "zh": "不提供常模、专业证书、招聘通过结论、生产率标杆或岗位消失预测。角色和功能在各题虚构定义，真实组织与软件可能不同。读过答案后重做提高可能来自记忆，不证明可迁移技能；真实工作仍需核对自身数据、权限和规则。"
+        }
+      ]
+    },
+    {
+      "id": "source-context",
+      "title": {
+        "en": "Original tasks and background source",
+        "zh": "原创任务与背景来源"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind wrote the records, rules, tables, distractors, explanations and guides independently. The public Arizona career-exploration curriculum provides topic background on comparing collaboration settings and technology’s workplace effects. It is a curriculum document, not a validated instrument, an endorsement or a source for our fictional numbers. This bank does not claim official curriculum alignment or grade-level norms.",
+          "zh": "记录、规则、表格、干扰项、解析和指南均由费马独立编写。亚利桑那公开职业探索课程提供协作场景比较、技术对工作影响的主题背景；它是课程文件，不是经过验证的测量工具、背书或本版虚构数字来源。本题库不声称官方课程对齐或年级常模。"
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Arizona Department of Education: Career Exploration and Introduction to Early CTE (2024)",
+        "zh": "亚利桑那教育部门：职业探索与早期职业技术教育导论（2024）"
+      },
+      "url": "https://www.azed.gov/sites/default/files/2024/07/Career-Exploration-Intro.pdf"
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this practical work or a teamwork personality quiz?",
+        "zh": "这是实际任务，还是自报协作人格？"
+      },
+      "answer": {
+        "en": "It is 16 practical multiple-choice tasks using supplied records, constraints, capability tables and calculations. The result shows correctness and worked answers, without assigning a personality or collaboration ability band.",
+        "zh": "这是16道实际四选一任务，依据给定记录、约束、能力表和计算作答，显示正确题数和解析，不派人格或协作能力档位。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are all answers and guides free?",
+        "zh": "全部答案和指南都免费吗？"
+      },
+      "answer": {
+        "en": "Yes. Complete the 16 choices to see all selected answers, keys and explanations. Four complete public revision guides are also readable before starting. No signup, email, payment or certificate purchase is required.",
+        "zh": "是。完成16个选择即可看每题所选、答案和解析；四份完整公开复习指南开始前也能读。无需注册、邮箱、付款或购买证书。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are the fictional tool features real software defaults?",
+        "zh": "题定工具功能是真实软件默认功能吗？"
+      },
+      "answer": {
+        "en": "No. Each task supplies its own fictional capabilities or project rule so its answer can be checked. It does not certify a software version or replace your actual organization’s access and approval rules.",
+        "zh": "不是。各题给出自己的虚构功能或项目规则，让答案可以核对。它不认证某软件版本，也不替代所属组织真实权限和批准规则。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can the count predict job readiness or future careers?",
+        "zh": "答对数能预测上岗或未来职业吗？"
+      },
+      "answer": {
+        "en": "No. It describes these original tasks under your chosen practice conditions, not a hiring pass, productivity prediction or forecast of which jobs will disappear. No population norms or professional certification are established.",
+        "zh": "不能。它描述在你所用条件下完成这组原创任务的结果，不是招聘通过线、生产率预测或岗位消失预报，没有常模或专业认证。"
+      }
+    },
+    {
+      "question": {
+        "en": "How do refresh and sharing work?",
+        "zh": "刷新与分享怎样处理？"
+      },
+      "answer": {
+        "en": "Answers stay in the browser. Optional tab drafts expire after 24 hours and clear on completion, retake or exit-and-clear. Without a draft, refresh loses progress. Sharing copies a public test link without answers, correctness counts or private work data.",
+        "zh": "答案留在浏览器，可自愿存本标签页临时草稿，24小时失效，完成、重测或退出并清除后删除。未存草稿时刷新丢失进度。分享复制公开测试链接，不含答卷、答对数或私有工作资料。"
+      }
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_task_practice",
+    "formCode": "fm_workplace_tech_tasks_16_v1",
+    "itemBankVersion": "fm_workplace_tech_tasks_16_v1",
+    "scoringVersion": "practice_equal_correct_counts_v1",
+    "resultContentVersion": "fm_workplace_tech_four_revision_guides_v1",
+    "itemBankSha256": "9dea5deb87f81624fcbaa6eec92c844254c21ffc816180540318aa416cdbdcf7",
+    "resultContentSha256": "6fa9fc4224fb4342065994d647635dea4fb4c3c8d928865a6ca84f96d456783e",
+    "psychometricValidationCompleted": false
+  }
+}
