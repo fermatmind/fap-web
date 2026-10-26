@@ -1,0 +1,816 @@
+{
+  "formCode": "fm_found_family_contributions_18",
+  "origin": "frontend_original_voluntary_friend_group_roles",
+  "directions": [
+    {
+      "id": "welcome-keeper",
+      "title": {
+        "zh": "迎席人",
+        "en": "Welcome Keeper"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "practical-pal",
+      "title": {
+        "zh": "搭把手伙伴",
+        "en": "Practical Pal"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "story-keeper",
+      "title": {
+        "zh": "故事收藏者",
+        "en": "Story Keeper"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "spark-starter",
+      "title": {
+        "zh": "小计划发起者",
+        "en": "Spark Starter"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "listening-companion",
+      "title": {
+        "zh": "倾听搭子",
+        "en": "Listening Companion"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "thread-weaver",
+      "title": {
+        "zh": "联络牵线人",
+        "en": "Thread Weaver"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "FFR_01",
+      "prompt": {
+        "zh": "一群熟悉的朋友约定每月留一个普通下午见面，大家都自愿参加。你这次最想认领哪一点？",
+        "en": "Familiar friends agree to keep an ordinary afternoon each month for an optional gathering. Which little part would you most like to take this time?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "给新加入的人留一个容易坐下的位置，并说明不必马上参加话题。",
+            "en": "Leave an easy place for a newcomer to sit without needing to join the conversation immediately."
+          },
+          "directionId": "welcome-keeper"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把这次确实要用的一两样东西摆到顺手的位置。",
+            "en": "Put the one or two things actually needed this time somewhere easy to reach."
+          },
+          "directionId": "practical-pal"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "带一段上次聚会的有趣回忆，问大家还记得哪一点。",
+            "en": "Bring one amusing memory from the last gathering and ask what others remember."
+          },
+          "directionId": "story-keeper"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提议一个只有十分钟、想试的人才参加的小活动。",
+            "en": "Suggest a ten-minute little activity for whoever wants to try it."
+          },
+          "directionId": "spark-starter"
+        }
+      ]
+    },
+    {
+      "id": "FFR_02",
+      "prompt": {
+        "zh": "朋友准备把一盒借来的桌游放回原处，约定的相处时间还没结束。你更愿意做什么？",
+        "en": "Friends are putting a borrowed board game back before your agreed time together ends. What would you prefer to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "按盒盖上的清单和同伴一起收好这次用过的配件。",
+            "en": "Use the list on the lid to put away the pieces used this time with a companion."
+          },
+          "directionId": "practical-pal"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "记下一句这局才有的趣话，留给愿意回看的人。",
+            "en": "Keep one funny line unique to this game for anyone who wants to revisit it."
+          },
+          "directionId": "story-keeper"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "邀请愿意的人用剩下几分钟发明一个迷你回合。",
+            "en": "Invite anyone interested to invent a tiny round with the remaining minutes."
+          },
+          "directionId": "spark-starter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "陪还想说两句的同伴坐一会儿，先问愿不愿意继续聊。",
+            "en": "Sit with a companion who has more to say and first ask whether they want to continue."
+          },
+          "directionId": "listening-companion"
+        }
+      ]
+    },
+    {
+      "id": "FFR_03",
+      "prompt": {
+        "zh": "你们有一个只向成员开放的旧照片相册，大家同意各添一张不涉及隐私的照片。你更想贡献什么？",
+        "en": "Your group has a members-only old photograph album and agrees to add one nonprivate image each. What would you enjoy contributing?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "给自己选的照片写清一段共同记得的小插曲。",
+            "en": "Write a little episode you jointly remember beside the photograph you choose."
+          },
+          "directionId": "story-keeper"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "提议拍一个人人都可跳过的轻松新主题。",
+            "en": "Suggest a light new photograph theme that anyone can skip."
+          },
+          "directionId": "spark-starter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先听同伴想为自己的照片保留哪一句话，不替对方写。",
+            "en": "Listen to the line a companion wants beside their own image without writing it for them."
+          },
+          "directionId": "listening-companion"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问不常上线的朋友要不要收到这次相册更新的邀请。",
+            "en": "Ask a friend rarely online whether they want an invitation to this album update."
+          },
+          "directionId": "thread-weaver"
+        }
+      ]
+    },
+    {
+      "id": "FFR_04",
+      "prompt": {
+        "zh": "几位朋友见面时发现今天都没有准备固定节目，场面并不尴尬。你更想怎样加入？",
+        "en": "Friends meet without a fixed programme today, and the pause is not awkward. How would you prefer to join?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "提出一个随时可以停的五分钟观察小游戏。",
+            "en": "Offer a five-minute noticing game that anyone can stop at any time."
+          },
+          "directionId": "spark-starter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让想说近况的人选一个话题，自己先听完再接话。",
+            "en": "Let someone with an update choose a topic and listen before responding."
+          },
+          "directionId": "listening-companion"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问大家想不想把下次空闲时段留到群里慢慢对。",
+            "en": "Ask whether people want to compare their next free times gradually in the group chat."
+          },
+          "directionId": "thread-weaver"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "告诉刚到的人现在没有固定节目，可以按舒服的方式坐一会儿。",
+            "en": "Tell someone just arriving that there is no fixed programme and they can settle in comfortably."
+          },
+          "directionId": "welcome-keeper"
+        }
+      ]
+    },
+    {
+      "id": "FFR_05",
+      "prompt": {
+        "zh": "一位朋友刚结束自己喜欢的小爱好活动，愿意和你聊聊，内容不涉及危机或求助。你更想先做什么？",
+        "en": "A friend has finished a hobby activity they enjoyed and wants to talk, without a crisis or request for help. What would you like to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问对方最想从哪一小段说起，再沿着那一段听。",
+            "en": "Ask which little part they most want to begin with and listen along that thread."
+          },
+          "directionId": "listening-companion"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "征得同意后，问要不要把一个开放的下次活动邀约发给另一位同好。",
+            "en": "With permission, ask whether to send an open invitation for the next activity to another interested friend."
+          },
+          "directionId": "thread-weaver"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先说明这里不用懂行才可以聊，自己很愿意听这次的新鲜事。",
+            "en": "Make clear that nobody needs expertise to join the conversation and you would enjoy hearing what was new."
+          },
+          "directionId": "welcome-keeper"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "如果对方确实有一件要收好的小物，接下这一个具体整理动作。",
+            "en": "If they have one little item they want put away, take that particular sorting task."
+          },
+          "directionId": "practical-pal"
+        }
+      ]
+    },
+    {
+      "id": "FFR_06",
+      "prompt": {
+        "zh": "同一朋友圈里有的人爱语音、有的人偏文字，大家只想约一次轻松聊天。你更想认领哪一小步？",
+        "en": "Some friends prefer voice messages and others prefer text, and the group only wants one light chat. Which small step would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "征得同意后把两种方便的参与方式写在同一条邀请里。",
+            "en": "With permission, put two convenient ways of joining in one invitation."
+          },
+          "directionId": "thread-weaver"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "在邀请里说明只听、只看或晚点回复也欢迎。",
+            "en": "Say in the invitation that listening, reading or replying later is welcome too."
+          },
+          "directionId": "welcome-keeper"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "按已经选好的方式试一下链接能否正常打开。",
+            "en": "Check that the link opens in the way already chosen."
+          },
+          "directionId": "practical-pal"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "留一句只有这次相聚才有的小标题，愿意的人以后可以回看。",
+            "en": "Keep a little title particular to this gathering for anyone who wants to revisit it."
+          },
+          "directionId": "story-keeper"
+        }
+      ]
+    },
+    {
+      "id": "FFR_07",
+      "prompt": {
+        "zh": "你们的固定聚会多了一位朋友带来的同伴，双方都愿意认识。你更想做什么？",
+        "en": "A friend brings a companion to your regular gathering, and everyone wants to meet. What would you prefer to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "介绍眼前正在做的小事，并给对方一个不必自我表演的加入方式。",
+            "en": "Introduce the small thing happening now and offer a way to join without performing an introduction."
+          },
+          "directionId": "welcome-keeper"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "确认桌边实际缺哪一样用品，只补上那一样。",
+            "en": "Check which one item the table actually lacks and bring only that item."
+          },
+          "directionId": "practical-pal"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "讲一段不涉及他人隐私的共同回忆，让来由听得明白。",
+            "en": "Share a nonprivate memory whose background is understandable to someone new."
+          },
+          "directionId": "story-keeper"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提议一个不需要旧梗也能参与的轻松开场小游戏。",
+            "en": "Suggest a light opening game that needs no knowledge of old jokes."
+          },
+          "directionId": "spark-starter"
+        }
+      ]
+    },
+    {
+      "id": "FFR_08",
+      "prompt": {
+        "zh": "聚会用的小音箱已由主人同意借给大家，大家也选好了想听的内容。你更愿意做什么？",
+        "en": "The host has agreed to lend a small speaker and the group has chosen what to hear. What would you prefer to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "照设备说明完成大家已经同意的简单连接。",
+            "en": "Follow the device instructions for the simple connection everyone agreed to."
+          },
+          "directionId": "practical-pal"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "为这一段共同选的声音记一个不含个人资料的小注释。",
+            "en": "Keep a little note about the jointly chosen sound without personal information."
+          },
+          "directionId": "story-keeper"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "邀请愿意的人各提一个下一轮的轻松听法。",
+            "en": "Invite interested friends to suggest one light way to listen in the next round."
+          },
+          "directionId": "spark-starter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "听同伴讲自己为什么选了这一段，不急着推荐别的。",
+            "en": "Listen to why a companion chose this piece without rushing to recommend another."
+          },
+          "directionId": "listening-companion"
+        }
+      ]
+    },
+    {
+      "id": "FFR_09",
+      "prompt": {
+        "zh": "你们想给过去几次普通聚会留一个很小的记录，每个人都可不参加。哪部分更吸引你？",
+        "en": "You want a tiny record of recent ordinary gatherings, with participation optional. Which part attracts you most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把大家同意保留的几个小片段串成一页简短回忆。",
+            "en": "Connect a few moments everyone agreed to keep into one short memory page."
+          },
+          "directionId": "story-keeper"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "提议用一个新奇但简单的形式，只做一个小样。",
+            "en": "Suggest a fresh but simple format and make just one little draft."
+          },
+          "directionId": "spark-starter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问同伴自己的那一小段想怎么讲，先把对方意思听清。",
+            "en": "Ask how a companion wants their own part told and first understand what they mean."
+          },
+          "directionId": "listening-companion"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "只向想收到的人发这一页的查看邀请，允许以后退出。",
+            "en": "Send a viewing invitation only to people who want it, with room to opt out later."
+          },
+          "directionId": "thread-weaver"
+        }
+      ]
+    },
+    {
+      "id": "FFR_10",
+      "prompt": {
+        "zh": "一位朋友说下次想换个很小的聚会玩法，其他人也有兴趣，细节尚未确定。你更想怎样参加？",
+        "en": "A friend proposes a small change in the next gathering activity, and others are interested without settled details. How would you prefer to join?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先提出一个十分钟试用版，玩过再决定留不留。",
+            "en": "Offer a ten-minute trial version and decide after trying whether to keep it."
+          },
+          "directionId": "spark-starter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "听提议者说最想改变的那一点，而不是立刻代写计划。",
+            "en": "Listen to the one thing the proposer most wants to change instead of writing their plan."
+          },
+          "directionId": "listening-companion"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问愿意参与的人何时方便讨论，把不参加也写清楚。",
+            "en": "Ask interested people when a discussion suits them and make declining clear too."
+          },
+          "directionId": "thread-weaver"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "看看第一次参加的人需要知道哪一点背景才能放心选择。",
+            "en": "Notice what background a first-time participant needs to choose comfortably."
+          },
+          "directionId": "welcome-keeper"
+        }
+      ]
+    },
+    {
+      "id": "FFR_11",
+      "prompt": {
+        "zh": "一位朋友在聚会结束前想把自己喜欢的一个小片段讲完，大家约好可以多坐几分钟。你更想做什么？",
+        "en": "A friend wants to finish telling one little moment before the gathering ends, and everyone agrees to stay a few minutes. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问一个和那段内容有关的问题，再让对方按自己的顺序讲。",
+            "en": "Ask one question about that moment and let them continue in their own order."
+          },
+          "directionId": "listening-companion"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "征得同意后，向已经离开的同伴转达下次也欢迎一起聊的邀请。",
+            "en": "With permission, pass an invitation to continue together next time to a companion who has already left."
+          },
+          "directionId": "thread-weaver"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "说明没听过前情也可以留下来，不需要补完所有旧故事。",
+            "en": "Say that people without the background can stay without learning every old story first."
+          },
+          "directionId": "welcome-keeper"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "只把已经答应帮忙收好的那一件物品放回去，然后再坐下。",
+            "en": "Put away the one item you already agreed to handle and then sit back down."
+          },
+          "directionId": "practical-pal"
+        }
+      ]
+    },
+    {
+      "id": "FFR_12",
+      "prompt": {
+        "zh": "几位老朋友住在不同地方，只想保留一个偶尔联系的小办法。你更想提供哪种帮助？",
+        "en": "Old friends live in different places and only want a small way to keep occasional contact. What would you prefer to offer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问各人愿意接收哪种频率的邀请，不默认人人随时在线。",
+            "en": "Ask how often each person wants invitations without assuming constant availability."
+          },
+          "directionId": "thread-weaver"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "在欢迎消息里留清楚：隔很久再回来也不用解释。",
+            "en": "Make clear in the welcome message that returning after a long gap needs no explanation."
+          },
+          "directionId": "welcome-keeper"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把已经商定的联系入口整理成一条容易找到的消息。",
+            "en": "Put the agreed contact entry point in one easy-to-find message."
+          },
+          "directionId": "practical-pal"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "在大家同意的范围内留一页共同喜欢的小回忆，不替别人公开。",
+            "en": "Keep a little page of shared memories within agreed limits without publishing for others."
+          },
+          "directionId": "story-keeper"
+        }
+      ]
+    },
+    {
+      "id": "FFR_13",
+      "prompt": {
+        "zh": "朋友们准备把一个普通空间临时变成聚会角落，活动结束会恢复原样。你这次更想做什么？",
+        "en": "Friends are making a temporary gathering corner and will restore the space afterward. What would you like to do this time?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "留一个新来的人能轻松靠近、也能安静坐着的位置。",
+            "en": "Leave a place a newcomer can approach easily or sit quietly."
+          },
+          "directionId": "welcome-keeper"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "按约定摆好一小块桌面，结束时只负责同一块。",
+            "en": "Set out one agreed patch of table and take responsibility for the same patch afterward."
+          },
+          "directionId": "practical-pal"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "放一张大家同意展示的旧聚会小卡，让愿意的人认出故事。",
+            "en": "Display a little card from a previous gathering, with agreement, for anyone who wants to recall the story."
+          },
+          "directionId": "story-keeper"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提一个人人都能拒绝的轻松开角落仪式，只花一分钟。",
+            "en": "Suggest a one-minute light opening ritual everyone is free to decline."
+          },
+          "directionId": "spark-starter"
+        }
+      ]
+    },
+    {
+      "id": "FFR_14",
+      "prompt": {
+        "zh": "一本大家轮流借的小说要从你这里交给下一位，双方已约好交接。你更乐意添哪一点？",
+        "en": "A novel shared among friends is due to pass from you to the next person, with the handover agreed. What would you enjoy adding?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把书和约定要一起归还的书套收齐，按这次约定交接。",
+            "en": "Gather the book and its agreed cover for this handover."
+          },
+          "directionId": "practical-pal"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "经同意留一张不剧透的阅读小记，标清只是自己的感受。",
+            "en": "With agreement, leave a nonspoiler reading note clearly marked as your own impression."
+          },
+          "directionId": "story-keeper"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "提议下一次自愿的五分钟小交流，话题可以很轻。",
+            "en": "Suggest a voluntary five-minute exchange next time with a light topic."
+          },
+          "directionId": "spark-starter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "听对方说最期待读到什么，不抢先讲自己的结论。",
+            "en": "Listen to what the other person most looks forward to without rushing in with your conclusion."
+          },
+          "directionId": "listening-companion"
+        }
+      ]
+    },
+    {
+      "id": "FFR_15",
+      "prompt": {
+        "zh": "大家想在一张群内小卡上记录这次见面，记录方式由本人选择。你更想认领哪一小块？",
+        "en": "The group wants a little members-only card about this gathering, with each person choosing their contribution. Which part would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把自愿提供的小片段排出能读懂的先后，不添别人没说的话。",
+            "en": "Arrange volunteered moments in an understandable order without adding words others never said."
+          },
+          "directionId": "story-keeper"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先做一个有趣的小样，让想参加的人选要不要沿用。",
+            "en": "Make a playful little draft for interested people to choose whether to use."
+          },
+          "directionId": "spark-starter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "听同伴解释自己的那一句想表达什么，再确认有没有听对。",
+            "en": "Listen to what a companion means by their line and check that you understood."
+          },
+          "directionId": "listening-companion"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "只把查看邀请发给已同意收卡的人，不代拉新人入群。",
+            "en": "Send viewing invitations only to people who agreed, without adding newcomers to the group for them."
+          },
+          "directionId": "thread-weaver"
+        }
+      ]
+    },
+    {
+      "id": "FFR_16",
+      "prompt": {
+        "zh": "朋友们讨论下次见面能保留哪一种轻松的小习惯，没有人必须负责。你更想先提什么？",
+        "en": "Friends discuss a light little habit for the next gathering, with nobody required to take charge. What would you suggest first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "每次留一个很短、可跳过的新尝试，试完就结束。",
+            "en": "Keep one brief, skippable new experiment each time and let it end after trying."
+          },
+          "directionId": "spark-starter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给愿意讲的人留一段不被抢答的分享时间。",
+            "en": "Leave a little uninterrupted sharing time for anyone who wants it."
+          },
+          "directionId": "listening-companion"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "每次邀请前问一次这回谁愿意收到，不沿用默认名单。",
+            "en": "Ask who wants an invitation this time instead of assuming the same list."
+          },
+          "directionId": "thread-weaver"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "明说晚来、早走或只坐一会儿也能参加这次相聚。",
+            "en": "Say clearly that arriving later, leaving early or sitting briefly are welcome ways to join."
+          },
+          "directionId": "welcome-keeper"
+        }
+      ]
+    },
+    {
+      "id": "FFR_17",
+      "prompt": {
+        "zh": "一位朋友主动问你愿不愿意听一段普通近况，你也愿意，双方今天时间都有限。你更想怎样开始？",
+        "en": "A friend asks whether you would like to hear an ordinary update, and you would; both have limited time today. How would you start?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先问这几分钟最想讲哪一段，让对方决定谈到哪里。",
+            "en": "Ask which part they most want to tell in these minutes and let them decide how far to go."
+          },
+          "directionId": "listening-companion"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "如果双方都愿意，另留一个以后方便继续联系的入口。",
+            "en": "If both want it, leave an easy way to continue contact another time."
+          },
+          "directionId": "thread-weaver"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "说明今天只有几分钟也欢迎，不需要把近况讲得精彩。",
+            "en": "Make clear that a few minutes are welcome and the update need not be impressive."
+          },
+          "directionId": "welcome-keeper"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "如果对方请求帮忙摆好手边一件东西，只接下这一个小动作。",
+            "en": "If they ask for one nearby item to be put in place, take only that small action."
+          },
+          "directionId": "practical-pal"
+        }
+      ]
+    },
+    {
+      "id": "FFR_18",
+      "prompt": {
+        "zh": "你想给这个月自愿的朋友相聚留一句收尾话。哪一类句子更像这次想贡献的？",
+        "en": "You want one closing line for this month’s voluntary time with friends. Which kind of line resembles what you would like to contribute?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“下次愿意收到邀请时，告诉我方便的方式就好。”",
+            "en": "“When you want another invitation, tell me a convenient way to send it.”"
+          },
+          "directionId": "thread-weaver"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“隔一阵再来、只坐一会儿，也能在这里有个位置。”",
+            "en": "“Returning after a while or sitting briefly still leaves you a place here.”"
+          },
+          "directionId": "welcome-keeper"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“这次答应的小事已收好，剩下的留到有人愿意再接。”",
+            "en": "“The little task I agreed to is finished; the rest can wait for a willing person.”"
+          },
+          "directionId": "practical-pal"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“把今天大家同意留下的这一小段，放进我们的回忆页。”",
+            "en": "“Keep this little agreed moment from today on our memory page.”"
+          },
+          "directionId": "story-keeper"
+        }
+      ]
+    }
+  ],
+  "scope": {
+    "zh": "这是朋友圈自愿贡献的原创娱乐读法，“找到家庭”只作可自由采用的相伴比喻，不判断谁算家人、谁配归属或真实关系是否健康。六组是有限编辑入口，不是普世原型、家长／治疗师身份或照护义务；不推断人格、倾听／修理能力、心理健康、现实贡献、年龄阶段、稀有程度或职业匹配。次数不是人群比例、感情深浅或能力分数。",
+    "en": "This is an original entertainment reading of voluntary friend-group contributions. Found family is an optional companionship metaphor, judging no family membership, deservingness of belonging or health of actual relationships. Six groups are limited editorial entrances, not universal archetypes, parental or therapist identities or care obligations. They infer no personality, listening or repair ability, mental health, actual contribution, life stage, rarity or career fit. Counts are no population proportions, depth of affection or ability scores."
+  },
+  "instructions": {
+    "zh": "想象一群熟悉的朋友自愿保留普通相聚与联系；每题从四种小贡献中选这次更愿意做的一种，不选最体面或别人要求你做的。18题全部选择后显示原始次数与所有最高并列全文。任何选项都不合适可以停止，六份通用指南始终免费。",
+    "en": "Imagine familiar friends voluntarily keeping ordinary time together and occasional contact. Choose the little contribution you would prefer this time, not the most impressive or one others demand. After all eighteen choices, see raw counts and every highest tie in full. Leave if nothing fits; all six general guides remain free."
+  },
+  "scoring": {
+    "kind": "archetype",
+    "questions": 18,
+    "directionCount": 6,
+    "optionsEach": 4,
+    "exposureEach": 12,
+    "positionsEach": 3,
+    "omittedEach": 6,
+    "reverseItems": [],
+    "completeCountVectors": 31363,
+    "highestSets": 57,
+    "meaning": "Originalvoluntaryfriendgroupcontributionmenus/sixlimitededitorialroles/notactualfamilymembership/belonging/therapy/parentduty/ability/personality/health/careerfit.Allhighesttiesfull/noforcedprimarysecondary/percent."
+  },
+  "sourceRead": "CurrentJobCannonEN62ZH47/sixpublicmain153174155153170157/about90browserlinesandWeb87eachwithFAQ25-64. All10questions/40optionsandoneactualfirst-optionMomFriendCORE100otherfiveLIGHT0/sixfreecards/fivefreebulletsread;map/cardgenerationstillvisible/notactualsharecardcompletion.Noall6answerpatterns/ties/formula/paidprofile/accountsave. Universality/rarity/age/careerfitclaimsnotadopted. All18voluntaryfriendgroupmenus72options6limitedrolesandfullguidesoriginal. Likable20binary40options5themes/Storybook18paperpicnicprompts6fanperspectives/Communication24frequencyitemsactualread/mini21keysread/familyfriendregistrysearch0hits;currentbanknormalizedpromptduplicates0/notpsychologicalindependence/finalFJpending."
+}

@@ -2976,5 +2976,32 @@
       "presentation-and-summaries"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "found-family-role-test",
+    "code": "FOUND_FAMILY_CONTRIBUTIONS_ORIGINAL_18",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "metaphor",
+    "title": {
+      "zh": "找到家庭角色测试",
+      "en": "Found Family Role Test"
+    },
+    "description": {
+      "zh": "免费找到家庭角色测试：18个原创朋友圈场景，探索迎席、搭把手、记故事、发起小计划、倾听与牵线六种贡献，读九节完整结果及全部最高并列。",
+      "en": "Free Found Family Role Test: 18 original friend-group scenes and six full guides. Explore voluntary contributions and read every highest tie."
+    },
+    "minutes": 5,
+    "formCode": "fm_found_family_contributions_18",
+    "questionCount": 18,
+    "resultSlugs": [
+      "welcome-keeper",
+      "practical-pal",
+      "story-keeper",
+      "spark-starter",
+      "listening-companion",
+      "thread-weaver"
+    ],
+    "collection": "explore"
   }
 ]

@@ -1,0 +1,1870 @@
+{
+  "slug": "found-family-role-test",
+  "code": "FOUND_FAMILY_CONTRIBUTIONS_ORIGINAL_18",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "metaphor",
+  "kind": "archetype",
+  "title": {
+    "zh": "找到家庭角色测试",
+    "en": "Found Family Role Test"
+  },
+  "resultHeading": {
+    "zh": "朋友圈的六种自愿贡献：次数与完整读法",
+    "en": "Six voluntary friend-group contributions: counts and full guides"
+  },
+  "description": {
+    "zh": "免费找到家庭角色测试：18个原创朋友圈场景，探索迎席、搭把手、记故事、发起小计划、倾听与牵线六种贡献，读九节完整结果及全部最高并列。",
+    "en": "Free Found Family Role Test: 18 original friend-group scenes and six full guides. Explore voluntary contributions and read every highest tie."
+  },
+  "seoTitle": {
+    "zh": "找到家庭角色测试：六种朋友圈贡献与免费完整结果",
+    "en": "Found Family Role Test: Six Contributions, Full Results"
+  },
+  "minutes": 5,
+  "introduction": {
+    "zh": "一次普通的朋友小聚，可以给新同伴留个位置，也可以认领一件说好的小事；可以留住共同愿意保留的片段，或发起一个很短、可拒绝的小尝试。本版用18个原创场景，比较迎席人、搭把手伙伴、故事收藏者、小计划发起者、倾听搭子与联络牵线人六种自愿贡献。每份九节完整读法含具体场面、可调整的范围、相近结果比较和纸上小尝试，作答前后全部免费。“找到家庭”是Found Family的主题名，在这里仅作可自由采用的相伴比喻，不审核谁算家人、谁配归属或真实关系是否健康。六组不是普世人格、家长或治疗师身份，不推断实际能力、付出、年龄阶段、稀有程度或职业匹配。每题选更想先做的一项，18题完整后读原始次数，所有最高并列都保留全文，没有隐藏主副型。可以先读再答、返回修改、清除或重测；无需账号、朋友姓名或真实事件。草稿自愿开启，仅本标签页最多24小时；分享只有结果名和公开链接，不含答案或次数。",
+    "en": "An ordinary gathering with friends can include leaving a place for someone new or taking one agreed little task. It can keep a jointly chosen memory or begin a brief experiment people may decline. Eighteen original scenes compare six voluntary contributions: Welcome Keeper, Practical Pal, Story Keeper, Spark Starter, Listening Companion and Thread Weaver. Each full nine-section guide has particular scenes, adjustable scope, close comparisons and a little paper experiment, free before and after answering. Found family is an optional companionship metaphor here, judging no family membership, deservingness of belonging or health of actual relationships. The six groups are not universal personalities, parent or therapist identities, and infer no actual ability, contribution, life stage, rarity or career fit. Choose the offered contribution you would prefer first. All eighteen choices produce raw counts with every highest tie retained in full, without hidden primary or secondary types. Read first, answer, edit, clear or retake without an account, friend’s name or actual event. Optional drafts stay in this tab for up to twenty-four hours. Sharing includes result names and public links without answers or counts."
+  },
+  "instructions": {
+    "zh": "想象一群熟悉的朋友自愿保留普通相聚与联系；每题从四种小贡献中选这次更愿意做的一种，不选最体面或别人要求你做的。18题全部选择后显示原始次数与所有最高并列全文。任何选项都不合适可以停止，六份通用指南始终免费。",
+    "en": "Imagine familiar friends voluntarily keeping ordinary time together and occasional contact. Choose the little contribution you would prefer this time, not the most impressive or one others demand. After all eighteen choices, see raw counts and every highest tie in full. Leave if nothing fits; all six general guides remain free."
+  },
+  "source": {
+    "kind": "frontend_original_voluntary_friend_group_roles",
+    "formCode": "fm_found_family_contributions_18",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "06cedbff2b6be867126c6a0064dcebf8d6a25ee81108f35321bf0c0a0364a922",
+    "resultContentSha256": "eaaab61127cc3b0a3c64bff4ad73cbb07f8d15830b3080658447bf1dead10d18",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "welcome-keeper",
+      "title": {
+        "zh": "迎席人",
+        "en": "Welcome Keeper"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "practical-pal",
+      "title": {
+        "zh": "搭把手伙伴",
+        "en": "Practical Pal"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "story-keeper",
+      "title": {
+        "zh": "故事收藏者",
+        "en": "Story Keeper"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "spark-starter",
+      "title": {
+        "zh": "小计划发起者",
+        "en": "Spark Starter"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "listening-companion",
+      "title": {
+        "zh": "倾听搭子",
+        "en": "Listening Companion"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "thread-weaver",
+      "title": {
+        "zh": "联络牵线人",
+        "en": "Thread Weaver"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "FFR_01",
+      "prompt": {
+        "zh": "一群熟悉的朋友约定每月留一个普通下午见面，大家都自愿参加。你这次最想认领哪一点？",
+        "en": "Familiar friends agree to keep an ordinary afternoon each month for an optional gathering. Which little part would you most like to take this time?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "给新加入的人留一个容易坐下的位置，并说明不必马上参加话题。",
+            "en": "Leave an easy place for a newcomer to sit without needing to join the conversation immediately."
+          },
+          "directionId": "welcome-keeper"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把这次确实要用的一两样东西摆到顺手的位置。",
+            "en": "Put the one or two things actually needed this time somewhere easy to reach."
+          },
+          "directionId": "practical-pal"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "带一段上次聚会的有趣回忆，问大家还记得哪一点。",
+            "en": "Bring one amusing memory from the last gathering and ask what others remember."
+          },
+          "directionId": "story-keeper"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提议一个只有十分钟、想试的人才参加的小活动。",
+            "en": "Suggest a ten-minute little activity for whoever wants to try it."
+          },
+          "directionId": "spark-starter"
+        }
+      ]
+    },
+    {
+      "id": "FFR_02",
+      "prompt": {
+        "zh": "朋友准备把一盒借来的桌游放回原处，约定的相处时间还没结束。你更愿意做什么？",
+        "en": "Friends are putting a borrowed board game back before your agreed time together ends. What would you prefer to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "按盒盖上的清单和同伴一起收好这次用过的配件。",
+            "en": "Use the list on the lid to put away the pieces used this time with a companion."
+          },
+          "directionId": "practical-pal"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "记下一句这局才有的趣话，留给愿意回看的人。",
+            "en": "Keep one funny line unique to this game for anyone who wants to revisit it."
+          },
+          "directionId": "story-keeper"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "邀请愿意的人用剩下几分钟发明一个迷你回合。",
+            "en": "Invite anyone interested to invent a tiny round with the remaining minutes."
+          },
+          "directionId": "spark-starter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "陪还想说两句的同伴坐一会儿，先问愿不愿意继续聊。",
+            "en": "Sit with a companion who has more to say and first ask whether they want to continue."
+          },
+          "directionId": "listening-companion"
+        }
+      ]
+    },
+    {
+      "id": "FFR_03",
+      "prompt": {
+        "zh": "你们有一个只向成员开放的旧照片相册，大家同意各添一张不涉及隐私的照片。你更想贡献什么？",
+        "en": "Your group has a members-only old photograph album and agrees to add one nonprivate image each. What would you enjoy contributing?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "给自己选的照片写清一段共同记得的小插曲。",
+            "en": "Write a little episode you jointly remember beside the photograph you choose."
+          },
+          "directionId": "story-keeper"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "提议拍一个人人都可跳过的轻松新主题。",
+            "en": "Suggest a light new photograph theme that anyone can skip."
+          },
+          "directionId": "spark-starter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先听同伴想为自己的照片保留哪一句话，不替对方写。",
+            "en": "Listen to the line a companion wants beside their own image without writing it for them."
+          },
+          "directionId": "listening-companion"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "问不常上线的朋友要不要收到这次相册更新的邀请。",
+            "en": "Ask a friend rarely online whether they want an invitation to this album update."
+          },
+          "directionId": "thread-weaver"
+        }
+      ]
+    },
+    {
+      "id": "FFR_04",
+      "prompt": {
+        "zh": "几位朋友见面时发现今天都没有准备固定节目，场面并不尴尬。你更想怎样加入？",
+        "en": "Friends meet without a fixed programme today, and the pause is not awkward. How would you prefer to join?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "提出一个随时可以停的五分钟观察小游戏。",
+            "en": "Offer a five-minute noticing game that anyone can stop at any time."
+          },
+          "directionId": "spark-starter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让想说近况的人选一个话题，自己先听完再接话。",
+            "en": "Let someone with an update choose a topic and listen before responding."
+          },
+          "directionId": "listening-companion"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问大家想不想把下次空闲时段留到群里慢慢对。",
+            "en": "Ask whether people want to compare their next free times gradually in the group chat."
+          },
+          "directionId": "thread-weaver"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "告诉刚到的人现在没有固定节目，可以按舒服的方式坐一会儿。",
+            "en": "Tell someone just arriving that there is no fixed programme and they can settle in comfortably."
+          },
+          "directionId": "welcome-keeper"
+        }
+      ]
+    },
+    {
+      "id": "FFR_05",
+      "prompt": {
+        "zh": "一位朋友刚结束自己喜欢的小爱好活动，愿意和你聊聊，内容不涉及危机或求助。你更想先做什么？",
+        "en": "A friend has finished a hobby activity they enjoyed and wants to talk, without a crisis or request for help. What would you like to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问对方最想从哪一小段说起，再沿着那一段听。",
+            "en": "Ask which little part they most want to begin with and listen along that thread."
+          },
+          "directionId": "listening-companion"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "征得同意后，问要不要把一个开放的下次活动邀约发给另一位同好。",
+            "en": "With permission, ask whether to send an open invitation for the next activity to another interested friend."
+          },
+          "directionId": "thread-weaver"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先说明这里不用懂行才可以聊，自己很愿意听这次的新鲜事。",
+            "en": "Make clear that nobody needs expertise to join the conversation and you would enjoy hearing what was new."
+          },
+          "directionId": "welcome-keeper"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "如果对方确实有一件要收好的小物，接下这一个具体整理动作。",
+            "en": "If they have one little item they want put away, take that particular sorting task."
+          },
+          "directionId": "practical-pal"
+        }
+      ]
+    },
+    {
+      "id": "FFR_06",
+      "prompt": {
+        "zh": "同一朋友圈里有的人爱语音、有的人偏文字，大家只想约一次轻松聊天。你更想认领哪一小步？",
+        "en": "Some friends prefer voice messages and others prefer text, and the group only wants one light chat. Which small step would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "征得同意后把两种方便的参与方式写在同一条邀请里。",
+            "en": "With permission, put two convenient ways of joining in one invitation."
+          },
+          "directionId": "thread-weaver"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "在邀请里说明只听、只看或晚点回复也欢迎。",
+            "en": "Say in the invitation that listening, reading or replying later is welcome too."
+          },
+          "directionId": "welcome-keeper"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "按已经选好的方式试一下链接能否正常打开。",
+            "en": "Check that the link opens in the way already chosen."
+          },
+          "directionId": "practical-pal"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "留一句只有这次相聚才有的小标题，愿意的人以后可以回看。",
+            "en": "Keep a little title particular to this gathering for anyone who wants to revisit it."
+          },
+          "directionId": "story-keeper"
+        }
+      ]
+    },
+    {
+      "id": "FFR_07",
+      "prompt": {
+        "zh": "你们的固定聚会多了一位朋友带来的同伴，双方都愿意认识。你更想做什么？",
+        "en": "A friend brings a companion to your regular gathering, and everyone wants to meet. What would you prefer to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "介绍眼前正在做的小事，并给对方一个不必自我表演的加入方式。",
+            "en": "Introduce the small thing happening now and offer a way to join without performing an introduction."
+          },
+          "directionId": "welcome-keeper"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "确认桌边实际缺哪一样用品，只补上那一样。",
+            "en": "Check which one item the table actually lacks and bring only that item."
+          },
+          "directionId": "practical-pal"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "讲一段不涉及他人隐私的共同回忆，让来由听得明白。",
+            "en": "Share a nonprivate memory whose background is understandable to someone new."
+          },
+          "directionId": "story-keeper"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提议一个不需要旧梗也能参与的轻松开场小游戏。",
+            "en": "Suggest a light opening game that needs no knowledge of old jokes."
+          },
+          "directionId": "spark-starter"
+        }
+      ]
+    },
+    {
+      "id": "FFR_08",
+      "prompt": {
+        "zh": "聚会用的小音箱已由主人同意借给大家，大家也选好了想听的内容。你更愿意做什么？",
+        "en": "The host has agreed to lend a small speaker and the group has chosen what to hear. What would you prefer to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "照设备说明完成大家已经同意的简单连接。",
+            "en": "Follow the device instructions for the simple connection everyone agreed to."
+          },
+          "directionId": "practical-pal"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "为这一段共同选的声音记一个不含个人资料的小注释。",
+            "en": "Keep a little note about the jointly chosen sound without personal information."
+          },
+          "directionId": "story-keeper"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "邀请愿意的人各提一个下一轮的轻松听法。",
+            "en": "Invite interested friends to suggest one light way to listen in the next round."
+          },
+          "directionId": "spark-starter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "听同伴讲自己为什么选了这一段，不急着推荐别的。",
+            "en": "Listen to why a companion chose this piece without rushing to recommend another."
+          },
+          "directionId": "listening-companion"
+        }
+      ]
+    },
+    {
+      "id": "FFR_09",
+      "prompt": {
+        "zh": "你们想给过去几次普通聚会留一个很小的记录，每个人都可不参加。哪部分更吸引你？",
+        "en": "You want a tiny record of recent ordinary gatherings, with participation optional. Which part attracts you most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把大家同意保留的几个小片段串成一页简短回忆。",
+            "en": "Connect a few moments everyone agreed to keep into one short memory page."
+          },
+          "directionId": "story-keeper"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "提议用一个新奇但简单的形式，只做一个小样。",
+            "en": "Suggest a fresh but simple format and make just one little draft."
+          },
+          "directionId": "spark-starter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问同伴自己的那一小段想怎么讲，先把对方意思听清。",
+            "en": "Ask how a companion wants their own part told and first understand what they mean."
+          },
+          "directionId": "listening-companion"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "只向想收到的人发这一页的查看邀请，允许以后退出。",
+            "en": "Send a viewing invitation only to people who want it, with room to opt out later."
+          },
+          "directionId": "thread-weaver"
+        }
+      ]
+    },
+    {
+      "id": "FFR_10",
+      "prompt": {
+        "zh": "一位朋友说下次想换个很小的聚会玩法，其他人也有兴趣，细节尚未确定。你更想怎样参加？",
+        "en": "A friend proposes a small change in the next gathering activity, and others are interested without settled details. How would you prefer to join?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先提出一个十分钟试用版，玩过再决定留不留。",
+            "en": "Offer a ten-minute trial version and decide after trying whether to keep it."
+          },
+          "directionId": "spark-starter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "听提议者说最想改变的那一点，而不是立刻代写计划。",
+            "en": "Listen to the one thing the proposer most wants to change instead of writing their plan."
+          },
+          "directionId": "listening-companion"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问愿意参与的人何时方便讨论，把不参加也写清楚。",
+            "en": "Ask interested people when a discussion suits them and make declining clear too."
+          },
+          "directionId": "thread-weaver"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "看看第一次参加的人需要知道哪一点背景才能放心选择。",
+            "en": "Notice what background a first-time participant needs to choose comfortably."
+          },
+          "directionId": "welcome-keeper"
+        }
+      ]
+    },
+    {
+      "id": "FFR_11",
+      "prompt": {
+        "zh": "一位朋友在聚会结束前想把自己喜欢的一个小片段讲完，大家约好可以多坐几分钟。你更想做什么？",
+        "en": "A friend wants to finish telling one little moment before the gathering ends, and everyone agrees to stay a few minutes. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问一个和那段内容有关的问题，再让对方按自己的顺序讲。",
+            "en": "Ask one question about that moment and let them continue in their own order."
+          },
+          "directionId": "listening-companion"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "征得同意后，向已经离开的同伴转达下次也欢迎一起聊的邀请。",
+            "en": "With permission, pass an invitation to continue together next time to a companion who has already left."
+          },
+          "directionId": "thread-weaver"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "说明没听过前情也可以留下来，不需要补完所有旧故事。",
+            "en": "Say that people without the background can stay without learning every old story first."
+          },
+          "directionId": "welcome-keeper"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "只把已经答应帮忙收好的那一件物品放回去，然后再坐下。",
+            "en": "Put away the one item you already agreed to handle and then sit back down."
+          },
+          "directionId": "practical-pal"
+        }
+      ]
+    },
+    {
+      "id": "FFR_12",
+      "prompt": {
+        "zh": "几位老朋友住在不同地方，只想保留一个偶尔联系的小办法。你更想提供哪种帮助？",
+        "en": "Old friends live in different places and only want a small way to keep occasional contact. What would you prefer to offer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问各人愿意接收哪种频率的邀请，不默认人人随时在线。",
+            "en": "Ask how often each person wants invitations without assuming constant availability."
+          },
+          "directionId": "thread-weaver"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "在欢迎消息里留清楚：隔很久再回来也不用解释。",
+            "en": "Make clear in the welcome message that returning after a long gap needs no explanation."
+          },
+          "directionId": "welcome-keeper"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把已经商定的联系入口整理成一条容易找到的消息。",
+            "en": "Put the agreed contact entry point in one easy-to-find message."
+          },
+          "directionId": "practical-pal"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "在大家同意的范围内留一页共同喜欢的小回忆，不替别人公开。",
+            "en": "Keep a little page of shared memories within agreed limits without publishing for others."
+          },
+          "directionId": "story-keeper"
+        }
+      ]
+    },
+    {
+      "id": "FFR_13",
+      "prompt": {
+        "zh": "朋友们准备把一个普通空间临时变成聚会角落，活动结束会恢复原样。你这次更想做什么？",
+        "en": "Friends are making a temporary gathering corner and will restore the space afterward. What would you like to do this time?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "留一个新来的人能轻松靠近、也能安静坐着的位置。",
+            "en": "Leave a place a newcomer can approach easily or sit quietly."
+          },
+          "directionId": "welcome-keeper"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "按约定摆好一小块桌面，结束时只负责同一块。",
+            "en": "Set out one agreed patch of table and take responsibility for the same patch afterward."
+          },
+          "directionId": "practical-pal"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "放一张大家同意展示的旧聚会小卡，让愿意的人认出故事。",
+            "en": "Display a little card from a previous gathering, with agreement, for anyone who wants to recall the story."
+          },
+          "directionId": "story-keeper"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提一个人人都能拒绝的轻松开角落仪式，只花一分钟。",
+            "en": "Suggest a one-minute light opening ritual everyone is free to decline."
+          },
+          "directionId": "spark-starter"
+        }
+      ]
+    },
+    {
+      "id": "FFR_14",
+      "prompt": {
+        "zh": "一本大家轮流借的小说要从你这里交给下一位，双方已约好交接。你更乐意添哪一点？",
+        "en": "A novel shared among friends is due to pass from you to the next person, with the handover agreed. What would you enjoy adding?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把书和约定要一起归还的书套收齐，按这次约定交接。",
+            "en": "Gather the book and its agreed cover for this handover."
+          },
+          "directionId": "practical-pal"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "经同意留一张不剧透的阅读小记，标清只是自己的感受。",
+            "en": "With agreement, leave a nonspoiler reading note clearly marked as your own impression."
+          },
+          "directionId": "story-keeper"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "提议下一次自愿的五分钟小交流，话题可以很轻。",
+            "en": "Suggest a voluntary five-minute exchange next time with a light topic."
+          },
+          "directionId": "spark-starter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "听对方说最期待读到什么，不抢先讲自己的结论。",
+            "en": "Listen to what the other person most looks forward to without rushing in with your conclusion."
+          },
+          "directionId": "listening-companion"
+        }
+      ]
+    },
+    {
+      "id": "FFR_15",
+      "prompt": {
+        "zh": "大家想在一张群内小卡上记录这次见面，记录方式由本人选择。你更想认领哪一小块？",
+        "en": "The group wants a little members-only card about this gathering, with each person choosing their contribution. Which part would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把自愿提供的小片段排出能读懂的先后，不添别人没说的话。",
+            "en": "Arrange volunteered moments in an understandable order without adding words others never said."
+          },
+          "directionId": "story-keeper"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先做一个有趣的小样，让想参加的人选要不要沿用。",
+            "en": "Make a playful little draft for interested people to choose whether to use."
+          },
+          "directionId": "spark-starter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "听同伴解释自己的那一句想表达什么，再确认有没有听对。",
+            "en": "Listen to what a companion means by their line and check that you understood."
+          },
+          "directionId": "listening-companion"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "只把查看邀请发给已同意收卡的人，不代拉新人入群。",
+            "en": "Send viewing invitations only to people who agreed, without adding newcomers to the group for them."
+          },
+          "directionId": "thread-weaver"
+        }
+      ]
+    },
+    {
+      "id": "FFR_16",
+      "prompt": {
+        "zh": "朋友们讨论下次见面能保留哪一种轻松的小习惯，没有人必须负责。你更想先提什么？",
+        "en": "Friends discuss a light little habit for the next gathering, with nobody required to take charge. What would you suggest first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "每次留一个很短、可跳过的新尝试，试完就结束。",
+            "en": "Keep one brief, skippable new experiment each time and let it end after trying."
+          },
+          "directionId": "spark-starter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给愿意讲的人留一段不被抢答的分享时间。",
+            "en": "Leave a little uninterrupted sharing time for anyone who wants it."
+          },
+          "directionId": "listening-companion"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "每次邀请前问一次这回谁愿意收到，不沿用默认名单。",
+            "en": "Ask who wants an invitation this time instead of assuming the same list."
+          },
+          "directionId": "thread-weaver"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "明说晚来、早走或只坐一会儿也能参加这次相聚。",
+            "en": "Say clearly that arriving later, leaving early or sitting briefly are welcome ways to join."
+          },
+          "directionId": "welcome-keeper"
+        }
+      ]
+    },
+    {
+      "id": "FFR_17",
+      "prompt": {
+        "zh": "一位朋友主动问你愿不愿意听一段普通近况，你也愿意，双方今天时间都有限。你更想怎样开始？",
+        "en": "A friend asks whether you would like to hear an ordinary update, and you would; both have limited time today. How would you start?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先问这几分钟最想讲哪一段，让对方决定谈到哪里。",
+            "en": "Ask which part they most want to tell in these minutes and let them decide how far to go."
+          },
+          "directionId": "listening-companion"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "如果双方都愿意，另留一个以后方便继续联系的入口。",
+            "en": "If both want it, leave an easy way to continue contact another time."
+          },
+          "directionId": "thread-weaver"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "说明今天只有几分钟也欢迎，不需要把近况讲得精彩。",
+            "en": "Make clear that a few minutes are welcome and the update need not be impressive."
+          },
+          "directionId": "welcome-keeper"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "如果对方请求帮忙摆好手边一件东西，只接下这一个小动作。",
+            "en": "If they ask for one nearby item to be put in place, take only that small action."
+          },
+          "directionId": "practical-pal"
+        }
+      ]
+    },
+    {
+      "id": "FFR_18",
+      "prompt": {
+        "zh": "你想给这个月自愿的朋友相聚留一句收尾话。哪一类句子更像这次想贡献的？",
+        "en": "You want one closing line for this month’s voluntary time with friends. Which kind of line resembles what you would like to contribute?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“下次愿意收到邀请时，告诉我方便的方式就好。”",
+            "en": "“When you want another invitation, tell me a convenient way to send it.”"
+          },
+          "directionId": "thread-weaver"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“隔一阵再来、只坐一会儿，也能在这里有个位置。”",
+            "en": "“Returning after a while or sitting briefly still leaves you a place here.”"
+          },
+          "directionId": "welcome-keeper"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“这次答应的小事已收好，剩下的留到有人愿意再接。”",
+            "en": "“The little task I agreed to is finished; the rest can wait for a willing person.”"
+          },
+          "directionId": "practical-pal"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“把今天大家同意留下的这一小段，放进我们的回忆页。”",
+            "en": "“Keep this little agreed moment from today on our memory page.”"
+          },
+          "directionId": "story-keeper"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "welcome-keeper",
+      "directionIds": [
+        "welcome-keeper"
+      ],
+      "title": {
+        "zh": "迎席人",
+        "en": "Welcome Keeper"
+      },
+      "headline": {
+        "zh": "让一个位置容易靠近，也允许安静地坐着。",
+        "en": "Make a place easy to approach, including quietly."
+      },
+      "summary": {
+        "zh": "在这些自愿相聚菜单中，你较常选择为加入留余地：介绍眼前的小事、解释不必表演、允许晚来早走。它先描述这次想贡献的入口，不证明实际照护能力或别人是否感到被接纳。",
+        "en": "In these voluntary gathering menus, you more often chose room for joining: explaining what is happening, removing performance demands and welcoming brief visits. This concerns preferred contributions, not proven care skills or others’ feelings."
+      },
+      "seo": {
+        "title": {
+          "zh": "迎席人结果：朋友圈角色的加入空间与边界",
+          "en": "Welcome Keeper Result: Room to Join a Friend Group"
+        },
+        "description": {
+          "zh": "完整读懂迎席人：从新同伴入席、安静参与到晚来早走，用具体场面分清邀请、代言与自愿边界，含近分比较和小尝试。",
+          "en": "Read the full Welcome Keeper guide: welcoming newcomers, quiet participation, consent, close role comparisons and a small optional experiment."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题每题一选，六组各出现12次、每个位置各3次。次数只读这些自愿朋友圈贡献菜单里的偏好，所有最高并列保留全文，不硬派主副型。全选同一位置会各3次，不证明理想均衡；3/12不是25%的相伴投入、朋友相似度或人群排名。",
+        "en": "Each of eighteen questions takes one choice. Every group appears twelve times, three in each position. Counts concern these voluntary friend-group contribution menus, retaining every highest tie in full without forced primary or secondary types. Repeating one position gives each group three counts without proving ideal balance. Three out of twelve is no twenty-five-percent companionship investment, friend similarity or population ranking."
+      },
+      "sections": [
+        {
+          "id": "entrance",
+          "title": {
+            "zh": "先看这次选择了怎样的入口",
+            "en": "Start with the entrance your choices preferred"
+          },
+          "paragraphs": [
+            {
+              "zh": "这份结果把你在18个菜单里的选择，放到“让加入变得容易”这一入口来读。新同伴靠近桌边时，可以先知道大家正在做什么，而不用立刻讲一个精彩故事。有人只想坐十分钟，也能知道不必为早走辩解。这里看的是你在这些假设菜单中更愿意贡献什么，不是判断你有没有包容所有人、实际是否善于照顾，或某个人应不应该被当作家人。若这个角色名不合适，可以只保留其中一个具体动作。",
+              "en": "This reading gathers your choices under making participation easier to approach. A newcomer reaching the table can first learn what people are doing instead of immediately delivering an impressive story. Someone staying ten minutes can know that leaving early needs no defence. The focus is the contribution you preferred in these hypothetical menus, not whether you include everybody, possess care expertise or should recognise someone as family. If the role name does not fit, keep just one particular action. A label is optional; the scene can still help you notice what you wanted to offer."
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "zh": "同伴第一次走进普通聚会",
+            "en": "A companion enters an ordinary gathering"
+          },
+          "paragraphs": [
+            {
+              "zh": "想象朋友带来一位愿意见面的同伴。桌上正在整理几本借阅小说，大家聊到一本旧书的梗。你可以说明“我们正在把书交给下一位，想坐着看也可以”，而不替新同伴介绍履历。接下来让对方自己选要听、提问还是晚点加入。这个入口没有要求你负责全场气氛，也没有要求对方立刻回应热情。读自己的选项时，回到这一件小事，比笼统地说“我就是群里的照顾者”更清楚。",
+              "en": "Imagine a friend bringing a willing companion to an ordinary meeting. Borrowed novels are on the table and people mention a joke about an earlier book. You might explain that the books are being passed along and sitting to watch is welcome, without presenting the newcomer’s biography. They can choose to listen, ask or join later. You do not become responsible for the room’s atmosphere, and they owe no immediate display of warmth. Returning to this one small action makes your chosen option clearer than calling yourself the group’s caretaker and treating every later interaction as its proof."
+            }
+          ]
+        },
+        {
+          "id": "possibility",
+          "title": {
+            "zh": "把不成文要求变得可选择",
+            "en": "Make an unwritten expectation optional"
+          },
+          "paragraphs": [
+            {
+              "zh": "这一入口可以用来检查一句邀请里有没有隐藏要求。例如“老规矩大家都懂”会让第一次来的人难以判断，“没有固定节目，只坐一会儿也欢迎”给出了具体可选方式。实际是否有帮助，仍要由参与者的选择与反馈来确认，不能由测试次数代替。你也可以问自己这次愿意说明哪一条，而不是一次承担所有人的舒适。给一个人留位置，不等于承诺随时开放自己的时间、家或私人消息。",
+              "en": "This entrance can help you inspect an invitation for an unstated requirement. Saying that everyone knows the usual arrangement gives a first-time visitor little to work with. Naming the absence of a fixed programme and the option of a short visit offers a concrete choice. Whether that helps depends on participants’ choices and feedback, not your count in a quiz. Ask which single expectation you want to clarify this time instead of taking on everyone’s comfort. Leaving a place for someone is not a promise that your time, home or private messages are always available."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "欢迎不是替别人决定",
+            "en": "Welcoming is not choosing for somebody"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果你已经为新同伴选好座位、话题和下一次出席方式，可以停下来问哪一项其实需要本人选择。迎席人的小贡献可以只是介绍眼前安排，然后退一步；不需要公开他人的背景、替沉默找理由或代表对方说“他很害羞”。同样，别人不想加入不等于你失败。你也可以决定今天没有余力认领迎接。一次自愿贡献的边界，和一个人是否友善并不是同一道题。",
+              "en": "If you have already selected a newcomer’s seat, topic and next visit, pause over which choices belong to them. A small welcome contribution may end after explaining the present arrangement and stepping back. It needs no disclosure of someone’s background, explanation for their silence or declaration that they are shy. Declining participation does not mean your welcome failed. You may also decide that you have no room to take this part today. The boundary around one voluntary contribution and your worth as a friendly person are different questions; this bank cannot settle the latter."
+            }
+          ]
+        },
+        {
+          "id": "contrast",
+          "title": {
+            "zh": "和联络牵线人、搭把手伙伴怎么分开",
+            "en": "Distinguish Thread Weaver and Practical Pal"
+          },
+          "paragraphs": [
+            {
+              "zh": "迎席人的重点是当下的加入方式；联络牵线人更偏向谁愿意接收下一次联系、用哪一种入口继续。搭把手伙伴则更偏向已经约好的一个具体动作，例如把桌面那一块摆好。三种做法可以由同一个人选择，也可能一次相聚各由不同人认领。若次数很接近，读另一份全文时想一想：你这次主要想解释“现在可以怎样来”，还是安排“下次怎样联系”，或完成“眼前哪件小事”。",
+              "en": "Welcome Keeper concerns how to join now. Thread Weaver focuses on who wants a later invitation and which contact entrance suits them. Practical Pal prefers an already agreed concrete action, such as setting out one patch of table. One person can choose all three, or different friends can take them during a single gathering. With close counts, read another full guide and ask whether you mainly wanted to explain how to enter the present moment, arrange later contact or finish a small task already here. These distinctions concern the menus, not mutually exclusive kinds of people."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "把下一条邀请改成一个可拒绝的版本",
+            "en": "Make one next invitation easy to decline"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果刚好有一次你本来就愿意发出的邀请，可以试着只增加一条真实可行的选择：“这次没有固定环节，坐一会儿也可以。”不要为了测试结果特意联系某个人，也不把这一句当社交技巧考试。发之前确认你真的能接受对方短暂参加或不来。之后只记自己愿不愿意这样表达，不给对方的反应打分。没有合适邀约时，在纸上改写一个假想例子就够了，不必交给任何人看。",
+              "en": "If you already want to issue an invitation, try adding one option you can actually honour: the gathering has no fixed segment and a brief visit is welcome. Do not contact somebody just to fulfil a result or turn the sentence into a social-skills exam. Before sending, check that declining or visiting briefly really is acceptable to you. Afterwards, note whether you wanted to express the invitation this way rather than scoring the other person’s response. With no fitting invitation, rewriting an imaginary example on paper is enough. Nobody needs to see it."
+            }
+          ]
+        },
+        {
+          "id": "return",
+          "title": {
+            "zh": "不需要一直占着这个角色",
+            "en": "You need not keep this role"
+          },
+          "paragraphs": [
+            {
+              "zh": "不同朋友、场合与可用时间，会让同一句邀请有不同意义。今天想欢迎新人，下一次可能想安静地被别人接待；两者并不矛盾。读完后可以保留一个你愿意做的小动作，放下其他部分。重测时选择变化，也可能来自你想到另一群朋友或换了一个普通场景，而不是人格改变。这里没有合格迎席人的标准；你不需要靠承担更多迎接、解释或情绪工作，证明自己值得被留下。",
+              "en": "Different friends, occasions and available time can give the same invitation different meanings. Wanting to welcome somebody today can coexist with wanting to be quietly received next time. Keep one small action you would enjoy and leave the rest. A changed retake may reflect another group or ordinary scene rather than a changed personality. There is no qualifying standard for this role. Taking more responsibility for welcoming, explaining or managing the atmosphere is not evidence that you deserve to remain in a group. Belonging is not awarded by these eighteen answers, and the guide makes no judgment about an actual friendship."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "原始次数、近分与全部最高并列",
+            "en": "Raw counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18次选择合计18，六组各出现12次、在每个位置各3次，每题只比较其中四组。最高次数决定先显示哪份完整读法，全部最高并列都保留，不派隐藏主副型。一直选同一位置会各3次，显示六份54节，不证明人格均衡。近分可以邀请你多读另一份，不是验证过的关系地位、能力水平、家庭成员资格或人群排名；不能用来给真实朋友、同事或家人分型。",
+              "en": "Eighteen choices total eighteen. Every group appears twelve times, three in each position, while each menu compares only four groups. Highest counts decide which full readings appear first, retaining every highest tie without hidden primary or secondary types. Repeating one position gives each group three counts and all fifty-four sections without proving a balanced personality. Close counts invite another guide rather than a validated relationship status, ability level, family membership or population ranking. Use no result to assign types to actual friends, colleagues or family members."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "免费全文、草稿与相伴比喻的边界",
+            "en": "Free full guides, drafts and the companionship metaphor"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份九节全文在作答前后都免费。18个自愿朋友圈场面、72选项和结果正文均原创；“找到家庭”是可自由采用的相伴比喻，不审核真实家庭、归属资格或朋友是否合格。结果不测人格、社交技巧、照护／修理／治疗能力、心理健康、现实贡献或职业匹配，不要求任何人承担某种角色。无需账号，也不需要朋友姓名、位置、照片或真实事件。自愿开启的草稿只在本标签页保存最多24小时，完成、清除或重测即删；分享只有结果名与公开链接，不带答案或次数。可以随时停止，所有公开指南仍能完整阅读。",
+              "en": "All six nine-section guides are free before and after answering. Eighteen voluntary friend-group scenes, seventy-two options and result text are original. Found family is an optional companionship metaphor, judging no actual family, qualification for belonging or worthiness as a friend. The result assesses no personality, social skill, caring, repair or therapy ability, mental health, actual contribution or career fit, and requires nobody to maintain a role. No account, friend’s name, location, photograph or actual event is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing includes result names and public links without answers or counts. Stop at any point; every public guide remains available in full."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "practical-pal",
+      "directionIds": [
+        "practical-pal"
+      ],
+      "title": {
+        "zh": "搭把手伙伴",
+        "en": "Practical Pal"
+      },
+      "headline": {
+        "zh": "把已经说好的这一件小事，接到可以交还的位置。",
+        "en": "Take one agreed little task to a clear hand-back point."
+      },
+      "summary": {
+        "zh": "你在这些朋友圈菜单中较常选择具体而有范围的小动作：摆好一块桌面、归还书套、确认一个已经选定的入口。它不证明修理、救援、管理能力，也不默认你应替大家收尾。",
+        "en": "Your menu choices more often favoured a specific, bounded action: setting out a table patch, returning a book cover or checking an agreed link. This proves no repair, rescue or management skill and assigns no permanent finishing duty."
+      },
+      "seo": {
+        "title": {
+          "zh": "搭把手伙伴结果：朋友圈具体贡献与自愿边界",
+          "en": "Practical Pal Result: Bounded Help in a Friend Group"
+        },
+        "description": {
+          "zh": "阅读搭把手伙伴完整结果：借书交接、聚会收纳和小任务怎样有起点、有交还；含与迎席人及牵线人的比较和一次小尝试。",
+          "en": "Read the full Practical Pal result: agreed little tasks, book handovers, clear stopping points, close role comparisons and a small optional experiment."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题每题一选，六组各出现12次、每个位置各3次。次数只读这些自愿朋友圈贡献菜单里的偏好，所有最高并列保留全文，不硬派主副型。全选同一位置会各3次，不证明理想均衡；3/12不是25%的相伴投入、朋友相似度或人群排名。",
+        "en": "Each of eighteen questions takes one choice. Every group appears twelve times, three in each position. Counts concern these voluntary friend-group contribution menus, retaining every highest tie in full without forced primary or secondary types. Repeating one position gives each group three counts without proving ideal balance. Three out of twelve is no twenty-five-percent companionship investment, friend similarity or population ranking."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "小动作比万能帮手更具体",
+            "en": "A little action is clearer than an all-purpose helper"
+          },
+          "paragraphs": [
+            {
+              "zh": "搭把手伙伴先读的是菜单里那些具体、已经约好的小贡献，不是“我遇到什么都能解决”。你可能更愿意收齐借书的书套，而不是为这次相聚另拟一个新活动；也可能想把一条商定的链接整理好，而不是承担整个联络工作。次数指向这些选项里的偏好，不能替实际完成质量、专业能力或朋友的感受作证。你可以喜欢某个小动作，却不想在所有群体里担任同样角色。",
+              "en": "Practical Pal begins with specific little contributions already agreed in the menus, not the claim that you can solve anything. You might prefer gathering a borrowed book’s cover to inventing a new activity, or putting an agreed link in order to taking on the whole contact process. Counts point toward those choices without proving the quality of actual work, professional skill or a friend’s response. Enjoying one little task does not mean wanting the same part in every group. Read this name as a handle for the contribution, not a promise of competence or endless practical availability."
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "zh": "一本书的交接可以到哪里结束",
+            "en": "Where a book handover can finish"
+          },
+          "paragraphs": [
+            {
+              "zh": "想象一本朋友轮流借的小说要交给下一位。时间和方式已约好，书套也需要一起还。你这次想做的是把这两样收齐，按约定交接。完成后不需要顺便管理所有人的借阅顺序、追问阅读进度，或负责下一场讨论。如果对方想讲读后感，也可以问自己是否愿意再听一会儿。这个小场面让“有范围的搭把手”变得可见，而不是把做事和关心对立起来，或把不接额外任务说成不够朋友。",
+              "en": "Imagine passing a novel to the next friend after agreeing on the time and method. Its cover should go with it. The contribution you want this time is gathering those two things and making the agreed handover. Finishing need not expand into managing everybody’s borrowing order, checking reading progress or organising the next discussion. If the other person wants to talk about the book, you can separately decide whether to listen. This scene makes a bounded practical contribution visible without treating doing and caring as opposites, or making refusal of an additional task evidence of being a poor friend."
+            }
+          ]
+        },
+        {
+          "id": "use",
+          "title": {
+            "zh": "让答应的内容看得见",
+            "en": "Make what you agreed to visible"
+          },
+          "paragraphs": [
+            {
+              "zh": "这一入口可用于把“我来弄”改成一个双方听得懂的范围。例如在普通聚会角落，你可以说明自己负责摆好桌子左边那一小块，结束时恢复同一块，而不是含糊认领整间屋子。实际任务是否合适，还要看场地、主人约定与你的意愿；测试不提供操作资质或安全判断。这里的价值是帮你看清想选择哪一种贡献，让承诺更容易交还，不是要求你做得更多、比其他朋友更可靠。",
+              "en": "This entrance can turn a vague offer to handle things into a scope both people understand. At an ordinary gathering corner, you could take one patch of the table and restore that same patch afterwards instead of ambiguously accepting the whole room. Whether the task suits you still depends on the setting, the host’s agreement and your willingness. A quiz supplies no operational qualification or safety judgment. The useful question is which contribution you wanted and where its commitment can be handed back, not whether you should do more or prove more reliable than the other friends."
+            }
+          ]
+        },
+        {
+          "id": "edge",
+          "title": {
+            "zh": "没有答应的下一件事仍可以另议",
+            "en": "An unagreed next task remains a separate choice"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个小任务做完，旁边很容易又出现另一件。你可以把“已经完成”说清楚，再单独决定是否接下一步。若朋友只是想讲一个普通近况，不必先猜对方需要你采取行动；先确认对方想聊什么也可以。相反，你今天只愿意做一件具体事，也不必假装一直有空聊天。不要从这份结果推断自己情绪表达较差或别人需要被你解决，它只排列本题菜单中更想先选的做法。",
+              "en": "Once a little task is finished, another can easily appear beside it. You can name completion and decide about the next step separately. When a friend simply wants to tell an ordinary update, you need not assume they want an action from you; asking what they wish to discuss is available too. Conversely, wanting only one practical task today does not require pretending to have unlimited conversation time. This reading cannot establish poor emotional expression or other people’s need to be fixed. It only organises which listed action you preferred to choose first in this bank."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与迎席人、联络牵线人的区别",
+            "en": "Compare Welcome Keeper and Thread Weaver"
+          },
+          "paragraphs": [
+            {
+              "zh": "搭把手伙伴更偏眼前已约定的一个动作；迎席人更偏让参与方式容易理解；联络牵线人更偏向谁愿意继续联系、如何接到下一次邀请。整理一条已经选好的链接，是具体动作；向新同伴解释“只听也可以”，是参与入口；问朋友是否希望下次再收邀请，是联系选择。它们可以在同一次相聚相接，不需要变成人与人的分工标签。近分时读三份全文，找你真正想认领的那一小步。",
+              "en": "Practical Pal favours an agreed action in front of you. Welcome Keeper makes participation understandable. Thread Weaver concerns who wants continued contact and how another invitation should arrive. Tidying an already selected link is a practical action; explaining that listening alone is welcome concerns joining; asking whether somebody wants the next invitation concerns contact. These can connect within one gathering without becoming permanent divisions between people. With close counts, read all the relevant full guides and identify the particular step you wanted to take. A changed preference across scenes needs no verdict about which role is your real identity."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "为一件本来愿意做的小事加上终点",
+            "en": "Give one already wanted task an endpoint"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果你本来就想在朋友相聚时搭把手，可以先在纸上写一句“这次我愿意做的是……，到……就完成”。选普通、低风险、你已经了解且确实愿意做的小事；不必为了结果去接触工具、照护、金钱或陌生安排。下一步再问对方是否也按这个范围理解。没有实际任务，就写一个借书交接的假想版本。观察的是范围是否清楚，而不是用完成速度、完美程度或朋友的感谢给自己打分。",
+              "en": "If you already want to lend a hand at a gathering, write a sentence naming what you would do and the point at which it is finished. Choose an ordinary, low-stakes task you understand and actually want. There is no need to seek tools, care duties, money matters or unfamiliar arrangements because of a result. Then check whether the other person understands the same scope. Without an actual task, an imaginary book handover is enough. Observe whether the boundary is clear rather than scoring your speed, perfection or how much thanks you receive."
+            }
+          ]
+        },
+        {
+          "id": "leave",
+          "title": {
+            "zh": "别人也可以接住这次的小事",
+            "en": "Someone else can take this little task"
+          },
+          "paragraphs": [
+            {
+              "zh": "同一群朋友下次见面时，你可能更想只坐着听故事，或暂时不参加。一次偏好结果不把后续杂事交给你，也不把群体是否顺利运转压到一个人身上。若这份读法有用，可以保留“讲清我答应哪一件”的做法；其他部分不必全认领。它不评定真实朋友的付出高低，不解释你们的关系好坏，也不判断谁最值得被需要。下次想起另一种相处场面，次数改变同样可以只是场景变化。",
+              "en": "At the next meeting you may want only to sit with a story, or not participate at all. One preference result assigns no later chores and puts no group’s functioning on a single person. If the guide helps, keep the habit of naming the task you agreed to; you need not adopt every other paragraph. It does not rank actual friends’ contributions, explain the quality of a relationship or decide who deserves to be needed most. A changed count when you imagine another scene can simply be a changed scene. Responsibility remains something people discuss, not something a public result allocates."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "原始次数、近分与全部最高并列",
+            "en": "Raw counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18次选择合计18，六组各出现12次、在每个位置各3次，每题只比较其中四组。最高次数决定先显示哪份完整读法，全部最高并列都保留，不派隐藏主副型。一直选同一位置会各3次，显示六份54节，不证明人格均衡。近分可以邀请你多读另一份，不是验证过的关系地位、能力水平、家庭成员资格或人群排名；不能用来给真实朋友、同事或家人分型。",
+              "en": "Eighteen choices total eighteen. Every group appears twelve times, three in each position, while each menu compares only four groups. Highest counts decide which full readings appear first, retaining every highest tie without hidden primary or secondary types. Repeating one position gives each group three counts and all fifty-four sections without proving a balanced personality. Close counts invite another guide rather than a validated relationship status, ability level, family membership or population ranking. Use no result to assign types to actual friends, colleagues or family members."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "免费全文、草稿与相伴比喻的边界",
+            "en": "Free full guides, drafts and the companionship metaphor"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份九节全文在作答前后都免费。18个自愿朋友圈场面、72选项和结果正文均原创；“找到家庭”是可自由采用的相伴比喻，不审核真实家庭、归属资格或朋友是否合格。结果不测人格、社交技巧、照护／修理／治疗能力、心理健康、现实贡献或职业匹配，不要求任何人承担某种角色。无需账号，也不需要朋友姓名、位置、照片或真实事件。自愿开启的草稿只在本标签页保存最多24小时，完成、清除或重测即删；分享只有结果名与公开链接，不带答案或次数。可以随时停止，所有公开指南仍能完整阅读。",
+              "en": "All six nine-section guides are free before and after answering. Eighteen voluntary friend-group scenes, seventy-two options and result text are original. Found family is an optional companionship metaphor, judging no actual family, qualification for belonging or worthiness as a friend. The result assesses no personality, social skill, caring, repair or therapy ability, mental health, actual contribution or career fit, and requires nobody to maintain a role. No account, friend’s name, location, photograph or actual event is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing includes result names and public links without answers or counts. Stop at any point; every public guide remains available in full."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "story-keeper",
+      "directionIds": [
+        "story-keeper"
+      ],
+      "title": {
+        "zh": "故事收藏者",
+        "en": "Story Keeper"
+      },
+      "headline": {
+        "zh": "留住大家愿意留下的片段，不替别人写成完整人生。",
+        "en": "Keep the moments people choose to keep, not their whole lives."
+      },
+      "summary": {
+        "zh": "你在这些菜单中较常选共同回忆、小注释与自愿保留的一页故事。它可以从这次想留住哪个普通片段来读，不证明记忆力、历史准确性或你最了解朋友。",
+        "en": "You more often chose shared memories, little notes and a voluntarily kept story page. Read this as the ordinary moment you wanted to keep, not evidence of memory ability, historical accuracy or knowing friends best."
+      },
+      "seo": {
+        "title": {
+          "zh": "故事收藏者结果：朋友圈共同回忆与分享边界",
+          "en": "Story Keeper Result: Shared Memories and Their Limits"
+        },
+        "description": {
+          "zh": "完整阅读故事收藏者：照片小注释、借书阅读记与群内回忆页，分清自己的感受和他人的版本，含近分比较与小尝试。",
+          "en": "Read the full Story Keeper guide: photograph notes, shared memory pages, differing versions, close role comparisons and a small optional experiment."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题每题一选，六组各出现12次、每个位置各3次。次数只读这些自愿朋友圈贡献菜单里的偏好，所有最高并列保留全文，不硬派主副型。全选同一位置会各3次，不证明理想均衡；3/12不是25%的相伴投入、朋友相似度或人群排名。",
+        "en": "Each of eighteen questions takes one choice. Every group appears twelve times, three in each position. Counts concern these voluntary friend-group contribution menus, retaining every highest tie in full without forced primary or secondary types. Repeating one position gives each group three counts without proving ideal balance. Three out of twelve is no twenty-five-percent companionship investment, friend similarity or population ranking."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这一页故事先来自哪些选择",
+            "en": "Which choices put a story on this page"
+          },
+          "paragraphs": [
+            {
+              "zh": "故事收藏者对应的，是你在菜单里更想留住小片段的选择：一局桌游的趣话、一张照片的背景，或大家愿意放在群内的短短回忆。这不是“你最懂所有人的过去”，也不意味着每次相聚都要留下记录。你可以只是喜欢让一个已经同意保留的片段有来由、有先后，方便以后自愿回看。若你想到的是自己的另一段经历，这份读法也不替那段经历下结论；回到眼前选项，看看哪一个动作比较贴近。",
+              "en": "Story Keeper follows choices to retain little moments: a funny line from a board game, the background to a photograph or a short memory people want inside the group. It does not mean knowing everyone’s past best, nor must every gathering leave a record. You may simply enjoy giving an agreed fragment some context and sequence for a voluntary later visit. If another personal experience comes to mind, this guide does not explain it for you. Return to the listed action and notice which part of keeping a moment actually appealed."
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "zh": "一张照片旁边不必只有一个版本",
+            "en": "A photograph can have more than one version"
+          },
+          "paragraphs": [
+            {
+              "zh": "朋友们各选一张不涉及隐私的旧照片。你记得那天突然下雨，有人却更记得后来换到室内的一段聊天。给照片写注释时，可以把自己的版本标清楚，再邀请对方决定是否补一句；不需要拼出大家都认可的唯一故事。有人不愿放自己的照片，也不影响这页留下其他自愿片段。这里的小贡献是整理已获同意的内容，不是替大家决定什么值得公开、谁一定该出现在共同记忆里。",
+              "en": "Friends each choose a nonprivate old photograph. You remember unexpected rain, while another person remembers a conversation after moving indoors. A caption can identify your own version and let the other person decide whether to add theirs. You need not build the single account everyone must endorse. Somebody declining to include their photograph does not prevent other volunteered fragments from remaining. The contribution is arranging material people agreed to keep, not deciding what deserves publicity or who must appear in a shared memory."
+            }
+          ]
+        },
+        {
+          "id": "use",
+          "title": {
+            "zh": "给片段补背景，而不是给朋友定型",
+            "en": "Give a fragment context rather than fixing a friend’s identity"
+          },
+          "paragraphs": [
+            {
+              "zh": "一句旧梗如果只剩“你一直都是这样”，可能把一个人锁进过去的角色。你可以把它改回具体场景：“那次我们给这个小活动起了这个名字。”这样既留下来由，也给后来变化留空间。是不是想继续保留，仍由涉及的人决定，不能由测试给出的角色代替。把片段写得清楚，不需要把它写得重大；平常的一页借书小记，也可以比一段宣称友谊永远不变的话更贴近这次想留下的内容。",
+              "en": "An old joke reduced to saying somebody has always been that way can fix them in a past role. Return it to a scene: the group gave a particular little activity this name on that occasion. Context preserves an origin while leaving room for later change. Those involved still decide whether to keep the fragment; a quiz role cannot decide for them. Clarity needs no grandness. An ordinary borrowing note can suit your chosen contribution better than a declaration that a friendship will never change."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "记下来之前，先看谁有选择权",
+            "en": "Before recording, notice whose choice it is"
+          },
+          "paragraphs": [
+            {
+              "zh": "记录自己对一次活动的感受，和转发别人的话、照片或近况，是不同动作。前者可以停在自己的私人纸页，后者需要当事人愿意，还应允许删掉或不再转发。你不必收集朋友资料来完成这份结果，也不用为群体建永久档案。有的人更愿意让相聚自然过去；这个偏好不表示对方不珍惜关系。故事收藏者的名字不能让你取得解释或保管他人生活的权力。",
+              "en": "Writing your impression of an activity and forwarding somebody else’s words, photograph or update are different actions. Your impression can remain on a private paper page. Material about another person needs their willingness, including room to remove it or stop passing it on. No friend’s information or permanent group archive is needed for this result. Someone may prefer letting a gathering pass without a record; that preference proves no lack of affection. This name grants no authority to interpret or keep another person’s life."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与倾听搭子、联络牵线人的比较",
+            "en": "Compare Listening Companion and Thread Weaver"
+          },
+          "paragraphs": [
+            {
+              "zh": "故事收藏者更想留下已经同意保留的片段；倾听搭子更想在当下听懂对方正在说什么，谈完未必记录；联络牵线人则更在意以后如何自愿再联系。一次读书交换可以先听一段感受，再经同意留个注释，最后问下次是否收邀请。同一个人可以都愿意，也可能只选其中一项。近分不要求定唯一身份，可以用三个具体问题区分：现在想听、想留，还是想接到下一次？",
+              "en": "Story Keeper prefers retaining an agreed fragment. Listening Companion wants to understand what someone says now, without necessarily recording it. Thread Weaver concerns voluntary later contact. A book exchange can include listening to an impression, keeping a note with agreement and asking whether to send a later invitation. One person may want all three or just one. Close counts need no single identity. Try three concrete questions: did you want to hear the present moment, keep a little of it or connect it to a later meeting?"
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "只为自己的一个片段写三行",
+            "en": "Write three lines about one moment of your own"
+          },
+          "paragraphs": [
+            {
+              "zh": "不必调用任何真实朋友资料。选一个你愿意回想的普通活动，只写三行：发生了哪一件小事、自己记得什么、还有哪一点不确定。把它明确标为自己的版本，暂时不公开。如果之后确实想和朋友分享，再单独询问是否愿意接收，而不是把测试结果当转发理由。观察这一页有没有帮你具体一点地记住场景；没有写出完整故事也可以结束，不需要为自己评出讲故事能力。",
+              "en": "Choose an ordinary activity you want to recall without using another person’s information. Write three lines: the little thing that happened, what you remember and what remains uncertain. Mark it as your version and keep it private for now. If you later want to share, separately ask whether the friend wants to receive it, rather than using a result as permission to forward. Notice whether the page helped make the scene particular. Finishing without a complete story is fine; no storytelling-ability grade is needed."
+            }
+          ]
+        },
+        {
+          "id": "return",
+          "title": {
+            "zh": "有些片段也可以不留下",
+            "en": "Some moments can pass without being kept"
+          },
+          "paragraphs": [
+            {
+              "zh": "你不需要把每次相聚变成材料，也不用承担证明一段友谊曾经存在的任务。一次想记录、一次想不带相机地参与，可以同时成立。重测时如果次数变化，先看看想到的群体和场景是否不同。你也可以不认领故事收藏者这个名字，只保留“区分我记得什么和别人愿意留下什么”的做法。结果不评定真实关系的意义，不决定哪位朋友最重要，也不要求你负责延续所有人的共同过去。",
+              "en": "You need not turn every meeting into material or prove that a friendship existed. Wanting a record once and participating without a camera another time can coexist. If a retake changes the count, first notice whether you imagined another group or scene. You can decline the name and keep only the distinction between what you remember and what another person wants retained. The result assesses no relationship’s meaning, ranks no friend’s importance and makes you responsible for preserving nobody else’s shared past. A moment can matter without becoming an archive."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "原始次数、近分与全部最高并列",
+            "en": "Raw counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18次选择合计18，六组各出现12次、在每个位置各3次，每题只比较其中四组。最高次数决定先显示哪份完整读法，全部最高并列都保留，不派隐藏主副型。一直选同一位置会各3次，显示六份54节，不证明人格均衡。近分可以邀请你多读另一份，不是验证过的关系地位、能力水平、家庭成员资格或人群排名；不能用来给真实朋友、同事或家人分型。",
+              "en": "Eighteen choices total eighteen. Every group appears twelve times, three in each position, while each menu compares only four groups. Highest counts decide which full readings appear first, retaining every highest tie without hidden primary or secondary types. Repeating one position gives each group three counts and all fifty-four sections without proving a balanced personality. Close counts invite another guide rather than a validated relationship status, ability level, family membership or population ranking. Use no result to assign types to actual friends, colleagues or family members."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "免费全文、草稿与相伴比喻的边界",
+            "en": "Free full guides, drafts and the companionship metaphor"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份九节全文在作答前后都免费。18个自愿朋友圈场面、72选项和结果正文均原创；“找到家庭”是可自由采用的相伴比喻，不审核真实家庭、归属资格或朋友是否合格。结果不测人格、社交技巧、照护／修理／治疗能力、心理健康、现实贡献或职业匹配，不要求任何人承担某种角色。无需账号，也不需要朋友姓名、位置、照片或真实事件。自愿开启的草稿只在本标签页保存最多24小时，完成、清除或重测即删；分享只有结果名与公开链接，不带答案或次数。可以随时停止，所有公开指南仍能完整阅读。",
+              "en": "All six nine-section guides are free before and after answering. Eighteen voluntary friend-group scenes, seventy-two options and result text are original. Found family is an optional companionship metaphor, judging no actual family, qualification for belonging or worthiness as a friend. The result assesses no personality, social skill, caring, repair or therapy ability, mental health, actual contribution or career fit, and requires nobody to maintain a role. No account, friend’s name, location, photograph or actual event is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing includes result names and public links without answers or counts. Stop at any point; every public guide remains available in full."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spark-starter",
+      "directionIds": [
+        "spark-starter"
+      ],
+      "title": {
+        "zh": "小计划发起者",
+        "en": "Spark Starter"
+      },
+      "headline": {
+        "zh": "给愿意的人一个可试、可拒绝、可结束的开始。",
+        "en": "Offer a beginning people can try, decline and finish."
+      },
+      "summary": {
+        "zh": "你在这些相聚菜单中较常选择一个短小的新尝试：五分钟小游戏、十分钟试用版或可跳过的轻松仪式。它不证明外向、冒险、领导或制造气氛的能力。",
+        "en": "You more often chose a brief new experiment: a five-minute game, ten-minute trial or skippable light ritual. This establishes no extraversion, risk tolerance, leadership or ability to set a group’s mood."
+      },
+      "seo": {
+        "title": {
+          "zh": "小计划发起者结果：朋友圈轻松尝试与退出空间",
+          "en": "Spark Starter Result: Small Optional Plans With Friends"
+        },
+        "description": {
+          "zh": "完整阅读小计划发起者：怎样把新想法缩到愿意尝试的一小段，保留不参加和结束的空间，含角色比较与纸上小实验。",
+          "en": "Read the full Spark Starter guide: tiny new activities, room to decline, clear endings, close role comparisons and a small paper experiment."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题每题一选，六组各出现12次、每个位置各3次。次数只读这些自愿朋友圈贡献菜单里的偏好，所有最高并列保留全文，不硬派主副型。全选同一位置会各3次，不证明理想均衡；3/12不是25%的相伴投入、朋友相似度或人群排名。",
+        "en": "Each of eighteen questions takes one choice. Every group appears twelve times, three in each position. Counts concern these voluntary friend-group contribution menus, retaining every highest tie in full without forced primary or secondary types. Repeating one position gives each group three counts without proving ideal balance. Three out of twelve is no twenty-five-percent companionship investment, friend similarity or population ranking."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "你想发起的是哪一个小开始",
+            "en": "Which small beginning did you want to offer"
+          },
+          "paragraphs": [
+            {
+              "zh": "小计划发起者对应菜单里那些短、轻、能结束的新尝试，而不是要求一群人都兴奋起来。你可能愿意为普通下午提一个五分钟观察游戏，也可能喜欢先做一个小样，再看是否有人想沿用。这个名字只组织你在本题里较常选的贡献，不给你派领导或热场任务。想法是否真的有人喜欢，需要具体反馈；不能从原始次数读出外向程度、冒险能力、创造力或你在朋友中的重要性。",
+              "en": "Spark Starter follows brief, light experiments that can end, not a requirement to make a group excited. You might want to offer a five-minute noticing game during an ordinary afternoon, or make a little draft before asking whether anyone wants to use it. The name organises contributions preferred in this bank without assigning leadership or entertainment duties. Whether people enjoy an actual idea needs their feedback. A raw count establishes no extraversion, risk tolerance, creativity or importance within a friendship group. Start with the particular beginning you wanted to offer."
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "zh": "一个没有固定节目的下午",
+            "en": "An afternoon without a fixed programme"
+          },
+          "paragraphs": [
+            {
+              "zh": "几位朋友坐下后发现都没有准备节目，大家也不急着填满空白。你提议看看窗边各自注意到的一种颜色，只玩五分钟，任何人可以继续坐着不参加。时间到了就停，不必马上升级成比赛或下一轮安排。有的人想玩，有的人想继续聊天，这并不表示哪一方不合群。这个场面让小开始有了尺度：不是不停加活动，而是提供一个清楚、好拒绝的选项。",
+              "en": "Friends sit down without a prepared programme and are not rushing to fill the pause. You suggest noticing one colour near the window for five minutes, while anyone can remain seated without joining. The experiment ends on time instead of becoming a contest or automatically producing another round. Some people may play while others keep talking; neither response shows a failure to fit in. The scene gives a little beginning its scale. Offering one clear option that is easy to decline is different from continuously adding activities to everybody’s time."
+            }
+          ]
+        },
+        {
+          "id": "use",
+          "title": {
+            "zh": "把试试看和长期安排分开",
+            "en": "Separate trying once from a standing arrangement"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个新点子可以先有试用版，不必一开始就成为每月固定环节。你可以把内容、时长、参加方式和结束点讲清楚，再把决定留给大家。实际是否愿意参加，也可能受时间、注意力和场地影响，不是对你这个人的评价。读这份结果时，可以问“我喜欢的是提出一个起点，还是持续负责整套活动？”两者并不相同，测试也不因为你选过前者，就把后者一并分配给你。",
+              "en": "A new idea can have a trial version without becoming a monthly fixture. Name the activity, duration, way to join and ending, then leave the choice open. Actual willingness may depend on time, attention and setting rather than an evaluation of you. When reading this guide, ask whether you liked proposing a starting point or maintaining the whole activity afterwards. Those are different contributions. Choosing the first in a menu does not allocate the second to you as well. A small experiment is allowed to remain just one occasion, even when somebody enjoyed it."
+            }
+          ]
+        },
+        {
+          "id": "edge",
+          "title": {
+            "zh": "没有人加入时，也可以让点子结束",
+            "en": "Let an idea end when nobody joins"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果一个点子没人想试，可以停在提议，而不把拒绝变成“大家都太无趣”。你也不需要再添更刺激的内容证明自己能带动全场。相反，朋友想试第二轮时，你仍可以说自己这次只愿意发起第一轮。小计划的自由，同时属于发起者和参与者：双方都能拒绝、改变主意或结束。这里没有对你真实社交表现的诊断，也不会把安静、休息或沿用旧习惯判成较差的选择。",
+              "en": "If nobody wants to try an idea, the proposal can end without calling the group boring. You need not make it more intense to prove you can move a room. Conversely, friends wanting another round does not oblige you to run it when you only wanted to start the first. Freedom around a small plan belongs to both proposer and participants: either can decline, change their mind or finish. This is no diagnosis of social performance. Quiet, rest and familiar routines are not lesser choices beside a new experiment, and they remain available after this result."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与搭把手伙伴、迎席人的区别",
+            "en": "Compare Practical Pal and Welcome Keeper"
+          },
+          "paragraphs": [
+            {
+              "zh": "小计划发起者偏向提出一个还没定下的新尝试；搭把手伙伴偏向把已经约好的一个动作做完；迎席人偏向说明现有活动可以怎样加入。举例说，提五分钟新玩法是发起，按已选规则摆好一角是具体帮忙，告诉新同伴旁观也可以是欢迎。一次见面可以都有，近分也不需要强行排出主副型。回看自己的选择，找出你这次更愿意接哪一小步，而不是猜自己天生适合哪一种长期角色。",
+              "en": "Spark Starter prefers proposing an experiment that is not settled yet. Practical Pal prefers completing an agreed action. Welcome Keeper explains how to join what is already happening. Offering a five-minute game is a beginning; arranging a corner under selected rules is practical help; telling a newcomer that watching is welcome concerns joining. All can occur at one meeting, and close counts need no forced primary or secondary type. Revisit your choices to find the step you wanted this time instead of guessing which permanent role you were born to maintain."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "在纸上给小点子写三个边界",
+            "en": "Give an idea three boundaries on paper"
+          },
+          "paragraphs": [
+            {
+              "zh": "想一个不需要花钱、外出或调用他人资料的小点子，只在纸上写三个边界：大约多久、怎样自愿加入、什么时候结束。再写一个你确实愿意接受的“不参加也可以”版本。不必把这份练习真的交给朋友，不要为了符合结果去增加聚会安排。观察点子缩小后，你是否仍想发起；如果不想，停在纸上也算完成这次反思。这不是一项创造力考试，不需要用参与人数或他人的笑声评分。",
+              "en": "Think of a little idea needing no purchase, outing or another person’s information. On paper, give it three boundaries: approximate duration, how to join voluntarily and when it ends. Add a way of declining that you would actually accept. You need not present the exercise to friends or add a gathering arrangement to match a result. Notice whether you still want to start the smaller idea. If not, leaving it on paper finishes the reflection. This is no creativity examination, and participation numbers or another person’s laughter provide no required grade."
+            }
+          ]
+        },
+        {
+          "id": "return",
+          "title": {
+            "zh": "不必一直成为新鲜感的来源",
+            "en": "You need not keep supplying novelty"
+          },
+          "paragraphs": [
+            {
+              "zh": "今天想发起一个小尝试，明天也可能更想由别人带来点子，自己只坐一会儿。一次结果不建立“没有你大家就不会相聚”的故事，也不让你负责对抗所有无聊。你可以保留可试、可拒绝、可结束这三个条件，而放下角色名。重测时想到另一群朋友、另一种普通场景，选择可能不同；不能据此判断人格改变或友谊质量。共同时间可以有新东西，也可以没有，菜单并不替你们作价值排序。",
+              "en": "Wanting to start a little experiment today can coexist with wanting somebody else to bring an idea tomorrow. A result creates no story that friends would never gather without you and makes you responsible for defeating no boredom. Keep the conditions of trying, declining and ending while leaving the role name behind. Another group or ordinary scene may change your retake choices without proving a personality change or relationship quality. Shared time can include something new or nothing new. These menus do not rank those possibilities for the people involved, and your place in a group depends on no count here."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "原始次数、近分与全部最高并列",
+            "en": "Raw counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18次选择合计18，六组各出现12次、在每个位置各3次，每题只比较其中四组。最高次数决定先显示哪份完整读法，全部最高并列都保留，不派隐藏主副型。一直选同一位置会各3次，显示六份54节，不证明人格均衡。近分可以邀请你多读另一份，不是验证过的关系地位、能力水平、家庭成员资格或人群排名；不能用来给真实朋友、同事或家人分型。",
+              "en": "Eighteen choices total eighteen. Every group appears twelve times, three in each position, while each menu compares only four groups. Highest counts decide which full readings appear first, retaining every highest tie without hidden primary or secondary types. Repeating one position gives each group three counts and all fifty-four sections without proving a balanced personality. Close counts invite another guide rather than a validated relationship status, ability level, family membership or population ranking. Use no result to assign types to actual friends, colleagues or family members."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "免费全文、草稿与相伴比喻的边界",
+            "en": "Free full guides, drafts and the companionship metaphor"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份九节全文在作答前后都免费。18个自愿朋友圈场面、72选项和结果正文均原创；“找到家庭”是可自由采用的相伴比喻，不审核真实家庭、归属资格或朋友是否合格。结果不测人格、社交技巧、照护／修理／治疗能力、心理健康、现实贡献或职业匹配，不要求任何人承担某种角色。无需账号，也不需要朋友姓名、位置、照片或真实事件。自愿开启的草稿只在本标签页保存最多24小时，完成、清除或重测即删；分享只有结果名与公开链接，不带答案或次数。可以随时停止，所有公开指南仍能完整阅读。",
+              "en": "All six nine-section guides are free before and after answering. Eighteen voluntary friend-group scenes, seventy-two options and result text are original. Found family is an optional companionship metaphor, judging no actual family, qualification for belonging or worthiness as a friend. The result assesses no personality, social skill, caring, repair or therapy ability, mental health, actual contribution or career fit, and requires nobody to maintain a role. No account, friend’s name, location, photograph or actual event is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing includes result names and public links without answers or counts. Stop at any point; every public guide remains available in full."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "listening-companion",
+      "directionIds": [
+        "listening-companion"
+      ],
+      "title": {
+        "zh": "倾听搭子",
+        "en": "Listening Companion"
+      },
+      "headline": {
+        "zh": "这一小段话，让想讲的人决定从哪里开始。",
+        "en": "Let the person speaking choose where this little conversation begins."
+      },
+      "summary": {
+        "zh": "你在这些普通相聚菜单中较常选择先听清对方想讲的一段，再决定如何接话。它不证明共情、咨询或治疗能力，也不要求你长期接住朋友的所有情绪。",
+        "en": "You more often chose to hear the part someone wants to tell before deciding how to respond. This proves no empathy, counselling or therapy ability and assigns no ongoing responsibility for a friend’s feelings."
+      },
+      "seo": {
+        "title": {
+          "zh": "倾听搭子结果：普通聊天、近分比较与自愿边界",
+          "en": "Listening Companion Result: Ordinary Talk and Its Limits"
+        },
+        "description": {
+          "zh": "阅读倾听搭子完整结果：有限时间的近况、小爱好分享与先听再回应，含和故事收藏者的区别、明确终点及纸上小尝试。",
+          "en": "Read the full Listening Companion result: ordinary updates, limited time, room to respond, close role comparisons and a small optional experiment."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题每题一选，六组各出现12次、每个位置各3次。次数只读这些自愿朋友圈贡献菜单里的偏好，所有最高并列保留全文，不硬派主副型。全选同一位置会各3次，不证明理想均衡；3/12不是25%的相伴投入、朋友相似度或人群排名。",
+        "en": "Each of eighteen questions takes one choice. Every group appears twelve times, three in each position. Counts concern these voluntary friend-group contribution menus, retaining every highest tie in full without forced primary or secondary types. Repeating one position gives each group three counts without proving ideal balance. Three out of twelve is no twenty-five-percent companionship investment, friend similarity or population ranking."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "先读菜单里的听法，不给能力评级",
+            "en": "Read the listening choice without grading ability"
+          },
+          "paragraphs": [
+            {
+              "zh": "倾听搭子把你在菜单里较常选的“先听这一段”放在一起。它可能是问对方最想从哪一点讲起，也可能是听完一段爱好经历再回应，而不是马上另推荐一个话题。这些选项只描述你在假设场景中更愿意尝试的顺序，不证明你能正确理解所有人，更不等于咨询或治疗资格。你可以喜欢普通聊天，也可以决定今天不聊；结果不要求你用持续倾听来证明友谊。",
+              "en": "Listening Companion gathers choices to hear this part first. That might mean asking where someone wants to begin, or hearing a hobby experience before offering a different topic. The options describe the order you preferred in hypothetical scenes. They prove no ability to understand everybody correctly and grant no counselling or therapy qualification. Enjoying ordinary conversation can coexist with deciding not to talk today. A result does not ask you to demonstrate friendship through continuous listening. Begin with what the actual menu offered rather than a broad claim about the kind of helper you are."
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "zh": "几分钟近况不必变成长谈",
+            "en": "A few minutes of updates need not become a long talk"
+          },
+          "paragraphs": [
+            {
+              "zh": "一位朋友主动问你愿不愿意听普通近况，你也愿意，但双方今天都只有几分钟。你可以先问这几分钟最想讲哪一小段，让对方选择谈到哪里。时间差不多时，可以说明今天先到这里，而不是因为自己选过倾听搭子就延长一切安排。这不是危机处置场景，也不要求你解释对方的深层心理。这个例子只帮助你看清：听的起点和终点，都可以由愿意参与的人共同说明。",
+              "en": "A friend asks whether you want an ordinary update. You would, but both have only a few minutes. You can ask which little part they most want to tell in that time and let them decide how far to go. Near the end, you can name the limit instead of extending every arrangement because a result called you a listener. This is no crisis-response scene and needs no explanation of another person’s deeper psychology. The example makes both the start and the ending of a willing conversation available for people to name together."
+            }
+          ]
+        },
+        {
+          "id": "use",
+          "title": {
+            "zh": "分清听见的话和自己的猜测",
+            "en": "Distinguish the words heard from your guess"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果这份读法让你想到一次普通谈话，可以把“对方说了什么”和“我猜对方意思是什么”分开。前者仍可能记错，后者更需要核对。你可以问“你是说这一小段吗”，也可以承认暂时没听懂，而不用把解释写得很完整。对方是否感到被理解，不由你的分数证明。这里的用处是为一句话留出确认空间，不是教你识别隐藏动机、诊断关系或把所有沉默都读成求助。",
+              "en": "If the guide brings an ordinary conversation to mind, separate what was said from your guess about its meaning. Memory of the words can still be wrong, and the guess needs checking. You can ask whether you understood that particular point or admit that you have not understood yet. A complete interpretation is unnecessary. Your score cannot prove that somebody feels understood. The useful opening is room to confirm a sentence, not a method for detecting hidden motives, diagnosing a relationship or reading every silence as a request for help."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "愿意听这一段，不等于随时都在线",
+            "en": "Hearing one part does not mean always being available"
+          },
+          "paragraphs": [
+            {
+              "zh": "一次愿意聊天的时段不应自动扩大为任何时候都得回复。你可以先确认今天是否有空，普通话题是否合适，以及双方想聊多久。若你更想轮流分享，也能把自己的那一段说出来；不需要永远只问问题。对方今天不想继续，也无需由你追问到底。倾听搭子不是治疗师朋友的资格标签，结果也不把照护、保密承诺或处理危机的责任交给你，题本里没有要求你承担这些任务。",
+              "en": "One willing conversation should not automatically become an obligation to reply at any time. You can first check your availability, the suitability of the ordinary topic and how long both want to talk. If you prefer taking turns, your own contribution can enter too; you need not only ask questions. Somebody declining to continue requires no pursuit to the bottom of the subject. Listening Companion is no therapist credential, and the result assigns no care duty, confidentiality undertaking or crisis responsibility. None of those tasks is required by the menus in this bank."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与故事收藏者、搭把手伙伴怎么分开",
+            "en": "Compare Story Keeper and Practical Pal"
+          },
+          "paragraphs": [
+            {
+              "zh": "倾听搭子偏向此刻听清正在讲的内容，谈完也可以不记录；故事收藏者更想把已经同意留下的片段整理成回忆；搭把手伙伴更想接下一个具体、已约定的小动作。听朋友说为什么喜欢一本书、经同意写一张阅读记、把书套收齐交还，是三个相连但不同的动作。近分可以邀请你多读另一份，不必选出一种固定人格。想想本题里你更愿意的是听、留，还是做这一件小事。",
+              "en": "Listening Companion concerns understanding what is being said now, without necessarily recording it. Story Keeper wants to arrange an agreed fragment for later memory. Practical Pal prefers an agreed concrete action. Hearing why a friend liked a novel, keeping a reading note with agreement and gathering its cover for return are connected but different contributions. Close counts invite another full guide rather than selection of a permanent personality. Ask whether your preferred menu action was hearing, retaining or doing this one little thing. Different answers in different scenes do not need to be reconciled into a hidden primary type."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "给一个普通话题写一句可核对的回应",
+            "en": "Write one checkable response to an ordinary topic"
+          },
+          "paragraphs": [
+            {
+              "zh": "不必找真实朋友来完成练习。虚构一句普通爱好更新，例如“我这次最喜欢的是最后给作品起名字”。在纸上先写你确实听到的内容，再写一句可让对方纠正的回应：“你想多讲一点起名字那一段吗？”不要把它扩展为心理分析。观察自己是否愿意先沿着这一点聊，而不是急着表现理解能力。若真实生活中恰好出现合适谈话，也仍先问双方愿不愿意、时间是否方便；练习不需要记录或分享任何人的话。",
+              "en": "Invent an ordinary hobby update rather than finding a real friend to complete an exercise: somebody most enjoyed naming a little creation at the end. Write what you actually heard, then a response that leaves room for correction, such as asking whether they want to say more about the naming part. Add no psychological analysis. Notice whether you want to follow that point before performing understanding. If a fitting actual conversation happens, still check willingness and available time first. The exercise requires recording or sharing nobody else’s words, and it can remain entirely on paper."
+            }
+          ]
+        },
+        {
+          "id": "return",
+          "title": {
+            "zh": "也可以让这一回由你来讲",
+            "en": "You can be the one speaking this time"
+          },
+          "paragraphs": [
+            {
+              "zh": "在另一群朋友或另一次相聚里，你可能更想被听见、做一点具体事，或安静结束今天。选择变化不说明倾听质量变差，也不能用来判断实际关系是否平衡。这份结果最多留给你一个问题：在这些菜单中，我为什么想先听这一段？如果有用，可以保留；如果不贴近，也可以放下名字。你不需要靠持续接收消息、保持沉默或替别人解释情绪来维护分数，朋友的真实需要也不能由这次测试代替询问。",
+              "en": "With another group or on another occasion, you may want to be heard, do a little task or quietly finish the day. A changed choice proves no decline in listening quality and assesses no actual relationship’s balance. The guide can leave one question: why did you want to hear this particular part in these menus? Keep it if useful and leave the name if not. Receiving messages continuously, remaining silent or interpreting another person’s feelings is unnecessary for maintaining a score. Asking about an actual friend’s wishes remains separate from the choices in this test."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "原始次数、近分与全部最高并列",
+            "en": "Raw counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18次选择合计18，六组各出现12次、在每个位置各3次，每题只比较其中四组。最高次数决定先显示哪份完整读法，全部最高并列都保留，不派隐藏主副型。一直选同一位置会各3次，显示六份54节，不证明人格均衡。近分可以邀请你多读另一份，不是验证过的关系地位、能力水平、家庭成员资格或人群排名；不能用来给真实朋友、同事或家人分型。",
+              "en": "Eighteen choices total eighteen. Every group appears twelve times, three in each position, while each menu compares only four groups. Highest counts decide which full readings appear first, retaining every highest tie without hidden primary or secondary types. Repeating one position gives each group three counts and all fifty-four sections without proving a balanced personality. Close counts invite another guide rather than a validated relationship status, ability level, family membership or population ranking. Use no result to assign types to actual friends, colleagues or family members."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "免费全文、草稿与相伴比喻的边界",
+            "en": "Free full guides, drafts and the companionship metaphor"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份九节全文在作答前后都免费。18个自愿朋友圈场面、72选项和结果正文均原创；“找到家庭”是可自由采用的相伴比喻，不审核真实家庭、归属资格或朋友是否合格。结果不测人格、社交技巧、照护／修理／治疗能力、心理健康、现实贡献或职业匹配，不要求任何人承担某种角色。无需账号，也不需要朋友姓名、位置、照片或真实事件。自愿开启的草稿只在本标签页保存最多24小时，完成、清除或重测即删；分享只有结果名与公开链接，不带答案或次数。可以随时停止，所有公开指南仍能完整阅读。",
+              "en": "All six nine-section guides are free before and after answering. Eighteen voluntary friend-group scenes, seventy-two options and result text are original. Found family is an optional companionship metaphor, judging no actual family, qualification for belonging or worthiness as a friend. The result assesses no personality, social skill, caring, repair or therapy ability, mental health, actual contribution or career fit, and requires nobody to maintain a role. No account, friend’s name, location, photograph or actual event is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing includes result names and public links without answers or counts. Stop at any point; every public guide remains available in full."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thread-weaver",
+      "directionIds": [
+        "thread-weaver"
+      ],
+      "title": {
+        "zh": "联络牵线人",
+        "en": "Thread Weaver"
+      },
+      "headline": {
+        "zh": "下一次联系，从谁愿意收到、怎样方便开始。",
+        "en": "Begin later contact with who wants it and how it suits them."
+      },
+      "summary": {
+        "zh": "你在这些菜单中较常选择自愿联系的入口：询问邀请频率、核对愿意收卡的人，或给不同参与方式留余地。它不证明维系整个群体的能力，也不使你成为固定组织者。",
+        "en": "You more often chose voluntary contact entrances: asking invitation frequency, checking who wants a card or allowing different ways to join. This proves no ability to hold a group together and makes you no permanent organiser."
+      },
+      "seo": {
+        "title": {
+          "zh": "联络牵线人结果：朋友圈邀请与自愿联系",
+          "en": "Thread Weaver Result: Invitations and Voluntary Contact"
+        },
+        "description": {
+          "zh": "完整阅读联络牵线人：跨地点的小联系、可退出的邀请与本人选择，含和迎席人的区别、近分比较及一条邀请的小练习。",
+          "en": "Read the full Thread Weaver result: occasional invitations, preferred contact, room to opt out, close role comparisons and a small optional experiment."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题每题一选，六组各出现12次、每个位置各3次。次数只读这些自愿朋友圈贡献菜单里的偏好，所有最高并列保留全文，不硬派主副型。全选同一位置会各3次，不证明理想均衡；3/12不是25%的相伴投入、朋友相似度或人群排名。",
+        "en": "Each of eighteen questions takes one choice. Every group appears twelve times, three in each position. Counts concern these voluntary friend-group contribution menus, retaining every highest tie in full without forced primary or secondary types. Repeating one position gives each group three counts without proving ideal balance. Three out of twelve is no twenty-five-percent companionship investment, friend similarity or population ranking."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "牵的是一条愿意继续的联系",
+            "en": "The thread is a contact people want to continue"
+          },
+          "paragraphs": [
+            {
+              "zh": "联络牵线人把菜单里那些“下一次怎样自愿联系”的选择放到一起。你可能更愿意问某位朋友是否想收到更新，或把两种方便的参与方式写进同一条邀请，而不是默认大家永远沿用旧名单。这不是群体凝聚力测验，也不证明没有你大家就会走散。结果只指向这些假设选项里更想贡献的一步；实际是否适合联系、联系是否受欢迎，需要由涉及的人表达，不能用原始次数替代。",
+              "en": "Thread Weaver gathers choices about voluntary later contact. You might prefer asking whether a friend wants an update, or putting two convenient participation methods into one invitation, rather than assuming an old list lasts forever. This is no group-cohesion assessment and proves no claim that people would drift apart without you. The result concerns a step you preferred to contribute in hypothetical menus. Whether contact suits an actual situation and is welcome still needs the people involved to express it. A raw count cannot supply their wishes or turn maintaining contact into your permanent role."
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "zh": "几位住在不同地方的老朋友",
+            "en": "Old friends living in different places"
+          },
+          "paragraphs": [
+            {
+              "zh": "大家只想偶尔联系，并不打算建立每天打卡的新群。你先问各人愿意多久收到一次邀请、文字还是语音更方便，也把不收或以后再说留在选项里。有人这次不参加，名单可以先不包括他，而不替对方解释关系变淡。你想认领的可能只是发出这一轮经过同意的邀请，不是担保每次都能聚齐。这个场面让联系有了小尺度，也允许朋友之间的节奏并不相同。",
+              "en": "Old friends want occasional contact, not a new group with daily check-ins. You ask how often invitations suit each person and whether text or voice is convenient, leaving room for no invitations or deciding later. Someone declining this time can be absent from the list without an explanation that the friendship has faded. The contribution you want may end after this agreed round of invitations rather than guaranteeing everyone gathers. This scene gives contact a small scale and permits different rhythms between friends. It does not ask you to solve distance or maintain a relationship by yourself."
+            }
+          ]
+        },
+        {
+          "id": "use",
+          "title": {
+            "zh": "让默认名单变成本人的选择",
+            "en": "Turn a default list into each person’s choice"
+          },
+          "paragraphs": [
+            {
+              "zh": "这一入口可用于检查一条邀请里谁在作决定。你可以问是否愿意接收，而不是把朋友自动加入新群；可以说明之后不再收也可以，而不是让退出变成一种公开表态。不同的人喜欢不同频率与入口，未必需要统一。实际使用时，只留下当次确有需要、本人同意的联系信息，不必为了测试收集朋友的安排。这里的小贡献是清楚地传递邀请，不是管理他人的日程或解释所有未回复。",
+              "en": "This entrance can help inspect who makes the choices in an invitation. Ask whether someone wants it rather than adding them to a group automatically. Allow later opting out without making departure a public statement. Different frequencies and contact methods need not be standardised. In an actual use, keep only information needed for the occasion and agreed by its owner; a quiz gives no reason to gather friends’ schedules. The little contribution is passing an invitation clearly, not managing another person’s calendar or interpreting every unanswered message as a relationship signal."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "牵线不等于代答、催答或永久负责",
+            "en": "Connecting is not replying or taking charge for others"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果你开始替朋友答应活动、反复催问回应，或觉得每次都得把人凑齐，可以回到这次愿意做的那一件事：把已经同意发送的邀请送到合适入口。对方是否回复、是否想来，仍由本人决定；你是否有空发下一轮，也可以另议。联络牵线人不是要求全天在线的称号。这个结果不评价真实朋友的热情，也不判断哪一种联络频率才是好关系，更不能用来检验谁在乎谁。",
+              "en": "If you start accepting activities for friends, repeatedly chasing replies or feeling obliged to assemble everyone, return to the one action you wanted: passing an agreed invitation through a fitting entrance. Replying and joining remain each person’s choice. Your availability for another round is a separate decision too. Thread Weaver is no title requiring constant availability. This result grades no actual friend’s enthusiasm, sets no contact frequency for a good relationship and cannot test who cares about whom. A passed invitation can be complete without attendance, thanks or an explanation for silence."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与迎席人、故事收藏者怎么比较",
+            "en": "Compare Welcome Keeper and Story Keeper"
+          },
+          "paragraphs": [
+            {
+              "zh": "联络牵线人侧重从这次到下次的联系入口；迎席人侧重眼前活动怎样让人容易加入；故事收藏者侧重留下已经同意保留的片段。向愿意的人发相册更新邀请，是联系；说明只看不发照片也欢迎，是加入方式；写清一张照片的共同回忆，是故事。它们可能连续发生，但并不是三种互相排斥的人。近分可以一起读全文，再判断自己这次最想接的是联系、当下的入口，还是记录。",
+              "en": "Thread Weaver concerns the contact entrance between this occasion and another. Welcome Keeper concerns joining what is happening now. Story Keeper concerns retaining an agreed fragment. Sending an album update to willing recipients is contact; making clear that viewing without contributing is welcome concerns joining; giving a photograph its remembered context concerns a story. These can happen in sequence without representing mutually exclusive people. With close counts, read the relevant full guides together and notice whether you wanted later contact, a present entrance or a record this time. The question need not become a search for one permanent identity."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "只写一条可以不收的邀请",
+            "en": "Write one invitation people may decline to receive"
+          },
+          "paragraphs": [
+            {
+              "zh": "在纸上虚构一次普通朋友小聚，不填真实姓名、位置或联系方式。写清邀请是什么，再添一句对方可以拒绝或以后不再收到的表达，并给你自己的这次联络设一个结束点。看看这条消息是否还暗含“必须解释为什么不来”。不需要真的发出，也不用为测试另建群或联系已经不想联系的人。这个练习只观察你愿意怎样表达一次自愿联系，不通过回复率、出席人数或他人的情绪给自己评分。",
+              "en": "Invent an ordinary gathering on paper without real names, locations or contact details. State the invitation, add a way of declining it or future invitations, and give your own contact effort an endpoint. Notice any remaining demand to explain nonattendance. You need not send the message, form a group or contact somebody you no longer want to contact because of a test. The exercise concerns how you want to express one voluntary contact. Reply rates, attendance numbers and another person’s emotions supply no required grade for your attempt."
+            }
+          ]
+        },
+        {
+          "id": "return",
+          "title": {
+            "zh": "共同联系可以轮流，也可以暂歇",
+            "en": "Contact can rotate or pause"
+          },
+          "paragraphs": [
+            {
+              "zh": "这次想传一条邀请，下次也可以请愿意的人接手，或共同决定先不安排新的联系。没有一份结果把群体延续的责任放到一个人身上。读完后，你可以保留“先问本人要不要收到”的做法，而不采用联络牵线人的名字。换一群朋友、换一个普通场景，选择可能变化；这不证明你变得疏远，也不评定实际归属。相伴的意义和联系频率，都不由18个菜单替你或朋友作决定。",
+              "en": "Wanting to pass one invitation now can coexist with asking another willing person to take a later turn, or jointly pausing new arrangements. No result places a group’s continuation on one person. Keep the habit of checking whether a recipient wants contact while leaving the role name behind. Another group or ordinary scene may change your choices without proving that you have become distant or assessing actual belonging. The meaning of companionship and its contact frequency are not decisions eighteen menus make for you or your friends. You may stop with one useful sentence rather than a standing duty."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "原始次数、近分与全部最高并列",
+            "en": "Raw counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18次选择合计18，六组各出现12次、在每个位置各3次，每题只比较其中四组。最高次数决定先显示哪份完整读法，全部最高并列都保留，不派隐藏主副型。一直选同一位置会各3次，显示六份54节，不证明人格均衡。近分可以邀请你多读另一份，不是验证过的关系地位、能力水平、家庭成员资格或人群排名；不能用来给真实朋友、同事或家人分型。",
+              "en": "Eighteen choices total eighteen. Every group appears twelve times, three in each position, while each menu compares only four groups. Highest counts decide which full readings appear first, retaining every highest tie without hidden primary or secondary types. Repeating one position gives each group three counts and all fifty-four sections without proving a balanced personality. Close counts invite another guide rather than a validated relationship status, ability level, family membership or population ranking. Use no result to assign types to actual friends, colleagues or family members."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "免费全文、草稿与相伴比喻的边界",
+            "en": "Free full guides, drafts and the companionship metaphor"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份九节全文在作答前后都免费。18个自愿朋友圈场面、72选项和结果正文均原创；“找到家庭”是可自由采用的相伴比喻，不审核真实家庭、归属资格或朋友是否合格。结果不测人格、社交技巧、照护／修理／治疗能力、心理健康、现实贡献或职业匹配，不要求任何人承担某种角色。无需账号，也不需要朋友姓名、位置、照片或真实事件。自愿开启的草稿只在本标签页保存最多24小时，完成、清除或重测即删；分享只有结果名与公开链接，不带答案或次数。可以随时停止，所有公开指南仍能完整阅读。",
+              "en": "All six nine-section guides are free before and after answering. Eighteen voluntary friend-group scenes, seventy-two options and result text are original. Found family is an optional companionship metaphor, judging no actual family, qualification for belonging or worthiness as a friend. The result assesses no personality, social skill, caring, repair or therapy ability, mental health, actual contribution or career fit, and requires nobody to maintain a role. No account, friend’s name, location, photograph or actual event is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing includes result names and public links without answers or counts. Stop at any point; every public guide remains available in full."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "原始次数、近分与全部最高并列",
+        "en": "Raw counts, close readings and every highest tie"
+      },
+      "paragraphs": [
+        {
+          "zh": "18次选择合计18，六组各出现12次、在每个位置各3次，每题只比较其中四组。最高次数决定先显示哪份完整读法，全部最高并列都保留，不派隐藏主副型。一直选同一位置会各3次，显示六份54节，不证明人格均衡。近分可以邀请你多读另一份，不是验证过的关系地位、能力水平、家庭成员资格或人群排名；不能用来给真实朋友、同事或家人分型。",
+          "en": "Eighteen choices total eighteen. Every group appears twelve times, three in each position, while each menu compares only four groups. Highest counts decide which full readings appear first, retaining every highest tie without hidden primary or secondary types. Repeating one position gives each group three counts and all fifty-four sections without proving a balanced personality. Close counts invite another guide rather than a validated relationship status, ability level, family membership or population ranking. Use no result to assign types to actual friends, colleagues or family members."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "所有最高并列都保留完整结果",
+        "en": "Every highest tie retains its full result"
+      },
+      "paragraphs": [
+        {
+          "zh": "完整18题每题一选加1，六组各出现12次、四位置各3次、省略6次。所有最高并列都有九节全文，没有隐藏主副型。总次数18，全选同一位置会六组各3，显示54节，不证明理想均衡。3/12也不是25%的相伴投入或朋友相似度。",
+          "en": "Each of eighteen complete choices adds one count. Every group appears twelve times, three in each position, and is omitted six times. Every highest tie retains its full nine-section guide without hidden primary or secondary types. Counts total eighteen; repeating one position gives each group three counts and fifty-four sections without proving ideal balance. Three out of twelve is no twenty-five-percent companionship investment or friend similarity."
+        }
+      ]
+    },
+    {
+      "id": "archetype-comparison",
+      "title": {
+        "zh": "一次相聚可以有多种自愿贡献",
+        "en": "One gathering can include several voluntary contributions"
+      },
+      "paragraphs": [
+        {
+          "zh": "解释加入方式、完成小动作、留回忆、试玩法、先听一段与传邀请，可以在同一次相聚发生，不要求固定由不同人承担。次数近时读另一份全文，比较这次更愿意先做哪一小步。本题没有证明六组互斥或心理独立，也不根据分数替朋友分工。",
+          "en": "Explaining how to join, finishing a little task, keeping a memory, trying a game, hearing a part and passing an invitation can happen at one gathering without fixed people for each. Close counts invite another full guide and comparison of the step you preferred first. This bank establishes neither exclusive groups nor psychological independence and assigns no tasks to actual friends."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "相伴比喻、实际关系与原创建议读法",
+        "en": "The companionship metaphor, actual relationships and original conventions"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是朋友圈自愿贡献的原创娱乐读法，“找到家庭”只作可自由采用的相伴比喻，不判断谁算家人、谁配归属或真实关系是否健康。六组是有限编辑入口，不是普世原型、家长／治疗师身份或照护义务；不推断人格、倾听／修理能力、心理健康、现实贡献、年龄阶段、稀有程度或职业匹配。次数不是人群比例、感情深浅或能力分数。",
+          "en": "This is an original entertainment reading of voluntary friend-group contributions. Found family is an optional companionship metaphor, judging no family membership, deservingness of belonging or health of actual relationships. Six groups are limited editorial entrances, not universal archetypes, parental or therapist identities or care obligations. They infer no personality, listening or repair ability, mental health, actual contribution, life stage, rarity or career fit. Counts are no population proportions, depth of affection or ability scores."
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "title": {
+        "zh": "免费全文、草稿与相伴比喻的边界",
+        "en": "Free full guides, drafts and the companionship metaphor"
+      },
+      "paragraphs": [
+        {
+          "zh": "六份九节全文在作答前后都免费。18个自愿朋友圈场面、72选项和结果正文均原创；“找到家庭”是可自由采用的相伴比喻，不审核真实家庭、归属资格或朋友是否合格。结果不测人格、社交技巧、照护／修理／治疗能力、心理健康、现实贡献或职业匹配，不要求任何人承担某种角色。无需账号，也不需要朋友姓名、位置、照片或真实事件。自愿开启的草稿只在本标签页保存最多24小时，完成、清除或重测即删；分享只有结果名与公开链接，不带答案或次数。可以随时停止，所有公开指南仍能完整阅读。",
+          "en": "All six nine-section guides are free before and after answering. Eighteen voluntary friend-group scenes, seventy-two options and result text are original. Found family is an optional companionship metaphor, judging no actual family, qualification for belonging or worthiness as a friend. The result assesses no personality, social skill, caring, repair or therapy ability, mental health, actual contribution or career fit, and requires nobody to maintain a role. No account, friend’s name, location, photograph or actual event is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing includes result names and public links without answers or counts. Stop at any point; every public guide remains available in full."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "找到家庭角色测试在这里观察什么？",
+        "en": "What does the Found Family Role Test explore here?"
+      },
+      "answer": {
+        "zh": "它比较18个原创朋友圈场面里，这次更愿意先做的自愿小贡献。六组分别读欢迎加入、具体帮忙、共同回忆、小尝试、当下倾听与以后联系，不判断实际家庭资格、归属或关系好坏。",
+        "en": "It compares the voluntary little contribution you would prefer first in eighteen original friend-group scenes. The six readings cover joining, practical help, shared memory, small experiments, present listening and later contact, judging no actual family membership, belonging or relationship quality."
+      }
+    },
+    {
+      "question": {
+        "zh": "六种完整结果分别是什么？",
+        "en": "What are the six full readings?"
+      },
+      "answer": {
+        "zh": "迎席人、搭把手伙伴、故事收藏者、小计划发起者、倾听搭子与联络牵线人。每份九节全文包含具体场面、范围调整、近似结果比较与小尝试；六组是本站编辑入口，不是普世原型，也不要求朋友固定扮演。",
+        "en": "Welcome Keeper, Practical Pal, Story Keeper, Spark Starter, Listening Companion and Thread Weaver. Every nine-section guide includes particular scenes, adjustable scope, comparisons and a small experiment. They are original editorial entrances rather than universal archetypes or fixed roles friends must play."
+      }
+    },
+    {
+      "question": {
+        "zh": "次数、近分和并列怎么读？",
+        "en": "How do raw counts, close readings and ties work?"
+      },
+      "answer": {
+        "zh": "每题一选加1，18题完整后显示六组原始次数。各组曝光相同，所有最高并列保留全文；近分可多读另一份，没有强制主副型、相伴百分比、稀有程度、常模或验证过的能力阈值。",
+        "en": "Each choice adds one count, with all eighteen required for the six raw counts. Groups have equal exposure, every highest tie keeps its full guide and close counts invite another reading. There are no forced primary or secondary types, companionship percentages, rarity, norms or validated ability thresholds."
+      }
+    },
+    {
+      "question": {
+        "zh": "会让我成为家长朋友、治疗师或固定组织者吗？",
+        "en": "Does a result make me a parent friend, therapist or permanent organiser?"
+      },
+      "answer": {
+        "zh": "不会。题本只比较自愿、普通场面中的具体选择，不证明照护、咨询、修理、领导或任何专业能力，也不把关系维护责任交给你。可以不认领角色名，也可以停止作答，所有公开全文仍能阅读。",
+        "en": "No. The bank compares particular choices in voluntary, ordinary scenes. It proves no care, counselling, repair, leadership or other professional ability and assigns no responsibility for maintaining a relationship. Decline a name or stop answering; every public full guide remains available."
+      }
+    },
+    {
+      "question": {
+        "zh": "和讨人喜欢、故事书朋友或沟通风格一样吗？",
+        "en": "Is this the same as Likable Person, Storybook Friend or Communication Style?"
+      },
+      "answer": {
+        "zh": "不是同一题本或分数。讨人喜欢版用20题双选比较五类互动贡献并保留31组合；故事书朋友版用原创纸上聚会场景读同人视角；沟通风格版观察24条互动做法。本版比较18个自愿朋友相聚菜单的六种贡献，不换算分数，也没有证明心理独立。",
+        "en": "They are different banks and scores. Likable Person uses twenty two-option items, five interaction themes and thirty-one combinations. Storybook Friend reads fan perspectives through original paper-gathering scenes. Communication Style observes twenty-four practices. This edition compares six contributions in eighteen voluntary friend-gathering menus without score conversion or established psychological independence."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果、草稿和分享需要付费吗？",
+        "en": "Are full results, drafts and sharing paid?"
+      },
+      "answer": {
+        "zh": "六份九节全文在作答前后都免费。18个自愿朋友圈场面、72选项和结果正文均原创；“找到家庭”是可自由采用的相伴比喻，不审核真实家庭、归属资格或朋友是否合格。结果不测人格、社交技巧、照护／修理／治疗能力、心理健康、现实贡献或职业匹配，不要求任何人承担某种角色。无需账号，也不需要朋友姓名、位置、照片或真实事件。自愿开启的草稿只在本标签页保存最多24小时，完成、清除或重测即删；分享只有结果名与公开链接，不带答案或次数。可以随时停止，所有公开指南仍能完整阅读。",
+        "en": "All six nine-section guides are free before and after answering. Eighteen voluntary friend-group scenes, seventy-two options and result text are original. Found family is an optional companionship metaphor, judging no actual family, qualification for belonging or worthiness as a friend. The result assesses no personality, social skill, caring, repair or therapy ability, mental health, actual contribution or career fit, and requires nobody to maintain a role. No account, friend’s name, location, photograph or actual event is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing includes result names and public links without answers or counts. Stop at any point; every public guide remains available in full."
+      }
+    }
+  ]
+}
