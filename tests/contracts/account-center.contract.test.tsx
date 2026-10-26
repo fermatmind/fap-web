@@ -1,6 +1,7 @@
 import React from "react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { fireEvent, render, screen, within } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
+import { ApiError } from "@/lib/api-client";
 import AccountCenter, {
   completedTests,
 } from "@/components/account/AccountCenter";
@@ -22,6 +23,8 @@ const mocks = vi.hoisted(() => ({
   orders: vi.fn(),
   emailLogin: vi.fn(),
   confirm: vi.fn(),
+  acceptSession: vi.fn(),
+  recovery: vi.fn(),
 }));
 vi.mock("next/navigation", () => ({
   useRouter: () => ({ replace: mocks.replace }),
@@ -39,10 +42,10 @@ vi.mock("@/lib/account/api", () => ({
   getLoginChallenge: mocks.challenge,
   getAccountOrders: mocks.orders,
   updateAccount: vi.fn(),
-  acceptAccountSession: vi.fn(),
+  acceptAccountSession: mocks.acceptSession,
   googleLogin: vi.fn(),
   logoutAccount: vi.fn(),
-  requestAccountRecovery: vi.fn(),
+  requestAccountRecovery: mocks.recovery,
   requestEmailLogin: mocks.emailLogin,
   requestGoogleAccountLink: vi.fn(),
   confirmAccountEmail: mocks.confirm,
@@ -74,6 +77,7 @@ function row(code: string, patch: Partial<MeAttemptItem> = {}): MeAttemptItem {
 beforeEach(() => {
   localStorage.clear();
   sessionStorage.clear();
+  window.history.replaceState(null, "", "/");
   mocks.search = "";
   mocks.account.mockResolvedValue({
     account: {
@@ -90,6 +94,7 @@ beforeEach(() => {
   mocks.orders.mockResolvedValue({ items: [], meta: { last_page: 1 } });
   mocks.emailLogin.mockResolvedValue({ verification_email_sent: true });
   mocks.confirm.mockResolvedValue({ linked_attempt_ids: [] });
+  mocks.acceptSession.mockResolvedValue(undefined);
 });
 
 describe("account center", () => {
@@ -402,6 +407,118 @@ describe("account center", () => {
     expect(
       screen.queryByRole("button", { name: "Download PDF" }),
     ).not.toBeInTheDocument();
+  });
+
+  it.each(["en", "zh"] as const)(
+    "explains an expired or used confirmation in %s and points to the existing email form",
+    async (locale) => {
+      mocks.search = "section=settings";
+      mocks.account.mockRejectedValue(new ApiError({
+        status: 401, errorCode: "UNAUTHORIZED", message: "Unauthenticated.",
+      }));
+      mocks.confirm.mockRejectedValue(new ApiError({
+        status: 422, errorCode: "GENERIC_ERROR",
+        message: "Verification link expired or already used.",
+      }));
+      window.history.replaceState(null, "", `/${locale}/account#verify=${"v".repeat(64)}`);
+      render(<AccountCenter locale={locale} />);
+      await screen.findByText(locale === "en"
+        ? "Your session expired. Please sign in again."
+        : "登录已过期，请重新登录。");
+      fireEvent.click(screen.getByRole("button", {
+        name: locale === "en" ? "Confirm and continue" : "确认并继续",
+      }));
+      const alert = await screen.findByRole("alert");
+      await waitFor(() => expect(alert).toHaveTextContent(locale === "en"
+        ? "This email link has expired or already been used."
+        : "此邮件链接已过期或已使用。"));
+      expect(screen.queryByText(locale === "en"
+        ? "Your session expired. Please sign in again."
+        : "登录已过期，请重新登录。")).not.toBeInTheDocument();
+      expect(screen.queryByRole("button", {
+        name: locale === "en" ? "Confirm and continue" : "确认并继续",
+      })).not.toBeInTheDocument();
+      expect(screen.getByRole("link", {
+        name: locale === "en" ? "Request a new email link" : "重新申请邮件链接",
+      })).toHaveAttribute("href", `/${locale}/account?section=settings#account-email`);
+      expect(screen.getByRole("textbox", {
+        name: locale === "en" ? "Email" : "邮箱",
+      }).closest("form")).toHaveAttribute("id", "account-email");
+      expect(mocks.confirm).toHaveBeenCalledTimes(1);
+      expect(mocks.acceptSession).not.toHaveBeenCalled();
+      expect(mocks.emailLogin).not.toHaveBeenCalled();
+      expect(mocks.recovery).not.toHaveBeenCalled();
+      expect(screen.queryByText(/^(Signed in\.|登录成功。)$/)).not.toBeInTheDocument();
+      expect(getFmToken()).toBeNull();
+
+      // A new link arriving in this tab can be confirmed through the normal path.
+      window.history.replaceState(null, "", `/${locale}/account#verify=${"w".repeat(64)}`);
+      fireEvent(window, new Event("hashchange"));
+      expect(screen.queryByRole("alert")).not.toBeInTheDocument();
+      expect(screen.getByRole("button", {
+        name: locale === "en" ? "Confirm and continue" : "确认并继续",
+      })).toBeEnabled();
+      expect(window.location.hash).toBe("");
+    },
+  );
+
+  it.each(["en", "zh"] as const)("keeps valid email sign-in working in %s", async (locale) => {
+    mocks.search = "section=settings";
+    mocks.account.mockResolvedValue({ account: null, preview: false });
+    const session = { status: "authenticated", fm_token: "synthetic-session", account: {
+      id: "42", name: "Example", email: "owner@example.test", google_connected: false, locale,
+    } };
+    mocks.confirm.mockResolvedValue(session);
+    window.history.replaceState(null, "", `/${locale}/account#verify=${"v".repeat(64)}`);
+    render(<AccountCenter locale={locale} />);
+    const confirm = await screen.findByRole("button", {
+      name: locale === "en" ? "Confirm and continue" : "确认并继续",
+    });
+    await screen.findByRole("textbox", { name: locale === "en" ? "Email" : "邮箱" });
+    mocks.account.mockResolvedValue({ account: session.account, preview: false });
+    fireEvent.click(confirm);
+    await screen.findByText(locale === "en" ? "Signed in." : "登录成功。");
+    expect(mocks.acceptSession).toHaveBeenCalledExactlyOnceWith(session);
+    expect(screen.queryByRole("alert")).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", {
+      name: locale === "en" ? "Confirm and continue" : "确认并继续",
+    })).not.toBeInTheDocument();
+  });
+
+  it.each([
+    new ApiError({ status: 422, errorCode: "VALIDATION_ERROR", message: "Other validation failure with private@example.test" }),
+    new ApiError({ status: 503, errorCode: "GENERIC_ERROR", message: "Verification link expired or already used." }),
+    new Error("Verification link expired or already used."),
+  ])("keeps other confirmation failures generic and retryable ($message)", async (error) => {
+    mocks.search = "section=settings";
+    mocks.account.mockResolvedValue({ account: null, preview: false });
+    mocks.confirm.mockRejectedValue(error);
+    window.history.replaceState(null, "", `/en/account#verify=${"v".repeat(64)}`);
+    render(<AccountCenter locale="en" />);
+    fireEvent.click(await screen.findByRole("button", { name: "Confirm and continue" }));
+    expect(await screen.findByRole("alert")).toHaveTextContent("Unable to complete this action.");
+    expect(screen.queryByRole("heading", { name: "Email link unavailable" })).not.toBeInTheDocument();
+    expect(screen.queryByText(/private@example\.test/)).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Confirm and continue" })).toBeEnabled();
+    expect(mocks.acceptSession).not.toHaveBeenCalled();
+    expect(getFmToken()).toBeNull();
+  });
+
+  it("retains the signed-in account and targets its existing recovery form after an unavailable link", async () => {
+    mocks.search = "section=settings";
+    mocks.confirm.mockRejectedValue(new ApiError({
+      status: 422, errorCode: "GENERIC_ERROR", message: "Verification link expired or already used.",
+    }));
+    window.history.replaceState(null, "", `/en/account#verify=${"v".repeat(64)}`);
+    render(<AccountCenter locale="en" />);
+    await screen.findByRole("textbox", { name: "Original email" });
+    fireEvent.click(screen.getByRole("button", { name: "Confirm and continue" }));
+    await screen.findByRole("heading", { name: "Email link unavailable" });
+    expect(screen.getByText("preview@example.test")).toBeInTheDocument();
+    expect(screen.getByRole("textbox", { name: "Original email" }).closest("form"))
+      .toHaveAttribute("id", "account-email");
+    expect(mocks.recovery).not.toHaveBeenCalled();
+    expect(mocks.acceptSession).not.toHaveBeenCalled();
   });
 
   it("clears private account state on sign-out while preserving consent and language", () => {

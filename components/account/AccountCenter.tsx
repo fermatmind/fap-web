@@ -289,7 +289,7 @@ function GoogleLogin({
           : "Sign in to return to your results and purchased reports across devices."}
       </p>
       {allowEmail && (
-        <form className={styles.emailLogin} onSubmit={async (event) => {
+        <form id="account-email" className={styles.emailLogin} onSubmit={async (event) => {
           event.preventDefault();
           setBusy(true);
           setError("");
@@ -536,6 +536,7 @@ export default function AccountCenter({ locale }: { locale: Locale }) {
   }, [queryScale]);
   const [ordersLoading, setOrdersLoading] = useState(false);
   const [verification, setVerification] = useState("");
+  const [verificationUnavailable, setVerificationUnavailable] = useState(false);
   const [preferredLocale, setPreferredLocale] = useState<Locale>(locale);
   const [name, setName] = useState(""),
     [email, setEmail] = useState(""),
@@ -603,6 +604,7 @@ export default function AccountCenter({ locale }: { locale: Locale }) {
       const token = params.get("verify");
       if (!token) return;
       setVerification(token);
+      setVerificationUnavailable(false);
       window.history.replaceState(null, "", window.location.pathname + window.location.search);
     };
     readVerification();
@@ -804,6 +806,22 @@ export default function AccountCenter({ locale }: { locale: Locale }) {
               {notice}
             </p>
           )}
+          {verificationUnavailable && (
+            <div role="alert" className={styles.verify}>
+              <h2>{zh ? "邮件链接不可用" : "Email link unavailable"}</h2>
+              <p>
+                {zh
+                  ? "此邮件链接已过期或已使用。请在账号设置中重新申请邮件，并打开最新邮件中的链接。"
+                  : "This email link has expired or already been used. Request a new email in account settings and open the latest email link."}
+              </p>
+              <Link
+                className={styles.primary}
+                href={path("/account?section=settings#account-email")}
+              >
+                {zh ? "重新申请邮件链接" : "Request a new email link"}
+              </Link>
+            </div>
+          )}
           {verification && (
             <div className={styles.verify}>
               <h2>
@@ -820,6 +838,8 @@ export default function AccountCenter({ locale }: { locale: Locale }) {
                 disabled={busy}
                 onClick={async () => {
                   setBusy(true);
+                  setError("");
+                  setNotice("");
                   try {
                     const r = await confirmAccountEmail(verification);
                     if (r.fm_token) await onSession(r);
@@ -829,7 +849,16 @@ export default function AccountCenter({ locale }: { locale: Locale }) {
                       ? (zh ? "登录成功。" : "Signed in.")
                       : (zh ? "关联已完成。" : "Link completed."));
                   } catch (e) {
-                    setError(message(e, zh));
+                    if (
+                      e instanceof ApiError &&
+                      e.status === 422 &&
+                      e.message === "Verification link expired or already used."
+                    ) {
+                      setVerification("");
+                      setVerificationUnavailable(true);
+                    } else {
+                      setError(message(e, zh));
+                    }
                   } finally {
                     setBusy(false);
                   }
@@ -1221,6 +1250,7 @@ export default function AccountCenter({ locale }: { locale: Locale }) {
                         : "Enter the email used to save results or buy reports. Verify ownership to link them to this account."}
                     </p>
                     <form
+                      id="account-email"
                       onSubmit={async (e) => {
                         e.preventDefault();
                         setBusy(true);
