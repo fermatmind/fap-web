@@ -2852,5 +2852,30 @@
       "anglerfish"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "verbal-reasoning",
+    "code": "FM_VERBAL_REASONING_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Verbal Reasoning Test",
+      "zh": "言语推理测试"
+    },
+    "description": {
+      "en": "Practise words, analogies, reading and deduction with 24 original questions. Free explained answers and four complete guides. No IQ or hiring score.",
+      "zh": "24道原创题练语境词义、词语类比、阅读依据和演绎推理，四组各六题。免费查看全部答案、逐题解析、分项正确数与四份完整指南。不换算智商、百分位或招聘分数。"
+    },
+    "minutes": 10,
+    "formCode": "fm_verbal_reasoning_practice_24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "vocabulary",
+      "analogies",
+      "reading",
+      "logic"
+    ],
+    "collection": "explore"
   }
 ]

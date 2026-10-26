@@ -1,0 +1,1797 @@
+{
+  "slug": "verbal-reasoning",
+  "code": "FM_VERBAL_REASONING_PRACTICE",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "everyday",
+  "kind": "practice",
+  "title": {
+    "en": "Verbal Reasoning Test",
+    "zh": "言语推理测试"
+  },
+  "seoTitle": {
+    "en": "Verbal Reasoning Test: 24 Questions & Explained Answers",
+    "zh": "言语推理测试：24道原创题、答案与完整解析"
+  },
+  "description": {
+    "en": "Practise words, analogies, reading and deduction with 24 original questions. Free explained answers and four complete guides. No IQ or hiring score.",
+    "zh": "24道原创题练语境词义、词语类比、阅读依据和演绎推理，四组各六题。免费查看全部答案、逐题解析、分项正确数与四份完整指南。不换算智商、百分位或招聘分数。"
+  },
+  "minutes": 10,
+  "instructions": {
+    "en": "Choose one answer for every item using the stated meaning, relation, passage or fictional rule. English and Chinese use separately authored native contexts, not equivalent language forms. Complete all 24 items to see your choices, keys, explanations and four full guides. There is no timer. For unaided practice, save tools and dictionaries until afterwards; prior exposure and assistance change how the count should be read.",
+    "zh": "每题单选，依据题定词义、关系、文本或虚构规则。英中语境分别原创，不是经等价校准的语言题本。完成24题可看所选、答案、解析及四份完整指南。不计时。若练无辅助作答，完成后再用词典或工具；见过题目或借助辅助，应据此理解正确数。"
+  },
+  "introduction": {
+    "en": "Work through six original tasks each on words in context, verbal analogies, reading and evidence, and deduction and logical limits. Review every answer and all four complete guides at any count. Selected dictionary facts support the word meanings; original passage facts and explicit fictional premises support other answers. Finite formal checks cover the encoded logic cases, while language meanings remain author-reviewed. This is a fixed practice bank without population norms, IQ conversion, hiring standards or a measure of general verbal ability.",
+    "zh": "语境词义、词语类比、阅读依据、演绎与逻辑边界各六道原创任务。任何正确数均可看全部答案及四份完整指南。选定词典事实支持词义，其余答案依据原创短文和明示虚构前提。有限形式核查覆盖编码后的逻辑情形，自然语言含义仍由作者复核。本固定练习题组没有人群常模、智商换算、招聘标准或总体言语能力测量。"
+  },
+  "resultHeading": {
+    "en": "Your verbal practice results and every explanation",
+    "zh": "本次言语练习结果与全部解析"
+  },
+  "directions": [
+    {
+      "id": "vocabulary",
+      "title": {
+        "en": "Words in context",
+        "zh": "语境词义"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "analogies",
+      "title": {
+        "en": "Verbal analogies",
+        "zh": "词语类比"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "reading",
+      "title": {
+        "en": "Reading and evidence",
+        "zh": "阅读与依据"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "logic",
+      "title": {
+        "en": "Deduction and logical limits",
+        "zh": "演绎与逻辑边界"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "VERBAL_01",
+      "prompt": {
+        "en": "What does mandatory mean in this event notice?\n\nThe briefing is mandatory for every registered helper under the event rules.",
+        "zh": "阅读通知，选择“必须”在这里的含义。\n\n通知写明：所有已登记的志愿者都必须参加活动说明会。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The rules require each registered helper to attend",
+            "zh": "规则要求每位已登记者都参加"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Each helper may skip it whenever they prefer",
+            "zh": "可以仅凭个人意愿不参加"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Attendance has already been completed automatically",
+            "zh": "已经自动完成了参加要求"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Only people who have not registered may attend",
+            "zh": "只允许未登记者参加"
+          },
+          "directionId": "vocabulary"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Mandatory expresses a requirement in the stated rules. It does not make attendance optional or claim that it has already happened. The final alternative reverses which people the notice concerns. The question uses a fictional event rule and does not decide whether any real organisation may impose such a requirement.",
+        "zh": "“必须”表示题定规则要求做这件事，不是随意可选，也不表示已经完成。最后一项把对象换成未登记者，与通知不符。本题用虚构活动规则练词义，不判断真实组织能否强制要求参加。"
+      }
+    },
+    {
+      "id": "VERBAL_02",
+      "prompt": {
+        "en": "Which statement captures the meaning of explicit in this note?\n\nThe note gives an explicit instruction: use the south entrance on Tuesday.",
+        "zh": "阅读句子，选择“明示”在这里的含义。\n\n场馆在通知中明示：周二请从南门进入。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The instruction is deliberately left unstated",
+            "zh": "刻意没有说出所需做法"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The instruction is stated directly rather than left to inference",
+            "zh": "已把所需做法直接说清"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The instruction concerns a different entrance on every day",
+            "zh": "要求每天都走另一个入口"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The instruction proves that the north entrance is unsafe",
+            "zh": "证明北门存在安全危险"
+          },
+          "directionId": "vocabulary"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Explicit means the instruction is directly expressed. The sentence specifies an entrance and day but gives no safety finding about another entrance. The other choices remove the statement or add a changing-entry rule. Preserve what is actually stated without turning it into a wider explanation of the building.",
+        "zh": "“明示”表示直接作出指示。通知指定入口和日期，没有给另一个入口的安全结论。其他选项删去了明确要求，或增加每天换门的规则。应保留原文所说，不扩大成对建筑的整体解释。"
+      }
+    },
+    {
+      "id": "VERBAL_03",
+      "prompt": {
+        "en": "Which schedule fits three consecutive weekdays starting on Monday?\n\nFor this task, weekdays run Monday, Tuesday, Wednesday, Thursday, Friday.",
+        "zh": "按“连续”的含义选出安排。\n\n记录从周一开始连续三个工作日；本题工作日顺序为周一、周二、周三、周四、周五。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Monday, Wednesday, Friday",
+            "zh": "周一、周三、周五"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Three separate visits on Monday alone",
+            "zh": "仅周一当天分三次记录"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Monday, Tuesday, Wednesday",
+            "zh": "周一、周二、周三"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Monday, Tuesday, Thursday",
+            "zh": "周一、周二、周四"
+          },
+          "directionId": "vocabulary"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Consecutive takes successive positions without a skipped weekday in the supplied order. Starting at Monday gives Monday, Tuesday and Wednesday. Three visits within one day are not three consecutive weekdays. The task defines the calendar sequence and does not assume a real organisation’s working-week policy.",
+        "zh": "“连续”要求在给定工作日顺序中接连记录，不跳过中间一天。从周一开始就是周一、周二、周三。同日分三次不是连续三个工作日。题面已规定顺序，不假定任何真实单位的工作周政策。"
+      }
+    },
+    {
+      "id": "VERBAL_04",
+      "prompt": {
+        "en": "What does provisional indicate about this route?\n\nThe team adopted a provisional route while the site survey remains unfinished.",
+        "zh": "阅读安排，选择“暂且”在这里的含义。\n\n人数尚未核实，先暂且按十人安排座位，确认后再核对是否需要调整。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "It is a permanent arrangement that must never change",
+            "zh": "已经永久确定，今后不得改变"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "It means the activity has been cancelled",
+            "zh": "意味着活动已经取消"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "It proves every unresolved detail has been verified",
+            "zh": "证明所有未决细节均已核实"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "It is an interim arrangement that can be revised",
+            "zh": "先采用临时安排，之后仍可复核调整"
+          },
+          "directionId": "vocabulary"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Provisional describes an interim arrangement rather than a settled permanent one. It leaves room for revision; it does not prove that a change must occur. The sentence does not cancel the activity or resolve the unfinished survey. The Chinese task independently practises a corresponding temporary-use expression rather than claiming identical word difficulty.",
+        "zh": "“暂且”说明先这样临时处理，保留复核和调整空间，不等于必然要改，也不是活动取消或人数已经核准。英语题另练provisional的临时安排义项，两语词项不据此认定为等难。"
+      }
+    },
+    {
+      "id": "VERBAL_05",
+      "prompt": {
+        "en": "What does sufficient mean for the stated need?\n\nThe two tickets are sufficient to admit these two visitors under the fictional entry rule.",
+        "zh": "阅读句子，选择“足够”在这里的含义。\n\n按本题虚构入场规则，两张票足够让这两位访客入场。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The tickets meet the stated admission need",
+            "zh": "这些票已满足题定入场所需"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The tickets can admit every possible visitor without limit",
+            "zh": "这些票可让任意多的人不限量入场"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The visitors necessarily need four more tickets",
+            "zh": "访客必然还需要四张票"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The tickets are guaranteed to exceed every future need",
+            "zh": "保证超过今后所有场合的需要"
+          },
+          "directionId": "vocabulary"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Sufficient means enough for the particular need described. It does not imply unlimited capacity, a shortage or adequacy for every future situation. Keep the stated pair of visitors and the fictional rule in view. This meaning check does not validate a real venue’s ticket terms or predict admission there.",
+        "zh": "“足够”针对给定需要表示已够用，不表示不限量、还缺票，或能满足未来所有场合。应保留题面的两位访客与虚构规则。本题不核真实场馆条款，也不保证在那里能够入场。"
+      }
+    },
+    {
+      "id": "VERBAL_06",
+      "prompt": {
+        "en": "What does inconsistent mean about these two exact claims?\n\nOne log says the same parcel has a mass of exactly 2 kg and exactly 5 kg at the same time under the same measurement conditions.",
+        "zh": "为什么可以说这两项精确主张“矛盾”？\n\n同一记录称同一箱子此刻质量恰为2千克，又称它此刻质量恰为5千克；单位与测量条件相同。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The word alone establishes which measurement is correct",
+            "zh": "仅凭“矛盾”一词即可确定哪个数值正确"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "They cannot both hold under the stated exact conditions",
+            "zh": "在题定的精确条件下不能同时成立"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The two claims simply give compatible extra detail",
+            "zh": "两项只是可以同时成立的补充细节"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Different exact values always mean that both claims are true",
+            "zh": "精确数值不同就表示两项都正确"
+          },
+          "directionId": "vocabulary"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Inconsistent here concerns incompatible exact claims about the same object under the same conditions. Identifying that incompatibility does not determine which value, if either, is correct. The task stipulates exact claims, not a comparison of rounded measurements, uncertainty intervals or different times.",
+        "zh": "“矛盾”在此指同一对象、同一条件下的两项精确主张不相容，但指出不相容并不能决定哪项正确，甚至不能保证其中一项正确。题面讨论精确主张，不是四舍五入、误差区间或不同时刻的测量。"
+      }
+    },
+    {
+      "id": "VERBAL_07",
+      "prompt": {
+        "en": "Choose the pair with the same tool → action relation and direction.\n\nneedle : sew",
+        "zh": "选择同样按“工具→用途动作”组织的词对，保留方向。\n\n缝衣针：缝纫"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "broom : wood",
+            "zh": "扫帚：木材"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "broom : handle",
+            "zh": "扫帚：把手"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "broom : sweep",
+            "zh": "扫帚：清扫"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "broom : cupboard",
+            "zh": "扫帚：储物柜"
+          },
+          "directionId": "analogies"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "A needle is used to sew, and a broom is used to sweep. The other broom pairs give a material, a part and a possible storage location. They are associations, but not the requested tool-to-action relation. Sharing one word with the target is not enough to preserve its relation.",
+        "zh": "缝衣针用来缝纫，扫帚用来清扫；其余分别给材料、部件或可能存放地点，虽有关联，却不是题目所要的工具与用途动作。仅有词语相联，不代表关系一致。"
+      }
+    },
+    {
+      "id": "VERBAL_08",
+      "prompt": {
+        "en": "Match young animal → adult of the same animal, without reversing the direction.\n\nkitten : adult cat",
+        "zh": "匹配“幼体→同种动物成年体”，不可倒转方向。\n\n幼猫：成年猫"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "adult dog : puppy",
+            "zh": "成年犬：幼犬"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "puppy : kennel",
+            "zh": "幼犬：犬舍"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "dog : bone",
+            "zh": "犬：骨头"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "puppy : adult dog",
+            "zh": "幼犬：成年犬"
+          },
+          "directionId": "analogies"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Puppy to adult dog keeps the stated younger-to-adult relationship. Adult dog to puppy reverses it; puppy to kennel concerns accommodation, while dog to bone concerns a possible food or object association. This is a relation-matching task, not a claim about every animal’s actual living conditions.",
+        "zh": "幼犬到成年犬保留幼体到成年体的方向；成年犬到幼犬反向，幼犬到犬舍讲居处，犬到骨头只是可能的食物或物件关联。本题匹配关系，不概括所有动物的生活状况。"
+      }
+    },
+    {
+      "id": "VERBAL_09",
+      "prompt": {
+        "en": "Choose structural part → the whole it belongs to, in that order.\n\npage : book",
+        "zh": "选择“结构部件→它所属的整体”，保持此顺序。\n\n书页：整本书"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "petal : flower",
+            "zh": "花瓣：花朵"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "flower : petal",
+            "zh": "花朵：花瓣"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "gardener : flower",
+            "zh": "园丁：花朵"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "water : flower",
+            "zh": "水：花朵"
+          },
+          "directionId": "analogies"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "A page can be a part of a book, as a petal can be a part of a flower. Flower to petal reverses whole and part. A gardener’s relation to a flower concerns tending it, and water concerns a resource. The analogy does not assert that every book or flower has exactly the same structure.",
+        "zh": "书页可为书的部分，花瓣可为花朵的部分；花朵到花瓣倒转整体和部件。园丁与花朵讲照料者，水与花朵讲资源。类比不表示每本书或每朵花的结构都完全相同。"
+      }
+    },
+    {
+      "id": "VERBAL_10",
+      "prompt": {
+        "en": "Match maker → produced object, rather than material or equipment.\n\nbaker : loaf of bread",
+        "zh": "匹配“制作者→作品”，不要换成材料或设备关系。\n\n面包师：一条面包"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "clay : clay pot",
+            "zh": "黏土：陶罐"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "potter : clay pot",
+            "zh": "陶工：陶罐"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "kiln : clay pot",
+            "zh": "窑炉：陶罐"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "clay pot : potter",
+            "zh": "陶罐：陶工"
+          },
+          "directionId": "analogies"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "A baker makes a loaf, and a potter makes a clay pot. Clay is material and a kiln is equipment used in pottery; neither names the maker. Clay pot to potter reverses the required direction. A pair can concern the same craft while still expressing a different relationship.",
+        "zh": "面包师制作面包，陶工制作陶罐；黏土是材料，窑炉是陶艺设备，都不是制作者。陶罐到陶工又反转方向。即使都与同一门手艺有关，关系也未必相同。"
+      }
+    },
+    {
+      "id": "VERBAL_11",
+      "prompt": {
+        "en": "Match a designated storage place → its usual stored items. Treat both first words as nouns.\n\narchive : records",
+        "zh": "按通常用途匹配“存放处→所存物”，词对首项均按名词理解。\n\n档案库：档案"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "clothes : wardrobe",
+            "zh": "衣物：衣柜"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "tailor : clothes",
+            "zh": "裁缝：衣物"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "wardrobe : clothes",
+            "zh": "衣柜：衣物"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "needle : clothes",
+            "zh": "缝衣针：衣物"
+          },
+          "directionId": "analogies"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "An archive stores records, and a wardrobe stores clothes in the usual-purpose relation requested. Clothes to wardrobe reverses storage place and item. Tailor and needle concern making or working on clothing. This asks about a storage function, without claiming that every actual cupboard or archive is currently full.",
+        "zh": "档案库按用途存放档案，衣柜按用途存放衣物；衣物到衣柜反向，裁缝和缝衣针与制作或处理衣物有关。本题谈存放功能，不声称每个实际柜子或档案库当前都装满。"
+      }
+    },
+    {
+      "id": "VERBAL_12",
+      "prompt": {
+        "en": "Match the direction from a lower to a higher stated intensity. The physical quantities need not be the same.\n\nquiet whisper : loud shout",
+        "zh": "匹配所明示的“较低→较高强度”方向，不要求两对使用同一种物理量。\n\n轻声低语：大声高喊"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "fast sprint : slow walk",
+            "zh": "快速冲刺：慢走"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "sprint : runner",
+            "zh": "冲刺：跑者"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "arrival : departure",
+            "zh": "到达：离开"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "slow walk : fast sprint",
+            "zh": "慢走：快速冲刺"
+          },
+          "directionId": "analogies"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The target moves from quieter to louder speech. Slow walk to fast sprint similarly moves from a lower to a higher stated pace. The reverse pair goes downward; sprint to runner changes action to actor, and arrival to departure changes direction rather than intensity. This compares order only, not equal numerical changes in sound and speed.",
+        "zh": "目标从较轻声到较大声；慢走到快速冲刺同样按题面从较低到较高速度。反向词对强度下降，冲刺到跑者变成动作与执行者，到达与离开则是方向而非强度。本题只类比顺序，不把音量与速度的数值变化当成相等。"
+      }
+    },
+    {
+      "id": "VERBAL_13",
+      "prompt": {
+        "en": "Which statement is supported by the whole notice?\n\nBecause of wind, the outdoor talks have been postponed. The indoor collection rooms remain open at their usual times. A replacement date for the talks has not been announced.",
+        "zh": "阅读通知，选择整段明确支持的说法。\n\n因大风，户外讲座延期。室内藏品展厅仍按通常时间开放；讲座补办日期尚未公布。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The talks are postponed while the indoor collection rooms remain open",
+            "zh": "讲座延期，室内藏品展厅仍开放"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Every part of the venue is closed indefinitely",
+            "zh": "整个场馆全部无限期关闭"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The talks will definitely be held tomorrow",
+            "zh": "讲座保证明天补办"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The collection rooms have permanently changed their hours",
+            "zh": "展厅已永久更改开放时间"
+          },
+          "directionId": "reading"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The notice separates the postponed outdoor talks from the still-open indoor rooms. It supplies no replacement date and no permanent change to room hours. A supported summary keeps those distinctions rather than treating one cancelled or delayed activity as closure of the whole venue.",
+        "zh": "通知分开说明户外讲座延期与室内展厅照常开放，没有补办日期，也没说展厅永久改时。概括时保留这些区分，不能把一项活动延期扩大成整个场馆关闭。"
+      }
+    },
+    {
+      "id": "VERBAL_14",
+      "prompt": {
+        "en": "What does This refer to at the start of the second sentence?\n\nThe panel rejected the budget proposal on Monday. This pushed the funding decision into the next round.",
+        "zh": "第二句开头的“这”指什么？\n\n评审组周一否决了预算方案。这使拨款决定延至下一轮。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A confirmed approval of the budget",
+            "zh": "预算已经获批"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The panel’s rejection of the budget proposal",
+            "zh": "评审组否决预算方案这件事"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The appointment of a new panel chair",
+            "zh": "新任评审组长的任命"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The physical delivery of a payment",
+            "zh": "一笔款项已经实际支付"
+          },
+          "directionId": "reading"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "This points back to the rejection event described in the first sentence. It does not introduce an approval, appointment or completed payment. A reference can pick up a whole event, not only a single adjacent noun; recover what the previous sentence actually reports.",
+        "zh": "“这”承接前一句的否决事件，不引入获批、任命或已付款。指代可承接整件事，不一定只指邻近名词；要回到上一句实际陈述的内容。"
+      }
+    },
+    {
+      "id": "VERBAL_15",
+      "prompt": {
+        "en": "Which sentence is the writer’s proposal rather than a supporting observation?\n\nThe trial cameras were rarely borrowed overnight. Shorter loans would let more visitors use the same equipment. We should therefore offer two-hour loans during the next trial.",
+        "zh": "哪项是作者提出的建议，而不是前面的支持性观察？\n\n试用相机很少被借用过夜。缩短借期可让更多访客使用同一批设备。因此，我们应在下一轮试行两小时借期。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The cameras were rarely borrowed overnight",
+            "zh": "相机很少被借用过夜"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "More visitors might use the same equipment",
+            "zh": "更多访客可能使用同一批设备"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Offer two-hour loans during the next trial",
+            "zh": "下一轮试行两小时借期"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The equipment has already been permanently replaced",
+            "zh": "设备已经永久更换"
+          },
+          "directionId": "reading"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "We should therefore signals the proposed next policy in the paragraph. Rare overnight borrowing is an observation offered in support, and wider access is the writer’s predicted reason. Identifying the proposal does not establish that it is effective or that a real service should adopt it. The final alternative is absent.",
+        "zh": "“因此，我们应”引出拟采取的安排。很少过夜是支持性观察，更多人可用是作者所述理由；识别建议不等于证明它有效，也不要求真实服务采用。最后一项原文没有。"
+      }
+    },
+    {
+      "id": "VERBAL_16",
+      "prompt": {
+        "en": "Apply the stated exception. What departure time is given for today?\n\nThe regular Saturday tour leaves at 10:00. On the first Saturday of each month, it leaves at 11:30 instead. Assume today is the first Saturday of a month.",
+        "zh": "按明确的例外规则，今天的参观出发时间是几点？\n\n通常周六参观在10:00出发；每月第一个周六则改为11:30出发。假定今天是某月第一个周六。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "10:00",
+            "zh": "10:00"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "09:00",
+            "zh": "09:00"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Both 10:00 and 11:30 departures are guaranteed",
+            "zh": "保证10:00和11:30各出发一次"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "11:30",
+            "zh": "11:30"
+          },
+          "directionId": "reading"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Today meets the explicitly stated first-Saturday condition, so the replacement time is 11:30. Instead replaces the regular 10:00 departure; it does not promise an additional one. The notice supplies no 09:00 time. No live calendar lookup is needed because the relevant condition is given.",
+        "zh": "今天满足明确给定的首个周六条件，因此用替代时间11:30。“改为”替换10:00，并不保证多加一班，09:00也没有依据。条件已给出，无需查真实日历。"
+      }
+    },
+    {
+      "id": "VERBAL_17",
+      "prompt": {
+        "en": "Which summary preserves the boundary of this survey?\n\nTwenty visitors chose to answer the optional form. Eighteen of those respondents preferred the new labels. The notice gives no responses from the other visitors.",
+        "zh": "哪项概括保留了调查范围？\n\n20名访客自愿填写问卷，其中18人偏好新标签。通知没有提供其余访客的回答。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Eighteen of the twenty self-selected respondents preferred the new labels",
+            "zh": "20名自愿答者中18人偏好新标签"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Ninety percent of every visitor group necessarily prefers the new labels",
+            "zh": "所有访客群体都必然有90%偏好新标签"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Every visitor answered the form",
+            "zh": "每位访客都填了问卷"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The unanswered visitors definitely disliked the new labels",
+            "zh": "没答问卷的访客肯定不喜欢新标签"
+          },
+          "directionId": "reading"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The eighteen preferences belong to the twenty people who chose to respond. The paragraph supplies no population-wide preference or opinions for nonrespondents. The last option is not a cautious interpretation: it also invents an opinion. Keep the denominator and the self-selected response condition visible.",
+        "zh": "18人的偏好只属于这20名自愿答者，原文没给总体比例或未答者意见。最后一项同样编了意见，不能算谨慎解释。应同时保留分母与自愿作答条件。"
+      }
+    },
+    {
+      "id": "VERBAL_18",
+      "prompt": {
+        "en": "What can the reported mean alone tell us about each reply?\n\nThree replies took an average of exactly three hours. The report gives no individual reply times.",
+        "zh": "只根据这个平均数，能确定每次回复都在三小时内吗？\n\n三次回复的平均用时恰为三小时，报告没有列出各次用时。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Every reply necessarily took exactly three hours",
+            "zh": "每次必然都恰好三小时"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "It does not determine whether every reply was within three hours",
+            "zh": "不能据此确定每次都在三小时内"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "At least one reply necessarily took more than three hours",
+            "zh": "必然至少有一次超过三小时"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Every reply necessarily took more than three hours",
+            "zh": "每次必然都超过三小时"
+          },
+          "directionId": "reading"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The mean is compatible with times of 3, 3 and 3 hours, and also with 1, 1 and 7 hours. The first set has every reply within three hours; the second does not. Neither a universal within-limit claim nor a required over-limit reply follows from the mean alone. These are counterexamples, not reported individual data.",
+        "zh": "3、3、3小时与1、1、7小时的平均数都为3。前一组每次均不超3小时，后一组不是，所以既不能保证全部达标，也不能断言必有超时。这些是用来检验推论的反例，不是报告里的实际明细。"
+      }
+    },
+    {
+      "id": "VERBAL_19",
+      "prompt": {
+        "en": "Treat the rule and observation as true. Which conclusion must follow?\n\nIf parcel Q receives a red tag, it enters inspection. Parcel Q did not enter inspection. No delivery information is supplied.",
+        "zh": "把规则和观察都当真，哪项必然成立？\n\n如果包裹Q被贴红标，它就进入核查；Q没有进入核查。题面不提供投递信息。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Parcel Q received a red tag",
+            "zh": "包裹Q被贴了红标"
+          },
+          "directionId": "logic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Parcel Q was necessarily delivered elsewhere",
+            "zh": "包裹Q必然已送到别处"
+          },
+          "directionId": "logic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Parcel Q did not receive a red tag",
+            "zh": "包裹Q没有被贴红标"
+          },
+          "directionId": "logic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The inspection rule is necessarily false",
+            "zh": "这条核查规则必然为假"
+          },
+          "directionId": "logic"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "A red tag would imply inspection. Since inspection did not happen and the rule is stipulated true, the red tag cannot have happened in this scenario. This does not establish a delivery destination. It is the valid rejection of the antecedent from a false consequent, rather than a claim that real inspection systems never fail.",
+        "zh": "红标会推出核查；在规则当真且未核查的题定情境中，红标不能发生。但这不提供投递地点，也不是说现实核查系统从不失效。这一步是由否定后件推出否定前件。"
+      }
+    },
+    {
+      "id": "VERBAL_20",
+      "prompt": {
+        "en": "Use only the rule and fact. What can be concluded about the card being silver?\n\nEvery silver card opens gate R. This card opens gate R. The rule does not say only silver cards can open it.",
+        "zh": "只用规则与事实，能对“该卡是银卡”得出什么结论？\n\n所有银卡都能开R门；该卡能开R门。规则没有说只有银卡才能开门。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The card must be silver",
+            "zh": "该卡必为银卡"
+          },
+          "directionId": "logic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The card cannot be silver",
+            "zh": "该卡必不是银卡"
+          },
+          "directionId": "logic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The two given facts cannot both be true",
+            "zh": "两个已知条件不可能同时为真"
+          },
+          "directionId": "logic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The rules leave whether the card is silver undetermined",
+            "zh": "是否为银卡仍不能由这些条件确定"
+          },
+          "directionId": "logic"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "A silver card opening the gate and a nonsilver card opening it both satisfy the stated rule and fact. The rule provides a sufficient condition for opening, not an exclusive route. Opening the gate alone therefore does not establish or rule out silver status. The premises remain compatible.",
+        "zh": "银卡能开门与非银卡也能开门，都符合给定规则和事实。规则提供银卡开门的充分条件，没有说是唯一途径。因此开门既不能证明银卡，也不能排除银卡，已知条件仍相容。"
+      }
+    },
+    {
+      "id": "VERBAL_21",
+      "prompt": {
+        "en": "Which conclusion follows by applying both rules to Q?\n\nEvery blue-tagged parcel is in tray T. Every parcel in tray T needs a check. Parcel Q has a blue tag.",
+        "zh": "把两条规则都用于Q，哪项结论成立？\n\n所有贴蓝标的包裹都在T盘；T盘中的所有包裹都需核对。包裹Q贴有蓝标。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Parcel Q needs a check",
+            "zh": "包裹Q需要核对"
+          },
+          "directionId": "logic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Parcel Q is not in tray T",
+            "zh": "包裹Q不在T盘"
+          },
+          "directionId": "logic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Parcel Q has no blue tag",
+            "zh": "包裹Q没有蓝标"
+          },
+          "directionId": "logic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Parcel Q does not need a check",
+            "zh": "包裹Q不需核对"
+          },
+          "directionId": "logic"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Q’s blue tag places it in tray T under the first rule. Being in tray T then gives the need for a check under the second. The other options contradict one of those steps or the stated blue tag. Both rules are premises of the fictional task, not a claim about every actual sorting tray.",
+        "zh": "第一条由Q的蓝标推出它在T盘，第二条再推出需核对。其他选项否定了其中一步或已给的蓝标。两条规则都是虚构题设，不概括真实分拣盘。"
+      }
+    },
+    {
+      "id": "VERBAL_22",
+      "prompt": {
+        "en": "Consider exactly three tokens, L, M and N. Which statement must follow?\n\nAt least one token is both marked and orange. Every orange token is stored in cabinet C. No other properties are given.",
+        "zh": "只考虑L、M、N三个筹码，哪项必然成立？\n\n至少有一个筹码同时被标记过且为橙色；所有橙色筹码都存于C柜。没有其他属性资料。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Every marked token is stored in cabinet C",
+            "zh": "所有标记过的筹码都存于C柜"
+          },
+          "directionId": "logic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "At least one marked token is stored in cabinet C",
+            "zh": "至少有一个标记过的筹码存于C柜"
+          },
+          "directionId": "logic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "No marked token is stored in cabinet C",
+            "zh": "没有标记过的筹码存于C柜"
+          },
+          "directionId": "logic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Every token in cabinet C is marked",
+            "zh": "C柜里的所有筹码都被标记过"
+          },
+          "directionId": "logic"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Take a token witnessing both marked and orange. The orange rule puts that same token in cabinet C, so at least one marked token is there. This does not place every other marked token in the cabinet or make every cabinet token marked. The conclusion keeps the existential witness instead of replacing some with all.",
+        "zh": "取出那个同时有标记且橙色的筹码，橙色规则使同一个筹码进入C柜，因此至少一个标记筹码在那里。不能推广到所有其他标记筹码，也不能把柜中物都说成有标记。结论保留同一个存在见证，不把“至少一个”换成“全部”。"
+      }
+    },
+    {
+      "id": "VERBAL_23",
+      "prompt": {
+        "en": "Use the exact-one condition. Which conclusion must follow?\n\nExactly one of the amber and cobalt signals is on. The amber signal is off.",
+        "zh": "按“恰有一个”条件，哪项必然成立？\n\n琥珀与钴蓝两个信号中恰有一个亮着；琥珀信号没亮。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The cobalt signal is off",
+            "zh": "钴蓝信号没亮"
+          },
+          "directionId": "logic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The amber signal is on",
+            "zh": "琥珀信号亮着"
+          },
+          "directionId": "logic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The cobalt signal is on",
+            "zh": "钴蓝信号亮着"
+          },
+          "directionId": "logic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Both signals are on",
+            "zh": "两个信号都亮着"
+          },
+          "directionId": "logic"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Exactly one excludes both-off as well as both-on. Once amber is off, cobalt must be on to satisfy the condition. This is stronger than saying that at most one is on, which would still allow both to be off. Read the quantifier rather than relying on the colours.",
+        "zh": "“恰有一个”同时排除全不亮与全亮。琥珀不亮后，钴蓝必须亮才能满足条件。这比“至多一个”更强，后者还允许全不亮。要核数量限定，而不是颜色名称。"
+      }
+    },
+    {
+      "id": "VERBAL_24",
+      "prompt": {
+        "en": "There are exactly three talks, with no simultaneous starts. Which conclusion follows?\n\nThe clay talk (C) starts before the map talk (M). The map talk starts before the bird talk (B).",
+        "zh": "恰有三场讲座，没有同时开始，哪项可推出？\n\n陶艺讲座(C)在地图讲座(M)之前开始；地图讲座在鸟类讲座(B)之前开始。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The bird talk comes before the map talk",
+            "zh": "鸟类讲座在地图讲座之前"
+          },
+          "directionId": "logic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The map talk comes before the clay talk",
+            "zh": "地图讲座在陶艺讲座之前"
+          },
+          "directionId": "logic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The bird talk is first",
+            "zh": "鸟类讲座最先"
+          },
+          "directionId": "logic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The clay talk comes before the bird talk",
+            "zh": "陶艺讲座在鸟类讲座之前"
+          },
+          "directionId": "logic"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The two before relations give the order C, M, B, so C is before B. The other options reverse a stated relation or put the last talk first. The three named events and the no-tie condition define this small order problem; the answer does not depend on what usually happens at real talks.",
+        "zh": "两个“在前”关系给出C、M、B顺序，所以C在B之前。其他选项倒转已知关系或把最后一场说成第一场。本题由三个事件和无并列条件限定，不依赖真实讲座习惯。"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "vocabulary",
+      "directionIds": [
+        "vocabulary"
+      ],
+      "title": {
+        "en": "Words in context",
+        "zh": "语境词义"
+      },
+      "headline": {
+        "en": "Use the word together with its stated conditions.",
+        "zh": "把词义与题定条件一起读。"
+      },
+      "summary": {
+        "en": "Review requirements, explicit statements, succession, temporary arrangements, sufficiency and inconsistent claims through original examples.",
+        "zh": "借原创例子复习要求、明示、连续、临时安排、足够与矛盾，结合具体语境判断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Words in context: Verbal reasoning guide",
+          "zh": "语境词义：言语推理练习指南"
+        },
+        "description": {
+          "en": "Review requirements, explicit statements, succession, temporary arrangements, sufficiency and inconsistent claims through original examples.",
+          "zh": "借原创例子复习要求、明示、连续、临时安排、足够与矛盾，结合具体语境判断。"
+        }
+      },
+      "scoreReading": {
+        "en": "This count describes six selected tasks in this edition and language. It is not an IQ, percentile, hiring standard or estimate of your general verbal ability. Every count opens the same answers and complete guides.",
+        "zh": "正确数描述本语言版本六道选定题目的作答，不是智商、百分位、招聘标准或总体言语能力估计。任何正确数均开放相同答案和完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Six selected meanings",
+            "zh": "六个选定含义"
+          },
+          "paragraphs": [
+            {
+              "en": "These tasks ask what a particular expression means in a supplied context. Recognising mandatory in an event notice does not measure the size of your vocabulary, and understanding sufficient in a ticket example does not establish command of every use of that word. English and Chinese contexts were written separately to sound natural. They practise related distinctions without claiming equal difficulty or interchangeable counts across languages.",
+              "zh": "题目询问给定语境里的特定表达。认出活动通知中的mandatory不测词汇量，理解票券例子中的足够也不证明掌握该词全部用法。英中文语境分别编写以贴近各自表达，练相关区别，但不主张难度相等或两种语言正确数可互换。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Separate temporary from certain to change",
+            "zh": "临时安排不等于一定变更"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a museum assigns a provisional meeting point while it checks which entrance will be open. The arrangement is usable for now and remains subject to review. It does not follow that the museum must change it, that visitors can ignore it, or that a final decision has already been made. A temporary arrangement can later be retained. This distinction keeps the meaning narrower than a prediction about what happens next.",
+              "zh": "假设博物馆核实开放入口前暂定一个集合点。安排当前可用，后续仍可核，但不推出一定改动、可以忽略或已作最终决定。临时安排后来也可保留；词义应窄于对未来结果的预测。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Test the conditions around the word",
+            "zh": "检查词语周围的条件"
+          },
+          "paragraphs": [
+            {
+              "en": "For sufficient, identify the stated need and the available amount. Enough paper for two posters is not unlimited paper for future projects. For inconsistent claims, keep the object, time and measurement conditions fixed before deciding that both statements cannot hold. Finding a contradiction does not identify which statement is false. For consecutive, use the sequence named in the question rather than importing a different calendar or schedule.",
+              "zh": "判断足够，先找所需数量和现有数量；够做两张海报不等于未来项目无限供纸。判断矛盾，固定对象、时间和测量条件；不能同时成立也不说明哪句错。判断连续，按题中序列，别另换日历或排期。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Paraphrase before looking at alternatives",
+            "zh": "先改述，再看选项"
+          },
+          "paragraphs": [
+            {
+              "en": "Write a short new notice using one target expression. Cover the alternatives and explain the intended meaning in your own words. Then invent one tempting overstatement and one unrelated interpretation. Compare them with a dictionary entry for the relevant sense. Keep a private note of the context and the distinction you missed; copying a definition repeatedly provides less evidence of understanding how that sense constrains a real sentence.",
+              "zh": "另写一条使用目标表达的短通知，盖住选项，用自己的话解释，再造一个过度推断和一个无关解释，与对应词典义项比照。私下记录漏读的语境和区别；反复抄定义不如检查词义怎样约束句子。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Read the count as practice evidence",
+            "zh": "把正确数读成练习线索"
+          },
+          "paragraphs": [
+            {
+              "en": "Six recognition choices cannot establish general reading fluency, vocabulary breadth or intelligence. Looking up words during the exercise changes the conditions, and repeating the fixed bank after seeing its explanations can reward memory. Use an error to select a fresh context for practice. The selected dictionary facts support the authored meanings; they are not a licensed item bank, an independent review of every sentence or a population comparison.",
+              "zh": "六次识别选择不建立阅读流利度、词汇广度或智力。边做边查改变条件，看解析后重做可能记住答案。用错题选新语境练习；词典事实支持编写的含义，不是授权题库、每句独立审稿或人群比较。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "analogies",
+      "directionIds": [
+        "analogies"
+      ],
+      "title": {
+        "en": "Verbal analogies",
+        "zh": "词语类比"
+      },
+      "headline": {
+        "en": "Name the relation and preserve its direction.",
+        "zh": "先命名关系，再保持方向。"
+      },
+      "summary": {
+        "en": "Practise tool–action, young–adult, part–whole, maker–product, storage–contents and an explicitly ordered increase.",
+        "zh": "练工具与动作、幼体与成体、部分与整体、制作者与作品、存放处与内容及明确方向的强弱变化。"
+      },
+      "seo": {
+        "title": {
+          "en": "Verbal analogies: Verbal reasoning guide",
+          "zh": "词语类比：言语推理练习指南"
+        },
+        "description": {
+          "en": "Practise tool–action, young–adult, part–whole, maker–product, storage–contents and an explicitly ordered increase.",
+          "zh": "练工具与动作、幼体与成体、部分与整体、制作者与作品、存放处与内容及明确方向的强弱变化。"
+        }
+      },
+      "scoreReading": {
+        "en": "This count describes six selected tasks in this edition and language. It is not an IQ, percentile, hiring standard or estimate of your general verbal ability. Every count opens the same answers and complete guides.",
+        "zh": "正确数描述本语言版本六道选定题目的作答，不是智商、百分位、招聘标准或总体言语能力估计。任何正确数均开放相同答案和完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Related words need a specified relation",
+            "zh": "词有关联，还需关系对应"
+          },
+          "paragraphs": [
+            {
+              "en": "An analogy is more precise when the task states which relation matters. A needle and sewing can be connected as tool and action; a needle and thread can be connected as tools or materials used together. Both associations can make sense, but only one matches a requested tool-to-action pattern. This bank supplies the intended relation so that a broad association does not silently become the scoring rule.",
+              "zh": "类比需说明相关的是哪种关系。针与缝纫可作工具到动作，针与线也可因共同使用而关联。有关联不等于匹配工具到动作的要求，本题组明示所需关系，避免把宽泛联想默认为计分规则。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A correct association can face the wrong way",
+            "zh": "关联正确，也可能方向相反"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose the model pair is wheel to bicycle and the requested pattern is component to whole. A door to a cabinet follows that direction. A cabinet to a door reverses it, even though the objects remain related. A carpenter to a cabinet instead names a maker and a product. State both roles aloud before choosing: the first term is the component and the second term is the containing whole.",
+              "zh": "若示例是轮子到自行车，要求部分到整体，柜门到柜子方向一致，柜子到柜门则反了，虽然仍有关联。木匠到柜子是制作者到作品。选择前把两个角色说全：前者是部分，后者是所属整体。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Keep the same level of description",
+            "zh": "保持关系描述的粒度"
+          },
+          "paragraphs": [
+            {
+              "en": "For a maker-to-product item, distinguish the finished object from the maker’s material or equipment. For storage and contents, use the usual designated purpose in the fictional comparison rather than asserting that every physical cupboard is currently full. For an increase, preserve the stated low-to-high direction. The two pairs need not use the same physical unit; the question concerns the ordered relation, not a numerical conversion between actions.",
+              "zh": "制作者到作品应分清成品、材料和设备。存放处到内容比较通常用途，不宣称每个现实柜子此刻装满。递增强度要保持题定低到高方向；两对词不必用相同物理单位，问题是有序关系，不是动作间数值换算。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Build three deliberate distractors",
+            "zh": "有目的地编三个干扰项"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose a new pair and write its relation as a complete sentence. Create a matching pair, a reversed pair, a pair that swaps one role, and a pair with only a loose association. Ask whether your relation accidentally fits more than one choice. If it does, tighten the wording or replace a choice. This exercise makes ambiguity visible before you attribute an unexpected answer to someone’s reasoning ability.",
+              "zh": "另选一对词，以完整句写关系，再造匹配、反向、换角色和仅松散关联的选项。核同一关系是否意外匹配多项；若是，收紧题干或换选项。先排歧义，别把意外答案直接归因于作答者能力。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "A relation exercise is a narrow observation",
+            "zh": "关系练习只提供局部观察"
+          },
+          "paragraphs": [
+            {
+              "en": "The six authored analogies do not establish creativity, learning speed, occupational fit or general intelligence. Familiarity with a word or cultural object can influence the task. The English and Chinese wording was reviewed for the intended relationships, but no cross-language calibration or independent semantic validation is claimed. After reading the explanations, use new pairs to practise the relation instead of treating a repeated perfect count as a new ability estimate.",
+              "zh": "六道原创类比不建立创造力、学习速度、职业匹配或总体智力。词语及文化对象熟悉度会影响作答。编写时核对预期关系，但没有跨语言校准或独立语义验证。看解析后应用新词对练关系，重复全对不当作新能力估计。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "directionIds": [
+        "reading"
+      ],
+      "title": {
+        "en": "Reading and evidence",
+        "zh": "阅读与依据"
+      },
+      "headline": {
+        "en": "Keep what the text says separate from what you add.",
+        "zh": "分清文本所说与自己补充。"
+      },
+      "summary": {
+        "en": "Review summaries, references, proposals, exceptions, survey scope and what an average leaves undetermined.",
+        "zh": "复习概括、指代、提议、例外、调查范围及平均值未确定的信息。"
+      },
+      "seo": {
+        "title": {
+          "en": "Reading and evidence: Verbal reasoning guide",
+          "zh": "阅读与依据：言语推理练习指南"
+        },
+        "description": {
+          "en": "Review summaries, references, proposals, exceptions, survey scope and what an average leaves undetermined.",
+          "zh": "复习概括、指代、提议、例外、调查范围及平均值未确定的信息。"
+        }
+      },
+      "scoreReading": {
+        "en": "This count describes six selected tasks in this edition and language. It is not an IQ, percentile, hiring standard or estimate of your general verbal ability. Every count opens the same answers and complete guides.",
+        "zh": "正确数描述本语言版本六道选定题目的作答，不是智商、百分位、招聘标准或总体言语能力估计。任何正确数均开放相同答案和完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Six different reading decisions",
+            "zh": "六种不同的阅读判断"
+          },
+          "paragraphs": [
+            {
+              "en": "A short passage can test several distinct decisions: which summary preserves all important qualifications, what a reference points to, whether a sentence proposes an action, how an exception changes a schedule, who a survey describes, and what a reported mean cannot determine. A wrong answer is a reason to inspect that decision. It is not enough evidence to label someone a weak reader across all texts or situations.",
+              "zh": "短文可练不同判断：概括是否保留限定、指代落在哪里、句子是否提议、例外怎样改变排期、调查描述谁，以及平均值不能确定什么。答错应回看具体判断，不能据此把人归为所有文本和情境下的弱读者。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A mean does not reveal every observation",
+            "zh": "平均值不揭示每个观测值"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine three fictional journeys have a mean duration of four minutes. Durations of four, four and four minutes fit that mean. So do durations of one, one and ten minutes. The first set has every journey at or below four; the second does not. These are constructed examples, not extra observations. They demonstrate why the mean alone cannot establish that each individual journey stays within the mean.",
+              "zh": "假设三次虚构行程平均四分钟。四、四、四符合，一、一、十也符合；前者每次不超过四，后者不是。它们是构造例子，不是额外实测数据，用来说明仅均值不能建立每次时长上限。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Preserve scope and uncertainty",
+            "zh": "保留范围与不确定性"
+          },
+          "paragraphs": [
+            {
+              "en": "A survey of willing respondents describes those respondents unless the text supplies a valid basis for a broader inference. Unknown nonrespondents remain unknown. A proposed change is not evidence that the change has already succeeded. A postponed outdoor event does not close an indoor room that the passage explicitly leaves open. For a stated exception, first confirm that its condition applies, then use the exceptional rule instead of the usual one.",
+              "zh": "自愿回答调查描述这些回答者，除非文本另给有效推广依据；未回答者仍未知。提议不证明已经有效。户外活动延期不关闭文中仍开放的室内房间。遇例外先核条件适用，再用例外而非常规安排。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Attach each claim to a sentence",
+            "zh": "给每个主张找文本位置"
+          },
+          "paragraphs": [
+            {
+              "en": "Take a new short notice and divide a page into stated facts, proposed actions and unresolved details. Write a one-sentence summary using only supported information. Underline the sentence that supports each part. Then add one tempting assumption and explain what missing evidence would be needed to justify it. You can repeat this privately with fictional notices, avoiding the need to upload messages or disclose someone else’s information.",
+              "zh": "用新短通知分列已述事实、拟议行动、未决细节，写一句只含依据的概括，为每部分划支持句。再添一个诱人假设，说明还缺什么证据。可用虚构通知私下练，无需上传消息或披露他人信息。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Recognition is narrower than full literacy",
+            "zh": "识别题窄于完整读写能力"
+          },
+          "paragraphs": [
+            {
+              "en": "Six selected passages do not measure long-form reading stamina, writing, specialist knowledge or performance under a time limit. Counts can change with assistance, familiarity or attention. Both language versions use original native wording, without establishing that a given count has the same meaning across languages. The guide offers an evidence-checking routine rather than a percentile, diagnosis, school grade or employment recommendation.",
+              "zh": "六篇选定短文不测长文耐力、写作、专业知识或限时表现。辅助、熟悉度、注意状态可改变正确数。两语言用原创本地表达，不建立同一正确数跨语言同义。指南提供查依据的方法，不给百分位、诊断、学段或就业建议。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "logic",
+      "directionIds": [
+        "logic"
+      ],
+      "title": {
+        "en": "Deduction and logical limits",
+        "zh": "演绎与逻辑边界"
+      },
+      "headline": {
+        "en": "Ask what must hold in every permitted case.",
+        "zh": "检查每个允许情形下必须成立什么。"
+      },
+      "summary": {
+        "en": "Practise conditional rules, undetermined conclusions, linked implications, existence, exclusive alternatives and ordering.",
+        "zh": "练条件规则、未确定结论、蕴含链、存在命题、互斥选择与顺序。"
+      },
+      "seo": {
+        "title": {
+          "en": "Deduction and logical limits: Verbal reasoning guide",
+          "zh": "演绎与逻辑边界：言语推理练习指南"
+        },
+        "description": {
+          "en": "Practise conditional rules, undetermined conclusions, linked implications, existence, exclusive alternatives and ordering.",
+          "zh": "练条件规则、未确定结论、蕴含链、存在命题、互斥选择与顺序。"
+        }
+      },
+      "scoreReading": {
+        "en": "This count describes six selected tasks in this edition and language. It is not an IQ, percentile, hiring standard or estimate of your general verbal ability. Every count opens the same answers and complete guides.",
+        "zh": "正确数描述本语言版本六道选定题目的作答，不是智商、百分位、招聘标准或总体言语能力估计。任何正确数均开放相同答案和完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Treat the supplied rules as the task premises",
+            "zh": "把给定规则当作本题前提"
+          },
+          "paragraphs": [
+            {
+              "en": "The logic items use small fictional systems with explicit premises. Within that system, ask which conclusion follows in every case satisfying those premises. A conclusion that happens to be true in one possible case is not automatically entailed. A conclusion can also remain undetermined: there may be one permitted case where it is true and another where it is false. This differs from showing that the conclusion must be false.",
+              "zh": "逻辑题采用前提明确的小型虚构系统，问每个满足前提的情形都推出什么。某允许情形恰好为真不等于必然推出。未确定可指存在真和假的允许情形，不同于证明结论必假。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Do not reverse a one-way rule",
+            "zh": "不要反转单向规则"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose every blue pass opens a gate, and a pass opens it. The pass need not be blue, because the premises did not say that only blue passes open the gate. A blue pass and an alternative qualifying pass can both fit the rule. In contrast, if every blue pass opens the gate and a particular pass does not open it, that pass cannot be blue under the stipulated rule.",
+              "zh": "假设每张蓝证都开门，某证开门，不能确定它蓝色，因为没说只有蓝证开门。蓝证与另一种合格证都可能符合。反之，在每张蓝证开门且某证不开门的题定条件下，该证不能是蓝证。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Track existence, exclusivity and direction",
+            "zh": "跟踪存在、互斥和方向"
+          },
+          "paragraphs": [
+            {
+              "en": "At least one marked orange token does not mean every marked token is orange. If all orange tokens occupy one cabinet, the premises guarantee a marked token there, without describing all other tokens. Exactly one active indicator rules out both none and both. For ordering, preserve the direction of each before relation and the stated absence of ties. Do not import a real-world exception that contradicts the fictional premises.",
+              "zh": "至少一个带标记橙牌不等于所有标记牌都橙色。若所有橙牌在某柜，只保证该柜有标记牌，不描述其余牌。恰好一个亮排除全灭和全亮。顺序保持先于方向和题定无并列；别引入与虚构前提矛盾的现实例外。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Construct a permitted counterexample",
+            "zh": "构造满足前提的反例"
+          },
+          "paragraphs": [
+            {
+              "en": "For a tempting conclusion, try to build a small case where all premises hold but the conclusion fails. Write each premise beside the case and check it separately. If the case violates one premise, it is not a counterexample. For a tiny ordering task, list every possible order and cross out those that break a stated relation. This method makes a claim about necessity visible rather than relying on how plausible a sentence sounds.",
+              "zh": "对诱人结论尝试造一个前提全真而结论假的小情形，逐条核前提。违背前提的不是反例。极小排序可列出全部顺序，划掉违反关系者。这样把必然性展开，而不是凭句子听起来合理。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Formal checks have a defined boundary",
+            "zh": "形式核查有明确边界"
+          },
+          "paragraphs": [
+            {
+              "en": "This edition enumerates the finite truth assignments or permutations encoded for its formal items. Those checks establish the encoded consequences; they do not independently prove that every natural-language sentence perfectly expresses its encoding. Other vocabulary, analogy and passage meanings require author review. There are no population norms, IQ conversion, hiring cutoff or speed score. After seeing an explanation, practise a new premise set instead of using memory as evidence of general reasoning ability.",
+              "zh": "本版对形式题编码枚举有限真值赋值或排列，核的是编码后的推论，不独立证明每个自然语言句子与编码完全一致。其余词义、类比、短文仍靠作者语义核对。没有常模、智商换算、招聘线或速度分。读解析后应用新前提练，不把记忆当总体推理能力证据。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "practice-scoring",
+      "title": {
+        "en": "Equal correct counts, without ability tiers",
+        "zh": "等权正确数，不划能力档位"
+      },
+      "paragraphs": [
+        {
+          "en": "Each matching key counts one and each incorrect choice zero. Four six-item groups add to a count out of 24. No weighting, reverse scoring, time limit or speed bonus applies. All items need valid choices; missing answers are not filled in or silently marked wrong.",
+          "zh": "答对记1题、答错记0题，四组各六题合计正确数/24。不加权、不反向、不限时、不按速度加分；全部题需有效选择，缺答不补齐，也不静默按错题算。"
+        }
+      ]
+    },
+    {
+      "id": "practice-reading",
+      "title": {
+        "en": "Use the explanation to choose fresh practice",
+        "zh": "按解析选新的练习"
+      },
+      "paragraphs": [
+        {
+          "en": "A count of 4/6 means four matching answers on six selected tasks in this edition and language. Zero, partial and perfect counts open the same 24 explanations and four full guides. Public guides contain no visitor answers or private count.",
+          "zh": "4/6表示本语言版本六道选定题有四项与答案一致。零分、部分答对和全对开放相同24题解析与四份完整指南。公开指南不含访客答卷或私有正确数。"
+        }
+      ]
+    },
+    {
+      "id": "practice-limits",
+      "title": {
+        "en": "Native wording does not establish equivalent measurement",
+        "zh": "本地表达不建立测量等价"
+      },
+      "paragraphs": [
+        {
+          "en": "English and Chinese word contexts are independently written around related distinctions. Their counts are not calibrated for cross-language comparison. There are no population norms, IQ scores, percentiles, hiring cutoffs, exam conversions or validated ability tiers. Recognition in this fixed bank does not establish general intelligence or job readiness.",
+          "zh": "英中词语语境围绕相关区别分别编写，正确数未校准为跨语言可比较。没有人群常模、智商、百分位、招聘线、考试换算或经验证能力档位。固定题组中的识别表现不建立总体智力或岗位准备程度。"
+        }
+      ]
+    },
+    {
+      "id": "source-context",
+      "title": {
+        "en": "Original contexts with bounded source checks",
+        "zh": "原创语境与有边界的来源核对"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind wrote the questions, alternatives, explanations and guides. Selected Merriam-Webster and Taiwan Ministry of Education word senses support authored paraphrases; definitions, examples and competitor item banks are not reproduced. Formal logic references supply background for entailment, not a validation of this test. Finite enumeration checks encoded consequences; natural-language semantics remain author-reviewed rather than independently peer-reviewed. Referenced organisations do not endorse the test.",
+          "zh": "费马编写题目、选项、解析和指南。选定韦氏与台湾教育部义项支持原创改述，不搬释义、例句或竞品题库。形式逻辑参考提供蕴含背景，不验证本测试。有限枚举核编码后的推论，自然语言语义仍是作者复核而非独立同行审稿。参考机构不背书本测试。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does this verbal reasoning test give an IQ or percentile?",
+        "zh": "言语推理测试会给智商或百分位吗？"
+      },
+      "answer": {
+        "en": "No. It reports correct counts for 24 original practice tasks, every explanation and four complete guides. There are no population norms, validated ability tiers, hiring cutoffs or exam-equivalent scores.",
+        "zh": "不会。报告24道原创练习的正确数、全部解析和四份完整指南，没有人群常模、经验证能力档位、招聘线或考试等价分。"
+      }
+    },
+    {
+      "question": {
+        "en": "What do the four sections practise?",
+        "zh": "四部分分别练什么？"
+      },
+      "answer": {
+        "en": "Six questions each cover words in context, explicitly specified verbal relations, reading and text evidence, and deduction from fictional premises. The report separates these counts without assigning a personality or general ability type.",
+        "zh": "语境词义、明示词语关系、阅读文本依据及虚构前提演绎各六题。报告分别给正确数，不派人格或总体能力类型。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are English and Chinese scores comparable?",
+        "zh": "英语与中文正确数可直接比较吗？"
+      },
+      "answer": {
+        "en": "No calibrated comparison is established. Contexts and alternatives use separately authored natural wording around related distinctions. Word familiarity and language can affect performance. A count describes only this edition and language.",
+        "zh": "没有建立校准比较。语境和选项围绕相关区别分别用本地自然表达编写；词语熟悉度与语言会影响作答。正确数只描述本版、本语言。"
+      }
+    },
+    {
+      "question": {
+        "en": "How were the answers checked?",
+        "zh": "答案怎样核查？"
+      },
+      "answer": {
+        "en": "The author reviewed selected primary dictionary senses, explicit analogy relations and original passage facts. Formal cases enumerate their encoded truth assignments or orders. This does not independently validate the natural-language encoding, provide psychometric validation or certify the test for hiring.",
+        "zh": "作者核对选定原始词典义项、明确类比关系与原创文本事实；形式题枚举编码后的真值赋值或顺序。这不独立验证自然语言编码、不提供心理测量验证，也不认证招聘用途。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are full answers free, and does retake change the questions?",
+        "zh": "完整答案免费吗，重测会换题吗？"
+      },
+      "answer": {
+        "en": "All 24 keys and explanations and four complete guides are free without an account, email or payment. There is no timer. Retake uses the same fixed bank, so improvement after reviewing the answers may reflect memory.",
+        "zh": "24题答案解析及四份完整指南免费，无需账户、邮箱或付款。不计时。重测用同一固定题组，看过答案后提高可能反映记忆。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are drafts, exit and sharing handled?",
+        "zh": "草稿、退出和分享怎样处理？"
+      },
+      "answer": {
+        "en": "Answers stay in the browser. Optional tab drafts expire after 24 hours and clear on completion, exit-and-clear or retake. Without a draft, refresh loses progress. Sharing copies a public test link without answers, correctness counts or private identifiers.",
+        "zh": "答案留在浏览器，可选标签页草稿24小时失效，完成、退出并清除或重测后删除；未存草稿刷新会丢进度。分享只复制公开测试链接，不含答卷、正确数或私有标识。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Merriam-Webster: mandatory",
+        "zh": "韦氏词条：mandatory"
+      },
+      "url": "https://www.merriam-webster.com/dictionary/mandatory"
+    },
+    {
+      "title": {
+        "en": "Merriam-Webster: explicit",
+        "zh": "韦氏词条：explicit"
+      },
+      "url": "https://www.merriam-webster.com/dictionary/explicit"
+    },
+    {
+      "title": {
+        "en": "Merriam-Webster: consecutive",
+        "zh": "韦氏词条：consecutive"
+      },
+      "url": "https://www.merriam-webster.com/dictionary/consecutive"
+    },
+    {
+      "title": {
+        "en": "Merriam-Webster: provisional",
+        "zh": "韦氏词条：provisional"
+      },
+      "url": "https://www.merriam-webster.com/dictionary/provisional"
+    },
+    {
+      "title": {
+        "en": "Merriam-Webster: sufficient",
+        "zh": "韦氏词条：sufficient"
+      },
+      "url": "https://www.merriam-webster.com/dictionary/sufficient"
+    },
+    {
+      "title": {
+        "en": "Merriam-Webster: inconsistent",
+        "zh": "韦氏词条：inconsistent"
+      },
+      "url": "https://www.merriam-webster.com/dictionary/inconsistent"
+    },
+    {
+      "title": {
+        "en": "MOE Concised Dictionary: requirement",
+        "zh": "教育部国语辞典简编本：必须"
+      },
+      "url": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=1304&la=0&powerMode=0"
+    },
+    {
+      "title": {
+        "en": "MOE Concised Dictionary: explicit statement",
+        "zh": "教育部国语辞典简编本：明示"
+      },
+      "url": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=4912&la=0&powerMode=0"
+    },
+    {
+      "title": {
+        "en": "MOE Concised Dictionary: succession",
+        "zh": "教育部国语辞典简编本：连续"
+      },
+      "url": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=14650&la=0&powerMode=0"
+    },
+    {
+      "title": {
+        "en": "MOE Concised Dictionary: temporary arrangement",
+        "zh": "教育部国语辞典简编本：暂且"
+      },
+      "url": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=29877&la=0&powerMode=0"
+    },
+    {
+      "title": {
+        "en": "MOE Concised Dictionary: sufficiency",
+        "zh": "教育部国语辞典简编本：足够"
+      },
+      "url": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=37365&la=0&powerMode=0"
+    },
+    {
+      "title": {
+        "en": "MOE Concised Dictionary: contradiction",
+        "zh": "教育部国语辞典简编本：矛盾"
+      },
+      "url": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=4031&la=0&powerMode=0"
+    },
+    {
+      "title": {
+        "en": "Logic in Action: Propositional logic",
+        "zh": "Logic in Action：命题逻辑"
+      },
+      "url": "https://logic.stanford.edu/intrologic/materials/logicinaction/ch2.pdf"
+    },
+    {
+      "title": {
+        "en": "Open Logic Project: Syntax and semantics",
+        "zh": "Open Logic Project：语法与语义"
+      },
+      "url": "https://builds.openlogicproject.org/content/many-valued-logic/syntax-and-semantics/syntax-and-semantics.pdf"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_verbal_reasoning_practice",
+    "formCode": "fm_verbal_reasoning_practice_24_v1",
+    "itemBankVersion": "fm_verbal_reasoning_practice_24_v1",
+    "scoringVersion": "practice_equal_correct_counts_v1",
+    "resultContentVersion": "fm_verbal_four_review_guides_v1",
+    "itemBankSha256": "69eec1cf521ec4fc7d3c8b1a80eb60865c8174733562793e3ae2303ed2349edf",
+    "resultContentSha256": "bc80b403f4c69e16110ebd2f75e140d599c1ba7a92f9d17b195a9645958f35ce",
+    "psychometricValidationCompleted": false
+  }
+}
