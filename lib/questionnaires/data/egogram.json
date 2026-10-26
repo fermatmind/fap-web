@@ -1,0 +1,2284 @@
+{
+  "slug": "egogram",
+  "code": "EGOGRAM_FUNCTIONAL_OBSERVATION_ORIGINAL_20",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "framework",
+  "kind": "likert",
+  "minimumRatedItems": 4,
+  "title": {
+    "zh": "自我状态图测试",
+    "en": "Egogram Test"
+  },
+  "resultHeading": {
+    "zh": "自我状态图：五组频率与完整读法",
+    "en": "Egogram: five frequencies and full readings"
+  },
+  "description": {
+    "zh": "免费自我状态图测试：20道原创互动做法，分别看CP、NP、A、FC、AC五组频率、原始分数与全部完整解释，不以图表判断心理能量或固定人格。",
+    "en": "Take the free egogram test: 20 original items, five ego-state frequency readings, raw scores, missing information and all full guides with examples."
+  },
+  "seoTitle": {
+    "zh": "自我状态图测试：五组互动频率与免费完整结果",
+    "en": "Egogram Test: Five Ego-State Reflections, Full Results"
+  },
+  "minutes": 4,
+  "introduction": {
+    "zh": "近四周在有机会的情况下，你如何说出要求、提供支持、核对信息、表达玩兴和调整配合？这份原创自我观察借用交互分析的CP批判型父母、NP养育型父母、A成人、FC自由儿童、AC适应儿童五个功能名称，每组四条、共二十条具体做法。完成后分别显示五组频率图、原始总分和有效条数，五份九节说明全部可读，覆盖较高较低、混合与资料不足、例子反例和可选核对。各组不争夺固定能量，不按最高柱派人格，也不认定最佳形状。父母、成人、儿童不指实际年龄、家庭角色或童年原因。不是标准TEG3、Dusay、Heyer或竞品题本；全部题目和结果免费，可先读再决定是否作答。",
+    "en": "In the past four weeks, when opportunities arose, how did you express requirements, offer support, check information, express playfulness and adjust coordination? This original self-observation borrows five functional transactional-analysis labels: Critical Parent (CP), Nurturing Parent (NP), Adult (A), Free Child (FC) and Adapted Child (AC). Four concrete actions per group make twenty items. A complete attempt shows five separate frequency bars, raw sums and rated counts, with all five nine-section guides covering higher and lower readings, mixed or missing information, examples, counterexamples and optional checks. The groups compete for no fixed energy and assign neither a highest-bar personality nor an ideal shape. Parent, Adult and Child are not actual ages, family roles or childhood causes. This is no standard TEG3, Dusay, Heyer or competitor bank. All questions and results are free; read before deciding whether to answer."
+  },
+  "instructions": {
+    "zh": "回想过去四周，在确有相应机会的情况下，以下具体做法出现得多不多，按1从不到5几乎总是作答；只选自己的实际做法，不按应该怎样或是否赞同来选。没有相应机会、无法判断或不愿回答请选择独立项，不当从不、中立或零分。每组四条全部有效才显示该组分数，其他组可各自保留。父母、成人、儿童是框架标签，不指真实年龄、家庭角色或成熟程度。本版不填写对话、童年经历或第三人资料。",
+    "en": "Think about the past four weeks, when a relevant occasion actually arose, and rate how often each concrete action occurred, from 1 Never to 5 Almost always. Describe what you did, not what ought to happen or whether you agree with an idea. Use the separate option for no relevant opportunity, inability to judge or preferring not to answer; it is not never, neutral or zero. Each group requires all four valid ratings while other groups remain separately readable. Parent, Adult and Child are framework labels, not actual ages, family roles or maturity. No conversations, childhood stories or third-party details are entered."
+  },
+  "source": {
+    "kind": "Twenty original bilingual frequency self-observation statements inspired by five conventional TA functional ego-state labels. These statements are not the Dusay, Heyer, TEG3 or a competitor item bank, and do not measure conserved psychic energy, diagnose ego states or reconstruct childhood.",
+    "formCode": "fm_egogram_stance_frequency_20",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "19c856da589dbb5875748509c974d72e9aa78d26cbad504f59b81e78c8de96ba",
+    "resultContentSha256": "a4df5445150c34df21139302918a5e482eb04c79b63eb52e66161e5fb0e8d625",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "critical-parent",
+      "title": {
+        "zh": "批判型父母（CP）：规范与评价",
+        "en": "Critical Parent (CP): standards and evaluation"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "nurturing-parent",
+      "title": {
+        "zh": "养育型父母（NP）：支持与接纳",
+        "en": "Nurturing Parent (NP): support and acceptance"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "adult",
+      "title": {
+        "zh": "成人（A）：当下信息与核对",
+        "en": "Adult (A): present information and checking"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "free-child",
+      "title": {
+        "zh": "自由儿童（FC）：玩兴与自主表达",
+        "en": "Free Child (FC): play and spontaneous expression"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "adapted-child",
+      "title": {
+        "zh": "适应儿童（AC）：场合调整与配合",
+        "en": "Adapted Child (AC): situational adjustment"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "EGO_CP_01",
+      "prompt": {
+        "zh": "共同计划的完成标准含糊时，我会把自己认为该达到的要求说出来。",
+        "en": "When a shared plan has an unclear finish standard, I state the requirement I think it should meet."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_NP_01",
+      "prompt": {
+        "zh": "有人碰到困难时，我会问对方是否需要我能提供的一点支持。",
+        "en": "When someone encounters a difficulty, I ask whether they want a little support I could offer."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_A_01",
+      "prompt": {
+        "zh": "情况描述不完整时，我会先区分已经确认和仍需补问的部分。",
+        "en": "When an account is incomplete, I first separate what is confirmed from what still needs a question."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "adult",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "adult",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "adult",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "adult",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "adult",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "adult",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_FC_01",
+      "prompt": {
+        "zh": "在不影响约定和他人的空档，我会按当时的兴致加一点玩乐。",
+        "en": "In a gap that does not disrupt agreements or other people, I add a little play according to my interest at the time."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "free-child",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "free-child",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "free-child",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "free-child",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "free-child",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "free-child",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_AC_01",
+      "prompt": {
+        "zh": "加入一个新群体时，我会先观察他们怎样安排发言或任务。",
+        "en": "When joining a new group, I first observe how they arrange speaking turns or tasks."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_CP_02",
+      "prompt": {
+        "zh": "大家对同一件事使用不同标准时，我会指出我认为需要一致的地方。",
+        "en": "When people apply different standards to the same matter, I point out where I think consistency is needed."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_NP_02",
+      "prompt": {
+        "zh": "我会把自己注意到的、对方已经付出的具体努力说出来。",
+        "en": "I put into words a specific effort I have noticed another person making."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_A_02",
+      "prompt": {
+        "zh": "讨论怎么处理一件事时，我会先问现在可用的时间或材料。",
+        "en": "When discussing how to handle something, I first ask about the time or materials currently available."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "adult",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "adult",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "adult",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "adult",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "adult",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "adult",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_FC_02",
+      "prompt": {
+        "zh": "想到一个有趣点子时，我会找一个小方式把它试出来。",
+        "en": "When an interesting idea occurs to me, I find a small way to try it."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "free-child",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "free-child",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "free-child",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "free-child",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "free-child",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "free-child",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_AC_02",
+      "prompt": {
+        "zh": "我会根据当前场合的约定，调整自己说话或做事的方式。",
+        "en": "I adjust how I speak or act to the agreements of the current setting."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_CP_03",
+      "prompt": {
+        "zh": "评价一个选择时，我会拿自己重视的一条原则来对照。",
+        "en": "When evaluating a choice, I compare it with a principle that matters to me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_NP_03",
+      "prompt": {
+        "zh": "别人犯了一个可补救的小错时，我会给对方重新处理的余地。",
+        "en": "When someone makes a small, repairable mistake, I leave room for them to handle it again."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_A_03",
+      "prompt": {
+        "zh": "出现新的事实时，我会重新检查自己之前作出的判断。",
+        "en": "When new facts appear, I recheck a judgment I made earlier."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "adult",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "adult",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "adult",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "adult",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "adult",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "adult",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_FC_03",
+      "prompt": {
+        "zh": "在可以自己选择的事情上，我会直接表达自己现在想试什么。",
+        "en": "Where I am free to choose, I directly express what I feel like trying now."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "free-child",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "free-child",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "free-child",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "free-child",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "free-child",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "free-child",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_AC_03",
+      "prompt": {
+        "zh": "与负责人协作时，我会先确认对方希望怎样配合。",
+        "en": "When working with someone in charge, I first check how they expect us to coordinate."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_CP_04",
+      "prompt": {
+        "zh": "共同约定临时放宽时，我会表达自己希望保留哪项要求。",
+        "en": "When a shared agreement is relaxed, I express which requirement I want to retain."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_NP_04",
+      "prompt": {
+        "zh": "条件允许时，我会留出一点时间或调整安排，照应暂时有困难的人。",
+        "en": "When circumstances allow, I set aside a little time or adjust an arrangement for someone facing a temporary difficulty."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_A_04",
+      "prompt": {
+        "zh": "遇到抽象的分歧时，我会把它改写成眼下可以核对的具体问题。",
+        "en": "When a disagreement is abstract, I rephrase it as a concrete question that can be checked now."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "adult",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "adult",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "adult",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "adult",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "adult",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "adult",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_FC_04",
+      "prompt": {
+        "zh": "做熟悉的休闲活动时，我会临时换个玩法，只为看看有什么不同。",
+        "en": "During a familiar leisure activity, I spontaneously change the way I play just to see what is different."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "free-child",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "free-child",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "free-child",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "free-child",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "free-child",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "free-child",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_AC_04",
+      "prompt": {
+        "zh": "为了让共同安排衔接，我会暂时把自己的偏好放到约好的次序之后。",
+        "en": "To keep a shared arrangement coordinated, I temporarily put my preference after the agreed sequence."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "critical-parent",
+      "directionIds": [
+        "critical-parent"
+      ],
+      "title": {
+        "zh": "CP规范表达：要求怎样说出来",
+        "en": "CP Standards: How Requirements Are Expressed"
+      },
+      "headline": {
+        "zh": "观察规范表达的频率，也核对要求的依据。",
+        "en": "Observe the frequency of expressing standards and check their basis."
+      },
+      "summary": {
+        "zh": "完整读懂CP四种规范表达、频率原始分数、较高较低、混合不足与活动清单例子，不把标准表达当正确或权威。",
+        "en": "Read CP standard-expressing actions, raw frequency scores, higher or lower readings, missing information and a checklist example without judging authority."
+      },
+      "scoreReading": {
+        "zh": "本组CP四条，回想过去四周在相应机会下的做法，1从不至5几乎总是，全部直接计分，没有反向题。四条都有效才显示4—20原始总分，均分用未舍入总和除4、保留两位小数。例如4、3、2、5相加14，均分3.50，不从一位小数倒推。任一NA保留本组不足，其他完整组可照常看。五组不相加或归一化，不产生能量百分比、主型或最佳形状；有序类别求和和小数不证明测量精度。",
+        "en": "For CP, recall how often each of four actions occurred in the past four weeks when a relevant occasion arose, from 1 Never to 5 Almost always. All items are direct; none reverses. Four valid ratings produce a raw total of 4–20 and a descriptive mean from the unrounded sum divided by four, shown to two decimals. For example, 4, 3, 2, 5 total 14 with a mean of 3.50. Any NA leaves this group insufficient while other complete groups remain readable. The five groups are not added or normalised into energy percentages, a dominant type or an ideal shape. Ordered-category sums and decimals establish no measurement precision."
+      },
+      "seo": {
+        "title": {
+          "zh": "CP规范表达：要求怎样说出来：自我状态图结果",
+          "en": "CP Egogram Result: Scores and Full Guide"
+        },
+        "description": {
+          "zh": "完整读懂CP四种规范表达、频率原始分数、较高较低、混合不足与活动清单例子，不把标准表达当正确或权威。",
+          "en": "Read CP standard-expressing actions, raw frequency scores, higher or lower readings, missing information and a checklist example without judging authority."
+        }
+      },
+      "sections": [
+        {
+          "id": "observes",
+          "title": {
+            "zh": "CP：把规范和评价说出来",
+            "en": "CP: putting standards and evaluations into words"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组借用批判型父母CP这个功能性标签，观察你是否说出完成要求、指出不同标准、对照个人原则，以及在放宽约定时表达想保留的要求。它不是测试你是否严厉、当过父母、道德高尚或受过怎样的管教。频率只涉及本版四种可回想的做法，不能识别脑中哪一种声音在说话，也不覆盖完整临床自我状态。规范可能帮助协作，也可能需要讨论其合理性；有规范表达不代表规范就是对的。先认清这里观察的范围，再决定哪些条目适合你的近四周。",
+              "en": "This group borrows the functional label Critical Parent, or CP, to observe four actions: stating completion requirements, pointing out inconsistent standards, consulting a personal principle and identifying a requirement you want retained when an agreement changes. It tests neither harshness, parenthood, moral worth nor how you were raised. Frequency refers only to these four recallable actions, without identifying a voice inside your mind or covering a complete clinical ego state. Expressed standards may help coordination, but their justification can still need discussion. Having a standard does not make it correct. Start with this scope before deciding which items fit your recent four weeks."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "四条频率怎样计分",
+            "en": "How the four frequency ratings are scored"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组CP四条，回想过去四周在相应机会下的做法，1从不至5几乎总是，全部直接计分，没有反向题。四条都有效才显示4—20原始总分，均分用未舍入总和除4、保留两位小数。例如4、3、2、5相加14，均分3.50，不从一位小数倒推。任一NA保留本组不足，其他完整组可照常看。五组不相加或归一化，不产生能量百分比、主型或最佳形状；有序类别求和和小数不证明测量精度。",
+              "en": "For CP, recall how often each of four actions occurred in the past four weeks when a relevant occasion arose, from 1 Never to 5 Almost always. All items are direct; none reverses. Four valid ratings produce a raw total of 4–20 and a descriptive mean from the unrounded sum divided by four, shown to two decimals. For example, 4, 3, 2, 5 total 14 with a mean of 3.50. Any NA leaves this group insufficient while other complete groups remain readable. The five groups are not added or normalised into energy percentages, a dominant type or an ideal shape. Ordered-category sums and decimals establish no measurement precision."
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "zh": "较高：要求更常进入对话",
+            "en": "Higher: requirements enter the conversation more often"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高表示你较常回想起这四种规范表达，可能经常在需要明说要求的场合参与。可以检查别人是否知道你依据哪条约定，而不是把结果叫作天生领导、正确判断或强大原则。量表未核对标准是否一致、公平、及时或得到共同认可，也不知道别人如何接收。你可以保留一个重要要求，同时问清这是已有约定、个人偏好还是需要共同决定的事项。表达频率并不赋予你替别人定规则的权力，也不表示别人应当降低异议或接受纠正。",
+              "en": "A higher result means you more often recall these standard-expressing actions, perhaps in settings where requirements need to be made explicit. Check whether others know the agreement you are relying on rather than calling the result natural leadership, correct judgment or strong principles. The questionnaire has not checked whether a standard is consistent, fair, timely or jointly accepted, nor how another person receives it. You can retain an important requirement while clarifying whether it is an existing agreement, a personal preference or something requiring a shared decision. Frequency grants no authority to set another person’s rules or expect them to accept correction."
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "zh": "较低：没有说出不等于没有标准",
+            "en": "Lower: an unspoken standard is not an absent one"
+          },
+          "paragraphs": [
+            {
+              "zh": "较低可能来自这段时间较少共同定要求、已有清楚规则不用重说、偏好用文档表达，或当时没有适合提出异议的空间。四条无法区分这些情况，也不能说你软弱、没有价值观或需要变强硬。可回想其中一条在怎样的机会下出现过；若根本没有相应机会，NA更符合本版规则，不必把它当从不。若一个要求确实需要协商，可以选择合适方式提出，也可以先保留不回应。低分不是要求你增加批评次数的任务。",
+              "en": "A lower result may reflect fewer shared decisions about requirements, clear existing rules that needed no repetition, a preference for written expression or little room to raise a concern. Four items cannot distinguish those circumstances or establish weakness, missing values or a need to become tougher. Consider the opportunities relevant to a particular item; if none arose, NA better represents this edition’s rule than never. If a requirement genuinely needs discussion, choose an appropriate way to raise it or keep the choice not to respond yet. A lower score is not an assignment to criticise people more often or demonstrate stronger authority."
+            }
+          ]
+        },
+        {
+          "id": "mixed-missing",
+          "title": {
+            "zh": "四种规范表达可以不同",
+            "en": "Four standard-expressing actions can differ"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能常对照个人原则，却少在大家面前说明要求；也可能频繁澄清工作标准，却不坚持保留临时调整的约定。相同总分不会保留这些差异，均分3不是人口平均或最合适强度。任一条NA不把另外三条推成一份完整CP分数，五组图中本组保留不足，不会因此让另一组成为主型。其他四组可以同时较高或较低，本版没有固定心理能量可供转移，也不能从此推断你一定压住了关怀、玩兴或情绪。",
+              "en": "You might often consult a personal principle while rarely stating requirements to a group, or frequently clarify work standards without insisting that a changed agreement retain its original form. Equal totals do not preserve those differences, and a mean of three is no population average or optimal intensity. One NA does not turn the other three ratings into a complete CP score. This group stays insufficient in the five-part chart without promoting another group to a dominant type. Other groups may simultaneously be higher or lower. No fixed psychological energy is measured or transferred, and nothing here establishes suppressed care, playfulness or emotion."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "例子与反例：共同活动的清单",
+            "en": "Example and counterexample: a shared activity checklist"
+          },
+          "paragraphs": [
+            {
+              "zh": "共同准备一次普通活动时，你发现清单里的“完成”含义不同。可以把具体要求说成“场地确认了才算完成这项”，并核对大家是否已约好这个标准。这是规范表达的例子，不证明你判断更好。反例是，另一位参与者没有纠正用词，却通过预先写好的文档把事项交代得很清楚；较少出现本组表述，不代表协作差。若你坚持的要求只是个人习惯，对方提出替代方法也可能有效。结论需要看实际约定和结果，不用CP分数决定谁有最后发言权。",
+              "en": "While preparing an ordinary shared activity, you notice that people use “done” differently on a checklist. You might specify that a venue confirmation is needed before marking an item complete, then check whether that was actually agreed. This illustrates expressing a standard, not better judgment. A counterexample is someone who rarely corrects wording because a document already explains the arrangements clearly; fewer such expressions establish no worse coordination. A requirement based on personal habit may also have an effective alternative. Evaluate the actual agreement and outcome rather than using CP scores to decide whose view has the final say in a conversation."
+            }
+          ]
+        },
+        {
+          "id": "optional-check",
+          "title": {
+            "zh": "可选核对：要求属于谁",
+            "en": "Optional check: whose requirement is it?"
+          },
+          "paragraphs": [
+            {
+              "zh": "下次确实需要说明一个要求时，可以在心里区分“已经共同约好”“我个人更喜欢”和“还需要决定”三个来源。愿意的话，把来源连同要求一起说明，并给对方补充限制或提出替代的余地。这个小尝试不要求变温和、放弃重要边界或接受所有变动；也不保证降低冲突或提高分数。若现在不适合讨论，可以不做。别为了练习而给别人找错，也不记录私人对话；这只是让一次真实协作里的要求更清楚，而不是训练一种理想自我状态。",
+              "en": "The next time a requirement genuinely needs expression, privately distinguish three possible sources: already agreed, personally preferred or still undecided. If useful, state that source alongside the requirement and leave room for constraints or an alternative. This optional check asks for neither automatic gentleness, surrender of an important boundary nor acceptance of every change. It promises no reduced conflict or improved score, and you may decline it if discussion is unsuitable. Do not manufacture mistakes to correct or record private conversations for practice. The aim is a clearer requirement in one actual collaboration, not training toward an ideal ego state or a prescribed personality."
+            }
+          ]
+        },
+        {
+          "id": "comparison-evidence",
+          "title": {
+            "zh": "CP、沟通风格与理论出处",
+            "en": "CP, communication styles and theoretical sources"
+          },
+          "paragraphs": [
+            {
+              "zh": "CP是交互分析功能模型的标签之一，父母／成人／儿童不是年龄或家庭身份。本版原创四条把观察限在规范和评价表达，不采用Dusay、Heyer、TEG3或竞品标准题本，原研究不能验证本站。它可能与直接沟通、领导或完美要求的话题相邻，但没有测领导能力、完美主义或造成冲突的原因，也不能从NP低就断言你冷漠。可并看五组具体条目，保留不同情境的反例；同名框架中其他题本和阈值都不能直接套用本版数字。",
+              "en": "CP is one label in a functional transactional-analysis model; Parent, Adult and Child are not ages or family identities. Our four original items restrict observation to expressions of standards and evaluation rather than administering Dusay, Heyer, TEG3 or a competitor bank. Original research does not validate this edition. Direct communication, leadership and perfectionistic requirements may be nearby topics, but leadership ability, perfectionism and causes of conflict were not measured. A lower NP result cannot establish coldness beside CP. Compare particular items across all five groups while keeping counterexamples from other settings. Other instruments and thresholds bearing the same framework name cannot be applied to these numbers."
+            }
+          ]
+        },
+        {
+          "id": "review-privacy",
+          "title": {
+            "zh": "免费全文与可选重看",
+            "en": "Full free text and optional review"
+          },
+          "paragraphs": [
+            {
+              "zh": "五组完整说明同时免费呈现，不需要另一测评、邮箱或付费解锁。重看时可比较当时的场合、机会和具体条目，不把数字变化当疗效或人格改变。作答在本设备处理，不填写真实对话、童年故事或第三人信息。主动开启的本标签页草稿最多24小时，完成、重测、退出清除都会删除；不保存也能作答。分享只带测试名、公开说明名称和链接，不带原始回答、五组分数或图形数据。后续推荐是可选的不同框架，不补齐本次资料不足；你也可以读完便结束。",
+              "en": "All five full guides appear together for free without another assessment, an email address or payment. When reviewing, compare settings, opportunities and particular items rather than treating a score difference as treatment benefit or personality change. Answers are processed on this device without real conversations, childhood stories or third-party details. An explicitly enabled tab draft lasts at most twenty-four hours and clears on completion, retake or exit-and-clear; answering requires no saved draft. Sharing contains only the test name, public guide names and link, without answers, five scores or chart data. Later recommendations are optional different frameworks, not completion of an insufficient score. You may simply finish here."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nurturing-parent",
+      "directionIds": [
+        "nurturing-parent"
+      ],
+      "title": {
+        "zh": "NP支持表达：照应怎样发生",
+        "en": "NP Support: How Care Is Offered"
+      },
+      "headline": {
+        "zh": "观察支持做法，也保留双方的选择和边界。",
+        "en": "Observe supporting actions while preserving choice and limits."
+      },
+      "summary": {
+        "zh": "完整读懂NP四种支持做法、原始频率分数、较高较低、混合不足与具体反例，不把提供帮助当善良或共情认证。",
+        "en": "Read NP supporting actions, raw frequency scores, higher or lower readings, missing information and examples without certifying kindness or empathy."
+      },
+      "scoreReading": {
+        "zh": "本组NP四条，回想过去四周在相应机会下的做法，1从不至5几乎总是，全部直接计分，没有反向题。四条都有效才显示4—20原始总分，均分用未舍入总和除4、保留两位小数。例如4、3、2、5相加14，均分3.50，不从一位小数倒推。任一NA保留本组不足，其他完整组可照常看。五组不相加或归一化，不产生能量百分比、主型或最佳形状；有序类别求和和小数不证明测量精度。",
+        "en": "For NP, recall how often each of four actions occurred in the past four weeks when a relevant occasion arose, from 1 Never to 5 Almost always. All items are direct; none reverses. Four valid ratings produce a raw total of 4–20 and a descriptive mean from the unrounded sum divided by four, shown to two decimals. For example, 4, 3, 2, 5 total 14 with a mean of 3.50. Any NA leaves this group insufficient while other complete groups remain readable. The five groups are not added or normalised into energy percentages, a dominant type or an ideal shape. Ordered-category sums and decimals establish no measurement precision."
+      },
+      "seo": {
+        "title": {
+          "zh": "NP支持表达：照应怎样发生：自我状态图结果",
+          "en": "NP Egogram Result: Scores and Full Guide"
+        },
+        "description": {
+          "zh": "完整读懂NP四种支持做法、原始频率分数、较高较低、混合不足与具体反例，不把提供帮助当善良或共情认证。",
+          "en": "Read NP supporting actions, raw frequency scores, higher or lower readings, missing information and examples without certifying kindness or empathy."
+        }
+      },
+      "sections": [
+        {
+          "id": "observes",
+          "title": {
+            "zh": "NP：支持与接纳的具体做法",
+            "en": "NP: concrete actions of support and acceptance"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组借用养育型父母NP标签，观察询问是否需要支持、说出具体努力、给可补救的小错留余地，以及在条件允许时提供时间或安排上的照应。这里并不判断你是否善良、能读懂需要或真的让人安全；别人是否需要和如何感受，需要另外的回应。父母是框架用语，不表示你应当成为照料者或在关系中居于上位。四种做法也没有穷尽关心的方式。可以按近四周实际机会回答，不因没有遇到需要帮助的情境而认定自己缺乏关怀。",
+              "en": "This group borrows the label Nurturing Parent, or NP, for four concrete actions: asking whether support is wanted, naming a specific effort, leaving room to repair a small mistake and offering time or an adjusted arrangement when circumstances allow. It does not determine kindness, accurate recognition of needs or whether you made anyone feel safe; another person’s needs and experience require separate information. Parent is framework terminology, not a duty to become a caregiver or take a superior relationship position. These four actions do not exhaust care. Rate the opportunities in your recent four weeks without interpreting their absence as missing compassion."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "四条频率怎样计分",
+            "en": "How the four frequency ratings are scored"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组NP四条，回想过去四周在相应机会下的做法，1从不至5几乎总是，全部直接计分，没有反向题。四条都有效才显示4—20原始总分，均分用未舍入总和除4、保留两位小数。例如4、3、2、5相加14，均分3.50，不从一位小数倒推。任一NA保留本组不足，其他完整组可照常看。五组不相加或归一化，不产生能量百分比、主型或最佳形状；有序类别求和和小数不证明测量精度。",
+              "en": "For NP, recall how often each of four actions occurred in the past four weeks when a relevant occasion arose, from 1 Never to 5 Almost always. All items are direct; none reverses. Four valid ratings produce a raw total of 4–20 and a descriptive mean from the unrounded sum divided by four, shown to two decimals. For example, 4, 3, 2, 5 total 14 with a mean of 3.50. Any NA leaves this group insufficient while other complete groups remain readable. The five groups are not added or normalised into energy percentages, a dominant type or an ideal shape. Ordered-category sums and decimals establish no measurement precision."
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "zh": "较高：支持做法较常出现",
+            "en": "Higher: supporting actions occur more often"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高说明你较常回想起本组支持做法，可能在这段时间有较多协作或照应机会。它不证明帮助有效、别人依赖你、关系更稳固或你过度付出。问过是否需要帮助和代替别人决定，并不是同一件事；本卷也不能识别你真正的动机。可把一次支持放回具体情境：对方是否愿意、你有哪些资源、约好的范围是什么。你有权停止无法承担的安排，对方也有权拒绝。不能因为NP分数高，就要求自己持续投入或把接受帮助当作应有回报。",
+              "en": "A higher result means these supporting actions were more frequent in your account, perhaps because this period brought more opportunities to coordinate or care. It proves neither effective help, dependency, durable relationships nor over-giving. Asking whether help is wanted differs from deciding for someone, and this form cannot discover your true motivation. Put an instance back into context: whether support was wanted, what resources you had and what scope was agreed. You may stop an arrangement you cannot sustain, and the other person may decline it. A higher NP score creates no duty to keep giving or expect acceptance as a return."
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "zh": "较低：支持也有其他形式",
+            "en": "Lower: support can take other forms"
+          },
+          "paragraphs": [
+            {
+              "zh": "较低可能是近四周很少遇到相应机会、主要通过按约完成任务支持别人、自己的时间资源有限，或采用了四条没有列出的方式。它不能证明你不温暖、不可信或不在意他人，更不要求你主动搜寻困难来照料。边界清楚、及时拒绝承担不了的事，也可能给协作带来必要信息，但这不是本组单独测过的能力。如果一条没有对应机会，可选NA；若只是次数少，可以据实回答。低频率不该被当作道德欠账，也不用靠提高NP分数证明关系值得。",
+              "en": "A lower result may reflect few relevant opportunities, support provided by reliably completing agreed tasks, limited time or resources, or forms of care not listed in these four items. It establishes neither coldness, untrustworthiness nor indifference and does not require seeking people in difficulty to look after. Clear limits and timely refusal of an unsustainable task may provide useful coordination information, although that ability was not independently measured here. Use NA when an item had no relevant opportunity, or rate an action honestly if it was simply infrequent. Lower frequency is no moral debt and no need to prove a relationship’s worth through a higher NP score."
+            }
+          ]
+        },
+        {
+          "id": "mixed-missing",
+          "title": {
+            "zh": "四种支持不必同步发生",
+            "en": "Four forms of support need not move together"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能常肯定具体努力，但少有时间调整安排；也可能愿意留出纠错余地，却不常口头问是否需要帮助。总分相同的人未必用相同方式照应别人。均分3不是正常照料量，满分也不是理想关怀。任一NA使本组总分保留不足，其他组仍分别显示；不借其他四组推算你本组该有的分数。五项可以同时较高或较低，不靠降低NP替别的状态“腾能量”。这份图不能判断你已经倦怠、他人正在依赖你，或双方是否互惠。",
+              "en": "You may often acknowledge effort but have little time to adjust arrangements, or leave room for repair without frequently asking whether help is wanted. People with equal totals may support others differently. Three is no normal amount of caregiving, and a maximum is no ideal care. Any NA leaves this group’s total insufficient while other groups remain separate; they cannot fill its missing information. All five groups can be higher or lower together without reducing NP to release energy for another state. The chart establishes no burnout, dependence or reciprocity in a relationship. Those matters need their own actual circumstances and accounts rather than a score pattern."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "例子与反例：活动准备中的支持",
+            "en": "Example and counterexample: support while preparing an activity"
+          },
+          "paragraphs": [
+            {
+              "zh": "一起准备活动时，一位同伴说当天时间很紧。你可以问“我能帮你查一下材料清单，还是你更想自己安排？”并只承诺自己能承担的一小部分。这样问是本组支持做法的例子，不证明你已经读懂全部需要。反例是，对方选择自己处理，你尊重这个答复，帮助次数反而少了；这不是关心下降。另一位同伴不常安慰人，却一直按时交付自己承诺的材料，也不能被低NP频率否定。实际支持是否合适，要看明确需求、约定和资源，不看谁的柱形更高。",
+              "en": "While preparing an activity, a companion says that time is tight. You might ask whether checking a materials list would help or whether they prefer to organise it themselves, offering only a small part you can manage. That question illustrates one listed supporting action, not complete understanding of their needs. A counterexample is respecting their choice to handle it themselves: fewer acts of help need not mean less care. Someone who rarely reassures others may consistently deliver the materials they promised, which a lower NP frequency cannot invalidate. Suitable support depends on expressed needs, agreements and resources, not which person has the taller bar."
+            }
+          ]
+        },
+        {
+          "id": "optional-check",
+          "title": {
+            "zh": "可选尝试：问范围，保留拒绝",
+            "en": "Optional experiment: clarify scope and preserve refusal"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，下次本来就准备提供帮助时，可以先问一个范围明确的问题，并说明自己能承担到哪里。让“现在不需要”也是完整回答，不需要追问原因或加码证明关心；若资源不足，直接说清也可以。这个尝试既不保证别人接受，也不验证你的共情水平，更不要求每次交流都照着句式执行。它只是减少一次实际安排里的猜测。你可以不做，不记录对方的困难或私人回复，也不把练习次数变成本次分数之外的考核。",
+              "en": "If useful, the next time you already intend to offer help, ask a clearly bounded question and state what you can manage. Let “not needed now” be a complete answer without demanding reasons or escalating the offer to prove care. You can also state that resources are insufficient. This experiment guarantees neither acceptance nor validated empathy and does not require a script for every interaction. It simply reduces guessing in one actual arrangement. You may skip it without recording another person’s difficulties or private replies, and the number of attempts is no extra assessment or evidence that you are becoming a better caregiver."
+            }
+          ]
+        },
+        {
+          "id": "comparison-evidence",
+          "title": {
+            "zh": "NP、善意与配合怎样分开",
+            "en": "Distinguishing NP, kindness and accommodation"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版NP列的是四种支持与接纳做法，不能以此认证善良，也不凭AC较高就断言你支持别人是为了获认可。动机不是这二十条的测量目标，同一个动作可能有多种理由。NP与关心方式、沟通或讨好主题有交叠，但不同题本不换算，任何模式都不决定亲密关系结局。功能标签来自交互分析背景；本版用独立原创条目，不采用标准TEG3、Heyer或Dusay题本，也未建立本站常模或效度。可并看五组问题，把解释保持在实际回答的范围内。",
+              "en": "NP here lists four supporting and accepting actions, without certifying kindness or treating higher AC as evidence that you help to obtain approval. Motives are not the target of these twenty statements, and one action can have several reasons. Caregiving, communication and people-pleasing topics may overlap without interchangeable scores or predictions of relationship outcomes. The functional label comes from transactional-analysis background. Our independently written items do not administer standard TEG3, Heyer or Dusay banks, and no local norms or validity have been established. Compare the five groups’ questions while keeping interpretations within the responses actually supplied rather than expanding them into a hidden account of motivation."
+            }
+          ]
+        },
+        {
+          "id": "review-privacy",
+          "title": {
+            "zh": "免费全文与可选重看",
+            "en": "Full free text and optional review"
+          },
+          "paragraphs": [
+            {
+              "zh": "五组完整说明同时免费呈现，不需要另一测评、邮箱或付费解锁。重看时可比较当时的场合、机会和具体条目，不把数字变化当疗效或人格改变。作答在本设备处理，不填写真实对话、童年故事或第三人信息。主动开启的本标签页草稿最多24小时，完成、重测、退出清除都会删除；不保存也能作答。分享只带测试名、公开说明名称和链接，不带原始回答、五组分数或图形数据。后续推荐是可选的不同框架，不补齐本次资料不足；你也可以读完便结束。",
+              "en": "All five full guides appear together for free without another assessment, an email address or payment. When reviewing, compare settings, opportunities and particular items rather than treating a score difference as treatment benefit or personality change. Answers are processed on this device without real conversations, childhood stories or third-party details. An explicitly enabled tab draft lasts at most twenty-four hours and clears on completion, retake or exit-and-clear; answering requires no saved draft. Sharing contains only the test name, public guide names and link, without answers, five scores or chart data. Later recommendations are optional different frameworks, not completion of an insufficient score. You may simply finish here."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "adult",
+      "directionIds": [
+        "adult"
+      ],
+      "title": {
+        "zh": "A当下核对：资料怎样确认",
+        "en": "A Checking: How Information Is Confirmed"
+      },
+      "headline": {
+        "zh": "观察当前核对动作，不把频率当理性或成熟认证。",
+        "en": "Observe present-checking actions without certifying rationality or maturity."
+      },
+      "summary": {
+        "zh": "读懂A四种信息核对做法、原始频率分数、较高较低、混合不足和集合地点例子，不换算IQ、成熟或情绪稳定。",
+        "en": "Read A checking actions, raw frequency scores, higher or lower readings, missing information and examples without inferring IQ or maturity."
+      },
+      "scoreReading": {
+        "zh": "本组A四条，回想过去四周在相应机会下的做法，1从不至5几乎总是，全部直接计分，没有反向题。四条都有效才显示4—20原始总分，均分用未舍入总和除4、保留两位小数。例如4、3、2、5相加14，均分3.50，不从一位小数倒推。任一NA保留本组不足，其他完整组可照常看。五组不相加或归一化，不产生能量百分比、主型或最佳形状；有序类别求和和小数不证明测量精度。",
+        "en": "For A, recall how often each of four actions occurred in the past four weeks when a relevant occasion arose, from 1 Never to 5 Almost always. All items are direct; none reverses. Four valid ratings produce a raw total of 4–20 and a descriptive mean from the unrounded sum divided by four, shown to two decimals. For example, 4, 3, 2, 5 total 14 with a mean of 3.50. Any NA leaves this group insufficient while other complete groups remain readable. The five groups are not added or normalised into energy percentages, a dominant type or an ideal shape. Ordered-category sums and decimals establish no measurement precision."
+      },
+      "seo": {
+        "title": {
+          "zh": "A当下核对：资料怎样确认：自我状态图结果",
+          "en": "A Egogram Result: Scores and Full Guide"
+        },
+        "description": {
+          "zh": "读懂A四种信息核对做法、原始频率分数、较高较低、混合不足和集合地点例子，不换算IQ、成熟或情绪稳定。",
+          "en": "Read A checking actions, raw frequency scores, higher or lower readings, missing information and examples without inferring IQ or maturity."
+        }
+      },
+      "sections": [
+        {
+          "id": "observes",
+          "title": {
+            "zh": "A：回到眼前资料做核对",
+            "en": "A: checking present information"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组用成人A这个功能性标签观察四种做法：区分确认与待问的信息、询问当前时间材料、出现新事实时复查判断，以及把抽象分歧改成能核对的问题。成人不是年龄、成熟程度或情绪优越的标签；你也不需要不带感受地作答。四条问行为频率，未测信息是否正确、分析是否充分或最终决定质量。一次核对可以带着关心、兴趣或不确定同时发生。先看具体动作是否出现在近四周，不把这份结果当证明自己理性或评价别人的工具。",
+              "en": "This group uses the functional label Adult, or A, for four practices: separating confirmed from unanswered information, asking about available time or materials, reviewing a judgment when new facts appear and making an abstract disagreement checkable. Adult is neither an age, a maturity grade nor emotional superiority, and answering requires no absence of feeling. These items concern frequency, not the correctness of information, completeness of analysis or quality of a final decision. Checking can coexist with care, interest and uncertainty. Look for the specified actions in your recent four weeks without treating the result as proof of rationality or a tool for evaluating someone else."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "四条频率怎样计分",
+            "en": "How the four frequency ratings are scored"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组A四条，回想过去四周在相应机会下的做法，1从不至5几乎总是，全部直接计分，没有反向题。四条都有效才显示4—20原始总分，均分用未舍入总和除4、保留两位小数。例如4、3、2、5相加14，均分3.50，不从一位小数倒推。任一NA保留本组不足，其他完整组可照常看。五组不相加或归一化，不产生能量百分比、主型或最佳形状；有序类别求和和小数不证明测量精度。",
+              "en": "For A, recall how often each of four actions occurred in the past four weeks when a relevant occasion arose, from 1 Never to 5 Almost always. All items are direct; none reverses. Four valid ratings produce a raw total of 4–20 and a descriptive mean from the unrounded sum divided by four, shown to two decimals. For example, 4, 3, 2, 5 total 14 with a mean of 3.50. Any NA leaves this group insufficient while other complete groups remain readable. The five groups are not added or normalised into energy percentages, a dominant type or an ideal shape. Ordered-category sums and decimals establish no measurement precision."
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "zh": "较高：核对动作较常出现",
+            "en": "Higher: checking actions occur more often"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高表示你在这些具体核对动作上报告较高频率，可能这段时间有较多信息不完整、资源变化或共同决策的机会。它不证明你思考更清楚、情绪更稳定、IQ更高或更值得信任；询问信息也可能漏掉关键问题。可以具体检查哪份资料已被确认、还有谁需要补充，必要时承认暂时不知道。频繁分析并不自动得到决定权，也不意味着其他人是在情绪化。如果当前问题只是表达感受，不一定需要立刻变成待解决任务，但这一点要靠实际沟通，而不是A分数推断。",
+              "en": "A higher result means more frequent checking actions in your account, perhaps during a period with incomplete information, changing resources or shared decisions. It proves neither clearer thinking, emotional stability, higher IQ nor greater trustworthiness; a question can still miss important information. Check which source has actually been confirmed and whose input is missing, admitting uncertainty where appropriate. Frequent analysis grants no automatic decision authority and does not establish that others are being emotional. If an exchange is simply expressing a feeling, turning it immediately into a problem-solving task may be unnecessary. That depends on actual communication, not an inference supplied by an A score."
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "zh": "较低：熟悉和机会都会影响次数",
+            "en": "Lower: familiarity and opportunities affect frequency"
+          },
+          "paragraphs": [
+            {
+              "zh": "较低可能是当前安排稳定、已有材料足够、熟悉事务无需重复询问，或你负责的部分很少涉及共同判断。也可能只是题目列出的动作不符合你核对信息的方式，四条无法分清这些原因。它不代表你幼稚、被旧经历控制、不讲道理或需要练成“成人”。若没有相应机会，可以保留NA；若实际上次数少，也可以按实际频率选。只有面对具体待决定事项时，才考虑是否需要补问一个问题；不要为了提高A而把每次交流都变成审查。",
+              "en": "A lower result may reflect stable arrangements, adequate existing materials, familiar work needing little repeated questioning or responsibilities with few shared judgments. Your way of checking may also differ from the listed actions; four items cannot distinguish these explanations. The result means neither immaturity, control by old experiences, irrationality nor a need to become Adult. Preserve NA if no relevant occasion arose, or simply rate an action as infrequent if that is accurate. Consider another question only where a real decision needs information. There is no requirement to turn every exchange into an examination in order to raise A or demonstrate that your response is reasonable."
+            }
+          ]
+        },
+        {
+          "id": "mixed-missing",
+          "title": {
+            "zh": "核对信息不只有一种节奏",
+            "en": "Checking information has more than one pattern"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能常在新事实出现后调整判断，却少在讨论开始前询问时间；也可能擅长自己核对文档，却很少将抽象分歧说成具体问题。相同总分不揭示这些差别，均分3也不表示一半时间在成人状态。任一NA让本组保持不足，不以其他条目补算，也不把另一组当作代替本组的判断功能。其他四组不需要为较高A让出空间：本版五组是分别观察的频率，既不是心理能量份额，也不是一个人对另一个人的优先级。",
+              "en": "You may often revise a judgment after new facts arrive but rarely ask about time before discussion begins, or check documents privately without frequently rephrasing abstract disagreements. Equal totals hide these differences, and three does not mean spending half your time in an Adult state. Any NA keeps this group insufficient without estimating a missing rating or treating another group as its substitute judgment function. Nor must other groups make room for higher A. These are separately observed frequencies, not shares of psychic energy or a ranking of one person above another. Compare actual item patterns and occasions rather than inventing a fixed amount of reasoning from the chart."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "例子与反例：集合信息发生变化",
+            "en": "Example and counterexample: changed meeting details"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个普通活动的集合地点临时变了，你可以把已确认的新地点、还没确认的时间分开，再问清哪条通知有效。这是当前信息核对，不证明你比先表示担心的同伴更理性。反例是，另一位参与者早已拿到更新后的说明，所以没有重复询问，A条目出现得少也不表示疏忽。若你反复查了相同资料，却没有注意到别人给出的新通知，次数高也不能说明结果更好。需要看实际信息、分工和是否仍有疑问，不靠图表决定谁的担心应当被忽略。",
+              "en": "A meeting point for an ordinary activity changes. You might separate the confirmed new location from an unconfirmed time and ask which notice applies. That illustrates present-information checking, not greater rationality than a companion who first expresses concern. A counterexample is someone who already has the updated instructions and needs no repeated questions; fewer listed actions establish no carelessness. Rechecking an old document many times while missing a new notice also shows why frequency cannot establish a better outcome. Look at the information, responsibilities and remaining uncertainty rather than using the chart to decide whose concern deserves dismissal or whose checking deserves automatic trust."
+            }
+          ]
+        },
+        {
+          "id": "optional-check",
+          "title": {
+            "zh": "可选核对：一个已经知道，一个还待问",
+            "en": "Optional check: one known and one unanswered point"
+          },
+          "paragraphs": [
+            {
+              "zh": "若眼下确实有件需要协调的小事，可以先在心里列一个已确认信息和一个仍待问的问题，然后判断是否需要提问、查已有说明，或暂时等待。没有待问问题也完全可以结束，不为练习制造疑问。这个可选步骤不保证决定正确、沟通更顺利或A提高；如果不适合现在处理，可不做。保留感受和个人偏好不妨碍核对资料，也不需要以“我是成人状态”说服别人。练习对象是一个具体事项，不是对自己或他人的心理状态进行诊断。",
+              "en": "If a small matter genuinely needs coordination, privately identify one confirmed point and one unanswered question, then decide whether to ask, consult existing instructions or wait. If nothing remains unanswered, finish without manufacturing uncertainty for practice. This optional step guarantees neither a correct decision, easier communication nor a higher A score, and you may skip it if now is unsuitable. Feelings and personal preferences can remain present while you check information. You need not invoke an Adult state to convince someone. The object is one practical matter, not diagnosing your own or another person’s psychology or proving that every response should be analytical."
+            }
+          ]
+        },
+        {
+          "id": "comparison-evidence",
+          "title": {
+            "zh": "A不换算智力、成熟或成长信念",
+            "en": "A does not convert into intelligence or maturity"
+          },
+          "paragraphs": [
+            {
+              "zh": "A是交互分析中的功能名称，本版只列四种当下核对动作，不采用临床自我状态诊断、标准TEG3或原Heyer题库。理论中的成人处理当下信息，是概念背景，不是本站四条验证。A与学习时查证、成熟度中的做决定、社交理解中的询问可能话题相邻，但不能换算成绩、成熟年龄、IQ或成长信念，也不据此把低FC称为情感压抑。可并看五组的具体做法，保留相互补充的情境；本版没有最健康的组合或已验证的改变量。",
+              "en": "A is a functional term in transactional analysis. This edition lists four present-checking actions without clinical ego-state diagnosis, standard TEG3 or Heyer’s original item bank. Theoretical attention to present information supplies background, not validation of our four statements. Checking during learning, decisions discussed in maturity reflections and questions during social interaction may be nearby topics, but scores cannot convert into achievement, mental age, IQ or growth beliefs. Lower FC does not establish suppressed emotion beside A. Compare specified practices across the five groups while retaining contexts in which they coexist. There is no healthiest combination or validated meaningful-change threshold for this edition."
+            }
+          ]
+        },
+        {
+          "id": "review-privacy",
+          "title": {
+            "zh": "免费全文与可选重看",
+            "en": "Full free text and optional review"
+          },
+          "paragraphs": [
+            {
+              "zh": "五组完整说明同时免费呈现，不需要另一测评、邮箱或付费解锁。重看时可比较当时的场合、机会和具体条目，不把数字变化当疗效或人格改变。作答在本设备处理，不填写真实对话、童年故事或第三人信息。主动开启的本标签页草稿最多24小时，完成、重测、退出清除都会删除；不保存也能作答。分享只带测试名、公开说明名称和链接，不带原始回答、五组分数或图形数据。后续推荐是可选的不同框架，不补齐本次资料不足；你也可以读完便结束。",
+              "en": "All five full guides appear together for free without another assessment, an email address or payment. When reviewing, compare settings, opportunities and particular items rather than treating a score difference as treatment benefit or personality change. Answers are processed on this device without real conversations, childhood stories or third-party details. An explicitly enabled tab draft lasts at most twenty-four hours and clears on completion, retake or exit-and-clear; answering requires no saved draft. Sharing contains only the test name, public guide names and link, without answers, five scores or chart data. Later recommendations are optional different frameworks, not completion of an insufficient score. You may simply finish here."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "free-child",
+      "directionIds": [
+        "free-child"
+      ],
+      "title": {
+        "zh": "FC自主玩兴：小尝试怎样发生",
+        "en": "FC Play: How Small Trials Happen"
+      },
+      "headline": {
+        "zh": "观察自主玩兴，不用分数要求自己活泼或冒险。",
+        "en": "Observe voluntary play without a demand to be lively or take risks."
+      },
+      "summary": {
+        "zh": "读懂FC四种自主玩兴、原始频率分数、较高较低、混合不足与积木例子，不把小尝试当创造力、快乐或童年判断。",
+        "en": "Read FC voluntary play, raw frequency scores, higher or lower readings, missing information and examples without inferring creativity or childhood."
+      },
+      "scoreReading": {
+        "zh": "本组FC四条，回想过去四周在相应机会下的做法，1从不至5几乎总是，全部直接计分，没有反向题。四条都有效才显示4—20原始总分，均分用未舍入总和除4、保留两位小数。例如4、3、2、5相加14，均分3.50，不从一位小数倒推。任一NA保留本组不足，其他完整组可照常看。五组不相加或归一化，不产生能量百分比、主型或最佳形状；有序类别求和和小数不证明测量精度。",
+        "en": "For FC, recall how often each of four actions occurred in the past four weeks when a relevant occasion arose, from 1 Never to 5 Almost always. All items are direct; none reverses. Four valid ratings produce a raw total of 4–20 and a descriptive mean from the unrounded sum divided by four, shown to two decimals. For example, 4, 3, 2, 5 total 14 with a mean of 3.50. Any NA leaves this group insufficient while other complete groups remain readable. The five groups are not added or normalised into energy percentages, a dominant type or an ideal shape. Ordered-category sums and decimals establish no measurement precision."
+      },
+      "seo": {
+        "title": {
+          "zh": "FC自主玩兴：小尝试怎样发生：自我状态图结果",
+          "en": "FC Egogram Result: Scores and Full Guide"
+        },
+        "description": {
+          "zh": "读懂FC四种自主玩兴、原始频率分数、较高较低、混合不足与积木例子，不把小尝试当创造力、快乐或童年判断。",
+          "en": "Read FC voluntary play, raw frequency scores, higher or lower readings, missing information and examples without inferring creativity or childhood."
+        }
+      },
+      "sections": [
+        {
+          "id": "observes",
+          "title": {
+            "zh": "FC：在可自主的空档表达玩兴",
+            "en": "FC: play in moments of voluntary choice"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组用自由儿童FC标签观察四种做法：不扰动约定的空档加点玩乐、小范围试有趣点子、直接说想试什么，以及在熟悉休闲活动里换个玩法。儿童不是实际年龄、幼稚或童年重现；这些做法也不证明创意、真实自我或快乐程度。题目特意涉及可以自主、不影响他人的情境，频率不能为越过共同约定辩护。四条没有覆盖情绪表达的全部形式，只记录本版选定的玩兴和自主尝试。你可以保持安静、不爱临时变化，仍按实际近四周回答。",
+              "en": "This group uses the functional label Free Child, or FC, for four actions: adding play in a gap without disrupting agreements, trying an interesting idea on a small scale, saying what you feel like trying and changing a familiar leisure activity. Child is no actual age, immaturity or replay of childhood. These actions establish neither creativity, an authentic self nor happiness. The wording deliberately concerns voluntary situations that do not disrupt others; frequency justifies no breach of shared agreements. Four items do not cover all emotional expression, only selected play and spontaneous trials. Being quiet or disliking sudden changes remains compatible with an honest account of your recent four weeks."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "四条频率怎样计分",
+            "en": "How the four frequency ratings are scored"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组FC四条，回想过去四周在相应机会下的做法，1从不至5几乎总是，全部直接计分，没有反向题。四条都有效才显示4—20原始总分，均分用未舍入总和除4、保留两位小数。例如4、3、2、5相加14，均分3.50，不从一位小数倒推。任一NA保留本组不足，其他完整组可照常看。五组不相加或归一化，不产生能量百分比、主型或最佳形状；有序类别求和和小数不证明测量精度。",
+              "en": "For FC, recall how often each of four actions occurred in the past four weeks when a relevant occasion arose, from 1 Never to 5 Almost always. All items are direct; none reverses. Four valid ratings produce a raw total of 4–20 and a descriptive mean from the unrounded sum divided by four, shown to two decimals. For example, 4, 3, 2, 5 total 14 with a mean of 3.50. Any NA leaves this group insufficient while other complete groups remain readable. The five groups are not added or normalised into energy percentages, a dominant type or an ideal shape. Ordered-category sums and decimals establish no measurement precision."
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "zh": "较高：自主小尝试较常出现",
+            "en": "Higher: voluntary small trials occur more often"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高表示你较常回想起这些小尝试或兴趣表达，可能这段时间有更多自由空档或熟悉的休闲场合。它不证明你更有感染力、创作能力更强、比别人活得真实或容易进入心流；本卷没有作品、旁人反馈或实际表现任务。可以看看某次尝试是否在自己可选择的范围内、是否与别人事先约定相容。高频率不意味着冲动、不能坚持或难以合作，也不需要用降低玩兴来补一个所谓成熟的图形。实际后续如何，需要具体情况而不是FC分数解释。",
+              "en": "A higher result means more frequent small trials or expressions of interest, perhaps during a period with more free moments or familiar leisure settings. It proves neither an energising presence, creative ability, greater authenticity nor easier flow; the questionnaire includes no work samples, observer feedback or performance tasks. Consider whether a particular trial was within your choice and compatible with agreements involving others. Higher frequency does not establish impulsivity, poor persistence or difficulty cooperating, nor require less play to produce a supposedly mature chart. Any consequences and follow-through need actual circumstances rather than a story inferred from the FC number."
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "zh": "较低：安静与安排也可以适合你",
+            "en": "Lower: quiet and planned activity may suit you"
+          },
+          "paragraphs": [
+            {
+              "zh": "较低可能来自近期空档少、休闲安排固定、身体或资源条件限制，或你更喜欢有计划地享受活动。它不证明没有活力、压抑了情绪、童年受限或需要找回真正的自己。也可能你有许多兴趣，但没有以本版四种方式表达，分数无法补足这些信息。没有自主机会时可选NA；若次数确实少，可以平实地承认。你可以保留规律、安静或不想尝试的选择，不必为了提高FC打乱安排或强迫自己显得活泼。",
+              "en": "A lower result may reflect little free time, fixed leisure arrangements, physical or resource constraints, or a preference for planned enjoyment. It establishes neither missing vitality, suppressed emotion, a constrained childhood nor a need to rediscover a true self. You may have many interests without expressing them through these four actions, and the score cannot supply that missing information. Use NA when no voluntary opportunity arose, or simply acknowledge low frequency when that fits. Regularity, quiet and choosing not to try something remain available choices. There is no requirement to disrupt a plan or appear lively to improve FC or demonstrate that you can enjoy life."
+            }
+          ]
+        },
+        {
+          "id": "mixed-missing",
+          "title": {
+            "zh": "兴趣表达和临时换玩法可以不同",
+            "en": "Interest expression and spontaneous changes can differ"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能常说出自己想试什么，却很少改变熟悉活动；也可能喜欢自己小试点子，但不把兴趣说给别人听。一个总分无法区分这些模式，更不能说哪种更自由或更真实。均分3不认证半玩半工作，满分也不是最佳活力。任一NA让本组保留不足，不能用AC、A或其他组补算。所有五组频率可以同时较高或较低；本版没有能量守恒的测量，也不从低FC与高A组合推断冷漠、倦怠或关系困难。",
+              "en": "You might often say what you want to try while rarely changing a familiar activity, or quietly test small ideas without voicing your interests. A total cannot distinguish those patterns or establish which is freer or more authentic. A mean of three certifies no half-play, half-work balance, and a maximum is no optimal vitality. Any NA leaves this group insufficient without estimates from AC, A or another group. All five frequencies may be higher or lower together. This edition measures no conserved energy and does not infer coldness, burnout or relationship difficulty from a combination of lower FC and higher A."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "例子与反例：熟悉活动换一种玩法",
+            "en": "Example and counterexample: changing a familiar activity"
+          },
+          "paragraphs": [
+            {
+              "zh": "假设你在自己的空闲里摆一组普通积木，临时换了摆法，只是想看看效果。这是本组一种小尝试，不是创造力测试，也不要求产出新作品。反例是，另一人很享受照既定图样完成作品，没有临时变动，不能因此说他缺乏想象或不快乐。若一起活动，先核对是否影响别人计划，自己想换玩法并不让对方必须配合。某次尝试没有继续，也不等于坚持性不足；这四条没有观察之后发生了什么。解释保持在当时实际选择的范围里。",
+              "en": "Imagine arranging ordinary building blocks in your own spare time and spontaneously trying another layout simply to see the effect. That illustrates a small trial, not a creativity test or a requirement to produce an original work. A counterexample is someone who enjoys completing an established design without changing it; that establishes neither limited imagination nor unhappiness. In a shared activity, first check whether a change affects another person’s plan. Your interest creates no obligation for them to join. Not continuing one experiment also establishes no lack of persistence; these four items do not observe what happened afterwards. Keep the reading within the choices actually made."
+            }
+          ]
+        },
+        {
+          "id": "optional-check",
+          "title": {
+            "zh": "可选尝试：一个自己愿意的小变化",
+            "en": "Optional experiment: one small change you want"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，可以在确属自己选择、无需别人配合的空档，选一个小变化试试，也可以选择沿用熟悉安排。先考虑时间、材料和已有约定，不以“自由儿童需要释放”迫使自己冒险或公开情绪。做过一次不保证更快乐、更有创意或分数提高，没兴趣也无需继续。结束时只需看看这个选择是否适合当时的你，不将它解释成疗愈童年或解除某种压抑。这个活动可完全私下完成，不需要上传成果、感受或个人经历。",
+              "en": "If useful, choose one small change in a moment that is truly yours and requires no one else to participate, or choose to keep the familiar arrangement. Consider time, materials and existing commitments without invoking a Free Child that must be released to force risk or emotional disclosure. One trial guarantees neither happiness, creativity nor a higher score, and lack of interest is a valid reason not to continue. Simply consider whether the choice suited you at that moment. It is no childhood-healing exercise or proof that a suppressed part was liberated. Keep it entirely private without uploading a product, feelings or personal story."
+            }
+          ]
+        },
+        {
+          "id": "comparison-evidence",
+          "title": {
+            "zh": "FC与内在童年、外向和成熟分开",
+            "en": "Separate FC from inner-child metaphors and extraversion"
+          },
+          "paragraphs": [
+            {
+              "zh": "FC来自交互分析的功能名称，本版四条是原创近期做法观察，不是Dusay或TEG3临床题本。本站内在童年趣味版使用象征选择来谈玩兴与童真，不与本组频率互换；外向、情绪表达、成熟和创作能力也没有因此被测到。AC较高不意味着你不敢做自己，A较高也不使FC较低变成缺陷。理论背景没有验证本站中文或二十条方法，无常模或最佳图形。并看五组具体条目与当前机会，保留与标题故事不一致的情境。",
+              "en": "FC comes from functional transactional-analysis terminology, but these four items are original observations of recent actions rather than a Dusay or TEG3 clinical bank. Our inner-child fun edition uses symbolic choices about play and childlike curiosity, not interchangeable frequency scores. Extraversion, emotional expression, maturity and creative ability are not measured here. Higher AC does not establish that you fear being yourself, and higher A does not turn lower FC into a defect. Theoretical background does not validate this Chinese edition or twenty-item method, which has no norms or ideal chart. Read specified actions alongside opportunities and keep situations that do not fit an appealing headline story."
+            }
+          ]
+        },
+        {
+          "id": "review-privacy",
+          "title": {
+            "zh": "免费全文与可选重看",
+            "en": "Full free text and optional review"
+          },
+          "paragraphs": [
+            {
+              "zh": "五组完整说明同时免费呈现，不需要另一测评、邮箱或付费解锁。重看时可比较当时的场合、机会和具体条目，不把数字变化当疗效或人格改变。作答在本设备处理，不填写真实对话、童年故事或第三人信息。主动开启的本标签页草稿最多24小时，完成、重测、退出清除都会删除；不保存也能作答。分享只带测试名、公开说明名称和链接，不带原始回答、五组分数或图形数据。后续推荐是可选的不同框架，不补齐本次资料不足；你也可以读完便结束。",
+              "en": "All five full guides appear together for free without another assessment, an email address or payment. When reviewing, compare settings, opportunities and particular items rather than treating a score difference as treatment benefit or personality change. Answers are processed on this device without real conversations, childhood stories or third-party details. An explicitly enabled tab draft lasts at most twenty-four hours and clears on completion, retake or exit-and-clear; answering requires no saved draft. Sharing contains only the test name, public guide names and link, without answers, five scores or chart data. Later recommendations are optional different frameworks, not completion of an insufficient score. You may simply finish here."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "adapted-child",
+      "directionIds": [
+        "adapted-child"
+      ],
+      "title": {
+        "zh": "AC情境调整：配合怎样发生",
+        "en": "AC Adjustment: How Coordination Happens"
+      },
+      "headline": {
+        "zh": "观察情境调整，保留对动机、同意与边界的未知。",
+        "en": "Observe situational adjustment while leaving motives and consent unknown."
+      },
+      "summary": {
+        "zh": "读懂AC四种情境调整、原始频率分数、较高较低、混合不足与活动分工例子，不用配合行为推断动机、同意或童年。",
+        "en": "Read AC situational adjustments, raw frequency scores, higher or lower readings and examples without inferring motives, consent or childhood."
+      },
+      "scoreReading": {
+        "zh": "本组AC四条，回想过去四周在相应机会下的做法，1从不至5几乎总是，全部直接计分，没有反向题。四条都有效才显示4—20原始总分，均分用未舍入总和除4、保留两位小数。例如4、3、2、5相加14，均分3.50，不从一位小数倒推。任一NA保留本组不足，其他完整组可照常看。五组不相加或归一化，不产生能量百分比、主型或最佳形状；有序类别求和和小数不证明测量精度。",
+        "en": "For AC, recall how often each of four actions occurred in the past four weeks when a relevant occasion arose, from 1 Never to 5 Almost always. All items are direct; none reverses. Four valid ratings produce a raw total of 4–20 and a descriptive mean from the unrounded sum divided by four, shown to two decimals. For example, 4, 3, 2, 5 total 14 with a mean of 3.50. Any NA leaves this group insufficient while other complete groups remain readable. The five groups are not added or normalised into energy percentages, a dominant type or an ideal shape. Ordered-category sums and decimals establish no measurement precision."
+      },
+      "seo": {
+        "title": {
+          "zh": "AC情境调整：配合怎样发生：自我状态图结果",
+          "en": "AC Egogram Result: Scores and Full Guide"
+        },
+        "description": {
+          "zh": "读懂AC四种情境调整、原始频率分数、较高较低、混合不足与活动分工例子，不用配合行为推断动机、同意或童年。",
+          "en": "Read AC situational adjustments, raw frequency scores, higher or lower readings and examples without inferring motives, consent or childhood."
+        }
+      },
+      "sections": [
+        {
+          "id": "observes",
+          "title": {
+            "zh": "AC：观察场合并调整配合",
+            "en": "AC: observing a setting and adjusting coordination"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组用适应儿童AC功能名称，观察加入群体先看分工、按场合约定调整表达、向负责人确认配合方式，以及为共同次序暂放个人偏好。它只覆盖本版四种情境调整，不包含交互分析AC在不同理论版本里的全部顺应、反抗或内在过程。儿童不是年龄、顺从的本质或童年经历，也不把配合自动等同于讨好、真诚同意或失去自我。四条没有询问你的动机、是否有其他选择或当时是否愿意；这些都不能靠一个总分补上。",
+              "en": "This group uses the functional label Adapted Child, or AC, for four situational adjustments: observing group arrangements, adapting expression to agreed conventions, checking coordination with someone in charge and temporarily placing a preference after a shared sequence. It covers only those actions, not every compliance, rebellion or internal-process meaning of AC across transactional-analysis versions. Child is no age, inherently submissive nature or childhood account. Coordination is not automatically people-pleasing, sincere consent or loss of self. The items ask neither motives, available alternatives nor willingness in a particular moment; none of those gaps can be filled by a total or by comparing another person’s bar."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "四条频率怎样计分",
+            "en": "How the four frequency ratings are scored"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组AC四条，回想过去四周在相应机会下的做法，1从不至5几乎总是，全部直接计分，没有反向题。四条都有效才显示4—20原始总分，均分用未舍入总和除4、保留两位小数。例如4、3、2、5相加14，均分3.50，不从一位小数倒推。任一NA保留本组不足，其他完整组可照常看。五组不相加或归一化，不产生能量百分比、主型或最佳形状；有序类别求和和小数不证明测量精度。",
+              "en": "For AC, recall how often each of four actions occurred in the past four weeks when a relevant occasion arose, from 1 Never to 5 Almost always. All items are direct; none reverses. Four valid ratings produce a raw total of 4–20 and a descriptive mean from the unrounded sum divided by four, shown to two decimals. For example, 4, 3, 2, 5 total 14 with a mean of 3.50. Any NA leaves this group insufficient while other complete groups remain readable. The five groups are not added or normalised into energy percentages, a dominant type or an ideal shape. Ordered-category sums and decimals establish no measurement precision."
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "zh": "较高：情境调整较常出现",
+            "en": "Higher: situational adjustment occurs more often"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高说明这些调整做法在你的近四周自述中更常出现，可能你接触新群体、共同安排或负责人协作的机会较多。它不证明你读人准确、比别人更易相处、害怕冲突或正在压下自己的需要。看懂分工与知道别人真正想什么是不同的；遵循一项安排也不能代表对其他事项的同意。可以具体看一次调整是否自愿、是否仍可提出偏好，但无需向网页披露答案。高AC不要求你一直配合别人，也不要求你立刻变得更直接来纠正分数。",
+              "en": "A higher result means these adjustments occurred more often in your recent account, perhaps because you encountered new groups, shared arrangements or coordination with someone in charge. It proves neither accurate social reading, an agreeable presence, fear of conflict nor suppressed needs. Understanding an arrangement differs from knowing what someone really wants, and following one arrangement establishes no consent to another matter. Privately consider whether a particular adjustment was voluntary and whether you could still express a preference, without disclosing an answer to the page. Higher AC creates no duty to keep accommodating or immediately become more direct to correct a score."
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "zh": "较低：配合未必需要这些动作",
+            "en": "Lower: coordination may not require these actions"
+          },
+          "paragraphs": [
+            {
+              "zh": "较低可能是近来一直在熟悉小组、安排本来符合你的偏好、很少接触负责人，或你通过题目未列出的方式协调。它不证明你不合群、叛逆、不懂礼貌或更真实独立。本组尤其没有把反抗行为作为另一端测量，因此不能把低分解释成反抗型儿童。若一个情境没有机会，NA比猜一个频率更合适；若你确实很少做某项动作，可以照实选。只有实际安排需要时才考虑是否补问一个规则，不必为了提高AC而主动让出偏好或接受更多要求。",
+              "en": "A lower result may reflect familiar groups, arrangements already matching your preferences, little contact with someone in charge or coordination methods absent from the items. It establishes neither social exclusion, rebellion, poor manners nor greater authenticity or independence. Rebellious actions were not measured as the opposite endpoint, so a lower score cannot become a Rebellious Child type. Use NA if a situation offered no relevant occasion, or honestly describe an action as infrequent. Consider clarifying a convention only when an actual arrangement needs it. Raising AC is no reason to surrender preferences, accept more requests or perform accommodation that would not otherwise suit the circumstances."
+            }
+          ]
+        },
+        {
+          "id": "mixed-missing",
+          "title": {
+            "zh": "观察、询问和暂放偏好可以分开",
+            "en": "Observation, questions and setting preferences aside differ"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能常先看分工，也常向负责人提问，却很少把个人偏好放到共同次序之后；另一人可能完全相反。同一总分不告诉我们谁更愿意、谁更有选择，也不能把配合与拒绝排成好坏。均分3不是正常顺应程度。任一NA让本组保持不足，不从NP的支持次数或FC的玩兴推算。五组频率不是此消彼长的能量：一个人可以既常表达要求，也常根据场合调整。具体同意、边界和权力条件，都需要各自的信息，不由这张自我状态图代言。",
+              "en": "You might often observe arrangements and ask a coordinator questions while rarely setting aside a personal preference; another person may report the opposite. Equal totals tell us neither willingness nor available choice and rank neither accommodation nor refusal as better. Three is no normal degree of compliance. Any NA keeps this group insufficient without estimates from supporting actions in NP or play in FC. The five frequencies are not competing energy shares: someone may frequently express requirements and adapt to a setting. Consent, boundaries and power conditions each need actual information rather than being represented by this chart or inferred from another group’s relative height."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "例子与反例：新活动小组的分工",
+            "en": "Example and counterexample: a new activity group"
+          },
+          "paragraphs": [
+            {
+              "zh": "参加一个新的活动小组时，你先看大家如何安排发言，再问负责人这次轮到谁负责材料，并决定是否按共同次序参与。这是本组一种情境调整，不证明你已经准确猜到所有人的期待。反例是，一位熟悉安排的成员无需先观察，也可能很顺利地合作，低频率不等于不合群。若你按次序完成一件事，这个行为本身也不能说明你内心同意其他要求，或已经放弃表达偏好。实际决定仍由参与者自己说明，不由测试替他们宣布动机或承诺。",
+              "en": "When joining a new activity group, you first observe speaking arrangements, ask who is responsible for materials and decide whether to participate in the agreed sequence. That illustrates situational adjustment, not accurate guesses about everyone’s expectations. A counterexample is an established member who needs no observation and still coordinates smoothly; lower frequency is no sign of exclusion. Completing one task in sequence also establishes no inner agreement to unrelated requests or abandonment of personal preferences. Participants retain their own account of decisions. The test cannot announce their motives, consent or promises for them, nor decide whether the same arrangement suits a different occasion."
+            }
+          ]
+        },
+        {
+          "id": "optional-check",
+          "title": {
+            "zh": "可选核对：约定与自己的偏好",
+            "en": "Optional check: the agreement and your preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，在一次本来就要参加的普通安排里，先弄清已经共同约定什么，再在心里区分自己愿意、需要询问和暂不答应的部分。是否表达、用什么方式表达，由你按具体情况选择；不要求公开私人原因，也不把更直接的回应当唯一正确方法。这个尝试不保证更有自我、更受欢迎或AC下降。你也可以不做。它不是脱离顺应的训练，而是让一次实际选择保留更多明确的信息，不通过提高或降低分数证明你有没有边界。",
+              "en": "If useful, in an ordinary arrangement you already intend to join, clarify what was actually agreed and privately distinguish what you want, what needs a question and what you are not agreeing to yet. Whether and how to express that is your choice in the circumstances. No private justification or uniquely correct direct response is required. The experiment guarantees neither a stronger self, popularity nor a lower AC score, and you may skip it. This is not training to escape accommodation. It simply keeps one real choice better informed without using an increased or decreased score to certify whether you possess boundaries."
+            }
+          ]
+        },
+        {
+          "id": "comparison-evidence",
+          "title": {
+            "zh": "AC不等于讨好、动机或童年结论",
+            "en": "AC is not a people-pleasing or childhood verdict"
+          },
+          "paragraphs": [
+            {
+              "zh": "AC是交互分析功能模型中一个较广的名称，本版原创四条只覆盖所列的情境配合，不是标准TEG3、Heyer或Dusay题本，也不能完整复现其诊断方法。本站讨好、人际习惯和社交理解有相关话题，但不凭一个动作推断获认可的动机或用四组分数相互换算。低FC不证明你失去真我，高NP不证明你替别人承担过多。来源说明框架背景，不验证本站中文或个人结果；本版没有童年原因、治疗建议、常模或理想组合。可保留与标题解释不一致的真实例子。",
+              "en": "AC is a broad functional name in transactional analysis, while our four original items cover only the listed forms of situational coordination. They are no standard TEG3, Heyer or Dusay bank and cannot reproduce those diagnostic methods. People-pleasing, interaction-habit and social-understanding topics may be related without a motive for approval being inferred from an action or scores converted across forms. Lower FC establishes no lost true self, and higher NP establishes no excessive responsibility for others. Sources explain background rather than validating this Chinese edition or individual results. There are no childhood causes, treatment instructions, norms or ideal combinations here. Keep actual examples that do not match the headline interpretation."
+            }
+          ]
+        },
+        {
+          "id": "review-privacy",
+          "title": {
+            "zh": "免费全文与可选重看",
+            "en": "Full free text and optional review"
+          },
+          "paragraphs": [
+            {
+              "zh": "五组完整说明同时免费呈现，不需要另一测评、邮箱或付费解锁。重看时可比较当时的场合、机会和具体条目，不把数字变化当疗效或人格改变。作答在本设备处理，不填写真实对话、童年故事或第三人信息。主动开启的本标签页草稿最多24小时，完成、重测、退出清除都会删除；不保存也能作答。分享只带测试名、公开说明名称和链接，不带原始回答、五组分数或图形数据。后续推荐是可选的不同框架，不补齐本次资料不足；你也可以读完便结束。",
+              "en": "All five full guides appear together for free without another assessment, an email address or payment. When reviewing, compare settings, opportunities and particular items rather than treating a score difference as treatment benefit or personality change. Answers are processed on this device without real conversations, childhood stories or third-party details. An explicitly enabled tab draft lasts at most twenty-four hours and clears on completion, retake or exit-and-clear; answering requires no saved draft. Sharing contains only the test name, public guide names and link, without answers, five scores or chart data. Later recommendations are optional different frameworks, not completion of an insufficient score. You may simply finish here."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "five-groups",
+      "title": {
+        "zh": "五组各自观察什么",
+        "en": "What the five groups separately observe"
+      },
+      "paragraphs": [
+        {
+          "zh": "CP看规范与评价怎样说出来；NP看支持与接纳的具体做法；A看当下资料核对；FC看自主玩兴和小尝试；AC看场合调整与配合。每组只覆盖本版四条做法，不覆盖全部临床自我状态；AC未把反抗当低分的另一端。五组可同时出现，也可因机会少同时低频，不能从一个动作推断动机。",
+          "en": "CP observes expressions of standards and evaluation; NP, concrete support and acceptance; A, present-information checking; FC, voluntary play and small trials; AC, situational adjustment. Each group covers only its four specified actions rather than a complete clinical ego state. AC does not measure rebellion at the lower endpoint. Groups can coexist or all be infrequent when opportunities are limited; an action establishes no motive."
+        }
+      ]
+    },
+    {
+      "id": "facet-scoring",
+      "title": {
+        "zh": "每组四条、各自保留不足",
+        "en": "Four items per group, separately insufficient"
+      },
+      "paragraphs": [
+        {
+          "zh": "所有条目直接计分，0反向。每组四条有效才给4—20原始总分和未舍入总和除4的两位小数均分。没有相应机会、无法判断、不愿回答可用独立项，不当从不、中立或零分。某组缺一条只让该组不足，其他组仍分别可读，不按三条估算，不设全卷总分。",
+          "en": "All items are direct, with no reversals. Each group requires four valid ratings for a raw sum of 4–20 and a two-decimal mean from the unrounded sum divided by four. The separate option covers no relevant opportunity, inability to judge or preferring not to answer; it is not never, neutral or zero. One missing rating leaves only that group insufficient without an estimate from three items or a whole-form total."
+        }
+      ]
+    },
+    {
+      "id": "whole-pattern",
+      "title": {
+        "zh": "五组一起看，不争夺能量",
+        "en": "Read all five without competing energy"
+      },
+      "paragraphs": [
+        {
+          "zh": "图形只比较本版五组自报频率，各自范围1—5，不归一化为百分比。最高、最低或全部相同都不派类型，不认证成熟、健康或最平衡。较高A不证明思考正确，较高NP不证明帮助有效，较高AC也不证明害怕冲突；需要回到具体条目和真实情境。所有五份完整说明都会呈现，不藏起次高或资料不足部分。",
+          "en": "The chart compares five self-reported frequencies on separate 1–5 ranges, not normalised percentages. A highest, lowest or all-equal pattern assigns no type, maturity, health or ideal balance. Higher A proves no correct thinking, higher NP no effective help and higher AC no fear of conflict. Return to particular actions and circumstances. All five full guides remain available rather than hiding lower groups or insufficient information."
+        }
+      ]
+    },
+    {
+      "id": "framework",
+      "title": {
+        "zh": "原创做法观察与标准工具分开",
+        "en": "Separate original observations from standard tools"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是受交互分析五种功能性自我状态名称启发的原创互动做法观察，不是标准TEG3、Heyer1979、Dusay原工具、疗效评估或JobCannon二十题。每组只覆盖本版列出的四种具体做法，不等同于完整临床自我状态；AC也未覆盖其全部反抗与顺应含义。五组频率可同时较高或较低，不假设心理能量守恒，不把一组升高说成另一组必然降低。无本站常模、类型阈值、最佳形状、童年成因、IQ／成熟／共情／健康或工作表现结论，不凭图诊断或评判他人。",
+          "en": "This is an original observation of interaction practices inspired by the names of five functional ego states in transactional analysis, not standard TEG3, Heyer’s 1979 bank, Dusay’s original tool, treatment evaluation or JobCannon’s twenty items. Each group covers only its four specified actions rather than a complete clinical ego state; AC does not cover all rebellion and compliance meanings. Frequencies may be simultaneously higher or lower without conserved psychic energy or a necessary decline in one group when another rises. There are no local norms, type thresholds, ideal shapes, childhood causes, IQ, maturity, empathy, health or work-performance conclusions. The chart does not diagnose or judge another person."
+        }
+      ]
+    },
+    {
+      "id": "review-privacy",
+      "title": {
+        "zh": "免费全文与可选重看",
+        "en": "Full free text and optional review"
+      },
+      "paragraphs": [
+        {
+          "zh": "五组完整说明同时免费呈现，不需要另一测评、邮箱或付费解锁。重看时可比较当时的场合、机会和具体条目，不把数字变化当疗效或人格改变。作答在本设备处理，不填写真实对话、童年故事或第三人信息。主动开启的本标签页草稿最多24小时，完成、重测、退出清除都会删除；不保存也能作答。分享只带测试名、公开说明名称和链接，不带原始回答、五组分数或图形数据。后续推荐是可选的不同框架，不补齐本次资料不足；你也可以读完便结束。",
+          "en": "All five full guides appear together for free without another assessment, an email address or payment. When reviewing, compare settings, opportunities and particular items rather than treating a score difference as treatment benefit or personality change. Answers are processed on this device without real conversations, childhood stories or third-party details. An explicitly enabled tab draft lasts at most twenty-four hours and clears on completion, retake or exit-and-clear; answering requires no saved draft. Sharing contains only the test name, public guide names and link, without answers, five scores or chart data. Later recommendations are optional different frameworks, not completion of an insufficient score. You may simply finish here."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "CP、NP、A、FC、AC指什么？",
+        "en": "What do CP, NP, A, FC and AC refer to?"
+      },
+      "answer": {
+        "zh": "它们是交互分析背景的五个功能名称，本版分别观察规范表达、支持、当下核对、自主玩兴与情境调整。父母、成人和儿童不是年龄或家庭身份，也不从图推童年原因。每组仅覆盖本版四条具体做法。",
+        "en": "They are functional names from transactional-analysis background. This edition separately observes standards, support, present checking, voluntary play and situational adjustment. Parent, Adult and Child are not ages, family identities or evidence of childhood causes. Each group covers only its four specified actions."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是标准TEG3或Dusay原测验吗？",
+        "en": "Is this standard TEG3 or Dusay’s original test?"
+      },
+      "answer": {
+        "zh": "这是受交互分析五种功能性自我状态名称启发的原创互动做法观察，不是标准TEG3、Heyer1979、Dusay原工具、疗效评估或JobCannon二十题。每组只覆盖本版列出的四种具体做法，不等同于完整临床自我状态；AC也未覆盖其全部反抗与顺应含义。五组频率可同时较高或较低，不假设心理能量守恒，不把一组升高说成另一组必然降低。无本站常模、类型阈值、最佳形状、童年成因、IQ／成熟／共情／健康或工作表现结论，不凭图诊断或评判他人。",
+        "en": "This is an original observation of interaction practices inspired by the names of five functional ego states in transactional analysis, not standard TEG3, Heyer’s 1979 bank, Dusay’s original tool, treatment evaluation or JobCannon’s twenty items. Each group covers only its four specified actions rather than a complete clinical ego state; AC does not cover all rebellion and compliance meanings. Frequencies may be simultaneously higher or lower without conserved psychic energy or a necessary decline in one group when another rises. There are no local norms, type thresholds, ideal shapes, childhood causes, IQ, maturity, empathy, health or work-performance conclusions. The chart does not diagnose or judge another person."
+      }
+    },
+    {
+      "question": {
+        "zh": "五组怎么计分，NA会补成中立吗？",
+        "en": "How are the five groups scored, and is NA filled with neutral?"
+      },
+      "answer": {
+        "zh": "每组四条直接计分，全部有效才相加为4—20，再从未舍入总和算描述性均分。任一NA只保留本组不足，其他组分别显示，不补中立或零分。全二十次选择可结束作答并阅读全文，没选选项则尚未完成。",
+        "en": "Each group sums four direct ratings for 4–20 only when all are valid, with a descriptive mean from the unrounded sum. Any NA keeps that group insufficient without neutral or zero; other groups remain separate. Twenty selections finish an attempt with all guides available, while an unselected item is unfinished."
+      }
+    },
+    {
+      "question": {
+        "zh": "最高柱就是主型或最好状态吗？",
+        "en": "Is the tallest bar a dominant type or the best state?"
+      },
+      "answer": {
+        "zh": "本版不这样派型或评优劣，也没测心理能量守恒。五组可以同时较高、较低或相同，形状不认证最佳平衡、成熟或健康。较高较低只读本组所列的做法和近四周机会。",
+        "en": "This edition makes no such assignment or ranking and measures no conserved psychic energy. All five can be higher, lower or equal without an ideal balance, maturity or health verdict. Higher and lower concern only the specified actions and recent opportunities."
+      }
+    },
+    {
+      "question": {
+        "zh": "理论和原研究能验证这二十条吗？",
+        "en": "Do theory and original research validate these twenty items?"
+      },
+      "answer": {
+        "zh": "不能。公开协会资料与论文摘要只用于框架背景，本站没有采用那些标准题库、常模或临床方法。本版原创题目、中文、NA规则与网页呈现均无本站心理测量验证，也不能作诊断或招聘评价。",
+        "en": "No. Public association material and article abstracts provide background without adopting those standard banks, norms or clinical methods. Our original items, Chinese, NA rule and web presentation have no local psychometric validation and supply no diagnosis or hiring evaluation."
+      }
+    },
+    {
+      "question": {
+        "zh": "五份全文、重测和分享免费吗？",
+        "en": "Are all five full guides, retakes and sharing free?"
+      },
+      "answer": {
+        "zh": "五组完整说明同时免费呈现，不需要另一测评、邮箱或付费解锁。重看时可比较当时的场合、机会和具体条目，不把数字变化当疗效或人格改变。作答在本设备处理，不填写真实对话、童年故事或第三人信息。主动开启的本标签页草稿最多24小时，完成、重测、退出清除都会删除；不保存也能作答。分享只带测试名、公开说明名称和链接，不带原始回答、五组分数或图形数据。后续推荐是可选的不同框架，不补齐本次资料不足；你也可以读完便结束。",
+        "en": "All five full guides appear together for free without another assessment, an email address or payment. When reviewing, compare settings, opportunities and particular items rather than treating a score difference as treatment benefit or personality change. Answers are processed on this device without real conversations, childhood stories or third-party details. An explicitly enabled tab draft lasts at most twenty-four hours and clears on completion, retake or exit-and-clear; answering requires no saved draft. Sharing contains only the test name, public guide names and link, without answers, five scores or chart data. Later recommendations are optional different frameworks, not completion of an insufficient score. You may simply finish here."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "ITAA公开TA101课程框架：自我状态与行为描述",
+        "en": "ITAA public TA101 outline: ego states and behavioural descriptions"
+      },
+      "url": "https://membersarea.itaaworld.org/sites/default/files/itaa-pdfs/train-hndbk/2024Handbook/Section4-TA101_Feb24.pdf"
+    },
+    {
+      "title": {
+        "zh": "ITAA关键概念：父母、成人与儿童（公开协会资料）",
+        "en": "ITAA key concepts: Parent, Adult and Child (public association material)"
+      },
+      "url": "https://staging.itaaworld.org/key-concepts-transactional-analysis"
+    },
+    {
+      "title": {
+        "zh": "Dusay1972自我状态图论文：出版记录，未采用原工具",
+        "en": "Dusay’s 1972 Egograms article: publication record, not an adopted bank"
+      },
+      "url": "https://journals.sagepub.com/doi/abs/10.1177/036215377200200313"
+    },
+    {
+      "title": {
+        "zh": "Heyer1979自我状态问卷：仅摘要背景，非本站题本",
+        "en": "Heyer’s 1979 ego-state questionnaire: abstract background, not our bank"
+      },
+      "url": "https://journals.sagepub.com/doi/10.1177/036215377900900103"
+    }
+  ]
+}

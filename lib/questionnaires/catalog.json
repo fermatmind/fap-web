@@ -1736,5 +1736,31 @@
     "resultSlugs": [
       "social-understanding-guide"
     ]
+  },
+  {
+    "slug": "egogram",
+    "code": "EGOGRAM_FUNCTIONAL_OBSERVATION_ORIGINAL_20",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "framework",
+    "title": {
+      "zh": "自我状态图测试",
+      "en": "Egogram Test"
+    },
+    "description": {
+      "zh": "免费自我状态图测试：20道原创互动做法，分别看CP、NP、A、FC、AC五组频率、原始分数与全部完整解释，不以图表判断心理能量或固定人格。",
+      "en": "Take the free egogram test: 20 original items, five ego-state frequency readings, raw scores, missing information and all full guides with examples."
+    },
+    "minutes": 4,
+    "collection": "explore",
+    "formCode": "fm_egogram_stance_frequency_20",
+    "questionCount": 20,
+    "resultSlugs": [
+      "critical-parent",
+      "nurturing-parent",
+      "adult",
+      "free-child",
+      "adapted-child"
+    ]
   }
 ]

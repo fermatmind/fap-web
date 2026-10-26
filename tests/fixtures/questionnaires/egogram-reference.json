@@ -1,0 +1,1349 @@
+{
+  "formCode": "fm_egogram_stance_frequency_20",
+  "origin": "Twenty original bilingual frequency self-observation statements inspired by five conventional TA functional ego-state labels. These statements are not the Dusay, Heyer, TEG3 or a competitor item bank, and do not measure conserved psychic energy, diagnose ego states or reconstruct childhood.",
+  "sourceUrl": "https://journals.sagepub.com/doi/10.1177/036215377900900103",
+  "sourceRead": "Publisher actual1979abstract30-33 names5states; copyrighted/restricted bank not read or reused. ITAA TA101 publicoutline83-94 and publickeyconcepts16-19 distinguishtheory and functional descriptions;1972Dusaypublisherbibliographyonly/directtimeout/notwholepaperbook.",
+  "directions": [
+    {
+      "id": "critical-parent",
+      "title": {
+        "zh": "批判型父母（CP）：规范与评价",
+        "en": "Critical Parent (CP): standards and evaluation"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "nurturing-parent",
+      "title": {
+        "zh": "养育型父母（NP）：支持与接纳",
+        "en": "Nurturing Parent (NP): support and acceptance"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "adult",
+      "title": {
+        "zh": "成人（A）：当下信息与核对",
+        "en": "Adult (A): present information and checking"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "free-child",
+      "title": {
+        "zh": "自由儿童（FC）：玩兴与自主表达",
+        "en": "Free Child (FC): play and spontaneous expression"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "adapted-child",
+      "title": {
+        "zh": "适应儿童（AC）：场合调整与配合",
+        "en": "Adapted Child (AC): situational adjustment"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "EGO_CP_01",
+      "prompt": {
+        "zh": "共同计划的完成标准含糊时，我会把自己认为该达到的要求说出来。",
+        "en": "When a shared plan has an unclear finish standard, I state the requirement I think it should meet."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_NP_01",
+      "prompt": {
+        "zh": "有人碰到困难时，我会问对方是否需要我能提供的一点支持。",
+        "en": "When someone encounters a difficulty, I ask whether they want a little support I could offer."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_A_01",
+      "prompt": {
+        "zh": "情况描述不完整时，我会先区分已经确认和仍需补问的部分。",
+        "en": "When an account is incomplete, I first separate what is confirmed from what still needs a question."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "adult",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "adult",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "adult",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "adult",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "adult",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "adult",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_FC_01",
+      "prompt": {
+        "zh": "在不影响约定和他人的空档，我会按当时的兴致加一点玩乐。",
+        "en": "In a gap that does not disrupt agreements or other people, I add a little play according to my interest at the time."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "free-child",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "free-child",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "free-child",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "free-child",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "free-child",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "free-child",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_AC_01",
+      "prompt": {
+        "zh": "加入一个新群体时，我会先观察他们怎样安排发言或任务。",
+        "en": "When joining a new group, I first observe how they arrange speaking turns or tasks."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_CP_02",
+      "prompt": {
+        "zh": "大家对同一件事使用不同标准时，我会指出我认为需要一致的地方。",
+        "en": "When people apply different standards to the same matter, I point out where I think consistency is needed."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_NP_02",
+      "prompt": {
+        "zh": "我会把自己注意到的、对方已经付出的具体努力说出来。",
+        "en": "I put into words a specific effort I have noticed another person making."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_A_02",
+      "prompt": {
+        "zh": "讨论怎么处理一件事时，我会先问现在可用的时间或材料。",
+        "en": "When discussing how to handle something, I first ask about the time or materials currently available."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "adult",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "adult",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "adult",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "adult",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "adult",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "adult",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_FC_02",
+      "prompt": {
+        "zh": "想到一个有趣点子时，我会找一个小方式把它试出来。",
+        "en": "When an interesting idea occurs to me, I find a small way to try it."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "free-child",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "free-child",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "free-child",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "free-child",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "free-child",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "free-child",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_AC_02",
+      "prompt": {
+        "zh": "我会根据当前场合的约定，调整自己说话或做事的方式。",
+        "en": "I adjust how I speak or act to the agreements of the current setting."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_CP_03",
+      "prompt": {
+        "zh": "评价一个选择时，我会拿自己重视的一条原则来对照。",
+        "en": "When evaluating a choice, I compare it with a principle that matters to me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_NP_03",
+      "prompt": {
+        "zh": "别人犯了一个可补救的小错时，我会给对方重新处理的余地。",
+        "en": "When someone makes a small, repairable mistake, I leave room for them to handle it again."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_A_03",
+      "prompt": {
+        "zh": "出现新的事实时，我会重新检查自己之前作出的判断。",
+        "en": "When new facts appear, I recheck a judgment I made earlier."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "adult",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "adult",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "adult",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "adult",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "adult",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "adult",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_FC_03",
+      "prompt": {
+        "zh": "在可以自己选择的事情上，我会直接表达自己现在想试什么。",
+        "en": "Where I am free to choose, I directly express what I feel like trying now."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "free-child",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "free-child",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "free-child",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "free-child",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "free-child",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "free-child",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_AC_03",
+      "prompt": {
+        "zh": "与负责人协作时，我会先确认对方希望怎样配合。",
+        "en": "When working with someone in charge, I first check how they expect us to coordinate."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_CP_04",
+      "prompt": {
+        "zh": "共同约定临时放宽时，我会表达自己希望保留哪项要求。",
+        "en": "When a shared agreement is relaxed, I express which requirement I want to retain."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "critical-parent",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_NP_04",
+      "prompt": {
+        "zh": "条件允许时，我会留出一点时间或调整安排，照应暂时有困难的人。",
+        "en": "When circumstances allow, I set aside a little time or adjust an arrangement for someone facing a temporary difficulty."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "nurturing-parent",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_A_04",
+      "prompt": {
+        "zh": "遇到抽象的分歧时，我会把它改写成眼下可以核对的具体问题。",
+        "en": "When a disagreement is abstract, I rephrase it as a concrete question that can be checked now."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "adult",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "adult",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "adult",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "adult",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "adult",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "adult",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_FC_04",
+      "prompt": {
+        "zh": "做熟悉的休闲活动时，我会临时换个玩法，只为看看有什么不同。",
+        "en": "During a familiar leisure activity, I spontaneously change the way I play just to see what is different."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "free-child",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "free-child",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "free-child",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "free-child",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "free-child",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "free-child",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EGO_AC_04",
+      "prompt": {
+        "zh": "为了让共同安排衔接，我会暂时把自己的偏好放到约好的次序之后。",
+        "en": "To keep a shared arrangement coordinated, I temporarily put my preference after the agreed sequence."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "常常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "adapted-child",
+          "label": {
+            "zh": "没有相应机会／无法判断／不愿回答",
+            "en": "No relevant opportunity / cannot judge / prefer not to answer"
+          }
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "questions": 20,
+    "facets": 5,
+    "itemsEach": 4,
+    "minimumRatedEach": 4,
+    "reverseItems": [],
+    "rawTotals": "eachfacetall4validsum4-20/separately;0reverse/all5mayhighorlow/no5sum/energyproportionorfixedtotal",
+    "means": "eachcompletefacetexactsum/4two decimals;no recoveryfromgenericroundedmean",
+    "display": "fivefrequencybarsindependent1-5withrawsumandvalidcounts;nohighesttype/threshold/idealprofile/rank;all5FULLguides always",
+    "verificationPlan": "independentfacetDP45states/17complete rawtotals each=>225witnesses/85completecases;not6^20jointorpsychometricvalidation"
+  },
+  "scope": {
+    "zh": "这是受交互分析五种功能性自我状态名称启发的原创互动做法观察，不是标准TEG3、Heyer1979、Dusay原工具、疗效评估或JobCannon二十题。每组只覆盖本版列出的四种具体做法，不等同于完整临床自我状态；AC也未覆盖其全部反抗与顺应含义。五组频率可同时较高或较低，不假设心理能量守恒，不把一组升高说成另一组必然降低。无本站常模、类型阈值、最佳形状、童年成因、IQ／成熟／共情／健康或工作表现结论，不凭图诊断或评判他人。",
+    "en": "This is an original observation of interaction practices inspired by the names of five functional ego states in transactional analysis, not standard TEG3, Heyer’s 1979 bank, Dusay’s original tool, treatment evaluation or JobCannon’s twenty items. Each group covers only its four specified actions rather than a complete clinical ego state; AC does not cover all rebellion and compliance meanings. Frequencies may be simultaneously higher or lower without conserved psychic energy or a necessary decline in one group when another rises. There are no local norms, type thresholds, ideal shapes, childhood causes, IQ, maturity, empathy, health or work-performance conclusions. The chart does not diagnose or judge another person."
+  },
+  "instructions": {
+    "zh": "回想过去四周，在确有相应机会的情况下，以下具体做法出现得多不多，按1从不到5几乎总是作答；只选自己的实际做法，不按应该怎样或是否赞同来选。没有相应机会、无法判断或不愿回答请选择独立项，不当从不、中立或零分。每组四条全部有效才显示该组分数，其他组可各自保留。父母、成人、儿童是框架标签，不指真实年龄、家庭角色或成熟程度。本版不填写对话、童年经历或第三人资料。",
+    "en": "Think about the past four weeks, when a relevant occasion actually arose, and rate how often each concrete action occurred, from 1 Never to 5 Almost always. Describe what you did, not what ought to happen or whether you agree with an idea. Use the separate option for no relevant opportunity, inability to judge or preferring not to answer; it is not never, neutral or zero. Each group requires all four valid ratings while other groups remain separately readable. Parent, Adult and Child are framework labels, not actual ages, family roles or maturity. No conversations, childhood stories or third-party details are entered."
+  }
+}

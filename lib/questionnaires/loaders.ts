@@ -1,6 +1,7 @@
 import type { Questionnaire } from "./types";
 
 const loaders = {
+  "egogram": async () => (await import("./data/egogram.json")).default as Questionnaire,
   "social-intelligence-test": async () => (await import("./data/social-intelligence-test.json")).default as Questionnaire,
   "male-archetype-test": async () => (await import("./data/male-archetype-test.json")).default as Questionnaire,
   "ikigai": async () => (await import("./data/ikigai.json")).default as Questionnaire,
