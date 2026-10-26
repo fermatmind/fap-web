@@ -1,0 +1,1613 @@
+{
+  "formCode": "fm_current_chapter_observations_24",
+  "origin": "frontend_original_six_current_chapter_observations",
+  "directions": [
+    {
+      "id": "fresh-attention",
+      "title": {
+        "zh": "初见留意",
+        "en": "Fresh Attention"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "trying-options",
+      "title": {
+        "zh": "小步试选",
+        "en": "Trying Options"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "keeping-rhythm",
+      "title": {
+        "zh": "节奏搭建",
+        "en": "Keeping a Rhythm"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "changing-arrangement",
+      "title": {
+        "zh": "改线调整",
+        "en": "Changing an Arrangement"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "reviewing-notes",
+      "title": {
+        "zh": "回看整理",
+        "en": "Reviewing Notes"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "passing-notes",
+      "title": {
+        "zh": "经验留痕",
+        "en": "Passing Notes"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "ERA_01",
+      "prompt": {
+        "zh": "在不要求产出的空档，我把一件熟悉的小事当作初次接触，留意一个平常略过的细节。",
+        "en": "In a pause with no output required, I approached something familiar as if new and noticed a detail I usually passed over."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "fresh-attention",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "fresh-attention",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "fresh-attention",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "fresh-attention",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "fresh-attention",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "fresh-attention",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_02",
+      "prompt": {
+        "zh": "面对自己想尝试的小打算，我先试一个很短的版本，没有先答应长期坚持。",
+        "en": "For a little plan I wanted to try, I sampled a brief version without first committing to continue it long term."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "trying-options",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "trying-options",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "trying-options",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "trying-options",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "trying-options",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "trying-options",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_03",
+      "prompt": {
+        "zh": "对一项自己已愿意继续的小安排，我按选定的节奏重复做一小段。",
+        "en": "For a little arrangement I already wanted to continue, I repeated a small part at a rhythm I had chosen."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "keeping-rhythm",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_04",
+      "prompt": {
+        "zh": "一项个人小安排不再适合这周情况时，我改动其中一步，而不是默认整套重来。",
+        "en": "When a personal little arrangement no longer fitted that week, I changed one step instead of automatically restarting the whole thing."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "changing-arrangement",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "changing-arrangement",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "changing-arrangement",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "changing-arrangement",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "changing-arrangement",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "changing-arrangement",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_05",
+      "prompt": {
+        "zh": "我回看自己以前的一段普通记录，分开已经发生的事与当时的设想。",
+        "en": "I revisited an earlier ordinary note of my own and separated what happened from what I had imagined then."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "reviewing-notes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "reviewing-notes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "reviewing-notes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "reviewing-notes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "reviewing-notes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "reviewing-notes",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_06",
+      "prompt": {
+        "zh": "我把亲自试过的一件小事写成下次可读的几步，并标明只是自己的用法。",
+        "en": "I wrote a little thing I had tried as steps for a later reader, marking them as my own way of doing it."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "passing-notes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "passing-notes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passing-notes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passing-notes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passing-notes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "passing-notes",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_07",
+      "prompt": {
+        "zh": "看自己常用的一处空间时，我先观察它现在怎样被使用，没有急着套进旧印象。",
+        "en": "Looking at a space I often used, I first noticed how it was being used now without rushing to fit an old impression."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "fresh-attention",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "fresh-attention",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "fresh-attention",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "fresh-attention",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "fresh-attention",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "fresh-attention",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_08",
+      "prompt": {
+        "zh": "对手边小物的摆放，我试过一个临时版本，再比较自己这次愿不愿意沿用。",
+        "en": "For arranging little things nearby, I tried a temporary version before comparing whether I wanted to keep it this time."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "trying-options",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "trying-options",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "trying-options",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "trying-options",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "trying-options",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "trying-options",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_09",
+      "prompt": {
+        "zh": "我维持一项自己选的小收纳习惯，只做事先打算的那一小块。",
+        "en": "I kept a small tidying habit I had chosen, doing only the patch I had intended."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "keeping-rhythm",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_10",
+      "prompt": {
+        "zh": "发现一个原先顺手的位置现在不方便时，我调整那一处，并保留仍合用的部分。",
+        "en": "When a previously convenient place became awkward, I adjusted that spot and retained what still worked for me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "changing-arrangement",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "changing-arrangement",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "changing-arrangement",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "changing-arrangement",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "changing-arrangement",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "changing-arrangement",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_11",
+      "prompt": {
+        "zh": "整理普通物品前，我回想自己上次为什么这样摆，区分仍想保留与已经不需要的安排。",
+        "en": "Before arranging ordinary items, I recalled why I had placed them that way and distinguished what I still wanted from what I no longer needed."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "reviewing-notes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "reviewing-notes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "reviewing-notes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "reviewing-notes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "reviewing-notes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "reviewing-notes",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_12",
+      "prompt": {
+        "zh": "在不含私人资料的地方，我给自己的普通物品留过一条以后能看懂的使用说明。",
+        "en": "Somewhere without private information, I left a later-readable use note for an ordinary item of my own."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "passing-notes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "passing-notes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passing-notes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passing-notes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passing-notes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "passing-notes",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_13",
+      "prompt": {
+        "zh": "接触一个自选的普通爱好内容时，我允许自己先问一个基础问题，而不要求马上懂全。",
+        "en": "With an ordinary hobby topic I chose, I let myself ask a basic question without needing to understand everything immediately."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "fresh-attention",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "fresh-attention",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "fresh-attention",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "fresh-attention",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "fresh-attention",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "fresh-attention",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_14",
+      "prompt": {
+        "zh": "我对一个自选爱好试过很小的一种做法，再决定想不想多了解一点。",
+        "en": "I tried one tiny approach to a chosen hobby before deciding whether I wanted to learn a little more."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "trying-options",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "trying-options",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "trying-options",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "trying-options",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "trying-options",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "trying-options",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_15",
+      "prompt": {
+        "zh": "对一项自己仍想练的小爱好，我回到已经选好的一个基础环节继续做。",
+        "en": "For a little hobby I still wanted to practise, I returned to one basic part I had already chosen."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "keeping-rhythm",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_16",
+      "prompt": {
+        "zh": "当旧的爱好练法不合现在的空闲时间时，我换过一个较合适的小步骤。",
+        "en": "When an old way of practising a hobby did not fit my available time, I changed one little step to suit it better."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "changing-arrangement",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "changing-arrangement",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "changing-arrangement",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "changing-arrangement",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "changing-arrangement",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "changing-arrangement",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_17",
+      "prompt": {
+        "zh": "看自己以前的爱好小样时，我具体记下这次还喜欢哪一点、想改哪一点。",
+        "en": "Looking at an earlier hobby draft of my own, I noted the particular part I still liked and the part I wanted to change."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "reviewing-notes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "reviewing-notes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "reviewing-notes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "reviewing-notes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "reviewing-notes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "reviewing-notes",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_18",
+      "prompt": {
+        "zh": "我为自己试过的爱好步骤补过一句说明，提醒以后使用的人哪里只是个人选择。",
+        "en": "I added a note to a hobby step I had tried, showing a later user which part was only a personal choice."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "passing-notes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "passing-notes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passing-notes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passing-notes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passing-notes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "passing-notes",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_19",
+      "prompt": {
+        "zh": "给一段普通空闲做安排时，我留意过一个以前没认真看过的小可能，而不急着给它定意义。",
+        "en": "Arranging an ordinary free period, I noticed a little possibility I had not considered carefully without rushing to give it significance."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "fresh-attention",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "fresh-attention",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "fresh-attention",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "fresh-attention",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "fresh-attention",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "fresh-attention",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_20",
+      "prompt": {
+        "zh": "我给一个新的小安排留过短暂试用时间，试完再决定保留、修改还是结束。",
+        "en": "I gave a new little arrangement a brief trial period, deciding afterwards whether to keep, adjust or end it."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "trying-options",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "trying-options",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "trying-options",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "trying-options",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "trying-options",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "trying-options",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_21",
+      "prompt": {
+        "zh": "在可用时间允许时，我继续了自己已选择的一项小节奏，不为多添内容而扩大范围。",
+        "en": "When time allowed, I continued a small rhythm I had chosen without expanding its scope just to add more."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "keeping-rhythm",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_22",
+      "prompt": {
+        "zh": "在不改变对他人的既有约定时，我把个人计划中一个不再合适的步骤换成了别的版本。",
+        "en": "Without changing an existing agreement with someone else, I replaced an unsuitable step in a personal plan with another version."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "changing-arrangement",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "changing-arrangement",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "changing-arrangement",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "changing-arrangement",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "changing-arrangement",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "changing-arrangement",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_23",
+      "prompt": {
+        "zh": "我回看自己之前一页普通计划，指出哪些实际采用了、哪些仍只是未试的设想。",
+        "en": "I looked back at an ordinary planning page of my own and identified what I had used and what remained an untried idea."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "reviewing-notes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "reviewing-notes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "reviewing-notes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "reviewing-notes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "reviewing-notes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "reviewing-notes",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_24",
+      "prompt": {
+        "zh": "我把自己愿意留下的一条普通经验写成可选参考，同时说明以后的人可以不用或改写。",
+        "en": "I wrote an ordinary experience I wanted to retain as an optional reference, saying a later reader could leave or rewrite it."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "passing-notes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "passing-notes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passing-notes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passing-notes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passing-notes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "passing-notes",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "scope": {
+    "zh": "这是24项具体做法的原创自我观察。“时代”在这里是可自由采用的当前章节标题，不是六种普世发展阶段，不按年龄、人生事件或固定顺序派型，不评进度、成熟、成功、智慧、韧性、健康、关系质量或职业匹配。六组是编辑观察入口，可能同时出现；均分不证明心理独立、信效度、跨语言等价或任何人口常模，不指导辞职、财务、医疗或重大关系决定。",
+    "en": "This is an original self-observation of twenty-four particular practices. Era is an optional title for a current chapter, not six universal developmental stages. It assigns no type by age, life event or fixed sequence and rates no progress, maturity, success, wisdom, resilience, health, relationship quality or career fit. Six groups are editorial observation entrances that may coexist. Means establish no psychological independence, reliability, validity, language equivalence or population norms, and guide no resignation, financial, medical or major relationship decision."
+  },
+  "instructions": {
+    "zh": "回想过去四周，在有相关机会、自己也愿意的普通场面中，这种做法出现得多频繁。选择1—5频率；未经历、没有合适机会或无法判断选不适用，不补零。24项都选择后，六组分别计算有效频率均分，每组至少3项；所有六份全文始终开放，不加总、不按最高值派人生阶段。没有一项合适可以停止。",
+    "en": "Recall how often each practice occurred over four weeks in ordinary, fitting situations with a relevant opportunity and your willingness. Choose a frequency from one to five. For no experience, no fitting opportunity or uncertainty, choose the unjudged option; it is not zero. All twenty-four items need a choice before six separate rated-frequency means, requiring three rated items per group. All six full guides remain available without a total or highest-value life-stage assignment. Stop if nothing fits."
+  },
+  "scoring": {
+    "kind": "likert",
+    "questions": 24,
+    "parts": 6,
+    "itemsEach": 4,
+    "minimumRatedItems": 3,
+    "reverseItems": [],
+    "statesEach": 45,
+    "ratedStatesEach": 30,
+    "mean": "Math.round(sum/rated*10)/10; insufficient null; NA neither zero nor denominator",
+    "meaning": "Six separate voluntary four-week current-chapter practice observations. All six full guides always shown; no total/highestera/primarysecondary/age/lifeevent/sequence/progress/maturity/success/health/career assessment."
+  },
+  "sourceRead": "CurrentJobCannonEN56ZH47/sixcurrentmainbodies162166164160162165/about90browserlinesread. All10questions/40options andoneactualfirst-optionInnocentCORE100other5LIGHT0/sixfreecards/fivebullets/profile0.95upsell/ShareRetake;map/cardgenerationstillvisible/notactualsharecardcompletion.Otherpatterns/ties/formula/paidprofile/accountsaveunverified. Currentaboutnotvalidated; citeddevelopmentalauthorssupportforthese6universalstages/age/illness/loss/careerfit/ability/mentalhealthclaimsnotverifiedornotadopted. OldcachedWebnotcurrentprimary/FAQlabelsnotallcurrentexpanded. Original24/fourweeks/sixeditorialthemes4each/allpositive/min3/NAexcluded. RelatedDecade18design/Villain18boundary/Ocean18moodactualpromptsread;mini21keyspriorread/exactphaseinventorycheckpending. Currentbanknormalizedpromptduplicates0/notpsychologicalindependence/finalFJpending."
+}

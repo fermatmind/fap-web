@@ -3055,5 +3055,32 @@
       "working-capital"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "eras-of-you-test",
+    "code": "CURRENT_CHAPTER_OBSERVATIONS_ORIGINAL_24",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "framework",
+    "title": {
+      "zh": "时代的你测试",
+      "en": "Eras of You Test"
+    },
+    "description": {
+      "zh": "免费时代的你测试：24项原创四周频率观察，分别阅读初见留意、小步试选、节奏搭建、改线调整、回看整理与经验留痕六份完整指南。不按年龄派人生阶段。",
+      "en": "Free Eras of You Test: 24 original four-week observations and six full chapter guides. Read separate frequencies without age or life-stage assignment."
+    },
+    "minutes": 7,
+    "formCode": "fm_current_chapter_observations_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "fresh-attention",
+      "trying-options",
+      "keeping-rhythm",
+      "changing-arrangement",
+      "reviewing-notes",
+      "passing-notes"
+    ],
+    "collection": "explore"
   }
 ]

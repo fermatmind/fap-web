@@ -1,0 +1,2669 @@
+{
+  "slug": "eras-of-you-test",
+  "code": "CURRENT_CHAPTER_OBSERVATIONS_ORIGINAL_24",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "framework",
+  "kind": "likert",
+  "minimumRatedItems": 3,
+  "title": {
+    "zh": "时代的你测试",
+    "en": "Eras of You Test"
+  },
+  "resultHeading": {
+    "zh": "过去四周的六组当前章节观察",
+    "en": "Six current-chapter observations over the past four weeks"
+  },
+  "description": {
+    "zh": "免费时代的你测试：24项原创四周频率观察，分别阅读初见留意、小步试选、节奏搭建、改线调整、回看整理与经验留痕六份完整指南。不按年龄派人生阶段。",
+    "en": "Free Eras of You Test: 24 original four-week observations and six full chapter guides. Read separate frequencies without age or life-stage assignment."
+  },
+  "seoTitle": {
+    "zh": "时代的你测试：六组当前章节观察与免费完整结果",
+    "en": "Eras of You Test: Six Chapter Themes, Full Guides"
+  },
+  "minutes": 7,
+  "introduction": {
+    "zh": "再看一个熟悉细节、给小打算试个短版本、继续自己愿意的一段节奏，或改动已不合用的一步；也可以回看普通记录，留下以后可改写的个人参考。过去四周，这些做法在有合适机会时出现得多频繁？本版24项原创频率观察，分别呈现初见留意、小步试选、节奏搭建、改线调整、回看整理与经验留痕六组。每份九节完整指南含具体场面、机会与均分读法、相近主题比较及纸上小尝试，作答前后都免费。这里的“时代”是可自由采用的当前章节标题，不是六种普世发展阶段，不按年龄、人生事件或固定顺序派型，也不评进度、成熟、成功、智慧、心理健康或职业匹配。24项全部选择后，六组各自计算有效频率均分，每组至少3项，不适用不补零；全部六份全文始终开放，不加总，不按最高值派时代或主副型。可以先读、返回修改、清除或重测；无需账号或披露重大经历。自愿草稿只在本标签页最多24小时，分享不含答案或均分。",
+    "en": "Look again at a familiar detail, sample a short version of a little plan, continue a wanted rhythm or change a step that no longer fits. You might also revisit an ordinary record or leave a revisable personal reference. How often did these practices occur over four weeks when fitting opportunities existed? Twenty-four original frequency observations cover Fresh Attention, Trying Options, Keeping a Rhythm, Changing an Arrangement, Reviewing Notes and Passing Notes separately. Each nine-section guide includes particular scenes, opportunity and mean reading, comparisons and a small paper experiment, free before and after answering. Era is an optional current-chapter title here, not six universal developmental stages. There is no assignment by age, life event or fixed sequence, and no assessment of progress, maturity, success, wisdom, mental health or career fit. After all twenty-four choices, groups show separate rated-frequency means, requiring three ratings each and never replacing unjudged items with zero. All six full guides remain available without a total or highest-value era, primary or secondary type. Read first, edit, clear or retake without an account or disclosure of major experiences. Optional drafts remain in this tab for up to twenty-four hours; sharing contains no answers or means."
+  },
+  "instructions": {
+    "zh": "回想过去四周，在有相关机会、自己也愿意的普通场面中，这种做法出现得多频繁。选择1—5频率；未经历、没有合适机会或无法判断选不适用，不补零。24项都选择后，六组分别计算有效频率均分，每组至少3项；所有六份全文始终开放，不加总、不按最高值派人生阶段。没有一项合适可以停止。",
+    "en": "Recall how often each practice occurred over four weeks in ordinary, fitting situations with a relevant opportunity and your willingness. Choose a frequency from one to five. For no experience, no fitting opportunity or uncertainty, choose the unjudged option; it is not zero. All twenty-four items need a choice before six separate rated-frequency means, requiring three rated items per group. All six full guides remain available without a total or highest-value life-stage assignment. Stop if nothing fits."
+  },
+  "source": {
+    "kind": "frontend_original_six_current_chapter_observations",
+    "formCode": "fm_current_chapter_observations_24",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "536807c99d33963e9eb2f8115a16ec78dd2b5d4d5996ae87eba6705c86be826a",
+    "resultContentSha256": "03e2342f2bf9dbcf646122b820515cae5cbfed41a0ac3f5320490a6fbc03f880",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "fresh-attention",
+      "title": {
+        "zh": "初见留意",
+        "en": "Fresh Attention"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "trying-options",
+      "title": {
+        "zh": "小步试选",
+        "en": "Trying Options"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "keeping-rhythm",
+      "title": {
+        "zh": "节奏搭建",
+        "en": "Keeping a Rhythm"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "changing-arrangement",
+      "title": {
+        "zh": "改线调整",
+        "en": "Changing an Arrangement"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "reviewing-notes",
+      "title": {
+        "zh": "回看整理",
+        "en": "Reviewing Notes"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "passing-notes",
+      "title": {
+        "zh": "经验留痕",
+        "en": "Passing Notes"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "ERA_01",
+      "prompt": {
+        "zh": "在不要求产出的空档，我把一件熟悉的小事当作初次接触，留意一个平常略过的细节。",
+        "en": "In a pause with no output required, I approached something familiar as if new and noticed a detail I usually passed over."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "fresh-attention",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "fresh-attention",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "fresh-attention",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "fresh-attention",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "fresh-attention",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "fresh-attention",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_02",
+      "prompt": {
+        "zh": "面对自己想尝试的小打算，我先试一个很短的版本，没有先答应长期坚持。",
+        "en": "For a little plan I wanted to try, I sampled a brief version without first committing to continue it long term."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "trying-options",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "trying-options",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "trying-options",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "trying-options",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "trying-options",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "trying-options",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_03",
+      "prompt": {
+        "zh": "对一项自己已愿意继续的小安排，我按选定的节奏重复做一小段。",
+        "en": "For a little arrangement I already wanted to continue, I repeated a small part at a rhythm I had chosen."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "keeping-rhythm",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_04",
+      "prompt": {
+        "zh": "一项个人小安排不再适合这周情况时，我改动其中一步，而不是默认整套重来。",
+        "en": "When a personal little arrangement no longer fitted that week, I changed one step instead of automatically restarting the whole thing."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "changing-arrangement",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "changing-arrangement",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "changing-arrangement",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "changing-arrangement",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "changing-arrangement",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "changing-arrangement",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_05",
+      "prompt": {
+        "zh": "我回看自己以前的一段普通记录，分开已经发生的事与当时的设想。",
+        "en": "I revisited an earlier ordinary note of my own and separated what happened from what I had imagined then."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "reviewing-notes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "reviewing-notes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "reviewing-notes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "reviewing-notes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "reviewing-notes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "reviewing-notes",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_06",
+      "prompt": {
+        "zh": "我把亲自试过的一件小事写成下次可读的几步，并标明只是自己的用法。",
+        "en": "I wrote a little thing I had tried as steps for a later reader, marking them as my own way of doing it."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "passing-notes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "passing-notes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passing-notes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passing-notes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passing-notes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "passing-notes",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_07",
+      "prompt": {
+        "zh": "看自己常用的一处空间时，我先观察它现在怎样被使用，没有急着套进旧印象。",
+        "en": "Looking at a space I often used, I first noticed how it was being used now without rushing to fit an old impression."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "fresh-attention",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "fresh-attention",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "fresh-attention",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "fresh-attention",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "fresh-attention",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "fresh-attention",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_08",
+      "prompt": {
+        "zh": "对手边小物的摆放，我试过一个临时版本，再比较自己这次愿不愿意沿用。",
+        "en": "For arranging little things nearby, I tried a temporary version before comparing whether I wanted to keep it this time."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "trying-options",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "trying-options",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "trying-options",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "trying-options",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "trying-options",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "trying-options",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_09",
+      "prompt": {
+        "zh": "我维持一项自己选的小收纳习惯，只做事先打算的那一小块。",
+        "en": "I kept a small tidying habit I had chosen, doing only the patch I had intended."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "keeping-rhythm",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_10",
+      "prompt": {
+        "zh": "发现一个原先顺手的位置现在不方便时，我调整那一处，并保留仍合用的部分。",
+        "en": "When a previously convenient place became awkward, I adjusted that spot and retained what still worked for me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "changing-arrangement",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "changing-arrangement",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "changing-arrangement",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "changing-arrangement",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "changing-arrangement",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "changing-arrangement",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_11",
+      "prompt": {
+        "zh": "整理普通物品前，我回想自己上次为什么这样摆，区分仍想保留与已经不需要的安排。",
+        "en": "Before arranging ordinary items, I recalled why I had placed them that way and distinguished what I still wanted from what I no longer needed."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "reviewing-notes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "reviewing-notes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "reviewing-notes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "reviewing-notes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "reviewing-notes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "reviewing-notes",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_12",
+      "prompt": {
+        "zh": "在不含私人资料的地方，我给自己的普通物品留过一条以后能看懂的使用说明。",
+        "en": "Somewhere without private information, I left a later-readable use note for an ordinary item of my own."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "passing-notes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "passing-notes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passing-notes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passing-notes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passing-notes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "passing-notes",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_13",
+      "prompt": {
+        "zh": "接触一个自选的普通爱好内容时，我允许自己先问一个基础问题，而不要求马上懂全。",
+        "en": "With an ordinary hobby topic I chose, I let myself ask a basic question without needing to understand everything immediately."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "fresh-attention",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "fresh-attention",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "fresh-attention",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "fresh-attention",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "fresh-attention",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "fresh-attention",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_14",
+      "prompt": {
+        "zh": "我对一个自选爱好试过很小的一种做法，再决定想不想多了解一点。",
+        "en": "I tried one tiny approach to a chosen hobby before deciding whether I wanted to learn a little more."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "trying-options",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "trying-options",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "trying-options",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "trying-options",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "trying-options",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "trying-options",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_15",
+      "prompt": {
+        "zh": "对一项自己仍想练的小爱好，我回到已经选好的一个基础环节继续做。",
+        "en": "For a little hobby I still wanted to practise, I returned to one basic part I had already chosen."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "keeping-rhythm",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_16",
+      "prompt": {
+        "zh": "当旧的爱好练法不合现在的空闲时间时，我换过一个较合适的小步骤。",
+        "en": "When an old way of practising a hobby did not fit my available time, I changed one little step to suit it better."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "changing-arrangement",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "changing-arrangement",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "changing-arrangement",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "changing-arrangement",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "changing-arrangement",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "changing-arrangement",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_17",
+      "prompt": {
+        "zh": "看自己以前的爱好小样时，我具体记下这次还喜欢哪一点、想改哪一点。",
+        "en": "Looking at an earlier hobby draft of my own, I noted the particular part I still liked and the part I wanted to change."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "reviewing-notes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "reviewing-notes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "reviewing-notes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "reviewing-notes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "reviewing-notes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "reviewing-notes",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_18",
+      "prompt": {
+        "zh": "我为自己试过的爱好步骤补过一句说明，提醒以后使用的人哪里只是个人选择。",
+        "en": "I added a note to a hobby step I had tried, showing a later user which part was only a personal choice."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "passing-notes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "passing-notes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passing-notes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passing-notes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passing-notes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "passing-notes",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_19",
+      "prompt": {
+        "zh": "给一段普通空闲做安排时，我留意过一个以前没认真看过的小可能，而不急着给它定意义。",
+        "en": "Arranging an ordinary free period, I noticed a little possibility I had not considered carefully without rushing to give it significance."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "fresh-attention",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "fresh-attention",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "fresh-attention",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "fresh-attention",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "fresh-attention",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "fresh-attention",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_20",
+      "prompt": {
+        "zh": "我给一个新的小安排留过短暂试用时间，试完再决定保留、修改还是结束。",
+        "en": "I gave a new little arrangement a brief trial period, deciding afterwards whether to keep, adjust or end it."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "trying-options",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "trying-options",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "trying-options",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "trying-options",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "trying-options",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "trying-options",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_21",
+      "prompt": {
+        "zh": "在可用时间允许时，我继续了自己已选择的一项小节奏，不为多添内容而扩大范围。",
+        "en": "When time allowed, I continued a small rhythm I had chosen without expanding its scope just to add more."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "keeping-rhythm",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "keeping-rhythm",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_22",
+      "prompt": {
+        "zh": "在不改变对他人的既有约定时，我把个人计划中一个不再合适的步骤换成了别的版本。",
+        "en": "Without changing an existing agreement with someone else, I replaced an unsuitable step in a personal plan with another version."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "changing-arrangement",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "changing-arrangement",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "changing-arrangement",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "changing-arrangement",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "changing-arrangement",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "changing-arrangement",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_23",
+      "prompt": {
+        "zh": "我回看自己之前一页普通计划，指出哪些实际采用了、哪些仍只是未试的设想。",
+        "en": "I looked back at an ordinary planning page of my own and identified what I had used and what remained an untried idea."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "reviewing-notes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "reviewing-notes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "reviewing-notes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "reviewing-notes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "reviewing-notes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "reviewing-notes",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ERA_24",
+      "prompt": {
+        "zh": "我把自己愿意留下的一条普通经验写成可选参考，同时说明以后的人可以不用或改写。",
+        "en": "I wrote an ordinary experience I wanted to retain as an optional reference, saying a later reader could leave or rewrite it."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "passing-notes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "passing-notes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "passing-notes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "passing-notes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "passing-notes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "passing-notes",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "fresh-attention",
+      "directionIds": [
+        "fresh-attention"
+      ],
+      "title": {
+        "zh": "初见留意",
+        "en": "Fresh Attention"
+      },
+      "headline": {
+        "zh": "给熟悉的一角再看一次的机会，不急着替整个人生命名。",
+        "en": "Look again at a familiar corner without naming your whole life."
+      },
+      "summary": {
+        "zh": "这一组回看过去四周，你在有机会时怎样留意熟悉小事、常用空间、基础问题与普通空闲的新细节。它不表示纯真、天真、年龄阶段、好奇能力或经历多少。",
+        "en": "This group revisits noticing familiar things, used spaces, basic questions and ordinary free time over four weeks. It indicates no innocence, naïveté, age stage, curiosity ability or amount of life experience."
+      },
+      "seo": {
+        "title": {
+          "zh": "初见留意结果：时代的你测试的具体观察读法",
+          "en": "Fresh Attention Result: Noticing a Current Chapter"
+        },
+        "description": {
+          "zh": "完整读懂初见留意：在熟悉空间与普通爱好中再看一个细节，区分机会、频率与人格结论，含主题比较和纸上小尝试。",
+          "en": "Read the full Fresh Attention guide: familiar spaces, basic questions, opportunities, frequency means, close comparisons and a small optional experiment."
+        }
+      },
+      "scoreReading": {
+        "zh": "24项均为正向频率观察，六组各4项。每组至少3项有效，才以有效项总和除以有效项数，四舍五入保留1位小数；未经历／无法判断不补零，不进分母。不足明确资料不足，仍能读通用全文。六组分别呈现，不加总、不按最高均分派人生时代或主副型，没有年龄顺序、常模、成熟度或成功阈值。",
+        "en": "Twenty-four positively keyed frequency observations form six groups of four. A group needs at least three rated items for its sum divided by its rated-item count, rounded to one decimal. Unexperienced or unjudged items are not zero and do not enter the denominator. Insufficient information still permits the full general guide. Groups remain separate without a total or highest-mean era assignment, primary or secondary type, age sequence, norms, maturity or success thresholds."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "先读四种具体做法",
+            "en": "Begin with four particular practices"
+          },
+          "paragraphs": [
+            {
+              "zh": "初见留意这一组并不说你回到了某个年龄，也不把生活分成纯真和世故。四个条目分别问：有没有重新看熟悉小事、观察常用空间的当下用法、允许自己问一个基础问题，以及留意普通空闲里未认真看过的小可能。均分如果可算，只概括这些自报频率，不证明你更好奇、更乐观或比别人经历少。先回到哪一个条目有真实机会，再读这次数字，比用一个“无邪时代”标签解释所有选择更具体。",
+              "en": "Fresh Attention says nothing about returning to an age or dividing life into innocence and worldliness. Four items concern looking again at familiar things, noticing how a space is used now, permitting a basic question and noticing a little possibility in ordinary free time. A calculable mean summarises these reported frequencies without proving greater curiosity, optimism or less experience than another person. Start with which item actually had a relevant opportunity. That gives the number a more particular reading than using an innocent-era label to explain every choice in your life."
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "zh": "常用桌角可以只看一个变化",
+            "en": "Notice just one change at a familiar desk corner"
+          },
+          "paragraphs": [
+            {
+              "zh": "想象你每天都会经过的一角桌面。过去放在那里的一本书，现在常被挪到另一边；你可以先看这处空间这周实际怎样使用，不急着决定它“应该”是什么样。也可以发现没有什么需要改变，然后结束观察。这个例子不要求购买、整理或证明生活有新开始；它只把重新看一眼和马上改造分开。回想自己的回答时，找你真实记得的一个小场面；没有合适场面就保留不适用，而不是硬补故事。",
+              "en": "Imagine a desk corner you pass every day. A book once kept there now often moves elsewhere. You can first notice how that space was used this week without deciding how it should look. You may find nothing that needs changing and finish the observation there. No purchase, reorganisation or proof of a new beginning is required. The example separates looking again from immediately remaking something. When recalling your answer, find a small scene you actually remember; with no fitting scene, keep the unjudged option instead of inventing a story."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "频率与机会一起读",
+            "en": "Read frequency beside opportunity"
+          },
+          "paragraphs": [
+            {
+              "zh": "有一个总能见到的小空间，和这四周根本没有接触新爱好的情况，给条目的机会并不一样。均分不能把两者变成可直接比较的好奇水平。较高频率可以邀请你看看：哪些细节本来就常出现在眼前？较低频率也可以只是没有选择这样做、注意力留给别处，或条目不贴近场景。分数不替你确定原因；可以用自己愿意回想的一件普通小事补充，而不用披露关系、健康或重大经历。",
+              "en": "A familiar space seen often and a month without a new hobby provide different opportunities for these items. The mean cannot turn those conditions into directly comparable curiosity levels. A higher frequency can invite you to notice which details were already often in view. A lower frequency can reflect choosing another action, attending elsewhere or items that did not fit the scene. The score determines none of those explanations. Add one ordinary example you want to recall without disclosing relationships, health or major experiences. Opportunity remains context rather than a missing trait the guide supplies."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "再看一次，不等于抛掉已有经验",
+            "en": "Looking again does not require abandoning experience"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以带着已经知道的内容，再确认眼前这一次有什么不同。问一个基础问题，不代表之前白学了；没有新发现，也不代表自己失去新鲜感。这里不要求对所有人、所有场景都保持开放，更不把谨慎说成不成熟。你也不需要因为结果就接受一个实际不愿意尝试的安排。把观察停在熟悉的小物或普通爱好上，可以让这份读法保留可选择的尺度，而不是变成人生重启的任务。",
+              "en": "You can retain what you already know while checking what differs in this instance. Asking a basic question does not erase earlier learning; finding nothing new proves no loss of freshness. The guide requires no openness to every person or situation and calls no caution immature. A result also gives no reason to accept an arrangement you do not want. Keeping the observation with a familiar object or ordinary hobby preserves a chosen scale. It need not become a task to restart your life or set aside experience that still serves you."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与小步试选、回看整理怎么区分",
+            "en": "Distinguish Trying Options and Reviewing Notes"
+          },
+          "paragraphs": [
+            {
+              "zh": "初见留意偏向先看见、先问清一个细节；小步试选偏向已经动手试一个短版本；回看整理偏向回到旧记录，分清发生过什么、自己怎样理解。看一眼桌角的用法、临时试一次新摆法、翻上周记录看用过哪种，是三个不同动作。它们可以在同一天发生，近分也不需要找唯一主型。六份全文都能读，比较的重点是这四周做了哪些事，不是哪一组更像真正的你。",
+              "en": "Fresh Attention concerns first noticing or clarifying a detail. Trying Options concerns sampling a brief version. Reviewing Notes returns to an earlier record to distinguish events and interpretations. Looking at a desk corner’s use, temporarily trying another arrangement and checking last week’s note are different actions. They can happen on the same day, and close means need no unique primary type. Every full guide remains available. Compare what occurred over these four weeks rather than deciding which group represents your authentic self. Shared themes establish no psychological independence between the groups."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "只留一句这次才留意到的话",
+            "en": "Keep one line about what you noticed this time"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，挑一个手边熟悉、无须改变的小物，看一会儿后写一句这次实际留意到的细节。可以写“没有新发现”，也不需要照片或公开分享。再问自己：我只是多看了一眼，还是已经想试别的用法？两种回答都可以，不用追求让本组得分更高。没有合适小物时，写一个虚构桌角的观察也够了。这是可停止的纸上尝试，不是注意力训练、疗效方案或能力考试。",
+              "en": "If you want, choose a familiar object nearby that needs no change. Look briefly and write one detail you noticed this time. Nothing new is an acceptable line, and no photograph or public sharing is needed. Then ask whether you only looked again or already wanted to try another use. Either answer is available without aiming for a higher mean. With no fitting object, a fictional desk-corner observation is enough. This is a stoppable paper experiment, not attention training, a treatment programme or an ability test."
+            }
+          ]
+        },
+        {
+          "id": "return",
+          "title": {
+            "zh": "一个当前章节标题可以很小",
+            "en": "A current-chapter title can remain small"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以把这份读法只当作“这四周有几次再看一眼”的记录，而不用说自己进入了某个完整人生时代。下次想到不同场景、机会或四周时间，答案可能变化；这不证明成长倒退或人格转变。读完后保留一个有用的问题就够了：我愿意再看哪一件普通小事？也可以决定今天没有想看的。你的生活不需要由24个条目批准为某一种阶段，六组也没有通往成熟或成功的规定顺序。",
+              "en": "This reading can remain a note that you looked again a few times over four weeks, without declaring an entire life era. Different scenes, opportunities or four-week periods may change answers without proving regression or a personality shift. Keep one useful question: which ordinary little thing would you want to look at again? Deciding there is nothing you want to inspect today is available too. Your life needs no approval from twenty-four items for a particular stage, and these six groups provide no prescribed route toward maturity or success."
+            }
+          ]
+        },
+        {
+          "id": "frequency",
+          "title": {
+            "zh": "四项均分、机会与资料不足",
+            "en": "Four-item means, opportunities and insufficient information"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组4项回看过去四周，在有机会且自愿的普通场面中，这类做法出现得多频繁。全部正向，频率1—5；未经历／无法判断既不补零也不进分母。至少3项有效才把有效频率加总除以有效项数，四舍五入到1位小数；不足明确资料不足，只读通用解释。六组可以同高、同低或近分，始终保留全部全文。0.1差距不是测量精度或人生阶段分界，不用来给两个人排进度。",
+              "en": "These four items revisit frequencies over four weeks in ordinary situations with an opportunity and your willingness. All are positively keyed from one to five. Unexperienced or unjudged items are neither zero nor part of the denominator. At least three rated items are needed to divide the sum by their number and round to one decimal; otherwise information is insufficient and only a general reading is available. Six groups may all be high, low or close, with every full guide retained. A difference of 0.1 establishes neither measurement precision nor a life-stage boundary, and cannot rank two people’s progress."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "六份全文、草稿与当前章节的边界",
+            "en": "Six full guides, drafts and the current-chapter boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份九节完整指南在作答前后都免费。24项和正文原创，“时代”只是可自由采用的当前章节标题，不测真实发展阶段、年龄进度、成熟、成功、心理健康或职业匹配，不要求披露重大事件、关系、健康、财务或他人资料。无需账号；自愿草稿只在本标签页最多24小时，完成、清除或重测即删。分享仅含测试名、“完整自我观察”和公开入口，不含答案或均分。可以停止，仍能完整阅读公开指南；不因得分作重大决定。",
+              "en": "All six nine-section guides are free before and after answering. Twenty-four items and the text are original. Era is an optional current-chapter title, assessing no actual developmental stage, age progress, maturity, success, mental health or career fit. No major event, relationship, health, financial or another person’s information is required. No account is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains the test name, Complete self-reflection and a public entry link, without answers or means. Stop and still read every public guide in full; make no major decision because of a score."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trying-options",
+      "directionIds": [
+        "trying-options"
+      ],
+      "title": {
+        "zh": "小步试选",
+        "en": "Trying Options"
+      },
+      "headline": {
+        "zh": "先试这一小版，再决定留、改或停。",
+        "en": "Try this little version before choosing to keep, adjust or end it."
+      },
+      "summary": {
+        "zh": "这一组回看四周里，你是否给自选小打算、摆放、普通爱好和空闲安排留过短暂试用。它不表示人生尚未定型、回避承诺、冒险能力或适合换职业。",
+        "en": "This group revisits brief trials of chosen little plans, arrangements, ordinary hobbies and free time over four weeks. It indicates no unsettled life, commitment avoidance, risk-taking ability or fitness for changing careers."
+      },
+      "seo": {
+        "title": {
+          "zh": "小步试选结果：时代的你测试的短版本读法",
+          "en": "Trying Options Result: Small Trials in a Current Chapter"
+        },
+        "description": {
+          "zh": "完整阅读小步试选：一次临时摆放、一个爱好小样和短暂试用，区分机会与均分，含近分比较和可结束的小尝试。",
+          "en": "Read the full Trying Options guide: temporary arrangements, hobby drafts, short trials, opportunity, close means and a small optional experiment."
+        }
+      },
+      "scoreReading": {
+        "zh": "24项均为正向频率观察，六组各4项。每组至少3项有效，才以有效项总和除以有效项数，四舍五入保留1位小数；未经历／无法判断不补零，不进分母。不足明确资料不足，仍能读通用全文。六组分别呈现，不加总、不按最高均分派人生时代或主副型，没有年龄顺序、常模、成熟度或成功阈值。",
+        "en": "Twenty-four positively keyed frequency observations form six groups of four. A group needs at least three rated items for its sum divided by its rated-item count, rounded to one decimal. Unexperienced or unjudged items are not zero and do not enter the denominator. Insufficient information still permits the full general guide. Groups remain separate without a total or highest-mean era assignment, primary or secondary type, age sequence, norms, maturity or success thresholds."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这四项先问有没有试过小版本",
+            "en": "Four items ask about trying a little version"
+          },
+          "paragraphs": [
+            {
+              "zh": "小步试选并不把人放进“什么都没定下来”的人生阶段。它只回看四种具体做法：给小打算做短版本、临时试一种摆放、试一个爱好做法，以及为普通安排留短暂试用。你回答的是这些机会中的自报频率，不是愿意承诺多少、是不是敢冒险或知道自己想要什么。均分可算时，也应回到实际采用过哪个小版本。没有合适机会的条目仍是不适用，不能拿来解释一个人缺少探索精神。",
+              "en": "Trying Options places nobody in a life stage where nothing is settled. It revisits brief versions of little plans, temporary arrangements, one hobby approach and short trials of ordinary routines. You report frequencies within those opportunities, not willingness to commit, courage to take risks or certainty about what you want. Even a calculable mean should return to the version actually sampled. Items without a fitting opportunity remain unjudged. They cannot explain an alleged lack of exploratory spirit or make somebody else’s life seem more settled than yours."
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "zh": "临时摆法不需要变成一次大整理",
+            "en": "A temporary arrangement need not become a major reorganisation"
+          },
+          "paragraphs": [
+            {
+              "zh": "你想知道桌上的两样普通小物换个位置是否更顺手，可以先临时摆一次，用完这段时间再决定保留、改回还是另试。观察时不需要给房间重新定位，也不用买东西来证明新版本值得。这一场面把“可结束的小试用”与“为生活作重大决定”分开。回想过去四周的条目时，找这种自己确实愿意、尺度也普通的小场面，不必把辞职、财务或关系选择拿来凑例子。",
+              "en": "You wonder whether two ordinary desk items would be easier to use elsewhere. Try the arrangement temporarily, then keep it, return it or adjust it after that period. No new identity for the room or purchase is needed to prove the version worthwhile. This scene separates an experiment that can end from a major life decision. For a four-week answer, recall an ordinary little situation you actually wanted. There is no need to supply a resignation, financial decision or relationship choice as evidence that you have genuinely tried something new."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "一个短试用，也需要合适机会",
+            "en": "Even a short trial needs a fitting opportunity"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果四周里本来就常有可自由调整的小空间，和某段时间只有固定安排，条目能出现的机会会不同。较高均分可以帮助你列出自己试过什么，但不能证明学得更快或选择更好。较低均分也不能单独解释为犹豫、保守或没有方向。每组只有四项，至少三项有效才显示均分；有效项目不同，数字的背景也不同。可以把“这项没有发生”和“我其实没有机会判断”分开，而不强行给两者同一个最低分。",
+              "en": "A month with freely adjustable little spaces offers different opportunities from one dominated by fixed arrangements. A higher mean can prompt a list of what you sampled, but proves no faster learning or better choices. A lower mean cannot by itself mean hesitation, conservatism or lack of direction. Only four items form this group and three need ratings for a mean. Different rated items give numbers different backgrounds. Distinguish an action not occurring from lacking an opportunity to judge it, rather than forcing both into the lowest frequency category."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "试完可以不继续，不必证明点子成功",
+            "en": "Finishing a trial need not prove an idea successful"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个小版本结束后，你可以决定不采用，或只保留其中一处。这不使试用变成失败，也不要求立刻找下一个点子维持“试选”的形象。题本没有评估试验设计、资源管理、技能或坚持程度；它甚至不知道实际试过的是什么。你可以用一条普通记录补充自己看到了什么，而不需要给出令人满意的产出。如果安排牵涉他人，仍按原有约定处理，不因个人试用偏好替别人改决定。",
+              "en": "After a little version ends, you may use none of it or retain one part. That does not make the trial a failure or require finding another idea to maintain an exploratory image. The bank assesses no experiment design, resource management, skill or persistence; it does not even know what you tried. One ordinary note about what you noticed is enough without an impressive output. Where arrangements concern other people, existing agreements still apply. A personal preference for trial versions provides no authority to change somebody else’s decisions."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "和初见留意、改线调整有什么不同",
+            "en": "Distinguish Fresh Attention and Changing an Arrangement"
+          },
+          "paragraphs": [
+            {
+              "zh": "初见留意可以停在观察或基础问题，还没有试另一种做法；小步试选已经做一个短版本，之后再选；改线调整则从一个已有安排不再合适出发，改掉其中一小步。重新看桌面、临时换两样小物的位置、修正一个已不方便的摆法，可以发生在同一天。近分时读相关全文，找你实际做过的动作，不需要找出自己属于“探索”还是“再发明”的唯一人生时代。",
+              "en": "Fresh Attention can stop at observing or asking a basic question before another approach is tried. Trying Options samples a short version before choosing. Changing an Arrangement starts when an existing arrangement no longer fits and alters a little step. Looking again at a desk, temporarily switching two items and correcting an inconvenient placement can occur on one day. With close means, read the relevant full guides and identify actions that occurred. There is no need to locate one true life era called discovery or reinvention behind the numbers."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "给虚构小版本写一个试完的决定点",
+            "en": "Give a fictional little version a decision point"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，在纸上虚构一个不花钱、不涉及他人资料的小安排。写清只试哪一小部分、何时结束，以及结束后可以保留、改动或停用。先不真的执行，也不把“保留”设成正确答案。观察这样的小尺度是否仍让你想试，或你其实更想先问一个问题。练习可以停在这一页，不需要连续打卡，也不用于提升测试均分；它只是让“试一次”和“长期采用”之间的空隙更清楚。",
+              "en": "On paper, invent a little arrangement needing no money or another person’s information. Name the part to try, its ending and the later options of keeping, adjusting or leaving it. You need not execute it or make keeping the correct answer. Notice whether you still want a trial at that scale or would rather first ask a question. The exercise can finish on one page without repeated check-ins or a goal of raising your mean. It simply makes the space between trying once and adopting long term easier to see."
+            }
+          ]
+        },
+        {
+          "id": "return",
+          "title": {
+            "zh": "不需要用不断尝新定义当前章节",
+            "en": "A current chapter needs no constant novelty"
+          },
+          "paragraphs": [
+            {
+              "zh": "四周里试过一两种普通做法，也可以同时维持一些愿意继续的节奏；没有试新版本，也不代表人生停住了。你可以只把这份读法当作对当前条目的回看，不给整个职业、关系或人生贴标签。下次机会和想到的场景变化，均分也可能不同，不能据此判定成熟或退步。读完后保留一个小问题就够了：我愿意让哪一项先有短版本？答案也可以是“现在没有”，六份全文仍完整开放。",
+              "en": "Sampling ordinary approaches over four weeks can coexist with keeping rhythms you want to continue. Sampling none proves no stalled life. Use this guide as a reading of current items without labelling an entire career, relationship or life. Changed opportunities and recalled scenes can change a later mean without determining maturity or regression. Keep one question: which little arrangement would you want to give a brief version first? None for now is available too. All six full guides remain open, and reading them requires no plan to move through these themes in order."
+            }
+          ]
+        },
+        {
+          "id": "frequency",
+          "title": {
+            "zh": "四项均分、机会与资料不足",
+            "en": "Four-item means, opportunities and insufficient information"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组4项回看过去四周，在有机会且自愿的普通场面中，这类做法出现得多频繁。全部正向，频率1—5；未经历／无法判断既不补零也不进分母。至少3项有效才把有效频率加总除以有效项数，四舍五入到1位小数；不足明确资料不足，只读通用解释。六组可以同高、同低或近分，始终保留全部全文。0.1差距不是测量精度或人生阶段分界，不用来给两个人排进度。",
+              "en": "These four items revisit frequencies over four weeks in ordinary situations with an opportunity and your willingness. All are positively keyed from one to five. Unexperienced or unjudged items are neither zero nor part of the denominator. At least three rated items are needed to divide the sum by their number and round to one decimal; otherwise information is insufficient and only a general reading is available. Six groups may all be high, low or close, with every full guide retained. A difference of 0.1 establishes neither measurement precision nor a life-stage boundary, and cannot rank two people’s progress."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "六份全文、草稿与当前章节的边界",
+            "en": "Six full guides, drafts and the current-chapter boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份九节完整指南在作答前后都免费。24项和正文原创，“时代”只是可自由采用的当前章节标题，不测真实发展阶段、年龄进度、成熟、成功、心理健康或职业匹配，不要求披露重大事件、关系、健康、财务或他人资料。无需账号；自愿草稿只在本标签页最多24小时，完成、清除或重测即删。分享仅含测试名、“完整自我观察”和公开入口，不含答案或均分。可以停止，仍能完整阅读公开指南；不因得分作重大决定。",
+              "en": "All six nine-section guides are free before and after answering. Twenty-four items and the text are original. Era is an optional current-chapter title, assessing no actual developmental stage, age progress, maturity, success, mental health or career fit. No major event, relationship, health, financial or another person’s information is required. No account is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains the test name, Complete self-reflection and a public entry link, without answers or means. Stop and still read every public guide in full; make no major decision because of a score."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keeping-rhythm",
+      "directionIds": [
+        "keeping-rhythm"
+      ],
+      "title": {
+        "zh": "节奏搭建",
+        "en": "Keeping a Rhythm"
+      },
+      "headline": {
+        "zh": "继续自己愿意的一小段，不把整个生活变成长期工程。",
+        "en": "Continue one wanted little part without turning all of life into a project."
+      },
+      "summary": {
+        "zh": "这一组回看四周内，你怎样重复自选的小安排、收纳习惯、普通爱好环节与已有节奏。它不证明自律、责任、人生基础是否稳固，或未来会成功。",
+        "en": "This group revisits repeating chosen arrangements, tidying habits, ordinary hobby parts and existing rhythms over four weeks. It proves no discipline, responsibility, secure life foundation or future success."
+      },
+      "seo": {
+        "title": {
+          "zh": "节奏搭建结果：时代的你测试的日常重复读法",
+          "en": "Keeping a Rhythm Result: Small Repeated Arrangements"
+        },
+        "description": {
+          "zh": "完整阅读节奏搭建：已愿意继续的小安排怎样有范围地重复，区分机会与均分，含和试选、改线的比较及纸上小尝试。",
+          "en": "Read the full Keeping a Rhythm guide: chosen little routines, limited scope, opportunity, frequency means, close comparisons and a small paper experiment."
+        }
+      },
+      "scoreReading": {
+        "zh": "24项均为正向频率观察，六组各4项。每组至少3项有效，才以有效项总和除以有效项数，四舍五入保留1位小数；未经历／无法判断不补零，不进分母。不足明确资料不足，仍能读通用全文。六组分别呈现，不加总、不按最高均分派人生时代或主副型，没有年龄顺序、常模、成熟度或成功阈值。",
+        "en": "Twenty-four positively keyed frequency observations form six groups of four. A group needs at least three rated items for its sum divided by its rated-item count, rounded to one decimal. Unexperienced or unjudged items are not zero and do not enter the denominator. Insufficient information still permits the full general guide. Groups remain separate without a total or highest-mean era assignment, primary or secondary type, age sequence, norms, maturity or success thresholds."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "继续的是条目里的小安排",
+            "en": "The continuation concerns the little arrangements listed"
+          },
+          "paragraphs": [
+            {
+              "zh": "节奏搭建不把你认定为人生已经进入建设阶段。四项只回看重复自己选的小安排、维持一小块收纳、回到爱好基础环节，以及在时间允许时继续已有节奏。这些做法不等于履行所有责任，也不涵盖工作、家庭或未来规划的全部。可计算的均分只概括这些条目的自报频率，不能证明自律或预测回报。先看看你当时真的愿意继续哪一小段，以及有没有相应机会，而不是把重复本身当作必须追求的成绩。",
+              "en": "Keeping a Rhythm does not place your life in a building phase. Four items concern repeating a chosen arrangement, keeping one tidying patch, returning to a basic hobby part and continuing an existing rhythm when time allows. These practices neither represent every responsibility nor cover an entire job, family or future plan. A calculable mean summarises reported item frequencies without proving discipline or predicting a payoff. Notice which little part you actually wanted to continue and whether an opportunity existed, rather than making repetition itself an achievement you must pursue."
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "zh": "一小块桌面可以到那里为止",
+            "en": "One patch of table can remain the whole task"
+          },
+          "paragraphs": [
+            {
+              "zh": "想象你愿意在用完桌子后，把自己那一小块恢复成顺手的样子。它可以只是两件普通小物回到原处，不需要顺便收完整个房间，也不要求每天都在同一时刻。这个例子让“我想继续的一个动作”与“我应该不断扩大管理范围”分开。回看四周的回答时，可以想起这样一个有限动作；没有发生不代表你不可靠，没有相关空间或机会也不该被补成最低频率。",
+              "en": "Imagine wanting to leave your patch of a table convenient after use. It may mean returning two ordinary items, without tidying the whole room or doing it at the same time every day. The example separates an action you wanted to continue from an obligation to expand management endlessly. For a four-week answer, recall a bounded action of this kind. Its absence proves no unreliability. Lacking the relevant space or opportunity should not be silently converted into the lowest frequency, because a missing opportunity is not an unsuccessful repetition."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "频率高低不替实际完成质量作证",
+            "en": "Frequency does not establish the quality of actual work"
+          },
+          "paragraphs": [
+            {
+              "zh": "一项常有机会重复的小动作，和这四周没有再接触过的爱好，会让条目的背景不同。较高均分可以帮助你列出哪些小环节实际重复过，不表示做得更好、更有效率或一定能长期持续。较低均分也不能单独说明懒惰、拖延或没有基础。即使两个均分接近，有效项目可能不同；每组只有四项、至少三项有效的规则，只是本版显示约定，不是经过验证的生活进度尺。",
+              "en": "A little action with repeated opportunities and a hobby not revisited that month give items different backgrounds. A higher mean can help list parts you repeated, without showing better quality, efficiency or assured long-term continuation. A lower mean alone cannot mean laziness, procrastination or a lack of foundations. Even close means may use different rated items. The rule of four items with three ratings required is this edition’s display convention, not a validated ruler of life progress. Add the ordinary scene you recalled instead of asking the number to establish qualities it never observed."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "继续可以有范围，也可以重新选择",
+            "en": "Continuation can have a scope and be chosen again"
+          },
+          "paragraphs": [
+            {
+              "zh": "原先愿意的一小段，之后也可以因为时间或意愿变化而调整、暂停或结束。你不必为维持节奏搭建的名字，把已不合适的安排越做越大。别人已经与你约好的事，仍需要按实际约定处理；这一组不能代替沟通或决定。它也不要求你把休息、爱好或共同时间都变成产出工具。一个重复动作是否值得继续，取决于具体情境和你的选择，而不是哪次均分更高。",
+              "en": "A little part you once wanted can later be adjusted, paused or ended when time or willingness changes. Maintaining a role name gives no reason to enlarge an arrangement that no longer fits. Existing agreements with other people still need actual discussion; this group cannot decide them. Nor must rest, hobbies or shared time become production tools. Whether an action is worth repeating depends on the particular situation and your choice, not on which attempt produced a higher mean. Continuing something and having the option to stop it are compatible."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "和小步试选、改线调整可以同时发生",
+            "en": "Trying Options and Changing an Arrangement can coexist"
+          },
+          "paragraphs": [
+            {
+              "zh": "小步试选是先做短版本再决定；节奏搭建是继续自己已经想保留的一段；改线调整则修改已有安排中不合适的一步。你可以这周继续一项小爱好，同时试另一个很短的做法，并调整桌面上已不顺手的位置。六组不是按顺序升级的等级，近分也不需要决定自己究竟该探索还是建设。把每项回答放回当时的动作、机会和意愿，再比较全文，会比寻找固定人生阶段更贴近题本实际。",
+              "en": "Trying Options samples a brief version before choosing. Keeping a Rhythm continues a part already wanted. Changing an Arrangement alters an unsuitable step in something existing. You might continue one hobby part, try another brief approach and adjust an inconvenient desk spot in the same week. The six groups are no levels to advance through, and close means need no decision that you should be exploring rather than building. Return each answer to its action, opportunity and willingness before comparing full guides. That stays nearer to what these items actually asked."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "给一个虚构小节奏写清范围",
+            "en": "Name the scope of one fictional little rhythm"
+          },
+          "paragraphs": [
+            {
+              "zh": "在纸上选一个不涉及健康、金钱或他人安排的普通小动作，写清只做哪一部分、什么情况下有机会，以及什么时候可以暂停。不要把它写成连续打卡挑战，也不必真的执行。接着问：如果这一部分已经足够，我是否愿意让它到此为止，而不再加码？你可以发现自己更想改一个步骤或先试一次，这也是可用的观察。练习不用于训练自律或提高分数，只帮助你把想继续的范围写明白。",
+              "en": "On paper, choose an ordinary little action involving no health, money or another person’s arrangements. Name the part, the conditions that provide an opportunity and when a pause is allowed. Make no consecutive check-in challenge and feel no need to execute it. Ask whether this part could remain enough without escalation. Discovering that you would rather adjust a step or first try once is useful too. The exercise trains no discipline and aims at no higher score; it simply makes the scope of wanted continuation explicit."
+            }
+          ]
+        },
+        {
+          "id": "return",
+          "title": {
+            "zh": "一个当前章节不需要证明长期回报",
+            "en": "A current chapter need not demonstrate a long-term payoff"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以在这四周重复一些普通小事，也可以在另一段时间把注意力留给别处。结果不会预测这些重复是否积累成成功、财富、稳定关系或更成熟的自我。重测变化也不能证明基础变差，可能只是机会、条目理解或想到的场景不同。读完后可以保留一句“我愿意继续的是这一小段”，也可以没有要继续的内容。你的生活不需要被分进某个建设期，才能允许一次有限、普通、可重新选择的安排。",
+              "en": "You can repeat ordinary little things over these four weeks and attend elsewhere in another period. The result predicts no accumulation into success, wealth, stable relationships or a more mature self. A changed retake proves no weakening foundation; opportunities, item interpretation or recalled scenes may differ. Keep a sentence naming the little part you want to continue, or decide there is none. Your life needs no assignment to a building era to permit a bounded ordinary arrangement that remains open to another choice. The reading can end without a programme for the next chapter."
+            }
+          ]
+        },
+        {
+          "id": "frequency",
+          "title": {
+            "zh": "四项均分、机会与资料不足",
+            "en": "Four-item means, opportunities and insufficient information"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组4项回看过去四周，在有机会且自愿的普通场面中，这类做法出现得多频繁。全部正向，频率1—5；未经历／无法判断既不补零也不进分母。至少3项有效才把有效频率加总除以有效项数，四舍五入到1位小数；不足明确资料不足，只读通用解释。六组可以同高、同低或近分，始终保留全部全文。0.1差距不是测量精度或人生阶段分界，不用来给两个人排进度。",
+              "en": "These four items revisit frequencies over four weeks in ordinary situations with an opportunity and your willingness. All are positively keyed from one to five. Unexperienced or unjudged items are neither zero nor part of the denominator. At least three rated items are needed to divide the sum by their number and round to one decimal; otherwise information is insufficient and only a general reading is available. Six groups may all be high, low or close, with every full guide retained. A difference of 0.1 establishes neither measurement precision nor a life-stage boundary, and cannot rank two people’s progress."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "六份全文、草稿与当前章节的边界",
+            "en": "Six full guides, drafts and the current-chapter boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份九节完整指南在作答前后都免费。24项和正文原创，“时代”只是可自由采用的当前章节标题，不测真实发展阶段、年龄进度、成熟、成功、心理健康或职业匹配，不要求披露重大事件、关系、健康、财务或他人资料。无需账号；自愿草稿只在本标签页最多24小时，完成、清除或重测即删。分享仅含测试名、“完整自我观察”和公开入口，不含答案或均分。可以停止，仍能完整阅读公开指南；不因得分作重大决定。",
+              "en": "All six nine-section guides are free before and after answering. Twenty-four items and the text are original. Era is an optional current-chapter title, assessing no actual developmental stage, age progress, maturity, success, mental health or career fit. No major event, relationship, health, financial or another person’s information is required. No account is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains the test name, Complete self-reflection and a public entry link, without answers or means. Stop and still read every public guide in full; make no major decision because of a score."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "changing-arrangement",
+      "directionIds": [
+        "changing-arrangement"
+      ],
+      "title": {
+        "zh": "改线调整",
+        "en": "Changing an Arrangement"
+      },
+      "headline": {
+        "zh": "改的是不再合用的这一小步，不必重写整个人生。",
+        "en": "Change the little step that no longer fits, not your whole life."
+      },
+      "summary": {
+        "zh": "这一组回看四周里，你怎样调整个人小计划、物品位置和普通爱好步骤，同时保留仍合用的部分。它不证明人生正重启、勇气、适应能力或过去的选择有错。",
+        "en": "This group revisits adjusting personal plans, item placements and ordinary hobby steps while retaining useful parts over four weeks. It proves no life restart, courage, adaptability or error in past choices."
+      },
+      "seo": {
+        "title": {
+          "zh": "改线调整结果：时代的你测试的小步骤变化",
+          "en": "Changing an Arrangement Result: Small Step Changes"
+        },
+        "description": {
+          "zh": "完整阅读改线调整：已有安排中哪一步不合当下、哪些仍可保留，区分频率与能力，含相近主题比较和可停止的纸上尝试。",
+          "en": "Read the full Changing an Arrangement guide: altering one step, keeping useful parts, opportunity, close means and a small optional paper experiment."
+        }
+      },
+      "scoreReading": {
+        "zh": "24项均为正向频率观察，六组各4项。每组至少3项有效，才以有效项总和除以有效项数，四舍五入保留1位小数；未经历／无法判断不补零，不进分母。不足明确资料不足，仍能读通用全文。六组分别呈现，不加总、不按最高均分派人生时代或主副型，没有年龄顺序、常模、成熟度或成功阈值。",
+        "en": "Twenty-four positively keyed frequency observations form six groups of four. A group needs at least three rated items for its sum divided by its rated-item count, rounded to one decimal. Unexperienced or unjudged items are not zero and do not enter the denominator. Insufficient information still permits the full general guide. Groups remain separate without a total or highest-mean era assignment, primary or secondary type, age sequence, norms, maturity or success thresholds."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "四项只回看已有安排的一点变化",
+            "en": "Four items revisit a little change in an existing arrangement"
+          },
+          "paragraphs": [
+            {
+              "zh": "改线调整不把你派进“必须重新开始”的人生阶段。四项分别问个人小安排的一步、一个普通物品的位置、爱好练法的小步骤，以及不影响他人既有约定的个人计划版本。它们都有一个起点：原来的这一处不再合适，而不是整个人生必须换掉。可计算均分只概括这些自报频率，不证明勇气、适应能力或正确方向。读之前先想清哪一项确实有合适机会，没遇到这种情况就保留不适用。",
+              "en": "Changing an Arrangement assigns nobody to a life stage requiring a restart. Four items concern a step in a personal arrangement, a place for an ordinary item, a hobby-practice step and a personal-plan version that leaves another person’s agreement intact. Each starts with a particular part no longer fitting, not an entire life needing replacement. A calculable mean summarises reported frequencies without proving courage, adaptability or a correct direction. First identify which item actually had a fitting opportunity. With no such situation, the unjudged option remains appropriate instead of supplying a dramatic example."
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "zh": "桌面旧位置不再方便时",
+            "en": "When an old desk placement stops being convenient"
+          },
+          "paragraphs": [
+            {
+              "zh": "你把普通小物长期放在一个位置，这周桌面的实际使用变了。可以只挪那一件，再看仍顺手的部分要不要保留；不需要宣布过去摆错，也不用重新设计全部空间。这个小场面让调整有了起点和尺度。回想四周回答时，可以找这种具体不合用的一步，而不是把辞职、搬家、分手或重大事件当作必须提供的证明。题本不询问这些经历，也不能判断某种改变是否应该发生。",
+              "en": "An ordinary item has long occupied one desk spot, but the table’s use changes this week. You can move that item while leaving convenient parts in place. There is no need to declare the earlier arrangement wrong or redesign the whole space. The scene gives an adjustment both a starting point and a scale. For four-week answers, recall a particular unsuitable step rather than treating a resignation, relocation, breakup or major event as required evidence. The bank does not ask for those experiences and cannot determine whether any such change should happen."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "调整频率不能说明改变的原因",
+            "en": "Adjustment frequency cannot explain its causes"
+          },
+          "paragraphs": [
+            {
+              "zh": "有一段时间个人安排不断碰到新限制，和原有安排刚好都合用，会让四项机会不同。较高均分可以帮助你列出改过哪一点，不证明选择更好，也不证明总是重新开始；较低均分同样不表示停滞或害怕变化。分数不知道实际调整为什么发生、是否起作用。每组四项、至少三项有效才显示一位小数，只是本版读法；不能由数字补出人生背景，也不能据此评两个谁走得更快。",
+              "en": "A period with changing constraints and one where old arrangements happen to fit offer different opportunities for these items. A higher mean can prompt a list of adjusted parts, without proving better choices or endless restarting. A lower mean likewise means neither stagnation nor fear of change. The score does not know why an actual adjustment happened or whether it worked. Four items, three rated responses and one displayed decimal are this edition’s conventions. They cannot supply a life history or compare which of two people is moving ahead faster."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "可以保留仍合用的部分",
+            "en": "Useful parts can remain"
+          },
+          "paragraphs": [
+            {
+              "zh": "调整一小步并不要求否定旧版本，也不要求把所有关系和安排都推倒重来。有些内容依然合用，有些涉及他人约定，不能只凭自己的偏好改掉。你也可以决定暂时不改，先问清事实或等一个方便时段。这里不把他人的不理解说成改变正确的证据，不根据频率诊断回避或反复重启。结果最多邀请你把改了什么、保留什么具体写出来，不能代替现实决定所需的信息、沟通或专业判断。",
+              "en": "Adjusting a step requires neither rejecting the old version nor overturning every relationship or arrangement. Some parts still fit, and agreements involving others cannot change on your preference alone. You may also leave a step unchanged while clarifying facts or waiting for a convenient time. This guide treats nobody else’s misunderstanding as proof that a change is correct, and diagnoses no avoidance or repeated-restart pattern from frequency. It can invite a particular account of what changed and remained. Information, discussion and any professional judgment needed for an actual decision remain separate."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与小步试选、节奏搭建的区别",
+            "en": "Distinguish Trying Options and Keeping a Rhythm"
+          },
+          "paragraphs": [
+            {
+              "zh": "小步试选从一个尚未长期采用的小版本出发；改线调整从已有安排中不再合适的一步出发；节奏搭建则继续自己仍愿意保留的一段。临时试一个新摆法、挪开已经不方便的物品、重复顺手的小动作，可以在同一周发生。近分不用排成“探索、建设、再发明”的先后人生顺序。读相关全文时问这次条目具体说的哪一个动作，再看有没有机会和意愿，而不是给自己选一个勇敢或成熟的标签。",
+              "en": "Trying Options begins with a little version not yet adopted long term. Changing an Arrangement begins with an unsuitable step in something existing. Keeping a Rhythm continues a part you still want. Temporarily sampling a layout, moving an item that has become inconvenient and repeating a useful action may all happen in one week. Close means need no life sequence of discovery, building and reinvention. Read the relevant full guides beside the particular action each item names, then consider opportunity and willingness instead of selecting a brave or mature identity for yourself."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "在纸上只改一处",
+            "en": "Change just one part on paper"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，画一个虚构的普通桌面或爱好步骤，标出一处现在不合用的地方。只提出一个小改法，再圈出仍想保留的部分。无需实际搬动东西、花钱或改变与他人的约定。写完后问自己：这是想修正已不方便的一步，还是只是想先试一个新版本？两者都可以，也可以决定暂时不改。练习不用于训练适应力或证明人生重启，只让一个有限变化与整套推倒重来的距离更清楚。",
+              "en": "If you want, sketch a fictional ordinary desk or hobby step and mark one part that no longer fits. Offer one small adjustment and circle what you would retain. No actual moving, spending or change to another person’s agreement is needed. Ask whether you wanted to correct an inconvenient step or simply sample another version first. Either is available, as is deciding not to alter it yet. The exercise trains no adaptability and proves no life restart. It makes the distance between one bounded change and replacing a whole arrangement easier to see."
+            }
+          ]
+        },
+        {
+          "id": "return",
+          "title": {
+            "zh": "当前章节不必有一场重大转折",
+            "en": "A current chapter needs no major turning point"
+          },
+          "paragraphs": [
+            {
+              "zh": "过去四周有过几次普通调整，也可以仍延续很多旧安排；没有改动，也不需要为了符合结果制造转折。你可以只保留一句“原先这一步不合用了，我想怎样处理”，不采用时代或重生的标签。重测时机会、想到的场景或条目理解变化，均分也会改变，不能解释成人格转变、成长倒退或人生终于走对。结果不批准重大决定；六份指南可以一起读，也可以读到一个有用问题就结束。",
+              "en": "Ordinary adjustments over four weeks can coexist with many continuing arrangements. No changes require no turning point invented to fit a result. Keep one sentence about the step that no longer suited you and what you wanted to do, without adopting an era or rebirth label. Different opportunities, recalled scenes or interpretations can change a retake mean without proving personality change, regression or finally reaching the right path. The result approves no major decision. Read all six guides together or stop after one useful question; no narrative of transformation must follow."
+            }
+          ]
+        },
+        {
+          "id": "frequency",
+          "title": {
+            "zh": "四项均分、机会与资料不足",
+            "en": "Four-item means, opportunities and insufficient information"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组4项回看过去四周，在有机会且自愿的普通场面中，这类做法出现得多频繁。全部正向，频率1—5；未经历／无法判断既不补零也不进分母。至少3项有效才把有效频率加总除以有效项数，四舍五入到1位小数；不足明确资料不足，只读通用解释。六组可以同高、同低或近分，始终保留全部全文。0.1差距不是测量精度或人生阶段分界，不用来给两个人排进度。",
+              "en": "These four items revisit frequencies over four weeks in ordinary situations with an opportunity and your willingness. All are positively keyed from one to five. Unexperienced or unjudged items are neither zero nor part of the denominator. At least three rated items are needed to divide the sum by their number and round to one decimal; otherwise information is insufficient and only a general reading is available. Six groups may all be high, low or close, with every full guide retained. A difference of 0.1 establishes neither measurement precision nor a life-stage boundary, and cannot rank two people’s progress."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "六份全文、草稿与当前章节的边界",
+            "en": "Six full guides, drafts and the current-chapter boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份九节完整指南在作答前后都免费。24项和正文原创，“时代”只是可自由采用的当前章节标题，不测真实发展阶段、年龄进度、成熟、成功、心理健康或职业匹配，不要求披露重大事件、关系、健康、财务或他人资料。无需账号；自愿草稿只在本标签页最多24小时，完成、清除或重测即删。分享仅含测试名、“完整自我观察”和公开入口，不含答案或均分。可以停止，仍能完整阅读公开指南；不因得分作重大决定。",
+              "en": "All six nine-section guides are free before and after answering. Twenty-four items and the text are original. Era is an optional current-chapter title, assessing no actual developmental stage, age progress, maturity, success, mental health or career fit. No major event, relationship, health, financial or another person’s information is required. No account is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains the test name, Complete self-reflection and a public entry link, without answers or means. Stop and still read every public guide in full; make no major decision because of a score."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reviewing-notes",
+      "directionIds": [
+        "reviewing-notes"
+      ],
+      "title": {
+        "zh": "回看整理",
+        "en": "Reviewing Notes"
+      },
+      "headline": {
+        "zh": "把记录里的发生、设想与这次理解分开。",
+        "en": "Separate what happened, what was imagined and what you understand now."
+      },
+      "summary": {
+        "zh": "这一组回看四周内，你怎样再读普通记录、物品安排、爱好小样和旧计划。它不证明智慧、反省能力、反刍或心理状态，也不判断一段人生是否已被整合。",
+        "en": "This group revisits ordinary notes, item arrangements, hobby drafts and earlier plans over four weeks. It proves no wisdom, reflective ability, rumination or mental state and judges no integration of a life chapter."
+      },
+      "seo": {
+        "title": {
+          "zh": "回看整理结果：时代的你测试的普通记录读法",
+          "en": "Reviewing Notes Result: Reading an Earlier Little Record"
+        },
+        "description": {
+          "zh": "完整阅读回看整理：旧计划、爱好小样与普通记录怎样分清发生和设想，含机会与均分、近分比较及一页可结束的小练习。",
+          "en": "Read the full Reviewing Notes guide: old plans, hobby drafts, facts and ideas, opportunity, close means and a small optional paper experiment."
+        }
+      },
+      "scoreReading": {
+        "zh": "24项均为正向频率观察，六组各4项。每组至少3项有效，才以有效项总和除以有效项数，四舍五入保留1位小数；未经历／无法判断不补零，不进分母。不足明确资料不足，仍能读通用全文。六组分别呈现，不加总、不按最高均分派人生时代或主副型，没有年龄顺序、常模、成熟度或成功阈值。",
+        "en": "Twenty-four positively keyed frequency observations form six groups of four. A group needs at least three rated items for its sum divided by its rated-item count, rounded to one decimal. Unexperienced or unjudged items are not zero and do not enter the denominator. Insufficient information still permits the full general guide. Groups remain separate without a total or highest-mean era assignment, primary or secondary type, age sequence, norms, maturity or success thresholds."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "回看的是四种普通内容",
+            "en": "The review concerns four ordinary kinds of material"
+          },
+          "paragraphs": [
+            {
+              "zh": "回看整理不把你判进需要独处、疗愈或整合人生的阶段。四项只回看以前的普通记录、物品摆法、爱好小样与计划页，具体分辨发生过什么、当时设想什么、这次仍想保留或修改什么。可计算的均分只概括这些自报频率，不证明智慧、反省能力或对人生的理解更深。题本没有询问重大失落、健康或关系经历，也不需要你提供这些内容。先看自己实际上回看了哪一项，而不是从一个时代标签推回整段背景。",
+              "en": "Reviewing Notes assigns no stage requiring solitude, healing or life integration. Four items concern an earlier ordinary note, item placement, hobby draft and planning page. They distinguish what happened, what you imagined then and what you now want retained or changed. A calculable mean summarises reported frequencies without proving wisdom, reflective ability or deeper understanding of life. The bank asks for no major loss, health or relationship history and needs none of it. Begin with the material you actually revisited instead of inferring a whole background from an era label."
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "zh": "一页旧计划可以分成发生与未试",
+            "en": "Separate an old plan into what happened and what remains untried"
+          },
+          "paragraphs": [
+            {
+              "zh": "想象一页普通空闲计划写了两种爱好做法。回看时，你发现一种只试过几分钟，另一种仍停在设想。可以把两者分别标清，而不把未试内容叫失败，也不把试过一次叫彻底找到方向。这一场面不要求你解释整个人生，只让旧记录与实际发生之间的距离可见。没有旧记录时，不需要特意补写一段过去来符合条目；可以选不适用，继续读这份通用全文。",
+              "en": "Imagine a free-time planning page listing two hobby approaches. On returning to it, you find one was tried for a few minutes while the other remains an idea. Mark them separately without calling the untried approach a failure or the brief sample a discovery of your life direction. This scene needs no explanation of an entire life. It only makes the distance between a note and an event visible. With no earlier record, there is no need to reconstruct a past to fit the item. Choose the unjudged option and still read this full general guide."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "有记录、有机会与频率不同",
+            "en": "Having material, having an opportunity and frequency differ"
+          },
+          "paragraphs": [
+            {
+              "zh": "四周里本来就留有很多普通记录，与几乎没有相关材料，会给条目不同机会。较高均分可以帮助你列出回看过什么，不能证明理解更好、记忆更准或更成熟。较低均分也不能单独说明逃避、缺少反思或没有学到东西。这四项不询问回看的原因、用时与效果，更不能判断心理状态。有效项目也可能不同，因此均分旁的有效题数和具体条目，比把两个人数字直接排高低更值得一起看。",
+              "en": "A month with many ordinary records and one with little relevant material give items different opportunities. A higher mean can prompt a list of what you revisited, without proving better understanding, accurate memory or greater maturity. A lower mean alone cannot mean avoidance, lack of reflection or learning nothing. These four items ask for no causes, duration or outcomes of reviewing and cannot judge mental state. Rated items can differ too. Read their count and actual content beside a mean rather than ranking two people’s numbers as depth of insight."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "记录不是事实的完整替身",
+            "en": "A record is no complete substitute for what occurred"
+          },
+          "paragraphs": [
+            {
+              "zh": "自己留下的一页笔记也可能省略背景、混入设想或记错。你可以标明哪里不确定，区分当时的话与这次的解释，不急着拼出一个完整结论。如果涉及别人的内容，不因本测试收集、保存或转发对方资料。这里的普通纸上回看不替代任何实际需要的事实核查或专业帮助，也不把反复想到某件事诊断为反刍。可以读完一小段就停止，不必为了结果把所有旧材料都重新翻一遍。",
+              "en": "Your own note can omit context, mix in an idea or contain an error. Mark uncertainty and distinguish earlier words from your current interpretation instead of assembling a complete conclusion immediately. Where another person is involved, do not collect, retain or forward their information because of this test. Ordinary paper review replaces no needed factual check or professional help and diagnoses no rumination from recurring thoughts. You may finish after a little part. Matching a result requires no journey through every old record or a convincing account of what the past meant."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与改线调整、经验留痕怎么分开",
+            "en": "Distinguish Changing an Arrangement and Passing Notes"
+          },
+          "paragraphs": [
+            {
+              "zh": "回看整理可以停在分清旧记录，不一定采取新做法；改线调整已经修改一个不合用的小步骤；经验留痕则写下一条以后可选用的个人参考。看上周计划哪些发生过、把一个不适合的安排改掉、补一句后来人可自行改写的用法，是三个不同动作。它们可以相接，也可各自结束。近分不说明你处于人生过渡地带，读相关全文只是帮助确认这四周有哪些具体做法，不要求把观察升级成发展阶段。",
+              "en": "Reviewing Notes can end with clarifying an earlier record without a new action. Changing an Arrangement alters an unsuitable step. Passing Notes writes an optional personal reference for later use. Checking what happened on last week’s plan, changing an awkward arrangement and adding a revisable use note are different actions. They may connect or finish separately. Close means indicate no transitional life territory. Related full guides simply help identify practices within these four weeks, without upgrading those observations into developmental stages or a requirement to act on every remembered detail."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "给一个虚构计划标三种内容",
+            "en": "Mark three kinds of content on a fictional plan"
+          },
+          "paragraphs": [
+            {
+              "zh": "在纸上虚构一页很小的普通计划，写一个已经发生的动作、一个未试设想和一句现在的理解。用三个不同标记把它们分开，再留一个“不确定”的位置。不需要真实日记、照片或他人资料，也不必真的改动生活。看看自己是否喜欢先把几类内容弄清，还是更想直接试一个小版本。练习可以停在这页，不用于证明洞察、改善心理症状或提升均分；它只是把记录的几个层次写得清楚。",
+              "en": "Invent a tiny ordinary plan on paper with an action that happened, an untried idea and a current interpretation. Give them different marks and leave space for uncertainty. No real diary, photograph or another person’s information is needed, and no actual change must follow. Notice whether you like first clarifying these categories or would rather sample a little version directly. The exercise can stop on the page. It proves no insight, treats no psychological symptom and aims at no higher mean; it only makes several layers of a record explicit."
+            }
+          ]
+        },
+        {
+          "id": "return",
+          "title": {
+            "zh": "当前章节可以没有一个总解释",
+            "en": "A current chapter can lack one overall explanation"
+          },
+          "paragraphs": [
+            {
+              "zh": "读完后，你可以保留一小条“这是当时的设想，不是后来发生的事实”，而不替整个人生找一个连贯答案。另一段四周或另一种机会，可能让条目频率变化；不代表你更有智慧、更疏离或退回旧阶段。你也可以不再回看，把时间留给别处。六组观察没有规定先回顾、再整合、最后传承的顺序，也不把独处、社交或行动哪一种设成正确出口。结果不评价你已经走过的人生，只回看这些具体条目的作答。",
+              "en": "Keep a small distinction between an earlier idea and a later event without finding one coherent answer for your whole life. Another four-week period or opportunity may change item frequencies without establishing greater wisdom, distance from others or return to an old stage. You can also stop reviewing and attend elsewhere. These six observations prescribe no sequence of reviewing, integrating and passing something on. Solitude, company and action are not ranked as correct exits. The result judges no life already lived; it revisits responses to particular items and can end with one useful distinction."
+            }
+          ]
+        },
+        {
+          "id": "frequency",
+          "title": {
+            "zh": "四项均分、机会与资料不足",
+            "en": "Four-item means, opportunities and insufficient information"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组4项回看过去四周，在有机会且自愿的普通场面中，这类做法出现得多频繁。全部正向，频率1—5；未经历／无法判断既不补零也不进分母。至少3项有效才把有效频率加总除以有效项数，四舍五入到1位小数；不足明确资料不足，只读通用解释。六组可以同高、同低或近分，始终保留全部全文。0.1差距不是测量精度或人生阶段分界，不用来给两个人排进度。",
+              "en": "These four items revisit frequencies over four weeks in ordinary situations with an opportunity and your willingness. All are positively keyed from one to five. Unexperienced or unjudged items are neither zero nor part of the denominator. At least three rated items are needed to divide the sum by their number and round to one decimal; otherwise information is insufficient and only a general reading is available. Six groups may all be high, low or close, with every full guide retained. A difference of 0.1 establishes neither measurement precision nor a life-stage boundary, and cannot rank two people’s progress."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "六份全文、草稿与当前章节的边界",
+            "en": "Six full guides, drafts and the current-chapter boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份九节完整指南在作答前后都免费。24项和正文原创，“时代”只是可自由采用的当前章节标题，不测真实发展阶段、年龄进度、成熟、成功、心理健康或职业匹配，不要求披露重大事件、关系、健康、财务或他人资料。无需账号；自愿草稿只在本标签页最多24小时，完成、清除或重测即删。分享仅含测试名、“完整自我观察”和公开入口，不含答案或均分。可以停止，仍能完整阅读公开指南；不因得分作重大决定。",
+              "en": "All six nine-section guides are free before and after answering. Twenty-four items and the text are original. Era is an optional current-chapter title, assessing no actual developmental stage, age progress, maturity, success, mental health or career fit. No major event, relationship, health, financial or another person’s information is required. No account is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains the test name, Complete self-reflection and a public entry link, without answers or means. Stop and still read every public guide in full; make no major decision because of a score."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "passing-notes",
+      "directionIds": [
+        "passing-notes"
+      ],
+      "title": {
+        "zh": "经验留痕",
+        "en": "Passing Notes"
+      },
+      "headline": {
+        "zh": "留一条以后可选用的说明，也让后来的人自由改写。",
+        "en": "Leave a note someone may use later, with freedom to revise it."
+      },
+      "summary": {
+        "zh": "这一组回看四周内，你怎样给亲自试过的小事、普通物品与爱好步骤留可选参考。它不表示传承阶段、资历、权威、指导能力或实际影响大小。",
+        "en": "This group revisits optional notes about little things you tried, ordinary items and hobby steps over four weeks. It indicates no legacy stage, seniority, authority, mentoring ability or size of actual impact."
+      },
+      "seo": {
+        "title": {
+          "zh": "经验留痕结果：时代的你测试的可选参考读法",
+          "en": "Passing Notes Result: Optional References for Later Use"
+        },
+        "description": {
+          "zh": "完整阅读经验留痕：个人用法、爱好步骤与可改写小注释，区分留下参考和替人决定，含近分比较及一条纸上说明。",
+          "en": "Read the full Passing Notes guide: personal use notes, hobby steps, room to revise, opportunity, close means and a small optional paper exercise."
+        }
+      },
+      "scoreReading": {
+        "zh": "24项均为正向频率观察，六组各4项。每组至少3项有效，才以有效项总和除以有效项数，四舍五入保留1位小数；未经历／无法判断不补零，不进分母。不足明确资料不足，仍能读通用全文。六组分别呈现，不加总、不按最高均分派人生时代或主副型，没有年龄顺序、常模、成熟度或成功阈值。",
+        "en": "Twenty-four positively keyed frequency observations form six groups of four. A group needs at least three rated items for its sum divided by its rated-item count, rounded to one decimal. Unexperienced or unjudged items are not zero and do not enter the denominator. Insufficient information still permits the full general guide. Groups remain separate without a total or highest-mean era assignment, primary or secondary type, age sequence, norms, maturity or success thresholds."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "留下的是个人用法，不是人生权威",
+            "en": "The note is a personal approach, not life authority"
+          },
+          "paragraphs": [
+            {
+              "zh": "经验留痕不把你判进应该指导后来者的传承阶段。四项只回看：把亲自试过的小事写成几步、给普通物品留使用说明、标明爱好步骤中的个人选择，以及写明经验可不用或改写。它们不证明资历、权威、智慧或实际影响，也不要求有一个真实接收者。均分可算时，只概括这些自报频率。先看你写的是哪种普通参考，再看频率，而不是从数字推断自己应当负责谁的成长或未来。",
+              "en": "Passing Notes places nobody in a legacy stage requiring guidance of later people. Four items concern steps for something you tried, a use note for an ordinary item, a personal choice marked in a hobby step and permission to leave or revise an experience note. They prove no seniority, authority, wisdom or actual impact and require no real recipient. A calculable mean summarises reported frequencies. Begin with the ordinary reference you wrote before reading its frequency, rather than inferring whom you should mentor or whose growth and future should become your responsibility."
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "zh": "一张普通物品的小说明",
+            "en": "A little note for an ordinary item"
+          },
+          "paragraphs": [
+            {
+              "zh": "想象你给自己的收纳盒留一张说明，写下这次怎样分类，并补一句“只是我的用法，以后可以改”。这条说明可以只给未来的自己看，不需要公开，也不需要证明别人真的照做。它和保存一个共同回忆不同，重点在让某个已试过的步骤可被后来理解。没有合适物品或写说明的机会，就不必创造真实材料来配合条目；不适用仍能保留，六份通用全文都能读。",
+              "en": "Imagine leaving a note for your own storage box describing how you sorted it this time, with a line that it is your approach and can change later. The reader may only be your future self. Nothing needs publication or proof that somebody followed it. Unlike keeping a shared memory, the focus is making a tried step understandable later. With no fitting item or opportunity for a note, there is no reason to create actual material to match an item. The unjudged option remains available while every full general guide stays open."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "写说明的频率不等于贡献大小",
+            "en": "Note-writing frequency is not the size of a contribution"
+          },
+          "paragraphs": [
+            {
+              "zh": "四周里经常有需要留下简单说明的小事，和一直没有这类机会，会给条目不同背景。较高均分可以帮助列出写过哪些参考，不证明指导能力、长远眼光或别人获益；较低均分也不能单独说明自私、没有经验或不愿分享。题本不知道说明的准确性、接收情况与实际用途。有效题数和具体条目都要一起看；四项至少三有效的显示规则，不会把频率变成影响力、年龄或资历的排名。",
+              "en": "A month with frequent opportunities for simple instructions and one without them give items different backgrounds. A higher mean can prompt a list of references written, without proving mentoring ability, a long view or benefit to others. A lower mean alone cannot mean selfishness, no experience or unwillingness to share. The bank knows no accuracy, reception or actual use of a note. Read rated-item counts and content together. The convention of three ratings from four items cannot transform frequency into a ranking of influence, age or seniority."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "可选参考与要求别人照做之间",
+            "en": "The space between an optional reference and a demand"
+          },
+          "paragraphs": [
+            {
+              "zh": "个人试过的方法可以明确写成一个版本，不必说成所有人都该沿用的规则。你可以标出不确定、使用背景和愿意让人改的地方；接收者也可以不用。写下一条经验，不让你取得替人决定的权力，也不要求你不断答疑。不要因这份结果整理他人的私人资料或给专业问题作未经核查的说明。这里只保留普通小事的可选参考，不把职业、健康、财务或关系决定交给这套条目判断。",
+              "en": "A method you tried can be labelled as one version instead of a rule everyone must use. Mark uncertainty, context and parts open to revision; a reader may leave it unused. Recording an experience grants no authority to choose for someone else and requires no continuing question-answer service. A result gives no reason to organise another person’s private information or provide unchecked instructions on professional matters. This guide concerns optional references for ordinary little things. Career, health, financial and relationship decisions remain outside what these items can judge."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与回看整理、节奏搭建有什么不同",
+            "en": "Distinguish Reviewing Notes and Keeping a Rhythm"
+          },
+          "paragraphs": [
+            {
+              "zh": "回看整理偏向读旧材料、分清已经发生与当时设想；经验留痕偏向写下一条以后可选的说明；节奏搭建偏向继续一个自己想保留的小环节。看过去怎样摆过盒子、写清自己现在的用法、继续按这个办法放回小物，是三个不同动作，可以在同一段四周发生。近分不用解释为你正在从做事者变成导师；六组没有这样的发展顺序。读相关全文只是更具体地认出条目，不是给人生寻找最后一个阶段。",
+              "en": "Reviewing Notes reads earlier material to distinguish events and ideas. Passing Notes writes an optional explanation for later use. Keeping a Rhythm continues a little part you still want. Reviewing earlier storage, describing the present approach and returning items that way are different actions that may share one four-week period. Close means need no story that you are becoming a mentor instead of a doer. These groups have no such developmental sequence. Related full guides help recognise particular items, not locate the final stage of a life or establish a hierarchy between writing and acting."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "给虚构步骤写一条可改说明",
+            "en": "Write a revisable note for a fictional step"
+          },
+          "paragraphs": [
+            {
+              "zh": "在纸上虚构一项普通、无风险的小用法，例如把两类纸片放到不同格子。写一句怎样做，再补一句这是自己的版本，后来的人可以改写或不用。不需要真实物品、他人资料、公开发布或实际接收者。检查说明有没有把个人偏好写成必须照办的命令，然后就可以结束。练习不考说明能力、影响力或指导潜质，也不追求别人认可；它只让“愿意留下一个可选参考”这个动作更容易看见。",
+              "en": "Invent an ordinary low-stakes use on paper, such as putting two kinds of paper in different compartments. Write the step and add that it is your version, open to revision or nonuse. No actual item, another person’s information, publication or real recipient is needed. Check whether a preference has turned into a command, then finish. The exercise tests no instruction skill, influence or mentoring potential and seeks no approval. It simply makes the action of leaving an optional reference easier to recognise without creating an obligation to teach somebody."
+            }
+          ]
+        },
+        {
+          "id": "return",
+          "title": {
+            "zh": "当前章节不必留下一个宏大遗产",
+            "en": "A current chapter needs no grand legacy"
+          },
+          "paragraphs": [
+            {
+              "zh": "一条普通说明可以只是有需要时留着，不必成为人生意义或长远贡献的证明。你也可以不写、删掉旧版本，或把时间留给其他愿意做的事。重测变化不能判断你更有远见或更不愿付出，可能只是机会、条目理解和想到的四周不同。读完后如果愿意，保留“这是一个版本，别人可改”的表达即可；不必认领传承者的身份。六份全文都开放，不要求先完成其他时代再读这一份，也没有年龄或成功门槛。",
+              "en": "An ordinary note can wait until useful without becoming proof of life meaning or a long-term contribution. You may leave it unwritten, delete an old version or attend to another wanted action. A changed retake cannot establish more foresight or less generosity; opportunities, interpretation and the recalled four weeks may differ. Keep a line that a version is revisable if you want, without adopting a legacy identity. Every full guide is available. No other era must be completed before this one, and no age or success threshold qualifies someone to read or leave it."
+            }
+          ]
+        },
+        {
+          "id": "frequency",
+          "title": {
+            "zh": "四项均分、机会与资料不足",
+            "en": "Four-item means, opportunities and insufficient information"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组4项回看过去四周，在有机会且自愿的普通场面中，这类做法出现得多频繁。全部正向，频率1—5；未经历／无法判断既不补零也不进分母。至少3项有效才把有效频率加总除以有效项数，四舍五入到1位小数；不足明确资料不足，只读通用解释。六组可以同高、同低或近分，始终保留全部全文。0.1差距不是测量精度或人生阶段分界，不用来给两个人排进度。",
+              "en": "These four items revisit frequencies over four weeks in ordinary situations with an opportunity and your willingness. All are positively keyed from one to five. Unexperienced or unjudged items are neither zero nor part of the denominator. At least three rated items are needed to divide the sum by their number and round to one decimal; otherwise information is insufficient and only a general reading is available. Six groups may all be high, low or close, with every full guide retained. A difference of 0.1 establishes neither measurement precision nor a life-stage boundary, and cannot rank two people’s progress."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "六份全文、草稿与当前章节的边界",
+            "en": "Six full guides, drafts and the current-chapter boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份九节完整指南在作答前后都免费。24项和正文原创，“时代”只是可自由采用的当前章节标题，不测真实发展阶段、年龄进度、成熟、成功、心理健康或职业匹配，不要求披露重大事件、关系、健康、财务或他人资料。无需账号；自愿草稿只在本标签页最多24小时，完成、清除或重测即删。分享仅含测试名、“完整自我观察”和公开入口，不含答案或均分。可以停止，仍能完整阅读公开指南；不因得分作重大决定。",
+              "en": "All six nine-section guides are free before and after answering. Twenty-four items and the text are original. Era is an optional current-chapter title, assessing no actual developmental stage, age progress, maturity, success, mental health or career fit. No major event, relationship, health, financial or another person’s information is required. No account is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains the test name, Complete self-reflection and a public entry link, without answers or means. Stop and still read every public guide in full; make no major decision because of a score."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "zh": "四项均分、机会与资料不足",
+        "en": "Four-item means, opportunities and insufficient information"
+      },
+      "paragraphs": [
+        {
+          "zh": "本组4项回看过去四周，在有机会且自愿的普通场面中，这类做法出现得多频繁。全部正向，频率1—5；未经历／无法判断既不补零也不进分母。至少3项有效才把有效频率加总除以有效项数，四舍五入到1位小数；不足明确资料不足，只读通用解释。六组可以同高、同低或近分，始终保留全部全文。0.1差距不是测量精度或人生阶段分界，不用来给两个人排进度。",
+          "en": "These four items revisit frequencies over four weeks in ordinary situations with an opportunity and your willingness. All are positively keyed from one to five. Unexperienced or unjudged items are neither zero nor part of the denominator. At least three rated items are needed to divide the sum by their number and round to one decimal; otherwise information is insufficient and only a general reading is available. Six groups may all be high, low or close, with every full guide retained. A difference of 0.1 establishes neither measurement precision nor a life-stage boundary, and cannot rank two people’s progress."
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "zh": "六组可以同时出现，不按最高值派时代",
+        "en": "Six groups can coexist without a highest-value era"
+      },
+      "paragraphs": [
+        {
+          "zh": "六组分别回看条目的四周频率，不相加、不互相抵消、不按最高均分决定人生阶段。可以都高、都低或同分；哪组资料不足，就只读通用解释，所有六份全文仍完整呈现。没有一组要求先完成另一组，也不按年龄、事件、成熟度或成功排序。",
+          "en": "Groups separately revisit item frequencies over four weeks, without addition, cancellation or highest-mean life-stage assignment. They can all be high, low or tied. An insufficient group permits a general reading while all six full guides remain available. No group requires completing another first, and there is no order by age, event, maturity or success."
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "zh": "近分先看机会与有效条目",
+        "en": "Read close means beside opportunity and rated items"
+      },
+      "paragraphs": [
+        {
+          "zh": "每组只有4项，至少3项有效才显示均分；1位小数不等于测量精度。有效项目不同、机会不同或一项回答变化，都可能让均分改变。0.1差距不是阶段分界，不能直接给两个人排进度。可以对照具体做法阅读相近主题，没有心理独立或跨语言等价的证明。",
+          "en": "Each group has only four items and needs three ratings for a mean; one decimal is no measurement precision. Different rated items, opportunities or a changed response can alter the mean. A difference of 0.1 establishes no stage boundary and cannot rank two people’s progress. Compare particular practices through related guides without assuming psychological independence or language equivalence."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "当前章节标题与实际人生结论的距离",
+        "en": "The distance between a chapter title and an actual life conclusion"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是24项具体做法的原创自我观察。“时代”在这里是可自由采用的当前章节标题，不是六种普世发展阶段，不按年龄、人生事件或固定顺序派型，不评进度、成熟、成功、智慧、韧性、健康、关系质量或职业匹配。六组是编辑观察入口，可能同时出现；均分不证明心理独立、信效度、跨语言等价或任何人口常模，不指导辞职、财务、医疗或重大关系决定。",
+          "en": "This is an original self-observation of twenty-four particular practices. Era is an optional title for a current chapter, not six universal developmental stages. It assigns no type by age, life event or fixed sequence and rates no progress, maturity, success, wisdom, resilience, health, relationship quality or career fit. Six groups are editorial observation entrances that may coexist. Means establish no psychological independence, reliability, validity, language equivalence or population norms, and guide no resignation, financial, medical or major relationship decision."
+        }
+      ]
+    },
+    {
+      "id": "original-method",
+      "title": {
+        "zh": "原创建议读法，不复刻六个普世阶段",
+        "en": "Original conventions, not a replica of six universal stages"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版24项、六组名称与全部正文原创，不复刻竞品10题主副时代，也不把竞品引用的发展阶段作者当成本版六组的验证来源。结构检查只确认题目、计分与显示约定一致，没有验证信效度、潜在结构、常模或生活建议效果；不推断年龄、经历或心理状态。",
+          "en": "Twenty-four items, six names and all text are original. They replicate no competitor ten-item primary and secondary eras and adopt no cited developmental author as validation of these six groups. Structural checks only confirm items, scoring and display conventions, without establishing reliability, validity, latent structure, norms or effectiveness of life advice. They infer no age, experience or mental state."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "时代的你测试在这里观察什么？",
+        "en": "What does the Eras of You Test observe here?"
+      },
+      "answer": {
+        "zh": "它分别回看过去四周初见留意、小步试选、节奏搭建、改线调整、回看整理与经验留痕六类具体做法。24项均为正向频率，不判断你实际上处于哪个普世发展阶段，也不依据年龄、重大事件、成熟或成功派型。",
+        "en": "It separately revisits six particular practices over four weeks: Fresh Attention, Trying Options, Keeping a Rhythm, Changing an Arrangement, Reviewing Notes and Passing Notes. Twenty-four positively keyed frequencies determine no actual universal developmental stage or assignment by age, major event, maturity or success."
+      }
+    },
+    {
+      "question": {
+        "zh": "一定要有重大转折、旧日记或分享对象吗？",
+        "en": "Do I need a major turning point, old diary or someone to share with?"
+      },
+      "answer": {
+        "zh": "不需要。只回想有相关机会且自愿的普通场面，不要求披露健康、关系、财务、重大事件或他人资料。没有合适机会、没经历或无法判断时选不适用，不为符合某个时代编故事。所有全文也可作通用阅读。",
+        "en": "No. Recall ordinary, fitting and voluntary situations without disclosing health, relationships, finances, major events or another person’s information. With no fitting opportunity, experience or judgment, choose the unjudged option instead of inventing a story for an era. Every full text is also available as general reading."
+      }
+    },
+    {
+      "question": {
+        "zh": "不适用、有效题数和均分怎样计算？",
+        "en": "How do unjudged items, rated counts and means work?"
+      },
+      "answer": {
+        "zh": "六组各4项，全部正向，频率1—5。不适用不补零、不进分母；每组至少3项有效，才以有效项总和除以有效项数，四舍五入保留1位小数。不足明确资料不足，仍能阅读六份完整指南，不把缺机会解释成低能力。",
+        "en": "Six groups have four positively keyed items each, rated one to five. Unjudged items are neither zero nor part of the denominator. A group needs three rated items to divide the sum by their number and round to one decimal. Insufficient information still permits all six full guides, without turning missing opportunities into low ability."
+      }
+    },
+    {
+      "question": {
+        "zh": "六组可以同分吗？有主时代或下一阶段吗？",
+        "en": "Can groups tie, and is there a primary era or next stage?"
+      },
+      "answer": {
+        "zh": "可以同分，也可以都高、都低或近分。六组分别呈现，没有总分、最高值派型、隐藏主副时代或通往下一阶段的顺序。0.1差距不是测量精度或人生边界，均分不能给两个人排进度，也不批准重大决定。",
+        "en": "Groups can tie, be high, low or close. They remain separate without a total, highest-value type, hidden primary or secondary eras or sequence toward a next stage. A difference of 0.1 establishes no measurement precision or life boundary. Means cannot rank two people’s progress or authorise a major decision."
+      }
+    },
+    {
+      "question": {
+        "zh": "和年代审美、反派时代及竞品版本一样吗？",
+        "en": "Is this the same as Decade Aesthetic, Villain Era or the competitor edition?"
+      },
+      "answer": {
+        "zh": "不是同一题本或成绩。年代审美版比较18个设计菜单的历史视觉风格；反派时代版比较18个轻度边界场面的戏剧开场。本版是24条四周频率，六组分别读，不复刻竞品10题主副人生时代。不换算分数，也没有心理独立或跨语言等价的证明。",
+        "en": "They are different banks and scores. Decade Aesthetic compares historical visual styles in eighteen design menus; Villain Era compares theatrical openings in eighteen light boundary scenes. This edition has twenty-four four-week frequencies and six separate readings, replicating no competitor ten-item primary and secondary life eras. There is no score conversion or established psychological independence or language equivalence."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整指南、草稿和分享需要付费吗？",
+        "en": "Are full guides, drafts and sharing paid?"
+      },
+      "answer": {
+        "zh": "六份九节完整指南在作答前后都免费。24项和正文原创，“时代”只是可自由采用的当前章节标题，不测真实发展阶段、年龄进度、成熟、成功、心理健康或职业匹配，不要求披露重大事件、关系、健康、财务或他人资料。无需账号；自愿草稿只在本标签页最多24小时，完成、清除或重测即删。分享仅含测试名、“完整自我观察”和公开入口，不含答案或均分。可以停止，仍能完整阅读公开指南；不因得分作重大决定。",
+        "en": "All six nine-section guides are free before and after answering. Twenty-four items and the text are original. Era is an optional current-chapter title, assessing no actual developmental stage, age progress, maturity, success, mental health or career fit. No major event, relationship, health, financial or another person’s information is required. No account is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains the test name, Complete self-reflection and a public entry link, without answers or means. Stop and still read every public guide in full; make no major decision because of a score."
+      }
+    }
+  ]
+}
