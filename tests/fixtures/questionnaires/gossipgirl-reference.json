@@ -1,0 +1,746 @@
+{
+  "id": "T128",
+  "version": "1.0.0",
+  "form": "fermatmind_gossip_girl_original_18_v1",
+  "method": "Own original2007–2012sixSerena/Blair/Dan/Nate/Chuck/Jenny;18originalvoluntaryfriend-madefashionzinequestions72options;12exposures3perpositioneach;allhighestrawcountties. Editorialcreativeanglesonly,no privategossip/status/wealthworth/clinical/manipulation/romanticcompatibilityinference. NotIDRbank/set/scoring.",
+  "questions": [
+    {
+      "id": "GGR_01",
+      "prompt": {
+        "en": "Friends are making a small, voluntary fashion zine together. What would you most enjoy starting with?",
+        "zh": "朋友自愿合作一本小型穿搭创作刊，你最喜欢先做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "serena",
+          "label": {
+            "en": "Invite people in an easy way that leaves them free to join or watch.",
+            "zh": "用轻松方式邀请，让人自由加入或旁观。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "blair",
+          "label": {
+            "en": "Agree a clear theme and a simple plan for putting the pages together.",
+            "zh": "约定清楚主题和简单组页计划。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "dan",
+          "label": {
+            "en": "Write a short fictional piece that explores an ordinary moment in the project.",
+            "zh": "写篇短虚构作品，琢磨项目的普通片刻。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nate",
+          "label": {
+            "en": "Hear different preferences before the group settles on its format.",
+            "zh": "定刊物形式前，听不同偏好。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GGR_02",
+      "prompt": {
+        "en": "Your zine group has many page ideas but no shared shape yet. What appeals most?",
+        "zh": "创作刊点子很多，还没共同形状，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "blair",
+          "label": {
+            "en": "Build a coherent page order everyone can discuss and agree.",
+            "zh": "排一个连贯页序，供大家讨论同意。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "dan",
+          "label": {
+            "en": "Turn one small imagined scene into a thoughtful paragraph.",
+            "zh": "把一个想象小场景写成有思考的段落。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nate",
+          "label": {
+            "en": "Listen to what each contributor wants the issue to feel like.",
+            "zh": "听每位创作者希望这期是什么感觉。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "chuck",
+          "label": {
+            "en": "Compare the resources already offered and choose a manageable first version.",
+            "zh": "比已自愿提供的材料，选可负担初版。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GGR_03",
+      "prompt": {
+        "en": "A blank page is available for any original contribution. What would you prefer?",
+        "zh": "有空白页可放任何原创贡献，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dan",
+          "label": {
+            "en": "Write fiction from an invented viewpoint without exposing anyone’s private life.",
+            "zh": "从虚构视角写，不暴露任何人私生活。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nate",
+          "label": {
+            "en": "Invite two contributors to explain their different hopes for the page.",
+            "zh": "邀两位创作者解释对这页的不同期待。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "chuck",
+          "label": {
+            "en": "Choose a page format that fits the time and materials already agreed.",
+            "zh": "选适合约好时间和材料的页面形式。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "jenny",
+          "label": {
+            "en": "Try a handmade collage or altered-paper fashion idea.",
+            "zh": "试手作拼贴或纸张改造穿搭点子。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GGR_04",
+      "prompt": {
+        "en": "Two friends prefer different covers for the same zine. What would you enjoy doing?",
+        "zh": "两位朋友偏好不同刊物封面，你喜欢做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nate",
+          "label": {
+            "en": "Ask each person what they value in their version before suggesting a way forward.",
+            "zh": "建议下一步前，问各自看重哪部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "chuck",
+          "label": {
+            "en": "Check what each cover would require within the group’s agreed limits.",
+            "zh": "在约好限制内，核每种封面要什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "jenny",
+          "label": {
+            "en": "Make a small paper sample that tries an element from each design.",
+            "zh": "做小纸样，试两种设计各一个元素。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "serena",
+          "label": {
+            "en": "Keep the conversation welcoming enough that nobody needs to perform popularity.",
+            "zh": "让交流好加入，不需表演受欢迎。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GGR_05",
+      "prompt": {
+        "en": "Only a few shared materials remain for your optional creative issue. What appeals most?",
+        "zh": "这期可选创作只剩少量共有材料，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "chuck",
+          "label": {
+            "en": "Pick a feasible use for the materials without asking anyone to spend more.",
+            "zh": "不要求加钱，给材料选可行用途。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "jenny",
+          "label": {
+            "en": "Experiment with scraps to see what an unexpected texture can do.",
+            "zh": "拿边角料试意外质地能做什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "serena",
+          "label": {
+            "en": "Offer an easy invitation to contribute in whatever way is comfortable.",
+            "zh": "轻松邀请，让人按舒服方式贡献。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "blair",
+          "label": {
+            "en": "Revise the page plan so the issue still feels coherent.",
+            "zh": "改页计划，让这期仍连贯。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GGR_06",
+      "prompt": {
+        "en": "An old paper sample could become part of a new fashion illustration. What would you prefer?",
+        "zh": "旧纸样能变成新穿搭插画的一部分，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "jenny",
+          "label": {
+            "en": "Try cutting, folding or layering it into a new visual possibility.",
+            "zh": "试剪、折、叠，作新视觉可能。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "serena",
+          "label": {
+            "en": "Share it casually with someone who might enjoy joining in.",
+            "zh": "轻松分享给可能喜欢参与的人。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "blair",
+          "label": {
+            "en": "Give the sample a clear place in the issue’s agreed visual theme.",
+            "zh": "在约好视觉主题中，给纸样清楚位置。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dan",
+          "label": {
+            "en": "Write an invented vignette about the object rather than a real person’s secrets.",
+            "zh": "给物件写虚构小品，不写真人秘密。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GGR_07",
+      "prompt": {
+        "en": "A newcomer is curious about your friends’ creative gathering. What would you enjoy offering?",
+        "zh": "新人好奇朋友的创作聚会，你喜欢给什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "serena",
+          "label": {
+            "en": "A relaxed welcome with a genuine option to try a page or simply look around.",
+            "zh": "放松欢迎，真能选试做一页或随便看看。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "blair",
+          "label": {
+            "en": "A quick overview of the theme, page order and decisions already agreed.",
+            "zh": "快速介绍主题、页序和已约定决定。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "dan",
+          "label": {
+            "en": "A short fictional example that shows one possible contribution.",
+            "zh": "给一个虚构短例，展示可能贡献。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nate",
+          "label": {
+            "en": "A chance to say what interests them before anyone assigns a part.",
+            "zh": "派任务前，给机会说自己感兴趣什么。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GGR_08",
+      "prompt": {
+        "en": "The zine’s pages are individually interesting but feel disconnected. What would you prefer?",
+        "zh": "刊物每页有趣，彼此却不连贯，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "blair",
+          "label": {
+            "en": "Suggest a shared structure that contributors can adjust together.",
+            "zh": "建议共同结构，让创作者一起改。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "dan",
+          "label": {
+            "en": "Write a fictional linking passage that adds another way to read the pages.",
+            "zh": "写虚构连接段，增加阅读这些页的方法。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nate",
+          "label": {
+            "en": "Ask contributors which differences they want the issue to preserve.",
+            "zh": "问创作者想保留哪些差异。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "chuck",
+          "label": {
+            "en": "Choose a small workable edit using the time everyone has offered.",
+            "zh": "用大家自愿给的时间，选可做小修改。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GGR_09",
+      "prompt": {
+        "en": "You want to contribute writing to a friend-made issue. What feels most appealing?",
+        "zh": "想给朋友制作的一期刊物写文，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dan",
+          "label": {
+            "en": "Develop a made-up scene carefully instead of turning friends into gossip material.",
+            "zh": "仔细发展虚构场景，不把朋友当八卦素材。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nate",
+          "label": {
+            "en": "Let another contributor explain how the text might sit beside their image.",
+            "zh": "让另一创作者解释文字怎样伴图。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "chuck",
+          "label": {
+            "en": "Choose a length that fits the space and work the group has agreed.",
+            "zh": "选适合版面和约好工作量的长度。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "jenny",
+          "label": {
+            "en": "Test a handwritten or cut-paper treatment for the words.",
+            "zh": "给文字试手写或剪纸呈现。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GGR_10",
+      "prompt": {
+        "en": "Two contributors disagree about which page should open the issue. What would you most enjoy?",
+        "zh": "两位创作者对哪页开篇有分歧，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nate",
+          "label": {
+            "en": "Hear both reasons and reflect them back without making either person the problem.",
+            "zh": "听两边理由并复述，不把任何人当问题。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "chuck",
+          "label": {
+            "en": "Compare two possible orders against the same agreed constraints.",
+            "zh": "用同一约定限制，比两种页序。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "jenny",
+          "label": {
+            "en": "Make quick folded mock-ups so the group can try both openings.",
+            "zh": "做快折样刊，让小组试两种开篇。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "serena",
+          "label": {
+            "en": "Keep the invitation to discuss easy and free of social ranking.",
+            "zh": "让讨论邀请轻松，不排名社交地位。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GGR_11",
+      "prompt": {
+        "en": "The group could make one elaborate copy or several simple copies. What appeals most?",
+        "zh": "小组可作一本复杂刊或几本简单刊，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "chuck",
+          "label": {
+            "en": "Choose after checking what people have freely offered to make and share.",
+            "zh": "核大家自愿制作、分享什么后再选。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "jenny",
+          "label": {
+            "en": "Try a new handmade finish on a small sample before deciding.",
+            "zh": "决定前，用小样试新手作表面。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "serena",
+          "label": {
+            "en": "Find an easy way for friends to enjoy the issue whichever format is chosen.",
+            "zh": "无论选哪形式，都找朋友轻松享受的方法。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "blair",
+          "label": {
+            "en": "Set a clear, agreed production plan for the selected format.",
+            "zh": "给选定形式定清楚、约好的制作计划。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GGR_12",
+      "prompt": {
+        "en": "Your first paper fashion sketch looks different from what you imagined. What would you prefer?",
+        "zh": "首张纸上穿搭草图和想象不同，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "jenny",
+          "label": {
+            "en": "Treat it as a prototype and try one concrete change in texture or shape.",
+            "zh": "当原型，在质地或形状试一项具体变化。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "serena",
+          "label": {
+            "en": "Show it informally to a friend who is welcome to react or pass.",
+            "zh": "随意给朋友看，欢迎回应或不评。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "blair",
+          "label": {
+            "en": "Check how it fits the issue’s theme before changing the whole design.",
+            "zh": "大改前，核怎样合这期主题。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dan",
+          "label": {
+            "en": "Write a fictional note that explores the unexpected detail.",
+            "zh": "写虚构便笺，探索意外细节。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GGR_13",
+      "prompt": {
+        "en": "Friends can drop into the creative session at different times. What would you enjoy?",
+        "zh": "朋友能在不同时段来创作活动，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "serena",
+          "label": {
+            "en": "Leave a friendly, low-pressure way to join that works for late arrivals too.",
+            "zh": "留友好、无压力加入方式，晚来也适用。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "blair",
+          "label": {
+            "en": "Keep an agreed checklist so people know which pages are ready.",
+            "zh": "留约好清单，让人知哪些页已好。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "dan",
+          "label": {
+            "en": "Offer a small fictional writing prompt that can stand on its own.",
+            "zh": "给可独立完成的小虚构写作引子。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nate",
+          "label": {
+            "en": "Ask arrivals what sort of contribution they would actually like to make.",
+            "zh": "问来者实际想作哪类贡献。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GGR_14",
+      "prompt": {
+        "en": "The issue’s theme is changing as people make their pages. What appeals most?",
+        "zh": "随大家制作，刊物主题也在变，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "blair",
+          "label": {
+            "en": "Propose an updated theme and get agreement before reorganising people’s work.",
+            "zh": "提更新主题，获同意再重排作品。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "dan",
+          "label": {
+            "en": "Write about an invented change of perspective that echoes the creative process.",
+            "zh": "写一个虚构视角变化，呼应创作过程。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nate",
+          "label": {
+            "en": "Hear what each contributor hopes the revised theme will keep.",
+            "zh": "听每位创作者盼新主题保留什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "chuck",
+          "label": {
+            "en": "Pick a realistic revision within the time and supplies already offered.",
+            "zh": "在已自愿给的时间、用品内选现实修改。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GGR_15",
+      "prompt": {
+        "en": "A short text needs a more distinctive voice for the zine. What would you prefer?",
+        "zh": "刊物一段短文需更独特声音，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dan",
+          "label": {
+            "en": "Rewrite an invented narrator’s observations, keeping real private details out.",
+            "zh": "改虚构叙述者观察，排除真人隐私。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nate",
+          "label": {
+            "en": "Ask a collaborator how the voice reads to them, then hear their reasons.",
+            "zh": "问合作者怎样读此声音，再听理由。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "chuck",
+          "label": {
+            "en": "Choose one revision that fits the group’s agreed editing time.",
+            "zh": "选一项合约好编辑时间的修改。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "jenny",
+          "label": {
+            "en": "Try lettering or paper layers that give the words another visual rhythm.",
+            "zh": "试字体或纸层，给文字另一视觉节奏。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GGR_16",
+      "prompt": {
+        "en": "Your friends interpret the same creative idea in opposite ways. What would you enjoy?",
+        "zh": "朋友对同一创作点子有相反解释，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nate",
+          "label": {
+            "en": "Let each explain their reading and look for a distinction worth keeping.",
+            "zh": "让各自解释读法，找值得保留的差别。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "chuck",
+          "label": {
+            "en": "Compare practical versions without treating anybody’s budget as personal worth.",
+            "zh": "比可行版本，不把谁的预算当个人价值。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "jenny",
+          "label": {
+            "en": "Make a reversible sample to explore the difference with my hands.",
+            "zh": "用可改回小样，亲手探索差别。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "serena",
+          "label": {
+            "en": "Keep the gathering friendly even if the final pieces remain different.",
+            "zh": "即使最终作品不同，聚会仍友好。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GGR_17",
+      "prompt": {
+        "en": "The group is deciding how to finish the optional zine without extra spending. What appeals most?",
+        "zh": "小组决定怎样不额外花钱完成可选创作刊，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "chuck",
+          "label": {
+            "en": "Set a small achievable scope using only agreed contributions.",
+            "zh": "只用约好贡献，定可完成小范围。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "jenny",
+          "label": {
+            "en": "Turn a leftover material into a fresh handmade detail.",
+            "zh": "把剩材料变新手作细节。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "serena",
+          "label": {
+            "en": "Invite people to enjoy the finished work without a prestige contest.",
+            "zh": "邀请享受成品，不比赛声望。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "blair",
+          "label": {
+            "en": "Give the final pages a coherent order and clear closing point.",
+            "zh": "给最后几页连贯顺序和清楚终点。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GGR_18",
+      "prompt": {
+        "en": "After the issue is finished, you can try one new detail for next time. What would you prefer?",
+        "zh": "这期完成后，下次可试一项新细节，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "jenny",
+          "label": {
+            "en": "Prototype a different paper shape or handmade styling idea.",
+            "zh": "给不同纸形或手作造型点子做原型。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "serena",
+          "label": {
+            "en": "Keep an easy invitation open to friends with different interests.",
+            "zh": "给兴趣不同朋友留轻松邀请。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "blair",
+          "label": {
+            "en": "Agree a new visual theme before building another whole issue.",
+            "zh": "再做整期前，约好新视觉主题。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dan",
+          "label": {
+            "en": "Write a fresh invented scene rather than reusing a real disagreement.",
+            "zh": "写新虚构场景，不重用真人争执。"
+          }
+        }
+      ]
+    }
+  ]
+}

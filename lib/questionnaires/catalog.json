@@ -2533,5 +2533,32 @@
       "zooble"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "gossip-girl",
+    "code": "GOSSIP_GIRL_FAN",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "fantasy",
+    "title": {
+      "en": "Gossip Girl Test",
+      "zh": "《绯闻女孩》角色测试"
+    },
+    "description": {
+      "en": "Try 18 original friend-made fashion-zine situations. Compare Serena, Blair, Dan, Nate, Chuck and Jenny from the original series, with all highest ties and six complete bilingual guides free. Unofficial fan edition, without plot trivia.",
+      "zh": "完成18道原创朋友穿搭创作刊情境，比较原版剧集的瑟琳娜、布莱尔、丹、内特、查克和珍妮。所有最高并列与六份双语全文免费。非官方同人版，不考剧情。"
+    },
+    "minutes": 5,
+    "formCode": "fermatmind_gossip_girl_original_18_v1",
+    "questionCount": 18,
+    "resultSlugs": [
+      "serena",
+      "blair",
+      "dan",
+      "nate",
+      "chuck",
+      "jenny"
+    ],
+    "collection": "explore"
   }
 ]
