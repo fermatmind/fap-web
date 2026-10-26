@@ -2798,5 +2798,32 @@
       "solo-chronicler"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "barbie-character",
+    "code": "BARBIE_FILM_CHARACTERS_FAN",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "fantasy",
+    "title": {
+      "en": "Barbie Character Test",
+      "zh": "芭比角色测试"
+    },
+    "description": {
+      "en": "Explore 18 original art-afternoon situations and six selected Barbie film characters: Barbie, Ken, Gloria, President Barbie, Weird Barbie and Allan. All highest ties and complete bilingual guides are free. Unofficial fan edition.",
+      "zh": "完成18道原创艺术下午情境，探索芭比、肯、格洛丽亚、总统芭比、怪芭比、艾伦六位选定电影角色。所有最高并列与双语完整说明均免费。非官方同人版。"
+    },
+    "minutes": 5,
+    "formCode": "fermatmind_barbie_film_original_18_v1",
+    "questionCount": 18,
+    "resultSlugs": [
+      "barbie",
+      "ken",
+      "gloria",
+      "president-barbie",
+      "weird-barbie",
+      "allan"
+    ],
+    "collection": "explore"
   }
 ]

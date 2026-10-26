@@ -1,0 +1,746 @@
+{
+  "id": "T133",
+  "version": "1.0.0",
+  "form": "fermatmind_barbie_film_original_18_v1",
+  "method": "Ownselectedsix2023filmidentitiesBarbie/Ken/Gloria/PresidentBarbie/WeirdBarbie/Allan;18originalcommunityartchoices72options;12exposures3perpositioneach;allhighestrawcountties. Originaleditorialangles,notfilmcanontraitvalidation/IDR35itembank/career/IQ/gender/bodybeauty/political/clinicalassessment.",
+  "questions": [
+    {
+      "id": "BAR_01",
+      "prompt": {
+        "en": "Your neighbourhood is holding a voluntary art afternoon. What would you enjoy adding?",
+        "zh": "社区举办一场自愿参加的艺术下午，你最想加入什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "barbie",
+          "label": {
+            "en": "Ask what an ordinary welcome would look like if we imagined it afresh.",
+            "zh": "重新想象一次普通的欢迎，看看还可以是什么样子。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ken",
+          "label": {
+            "en": "Pick a small activity because it interests me, even if my friends choose another.",
+            "zh": "选一项自己感兴趣的小活动，即使朋友选了别的。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "gloria",
+          "label": {
+            "en": "Turn an everyday detail from my own week into a short creative prompt.",
+            "zh": "把自己这周的日常细节变成一个创作提示。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "president-barbie",
+          "label": {
+            "en": "Help everyone agree how to use the shared space and time.",
+            "zh": "帮助大家商量共用空间和时间的安排。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_02",
+      "prompt": {
+        "en": "Several friends choose the same workshop, but another table catches your interest. What appeals most?",
+        "zh": "朋友都选了同一个工作坊，另一张桌子却吸引你，什么最合心意？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ken",
+          "label": {
+            "en": "Try the table I actually want to explore and catch up with friends later.",
+            "zh": "先试自己确实想探索的那桌，之后再与朋友碰面。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "gloria",
+          "label": {
+            "en": "Use a small moment from arriving here as material for a tiny sketch.",
+            "zh": "把刚到这里的一个小片刻画成速写。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "president-barbie",
+          "label": {
+            "en": "Ask whether the two tables can share their allotted space fairly.",
+            "zh": "问两桌能否把分到的空间安排得更合适。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "weird-barbie",
+          "label": {
+            "en": "See whether leftover materials can become an unexpected new activity.",
+            "zh": "看看剩下的材料能不能变成意外的新玩法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_03",
+      "prompt": {
+        "en": "A shared notebook needs an opening page. What would you prefer?",
+        "zh": "共享创作本需要一个开篇，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "gloria",
+          "label": {
+            "en": "Start with an ordinary observation from my own day and build from it.",
+            "zh": "从自己今天的一次普通观察出发，慢慢展开。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "president-barbie",
+          "label": {
+            "en": "Invite contributors to agree whose pages appear in which order.",
+            "zh": "邀请参与者一起商量页面的排列顺序。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "weird-barbie",
+          "label": {
+            "en": "Make an unusual opening from scraps that were going to be set aside.",
+            "zh": "用原本准备放到一边的边角料做一个特别的开篇。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "allan",
+          "label": {
+            "en": "Leave an inviting place for a contribution that does not fit the main theme.",
+            "zh": "留一个友好的位置，给不太符合主主题的作品。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_04",
+      "prompt": {
+        "en": "Two activities want the same corner for part of the afternoon. What appeals most?",
+        "zh": "两项活动都想在下午的一段时间使用同一个角落，什么最合心意？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "president-barbie",
+          "label": {
+            "en": "Help the participants agree a simple timetable they can both change.",
+            "zh": "帮助双方商量一个都能修改的简单时间表。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "weird-barbie",
+          "label": {
+            "en": "Use spare objects to invent a different sort of corner elsewhere.",
+            "zh": "用闲置物品在别处做出另一种角落。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "allan",
+          "label": {
+            "en": "Find a way for a small off-theme contribution to remain welcome too.",
+            "zh": "也让一份偏离主题的小作品有地方被欢迎。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "barbie",
+          "label": {
+            "en": "Ask whether the original idea of what this corner is for still suits us.",
+            "zh": "问一问，这个角落原先的用途还适不适合大家。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_05",
+      "prompt": {
+        "en": "A box of odd shapes is left over from earlier crafts. What would you enjoy?",
+        "zh": "之前的手工留下了一盒形状各异的材料，你喜欢怎样处理？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "weird-barbie",
+          "label": {
+            "en": "Combine two unlikely pieces into an entirely new little object.",
+            "zh": "把两块看似不搭的材料组合成一个全新的小物件。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "allan",
+          "label": {
+            "en": "Make room for someone who wants to contribute just one unusual piece.",
+            "zh": "给只想贡献一块特别材料的人留出位置。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "barbie",
+          "label": {
+            "en": "Reconsider what a finished object has to look like in this activity.",
+            "zh": "重新想想，这次活动的成品一定要是什么样子。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ken",
+          "label": {
+            "en": "Choose a piece I like without needing the group to like the same one.",
+            "zh": "选自己喜欢的一块，不必等大家都喜欢同一块。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_06",
+      "prompt": {
+        "en": "Someone brings a tiny piece that does not match the exhibition theme. What appeals most?",
+        "zh": "有人带来一件不太符合展览主题的小作品，什么最合心意？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "allan",
+          "label": {
+            "en": "Offer an optional place for it without requiring its maker to change it.",
+            "zh": "给它一个可选的位置，不要求作者先把它改掉。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "barbie",
+          "label": {
+            "en": "Ask whether the theme itself could leave room for a different question.",
+            "zh": "问主题本身能不能容纳另一个问题。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ken",
+          "label": {
+            "en": "Choose the part I want to make, whether or not it resembles the exhibition.",
+            "zh": "选择自己想做的部分，不论它像不像展览中的其他作品。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "gloria",
+          "label": {
+            "en": "Link the piece to an ordinary detail from my own experience.",
+            "zh": "从自己的日常经验里找一个细节，与这件作品相连。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_07",
+      "prompt": {
+        "en": "The group repeats last year’s welcome ritual by habit. What would you prefer?",
+        "zh": "大家习惯性地沿用去年的欢迎环节，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "barbie",
+          "label": {
+            "en": "Ask what we want a welcome to feel like this year before repeating it.",
+            "zh": "先问今年想让欢迎带来怎样的感受，再决定是否照旧。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ken",
+          "label": {
+            "en": "Choose one small role I enjoy rather than copy a friend’s role.",
+            "zh": "选一个自己喜欢的小角色，不照着朋友的角色来。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "gloria",
+          "label": {
+            "en": "Suggest a prompt based on an ordinary welcome I remember from this week.",
+            "zh": "用这周记得的一次普通欢迎，提出一个创作提示。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "president-barbie",
+          "label": {
+            "en": "Help the group agree who wants a turn and how much time to use.",
+            "zh": "帮助大家商量谁愿意参与、各用多少时间。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_08",
+      "prompt": {
+        "en": "A friend hopes you will join their craft, while you are curious about another. What appeals most?",
+        "zh": "朋友希望你参加他们的手工活动，你却好奇另一项，什么最合心意？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ken",
+          "label": {
+            "en": "Say which craft I would like to try and arrange another moment together.",
+            "zh": "说出自己想试哪项，再约一个一起相处的时段。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "gloria",
+          "label": {
+            "en": "Make a tiny piece about the ordinary experience of choosing between plans.",
+            "zh": "用在两种安排之间选择的日常体验，做一件小作品。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "president-barbie",
+          "label": {
+            "en": "Help check that both crafts have the time and table space they were promised.",
+            "zh": "帮忙看看两项活动是否都有原先约好的时间和桌面。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "weird-barbie",
+          "label": {
+            "en": "Propose a playful object that combines the two piles of spare materials.",
+            "zh": "提议用两边的闲置材料合做一个有趣物件。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_09",
+      "prompt": {
+        "en": "You want to add a line to a shared art card. What would you enjoy writing?",
+        "zh": "你想在共创艺术卡上加一句话，最想写什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "gloria",
+          "label": {
+            "en": "A small true detail from my own day, without identifying anyone else.",
+            "zh": "自己这一天里的一个真实小细节，不透露别人的身份。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "president-barbie",
+          "label": {
+            "en": "A brief invitation for everyone to choose their own contribution time.",
+            "zh": "简短邀请大家选择自己的参与时段。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "weird-barbie",
+          "label": {
+            "en": "An unexpected connection between two discarded drawings.",
+            "zh": "两幅被放下的画之间，一个出人意料的联系。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "allan",
+          "label": {
+            "en": "A welcome for a contribution that is much smaller or stranger than expected.",
+            "zh": "欢迎一份比预想更小、也更特别的贡献。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_10",
+      "prompt": {
+        "en": "The shared wall has more proposed pieces than empty spaces. What appeals most?",
+        "zh": "共享墙面收到的作品比空位多，什么最合心意？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "president-barbie",
+          "label": {
+            "en": "Ask contributors to agree a rotation that they can revisit together.",
+            "zh": "请参与者一起商量轮换方式，并保留再调整的机会。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "weird-barbie",
+          "label": {
+            "en": "Turn some spare materials into a different, playful display format.",
+            "zh": "用闲置材料做一种不同而有趣的展示形式。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "allan",
+          "label": {
+            "en": "Reserve a modest optional spot for a piece outside the main grouping.",
+            "zh": "为主要分组之外的一件作品留一个不大的可选位置。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "barbie",
+          "label": {
+            "en": "Question whether every piece needs to be on a wall at all.",
+            "zh": "想一想，是不是每件作品都必须挂在墙上。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_11",
+      "prompt": {
+        "en": "A paper decoration tears in a visually interesting way. What would you prefer?",
+        "zh": "纸装饰裂开了一个很有意思的形状，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "weird-barbie",
+          "label": {
+            "en": "Ask its maker whether the tear could become part of a new design.",
+            "zh": "问作者愿不愿意让裂口成为新设计的一部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "allan",
+          "label": {
+            "en": "Offer space for the altered piece even if it no longer matches the others.",
+            "zh": "即使它不再像其他作品，也给改变后的它留个位置。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "barbie",
+          "label": {
+            "en": "Ask whether matching the original decoration is still what we want.",
+            "zh": "问一问，大家现在是否仍想让它与原设计一致。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ken",
+          "label": {
+            "en": "Choose the decoration I want to work on without comparing my taste to friends.",
+            "zh": "选自己想做的装饰，不必拿自己的喜好与朋友比较。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_12",
+      "prompt": {
+        "en": "A participant would like to share one small thing and then leave. What appeals most?",
+        "zh": "一位参与者只想分享一小件东西，然后离开，什么最合心意？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "allan",
+          "label": {
+            "en": "Welcome that limited contribution without asking for a larger performance.",
+            "zh": "欢迎这份有限的贡献，不要求对方来一场更大的表演。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "barbie",
+          "label": {
+            "en": "Reconsider whether the afternoon needs a single standard for participation.",
+            "zh": "重新想想，这个下午是否需要一种统一的参与标准。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ken",
+          "label": {
+            "en": "Choose my own contribution size based on what I want to do today.",
+            "zh": "按今天想做多少，选择自己的贡献大小。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "gloria",
+          "label": {
+            "en": "Use a small everyday departure as inspiration for my own drawing.",
+            "zh": "用一次日常告别给自己的画找灵感。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_13",
+      "prompt": {
+        "en": "You are invited to redesign an ordinary invitation for the next art afternoon. What appeals most?",
+        "zh": "你受邀重新设计下一次艺术下午的普通邀请，什么最合心意？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "barbie",
+          "label": {
+            "en": "Ask which familiar assumption about the event we could playfully revisit.",
+            "zh": "问哪些关于活动的熟悉设定可以重新、有趣地想一想。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ken",
+          "label": {
+            "en": "Choose a part of the invitation I want to make in my own style.",
+            "zh": "选一部分自己想用自己的风格完成的邀请。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "gloria",
+          "label": {
+            "en": "Begin with an ordinary moment that made me want to create something.",
+            "zh": "从一个曾让我想动手创作的日常片刻开始。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "president-barbie",
+          "label": {
+            "en": "Help contributors agree what the invitation promises about shared time.",
+            "zh": "帮助参与者商量邀请中对共用时间作出哪些约定。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_14",
+      "prompt": {
+        "en": "There is time for one more optional activity before you go. What would you enjoy?",
+        "zh": "离开前还有时间参加一项可选活动，你最想做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ken",
+          "label": {
+            "en": "Try something that interests me even if nobody I came with selects it.",
+            "zh": "试自己感兴趣的内容，即使同行的人都没有选它。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "gloria",
+          "label": {
+            "en": "Make a quick piece from one ordinary detail I noticed on the way here.",
+            "zh": "用来这里路上注意到的一个普通细节做一件小作品。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "president-barbie",
+          "label": {
+            "en": "Help settle a short, changeable turn-taking plan for the remaining time.",
+            "zh": "帮忙为剩余时间商量一个简短、可调整的轮流安排。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "weird-barbie",
+          "label": {
+            "en": "Transform a few unwanted scraps into something nobody planned.",
+            "zh": "把几片不再需要的材料变成原计划之外的东西。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_15",
+      "prompt": {
+        "en": "The group suggests a final shared picture about the afternoon. What appeals most?",
+        "zh": "大家提议合做一幅关于这个下午的画，什么最合心意？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "gloria",
+          "label": {
+            "en": "Add an everyday moment I experienced myself rather than a grand message.",
+            "zh": "画一个自己经历的日常片刻，不一定要表达宏大主题。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "president-barbie",
+          "label": {
+            "en": "Ask everyone which section they would like and agree a loose order.",
+            "zh": "问大家想画哪部分，再商量一个大致顺序。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "weird-barbie",
+          "label": {
+            "en": "Make a playful feature out of the shapes the others have left over.",
+            "zh": "把别人画完后留下的形状变成一个有趣细节。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "allan",
+          "label": {
+            "en": "Keep a welcoming place for a small contribution beyond the picture’s main idea.",
+            "zh": "给主构想之外的一点小贡献留一个友好的位置。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_16",
+      "prompt": {
+        "en": "You are discussing how a future shared art session could work. What would you prefer?",
+        "zh": "讨论未来的共创艺术活动时，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "president-barbie",
+          "label": {
+            "en": "Help willing participants agree a few clear arrangements they can revise.",
+            "zh": "帮助愿意参加的人约定几个清楚、可修改的安排。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "weird-barbie",
+          "label": {
+            "en": "Suggest a session built around finding new uses for overlooked materials.",
+            "zh": "提议用一场活动，探索被忽略材料的新用途。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "allan",
+          "label": {
+            "en": "Allow small off-theme contributions without making their makers explain themselves.",
+            "zh": "容纳偏离主题的小贡献，不要求作者先为自己辩解。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "barbie",
+          "label": {
+            "en": "Ask what we are assuming an art session has to be.",
+            "zh": "问一问，我们预设的艺术活动一定得是什么样。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_17",
+      "prompt": {
+        "en": "Two leftover items seem to belong to different projects. What appeals most?",
+        "zh": "两件剩余物看起来属于完全不同的项目，什么最合心意？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "weird-barbie",
+          "label": {
+            "en": "Try a surprising combination with the makers’ permission.",
+            "zh": "得到作者同意后，试一次意外的组合。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "allan",
+          "label": {
+            "en": "Make a little place where either item can appear without fitting a category.",
+            "zh": "留一个小位置，让任何一件都能出现，不必硬归类。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "barbie",
+          "label": {
+            "en": "Ask whether the categories are still useful for this afternoon.",
+            "zh": "问这些分类对这个下午是否仍有用。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ken",
+          "label": {
+            "en": "Pick whichever item I want to explore, independently of the most popular choice.",
+            "zh": "不跟着最热门的选择，挑自己想探索的那件。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_18",
+      "prompt": {
+        "en": "A future participant asks whether their unusual little project belongs here. What would you enjoy doing?",
+        "zh": "一位未来的参与者问，自己的特别小项目能否放在这里，你喜欢怎样回应？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "allan",
+          "label": {
+            "en": "Offer a clear, optional welcome without promising the whole group will copy it.",
+            "zh": "清楚地欢迎对方自由参与，不承诺全组都要照着做。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "barbie",
+          "label": {
+            "en": "Ask whether our idea of belonging could be wider than the current theme.",
+            "zh": "问我们的接纳范围能否比当前主题宽一点。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ken",
+          "label": {
+            "en": "Choose what I would like to contribute while respecting their different choice.",
+            "zh": "在尊重对方不同选择的同时，决定自己想贡献什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "gloria",
+          "label": {
+            "en": "Find an ordinary detail from my own life that helps me respond creatively.",
+            "zh": "从自己的日常生活里找一个细节，给出有创意的回应。"
+          }
+        }
+      ]
+    }
+  ]
+}

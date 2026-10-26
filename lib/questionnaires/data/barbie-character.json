@@ -1,0 +1,1727 @@
+{
+  "slug": "barbie-character",
+  "code": "BARBIE_FILM_CHARACTERS_FAN",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "fantasy",
+  "kind": "archetype",
+  "title": {
+    "en": "Barbie Character Test",
+    "zh": "芭比角色测试"
+  },
+  "description": {
+    "en": "Explore 18 original art-afternoon situations and six selected Barbie film characters: Barbie, Ken, Gloria, President Barbie, Weird Barbie and Allan. All highest ties and complete bilingual guides are free. Unofficial fan edition.",
+    "zh": "完成18道原创艺术下午情境，探索芭比、肯、格洛丽亚、总统芭比、怪芭比、艾伦六位选定电影角色。所有最高并列与双语完整说明均免费。非官方同人版。"
+  },
+  "seoTitle": {
+    "en": "Barbie Character Test: Free Quiz & 6 Complete Results",
+    "zh": "芭比角色测试：免费作答与6种完整结果"
+  },
+  "resultHeading": {
+    "en": "Your Barbie film-character readings",
+    "zh": "本次芭比电影角色读法"
+  },
+  "minutes": 5,
+  "introduction": {
+    "en": "Which Barbie film character do your creative-afternoon choices bring to mind? Imagine a neighbourhood art gathering where you can question a familiar ritual, follow an interest, draw from everyday life, agree a shared plan, reuse a surprising object or welcome an off-theme contribution. This independent fan edition offers 18 original situations and six complete public guides before you start. It selects characters from the 2023 film rather than claiming to classify every Barbie doll, career or story.",
+    "zh": "创作下午的选择会让你想到哪位芭比电影角色？想象一场社区艺术聚会：可以重新想熟悉环节、追随兴趣、从日常找素材、商量共同计划、意外再利用物件，或欢迎主题之外的贡献。本独立同人版有18道原创情境，六份全文开测前即可阅读。选角来自2023年电影，不把所有芭比玩偶、职业或故事都纳入分类。"
+  },
+  "instructions": {
+    "en": "Think about a small voluntary creative gathering you would enjoy now. Choose one of four responses in every situation, even if none fits perfectly. No answer ranks beauty, intelligence, kindness or gender expression. A character absent from an item is not rejected. Finish all 18 choices before raw counts appear; every highest tie receives a complete guide.",
+    "zh": "想一场现在愿参加的小型自愿创作聚会，每题四选一，即使都不完全贴合。答案不排名美貌、智力、善良或性别表达。当题未出现的角色不算被拒绝。完成18题后才显示原始次数，每个最高并列都有全文。"
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Mattel Consumer Support: four film-character identities",
+        "zh": "Mattel消费者支持：四名电影角色身份"
+      },
+      "url": "https://m.service.mattel.com/us/Technical/productDetail?prodno=HRK97&siteid=27"
+    },
+    {
+      "title": {
+        "en": "Mattel Creations: Weird Barbie film-character identity",
+        "zh": "Mattel Creations：怪芭比电影角色身份"
+      },
+      "url": "https://creations.mattel.com/products/weird-barbie-barbie-the-movie-hyb84/"
+    },
+    {
+      "title": {
+        "en": "Mattel: Allan film-character identity",
+        "zh": "Mattel：艾伦电影角色身份"
+      },
+      "url": "https://shop.mattel.com/products/barbie-the-movie-allan-doll-jbj42"
+    }
+  ],
+  "source": {
+    "kind": "original_unofficial_fan_quiz",
+    "formCode": "fermatmind_barbie_film_original_18_v1",
+    "itemBankVersion": "barbie_film_original_18_v1",
+    "scoringVersion": "barbie_film_all_highest_counts_v1",
+    "resultContentVersion": "barbie_film_full_guides_v1",
+    "itemBankSha256": "9722988426f9fcdfeb88254e96fd1008e9c11d0334319ebbe56cf4e2e619730e",
+    "resultContentSha256": "b872d4c1fde91f481ab8eb95bdf2c1bb67bcf711dc609735d508aeb31b1f8f53",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "barbie",
+      "title": {
+        "en": "Barbie",
+        "zh": "芭比（Barbie）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "ken",
+      "title": {
+        "en": "Ken",
+        "zh": "肯（Ken）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "gloria",
+      "title": {
+        "en": "Gloria",
+        "zh": "格洛丽亚（Gloria）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "president-barbie",
+      "title": {
+        "en": "President Barbie",
+        "zh": "总统芭比（President Barbie）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "weird-barbie",
+      "title": {
+        "en": "Weird Barbie",
+        "zh": "怪芭比（Weird Barbie）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "allan",
+      "title": {
+        "en": "Allan",
+        "zh": "艾伦（Allan）"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "BAR_01",
+      "prompt": {
+        "en": "Your neighbourhood is holding a voluntary art afternoon. What would you enjoy adding?",
+        "zh": "社区举办一场自愿参加的艺术下午，你最想加入什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "barbie",
+          "label": {
+            "en": "Ask what an ordinary welcome would look like if we imagined it afresh.",
+            "zh": "重新想象一次普通的欢迎，看看还可以是什么样子。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ken",
+          "label": {
+            "en": "Pick a small activity because it interests me, even if my friends choose another.",
+            "zh": "选一项自己感兴趣的小活动，即使朋友选了别的。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "gloria",
+          "label": {
+            "en": "Turn an everyday detail from my own week into a short creative prompt.",
+            "zh": "把自己这周的日常细节变成一个创作提示。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "president-barbie",
+          "label": {
+            "en": "Help everyone agree how to use the shared space and time.",
+            "zh": "帮助大家商量共用空间和时间的安排。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_02",
+      "prompt": {
+        "en": "Several friends choose the same workshop, but another table catches your interest. What appeals most?",
+        "zh": "朋友都选了同一个工作坊，另一张桌子却吸引你，什么最合心意？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ken",
+          "label": {
+            "en": "Try the table I actually want to explore and catch up with friends later.",
+            "zh": "先试自己确实想探索的那桌，之后再与朋友碰面。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "gloria",
+          "label": {
+            "en": "Use a small moment from arriving here as material for a tiny sketch.",
+            "zh": "把刚到这里的一个小片刻画成速写。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "president-barbie",
+          "label": {
+            "en": "Ask whether the two tables can share their allotted space fairly.",
+            "zh": "问两桌能否把分到的空间安排得更合适。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "weird-barbie",
+          "label": {
+            "en": "See whether leftover materials can become an unexpected new activity.",
+            "zh": "看看剩下的材料能不能变成意外的新玩法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_03",
+      "prompt": {
+        "en": "A shared notebook needs an opening page. What would you prefer?",
+        "zh": "共享创作本需要一个开篇，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "gloria",
+          "label": {
+            "en": "Start with an ordinary observation from my own day and build from it.",
+            "zh": "从自己今天的一次普通观察出发，慢慢展开。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "president-barbie",
+          "label": {
+            "en": "Invite contributors to agree whose pages appear in which order.",
+            "zh": "邀请参与者一起商量页面的排列顺序。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "weird-barbie",
+          "label": {
+            "en": "Make an unusual opening from scraps that were going to be set aside.",
+            "zh": "用原本准备放到一边的边角料做一个特别的开篇。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "allan",
+          "label": {
+            "en": "Leave an inviting place for a contribution that does not fit the main theme.",
+            "zh": "留一个友好的位置，给不太符合主主题的作品。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_04",
+      "prompt": {
+        "en": "Two activities want the same corner for part of the afternoon. What appeals most?",
+        "zh": "两项活动都想在下午的一段时间使用同一个角落，什么最合心意？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "president-barbie",
+          "label": {
+            "en": "Help the participants agree a simple timetable they can both change.",
+            "zh": "帮助双方商量一个都能修改的简单时间表。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "weird-barbie",
+          "label": {
+            "en": "Use spare objects to invent a different sort of corner elsewhere.",
+            "zh": "用闲置物品在别处做出另一种角落。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "allan",
+          "label": {
+            "en": "Find a way for a small off-theme contribution to remain welcome too.",
+            "zh": "也让一份偏离主题的小作品有地方被欢迎。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "barbie",
+          "label": {
+            "en": "Ask whether the original idea of what this corner is for still suits us.",
+            "zh": "问一问，这个角落原先的用途还适不适合大家。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_05",
+      "prompt": {
+        "en": "A box of odd shapes is left over from earlier crafts. What would you enjoy?",
+        "zh": "之前的手工留下了一盒形状各异的材料，你喜欢怎样处理？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "weird-barbie",
+          "label": {
+            "en": "Combine two unlikely pieces into an entirely new little object.",
+            "zh": "把两块看似不搭的材料组合成一个全新的小物件。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "allan",
+          "label": {
+            "en": "Make room for someone who wants to contribute just one unusual piece.",
+            "zh": "给只想贡献一块特别材料的人留出位置。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "barbie",
+          "label": {
+            "en": "Reconsider what a finished object has to look like in this activity.",
+            "zh": "重新想想，这次活动的成品一定要是什么样子。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ken",
+          "label": {
+            "en": "Choose a piece I like without needing the group to like the same one.",
+            "zh": "选自己喜欢的一块，不必等大家都喜欢同一块。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_06",
+      "prompt": {
+        "en": "Someone brings a tiny piece that does not match the exhibition theme. What appeals most?",
+        "zh": "有人带来一件不太符合展览主题的小作品，什么最合心意？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "allan",
+          "label": {
+            "en": "Offer an optional place for it without requiring its maker to change it.",
+            "zh": "给它一个可选的位置，不要求作者先把它改掉。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "barbie",
+          "label": {
+            "en": "Ask whether the theme itself could leave room for a different question.",
+            "zh": "问主题本身能不能容纳另一个问题。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ken",
+          "label": {
+            "en": "Choose the part I want to make, whether or not it resembles the exhibition.",
+            "zh": "选择自己想做的部分，不论它像不像展览中的其他作品。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "gloria",
+          "label": {
+            "en": "Link the piece to an ordinary detail from my own experience.",
+            "zh": "从自己的日常经验里找一个细节，与这件作品相连。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_07",
+      "prompt": {
+        "en": "The group repeats last year’s welcome ritual by habit. What would you prefer?",
+        "zh": "大家习惯性地沿用去年的欢迎环节，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "barbie",
+          "label": {
+            "en": "Ask what we want a welcome to feel like this year before repeating it.",
+            "zh": "先问今年想让欢迎带来怎样的感受，再决定是否照旧。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ken",
+          "label": {
+            "en": "Choose one small role I enjoy rather than copy a friend’s role.",
+            "zh": "选一个自己喜欢的小角色，不照着朋友的角色来。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "gloria",
+          "label": {
+            "en": "Suggest a prompt based on an ordinary welcome I remember from this week.",
+            "zh": "用这周记得的一次普通欢迎，提出一个创作提示。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "president-barbie",
+          "label": {
+            "en": "Help the group agree who wants a turn and how much time to use.",
+            "zh": "帮助大家商量谁愿意参与、各用多少时间。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_08",
+      "prompt": {
+        "en": "A friend hopes you will join their craft, while you are curious about another. What appeals most?",
+        "zh": "朋友希望你参加他们的手工活动，你却好奇另一项，什么最合心意？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ken",
+          "label": {
+            "en": "Say which craft I would like to try and arrange another moment together.",
+            "zh": "说出自己想试哪项，再约一个一起相处的时段。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "gloria",
+          "label": {
+            "en": "Make a tiny piece about the ordinary experience of choosing between plans.",
+            "zh": "用在两种安排之间选择的日常体验，做一件小作品。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "president-barbie",
+          "label": {
+            "en": "Help check that both crafts have the time and table space they were promised.",
+            "zh": "帮忙看看两项活动是否都有原先约好的时间和桌面。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "weird-barbie",
+          "label": {
+            "en": "Propose a playful object that combines the two piles of spare materials.",
+            "zh": "提议用两边的闲置材料合做一个有趣物件。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_09",
+      "prompt": {
+        "en": "You want to add a line to a shared art card. What would you enjoy writing?",
+        "zh": "你想在共创艺术卡上加一句话，最想写什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "gloria",
+          "label": {
+            "en": "A small true detail from my own day, without identifying anyone else.",
+            "zh": "自己这一天里的一个真实小细节，不透露别人的身份。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "president-barbie",
+          "label": {
+            "en": "A brief invitation for everyone to choose their own contribution time.",
+            "zh": "简短邀请大家选择自己的参与时段。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "weird-barbie",
+          "label": {
+            "en": "An unexpected connection between two discarded drawings.",
+            "zh": "两幅被放下的画之间，一个出人意料的联系。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "allan",
+          "label": {
+            "en": "A welcome for a contribution that is much smaller or stranger than expected.",
+            "zh": "欢迎一份比预想更小、也更特别的贡献。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_10",
+      "prompt": {
+        "en": "The shared wall has more proposed pieces than empty spaces. What appeals most?",
+        "zh": "共享墙面收到的作品比空位多，什么最合心意？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "president-barbie",
+          "label": {
+            "en": "Ask contributors to agree a rotation that they can revisit together.",
+            "zh": "请参与者一起商量轮换方式，并保留再调整的机会。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "weird-barbie",
+          "label": {
+            "en": "Turn some spare materials into a different, playful display format.",
+            "zh": "用闲置材料做一种不同而有趣的展示形式。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "allan",
+          "label": {
+            "en": "Reserve a modest optional spot for a piece outside the main grouping.",
+            "zh": "为主要分组之外的一件作品留一个不大的可选位置。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "barbie",
+          "label": {
+            "en": "Question whether every piece needs to be on a wall at all.",
+            "zh": "想一想，是不是每件作品都必须挂在墙上。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_11",
+      "prompt": {
+        "en": "A paper decoration tears in a visually interesting way. What would you prefer?",
+        "zh": "纸装饰裂开了一个很有意思的形状，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "weird-barbie",
+          "label": {
+            "en": "Ask its maker whether the tear could become part of a new design.",
+            "zh": "问作者愿不愿意让裂口成为新设计的一部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "allan",
+          "label": {
+            "en": "Offer space for the altered piece even if it no longer matches the others.",
+            "zh": "即使它不再像其他作品，也给改变后的它留个位置。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "barbie",
+          "label": {
+            "en": "Ask whether matching the original decoration is still what we want.",
+            "zh": "问一问，大家现在是否仍想让它与原设计一致。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ken",
+          "label": {
+            "en": "Choose the decoration I want to work on without comparing my taste to friends.",
+            "zh": "选自己想做的装饰，不必拿自己的喜好与朋友比较。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_12",
+      "prompt": {
+        "en": "A participant would like to share one small thing and then leave. What appeals most?",
+        "zh": "一位参与者只想分享一小件东西，然后离开，什么最合心意？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "allan",
+          "label": {
+            "en": "Welcome that limited contribution without asking for a larger performance.",
+            "zh": "欢迎这份有限的贡献，不要求对方来一场更大的表演。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "barbie",
+          "label": {
+            "en": "Reconsider whether the afternoon needs a single standard for participation.",
+            "zh": "重新想想，这个下午是否需要一种统一的参与标准。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ken",
+          "label": {
+            "en": "Choose my own contribution size based on what I want to do today.",
+            "zh": "按今天想做多少，选择自己的贡献大小。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "gloria",
+          "label": {
+            "en": "Use a small everyday departure as inspiration for my own drawing.",
+            "zh": "用一次日常告别给自己的画找灵感。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_13",
+      "prompt": {
+        "en": "You are invited to redesign an ordinary invitation for the next art afternoon. What appeals most?",
+        "zh": "你受邀重新设计下一次艺术下午的普通邀请，什么最合心意？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "barbie",
+          "label": {
+            "en": "Ask which familiar assumption about the event we could playfully revisit.",
+            "zh": "问哪些关于活动的熟悉设定可以重新、有趣地想一想。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ken",
+          "label": {
+            "en": "Choose a part of the invitation I want to make in my own style.",
+            "zh": "选一部分自己想用自己的风格完成的邀请。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "gloria",
+          "label": {
+            "en": "Begin with an ordinary moment that made me want to create something.",
+            "zh": "从一个曾让我想动手创作的日常片刻开始。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "president-barbie",
+          "label": {
+            "en": "Help contributors agree what the invitation promises about shared time.",
+            "zh": "帮助参与者商量邀请中对共用时间作出哪些约定。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_14",
+      "prompt": {
+        "en": "There is time for one more optional activity before you go. What would you enjoy?",
+        "zh": "离开前还有时间参加一项可选活动，你最想做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ken",
+          "label": {
+            "en": "Try something that interests me even if nobody I came with selects it.",
+            "zh": "试自己感兴趣的内容，即使同行的人都没有选它。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "gloria",
+          "label": {
+            "en": "Make a quick piece from one ordinary detail I noticed on the way here.",
+            "zh": "用来这里路上注意到的一个普通细节做一件小作品。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "president-barbie",
+          "label": {
+            "en": "Help settle a short, changeable turn-taking plan for the remaining time.",
+            "zh": "帮忙为剩余时间商量一个简短、可调整的轮流安排。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "weird-barbie",
+          "label": {
+            "en": "Transform a few unwanted scraps into something nobody planned.",
+            "zh": "把几片不再需要的材料变成原计划之外的东西。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_15",
+      "prompt": {
+        "en": "The group suggests a final shared picture about the afternoon. What appeals most?",
+        "zh": "大家提议合做一幅关于这个下午的画，什么最合心意？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "gloria",
+          "label": {
+            "en": "Add an everyday moment I experienced myself rather than a grand message.",
+            "zh": "画一个自己经历的日常片刻，不一定要表达宏大主题。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "president-barbie",
+          "label": {
+            "en": "Ask everyone which section they would like and agree a loose order.",
+            "zh": "问大家想画哪部分，再商量一个大致顺序。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "weird-barbie",
+          "label": {
+            "en": "Make a playful feature out of the shapes the others have left over.",
+            "zh": "把别人画完后留下的形状变成一个有趣细节。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "allan",
+          "label": {
+            "en": "Keep a welcoming place for a small contribution beyond the picture’s main idea.",
+            "zh": "给主构想之外的一点小贡献留一个友好的位置。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_16",
+      "prompt": {
+        "en": "You are discussing how a future shared art session could work. What would you prefer?",
+        "zh": "讨论未来的共创艺术活动时，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "president-barbie",
+          "label": {
+            "en": "Help willing participants agree a few clear arrangements they can revise.",
+            "zh": "帮助愿意参加的人约定几个清楚、可修改的安排。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "weird-barbie",
+          "label": {
+            "en": "Suggest a session built around finding new uses for overlooked materials.",
+            "zh": "提议用一场活动，探索被忽略材料的新用途。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "allan",
+          "label": {
+            "en": "Allow small off-theme contributions without making their makers explain themselves.",
+            "zh": "容纳偏离主题的小贡献，不要求作者先为自己辩解。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "barbie",
+          "label": {
+            "en": "Ask what we are assuming an art session has to be.",
+            "zh": "问一问，我们预设的艺术活动一定得是什么样。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_17",
+      "prompt": {
+        "en": "Two leftover items seem to belong to different projects. What appeals most?",
+        "zh": "两件剩余物看起来属于完全不同的项目，什么最合心意？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "weird-barbie",
+          "label": {
+            "en": "Try a surprising combination with the makers’ permission.",
+            "zh": "得到作者同意后，试一次意外的组合。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "allan",
+          "label": {
+            "en": "Make a little place where either item can appear without fitting a category.",
+            "zh": "留一个小位置，让任何一件都能出现，不必硬归类。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "barbie",
+          "label": {
+            "en": "Ask whether the categories are still useful for this afternoon.",
+            "zh": "问这些分类对这个下午是否仍有用。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ken",
+          "label": {
+            "en": "Pick whichever item I want to explore, independently of the most popular choice.",
+            "zh": "不跟着最热门的选择，挑自己想探索的那件。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BAR_18",
+      "prompt": {
+        "en": "A future participant asks whether their unusual little project belongs here. What would you enjoy doing?",
+        "zh": "一位未来的参与者问，自己的特别小项目能否放在这里，你喜欢怎样回应？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "allan",
+          "label": {
+            "en": "Offer a clear, optional welcome without promising the whole group will copy it.",
+            "zh": "清楚地欢迎对方自由参与，不承诺全组都要照着做。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "barbie",
+          "label": {
+            "en": "Ask whether our idea of belonging could be wider than the current theme.",
+            "zh": "问我们的接纳范围能否比当前主题宽一点。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ken",
+          "label": {
+            "en": "Choose what I would like to contribute while respecting their different choice.",
+            "zh": "在尊重对方不同选择的同时，决定自己想贡献什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "gloria",
+          "label": {
+            "en": "Find an ordinary detail from my own life that helps me respond creatively.",
+            "zh": "从自己的日常生活里找一个细节，给出有创意的回应。"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "barbie",
+      "directionIds": [
+        "barbie"
+      ],
+      "title": {
+        "en": "Barbie",
+        "zh": "芭比（Barbie）"
+      },
+      "headline": {
+        "en": "Look again at the familiar",
+        "zh": "重新看看熟悉的事物"
+      },
+      "summary": {
+        "en": "Explore Barbie through look again at the familiar: an original art-afternoon scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“重新看看熟悉的事物”探索芭比（Barbie）：原创艺术下午情境、五位角色比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      },
+      "seo": {
+        "title": {
+          "en": "Barbie Test Result: Look again at the familiar | Barbie Characters",
+          "zh": "芭比（Barbie）测试结果：重新看看熟悉的事物｜芭比角色"
+        },
+        "description": {
+          "en": "Explore Barbie through look again at the familiar: an original art-afternoon scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+          "zh": "从“重新看看熟悉的事物”探索芭比（Barbie）：原创艺术下午情境、五位角色比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+        }
+      },
+      "scoreReading": {
+        "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected film characters, giving 18 counts in total. Every character appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides. Choosing A throughout gives three counts to each, a six-way tie. Counts describe this original leisure bank, not matching percentages, population norms or validated personality differences.",
+        "zh": "完成全部18个情境。每项明确映射的选择给六名选定电影角色中的一人增加一次原始次数，总计18次。每人出现12次，每个答位3次；当题未出现不算被拒绝。所有最高次数都有完整说明。全选A时每人3次，六方并列。次数只描述这份原创休闲题本，不是匹配百分比、人群常模或经验证的人格差异。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "The Barbie angle in this edition",
+            "zh": "本版的芭比角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Barbie names the angle of looking again at something so familiar that nobody has asked about it recently. In this original art afternoon, you might wonder what a welcome is meant to offer rather than repeat last year’s ritual automatically. The pleasure is discovering a different possibility inside an ordinary activity. It need not involve a dramatic reinvention, a perfect appearance or a decision about how your whole life should look.",
+              "zh": "芭比在本版对应重新审视熟悉事物的角度：有些安排太常见，大家很久没有问过为什么。在原创艺术下午里，你可能先想欢迎环节想带来什么，而不是自动重复去年的流程。乐趣是从普通活动里发现另一种可能，不必大改人生，也不要求完美外貌。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An invitation that asks a fresh question",
+            "zh": "让邀请多问一个新问题"
+          },
+          "paragraphs": [
+            {
+              "en": "The group is about to reuse a familiar invitation. You ask whether it tells newcomers they can bring a tiny unfinished experiment as well as a polished piece. That question changes what the invitation makes possible without declaring the earlier version wrong. Someone else may still enjoy the old format. The useful move is opening one assumption for discussion and listening to what contributors actually want to keep.",
+              "zh": "大家正准备沿用熟悉的邀请。你问，能不能也告诉新朋友：小小的未完成试验也可以带来，不必只带完整作品。这给邀请增加了可能性，不等于旧版本做错了。别人仍可以喜欢原形式；有用的动作是把一个预设拿出来讨论，再听大家真正想保留什么。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Curiosity beside five other contributions",
+            "zh": "好奇与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Ken chooses an interest of his own, Gloria starts from everyday experience and President Barbie helps agree shared arrangements. Weird Barbie tries an unexpected reuse, while Allan welcomes a contribution outside the main grouping. Barbie asks which familiar assumption can be revisited. These actions can work together: a new question may need a practical agreement or an ordinary example before it becomes enjoyable. Several high counts offer several readings, without ranking originality or confidence.",
+              "zh": "肯选择自己的兴趣，格洛丽亚从日常经验出发，总统芭比帮助商量共同安排；怪芭比尝试意外再利用，艾伦欢迎主要分组之外的贡献。芭比则问熟悉预设能否重想。新问题也可能需要实际约定或日常例子才能变得有趣。几项高次数可以一起读，不给原创性或自信排名。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "A fresh question can wait",
+            "zh": "新问题也可以等一等"
+          },
+          "paragraphs": [
+            {
+              "en": "Questioning every small convention can consume an afternoon people wanted to spend making things. Ask which assumption matters now and leave the rest alone if the group prefers. A familiar ritual can be comforting and still remain optional. Your count cannot establish exceptional curiosity or dissatisfaction with your life, and a lower count does not mean you lack imagination. Sometimes keeping the usual welcome is exactly what participants want.",
+              "zh": "如果每个小习惯都要重新讨论，大家原本想动手的下午也会过去。可以先问哪一个预设现在最值得谈，其余暂时放下。熟悉环节可以让人舒服，也可以保持可选。次数不证明超常好奇或对人生不满；较低次数也不等于缺想象。有时大家就是想保留原来的欢迎。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try one editable assumption",
+            "zh": "试着修改一个小预设"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose an optional creative activity and write down one assumption about how it should begin. Ask a willing collaborator whether another beginning would be enjoyable, then try a small version of either option. Afterwards, compare what the two openings allowed you to notice. You can keep the familiar approach. The experiment concerns a particular activity, rather than proving courage, discovering a hidden identity or prescribing a major personal transformation.",
+              "zh": "选一项可选创作活动，写下关于开场的一个预设。问愿意合作的人，换一种开场会不会有趣，再小范围试一种或两种。之后比较各自让你注意到了什么，也可以留下熟悉做法。这只探索一项活动，不证明勇气、不揭示隐藏身份，也不要求重大转变。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Eighteen choices and every highest tie",
+            "zh": "18次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected film characters, giving 18 counts in total. Every character appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides. Choosing A throughout gives three counts to each, a six-way tie. Counts describe this original leisure bank, not matching percentages, population norms or validated personality differences.",
+              "zh": "完成全部18个情境。每项明确映射的选择给六名选定电影角色中的一人增加一次原始次数，总计18次。每人出现12次，每个答位3次；当题未出现不算被拒绝。所有最高次数都有完整说明。全选A时每人3次，六方并列。次数只描述这份原创休闲题本，不是匹配百分比、人群常模或经验证的人格差异。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: original community-art situations, mappings, examples and complete readings. Mattel’s public pages confirm the selected film-character names; they do not validate these editorial angles or this bank. Names belong to their respective rights holders. No movie dialogue, plot passages, franchise imagery or competitor questions and reports are reproduced. This playful comparison does not establish gender, appearance, intelligence, career suitability, political ability, relationship needs or clinical status.",
+              "zh": "费马独立创作本非官方同人版的社区艺术情境、映射、例子与完整解读。Mattel公开页面确认选定电影角色名称，不验证本版的编辑角度或题本。名称属于各自权利方。本版不复用电影台词、情节段落、品牌图片、竞品题目或报告。趣味比较不判定性别、外貌、智力、职业适合度、政治能力、关系需要或临床状况。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ken",
+      "directionIds": [
+        "ken"
+      ],
+      "title": {
+        "en": "Ken",
+        "zh": "肯（Ken）"
+      },
+      "headline": {
+        "en": "Choose an interest that is your own",
+        "zh": "选择属于自己的兴趣"
+      },
+      "summary": {
+        "en": "Explore Ken through choose an interest that is your own: an original art-afternoon scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“选择属于自己的兴趣”探索肯（Ken）：原创艺术下午情境、五位角色比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      },
+      "seo": {
+        "title": {
+          "en": "Ken Test Result: Choose an interest that is your own | Barbie Characters",
+          "zh": "肯（Ken）测试结果：选择属于自己的兴趣｜芭比角色"
+        },
+        "description": {
+          "en": "Explore Ken through choose an interest that is your own: an original art-afternoon scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+          "zh": "从“选择属于自己的兴趣”探索肯（Ken）：原创艺术下午情境、五位角色比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+        }
+      },
+      "scoreReading": {
+        "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected film characters, giving 18 counts in total. Every character appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides. Choosing A throughout gives three counts to each, a six-way tie. Counts describe this original leisure bank, not matching percentages, population norms or validated personality differences.",
+        "zh": "完成全部18个情境。每项明确映射的选择给六名选定电影角色中的一人增加一次原始次数，总计18次。每人出现12次，每个答位3次；当题未出现不算被拒绝。所有最高次数都有完整说明。全选A时每人3次，六方并列。次数只描述这份原创休闲题本，不是匹配百分比、人群常模或经验证的人格差异。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "The Ken angle in this edition",
+            "zh": "本版的肯角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Ken anchors choosing a small activity because it interests you, even when companions prefer another table. The angle concerns an ordinary leisure choice, not proving independence through separation or assigning a gendered role. You can enjoy a friend’s company and still spend part of an afternoon differently. The important detail is recognising what you want to try now without needing it to be the most popular or impressive option.",
+              "zh": "肯在本版对应按自己的兴趣选一项小活动，即使同伴更喜欢另一桌。角度关乎普通休闲选择，不靠分开来证明独立，也不规定性别角色。你可以喜欢与朋友相处，同时把下午的一部分花在不同内容上。重点是认出现在想试什么，不必选最热门或最耀眼的一项。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "Two workshops and a later meeting",
+            "zh": "两个工作坊，之后再相聚"
+          },
+          "paragraphs": [
+            {
+              "en": "A friend is keen on collage while you want to try a simple sound-making table. You say which activity interests you and suggest meeting afterwards to show each other what happened. Neither choice needs to defeat the other. You might change your mind after looking at the materials, or choose a shorter session. The scene allows shared company and separate interests without turning a small preference into a test of friendship.",
+              "zh": "朋友想拼贴，你却想试简单的声音创作桌。你说出自己的兴趣，提议之后碰面，分享各自做了什么。两个选择不必分胜负；看过材料后也可以改主意、缩短参与时间。场景让相处与不同兴趣并存，不把一个小偏好变成友谊考验。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "An own choice beside five other contributions",
+            "zh": "自己的选择与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Barbie reconsiders a familiar assumption, Gloria draws from everyday experience and President Barbie agrees a shared plan. Weird Barbie recombines spare materials while Allan makes room for an unusual contribution. Ken asks what he actually wants to try. These contributions can coexist; a shared plan can include time apart. A tie offers several ways to take part rather than a competition between needing people and needing independence.",
+              "zh": "芭比重新想熟悉预设，格洛丽亚从日常找素材，总统芭比商量共同安排；怪芭比重组闲置材料，艾伦为特别贡献留位置。肯问自己真正想试什么。这些动作能共存，共同安排也能包含分开活动的时间。并列不是在“需要别人”和“需要独立”之间分胜负。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Choosing differently need not become a rule",
+            "zh": "选择不同不必变成规则"
+          },
+          "paragraphs": [
+            {
+              "en": "Doing something different just to avoid agreement can be as restrictive as always following the group. Check whether you like the activity itself, including the possibility that you genuinely prefer the popular table today. You can explain a choice briefly without defending your whole identity. Your count cannot establish relationship dependence or self-esteem, and a lower count does not mean you lack interests of your own or need to leave a relationship.",
+              "zh": "为了不同而不同，也可能像总跟着大家一样受限。可以问自己是否喜欢活动本身，包括今天确实想选热门桌的可能。解释选择只需几句话，不必捍卫整个人生身份。次数不判断关系依赖或自尊；较低次数不表示没有自己的兴趣，更不意味着应该离开某段关系。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try a small preference without a performance",
+            "zh": "试一个无需证明什么的小偏好"
+          },
+          "paragraphs": [
+            {
+              "en": "At a voluntary event, choose one available activity on its own merits and tell companions when you would like to reconnect. Notice whether making that small choice was enjoyable and whether the timing worked for everyone. You may choose the same table next time. This is feedback on one afternoon’s preference, not a measure of autonomy, a relationship assessment or a prescription to change the people around you.",
+              "zh": "在自愿活动里，单看内容选一项可参加的活动，再告诉同伴想何时碰面。观察这个小选择是否有趣、时间是否适合彼此。下次也可以选同一桌。这是一个下午的偏好反馈，不测自主性，不评关系，也不要求换掉身边的人。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Eighteen choices and every highest tie",
+            "zh": "18次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected film characters, giving 18 counts in total. Every character appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides. Choosing A throughout gives three counts to each, a six-way tie. Counts describe this original leisure bank, not matching percentages, population norms or validated personality differences.",
+              "zh": "完成全部18个情境。每项明确映射的选择给六名选定电影角色中的一人增加一次原始次数，总计18次。每人出现12次，每个答位3次；当题未出现不算被拒绝。所有最高次数都有完整说明。全选A时每人3次，六方并列。次数只描述这份原创休闲题本，不是匹配百分比、人群常模或经验证的人格差异。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: original community-art situations, mappings, examples and complete readings. Mattel’s public pages confirm the selected film-character names; they do not validate these editorial angles or this bank. Names belong to their respective rights holders. No movie dialogue, plot passages, franchise imagery or competitor questions and reports are reproduced. This playful comparison does not establish gender, appearance, intelligence, career suitability, political ability, relationship needs or clinical status.",
+              "zh": "费马独立创作本非官方同人版的社区艺术情境、映射、例子与完整解读。Mattel公开页面确认选定电影角色名称，不验证本版的编辑角度或题本。名称属于各自权利方。本版不复用电影台词、情节段落、品牌图片、竞品题目或报告。趣味比较不判定性别、外貌、智力、职业适合度、政治能力、关系需要或临床状况。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gloria",
+      "directionIds": [
+        "gloria"
+      ],
+      "title": {
+        "en": "Gloria",
+        "zh": "格洛丽亚（Gloria）"
+      },
+      "headline": {
+        "en": "Make room for everyday experience",
+        "zh": "让日常经验进入创作"
+      },
+      "summary": {
+        "en": "Explore Gloria through make room for everyday experience: an original art-afternoon scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“让日常经验进入创作”探索格洛丽亚（Gloria）：原创艺术下午情境、五位角色比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      },
+      "seo": {
+        "title": {
+          "en": "Gloria Test Result: Make room for everyday experience | Barbie Characters",
+          "zh": "格洛丽亚（Gloria）测试结果：让日常经验进入创作｜芭比角色"
+        },
+        "description": {
+          "en": "Explore Gloria through make room for everyday experience: an original art-afternoon scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+          "zh": "从“让日常经验进入创作”探索格洛丽亚（Gloria）：原创艺术下午情境、五位角色比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+        }
+      },
+      "scoreReading": {
+        "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected film characters, giving 18 counts in total. Every character appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides. Choosing A throughout gives three counts to each, a six-way tie. Counts describe this original leisure bank, not matching percentages, population norms or validated personality differences.",
+        "zh": "完成全部18个情境。每项明确映射的选择给六名选定电影角色中的一人增加一次原始次数，总计18次。每人出现12次，每个答位3次；当题未出现不算被拒绝。所有最高次数都有完整说明。全选A时每人3次，六方并列。次数只描述这份原创休闲题本，不是匹配百分比、人群常模或经验证的人格差异。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "The Gloria angle in this edition",
+            "zh": "本版的格洛丽亚角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Gloria names bringing an ordinary detail from your own day into a creative activity. A bus-stop colour, a brief welcome or the way a cup sits on a table can be enough material. The angle does not require a grand story, personal disclosure or an impressive artistic identity. It starts with something you noticed and asks what you would enjoy making from it in this small shared setting.",
+              "zh": "格洛丽亚在本版对应把自己一天中的普通细节带进创作。车站的一种颜色、一句简单欢迎、杯子放在桌上的样子，都可能够用。不需要宏大故事、私密披露或耀眼的艺术身份。角度从你注意到的一件事开始，再问愿意在这个小场景里把它做成什么。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A waiting moment becomes a tiny drawing",
+            "zh": "等待的片刻变成小画"
+          },
+          "paragraphs": [
+            {
+              "en": "You remember a patch of afternoon light while waiting for a friend. You make a small drawing about its shape rather than describe the friend’s private circumstances. Another contributor sees a different association, and the two can sit beside each other. The everyday starting point offers material without claiming that the drawing reveals your feelings completely, explains another person or has to become a lesson for the whole group.",
+              "zh": "你记得等朋友时见过的一片午后光影，于是画它的形状，不讲朋友的私人情况。另一位参与者有不同联想，两种读法可以并排。日常起点提供素材，不声称画完全揭示了你的感受，不解释别人，也不一定要变成全组的道理。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "An ordinary detail beside five other contributions",
+            "zh": "日常细节与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Barbie opens a familiar assumption to a new question, Ken chooses an interest and President Barbie helps agree shared arrangements. Weird Barbie reuses an overlooked object while Allan welcomes a small unusual contribution. Gloria supplies material from lived everyday moments. None ranks maturity, emotional depth or artistic ability. Several high counts can describe several contributions to one afternoon without claiming you must explain everyone else’s experience or turn private difficulties into creative work.",
+              "zh": "芭比给熟悉预设加一个新问题，肯选兴趣，总统芭比商量共同安排；怪芭比再用被忽略的物件，艾伦欢迎特别的小贡献。格洛丽亚提供来自日常片刻的素材。不排名成熟、感受深度或艺术能力。几个高次数可描述同一下午的不同贡献，不要求解释别人，更不要求把私密困难做成作品。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Your experience can remain yours",
+            "zh": "经验也可以留给自己"
+          },
+          "paragraphs": [
+            {
+              "en": "A shared activity can invite more explanation than you want to offer. You can use a neutral detail, invent something entirely or keep a piece private. A small drawing does not need an autobiographical account to deserve a place. Your count cannot establish emotional insight, caregiving capacity or parental identity, and a lower count does not mean your ordinary life lacks richness or that you are unable to make meaningful work.",
+              "zh": "共同活动有时会引出比你想提供的更多解释。你可以选中性细节、完全虚构，或把作品留给自己。一幅小画不靠自传式说明才配被展示。次数不确立情感洞察、照护能力或父母身份；较低次数也不表示生活贫乏，或做不出有意义的作品。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try a detail you are comfortable sharing",
+            "zh": "试一个愿意分享的日常细节"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose an ordinary, non-private detail you noticed today and make a tiny creative response using materials already available. Share only what you want, if anything, and ask a willing collaborator what the piece lets them notice. You can keep their reading separate from your own. The exercise explores a creative starting point, not emotional diagnosis, a test of empathy or an obligation to make personal experience useful to others.",
+              "zh": "选一个今天见过、没有隐私负担的普通细节，用现有材料做一个小回应。只分享愿意分享的部分，也可以不分享。问自愿伙伴作品让他们注意到了什么，并保留与自己不同的读法。练习探索创作起点，不作情绪诊断、不测共情，也不要求经验必须对别人有用。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Eighteen choices and every highest tie",
+            "zh": "18次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected film characters, giving 18 counts in total. Every character appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides. Choosing A throughout gives three counts to each, a six-way tie. Counts describe this original leisure bank, not matching percentages, population norms or validated personality differences.",
+              "zh": "完成全部18个情境。每项明确映射的选择给六名选定电影角色中的一人增加一次原始次数，总计18次。每人出现12次，每个答位3次；当题未出现不算被拒绝。所有最高次数都有完整说明。全选A时每人3次，六方并列。次数只描述这份原创休闲题本，不是匹配百分比、人群常模或经验证的人格差异。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: original community-art situations, mappings, examples and complete readings. Mattel’s public pages confirm the selected film-character names; they do not validate these editorial angles or this bank. Names belong to their respective rights holders. No movie dialogue, plot passages, franchise imagery or competitor questions and reports are reproduced. This playful comparison does not establish gender, appearance, intelligence, career suitability, political ability, relationship needs or clinical status.",
+              "zh": "费马独立创作本非官方同人版的社区艺术情境、映射、例子与完整解读。Mattel公开页面确认选定电影角色名称，不验证本版的编辑角度或题本。名称属于各自权利方。本版不复用电影台词、情节段落、品牌图片、竞品题目或报告。趣味比较不判定性别、外貌、智力、职业适合度、政治能力、关系需要或临床状况。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "president-barbie",
+      "directionIds": [
+        "president-barbie"
+      ],
+      "title": {
+        "en": "President Barbie",
+        "zh": "总统芭比（President Barbie）"
+      },
+      "headline": {
+        "en": "Agree how the shared afternoon works",
+        "zh": "一起约定下午怎样进行"
+      },
+      "summary": {
+        "en": "Explore President Barbie through agree how the shared afternoon works: an original art-afternoon scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“一起约定下午怎样进行”探索总统芭比（President Barbie）：原创艺术下午情境、五位角色比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      },
+      "seo": {
+        "title": {
+          "en": "President Barbie Test Result: Agree how the shared afternoon works | Barbie Characters",
+          "zh": "总统芭比（President Barbie）测试结果：一起约定下午怎样进行｜芭比角色"
+        },
+        "description": {
+          "en": "Explore President Barbie through agree how the shared afternoon works: an original art-afternoon scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+          "zh": "从“一起约定下午怎样进行”探索总统芭比（President Barbie）：原创艺术下午情境、五位角色比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+        }
+      },
+      "scoreReading": {
+        "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected film characters, giving 18 counts in total. Every character appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides. Choosing A throughout gives three counts to each, a six-way tie. Counts describe this original leisure bank, not matching percentages, population norms or validated personality differences.",
+        "zh": "完成全部18个情境。每项明确映射的选择给六名选定电影角色中的一人增加一次原始次数，总计18次。每人出现12次，每个答位3次；当题未出现不算被拒绝。所有最高次数都有完整说明。全选A时每人3次，六方并列。次数只描述这份原创休闲题本，不是匹配百分比、人群常模或经验证的人格差异。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "The President Barbie angle in this edition",
+            "zh": "本版的总统芭比角度"
+          },
+          "paragraphs": [
+            {
+              "en": "President Barbie anchors making a few shared arrangements with the people who will use them. At the art afternoon, that might mean agreeing a turn-taking plan for one crowded table. The angle is about a voluntary, changeable agreement, not authority attached to a title. A useful arrangement makes participation easier to understand while allowing contributors to question it, choose a smaller part or leave an optional activity without being judged.",
+              "zh": "总统芭比在本版对应与使用安排的人一起商量几项共同约定。在艺术下午里，也许是给一张拥挤桌子约定轮流方式。角度关乎自愿、可变的协议，不是头衔带来的权威。有用安排让参与更清楚，同时容许提问、选择小份任务，或离开可选活动而不受评判。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "One corner, two enjoyable activities",
+            "zh": "一个角落，两项有趣活动"
+          },
+          "paragraphs": [
+            {
+              "en": "Two groups want the same corner, and both can explain what they hoped to make there. You help put those needs into a short timetable and ask whether the proposed order works. The timetable remains editable when someone arrives late or wants less time. The contribution is helping this particular afternoon run, not deciding that the loudest group deserves the space or requiring anyone to accept your first solution.",
+              "zh": "两组都想用同一个角落，也都能说清想在那里做什么。你帮忙把需要放进一个短时间表，再问顺序是否合适。有人迟到或只想少用一会时，时间表仍可改。贡献是让这个下午好进行，不是判最响亮的一组应该得地盘，也不要求接受你的第一个方案。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Agreement beside five other contributions",
+            "zh": "约定与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Barbie rethinks a familiar assumption, Ken chooses an interest and Gloria offers an everyday starting point. Weird Barbie finds a surprising reuse, while Allan leaves room for an unusual small contribution. President Barbie helps those activities share time and space. An agreement can protect differences rather than erase them. Several high counts do not establish political ability, leadership quality or a duty to take charge of every gathering you attend.",
+              "zh": "芭比重想熟悉预设，肯选兴趣，格洛丽亚给日常起点；怪芭比找到意外再利用，艾伦给特别的小贡献留位置。总统芭比帮助这些活动共用时间和空间。约定可以保护不同，而非抹平不同。几项高次数不证明政治能力、领导水平，也不要求在每次聚会都负责。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "A plan can be smaller than the event",
+            "zh": "安排可以比活动更简单"
+          },
+          "paragraphs": [
+            {
+              "en": "Not every small choice needs a meeting or a rule. Ask which shared resource actually needs an agreement and leave individual preferences alone. You can also decline the coordinating role if you wanted to spend the afternoon making something. Your count cannot establish authority, fairness or political beliefs, and a lower count does not mean you are unable to cooperate. Sometimes a single clear time boundary is enough for everyone to get started.",
+              "zh": "不是每个小选择都需要会议或规则。可以问哪项共享资源真需要约定，其余个人偏好留给个人。若本想来创作，也能不接协调角色。次数不确立权威、公平或政治信念；较低次数不表示不能合作。有时一个清楚的时间边界就够大家开工。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try an agreement people can revise",
+            "zh": "试一项人人能修改的约定"
+          },
+          "paragraphs": [
+            {
+              "en": "For a voluntary creative session, identify one resource that participants want to share and ask each willing person what would make it workable. Agree only the few details needed, including how to change them later. Afterwards, ask whether the arrangement helped or simply added coordination. This explores one practical contribution, not a leadership score, a political assessment or permission to impose decisions on people outside the activity.",
+              "zh": "自愿创作时，找一项大家想共用的资源，问愿意参与的人怎样才方便。只约必要细节，也约好之后怎样修改。结束后问安排是否有帮助，还是只多了协调。这探索一项实际贡献，不测领导、不评政治，也不授权把决定强加给活动之外的人。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Eighteen choices and every highest tie",
+            "zh": "18次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected film characters, giving 18 counts in total. Every character appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides. Choosing A throughout gives three counts to each, a six-way tie. Counts describe this original leisure bank, not matching percentages, population norms or validated personality differences.",
+              "zh": "完成全部18个情境。每项明确映射的选择给六名选定电影角色中的一人增加一次原始次数，总计18次。每人出现12次，每个答位3次；当题未出现不算被拒绝。所有最高次数都有完整说明。全选A时每人3次，六方并列。次数只描述这份原创休闲题本，不是匹配百分比、人群常模或经验证的人格差异。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: original community-art situations, mappings, examples and complete readings. Mattel’s public pages confirm the selected film-character names; they do not validate these editorial angles or this bank. Names belong to their respective rights holders. No movie dialogue, plot passages, franchise imagery or competitor questions and reports are reproduced. This playful comparison does not establish gender, appearance, intelligence, career suitability, political ability, relationship needs or clinical status.",
+              "zh": "费马独立创作本非官方同人版的社区艺术情境、映射、例子与完整解读。Mattel公开页面确认选定电影角色名称，不验证本版的编辑角度或题本。名称属于各自权利方。本版不复用电影台词、情节段落、品牌图片、竞品题目或报告。趣味比较不判定性别、外貌、智力、职业适合度、政治能力、关系需要或临床状况。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "weird-barbie",
+      "directionIds": [
+        "weird-barbie"
+      ],
+      "title": {
+        "en": "Weird Barbie",
+        "zh": "怪芭比（Weird Barbie）"
+      },
+      "headline": {
+        "en": "Find a new use for the overlooked",
+        "zh": "给被忽略的材料找新用途"
+      },
+      "summary": {
+        "en": "Explore Weird Barbie through find a new use for the overlooked: an original art-afternoon scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“给被忽略的材料找新用途”探索怪芭比（Weird Barbie）：原创艺术下午情境、五位角色比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      },
+      "seo": {
+        "title": {
+          "en": "Weird Barbie Test Result: Find a new use for the overlooked | Barbie Characters",
+          "zh": "怪芭比（Weird Barbie）测试结果：给被忽略的材料找新用途｜芭比角色"
+        },
+        "description": {
+          "en": "Explore Weird Barbie through find a new use for the overlooked: an original art-afternoon scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+          "zh": "从“给被忽略的材料找新用途”探索怪芭比（Weird Barbie）：原创艺术下午情境、五位角色比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+        }
+      },
+      "scoreReading": {
+        "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected film characters, giving 18 counts in total. Every character appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides. Choosing A throughout gives three counts to each, a six-way tie. Counts describe this original leisure bank, not matching percentages, population norms or validated personality differences.",
+        "zh": "完成全部18个情境。每项明确映射的选择给六名选定电影角色中的一人增加一次原始次数，总计18次。每人出现12次，每个答位3次；当题未出现不算被拒绝。所有最高次数都有完整说明。全选A时每人3次，六方并列。次数只描述这份原创休闲题本，不是匹配百分比、人群常模或经验证的人格差异。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "The Weird Barbie angle in this edition",
+            "zh": "本版的怪芭比角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Weird Barbie anchors trying an unexpected use for materials that did not fit the original plan. The name identifies a selected film character; it does not label you as strange, damaged or socially outside. In this original afternoon, two spare paper shapes might become a playful new object. The pleasure lies in the combination you choose to explore, without a requirement to be shocking, ingenious or unlike everyone else.",
+              "zh": "怪芭比在本版对应为原计划用不上的材料试一个意外用途。名称只指选定电影角色，不把你标成古怪、受损或被排斥的人。原创下午里，两块闲纸形状可能变成有趣新物。乐趣在愿意探索的组合，不要求惊人、天才或必须与所有人不同。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "The tear becomes part of the design",
+            "zh": "让裂口成为设计的一部分"
+          },
+          "paragraphs": [
+            {
+              "en": "A decoration tears into an interesting outline. Before changing it, you ask its maker whether they would like to try incorporating the tear into another shape. They may prefer to repair the original, keep the altered piece or put it aside. The unexpected possibility is an invitation, not a verdict that damage is beautiful or that everyone must make creative use of experiences they would rather leave alone.",
+              "zh": "一件装饰裂出有趣轮廓。你先问作者，愿不愿意试着把裂口并入另一个形状。对方也可以修回原样、留下改变后的样子，或先放一边。意外可能性是一份邀请，不是断言损坏就美，也不要求把不想碰的经历都用来创作。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Reuse beside five other contributions",
+            "zh": "再利用与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Barbie asks a fresh question about the familiar, Ken chooses an interest and Gloria starts with an everyday observation. President Barbie agrees shared arrangements while Allan welcomes a small off-theme contribution. Weird Barbie tries another use for an overlooked object. The angles can cooperate without ranking creativity, beauty or originality. A tie does not mean you need an outsider identity or should keep possessions and projects that you no longer want.",
+              "zh": "芭比为熟悉事物提新问题，肯选兴趣，格洛丽亚从日常观察开始；总统芭比约共同安排，艾伦欢迎主题外的小贡献。怪芭比则试被忽略物件的另一用途。角度可合作，不排创造力、美或原创性。并列不要求当局外人，也不要求保留已经不想要的物品或项目。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "An unexpected idea can still be declined",
+            "zh": "意外点子也能被拒绝"
+          },
+          "paragraphs": [
+            {
+              "en": "An inventive reuse is not automatically what a maker wants for their piece. Ask before altering shared materials and accept a simple refusal without making it a judgment about imagination. You can enjoy a conventional object too. Your count cannot establish neurodivergence, trauma, social rejection or artistic talent, and a lower count does not mean you are dull. An afternoon can be successful without producing a surprising new use for anything.",
+              "zh": "巧妙再利用未必是作者想要的方向。改共有材料前先问，接受简单拒绝，不把它变成想象力评判。你也可以喜欢常规物件。次数不确立神经差异、创伤、社交排斥或艺术天赋；较低次数也不表示无趣。没有发现任何意外用途，下午仍然可以很好。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try a combination that can come apart",
+            "zh": "试一个还能拆开的组合"
+          },
+          "paragraphs": [
+            {
+              "en": "Take two spare materials whose owners have offered them for a voluntary activity. Try a small reversible combination and ask what, if anything, makes it enjoyable. Keep it, separate it or return to the original plan without needing to justify the choice. This is a playful material experiment, not a test of resilience, an interpretation of difficult experiences or a requirement to make something unusual in order to belong.",
+              "zh": "选两份主人愿意用于自愿活动的闲置材料，试一个能拆回的组合，问它是否有趣、有趣在哪里。可以留、拆开或回原计划，不必为选择辩护。这是材料小实验，不测韧性、不解读困难经历，也不要求做出特别东西才配属于这里。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Eighteen choices and every highest tie",
+            "zh": "18次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected film characters, giving 18 counts in total. Every character appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides. Choosing A throughout gives three counts to each, a six-way tie. Counts describe this original leisure bank, not matching percentages, population norms or validated personality differences.",
+              "zh": "完成全部18个情境。每项明确映射的选择给六名选定电影角色中的一人增加一次原始次数，总计18次。每人出现12次，每个答位3次；当题未出现不算被拒绝。所有最高次数都有完整说明。全选A时每人3次，六方并列。次数只描述这份原创休闲题本，不是匹配百分比、人群常模或经验证的人格差异。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: original community-art situations, mappings, examples and complete readings. Mattel’s public pages confirm the selected film-character names; they do not validate these editorial angles or this bank. Names belong to their respective rights holders. No movie dialogue, plot passages, franchise imagery or competitor questions and reports are reproduced. This playful comparison does not establish gender, appearance, intelligence, career suitability, political ability, relationship needs or clinical status.",
+              "zh": "费马独立创作本非官方同人版的社区艺术情境、映射、例子与完整解读。Mattel公开页面确认选定电影角色名称，不验证本版的编辑角度或题本。名称属于各自权利方。本版不复用电影台词、情节段落、品牌图片、竞品题目或报告。趣味比较不判定性别、外貌、智力、职业适合度、政治能力、关系需要或临床状况。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "allan",
+      "directionIds": [
+        "allan"
+      ],
+      "title": {
+        "en": "Allan",
+        "zh": "艾伦（Allan）"
+      },
+      "headline": {
+        "en": "Welcome a contribution beyond the main theme",
+        "zh": "欢迎主主题之外的一点贡献"
+      },
+      "summary": {
+        "en": "Explore Allan through welcome a contribution beyond the main theme: an original art-afternoon scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“欢迎主主题之外的一点贡献”探索艾伦（Allan）：原创艺术下午情境、五位角色比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      },
+      "seo": {
+        "title": {
+          "en": "Allan Test Result: Welcome a contribution beyond the main theme | Barbie Characters",
+          "zh": "艾伦（Allan）测试结果：欢迎主主题之外的一点贡献｜芭比角色"
+        },
+        "description": {
+          "en": "Explore Allan through welcome a contribution beyond the main theme: an original art-afternoon scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+          "zh": "从“欢迎主主题之外的一点贡献”探索艾伦（Allan）：原创艺术下午情境、五位角色比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+        }
+      },
+      "scoreReading": {
+        "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected film characters, giving 18 counts in total. Every character appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides. Choosing A throughout gives three counts to each, a six-way tie. Counts describe this original leisure bank, not matching percentages, population norms or validated personality differences.",
+        "zh": "完成全部18个情境。每项明确映射的选择给六名选定电影角色中的一人增加一次原始次数，总计18次。每人出现12次，每个答位3次；当题未出现不算被拒绝。所有最高次数都有完整说明。全选A时每人3次，六方并列。次数只描述这份原创休闲题本，不是匹配百分比、人群常模或经验证的人格差异。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "The Allan angle in this edition",
+            "zh": "本版的艾伦角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Allan anchors making room for a small contribution that does not fit the main grouping. At this original art afternoon, someone might bring one unusual object rather than join the large shared picture. The angle concerns offering a clear optional welcome, not rescuing people, claiming to understand their private feelings or turning a supporting character into a fixed role you must occupy. A modest place can be enough without asking anyone to change.",
+              "zh": "艾伦在本版对应为主要分组之外的小贡献留位置。在原创艺术下午里，有人可能只带一件特别物件，不加入大幅共画。角度是给清楚、可选的欢迎，不是拯救别人、声称懂其私密感受，也不把配角变成你必须担任的固定角色。有时一个小位置就够，不必要求谁先改变。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "One small piece can be enough",
+            "zh": "一件小作品也可以足够"
+          },
+          "paragraphs": [
+            {
+              "en": "A visitor wants to show a tiny off-theme piece and then go. You point out an available place, explain the time boundary and let its maker decide whether to use it. You do not promise that everyone will love the piece or ask for a longer performance in return. The contribution remains theirs, and your welcome does not create an obligation to stay, explain a personal story or join the whole event.",
+              "zh": "一位来访者只想展示一件偏离主题的小作品，然后离开。你指出可用位置、说明时间边界，让作者决定是否使用。不承诺人人喜欢，也不要求回报更长表演。作品仍属于对方；欢迎不会制造留下、自述身世或参加全程的义务。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Welcome beside five other contributions",
+            "zh": "欢迎与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Barbie reconsiders a familiar assumption, Ken chooses an interest and Gloria offers an everyday creative starting point. President Barbie agrees shared arrangements, while Weird Barbie tries a surprising reuse. Allan leaves room for a contribution outside the main theme. These actions can support the same afternoon without ranking kindness or social skill. Several high counts do not assign you responsibility for including everyone or making every group feel comfortable.",
+              "zh": "芭比重想熟悉预设，肯选兴趣，格洛丽亚给日常创作起点；总统芭比商量共同安排，怪芭比试意外用途。艾伦给主主题之外的贡献留位置。这些动作可支持同一下午，不排名善良或社交技术。几项高次数不让你负责接纳所有人，也不让你负责每个小组都舒服。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "A welcome needs real limits",
+            "zh": "欢迎也需要真实边界"
+          },
+          "paragraphs": [
+            {
+              "en": "An open invitation can promise more time, attention or space than the group actually has. State what is available and let the maker choose whether it suits them. You can welcome a small piece without abandoning your own project or changing the event for everyone. Your count cannot establish selflessness, social exclusion or a supporting identity, and a lower count does not mean unkindness. Limits can make an invitation easier to understand and decline.",
+              "zh": "开放邀请有时会承诺超过实际的时间、关注或空间。可以说清有什么，让作者决定合适否。欢迎小作品不必放弃自己的项目，也不必替全组改活动。次数不确立无私、被排斥或辅助型身份；较低次数不表示不友善。边界反而让邀请更容易理解，也更容易拒绝。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try one specific, optional invitation",
+            "zh": "试一次具体、可选的邀请"
+          },
+          "paragraphs": [
+            {
+              "en": "At a voluntary creative gathering, offer one available space for a contribution that falls outside the main theme. Explain the practical limit and ask whether its maker wants it, without requesting a personal explanation. Afterwards, check whether the invitation was clear and whether your own activity still had room. This explores one small hosting choice, not empathy, moral worth, belonging as a person or a duty to absorb other people’s needs.",
+              "zh": "自愿创作聚会中，给主题之外的一份贡献提供一个确实可用的位置。说明实际限制，问作者愿意否，不索要个人解释。之后核邀请是否清楚、自己的活动是否仍有空间。这探索一个小小的接待选择，不测共情、道德价值或人的归属，也不派吸收他人需要的义务。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Eighteen choices and every highest tie",
+            "zh": "18次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected film characters, giving 18 counts in total. Every character appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides. Choosing A throughout gives three counts to each, a six-way tie. Counts describe this original leisure bank, not matching percentages, population norms or validated personality differences.",
+              "zh": "完成全部18个情境。每项明确映射的选择给六名选定电影角色中的一人增加一次原始次数，总计18次。每人出现12次，每个答位3次；当题未出现不算被拒绝。所有最高次数都有完整说明。全选A时每人3次，六方并列。次数只描述这份原创休闲题本，不是匹配百分比、人群常模或经验证的人格差异。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: original community-art situations, mappings, examples and complete readings. Mattel’s public pages confirm the selected film-character names; they do not validate these editorial angles or this bank. Names belong to their respective rights holders. No movie dialogue, plot passages, franchise imagery or competitor questions and reports are reproduced. This playful comparison does not establish gender, appearance, intelligence, career suitability, political ability, relationship needs or clinical status.",
+              "zh": "费马独立创作本非官方同人版的社区艺术情境、映射、例子与完整解读。Mattel公开页面确认选定电影角色名称，不验证本版的编辑角度或题本。名称属于各自权利方。本版不复用电影台词、情节段落、品牌图片、竞品题目或报告。趣味比较不判定性别、外貌、智力、职业适合度、政治能力、关系需要或临床状况。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "en": "Six raw creative-choice counts",
+        "zh": "六项原始创作选择次数"
+      },
+      "paragraphs": [
+        {
+          "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected film characters, giving 18 counts in total. Every character appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides. Choosing A throughout gives three counts to each, a six-way tie. Counts describe this original leisure bank, not matching percentages, population norms or validated personality differences.",
+          "zh": "完成全部18个情境。每项明确映射的选择给六名选定电影角色中的一人增加一次原始次数，总计18次。每人出现12次，每个答位3次；当题未出现不算被拒绝。所有最高次数都有完整说明。全选A时每人3次，六方并列。次数只描述这份原创休闲题本，不是匹配百分比、人群常模或经验证的人格差异。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "en": "Complete guides for every highest tie",
+        "zh": "每个最高并列都有全文"
+      },
+      "paragraphs": [
+        {
+          "en": "All highest counts appear together without fixed ordering selecting a favourite. A small gap is not a validated personality difference. Public guides also let you compare close readings. You can enjoy several ways of joining a creative gathering, or disagree with any editorial connection, without needing a dominant character or treating a supporting role as your place in real life.",
+          "zh": "所有最高次数一起显示，不按固定顺序选偏爱。小差距不是经验证的人格差异，公开全文也可比较近分。可以喜欢多种参与创作的方式，也可以不同意任何编辑联想；不必有一个主导角色，也不把配角当成现实生活里固定的位置。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "en": "Six selected characters from the 2023 film",
+        "zh": "2023年电影中的六名选定角色"
+      },
+      "paragraphs": [
+        {
+          "en": "Barbie, Ken, Gloria, President Barbie, Weird Barbie and Allan each have a complete bilingual guide. This is a selected film-ensemble edition, not every Barbie identity or another site’s seven-result set. Mattel pages establish the names; the six creative angles, situations and mappings are ours. An editorial comparison is not a claim that the film validates this scoring or that a character has a single real-world personality.",
+          "zh": "芭比、肯、格洛丽亚、总统芭比、怪芭比、艾伦各有双语全文。本版选定电影群像，不包含所有芭比身份，也不是别站的七结果集合。Mattel页面确认名字，六种创作角度、情境和映射归本版。编辑比较不声称电影验证计分，也不认为角色对应单一现实人格。"
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Unofficial original fan edition",
+        "zh": "非官方原创同人版"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind independently authored this unofficial fan edition: original community-art situations, mappings, examples and complete readings. Mattel’s public pages confirm the selected film-character names; they do not validate these editorial angles or this bank. Names belong to their respective rights holders. No movie dialogue, plot passages, franchise imagery or competitor questions and reports are reproduced. This playful comparison does not establish gender, appearance, intelligence, career suitability, political ability, relationship needs or clinical status.",
+          "zh": "费马独立创作本非官方同人版的社区艺术情境、映射、例子与完整解读。Mattel公开页面确认选定电影角色名称，不验证本版的编辑角度或题本。名称属于各自权利方。本版不复用电影台词、情节段落、品牌图片、竞品题目或报告。趣味比较不判定性别、外貌、智力、职业适合度、政治能力、关系需要或临床状况。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Private choices and optional sharing",
+        "zh": "私密选择与可选分享"
+      },
+      "paragraphs": [
+        {
+          "en": "Choices are scored in your browser without answer uploads or answers in URLs or analytics. Optional tab drafts expire after 24 hours and clear on completion, retake or exit-and-clear. Sharing contains only public names and a link, never answers or counts. All complete guides are free without signup, email or an MBTI result. Optional next assessments have separate purposes and require their own answers.",
+          "zh": "选择在浏览器计分，不上传，不把答案放进网址或分析。可选标签页草稿24小时失效，完成、重测或退出并清除时即删。分享只有公开名称和链接，不含答案或次数。所有全文免费，无需注册、邮箱或MBTI结果。可选后续测评目的独立，须另外作答。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Which Barbie characters are included?",
+        "zh": "包含哪些芭比角色？"
+      },
+      "answer": {
+        "en": "Barbie, Ken, Gloria, President Barbie, Weird Barbie and Allan, selected from the 2023 film and each with a complete bilingual guide. This fan edition does not classify every doll, film character, career version or wider Barbie story.",
+        "zh": "选定2023年电影中的芭比、肯、格洛丽亚、总统芭比、怪芭比、艾伦，各有双语全文。本同人版不分类所有玩偶、电影角色、职业版本或更广泛的芭比故事。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this official or scientifically validated?",
+        "zh": "这是官方或科学验证版吗？"
+      },
+      "answer": {
+        "en": "FermatMind independently authored this unofficial fan edition: original community-art situations, mappings, examples and complete readings. Mattel’s public pages confirm the selected film-character names; they do not validate these editorial angles or this bank. Names belong to their respective rights holders. No movie dialogue, plot passages, franchise imagery or competitor questions and reports are reproduced. This playful comparison does not establish gender, appearance, intelligence, career suitability, political ability, relationship needs or clinical status.",
+        "zh": "费马独立创作本非官方同人版的社区艺术情境、映射、例子与完整解读。Mattel公开页面确认选定电影角色名称，不验证本版的编辑角度或题本。名称属于各自权利方。本版不复用电影台词、情节段落、品牌图片、竞品题目或报告。趣味比较不判定性别、外貌、智力、职业适合度、政治能力、关系需要或临床状况。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a result say anything about my gender, beauty, IQ or career?",
+        "zh": "结果说明我的性别、美貌、智商或职业吗？"
+      },
+      "answer": {
+        "en": "No. Character names offer limited editorial comparisons for original leisure choices. They do not establish gender identity or expression, appearance, intelligence, job suitability, political ability, relationship needs, parenting or clinical status. Anyone may read any character guide.",
+        "zh": "不。角色名称只给原创休闲选择提供有限编辑比较，不确立性别身份或表达、外貌、智力、职业适合度、政治能力、关系需要、养育或临床状况。任何人都可以读任何角色说明。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need film trivia or artistic skill?",
+        "zh": "需要懂电影问答或有艺术技巧吗？"
+      },
+      "answer": {
+        "en": "No. All 18 situations are original ordinary creative choices, without film-knowledge questions, reproduced scenes or a right-answer key. Around five minutes is an editorial estimate, not a measured human benchmark or an art-skill score.",
+        "zh": "不需要。18题都是原创日常创作选择，没有电影知识题、重现片段或标准答案。约5分钟是编辑估计，不是实测人类基准，也不是艺术技巧评分。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are all questions and complete results free in both languages?",
+        "zh": "两语全部题目和所有完整结果都免费吗？"
+      },
+      "answer": {
+        "en": "Yes, without signup, email or an earlier MBTI assessment. Character identities and mappings stay stable across English and Chinese, though psychometric equivalence is not established. Every highest tie receives a full guide, and optional next assessments require their own answers.",
+        "zh": "是，无需注册、邮箱或先测MBTI。两语角色身份和映射稳定，尚无心理测量等价证据。每个最高并列都有全文，可选后续测评须独立另答。"
+      }
+    }
+  ]
+}
