@@ -1544,5 +1544,27 @@
       "perspective-checking",
       "self-directed-choice"
     ]
+  },
+  {
+    "slug": "growth-mindset-fixed-mindset",
+    "code": "GROWTH_CONTEXT_BELIEF_12",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "framework",
+    "title": {
+      "zh": "成长型与固定型思维测试",
+      "en": "Growth Mindset Test"
+    },
+    "description": {
+      "zh": "免费成长型与固定型思维测试：以一项学习技能为参照，回答12条原创同意题，查看连续均分及两端、混合与资料不足的完整读法。不估能力或成绩，不派固定类型。",
+      "en": "Explore beliefs about change for one learning skill with 12 original items and a full guide. See a continuous mean, not an ability score or fixed type."
+    },
+    "minutes": 4,
+    "collection": "explore",
+    "formCode": "fm_growth_context_agreement_12",
+    "questionCount": 12,
+    "resultSlugs": [
+      "belief-continuum"
+    ]
   }
 ]

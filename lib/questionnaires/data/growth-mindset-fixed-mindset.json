@@ -1,0 +1,1112 @@
+{
+  "slug": "growth-mindset-fixed-mindset",
+  "code": "GROWTH_CONTEXT_BELIEF_12",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "framework",
+  "kind": "likert",
+  "minimumRatedItems": 9,
+  "title": {
+    "zh": "成长型与固定型思维测试",
+    "en": "Growth Mindset Test"
+  },
+  "resultHeading": {
+    "zh": "成长与固定看法：本次连续读法",
+    "en": "Growth and fixed beliefs: a continuous reading"
+  },
+  "description": {
+    "zh": "免费成长型与固定型思维测试：以一项学习技能为参照，回答12条原创同意题，查看连续均分及两端、混合与资料不足的完整读法。不估能力或成绩，不派固定类型。",
+    "en": "Explore beliefs about change for one learning skill with 12 original items and a full guide. See a continuous mean, not an ability score or fixed type."
+  },
+  "seoTitle": {
+    "zh": "成长型与固定型思维测试：12道原创题与免费完整读法",
+    "en": "Growth Mindset Test: Free Score and Full Guide"
+  },
+  "minutes": 4,
+  "introduction": {
+    "zh": "你觉得一项普通技能能否在合适的方法、练习机会与帮助下继续改变？本版请你在心里选一个正在学或想学的技能，用同一参照回答12条原创同意题。六条是可改变表述，六条是较固定表述并反向计分；至少9条有效才显示连续均分与条数，没有合适参照时明确保留资料不足。这里观察的是当前信念，不是技能表现、智力、努力程度或未来成绩，也不是DMI或IDR-MT题本。完整九模块说明同时解释均分两端、中间与混合、资料不足、例子和研究边界，不用阈值把人分成成长型或固定型，也不要求另做测评解锁。",
+    "en": "Do you think one ordinary skill could continue changing with suitable methods, practice opportunities and help? Choose a skill you are learning or considering and keep that reference across twelve original agreement statements. Six concern changeability; six more fixed statements are reverse-keyed. Nine ratings are needed for a continuous mean and count, with explicit insufficient information when the reference does not fit. This observes present beliefs rather than skill, intelligence, effort or future grades, and is not the DMI or IDR-MT bank. A full nine-section guide explains both ends, middle and mixed answers, missing information, examples and research limits. No cutoff assigns people a growth or fixed type, and another test is not required to unlock it."
+  },
+  "instructions": {
+    "zh": "先在心里选一项你近期正在学或想学的普通技能，整卷都以同一项为参照；不需要填写技能名称。按你现在对这项技能能否改变的看法，选择同意程度，而非实际表现或希望怎样回答。没有合适参照、资料不足或不愿回答，请选对应项，不当中立或零分。12题都选完才呈现；至少9条有效才显示均分。恢复草稿时仍用原先技能，不记得可清除后重测。",
+    "en": "First choose an ordinary skill you are learning or considering, keeping the same reference throughout; no skill name is entered. Rate your present beliefs about whether it can change, not actual performance or your preferred image of yourself. Use the separate option for no suitable reference, insufficient information or preferring not to answer, rather than neutral or zero. Complete all twelve selections; nine ratings are needed for a mean. Resume with the same skill, or clear and retake if you do not remember it."
+  },
+  "source": {
+    "kind": "FermatMind original selected-learning-skill changeability-belief items; not DMI or IDR-MT",
+    "formCode": "fm_growth_context_agreement_12",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "48a1b6ac465c7b65f9c15a2cc0911446ac8a1eb424d9dcb185cea81820916471",
+    "resultContentSha256": "9b80bcacd0f6f14995790cd51f45bf8ebe4a0ef3de3e62b8efc3c154dc5671a6",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "changeability-belief",
+      "title": {
+        "zh": "所选技能的可改变信念",
+        "en": "Belief in change for the selected skill"
+      },
+      "itemCount": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "GROWTH_01",
+      "prompt": {
+        "zh": "对选定的技能，我认为合适的练习方式和帮助仍可能改变自己会做到什么。",
+        "en": "For the selected skill, I believe suitable practice and help could still change what I am able to do."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不同意",
+            "en": "Disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中立／不倾向任一边",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较同意",
+            "en": "Agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有合适参照／资料不足／不愿回答",
+            "en": "No suitable reference / insufficient information / prefer not to answer"
+          },
+          "directionId": "changeability-belief",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "GROWTH_02",
+      "prompt": {
+        "zh": "对选定的技能，我倾向于认为目前的水平已大致划定自己以后能达到的范围。",
+        "en": "For the selected skill, I tend to think my present level has largely set the range I could reach later."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不同意",
+            "en": "Disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中立／不倾向任一边",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较同意",
+            "en": "Agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有合适参照／资料不足／不愿回答",
+            "en": "No suitable reference / insufficient information / prefer not to answer"
+          },
+          "directionId": "changeability-belief",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "GROWTH_03",
+      "prompt": {
+        "zh": "对选定的技能，我认为换一种适合的练习方法，可能改变原先学不懂的部分。",
+        "en": "For the selected skill, I believe a better-fitting practice method could change something I previously could not understand."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不同意",
+            "en": "Disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中立／不倾向任一边",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较同意",
+            "en": "Agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有合适参照／资料不足／不愿回答",
+            "en": "No suitable reference / insufficient information / prefer not to answer"
+          },
+          "directionId": "changeability-belief",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "GROWTH_04",
+      "prompt": {
+        "zh": "对选定的技能，我更把反复遇到的困难看成较难改变的能力边界。",
+        "en": "For the selected skill, I am more inclined to see recurring difficulty as a hard-to-change limit on capacity."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不同意",
+            "en": "Disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中立／不倾向任一边",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较同意",
+            "en": "Agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有合适参照／资料不足／不愿回答",
+            "en": "No suitable reference / insufficient information / prefer not to answer"
+          },
+          "directionId": "changeability-belief",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "GROWTH_05",
+      "prompt": {
+        "zh": "对选定的技能，我认为具体反馈可能帮助自己学会原先不会的步骤。",
+        "en": "For the selected skill, I believe specific feedback could help me learn a step I could not previously perform."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不同意",
+            "en": "Disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中立／不倾向任一边",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较同意",
+            "en": "Agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有合适参照／资料不足／不愿回答",
+            "en": "No suitable reference / insufficient information / prefer not to answer"
+          },
+          "directionId": "changeability-belief",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "GROWTH_06",
+      "prompt": {
+        "zh": "对选定的技能，我倾向于认为别人的帮助只能帮我完成眼前任务，很难改变我能学会的范围。",
+        "en": "For the selected skill, I tend to think help can get the current task done but can do little to change what I could learn."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不同意",
+            "en": "Disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中立／不倾向任一边",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较同意",
+            "en": "Agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有合适参照／资料不足／不愿回答",
+            "en": "No suitable reference / insufficient information / prefer not to answer"
+          },
+          "directionId": "changeability-belief",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "GROWTH_07",
+      "prompt": {
+        "zh": "对选定的技能，我认为现在不会的一步，在条件合适时以后仍可能学会。",
+        "en": "For the selected skill, I believe a step I cannot do now could still be learned later under suitable conditions."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不同意",
+            "en": "Disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中立／不倾向任一边",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较同意",
+            "en": "Agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有合适参照／资料不足／不愿回答",
+            "en": "No suitable reference / insufficient information / prefer not to answer"
+          },
+          "directionId": "changeability-belief",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "GROWTH_08",
+      "prompt": {
+        "zh": "对选定的技能，我倾向于认为开始时学得轻松或吃力，已经基本说明长期能达到哪里。",
+        "en": "For the selected skill, I tend to think early ease or difficulty has largely shown what could be reached in the long run."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不同意",
+            "en": "Disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中立／不倾向任一边",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较同意",
+            "en": "Agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有合适参照／资料不足／不愿回答",
+            "en": "No suitable reference / insufficient information / prefer not to answer"
+          },
+          "directionId": "changeability-belief",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "GROWTH_09",
+      "prompt": {
+        "zh": "对选定的技能，我认为练习机会和可用支持的改变，可能让后来的学习走向不同。",
+        "en": "For the selected skill, I believe changes in practice opportunities and available support could alter the course of later learning."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不同意",
+            "en": "Disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中立／不倾向任一边",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较同意",
+            "en": "Agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有合适参照／资料不足／不愿回答",
+            "en": "No suitable reference / insufficient information / prefer not to answer"
+          },
+          "directionId": "changeability-belief",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "GROWTH_10",
+      "prompt": {
+        "zh": "对选定的技能，我倾向于认为入门之后，能学到什么就不太会再受新方法或支持改变。",
+        "en": "For the selected skill, I tend to think that after the initial stage, new methods or support will do little to change what I could learn."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不同意",
+            "en": "Disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中立／不倾向任一边",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较同意",
+            "en": "Agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有合适参照／资料不足／不愿回答",
+            "en": "No suitable reference / insufficient information / prefer not to answer"
+          },
+          "directionId": "changeability-belief",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "GROWTH_11",
+      "prompt": {
+        "zh": "对选定的技能，我认为起点不突出，并不排除在合适条件下学会更多。",
+        "en": "For the selected skill, I believe an unremarkable starting point leaves room to learn more under suitable conditions."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不同意",
+            "en": "Disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中立／不倾向任一边",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较同意",
+            "en": "Agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有合适参照／资料不足／不愿回答",
+            "en": "No suitable reference / insufficient information / prefer not to answer"
+          },
+          "directionId": "changeability-belief",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "GROWTH_12",
+      "prompt": {
+        "zh": "对选定的技能，我倾向于认为起点上的差异，基本锁定了自己哪些部分难以再进步。",
+        "en": "For the selected skill, I tend to think differences at the starting point largely lock in the parts where I could improve little."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不同意",
+            "en": "Disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中立／不倾向任一边",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较同意",
+            "en": "Agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有合适参照／资料不足／不愿回答",
+            "en": "No suitable reference / insufficient information / prefer not to answer"
+          },
+          "directionId": "changeability-belief",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "belief-continuum",
+      "directionIds": [
+        "changeability-belief"
+      ],
+      "title": {
+        "zh": "成长与固定看法：完整的连续读法",
+        "en": "Growth and Fixed Beliefs: Reading the Full Continuum"
+      },
+      "headline": {
+        "zh": "读所选技能的可改变信念，不把均分当固定人格。",
+        "en": "Read changeability beliefs for the selected skill without turning a mean into a fixed personality."
+      },
+      "summary": {
+        "zh": "同一份全文解释较高、较低、中间混合与资料不足，包含十二条计分、两端例子、反例、研究边界与可选回顾。不按阈值派成长或固定类型。",
+        "en": "One full guide explains higher, lower, middle or mixed means and insufficient information, with scoring, examples, counterexamples, research limits and optional review, without type cutoffs."
+      },
+      "scoreReading": {
+        "zh": "每条选择1非常不同意至5非常同意，或没有合适参照／资料不足／不愿回答。六条可改变表述直接计分，六条较固定表述即GROWTH_02、04、06、08、10、12按6减有效回答翻转；缺失排除，不翻成零。十二个选项都选完，且至少九条有效，才显示有效计分和÷有效条数的一位小数均分及条数。9条是本站完整度约定，不是可靠性证明。更高只表示在本题表述上较偏可改变看法，未设类型阈值、百分位或能力分。",
+        "en": "Rate each statement from 1 Strongly disagree to 5 Strongly agree, or select no suitable reference, insufficient information or preferring not to answer. Six changeable statements are direct; the six more fixed statements, GROWTH_02, 04, 06, 08, 10 and 12, use six minus a valid rating. Missing information is excluded, never reversed into zero. All twelve selections and at least nine ratings are required for a mean: keyed sum divided by rated count, rounded to one decimal, with the count shown. Nine is a website completeness rule rather than reliability evidence. Higher means lean toward changeable beliefs on these statements, without a type cutoff, percentile or ability score."
+      },
+      "seo": {
+        "title": {
+          "zh": "成长型与固定型思维测试结果：连续均分与完整读法",
+          "en": "Growth vs Fixed Mindset Result: Full Reading Guide"
+        },
+        "description": {
+          "zh": "完整解释所选学习技能的可改变信念均分：六条反向、有效条数、较高较低与混合不足，含例子和反例。不估智力、成绩或固定人格。",
+          "en": "Read the full growth-versus-fixed belief continuum: keyed means, six reversals, missing information, examples and limits. No IQ or achievement verdict."
+        }
+      },
+      "sections": [
+        {
+          "id": "reference",
+          "title": {
+            "zh": "先记住这次想到的技能",
+            "en": "Keep this attempt’s skill in view"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版请你用一项近期正在学或想学的普通技能贯穿十二条。比如整理电子表格或练习一种画法，结果只概括你对这个参照能否改变的看法，不把它扩展成在所有领域都成长或固定。你不需要在网站填写技能名称。若换了技能，回答可能改变；恢复草稿时请仍用原先参照，不记得可以清除后重测，而不是把两种情境当作同一结果。",
+              "en": "This edition asks you to keep one ordinary skill you are learning or considering in view across twelve statements. A spreadsheet task or drawing technique could supply the reference. The reading concerns beliefs about change for that skill, not a growth or fixed personality across every domain. No skill name is entered. Another reference may produce different answers. Resume a draft with the same skill, or clear and retake if you do not remember it, rather than treating two contexts as one result."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "十二条同意度怎样变成一个均分",
+            "en": "How twelve agreements become one mean"
+          },
+          "paragraphs": [
+            {
+              "zh": "每条选择1非常不同意至5非常同意，或没有合适参照／资料不足／不愿回答。六条可改变表述直接计分，六条较固定表述即GROWTH_02、04、06、08、10、12按6减有效回答翻转；缺失排除，不翻成零。十二个选项都选完，且至少九条有效，才显示有效计分和÷有效条数的一位小数均分及条数。9条是本站完整度约定，不是可靠性证明。更高只表示在本题表述上较偏可改变看法，未设类型阈值、百分位或能力分。",
+              "en": "Rate each statement from 1 Strongly disagree to 5 Strongly agree, or select no suitable reference, insufficient information or preferring not to answer. Six changeable statements are direct; the six more fixed statements, GROWTH_02, 04, 06, 08, 10 and 12, use six minus a valid rating. Missing information is excluded, never reversed into zero. All twelve selections and at least nine ratings are required for a mean: keyed sum divided by rated count, rounded to one decimal, with the count shown. Nine is a website completeness rule rather than reliability evidence. Higher means lean toward changeable beliefs on these statements, without a type cutoff, percentile or ability score."
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "zh": "怎样读较偏可改变的看法",
+            "en": "Reading beliefs that lean more toward change"
+          },
+          "paragraphs": [
+            {
+              "zh": "较多同意可改变表述、较少同意固定表述时，翻转后的均分会更高。可以把它读成：对这项技能，你较愿意保留通过合适练习、方法或帮助学会更多的可能。它不是对未来成功的承诺，也不等于你已经找到有效方法、拥有时间和支持或正在努力。你可以认同技能能改变，同时决定暂不学、休息或换目标；这些决定不能由均分被叫作固定心态。",
+              "en": "More agreement with changeable statements and less with fixed statements raise the keyed mean. You can read this as leaving more room to learn further through suitable practice, methods or help for this skill. It promises no success and establishes neither an effective method, adequate time and support nor actual effort. Believing change is possible can coexist with postponing practice, resting or choosing another aim. Those decisions are not a fixed mindset inferred from the mean, and nobody is obliged to prove the belief by continuing an unsuitable activity."
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "zh": "怎样读较偏固定的看法",
+            "en": "Reading beliefs that lean more toward fixed limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "较多同意较固定表述、较少同意可改变表述时，均分会更低。这只反映本组选项下你对所选技能改变空间的当前看法，不证明你缺乏天赋、懒惰、害怕挑战或学不会。你也许想到的是一个资源很少、方法尚未适合或已有明确限制的场景；题目没有分辨原因。可以先看哪条表述更符合你当时想到的条件，不必为了获得更高结果而改成乐观回答。",
+              "en": "More agreement with fixed statements and less with changeable ones lower the mean. That describes a current belief about room for change in this reference, not a lack of talent, laziness, fear of challenge or inability to learn. You may have considered scarce resources, an unsuitable method or a particular practical limit; the bank does not identify a cause. Consider which statement fitted the conditions you had in mind rather than replacing an honest answer with optimism to obtain a higher result. The number makes no judgment about your worth."
+            }
+          ]
+        },
+        {
+          "id": "mixed-missing",
+          "title": {
+            "zh": "中间值、混合与资料不足",
+            "en": "Middle means, mixed answers and insufficient information"
+          },
+          "paragraphs": [
+            {
+              "zh": "中间均分可能由全部中立形成，也可能由两端回答相互平均；全选非常同意或全选非常不同意，因六条反向也都会得到3.0。它们不是同一种观点，不能据3.0认证最平衡、半成长半固定或某个隐藏类型。本版不凭这些组合诊断矛盾。少于九条有效时明确显示资料不足，不补中立或零分，但整份正文仍可读。标签是有序同意类别，简单平均与一位小数为呈现约定，不证明等距测量或显著变化。",
+              "en": "A middle mean can come from all neutral responses or different endpoints averaging together. Agreeing strongly with everything or disagreeing strongly with everything also gives 3.0 because six items reverse. These are different accounts, not an ideal balance, half-growth personality or hidden type certified by 3.0. This edition does not diagnose contradiction from them. Fewer than nine ratings remain explicitly insufficient, without neutral or zero substitution, while the entire guide stays readable. Agreement labels are ordered categories; averaging and decimal display do not establish interval measurement or significant change."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "把看法放回一个具体学习例子",
+            "en": "Putting the belief back into a concrete learning example"
+          },
+          "paragraphs": [
+            {
+              "zh": "你想学给电子表格分类。当前不会一种操作，可以与“在获得合适说明、练习机会和帮助后仍可能学会”同时存在；是否真的学会，仍须看后来的过程。另一个人可能已有基础，但觉得这次可用工具限制了改变，较固定的回答也不能被当作能力较低。反例是你相信能学会，却因为目前不值得投入而选择不学，这不反驳可改变看法；反过来，坚持很久也不自动证明你有成长信念。",
+              "en": "Suppose you want to organise a spreadsheet. Not knowing an operation now can coexist with believing that suitable instruction, practice opportunities and help could make learning possible; actually learning still requires later evidence. Someone else may already have skills but regard the tools available this time as limiting change, without having lower ability. A counterexample is believing you could learn while deciding the present investment is not worthwhile. That does not contradict changeable beliefs. Conversely, persisting for a long time does not automatically establish a growth belief or an effective approach."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与信心、努力和学习偏好分开",
+            "en": "Distinguishing confidence, effort and learning preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "“这项技能可以改变”与“我下周一定做得好”不同，前者关心可改变看法，后者是对具体表现的信心。你偏好读说明还是听示范，也不是同一问题；实际投入多久、是否坚持和用了什么方法，同样不能从本均分补出。原有能力、机会和支持仍需另看。本结果不换算IQ、大五、MBTI、毅力、学习风格或成熟度，其他测评需独立作答，也不必为了确认这份结果而继续做。",
+              "en": "Believing a skill can change differs from expecting to perform well next week: one concerns changeability, the other confidence in an outcome. Preferring written instructions or a demonstration is another question. Time invested, persistence and methods used are likewise not supplied by this mean. Existing ability, opportunity and support still need separate evidence. This result is converted into neither IQ, Big Five, MBTI, grit, learning style nor maturity. Another assessment requires its own answers and is not needed to certify this reading."
+            }
+          ]
+        },
+        {
+          "id": "evidence",
+          "title": {
+            "zh": "研究背景不能替本题本验证",
+            "en": "Research background does not validate this bank"
+          },
+          "paragraphs": [
+            {
+              "zh": "Dweck在Stanford公开访谈里，把成长看法解释为能力可在努力、有效策略与他人帮助下发展，并未把人人起点或结果相同当定义。2019年Yeager等人的学校干预研究也强调具体教育情境，不能把其学生干预结果直接转成本站个人分数的效度或学习承诺。本版十二条、六条反向、九条最低与均分展示都是原创约定，没有采用DMI或IDR-MT题本，也没有本站常模、干预效果或跨语言等价验证；不是临床或智力测量。",
+              "en": "In a Stanford interview, Dweck described growth beliefs as allowing development through effort, strategies and help rather than identical starting points or outcomes. Yeager and colleagues’ 2019 school intervention also concerned particular educational contexts; its student outcomes cannot validate this personal score or promise learning. This edition’s twelve items, six reversals, nine-rating minimum and mean display are original conventions, without DMI or IDR-MT items, local norms, an intervention-effect study or established language equivalence. It is no clinical or intelligence measure, and this reflection does not reproduce a research intervention."
+            }
+          ]
+        },
+        {
+          "id": "reflection-scope",
+          "title": {
+            "zh": "可选回顾、隐私与结束的选择",
+            "en": "Optional review, privacy and the choice to stop"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，只找一条符合你看法的表述，问问它针对什么技能、哪些条件重要，以及什么新信息可能让看法改变；也可以不作记录。无需承诺更加努力或回忆不想讨论的经历。十二题与本完整说明免费，不要求注册、邮箱或另一测试解锁。答案在浏览器计分，不上传、不进入网址或分析；技能名称未收集。草稿需主动开启，本标签页24小时后失效，完成、重测或退出清除即删。分享只测试名称和公开链接，没有答案、均分或类型标签。",
+              "en": "If useful, choose one statement that fits your view and consider its skill reference, relevant conditions and what information could change it. You need not keep a record, promise more effort or revisit an unwanted experience. All twelve items and this full guide are free without signup, email or another test. Answers are scored in the browser without uploading or entering URLs or analytics; the skill name is not collected. Opted-in drafts expire after twenty-four hours in this tab and clear on completion, retake or exit-and-clear. Sharing includes the test name and public link without answers, means or a type label."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "zh": "一份连续读法、六条反向与资料不足",
+        "en": "One continuous reading, six reversals and missing information"
+      },
+      "paragraphs": [
+        {
+          "zh": "每条选择1非常不同意至5非常同意，或没有合适参照／资料不足／不愿回答。六条可改变表述直接计分，六条较固定表述即GROWTH_02、04、06、08、10、12按6减有效回答翻转；缺失排除，不翻成零。十二个选项都选完，且至少九条有效，才显示有效计分和÷有效条数的一位小数均分及条数。9条是本站完整度约定，不是可靠性证明。更高只表示在本题表述上较偏可改变看法，未设类型阈值、百分位或能力分。",
+          "en": "Rate each statement from 1 Strongly disagree to 5 Strongly agree, or select no suitable reference, insufficient information or preferring not to answer. Six changeable statements are direct; the six more fixed statements, GROWTH_02, 04, 06, 08, 10 and 12, use six minus a valid rating. Missing information is excluded, never reversed into zero. All twelve selections and at least nine ratings are required for a mean: keyed sum divided by rated count, rounded to one decimal, with the count shown. Nine is a website completeness rule rather than reliability evidence. Higher means lean toward changeable beliefs on these statements, without a type cutoff, percentile or ability score."
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "zh": "同一技能参照下读较高、较低与混合",
+        "en": "Higher, lower and mixed beliefs within one skill reference"
+      },
+      "paragraphs": [
+        {
+          "zh": "较高均分只表示在本组表述上较偏可改变信念，较低偏向较固定看法；不划固定阈值，不评好坏或预测能否学会。中间可由中立或不同组合形成，不能叫最平衡或半成长人格。只有一个连续观察部分，完整说明覆盖所有均分和资料不足，不是从多个类型中选中一页。",
+          "en": "Higher means lean toward changeable beliefs on these statements; lower means lean toward more fixed beliefs. There is no type cutoff, value judgment or prediction of learning. A middle mean can arise from neutral or different response patterns, without an ideal balance or half-growth personality. One continuous observation part has a full guide covering every mean and insufficient information, rather than selecting one page from several types."
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "zh": "信念不同于能力、努力或学习偏好",
+        "en": "Belief differs from ability, effort and learning preference"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这项技能可以改变”与“我下周一定做得好”不同，前者关心可改变看法，后者是对具体表现的信心。你偏好读说明还是听示范，也不是同一问题；实际投入多久、是否坚持和用了什么方法，同样不能从本均分补出。原有能力、机会和支持仍需另看。本结果不换算IQ、大五、MBTI、毅力、学习风格或成熟度，其他测评需独立作答，也不必为了确认这份结果而继续做。",
+          "en": "Believing a skill can change differs from expecting to perform well next week: one concerns changeability, the other confidence in an outcome. Preferring written instructions or a demonstration is another question. Time invested, persistence and methods used are likewise not supplied by this mean. Existing ability, opportunity and support still need separate evidence. This result is converted into neither IQ, Big Five, MBTI, grit, learning style nor maturity. Another assessment requires its own answers and is not needed to certify this reading."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "原创题本与研究背景的界限",
+        "en": "Original items and the limits of research background"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版只观察选定普通学习技能的可改变信念，不是Dweck Mindset Instrument或IDR-MT标准题本、智力或学习能力测试、学习风格派型、毅力或实际努力测量，也不预测成绩、工作、健康或人格。12条和计分呈现均为原创，研究定义与特定学校干预结果不验证本站题目、均分、个人效果或跨语言等价。信念高低不能说明资源、方法和支持实际充足，也不保证谁学得会；停止不适合的活动、选择休息或寻求帮助不等于固定心态。整卷以一项技能为参照，不能推一个人在所有领域的固定人格。",
+          "en": "This edition observes beliefs about change for one ordinary learning skill. It is not the Dweck Mindset Instrument or IDR-MT, an intelligence or learning-ability test, a learning-style assignment, or a measure of grit or actual effort. It predicts no grades, work, health or personality. The twelve items and display rules are original; research definitions and particular school interventions validate neither these items, means, individual effects nor language equivalence. Beliefs establish neither adequate resources, methods or support nor who will learn successfully. Stopping an unsuitable activity, resting or seeking help is not a fixed mindset. One skill reference cannot establish a fixed personality across every domain."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "完整免费、草稿与分享",
+        "en": "Full free access, drafts and sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "若愿意，只找一条符合你看法的表述，问问它针对什么技能、哪些条件重要，以及什么新信息可能让看法改变；也可以不作记录。无需承诺更加努力或回忆不想讨论的经历。十二题与本完整说明免费，不要求注册、邮箱或另一测试解锁。答案在浏览器计分，不上传、不进入网址或分析；技能名称未收集。草稿需主动开启，本标签页24小时后失效，完成、重测或退出清除即删。分享只测试名称和公开链接，没有答案、均分或类型标签。",
+          "en": "If useful, choose one statement that fits your view and consider its skill reference, relevant conditions and what information could change it. You need not keep a record, promise more effort or revisit an unwanted experience. All twelve items and this full guide are free without signup, email or another test. Answers are scored in the browser without uploading or entering URLs or analytics; the skill name is not collected. Opted-in drafts expire after twenty-four hours in this tab and clear on completion, retake or exit-and-clear. Sharing includes the test name and public link without answers, means or a type label."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这会告诉我属于成长型还是固定型吗？",
+        "en": "Will this assign a growth or fixed type?"
+      },
+      "answer": {
+        "zh": "不会。本版显示同一技能参照下、至少9条有效评分的一份连续均分与有效条数，不设类型阈值。完整说明覆盖较高、较低、中间混合与资料不足；结果不扩成一个人在所有领域的固定人格，也不评谁更好。",
+        "en": "No. This shows one continuous mean and rated count for the same skill reference, requiring nine ratings and no type cutoff. Its full guide covers higher, lower, middle or mixed means and insufficient information. It establishes no fixed personality across every domain or judgment of who is better."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样计分，哪些题反向？",
+        "en": "How is it scored, and which items reverse?"
+      },
+      "answer": {
+        "zh": "每条选择1非常不同意至5非常同意，或没有合适参照／资料不足／不愿回答。六条可改变表述直接计分，六条较固定表述即GROWTH_02、04、06、08、10、12按6减有效回答翻转；缺失排除，不翻成零。十二个选项都选完，且至少九条有效，才显示有效计分和÷有效条数的一位小数均分及条数。9条是本站完整度约定，不是可靠性证明。更高只表示在本题表述上较偏可改变看法，未设类型阈值、百分位或能力分。",
+        "en": "Rate each statement from 1 Strongly disagree to 5 Strongly agree, or select no suitable reference, insufficient information or preferring not to answer. Six changeable statements are direct; the six more fixed statements, GROWTH_02, 04, 06, 08, 10 and 12, use six minus a valid rating. Missing information is excluded, never reversed into zero. All twelve selections and at least nine ratings are required for a mean: keyed sum divided by rated count, rounded to one decimal, with the count shown. Nine is a website completeness rule rather than reliability evidence. Higher means lean toward changeable beliefs on these statements, without a type cutoff, percentile or ability score."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么先选一项技能，恢复时要注意什么？",
+        "en": "Why choose a skill first, and what matters when resuming?"
+      },
+      "answer": {
+        "zh": "本版请你用一项近期正在学或想学的普通技能贯穿十二条。比如整理电子表格或练习一种画法，结果只概括你对这个参照能否改变的看法，不把它扩展成在所有领域都成长或固定。你不需要在网站填写技能名称。若换了技能，回答可能改变；恢复草稿时请仍用原先参照，不记得可以清除后重测，而不是把两种情境当作同一结果。",
+        "en": "This edition asks you to keep one ordinary skill you are learning or considering in view across twelve statements. A spreadsheet task or drawing technique could supply the reference. The reading concerns beliefs about change for that skill, not a growth or fixed personality across every domain. No skill name is entered. Another reference may produce different answers. Resume a draft with the same skill, or clear and retake if you do not remember it, rather than treating two contexts as one result."
+      }
+    },
+    {
+      "question": {
+        "zh": "高均分会提高成绩、智力或工作表现吗？",
+        "en": "Does a higher mean improve grades, intelligence or work performance?"
+      },
+      "answer": {
+        "zh": "不能这样推断。题目只问当前看法，没有观察能力、方法、资源、练习或实际结果，也不是研究中的干预程序。学校样本里的干预结果不验证本站个人分数，更不保证人人达到相同结果。停止不适合的活动或求助也不能被叫作固定心态。",
+        "en": "No such inference follows. Items ask about beliefs without observing ability, methods, resources, practice or outcomes, and this is not a research intervention. School intervention results neither validate this personal score nor guarantee equal outcomes. Leaving an unsuitable activity or seeking help is not a fixed mindset inferred here."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果、重测与分享免费吗？",
+        "en": "Are full results, retaking and sharing free?"
+      },
+      "answer": {
+        "zh": "若愿意，只找一条符合你看法的表述，问问它针对什么技能、哪些条件重要，以及什么新信息可能让看法改变；也可以不作记录。无需承诺更加努力或回忆不想讨论的经历。十二题与本完整说明免费，不要求注册、邮箱或另一测试解锁。答案在浏览器计分，不上传、不进入网址或分析；技能名称未收集。草稿需主动开启，本标签页24小时后失效，完成、重测或退出清除即删。分享只测试名称和公开链接，没有答案、均分或类型标签。",
+        "en": "If useful, choose one statement that fits your view and consider its skill reference, relevant conditions and what information could change it. You need not keep a record, promise more effort or revisit an unwanted experience. All twelve items and this full guide are free without signup, email or another test. Answers are scored in the browser without uploading or entering URLs or analytics; the skill name is not collected. Opted-in drafts expire after twenty-four hours in this tab and clear on completion, retake or exit-and-clear. Sharing includes the test name and public link without answers, means or a type label."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "Stanford对Dweck的公开访谈：固定与成长看法的定义背景",
+        "en": "Stanford interview with Dweck: definition background for fixed and growth beliefs"
+      },
+      "url": "https://news.stanford.edu/stories/2015/04/dweck-kids-potential-042915"
+    },
+    {
+      "title": {
+        "zh": "Yeager等（2019）：学校干预与教育情境研究，非本版效度",
+        "en": "Yeager et al. (2019): school intervention and educational context, not validation of this edition"
+      },
+      "url": "https://www.nature.com/articles/s41586-019-1466-y"
+    }
+  ]
+}

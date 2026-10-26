@@ -1,0 +1,809 @@
+{
+  "formCode": "fm_growth_context_agreement_12",
+  "origin": "FermatMind original selected-learning-skill changeability-belief items; not DMI or IDR-MT",
+  "directions": [
+    {
+      "id": "changeability-belief",
+      "title": {
+        "zh": "所选技能的可改变信念",
+        "en": "Belief in change for the selected skill"
+      },
+      "itemCount": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "GROWTH_01",
+      "prompt": {
+        "zh": "对选定的技能，我认为合适的练习方式和帮助仍可能改变自己会做到什么。",
+        "en": "For the selected skill, I believe suitable practice and help could still change what I am able to do."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不同意",
+            "en": "Disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中立／不倾向任一边",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较同意",
+            "en": "Agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有合适参照／资料不足／不愿回答",
+            "en": "No suitable reference / insufficient information / prefer not to answer"
+          },
+          "directionId": "changeability-belief",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "GROWTH_02",
+      "prompt": {
+        "zh": "对选定的技能，我倾向于认为目前的水平已大致划定自己以后能达到的范围。",
+        "en": "For the selected skill, I tend to think my present level has largely set the range I could reach later."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不同意",
+            "en": "Disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中立／不倾向任一边",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较同意",
+            "en": "Agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有合适参照／资料不足／不愿回答",
+            "en": "No suitable reference / insufficient information / prefer not to answer"
+          },
+          "directionId": "changeability-belief",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "GROWTH_03",
+      "prompt": {
+        "zh": "对选定的技能，我认为换一种适合的练习方法，可能改变原先学不懂的部分。",
+        "en": "For the selected skill, I believe a better-fitting practice method could change something I previously could not understand."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不同意",
+            "en": "Disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中立／不倾向任一边",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较同意",
+            "en": "Agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有合适参照／资料不足／不愿回答",
+            "en": "No suitable reference / insufficient information / prefer not to answer"
+          },
+          "directionId": "changeability-belief",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "GROWTH_04",
+      "prompt": {
+        "zh": "对选定的技能，我更把反复遇到的困难看成较难改变的能力边界。",
+        "en": "For the selected skill, I am more inclined to see recurring difficulty as a hard-to-change limit on capacity."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不同意",
+            "en": "Disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中立／不倾向任一边",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较同意",
+            "en": "Agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有合适参照／资料不足／不愿回答",
+            "en": "No suitable reference / insufficient information / prefer not to answer"
+          },
+          "directionId": "changeability-belief",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "GROWTH_05",
+      "prompt": {
+        "zh": "对选定的技能，我认为具体反馈可能帮助自己学会原先不会的步骤。",
+        "en": "For the selected skill, I believe specific feedback could help me learn a step I could not previously perform."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不同意",
+            "en": "Disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中立／不倾向任一边",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较同意",
+            "en": "Agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有合适参照／资料不足／不愿回答",
+            "en": "No suitable reference / insufficient information / prefer not to answer"
+          },
+          "directionId": "changeability-belief",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "GROWTH_06",
+      "prompt": {
+        "zh": "对选定的技能，我倾向于认为别人的帮助只能帮我完成眼前任务，很难改变我能学会的范围。",
+        "en": "For the selected skill, I tend to think help can get the current task done but can do little to change what I could learn."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不同意",
+            "en": "Disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中立／不倾向任一边",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较同意",
+            "en": "Agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有合适参照／资料不足／不愿回答",
+            "en": "No suitable reference / insufficient information / prefer not to answer"
+          },
+          "directionId": "changeability-belief",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "GROWTH_07",
+      "prompt": {
+        "zh": "对选定的技能，我认为现在不会的一步，在条件合适时以后仍可能学会。",
+        "en": "For the selected skill, I believe a step I cannot do now could still be learned later under suitable conditions."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不同意",
+            "en": "Disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中立／不倾向任一边",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较同意",
+            "en": "Agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有合适参照／资料不足／不愿回答",
+            "en": "No suitable reference / insufficient information / prefer not to answer"
+          },
+          "directionId": "changeability-belief",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "GROWTH_08",
+      "prompt": {
+        "zh": "对选定的技能，我倾向于认为开始时学得轻松或吃力，已经基本说明长期能达到哪里。",
+        "en": "For the selected skill, I tend to think early ease or difficulty has largely shown what could be reached in the long run."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不同意",
+            "en": "Disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中立／不倾向任一边",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较同意",
+            "en": "Agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有合适参照／资料不足／不愿回答",
+            "en": "No suitable reference / insufficient information / prefer not to answer"
+          },
+          "directionId": "changeability-belief",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "GROWTH_09",
+      "prompt": {
+        "zh": "对选定的技能，我认为练习机会和可用支持的改变，可能让后来的学习走向不同。",
+        "en": "For the selected skill, I believe changes in practice opportunities and available support could alter the course of later learning."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不同意",
+            "en": "Disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中立／不倾向任一边",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较同意",
+            "en": "Agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有合适参照／资料不足／不愿回答",
+            "en": "No suitable reference / insufficient information / prefer not to answer"
+          },
+          "directionId": "changeability-belief",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "GROWTH_10",
+      "prompt": {
+        "zh": "对选定的技能，我倾向于认为入门之后，能学到什么就不太会再受新方法或支持改变。",
+        "en": "For the selected skill, I tend to think that after the initial stage, new methods or support will do little to change what I could learn."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不同意",
+            "en": "Disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中立／不倾向任一边",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较同意",
+            "en": "Agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有合适参照／资料不足／不愿回答",
+            "en": "No suitable reference / insufficient information / prefer not to answer"
+          },
+          "directionId": "changeability-belief",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "GROWTH_11",
+      "prompt": {
+        "zh": "对选定的技能，我认为起点不突出，并不排除在合适条件下学会更多。",
+        "en": "For the selected skill, I believe an unremarkable starting point leaves room to learn more under suitable conditions."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不同意",
+            "en": "Disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中立／不倾向任一边",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较同意",
+            "en": "Agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有合适参照／资料不足／不愿回答",
+            "en": "No suitable reference / insufficient information / prefer not to answer"
+          },
+          "directionId": "changeability-belief",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "GROWTH_12",
+      "prompt": {
+        "zh": "对选定的技能，我倾向于认为起点上的差异，基本锁定了自己哪些部分难以再进步。",
+        "en": "For the selected skill, I tend to think differences at the starting point largely lock in the parts where I could improve little."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不同意",
+            "en": "Disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中立／不倾向任一边",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "changeability-belief",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较同意",
+            "en": "Agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "changeability-belief",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有合适参照／资料不足／不愿回答",
+            "en": "No suitable reference / insufficient information / prefer not to answer"
+          },
+          "directionId": "changeability-belief",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "questions": 12,
+    "facets": 1,
+    "itemsEach": 12,
+    "minimumRatedEach": 9,
+    "reverseItems": [
+      "GROWTH_02",
+      "GROWTH_04",
+      "GROWTH_06",
+      "GROWTH_08",
+      "GROWTH_10",
+      "GROWTH_12"
+    ],
+    "reverseRule": "even6items key=6-rating/NAexcludednotreversezero",
+    "mean": "oneindependent1..5mean=sumofkeyedvalidratings/rated rounded1decimal onlyrated>=9;all12selectionsrequired/noassignedfixed-growthtype,cutoff,norm,IQ,effort,grit,learningresultorclinicalconclusion",
+    "verificationPlan": "DPof(rated,keyedsum)toperform/expected325statesNOTyetexecuted/not6^12individualresponsesorvalidation"
+  },
+  "scope": {
+    "zh": "本版只观察选定普通学习技能的可改变信念，不是Dweck Mindset Instrument或IDR-MT标准题本、智力或学习能力测试、学习风格派型、毅力或实际努力测量，也不预测成绩、工作、健康或人格。12条和计分呈现均为原创，研究定义与特定学校干预结果不验证本站题目、均分、个人效果或跨语言等价。信念高低不能说明资源、方法和支持实际充足，也不保证谁学得会；停止不适合的活动、选择休息或寻求帮助不等于固定心态。整卷以一项技能为参照，不能推一个人在所有领域的固定人格。",
+    "en": "This edition observes beliefs about change for one ordinary learning skill. It is not the Dweck Mindset Instrument or IDR-MT, an intelligence or learning-ability test, a learning-style assignment, or a measure of grit or actual effort. It predicts no grades, work, health or personality. The twelve items and display rules are original; research definitions and particular school interventions validate neither these items, means, individual effects nor language equivalence. Beliefs establish neither adequate resources, methods or support nor who will learn successfully. Stopping an unsuitable activity, resting or seeking help is not a fixed mindset. One skill reference cannot establish a fixed personality across every domain."
+  },
+  "instructions": {
+    "zh": "先在心里选一项你近期正在学或想学的普通技能，整卷都以同一项为参照；不需要填写技能名称。按你现在对这项技能能否改变的看法，选择同意程度，而非实际表现或希望怎样回答。没有合适参照、资料不足或不愿回答，请选对应项，不当中立或零分。12题都选完才呈现；至少9条有效才显示均分。恢复草稿时仍用原先技能，不记得可清除后重测。",
+    "en": "First choose an ordinary skill you are learning or considering, keeping the same reference throughout; no skill name is entered. Rate your present beliefs about whether it can change, not actual performance or your preferred image of yourself. Use the separate option for no suitable reference, insufficient information or preferring not to answer, rather than neutral or zero. Complete all twelve selections; nine ratings are needed for a mean. Resume with the same skill, or clear and retake if you do not remember it."
+  }
+}
