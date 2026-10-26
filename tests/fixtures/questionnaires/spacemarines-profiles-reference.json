@@ -1,0 +1,752 @@
+[
+  {
+    "id": "ultramarines",
+    "directionIds": [
+      "ultramarines"
+    ],
+    "title": {
+      "en": "Ultramarines",
+      "zh": "极限战士（Ultramarines）"
+    },
+    "headline": {
+      "en": "Give the display a shared plan",
+      "zh": "给展示一个共同计划"
+    },
+    "summary": {
+      "en": "Explore Ultramarines through give the display a shared plan: an original peaceful model-display scene, five Chapter comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+      "zh": "从“给展示一个共同计划”探索极限战士（Ultramarines）：原创和平模型展示场景、五战团比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+    },
+    "seo": {
+      "title": {
+        "en": "Ultramarines Test Result: Give the display a shared plan | Space Marine Chapters",
+        "zh": "极限战士（Ultramarines）测试结果：给展示一个共同计划｜星际战士战团"
+      },
+      "description": {
+        "en": "Explore Ultramarines through give the display a shared plan: an original peaceful model-display scene, five Chapter comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“给展示一个共同计划”探索极限战士（Ultramarines）：原创和平模型展示场景、五战团比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      }
+    },
+    "scoreReading": {
+      "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected Chapters, giving 18 counts in total. Every Chapter appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides, including all six when all A choices give three counts each. These counts describe this original hobby bank, not match percentages, population norms, military aptitude, game statistics or validated personality differences.",
+      "zh": "完成18情境，每项明确映射选择给六选定战团中一方加一次原始次数，总计18次。每战团出现12次、每答位3次；当题未出现不算被拒绝。所有最高有全文；全A各3次，六方并列。次数描述原创爱好题本，不是匹配百分比、人群常模、军事能力、游戏数据或经验证人格差异。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "The Ultramarines angle in this edition",
+          "zh": "本版极限战士角度"
+        },
+        "paragraphs": [
+          {
+            "en": "Ultramarines is one of the six Chapter names selected for this independent fan edition. The angle here is a clear shared plan for a peaceful model display. It is a limited hobby comparison, not a complete account of the fictional Chapter or a test of obedience. A useful plan lets contributors understand the main pieces, ask questions and revise their own part without surrendering their choices.",
+            "zh": "极限战士是本独立同人版选定六战团名之一，角度为和平模型展示的清楚共同计划。是有限爱好比较，不是战团完整描述、不测服从。有用计划让创作者懂主体、提问、改自己部分，不交出选择。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "Three parts that people can agree to make",
+          "zh": "大家能同意作的三部分"
+        },
+        "paragraphs": [
+          {
+            "en": "The original display has a small base, a few paper structures and an invented route through them. You propose a short sequence for assembling those parts and ask contributors whether it fits what they wanted to make. They can change the order or choose a smaller contribution. The useful feature is coordination for this voluntary display, not a hierarchy that makes one person’s plan unquestionable.",
+            "zh": "原创展示有小底座、几纸结构、其间虚构路线。你提短组装顺序，问是否合各人想制作的；可改顺序、选小贡献。有用处是协调此自愿展示，不立某人计划不可质疑的等级。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "A plan beside five other hobby angles",
+          "zh": "计划与另外五种爱好角度"
+        },
+        "paragraphs": [
+          {
+            "en": "Imperial Fists gives a lightweight piece a steady base; Iron Hands tests a connection and Salamanders refines a handmade detail. Raven Guard observes the visible layout while White Scars explores a different fictional route. The Ultramarines angle gives those contributions an agreed sequence. They can coexist without ranking discipline, intelligence or loyalty. A tied guide offers several readings, not an official Chapter assignment or a claim about how you should behave outside the hobby.",
+            "zh": "帝国之拳给轻部件稳底座，钢铁之手试连接，火蜥蜴细作手作细节；暗鸦看可见布局，白疤探索另虚构路。极限战士给贡献约好顺序。可共存，不排纪律、智力、忠诚；并列不作官方战团分派、不规定爱好外怎样行为。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "A clear plan can become too rigid",
+          "zh": "清楚计划也会太硬"
+        },
+        "paragraphs": [
+          {
+            "en": "A plan stops helping when keeping it becomes more important than the display people want to make. Ask which few steps still matter and simplify the rest together. A contributor can change their mind or leave an optional task. Your count cannot establish leadership or ideological agreement with a fictional empire, and a lower count does not imply disloyalty, poor organisation or an inability to finish a project.",
+            "zh": "维持计划比大家想制作的展示更重要时，就不再有益。可问仍需哪几步，共同简化其余；创作者能改主意、离可选任务。次数不确立领导、不等于认同虚构帝国理念；低计数不表示不忠、无序、不能完工。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try a short plan that can be edited",
+          "zh": "试可共同修改的短计划"
+        },
+        "paragraphs": [
+          {
+            "en": "For an optional paper display, write down three main tasks and ask willing contributors which sequence they prefer. Change one step if needed, then make only the part everyone wants to try. Afterwards, check whether the plan reduced confusion or merely added coordination work. This is feedback on a small hobby project, not military instruction, a leadership score or advice about choosing an army to buy.",
+            "zh": "可选纸展示列三主体任务，问自愿创作者偏好顺序，必要改一步，只作大家想试部分。之后核减少困惑还是只加协调。这反馈爱好小项目，不作军事指令、领导评分、不建议买哪军队。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "Eighteen choices and every highest tie",
+          "zh": "18次选择与每个最高并列"
+        },
+        "paragraphs": [
+          {
+            "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected Chapters, giving 18 counts in total. Every Chapter appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides, including all six when all A choices give three counts each. These counts describe this original hobby bank, not match percentages, population norms, military aptitude, game statistics or validated personality differences.",
+            "zh": "完成18情境，每项明确映射选择给六选定战团中一方加一次原始次数，总计18次。每战团出现12次、每答位3次；当题未出现不算被拒绝。所有最高有全文；全A各3次，六方并列。次数描述原创爱好题本，不是匹配百分比、人群常模、军事能力、游戏数据或经验证人格差异。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original fan edition and source limits",
+          "zh": "原创同人版与来源边界"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this unofficial fan edition: original peaceful model-display situations, mappings, examples and complete readings. Warhammer Community’s public articles identify the six selected Chapter names; they do not validate these hobby angles or this bank. Names belong to their respective rights holders. No franchise art, emblems, rules text, fiction passages or competitor questions and reports are reproduced. This entertainment edition is not a current army-building guide or a measure of combat skill, ideology, genetics, bodily worth, clinical status or real ethnic identity.",
+            "zh": "费马独立创作本非官方同人版的和平模型展示情境、映射、例子与全文。Warhammer Community公开文章确认选定六战团名称，不验证爱好角度、题本。名称属于各权利方，不复用IP图、徽章、规则原文、小说段落、竞品题目或报告。本娱乐版不作当前配军指南，不测战斗技术、意识形态、基因、身体价值、临床状况或现实族群身份。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "imperial-fists",
+    "directionIds": [
+      "imperial-fists"
+    ],
+    "title": {
+      "en": "Imperial Fists",
+      "zh": "帝国之拳（Imperial Fists）"
+    },
+    "headline": {
+      "en": "Make a small display base dependable",
+      "zh": "让小展示底座可靠"
+    },
+    "summary": {
+      "en": "Explore Imperial Fists through make a small display base dependable: an original peaceful model-display scene, five Chapter comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+      "zh": "从“让小展示底座可靠”探索帝国之拳（Imperial Fists）：原创和平模型展示场景、五战团比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+    },
+    "seo": {
+      "title": {
+        "en": "Imperial Fists Test Result: Make a small display base dependable | Space Marine Chapters",
+        "zh": "帝国之拳（Imperial Fists）测试结果：让小展示底座可靠｜星际战士战团"
+      },
+      "description": {
+        "en": "Explore Imperial Fists through make a small display base dependable: an original peaceful model-display scene, five Chapter comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“让小展示底座可靠”探索帝国之拳（Imperial Fists）：原创和平模型展示场景、五战团比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      }
+    },
+    "scoreReading": {
+      "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected Chapters, giving 18 counts in total. Every Chapter appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides, including all six when all A choices give three counts each. These counts describe this original hobby bank, not match percentages, population norms, military aptitude, game statistics or validated personality differences.",
+      "zh": "完成18情境，每项明确映射选择给六选定战团中一方加一次原始次数，总计18次。每战团出现12次、每答位3次；当题未出现不算被拒绝。所有最高有全文；全A各3次，六方并列。次数描述原创爱好题本，不是匹配百分比、人群常模、军事能力、游戏数据或经验证人格差异。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "The Imperial Fists angle in this edition",
+          "zh": "本版帝国之拳角度"
+        },
+        "paragraphs": [
+          {
+            "en": "Imperial Fists anchors a sturdy little base in this original hobby bank. The comparison concerns a lightweight paper display, not building real fortifications, proving toughness or enduring discomfort. A dependable base can let people enjoy a handmade piece without repeatedly resetting it. That is one limited contribution to an optional model project; it does not rank courage or make stability the only worthwhile way to participate.",
+            "zh": "帝国之拳对应原创爱好题本的稳固小底座，只关轻纸展示，不建真实防御、不证强硬、不忍不适。可靠底座可让人享受作品、少反复摆回；是可选项目有限贡献，不排勇敢、不把稳当唯一价值。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "The paper platform stays where it belongs",
+          "zh": "纸平台留在合适位置"
+        },
+        "paragraphs": [
+          {
+            "en": "A small platform looks attractive but shifts when the display is rearranged. You make a modest support that suits the lightweight paper piece and the group’s agreed scope. The goal is a workable afternoon display, not an indestructible construction. Another contributor can still prefer a temporary arrangement, and the support can be changed when the imaginary scene needs a different shape.",
+            "zh": "小平台好看，重排却会移。你给轻纸部件作适中支撑，合约好范围。目标是可用一下午展示，不建不可摧毁结构；别人仍可偏暂时安排，虚构场景变形时支撑也可改。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "A base beside five other hobby angles",
+          "zh": "底座与另外五种爱好角度"
+        },
+        "paragraphs": [
+          {
+            "en": "Ultramarines offers a shared plan, Iron Hands tests a connection and Salamanders refines the finish. Raven Guard observes a visible detail while White Scars explores an alternative fictional route. Imperial Fists supplies a steady base for one piece. None is a rank in resilience, strength or value. A tie does not prove that you should hold every real group together, absorb pressure or keep supporting an arrangement you no longer want.",
+            "zh": "极限战士给共同计划，钢铁之手试连接，火蜥蜴细收表面；暗鸦看可见细节，白疤探另虚构路。帝国之拳供一部件稳底座。不排韧性、力量、价值；并列不证明应撑所有真人小组、吸压力、继续不想要的安排。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "Dependable can still be simple",
+          "zh": "可靠仍可简单"
+        },
+        "paragraphs": [
+          {
+            "en": "It is possible to spend the whole session improving a base that already does what the display needs. Ask whether the next change helps the small project or only satisfies an idea of being unshakeable. The group can choose a simpler version. Your count cannot establish physical endurance, stubbornness or a duty to endure pain, and a lower count does not mean weakness or unreliability as a person.",
+            "zh": "底座已够用仍可花整场改它。可问下次变化真帮小项目，还是只满足不可动摇想象；小组可选更简单版。次数不确立耐力、固执、不派忍疼义务；低计数不表示软弱、不可靠的人。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try the least base the paper model needs",
+          "zh": "试纸模型够用的最小底座"
+        },
+        "paragraphs": [
+          {
+            "en": "In a voluntary paper craft, compare two simple supports for one lightweight piece. Ask willing collaborators which one keeps the display usable without making the arrangement cumbersome. Keep, change or drop either after a small ordinary trial. You are exploring a hobby preference, not structural engineering competence, a battlefield role or a judgment about how strongly you ought to support other people’s plans.",
+            "zh": "自愿纸手作中，比一轻部件的两简单支撑，问自愿伙伴哪让展示可用又不笨重。普通小试后可留、改、删。这探索爱好偏好，不评结构工程、战场角色、不判应多用力撑别人计划。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "Eighteen choices and every highest tie",
+          "zh": "18次选择与每个最高并列"
+        },
+        "paragraphs": [
+          {
+            "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected Chapters, giving 18 counts in total. Every Chapter appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides, including all six when all A choices give three counts each. These counts describe this original hobby bank, not match percentages, population norms, military aptitude, game statistics or validated personality differences.",
+            "zh": "完成18情境，每项明确映射选择给六选定战团中一方加一次原始次数，总计18次。每战团出现12次、每答位3次；当题未出现不算被拒绝。所有最高有全文；全A各3次，六方并列。次数描述原创爱好题本，不是匹配百分比、人群常模、军事能力、游戏数据或经验证人格差异。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original fan edition and source limits",
+          "zh": "原创同人版与来源边界"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this unofficial fan edition: original peaceful model-display situations, mappings, examples and complete readings. Warhammer Community’s public articles identify the six selected Chapter names; they do not validate these hobby angles or this bank. Names belong to their respective rights holders. No franchise art, emblems, rules text, fiction passages or competitor questions and reports are reproduced. This entertainment edition is not a current army-building guide or a measure of combat skill, ideology, genetics, bodily worth, clinical status or real ethnic identity.",
+            "zh": "费马独立创作本非官方同人版的和平模型展示情境、映射、例子与全文。Warhammer Community公开文章确认选定六战团名称，不验证爱好角度、题本。名称属于各权利方，不复用IP图、徽章、规则原文、小说段落、竞品题目或报告。本娱乐版不作当前配军指南，不测战斗技术、意识形态、基因、身体价值、临床状况或现实族群身份。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "iron-hands",
+    "directionIds": [
+      "iron-hands"
+    ],
+    "title": {
+      "en": "Iron Hands",
+      "zh": "钢铁之手（Iron Hands）"
+    },
+    "headline": {
+      "en": "Improve one connection from a small test",
+      "zh": "从小测试改进一个连接"
+    },
+    "summary": {
+      "en": "Explore Iron Hands through improve one connection from a small test: an original peaceful model-display scene, five Chapter comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+      "zh": "从“从小测试改进一个连接”探索钢铁之手（Iron Hands）：原创和平模型展示场景、五战团比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+    },
+    "seo": {
+      "title": {
+        "en": "Iron Hands Test Result: Improve one connection from a small test | Space Marine Chapters",
+        "zh": "钢铁之手（Iron Hands）测试结果：从小测试改进一个连接｜星际战士战团"
+      },
+      "description": {
+        "en": "Explore Iron Hands through improve one connection from a small test: an original peaceful model-display scene, five Chapter comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“从小测试改进一个连接”探索钢铁之手（Iron Hands）：原创和平模型展示场景、五战团比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      }
+    },
+    "scoreReading": {
+      "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected Chapters, giving 18 counts in total. Every Chapter appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides, including all six when all A choices give three counts each. These counts describe this original hobby bank, not match percentages, population norms, military aptitude, game statistics or validated personality differences.",
+      "zh": "完成18情境，每项明确映射选择给六选定战团中一方加一次原始次数，总计18次。每战团出现12次、每答位3次；当题未出现不算被拒绝。所有最高有全文；全A各3次，六方并列。次数描述原创爱好题本，不是匹配百分比、人群常模、军事能力、游戏数据或经验证人格差异。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "The Iron Hands angle in this edition",
+          "zh": "本版钢铁之手角度"
+        },
+        "paragraphs": [
+          {
+            "en": "Iron Hands is used here for testing and improving a small paper connection. The selected angle does not turn fictional augmentation into advice about your body, health or personal worth. In this original hobby project, changing a fold can make two lightweight pieces fit more comfortably. The comparison concerns one reversible design choice, not a belief that people should be replaced, optimised or valued only for efficiency.",
+            "zh": "钢铁之手在本版对应测试、改进小纸连接，不把虚构强化变身体、健康、个人价值建议。原创爱好中，改折痕可使两轻部件更合。只关可改回设计选择，不认为人应被替代、优化、只按效率估价。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "One change makes its effect visible",
+          "zh": "一项变化使效果可见"
+        },
+        "paragraphs": [
+          {
+            "en": "A harmless paper joint does not fit as expected. You compare the current fold with one small adjustment, see what actually changes and ask the maker whether to keep it. If neither version helps, you can return to the earlier arrangement. The scene values a specific observation about paper pieces, not endless improvement, an automatic preference for machines or a claim that you have technical aptitude.",
+            "zh": "无害纸接合不如预期，你比当前折法与一小改，见真改变，问作者留否。都无益可回旧安排。场景重具体纸部件观察，不重无尽改进、不自动偏机器、不说有技术天赋。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "A tested joint beside five other hobby angles",
+          "zh": "测试接合与另外五种爱好角度"
+        },
+        "paragraphs": [
+          {
+            "en": "Ultramarines agrees a plan, Imperial Fists makes a steady base and Salamanders refines a handmade detail. Raven Guard looks carefully at the display while White Scars tries an alternative fictional route. Iron Hands tests one connection those choices might use. The angles can coexist without ranking intelligence, efficiency or bodily ability. A tie offers several hobby readings rather than a diagnosis, a technological identity or an official playstyle recommendation.",
+            "zh": "极限战士约计划，帝国之拳作稳底座，火蜥蜴细作手工；暗鸦仔细看展示，白疤试另虚构路。钢铁之手测试这些选择或需的一连接。可共存，不排智力、效率、身体能力；并列给爱好读法，不作诊断、技术身份、官方玩法推荐。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "A working connection does not need infinite revision",
+          "zh": "可用连接不需无限修改"
+        },
+        "paragraphs": [
+          {
+            "en": "Another adjustment can become more interesting than finishing the shared display. Agree a stopping point and check before changing a piece someone else wants to keep. You can choose a less efficient version because it is enjoyable or meaningful. Your count cannot establish detachment, perfectionism or an attitude toward body modification, and a lower count does not mean resistance to learning or a lack of practical ability.",
+            "zh": "再改可能比完成共同展示更吸引。可约终点，改别人想留的部件前先核。也可因喜欢、有意义而选较低效版。次数不确立冷漠、完美主义、身体改造态度；低计数不表示拒学、缺实际能力。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try one reversible adjustment and a stopping point",
+          "zh": "试一项可改回调整与终点"
+        },
+        "paragraphs": [
+          {
+            "en": "Choose a simple paper connection in an optional model session and agree one small change with its maker. Compare the fit before and after, then decide whether to keep the change or stop. Ask whether the trial helped the display rather than treating every new version as progress. This explores a design preference, not engineering certification, medical advice or a measure of your value through productivity.",
+            "zh": "可选模型活动选简单纸连接，与作者约一小改，比前后接合，再决定留或停。问试验是否帮展示，不把新版一律当进步。这探索设计偏好，不作工程认证、医疗建议、不按产出来测价值。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "Eighteen choices and every highest tie",
+          "zh": "18次选择与每个最高并列"
+        },
+        "paragraphs": [
+          {
+            "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected Chapters, giving 18 counts in total. Every Chapter appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides, including all six when all A choices give three counts each. These counts describe this original hobby bank, not match percentages, population norms, military aptitude, game statistics or validated personality differences.",
+            "zh": "完成18情境，每项明确映射选择给六选定战团中一方加一次原始次数，总计18次。每战团出现12次、每答位3次；当题未出现不算被拒绝。所有最高有全文；全A各3次，六方并列。次数描述原创爱好题本，不是匹配百分比、人群常模、军事能力、游戏数据或经验证人格差异。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original fan edition and source limits",
+          "zh": "原创同人版与来源边界"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this unofficial fan edition: original peaceful model-display situations, mappings, examples and complete readings. Warhammer Community’s public articles identify the six selected Chapter names; they do not validate these hobby angles or this bank. Names belong to their respective rights holders. No franchise art, emblems, rules text, fiction passages or competitor questions and reports are reproduced. This entertainment edition is not a current army-building guide or a measure of combat skill, ideology, genetics, bodily worth, clinical status or real ethnic identity.",
+            "zh": "费马独立创作本非官方同人版的和平模型展示情境、映射、例子与全文。Warhammer Community公开文章确认选定六战团名称，不验证爱好角度、题本。名称属于各权利方，不复用IP图、徽章、规则原文、小说段落、竞品题目或报告。本娱乐版不作当前配军指南，不测战斗技术、意识形态、基因、身体价值、临床状况或现实族群身份。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "salamanders",
+    "directionIds": [
+      "salamanders"
+    ],
+    "title": {
+      "en": "Salamanders",
+      "zh": "火蜥蜴（Salamanders）"
+    },
+    "headline": {
+      "en": "Give one handmade detail careful attention",
+      "zh": "仔细对待一项手作细节"
+    },
+    "summary": {
+      "en": "Explore Salamanders through give one handmade detail careful attention: an original peaceful model-display scene, five Chapter comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+      "zh": "从“仔细对待一项手作细节”探索火蜥蜴（Salamanders）：原创和平模型展示场景、五战团比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+    },
+    "seo": {
+      "title": {
+        "en": "Salamanders Test Result: Give one handmade detail careful attention | Space Marine Chapters",
+        "zh": "火蜥蜴（Salamanders）测试结果：仔细对待一项手作细节｜星际战士战团"
+      },
+      "description": {
+        "en": "Explore Salamanders through give one handmade detail careful attention: an original peaceful model-display scene, five Chapter comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“仔细对待一项手作细节”探索火蜥蜴（Salamanders）：原创和平模型展示场景、五战团比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      }
+    },
+    "scoreReading": {
+      "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected Chapters, giving 18 counts in total. Every Chapter appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides, including all six when all A choices give three counts each. These counts describe this original hobby bank, not match percentages, population norms, military aptitude, game statistics or validated personality differences.",
+      "zh": "完成18情境，每项明确映射选择给六选定战团中一方加一次原始次数，总计18次。每战团出现12次、每答位3次；当题未出现不算被拒绝。所有最高有全文；全A各3次，六方并列。次数描述原创爱好题本，不是匹配百分比、人群常模、军事能力、游戏数据或经验证人格差异。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "The Salamanders angle in this edition",
+          "zh": "本版火蜥蜴角度"
+        },
+        "paragraphs": [
+          {
+            "en": "Salamanders anchors a carefully made detail in this original hobby bank. The angle concerns shaping a small texture or finish with materials already offered, not fire, weapon use or a test of how much you care about people. A handmade detail can give a peaceful model display a particular feel. Its value comes from what participants enjoy making, not from costly equipment, perfect skill or a duty to produce something impressive.",
+            "zh": "火蜥蜴对应原创爱好题本的一项用心手作细节，关用已有自愿材料塑小质地、表面，不关火、武器、不测多在乎人。细节可给和平模型展示特定感觉，价值来自制作乐趣，不靠昂贵器材、完美技巧、不欠精彩产出。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "A small surface makes the scene feel made",
+          "zh": "小表面让场景有手作感"
+        },
+        "paragraphs": [
+          {
+            "en": "The group’s invented display has a corner ready for one handmade feature. You shape a simple paper texture and ask its maker whether the detail suits the scene. A rough first version can be enjoyable, and the group may prefer it to a more elaborate finish. The contribution is a deliberate touch in this particular project, not proof that an expensive collection or professional-looking miniature is the right way to enjoy the hobby.",
+            "zh": "虚构展示角落可添手作特征，你塑简单纸质地，问作者是否合场景。粗首版也可有趣，甚至比复杂表面更喜欢。贡献为此项目有意一笔，不证明昂贵收藏、专业外观才是正确享受爱好方式。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "Craft beside five other hobby angles",
+          "zh": "手作与另外五种爱好角度"
+        },
+        "paragraphs": [
+          {
+            "en": "Ultramarines agrees a shared plan, Imperial Fists supports a piece and Iron Hands tests a connection. Raven Guard notices a visible detail while White Scars explores a different fictional route. Salamanders refines the handmade surface those contributions can sit beside. These angles can coexist without ranking artistry, generosity or worth. A tie is not an official Chapter recommendation or a claim about how much care you should give other people.",
+            "zh": "极限战士约共同计划，帝国之拳支部件，钢铁之手试连接；暗鸦看可见细节，白疤探另虚构路。火蜥蜴细作可与其相伴的表面。可共存，不排艺术、慷慨、价值；并列不作官方战团推荐、不规定应给别人多少照顾。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "Careful does not have to become flawless",
+          "zh": "用心不必变成无瑕"
+        },
+        "paragraphs": [
+          {
+            "en": "A detail can take more time than the rest of the group wanted to spend on the display. Ask whether another pass adds something enjoyable or only serves a standard nobody agreed. You can stop with a simple finish or keep the sample for a later session. Your count cannot establish artistic talent, moral goodness or a caring personality, and a lower count does not mean indifference or poor taste.",
+            "zh": "细节可耗超大家想给展示的时间。可问再一遍是否添乐趣，还是只服从未约标准。能简单收尾、留样待后。次数不确立艺术天赋、道德、照顾型人格；低计数不表示冷漠、品位差。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try one small texture with materials you have",
+          "zh": "用现有材料试一个小质地"
+        },
+        "paragraphs": [
+          {
+            "en": "For an optional model project, make two tiny paper finishes from materials already available. Ask willing collaborators what each one adds to the invented scene, then keep either or neither. Decide before continuing how much time you want to spend. This explores a craft preference, not a skill qualification, a reason to buy equipment or advice about caring, safety or the use of real heat and tools.",
+            "zh": "可选模型项目用现有材料作两微小纸表面，问自愿伙伴各给虚构场景添什么，再选一或都不选。继续前决定愿花多久。这探索手作偏好，不作技能资格、不构成购物理由、不指导照顾、安全、真实热源工具使用。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "Eighteen choices and every highest tie",
+          "zh": "18次选择与每个最高并列"
+        },
+        "paragraphs": [
+          {
+            "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected Chapters, giving 18 counts in total. Every Chapter appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides, including all six when all A choices give three counts each. These counts describe this original hobby bank, not match percentages, population norms, military aptitude, game statistics or validated personality differences.",
+            "zh": "完成18情境，每项明确映射选择给六选定战团中一方加一次原始次数，总计18次。每战团出现12次、每答位3次；当题未出现不算被拒绝。所有最高有全文；全A各3次，六方并列。次数描述原创爱好题本，不是匹配百分比、人群常模、军事能力、游戏数据或经验证人格差异。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original fan edition and source limits",
+          "zh": "原创同人版与来源边界"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this unofficial fan edition: original peaceful model-display situations, mappings, examples and complete readings. Warhammer Community’s public articles identify the six selected Chapter names; they do not validate these hobby angles or this bank. Names belong to their respective rights holders. No franchise art, emblems, rules text, fiction passages or competitor questions and reports are reproduced. This entertainment edition is not a current army-building guide or a measure of combat skill, ideology, genetics, bodily worth, clinical status or real ethnic identity.",
+            "zh": "费马独立创作本非官方同人版的和平模型展示情境、映射、例子与全文。Warhammer Community公开文章确认选定六战团名称，不验证爱好角度、题本。名称属于各权利方，不复用IP图、徽章、规则原文、小说段落、竞品题目或报告。本娱乐版不作当前配军指南，不测战斗技术、意识形态、基因、身体价值、临床状况或现实族群身份。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "raven-guard",
+    "directionIds": [
+      "raven-guard"
+    ],
+    "title": {
+      "en": "Raven Guard",
+      "zh": "暗鸦守卫（Raven Guard）"
+    },
+    "headline": {
+      "en": "Observe what is visible before changing it",
+      "zh": "改变之前观察可见之处"
+    },
+    "summary": {
+      "en": "Explore Raven Guard through observe what is visible before changing it: an original peaceful model-display scene, five Chapter comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+      "zh": "从“改变之前观察可见之处”探索暗鸦守卫（Raven Guard）：原创和平模型展示场景、五战团比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+    },
+    "seo": {
+      "title": {
+        "en": "Raven Guard Test Result: Observe what is visible before changing it | Space Marine Chapters",
+        "zh": "暗鸦守卫（Raven Guard）测试结果：改变之前观察可见之处｜星际战士战团"
+      },
+      "description": {
+        "en": "Explore Raven Guard through observe what is visible before changing it: an original peaceful model-display scene, five Chapter comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“改变之前观察可见之处”探索暗鸦守卫（Raven Guard）：原创和平模型展示场景、五战团比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      }
+    },
+    "scoreReading": {
+      "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected Chapters, giving 18 counts in total. Every Chapter appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides, including all six when all A choices give three counts each. These counts describe this original hobby bank, not match percentages, population norms, military aptitude, game statistics or validated personality differences.",
+      "zh": "完成18情境，每项明确映射选择给六选定战团中一方加一次原始次数，总计18次。每战团出现12次、每答位3次；当题未出现不算被拒绝。所有最高有全文；全A各3次，六方并列。次数描述原创爱好题本，不是匹配百分比、人群常模、军事能力、游戏数据或经验证人格差异。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "The Raven Guard angle in this edition",
+          "zh": "本版暗鸦守卫角度"
+        },
+        "paragraphs": [
+          {
+            "en": "Raven Guard is used here for looking quietly at a visible model layout before proposing a change. The angle does not involve spying, secrecy or guessing private motives. A careful look can make a specific detail easier to discuss while leaving people free to disagree about its meaning. It is one selected hobby comparison, not a measure of introversion, suspicion, social perception or an ability to read minds.",
+            "zh": "暗鸦守卫在本版对应建议修改前安静看可见模型布局，不涉间谍、秘密、猜私人动机。仔细看可让具体细节好谈，也容不同解释。是选定爱好比较，不测内向、怀疑、社交觉察、读心能力。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "The model shifts in one visible place",
+          "zh": "模型在一个可见位置移动"
+        },
+        "paragraphs": [
+          {
+            "en": "Before suggesting a repair, you look at where a harmless paper model shifts when the display is rearranged. You describe that visible movement and ask the maker whether they want to change it. The observation is checkable by anyone at the table. It does not require watching someone covertly, claiming insight into their character or treating a quiet manner as evidence that you notice more than other people.",
+            "zh": "建议修前，你看无害纸模型在重排时哪里移，描述可见移动，问作者想改否。桌边人人可核观察，不需暗中看人、不声称懂其人格、不把安静当比别人看更多证据。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "Observation beside five other hobby angles",
+          "zh": "观察与另外五种爱好角度"
+        },
+        "paragraphs": [
+          {
+            "en": "Ultramarines plans the shared sequence, Imperial Fists makes a dependable base and Iron Hands tests a joint. Salamanders refines a handmade finish while White Scars tries another fictional route. Raven Guard contributes a careful visible observation. None ranks intelligence, secrecy or social ability. A tie can offer several ways to enjoy the display without assigning a hidden identity or making you responsible for anticipating what everyone else has missed.",
+            "zh": "极限战士规划共同顺序，帝国之拳作可靠底座，钢铁之手试接合；火蜥蜴细收手作表面，白疤试另虚构路。暗鸦给仔细可见观察。不排智力、秘密、社交能力；并列可给多种乐趣，不派隐藏身份、不负责预知所有人漏什么。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "An observation can remain uncertain",
+          "zh": "观察可以保持不确定"
+        },
+        "paragraphs": [
+          {
+            "en": "Seeing a detail does not establish why it happened or what change another person wants. Separate the visible feature from your interpretation and ask before altering a shared piece. You can also decide that no change is needed. Your count cannot establish exceptional perception, detachment or a habit of mistrust, and a lower count does not mean a lack of awareness or a preference for being watched.",
+            "zh": "看见细节不确立成因、别人想何变化。可分开可见特征与解释，改共有部件前先问，也可不改。次数不确立超常觉察、疏离、不信任惯习；低计数不表示无觉察、喜欢被监看。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try one observation and one open question",
+          "zh": "试一次观察与开放提问"
+        },
+        "paragraphs": [
+          {
+            "en": "In a voluntary model session, choose one visible feature and describe it without explaining anyone’s motives. Ask the maker whether the feature is intentional and whether they want another view. Use their answer rather than treating your first reading as certainty. This is an experiment in discussing a craft detail, not surveillance guidance, a test of social insight or a claim to understand private feelings from appearances.",
+            "zh": "自愿模型活动选一可见特征，描述而不解释谁的动机，问作者是否有意、想另一看法否。用回答，不把首读当确定。这试手作细节讨论，不作监控指导、不测社交洞察、不声称从外观懂私密感受。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "Eighteen choices and every highest tie",
+          "zh": "18次选择与每个最高并列"
+        },
+        "paragraphs": [
+          {
+            "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected Chapters, giving 18 counts in total. Every Chapter appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides, including all six when all A choices give three counts each. These counts describe this original hobby bank, not match percentages, population norms, military aptitude, game statistics or validated personality differences.",
+            "zh": "完成18情境，每项明确映射选择给六选定战团中一方加一次原始次数，总计18次。每战团出现12次、每答位3次；当题未出现不算被拒绝。所有最高有全文；全A各3次，六方并列。次数描述原创爱好题本，不是匹配百分比、人群常模、军事能力、游戏数据或经验证人格差异。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original fan edition and source limits",
+          "zh": "原创同人版与来源边界"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this unofficial fan edition: original peaceful model-display situations, mappings, examples and complete readings. Warhammer Community’s public articles identify the six selected Chapter names; they do not validate these hobby angles or this bank. Names belong to their respective rights holders. No franchise art, emblems, rules text, fiction passages or competitor questions and reports are reproduced. This entertainment edition is not a current army-building guide or a measure of combat skill, ideology, genetics, bodily worth, clinical status or real ethnic identity.",
+            "zh": "费马独立创作本非官方同人版的和平模型展示情境、映射、例子与全文。Warhammer Community公开文章确认选定六战团名称，不验证爱好角度、题本。名称属于各权利方，不复用IP图、徽章、规则原文、小说段落、竞品题目或报告。本娱乐版不作当前配军指南，不测战斗技术、意识形态、基因、身体价值、临床状况或现实族群身份。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "white-scars",
+    "directionIds": [
+      "white-scars"
+    ],
+    "title": {
+      "en": "White Scars",
+      "zh": "白疤（White Scars）"
+    },
+    "headline": {
+      "en": "Explore a different fictional route",
+      "zh": "探索另一条虚构路线"
+    },
+    "summary": {
+      "en": "Explore White Scars through explore a different fictional route: an original peaceful model-display scene, five Chapter comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+      "zh": "从“探索另一条虚构路线”探索白疤（White Scars）：原创和平模型展示场景、五战团比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+    },
+    "seo": {
+      "title": {
+        "en": "White Scars Test Result: Explore a different fictional route | Space Marine Chapters",
+        "zh": "白疤（White Scars）测试结果：探索另一条虚构路线｜星际战士战团"
+      },
+      "description": {
+        "en": "Explore White Scars through explore a different fictional route: an original peaceful model-display scene, five Chapter comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“探索另一条虚构路线”探索白疤（White Scars）：原创和平模型展示场景、五战团比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      }
+    },
+    "scoreReading": {
+      "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected Chapters, giving 18 counts in total. Every Chapter appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides, including all six when all A choices give three counts each. These counts describe this original hobby bank, not match percentages, population norms, military aptitude, game statistics or validated personality differences.",
+      "zh": "完成18情境，每项明确映射选择给六选定战团中一方加一次原始次数，总计18次。每战团出现12次、每答位3次；当题未出现不算被拒绝。所有最高有全文；全A各3次，六方并列。次数描述原创爱好题本，不是匹配百分比、人群常模、军事能力、游戏数据或经验证人格差异。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "The White Scars angle in this edition",
+          "zh": "本版白疤角度"
+        },
+        "paragraphs": [
+          {
+            "en": "White Scars anchors an alternative route through an invented model landscape. This is a selected leisure angle, not a test of physical speed, reflexes or willingness to take risks. A different imaginary path can change how the display is experienced without anyone moving faster or performing a difficult action. The Chapter name does not assign a real ethnic identity, a body trait or a cultural stereotype to you.",
+            "zh": "白疤对应虚构模型地景的替代路线，是选定闲暇角度，不测跑速、反应、冒险意愿。不同想象路径能改展示体验，无需谁更快、作难动作；名称不赋现实族群身份、身体特征、文化刻板印象。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "The same paper pieces form another journey",
+          "zh": "同样纸部件组成另一旅程"
+        },
+        "paragraphs": [
+          {
+            "en": "The group can keep the same paper structures but imagine approaching them from another direction. You suggest a reversible route and ask whether contributors want to try the new sequence. They can prefer the original arrangement or combine elements of both. The scene concerns how a fictional setting is explored, not the best military manoeuvre, a current game strategy or a reason to acquire faster models.",
+            "zh": "同纸结构可从另一方向想象接近。你提可改回路线，问想试新顺序否。可爱原安排、合两者元素。场景关探索虚构设置，不找最佳军事机动、当前游戏策略、不构成买更快模型理由。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "A new route beside five other hobby angles",
+          "zh": "新路线与另外五种爱好角度"
+        },
+        "paragraphs": [
+          {
+            "en": "Ultramarines offers an agreed plan, Imperial Fists supplies a steady base and Iron Hands tests connections. Salamanders refines a crafted detail while Raven Guard observes what is visible. White Scars explores how the same pieces might form another route. These angles can coexist without ranking speed, adaptability or bravery. A tie is not an official playstyle, an ethnic comparison or a requirement to keep changing your life.",
+            "zh": "极限战士给约好计划，帝国之拳供稳底座，钢铁之手试连接；火蜥蜴细作手工，暗鸦看可见之处。白疤探索同部件另一条路。可共存，不排速度、适应、勇敢；并列不作官方玩法、族群比较、不要求人生不断变化。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "An alternative does not have to replace the familiar",
+          "zh": "替代不必取代熟悉"
+        },
+        "paragraphs": [
+          {
+            "en": "A new route can disrupt a display that people were already enjoying. Ask before moving shared pieces and keep an easy way to restore the earlier version. You can explore an idea on paper without requiring the group to adopt it. Your count cannot establish restlessness or a superior capacity for change, and a lower count does not imply timidity, rigidity or poor physical ability.",
+            "zh": "新路可能打断已享受的展示。动共有部件前先问，留易恢复旧版方式；可只在纸上探索，不要求采用。次数不确立躁动、较高改变能力；低计数不表示胆怯、僵硬、身体能力差。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try two imagined paths without a race",
+          "zh": "试两条想象路，不作竞速"
+        },
+        "paragraphs": [
+          {
+            "en": "Draw two possible routes through a small original model setting. Ask willing collaborators what each path lets them notice and whether either version is more enjoyable to follow. Keep the old route if preferred; no timing or physical challenge is needed. This explores a leisure choice, not travel advice, sports ability, real-world tactical skill or a prediction about how you should respond to major change.",
+            "zh": "给小原创模型场景画两可能路线，问自愿伙伴各让注意什么、哪好享受。可留旧路，不需计时、身体挑战。这探索闲暇选择，不作旅行建议、不评体育、现实战术、不预测该怎样应对大变化。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "Eighteen choices and every highest tie",
+          "zh": "18次选择与每个最高并列"
+        },
+        "paragraphs": [
+          {
+            "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected Chapters, giving 18 counts in total. Every Chapter appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides, including all six when all A choices give three counts each. These counts describe this original hobby bank, not match percentages, population norms, military aptitude, game statistics or validated personality differences.",
+            "zh": "完成18情境，每项明确映射选择给六选定战团中一方加一次原始次数，总计18次。每战团出现12次、每答位3次；当题未出现不算被拒绝。所有最高有全文；全A各3次，六方并列。次数描述原创爱好题本，不是匹配百分比、人群常模、军事能力、游戏数据或经验证人格差异。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original fan edition and source limits",
+          "zh": "原创同人版与来源边界"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this unofficial fan edition: original peaceful model-display situations, mappings, examples and complete readings. Warhammer Community’s public articles identify the six selected Chapter names; they do not validate these hobby angles or this bank. Names belong to their respective rights holders. No franchise art, emblems, rules text, fiction passages or competitor questions and reports are reproduced. This entertainment edition is not a current army-building guide or a measure of combat skill, ideology, genetics, bodily worth, clinical status or real ethnic identity.",
+            "zh": "费马独立创作本非官方同人版的和平模型展示情境、映射、例子与全文。Warhammer Community公开文章确认选定六战团名称，不验证爱好角度、题本。名称属于各权利方，不复用IP图、徽章、规则原文、小说段落、竞品题目或报告。本娱乐版不作当前配军指南，不测战斗技术、意识形态、基因、身体价值、临床状况或现实族群身份。"
+          }
+        ]
+      }
+    ]
+  }
+]

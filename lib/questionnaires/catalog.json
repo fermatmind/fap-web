@@ -2719,5 +2719,32 @@
       "kanga"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "space-marine-chapter",
+    "code": "SPACE_MARINE_CHAPTERS_FAN",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "fantasy",
+    "title": {
+      "en": "Space Marine Chapter Test",
+      "zh": "星际战士战团测试"
+    },
+    "description": {
+      "en": "Try 18 original peaceful model-display situations. Compare Ultramarines, Imperial Fists, Iron Hands, Salamanders, Raven Guard and White Scars, with all highest ties and six complete bilingual guides free. Unofficial fan edition, not game rules.",
+      "zh": "完成18道原创和平模型展示情境，比较极限战士、帝国之拳、钢铁之手、火蜥蜴、暗鸦守卫、白疤。所有最高并列与六份双语全文免费。非官方同人版，不是游戏规则。"
+    },
+    "minutes": 5,
+    "formCode": "fermatmind_space_marine_chapters_original_18_v1",
+    "questionCount": 18,
+    "resultSlugs": [
+      "ultramarines",
+      "imperial-fists",
+      "iron-hands",
+      "salamanders",
+      "raven-guard",
+      "white-scars"
+    ],
+    "collection": "explore"
   }
 ]

@@ -1,0 +1,746 @@
+{
+  "id": "T132",
+  "version": "1.0.0",
+  "form": "fermatmind_space_marine_chapters_original_18_v1",
+  "method": "OwnselectedsixUltramarines/ImperialFists/IronHands/Salamanders/RavenGuard/WhiteScars;18originalpeacefulmodel-display/hobbyclubquestions72options;12exposures3perpositioneach;allhighestrawcountties. Limitededitorialhobbyanglesonly,notcurrentgamerules/stats/purchasingguide/militaryaptitude/realideology/clinical/genes/bodymodifications/realethnicidentityassessment. NotIDR45questionbank/ninechapterset/scoring.",
+  "questions": [
+    {
+      "id": "SMC_01",
+      "prompt": {
+        "en": "Friends are making a peaceful, wholly original science-fiction model display. What would you enjoy first?",
+        "zh": "朋友作和平、完全原创科幻模型展示，你喜欢先做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ultramarines",
+          "label": {
+            "en": "Agree a clear shared plan for the display’s few main parts.",
+            "zh": "给展示几个主体约清共同计划。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "imperial-fists",
+          "label": {
+            "en": "Make a sturdy little base that holds a harmless paper model reliably.",
+            "zh": "作稳固小底座，可靠放无害纸模型。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "iron-hands",
+          "label": {
+            "en": "Test one simple connection and improve it from what happens.",
+            "zh": "试一个简单连接，按实际情形改进。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "salamanders",
+          "label": {
+            "en": "Spend care on a small handmade surface detail.",
+            "zh": "用心作一小手作表面细节。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SMC_02",
+      "prompt": {
+        "en": "Your display needs a small support for a lightweight paper structure. What appeals most?",
+        "zh": "展示需支撑一轻纸结构，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "imperial-fists",
+          "label": {
+            "en": "Build a steady base that suits the agreed little display.",
+            "zh": "作合约好小展示的稳定底座。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "iron-hands",
+          "label": {
+            "en": "Try one joint and revise it after a simple test.",
+            "zh": "试一个接合，简单测试后修改。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "salamanders",
+          "label": {
+            "en": "Give the support a carefully made handmade finish.",
+            "zh": "给支撑精心手作表面。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "raven-guard",
+          "label": {
+            "en": "Observe how the existing pieces sit before changing anything.",
+            "zh": "先观察原部件怎样放，再决定改什么。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SMC_03",
+      "prompt": {
+        "en": "A harmless paper-model joint does not fit as expected. What would you prefer?",
+        "zh": "无害纸模型接合不如预期，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "iron-hands",
+          "label": {
+            "en": "Make a small reversible adjustment and compare the fit.",
+            "zh": "作小可撤回调整，比接合状况。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "salamanders",
+          "label": {
+            "en": "Refine a handmade detail once the parts fit comfortably.",
+            "zh": "部件合适后，细作一项手作细节。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "raven-guard",
+          "label": {
+            "en": "Look quietly at the mismatch and describe what is actually visible.",
+            "zh": "安静看不合处，描述实际可见什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "white-scars",
+          "label": {
+            "en": "Try an alternative imaginary route through the display’s layout.",
+            "zh": "在展示布局试另一条想象路线。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SMC_04",
+      "prompt": {
+        "en": "The original display can include one distinctive handmade detail. What appeals most?",
+        "zh": "原创展示可含一项独特手作细节，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "salamanders",
+          "label": {
+            "en": "Shape a small texture carefully using materials already offered.",
+            "zh": "用已有自愿材料，仔细塑一小质地。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "raven-guard",
+          "label": {
+            "en": "Look at the display from a quiet position before deciding what detail belongs.",
+            "zh": "安静从一处看展示，再决定合哪细节。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "white-scars",
+          "label": {
+            "en": "Try a different fictional route that changes how the detail is encountered.",
+            "zh": "试不同虚构路线，改怎样遇见细节。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ultramarines",
+          "label": {
+            "en": "Fit the detail into a clear plan the group agrees.",
+            "zh": "把细节放入小组约好的清楚计划。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SMC_05",
+      "prompt": {
+        "en": "You can inspect the completed paper layout before suggesting a change. What would you enjoy?",
+        "zh": "建议修改前，能查看已作纸布局，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "raven-guard",
+          "label": {
+            "en": "Notice one visible feature without guessing anyone’s private motives.",
+            "zh": "注意一项可见特征，不猜谁的私人动机。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "white-scars",
+          "label": {
+            "en": "Imagine another path between the display’s invented places.",
+            "zh": "想象展示虚构地点间另一条路。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ultramarines",
+          "label": {
+            "en": "Explain how the proposed change fits the shared plan.",
+            "zh": "解释建议变化怎样合共同计划。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "imperial-fists",
+          "label": {
+            "en": "Check that the model’s little base still holds its agreed shape.",
+            "zh": "核模型小底座仍保持约好形状。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SMC_06",
+      "prompt": {
+        "en": "There are two possible paths through the display’s fictional landscape. What appeals most?",
+        "zh": "展示虚构地景有两条可能路线，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "white-scars",
+          "label": {
+            "en": "Explore an alternative path without treating quickness as a requirement.",
+            "zh": "探索替代路线，不把快当要求。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ultramarines",
+          "label": {
+            "en": "Agree a clear sequence that helps the group describe the layout.",
+            "zh": "约清顺序，帮小组描述布局。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "imperial-fists",
+          "label": {
+            "en": "Keep a sturdy support under the pieces that remain in place.",
+            "zh": "给留原位部件留稳固支撑。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "iron-hands",
+          "label": {
+            "en": "Test one movable connection before choosing the final arrangement.",
+            "zh": "选最终安排前，试一个可移动连接。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SMC_07",
+      "prompt": {
+        "en": "The model-display group has several ideas but little shared structure. What would you prefer?",
+        "zh": "模型展示点子不少，却缺共同结构，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ultramarines",
+          "label": {
+            "en": "Set out a simple plan everyone can question and revise.",
+            "zh": "列人人可提问、改的简单计划。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "imperial-fists",
+          "label": {
+            "en": "Start with a dependable base for one agreed section.",
+            "zh": "从一段约好部分的可靠底座开始。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "iron-hands",
+          "label": {
+            "en": "Test a small modular connection to see which arrangement works.",
+            "zh": "试小模块连接，看哪安排可用。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "salamanders",
+          "label": {
+            "en": "Make one careful handmade feature that the group wants to keep.",
+            "zh": "细作一项大家想留的手作特征。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SMC_08",
+      "prompt": {
+        "en": "A paper platform looks attractive but needs a more reliable little support. What appeals most?",
+        "zh": "纸平台好看，小支撑却需更可靠，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "imperial-fists",
+          "label": {
+            "en": "Strengthen the lightweight display base within the project’s agreed limits.",
+            "zh": "在约好限制内，加稳轻展示底座。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "iron-hands",
+          "label": {
+            "en": "Change one joint at a time so the effect is visible.",
+            "zh": "一次改一接合，好看出效果。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "salamanders",
+          "label": {
+            "en": "Finish the repaired surface with a careful handmade detail.",
+            "zh": "用仔细手作细节收修后表面。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "raven-guard",
+          "label": {
+            "en": "Observe where the model shifts before proposing the repair.",
+            "zh": "建议修之前，观察模型在哪移动。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SMC_09",
+      "prompt": {
+        "en": "Your group wants to compare two harmless paper connections. What would you enjoy?",
+        "zh": "小组想比两种无害纸连接，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "iron-hands",
+          "label": {
+            "en": "Try a small sample of each and revise the one that fits the display.",
+            "zh": "各试小样，改合展示的一种。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "salamanders",
+          "label": {
+            "en": "Add a crafted detail after choosing the working connection.",
+            "zh": "选可用连接后，添手作细节。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "raven-guard",
+          "label": {
+            "en": "Look closely at what each sample actually does.",
+            "zh": "仔细看各小样实际做什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "white-scars",
+          "label": {
+            "en": "Imagine how either connection allows another route through the fictional setting.",
+            "zh": "想象任一连接怎样容虚构场景里另一条路。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SMC_10",
+      "prompt": {
+        "en": "A corner of the original display has room for a handcrafted feature. What would you prefer?",
+        "zh": "原创展示角落可容一手作特征，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "salamanders",
+          "label": {
+            "en": "Give the feature a carefully shaped texture or finish.",
+            "zh": "给特征仔细塑的质地、表面。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "raven-guard",
+          "label": {
+            "en": "Observe the corner from a few positions before adding to it.",
+            "zh": "加东西前，从几处观察角落。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "white-scars",
+          "label": {
+            "en": "Try another invented approach path that reveals it differently.",
+            "zh": "试另一条虚构接近路线，换其呈现。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ultramarines",
+          "label": {
+            "en": "Agree how the feature belongs in the display’s simple overall plan.",
+            "zh": "约清特征怎样属于整体简单计划。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SMC_11",
+      "prompt": {
+        "en": "You are invited to look at the display before its last edit. What appeals most?",
+        "zh": "展示最后改前邀你看，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "raven-guard",
+          "label": {
+            "en": "Share one quiet observation about a detail people can check themselves.",
+            "zh": "分享一个可由别人自核细节的安静观察。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "white-scars",
+          "label": {
+            "en": "Suggest a different fictional path through the same pieces.",
+            "zh": "给同一批部件建议不同虚构路径。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ultramarines",
+          "label": {
+            "en": "Relate the edit to the few shared aims everyone agreed.",
+            "zh": "把修改连到大家约好的几个目标。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "imperial-fists",
+          "label": {
+            "en": "Check the stability of one harmless paper support.",
+            "zh": "核一个无害纸支撑的稳定性。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SMC_12",
+      "prompt": {
+        "en": "The group can rearrange its invented model landscape without buying anything. What would you enjoy?",
+        "zh": "不用购物也能重排虚构模型地景，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "white-scars",
+          "label": {
+            "en": "Try a flexible alternative route and decide whether I like the new sequence.",
+            "zh": "试灵活替代路线，选喜欢新顺序否。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ultramarines",
+          "label": {
+            "en": "Agree a revised plan before moving other people’s pieces.",
+            "zh": "动别人的部件前，约改后计划。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "imperial-fists",
+          "label": {
+            "en": "Keep the small display structures on dependable bases.",
+            "zh": "让小展示结构仍有可靠底座。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "iron-hands",
+          "label": {
+            "en": "Test a simple adjustable connection to make the rearrangement reversible.",
+            "zh": "试简单可调连接，使重排可改回。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SMC_13",
+      "prompt": {
+        "en": "Friends are preparing the next version of their original model display. What appeals most?",
+        "zh": "朋友备原创模型展示下一版，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ultramarines",
+          "label": {
+            "en": "Agree the main sequence and let contributors revise their parts openly.",
+            "zh": "约主体顺序，让创作者公开改自己部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "imperial-fists",
+          "label": {
+            "en": "Build one small base that stays steady throughout the display session.",
+            "zh": "作活动期间能稳定的一小底座。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "iron-hands",
+          "label": {
+            "en": "Improve a single connection from the previous version’s observed fit.",
+            "zh": "按旧版接合的实际观察，改一连接。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "salamanders",
+          "label": {
+            "en": "Give one handmade detail the time it needs.",
+            "zh": "给一手作细节所需时间。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SMC_14",
+      "prompt": {
+        "en": "A lightweight display piece will stay in place for the afternoon. What would you prefer?",
+        "zh": "轻展示部件将整下午留原位，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "imperial-fists",
+          "label": {
+            "en": "Make its little base dependable without expanding the whole project.",
+            "zh": "使小底座可靠，不扩大整项目。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "iron-hands",
+          "label": {
+            "en": "Try a reversible joint adjustment before fixing its position.",
+            "zh": "固定位置前，试可撤回接合调整。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "salamanders",
+          "label": {
+            "en": "Refine the finish of one visible handmade part.",
+            "zh": "细作一项可见手作部分表面。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "raven-guard",
+          "label": {
+            "en": "Look at the piece quietly and report the visible issue precisely.",
+            "zh": "安静看部件，准确说可见问题。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SMC_15",
+      "prompt": {
+        "en": "A small paper mechanism could be simpler in the next display version. What appeals most?",
+        "zh": "下一展示版的小纸机关可更简单，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "iron-hands",
+          "label": {
+            "en": "Test one change and keep only what improves the little mechanism.",
+            "zh": "试一变化，只留改善小机关的。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "salamanders",
+          "label": {
+            "en": "Add a deliberate crafted touch once the simple version works.",
+            "zh": "简单版可用后，添有意手作细节。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "raven-guard",
+          "label": {
+            "en": "Observe the current movement before deciding what needs to change.",
+            "zh": "决定需改什么前，观察当前移动。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "white-scars",
+          "label": {
+            "en": "Explore a different fictional route that may need fewer moving parts.",
+            "zh": "探索或少需活动部件的不同虚构路线。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SMC_16",
+      "prompt": {
+        "en": "The shared display is nearly finished, with time for one careful detail. What would you enjoy?",
+        "zh": "共同展示将完成，还有时间细作一处，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "salamanders",
+          "label": {
+            "en": "Finish a small handmade texture with care rather than add a large extra feature.",
+            "zh": "用心收一小手作质地，不加大新特征。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "raven-guard",
+          "label": {
+            "en": "Look again at what is already visible before adding anything.",
+            "zh": "加任何东西前，再看已有可见内容。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "white-scars",
+          "label": {
+            "en": "Try one alternative imaginary approach to the finished scene.",
+            "zh": "给成景试一个替代想象接近方向。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ultramarines",
+          "label": {
+            "en": "Check that the last detail follows the group’s agreed sequence.",
+            "zh": "核末细节合小组约好顺序。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SMC_17",
+      "prompt": {
+        "en": "A friend asks what you noticed about the model display. What appeals most?",
+        "zh": "朋友问注意到模型展示什么，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "raven-guard",
+          "label": {
+            "en": "Describe a visible feature clearly, separating observation from guesses.",
+            "zh": "清楚描述可见特征，分开观察与猜测。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "white-scars",
+          "label": {
+            "en": "Imagine another path through the fictional layout and compare the experience.",
+            "zh": "想象虚构布局另一条路，比体验。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ultramarines",
+          "label": {
+            "en": "Explain how the display’s main parts fit the shared plan.",
+            "zh": "解释主体部分怎样合共同计划。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "imperial-fists",
+          "label": {
+            "en": "Point to a steady little base that made the paper structure workable.",
+            "zh": "指一使纸结构可用的稳定小底座。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SMC_18",
+      "prompt": {
+        "en": "For the next voluntary model session, the group could keep or change its fictional route. What would you prefer?",
+        "zh": "下次自愿模型活动，可留或改虚构路线，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "white-scars",
+          "label": {
+            "en": "Choose a fresh route if it interests me, without a speed or risk requirement.",
+            "zh": "感兴趣便选新路，无速度、冒险要求。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ultramarines",
+          "label": {
+            "en": "Agree the few main steps before contributors alter shared pieces.",
+            "zh": "创作者改共有部件前，约几个主体步骤。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "imperial-fists",
+          "label": {
+            "en": "Keep the lightweight models supported by simple sturdy bases.",
+            "zh": "让轻模型仍由简单稳底座支撑。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "iron-hands",
+          "label": {
+            "en": "Try one connection that lets us compare the old and new arrangements.",
+            "zh": "试一连接，便于比新旧安排。"
+          }
+        }
+      ]
+    }
+  ]
+}
