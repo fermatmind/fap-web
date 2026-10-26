@@ -2746,5 +2746,30 @@
       "white-scars"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "spanish-proficiency",
+    "code": "FM_WRITTEN_SPANISH_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Spanish Proficiency Test",
+      "zh": "西班牙语水平测试"
+    },
+    "description": {
+      "en": "Practise written Spanish with 24 original grammar, vocabulary, reading and message tasks. Every answer and four full guides are free. No CEFR estimate.",
+      "zh": "用24道原创西语任务练语法书写、语境词义、阅读依据和任务消息。英中说明解析，保留西语题句与选项。免费查看全部答案、分项正确数和四份完整指南，不换算CEFR或考试等级。"
+    },
+    "minutes": 10,
+    "formCode": "fm_written_spanish_practice_24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "grammar",
+      "vocabulary",
+      "reading",
+      "functional"
+    ],
+    "collection": "explore"
   }
 ]

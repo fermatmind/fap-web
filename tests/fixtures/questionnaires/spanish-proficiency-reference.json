@@ -1,0 +1,1765 @@
+{
+  "id": "T163",
+  "edition": "fm_written_spanish_practice_24_v1",
+  "authorship": "FermatMind original written-Spanish tasks and complete guides. Author reviewed primary RAE forms/senses and original passage meaning; no independent Spanish peer review, psychometric validation or CEFR calibration.",
+  "questions": [
+    {
+      "id": "SPANISH_01",
+      "prompt": {
+        "en": "Complete the present-indicative statement with the form of preparar for yo.\n\nYo ___ las fichas de la exposición cada lunes.",
+        "zh": "用preparar对应yo的直陈式现在时形式完成句子。\n\nYo ___ las fichas de la exposición cada lunes."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "preparo",
+            "zh": "preparo"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "prepara",
+            "zh": "prepara"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "preparan",
+            "zh": "preparan"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "preparar",
+            "zh": "preparar"
+          },
+          "directionId": "grammar"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Yo requires the first-person singular present indicative preparo. Prepara and preparan belong to other subject forms, while preparar is the infinitive. The sentence states a recurring activity, and the instruction fixes the tense and mood rather than relying on context alone.",
+        "zh": "Yo对应第一人称单数直陈式现在时preparo。Prepara和preparan对应其他主语形式，preparar为不定式。句子描述反复活动，说明也明确固定时态和语式，不只靠语境猜测。"
+      }
+    },
+    {
+      "id": "SPANISH_02",
+      "prompt": {
+        "en": "Use the present indicative of estar with ustedes to state the visitors’ current location.\n\nUstedes ___ en la sala de fotografía ahora.",
+        "zh": "用estar对应ustedes的直陈式现在时，说明访客当前所在位置。\n\nUstedes ___ en la sala de fotografía ahora."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "está",
+            "zh": "está"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "están",
+            "zh": "están"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "estoy",
+            "zh": "estoy"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "estar",
+            "zh": "estar"
+          },
+          "directionId": "grammar"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Ustedes takes the third-person plural verb form están. Está is singular, estoy is first-person singular and estar is the infinitive. Here estar locates the visitors in a room; the item fixes the pronoun and construction and does not rank regional forms of address.",
+        "zh": "Ustedes配第三人称复数动词están。Está为单数，estoy为第一人称单数，estar是不定式。这里estar说明访客在房间的位置，题目固定称呼和结构，不给不同地区称呼方式排名。"
+      }
+    },
+    {
+      "id": "SPANISH_03",
+      "prompt": {
+        "en": "Choose the adjective form agreeing with the feminine plural noun cajas.\n\nLas cajas ___ están debajo del banco.",
+        "zh": "选择与阴性复数名词cajas一致的形容词形式。\n\nLas cajas ___ están debajo del banco."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "pequeño",
+            "zh": "pequeño"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "pequeña",
+            "zh": "pequeña"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "pequeñas",
+            "zh": "pequeñas"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "pequeños",
+            "zh": "pequeños"
+          },
+          "directionId": "grammar"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Cajas is feminine plural, and this adjective agrees in both gender and number: pequeñas. Pequeña is singular, pequeños is masculine plural and pequeño is masculine singular. This checks the displayed noun phrase, not a universal claim that every Spanish adjective changes its ending in the same way.",
+        "zh": "Cajas为阴性复数，形容词在性和数上都一致，选pequeñas。Pequeña为单数，pequeños为阳性复数，pequeño为阳性单数。本题核这个名词短语，不表示所有西语形容词都按同一方式变词尾。"
+      }
+    },
+    {
+      "id": "SPANISH_04",
+      "prompt": {
+        "en": "Choose the definite article for the masculine plural noun cuadernos.\n\n___ cuadernos de tapas grises pertenecen al archivo.",
+        "zh": "为阳性复数名词cuadernos选择定冠词。\n\n___ cuadernos de tapas grises pertenecen al archivo."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "La",
+            "zh": "La"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "El",
+            "zh": "El"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Las",
+            "zh": "Las"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Los",
+            "zh": "Los"
+          },
+          "directionId": "grammar"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Cuadernos is masculine plural, so its definite article is Los at the start of the sentence. El is masculine singular; La and Las are feminine. The task states that a definite article is required instead of asking you to invent a different reference or determiner.",
+        "zh": "Cuadernos是阳性复数，句首定冠词用Los。El为阳性单数，La与Las为阴性形式。说明已指定定冠词，不要求另设指代情形或换成其他限定词。"
+      }
+    },
+    {
+      "id": "SPANISH_05",
+      "prompt": {
+        "en": "Choose the stressed personal pronoun meaning you, not the possessive determiner.\n\n___ puedes elegir otra fecha para la visita.",
+        "zh": "选择表示“你”的重读人称代词，不选物主限定词。\n\n___ puedes elegir otra fecha para la visita."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Tú",
+            "zh": "Tú"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Tu",
+            "zh": "Tu"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Tus",
+            "zh": "Tus"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Tuyo",
+            "zh": "Tuyo"
+          },
+          "directionId": "grammar"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The subject pronoun tú carries a written accent. Tu is the possessive determiner used before a noun, and tus is its plural form. Tuyo expresses possession too. The instruction asks for the personal pronoun as the subject of puedes, not a phrase naming an owned object.",
+        "zh": "主语人称代词tú带重音符号。Tu是名词前的物主限定词，tus为其复数形式，tuyo也表达所有关系。题目要求作puedes主语的人称代词，不是在说被拥有的物体。"
+      }
+    },
+    {
+      "id": "SPANISH_06",
+      "prompt": {
+        "en": "Complete the present indicative of sustituir for nosotros.\n\nNosotros ___ las hojas dañadas por copias nuevas cuando es necesario.",
+        "zh": "用sustituir对应nosotros的直陈式现在时完成句子。\n\nNosotros ___ las hojas dañadas por copias nuevas cuando es necesario."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "sustituye",
+            "zh": "sustituye"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "sustituimos",
+            "zh": "sustituimos"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "sustituyen",
+            "zh": "sustituyen"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "sustituir",
+            "zh": "sustituir"
+          },
+          "directionId": "grammar"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Nosotros takes sustituimos in the requested present indicative. Sustituye and sustituyen have other subject forms, while sustituir is the infinitive. Although sustituimos can also appear in a past-tense paradigm, the instruction and recurring context specify its present reading here.",
+        "zh": "所指定的直陈式现在时中，nosotros对应sustituimos。Sustituye和sustituyen配其他主语，sustituir是不定式。Sustituimos也可出现在过去时变位中，但本题说明与反复语境已固定现在时读法。"
+      }
+    },
+    {
+      "id": "SPANISH_07",
+      "prompt": {
+        "en": "What does vigente mean about the rule in this context?\n\nLa norma sigue vigente: el centro todavía la aplica a todas las reservas.",
+        "zh": "在本语境中，描述规则的vigente是什么意思？\n\nLa norma sigue vigente: el centro todavía la aplica a todas las reservas."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "La norma dejó de aplicarse el año pasado",
+            "zh": "La norma dejó de aplicarse el año pasado"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "La norma solo existe como borrador sin uso",
+            "zh": "La norma solo existe como borrador sin uso"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "La norma continúa teniendo efecto",
+            "zh": "La norma continúa teniendo efecto"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "La norma nunca llegó a redactarse",
+            "zh": "La norma nunca llegó a redactarse"
+          },
+          "directionId": "vocabulary"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Vigente describes a rule that remains in force, consistent with the centre still applying it. The alternatives remove its current effect or existence and contradict the supplied context. This is a word-meaning exercise with a fictional rule, not advice about any real policy.",
+        "zh": "Vigente说明规则仍有效，与中心仍把它用于预约一致。其他选项取消当前效力或否认其存在，与语境冲突。这是虚构规则中的词义练习，不解释真实政策。"
+      }
+    },
+    {
+      "id": "SPANISH_08",
+      "prompt": {
+        "en": "What does opcional mean about participation here?\n\nLa visita adicional es opcional; cada participante decide si quiere asistir.",
+        "zh": "这里opcional怎样描述参与方式？\n\nLa visita adicional es opcional; cada participante decide si quiere asistir."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Todas las personas deben participar sin excepción",
+            "zh": "Todas las personas deben participar sin excepción"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Nadie puede participar aunque quiera",
+            "zh": "Nadie puede participar aunque quiera"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Solo se permite participar si se cambia el programa",
+            "zh": "Solo se permite participar si se cambia el programa"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Cada persona puede decidir si participa",
+            "zh": "Cada persona puede decidir si participa"
+          },
+          "directionId": "vocabulary"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Opcional leaves the participation choice to the person, as the sentence explicitly states. It does not impose attendance or forbid it. The final alternative adds a condition about changing the programme that the text does not supply. The key concerns this word in context, not a general right to change a real booking.",
+        "zh": "Opcional把是否参与的选择交给个人，原句也已明确。它不强制参加，也不禁止；最后一项增加了原文没有的改节目条件。答案核语境词义，不意味着可任意修改真实预约。"
+      }
+    },
+    {
+      "id": "SPANISH_09",
+      "prompt": {
+        "en": "What relationship does adjunto express for the file?\n\nEl plano adjunto acompaña a este correo; no está publicado en una página externa.",
+        "zh": "Adjunto表达文件与邮件的什么关系？\n\nEl plano adjunto acompaña a este correo; no está publicado en una página externa."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "El archivo se envía junto con el mensaje",
+            "zh": "El archivo se envía junto con el mensaje"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "El archivo solo se puede recoger en persona",
+            "zh": "El archivo solo se puede recoger en persona"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "El archivo se ha eliminado sin enviarlo",
+            "zh": "El archivo se ha eliminado sin enviarlo"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "El archivo únicamente está en un sitio web externo",
+            "zh": "El archivo únicamente está en un sitio web externo"
+          },
+          "directionId": "vocabulary"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Adjunto means the file accompanies the message in this context. The sentence distinguishes it from an external web page. It does not say the file was deleted or must be collected in person. Recognising the word does not independently verify that a real email has the promised attachment.",
+        "zh": "Adjunto在这里表示文件随消息一起发送，句子还明确区别于外部网页。没有说文件被删或必须当面领取。认出这个词不等于实际核实了真实邮件确实附上文件。"
+      }
+    },
+    {
+      "id": "SPANISH_10",
+      "prompt": {
+        "en": "What does previo indicate about the review?\n\nLa publicación requiere un control previo: primero se revisan los datos y después se publica el aviso.",
+        "zh": "Previo怎样说明复核与发布的先后关系？\n\nLa publicación requiere un control previo: primero se revisan los datos y después se publica el aviso."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "La revisión empieza solo después de publicar",
+            "zh": "La revisión empieza solo después de publicar"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "La revisión ocurre antes de publicar",
+            "zh": "La revisión ocurre antes de publicar"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "La revisión y la publicación deben ser el mismo acto",
+            "zh": "La revisión y la publicación deben ser el mismo acto"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "La revisión se elimina del proceso",
+            "zh": "La revisión se elimina del proceso"
+          },
+          "directionId": "vocabulary"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Previo places the review before publication, matching the stated first-then sequence. It does not mean that the two actions are simultaneous or that the review is removed. The rule is supplied by this fictional process and does not prescribe every real publishing workflow.",
+        "zh": "Previo把复核放在发布之前，与题面先复核后发布一致，不表示同时进行或删去复核。流程由虚构题面给出，不规定所有真实发布流程。"
+      }
+    },
+    {
+      "id": "SPANISH_11",
+      "prompt": {
+        "en": "In this ticket notice, what does agotadas mean?\n\nLas entradas están agotadas; no quedan plazas disponibles para esa sesión.",
+        "zh": "在这则门票通知中，agotadas是什么意思？\n\nLas entradas están agotadas; no quedan plazas disponibles para esa sesión."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Todavía quedan todas las entradas sin vender",
+            "zh": "Todavía quedan todas las entradas sin vender"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Las entradas se venderán siempre sin límite",
+            "zh": "Las entradas se venderán siempre sin límite"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Ya no quedan entradas disponibles",
+            "zh": "Ya no quedan entradas disponibles"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "La sesión permite entrar sin entrada",
+            "zh": "La sesión permite entrar sin entrada"
+          },
+          "directionId": "vocabulary"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Agotadas refers to the available tickets having run out, supported by no places remaining. The alternatives claim full availability, unlimited supply or entry without a ticket, none of which the notice gives. Here the word concerns supply, not the different sense of a person feeling exhausted.",
+        "zh": "Agotadas说的是可用门票已用尽，与没有剩余名额一致。其余选项称仍全有、无限供应或不需门票，都没有题面依据。这里讲供应，不是人疲惫的另一义项。"
+      }
+    },
+    {
+      "id": "SPANISH_12",
+      "prompt": {
+        "en": "Which verb expresses replacing the old handle with a new one?\n\nEl técnico va a ___ la manilla rota por una nueva.",
+        "zh": "哪个动词表示用新把手替换旧把手？\n\nEl técnico va a ___ la manilla rota por una nueva."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "conservar",
+            "zh": "conservar"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "observar",
+            "zh": "observar"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "describir",
+            "zh": "describir"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "sustituir",
+            "zh": "sustituir"
+          },
+          "directionId": "vocabulary"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Sustituir matches replacing one object with another in the stated por construction. Conservar would keep it; observar and describir would inspect or describe it without expressing replacement. The task supplies a fictional maintenance action rather than asking you to decide what repair is safe.",
+        "zh": "Sustituir符合题目por结构中以一物替换另一物的动作。Conservar会保留它，observar和describir分别观察与描述，并不表示替换。本题给虚构维修动作，不要求判断真实维修安全性。"
+      }
+    },
+    {
+      "id": "SPANISH_13",
+      "prompt": {
+        "en": "According to the note, which visit must be reserved in advance?\n\nLas visitas individuales no requieren reserva. Para visitar el archivo en un grupo de seis personas o más, hay que reservar con dos días de antelación.",
+        "zh": "根据通知，哪一种参观需要提前预约？\n\nLas visitas individuales no requieren reserva. Para visitar el archivo en un grupo de seis personas o más, hay que reservar con dos días de antelación."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Una visita de un grupo de ocho personas",
+            "zh": "Una visita de un grupo de ocho personas"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Una visita de una sola persona",
+            "zh": "Una visita de una sola persona"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Todas las visitas individuales sin excepción",
+            "zh": "Todas las visitas individuales sin excepción"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Ninguna visita, cualquiera que sea el tamaño del grupo",
+            "zh": "Ninguna visita, cualquiera que sea el tamaño del grupo"
+          },
+          "directionId": "reading"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "A group of eight meets the six-or-more condition, so it requires the stated advance reservation. A solo visit is explicitly exempt. The note does not remove the requirement for all groups. Match the group-size condition before choosing, without adding rules for an actual archive.",
+        "zh": "八人组符合六人及以上条件，因此需要按通知提前预约。个人参观明确不需预约；通知也没有免除所有团体的要求。应先匹配人数条件，不增添真实档案馆规定。"
+      }
+    },
+    {
+      "id": "SPANISH_14",
+      "prompt": {
+        "en": "What does las refer to in the last sentence?\n\nNuria recibió unas postales dentro de un sobre. Después de revisar las postales, las guardó en una carpeta.",
+        "zh": "最后一句的las指代什么？\n\nNuria recibió unas postales dentro de un sobre. Después de revisar las postales, las guardó en una carpeta."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "El sobre",
+            "zh": "El sobre"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Las postales",
+            "zh": "Las postales"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Nuria y otra persona",
+            "zh": "Nuria y otra persona"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Una sola carpeta",
+            "zh": "Una sola carpeta"
+          },
+          "directionId": "reading"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Las refers back to the feminine plural postales, the things put away. Sobre is masculine singular; Nuria plus another person is not the stated object, and una carpeta is singular and names the destination. Recover the grammatical and contextual reference rather than choosing the nearest visible noun.",
+        "zh": "Las指回阴性复数postales，即被收起来的明信片。Sobre是阳性单数；题面没有把Nuria与另一人作为所藏物，una carpeta是单数且表示放入的目标。应同时核语法和语境指代。"
+      }
+    },
+    {
+      "id": "SPANISH_15",
+      "prompt": {
+        "en": "Which statement preserves the main point and the limit of the workshop notice?\n\nEn el taller, cada persona aprende a describir una pieza de su propia colección. No se ofrece una valoración económica de los objetos.",
+        "zh": "哪项保留工作坊通知的中心意思及边界？\n\nEn el taller, cada persona aprende a describir una pieza de su propia colección. No se ofrece una valoración económica de los objetos."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Se garantiza un precio de venta para cada pieza",
+            "zh": "Se garantiza un precio de venta para cada pieza"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Solo se permite traer objetos que ya estén vendidos",
+            "zh": "Solo se permite traer objetos que ya estén vendidos"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Se practica la descripción, sin tasar el precio de las piezas",
+            "zh": "Se practica la descripción, sin tasar el precio de las piezas"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "El taller compra todas las colecciones de los asistentes",
+            "zh": "El taller compra todas las colecciones de los asistentes"
+          },
+          "directionId": "reading"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The notice offers practice describing a collection object and explicitly excludes a monetary valuation. The selected statement preserves both. Guaranteed prices, prior sales and purchases by the workshop add claims not supplied. This is reading the fictional notice, not assessing a real object’s value.",
+        "zh": "通知提供藏品描述练习，并明确排除经济估价，正确项保留两点。保证售价、要求已售和工作坊买下藏品都没有依据。本题读虚构通知，不评真实物品价值。"
+      }
+    },
+    {
+      "id": "SPANISH_16",
+      "prompt": {
+        "en": "Which order follows both instructions?\n\nAntes de medir la tela, extiéndela sobre la mesa. Solo después de medirla, marca la línea de corte.",
+        "zh": "哪一顺序同时符合两条说明？\n\nAntes de medir la tela, extiéndela sobre la mesa. Solo después de medirla, marca la línea de corte."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Medir la tela → extenderla → marcar la línea",
+            "zh": "Medir la tela → extenderla → marcar la línea"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Marcar la línea → medir la tela → extenderla",
+            "zh": "Marcar la línea → medir la tela → extenderla"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Extender la tela → marcar la línea → medirla",
+            "zh": "Extender la tela → marcar la línea → medirla"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Extender la tela → medirla → marcar la línea",
+            "zh": "Extender la tela → medirla → marcar la línea"
+          },
+          "directionId": "reading"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The cloth must be laid out before it is measured, and measuring must happen before marking. Only the selected order retains both dependencies. Marking after laying out but before measuring still violates the second instruction. The task checks language and order, not a full procedure for safe textile work.",
+        "zh": "布料先铺开再测量，测完才标线，正确项同时保留两个依赖。铺开后、测量前就标线仍违反第二条。本题核语言顺序，不是完整布料作业安全流程。"
+      }
+    },
+    {
+      "id": "SPANISH_17",
+      "prompt": {
+        "en": "What does the notice leave unknown about the drawing session?\n\nLa sesión será el 12 de marzo a las 16:30, en el aula 4. La inscripción se hace en recepción. El aviso no indica cuánto dura la sesión.",
+        "zh": "通知没有提供绘画活动的哪项信息？\n\nLa sesión será el 12 de marzo a las 16:30, en el aula 4. La inscripción se hace en recepción. El aviso no indica cuánto dura la sesión."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Cuánto tiempo durará",
+            "zh": "Cuánto tiempo durará"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "En qué aula se celebrará",
+            "zh": "En qué aula se celebrará"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "A qué hora empezará",
+            "zh": "A qué hora empezará"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Dónde se hace la inscripción",
+            "zh": "Dónde se hace la inscripción"
+          },
+          "directionId": "reading"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The duration is explicitly absent. The notice supplies room 4, the start time and reception as the registration location. A start time does not by itself provide a duration or ending time. Do not replace the gap with a typical session length from your own experience.",
+        "zh": "时长明确未提供，通知有4号教室、开始时间及前台报名。开始时间本身不能给出时长或结束时间，不能用个人经验中的常见时长补空。"
+      }
+    },
+    {
+      "id": "SPANISH_18",
+      "prompt": {
+        "en": "Choose the conclusion supported by the whole paragraph without adding a general rule.\n\nDurante una prueba de dos días, el equipo probó un formulario nuevo. Tres personas dijeron que las instrucciones les resultaban más claras. No se midió el tiempo de trabajo y no participaron los demás departamentos.",
+        "zh": "按整段选择有依据的结论，不额外推广规则。\n\nDurante una prueba de dos días, el equipo probó un formulario nuevo. Tres personas dijeron que las instrucciones les resultaban más claras. No se midió el tiempo de trabajo y no participaron los demás departamentos."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "El formulario reduce siempre el tiempo de todos los departamentos",
+            "zh": "El formulario reduce siempre el tiempo de todos los departamentos"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Tres personas valoraron mejor la claridad; no se midió la rapidez",
+            "zh": "Tres personas valoraron mejor la claridad; no se midió la rapidez"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Todos los empleados prefieren el formulario nuevo",
+            "zh": "Todos los empleados prefieren el formulario nuevo"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "El formulario no puede ayudar a nadie fuera del equipo",
+            "zh": "El formulario no puede ayudar a nadie fuera del equipo"
+          },
+          "directionId": "reading"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The paragraph reports three clarity opinions and explicitly says working time was not measured. It does not establish universal preference, a speed effect or an inability to help anyone else. A limited observation should keep its stated scope, without turning uncertainty into proof of no effect.",
+        "zh": "原文报告三人的清晰度评价，并明说未测工作时间，不能推全员偏好、速度效果或对他人一律无帮助。有限观察要保留范围，不把未知反推成没有作用。"
+      }
+    },
+    {
+      "id": "SPANISH_19",
+      "prompt": {
+        "en": "Choose the reply that requests exactly the specified file and deadline.\n\nNecesitas la versión 2 del catálogo antes del jueves a las 11:00. ¿Qué mensaje conserva ambos datos?",
+        "zh": "选择准确索取指定文件且保留截止时间的回复。\n\nNecesitas la versión 2 del catálogo antes del jueves a las 11:00. ¿Qué mensaje conserva ambos datos?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "¿Puedes enviarme la versión 1 del catálogo antes del jueves a las 11:00?",
+            "zh": "¿Puedes enviarme la versión 1 del catálogo antes del jueves a las 11:00?"
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "¿Puedes enviarme la versión 2 del catálogo el viernes por la tarde?",
+            "zh": "¿Puedes enviarme la versión 2 del catálogo el viernes por la tarde?"
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "¿Puedes enviarme la versión 2 del catálogo antes del jueves a las 11:00?",
+            "zh": "¿Puedes enviarme la versión 2 del catálogo antes del jueves a las 11:00?"
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "¿Puedes borrar la versión 2 del catálogo antes del jueves a las 11:00?",
+            "zh": "¿Puedes borrar la versión 2 del catálogo antes del jueves a las 11:00?"
+          },
+          "directionId": "functional"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The selected message preserves version 2 and the Thursday 11:00 deadline while asking for the file. The others change the version, deadline or action. All may contain understandable Spanish, but only one carries this exact request. The question supplies the fictional deadline rather than asking what is reasonable in a real workplace.",
+        "zh": "正确消息同时保留版本2、周四11:00前及索取动作。其余改变版本、时间或动作；即使西语可理解，也未准确传达题定请求。截止由虚构题面给出，不判断真实工作中是否合理。"
+      }
+    },
+    {
+      "id": "SPANISH_20",
+      "prompt": {
+        "en": "Which reply asks for the missing date without guessing it?\n\nEl mensaje recibido dice: «Nos vemos el próximo martes», pero no está clara la fecha del calendario.",
+        "zh": "哪项回复询问缺失日期，而不猜答案？\n\nEl mensaje recibido dice: «Nos vemos el próximo martes», pero no está clara la fecha del calendario."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Perfecto, confirmo el día 9 aunque no lo hayas indicado.",
+            "zh": "Perfecto, confirmo el día 9 aunque no lo hayas indicado."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Entiendo que has cancelado la reunión.",
+            "zh": "Entiendo que has cancelado la reunión."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Voy a cambiar la reunión a cualquier otro día.",
+            "zh": "Voy a cambiar la reunión a cualquier otro día."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "¿A qué fecha exacta te refieres con «el próximo martes»?",
+            "zh": "¿A qué fecha exacta te refieres con «el próximo martes»?"
+          },
+          "directionId": "functional"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The selected reply asks which calendar date the sender means. The alternatives invent a date, cancellation or a change of day. The task is to resolve the stated ambiguity rather than impose one universal meaning of próximo across every conversation or regional usage.",
+        "zh": "正确回复询问发件人所指的准确日历日期，其他选项自添日期、取消或改期。任务是解决题面明示的歧义，不规定próximo在所有会话或地区只能有一种理解。"
+      }
+    },
+    {
+      "id": "SPANISH_21",
+      "prompt": {
+        "en": "Choose the handover note preserving what is ready and what is still pending.\n\nLas fotos ya están seleccionadas. Aún falta el permiso para publicar la imagen de la portada.",
+        "zh": "选择同时保留已就绪与仍待办内容的交接说明。\n\nLas fotos ya están seleccionadas. Aún falta el permiso para publicar la imagen de la portada."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Las fotos están seleccionadas; falta el permiso para publicar la portada.",
+            "zh": "Las fotos están seleccionadas; falta el permiso para publicar la portada."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "La portada ya tiene permiso de publicación y faltan todas las fotos.",
+            "zh": "La portada ya tiene permiso de publicación y faltan todas las fotos."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Todas las imágenes se pueden publicar sin esperar ningún permiso.",
+            "zh": "Todas las imágenes se pueden publicar sin esperar ningún permiso."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Todavía no se ha seleccionado ninguna foto.",
+            "zh": "Todavía no se ha seleccionado ninguna foto."
+          },
+          "directionId": "functional"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The selected note keeps the completed photo selection and the missing cover-image permission. The other messages reverse the status, remove the permission condition or deny work already completed. A clear handover preserves both known progress and the unresolved requirement; it does not authorise publication by itself.",
+        "zh": "正确说明保留选图已完成、封面图发布许可仍缺两项状态。其他选项颠倒状态、删许可条件或否认已完成工作。清楚交接要同时保留进度和未解决要求，本消息本身不授权发布。"
+      }
+    },
+    {
+      "id": "SPANISH_22",
+      "prompt": {
+        "en": "Choose the question that keeps the two checked numbers distinct and asks which one to correct.\n\nLa hoja firmada indica 14 unidades. El borrador del correo indica 41. Todavía no se ha decidido qué documento debe corregirse.",
+        "zh": "选择区分两处核对数字并询问修改哪项的消息。\n\nLa hoja firmada indica 14 unidades. El borrador del correo indica 41. Todavía no se ha decidido qué documento debe corregirse."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "He cambiado ambos documentos a 41 sin consultarlo.",
+            "zh": "He cambiado ambos documentos a 41 sin consultarlo."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "La hoja dice 14 y el borrador 41. ¿Cuál debemos corregir?",
+            "zh": "La hoja dice 14 y el borrador 41. ¿Cuál debemos corregir?"
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Los dos documentos dicen 14, así que no hay diferencia.",
+            "zh": "Los dos documentos dicen 14, así que no hay diferencia."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "La hoja dice 41 y el borrador 14. ¿Cuál debemos corregir?",
+            "zh": "La hoja dice 41 y el borrador 14. ¿Cuál debemos corregir?"
+          },
+          "directionId": "functional"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The selected question preserves the signed sheet’s 14 and the draft’s 41 and asks for the unresolved correction. It neither silently changes a number nor swaps the sources. This checks the stated information and message purpose; it does not decide which document is authoritative for a real transaction.",
+        "zh": "正确消息保留签字表14、邮件草稿41，并询问尚未决定的更正。它不擅改数字，也不交换来源。本题核题定事实和消息目的，不判真实交易中哪个文件为权威。"
+      }
+    },
+    {
+      "id": "SPANISH_23",
+      "prompt": {
+        "en": "Choose the update that preserves the unconfirmed status without promising a date.\n\nEl taller todavía no ha confirmado cuándo estará lista la pieza. Debes informar de ese estado y decir que avisarás cuando recibas confirmación.",
+        "zh": "选择保留未确认状态且不承诺日期的更新。\n\nEl taller todavía no ha confirmado cuándo estará lista la pieza. Debes informar de ese estado y decir que avisarás cuando recibas confirmación."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "La pieza estará lista mañana a primera hora, aunque el taller no lo haya confirmado.",
+            "zh": "La pieza estará lista mañana a primera hora, aunque el taller no lo haya confirmado."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "El taller ha cancelado definitivamente la reparación.",
+            "zh": "El taller ha cancelado definitivamente la reparación."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "La fecha aún no está confirmada. Te avisaré cuando el taller la confirme.",
+            "zh": "La fecha aún no está confirmada. Te avisaré cuando el taller la confirme."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "La pieza ya está lista y puedes recogerla ahora.",
+            "zh": "La pieza ya está lista y puedes recogerla ahora."
+          },
+          "directionId": "functional"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The selected update states the uncertainty and the promised next communication, without inventing a completion date. The others add an unconfirmed promise, cancellation or completed repair. A helpful response can name what is not yet known rather than manufacture certainty to sound reassuring.",
+        "zh": "正确更新陈述不确定性及确认后通知的下一步，不编完成日期。其余增添未核承诺、取消或已修完。有效回复可以直说未知，而不是为显得安心制造确定性。"
+      }
+    },
+    {
+      "id": "SPANISH_24",
+      "prompt": {
+        "en": "Choose the summary that preserves both branches of the instruction.\n\nSi llega la autorización antes de las 13:00, enviamos la maqueta hoy. Si no llega antes de esa hora, la guardamos y pedimos una nueva fecha de envío.",
+        "zh": "选择同时保留条件两种分支的概括。\n\nSi llega la autorización antes de las 13:00, enviamos la maqueta hoy. Si no llega antes de esa hora, la guardamos y pedimos una nueva fecha de envío."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Enviamos hoy aunque no haya autorización y pedimos permiso después.",
+            "zh": "Enviamos hoy aunque no haya autorización y pedimos permiso después."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Si no llega la autorización, destruimos la maqueta inmediatamente.",
+            "zh": "Si no llega la autorización, destruimos la maqueta inmediatamente."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Guardamos la maqueta siempre, incluso si llega la autorización a tiempo.",
+            "zh": "Guardamos la maqueta siempre, incluso si llega la autorización a tiempo."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Enviamos hoy solo si llega la autorización antes de las 13:00; si no, guardamos la maqueta y pedimos otra fecha.",
+            "zh": "Enviamos hoy solo si llega la autorización antes de las 13:00; si no, guardamos la maqueta y pedimos otra fecha."
+          },
+          "directionId": "functional"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The selected summary keeps the approval condition and the hold-and-reschedule branch. Sending regardless, destroying the model or always holding it changes the instruction. Read both outcomes rather than remembering only the preferred one. The times and workflow are fictional facts for this language task, not a real operating policy.",
+        "zh": "正确概括保留按时授权才发送，以及未按时授权时保留模型、询问新日期的分支。不论授权都发、立即毁掉或始终保留都改了说明。两种结局都要核，时间流程是语言任务中的虚构事实，不是真实操作政策。"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "id": "SPANISH_01",
+      "proof": {
+        "kind": "grammar",
+        "rule": "preparar_yo_present",
+        "lemma": "preparar",
+        "source": "https://dle.rae.es/preparar"
+      }
+    },
+    {
+      "id": "SPANISH_02",
+      "proof": {
+        "kind": "grammar",
+        "rule": "estar_ustedes_present",
+        "source": "https://dle.rae.es/estar"
+      }
+    },
+    {
+      "id": "SPANISH_03",
+      "proof": {
+        "kind": "grammar",
+        "rule": "adjective_feminine_plural",
+        "stem": "pequeñ",
+        "source": "https://www.rae.es/dpd/concordancia"
+      }
+    },
+    {
+      "id": "SPANISH_04",
+      "proof": {
+        "kind": "grammar",
+        "rule": "article_masculine_plural",
+        "source": "https://dle.rae.es/el"
+      }
+    },
+    {
+      "id": "SPANISH_05",
+      "proof": {
+        "kind": "grammar",
+        "rule": "accent_tu_pronoun",
+        "source": "https://www.rae.es/diccionario-estudiante/docs/ortografia.pdf",
+        "sourceReadScope": "Primarysearchreturnedtu/tudiacritictable,notentirePDF"
+      }
+    },
+    {
+      "id": "SPANISH_06",
+      "proof": {
+        "kind": "grammar",
+        "rule": "sustituir_nosotros_present",
+        "source": "https://dle.rae.es/sustituir"
+      }
+    },
+    {
+      "id": "SPANISH_07",
+      "proof": {
+        "kind": "word_sense",
+        "word": "vigente",
+        "sense": "in_force",
+        "correctSemantic": "La norma continúa teniendo efecto",
+        "source": "https://dle.rae.es/vigente"
+      }
+    },
+    {
+      "id": "SPANISH_08",
+      "proof": {
+        "kind": "word_sense",
+        "word": "opcional",
+        "sense": "chosen_not_mandatory",
+        "correctSemantic": "Cada persona puede decidir si participa",
+        "source": "https://dle.rae.es/opcional"
+      }
+    },
+    {
+      "id": "SPANISH_09",
+      "proof": {
+        "kind": "word_sense",
+        "word": "adjunto",
+        "sense": "accompanies_message",
+        "correctSemantic": "El archivo se envía junto con el mensaje",
+        "source": "https://dle.rae.es/adjunto"
+      }
+    },
+    {
+      "id": "SPANISH_10",
+      "proof": {
+        "kind": "word_sense",
+        "word": "previo",
+        "sense": "earlier",
+        "correctSemantic": "La revisión ocurre antes de publicar",
+        "source": "https://dle.rae.es/previo"
+      }
+    },
+    {
+      "id": "SPANISH_11",
+      "proof": {
+        "kind": "word_sense",
+        "word": "agotar",
+        "sense": "supply_used_up",
+        "correctSemantic": "Ya no quedan entradas disponibles",
+        "source": "https://dle.rae.es/agotar"
+      }
+    },
+    {
+      "id": "SPANISH_12",
+      "proof": {
+        "kind": "word_sense",
+        "word": "sustituir",
+        "sense": "replace",
+        "correctSemantic": "sustituir",
+        "source": "https://dle.rae.es/sustituir"
+      }
+    },
+    {
+      "id": "SPANISH_13",
+      "proof": {
+        "kind": "conditional_fact",
+        "facts": {
+          "threshold": 6,
+          "advanceDays": 2
+        },
+        "correctSemantic": "Una visita de un grupo de ocho personas"
+      }
+    },
+    {
+      "id": "SPANISH_14",
+      "proof": {
+        "kind": "reference",
+        "referent": "Las postales",
+        "correctSemantic": "Las postales"
+      }
+    },
+    {
+      "id": "SPANISH_15",
+      "proof": {
+        "kind": "purpose",
+        "requiredMeaning": "Se practica la descripción, sin tasar el precio de las piezas",
+        "correctSemantic": "Se practica la descripción, sin tasar el precio de las piezas"
+      }
+    },
+    {
+      "id": "SPANISH_16",
+      "proof": {
+        "kind": "sequence",
+        "source": [
+          "spread",
+          "measure",
+          "mark"
+        ],
+        "correctSemantic": "Extender la tela → medirla → marcar la línea",
+        "alternatives": [
+          [
+            "measure",
+            "spread",
+            "mark"
+          ],
+          [
+            "mark",
+            "measure",
+            "spread"
+          ],
+          [
+            "spread",
+            "mark",
+            "measure"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "SPANISH_17",
+      "proof": {
+        "kind": "missing_field",
+        "facts": {
+          "room": "4",
+          "start": "16:30",
+          "registration": "recepción"
+        },
+        "correctSemantic": "Cuánto tiempo durará"
+      }
+    },
+    {
+      "id": "SPANISH_18",
+      "proof": {
+        "kind": "supported_meaning",
+        "supported": "Tres personas valoraron mejor la claridad; no se midió la rapidez",
+        "correctSemantic": "Tres personas valoraron mejor la claridad; no se midió la rapidez"
+      }
+    },
+    {
+      "id": "SPANISH_19",
+      "proof": {
+        "kind": "required_meaning",
+        "facts": {
+          "version": 2,
+          "day": "jueves",
+          "before": "11:00",
+          "action": "send"
+        },
+        "correctSemantic": "¿Puedes enviarme la versión 2 del catálogo antes del jueves a las 11:00?"
+      }
+    },
+    {
+      "id": "SPANISH_20",
+      "proof": {
+        "kind": "required_meaning",
+        "purpose": "ask_exact_calendar_date",
+        "correctSemantic": "¿A qué fecha exacta te refieres con «el próximo martes»?"
+      }
+    },
+    {
+      "id": "SPANISH_21",
+      "proof": {
+        "kind": "required_meaning",
+        "facts": {
+          "selected": true,
+          "coverPermission": false
+        },
+        "correctSemantic": "Las fotos están seleccionadas; falta el permiso para publicar la portada."
+      }
+    },
+    {
+      "id": "SPANISH_22",
+      "proof": {
+        "kind": "required_meaning",
+        "facts": {
+          "sheet": 14,
+          "draft": 41,
+          "decision": "unknown"
+        },
+        "correctSemantic": "La hoja dice 14 y el borrador 41. ¿Cuál debemos corregir?"
+      }
+    },
+    {
+      "id": "SPANISH_23",
+      "proof": {
+        "kind": "required_meaning",
+        "facts": {
+          "dateConfirmed": false,
+          "nextAction": "notify_after_confirmation"
+        },
+        "correctSemantic": "La fecha aún no está confirmada. Te avisaré cuando el taller la confirme."
+      }
+    },
+    {
+      "id": "SPANISH_24",
+      "proof": {
+        "kind": "conditional_meaning",
+        "facts": {
+          "approvalBefore": "13:00",
+          "approved": "send_today",
+          "otherwise": "hold_and_ask_new_date"
+        },
+        "correctSemantic": "Enviamos hoy solo si llega la autorización antes de las 13:00; si no, guardamos la maqueta y pedimos otra fecha."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "grammar",
+      "directionIds": [
+        "grammar"
+      ],
+      "title": {
+        "en": "Grammar and written forms",
+        "zh": "语法与书写形式"
+      },
+      "headline": {
+        "en": "Read the subject, agreement and accent as separate clues.",
+        "zh": "分开核主语、一致关系和重音符号。"
+      },
+      "summary": {
+        "en": "Review two selected present-tense forms, ustedes with estar, noun-phrase agreement and the distinction between tú and tu.",
+        "zh": "复习两个选定动词现在时形式、ustedes配estar、名词短语一致，以及tú与tu的区别。"
+      },
+      "seo": {
+        "title": {
+          "en": "Grammar and written forms: Spanish practice guide",
+          "zh": "语法与书写形式：西班牙语练习指南"
+        },
+        "description": {
+          "en": "Review six selected Spanish grammar decisions with original examples and a controlled rewrite routine. Counts do not assign a language level.",
+          "zh": "用原创例子和受控改写复习六个西语语法选择，正确题数不派语言等级。"
+        }
+      },
+      "scoreReading": {
+        "en": "Your count records matching answers on six selected Spanish tasks. It is not a CEFR level, vocabulary-size estimate, percentile or work qualification. All explanations and this complete guide are available at zero, partial and perfect counts.",
+        "zh": "正确数记录六道选定西语任务中与答案一致的选择，不是CEFR等级、词汇量估计、百分位或岗位资格。零分、部分答对和全对都可看全部解析与本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Six specified written decisions",
+            "zh": "六种指定的书面选择"
+          },
+          "paragraphs": [
+            {
+              "en": "The set asks for present indicative forms with explicitly named subjects, the feminine plural adjective matching cajas, a masculine plural definite article and the accented personal pronoun tú. The grammar references support these selected forms, without supplying a complete Spanish course or a calibrated level test. A correct response shows recognition of one displayed construction under the conditions of this practice.",
+              "zh": "本组明示主语并要求直陈式现在时，另核cajas对应的阴性复数形容词、阳性复数定冠词及重读人称代词tú。参考支持选定形式，不提供完整西语课程或等级校准。选对只表明本次条件下认出一个所示结构。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Keep the verb tied to its subject",
+            "zh": "让动词与主语对应"
+          },
+          "paragraphs": [
+            {
+              "en": "Compare two new examples: Yo preparo una lista; Nosotros preparamos una lista. The verb changes when the subject changes, while the object stays the same. Now compare Ustedes están en la entrada with Usted está en la entrada. These forms distinguish grammatical number; they do not rank forms of address or require every Spanish-speaking region to use the same pronouns.",
+              "zh": "比较新例句Yo preparo una lista与Nosotros preparamos una lista，宾语不变而主语改变带来动词变化。再比Ustedes están en la entrada与Usted está en la entrada，区别是语法数，不给称呼排名，也不要求所有西语地区用相同代词。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Check the whole phrase before an ending",
+            "zh": "看完整短语再核词尾"
+          },
+          "paragraphs": [
+            {
+              "en": "For the adjective item, recover the noun’s gender and number instead of checking only whether an ending looks familiar. For the article, read the plural noun it introduces. For tú, decide whether the position needs a personal pronoun or a possessive determiner. The written accent distinguishes those forms here; it is not an optional decoration that can be removed without changing the word.",
+              "zh": "形容词题先找名词的性与数，不只看词尾是否眼熟；冠词题看它引入的复数名词。Tú题先分人称代词与物主限定词，重音符号在此区分词形，不是可随意删去而不改词的装饰。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Rewrite one feature at a time",
+            "zh": "一次只改一个特征"
+          },
+          "paragraphs": [
+            {
+              "en": "Write a short Spanish phrase about one fictional object and rewrite it about two. Mark which determiner and adjective need to change. Separately change a first-person singular statement into a first-person plural statement using a checked verb table. Explain the change before checking the reference. Use new objects and actions so that remembering one test option does not stand in for applying the rule.",
+              "zh": "自写一个虚构物体的西语短语，再改成两个，标出要变的限定词和形容词。另查已核动词表，把第一人称单数陈述改复数。先解释再查参考，并换物体动作，避免记住某个选项代替应用规则。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Recognition leaves many abilities untested",
+            "zh": "识别留下许多未测能力"
+          },
+          "paragraphs": [
+            {
+              "en": "Six tasks do not cover every tense, mood, irregular form or agreement pattern. They do not measure listening, pronunciation, conversation or spontaneous writing. Spanish has legitimate regional and register variation; the items specify the selected construction. A higher count after reviewing the same fixed bank can reflect recall. It is a practice record, without a DELE, SIELE or CEFR conversion.",
+              "zh": "六题不覆盖所有时态、语式、不规则形式或一致结构，也不测听力、发音、会话和即时写作。西语有合法地区与语域变体，本组明确所选结构。看过固定题重做提高可来自记忆，只记录练习，不换算DELE、SIELE或CEFR。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vocabulary",
+      "directionIds": [
+        "vocabulary"
+      ],
+      "title": {
+        "en": "Words in context",
+        "zh": "语境中的词义"
+      },
+      "headline": {
+        "en": "Match the word to what this sentence actually says.",
+        "zh": "把词与这句话实际表达的意思配对。"
+      },
+      "summary": {
+        "en": "Review vigente, opcional, adjunto, previo, agotadas and sustituir in original Spanish contexts with checked dictionary meanings.",
+        "zh": "结合原创西语语境及已核义项，复习vigente、opcional、adjunto、previo、agotadas和sustituir。"
+      },
+      "seo": {
+        "title": {
+          "en": "Words in context: Spanish practice guide",
+          "zh": "语境中的词义：西班牙语练习指南"
+        },
+        "description": {
+          "en": "Review six Spanish meanings with complete examples and contrast practice. The six-item count does not estimate vocabulary size or CEFR.",
+          "zh": "用完整例子和对照练习复习六个西语词义；六题正确数不估词汇量或CEFR。"
+        }
+      },
+      "scoreReading": {
+        "en": "Your count records matching answers on six selected Spanish tasks. It is not a CEFR level, vocabulary-size estimate, percentile or work qualification. All explanations and this complete guide are available at zero, partial and perfect counts.",
+        "zh": "正确数记录六道选定西语任务中与答案一致的选择，不是CEFR等级、词汇量估计、百分位或岗位资格。零分、部分答对和全对都可看全部解析与本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Six meanings, not a word inventory",
+            "zh": "六个词义，不是词汇清单测量"
+          },
+          "paragraphs": [
+            {
+              "en": "These tasks concern a rule remaining in force, optional participation, a file accompanying a message, an earlier review, an exhausted ticket supply and replacing an object. The sentence selects the relevant meaning. A dictionary may list other senses: agotado can concern exhaustion in a person, for example, but the item supplies a ticket context. One recognised sense is not complete knowledge of a word.",
+              "zh": "六题涉及规则仍有效、自选参与、文件随消息、事前复核、票量用尽与替换物件，由句子选相关义项。词典还可列其他意义，例如agotado也可说人疲惫，但题面限定门票。认出某义项不等于掌握整词。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A word can change the practical conclusion",
+            "zh": "一个词会改变实际结论"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional event note saying La charla es opcional. That does not mean the talk is cancelled; it leaves attendance to each person. Compare La charla es obligatoria, which states a different participation condition. The phrases help expose the meaning difference. They do not establish what any real organisation is allowed to require or whether a particular person should attend.",
+              "zh": "例如虚构活动写La charla es opcional，不是讲座取消，而是个人可决定参加。对照La charla es obligatoria，参与条件就不同。短语展示词义差别，不判真实组织能要求什么，也不替个人决定去不去。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Keep the supplied limit with the meaning",
+            "zh": "理解词义时保留题面边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Adjunto describes how a file accompanies a message; recognising it does not prove that an actual sender included the file. Vigente states current effect in the fictional notice, not that a policy is permanent. Previo marks an earlier stage, not a guarantee that the review was thorough. Read the nearby sentence details and avoid enlarging a word into a promise the text never makes.",
+              "zh": "Adjunto描述文件随消息，不证明真实发件人已附文件；vigente说虚构通知中的当前效力，不代表永久；previo标事前阶段，不保证复核充分。要读邻近细节，别把词义扩大成原文没给的承诺。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Create a useful contrast in Spanish",
+            "zh": "用西语写一组有用对照"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one target meaning and write a new short situation in Spanish. Then replace it with a contrasting meaning and explain which fact would change. Check the relevant dictionary sense after writing rather than copying its example. You can also ask whether your new sentence needs a different adjective ending. This is suggested practice, with no measured improvement rate or promised learning time.",
+              "zh": "选一个目标义项，自写西语短情境，再换成对照意思，说明哪项事实改变。写完查词典义项，不搬例句，也核新句是否需要不同形容词词尾。这只是练习建议，没有已测提高率或保证学习时间。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Visible alternatives narrow the task",
+            "zh": "可见选项缩小了任务"
+          },
+          "paragraphs": [
+            {
+              "en": "Recognising a Spanish paraphrase from four alternatives differs from recalling a word without help, using it naturally in a conversation or understanding fast speech. The bank has no vocabulary-frequency sampling model, norms or productive-vocabulary mark. Counts cannot estimate how many words you know. Reviewing the explanations can suggest a next topic without assigning a fixed language level or employment judgement.",
+              "zh": "四选一认西语改述，不等于无提示回忆、会话自然使用或理解快速语音。本组无词频抽样、人群常模或产出词汇评分，不能估认识多少词。解析可帮助选下一复习主题，不派固定语言等级或就业判断。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "directionIds": [
+        "reading"
+      ],
+      "title": {
+        "en": "Reading and text evidence",
+        "zh": "阅读与文本依据"
+      },
+      "headline": {
+        "en": "Keep conditions, reference and unknown information visible.",
+        "zh": "保留条件、指代和未知信息。"
+      },
+      "summary": {
+        "en": "Review a group-size rule, pronoun reference, a notice’s purpose, an ordered procedure, a missing duration and a limited observation.",
+        "zh": "复习人数条件、代词指代、通知目的、步骤顺序、缺失时长和有限观察。"
+      },
+      "seo": {
+        "title": {
+          "en": "Reading and text evidence: Spanish practice guide",
+          "zh": "阅读与文本依据：西班牙语练习指南"
+        },
+        "description": {
+          "en": "Read six original Spanish passages with full worked answers. Follow conditions and evidence without estimating reading speed or a language level.",
+          "zh": "结合完整题解读六段原创西语，核条件与依据，不估阅读速度或语言等级。"
+        }
+      },
+      "scoreReading": {
+        "en": "Your count records matching answers on six selected Spanish tasks. It is not a CEFR level, vocabulary-size estimate, percentile or work qualification. All explanations and this complete guide are available at zero, partial and perfect counts.",
+        "zh": "正确数记录六道选定西语任务中与答案一致的选择，不是CEFR等级、词汇量估计、百分位或岗位资格。零分、部分答对和全对都可看全部解析与本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "The passages supply the needed facts",
+            "zh": "短文提供所需事实"
+          },
+          "paragraphs": [
+            {
+              "en": "The six readings ask which group meets a reservation condition, what a pronoun refers to, what a workshop offers and excludes, how three actions are ordered, which detail is absent and what a small trial actually found. No knowledge of a real archive, event organiser or workplace is required. The task is matching a question to the supplied Spanish text without filling gaps from general experience.",
+              "zh": "六段分别问预约条件、代词所指、工作坊提供与排除什么、三步先后、资料缺口及小试验实际发现。无需知道真实档案馆、主办方或工作场所；任务是把问题与题定西语匹配，不用经验补空。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A start time is not a duration",
+            "zh": "开始时间不等于时长"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider a new invented notice: La demostración empieza a las diez en el patio; no se indica la hora de finalización. It gives a start and a place. It does not tell you the ending time, even if similar demonstrations you have attended lasted an hour. Accurately identifying missing information is a useful reading decision, rather than a failure to choose a convenient number.",
+              "zh": "新虚构通知La demostración empieza a las diez en el patio; no se indica la hora de finalización给出开始和地点，没说结束。即使过去类似演示常一小时，也不能补进去。准确识别未知是阅读结果，不是没选到方便的数字。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Preserve every dependency and qualification",
+            "zh": "保留全部依赖与限定"
+          },
+          "paragraphs": [
+            {
+              "en": "For an ordered instruction, translate the logic into before and after relationships and check both. For a pronoun, inspect gender, number and the sentence’s action rather than selecting a nearby noun automatically. For a report of three opinions, keep the number and the unmeasured outcomes visible. Lack of a speed measurement proves neither a speed improvement nor the absence of one.",
+              "zh": "顺序题把逻辑写成前后依赖并逐条核；指代题看性、数及句中动作，不自动挑近处名词。报告三人意见时保留人数与未测结果，没测速度既不能证加速，也不能反证绝无加速。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "List a claim and its supporting words",
+            "zh": "列主张与对应原文"
+          },
+          "paragraphs": [
+            {
+              "en": "Take a new short Spanish notice or write one yourself. List each question beside the words that answer it. Mark whether the answer is stated, contradicted or unresolved. If it is unresolved, identify what extra detail would be needed without inventing that detail. After reviewing an answer, switch to a new text so that recalling the same passage does not replace reading practice.",
+              "zh": "换新西语通知或自写一段，把每题旁的回答依据列出，标明已陈述、冲突或未解决。若未解决，说明还需哪项信息，但不编信息。看过答案再换新文，避免对原文记忆替代阅读。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Short-text recognition has a limited scope",
+            "zh": "短文识别范围有限"
+          },
+          "paragraphs": [
+            {
+              "en": "These passages do not test reading speed, sustained literature reading, academic interpretation or listening. They also do not assess a written response produced without alternatives. English and Chinese instructions leave the Spanish passages unchanged, but that does not establish measurement equivalence between interfaces. A count out of six describes these choices, with every explanation available; it is not a CEFR placement or a certification result.",
+              "zh": "这些短文不测速度、持续文学阅读、学术解读或听力，也不评无选项书面回答产出。英中说明保留西语短文，却不建立界面间测量等价。正确数/6记录六次选择，全部解析可读，不是CEFR分班或认证结果。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "functional",
+      "directionIds": [
+        "functional"
+      ],
+      "title": {
+        "en": "Written messages and tasks",
+        "zh": "书面消息与任务"
+      },
+      "headline": {
+        "en": "Keep the intended request and the known status intact.",
+        "zh": "保留指定请求和已知状态。"
+      },
+      "summary": {
+        "en": "Review exact file requests, unclear dates, handovers, conflicting figures, unconfirmed completion dates and conditional sending instructions.",
+        "zh": "复习具体文件请求、含糊日期、交接、冲突数字、未确认完工时间及有条件发送说明。"
+      },
+      "seo": {
+        "title": {
+          "en": "Written messages and tasks: Spanish practice guide",
+          "zh": "书面消息与任务：西班牙语练习指南"
+        },
+        "description": {
+          "en": "Practise six original Spanish message decisions with full explanations. Preserve facts and conditions without a workplace-readiness or CEFR claim.",
+          "zh": "用完整解析练六个原创西语消息选择，保留事实条件，不给岗位准备或CEFR结论。"
+        }
+      },
+      "scoreReading": {
+        "en": "Your count records matching answers on six selected Spanish tasks. It is not a CEFR level, vocabulary-size estimate, percentile or work qualification. All explanations and this complete guide are available at zero, partial and perfect counts.",
+        "zh": "正确数记录六道选定西语任务中与答案一致的选择，不是CEFR等级、词汇量估计、百分位或岗位资格。零分、部分答对和全对都可看全部解析与本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Meaning matters even when a sentence is grammatical",
+            "zh": "句子通顺仍需核对意思"
+          },
+          "paragraphs": [
+            {
+              "en": "Each question supplies a message purpose and fictional facts. Alternatives may be understandable Spanish while requesting a wrong version, changing a deadline or reversing what is complete. The intended answer preserves the specified task, rather than rewarding the longest or most deferential message. This section is not a personality test or a universal ranking of politeness across Spanish-speaking communities.",
+              "zh": "题目给消息目的与虚构事实。选项即使西语可理解，也可能要错版本、改截止或颠倒完成状态。答案保留指定任务，不奖励最长或最恭敬的文字。本组不测人格，也不普遍给各西语社群的礼貌排序。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Check the object before the tone",
+            "zh": "先核对象，再看语气"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a request for the revised seating chart for Room D. A reply beginning ¿Puedes enviarme…? can be courteous while asking for Room F instead. Compare the object, version and time separately before deciding whether the request matches. The example is fictional and does not send any message. Tone can matter in a real interaction, but it cannot repair a changed fact.",
+              "zh": "例如要D室新版座位表，回复即使用¿Puedes enviarme…?很客气，若写F室仍改了事实。先分对象、版本和时间逐项核，再判断匹配。例子虚构，不发送消息；真实沟通中语气重要，却不能修复事实改错。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "State unknowns without inventing a promise",
+            "zh": "说清未知，不编承诺"
+          },
+          "paragraphs": [
+            {
+              "en": "When a workshop has not confirmed completion, the response should preserve that uncertainty and the stated next update. A disputed date needs a clarification question, not an assumed calendar day. A handover keeps finished work and missing permission separate. For conditional sending, inspect both the approval branch and the hold branch; dropping either changes the instruction even if the summary is shorter.",
+              "zh": "工坊未确认完工时，回复保留不确定性及下一次更新；含糊日期应问清，不猜日历日；交接分已完成工作与缺许可。条件发送同时核批准和暂缓分支，缩短概括若丢分支仍改了说明。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Draft a message from a small fact list",
+            "zh": "依据简短事实表写消息"
+          },
+          "paragraphs": [
+            {
+              "en": "Create a new fictional brief in Spanish with a file name, version, recipient, time condition and one unresolved detail. Write a reply and underline where each required fact appears. Check whether you changed a number, removed a condition or promised an unsupported date. Compare with the brief before polishing the wording. You can do the entire exercise privately without sending a real email.",
+              "zh": "自写西语虚构任务，列文件、版本、收件人、时间条件与一个未决细节。回信后划出各事实位置，查有无改数字、少条件、多承诺，再润色。全过程可私下练，不需发送真实邮件。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Choosing a reply is not workplace certification",
+            "zh": "选回复不等于岗位认证"
+          },
+          "paragraphs": [
+            {
+              "en": "Six choices do not establish spontaneous email writing, live negotiation, telephone comprehension or success in a job. The stated workflow is fictional, not an organisation’s policy. No hiring cutoff, native-speaker comparison or CEFR conversion is provided. Repeating the fixed alternatives after reading their keys may improve the count through memory. Use the explanations to select fresh message practice rather than claiming complete communication ability.",
+              "zh": "六次选择不证明即时邮件、现场协商、电话理解或工作成功。流程是虚构资料，不是组织政策；不设招聘线、母语者比较或CEFR换算。看答案后重复选项可因记忆提高，应用解析选新消息练习，不宣称完整交际能力。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
