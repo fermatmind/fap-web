@@ -1,0 +1,2840 @@
+{
+  "id": "T170",
+  "edition": "fm_problem_solving_practice_30_v1",
+  "authorship": "Original bilingual school/day-to-day case practice. Curriculum concepts background only. No published bank/scenario/worksheet adaptation or official standards-achievement claim. Declared model checks plus author semantic review;not independent pedagogical review,norms or gradeprediction.",
+  "questions": [
+    {
+      "prompt": {
+        "en": "A club has printed three different versions of its event poster. Before choosing a fix, its task is to record exactly which versions are on display and where. Which first action meets that task?",
+        "zh": "社团印出了三个版本的活动海报。题定任务是在选补救方案前，先记录展示了哪些版本、各在哪里。哪个第一步满足任务？"
+      },
+      "explanation": {
+        "en": "The chosen action records both required facts: version and location. The alternatives may change the situation or offer a reminder, but none supplies that baseline record. A baseline lets a later correction be checked against what was actually present. The task does not yet establish why the versions differ, so naming someone careless would add an unsupported explanation.",
+        "zh": "所选动作记录版本和位置两项必需事实。其他动作可能改变现场或起提醒作用，却没建立基线记录。有了基线，才能核查后来改正了什么；目前还不知道版本不同的原因，不能补成某人粗心。"
+      },
+      "id": "PROBLEM_01",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Print a fourth design before checking the current displays.",
+            "zh": "先印第四种设计，再检查现有展示。"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Move all posters to another wall without recording their versions.",
+            "zh": "不记版本，先把所有海报移到另一面墙。"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "List the displayed version labels and the location of each.",
+            "zh": "列出展示版本的标识及各自位置。"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Ask everyone to be more careful without recording what is displayed.",
+            "zh": "不记现场内容，只请大家以后更仔细。"
+          },
+          "directionId": "problem-steps"
+        }
+      ],
+      "correctOptionId": "C"
+    },
+    {
+      "prompt": {
+        "en": "A club plan must cost no more than 30 tokens and take no more than 25 minutes. Plan M costs 28 and takes 24; N costs 32 and takes 20; P costs 20 and takes 30; Q costs 31 and takes 26. Which meets both limits?",
+        "zh": "社团方案必须不超过30代币、25分钟。M花28、用24；N花32、用20；P花20、用30；Q花31、用26。哪个同时满足？"
+      },
+      "explanation": {
+        "en": "M meets both inequalities: 28 ≤ 30 and 24 ≤ 25. N exceeds the cost limit, P exceeds the time limit, and Q exceeds both. A lower cost cannot compensate for a failed mandatory time limit in this model. This is a feasibility comparison, not a claim that M has the best quality or suits every real club.",
+        "zh": "M同时满足28≤30、24≤25；N超费用、P超时间、Q两项都超。本模型中费用低不能抵消必需时间限制失败。这只比较可行性，不声称M质量最好或适合所有真实社团。"
+      },
+      "id": "PROBLEM_02",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Plan N",
+            "zh": "N方案"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Plan P",
+            "zh": "P方案"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Plan Q",
+            "zh": "Q方案"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Plan M",
+            "zh": "M方案"
+          },
+          "directionId": "decision-tools"
+        }
+      ],
+      "correctOptionId": "D"
+    },
+    {
+      "prompt": {
+        "en": "A fictional class trial recorded six errors in 30 tasks before a plan and three errors in 30 tasks afterwards. What is the drop in error rate in percentage points? Do not treat this before/after record as proof of cause.",
+        "zh": "虚构班级试行中，计划前30项任务错6项，之后30项错3项。错误率下降多少个百分点？这份前后记录不作为因果证明。"
+      },
+      "explanation": {
+        "en": "The rates are 6/30 = 20% and 3/30 = 10%, so the difference is ten percentage points. The relative reduction is 50%, a different quantity. Neither calculation explains what caused the change. Keeping the measure and its unit explicit avoids making a larger-sounding percentage answer a different question.",
+        "zh": "两次错误率为20%、10%，相差10个百分点；相对降幅50%是另一数量。两种计算都不解释变化原因。写清指标和单位，可避免用听着更大的百分比回答别的问题。"
+      },
+      "id": "PROBLEM_03",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "50 percentage points",
+            "zh": "50个百分点"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "3 percentage points",
+            "zh": "3个百分点"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "10 percentage points",
+            "zh": "10个百分点"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "30 percentage points",
+            "zh": "30个百分点"
+          },
+          "directionId": "review-and-learning"
+        }
+      ],
+      "correctOptionId": "C"
+    },
+    {
+      "prompt": {
+        "en": "A school notice team reviewed 12 posts from this month and found three with the wrong room number. Which sentence states that observed problem precisely, without adding a cause?",
+        "zh": "校内通知组检查本月12条发布，发现3条房间号错误。哪句话准确界定已观察问题，且不添加原因？"
+      },
+      "explanation": {
+        "en": "The precise statement retains the observed count, review set and error type. It does not turn a three-post finding into a claim about all notices, identify an untested cause or choose a solution. Defining a problem and deciding what to do about it are different steps. The count is supplied fictional evidence, not a statistic about an actual school.",
+        "zh": "准确句保留观察数、检查范围和错误类型，不把三条推广到全部通知，不认定未检验原因，也不先选方案。界定问题与决定怎样处理是不同步骤；这些数量是题给虚构证据，不是现实学校统计。"
+      },
+      "id": "PROBLEM_04",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The editor is careless, which caused every error.",
+            "zh": "编辑粗心导致了全部错误。"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Three of this month’s 12 reviewed posts had the wrong room number.",
+            "zh": "本月已检查的12条发布中，3条房间号错误。"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "We should replace the posting app immediately.",
+            "zh": "应立即换掉发布应用。"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "All notices this year are unreliable.",
+            "zh": "今年所有通知都不可靠。"
+          },
+          "directionId": "problem-steps"
+        }
+      ],
+      "correctOptionId": "B"
+    },
+    {
+      "prompt": {
+        "en": "A fictional worksheet scores layouts as 2 × readability + durability, with higher totals preferred. Falcon has scores (3,4), Elm (4,1), Pond (2,5), and Rill (1,3). Which layout has the highest total under that stated rule?",
+        "zh": "虚构表按“2×易读分＋耐用分”给布局计总分，总分高优先。Falcon为(3,4)，Elm为(4,1)，Pond为(2,5)，Rill为(1,3)。按规则谁最高？"
+      },
+      "explanation": {
+        "en": "The totals are Falcon 10, Elm 9, Pond 9 and Rill 5, so Falcon is uniquely highest. Looking only at readability would choose a different layout and ignore the second criterion. The weights and component scores are invented inputs, not validated quality ratings. Changing them may change the selected layout; the calculation applies only to this worksheet.",
+        "zh": "总分依次为10、9、9、5，Falcon唯一最高。只看易读分会忽略第二标准而选出不同方案。权重与分项分数是虚构输入，不是已验证质量评级；改输入可能改变选择，计算只适用于本表。"
+      },
+      "id": "PROBLEM_05",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Elm",
+            "zh": "Elm"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Pond",
+            "zh": "Pond"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Rill",
+            "zh": "Rill"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Falcon",
+            "zh": "Falcon"
+          },
+          "directionId": "decision-tools"
+        }
+      ],
+      "correctOptionId": "D"
+    },
+    {
+      "prompt": {
+        "en": "The fictional trial goal is at most two wrong labels across at least five trial runs. The record shows two wrong labels and five runs. Which verdict follows for this trial record?",
+        "zh": "虚构试行目标为：至少做5轮，错标签至多2个。记录为错2个、做5轮。对这份试行记录应怎样判定？"
+      },
+      "explanation": {
+        "en": "Two is within an inclusive maximum of two, and five meets an inclusive minimum of five. Thus the record meets both stated thresholds. The thresholds describe this fictional trial, not a general quality standard or a guarantee about future runs. Reading “at most” and “at least” precisely matters at the boundary values.",
+        "zh": "至多2包含2，至少5包含5，因此这份记录同时满足。门槛只描述虚构试行，不是通用质量标准，也不保证未来。边界值处准确读“至多、至少”尤其重要。"
+      },
+      "id": "PROBLEM_06",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "It meets both stated trial thresholds.",
+            "zh": "它满足两项明示试行门槛。"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "It fails because “at most two” requires zero errors.",
+            "zh": "它失败，因为至多两个等于必须零错。"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "It fails because five is below “at least five”.",
+            "zh": "它失败，因为五轮低于至少五轮。"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "It proves every future run will be error-free.",
+            "zh": "它证明未来每轮都会零错。"
+          },
+          "directionId": "review-and-learning"
+        }
+      ],
+      "correctOptionId": "A"
+    },
+    {
+      "prompt": {
+        "en": "A fictional print queue might be delayed by file size or by the number of waiting jobs. The investigation goal is to record both possible factors for each delayed print before selecting a cause. Which record fits?",
+        "zh": "虚构打印队列延迟可能与文件大小或排队任务数有关。调查目标是在选定原因前，对每次延迟都记录这两个可能因素。哪种记录符合？"
+      },
+      "explanation": {
+        "en": "The selected record collects both variables named in the goal and keeps the cause open. Either single-variable option drops a relevant candidate and then claims more than its record establishes. Collecting both variables is a start, not proof that either causes delays. Other factors or a better comparison may still be needed in a real investigation.",
+        "zh": "所选记录收集目标点名的两个变量，并保留原因未定。另两个单变量选项漏掉候选因素，还作了超出记录的断言。收集两项只是开始，并不证明任一导致延迟，真实调查仍可能需其他因素或更好的比较。"
+      },
+      "id": "PROBLEM_07",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Only the printer’s colour.",
+            "zh": "只记打印机颜色。"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "For each delayed print: file size and number of waiting jobs.",
+            "zh": "对每次延迟记录文件大小与排队任务数。"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "File size only, then declare it the sole cause.",
+            "zh": "只记文件大小，然后认定它是唯一原因。"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Queue length only, then declare it the sole cause.",
+            "zh": "只记队列长度，然后认定它是唯一原因。"
+          },
+          "directionId": "problem-steps"
+        }
+      ],
+      "correctOptionId": "B"
+    },
+    {
+      "prompt": {
+        "en": "A fictional tool rental costs 14 tokens for each month plus one 5-token setup fee. For exactly two months, with no other charge, what total should be compared with another two-month offer?",
+        "zh": "虚构工具租用每月14代币，另有一次设置费5。恰好两个月，无其他收费，应拿多少总额与另一份两月报价比较？"
+      },
+      "explanation": {
+        "en": "The comparable two-month total is 2 × 14 + 5 = 33 tokens. Twenty-eight omits setup, 19 covers only one month plus setup, and 38 charges setup twice. Keep period and included costs consistent when comparing totals. No conclusion about the value or suitability of a real rental follows from this invented amount alone.",
+        "zh": "同口径两月总额2×14＋5＝33。28漏设置费，19只算一月加设置费，38重复收设置费。比较时需统一期间和包含费用，单凭虚构金额不评价真实租用的价值或适合度。"
+      },
+      "id": "PROBLEM_08",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "28 tokens",
+            "zh": "28代币"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "19 tokens",
+            "zh": "19代币"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "38 tokens",
+            "zh": "38代币"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "33 tokens",
+            "zh": "33代币"
+          },
+          "directionId": "decision-tools"
+        }
+      ],
+      "correctOptionId": "D"
+    },
+    {
+      "prompt": {
+        "en": "A fictional report rubric requires both accurate quantities and a source for each quoted fact. The review task is to check those two requirements. Which review plan covers both?",
+        "zh": "虚构报告评分表要求数量准确，每个引用事实有来源。复查任务只要求核对这两项。哪个计划两项都覆盖？"
+      },
+      "explanation": {
+        "en": "The chosen plan checks each named criterion. A quantity-only review and a source-only review each miss one, while cover colour checks neither. This explains how a review can address specified parts of a rubric without guaranteeing the final grade. The item does not say that these are every criterion used by all teachers or every form of evidence quality.",
+        "zh": "所选计划核查两个点名标准，单查数量或来源各缺一项，封面颜色则两项都没查。这说明复查怎样回应评分表的特定部分，不保证最终成绩，也不说所有老师只有这些标准或证据质量只看有没有来源。"
+      },
+      "id": "PROBLEM_09",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Check the cover colour and stop there.",
+            "zh": "只检查封面颜色。"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Recompute quantities but leave all sources unchecked.",
+            "zh": "复算数量，但不核对来源。"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Recompute the quantities and trace each quoted fact to its source.",
+            "zh": "复算数量，并逐条追溯引用事实的来源。"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "List sources without checking whether the quantities are accurate.",
+            "zh": "列来源，但不核数量是否准确。"
+          },
+          "directionId": "review-and-learning"
+        }
+      ],
+      "correctOptionId": "C"
+    },
+    {
+      "prompt": {
+        "en": "A fictional worksheet requires this order: define, collect evidence, generate alternatives, compare, try, review. Define and collect evidence are complete. Which step is next under that worksheet?",
+        "zh": "虚构练习表规定顺序：界定、收集证据、提出备选、比较、尝试、复盘。前两步已完成，按表下一步是哪项？"
+      },
+      "explanation": {
+        "en": "The next entry after the completed two-step prefix is generate alternatives. Compare, try and review come later in this particular worksheet. The key checks a supplied sequence, not a universal claim that all real problems follow a rigid line. Real work may revisit earlier steps when evidence changes; that possibility does not change the rule this item explicitly asks you to apply.",
+        "zh": "按已完成的前两步，下一项是提出备选，本表中的比较、尝试和复盘在后。答案只检查题给顺序，不宣称现实所有问题都严格线性；真实工作可能因新证据回到前步，但不改变本题明确要求应用的规则。"
+      },
+      "id": "PROBLEM_10",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Generate alternatives",
+            "zh": "提出备选"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Review the final outcome",
+            "zh": "复盘最终结果"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Try a chosen solution before alternatives exist",
+            "zh": "未有备选就尝试已选方案"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Repeat the completed definition instead of moving on",
+            "zh": "不前进，只重复已完成的界定"
+          },
+          "directionId": "problem-steps"
+        }
+      ],
+      "correctOptionId": "A"
+    },
+    {
+      "prompt": {
+        "en": "A class’s average checklist count rose after it adopted a new plan. The record has no comparison group and does not rule out other changes. Which conclusion stays within that evidence?",
+        "zh": "班级采用新计划后，清单平均完成数上升。记录没有对照组，也没排除其他变化。哪个结论守住证据范围？"
+      },
+      "explanation": {
+        "en": "The record establishes sequence and an observed difference, not a unique cause. Other changes could accompany the plan. That uncertainty does not prove the plan ineffective either. A claim about every other class goes further still. The task asks for an appropriately limited conclusion, not an estimate of the plan’s effect or a judgment about any student.",
+        "zh": "记录支持先后与观察到的差异，不支持唯一原因，其他变化仍可能同时存在。这种不确定也不证明计划无效，对所有其他班级的推广更远。本题只问有限结论，不估计效果或评价学生。"
+      },
+      "id": "PROBLEM_11",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The plan is proven to be the only cause.",
+            "zh": "计划已被证实是唯一原因。"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The plan is proven to have no effect.",
+            "zh": "计划已被证实完全无效。"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Every other class will improve by the same amount.",
+            "zh": "其他所有班级都会提高相同数量。"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The count rose after the plan; this record alone does not establish that the plan caused the rise.",
+            "zh": "采用计划后数量上升，但这份记录本身不能证明上升由计划造成。"
+          },
+          "directionId": "decision-tools"
+        }
+      ],
+      "correctOptionId": "D"
+    },
+    {
+      "prompt": {
+        "en": "A student scored higher on the same fixed quiz after reading its answers. No unseen questions were attempted. Which conclusion is supported without claiming transfer to new problems?",
+        "zh": "学生读过答案后，在同一固定题组得分更高，没做未见新题。哪个结论有依据，且不宣称迁移到新问题？"
+      },
+      "explanation": {
+        "en": "The score change is observed on familiar material. It can reflect learning, memory or other factors, but the record does not isolate those explanations or test unseen problems. Even “memory was the only cause” goes beyond the evidence. New, independently solved examples can provide different information, without making a single later attempt a complete measure of general ability.",
+        "zh": "变化发生在熟悉材料上，可能与学习、记忆等有关，但记录未隔离这些解释，也未测试新问题。“唯一因为记忆”同样越界。独立解决新例子能提供不同信息，但单次新作答仍非一般能力的完整测量。"
+      },
+      "id": "PROBLEM_12",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The score rose on this familiar set; this alone does not establish performance on unseen problems.",
+            "zh": "熟悉题组上的分数提高了，但这本身不能证明新问题表现。"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "General problem-solving ability is proven to have increased.",
+            "zh": "一般问题解决能力已被证明提升。"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Memory is proven to be the only cause of the increase.",
+            "zh": "记忆已被证明是提升的唯一原因。"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The student will now solve every new problem correctly.",
+            "zh": "学生今后会把每个新问题都做对。"
+          },
+          "directionId": "review-and-learning"
+        }
+      ],
+      "correctOptionId": "A"
+    },
+    {
+      "prompt": {
+        "en": "Before selecting one plan, a reading club’s rule requires at least two distinct alternatives. Which note records two distinct alternatives rather than choosing immediately or renaming one?",
+        "zh": "读书社规定选定方案前至少提出两个不同备选。哪条记录给出了两个不同备选，而非立即决定或把同一个改名？"
+      },
+      "explanation": {
+        "en": "The chosen note offers two different changes, duration or day, before committing. Giving the same Monday plan two names does not add an alternative. The other notes choose before the required list exists. This item does not decide which reading plan is better; it checks whether the generation step has met the club’s stated rule.",
+        "zh": "所选记录在承诺前提供时长、日期两种不同改变。把同一周一方案说两遍不增加备选，其他记录则在所需清单出现前先选定。本题不决定哪种阅读安排更好，只查提出备选是否满足明示规则。"
+      },
+      "id": "PROBLEM_13",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Selected plan: shorten sessions; there are no other options.",
+            "zh": "已选缩短时段，没有其他备选。"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Option 1: meet Monday. Option 2: hold the meeting on Monday.",
+            "zh": "备选1：周一见面；备选2：把见面安排在周一。"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "We agree to compare plans after first committing to one.",
+            "zh": "先承诺一个方案，再同意比较。"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Option 1: shorten each reading session. Option 2: keep session length and meet on another day.",
+            "zh": "备选1：缩短每次阅读；备选2：时长不变，换一天见面。"
+          },
+          "directionId": "problem-steps"
+        }
+      ],
+      "correctOptionId": "D"
+    },
+    {
+      "prompt": {
+        "en": "A fictional club rule says to resolve conflicting meeting notices with the organizer before travelling. An old draft says Tuesday; the current calendar says Thursday. Which action follows that rule?",
+        "zh": "虚构社团规定：会议通知冲突时，出行前向组织者核实。旧草稿写周二，现日历写周四。哪个动作符合？"
+      },
+      "explanation": {
+        "en": "The supplied procedure requires resolving the conflict with the organizer before travel. A more recent-looking notice can inform that question, but it does not remove the explicit confirmation requirement in this case. Seeing a draft first gives it no special priority, and conflicting dates do not by themselves create two meetings. This item does not check any actual club calendar.",
+        "zh": "题给流程要求出行前向组织者解决冲突。看起来较新的通知能帮助提问，但不取消本题明确核实要求。先看到旧稿不赋予它优先权，日期冲突也不自动变成两次会议。本题不核查真实社团日历。"
+      },
+      "id": "PROBLEM_14",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Travel Tuesday solely because the old draft was seen first.",
+            "zh": "只因先看到旧稿，就周二前往。"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Ask the organizer to resolve the Tuesday–Thursday conflict before travelling.",
+            "zh": "出行前请组织者核实周二、周四的冲突。"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Travel Thursday while ignoring the rule to resolve the conflict.",
+            "zh": "不按规则核实冲突，直接周四前往。"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Treat the two notices as proof that both meetings must occur.",
+            "zh": "把两份通知当作一定开两次的证明。"
+          },
+          "directionId": "decision-tools"
+        }
+      ],
+      "correctOptionId": "B"
+    },
+    {
+      "prompt": {
+        "en": "A fictional 60-minute project plan must leave at least ten minutes for review. Which option fits the total limit and review requirement? Times are preparation, making, review.",
+        "zh": "虚构项目最多60分钟，必须至少留10分钟复查。以下按准备、制作、复查列时长，哪项同时满足？"
+      },
+      "explanation": {
+        "en": "The first plan totals 55 minutes and includes ten for review. The second totals 65 and exceeds the limit; the last two omit required review time even though their totals fit. Planning can reserve an opportunity to check work under these stated numbers. It cannot guarantee that mistakes will be found or that a project will receive any particular grade.",
+        "zh": "第一项总55分钟且有10分钟复查。第二项65分钟超限，后两项虽总时长可行，却没有要求的复查。规划能在给定数量下留出检查机会，不能保证发现错误或获得某个成绩。"
+      },
+      "id": "PROBLEM_15",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "20, 35, 10 minutes",
+            "zh": "20、35、10分钟"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "20, 25, 10 minutes",
+            "zh": "20、25、10分钟"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "20, 25, 0 minutes",
+            "zh": "20、25、0分钟"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "20, 35, 0 minutes",
+            "zh": "20、35、0分钟"
+          },
+          "directionId": "review-and-learning"
+        }
+      ],
+      "correctOptionId": "B"
+    },
+    {
+      "prompt": {
+        "en": "The club’s verified problem is that its chosen room is unavailable at the scheduled time. Its immediate goal is a meeting with both an available room and an agreed time. Which proposed fix addresses both?",
+        "zh": "社团已核实的问题是原定时间没有所选教室。眼前目标是同时有可用教室和经同意的时间。哪个拟议方案同时回应两项？"
+      },
+      "explanation": {
+        "en": "The chosen plan addresses the known availability conflict and the separate agreement requirement. The room-only and time-only plans each leave one required condition open. Changing invitation colour does not resolve either. These are the complete stated constraints for this fictional question; actual meetings may have accessibility, supervision or other requirements that would also need checking.",
+        "zh": "所选方案处理已知的可用性冲突，也满足另一个时间同意要求。只订房间或只约时间都留下一项未知，改颜色不解决任何一项。这里只给出本虚构问题的完整限制，真实活动还可能需核对无障碍、看护等其他要求。"
+      },
+      "id": "PROBLEM_16",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Keep the unavailable room and change only the invitation colour.",
+            "zh": "保留不可用教室，只改邀请函颜色。"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Book a free room but never check the meeting time with members.",
+            "zh": "订空教室，但不核对成员时间。"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Confirm a room that is free at a time the members agree to.",
+            "zh": "确认一间在成员同意时间可用的教室。"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Agree a time while leaving room availability unchecked.",
+            "zh": "同意时间，但不核实教室是否可用。"
+          },
+          "directionId": "problem-steps"
+        }
+      ],
+      "correctOptionId": "C"
+    },
+    {
+      "prompt": {
+        "en": "Six volunteers answered a fictional school poll; four favoured a new poster. No other students were surveyed and no random sample was drawn. Which statement reports the evidence without claiming a school-wide majority?",
+        "zh": "虚构校内投票有6名志愿者答复，4人喜欢新海报。未调查其他学生，也未随机抽样。哪句只报告证据，不声称全校多数？"
+      },
+      "explanation": {
+        "en": "The supported statement preserves the count and who responded. A small volunteer group is not established as representative of the whole school. Calling it random invents a sampling method, while saying nobody favoured the poster contradicts the count. The question does not claim that a larger survey automatically removes every source of bias; it only limits the present conclusion.",
+        "zh": "有依据的句子保留数量与答复者范围。小规模志愿组未被证明代表全校，“随机”是编造抽样方式，“没人喜欢”则与数量冲突。本题也不说扩大调查就自动消除所有偏差，只限定当前结论。"
+      },
+      "id": "PROBLEM_17",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Most students in the whole school definitely favour it.",
+            "zh": "全校多数学生肯定喜欢。"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Four of the six volunteer respondents favoured it.",
+            "zh": "六名志愿答复者中有四名喜欢。"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The poll randomly sampled every student.",
+            "zh": "投票随机抽到了每位学生。"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "No respondent favoured it.",
+            "zh": "没有答复者喜欢。"
+          },
+          "directionId": "decision-tools"
+        }
+      ],
+      "correctOptionId": "B"
+    },
+    {
+      "prompt": {
+        "en": "A review found that one fictional comparison used a monthly price beside a yearly price without conversion. Which feedback identifies the observed error and a relevant next action, rather than a fixed trait?",
+        "zh": "复查发现，一次虚构比较把月价和年价直接并列，没换算。哪条反馈既说出已观察错误，也给相关下一步，而非贴固定特质？"
+      },
+      "explanation": {
+        "en": "The selected feedback names the mismatched units and a directly relevant correction. It does not infer a lasting character trait from one error. Calling the comparison perfect overlooks the problem, while general statements about every subject or future learning are unsupported. Specific feedback can guide the next practice step without pretending to predict its outcome.",
+        "zh": "所选反馈点明口径不一致，并给出直接相关纠正，不从一次错误推断长期品格。称比较完美漏看问题，推广到全部科目或未来学习也无依据。具体反馈可指引下次练习，不假装预测结果。"
+      },
+      "id": "PROBLEM_18",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "You are always careless in every subject.",
+            "zh": "你在所有科目永远粗心。"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The prices use different periods; convert them to the same period before comparing again.",
+            "zh": "价格期间不同，先换成同一期间再比较。"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The comparison is perfect because both numbers are prices.",
+            "zh": "两数都是价格，所以比较完美。"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "This error proves you can never learn comparisons.",
+            "zh": "这个错误证明你永远学不会比较。"
+          },
+          "directionId": "review-and-learning"
+        }
+      ],
+      "correctOptionId": "B"
+    },
+    {
+      "prompt": {
+        "en": "A fictional plan is ready to be tried only when it identifies an action, an owner and a day. Which note contains all three?",
+        "zh": "虚构计划表要求写清动作、负责人和日期，才能标为准备试行。哪条三项齐全？"
+      },
+      "explanation": {
+        "en": "The selected note names the action, owner and day. Interest is not an assigned action, an available day is not an owner, and “sometime” does not supply the requested day. Completing these fields makes the note checkable. It does not guarantee that the trial will work or grant authority to change a real school process.",
+        "zh": "所选笔记有动作、负责人和日期。兴趣不是已分配动作，有空的日期也不是负责人，“某时”没有给出要求的日期。字段齐全让记录可核对，但不保证试行有效，也不授予更改现实学校流程的权限。"
+      },
+      "id": "PROBLEM_19",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Test a new sheet sometime; owner undecided.",
+            "zh": "某时试新表，负责人未定。"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Noor is interested in improvements; no action is named.",
+            "zh": "Noor对改进有兴趣，未定动作。"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Noor will test the new sign-out sheet on Wednesday.",
+            "zh": "Noor将于周三试用新借出表。"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Wednesday is available, but no action or owner is assigned.",
+            "zh": "周三有空，未派动作或负责人。"
+          },
+          "directionId": "problem-steps"
+        }
+      ],
+      "correctOptionId": "C"
+    },
+    {
+      "prompt": {
+        "en": "Two club options both meet the required hours and budget. The student’s stated rule is to choose the shorter travel time among eligible options. A takes 25 minutes and B takes 10. What follows under that rule?",
+        "zh": "两个社团选项都满足必需时间与预算。学生明示规则是在合格选项中选通勤更短者。A需25分钟，B需10分钟。按规则应选哪项？"
+      },
+      "explanation": {
+        "en": "Both are eligible, and 10 is less than 25, so the stated criterion selects B. That does not make B a universal life choice: another student could have a different priority, or new information could change eligibility. The key applies the declared preference instead of inventing one. It does not infer a person’s interests or career fit from the answer.",
+        "zh": "两者都合格，10小于25，明示标准选B。这不让B成为普遍人生最优：别的学生可有不同优先级，新信息也可改变资格。答案应用已给偏好，不替人发明偏好，也不从作答推断兴趣或职业适合度。"
+      },
+      "id": "PROBLEM_20",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Choose A because 25 is the larger number.",
+            "zh": "25更大，所以选A。"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Choose B under the stated travel-time rule.",
+            "zh": "按明示通勤规则选B。"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The options tie on travel time.",
+            "zh": "两者通勤时间相同。"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The rule proves B is best for every student.",
+            "zh": "该规则证明B对每位学生都最好。"
+          },
+          "directionId": "decision-tools"
+        }
+      ],
+      "correctOptionId": "B"
+    },
+    {
+      "prompt": {
+        "en": "A new queue plan was tried on five quiet days only. Nobody observed a busy day. Which conclusion preserves that scope?",
+        "zh": "新排队方案只在五个清闲日试过，未观察繁忙日。哪个结论保留了这个范围？"
+      },
+      "explanation": {
+        "en": "The trial has a limited range of observed conditions. Neither success nor failure on busy days follows from the absence of those observations. Changing the label on the same days would not add the missing evidence. Reviewing where a trial was actually run is part of interpreting its result, even when the quiet-day record looks encouraging.",
+        "zh": "试行观察条件有限，缺少繁忙日观察既不推出成功，也不推出失败。把原来几天换标签不会补出证据。即使清闲日记录令人鼓舞，复盘仍应看清究竟在哪些条件下试过。"
+      },
+      "id": "PROBLEM_21",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "It proves the plan works equally well on every busy day.",
+            "zh": "它证明每个繁忙日同样有效。"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "It proves the plan fails whenever a day is busy.",
+            "zh": "它证明只要繁忙就会失败。"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Five quiet days are the same evidence as five busy days.",
+            "zh": "五个清闲日等于五个繁忙日的证据。"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The record covers quiet days; busy-day performance remains untested.",
+            "zh": "记录只覆盖清闲日，繁忙日表现仍未测试。"
+          },
+          "directionId": "review-and-learning"
+        }
+      ],
+      "correctOptionId": "D"
+    },
+    {
+      "prompt": {
+        "en": "A group has agreed to trial a new check-in layout once and record the queue length. Which note is evidence that the agreed trial was implemented, rather than merely discussed?",
+        "zh": "小组约定试一次新的签到布局，并记录排队人数。哪条记录证明按约定实际试过，而非只讨论过？"
+      },
+      "explanation": {
+        "en": "The chosen note reports both the action and the agreed observation. Approval, discussion and a future intention can support planning but do not show execution. Implementation evidence is also not an outcome verdict: a recorded queue may be shorter, longer or unchanged. You still need the actual counts and comparison rule to judge whether the layout met its goal.",
+        "zh": "所选记录同时报告动作与约定观察。批准、讨论或未来意向可支持规划，却不证明已经执行。执行证据也不等于效果结论：人数可少、可多、可不变，还要有实际数量和比较规则才能判断是否达标。"
+      },
+      "id": "PROBLEM_22",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A proposal for the layout was approved, but no trial ran.",
+            "zh": "布局建议获批，但未试行。"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The group discussed possible layouts without selecting one.",
+            "zh": "讨论了可能布局，尚未选定。"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The new layout was used at the trial, and the queue count was recorded.",
+            "zh": "试行时实际用了新布局，并记录了排队人数。"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A note says “record the queue later” without a trial or count.",
+            "zh": "笔记写着以后记人数，但无试行或数量。"
+          },
+          "directionId": "problem-steps"
+        }
+      ],
+      "correctOptionId": "C"
+    },
+    {
+      "prompt": {
+        "en": "A fictional model has exactly two possible causes, H1 and H2. Its predicted test outcomes are: A = pass/fail, B = pass/pass, C = fail/fail, D = fail/fail, listed as H1/H2. Which single test distinguishes H1 from H2 under this model?",
+        "zh": "虚构模型恰有H1、H2两种可能原因。各测试预测结果按H1/H2排列：A通过/失败，B通过/通过，C失败/失败，D失败/失败。哪一项单独能区分两原因？"
+      },
+      "explanation": {
+        "en": "A is the only test with different predictions for the two hypotheses. Either observed outcome would distinguish them within the declared two-cause model. The other tests predict the same outcome under both. This is a logic exercise with fixed predictions, not proof that a real problem has only two causes or that a real test has no error.",
+        "zh": "只有A在两个假设下预测不同，因此在题定双原因模型中，无论观察哪种结果都能区分。其他测试两边相同。这是固定预测的逻辑练习，不证明真实问题只有两原因或真实测试不会出错。"
+      },
+      "id": "PROBLEM_23",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Test B",
+            "zh": "测试B"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Test C",
+            "zh": "测试C"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Test A",
+            "zh": "测试A"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Test D",
+            "zh": "测试D"
+          },
+          "directionId": "decision-tools"
+        }
+      ],
+      "correctOptionId": "C"
+    },
+    {
+      "prompt": {
+        "en": "A reviewer claims that all eight posters include a room number. You inspect one and find no room number; the other seven are unchecked. Which conclusion must follow?",
+        "zh": "复查者称八张海报都有房间号。你查了一张，发现没有，另七张未查。哪个结论必然成立？"
+      },
+      "explanation": {
+        "en": "The inspected counterexample is enough to refute “all eight”. It is not enough to say that none has a room number, or to count how many of the unchecked seven do. A single specific finding can overturn a universal claim while leaving most of the inventory unknown. Keep that logical conclusion separate from any judgment about the person who prepared the posters.",
+        "zh": "这个已查反例足以推翻八张全有，但不能断言八张全无，也不能数出未查七张里有几个。一个具体发现可推翻全称主张，同时让多数清单保持未知；这与评价制作者本人是两回事。"
+      },
+      "id": "PROBLEM_24",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The claim that all eight include a room number is false; the other seven still need checking.",
+            "zh": "八张都有房间号的说法为假，另七张仍待检查。"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "None of the eight includes a room number.",
+            "zh": "八张全都没有房间号。"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "All eight include a room number.",
+            "zh": "八张都有房间号。"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Exactly one of the eight includes a room number.",
+            "zh": "八张恰好一张有房间号。"
+          },
+          "directionId": "review-and-learning"
+        }
+      ],
+      "correctOptionId": "A"
+    },
+    {
+      "prompt": {
+        "en": "A session has 50 minutes. A fictional plan assigns 12 minutes to setup and 23 to the activity; the remainder is for checking the work. How many checking minutes does this plan leave?",
+        "zh": "一节活动有50分钟，虚构计划把12分钟用于准备、23分钟用于活动，其余查验作品。还留多少查验时间？"
+      },
+      "explanation": {
+        "en": "Subtract the two scheduled blocks: 50 − 12 − 23 = 15 minutes. The result is time available under this plan, not a guarantee that every check will be completed or a grade will improve. A different setup duration or an interruption would require an updated calculation. The other numbers leave out a block or report work time instead of checking time.",
+        "zh": "按计划50－12－23＝15分钟。这只是计划内可用时间，不保证查验全做完或成绩提高。若准备时长变化或有中断，应重新计算；其他数值漏减某块或把工作时间当查验时间。"
+      },
+      "id": "PROBLEM_25",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "15 minutes",
+            "zh": "15分钟"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "27 minutes",
+            "zh": "27分钟"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "35 minutes",
+            "zh": "35分钟"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "38 minutes",
+            "zh": "38分钟"
+          },
+          "directionId": "problem-steps"
+        }
+      ],
+      "correctOptionId": "A"
+    },
+    {
+      "prompt": {
+        "en": "A fictional meeting ends at 14:30 and requires at least a ten-minute break before the next one. Of 14:40, 14:35, 14:50 and 15:00, which is the earliest allowed start?",
+        "zh": "虚构会议14:30结束，下场前至少间隔10分钟。在14:40、14:35、14:50、15:00中，最早允许哪项？"
+      },
+      "explanation": {
+        "en": "The earliest permitted time is 14:30 plus ten minutes, or 14:40. The 14:35 option is too early; the later two are allowed but do not answer “earliest”. This illustrates checking feasibility before optimizing the chosen criterion. These are fictional local clock times on one day, without travel, time-zone or calendar complications.",
+        "zh": "最早许可时间14:30加10分钟，即14:40。14:35太早，另两项虽允许却不是最早。这体现先查可行，再按目标择优。它只是同一天的虚构本地钟点，未加入通勤、时区或日历复杂性。"
+      },
+      "id": "PROBLEM_26",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "14:35",
+            "zh": "14:35"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "14:50",
+            "zh": "14:50"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "15:00",
+            "zh": "15:00"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "14:40",
+            "zh": "14:40"
+          },
+          "directionId": "decision-tools"
+        }
+      ],
+      "correctOptionId": "D"
+    },
+    {
+      "prompt": {
+        "en": "A fictional class has 15 members. Its attendance summary lists nine present and five absent, and no other category. How many members are not accounted for in that summary?",
+        "zh": "虚构班级15人，出勤摘要列到场9人、缺席5人，无其他类别。摘要还有几人未交代？"
+      },
+      "explanation": {
+        "en": "The listed categories total 9 + 5 = 14, leaving one of 15 unaccounted for. That does not tell you whether the missing status is present, absent or an omitted category. Flagging the discrepancy is more accurate than inventing a status to make the table add up. These are fictional aggregate counts, with no real pupil records required.",
+        "zh": "已列类别合计9＋5＝14，离15还差1。这不确定那人到场、缺席或属于漏掉类别。标出差额比编一个状态凑齐更准确。数据仅为虚构汇总，不需真实学生记录。"
+      },
+      "id": "PROBLEM_27",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "1 member; their status is not established by this summary.",
+            "zh": "1人；摘要未确定其状态。"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "0; all 15 are accounted for.",
+            "zh": "0人，15人已全交代。"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "5; every absent member is an unrecorded member.",
+            "zh": "5人，所有缺席者都是未记录者。"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "9; every present member is unrecorded.",
+            "zh": "9人，所有到场者都未记录。"
+          },
+          "directionId": "review-and-learning"
+        }
+      ],
+      "correctOptionId": "A"
+    },
+    {
+      "prompt": {
+        "en": "A club has named the problem and collected evidence, but nobody has listed possible fixes yet. The supplied rule says compare alternatives before selecting one. Which action fills the missing step?",
+        "zh": "社团已界定问题并收集证据，但尚未列出可能补救。题给规则要求先比较备选再选定。哪个动作补上缺步？"
+      },
+      "explanation": {
+        "en": "You need alternatives to compare before selecting under the stated rule. Naming a problem and collecting evidence do not themselves produce that list. The selected action fills the missing step without pretending that a decision or an outcome already exists. It does not require the group to keep generating ideas forever; the question asks only for the currently missing prerequisite.",
+        "zh": "按题给规则，选定前要有可比较的备选。界定和收集证据本身不生成清单。所选动作补上缺步，不假装决定或结果已经出现；也不是要求永远想点子，只是在补当前缺少的前提。"
+      },
+      "id": "PROBLEM_28",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Announce the first suggested fix as the final decision.",
+            "zh": "把第一个建议直接宣布为最终决定。"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "List distinct possible fixes so they can be compared.",
+            "zh": "列出不同可能补救，供后续比较。"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Write the final evaluation before any trial.",
+            "zh": "在未试行前写最终效果评价。"
+          },
+          "directionId": "problem-steps"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Call the problem solved because it now has a name.",
+            "zh": "因为问题有了名称，就称已解决。"
+          },
+          "directionId": "problem-steps"
+        }
+      ],
+      "correctOptionId": "B"
+    },
+    {
+      "prompt": {
+        "en": "A project group states two mandatory needs: a quiet room and a step-free entrance. The supplied plan A has both, B is quiet only, C has a step-free entrance only, and D has neither. Which plan meets the group’s stated pair?",
+        "zh": "项目组有两项必需要求：安静房间与无台阶入口。题给A两者都有，B只安静，C只有无台阶入口，D两者都无。哪个满足两项？"
+      },
+      "explanation": {
+        "en": "A meets both stated conditions; choosing a plan that satisfies only the louder person’s concern would drop a requirement. The comparison does not imply that a step-free entrance establishes every accessibility need, or that these are all requirements for a real event. It checks the two capabilities explicitly supplied in this fictional table.",
+        "zh": "A满足两项，若只回应声音较大者的一项就漏了要求。但无台阶入口不代表满足全部无障碍需求，这两项也不一定涵盖真实活动所有要求。本题只核对虚构表中明确给出的两种能力。"
+      },
+      "id": "PROBLEM_29",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Plan A",
+            "zh": "A方案"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Plan B",
+            "zh": "B方案"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Plan C",
+            "zh": "C方案"
+          },
+          "directionId": "decision-tools"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Plan D",
+            "zh": "D方案"
+          },
+          "directionId": "decision-tools"
+        }
+      ],
+      "correctOptionId": "A"
+    },
+    {
+      "prompt": {
+        "en": "A fictional rubric gives one point each for a cited source, accurate units and an explained method. A piece of work meets all three, but the final grade also uses other criteria that are not given. Which claim is supported?",
+        "zh": "虚构评分表对引用来源、单位准确、解释方法各给1分。一份作品三项都满足，但最终成绩还含未给出的其他标准。哪个说法有依据？"
+      },
+      "explanation": {
+        "en": "The stated evidence supports the three listed points only. Other grading components remain unknown, so a perfect final grade does not follow. This shows the useful but limited role of checking a rubric: it identifies supported parts and gaps without predicting the whole outcome. The fictional rubric is not a claim about any real teacher’s marking scheme.",
+        "zh": "证据只支持三项已列分数，其他部分未知，不能推出最终满分。这体现按表检查的有限用途：找出已满足部分与缺口，而非预测整体结果。虚构评分表不代表现实老师的评分方案。"
+      },
+      "id": "PROBLEM_30",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The work meets these three listed criteria; its full final grade is not determined here.",
+            "zh": "作品满足这三项已列标准，但这里不能确定完整最终成绩。"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The work is guaranteed a perfect final grade.",
+            "zh": "作品保证最终满分。"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Meeting the units criterion proves every other criterion is met.",
+            "zh": "单位准确便证明所有其他标准都满足。"
+          },
+          "directionId": "review-and-learning"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "None of the three listed criteria is met.",
+            "zh": "这三项一个都没满足。"
+          },
+          "directionId": "review-and-learning"
+        }
+      ],
+      "correctOptionId": "A"
+    }
+  ],
+  "proofs": [
+    {
+      "id": "PROBLEM_01",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "records_versions",
+          "records_locations"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "records_versions",
+              "records_locations"
+            ]
+          },
+          {
+            "attributes": [
+              "new_design"
+            ]
+          },
+          {
+            "attributes": [
+              "moves_without_record"
+            ]
+          },
+          {
+            "attributes": [
+              "reminder_without_record"
+            ]
+          }
+        ],
+        "boundary": "Explicit fictional task criterion;author reviewed language-to-attribute mapping,not universal best response or independentsemanticreview.",
+        "optionOrder": [
+          1,
+          2,
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_02",
+      "proof": {
+        "kind": "limits",
+        "maximums": {
+          "cost": 30,
+          "minutes": 25
+        },
+        "claimValues": [
+          {
+            "cost": 28,
+            "minutes": 24
+          },
+          {
+            "cost": 32,
+            "minutes": 20
+          },
+          {
+            "cost": 20,
+            "minutes": 30
+          },
+          {
+            "cost": 31,
+            "minutes": 26
+          }
+        ],
+        "optionOrder": [
+          1,
+          2,
+          3,
+          0
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_03",
+      "proof": {
+        "kind": "rate_drop",
+        "beforeBad": 6,
+        "beforeTotal": 30,
+        "afterBad": 3,
+        "afterTotal": 30,
+        "claimValues": [
+          10,
+          50,
+          3,
+          30
+        ],
+        "optionOrder": [
+          1,
+          2,
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_04",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "three_errors",
+          "twelve_reviewed",
+          "this_month",
+          "room_number",
+          "no_cause_added"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "three_errors",
+              "twelve_reviewed",
+              "this_month",
+              "room_number",
+              "no_cause_added"
+            ]
+          },
+          {
+            "attributes": [
+              "blames_editor"
+            ]
+          },
+          {
+            "attributes": [
+              "selects_new_app"
+            ]
+          },
+          {
+            "attributes": [
+              "all_year_generalization"
+            ]
+          }
+        ],
+        "boundary": "Explicit fictional task criterion;author reviewed language-to-attribute mapping,not universal best response or independentsemanticreview.",
+        "optionOrder": [
+          1,
+          0,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_05",
+      "proof": {
+        "kind": "weighted_max",
+        "weights": [
+          2,
+          1
+        ],
+        "claimValues": [
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "optionOrder": [
+          1,
+          2,
+          3,
+          0
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_06",
+      "proof": {
+        "kind": "thresholds",
+        "errors": 2,
+        "runs": 5,
+        "maximumErrors": 2,
+        "minimumRuns": 5,
+        "claimResults": [
+          "met",
+          "needs_zero",
+          "needs_more_than_five",
+          "future_guarantee"
+        ],
+        "optionOrder": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_07",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "file_size",
+          "queue_length",
+          "cause_open"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "file_size",
+              "queue_length",
+              "cause_open"
+            ]
+          },
+          {
+            "attributes": [
+              "printer_colour"
+            ]
+          },
+          {
+            "attributes": [
+              "file_size",
+              "sole_cause_claim"
+            ]
+          },
+          {
+            "attributes": [
+              "queue_length",
+              "sole_cause_claim"
+            ]
+          }
+        ],
+        "boundary": "Explicit fictional task criterion;author reviewed language-to-attribute mapping,not universal best response or independentsemanticreview.",
+        "optionOrder": [
+          1,
+          0,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_08",
+      "proof": {
+        "kind": "period_fee",
+        "periods": 2,
+        "unit": 14,
+        "fee": 5,
+        "claimValues": [
+          33,
+          28,
+          19,
+          38
+        ],
+        "optionOrder": [
+          1,
+          2,
+          3,
+          0
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_09",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "checks_quantities",
+          "traces_sources"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "checks_quantities",
+              "traces_sources"
+            ]
+          },
+          {
+            "attributes": [
+              "cover_colour"
+            ]
+          },
+          {
+            "attributes": [
+              "checks_quantities"
+            ]
+          },
+          {
+            "attributes": [
+              "traces_sources"
+            ]
+          }
+        ],
+        "boundary": "Explicit fictional task criterion;author reviewed language-to-attribute mapping,not universal best response or independentsemanticreview.",
+        "optionOrder": [
+          1,
+          2,
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_10",
+      "proof": {
+        "kind": "next_step",
+        "sequence": [
+          "define",
+          "evidence",
+          "alternatives",
+          "compare",
+          "try",
+          "review"
+        ],
+        "completed": [
+          "define",
+          "evidence"
+        ],
+        "claimSteps": [
+          "alternatives",
+          "review",
+          "try",
+          "define"
+        ],
+        "optionOrder": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_11",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "observed_rise",
+          "cause_unestablished"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "observed_rise",
+              "cause_unestablished"
+            ]
+          },
+          {
+            "attributes": [
+              "sole_cause_proved"
+            ]
+          },
+          {
+            "attributes": [
+              "no_effect_proved"
+            ]
+          },
+          {
+            "attributes": [
+              "universal_transfer"
+            ]
+          }
+        ],
+        "boundary": "Explicit fictional task criterion;author reviewed language-to-attribute mapping,not universal best response or independentsemanticreview.",
+        "optionOrder": [
+          1,
+          2,
+          3,
+          0
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_12",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "familiar_score_rose",
+          "transfer_unestablished"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "familiar_score_rose",
+              "transfer_unestablished"
+            ]
+          },
+          {
+            "attributes": [
+              "general_gain_proved"
+            ]
+          },
+          {
+            "attributes": [
+              "memory_only_proved"
+            ]
+          },
+          {
+            "attributes": [
+              "all_future_correct"
+            ]
+          }
+        ],
+        "boundary": "Explicit fictional task criterion;author reviewed language-to-attribute mapping,not universal best response or independentsemanticreview.",
+        "optionOrder": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_13",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "two_distinct_options",
+          "before_commitment"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "two_distinct_options",
+              "before_commitment"
+            ]
+          },
+          {
+            "attributes": [
+              "one_selected"
+            ]
+          },
+          {
+            "attributes": [
+              "one_option_renamed"
+            ]
+          },
+          {
+            "attributes": [
+              "after_commitment"
+            ]
+          }
+        ],
+        "boundary": "Explicit fictional task criterion;author reviewed language-to-attribute mapping,not universal best response or independentsemanticreview.",
+        "optionOrder": [
+          1,
+          2,
+          3,
+          0
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_14",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "organizer_confirmation",
+          "before_travel",
+          "conflict_named"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "organizer_confirmation",
+              "before_travel",
+              "conflict_named"
+            ]
+          },
+          {
+            "attributes": [
+              "old_draft_only"
+            ]
+          },
+          {
+            "attributes": [
+              "no_confirmation"
+            ]
+          },
+          {
+            "attributes": [
+              "invents_two_meetings"
+            ]
+          }
+        ],
+        "boundary": "Explicit fictional task criterion;author reviewed language-to-attribute mapping,not universal best response or independentsemanticreview.",
+        "optionOrder": [
+          1,
+          0,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_15",
+      "proof": {
+        "kind": "review_plan",
+        "maximumTotal": 60,
+        "minimumReview": 10,
+        "claimValues": [
+          [
+            20,
+            25,
+            10
+          ],
+          [
+            20,
+            35,
+            10
+          ],
+          [
+            20,
+            25,
+            0
+          ],
+          [
+            20,
+            35,
+            0
+          ]
+        ],
+        "optionOrder": [
+          1,
+          0,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_16",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "available_room",
+          "agreed_time"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "available_room",
+              "agreed_time"
+            ]
+          },
+          {
+            "attributes": [
+              "invitation_colour"
+            ]
+          },
+          {
+            "attributes": [
+              "available_room"
+            ]
+          },
+          {
+            "attributes": [
+              "agreed_time"
+            ]
+          }
+        ],
+        "boundary": "Explicit fictional task criterion;author reviewed language-to-attribute mapping,not universal best response or independentsemanticreview.",
+        "optionOrder": [
+          1,
+          2,
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_17",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "four_of_six",
+          "volunteer_respondents",
+          "no_school_generalization"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "four_of_six",
+              "volunteer_respondents",
+              "no_school_generalization"
+            ]
+          },
+          {
+            "attributes": [
+              "school_majority"
+            ]
+          },
+          {
+            "attributes": [
+              "invented_random_sample"
+            ]
+          },
+          {
+            "attributes": [
+              "zero_support"
+            ]
+          }
+        ],
+        "boundary": "Explicit fictional task criterion;author reviewed language-to-attribute mapping,not universal best response or independentsemanticreview.",
+        "optionOrder": [
+          1,
+          0,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_18",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "period_mismatch",
+          "convert_same_period",
+          "no_fixed_trait"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "period_mismatch",
+              "convert_same_period",
+              "no_fixed_trait"
+            ]
+          },
+          {
+            "attributes": [
+              "always_careless"
+            ]
+          },
+          {
+            "attributes": [
+              "false_perfect"
+            ]
+          },
+          {
+            "attributes": [
+              "never_learn"
+            ]
+          }
+        ],
+        "boundary": "Explicit fictional task criterion;author reviewed language-to-attribute mapping,not universal best response or independentsemanticreview.",
+        "optionOrder": [
+          1,
+          0,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_19",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "action",
+          "owner",
+          "day"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "action",
+              "owner",
+              "day"
+            ]
+          },
+          {
+            "attributes": [
+              "action"
+            ]
+          },
+          {
+            "attributes": [
+              "owner"
+            ]
+          },
+          {
+            "attributes": [
+              "day"
+            ]
+          }
+        ],
+        "boundary": "Explicit fictional task criterion;author reviewed language-to-attribute mapping,not universal best response or independentsemanticreview.",
+        "optionOrder": [
+          1,
+          2,
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_20",
+      "proof": {
+        "kind": "smaller_choice",
+        "values": [
+          25,
+          10
+        ],
+        "preferredIndex": 1,
+        "claimResults": [
+          "second",
+          "first",
+          "tie",
+          "universal"
+        ],
+        "optionOrder": [
+          1,
+          0,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_21",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "quiet_days_observed",
+          "busy_days_unknown"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "quiet_days_observed",
+              "busy_days_unknown"
+            ]
+          },
+          {
+            "attributes": [
+              "all_busy_success"
+            ]
+          },
+          {
+            "attributes": [
+              "all_busy_failure"
+            ]
+          },
+          {
+            "attributes": [
+              "same_conditions_claim"
+            ]
+          }
+        ],
+        "boundary": "Explicit fictional task criterion;author reviewed language-to-attribute mapping,not universal best response or independentsemanticreview.",
+        "optionOrder": [
+          1,
+          2,
+          3,
+          0
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_22",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "layout_used",
+          "queue_count_recorded"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "layout_used",
+              "queue_count_recorded"
+            ]
+          },
+          {
+            "attributes": [
+              "approved_not_run"
+            ]
+          },
+          {
+            "attributes": [
+              "discussed_only"
+            ]
+          },
+          {
+            "attributes": [
+              "future_note_only"
+            ]
+          }
+        ],
+        "boundary": "Explicit fictional task criterion;author reviewed language-to-attribute mapping,not universal best response or independentsemanticreview.",
+        "optionOrder": [
+          1,
+          2,
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_23",
+      "proof": {
+        "kind": "discriminating_test",
+        "claimPredictions": [
+          [
+            "pass",
+            "fail"
+          ],
+          [
+            "pass",
+            "pass"
+          ],
+          [
+            "fail",
+            "fail"
+          ],
+          [
+            "fail",
+            "fail"
+          ]
+        ],
+        "optionOrder": [
+          1,
+          2,
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_24",
+      "proof": {
+        "kind": "counterexample",
+        "knownGood": 0,
+        "knownBad": 1,
+        "unknown": 7,
+        "claimKinds": [
+          "not_all",
+          "none",
+          "all",
+          "exactly_one"
+        ],
+        "optionOrder": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_25",
+      "proof": {
+        "kind": "subtract_blocks",
+        "total": 50,
+        "blocks": [
+          12,
+          23
+        ],
+        "claimValues": [
+          15,
+          27,
+          35,
+          38
+        ],
+        "optionOrder": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_26",
+      "proof": {
+        "kind": "earliest_allowed",
+        "endMinutes": 870,
+        "breakMinutes": 10,
+        "claimMinutes": [
+          880,
+          875,
+          890,
+          900
+        ],
+        "optionOrder": [
+          1,
+          2,
+          3,
+          0
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_27",
+      "proof": {
+        "kind": "unaccounted",
+        "total": 15,
+        "parts": [
+          9,
+          5
+        ],
+        "claimValues": [
+          1,
+          0,
+          5,
+          9
+        ],
+        "optionOrder": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_28",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "generates_distinct_fixes",
+          "before_selection"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "generates_distinct_fixes",
+              "before_selection"
+            ]
+          },
+          {
+            "attributes": [
+              "selects_first"
+            ]
+          },
+          {
+            "attributes": [
+              "evaluates_untried_outcome"
+            ]
+          },
+          {
+            "attributes": [
+              "declares_solved_from_name"
+            ]
+          }
+        ],
+        "boundary": "Explicit fictional task criterion;author reviewed language-to-attribute mapping,not universal best response or independentsemanticreview.",
+        "optionOrder": [
+          1,
+          0,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_29",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "quiet",
+          "step_free"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "quiet",
+              "step_free"
+            ]
+          },
+          {
+            "attributes": [
+              "quiet"
+            ]
+          },
+          {
+            "attributes": [
+              "step_free"
+            ]
+          },
+          {
+            "attributes": []
+          }
+        ],
+        "boundary": "Explicit fictional task criterion;author reviewed language-to-attribute mapping,not universal best response or independentsemanticreview.",
+        "optionOrder": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "PROBLEM_30",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "three_listed_met",
+          "final_grade_unknown"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "three_listed_met",
+              "final_grade_unknown"
+            ]
+          },
+          {
+            "attributes": [
+              "perfect_guaranteed"
+            ]
+          },
+          {
+            "attributes": [
+              "units_prove_all"
+            ]
+          },
+          {
+            "attributes": [
+              "none_met"
+            ]
+          }
+        ],
+        "boundary": "Explicit fictional task criterion;author reviewed language-to-attribute mapping,not universal best response or independentsemanticreview.",
+        "optionOrder": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "problem-steps",
+      "directionIds": [
+        "problem-steps"
+      ],
+      "title": {
+        "en": "Problem-solving steps",
+        "zh": "问题解决步骤复习"
+      },
+      "headline": {
+        "en": "Name what happened before deciding what to change.",
+        "zh": "先说清发生了什么，再决定改哪里。"
+      },
+      "summary": {
+        "en": "Work through problem definitions, evidence, alternatives, implementation and review. Ten practice answers do not measure a student’s general ability.",
+        "zh": "复习问题界定、证据、备选、执行与复盘。十题作答不测学生的一般能力。"
+      },
+      "scoreReading": {
+        "en": "A correct count describes ten selected tasks in this original bank. It is not a grade, population rank or verified curriculum achievement. Every count opens every explanation and all three complete guides.",
+        "zh": "正确数只描述本原创题组十道选定任务，不是成绩、人群排名或经核定的课程达标。任何正确数都开放全部解析与三篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Use the explanation to locate a step",
+            "zh": "用解析找到具体步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "The ten items in this group sample parts of a problem-solving process using fictional school and everyday situations. Your count says how many selected answers matched the stated task or model. It cannot tell whether a difference came from reading, attention, calculation or an unfamiliar term. Read the actual explanation before choosing a next exercise. There is no “weak student” or “gifted problem-solver” label to infer from this small practice record.",
+              "zh": "十题以虚构校园和日常情境抽取问题解决的部分步骤。正确数只说选择是否匹配题给任务或模型，无法区分阅读、注意、计算或陌生词造成的差异。先看具体解析再选练习，不从小题组给学生贴强弱或天赋标签。"
+            }
+          ]
+        },
+        {
+          "id": "definition",
+          "title": {
+            "en": "Describe an observation instead of a person",
+            "zh": "描述观察，而非评价一个人"
+          },
+          "paragraphs": [
+            {
+              "en": "Write what happened, where or when it happened, and what count or record supports the description. “Three notices had the wrong room number” can be checked; “the editor is hopeless” adds a judgment without locating the error. A precise definition also stays separate from a proposed fix. Buying equipment or changing a schedule may become options later, but neither action by itself establishes what went wrong in the first place.",
+              "zh": "写清发生什么、何时何地、有什么数量或记录支持。“三条通知房间号错”可检查，“编辑没救了”却没定位错误。界定还应与补救分开，买设备、改安排可在后面成为备选，但动作本身不证明原先哪里出错。"
+            }
+          ]
+        },
+        {
+          "id": "causes",
+          "title": {
+            "en": "Keep explanations open while gathering evidence",
+            "zh": "收证据时保留多个解释"
+          },
+          "paragraphs": [
+            {
+              "en": "List a few plausible explanations and what you would expect to observe under each. A record that fits one explanation may fit another too. Collecting two variables does not automatically identify a cause, and asking “why” repeatedly does not make the resulting story true. The bank sometimes supplies an explicit small model so a deduction is possible. Real situations may contain additional causes, measurement errors and constraints outside that model.",
+              "zh": "列出几种可能解释，再分别写预期观察。同一记录可能同时符合不同解释，记了两个变量并不自动识别原因，反复问为什么也不会把故事变成事实。本题有时给小模型供推导，但现实可能还有别的原因、测量误差与模型外限制。"
+            }
+          ]
+        },
+        {
+          "id": "alternatives",
+          "title": {
+            "en": "Change a different lever, not just a name",
+            "zh": "备选应改不同做法，不只换名字"
+          },
+          "paragraphs": [
+            {
+              "en": "Two versions of “meet on Monday” are not two distinct alternatives. Moving the day and shortening the duration change different parts of a plan, so they can be compared separately. Before selecting, note mandatory limits such as available time or an agreed room. There is no need to generate an endless list: the point is to avoid treating the first attractive idea as the only possible response before any comparison has occurred.",
+              "zh": "把“周一见面”换说法不算两个备选，换日期和缩短时长才改变不同部分，能分别比较。选择前记必需限制，如可用时间、约定房间。并非必须无止境列点子，而是别在比较前把首个吸引人的想法当唯一反应。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Trace a fresh case without jumping to blame",
+            "zh": "换个例子，不跳到责怪"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a school display has four labels that disagree with its current catalogue. Start by noting which labels differ and what each says. Possible next checks include the catalogue version and the label-printing date. Those checks may separate an old-file explanation from a copying error, but no culprit is established yet. Only after the relevant evidence is checked should the group compare fixes, such as correcting individual labels or reprinting a verified set.",
+              "zh": "设校内展览有四张标签与现目录不同。先记哪些不同、各写了什么，再考虑查目录版本和标签打印日期。这可能区分旧文件与抄录错误，但还没确定谁的责任。核相关证据后，才比较逐张更正或重印已核版本等补救。"
+            }
+          ]
+        },
+        {
+          "id": "implementation",
+          "title": {
+            "en": "Make the trial observable",
+            "zh": "让试行留下可观察记录"
+          },
+          "paragraphs": [
+            {
+              "en": "An action, an owner and a day make a trial plan easier to check than “we should improve things”. They still do not prove execution: the record must show that the action happened and the agreed observation was made. Approval is a planning event, while a completed trial is an execution event. Keep its outcome separate again, because a trial can run exactly as planned and still fail to meet its goal.",
+              "zh": "动作、负责人、日期让计划比“应该改进”更可核对，但仍非已执行证明，还得记录动作确有发生、约定观察确有进行。批准属于规划，试过属于执行；效果又是另一回事，试行可按计划完成却没达目标。"
+            }
+          ]
+        },
+        {
+          "id": "time",
+          "title": {
+            "en": "Reserve an opportunity to check",
+            "zh": "留的是检查机会，不是成绩保证"
+          },
+          "paragraphs": [
+            {
+              "en": "If a forty-minute plan allocates eight minutes to setup and seventeen to making, fifteen remain for checking or other stated tasks. That arithmetic shows available time only. It does not guarantee that every error will be noticed or that a grade will improve. If setup takes longer, revise the remaining-time calculation. Planning and review are useful topics to practise because their assumptions and records can be made explicit.",
+              "zh": "四十分钟计划若准备八分、制作十七分，还剩十五分给检查或其他指定事项。这只算可用时间，不保证找全错误或成绩提高。准备拖长时应更新余量。规划与复盘适合练习，正因为假设和记录能被写清。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Build a small fictional case of your own",
+            "zh": "自己编一件小事练"
+          },
+          "paragraphs": [
+            {
+              "en": "Write a short invented problem, two possible explanations and two distinct responses. State what evidence would help choose, then what you would record after a trial. Do not change a real school process merely because a quiz option sounded sensible, and keep real pupil records out of the exercise. Public guides contain methods rather than private results; a retake repeats known items and cannot by itself establish transfer to new problems.",
+              "zh": "写一个虚构小问题、两种可能解释和两种不同回应，再说什么证据有助选择、试行后记什么。别因选项听起来合理就改现实校内流程，也不放真实学生资料。公开指南是方法而非个人结果，同题重做不能单独证明向新问题迁移。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Problem-solving steps | Practice Guide",
+          "zh": "问题解决步骤复习｜原创练习指南"
+        },
+        "description": {
+          "en": "Work through problem definitions, evidence, alternatives, implementation and review. Ten practice answers do not measure a student’s general ability.",
+          "zh": "复习问题界定、证据、备选、执行与复盘。十题作答不测学生的一般能力。"
+        }
+      }
+    },
+    {
+      "id": "decision-tools",
+      "directionIds": [
+        "decision-tools"
+      ],
+      "title": {
+        "en": "Decision tools",
+        "zh": "决策工具复习"
+      },
+      "headline": {
+        "en": "Check what is allowed before choosing what is preferred.",
+        "zh": "先查是否可行，再按明示偏好选择。"
+      },
+      "summary": {
+        "en": "Compare limits, weighted rules, evidence and alternative explanations. The ten tasks practise stated decisions, not universal best life choices.",
+        "zh": "比较限制、加权规则、证据和备选解释。十题练明示决策，不给人生通用最优选项。"
+      },
+      "scoreReading": {
+        "en": "A correct count describes ten selected tasks in this original bank. It is not a grade, population rank or verified curriculum achievement. Every count opens every explanation and all three complete guides.",
+        "zh": "正确数只描述本原创题组十道选定任务，不是成绩、人群排名或经核定的课程达标。任何正确数都开放全部解析与三篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "An answer needs a declared goal",
+            "zh": "答案先要有明示目标"
+          },
+          "paragraphs": [
+            {
+              "en": "A choice can be correct under a specified rule without being the best choice for every person. This section provides the goal, limits or model that makes each key checkable. It does not infer your personal values from which option you select. Read the whole task before comparing numbers: “earliest allowed” and “any allowed time” ask different questions, just as “meets both limits” differs from “has the lowest cost”.",
+              "zh": "一个选择按明示规则正确，不代表对每个人最好。本组给目标、限制或模型，让答案可检查，而非从选项推断个人价值。看数字前先读任务：“最早允许”与“任一允许”不同，“满足两项限制”也不等于“费用最低”。"
+            }
+          ]
+        },
+        {
+          "id": "constraints",
+          "title": {
+            "en": "Separate mandatory limits from preferences",
+            "zh": "分开必需限制与偏好"
+          },
+          "paragraphs": [
+            {
+              "en": "First remove candidates that fail a mandatory condition. Only then apply a preference such as shorter travel time or a higher stated score. A low price cannot compensate for a missed mandatory time limit unless the problem expressly permits that trade-off. Likewise, a weighted total is not an objective truth about quality: its weights express the model’s chosen priorities. Different priorities can produce a different result without making the arithmetic inconsistent.",
+              "zh": "先排除不满足必需条件的候选，再应用通勤更短、题定分数更高等偏好。除非允许交换，价格低不能抵消超时。加权总分也不是质量的客观真理，权重表达模型所选优先级；改优先级可改答案，但不使算术自相矛盾。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Work a new constrained comparison",
+            "zh": "换一组受限比较"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine three fictional display plans with a maximum cost of twenty tokens. Oak costs eighteen and has a stated benefit score of four; Bay costs twenty-four and scores six; Fern costs sixteen and scores three. If the rule is highest score among eligible plans, Oak wins. Bay’s larger score does not override the cost cap, and Fern’s lower cost is not the stated optimization goal. Add a new mandatory condition and you must compare again.",
+              "zh": "设展览方案费用最多二十代币。Oak花十八、题定收益分四；Bay花二十四、分六；Fern花十六、分三。若规则为合格者中分最高，应选Oak。Bay分高不能越费用线，Fern便宜却不是题目择优目标。新增必需条件后要重比。"
+            }
+          ]
+        },
+        {
+          "id": "units",
+          "title": {
+            "en": "Compare the same thing over the same period",
+            "zh": "统一比较口径"
+          },
+          "paragraphs": [
+            {
+              "en": "Keep duration, quantity and included costs consistent. A monthly figure cannot be compared directly with a yearly total; a once-only fee must not silently become a per-person or per-month fee. Before calculating, write the units beside each number. A precise sum with mismatched units can still answer the wrong question. These invented token amounts illustrate a method and are not recommendations about a real purchase, rental or financial decision.",
+              "zh": "统一期间、数量和包含费用，月价不能直接比年总额，一次性费用也不能悄悄变成每人或每月收。计算前在数旁写单位，口径不同，即使加法精确也可能答错问题。代币金额只演示方法，不推荐真实购买、租用或财务决定。"
+            }
+          ]
+        },
+        {
+          "id": "evidence",
+          "title": {
+            "en": "Keep an unsupported claim unknown",
+            "zh": "缺证据就保留未知"
+          },
+          "paragraphs": [
+            {
+              "en": "An attractive explanation, a popular post or a newer-looking document can prompt a check without proving the claim. Ask what was actually observed, which people or conditions it covers, and whether the source supports this exact statement. A volunteer poll does not automatically represent a whole school. Finding no supporting evidence is also different from proving a statement false. Use the task’s supplied facts, and name the uncertainty instead of filling it with confidence.",
+              "zh": "解释吸引人、帖子流行或文档看起来较新，都可引出核查，却不证明主张。问清观察了什么、涵盖哪些人或条件、来源是否支持这句具体话。志愿投票不自动代表全校，没找到支持也不等于证伪。按题给事实作答，并点明未知。"
+            }
+          ]
+        },
+        {
+          "id": "causes",
+          "title": {
+            "en": "A difference after a change is not a unique cause",
+            "zh": "变化之后的差异不是唯一原因"
+          },
+          "paragraphs": [
+            {
+              "en": "If a checklist count rises after a plan, the record establishes that order and difference. It may not rule out a different class activity, a changed task mix or another concurrent event. Do not turn the uncertainty into a claim that the plan definitely failed either. The questions use bounded descriptions of what the record can establish. They do not estimate a causal effect or promise that adopting a habit will improve someone’s grades.",
+              "zh": "计划后清单数上升，记录支持先后和差异，却可能未排除别的活动、任务构成改变或同期事件。也别因此断言计划肯定无效。题目只要求有边界地说记录能支持什么，不估计因果效果，也不承诺习惯改变会提高成绩。"
+            }
+          ]
+        },
+        {
+          "id": "tests",
+          "title": {
+            "en": "Choose a test with different predictions",
+            "zh": "用不同预测区分解释"
+          },
+          "paragraphs": [
+            {
+              "en": "In a small fictional model, two hypotheses can be distinguished when a test predicts different observations under them. If both predict “pass”, a pass tells you little about which is right. This is why listing predictions before running a test helps clarify its purpose. Real tests may be noisy, and the true cause may lie outside the list. A perfectly separating exercise table is a learning device, not evidence that real investigations are equally simple.",
+              "zh": "小模型中，测试在两个假设下预测不同观察时，才可区分；若都预测通过，看到通过无法区分。先列预测有助说清测试用途。但现实测试可能有误差，真原因也可能没列入。练习中完美区分的表是教学装置，不证明真实调查同样简单。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Explain why the tempting option misses the goal",
+            "zh": "解释诱人选项怎样偏离目标"
+          },
+          "paragraphs": [
+            {
+              "en": "For a missed item, identify the exact point where the alternative breaks a limit, changes a unit or adds an assumption. Then alter one fictional input and see whether the selected plan changes. This checks your reasoning more directly than memorizing an option letter. Work with invented details and avoid using a quiz result as permission for a real commitment. All explanations and all three guides stay available regardless of your correct count.",
+              "zh": "复习错题时，指出诱人选项在哪一步越限制、换单位或添假设，再改一项虚构输入，看选择是否变化。它比背选项字母更直接检查推理。只用虚构细节，不把测试结果当现实承诺许可；任何正确数都能看全部解析与三篇指南。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Decision tools | Practice Guide",
+          "zh": "决策工具复习｜原创练习指南"
+        },
+        "description": {
+          "en": "Compare limits, weighted rules, evidence and alternative explanations. The ten tasks practise stated decisions, not universal best life choices.",
+          "zh": "比较限制、加权规则、证据和备选解释。十题练明示决策，不给人生通用最优选项。"
+        }
+      }
+    },
+    {
+      "id": "review-and-learning",
+      "directionIds": [
+        "review-and-learning"
+      ],
+      "title": {
+        "en": "Review and learning",
+        "zh": "复盘与学习复习"
+      },
+      "headline": {
+        "en": "Check what the record supports before claiming improvement.",
+        "zh": "先核记录支持什么，再谈是否改进。"
+      },
+      "summary": {
+        "en": "Review trial records, rubrics, rates, counterexamples and new conditions. Correct counts do not predict grades or certify real-world transfer.",
+        "zh": "复习试行记录、评分表、比率、反例与新条件。正确数不预测成绩，也不认证现实迁移。"
+      },
+      "scoreReading": {
+        "en": "A correct count describes ten selected tasks in this original bank. It is not a grade, population rank or verified curriculum achievement. Every count opens every explanation and all three complete guides.",
+        "zh": "正确数只描述本原创题组十道选定任务，不是成绩、人群排名或经核定的课程达标。任何正确数都开放全部解析与三篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Review is more than reading a total",
+            "zh": "复盘不只看总数"
+          },
+          "paragraphs": [
+            {
+              "en": "These ten tasks ask how to read a result, check work or revise a claim. They do not measure your actual school achievement. A matching response can show that you recognized a stated distinction, such as a percentage point versus a relative change, without proving you will apply it in every setting. Start with the explanation of the specific item. The same total can come from different selections, so it cannot identify one personal weakness by itself.",
+              "zh": "十题问怎样读记录、查作品或修订主张，不测真实学业。答对可说明认出了某个题给区别，如百分点与相对变化，却不证明每次都能应用。先读具体解析，同一总数可能来自不同选择，不能单靠总数定位个人弱点。"
+            }
+          ]
+        },
+        {
+          "id": "criteria",
+          "title": {
+            "en": "State the success measure before the trial",
+            "zh": "试行前说清怎样算达到目标"
+          },
+          "paragraphs": [
+            {
+              "en": "A fictional goal might require at least five runs and no more than two errors. Preserve both conditions and their inclusive boundaries. A completed trial can meet those written thresholds while leaving other questions unanswered, such as whether the plan is suitable on busy days. Do not silently change the definition after seeing a disappointing result. Also keep an observed threshold separate from a general standard: it belongs to this exercise, not every school or activity.",
+              "zh": "虚构目标可要求至少五轮、至多两错，要同时保留两条件和包含边界。达到本表门槛，仍可能没回答繁忙日是否适用等问题。不要看到结果不满意就暗改定义，也要把题定门槛与通用标准分开。"
+            }
+          ]
+        },
+        {
+          "id": "rates",
+          "title": {
+            "en": "Name the denominator and the kind of change",
+            "zh": "说清分母及变化类型"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose a fictional review finds five errors in twenty-five items, then three in fifty items. The rates are 20% and 6%, a drop of fourteen percentage points. Looking only at five becoming three would miss the changed denominator. A relative percentage reduction is another calculation again. These quantities describe the supplied records; they do not isolate a cause or establish that a student has become generally more careful or capable.",
+              "zh": "设虚构复查先在二十五项中错五项，后在五十项中错三项，错误率20%、6%，下降十四个百分点。只看五变三会漏掉分母变化，相对百分比降幅又是另一个计算。数字仅描述记录，不隔离原因或证明学生一般更仔细、更有能力。"
+            }
+          ]
+        },
+        {
+          "id": "rubric",
+          "title": {
+            "en": "Check a criterion without predicting the whole grade",
+            "zh": "核一项标准，不预测整个成绩"
+          },
+          "paragraphs": [
+            {
+              "en": "A rubric can help you identify whether required evidence is present: a source, accurate units or a stated method. Meeting three named criteria supports a claim about those three. If other grading components are unknown, it does not determine the full grade. This is a concrete connection between checking work and the requirements of an assignment, without promising that a particular habit always raises grades or that every teacher uses the same rubric.",
+              "zh": "评分表可帮助检查来源、单位、方法等所需证据。满足三项只支持这三项，若其他计分部分未知，就不能确定总成绩。这把作品核查与作业要求具体连起，却不承诺某习惯总能提分，也不假定老师都用同一表。"
+            }
+          ]
+        },
+        {
+          "id": "counterexamples",
+          "title": {
+            "en": "One exception can refute all, but not establish none",
+            "zh": "一例可破全部，不能推出全无"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a claim that every page of a six-page booklet has a page number. One checked page has none; the other five have not been inspected. The universal claim is already false, but the count of unnumbered pages remains unknown. Some or all of the remaining pages may have numbers. This distinction helps you correct a broad claim without replacing it with an equally unsupported opposite, and without judging the character of the person who made the booklet.",
+              "zh": "设有人称六页册子每页都有页码，查一页发现没有，另五页未查。全称主张已为假，却仍不知道共缺几页，剩余可部分或全部有页码。这样能纠正过宽主张，而不换成同样无依据的反面，也不评价制作者品格。"
+            }
+          ]
+        },
+        {
+          "id": "conditions",
+          "title": {
+            "en": "Ask where the evidence was collected",
+            "zh": "问证据在哪些条件下取得"
+          },
+          "paragraphs": [
+            {
+              "en": "A plan tried only in quiet conditions is not yet tested in busy ones. A higher score on familiar questions after reading the answers is not a test of entirely new problems. Neither limitation proves failure; each names a gap in what the record can show. A useful next exercise changes the relevant condition or uses fresh material while keeping the question clear. Even then, one result remains limited evidence rather than a complete measure of general problem-solving ability.",
+              "zh": "只在清闲条件试过，就还没测繁忙时；看答案后熟题高分，也不是在测全新问题。两种限制都不证明失败，只说明证据缺口。下一步可换相关条件或新材料，同时说清问题；即便如此，单次结果仍只是有限证据，非一般问题解决能力全测量。"
+            }
+          ]
+        },
+        {
+          "id": "revision",
+          "title": {
+            "en": "Turn the finding into a specific next check",
+            "zh": "把发现变成下一项具体核查"
+          },
+          "paragraphs": [
+            {
+              "en": "If a comparison mixed monthly and yearly costs, revise the periods before comparing again. If a summary leaves one person unaccounted for, flag the missing status rather than inventing one. Tie the next action to the actual finding, and state what result would make you reconsider your current explanation. This approach avoids both declaring a person permanently weak and announcing improvement merely because a plan has been written down.",
+              "zh": "月价混年价，就统一期间再比较；摘要漏交代一人，就标状态缺失，别编状态。下一步要连着具体发现，并说明什么结果会让你重新考虑当前解释。这样既不把人定为永久弱，也不因写了计划就宣布已改进。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Use a fresh fictional record and explain it",
+            "zh": "换份虚构记录，说明理由"
+          },
+          "paragraphs": [
+            {
+              "en": "Create a small table with a clear total, two conditions and one unknown. Explain which conclusions follow and which need more information, then check your arithmetic. Keep notes local and fictional rather than pasting real pupil information into the test. Optional browser drafts and public guide links serve different purposes: a guide contains general methods, not your responses. All answers stay open at every count, and retakes use the same fixed bank rather than a new calibrated form.",
+              "zh": "自编一个有总数、两种条件和一个未知的小表，说明哪些结论成立、哪些缺信息，再核算。笔记保留本地虚构数据，不往测试粘贴学生资料。可选浏览器草稿与公开指南用途不同，指南只含通用方法，不含答卷。所有正确数都开放答案，重测同题而非新的校准卷。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Review and learning | Practice Guide",
+          "zh": "复盘与学习复习｜原创练习指南"
+        },
+        "description": {
+          "en": "Review trial records, rubrics, rates, counterexamples and new conditions. Correct counts do not predict grades or certify real-world transfer.",
+          "zh": "复习试行记录、评分表、比率、反例与新条件。正确数不预测成绩，也不认证现实迁移。"
+        }
+      }
+    }
+  ]
+}

@@ -3232,5 +3232,29 @@
       "windows-and-constraints"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "problem-solving-critical-thinking",
+    "code": "FM_PROBLEM_SOLVING_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Problem-Solving & Critical Thinking Test",
+      "zh": "问题解决与批判性思维测试"
+    },
+    "description": {
+      "en": "Practise 30 original school and everyday scenarios on problem steps, decisions and review. Free answers and three full guides. No grade prediction.",
+      "zh": "30道原创校园与日常情境，问题步骤、决策工具、复盘学习各十题，交错呈现。免费查看全部答案、逐题解析和三篇完整指南；不计时，不给智商、学生排名、成绩预测或课程达标认证。"
+    },
+    "minutes": 15,
+    "formCode": "fm_problem_solving_practice_30_v1",
+    "questionCount": 30,
+    "resultSlugs": [
+      "problem-steps",
+      "decision-tools",
+      "review-and-learning"
+    ],
+    "collection": "explore"
   }
 ]
